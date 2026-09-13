@@ -1,0 +1,70 @@
+{
+  "rows": [
+    {
+      "case": "one_material",
+      "cells": 4,
+      "exterior_faces": 8,
+      "maximum_face_incidence": 2,
+      "cell_components": 1,
+      "total_cell_volume": 1.3333333333333333,
+      "outer_signed_volume": 1.3333333333333333,
+      "relative_volume_error": 0.0,
+      "outer_edge_incidence": {
+        "2": 12
+      },
+      "regions": [
+        {
+          "label": 1,
+          "edge_incidence": {
+            "2": 12
+          }
+        }
+      ],
+      "source_hashes": {
+        "vertices": "992ccb9a991e16555d71e8db2b70b0301a1ea5289d5d84c4d9496468f32bf00e",
+        "cells": "eeca6f9e6cbaa63a0e717488aa9b2e985bf680afe13c4516643dc2ab79197a8f",
+        "labels": "1b897dddd4c151e2a2e6e3e91b7ea0f7fc4fd5ed00ef1c9669e8566393a02586"
+      }
+    },
+    {
+      "case": "alternating",
+      "cells": 4,
+      "exterior_faces": 8,
+      "maximum_face_incidence": 2,
+      "cell_components": 1,
+      "total_cell_volume": 1.3333333333333333,
+      "outer_signed_volume": 1.3333333333333333,
+      "relative_volume_error": 0.0,
+      "outer_edge_incidence": {
+        "2": 12
+      },
+      "regions": [
+        {
+          "label": 1,
+          "edge_incidence": {
+            "2": 10,
+            "4": 1
+          }
+        },
+        {
+          "label": 2,
+          "edge_incidence": {
+            "2": 10,
+            "4": 1
+          }
+        }
+      ],
+      "source_hashes": {
+        "vertices": "992ccb9a991e16555d71e8db2b70b0301a1ea5289d5d84c4d9496468f32bf00e",
+        "cells": "eeca6f9e6cbaa63a0e717488aa9b2e985bf680afe13c4516643dc2ab79197a8f",
+        "labels": "a253b9824c31fb77401313b50bc7ea1a7d0a329953d327b36bf9a8326adb2310"
+      }
+    }
+  ],
+  "gates": {
+    "repeat": true,
+    "closed_partition": true,
+    "material_defect_detected": true
+  },
+  "scope": "Synthetic partition-versus-boundary observer, not repair or transport acceptance."
+}

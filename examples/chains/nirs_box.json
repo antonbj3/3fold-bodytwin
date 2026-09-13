@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "fixture": "box",
+  "nominal": [
+    60.0,
+    15.0,
+    1.0
+  ],
+  "bands": [
+    2,
+    0.75,
+    0.1
+  ],
+  "seed": 20260912,
+  "draws": 256,
+  "nodes": [
+    {
+      "id": "sat",
+      "module": "hill",
+      "inputs": {
+        "po2": "input.po2"
+      }
+    },
+    {
+      "id": "fraction",
+      "module": "blood_fraction",
+      "inputs": {
+        "scale": "input.fraction"
+      }
+    },
+    {
+      "id": "optical",
+      "module": "signal",
+      "inputs": {
+        "paths": "input.paths",
+        "sat": "sat",
+        "hb": "input.hb",
+        "fraction": "fraction"
+      }
+    },
+    {
+      "id": "record",
+      "module": "record",
+      "inputs": {
+        "po2": "input.po2",
+        "hb": "input.hb",
+        "fraction": "input.fraction",
+        "sat": "sat",
+        "optical": "optical"
+      }
+    }
+  ],
+  "output": "record"
+}

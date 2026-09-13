@@ -1,0 +1,23 @@
+{
+  "scope": "Final focused CPU and source/row/scrub check for the five compute siblings; not full-suite verification.",
+  "pytest": {
+    "command": "python -m pytest -q tests/test_photon_segmented.py",
+    "passed": 5,
+    "seconds": 4.26,
+    "cuda_visible_devices": ""
+  },
+  "unique_running_rows": 5,
+  "throughput_source_pins": 4,
+  "targeted_scrub_files": 16,
+  "scrub_matches": [],
+  "source_sha256": {
+    "src/bodytwin/geometry/optics/tissue_photon_prepared_v1.py": "e9ca579bbd221dd528c418061979822a78b65c188ca15ada9b06e2ff9037baf8",
+    "src/bodytwin/geometry/optics/tissue_photon_launch64_v1.py": "574b0517df2b131d112a5af9b756f4ce062e93340b38820ec6b872dc0a3037a2",
+    "src/bodytwin/geometry/optics/tissue_photon_window2_v1.py": "fd8ba0137a4e49d57aca89516eb61aa5c904f7da48f7061c38903545d369df1f",
+    "src/bodytwin/geometry/optics/tissue_photon_cell_v1.py": "12f3033bb8e39728d702813b20ca6a4006bb815c860035e76d3c10ada579ce6d",
+    "src/bodytwin/chains/nirs_reduced_chain_v1.py": "98b6a205c7ab7635c2129a9b301ca428d96b9383a5518fda323b977d6adfc9f9"
+  },
+  "full_pytest_rerun": false,
+  "preexisting_unrelated_modified_reports": 17,
+  "push": false
+}

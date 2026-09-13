@@ -1,0 +1,109 @@
+{
+  "rows": [
+    [
+      {
+        "module": "src/bodytwin/cells/cardiovascular/cardiac_output_geometric.py",
+        "source_hash": "8c55ca5dabe0c9a85c36212071687c266188a5ee1f8f2e733ab9586eb7db372b",
+        "returncode": 0,
+        "output_hash": "d55396ceb8eb5de2aa46ca9fe720e70047e9a46b8ec207557c44ef380d1e461d",
+        "output_bytes": 15319,
+        "gate_values": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gate_key_hash": "8046c30ba17685a2d648f4a0ea70b2ea300c7ff8c210adadb9c254f3f7b09419",
+        "required_pass": true
+      },
+      {
+        "module": "src/bodytwin/cells/endocrine/glucose_insulin_minimal_model.py",
+        "source_hash": "ad7169a41c6c784417648c46a142193b8a582369f15cf580961c9fc192f2d6c9",
+        "returncode": 0,
+        "output_hash": "21b50f7f8b89121b59d35700030aa2908dd94867b8c4f3e1176056efc62109ea",
+        "output_bytes": 52779,
+        "gate_values": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gate_key_hash": "3438102c2524ad9b71ad0fd8cc7ea9132a19d48c6d28c4b9299df9f13b938dac",
+        "required_pass": true
+      }
+    ],
+    [
+      {
+        "module": "src/bodytwin/cells/cardiovascular/cardiac_output_geometric.py",
+        "source_hash": "8c55ca5dabe0c9a85c36212071687c266188a5ee1f8f2e733ab9586eb7db372b",
+        "returncode": 0,
+        "output_hash": "d55396ceb8eb5de2aa46ca9fe720e70047e9a46b8ec207557c44ef380d1e461d",
+        "output_bytes": 15319,
+        "gate_values": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gate_key_hash": "8046c30ba17685a2d648f4a0ea70b2ea300c7ff8c210adadb9c254f3f7b09419",
+        "required_pass": true
+      },
+      {
+        "module": "src/bodytwin/cells/endocrine/glucose_insulin_minimal_model.py",
+        "source_hash": "ad7169a41c6c784417648c46a142193b8a582369f15cf580961c9fc192f2d6c9",
+        "returncode": 0,
+        "output_hash": "21b50f7f8b89121b59d35700030aa2908dd94867b8c4f3e1176056efc62109ea",
+        "output_bytes": 52779,
+        "gate_values": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gate_key_hash": "3438102c2524ad9b71ad0fd8cc7ea9132a19d48c6d28c4b9299df9f13b938dac",
+        "required_pass": true
+      }
+    ]
+  ],
+  "gates": {
+    "full_repeat": true,
+    "required": true,
+    "completed": true,
+    "refusals": true
+  },
+  "scope": "Pinned source-defined numerical gate replay with complete output hashes; no fresh literature/clinical review."
+}

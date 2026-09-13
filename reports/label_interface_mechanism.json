@@ -1,0 +1,88 @@
+{
+  "rows": [
+    {
+      "case": "block",
+      "sha256": "04abc8821a06e5a30937967d11ad10221cb5ac3b5273e434f1284ee87129a061",
+      "shape": [
+        2,
+        2,
+        2
+      ],
+      "region_voxels": {
+        "1": 8
+      },
+      "pair_faces": {
+        "0:1": 24
+      },
+      "region_boundary_faces": {
+        "1": 24
+      }
+    },
+    {
+      "case": "layers",
+      "sha256": "6d5a7349d58c78db6045c653e8168d84351bfe8e0480c37b139164010fe1c200",
+      "shape": [
+        2,
+        2,
+        2
+      ],
+      "region_voxels": {
+        "1": 4,
+        "2": 4
+      },
+      "pair_faces": {
+        "0:1": 12,
+        "1:2": 4,
+        "0:2": 12
+      },
+      "region_boundary_faces": {
+        "1": 16,
+        "2": 16
+      }
+    },
+    {
+      "case": "cavity",
+      "sha256": "4944f1cc189074118c4a35dea5ab1632f69a15cd733580fc8ae6ba70ed1b994e",
+      "shape": [
+        3,
+        3,
+        3
+      ],
+      "region_voxels": {
+        "1": 26,
+        "2": 1
+      },
+      "pair_faces": {
+        "0:1": 54,
+        "1:2": 6
+      },
+      "region_boundary_faces": {
+        "1": 60,
+        "2": 6
+      }
+    },
+    {
+      "case": "edge_contact",
+      "sha256": "afa7518106309c22d325df6d2663249d158d2f36f1976269d6d4104d9198a108",
+      "shape": [
+        2,
+        2,
+        1
+      ],
+      "region_voxels": {
+        "1": 2
+      },
+      "pair_faces": {
+        "0:1": 12
+      },
+      "region_boundary_faces": {
+        "1": 12
+      }
+    }
+  ],
+  "gates": {
+    "full_repeat": true,
+    "nonzero_boundaries": true
+  },
+  "scope": "Synthetic face incidence only, no manifold certificate."
+}

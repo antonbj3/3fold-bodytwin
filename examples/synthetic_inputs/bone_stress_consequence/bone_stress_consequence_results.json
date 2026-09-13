@@ -1,0 +1,18 @@
+{
+  "synthetic": true,
+  "note": "Synthetic stand-in for the bone_stress_consequence cell (not shipped). Generic femoral-shaft microstrain magnitudes for an adult walking trial plus joint-contact ablation variants; contains only the keys bone_strain_bounded_classifier_proposal reads.",
+  "variant_primary_results_offset40_od27_th6.5": {
+    "as_is_scale1.0": {
+      "microstrain_magnitude": 3000.0,
+      "walking_band_classification": "AT_OR_ABOVE_damage_threshold_band"
+    },
+    "ablation_zero_knee_only": {
+      "microstrain_magnitude": 7000.0,
+      "walking_band_classification": "ABOVE_damage_threshold_band_upper_bound"
+    },
+    "ablation_zero_both_contact": {
+      "microstrain_magnitude": 8000.0,
+      "walking_band_classification": "ABOVE_damage_threshold_band_upper_bound"
+    }
+  }
+}

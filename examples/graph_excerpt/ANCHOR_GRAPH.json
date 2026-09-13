@@ -1,0 +1,388 @@
+{
+ "_meta": {
+  "name": "Bodytwin claims-graph excerpt (public example)",
+  "note": "A filtered excerpt of a physiology claims graph: one node per claim, with the certification design summarised by its status and its evidence-artifact count. Node text was reduced to the scientific claim; internal annotations, file paths and identifiers were removed. Nodes concerning any individual were removed in full.",
+  "node_count": 26,
+  "vocabulary": {
+   "leg": "one independent measurement route for a claim",
+   "anchor": "a held-out external reference the legs must agree with",
+   "cell": "one claim node together with the small model/script that tests it",
+   "n_eff": "effective number of independent legs after shared-input collapse",
+   "load": "number of nodes in this excerpt that depend on the node"
+  }
+ },
+ "nodes": [
+  {
+   "id": "MSK-FIBERTYPE",
+   "claim": "Per-muscle fiber-type (I/IIa/IIx) + satellite reserve via transcript/proteome/EM legs vs histological imaging anchor; satellite sub-axis HYPOTHESIS-only (no functional anchor)",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [],
+   "depends_on": [],
+   "load": 0,
+   "risk": "HIGH",
+   "regime_note": "adult human skeletal; satellite/regeneration needs a load/disuse intervention, not a resting atlas.",
+   "cluster": "musculoskeletal",
+   "evidence_artifact_count": 0
+  },
+  {
+   "id": "MSK-DOF-ROM",
+   "claim": "DEFECT: OpenSim .osim `range` = a-priori solver clamps NOT measurements (verified radians, Gait2392 hip -120/120 & ankle -90/90 non-physiological, 60% diff across authors) -> 3/4 legs collapse to n_eff=1 (OpenSim family); AddBiomechanics gait anchor never reaches ROM limits […]",
+   "type": "EMPIRICAL",
+   "status": "ASSUMED",
+   "evidence": [
+    "BTX-001"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "normal joints only; pathology is MSK-ORTHOPEDIC.",
+   "cluster": "musculoskeletal",
+   "evidence_artifact_count": 2
+  },
+  {
+   "id": "MSK-CONNECTIVE",
+   "claim": "Tendon-tension/cartilage load-bearing (occluded 'tendon under tension vs slack') via mechanobiology/ECM-proteomics/tensile/ultrasound legs vs cadaveric knee-FE ligament-force model […]",
+   "type": "EMPIRICAL",
+   "status": "ASSUMED",
+   "evidence": [],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "omics legs NOT same-sample-paired with mechanical/imaging legs (thin axis, arch note 6).",
+   "cluster": "musculoskeletal",
+   "evidence_artifact_count": 0
+  },
+  {
+   "id": "MEMBRANE-NERNST-CELL",
+   "claim": "Same hiPSC-BBB-chip TEER(electrical) vs Papp(mass-transport) move oppositely under disruption; directional sign checked vs held-out gut barrier (FD4 + IBD).",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "TEER is aggregate paracellular, NOT ion-species-resolved; true per-ion Nernst (patch-clamp) not in archive.",
+   "cluster": "energy_metabolism",
+   "evidence_artifact_count": 0
+  },
+  {
+   "id": "AGING-ETA-DRIFT-CELL",
+   "claim": "HONEST_LIMIT: n=4 UNDERPOWERED (hFB14 only 2 points) -- this is 'not detected at n=4', not a definitive absence. A powered test needs more paired-lineage (Seahorse+DNAm+passage) fibroblast donors = FENCED-acquire.",
+   "type": "EMPIRICAL",
+   "status": "REFUTED",
+   "evidence": [
+    "BTX-002"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "sun-picard N-discrepancy unresolved (verify GSE179848); DNAm-age magnitude does NOT transfer cross-tissue, only qualitative. Cycling(passage) vs calendar(chronological) analog (P16) — don't conflate.",
+   "cluster": "energy_metabolism",
+   "evidence_artifact_count": 1
+  },
+  {
+   "id": "HEARING-LOSS-STAGE-LOCALIZATION",
+   "claim": "Localize deafness stage via hair-cell structural+genetic vs ABR-latency-pattern + human audiometry; CENTRAL stage UNANCHORED (no corpus)",
+   "type": "EMPIRICAL",
+   "status": "ASSUMED",
+   "evidence": [],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "sensor-vs-relay machine-checkable via ABR peak-I; central (cortical deafness) 2/3 anchored only.",
+   "cluster": "neural_sensory",
+   "evidence_artifact_count": 0
+  },
+  {
+   "id": "PARALYSIS-STROKE-STAGE-LOCALIZATION",
+   "claim": "BLOCKER: atlas-r2-stroke per-subject masks are access-gated (Google-Form ToU + emailed password) -- NOT open (brief misclassified); used open NeuroVault aggregate (cohort-level, not per-subject). Structural-lesion leg deferred like nscisc. OCCLUDED_TRUTH_DEMONSTRATED: central motor signal SURVIVES despite relay (SCI) failure -- proven via the movement-DECODE consequence, not appearance.",
+   "type": "EMPIRICAL",
+   "status": "ASSUMED",
+   "evidence": [
+    "BTX-003"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "LOW",
+   "regime_note": "PRO-ACT ALS = negative control (LMN/effector failure, both central+relay intact) — must not misclassify.",
+   "cluster": "neural_sensory",
+   "evidence_artifact_count": 1
+  },
+  {
+   "id": "PERIPHERAL-ENTERIC-AUTONOMIC-EDGE-COMPUTE",
+   "claim": "Enteric NS + intrinsic cardiac NS show local sensory-inter-motor complement for edge-compute in 2 organ-distinct systems vs DRG relay-only negative control; SPARC vagus VNS→cardiac-effect as functional anchor […]",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "certifies STRUCTURAL precondition (cell-type complement), NOT measured autonomous firing (no isolated-ganglion ephys).",
+   "cluster": "neural_sensory",
+   "evidence_artifact_count": 0
+  },
+  {
+   "id": "CHEMOSENSORY-OLFACTION-GUSTATION",
+   "claim": "FORCED HONEST-NEGATIVE: olfaction has 1 uncrossed leg, no 2nd leg, no anchor; taste has ZERO data.",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [],
+   "depends_on": [],
+   "load": 0,
+   "risk": "HIGH",
+   "regime_note": "single uncrossed leg; taste is the cluster's clearest zero-coverage gap.",
+   "cluster": "neural_sensory",
+   "evidence_artifact_count": 0
+  },
+  {
+   "id": "ORG-HRV-AUTONOMIC",
+   "claim": "Certify cardiac autonomic control (SAN pacemaker firing + vagal/sympathetic modulation) via its measurable population-level consequence: heart-rate variability […]",
+   "type": "EMPIRICAL",
+   "status": "ASSUMED",
+   "evidence": [],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "Fully open end-to-end (no controlled-access dataset in this cell). Leg (a) pools two snRNA sources (pacemaker + ganglion) -- COMMON-MODE on assay; leg (b) SPARC vagus stimulation-response is the true orthogonal force.",
+   "cluster": "organ_systemic",
+   "evidence_artifact_count": 0
+  },
+  {
+   "id": "ORG-KIDNEY-FILTRATION",
+   "claim": "FIX: hidden_state -> whole-kidney AGGREGATE (matches bulk perfusate anchor granularity); per-segment demoted to hypothesis; graft_function_genomics leg (BOTH gse21374 AND phs001667 = transplant-context mismatch) replaced WHOLESALE with ckdgen-egfr-gwas-stanzick2021 (baseline filtration-function GWAS, decorrelated from KPMP atlas)",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [
+    "BTX-004"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "Anchor (mw-st002785) is the rare TRUE functional measurement (ex vivo normothermic perfusion of an intact kidney) in this cluster -- CC BY 4.0, open. No in-vivo GFR/clearance dataset located (honest gap).",
+   "cluster": "organ_systemic",
+   "evidence_artifact_count": 1
+  },
+  {
+   "id": "ORG-LIVER-ZONATION",
+   "claim": "FIX: replace MOUSE gse84498 zonation leg with HUMAN gse124395 (Aizarani 2019) -> species mismatch RESOLVED (markers conserved, verified full-text); anchor mtbls10481 confirmed whole-tissue BULK (ISA-tab, 0 zone factors) -> zone-specific claim DOWNGRADED to whole-liver-bulk consistency […]",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [
+    "BTX-005"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "Cleanest certification in the cluster: all three sources open/CC-BY, legs genuinely orthogonal assay technology (RNA-seq vs mechanical imaging), anchor is a real flux MEASUREMENT not an inference. Supplementary leg geo-gse93382-gh-pulse (hormone-driven liver transcriptome dynamics) available but shares leg (a)'s RNA-seq modality -- not counted as a 3rd independent leg.",
+   "cluster": "organ_systemic",
+   "evidence_artifact_count": 1
+  },
+  {
+   "id": "ORG-DIGESTIVE-ENZYME",
+   "claim": "HONEST_LIMIT: DISJOINT COHORTS (taxonomy mode 10, same as KNEE): enzyme-capacity legs (GSE84133/GSE125970 donors) and the cgmacros anchor (its own 45 subjects) share NO subjects -> the enzyme->glycemic-response certification can only be POPULATION/design-level, NOT individual over-determination.",
+   "type": "EMPIRICAL",
+   "status": "ASSUMED",
+   "evidence": [
+    "BTX-006"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "LOW",
+   "regime_note": "BRENDA/SABIO kinetics are CONSTRUCTED/aggregated in-vitro purified-enzyme measurements, not raw single-experiment data -- used only as supporting mechanism evidence, NEVER as the anchor (measured-vs-constructed discipline). cgmacros is genuinely measured, open, CC-BY-NC-SA.",
+   "cluster": "organ_systemic",
+   "evidence_artifact_count": 1
+  },
+  {
+   "id": "ORG-SKIN-BARRIER",
+   "claim": "Certify skin structural aging + lesion phenotype against a real measured wound-healing process trajectory.",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "No transdermal-permeability functional assay (TEER-analog) located for skin specifically (unlike BBB's zenodo-bbb-chip) -- anchor is a PROCESS outcome (healing trajectory), not a barrier-integrity instrument (honest gap). Wound-roadmap access is mixed (GEO open / EGA companion controlled).",
+   "cluster": "organ_systemic",
+   "evidence_artifact_count": 0
+  },
+  {
+   "id": "MOL-DNA-EPIGEN-PROGRAM",
+   "claim": "LITERAL_TEST_FAILS_CORRECTLY: raw MAE<0.5*null FAILS (ratio 0.956, p=0.278) -- dominated by a ~20-27y tissue OFFSET (fibroblasts score younger on the blood-trained Hannum clock; source paper says Skin&Blood clock is best-calibrated here). The offset is orthogonal to RANK. ADVERSARY_FORCED: two offset-IMMUNE checks both show the signal is real: (1) Spearman rho=0.83 exact-perm p=0.004 (all 362880 orderings), jackknife-robust; (2) LOO single-global-offset-calibrated MAE=5.76y (non-circular) beats 0.5x null (0.25x)",
+   "type": "EMPIRICAL",
+   "status": "ASSUMED",
+   "evidence": [
+    "BTX-007"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "genuine cross-tissue domain-shift test; Sun-Picard rare open exception (load-bearing).",
+   "cluster": "molecular_program",
+   "evidence_artifact_count": 2
+  },
+  {
+   "id": "MOL-LIFESTAGE-PUBERTY-MENOPAUSE",
+   "claim": "ReproGen genetic timing score (spans menarche+menopause) predicts held-out bone-age pubertal timing AND SWAN menopausal timing vs clinical event (Tanner/FMP).",
+   "type": "EMPIRICAL",
+   "status": "DEFERRED",
+   "evidence": [],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "puberty & menopause are DIFFERENT cohorts — genetics legitimately spans both, not same-sample.",
+   "cluster": "molecular_program",
+   "evidence_artifact_count": 0
+  },
+  {
+   "id": "MOL-REPRODUCTION-DEVELOPMENT-EMBRYOLOGY",
+   "claim": "ROOT_CAUSE: CS7 is a SINGLETON (1 specimen, Tyser) perfectly CONFOUNDED with assay technology (Tyser SMART-seq2 vs Xu 10x). In LOSO, CS7 is structurally absent from training when Tyser is held out (recall ~0/500) -> the apparent accuracy is WITHIN-Xu discrimination (same technology), not cross-atlas/cross-technology Carnegie recovery.",
+   "type": "EMPIRICAL",
+   "status": "REFUTED",
+   "evidence": [
+    "BTX-008"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "Carnegie predates scRNA → decorrelated though same-specimen; no blind-unstaged validation exists.",
+   "cluster": "molecular_program",
+   "evidence_artifact_count": 1
+  },
+  {
+   "id": "SOD1-CONSERVED-MOTORNEURON-MECHANISM",
+   "claim": "SOD1-perturbation expression signatures CONVERGE on shared pathways across mouse+human (gate on MIN per-leg significance, not mean), vs ClinVar SOD1 pathogenicity anchor. HONEST ASYMMETRY: no canine SOD1/DM transcriptome in archive -> dog leg is GENOTYPE/GWAS-only (weaker). Must BEAT a matched non-same-gene neurodegeneration trio (adversary) or the 'conserved mechanism' claim = generic dying-neuron artifact.",
+   "type": "EMPIRICAL",
+   "status": "REFUTED",
+   "evidence": [
+    "BTX-009"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "HIGH",
+   "regime_note": "",
+   "cluster": "cross_species",
+   "evidence_artifact_count": 1
+  },
+  {
+   "id": "SNS-AUDITORY-FORWARD-MODEL",
+   "claim": "Differentiable auditory forward-model cell mirroring the optical one: stage1 parametric H_ME(f) impedance-matching transfer function; stage2 gammatone/roex filterbank parametrized by Glasberg-Moore ERB(f); stage3 OHC compressive-nonlinearity + IHC half-wave-rectify -> neurogram output. Directly test the low-rank-generalizes hypothesis in this domain: fit filterbank per-channel gain in a low-dim latent space z (d<<~35 ERB channels, e.g.",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [
+    "BTX-010"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "",
+   "cluster": "sensory-auditory-acoustics-bridge",
+   "evidence_artifact_count": 1
+  },
+  {
+   "id": "NEU-PAIN-NOCICEPTION",
+   "claim": "A 3-way-decorrelation certification generalizing the inherited pipeline's low-rank discipline: given paired (input, report, neural-signature) triples -- here (QST/pressure, VAS pain rating, NPS score), structurally = (nociceptive-stimulus latent space, subjective readout, low-dim neural pattern) -- machine-check whether report is explainable as a function of input alone (min-sensitivity-governed, low […]",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [
+    "BTX-011"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "",
+   "cluster": "brain-pain",
+   "evidence_artifact_count": 1
+  },
+  {
+   "id": "NEU-HIPPOCAMPUS-MEMORY-MAP",
+   "claim": "Three non-overlapping measurement chains converge: (1) human lesion-to-behavior dissociation (purely neuropsychological, no electrophysiology) establishes hippocampal NECESSITY for new episodic memory; (2) rodent place/grid-cell electrophysiology (direct spike-to-position readout, no lesion) establishes WHAT is computed (a spatial/relational code); (3) closed-loop SWR causal-disruption (interventional, stimulation-to-behavior) establishes the REPLAY MECHANISM linking (1) and (2) over time.",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [
+    "BTX-012"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "",
+   "cluster": "memory-systems",
+   "evidence_artifact_count": 1
+  },
+  {
+   "id": "MODEL-PROTEIN-FOLDING-THERMODYNAMICS",
+   "claim": "three independent instrument/observable classes converge on the same funnel/Anfinsen mechanism: equilibrium calorimetry (DSC: DeltaH,Tm,DeltaCp; 2 independent proteins/datasets) vs kinetic T-jump/laser measurements (tau_fold; 4 independent proteins spanning N=35-100) vs structural/topological statistics (Plaxco contact-order regression, a native-contact-graph quantity) -- none of these three shares a measurement apparatus or a fitted parameter with either of the other two […]",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [
+    "BTX-013"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "",
+   "cluster": "molecular_program",
+   "evidence_artifact_count": 1
+  },
+  {
+   "id": "MODEL-GENETIC-CODE-ERROR-MINIMIZATION",
+   "claim": "Two fully independent lines converge without sharing a random-code Monte Carlo: (1) deterministic wobble-redundancy count (68.9% synonymous at position 3, structural fact about the fixed codon table alone, zero randomness involved) and (2) deterministic eta^2 clustering-by-2nd-position-nucleotide (0.578-0.756 variance explained, again zero randomness), both independently pointing the same direction as the Monte-Carlo rank-vs-random-code test.",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [
+    "BTX-014"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "",
+   "cluster": "molecular_program",
+   "evidence_artifact_count": 1
+  },
+  {
+   "id": "CASCADE-EXTRINSIC-FULL-VS-REDUCED-RECONCILE",
+   "claim": "A reduced 15-species compartmental cascade model, previously certified only against a decorrelated clinical anchor, is now cross-checked against the FULL primary-source-cited 34-species/42-rate-constant system (parsed directly from the primary-source-curated model file, zero tuning): the full system (a) reproduces the same wide external anchor band on the extrinsic/initiation-only leg but with WORSE point-accuracy than the tuned reduced model on 3 of 4 headline metrics, (b) does NOT reconcile with the reduced model's reported numbers at any single operating point (implied-equivalent trigger-level spread ~4.2x across metrics; one metric unreachable anywhere in the swept physiological range), and (c) structurally CANNOT be used to test the reduced model's second-arm (contact-pathway-analog) falsifiers at all, because the cited full system contains zero contact-pathway species -- that leg's passing result rests entirely on the reduced model's own bolt-on mechanism, not on anything independently verifiable in the full system […]",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [
+    "BTX-015"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "Full-system leg (extrinsic/initiation-only) is anchored against a real independent clinical cohort (n=120) at the literature-standard low trigger concentration; the second-arm leg is regime-untestable (missing species in the cited primary source), not merely under-anchored.",
+   "cluster": "coagulation_hemostasis",
+   "evidence_artifact_count": 1
+  },
+  {
+   "id": "wall-tension-myogenic-solver-limitcycle-fix-rescore",
+   "claim": "solve_radius's fixed-n_iter=80 damped fixed-point solve (plus an identical second instance in the calibration helper _rho_c_at, n_iter=120) settles into a stable period-2 limit cycle (0.510713<->0.743049 at the P=75 anchor vs true unique root 0.604821) instead of the provably-unique root; fixing both to bracketed bisection + explicit […]",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [
+    "BTX-016"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "",
+   "cluster": "msk-vascular-myogenic",
+   "evidence_artifact_count": 1
+  },
+  {
+   "id": "MSK-GLUCOSE-DALLAMAN-BOLUS-T0-SKIP-FIX",
+   "claim": "run_scenario's breakpoint loop skipped any event at/before t_cur (bp<=t_cur), so a bolus scheduled at t=0 with t_cur starting at 0 never fired (SCins depot measured identically 0.0 throughout scenario 6a/6b, raw trace). Fixed via dedup+3-way split (bp<t_cur skip / bp==t_cur apply-only / bp>t_cur integrate-then-apply).",
+   "type": "EMPIRICAL",
+   "status": "OPEN",
+   "evidence": [
+    "BTX-017"
+   ],
+   "depends_on": [],
+   "load": 0,
+   "risk": "MED",
+   "regime_note": "",
+   "cluster": "msk_glucose_meal_dallaman2007",
+   "evidence_artifact_count": 1
+  }
+ ]
+}

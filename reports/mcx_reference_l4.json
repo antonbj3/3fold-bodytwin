@@ -1,0 +1,110 @@
+{
+  "legs": [
+    {
+      "shape": [
+        60,
+        60,
+        60,
+        1
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "minimum": 0.0,
+      "maximum": 174313536.0,
+      "fluence_integrated_absorption": 0.17797370713010524,
+      "statistics": {
+        "energytot": 1000000.0,
+        "energyabs": 177974.2482680604,
+        "normalizer": 200.0
+      },
+      "flux_sha256": "7835e089677c1bdd8c27bf2364291f458f97a7b530e870e3f75657a9f1b93c66"
+    },
+    {
+      "shape": [
+        60,
+        60,
+        60,
+        1
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "minimum": 0.0,
+      "maximum": 174323760.0,
+      "fluence_integrated_absorption": 0.17797401352686726,
+      "statistics": {
+        "energytot": 1000000.0,
+        "energyabs": 177974.2482680604,
+        "normalizer": 200.0
+      },
+      "flux_sha256": "52d2041df71229a43ac21ca3d290ff8a7399841a860ee81073a9508b275d6ff0"
+    }
+  ],
+  "gates": {
+    "finite_nonnegative": true,
+    "configuration_identical": true,
+    "two_fields_bit_identical": false
+  },
+  "config": {
+    "nphoton": 1000000,
+    "srctype": "pencil",
+    "srcpos": [
+      29,
+      29,
+      0
+    ],
+    "srcdir": [
+      0,
+      0,
+      1
+    ],
+    "prop": [
+      [
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0.005,
+        1,
+        0.01,
+        1.37
+      ]
+    ],
+    "tstart": 0,
+    "tend": 5e-09,
+    "tstep": 5e-09,
+    "isreflect": 0,
+    "seed": 1648335518,
+    "issrcfrom0": 1,
+    "detpos": [
+      [
+        29,
+        19,
+        0,
+        1
+      ],
+      [
+        29,
+        39,
+        0,
+        1
+      ],
+      [
+        19,
+        29,
+        0,
+        1
+      ],
+      [
+        39,
+        29,
+        0,
+        1
+      ]
+    ]
+  },
+  "maximum_repeat_difference": 10224.0,
+  "pmcx_version": "0.7.1",
+  "scope": "external cube60 reference measurement; no new solver or throughput claim"
+}

@@ -1,0 +1,128 @@
+{
+  "gates": {
+    "abstentions": true,
+    "archived_schema_parity": true,
+    "complete_verdict_repeat": true,
+    "nonmutation": true,
+    "positive_negative": true,
+    "refusals": true,
+    "repeat": true
+  },
+  "input_sha256": "bf17666994901c399f119f02f2ae51907fc225e913af00d3a6d67417ee918b47",
+  "overall_pass": true,
+  "source_pass_abstentions": 4,
+  "verdicts": [
+    {
+      "arm": "absent",
+      "leg": 0,
+      "source_pass": false,
+      "verdict": {
+        "missing": [
+          "vitamin_d3_days",
+          "25_OH_D_days",
+          "1_25_OH2_D_hours"
+        ],
+        "state": "ABSTAIN"
+      }
+    },
+    {
+      "arm": "absent",
+      "leg": 1,
+      "source_pass": false,
+      "verdict": {
+        "missing": [
+          "vitamin_d3_days",
+          "25_OH_D_days",
+          "1_25_OH2_D_hours"
+        ],
+        "state": "ABSTAIN"
+      }
+    },
+    {
+      "arm": "empty",
+      "leg": 0,
+      "source_pass": true,
+      "verdict": {
+        "missing": [
+          "vitamin_d3_days",
+          "25_OH_D_days",
+          "1_25_OH2_D_hours"
+        ],
+        "state": "ABSTAIN"
+      }
+    },
+    {
+      "arm": "empty",
+      "leg": 1,
+      "source_pass": true,
+      "verdict": {
+        "missing": [
+          "vitamin_d3_days",
+          "25_OH_D_days",
+          "1_25_OH2_D_hours"
+        ],
+        "state": "ABSTAIN"
+      }
+    },
+    {
+      "arm": "partial",
+      "leg": 0,
+      "source_pass": true,
+      "verdict": {
+        "missing": [
+          "25_OH_D_days",
+          "1_25_OH2_D_hours"
+        ],
+        "state": "ABSTAIN"
+      }
+    },
+    {
+      "arm": "partial",
+      "leg": 1,
+      "source_pass": true,
+      "verdict": {
+        "missing": [
+          "25_OH_D_days",
+          "1_25_OH2_D_hours"
+        ],
+        "state": "ABSTAIN"
+      }
+    },
+    {
+      "arm": "complete_match",
+      "leg": 0,
+      "source_pass": true,
+      "verdict": {
+        "missing": [],
+        "state": "PASS"
+      }
+    },
+    {
+      "arm": "complete_match",
+      "leg": 1,
+      "source_pass": true,
+      "verdict": {
+        "missing": [],
+        "state": "PASS"
+      }
+    },
+    {
+      "arm": "complete_mismatch",
+      "leg": 0,
+      "source_pass": false,
+      "verdict": {
+        "missing": [],
+        "state": "FAIL"
+      }
+    },
+    {
+      "arm": "complete_mismatch",
+      "leg": 1,
+      "source_pass": false,
+      "verdict": {
+        "missing": [],
+        "state": "FAIL"
+      }
+    }
+  ]
+}

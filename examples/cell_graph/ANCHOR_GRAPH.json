@@ -1,0 +1,1815 @@
+{
+  "_meta": {
+    "name": "BODYTWIN_ANCHOR_GRAPH \u2014 bio build-goal cells (example designs, all HYPOTHESIS/OPEN)",
+    "note": "Synthesized from the cell-design catalog. status OPEN = designed, NOT measured. Work a node by measuring its legs in-regime and folding the result against the held-out anchor.",
+    "build_order": "roots (no deps): NODE-0-ENERGY, KNEE-CELL, ORG-WAVEFORM-ANCHOR + the standalone DATA-ANCHORs; then the cells that depend on them. Cheapest first-close: MOL-SAMESAMPLE-PATCHSEQ-CALIBRATION (LOW risk, open DANDI, same-sample).",
+    "node_high_water": 45
+  },
+  "nodes": [
+    {
+      "id": "telomere_attrition",
+      "claim": "Do measured leukocyte attrition rates and the Hayflick doubling arithmetic agree on a critical telomere length? Model: literature-anchored arithmetic: rate x time integration plus linear regression over primary attrition rates. Decisive number from the cell's own run: 5/5 required and bonus gates pass: adult rate inside the 20-40 bp/year band, Hayflick arithmetic lands the critical length at 4-5 kb.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-001"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "adult human leukocyte and fibroblast",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "aging",
+      "cert_design": {
+        "hidden_state": "critical telomere length at replicative senescence",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "telomere_attrition"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 10432279, 10739676, 11413492, 11595186, 1438199"
+            ]
+          ]
+        ],
+        "anchor": "PMID 10432279, 10739676, 11413492, 11595186, 1438199",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "5/5 required and bonus gates pass: adult rate inside the 20-40 bp/year band, Hayflick arithmetic lands the critical length at 4-5 kb"
+        }
+      }
+    },
+    {
+      "id": "aging_subsystem",
+      "claim": "Aggregate node for the aging subsystem package: the 1 cells under it are the evidence this subsystem is modelled at all.",
+      "type": "GOAL",
+      "status": "OPEN",
+      "evidence": [],
+      "depends_on": [
+        "telomere_attrition"
+      ],
+      "load": 0,
+      "risk": "MED",
+      "regime_note": "stands over src/bodytwin/cells/aging/",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "aging",
+      "cert_design": {
+        "hidden_state": "whole-subsystem behaviour of aging",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "member cells",
+            [
+              "telomere_attrition"
+            ]
+          ]
+        ],
+        "anchor": "the member cells' own anchors",
+        "composition_mode": "aggregate",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "aggregate",
+          "note": "no gate of its own"
+        }
+      }
+    },
+    {
+      "id": "cardiac_cicr_ode_model",
+      "claim": "Does a time-resolved RyR2/SERCA/NCX ODE reproduce the measured cytosolic Ca transient of a ventricular myocyte? Model: ODE model: 4-state Shannon-Bers RyR2 Markov gating, reversible Hill SERCA, phenomenological NCX. Decisive number from the cell's own run: 6/8 pre-registered gates PASS; the disclosed MISS is a ~7x over-estimate from the non-GHK trigger amplitude.",
+      "type": "EMPIRICAL",
+      "status": "ASSUMED",
+      "evidence": [
+        "CELL-002"
+      ],
+      "depends_on": [
+        "na_k_atpase"
+      ],
+      "load": 5,
+      "risk": "HIGH",
+      "regime_note": "adult mammalian ventricular myocyte, 37 C",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "cardiovascular",
+      "cert_design": {
+        "hidden_state": "junctional-cleft Ca concentration",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "cardiac_cicr_ode_model"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 15347581, 8014907, 8488088, 8928885; DOI 10.1529/biophysj.104.047449"
+            ]
+          ]
+        ],
+        "anchor": "PMID 15347581, 8014907, 8488088, 8928885; DOI 10.1529/biophysj.104.047449",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "ASSUMED",
+          "note": "6/8 pre-registered gates PASS; the disclosed MISS is a ~7x over-estimate from the non-GHK trigger amplitude"
+        }
+      }
+    },
+    {
+      "id": "ventricular_ap_core_tt04style",
+      "claim": "What reduced human-ventricular ionic ODE do the action-potential runners share? Model: shared library: reduced ten Tusscher-Noble-Noble-Panfilov 2004 ionic model, no gates of its own. Decisive number from the cell's own run: no gate output: the module is imported as a library and prints nothing when run.",
+      "type": "ENGINEERING",
+      "status": "OPEN",
+      "evidence": [],
+      "depends_on": [
+        "cardiac_cicr_ode_model",
+        "na_k_atpase"
+      ],
+      "load": 1,
+      "risk": "LOW",
+      "regime_note": "human ventricular tissue model",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "cardiovascular",
+      "cert_design": {
+        "hidden_state": "none (library)",
+        "occluded_truth": false,
+        "legs": [
+          [
+            "model computation",
+            [
+              "ventricular_ap_core_tt04style"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 14656705"
+            ]
+          ]
+        ],
+        "anchor": "PMID 14656705",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "OPEN",
+          "note": "no gate output: the module is imported as a library and prints nothing when run"
+        }
+      }
+    },
+    {
+      "id": "cardiovascular_subsystem",
+      "claim": "Aggregate node for the cardiovascular subsystem package: the 2 cells under it are the evidence this subsystem is modelled at all.",
+      "type": "GOAL",
+      "status": "OPEN",
+      "evidence": [],
+      "depends_on": [
+        "cardiac_cicr_ode_model",
+        "ventricular_ap_core_tt04style"
+      ],
+      "load": 0,
+      "risk": "MED",
+      "regime_note": "stands over src/bodytwin/cells/cardiovascular/",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "cardiovascular",
+      "cert_design": {
+        "hidden_state": "whole-subsystem behaviour of cardiovascular",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "member cells",
+            [
+              "cardiac_cicr_ode_model",
+              "ventricular_ap_core_tt04style"
+            ]
+          ]
+        ],
+        "anchor": "the member cells' own anchors",
+        "composition_mode": "aggregate",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "aggregate",
+          "note": "no gate of its own"
+        }
+      }
+    },
+    {
+      "id": "enzyme_eyring_ceiling",
+      "claim": "Does the zero-free-parameter Eyring ceiling sit 5-8 decades above the fastest known enzyme turnover numbers? Model: transition-state theory: kB*T/h prefactor plus an Eyring plot fitted to measured rate-temperature pairs. Decisive number from the cell's own run: margin 5.19 decades (catalase), 6.79 (carbonic anhydrase II), 6.97 (KSI); Eyring fit R2 = 0.9986, shuffled-pairing void floor R2 = 0.218; 7/7 gates pass.",
+      "type": "THEORY",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-004"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "LOW",
+      "regime_note": "298 K aqueous",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "energy",
+      "cert_design": {
+        "hidden_state": "activation free energy of the fastest attainable catalysed step",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "enzyme_eyring_ceiling"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "catalase, carbonic anhydrase II and ketosteroid isomerase turnover numbers as quoted in code"
+            ]
+          ]
+        ],
+        "anchor": "catalase, carbonic anhydrase II and ketosteroid isomerase turnover numbers as quoted in code",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "margin 5.19 decades (catalase), 6.79 (carbonic anhydrase II), 6.97 (KSI); Eyring fit R2 = 0.9986, shuffled-pairing void floor R2 = 0.218; 7/7 gates pass"
+        }
+      }
+    },
+    {
+      "id": "glycolytic_oscillations_selkov",
+      "claim": "Does an independent rebuild of the Selkov two-variable glycolytic oscillator produce a genuine limit cycle? Model: 2-variable ODE with allosteric product activation; Hopf analysis at the fixed point plus a stabilised void floor. Decisive number from the cell's own run: nominal period 9.6225 dimensionless time units, bounded limit cycle; all gates pass, with the real-time rescaling disclosed as out of scope.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-005"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "dimensionless Selkov normalisation",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "energy",
+      "cert_design": {
+        "hidden_state": "existence and period of the limit cycle",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "glycolytic_oscillations_selkov"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "Selkov 1968 formulation as given in code; Wolf 2000 period cited but not imported"
+            ]
+          ]
+        ],
+        "anchor": "Selkov 1968 formulation as given in code; Wolf 2000 period cited but not imported",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "nominal period 9.6225 dimensionless time units, bounded limit cycle; all gates pass, with the real-time rescaling disclosed as out of scope"
+        }
+      }
+    },
+    {
+      "id": "mitochondrial_oxphos",
+      "claim": "Do the proton-pumping and c-ring stoichiometries compose into the measured P/O ratios and membrane potential? Model: stoichiometric gear-ratio model of complexes I-IV and ATP synthase, composed into a P/O grid. Decisive number from the cell's own run: mammalian c8/3 gear ratio gives H+/ATP = 3.667 and P/O(NADH) = 2.45-2.73; OVERALL PASS including the composite P/O-plus-membrane-potential falsifier.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-006"
+      ],
+      "depends_on": [],
+      "load": 3,
+      "risk": "HIGH",
+      "regime_note": "mammalian mitochondria",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "energy",
+      "cert_design": {
+        "hidden_state": "H+/ATP stoichiometry of the rotary machine",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "mitochondrial_oxphos"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 14977419, 20847295, 22392981; DOI 10.1016/j.bbabio.2004.09.004"
+            ]
+          ]
+        ],
+        "anchor": "PMID 14977419, 20847295, 22392981; DOI 10.1016/j.bbabio.2004.09.004",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "mammalian c8/3 gear ratio gives H+/ATP = 3.667 and P/O(NADH) = 2.45-2.73; OVERALL PASS including the composite P/O-plus-membrane-potential falsifier"
+        }
+      }
+    },
+    {
+      "id": "energy_subsystem",
+      "claim": "Aggregate node for the energy subsystem package: the 3 cells under it are the evidence this subsystem is modelled at all.",
+      "type": "GOAL",
+      "status": "OPEN",
+      "evidence": [],
+      "depends_on": [
+        "enzyme_eyring_ceiling",
+        "glycolytic_oscillations_selkov",
+        "mitochondrial_oxphos"
+      ],
+      "load": 0,
+      "risk": "MED",
+      "regime_note": "stands over src/bodytwin/cells/energy/",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "energy",
+      "cert_design": {
+        "hidden_state": "whole-subsystem behaviour of energy",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "member cells",
+            [
+              "enzyme_eyring_ceiling",
+              "glycolytic_oscillations_selkov",
+              "mitochondrial_oxphos"
+            ]
+          ]
+        ],
+        "anchor": "the member cells' own anchors",
+        "composition_mode": "aggregate",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "aggregate",
+          "note": "no gate of its own"
+        }
+      }
+    },
+    {
+      "id": "cytoskeleton_critical_concentration",
+      "claim": "Does two-end polymer kinetics give a lower barbed-end than pointed-end critical concentration, and does the asymmetry collapse without hydrolysis? Model: two-end kon/koff polymer kinetics with a measured ADP-actin anchor and a noise-perturbation robustness test. Decisive number from the cell's own run: Cc barbed 0.121 uM vs pointed 0.615 uM, ratio 5.10; hydrolysis-blocked ratio 1.0 at the measured 1.8 uM; all gates pass.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-007"
+      ],
+      "depends_on": [
+        "mitochondrial_oxphos"
+      ],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "Mg-ATP and Mg-ADP actin in vitro",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "growth",
+      "cert_design": {
+        "hidden_state": "end-specific critical concentrations",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "cytoskeleton_critical_concentration"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "Pollard 1986 J Cell Biol 103:2747 as quoted in code"
+            ]
+          ]
+        ],
+        "anchor": "Pollard 1986 J Cell Biol 103:2747 as quoted in code",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "Cc barbed 0.121 uM vs pointed 0.615 uM, ratio 5.10; hydrolysis-blocked ratio 1.0 at the measured 1.8 uM; all gates pass"
+        }
+      }
+    },
+    {
+      "id": "dna_replication_kinetic_proofreading_drake",
+      "claim": "Does Drake's cross-species mutations-per-genome invariant reproduce the stated E. coli per-base-pair fidelity? Model: invariant divided by measured genome sizes, with a log-uniform redraw void floor. Decisive number from the cell's own run: E. coli per-bp fidelity 7.112e-10 against the stated 7.11e-10; all gates pass.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-008"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "LOW",
+      "regime_note": "microbial genomes, per replication",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "growth",
+      "cert_design": {
+        "hidden_state": "per-base-pair replication error rate",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "dna_replication_kinetic_proofreading_drake"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 1831267"
+            ]
+          ]
+        ],
+        "anchor": "PMID 1831267",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "E. coli per-bp fidelity 7.112e-10 against the stated 7.11e-10; all gates pass"
+        }
+      }
+    },
+    {
+      "id": "genetic_code_error_minimization",
+      "claim": "Does the standard codon table itself reproduce the claimed wobble redundancy, second-position clustering and optimisation ratio? Model: deterministic enumeration of the codon table plus scrambled-relabelling and 2-opt void floors. Decisive number from the cell's own run: wobble synonymous fraction 0.667 against the claimed 0.689 and eta2 = 0.1818 against the claimed 0.578-0.756: two headline gates fail, all_gates_pass false.",
+      "type": "THEORY",
+      "status": "REFUTED",
+      "evidence": [
+        "CELL-009"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "standard code, no experimental input",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "growth",
+      "cert_design": {
+        "hidden_state": "error-minimisation margin of the standard code",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "genetic_code_error_minimization"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "the standard genetic code table as encoded in the module"
+            ]
+          ]
+        ],
+        "anchor": "the standard genetic code table as encoded in the module",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "REFUTED",
+          "note": "wobble synonymous fraction 0.667 against the claimed 0.689 and eta2 = 0.1818 against the claimed 0.578-0.756: two headline gates fail, all_gates_pass false"
+        }
+      }
+    },
+    {
+      "id": "somite_hes7_lewis_zeiser_dde_rebuild",
+      "claim": "Does a from-scratch delay-differential rebuild of the HES7 oscillator reproduce the segmentation-clock period? Model: delay differential equations with Hill repression, numeric period plus an analytic cross-check and two void floors. Decisive number from the cell's own run: numeric period 120.120 min vs analytic 120.076 min vs anchor 120.0 min (0.04% cross-check); VERDICT CONFIRMED.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-010"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "mouse somitogenesis",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "growth",
+      "cert_design": {
+        "hidden_state": "intrinsic period of the delayed negative-feedback loop",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "somite_hes7_lewis_zeiser_dde_rebuild"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 16504083, 16432209"
+            ]
+          ]
+        ],
+        "anchor": "PMID 16504083, 16432209",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "numeric period 120.120 min vs analytic 120.076 min vs anchor 120.0 min (0.04% cross-check); VERDICT CONFIRMED"
+        }
+      }
+    },
+    {
+      "id": "spindle_sac_biomd186_rebuild",
+      "claim": "Does a rebuild of the spindle-assembly-checkpoint model clear the checkpoint inside the measured mitotic window? Model: mass-action ODE rebuild of a curated checkpoint model with a never-attach void floor. Decisive number from the cell's own run: t90 brackets 1.650 to 48.286 min around the 23.0 min anchor, mass-conservation drift 1.05e-14; VERDICT CONFIRMED.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-011"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "mammalian mitosis",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "growth",
+      "cert_design": {
+        "hidden_state": "checkpoint silencing time",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "spindle_sac_biomd186_rebuild"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 18253502, 7642709"
+            ]
+          ]
+        ],
+        "anchor": "PMID 18253502, 7642709",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "t90 brackets 1.650 to 48.286 min around the 23.0 min anchor, mass-conservation drift 1.05e-14; VERDICT CONFIRMED"
+        }
+      }
+    },
+    {
+      "id": "growth_subsystem",
+      "claim": "Aggregate node for the growth subsystem package: the 5 cells under it are the evidence this subsystem is modelled at all.",
+      "type": "GOAL",
+      "status": "OPEN",
+      "evidence": [],
+      "depends_on": [
+        "cytoskeleton_critical_concentration",
+        "dna_replication_kinetic_proofreading_drake",
+        "genetic_code_error_minimization",
+        "somite_hes7_lewis_zeiser_dde_rebuild",
+        "spindle_sac_biomd186_rebuild"
+      ],
+      "load": 0,
+      "risk": "MED",
+      "regime_note": "stands over src/bodytwin/cells/growth/",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "growth",
+      "cert_design": {
+        "hidden_state": "whole-subsystem behaviour of growth",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "member cells",
+            [
+              "cytoskeleton_critical_concentration",
+              "dna_replication_kinetic_proofreading_drake",
+              "genetic_code_error_minimization",
+              "somite_hes7_lewis_zeiser_dde_rebuild",
+              "spindle_sac_biomd186_rebuild"
+            ]
+          ]
+        ],
+        "anchor": "the member cells' own anchors",
+        "composition_mode": "aggregate",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "aggregate",
+          "note": "no gate of its own"
+        }
+      }
+    },
+    {
+      "id": "complement_cascade",
+      "claim": "Does a reduced compartmental model of the three complement pathways discriminate activator from host surface? Model: 8-state compartmental ODE with autocatalytic C3b amplification and regulator-driven surface discrimination. Decisive number from the cell's own run: unregulated vs regulated host membrane-attack-complex ratio 579.76 (gate > 2.0), forced adversary ratio 1.0; OVERALL PASS.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-012"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "HIGH",
+      "regime_note": "human plasma concentrations",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "immune",
+      "cert_design": {
+        "hidden_state": "surface-dependent amplification rate",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "complement_cascade"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 14730550, 15544620, 16715088; DOI 10.1002/jcla.10095"
+            ]
+          ]
+        ],
+        "anchor": "PMID 14730550, 15544620, 16715088; DOI 10.1002/jcla.10095",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "unregulated vs regulated host membrane-attack-complex ratio 579.76 (gate > 2.0), forced adversary ratio 1.0; OVERALL PASS"
+        }
+      }
+    },
+    {
+      "id": "ferroptosis_cert",
+      "claim": "Is ferroptosis pharmacologically orthogonal to apoptosis and necroptosis, with a lipid-peroxidation causal signature? Model: machine-checked extraction gates over primary-source datapoints, no simulation. Decisive number from the cell's own run: both required falsifiers pass, including the iron-specific potentiation of 3 sources against 0 of 4 other metals.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-013"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "cell-line and in-vivo studies as cited",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "immune",
+      "cert_design": {
+        "hidden_state": "death-mode identity of the lipid-peroxidation pathway",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "ferroptosis_cert"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 22632970, 24439385, 25402683, 27842066, 31634900"
+            ]
+          ]
+        ],
+        "anchor": "PMID 22632970, 24439385, 25402683, 27842066, 31634900",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "both required falsifiers pass, including the iron-specific potentiation of 3 sources against 0 of 4 other metals"
+        }
+      }
+    },
+    {
+      "id": "necroptosis_cert",
+      "claim": "Is necroptosis a distinct RIP1/RIP3/MLKL-dependent death mode rather than generic toxicity? Model: machine-checked extraction gates over primary-source datapoints, no simulation. Decisive number from the cell's own run: both required falsifiers pass across pharmacological and genetic dissection, including the kinase-activity requirement.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-014"
+      ],
+      "depends_on": [
+        "cardiac_cicr_ode_model"
+      ],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "cell-line and in-vivo studies as cited",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "immune",
+      "cert_design": {
+        "hidden_state": "death-mode identity of the necrosome pathway",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "necroptosis_cert"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 16408008, 19498109, 19524512, 19524513"
+            ]
+          ]
+        ],
+        "anchor": "PMID 16408008, 19498109, 19524512, 19524513",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "both required falsifiers pass across pharmacological and genetic dissection, including the kinase-activity requirement"
+        }
+      }
+    },
+    {
+      "id": "tcell_activation_exhaustion",
+      "claim": "Do two-signal activation, clonal-expansion kinetics and graded exhaustion hold in one reduced model? Model: kinetic-proofreading discrimination gate plus piecewise growth/death ODE cross-checked against LSODA. Decisive number from the cell's own run: parts 1-4 all pass but the robustness sweep fails, so the run reports overall_pass False.",
+      "type": "EMPIRICAL",
+      "status": "ASSUMED",
+      "evidence": [
+        "CELL-015"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "HIGH",
+      "regime_note": "mouse and human chronic-antigen studies",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "immune",
+      "cert_design": {
+        "hidden_state": "functional exhaustion depth under chronic antigen",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "tcell_activation_exhaustion"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 11602708, 11877489, 12663797, 16382236, 16917489"
+            ]
+          ]
+        ],
+        "anchor": "PMID 11602708, 11877489, 12663797, 16382236, 16917489",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "ASSUMED",
+          "note": "parts 1-4 all pass but the robustness sweep fails, so the run reports overall_pass False"
+        }
+      }
+    },
+    {
+      "id": "immune_subsystem",
+      "claim": "Aggregate node for the immune subsystem package: the 4 cells under it are the evidence this subsystem is modelled at all.",
+      "type": "GOAL",
+      "status": "OPEN",
+      "evidence": [],
+      "depends_on": [
+        "complement_cascade",
+        "ferroptosis_cert",
+        "necroptosis_cert",
+        "tcell_activation_exhaustion"
+      ],
+      "load": 0,
+      "risk": "MED",
+      "regime_note": "stands over src/bodytwin/cells/immune/",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "immune",
+      "cert_design": {
+        "hidden_state": "whole-subsystem behaviour of immune",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "member cells",
+            [
+              "complement_cascade",
+              "ferroptosis_cert",
+              "necroptosis_cert",
+              "tcell_activation_exhaustion"
+            ]
+          ]
+        ],
+        "anchor": "the member cells' own anchors",
+        "composition_mode": "aggregate",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "aggregate",
+          "note": "no gate of its own"
+        }
+      }
+    },
+    {
+      "id": "bone_calcium_flux_reconciliation",
+      "claim": "Does osteoclast activity converted bottom-up to resorbed mineral match the tracer-kinetic whole-skeleton calcium flux? Model: two decorrelated conversion legs (histomorphometric and geometric) against a re-sourced tracer-kinetic anchor. Decisive number from the cell's own run: leg A 180.8-202.7 mg/day vs the 300-630 mg/day tracer anchor, gap ratio 1.48x, same sign as the rapid-exchange mechanism.",
+      "type": "EMPIRICAL",
+      "status": "ASSUMED",
+      "evidence": [
+        "CELL-016"
+      ],
+      "depends_on": [
+        "cardiac_cicr_ode_model"
+      ],
+      "load": 1,
+      "risk": "HIGH",
+      "regime_note": "adult human skeleton",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "musculoskeletal",
+      "cert_design": {
+        "hidden_state": "daily resorbed mineral mass",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "bone_calcium_flux_reconciliation"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 12740946, 18988698; ICRP Publication 70 reference skeletal calcium"
+            ]
+          ]
+        ],
+        "anchor": "PMID 12740946, 18988698; ICRP Publication 70 reference skeletal calcium",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "ASSUMED",
+          "note": "leg A 180.8-202.7 mg/day vs the 300-630 mg/day tracer anchor, gap ratio 1.48x, same sign as the rapid-exchange mechanism"
+        }
+      }
+    },
+    {
+      "id": "bone_rankl_opg_lemaire2004",
+      "claim": "Does an independent reimplementation of the RANKL/RANK/OPG ODE reproduce its own claimed baseline and perturbation response? Model: from-scratch ODE reimplementation from the disclosed equations, free-run drift and Jacobian check. Decisive number from the cell's own run: osteoclast peak +304.2% against the recorded +304%, 2000-day free-run drift below 0.02%; no overall-pass token is printed.",
+      "type": "EMPIRICAL",
+      "status": "ASSUMED",
+      "evidence": [
+        "CELL-017"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "dimensionless pM signalling units",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "musculoskeletal",
+      "cert_design": {
+        "hidden_state": "osteoclast pool response to a RANKL stimulus",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "bone_rankl_opg_lemaire2004"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "the disclosed Lemaire-2004 equations and parameters as quoted in the module"
+            ]
+          ]
+        ],
+        "anchor": "the disclosed Lemaire-2004 equations and parameters as quoted in the module",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "ASSUMED",
+          "note": "osteoclast peak +304.2% against the recorded +304%, 2000-day free-run drift below 0.02%; no overall-pass token is printed"
+        }
+      }
+    },
+    {
+      "id": "meniscus_hoop_stress_model",
+      "claim": "Does the hoop-stress mechanism, not retained tissue mass, explain meniscal load transmission? Model: closed-form hoop-tension model plus three forced-adversary tests against published measurements. Decisive number from the cell's own run: 3 of 3 adversary tests fall (root tear +25.0% peak pressure, hoop strain to ~0 when fibres are cut), but the held-out 50%-width test mismatches: predicted 1.0 vs measured 1.75.",
+      "type": "EMPIRICAL",
+      "status": "ASSUMED",
+      "evidence": [
+        "CELL-018"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "HIGH",
+      "regime_note": "human and porcine knee, axial load",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "musculoskeletal",
+      "cert_design": {
+        "hidden_state": "fraction of joint load carried as circumferential tension",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "meniscus_hoop_stress_model"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 11415635, 18762653, 37986646, 657636"
+            ]
+          ]
+        ],
+        "anchor": "PMID 11415635, 18762653, 37986646, 657636",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "ASSUMED",
+          "note": "3 of 3 adversary tests fall (root tear +25.0% peak pressure, hoop strain to ~0 when fibres are cut), but the held-out 50%-width test mismatches: predicted 1.0 vs measured 1.75"
+        }
+      }
+    },
+    {
+      "id": "muscle_pcsa_crossbridge_specific_tension_rebuild",
+      "claim": "Does a molecular cross-bridge force budget predict whole-muscle specific tension? Model: cross-bridge force times duty ratio times filament density, composed to a PCSA-normalised stress. Decisive number from the cell's own run: specific tension 25.35 N/cm2 (sweep 14.32-41.57) against anchors 26.8 and 22.5 N/cm2, void floor max 8.31; VERDICT CONFIRMED.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-019"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "adult human skeletal muscle",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "musculoskeletal",
+      "cert_design": {
+        "hidden_state": "fraction of attached cross-bridges in isometric tetanus",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "muscle_pcsa_crossbridge_specific_tension_rebuild"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 39169839, 6511546, 8139653"
+            ]
+          ]
+        ],
+        "anchor": "PMID 39169839, 6511546, 8139653",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "specific tension 25.35 N/cm2 (sweep 14.32-41.57) against anchors 26.8 and 22.5 N/cm2, void floor max 8.31; VERDICT CONFIRMED"
+        }
+      }
+    },
+    {
+      "id": "reproduce_motor_unit_force_factorization",
+      "claim": "Does motor-unit count times mean twitch torque reproduce the recorded undershoot against maximal voluntary contraction? Model: closed-form factorisation of count and twitch torque with a twitch-to-tetanus fusion mechanism check. Decisive number from the cell's own run: worst relative difference 0.2621% against a 1% tolerance; twitch:tetanus 0.25 predicts the stated ~75% undershoot; REPRODUCES.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-020"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "LOW",
+      "regime_note": "tibialis anterior, young adults",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "musculoskeletal",
+      "cert_design": {
+        "hidden_state": "fusion factor between twitch and tetanic force",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "reproduce_motor_unit_force_factorization"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 15685623, 9415831"
+            ]
+          ]
+        ],
+        "anchor": "PMID 15685623, 9415831",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "worst relative difference 0.2621% against a 1% tolerance; twitch:tetanus 0.25 predicts the stated ~75% undershoot; REPRODUCES"
+        }
+      }
+    },
+    {
+      "id": "musculoskeletal_subsystem",
+      "claim": "Aggregate node for the musculoskeletal subsystem package: the 5 cells under it are the evidence this subsystem is modelled at all.",
+      "type": "GOAL",
+      "status": "OPEN",
+      "evidence": [],
+      "depends_on": [
+        "bone_calcium_flux_reconciliation",
+        "bone_rankl_opg_lemaire2004",
+        "meniscus_hoop_stress_model",
+        "muscle_pcsa_crossbridge_specific_tension_rebuild",
+        "reproduce_motor_unit_force_factorization"
+      ],
+      "load": 0,
+      "risk": "MED",
+      "regime_note": "stands over src/bodytwin/cells/musculoskeletal/",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "musculoskeletal",
+      "cert_design": {
+        "hidden_state": "whole-subsystem behaviour of musculoskeletal",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "member cells",
+            [
+              "bone_calcium_flux_reconciliation",
+              "bone_rankl_opg_lemaire2004",
+              "meniscus_hoop_stress_model",
+              "muscle_pcsa_crossbridge_specific_tension_rebuild",
+              "reproduce_motor_unit_force_factorization"
+            ]
+          ]
+        ],
+        "anchor": "the member cells' own anchors",
+        "composition_mode": "aggregate",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "aggregate",
+          "note": "no gate of its own"
+        }
+      }
+    },
+    {
+      "id": "corticospinal_motor_command",
+      "claim": "Does a population-vector decode of M1 activity beat the strongest fair labeled-line adversary? Model: population-vector decode with Poisson trial noise on a dense held-out direction grid, plus a conduction-velocity gate. Decisive number from the cell's own run: all gates pass: population vector under 15 degrees error at published cell counts and beating the labeled-line adversary at every N; overall_pass True.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-021"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "primate M1 reaching",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "nervous",
+      "cert_design": {
+        "hidden_state": "movement direction encoded in the population",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "corticospinal_motor_command"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 7143039, 8996498, 24872533"
+            ]
+          ]
+        ],
+        "anchor": "PMID 7143039, 8996498, 24872533",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "all gates pass: population vector under 15 degrees error at published cell counts and beating the labeled-line adversary at every N; overall_pass True"
+        }
+      }
+    },
+    {
+      "id": "hodgkin_huxley_squid_axon_ap_rebuild",
+      "claim": "Does a from-scratch Hodgkin-Huxley rebuild show all-or-none threshold, overshoot and a refractory period? Model: four-variable conductance ODE integrated with bisected threshold search and a zero-gNa void floor. Decisive number from the cell's own run: threshold 6.921 uA/cm2, peak 40.51 mV (residual +0.51 mV vs anchor), relative refractory window ~10-12 ms; VERDICT CONFIRMED.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-022"
+      ],
+      "depends_on": [
+        "na_k_atpase"
+      ],
+      "load": 1,
+      "risk": "LOW",
+      "regime_note": "squid giant axon, 6.3 C",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "nervous",
+      "cert_design": {
+        "hidden_state": "gating-variable kinetics behind the spike",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "hodgkin_huxley_squid_axon_ap_rebuild"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "Hodgkin and Huxley 1952 J Physiol as quoted in the module"
+            ]
+          ]
+        ],
+        "anchor": "Hodgkin and Huxley 1952 J Physiol as quoted in the module",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "threshold 6.921 uA/cm2, peak 40.51 mV (residual +0.51 mV vs anchor), relative refractory window ~10-12 ms; VERDICT CONFIRMED"
+        }
+      }
+    },
+    {
+      "id": "na_k_atpase",
+      "claim": "Do the Goldman-Hodgkin-Katz equation and measured pump kinetics jointly reproduce the resting membrane potential and the pump's share of the energy budget? Model: GHK voltage equation over a concentration sweep plus Q10-corrected partial-reaction turnover arithmetic. Decisive number from the cell's own run: 6/8 pre-registered gates PASS, including the kidney-over-average ordinal gate at 40.0% vs 20.2%; the failing gate is diagnosed and retested.",
+      "type": "EMPIRICAL",
+      "status": "ASSUMED",
+      "evidence": [
+        "CELL-023"
+      ],
+      "depends_on": [
+        "mitochondrial_oxphos"
+      ],
+      "load": 4,
+      "risk": "MED",
+      "regime_note": "adult mammalian neuron, 37 C",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "nervous",
+      "cert_design": {
+        "hidden_state": "intracellular ion activities and per-site pump turnover",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "na_k_atpase"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 18075585, 2410761, 12381678, 16439665; DOI 10.1172/JCI106703"
+            ]
+          ]
+        ],
+        "anchor": "PMID 18075585, 2410761, 12381678, 16439665; DOI 10.1172/JCI106703",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "ASSUMED",
+          "note": "6/8 pre-registered gates PASS, including the kidney-over-average ordinal gate at 40.0% vs 20.2%; the failing gate is diagnosed and retested"
+        }
+      }
+    },
+    {
+      "id": "rhodopsin_thermal_dark_noise_arrhenius_gate",
+      "claim": "Does an Arrhenius barrier, rather than a small attempt frequency, explain the thermal dark-noise rate of rhodopsin? Model: Arrhenius arithmetic relating the measured thermal rate, the photon energy and the implied prefactor, with a barrier-less void floor. Decisive number from the cell's own run: thermal rate 1e-11/s with an activation energy of 22.0 kcal/mol implies a prefactor of 2.52e5/s; the naive-prior gate fails, so the verdict is CONFIRMED_WITH_DOCUMENTED_ANOMALY.",
+      "type": "EMPIRICAL",
+      "status": "ASSUMED",
+      "evidence": [
+        "CELL-024"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "vertebrate rod photoreceptor, body temperature",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "nervous",
+      "cert_design": {
+        "hidden_state": "activation barrier for spontaneous isomerisation",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "rhodopsin_thermal_dark_noise_arrhenius_gate"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 26061742"
+            ]
+          ]
+        ],
+        "anchor": "PMID 26061742",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "ASSUMED",
+          "note": "thermal rate 1e-11/s with an activation energy of 22.0 kcal/mol implies a prefactor of 2.52e5/s; the naive-prior gate fails, so the verdict is CONFIRMED_WITH_DOCUMENTED_ANOMALY"
+        }
+      }
+    },
+    {
+      "id": "sleep_two_process_recovery_rebound",
+      "claim": "Does the two-process model predict the measured slow-wave rebound after sleep deprivation? Model: single-exponential homeostatic process on a fixed sleep-wake schedule, derived independently of the recorded figure. Decisive number from the cell's own run: rebound +89.0 min, inside the anchor band and reached without the node's previously recorded +107.14 min figure; overall_pass true.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-025"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "LOW",
+      "regime_note": "adult human, fixed deprivation schedule",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "nervous",
+      "cert_design": {
+        "hidden_state": "homeostatic sleep pressure",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "sleep_two_process_recovery_rebound"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 6696142, 39458438"
+            ]
+          ]
+        ],
+        "anchor": "PMID 6696142, 39458438",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "rebound +89.0 min, inside the anchor band and reached without the node's previously recorded +107.14 min figure; overall_pass true"
+        }
+      }
+    },
+    {
+      "id": "synaptic_tsodyks_markram_ppr",
+      "claim": "Does the depression-only resource model reproduce the measured paired-pulse ratio? Model: single depleting resource pool with recovery time constant and fixed release fraction, plus a no-dynamics void floor. Decisive number from the cell's own run: rebuild consistency gates all pass; the no-dynamics void floor gives a paired-pulse ratio of 1.0 in the wrong direction as required.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-026"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "LOW",
+      "regime_note": "neocortical depressing synapse",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "nervous",
+      "cert_design": {
+        "hidden_state": "release-ready resource fraction",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "synaptic_tsodyks_markram_ppr"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 30256194; Tsodyks and Markram 1997 PNAS as quoted"
+            ]
+          ]
+        ],
+        "anchor": "PMID 30256194; Tsodyks and Markram 1997 PNAS as quoted",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "rebuild consistency gates all pass; the no-dynamics void floor gives a paired-pulse ratio of 1.0 in the wrong direction as required"
+        }
+      }
+    },
+    {
+      "id": "synaptic_vesicle_release",
+      "claim": "Does a Ca-triggered SNARE release model reproduce the measured release probability and sub-millisecond latency? Model: cooperative Ca-binding release model over a microdomain transient, composed to an excitatory postsynaptic current. Decisive number from the cell's own run: all five parts pass, including sub-millisecond action-potential-to-current latency; overall_pass True.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-027"
+      ],
+      "depends_on": [
+        "cardiac_cicr_ode_model"
+      ],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "central presynaptic terminal",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "nervous",
+      "cert_design": {
+        "hidden_state": "local Ca concentration at the sensor",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "synaptic_vesicle_release"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 10972290, 16794037, 16990140, 18046404"
+            ]
+          ]
+        ],
+        "anchor": "PMID 10972290, 16794037, 16990140, 18046404",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "all five parts pass, including sub-millisecond action-potential-to-current latency; overall_pass True"
+        }
+      }
+    },
+    {
+      "id": "nervous_subsystem",
+      "claim": "Aggregate node for the nervous subsystem package: the 7 cells under it are the evidence this subsystem is modelled at all.",
+      "type": "GOAL",
+      "status": "OPEN",
+      "evidence": [],
+      "depends_on": [
+        "corticospinal_motor_command",
+        "hodgkin_huxley_squid_axon_ap_rebuild",
+        "na_k_atpase",
+        "rhodopsin_thermal_dark_noise_arrhenius_gate",
+        "sleep_two_process_recovery_rebound",
+        "synaptic_tsodyks_markram_ppr",
+        "synaptic_vesicle_release"
+      ],
+      "load": 0,
+      "risk": "MED",
+      "regime_note": "stands over src/bodytwin/cells/nervous/",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "nervous",
+      "cert_design": {
+        "hidden_state": "whole-subsystem behaviour of nervous",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "member cells",
+            [
+              "corticospinal_motor_command",
+              "hodgkin_huxley_squid_axon_ap_rebuild",
+              "na_k_atpase",
+              "rhodopsin_thermal_dark_noise_arrhenius_gate",
+              "sleep_two_process_recovery_rebound",
+              "synaptic_tsodyks_markram_ppr",
+              "synaptic_vesicle_release"
+            ]
+          ]
+        ],
+        "anchor": "the member cells' own anchors",
+        "composition_mode": "aggregate",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "aggregate",
+          "note": "no gate of its own"
+        }
+      }
+    },
+    {
+      "id": "countercurrent_multiplier",
+      "claim": "Does the single effect multiplied by loop geometry reproduce the corticomedullary osmotic gradient? Model: iterated single-effect multiplier over a hairpin loop with washout, plus a geometry-free adversary. Decisive number from the cell's own run: papilla 1254.7 mOsm from a 300 mOsm cortex, coupled-over-adversary gradient ratio 9.84; OVERALL_PASS true.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-028"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "mammalian kidney, antidiuresis",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "organ_systems",
+      "cert_design": {
+        "hidden_state": "axial interstitial osmolality profile",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "countercurrent_multiplier"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 22237592, 22914749, 8760217"
+            ]
+          ]
+        ],
+        "anchor": "PMID 22237592, 22914749, 8760217",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "papilla 1254.7 mOsm from a 300 mOsm cortex, coupled-over-adversary gradient ratio 9.84; OVERALL_PASS true"
+        }
+      }
+    },
+    {
+      "id": "nephron_transport_cell",
+      "claim": "Does one nephron model hold filtration flat under a pressure sweep, span the urine-osmolality range and match measured clearance? Model: Starling-divider filtration with a constant-elasticity autoregulator, swept over perfusion pressure. Decisive number from the cell's own run: gate I fails at 102.0% worst-case deviation over 80-180 mmHg while holding the band over 90-120 mmHg; inulin clearance 122.8 mL/min; OVERALL_PASS false.",
+      "type": "EMPIRICAL",
+      "status": "ASSUMED",
+      "evidence": [
+        "CELL-029"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "HIGH",
+      "regime_note": "adult human kidney",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "organ_systems",
+      "cert_design": {
+        "hidden_state": "pressure-dependent autoregulatory gain",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "nephron_transport_cell"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 12791588, 15415454, 17728380"
+            ]
+          ]
+        ],
+        "anchor": "PMID 12791588, 15415454, 17728380",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "ASSUMED",
+          "note": "gate I fails at 102.0% worst-case deviation over 80-180 mmHg while holding the band over 90-120 mmHg; inulin clearance 122.8 mL/min; OVERALL_PASS false"
+        }
+      }
+    },
+    {
+      "id": "organ_systems_subsystem",
+      "claim": "Aggregate node for the organ_systems subsystem package: the 2 cells under it are the evidence this subsystem is modelled at all.",
+      "type": "GOAL",
+      "status": "OPEN",
+      "evidence": [],
+      "depends_on": [
+        "countercurrent_multiplier",
+        "nephron_transport_cell"
+      ],
+      "load": 0,
+      "risk": "MED",
+      "regime_note": "stands over src/bodytwin/cells/organ_systems/",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "organ_systems",
+      "cert_design": {
+        "hidden_state": "whole-subsystem behaviour of organ_systems",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "member cells",
+            [
+              "countercurrent_multiplier",
+              "nephron_transport_cell"
+            ]
+          ]
+        ],
+        "anchor": "the member cells' own anchors",
+        "composition_mode": "aggregate",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "aggregate",
+          "note": "no gate of its own"
+        }
+      }
+    },
+    {
+      "id": "reproduce_alveolar_surface_factorization",
+      "claim": "Does the measured per-alveolus surface area exceed the equal-volume sphere prediction by the recorded factor? Model: closed-form equal-volume-sphere comparison against morphometric counts and areas. Decisive number from the cell's own run: ratio 2.3665 against the recorded 2.37, worst relative difference 0.1466% at a 1% tolerance; REPRODUCES.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-030"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "LOW",
+      "regime_note": "adult human lung morphometry",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "respiratory",
+      "cert_design": {
+        "hidden_state": "alveolar surface-to-volume amplification",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "reproduce_alveolar_surface_factorization"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 14512270, 644146"
+            ]
+          ]
+        ],
+        "anchor": "PMID 14512270, 644146",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "ratio 2.3665 against the recorded 2.37, worst relative difference 0.1466% at a 1% tolerance; REPRODUCES"
+        }
+      }
+    },
+    {
+      "id": "respiratory_subsystem",
+      "claim": "Aggregate node for the respiratory subsystem package: the 1 cells under it are the evidence this subsystem is modelled at all.",
+      "type": "GOAL",
+      "status": "OPEN",
+      "evidence": [],
+      "depends_on": [
+        "reproduce_alveolar_surface_factorization"
+      ],
+      "load": 0,
+      "risk": "MED",
+      "regime_note": "stands over src/bodytwin/cells/respiratory/",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "respiratory",
+      "cert_design": {
+        "hidden_state": "whole-subsystem behaviour of respiratory",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "member cells",
+            [
+              "reproduce_alveolar_surface_factorization"
+            ]
+          ]
+        ],
+        "anchor": "the member cells' own anchors",
+        "composition_mode": "aggregate",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "aggregate",
+          "note": "no gate of its own"
+        }
+      }
+    },
+    {
+      "id": "circadian_q10_compensation_goodwin",
+      "claim": "Does a uniformly Q10-scaled Goodwin oscillator stay temperature compensated? Model: 3-variable Hill-repression oscillator with every rate scaled by one Q10, plus a broken-loop void floor. Decisive number from the cell's own run: measured period Q10 = 6.303, outside the claimed compensation band, so the naive uniform-scaling null is not compensated; all_gates_pass false.",
+      "type": "THEORY",
+      "status": "REFUTED",
+      "evidence": [
+        "CELL-031"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "dimensionless Goodwin oscillator",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "signalling",
+      "cert_design": {
+        "hidden_state": "temperature dependence of the loop period",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "circadian_q10_compensation_goodwin"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "Goodwin 1965 formulation as encoded in the module"
+            ]
+          ]
+        ],
+        "anchor": "Goodwin 1965 formulation as encoded in the module",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "REFUTED",
+          "note": "measured period Q10 = 6.303, outside the claimed compensation band, so the naive uniform-scaling null is not compensated; all_gates_pass false"
+        }
+      }
+    },
+    {
+      "id": "mapk_erk_cascade",
+      "claim": "Does the three-tier cascade convert a graded input into an ultrasensitive and, with feedback, bistable output? Model: tiered covalent-modification ODE with Goldbeter-Koshland tiers and a feedback bistability sweep. Decisive number from the cell's own run: tier slopes multiply to 1.880 against a measured overall slope of 1.880 (0.000% relative error); overall_pass True.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-032"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "HIGH",
+      "regime_note": "Xenopus extract and mammalian parameter sets as cited",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "signalling",
+      "cert_design": {
+        "hidden_state": "effective Hill coefficient of the cascade",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "mapk_erk_cascade"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "PMID 6947258, 8816754, 9166761, 9228083, 10823939, 21768338"
+            ]
+          ]
+        ],
+        "anchor": "PMID 6947258, 8816754, 9166761, 9228083, 10823939, 21768338",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "tier slopes multiply to 1.880 against a measured overall slope of 1.880 (0.000% relative error); overall_pass True"
+        }
+      }
+    },
+    {
+      "id": "mtorc1_feedback_rebuild",
+      "claim": "Does a literal rebuild from the recorded topology reproduce the direction of the mTORC1 feedback responses? Model: mass-action rebuild of the named feedback and drug edges over conserved pools; sign-level comparison only. Decisive number from the cell's own run: SELFTEST PASS: all three sign checks agree (rapamycin +AKT, kinase-inhibitor S473 collapse, T308 over-recovery) while the magnitudes differ from the recorded values.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-033"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "HIGH",
+      "regime_note": "sign-level only; the stoichiometry is under-determined by the recorded spec",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "signalling",
+      "cert_design": {
+        "hidden_state": "strength of the S6K-IRS negative feedback",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "mtorc1_feedback_rebuild"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "the recorded constants and topology quoted in the module"
+            ]
+          ]
+        ],
+        "anchor": "the recorded constants and topology quoted in the module",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "SELFTEST PASS: all three sign checks agree (rapamycin +AKT, kinase-inhibitor S473 collapse, T308 over-recovery) while the magnitudes differ from the recorded values"
+        }
+      }
+    },
+    {
+      "id": "smad_nucleocytoplasmic_shuttling_biomd173",
+      "claim": "Does a transcribed curated SMAD shuttling model reproduce the nuclear accumulation time course and dose response? Model: compartmental ODE transcribed from a curated model file, with a gated half-maximum band. Decisive number from the cell's own run: overall_pass true, with the half-maximum outside-band check gated as designed.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-034"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "HaCaT-like parameter set",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "signalling",
+      "cert_design": {
+        "hidden_state": "nuclear-cytoplasmic SMAD distribution",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "smad_nucleocytoplasmic_shuttling_biomd173"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "Schmierer, Tischer and Bird 2008 PNAS; the curated model file fetched as described in the module"
+            ]
+          ]
+        ],
+        "anchor": "Schmierer, Tischer and Bird 2008 PNAS; the curated model file fetched as described in the module",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "overall_pass true, with the half-maximum outside-band check gated as designed"
+        }
+      }
+    },
+    {
+      "id": "wnt_betacatenin_rebuild",
+      "claim": "Does a rebuild from the recorded destruction-complex equations reproduce the recorded beta-catenin steady state and the tankyrase null result? Model: 15-species mass-action destruction-complex ODE built only from the stated fluxes and constants. Decisive number from the cell's own run: SELFTEST PASS: steady-state beta-catenin 1645.9144 unchanged to 2.3e-13 under a 1000-fold tankyrase change, matching the recorded 0.0% rescue.",
+      "type": "EMPIRICAL",
+      "status": "PROVEN",
+      "evidence": [
+        "CELL-035"
+      ],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "dimensionless model units",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "signalling",
+      "cert_design": {
+        "hidden_state": "free beta-catenin steady state",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "model computation",
+            [
+              "wnt_betacatenin_rebuild"
+            ]
+          ],
+          [
+            "literature anchors",
+            [
+              "the recorded Lee-2003 lineage equations and constants quoted in the module"
+            ]
+          ]
+        ],
+        "anchor": "the recorded Lee-2003 lineage equations and constants quoted in the module",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "PROVEN",
+          "note": "SELFTEST PASS: steady-state beta-catenin 1645.9144 unchanged to 2.3e-13 under a 1000-fold tankyrase change, matching the recorded 0.0% rescue"
+        }
+      }
+    },
+    {
+      "id": "signalling_subsystem",
+      "claim": "Aggregate node for the signalling subsystem package: the 5 cells under it are the evidence this subsystem is modelled at all.",
+      "type": "GOAL",
+      "status": "OPEN",
+      "evidence": [],
+      "depends_on": [
+        "circadian_q10_compensation_goodwin",
+        "mapk_erk_cascade",
+        "mtorc1_feedback_rebuild",
+        "smad_nucleocytoplasmic_shuttling_biomd173",
+        "wnt_betacatenin_rebuild"
+      ],
+      "load": 0,
+      "risk": "MED",
+      "regime_note": "stands over src/bodytwin/cells/signalling/",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "signalling",
+      "cert_design": {
+        "hidden_state": "whole-subsystem behaviour of signalling",
+        "occluded_truth": true,
+        "legs": [
+          [
+            "member cells",
+            [
+              "circadian_q10_compensation_goodwin",
+              "mapk_erk_cascade",
+              "mtorc1_feedback_rebuild",
+              "smad_nucleocytoplasmic_shuttling_biomd173",
+              "wnt_betacatenin_rebuild"
+            ]
+          ]
+        ],
+        "anchor": "the member cells' own anchors",
+        "composition_mode": "aggregate",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "aggregate",
+          "note": "no gate of its own"
+        }
+      }
+    }
+  ]
+}

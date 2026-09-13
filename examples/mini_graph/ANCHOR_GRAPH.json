@@ -1,0 +1,88 @@
+{
+  "_meta": {
+    "name": "BODYTWIN_ANCHOR_GRAPH \u2014 bio build-goal cells (example designs, all HYPOTHESIS/OPEN)",
+    "note": "Synthesized from the cell-design catalog. status OPEN = designed, NOT measured. Work a node by measuring its legs in-regime and folding the result against the held-out anchor.",
+    "build_order": "roots (no deps): NODE-0-ENERGY, KNEE-CELL, ORG-WAVEFORM-ANCHOR + the standalone DATA-ANCHORs; then the cells that depend on them. Cheapest first-close: MOL-SAMESAMPLE-PATCHSEQ-CALIBRATION (LOW risk, open DANDI, same-sample).",
+    "node_high_water": 2
+  },
+  "nodes": [
+    {
+      "id": "MODEL-EXAMPLE-MEMBRANE-POTENTIAL",
+      "claim": "A Goldman-Hodgkin-Katz model with measured ion concentrations and permeability ratios reproduces a measured resting membrane potential within 10 mV.",
+      "type": "EMPIRICAL",
+      "status": "OPEN",
+      "evidence": [],
+      "depends_on": [],
+      "load": 1,
+      "risk": "MED",
+      "regime_note": "adult mammalian, 37 C",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "foundational",
+      "cert_design": {
+        "hidden_state": "intracellular ion activities",
+        "occluded_truth": true,
+        "legs": [
+          {
+            "name": "GHK from measured concentrations",
+            "source_ids": [
+              "SRC-CONC-1"
+            ]
+          },
+          {
+            "name": "electrogenic pump contribution",
+            "source_ids": [
+              "SRC-PUMP-1"
+            ]
+          }
+        ],
+        "anchor": "independently measured resting potential in the same preparation",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "un-audited",
+          "plan": "compare the computed potential against the held-out measured potential"
+        }
+      }
+    },
+    {
+      "id": "MODEL-EXAMPLE-PUMP-TURNOVER",
+      "claim": "Three independent measurement families agree on the Na/K-ATPase turnover number within a factor of two after temperature correction.",
+      "type": "EMPIRICAL",
+      "status": "OPEN",
+      "evidence": [],
+      "depends_on": [
+        "MODEL-EXAMPLE-MEMBRANE-POTENTIAL"
+      ],
+      "load": 0,
+      "risk": "LOW",
+      "regime_note": "37 C",
+      "actionable_by": "bodytwin-reviewer",
+      "cluster": "nervous",
+      "cert_design": {
+        "hidden_state": "per-site cycling rate",
+        "occluded_truth": true,
+        "legs": [
+          {
+            "name": "deocclusion rate constant",
+            "source_ids": [
+              "SRC-KIN-1"
+            ]
+          },
+          {
+            "name": "flux/density back-calculation",
+            "source_ids": [
+              "SRC-FLUX-1"
+            ]
+          }
+        ],
+        "anchor": "a fourth, independently reported turnover figure",
+        "composition_mode": "agreement",
+        "couples_to_inherited": "none",
+        "verify": {
+          "verdict": "un-audited",
+          "plan": "all families inside the pre-registered band after temperature correction"
+        }
+      }
+    }
+  ]
+}

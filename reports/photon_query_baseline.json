@@ -1,0 +1,46 @@
+{
+  "gates": {
+    "transport_identity": true,
+    "capture_repeat": true,
+    "query_parity": true,
+    "finite_inventory": true
+  },
+  "queries": 22175,
+  "hits": 130,
+  "triangles": 2754304,
+  "milliseconds": [
+    0.037243750000470754,
+    0.034464450000371016
+  ],
+  "source_sha256": "f78dfc8eb15289e6dd0972ed228e4bab7fa032e394833ab234e28f5f9bb0a271",
+  "arrays": {
+    "vertices": {
+      "shape": [
+        1300783,
+        3
+      ],
+      "sha256": "133077d3e4dc3f13531bb7fe285adccac92e39f2e0e1209f0d3a8545a6673da4"
+    },
+    "faces": {
+      "shape": [
+        2754304,
+        3
+      ],
+      "sha256": "640eb4db1c5579a197c90f8947529ecdd1e8ef3d8355827d3dd6ab9346d7789f"
+    },
+    "query": {
+      "shape": [
+        22175,
+        7
+      ],
+      "sha256": "e27135edb20c0a29bc60b42496b39da0d2392864196b5f81d43642adfc944b5a"
+    },
+    "expected": {
+      "shape": [
+        22175
+      ],
+      "sha256": "82bc2cdfd77a91285ba29aa35a17cf08c4fd89202898e2c04ee7e5fe9a8896d7"
+    }
+  },
+  "scope": "First256events of128photons; query microbenchmark only"
+}

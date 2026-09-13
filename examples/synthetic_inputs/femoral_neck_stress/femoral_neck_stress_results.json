@@ -1,0 +1,52 @@
+{
+  "synthetic": true,
+  "note": "Synthetic stand-in for the femoral_neck_stress cell (not shipped). Generic adult femoral-neck beam stresses for a 70 kg body with population-level neck geometry; microstrain_magnitude = |sigma|*1e6/(17 GPa) so the consumer's bit-for-bit consistency gate is meaningful. Contains only the keys bmu_turnover_kinetics and bone_strain_bounded_classifier_proposal read.",
+  "primary": {
+    "peak_stress_MPa": -51.0,
+    "microstrain_magnitude": 3000.0,
+    "sigma_axial_MPa": -8.0,
+    "walking_band_classification": "above_walking_band_below_task_stated_yield"
+  },
+  "null_control_NSA180": {
+    "peak_stress_MPa": -20.4,
+    "microstrain_magnitude": 1200.0,
+    "sigma_axial_MPa": -8.0,
+    "walking_band_classification": "INSIDE_stated_walking_band"
+  },
+  "nsa_sweep_results": {
+    "120": {
+      "peak_stress_MPa": -57.0,
+      "microstrain_magnitude": 3352.9411764705883
+    },
+    "125": {
+      "peak_stress_MPa": -51.0,
+      "microstrain_magnitude": 3000.0
+    },
+    "135": {
+      "peak_stress_MPa": -42.0,
+      "microstrain_magnitude": 2470.5882352941176
+    }
+  },
+  "cross_section_sweep": {
+    "thin_cortex": {
+      "peak_stress_MPa": -60.0,
+      "microstrain_magnitude": 3529.4117647058824
+    },
+    "thick_cortex": {
+      "peak_stress_MPa": -44.0,
+      "microstrain_magnitude": 2588.235294117647
+    }
+  },
+  "deinflation_counterfactual": {
+    "peak_stress_MPa": -34.0,
+    "microstrain_magnitude": 2000.0,
+    "walking_band_classification": "INSIDE_stated_walking_band"
+  },
+  "ablations": {
+    "zero_all_26_muscles": {
+      "peak_stress_MPa": -136.0,
+      "microstrain_magnitude": 8000.0,
+      "walking_band_classification": "AT_OR_ABOVE_task_stated_yield"
+    }
+  }
+}

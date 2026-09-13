@@ -1,0 +1,48 @@
+{
+  "parameter_order": [
+    "saturation",
+    "log_gain",
+    "log_hemoglobin"
+  ],
+  "parameter_scales": [
+    1,
+    1,
+    1
+  ],
+  "rows": [
+    {
+      "percentiles": [
+        1.221659866545761,
+        1.5088149501864867,
+        1.8864274198621611
+      ],
+      "fraction_not_above_one": 0.0,
+      "count_not_above_one": 0,
+      "gain_hash": "d812e3ed63bc54f290544903f9fe0ffefebbdc3751f7e5a3d3511881085e439f",
+      "counts_hash": "b94fc0ea66e24319bb8ba326ac593c1b085f70e0c25029c6ada631f79b6120f3",
+      "finite_positive": true
+    },
+    {
+      "percentiles": [
+        1.221659866545761,
+        1.5088149501864867,
+        1.8864274198621611
+      ],
+      "fraction_not_above_one": 0.0,
+      "count_not_above_one": 0,
+      "gain_hash": "d812e3ed63bc54f290544903f9fe0ffefebbdc3751f7e5a3d3511881085e439f",
+      "counts_hash": "b94fc0ea66e24319bb8ba326ac593c1b085f70e0c25029c6ada631f79b6120f3",
+      "finite_positive": true
+    }
+  ],
+  "gates": {
+    "full_repeat": true,
+    "finite_positive": true,
+    "lower_percentile_gain": true
+  },
+  "draws": 2000,
+  "seed": 20260914,
+  "packet_histories": 100000,
+  "active_histories": 5261,
+  "scope": "Paired empirical packet bootstrap; no certified coverage, anatomy or physiological uncertainty."
+}

@@ -1,0 +1,157 @@
+{
+  "scope": "Source wording regression checks; test success does not promote numerical or biological gates.",
+  "source_files": 204,
+  "nonstring_ast_and_literal_keys_unchanged": true,
+  "cloud_environment": {
+    "python": "3.12",
+    "numpy": "2.4.1",
+    "scipy": "1.17.0",
+    "cuda_visible": false
+  },
+  "cloud_total": {
+    "tests": 247,
+    "failures": 3,
+    "errors": 0,
+    "skipped": 1,
+    "passed": 243
+  },
+  "shards": [
+    {
+      "shard": 0,
+      "elapsed_s": 49.878811400000004,
+      "exit_code": 0,
+      "tests": 31,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "shard": 1,
+      "elapsed_s": 55.608908068000005,
+      "exit_code": 0,
+      "tests": 31,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "shard": 2,
+      "elapsed_s": 43.234173444,
+      "exit_code": 0,
+      "tests": 31,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "shard": 3,
+      "elapsed_s": 482.246287497,
+      "exit_code": 1,
+      "tests": 31,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 1
+    },
+    {
+      "shard": 4,
+      "elapsed_s": 654.79162903,
+      "exit_code": 1,
+      "tests": 31,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "shard": 5,
+      "elapsed_s": 105.24956093200001,
+      "exit_code": 0,
+      "tests": 31,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "shard": 6,
+      "elapsed_s": 325.25602056599996,
+      "exit_code": 0,
+      "tests": 31,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "shard": 7,
+      "elapsed_s": 83.41610154,
+      "exit_code": 0,
+      "tests": 30,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "cloud_failures": [
+    {
+      "test": "test_cell_runs[cardiovascular/arterial_nonlinear_compliance_pressure_sweep_deferred_arithmetic]",
+      "elapsed_s": 120.438,
+      "reason": "AssertionError: timeout after 120 s\nassert None == 0"
+    },
+    {
+      "test": "test_cell_runs[gastrointestinal/gi_motility_slow_waves]",
+      "elapsed_s": 400.02,
+      "reason": "AssertionError: timeout after 400 s\nassert None == 0"
+    },
+    {
+      "test": "test_cell_runs[nervous/spinal_cpg]",
+      "elapsed_s": 120.023,
+      "reason": "AssertionError: timeout after 120 s\nassert None == 0"
+    }
+  ],
+  "original_per_cell_timeouts_unchanged": true,
+  "local_environment": {
+    "python": "3.13.11",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "local_targeted": {
+    "arterial_pressure": {
+      "passed": true,
+      "elapsed_s": 58.16,
+      "timeout_s": 120
+    },
+    "gastrointestinal_slow_waves": {
+      "passed": true,
+      "elapsed_s": 298.38,
+      "timeout_s": 400
+    },
+    "spinal_cpg": {
+      "passed": true,
+      "elapsed_s": 69.6,
+      "timeout_s": 120
+    }
+  },
+  "local_framework_after_final_prose": {
+    "passed": 9,
+    "elapsed_s": 0.19
+  },
+  "cold_graph_fixture_repeats": [
+    {
+      "passed": 3,
+      "skipped": 1
+    },
+    {
+      "passed": 3,
+      "skipped": 1
+    }
+  ],
+  "initial_cloud_attempt": {
+    "passed": 166,
+    "errors": 4,
+    "failures": 2,
+    "interrupted": true,
+    "elapsed_s": 1393.528527196,
+    "scope": "Superseded incomplete test snapshot; JSONL transport omission and cold-lock fixture error retained."
+  },
+  "full_make_verify_accepted": false,
+  "stale_recipe_source_pins": 9,
+  "single_environment_full_suite_green": false
+}

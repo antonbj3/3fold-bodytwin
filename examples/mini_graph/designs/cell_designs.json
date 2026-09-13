@@ -1,0 +1,84 @@
+{
+  "foundational": [
+    {
+      "node": {
+        "id": "MODEL-EXAMPLE-MEMBRANE-POTENTIAL",
+        "claim": "A Goldman-Hodgkin-Katz model with measured ion concentrations and permeability ratios reproduces a measured resting membrane potential within 10 mV.",
+        "type": "EMPIRICAL",
+        "status": "OPEN",
+        "evidence": [],
+        "depends_on": [],
+        "risk": "MED",
+        "regime_note": "adult mammalian, 37 C"
+      },
+      "cert": {
+        "hidden": "intracellular ion activities",
+        "occluded": true,
+        "legs": [
+          {
+            "name": "GHK from measured concentrations",
+            "source_ids": [
+              "SRC-CONC-1"
+            ]
+          },
+          {
+            "name": "electrogenic pump contribution",
+            "source_ids": [
+              "SRC-PUMP-1"
+            ]
+          }
+        ],
+        "anchor": "independently measured resting potential in the same preparation",
+        "mode": "agreement",
+        "_verify": {
+          "verdict": "un-audited",
+          "plan": "compare the computed potential against the held-out measured potential"
+        }
+      }
+    }
+  ],
+  "clusters": {
+    "nervous": {
+      "cells": [
+        {
+          "node": {
+            "id": "MODEL-EXAMPLE-PUMP-TURNOVER",
+            "claim": "Three independent measurement families agree on the Na/K-ATPase turnover number within a factor of two after temperature correction.",
+            "type": "EMPIRICAL",
+            "status": "OPEN",
+            "evidence": [],
+            "depends_on": [
+              "MODEL-EXAMPLE-MEMBRANE-POTENTIAL"
+            ],
+            "risk": "LOW",
+            "regime_note": "37 C"
+          },
+          "cert": {
+            "hidden": "per-site cycling rate",
+            "occluded": true,
+            "legs": [
+              {
+                "name": "deocclusion rate constant",
+                "source_ids": [
+                  "SRC-KIN-1"
+                ]
+              },
+              {
+                "name": "flux/density back-calculation",
+                "source_ids": [
+                  "SRC-FLUX-1"
+                ]
+              }
+            ],
+            "anchor": "a fourth, independently reported turnover figure",
+            "mode": "agreement",
+            "_verify": {
+              "verdict": "un-audited",
+              "plan": "all families inside the pre-registered band after temperature correction"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

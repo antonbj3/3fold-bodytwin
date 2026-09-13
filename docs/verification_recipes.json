@@ -1,0 +1,342 @@
+{
+  "recipes": [
+    {
+      "id": "profiled_information",
+      "members": {
+        "src/bodytwin/geometry/optics/profiled_information_v1.py": "4f229d62767fab5b733a3234fa3a9eb1c311546ee676cc2c07e05ce451107d02",
+        "probes/optics/profiled_information_probe.py": "687366c1d81c294c33c4af128169ffae2d9e58b51cbdc09bc708b98b56d08b14"
+      },
+      "sources": {
+        "src/bodytwin/geometry/optics/profiled_information_v1.py": "db7cfb7a21c304323cc391a56c68a2653fccec33e733eca9d1ab556f1991ddc6",
+        "probes/optics/profiled_information_probe.py": "054778729765d771f89b2a61359cf16192eae83e262d0c6ff29c8fbc4ec3e0f8"
+      },
+      "inputs": {
+        "reports/atlas_detector_gain_nuisance.npz": "808fa7840f37e44a6bebe108cab85ad20c85c6f92413864c1022de5dbaa691ea"
+      },
+      "argv": [
+        "probes/optics/profiled_information_probe.py",
+        "reports/atlas_detector_gain_nuisance.npz"
+      ],
+      "expected_report": "reports/profiled_information_probe.json",
+      "expected_report_sha256": "6d95f9298b152f071d685a96c8d71736d49ef23f3865c784c0cba588e58a4795",
+      "family": "detectors"
+    },
+    {
+      "id": "grouped_selection",
+      "members": {
+        "src/bodytwin/geometry/optics/grouped_detector_selection_v1.py": "89009c2fd5f56bb40156f93d58b8a50bd58b44dc7b1e57c27847fde6b5d1da9d",
+        "probes/optics/grouped_detector_selection_probe.py": "9a5a56f24efb274160231be3e7d3556175e901d504e171b2d2b64adfa39db026"
+      },
+      "sources": {
+        "src/bodytwin/geometry/optics/profiled_information_v1.py": "db7cfb7a21c304323cc391a56c68a2653fccec33e733eca9d1ab556f1991ddc6",
+        "src/bodytwin/geometry/optics/grouped_detector_selection_v1.py": "6f12fd0b78f818a9231deec6ab8af1e61d45c54f1acf37fc3d3f482567965cde",
+        "probes/optics/grouped_detector_selection_probe.py": "fe7416135554605440acda34aa2252bd062a238392c3f72835c8eef141f73e0d"
+      },
+      "inputs": {
+        "reports/atlas_detector_three_band_selection.json": "c8aa4be1cd71c64d44348fd73429506a9061ff96517f77823a6987e35d6f1453",
+        "reports/atlas_detector_three_band_selection.npz": "3bf1432367ed358432ab92fe6e59cac9e69d543e71cdae85ee8b20f2bc245321",
+        "reports/atlas_detector_three_band_confirmation.npz": "4bd0d464c99de0b481edda6ff53d65df424016c5215cbf4abffe411dda1a518e"
+      },
+      "argv": [
+        "probes/optics/grouped_detector_selection_probe.py",
+        "--selection",
+        "reports/atlas_detector_three_band_selection.json",
+        "--training",
+        "reports/atlas_detector_three_band_selection.npz",
+        "--confirmation",
+        "reports/atlas_detector_three_band_confirmation.npz"
+      ],
+      "expected_report": "reports/grouped_detector_selection_probe.json",
+      "expected_report_sha256": "f871944ef9c777f7288e63b2e9841f8895fb65f628ed1a858e48584c82a7b59d",
+      "family": "detectors"
+    },
+    {
+      "id": "aging_cells",
+      "family": "cells",
+      "members": {
+        "src/bodytwin/cells/aging/cellular_senescence.py": "a32cdf46f16784063c9d3527c35617b01de141e4c46cfa65be9aad225034a90d",
+        "src/bodytwin/cells/aging/telomere_attrition.py": "b0811595aa054327d5459348f52aae3fe1ba9b7fd13d707b19497030c6ff3f17",
+        "probes/verification/aging_cells_probe.py": "385f5cc080c13101d9d379969614781a965fa2c56830d88240667b3d523b3ab1"
+      },
+      "sources": {
+        "src/bodytwin/cells/aging/cellular_senescence.py": "8c8c5cb4c088a8412cd925fb4f9b0ed6d1ba8f68962e4ad66e7e7b0a112d03c3",
+        "src/bodytwin/cells/aging/telomere_attrition.py": "79fefe0daac951fb7668e68655acc67edb57878dd641513a08484de2c9398a32",
+        "probes/verification/aging_cells_probe.py": "48fe4386262382570bf1adf48aa7ddd98e2bcd94bc07247c43dcff88cd19623a"
+      },
+      "inputs": {},
+      "argv": [
+        "probes/verification/aging_cells_probe.py"
+      ],
+      "expected_report": "reports/wording_refresh/aging_cells.json",
+      "expected_report_sha256": "c806d8b5c2f786b9b312cecd4559388cc828840f0be0291c448d19394183e50c"
+    },
+    {
+      "id": "explicit_all_gates",
+      "family": "cells",
+      "members": {
+        "src/bodytwin/cells/cardiovascular/capillary_starling.py": "a33a58ab662daf624b051f1ee248e6861e4c1071d3a2b3119659a54ae6aade9c",
+        "src/bodytwin/cells/haematology/iron_hepcidin_dynamic_4state.py": "bc7dc2ae956ff5cf13f82ef9d6adb2fb4c54acbb260befd60a6f1e83b1dea856",
+        "probes/verification/explicit_all_gates_probe.py": "2d9a1142dee978319fd7fb78bc4bfcb0c0a8ea9f23504519bc2319477e305a84"
+      },
+      "sources": {
+        "src/bodytwin/cells/cardiovascular/capillary_starling.py": "c2307a8d30932d2da83cbb607a3e670f6513445c70027694d7ff2a8fdab989ea",
+        "src/bodytwin/cells/haematology/iron_hepcidin_dynamic_4state.py": "404179f718a47a8f9a14c83ff47ab9e0b0264b61b5b6f0ac792acc496ac8c2b7",
+        "probes/verification/explicit_all_gates_probe.py": "a93ce0787e585518246e9f1a707d54edc16af5909df0014c33825e95bb30a528"
+      },
+      "inputs": {},
+      "argv": [
+        "probes/verification/explicit_all_gates_probe.py"
+      ],
+      "expected_report": "reports/wording_refresh/explicit_all_gates.json",
+      "expected_report_sha256": "bd7c646827e39af4a53a77b464b8ff07857872e33955d0b06463af5a785e66de"
+    },
+    {
+      "id": "pipeline_cells",
+      "family": "cells",
+      "members": {
+        "src/bodytwin/cells/cardiovascular/cardiac_output_geometric.py": "2e9ee736d65a9a6642341c9d4ef19bbc7efb4c2d1b7d8fa22b9b510adcef1c89",
+        "src/bodytwin/cells/endocrine/glucose_insulin_minimal_model.py": "21d3e633f3339b78db4d7125b57b047b6a81f43baa62fb93349e1d08cd6b809f",
+        "probes/verification/pipeline_cells_probe.py": "9a57d355f4467e1220b78d66906b3580b4e1076c745265c4a011f630f069751d"
+      },
+      "sources": {
+        "src/bodytwin/cells/cardiovascular/cardiac_output_geometric.py": "8c55ca5dabe0c9a85c36212071687c266188a5ee1f8f2e733ab9586eb7db372b",
+        "src/bodytwin/cells/endocrine/glucose_insulin_minimal_model.py": "ad7169a41c6c784417648c46a142193b8a582369f15cf580961c9fc192f2d6c9",
+        "probes/verification/pipeline_cells_probe.py": "c909671ffa5e67b18dc5392a458be3a04a7cb9ca285e5e083e2a3595ee5bc3c8"
+      },
+      "inputs": {},
+      "argv": [
+        "probes/verification/pipeline_cells_probe.py"
+      ],
+      "expected_report": "reports/wording_refresh/pipeline_cells.json",
+      "expected_report_sha256": "a699845014f88430766f960596482bb168ab191fe12511d7f5005cb34f81fc4c"
+    },
+    {
+      "id": "common_spectral_gains",
+      "family": "detectors",
+      "members": {
+        "probes/optics/atlas_spectral_gain_nuisance.py": "35fea15ef5a0935f0e5e55b803ada7174ff526d5639161094d57791e9da6115d"
+      },
+      "sources": {
+        "probes/optics/atlas_spectral_gain_nuisance.py": "660ec3ebe33157291578407b624b5f5f68e8e61b742a31f72704eb4eb03b3516",
+        "src/bodytwin/geometry/optics/profiled_information_v1.py": "db7cfb7a21c304323cc391a56c68a2653fccec33e733eca9d1ab556f1991ddc6"
+      },
+      "inputs": {
+        "reports/atlas_detector_third_wavelength.npz": "2e9005b8d2b9575c5ac1e6dc1703a2ad56080b9516f712a2d92384e36a196d43"
+      },
+      "argv": [
+        "probes/optics/atlas_spectral_gain_nuisance.py",
+        "reports/atlas_detector_third_wavelength.npz"
+      ],
+      "expected_report": "reports/atlas_spectral_gain_nuisance.json",
+      "expected_report_sha256": "83e5a426ad086060b2a16b903321a4aeb0a9368126c985a3096e6e7fa6cb7f9d"
+    },
+    {
+      "id": "fresh_spectral_gains",
+      "family": "detectors",
+      "members": {
+        "probes/optics/atlas_fresh_spectral_gain_probe.py": "ad2fa3aaf3fc87ed46f391502c604d51366dd1591ecdb02ffa0d18f13ee2677f"
+      },
+      "sources": {
+        "probes/optics/atlas_fresh_spectral_gain_probe.py": "5bf3a8e6c669ea03f2e06c225be8f548dc4012076324c876436ccd8e9c55b9f6",
+        "src/bodytwin/geometry/optics/profiled_information_v1.py": "db7cfb7a21c304323cc391a56c68a2653fccec33e733eca9d1ab556f1991ddc6"
+      },
+      "inputs": {
+        "reports/atlas_detector_three_band_confirmation.npz": "4bd0d464c99de0b481edda6ff53d65df424016c5215cbf4abffe411dda1a518e"
+      },
+      "argv": [
+        "probes/optics/atlas_fresh_spectral_gain_probe.py",
+        "reports/atlas_detector_three_band_confirmation.npz"
+      ],
+      "expected_report": "reports/atlas_fresh_spectral_gain.json",
+      "expected_report_sha256": "450614cd751366002d3b8737c2b48d4efb7b38e8565e008ce9078bd66b58d5bb"
+    },
+    {
+      "id": "strict_endocrine",
+      "family": "cells",
+      "timeout_seconds": 840,
+      "members": {
+        "src/bodytwin/cells/endocrine/hpg_male_axis.py": "74eec357bf12707c676d25b37572a0263086ad6067b31f9849fe78f973354437",
+        "src/bodytwin/cells/endocrine/ovarian_cycle_axis.py": "9d579d6e2cf0d2cd94e5a7a65484007d72c1c5ee166cf7bd0a42544ed6d37d24",
+        "probes/verification/strict_endocrine_probe.py": "e228bebb25b8fbb49d55866610ad22bcf87ba8381a5659e289166ccb7c179ee7"
+      },
+      "sources": {
+        "src/bodytwin/cells/endocrine/hpg_male_axis.py": "6789b13401e50217d7d4e6f531b7a7cbaaecc0e1626bb27f365371727dff0240",
+        "src/bodytwin/cells/endocrine/ovarian_cycle_axis.py": "1d21f85cce80cccba8f1805614beacf77c3060aae9323a1ad4b283daca2709de",
+        "probes/verification/strict_endocrine_probe.py": "6775bf6da1a6cbb670c9c8a8b822e13df581e879960f4ce4670b68f17e8987dc"
+      },
+      "inputs": {},
+      "argv": [
+        "probes/verification/strict_endocrine_probe.py"
+      ],
+      "expected_report": "reports/wording_refresh/strict_endocrine.json",
+      "expected_report_sha256": "93e90283cfbcdb52db9a4fd18cd33140908a1f23f89551fd0da11fbed458ab82"
+    },
+    {
+      "id": "gate_contract",
+      "family": "cells",
+      "members": {
+        "src/bodytwin/framework/numerical_gate_contract_v1.py": "99f029c02d151e70fb93a494232c7c11f9a20dc07bcf411bc83c36f80add6c49",
+        "probes/verification/numerical_gate_contract_probe.py": "14d2e97dcd2cd30005218ed5eba81777f8bd7148b0a21b5095922d008401a7da"
+      },
+      "sources": {
+        "src/bodytwin/framework/numerical_gate_contract_v1.py": "3eb4c1b2b8cc4e83a034a78409b6d44d5020a129c6f34e6b9ae3eee15b3b11e8",
+        "probes/verification/numerical_gate_contract_probe.py": "fdcf4bdfd2c5b7fad814af574db40050fffd62f838526e5499bbb4ecdabe034b"
+      },
+      "inputs": {
+        "reports/required_cells_probe.json": "3db45fb73cfee360104440a69c3f1c7fc1aff5af555384087f3289237f0b8b68",
+        "reports/explicit_all_gates_probe.json": "2d2975bd1a1423ddabc87ce7f9f24ffc465f4ef8cd5867dde3fb88e1ce043d67",
+        "reports/pipeline_cells_probe.json": "f918dd9a4e56fc7aef074a6b6506d89ef3a278f0121536a611e0442eaa471902",
+        "reports/strict_endocrine_probe.json": "d5f6869b6100a98c5d63113a1d0464982614ad997ae44daa81433f60f0858d25"
+      },
+      "argv": [
+        "probes/verification/numerical_gate_contract_probe.py",
+        "reports/required_cells_probe.json",
+        "reports/explicit_all_gates_probe.json",
+        "reports/pipeline_cells_probe.json",
+        "reports/strict_endocrine_probe.json"
+      ],
+      "expected_report": "reports/numerical_gate_contract_probe.json",
+      "expected_report_sha256": "ff8f415a3c5f28a52a9960f639401b94351f59aa4e96f7d27d90b2543a6d36c4"
+    },
+    {
+      "id": "declared_pipeline",
+      "family": "cells",
+      "members": {
+        "probes/verification/declared_cell_recipe.py": "e84b47d90e7b720c260ab629555acebf6ee5793802cc83da5ea96c01c62e1551"
+      },
+      "sources": {
+        "probes/verification/declared_cell_recipe.py": "f6b2e92e9dd44e51dc3b4cf83ba245d0e77e31d2a293a2d55e9ee301ceb4a715",
+        "src/bodytwin/framework/numerical_gate_contract_v1.py": "3eb4c1b2b8cc4e83a034a78409b6d44d5020a129c6f34e6b9ae3eee15b3b11e8",
+        "src/bodytwin/cells/cardiovascular/cardiac_output_geometric.py": "8c55ca5dabe0c9a85c36212071687c266188a5ee1f8f2e733ab9586eb7db372b",
+        "src/bodytwin/cells/endocrine/glucose_insulin_minimal_model.py": "ad7169a41c6c784417648c46a142193b8a582369f15cf580961c9fc192f2d6c9"
+      },
+      "inputs": {
+        "docs/pipeline_cell_recipe.json": "e2c423ee7ac4f26d51f30ffea86baf586a7f53840894c78132b726edda0ba760"
+      },
+      "argv": [
+        "probes/verification/declared_cell_recipe.py",
+        "--spec",
+        "docs/pipeline_cell_recipe.json"
+      ],
+      "expected_report": "reports/wording_refresh/declared_pipeline.json",
+      "expected_report_sha256": "a699845014f88430766f960596482bb168ab191fe12511d7f5005cb34f81fc4c"
+    },
+    {
+      "id": "additional_cells",
+      "family": "cells",
+      "timeout_seconds": 840,
+      "members": {
+        "src/bodytwin/cells/organ_systems/melanin_photoprotection.py": "152354920892053e730779bdbd3d660010a3184a234912e13ab922de823eff8d",
+        "src/bodytwin/cells/signalling/nfkb_signaling_dynamics.py": "1bba088214599ad435f3d40ce4465d449909235a15fef5c157c9422547b93dd1"
+      },
+      "sources": {
+        "src/bodytwin/cells/organ_systems/melanin_photoprotection.py": "43daccdced6f8457f62ff57855eae3f637e31323001bb96e674f91402a8a30cc",
+        "src/bodytwin/cells/signalling/nfkb_signaling_dynamics.py": "4cf89ef54aa42adeadfe26d01566c89329ba5d5b0c444cc675f0971f9acec2b4",
+        "probes/verification/declared_cell_recipe.py": "f6b2e92e9dd44e51dc3b4cf83ba245d0e77e31d2a293a2d55e9ee301ceb4a715",
+        "src/bodytwin/framework/numerical_gate_contract_v1.py": "3eb4c1b2b8cc4e83a034a78409b6d44d5020a129c6f34e6b9ae3eee15b3b11e8"
+      },
+      "inputs": {
+        "docs/additional_cell_recipe.json": "c5e3630f57dbd59f2c41eef17a5b26f6045dab3ed6433808a3579e63ef82d69f"
+      },
+      "argv": [
+        "probes/verification/declared_cell_recipe.py",
+        "--spec",
+        "docs/additional_cell_recipe.json"
+      ],
+      "expected_report": "reports/wording_refresh/additional_cells.json",
+      "expected_report_sha256": "72e3f0b74e90bfa46b6cf5a61edbd3b21513401aeb6d309cc01c8529a53d5c84"
+    },
+    {
+      "id": "capped_profile_bound",
+      "family": "detectors",
+      "members": {
+        "src/bodytwin/geometry/optics/profiled_information_bound_v1.py": "9802fc9367521a25b74ef46153385b463af5628a26860951453f12d5d1fd7ea1",
+        "probes/optics/atlas_capped_profile_bound_probe.py": "7d31ceedb377bda43ad61aa51b37432ce502f672f990f5ac42453b4614743f57"
+      },
+      "sources": {
+        "src/bodytwin/geometry/optics/profiled_information_bound_v1.py": "ac174671ff17a7faa48817d780e8999391278929bb9fafd2630aacddada80da4",
+        "probes/optics/atlas_capped_profile_bound_probe.py": "c62fbce1ca2e9680ab164c391c07aaf66ab9f0e0ba935e374fa54ecb40fd45f4",
+        "src/bodytwin/geometry/optics/profiled_information_v1.py": "db7cfb7a21c304323cc391a56c68a2653fccec33e733eca9d1ab556f1991ddc6"
+      },
+      "inputs": {
+        "reports/atlas_capped_history_mechanism.json": "21ca5966756456e2d63ca0095625a7e8c04500b71a9baf0992a010994cdd64ca",
+        "reports/atlas_fresh_spectral_gain.npz": "cc40f3c98ebe79e4eec59ad984560438c30931fa6ee5045bdbd1c18b7d3d2401"
+      },
+      "argv": [
+        "probes/optics/atlas_capped_profile_bound_probe.py",
+        "--tails",
+        "reports/atlas_capped_history_mechanism.json",
+        "--jacobians",
+        "reports/atlas_fresh_spectral_gain.npz"
+      ],
+      "expected_report": "reports/atlas_capped_profile_bound.json",
+      "expected_report_sha256": "691b124feecb8bf3b1cab2a655c28a00affd4fd567e6e3301a3446071254340a"
+    },
+    {
+      "id": "embedded_overall",
+      "family": "cells",
+      "timeout_seconds": 440,
+      "members": {
+        "src/bodytwin/cells/gastrointestinal/deglutition_swallowing.py": "06034d6ac6a347ebc72baefffaa532beadeeb66ecbc2a79a8bee259350315ef7",
+        "probes/verification/embedded_overall_probe.py": "172bb0fa14fd32d0cb1af79a4e73db481872eb4d76c7e7e82ef1612a3748b112"
+      },
+      "sources": {
+        "src/bodytwin/cells/gastrointestinal/deglutition_swallowing.py": "43078fbaed1dd0842b1413ba3cea6b7d798bbf778f4abe38f7808321696378d0",
+        "probes/verification/embedded_overall_probe.py": "ace1f12053133351392822a3e6f9c066190f3468bb95ce947479d3e150970faa",
+        "src/bodytwin/framework/numerical_gate_contract_v1.py": "3eb4c1b2b8cc4e83a034a78409b6d44d5020a129c6f34e6b9ae3eee15b3b11e8"
+      },
+      "inputs": {},
+      "argv": [
+        "probes/verification/embedded_overall_probe.py"
+      ],
+      "expected_report": "reports/wording_refresh/embedded_overall.json",
+      "expected_report_sha256": "fc88d22bda7488f73dfcb3aff406fb1f2ef823926aa2931a9fc87e764fca4b7b"
+    },
+    {
+      "id": "optional_coupling_measurement",
+      "family": "cells",
+      "timeout_seconds": 440,
+      "members": {
+        "probes/verification/optional_coupling_measurement.py": "aeecf5ed3ccffcb500b07dd2fe16d1353ad5c74eca7b8c25c4fe68e5d6587a4c"
+      },
+      "sources": {
+        "probes/verification/optional_coupling_measurement.py": "c0a68d08f08959f4d940f213962eb5fead55ae8c700ea1fe9dde60a902efd012",
+        "src/bodytwin/cells/endocrine/vitamin_d_activation.py": "3f23dd823ea265b75e5a47151dd08c9b9266c5289481998f80018a4f7f92f295"
+      },
+      "inputs": {},
+      "argv": [
+        "probes/verification/optional_coupling_measurement.py"
+      ],
+      "expected_report": "reports/wording_refresh/optional_coupling_measurement.json",
+      "expected_report_sha256": "5fbc3766ef5163e3c36a3ff47b823ee7c345e2deaeb73d69c52f51a9f580b74c"
+    },
+    {
+      "id": "coupled_activation",
+      "family": "cells",
+      "timeout_seconds": 900,
+      "members": {
+        "src/bodytwin/cells/endocrine/calcium_pth_vitd.py": "e43b160495be8519ad9e9ff53f6f958082f7d8d48136b9c2e2ff1bb66e1711a1",
+        "src/bodytwin/cells/renal/renal_filtration.py": "3ca1774655803ce9ff45d8ca7e3406686ce77a4a8c5ec595382373f63b3f6979",
+        "probes/verification/coupled_activation_measurement.py": "eeb4d1136732794b1f4b5307618fda3d87a596ae1038aeac5e0711dc55ee31f3",
+        "probes/verification/coupled_activation_contract.py": "95b0669d851ca32c616ba42126b807f031a27cf74a5f00627e6af3350f978918"
+      },
+      "sources": {
+        "probes/verification/coupled_activation_measurement.py": "ea941a254df0e6f664a7a9adf11cbf3d94747df3dbc48efbb6a7e1c3c9a61722",
+        "probes/verification/coupled_activation_contract.py": "1649c309ecc5a3fe68e771364fe629b078333266a296c17db77e01ee0f9237db",
+        "src/bodytwin/cells/renal/renal_filtration.py": "d0d451282fec3b58b696ace32e9c8e79540f5e417a2472731ef23cb1128629ab",
+        "src/bodytwin/cells/endocrine/calcium_pth_vitd.py": "bb91034d05bc10001593dd5e8c7f755601f3ec9d986368b50147c3150fcd9e90",
+        "probes/verification/optional_coupling_measurement.py": "c0a68d08f08959f4d940f213962eb5fead55ae8c700ea1fe9dde60a902efd012",
+        "src/bodytwin/cells/cardiovascular/cardiac_output_geometric.py": "8c55ca5dabe0c9a85c36212071687c266188a5ee1f8f2e733ab9586eb7db372b",
+        "src/bodytwin/cells/endocrine/vitamin_d_activation.py": "3f23dd823ea265b75e5a47151dd08c9b9266c5289481998f80018a4f7f92f295"
+      },
+      "inputs": {
+        "reports/wording_refresh/coupled_measurement.json": "d1abf2fd61870b818a15e59eb8e0fdbc9fb3e5aada78a75fcedcec9f5783cc5c"
+      },
+      "argv": [
+        "probes/verification/coupled_activation_contract.py"
+      ],
+      "expected_report": "reports/wording_refresh/coupled_activation.json",
+      "expected_report_sha256": "67215d21d1d94bfb4dd8da6b933d0ceaa3f2efc3a1a60c1c776e5f3c4880ce99"
+    }
+  ]
+}

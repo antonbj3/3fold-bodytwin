@@ -1,0 +1,73 @@
+{
+  "synthetic": true,
+  "note": "Synthetic stand-in for the bone_stress cell (not shipped). Generic textbook femoral-shaft values for a 70 kg adult: Euler-Bernoulli beam stresses with habitual peak strain in the 1500-2400 microstrain band, cortical E = 17 GPa; contains only the keys bone_remodeling reads.",
+  "primary": {
+    "peak_side": "medial",
+    "peak_stress_MPa": -34.0,
+    "sigma_axial_MPa": -3.0,
+    "sigma_bend_amp_MPa": 31.0,
+    "region": "femoral_shaft_subtrochanteric",
+    "s": 0.25,
+    "t_s": 0.35,
+    "pct_gait_cycle": 45.0,
+    "offset_mm": 40.0,
+    "outer_diam_mm": 27.0,
+    "thickness_mm": 6.5
+  },
+  "offset_sweep_results": {
+    "0.0": {
+      "peak_side": "medial",
+      "peak_stress_MPa": -26.0,
+      "sigma_axial_MPa": -3.0,
+      "sigma_bend_amp_MPa": 23.0,
+      "region": "femoral_shaft_subtrochanteric",
+      "s": 0.25,
+      "t_s": 0.35,
+      "pct_gait_cycle": 45.0
+    },
+    "40.0": {
+      "peak_side": "medial",
+      "peak_stress_MPa": -34.0,
+      "sigma_axial_MPa": -3.0,
+      "sigma_bend_amp_MPa": 31.0,
+      "region": "femoral_shaft_subtrochanteric",
+      "s": 0.25,
+      "t_s": 0.35,
+      "pct_gait_cycle": 45.0
+    },
+    "60.0": {
+      "peak_side": "medial",
+      "peak_stress_MPa": -40.0,
+      "sigma_axial_MPa": -3.0,
+      "sigma_bend_amp_MPa": 37.0,
+      "region": "femoral_shaft_subtrochanteric",
+      "s": 0.25,
+      "t_s": 0.35,
+      "pct_gait_cycle": 45.0
+    }
+  },
+  "geom_sweep_results": {
+    "od27.0_th6.5": {
+      "outer_diam_mm": 27.0,
+      "thickness_mm": 6.5,
+      "peak_side": "medial",
+      "peak_stress_MPa": -34.0,
+      "sigma_axial_MPa": -3.0,
+      "sigma_bend_amp_MPa": 31.0
+    },
+    "od25.0_th5.5": {
+      "outer_diam_mm": 25.0,
+      "thickness_mm": 5.5,
+      "peak_side": "medial",
+      "peak_stress_MPa": -41.0,
+      "sigma_axial_MPa": -3.5,
+      "sigma_bend_amp_MPa": 37.5
+    }
+  },
+  "unrestricted_whole_domain_diagnostic_NOT_headline": {
+    "peak_stress_MPa": -60.0,
+    "region": "femoral_head_neck_outside_valid_beam_domain",
+    "s": 0.03,
+    "t_s": 0.35
+  }
+}

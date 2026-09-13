@@ -1,0 +1,117 @@
+{
+  "rows": [
+    {
+      "case": "single",
+      "rejected": false,
+      "triangles": 4,
+      "regions": [
+        {
+          "region": 1,
+          "six_volume": 1.0,
+          "expected_six_volume": 1.0,
+          "bad_incidence": 0,
+          "unbalanced_edges": 0
+        }
+      ],
+      "hashes": {
+        "vertices": "fa9892c9e9610f6d55239977c79a3863986220499aadb92ea677f8d09132ef11",
+        "faces": "3273ebe207a8ed9b56ef512da5674ad94ccb0e51e3e9a11c2aee314c19183fd3",
+        "front": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+        "back": "1b897dddd4c151e2a2e6e3e91b7ea0f7fc4fd5ed00ef1c9669e8566393a02586"
+      }
+    },
+    {
+      "case": "same",
+      "rejected": false,
+      "triangles": 6,
+      "regions": [
+        {
+          "region": 1,
+          "six_volume": 2.0,
+          "expected_six_volume": 2.0,
+          "bad_incidence": 0,
+          "unbalanced_edges": 0
+        }
+      ],
+      "hashes": {
+        "vertices": "fa9892c9e9610f6d55239977c79a3863986220499aadb92ea677f8d09132ef11",
+        "faces": "322f2a9387f84f1d6938ee61728be79a8bb97e859a420d102a2cd30223a0cb7b",
+        "front": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+        "back": "9638834d1f629557d9b80fa7eeb64409e238c0ef2e3149a55a39c3796f66e19a"
+      }
+    },
+    {
+      "case": "layers",
+      "rejected": false,
+      "triangles": 7,
+      "regions": [
+        {
+          "region": 1,
+          "six_volume": 1.0,
+          "expected_six_volume": 1.0,
+          "bad_incidence": 0,
+          "unbalanced_edges": 0
+        },
+        {
+          "region": 2,
+          "six_volume": 1.0,
+          "expected_six_volume": 1.0,
+          "bad_incidence": 0,
+          "unbalanced_edges": 0
+        }
+      ],
+      "hashes": {
+        "vertices": "fa9892c9e9610f6d55239977c79a3863986220499aadb92ea677f8d09132ef11",
+        "faces": "deb70bff6340c1f4973bcaeb9b59f5a6cbdfe5c179be90918796e97fa6d2f40f",
+        "front": "ab5ab9e4c79f911a85a2f07826c774cb2b338a48d185dd5d6b156b038c22cf05",
+        "back": "b604fa212dee8ca326a3a5105d025de208369b185e3e6e6ca03a97ba6f480fcc"
+      }
+    },
+    {
+      "case": "inverted",
+      "rejected": false,
+      "triangles": 7,
+      "regions": [
+        {
+          "region": 1,
+          "six_volume": 1.0,
+          "expected_six_volume": 1.0,
+          "bad_incidence": 0,
+          "unbalanced_edges": 0
+        },
+        {
+          "region": 2,
+          "six_volume": 1.0,
+          "expected_six_volume": 1.0,
+          "bad_incidence": 0,
+          "unbalanced_edges": 0
+        }
+      ],
+      "hashes": {
+        "vertices": "fa9892c9e9610f6d55239977c79a3863986220499aadb92ea677f8d09132ef11",
+        "faces": "deb70bff6340c1f4973bcaeb9b59f5a6cbdfe5c179be90918796e97fa6d2f40f",
+        "front": "ab5ab9e4c79f911a85a2f07826c774cb2b338a48d185dd5d6b156b038c22cf05",
+        "back": "b604fa212dee8ca326a3a5105d025de208369b185e3e6e6ca03a97ba6f480fcc"
+      }
+    },
+    {
+      "case": "duplicate",
+      "rejected": true,
+      "reason": "shared face has cells on the same side"
+    },
+    {
+      "case": "triple",
+      "rejected": true,
+      "reason": "face has more than two incident cells"
+    }
+  ],
+  "gates": {
+    "full_repeat": true,
+    "triangle_counts": true,
+    "exact_volumes": true,
+    "oriented_manifold": true,
+    "inversion_invariant": true,
+    "invalid_rejected": true
+  },
+  "scope": "Synthetic conforming-cell control only; arbitrary nonadjacent overlaps not checked."
+}

@@ -1,0 +1,108 @@
+{
+  "rows": [
+    {
+      "case": "block",
+      "triangles": 48,
+      "regions": [
+        {
+          "region": 1,
+          "six_volume": 48,
+          "expected_six_volume": 48,
+          "nonmanifold_edges": 0,
+          "unbalanced_edges": 0,
+          "maximum_edge_incidence": 2
+        }
+      ],
+      "hashes": {
+        "vertices": "43cabe80d23240d13bdd43959e7ab2fff7af739d675682ca9d7075364fab1627",
+        "faces": "15a1d1a4b2655036b6da5a92be3ca1ed4b0c52f636cc2644ff50a8abcf1929cd",
+        "front": "694dd20d01f3c507e1ea6c1d2c9ded0146b08db717117200114e27fea781cae6",
+        "back": "e89abc9f54a7968bff1d59fecfdb2b22ac516c11b61a02aa771ca73ec14f6724"
+      }
+    },
+    {
+      "case": "layers",
+      "triangles": 56,
+      "regions": [
+        {
+          "region": 1,
+          "six_volume": 24,
+          "expected_six_volume": 24,
+          "nonmanifold_edges": 0,
+          "unbalanced_edges": 0,
+          "maximum_edge_incidence": 2
+        },
+        {
+          "region": 2,
+          "six_volume": 24,
+          "expected_six_volume": 24,
+          "nonmanifold_edges": 0,
+          "unbalanced_edges": 0,
+          "maximum_edge_incidence": 2
+        }
+      ],
+      "hashes": {
+        "vertices": "6248b1abb2cbeca9a35b5f699b189a4433230e6d16006dd85b3c84563f7fb7e8",
+        "faces": "83e3295c44c8020c2c8c4c7de29935690488abefb85669a75d9daec62fa9c65f",
+        "front": "ef22aa8e57f6365f47c570a9d6b6e2d768708c2592eaad087d7fadf0ad9d5cf1",
+        "back": "fb807ec6ea39cc3ec354f78227dcbd29d9e483cf3e0352b2825d6c15d5a92292"
+      }
+    },
+    {
+      "case": "cavity",
+      "triangles": 120,
+      "regions": [
+        {
+          "region": 1,
+          "six_volume": 156,
+          "expected_six_volume": 156,
+          "nonmanifold_edges": 0,
+          "unbalanced_edges": 0,
+          "maximum_edge_incidence": 2
+        },
+        {
+          "region": 2,
+          "six_volume": 6,
+          "expected_six_volume": 6,
+          "nonmanifold_edges": 0,
+          "unbalanced_edges": 0,
+          "maximum_edge_incidence": 2
+        }
+      ],
+      "hashes": {
+        "vertices": "b84e3c6db52b2377afc143e5fd7ca2b08d086f859bcec086747506af814f5547",
+        "faces": "76086b3f9b9203a00401ab14ee876a2a831f1ea74fda18f09697e490bb3c9639",
+        "front": "953b6ee0873635e71ccafeeb8929a2c1ede50ef5aa4a69e52b91b468494f2cb4",
+        "back": "6dc3d787f3f84437766bec28824f58deb11aa260d2c9979dcec8506166e036b3"
+      }
+    },
+    {
+      "case": "edge_contact",
+      "triangles": 24,
+      "regions": [
+        {
+          "region": 1,
+          "six_volume": 12,
+          "expected_six_volume": 12,
+          "nonmanifold_edges": 1,
+          "unbalanced_edges": 0,
+          "maximum_edge_incidence": 4
+        }
+      ],
+      "hashes": {
+        "vertices": "5ebe499eb4a82191d91e5c319a03daf4380180325b7edc5a5c51b3053539c760",
+        "faces": "8bf6f0621d8e59b68323a42b101991adb4f88a8c7e6235d55513307a7c1dee8c",
+        "front": "e79544c4b6a20406a6d009a6dccdf75ebaf581562afffde6518b2ca08c4b50c1",
+        "back": "3f1698fd126cb9e5111fcde6d7b43d34d203e34f19b31b2baf517396e5d819ff"
+      }
+    }
+  ],
+  "gates": {
+    "full_repeat": true,
+    "exact_triangle_count": true,
+    "exact_region_volume": true,
+    "manifold_edges": false,
+    "directed_edge_balance": true
+  },
+  "scope": "Synthetic voxel boundaries; unrestricted manifold claim requires every gate."
+}

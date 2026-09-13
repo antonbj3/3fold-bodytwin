@@ -1,0 +1,100 @@
+{
+  "legs": [
+    {
+      "absorbed_fraction": 0.2858475061524023,
+      "layer_absorbed_fractions": [
+        0.17706063701499675,
+        0.1087868691374055
+      ],
+      "field_sha256": "79ac343ec3b80cf83bf61cd821bd021a13d085279fd8615910c1f9fcf53d4a90",
+      "detector_path_sha256": "bdce0f98eb26e3ced2280cc97b41ef30848c197f212dee3870072f430ac6e468",
+      "detectors": [
+        {
+          "id": 1,
+          "photons": 4217,
+          "detected_fraction": 0.00281081862729486,
+          "weighted_layer_path_mm": [
+            62.61902390723209,
+            2.188499103138981
+          ],
+          "second_layer_visitors": 669
+        }
+      ],
+      "weight_helper_max_difference": 1.1102230246251565e-16,
+      "finite_nonnegative": true,
+      "detector_exit_z_max_abs": 1.1008133071754855e-07
+    },
+    {
+      "absorbed_fraction": 0.2858476059011319,
+      "layer_absorbed_fractions": [
+        0.17706073678792114,
+        0.10878686911321071
+      ],
+      "field_sha256": "c6244394190b103883cb4d764ef086a1e02e5a1f3d4e78b526c3f63421a99e14",
+      "detector_path_sha256": "f9a317027d1d8a1f63a96e1ad1287191d3dfa78054439a58eaa1da18badce743",
+      "detectors": [
+        {
+          "id": 1,
+          "photons": 4217,
+          "detected_fraction": 0.00281081862729486,
+          "weighted_layer_path_mm": [
+            62.61902390723209,
+            2.188499103138981
+          ],
+          "second_layer_visitors": 669
+        }
+      ],
+      "weight_helper_max_difference": 1.1102230246251565e-16,
+      "finite_nonnegative": true,
+      "detector_exit_z_max_abs": 1.1008133071754855e-07
+    }
+  ],
+  "gates": {
+    "finite_nonnegative": true,
+    "physical_absorbed_fraction": true,
+    "nonempty_detector": true,
+    "weight_formula_matches_external_helper": true,
+    "external_full_field_repeat_exact": false
+  },
+  "max_field_repeat_difference": 1.9669532775878906e-05,
+  "properties": [
+    [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+    ],
+    [
+      0.005,
+      1.0,
+      0.01,
+      1.37
+    ],
+    [
+      0.01,
+      2.0,
+      0.8,
+      1.4
+    ]
+  ],
+  "layer_split_mm": 10.0,
+  "shape": [
+    60,
+    60,
+    60
+  ],
+  "source": "https://github.com/fangq/mcx/blob/master/pmcx/pmcx/utils.py",
+  "detectors": [
+    [
+      39.0,
+      29.0,
+      0.0,
+      2.0
+    ]
+  ],
+  "photons": 1000000,
+  "window_ns": 5.0,
+  "seed": 1648335518,
+  "pmcx_version": "0.7.1",
+  "scope": "synthetic layered external reference, inside-tissue launch; no clinical calibration or throughput claim"
+}

@@ -1,0 +1,59 @@
+{
+  "rows": [
+    {
+      "leg": 0,
+      "api_ms": 803.8305650000019,
+      "observed_ms": 798.1276000000008,
+      "phases_ms": {
+        "validation": 6.57233699999793,
+        "float_normals": 244.4630000000032,
+        "double_planes": 292.71385199999855,
+        "mesh_upload_build": 9.063735000001572,
+        "output_allocations": 0.5442099999974914,
+        "inputs_and_kernel": 226.3130600000025,
+        "readback": 15.246183999998664
+      },
+      "kernel_ms": 210.6891779999991,
+      "hashes": {
+        "absorption": "d06f770859c26bf7710fa4ec5bdb0ae86d67203c964f95715933ece44571bd54",
+        "terminal": "eccc76488533bb28472b8ba397ea3c7a9595ad71a6b8a45c5b678644b1fd9174",
+        "counters": "33a62eb3ceee0930d3cd1886a04c30204404b297b916fe35c55a5c1b6e2fc196",
+        "paths": "c372ccc5675040bfe5c24827b304c20ebc6e46a00a96861f55fc728394b1823f",
+        "exits": "3e090d5c1a28163918221c90e6b1e1c5ff68bf6bec43ed40d7479da543f055b8"
+      }
+    },
+    {
+      "leg": 1,
+      "api_ms": 790.6264370000002,
+      "observed_ms": 791.4786390000011,
+      "phases_ms": {
+        "validation": 6.456864000000451,
+        "float_normals": 242.94681399999973,
+        "double_planes": 288.39963999999793,
+        "mesh_upload_build": 8.599706000001817,
+        "output_allocations": 0.4982699999978024,
+        "inputs_and_kernel": 226.3380020000021,
+        "readback": 15.3195359999998
+      },
+      "kernel_ms": 210.69971900000084,
+      "hashes": {
+        "absorption": "d06f770859c26bf7710fa4ec5bdb0ae86d67203c964f95715933ece44571bd54",
+        "terminal": "eccc76488533bb28472b8ba397ea3c7a9595ad71a6b8a45c5b678644b1fd9174",
+        "counters": "33a62eb3ceee0930d3cd1886a04c30204404b297b916fe35c55a5c1b6e2fc196",
+        "paths": "c372ccc5675040bfe5c24827b304c20ebc6e46a00a96861f55fc728394b1823f",
+        "exits": "3e090d5c1a28163918221c90e6b1e1c5ff68bf6bec43ed40d7479da543f055b8"
+      }
+    }
+  ],
+  "photons": 1024,
+  "faces": 2754304,
+  "vertices": 1300783,
+  "output_bytes": 57012384,
+  "source_sha256": "9a4a4242f351a71a3a6b98ad347d329e5f9af936845debfc0650e8edfa671173",
+  "gates": {
+    "instrumentation_and_repeat_exact": true,
+    "energy": true,
+    "no_leaks_caps": true
+  },
+  "scope": "Fixed public voxel-interface fixture, synchronized phase observer; no anatomical or clinical acceptance."
+}

@@ -1,0 +1,58 @@
+{
+  "rows": [
+    {
+      "leg": 0,
+      "seconds": {
+        "baseline": 0.07099125800596084,
+        "batch": 0.016596938992734067
+      },
+      "hashes": {
+        "baseline": {
+          "records": "f2ed7363bcd5c2d68e5c9df06b716a0e13c7beb75312cec2c9ff7cbf7853916a",
+          "offsets": "02b83f1115c89a07c8dcaec0f352c277dac4e9eab9ee0f675eaf3ce3925ce823"
+        },
+        "batch": {
+          "records": "f2ed7363bcd5c2d68e5c9df06b716a0e13c7beb75312cec2c9ff7cbf7853916a",
+          "offsets": "02b83f1115c89a07c8dcaec0f352c277dac4e9eab9ee0f675eaf3ce3925ce823"
+        }
+      },
+      "speedup": 4.277370546282055
+    },
+    {
+      "leg": 1,
+      "seconds": {
+        "batch": 0.016525942002772354,
+        "baseline": 0.06976084699272178
+      },
+      "hashes": {
+        "batch": {
+          "records": "f2ed7363bcd5c2d68e5c9df06b716a0e13c7beb75312cec2c9ff7cbf7853916a",
+          "offsets": "02b83f1115c89a07c8dcaec0f352c277dac4e9eab9ee0f675eaf3ce3925ce823"
+        },
+        "baseline": {
+          "records": "f2ed7363bcd5c2d68e5c9df06b716a0e13c7beb75312cec2c9ff7cbf7853916a",
+          "offsets": "02b83f1115c89a07c8dcaec0f352c277dac4e9eab9ee0f675eaf3ce3925ce823"
+        }
+      },
+      "speedup": 4.221293223770171
+    }
+  ],
+  "cells": 1296,
+  "rays": 512,
+  "controls_passed": 32,
+  "controls_total": 32,
+  "maximum_oracle_error": 4.440892098500626e-16,
+  "gates": {
+    "full_baseline_equality": true,
+    "full_repeat": true,
+    "controls": true,
+    "oracle": true,
+    "inputs_unchanged": true,
+    "paired_speedup": true
+  },
+  "source_sha256": {
+    "tetra_ray_walk_v1.py": "5acddb1af8a49e4c9df2591ecd7162a4af45b1b2a672417735414ac01b5a1526",
+    "tetra_ray_batch_v1.py": "385c89b1907af4b05f4694a46b06b8a4bd9f9cb764ee20de88cc5e23b3b0630c"
+  },
+  "scope": "Synthetic CPU shared-origin straight-ray traversal only; no CUDA, photon, anatomy or clinical claim."
+}

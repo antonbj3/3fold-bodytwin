@@ -1,0 +1,101 @@
+{
+  "rows": [
+    [
+      {
+        "module": "src/bodytwin/cells/cardiovascular/capillary_starling.py",
+        "source_hash": "c2307a8d30932d2da83cbb607a3e670f6513445c70027694d7ff2a8fdab989ea",
+        "returncode": 0,
+        "output_hash": "40cda68623d947eaa508ce4cb1e3b71bfcde4ee6095905e9054c71539df42d66",
+        "output_bytes": 19035,
+        "gate_values": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gate_key_hash": "62d1eed0bd3ae7725aa9c7257e8f951fec54ed4a946198734fa2549b9b1231e3",
+        "required_pass": true
+      },
+      {
+        "module": "src/bodytwin/cells/haematology/iron_hepcidin_dynamic_4state.py",
+        "source_hash": "404179f718a47a8f9a14c83ff47ab9e0b0264b61b5b6f0ac792acc496ac8c2b7",
+        "returncode": 0,
+        "output_hash": "101456bab03f22939aef3f8659fd4f6679b56a56a79e12a7cc709cce34251fbc",
+        "output_bytes": 2470,
+        "gate_values": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gate_key_hash": "7f28e9b57a4e5dbe2dfec0b138d840f1059a1844a7a5c490a55bc4bf4b7292f4",
+        "required_pass": true
+      }
+    ],
+    [
+      {
+        "module": "src/bodytwin/cells/cardiovascular/capillary_starling.py",
+        "source_hash": "c2307a8d30932d2da83cbb607a3e670f6513445c70027694d7ff2a8fdab989ea",
+        "returncode": 0,
+        "output_hash": "40cda68623d947eaa508ce4cb1e3b71bfcde4ee6095905e9054c71539df42d66",
+        "output_bytes": 19035,
+        "gate_values": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gate_key_hash": "62d1eed0bd3ae7725aa9c7257e8f951fec54ed4a946198734fa2549b9b1231e3",
+        "required_pass": true
+      },
+      {
+        "module": "src/bodytwin/cells/haematology/iron_hepcidin_dynamic_4state.py",
+        "source_hash": "404179f718a47a8f9a14c83ff47ab9e0b0264b61b5b6f0ac792acc496ac8c2b7",
+        "returncode": 0,
+        "output_hash": "101456bab03f22939aef3f8659fd4f6679b56a56a79e12a7cc709cce34251fbc",
+        "output_bytes": 2470,
+        "gate_values": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gate_key_hash": "7f28e9b57a4e5dbe2dfec0b138d840f1059a1844a7a5c490a55bc4bf4b7292f4",
+        "required_pass": true
+      }
+    ]
+  ],
+  "gates": {
+    "full_repeat": true,
+    "required": true,
+    "completed": true,
+    "refusals": true
+  },
+  "scope": "Pinned source-defined numerical gate replay with complete output hashes; no fresh literature/clinical review."
+}

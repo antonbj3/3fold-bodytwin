@@ -1,0 +1,174 @@
+{
+  "gates": {
+    "children_complete": true,
+    "complete_controls": true,
+    "complete_repeat": true,
+    "coupling_pass_has_complete_evidence": false,
+    "finite": true,
+    "typed_overall": true
+  },
+  "overall_pass": false,
+  "rows": [
+    {
+      "arm": "absent",
+      "legs": [
+        {
+          "bytes": 39684,
+          "comparisons": {},
+          "coupling": false,
+          "evidence_complete": false,
+          "exit_code": 0,
+          "gate_count": 29,
+          "overall": false,
+          "passed": 28,
+          "sha256": "12ac3fd12f8f7b7c05268f5ff4bd46e9d53704b3e8a15bcecf90538a12b19808"
+        },
+        {
+          "bytes": 39684,
+          "comparisons": {},
+          "coupling": false,
+          "evidence_complete": false,
+          "exit_code": 0,
+          "gate_count": 29,
+          "overall": false,
+          "passed": 28,
+          "sha256": "12ac3fd12f8f7b7c05268f5ff4bd46e9d53704b3e8a15bcecf90538a12b19808"
+        }
+      ]
+    },
+    {
+      "arm": "empty",
+      "legs": [
+        {
+          "bytes": 39765,
+          "comparisons": {},
+          "coupling": true,
+          "evidence_complete": false,
+          "exit_code": 0,
+          "gate_count": 30,
+          "overall": true,
+          "passed": 30,
+          "sha256": "e7603d7eb9f8b58d6b13d8d0969fb3431ac35acd55eac08b91227dfe6b097f59"
+        },
+        {
+          "bytes": 39765,
+          "comparisons": {},
+          "coupling": true,
+          "evidence_complete": false,
+          "exit_code": 0,
+          "gate_count": 30,
+          "overall": true,
+          "passed": 30,
+          "sha256": "e7603d7eb9f8b58d6b13d8d0969fb3431ac35acd55eac08b91227dfe6b097f59"
+        }
+      ]
+    },
+    {
+      "arm": "partial",
+      "legs": [
+        {
+          "bytes": 40184,
+          "comparisons": {
+            "1_25_OH2_D_hours": null,
+            "25_OH_D_days": null,
+            "vitamin_d3_days": true
+          },
+          "coupling": true,
+          "evidence_complete": false,
+          "exit_code": 0,
+          "gate_count": 30,
+          "overall": true,
+          "passed": 30,
+          "sha256": "41092b46a650b2846e4d2dd32a19f5cb3790006f654a67820e11e4c3ec513fd9"
+        },
+        {
+          "bytes": 40184,
+          "comparisons": {
+            "1_25_OH2_D_hours": null,
+            "25_OH_D_days": null,
+            "vitamin_d3_days": true
+          },
+          "coupling": true,
+          "evidence_complete": false,
+          "exit_code": 0,
+          "gate_count": 30,
+          "overall": true,
+          "passed": 30,
+          "sha256": "41092b46a650b2846e4d2dd32a19f5cb3790006f654a67820e11e4c3ec513fd9"
+        }
+      ]
+    },
+    {
+      "arm": "complete_match",
+      "legs": [
+        {
+          "bytes": 40240,
+          "comparisons": {
+            "1_25_OH2_D_hours": true,
+            "25_OH_D_days": true,
+            "vitamin_d3_days": true
+          },
+          "coupling": true,
+          "evidence_complete": true,
+          "exit_code": 0,
+          "gate_count": 30,
+          "overall": true,
+          "passed": 30,
+          "sha256": "4f7f67cd8fbd448cdccb4305c58d4a2661cabd1eef28df7db642800b70dde042"
+        },
+        {
+          "bytes": 40240,
+          "comparisons": {
+            "1_25_OH2_D_hours": true,
+            "25_OH_D_days": true,
+            "vitamin_d3_days": true
+          },
+          "coupling": true,
+          "evidence_complete": true,
+          "exit_code": 0,
+          "gate_count": 30,
+          "overall": true,
+          "passed": 30,
+          "sha256": "4f7f67cd8fbd448cdccb4305c58d4a2661cabd1eef28df7db642800b70dde042"
+        }
+      ]
+    },
+    {
+      "arm": "complete_mismatch",
+      "legs": [
+        {
+          "bytes": 40246,
+          "comparisons": {
+            "1_25_OH2_D_hours": true,
+            "25_OH_D_days": true,
+            "vitamin_d3_days": false
+          },
+          "coupling": false,
+          "evidence_complete": true,
+          "exit_code": 0,
+          "gate_count": 30,
+          "overall": false,
+          "passed": 28,
+          "sha256": "45b9adfff129c7208b487bb1a89518984852191ead784ff359752647afa4c76e"
+        },
+        {
+          "bytes": 40246,
+          "comparisons": {
+            "1_25_OH2_D_hours": true,
+            "25_OH_D_days": true,
+            "vitamin_d3_days": false
+          },
+          "coupling": false,
+          "evidence_complete": true,
+          "exit_code": 0,
+          "gate_count": 30,
+          "overall": false,
+          "passed": 28,
+          "sha256": "45b9adfff129c7208b487bb1a89518984852191ead784ff359752647afa4c76e"
+        }
+      ]
+    }
+  ],
+  "source": "src/bodytwin/cells/endocrine/vitamin_d_activation.py",
+  "source_sha256": "f60ef4beaa9c5ebe5fd26f936562115c7f4ff425e82f6755304798f62aa940b0"
+}

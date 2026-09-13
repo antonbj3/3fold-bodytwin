@@ -1,0 +1,47 @@
+{
+  "rows": [
+    {
+      "case": "original",
+      "leg": 0,
+      "sequence": true,
+      "max_parameter_error": 4.440892098500626e-16,
+      "sha256": "b4f92d215dc479467abd66b427f43f03c1e408dd0b8a4847ba3dd6a8c5e0c3c5"
+    },
+    {
+      "case": "original",
+      "leg": 1,
+      "sequence": true,
+      "max_parameter_error": 4.440892098500626e-16,
+      "sha256": "b4f92d215dc479467abd66b427f43f03c1e408dd0b8a4847ba3dd6a8c5e0c3c5"
+    },
+    {
+      "case": "inverted",
+      "leg": 0,
+      "sequence": true,
+      "max_parameter_error": 4.440892098500626e-16,
+      "sha256": "54b3993c275d3302392561f53612ce057e1db6cb23d7f475190dc2622f732b86"
+    },
+    {
+      "case": "inverted",
+      "leg": 1,
+      "sequence": true,
+      "max_parameter_error": 4.440892098500626e-16,
+      "sha256": "54b3993c275d3302392561f53612ce057e1db6cb23d7f475190dc2622f732b86"
+    }
+  ],
+  "gates": {
+    "oracle": true,
+    "repeat": true,
+    "inversion": true,
+    "singular_refused": true,
+    "invalid_refused": true
+  },
+  "controls": {
+    "edge_source": true,
+    "edge_exit": true,
+    "zero_direction": true,
+    "nan_direction": true,
+    "duplicate_cells": true
+  },
+  "scope": "Synthetic conforming straight-ray cell traversal only; no invalid-atlas or photon transport promotion."
+}

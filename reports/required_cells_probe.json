@@ -1,0 +1,111 @@
+{
+  "rows": [
+    [
+      {
+        "module": "src/bodytwin/cells/endocrine/glucose_meal_dallaman2007.py",
+        "source_hash": "1c96a5970119e2ae2bc59b26f547b950ca425c35f102d476717de8ced97b1500",
+        "returncode": 0,
+        "output_hash": "d76c278c39ab1d17cf82d1b23980885feec77004d529ace6522cd45b4fec85cb",
+        "output_bytes": 3069,
+        "gate_values": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          true,
+          true,
+          true
+        ],
+        "gate_key_hash": "a71182bbf7cde6ddc10372f06899f417c1abb8b438e09f6507bcf9de5c80ff67",
+        "required_pass": false
+      },
+      {
+        "module": "src/bodytwin/cells/haematology/iron_hepcidin_dynamic_4state.py",
+        "source_hash": "404179f718a47a8f9a14c83ff47ab9e0b0264b61b5b6f0ac792acc496ac8c2b7",
+        "returncode": 0,
+        "output_hash": "86499dbe87406cad933cdbf5bbc3cda780f35da21ee5404fa51237519315457d",
+        "output_bytes": 2470,
+        "gate_values": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gate_key_hash": "7f28e9b57a4e5dbe2dfec0b138d840f1059a1844a7a5c490a55bc4bf4b7292f4",
+        "required_pass": true
+      }
+    ],
+    [
+      {
+        "module": "src/bodytwin/cells/endocrine/glucose_meal_dallaman2007.py",
+        "source_hash": "1c96a5970119e2ae2bc59b26f547b950ca425c35f102d476717de8ced97b1500",
+        "returncode": 0,
+        "output_hash": "d76c278c39ab1d17cf82d1b23980885feec77004d529ace6522cd45b4fec85cb",
+        "output_bytes": 3069,
+        "gate_values": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          true,
+          true,
+          true
+        ],
+        "gate_key_hash": "a71182bbf7cde6ddc10372f06899f417c1abb8b438e09f6507bcf9de5c80ff67",
+        "required_pass": false
+      },
+      {
+        "module": "src/bodytwin/cells/haematology/iron_hepcidin_dynamic_4state.py",
+        "source_hash": "404179f718a47a8f9a14c83ff47ab9e0b0264b61b5b6f0ac792acc496ac8c2b7",
+        "returncode": 0,
+        "output_hash": "86499dbe87406cad933cdbf5bbc3cda780f35da21ee5404fa51237519315457d",
+        "output_bytes": 2470,
+        "gate_values": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gate_key_hash": "7f28e9b57a4e5dbe2dfec0b138d840f1059a1844a7a5c490a55bc4bf4b7292f4",
+        "required_pass": true
+      }
+    ]
+  ],
+  "gates": {
+    "full_repeat": true,
+    "required": false,
+    "completed": true,
+    "refusals": true
+  },
+  "scope": "Pinned source-defined numerical gate replay with complete output hashes; no fresh literature/clinical review."
+}

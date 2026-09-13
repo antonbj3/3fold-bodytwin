@@ -1,0 +1,86 @@
+{
+  "legs": [
+    {
+      "hashes": {
+        "isolated_0": "0cdc0b89058104022a1b67cf9efc9f95f4c1694b6be21007e2072a6c9d070068",
+        "isolated_1": "24cc808367aa02c45e211a7e8474f53afb3e63bd78b93d808d6ec61c2a15b9d2",
+        "isolated_2": "28bcd9e1a8b49e2d1c83be39d9dc6a9efd83e2b3124e8458897b65e64796500a",
+        "joint": "bd51c79f2c3207b8513ddc4cc8aff37e875b709b95fc4215518ca6d30465fdf6",
+        "grid": "ecd183950d112afeb675381747c9b6e6d8c32bed1063a592ff785a6da66d6af4",
+        "zero": "339b3d091eca39187897421babb78a1cc94f8079d153a22515db4aa3bd0287db"
+      },
+      "nominal_ratio": 1.215323496343131,
+      "joint_span": 0.055127841665889354,
+      "isolated_spans": [
+        0.01528312041533697,
+        0.01807486721927276,
+        0.03651684338280181
+      ],
+      "sum_isolated_spans": 0.06987483101741154,
+      "sample_interval_95": [
+        1.1916161693493625,
+        1.238607335149803
+      ],
+      "grid_span": 0.07036612253119023,
+      "grid_isolated_span_sum": 0.07042185221433894,
+      "random_within_grid": true,
+      "finite_physical": true,
+      "zero_band_exact": true,
+      "zero_blood_ratio": 1.0,
+      "oxygen_direction": true
+    },
+    {
+      "hashes": {
+        "isolated_0": "0cdc0b89058104022a1b67cf9efc9f95f4c1694b6be21007e2072a6c9d070068",
+        "isolated_1": "24cc808367aa02c45e211a7e8474f53afb3e63bd78b93d808d6ec61c2a15b9d2",
+        "isolated_2": "28bcd9e1a8b49e2d1c83be39d9dc6a9efd83e2b3124e8458897b65e64796500a",
+        "joint": "bd51c79f2c3207b8513ddc4cc8aff37e875b709b95fc4215518ca6d30465fdf6",
+        "grid": "ecd183950d112afeb675381747c9b6e6d8c32bed1063a592ff785a6da66d6af4",
+        "zero": "339b3d091eca39187897421babb78a1cc94f8079d153a22515db4aa3bd0287db"
+      },
+      "nominal_ratio": 1.215323496343131,
+      "joint_span": 0.055127841665889354,
+      "isolated_spans": [
+        0.01528312041533697,
+        0.01807486721927276,
+        0.03651684338280181
+      ],
+      "sum_isolated_spans": 0.06987483101741154,
+      "sample_interval_95": [
+        1.1916161693493625,
+        1.238607335149803
+      ],
+      "grid_span": 0.07036612253119023,
+      "grid_isolated_span_sum": 0.07042185221433894,
+      "random_within_grid": true,
+      "finite_physical": true,
+      "zero_band_exact": true,
+      "zero_blood_ratio": 1.0,
+      "oxygen_direction": true
+    }
+  ],
+  "gates": {
+    "full_chain_repeat_exact": true,
+    "finite_physical": true,
+    "zero_band": true,
+    "zero_blood": true,
+    "oxygen_direction": true,
+    "sample_composition": true,
+    "grid_composition": true,
+    "samples_inside_measured_grid": true
+  },
+  "seed": 20260912,
+  "draws": 256,
+  "nominal_inputs": [
+    60.0,
+    15.0,
+    1.0
+  ],
+  "uniform_half_bands": [
+    2.0,
+    0.75,
+    0.1
+  ],
+  "clinical_calibration_certified": false,
+  "scope": "conditional synthetic three-input propagation; excludes geometry/extinction/finite-photon uncertainty and clinical calibration"
+}
