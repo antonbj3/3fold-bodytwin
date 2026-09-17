@@ -1,0 +1,55 @@
+{
+  "note": "Controlled-model-swap fixtures: the registry pin is the change-control point. No physiology is copied or claimed; this is contract mechanics only.",
+  "producer_name": "model_swap_stub",
+  "input_sha256": "48016b0dc7f090cc095c7fcd6494a5b402fd7c62cf8f8fee14ae6089b155a224",
+  "producer_gate_outcome": {
+    "gates": {
+      "contract_test_fixture": true
+    },
+    "overall_pass": true
+  },
+  "producers": {
+    "producer_v1.py": {
+      "path": "tests/fixtures/i1/model_swap/producer_v1.py",
+      "sha256": "23332ca5b3a85ced2a23cfe6f007a1a1bba9cc4faf4a7165ad3f64b566b23eae"
+    },
+    "producer_v2.py": {
+      "path": "tests/fixtures/i1/model_swap/producer_v2.py",
+      "sha256": "ac4477151fed282aa4912e53d7d9bb2d957ef99dc01ce402df3fbde00658b23a"
+    }
+  },
+  "fixtures": {
+    "sealed_by_v1": {
+      "path": "tests/fixtures/i1/model_swap/sealed_by_v1.json",
+      "sha256": "20015b651fc67d79569b29d7b287f5598c254dcb685354a0291ea4e326518204",
+      "declared_source_sha256": "23332ca5b3a85ced2a23cfe6f007a1a1bba9cc4faf4a7165ad3f64b566b23eae",
+      "receipt_producer_sha256": "23332ca5b3a85ced2a23cfe6f007a1a1bba9cc4faf4a7165ad3f64b566b23eae"
+    },
+    "sealed_by_v2": {
+      "path": "tests/fixtures/i1/model_swap/sealed_by_v2.json",
+      "sha256": "8c85348f109cf25138df0423e0730e7fca6814ecf2b7d4ce951a32119261dfc1",
+      "declared_source_sha256": "ac4477151fed282aa4912e53d7d9bb2d957ef99dc01ce402df3fbde00658b23a",
+      "receipt_producer_sha256": "ac4477151fed282aa4912e53d7d9bb2d957ef99dc01ce402df3fbde00658b23a"
+    },
+    "cross_swap": {
+      "path": "tests/fixtures/i1/model_swap/cross_swap.json",
+      "sha256": "9d72364ae180b3b563f4fbcab8462248ebd3650a6d2bd4a43df98a51371f10ac",
+      "declared_source_sha256": "23332ca5b3a85ced2a23cfe6f007a1a1bba9cc4faf4a7165ad3f64b566b23eae",
+      "receipt_producer_sha256": "ac4477151fed282aa4912e53d7d9bb2d957ef99dc01ce402df3fbde00658b23a"
+    }
+  },
+  "registry_pins": {
+    "pin_v1": {
+      "producer_name": "model_swap_stub",
+      "producer_sha256": "23332ca5b3a85ced2a23cfe6f007a1a1bba9cc4faf4a7165ad3f64b566b23eae",
+      "input_sha256": "48016b0dc7f090cc095c7fcd6494a5b402fd7c62cf8f8fee14ae6089b155a224",
+      "payload_sha256": "345a0df034f906ace4c2417b52371c598d4c279c831c07860322c232d54ab2e7"
+    },
+    "pin_v2": {
+      "producer_name": "model_swap_stub",
+      "producer_sha256": "ac4477151fed282aa4912e53d7d9bb2d957ef99dc01ce402df3fbde00658b23a",
+      "input_sha256": "48016b0dc7f090cc095c7fcd6494a5b402fd7c62cf8f8fee14ae6089b155a224",
+      "payload_sha256": "282fce2a23c10b170510100a1b3919cddf84ed40d81d828ff7b6d60af03f9446"
+    }
+  }
+}

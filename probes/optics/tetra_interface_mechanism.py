@@ -40,7 +40,14 @@ def measure():
 
 
 if __name__=='__main__':
-    a,b=measure(),measure();gates=dict(full_repeat=a==b,finite_volumes=all(np.isfinite(r['cell_six_volumes']).all() for r in a))
-    report=dict(rows=a,gates=gates,scope='Synthetic tetrahedron face inventory, not a boundary converter certificate.')
+    a,b=measure(),measure()
+    # `inverted` is the intentionally-inverted control (cell_six_volumes==-1): a documented
+    # exception to the positive-orientation requirement. Every other fixture must have strictly
+    # positive oriented six-volumes, so a flipped/negative cell now fails the gate.
+    gates=dict(full_repeat=a==b,finite_volumes=all(np.isfinite(r['cell_six_volumes']).all() for r in a),
+               positive_oriented_volumes=all(x>0 for r in a if r['case']!='inverted' for x in r['cell_six_volumes']))
+    report=dict(rows=a,gates=gates,
+                excluded_oriented_controls={'inverted':'intentionally inverted fixture; negative oriented six-volumes expected'},
+                scope='Synthetic tetrahedron face inventory, not a boundary converter certificate.')
     (ROOT/'reports/tetra_interface_mechanism.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report));raise SystemExit(0 if all(gates.values()) else 2)

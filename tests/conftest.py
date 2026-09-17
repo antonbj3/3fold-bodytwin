@@ -20,3 +20,12 @@ def framework_env(root, graph=None):
     env["BODYTWIN_GRAPH"] = str(graph or pathlib.Path(root) / "ANCHOR_GRAPH.json")
     env["BODYTWIN_INVENTORY"] = str(pathlib.Path(root) / "CELL_INVENTORY.md")
     return env
+
+
+def pytest_configure(config):
+    if os.environ.get("BODYTWIN_RESEARCH_ROOT"):
+        import pytest
+
+        from research_data import RETIRED_MESSAGE
+
+        raise pytest.UsageError(RETIRED_MESSAGE)

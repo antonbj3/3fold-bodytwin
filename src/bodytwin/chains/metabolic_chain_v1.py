@@ -75,7 +75,7 @@ SEED = 20260912
 N_DRAWS = 256
 OGTT_WINDOW_MIN = 180.0
 GLUCOSE_MOLAR_MASS_MG_PER_MMOL = 180.16   # C6H12O6, same value the S1 cell uses for mg/dL<->mmol/L
-MOLAR_VOLUME_STPD_L_MOL = 22.414          # same constant as carbon_co2_conservation_closure.py
+MOLAR_VOLUME_STPD_L_MOL = 22.414          # 22.414 L/mol; same constant as carbon_co2_conservation_closure.py
 
 
 def _load_cell(name, relpath):
@@ -148,6 +148,64 @@ STAGE_TOLERANCES = {
     },
 }
 STAGES = list(STAGE_TOLERANCES)
+
+
+# ===================================================================================
+# Boundary invariants and typed input validation.
+# The existing gates are unit-blind; this independent stoichiometric closure catches a
+# wrong-unit swap that Fick closure and glucose mass balance do not.
+# ===================================================================================
+INPUT_SPEC = {
+    "meal_glucose_load_mg": ("mg", (0.0, 200000.0)),
+    "Gb_mgdl": ("mg/dL", (50.0, 150.0)),
+    "Ib_uUmL": ("uU/mL", (1.0, 30.0)),
+    "Si": ("1e-4/(uU/mL)/min", (1e-5, 1e-2)),
+    "Sg": ("1/min", (0.001, 0.1)),
+    "Vg_dL_per_kg": ("dL/kg", (1.0, 2.5)),
+    "body_mass_kg": ("kg", (20.0, 250.0)),
+    "ogtt_tau_min": ("min", (10.0, 120.0)),
+    "hb_g_dl": ("g/dL", (8.0, 22.0)),
+    "pao2_mmhg": ("mmHg", (40.0, 600.0)),
+    "pvo2_mmhg": ("mmHg", (10.0, 60.0)),
+    "o2_solubility_ml_dl_mmhg": ("mL/dL/mmHg", (0.0015, 0.005)),
+    "vo2_rest_ml_min": ("mL/min", (100.0, 600.0)),
+    "stroke_volume_rest_ml": ("mL", (30.0, 150.0)),
+}
+
+
+def validate_inputs(params):
+    """Typed, actionable seam errors instead of a raw KeyError (or silent acceptance)."""
+    for key, (unit, (lo, hi)) in INPUT_SPEC.items():
+        if key not in params:
+            raise ValueError(f"missing required quantity '{key}' ({unit})")
+        value = params[key]
+        if not isinstance(value, (int, float)):
+            raise ValueError(f"quantity '{key}' expected units '{unit}', got {type(value).__name__}")
+        if not lo <= value <= hi:
+            raise ValueError(f"quantity '{key}'={value} outside declared band ({lo}, {hi})")
+    for key in params:
+        if key not in INPUT_SPEC and key != "po_nadh":
+            raise ValueError(f"unknown quantity '{key}' (no consumer declared it)")
+
+
+def boundary_invariants(run, params=None):
+    """Independent conservation/stoichiometry checks on one chain result.
+
+    ``params`` must be the parameter set ``run`` was computed with; the glucose mass balance
+    uses its meal load, basal glucose, distribution volume and body mass. The default is
+    ``SYNTHETIC_REFERENCE``, which is correct for the nominal run that ``main()`` checks.
+    """
+    s1, s2, s3, s4 = (run["S1_glucose_insulin"], run["S2_oxphos_atp"],
+                      run["S3_blood_o2"], run["S4_cardiac_output"])
+    p = SYNTHETIC_REFERENCE if params is None else params
+    absorbed_mg = p["meal_glucose_load_mg"] * GLU.PARAMS["ogtt_f_absorbed"]
+    residual_mg = p["Vg_dL_per_kg"] * p["body_mass_kg"] * (s1["glucose_end_mgdl"] - p["Gb_mgdl"])
+    mass_closed = abs(s1["suprabasal_disposal_mg_min"] * OGTT_WINDOW_MIN + residual_mg - absorbed_mg) / absorbed_mg < 1e-9
+    fick_closed = abs(s4["cardiac_output_required_l_min"] * s3["avo2_diff_ml_dl"] * 10.0 - s4["vo2_total_ml_min"]) / s4["vo2_total_ml_min"] < 1e-9
+    o2_per_glucose = s2["o2_required_ml_min"] / (s2["glucose_mmol_min"] * MOLAR_VOLUME_STPD_L_MOL)
+    return {"glucose_mass_balance": bool(mass_closed), "fick_closure": bool(fick_closed),
+            "o2_per_glucose_in_band": bool(4.0 <= o2_per_glucose <= 8.0),
+            "o2_per_glucose_mol_per_mol": o2_per_glucose}
 
 
 # ===================================================================================
@@ -325,6 +383,8 @@ def main():
         "g04_cert_composition_subadditive": bool(composition_holds),
         "g05_null_zero_load_stays_at_baseline": bool(zero_ok),
         "g06_null_doubled_load_moves_every_stage_right_way": all(directions.values()),
+        "g07_boundary_invariants_hold": all(
+            v for k, v in boundary_invariants(nominal, SYNTHETIC_REFERENCE).items() if isinstance(v, bool)),
     }
     overall = all(gates.values())
 
@@ -342,6 +402,7 @@ def main():
                         "nonlinear_stage_flagged": nonlinear_flag},
         "null_cases": {"zero_load": zero_run, "doubled_load": doubled_run,
                        "directions": directions},
+        "boundary_invariants": boundary_invariants(nominal, SYNTHETIC_REFERENCE),
         "gates": gates, "overall_pass": overall,
     }
     OUT_JSON.write_text(json.dumps(results, indent=2))

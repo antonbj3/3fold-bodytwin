@@ -40,9 +40,23 @@ def observe(v,t,labels):
     return dict(cells=len(t),rays=len(directions),reference_intervals=reference_intervals,refusals=refusals,sequence_errors=sequence_errors,maximum_parameter_error=parameter_error,maximum_exit_error=exit_error,hashes={k:hashlib.sha256(a.tobytes()).hexdigest() for k,a in arrays.items()}),arrays
 
 
+def conforming_partition(v,t,labels,arrays):
+    # Independent partition check: fixture tiles the n-cube once (|det| volumes sum to n**3,
+    # expected 6*n**3 cells, one label per cell) and every traced ray emits a closed,
+    # non-repeating sequence of cell intervals (next entry == previous exit).
+    n=round(len(v)**(1/3))-1
+    six=np.einsum('ij,ij->i',v[t[:,1]]-v[t[:,0]],np.cross(v[t[:,2]]-v[t[:,0]],v[t[:,3]]-v[t[:,0]]))
+    if len(t)!=6*n**3 or len(labels)!=len(t) or not np.all(np.abs(six)>0) or abs(np.abs(six).sum()/6-n**3)>1e-9:return False
+    for start,stop in zip(arrays['offsets'][:-1],arrays['offsets'][1:]):
+        span=arrays['intervals'][start:stop]
+        if len(np.unique(span[:,0]))!=len(span):return False
+        if len(span)>1 and float(np.max(np.abs(span[1:,1]-span[:-1,2])))>1e-12:return False
+    return True
+
+
 def main():
     v,t,labels=fixture();first,a=observe(v,t,labels);second,b=observe(v,t,labels)
-    gates=dict(full_sequences=not first['refusals'] and first['sequence_errors']==0 and first['maximum_parameter_error']<=1e-12,analytic_exit=not first['refusals'] and first['maximum_exit_error']<=1e-12,full_repeat=first==second and all(x.tobytes()==b[k].tobytes() for k,x in a.items()),partition_accepted=True)
+    gates=dict(full_sequences=not first['refusals'] and first['sequence_errors']==0 and first['maximum_parameter_error']<=1e-12,analytic_exit=not first['refusals'] and first['maximum_exit_error']<=1e-12,full_repeat=first==second and all(x.tobytes()==b[k].tobytes() for k,x in a.items()),partition_accepted=conforming_partition(v,t,labels,a) and conforming_partition(v,t,labels,b))
     gates={k:bool(value) for k,value in gates.items()}
     report=dict(rows=[first,second],gates=gates,scope='Frozen straight-ray neighbor walker on a larger synthetic conforming partition; no photon/anatomy promotion.')
     (ROOT/'reports/tetra_ray_grid.json').write_text(json.dumps(report,indent=2)+'\n');np.savez_compressed(ROOT/'reports/tetra_ray_grid_arrays.npz',**{f'{k}_0':v for k,v in a.items()},**{f'{k}_1':v for k,v in b.items()});print(json.dumps(report));return 0 if all(gates.values()) else 2

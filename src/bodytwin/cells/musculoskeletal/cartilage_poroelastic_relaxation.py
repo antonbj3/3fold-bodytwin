@@ -34,7 +34,7 @@ OUT = _os.path.join(OUT_ROOT, "cartilage_poroelastic_relaxation", "cartilage_por
 H_A_RANGE_PA = (0.70e6, 0.76e6)
 K_RANGE = (1e-15, 7.6e-15)  # m^4/(N.s)
 
-MEASURED_TAU_1MM_S = (404.0, 725.0)
+MEASURED_TAU_1MM_S = (404.0, 725.0)  # s
 SEVERAL_HOURS_S = (1800.0, 14400.0)  # 0.5-4 hr, pre-registered generous band
 GAIT_STANCE_S = (0.7, 1.0)
 

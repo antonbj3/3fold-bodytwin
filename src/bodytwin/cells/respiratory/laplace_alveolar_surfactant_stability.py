@@ -86,7 +86,7 @@ OUT["G1_no_surfactant_instability"] = {
 # ---------------------------------------------------------------------------
 T_expanded, T_compressed = 46e-3, 10e-3
 area1, area2 = r1 ** 2, r2 ** 2  # smaller alveolus = "more compressed" (less area)
-area_min, area_max = min(area1, area2), max(area1, area2)
+area_min, area_max = min(area1, area2), max(area1, area2)  # m^2 (r1, r2 in metres)
 
 
 def T_of_area(area):

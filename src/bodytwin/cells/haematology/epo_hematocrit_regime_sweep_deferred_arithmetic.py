@@ -40,7 +40,7 @@ hemato = json.load(open(_os.path.join(OUT_ROOT, "hematopoiesis", "hematopoiesis_
 renal = json.load(open(_os.path.join(OUT_ROOT, "renal_filtration", "renal_filtration_results.json")))
 
 HCT_REF_PCT = erythro["couples_to_siblings_readonly"]["hct_ref_pct"]          # 45.0
-HB_REF_G_DL = erythro["couples_to_siblings_readonly"]["hb_ref_g_dl"]          # 15.0
+HB_REF_G_DL = erythro["couples_to_siblings_readonly"]["hb_ref_g_dl"]          # 15.0 g/dL
 MCV_FL_CITED = erythro["step4_marrow_output_geometric_derivation"]["mcv_fl"]  # 90.0
 BV_L_CITED = erythro["step4_marrow_output_geometric_derivation"]["blood_volume_l"]  # 5.0
 LIFESPAN_DAYS = 120.0  # LIFESPAN_DAYS_CONSENSUS, cited in the erythropoiesis cell step4/5

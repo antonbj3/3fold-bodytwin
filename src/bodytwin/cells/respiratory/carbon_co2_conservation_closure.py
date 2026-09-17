@@ -173,7 +173,7 @@ PH2O_37C_MMHG = 47.0
 T_STPD_K = 273.15
 T_BTPS_K = 310.15
 CO2_MOLAR_MASS_G_MOL = 44.01
-MOLAR_VOLUME_STPD_L_MOL = 22.414
+MOLAR_VOLUME_STPD_L_MOL = 22.414  # L/mol
 LITERATURE_RECALLED_K = 0.863     # NOT independently re-verified live (7 attempts, see docstring)
 WHOLE_BODY_CO2_KG_PER_DAY = 1.0    # [3], average-day, weak/soft anchor
 

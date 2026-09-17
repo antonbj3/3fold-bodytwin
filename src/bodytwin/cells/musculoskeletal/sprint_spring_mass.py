@@ -246,343 +246,349 @@ def grid_match(k, L0, m, v0, Tc_target, Favg_over_W_target,
     return dict(residual=resid, theta0_deg=th, vy_td=vy, sim=r)
 
 
-print("=" * 100)
-print("PART 1: exact SLIP geometry vs. Weyand 2010 measured (Tc, F_avg/W) -- forward running & hopping")
-print("=" * 100)
 
-# PRIMARY grid: representative adult-athletic anthropometrics (m=75kg, L0=0.95m -- mid-range for
-# Weyand's mixed "athletic subjects" cohort), swept over the full literature k_leg range and an
-# ASSUMED top-speed v0 (Weyand 2010's abstract gives Tc & F_avg/W per gait but NOT the associated
-# m/s value -- explicitly flagged in honest_gaps; swept rather than guessed at one value).
-M_PRIMARY, L0_PRIMARY = 75.0, 0.95
-K_GRID_kN_m = [7.0, 10.0, 15.0, 19.5, 25.0, 30.0]  # spans Farley-Gonzalez(1996) to Morin-sprint(2006) to upper prior
-V0_ASSUMED_GRID = [7.0, 8.5, 10.0]  # representative athletic-subject top-speed range (Clark&Weyand nonsprinter-to-sprinter band)
-# ROBUSTNESS corners (void-floor sweep on anthropometry, not fitted): does the qualitative
-# conclusion survive plausible variation in body mass and leg length?
-ROBUSTNESS_CORNERS = [(m, L0) for m in (65.0, 85.0) for L0 in (0.90, 1.00)]
+def run():
+    print("=" * 100)
+    print("PART 1: exact SLIP geometry vs. Weyand 2010 measured (Tc, F_avg/W) -- forward running & hopping")
+    print("=" * 100)
 
-part1_matches = {"forward_running": [], "hopping": []}
-for gait, tgt in [("forward_running", LIT["weyand2010"]["forward_running"]),
-                  ("hopping", LIT["weyand2010"]["hopping"])]:
-    Tc_t = tgt["Tc_s"]
-    Favg_t = tgt["Favg_over_W"]
-    for k_kN in K_GRID_kN_m:
-        k = k_kN * 1000.0
-        for v0 in V0_ASSUMED_GRID:
-            res = grid_match(k, L0_PRIMARY, M_PRIMARY, v0, Tc_t, Favg_t)
-            if res is None:
-                continue
-            rec = dict(m=M_PRIMARY, L0=L0_PRIMARY, k_kN_m=k_kN, v0=v0, residual=res["residual"],
-                       theta0_deg=res["theta0_deg"], vy_td=res["vy_td"],
-                       Tc_sim=res["sim"]["Tc"], Favg_over_W_sim=res["sim"]["F_avg"] / (M_PRIMARY * G),
-                       Fpeak_over_W_sim=res["sim"]["F_peak"] / (M_PRIMARY * G),
-                       dL_frac=res["sim"]["dL_frac"], robustness_corner=False)
-            part1_matches[gait].append(rec)
-    # robustness corners at the best-fit k found above, SCALED by body mass per the established
-    # cross-individual/cross-species relation k_leg ~ M^0.67 (Farley, Glasheen & McMahon 1993,
-    # PMID 8294853, verified live: "larger animals have stiffer leg springs (k_leg ~ M^0.67)").
-    # OODA fix (first pass held k fixed in absolute kN/m across the mass sweep and failed 2/4
-    # corners because that ignores this known scaling -- diagnosed via a standalone re-check
-    # before accepting the failure; see doc for the numbers before/after this correction):
-    provisional_best_k = min(part1_matches[gait], key=lambda r: r["residual"])["k_kN_m"]
-    for m, L0 in ROBUSTNESS_CORNERS:
-        k_scaled_kN = provisional_best_k * (m / M_PRIMARY) ** 0.67
-        for v0 in V0_ASSUMED_GRID:
-            res = grid_match(k_scaled_kN * 1000.0, L0, m, v0, Tc_t, Favg_t)
-            if res is None:
-                continue
-            rec = dict(m=m, L0=L0, k_kN_m=k_scaled_kN, k_kN_m_unscaled=provisional_best_k, v0=v0,
-                       residual=res["residual"],
-                       theta0_deg=res["theta0_deg"], vy_td=res["vy_td"],
-                       Tc_sim=res["sim"]["Tc"], Favg_over_W_sim=res["sim"]["F_avg"] / (m * G),
-                       Fpeak_over_W_sim=res["sim"]["F_peak"] / (m * G),
-                       dL_frac=res["sim"]["dL_frac"], robustness_corner=True)
-            part1_matches[gait].append(rec)
+    # PRIMARY grid: representative adult-athletic anthropometrics (m=75kg, L0=0.95m -- mid-range for
+    # Weyand's mixed "athletic subjects" cohort), swept over the full literature k_leg range and an
+    # ASSUMED top-speed v0 (Weyand 2010's abstract gives Tc & F_avg/W per gait but NOT the associated
+    # m/s value -- explicitly flagged in honest_gaps; swept rather than guessed at one value).
+    M_PRIMARY, L0_PRIMARY = 75.0, 0.95
+    K_GRID_kN_m = [7.0, 10.0, 15.0, 19.5, 25.0, 30.0]  # spans Farley-Gonzalez(1996) to Morin-sprint(2006) to upper prior
+    V0_ASSUMED_GRID = [7.0, 8.5, 10.0]  # representative athletic-subject top-speed range (Clark&Weyand nonsprinter-to-sprinter band)
+    # ROBUSTNESS corners (void-floor sweep on anthropometry, not fitted): does the qualitative
+    # conclusion survive plausible variation in body mass and leg length?
+    ROBUSTNESS_CORNERS = [(m, L0) for m in (65.0, 85.0) for L0 in (0.90, 1.00)]
 
-# For each gait, report the best match overall + the best match PER k (to see which literature
-# k_leg values are geometrically consistent with plausible touchdown angle/compression).
-# PRIMARY-anthropometry records only (robustness_corner=False) for the headline claim; robustness
-# corners are checked separately right below so the two anthropometry assumptions are never blended.
-for gait in part1_matches:
-    ms = [r for r in part1_matches[gait] if not r["robustness_corner"]]
-    ms_sorted = sorted(ms, key=lambda r: r["residual"])
-    best = ms_sorted[0]
-    plausible = [r for r in ms_sorted if r["residual"] < 0.03 and r["theta0_deg"] <= 40
-                 and r["dL_frac"] <= 0.35]
-    results.setdefault("part1_slip_matches", {})[gait] = dict(
-        best_overall=best, n_plausible_matches=len(plausible), n_primary_grid=len(ms),
-        plausible_k_range_kN_m=[min(r["k_kN_m"] for r in plausible),
-                                 max(r["k_kN_m"] for r in plausible)] if plausible else None,
-        best_per_k={kk: min([r for r in ms if abs(r["k_kN_m"] - kk) < 1e-6], key=lambda r: r["residual"])
-                    for kk in K_GRID_kN_m},
-    )
-    print(f"\n-- {gait}: target Tc={LIT['weyand2010'][gait]['Tc_s']}s, "
-          f"F_avg/W={LIT['weyand2010'][gait]['Favg_over_W']} (m={M_PRIMARY}kg L0={L0_PRIMARY}m primary) --")
-    print(f"   best overall match: residual={best['residual']:.4f}  k={best['k_kN_m']}kN/m "
-          f"v0={best['v0']}m/s theta0={best['theta0_deg']:.1f}deg dL/L0={best['dL_frac']:.3f}")
-    print(f"   plausible (residual<3%, theta0<=40deg, compression<=35%%): n={len(plausible)}/{len(ms)}")
+    part1_matches = {"forward_running": [], "hopping": []}
+    for gait, tgt in [("forward_running", LIT["weyand2010"]["forward_running"]),
+                      ("hopping", LIT["weyand2010"]["hopping"])]:
+        Tc_t = tgt["Tc_s"]
+        Favg_t = tgt["Favg_over_W"]
+        for k_kN in K_GRID_kN_m:
+            k = k_kN * 1000.0
+            for v0 in V0_ASSUMED_GRID:
+                res = grid_match(k, L0_PRIMARY, M_PRIMARY, v0, Tc_t, Favg_t)
+                if res is None:
+                    continue
+                rec = dict(m=M_PRIMARY, L0=L0_PRIMARY, k_kN_m=k_kN, v0=v0, residual=res["residual"],
+                           theta0_deg=res["theta0_deg"], vy_td=res["vy_td"],
+                           Tc_sim=res["sim"]["Tc"], Favg_over_W_sim=res["sim"]["F_avg"] / (M_PRIMARY * G),
+                           Fpeak_over_W_sim=res["sim"]["F_peak"] / (M_PRIMARY * G),
+                           dL_frac=res["sim"]["dL_frac"], robustness_corner=False)
+                part1_matches[gait].append(rec)
+        # robustness corners at the best-fit k found above, SCALED by body mass per the established
+        # cross-individual/cross-species relation k_leg ~ M^0.67 (Farley, Glasheen & McMahon 1993,
+        # PMID 8294853, verified live: "larger animals have stiffer leg springs (k_leg ~ M^0.67)").
+        # OODA fix (first pass held k fixed in absolute kN/m across the mass sweep and failed 2/4
+        # corners because that ignores this known scaling -- diagnosed via a standalone re-check
+        # before accepting the failure; see doc for the numbers before/after this correction):
+        provisional_best_k = min(part1_matches[gait], key=lambda r: r["residual"])["k_kN_m"]
+        for m, L0 in ROBUSTNESS_CORNERS:
+            k_scaled_kN = provisional_best_k * (m / M_PRIMARY) ** 0.67
+            for v0 in V0_ASSUMED_GRID:
+                res = grid_match(k_scaled_kN * 1000.0, L0, m, v0, Tc_t, Favg_t)
+                if res is None:
+                    continue
+                rec = dict(m=m, L0=L0, k_kN_m=k_scaled_kN, k_kN_m_unscaled=provisional_best_k, v0=v0,
+                           residual=res["residual"],
+                           theta0_deg=res["theta0_deg"], vy_td=res["vy_td"],
+                           Tc_sim=res["sim"]["Tc"], Favg_over_W_sim=res["sim"]["F_avg"] / (m * G),
+                           Fpeak_over_W_sim=res["sim"]["F_peak"] / (m * G),
+                           dL_frac=res["sim"]["dL_frac"], robustness_corner=True)
+                part1_matches[gait].append(rec)
 
-# CLAIM 1 verdict: is there a physiologically plausible SLIP solution (primary anthropometry,
-# v0 swept) reproducing Weyand 2010's forward-running top-speed point at a k IN or NEAR the
-# independently-measured sprint range (Morin 2006: 19.5+/-4.3 kN/m; Farley-Gonzalez 1996: 7.0-16.3
-# kN/m jogging)? (All swept k already lie in [7,30] kN/m by construction -- the k-range filter
-# below is a no-op consistency guard, not a free pass.)
-fr_primary = [r for r in part1_matches["forward_running"] if not r["robustness_corner"]]
-fr_plausible = [r for r in fr_primary if r["residual"] < 0.03 and r["theta0_deg"] <= 40 and r["dL_frac"] <= 0.35]
-fr_k_in_lit_range = [r for r in fr_plausible if 7.0 <= r["k_kN_m"] <= 30.0]
-claim1_pass = len(fr_k_in_lit_range) > 0
-record("CLAIM1_slip_geometry_reproduces_weyand2010_forward_top_speed",
-       value=f"{len(fr_k_in_lit_range)}/{len(fr_primary)} primary grid points plausible & in-lit-range",
-       anchor="Morin2006 k_leg=19.5+/-4.3 kN/m (PMID 16475063); Farley-Gonzalez 7.0-16.3 kN/m (PMID 8849811)",
-       threshold=">=1 plausible match with theta0<=40deg, compression<=35%, k in [7,30] kN/m",
-       passed=claim1_pass)
+    # For each gait, report the best match overall + the best match PER k (to see which literature
+    # k_leg values are geometrically consistent with plausible touchdown angle/compression).
+    # PRIMARY-anthropometry records only (robustness_corner=False) for the headline claim; robustness
+    # corners are checked separately right below so the two anthropometry assumptions are never blended.
+    for gait in part1_matches:
+        ms = [r for r in part1_matches[gait] if not r["robustness_corner"]]
+        ms_sorted = sorted(ms, key=lambda r: r["residual"])
+        best = ms_sorted[0]
+        plausible = [r for r in ms_sorted if r["residual"] < 0.03 and r["theta0_deg"] <= 40
+                     and r["dL_frac"] <= 0.35]
+        results.setdefault("part1_slip_matches", {})[gait] = dict(
+            best_overall=best, n_plausible_matches=len(plausible), n_primary_grid=len(ms),
+            plausible_k_range_kN_m=[min(r["k_kN_m"] for r in plausible),
+                                     max(r["k_kN_m"] for r in plausible)] if plausible else None,
+            best_per_k={kk: min([r for r in ms if abs(r["k_kN_m"] - kk) < 1e-6], key=lambda r: r["residual"])
+                        for kk in K_GRID_kN_m},
+        )
+        print(f"\n-- {gait}: target Tc={LIT['weyand2010'][gait]['Tc_s']}s, "
+              f"F_avg/W={LIT['weyand2010'][gait]['Favg_over_W']} (m={M_PRIMARY}kg L0={L0_PRIMARY}m primary) --")
+        print(f"   best overall match: residual={best['residual']:.4f}  k={best['k_kN_m']}kN/m "
+              f"v0={best['v0']}m/s theta0={best['theta0_deg']:.1f}deg dL/L0={best['dL_frac']:.3f}")
+        print(f"   plausible (residual<3%, theta0<=40deg, compression<=35%%): n={len(plausible)}/{len(ms)}")
 
-hop_primary = [r for r in part1_matches["hopping"] if not r["robustness_corner"]]
-hop_plausible = [r for r in hop_primary if r["residual"] < 0.03 and r["theta0_deg"] <= 40 and r["dL_frac"] <= 0.35]
-hop_k_in_lit_range = [r for r in hop_plausible if 7.0 <= r["k_kN_m"] <= 30.0]
-claim1b_pass = len(hop_k_in_lit_range) > 0
-record("CLAIM1b_slip_geometry_reproduces_weyand2010_hopping",
-       value=f"{len(hop_k_in_lit_range)}/{len(hop_primary)} primary grid points plausible & in-lit-range",
-       anchor="same k_leg literature range",
-       threshold=">=1 plausible match", passed=claim1b_pass)
+    # CLAIM 1 verdict: is there a physiologically plausible SLIP solution (primary anthropometry,
+    # v0 swept) reproducing Weyand 2010's forward-running top-speed point at a k IN or NEAR the
+    # independently-measured sprint range (Morin 2006: 19.5+/-4.3 kN/m; Farley-Gonzalez 1996: 7.0-16.3
+    # kN/m jogging)? (All swept k already lie in [7,30] kN/m by construction -- the k-range filter
+    # below is a no-op consistency guard, not a free pass.)
+    fr_primary = [r for r in part1_matches["forward_running"] if not r["robustness_corner"]]
+    fr_plausible = [r for r in fr_primary if r["residual"] < 0.03 and r["theta0_deg"] <= 40 and r["dL_frac"] <= 0.35]
+    fr_k_in_lit_range = [r for r in fr_plausible if 7.0 <= r["k_kN_m"] <= 30.0]
+    claim1_pass = len(fr_k_in_lit_range) > 0
+    record("CLAIM1_slip_geometry_reproduces_weyand2010_forward_top_speed",
+           value=f"{len(fr_k_in_lit_range)}/{len(fr_primary)} primary grid points plausible & in-lit-range",
+           anchor="Morin2006 k_leg=19.5+/-4.3 kN/m (PMID 16475063); Farley-Gonzalez 7.0-16.3 kN/m (PMID 8849811)",
+           threshold=">=1 plausible match with theta0<=40deg, compression<=35%, k in [7,30] kN/m",
+           passed=claim1_pass)
 
-# ROBUSTNESS check: at the provisional best-fit k, does a plausible match survive across the 4
-# anthropometric corners (m in {65,85}kg x L0 in {0.90,1.00}m)? This is the void-floor sweep --
-# conclusions must not be an artifact of one arbitrarily chosen (m, L0).
-for gait in part1_matches:
-    corner_trials = [r for r in part1_matches[gait] if r["robustness_corner"]]
-    # collapse the 3 v0-trials per (m,L0) corner to that corner's best (v0 is a nuisance
-    # nuisance parameter swept for every anthropometry point, not 3 independent corners) --
-    # reporting "3/12" would silently conflate trials with corners; this reports the true 4.
-    by_corner = {}
-    for r in corner_trials:
-        key = (r["m"], r["L0"])
-        if key not in by_corner or r["residual"] < by_corner[key]["residual"]:
-            by_corner[key] = r
-    best_per_corner = list(by_corner.values())
-    corner_plausible = [r for r in best_per_corner if r["residual"] < 0.05 and r["theta0_deg"] <= 40 and r["dL_frac"] <= 0.35]
-    record(f"robustness_anthropometry_corners_{gait}",
-           value=f"{len(corner_plausible)}/{len(best_per_corner)} corners plausible (residual<5%, "
-                 f"best-of-3-v0 per corner): "
-                 + ", ".join(f"m={r['m']}/L0={r['L0']}:resid={r['residual']:.3f}" for r in best_per_corner),
-           anchor="4 corners: m in {65,85}kg x L0 in {0.90,1.00}m, k scaled ~M^0.67 (Farley/Glasheen/McMahon 1993)",
-           threshold=">=3/4 corners plausible (conclusion not an artifact of one (m,L0) choice)",
-           passed=len(corner_plausible) >= 3 if best_per_corner else False)
+    hop_primary = [r for r in part1_matches["hopping"] if not r["robustness_corner"]]
+    hop_plausible = [r for r in hop_primary if r["residual"] < 0.03 and r["theta0_deg"] <= 40 and r["dL_frac"] <= 0.35]
+    hop_k_in_lit_range = [r for r in hop_plausible if 7.0 <= r["k_kN_m"] <= 30.0]
+    claim1b_pass = len(hop_k_in_lit_range) > 0
+    record("CLAIM1b_slip_geometry_reproduces_weyand2010_hopping",
+           value=f"{len(hop_k_in_lit_range)}/{len(hop_primary)} primary grid points plausible & in-lit-range",
+           anchor="same k_leg literature range",
+           threshold=">=1 plausible match", passed=claim1b_pass)
 
-# Internal consistency cross-check: F_peak/F_avg ratio, exact-SLIP vs ideal half-sine (pi/2)
-IDEAL_SINE_RATIO = math.pi / 2
-fr_ratio_meas = LIT["weyand2010"]["forward_running"]["Fpeak_over_W"] / LIT["weyand2010"]["forward_running"]["Favg_over_W"]
-hop_ratio_meas = LIT["weyand2010"]["hopping"]["Fpeak_over_W"] / LIT["weyand2010"]["hopping"]["Favg_over_W"]
-best_fr = min(part1_matches["forward_running"], key=lambda r: r["residual"])
-best_hop = min(part1_matches["hopping"], key=lambda r: r["residual"])
-fr_ratio_sim = best_fr["Fpeak_over_W_sim"] / best_fr["Favg_over_W_sim"]
-hop_ratio_sim = best_hop["Fpeak_over_W_sim"] / best_hop["Favg_over_W_sim"]
+    # ROBUSTNESS check: at the provisional best-fit k, does a plausible match survive across the 4
+    # anthropometric corners (m in {65,85}kg x L0 in {0.90,1.00}m)? This is the void-floor sweep --
+    # conclusions must not be an artifact of one arbitrarily chosen (m, L0).
+    for gait in part1_matches:
+        corner_trials = [r for r in part1_matches[gait] if r["robustness_corner"]]
+        # collapse the 3 v0-trials per (m,L0) corner to that corner's best (v0 is a nuisance
+        # nuisance parameter swept for every anthropometry point, not 3 independent corners) --
+        # reporting "3/12" would silently conflate trials with corners; this reports the true 4.
+        by_corner = {}
+        for r in corner_trials:
+            key = (r["m"], r["L0"])
+            if key not in by_corner or r["residual"] < by_corner[key]["residual"]:
+                by_corner[key] = r
+        best_per_corner = list(by_corner.values())
+        corner_plausible = [r for r in best_per_corner if r["residual"] < 0.05 and r["theta0_deg"] <= 40 and r["dL_frac"] <= 0.35]
+        record(f"robustness_anthropometry_corners_{gait}",
+               value=f"{len(corner_plausible)}/{len(best_per_corner)} corners plausible (residual<5%, "
+                     f"best-of-3-v0 per corner): "
+                     + ", ".join(f"m={r['m']}/L0={r['L0']}:resid={r['residual']:.3f}" for r in best_per_corner),
+               anchor="4 corners: m in {65,85}kg x L0 in {0.90,1.00}m, k scaled ~M^0.67 (Farley/Glasheen/McMahon 1993)",
+               threshold=">=3/4 corners plausible (conclusion not an artifact of one (m,L0) choice)",
+               passed=len(corner_plausible) >= 3 if best_per_corner else False)
 
-record("sine_ratio_hopping_vs_ideal_pi_over_2",
-       value=round(hop_ratio_meas, 4), anchor=round(IDEAL_SINE_RATIO, 4),
-       threshold="within 5% of pi/2 (hopping = purest passive bounce)",
-       passed=abs(hop_ratio_meas - IDEAL_SINE_RATIO) / IDEAL_SINE_RATIO < 0.05,
-       note=f"rel.dev={abs(hop_ratio_meas - IDEAL_SINE_RATIO) / IDEAL_SINE_RATIO * 100:.2f}%; "
-            f"exact-SLIP best-match sim ratio={fr_ratio_sim:.3f}(fwd)/{hop_ratio_sim:.3f}(hop) for cross-check")
-record("sine_ratio_forward_running_deviates_from_ideal",
-       value=round(fr_ratio_meas, 4), anchor=round(IDEAL_SINE_RATIO, 4),
-       threshold="measurably >5% above pi/2 (Clark&Weyand: sprinting is LESS spring-symmetric)",
-       passed=(fr_ratio_meas - IDEAL_SINE_RATIO) / IDEAL_SINE_RATIO > 0.05,
-       note=f"rel.dev={(fr_ratio_meas - IDEAL_SINE_RATIO) / IDEAL_SINE_RATIO * 100:.2f}% "
-            "(directionally consistent with Clark & Weyand 2014 PMID 25080925 asymmetry finding)")
+    # Internal consistency cross-check: F_peak/F_avg ratio, exact-SLIP vs ideal half-sine (pi/2)
+    IDEAL_SINE_RATIO = math.pi / 2
+    fr_ratio_meas = LIT["weyand2010"]["forward_running"]["Fpeak_over_W"] / LIT["weyand2010"]["forward_running"]["Favg_over_W"]
+    hop_ratio_meas = LIT["weyand2010"]["hopping"]["Fpeak_over_W"] / LIT["weyand2010"]["hopping"]["Favg_over_W"]
+    best_fr = min(part1_matches["forward_running"], key=lambda r: r["residual"])
+    best_hop = min(part1_matches["hopping"], key=lambda r: r["residual"])
+    fr_ratio_sim = best_fr["Fpeak_over_W_sim"] / best_fr["Favg_over_W_sim"]
+    hop_ratio_sim = best_hop["Fpeak_over_W_sim"] / best_hop["Favg_over_W_sim"]
 
-# ============================================================================================
-# PART 2 -- impulse-balance identity (geometric/mechanical, not curve-fit) + decorrelated anchor
-# ============================================================================================
-print("\n" + "=" * 100)
-print("PART 2: impulse-balance identity -- predicts step frequency from (Tc, F_avg/W) alone,")
-print("cross-checked against Bolt's INDEPENDENTLY, video-measured stride frequency (Krzysztof&Mero 2013)")
-print("=" * 100)
+    record("sine_ratio_hopping_vs_ideal_pi_over_2",
+           value=round(hop_ratio_meas, 4), anchor=round(IDEAL_SINE_RATIO, 4),
+           threshold="within 5% of pi/2 (hopping = purest passive bounce)",
+           passed=abs(hop_ratio_meas - IDEAL_SINE_RATIO) / IDEAL_SINE_RATIO < 0.05,
+           note=f"rel.dev={abs(hop_ratio_meas - IDEAL_SINE_RATIO) / IDEAL_SINE_RATIO * 100:.2f}%; "
+                f"exact-SLIP best-match sim ratio={fr_ratio_sim:.3f}(fwd)/{hop_ratio_sim:.3f}(hop) for cross-check")
+    record("sine_ratio_forward_running_deviates_from_ideal",
+           value=round(fr_ratio_meas, 4), anchor=round(IDEAL_SINE_RATIO, 4),
+           threshold="measurably >5% above pi/2 (Clark&Weyand: sprinting is LESS spring-symmetric)",
+           passed=(fr_ratio_meas - IDEAL_SINE_RATIO) / IDEAL_SINE_RATIO > 0.05,
+           note=f"rel.dev={(fr_ratio_meas - IDEAL_SINE_RATIO) / IDEAL_SINE_RATIO * 100:.2f}% "
+                "(directionally consistent with Clark & Weyand 2014 PMID 25080925 asymmetry finding)")
 
-# Derivation (steady periodic running, single-support only, no double support):
-# Over one step (Tc + t_flight), vertical impulse must equal the weight impulse (steady speed,
-# no net vertical momentum change step-to-step):
-#     F_avg * Tc = W * (Tc + t_flight)   =>   F_avg/W = 1 + t_flight/Tc   =>   step_time = Tc*(F_avg/W)
-#     step_frequency = 1 / step_time = 1 / (Tc * F_avg/W)
-# This is an EXACT consequence of Newton's second law integrated over a periodic gait -- it holds
-# for ANY force-time profile shape (spring-like or not), so it is a stronger/more general geometric
-# constraint than the SLIP simulation above.
+    # ============================================================================================
+    # PART 2 -- impulse-balance identity (geometric/mechanical, not curve-fit) + decorrelated anchor
+    # ============================================================================================
+    print("\n" + "=" * 100)
+    print("PART 2: impulse-balance identity -- predicts step frequency from (Tc, F_avg/W) alone,")
+    print("cross-checked against Bolt's INDEPENDENTLY, video-measured stride frequency (Krzysztof&Mero 2013)")
+    print("=" * 100)
 
-fr = LIT["weyand2010"]["forward_running"]
-step_time_pred = fr["Tc_s"] * fr["Favg_over_W"]
-f_step_pred = 1.0 / step_time_pred
-t_flight_pred = step_time_pred - fr["Tc_s"]
+    # Derivation (steady periodic running, single-support only, no double support):
+    # Over one step (Tc + t_flight), vertical impulse must equal the weight impulse (steady speed,
+    # no net vertical momentum change step-to-step):
+    #     F_avg * Tc = W * (Tc + t_flight)   =>   F_avg/W = 1 + t_flight/Tc   =>   step_time = Tc*(F_avg/W)
+    #     step_frequency = 1 / step_time = 1 / (Tc * F_avg/W)
+    # This is an EXACT consequence of Newton's second law integrated over a periodic gait -- it holds
+    # for ANY force-time profile shape (spring-like or not), so it is a stronger/more general geometric
+    # constraint than the SLIP simulation above.
 
-bolt = LIT["krzysztof_mero2013"]["berlin2009_60_80m"]
-f_step_measured_bolt = bolt["bolt_stride_freq_Hz"]
-rel_err_bolt = abs(f_step_pred - f_step_measured_bolt) / f_step_measured_bolt
+    fr = LIT["weyand2010"]["forward_running"]
+    step_time_pred = fr["Tc_s"] * fr["Favg_over_W"]
+    f_step_pred = 1.0 / step_time_pred
+    t_flight_pred = step_time_pred - fr["Tc_s"]
 
-record("impulse_balance_predicts_bolt_top_speed_step_frequency",
-       value=round(f_step_pred, 3),
-       anchor=f"Bolt measured {f_step_measured_bolt} Hz (Krzysztof&Mero 2013, PMID 23717364, "
-              "video-digitized, Berlin 2009 60-80m split -- DIFFERENT subjects/method than Weyand2010)",
-       threshold="within 15% (cross-population, cross-modality triangulation, not same-subject fit)",
-       passed=rel_err_bolt < 0.15,
-       note=f"rel.err={rel_err_bolt*100:.2f}%; predicted t_flight={t_flight_pred*1000:.1f}ms, "
-            f"predicted step_time={step_time_pred*1000:.1f}ms")
+    bolt = LIT["krzysztof_mero2013"]["berlin2009_60_80m"]
+    f_step_measured_bolt = bolt["bolt_stride_freq_Hz"]
+    rel_err_bolt = abs(f_step_pred - f_step_measured_bolt) / f_step_measured_bolt
 
-# Also check hopping (should predict a MUCH lower step/hop frequency given the longer Tc & higher F)
-hop = LIT["weyand2010"]["hopping"]
-hop_step_time_pred = hop["Tc_s"] * hop["Favg_over_W"]
-hop_f_pred = 1.0 / hop_step_time_pred
-record("impulse_balance_internal_hopping_vs_running_ordering",
-       value=round(hop_f_pred, 3), anchor=round(f_step_pred, 3),
-       threshold="hopping predicted frequency < running predicted frequency (longer Tc AND higher F both push step_time up)",
-       passed=hop_f_pred < f_step_pred,
-       note="pure internal-consistency ordering check on the identity itself, not an external anchor")
+    record("impulse_balance_predicts_bolt_top_speed_step_frequency",
+           value=round(f_step_pred, 3),
+           anchor=f"Bolt measured {f_step_measured_bolt} Hz (Krzysztof&Mero 2013, PMID 23717364, "
+                  "video-digitized, Berlin 2009 60-80m split -- DIFFERENT subjects/method than Weyand2010)",
+           threshold="within 15% (cross-population, cross-modality triangulation, not same-subject fit)",
+           passed=rel_err_bolt < 0.15,
+           note=f"rel.err={rel_err_bolt*100:.2f}%; predicted t_flight={t_flight_pred*1000:.1f}ms, "
+                f"predicted step_time={step_time_pred*1000:.1f}ms")
 
-# ============================================================================================
-# PART 3 -- Claim 2: the "faster leg-repositioning" adversary, forced & quantified
-# ============================================================================================
-print("\n" + "=" * 100)
-print("PART 3: adversary = 'top speed is set by swing-time (leg-repositioning), not force'")
-print("Forced to its strongest quantitative form using Weyand et al. 2000's two comparisons.")
-print("=" * 100)
+    # Also check hopping (should predict a MUCH lower step/hop frequency given the longer Tc & higher F)
+    hop = LIT["weyand2010"]["hopping"]
+    hop_step_time_pred = hop["Tc_s"] * hop["Favg_over_W"]
+    hop_f_pred = 1.0 / hop_step_time_pred
+    record("impulse_balance_internal_hopping_vs_running_ordering",
+           value=round(hop_f_pred, 3), anchor=round(f_step_pred, 3),
+           threshold="hopping predicted frequency < running predicted frequency (longer Tc AND higher F both push step_time up)",
+           passed=hop_f_pred < f_step_pred,
+           note="pure internal-consistency ordering check on the identity itself, not an external anchor")
 
-w00 = LIT["weyand2000"]
-# Cross-sectional (33 subjects): fold changes
-v_lo, v_hi = w00["v_top_range_m_s"]
-dv_frac_cs = (v_hi - v_lo) / v_lo
-dF_frac_cs = w00["Favg_over_W_ratio_fast_vs_slow"] - 1.0
-# t_sw: no numeric effect size given (non-significant, P=0.18) -> treat observed signal as 0 for the
-# adversary's best case (cannot claim more effect than a non-significant test licenses)
-sensitivity_ratio_force_cs = dv_frac_cs / dF_frac_cs  # "how much speed-change per unit force-change"
+    # ============================================================================================
+    # PART 3 -- Claim 2: the "faster leg-repositioning" adversary, forced & quantified
+    # ============================================================================================
+    print("\n" + "=" * 100)
+    print("PART 3: adversary = 'top speed is set by swing-time (leg-repositioning), not force'")
+    print("Forced to its strongest quantitative form using Weyand et al. 2000's two comparisons.")
+    print("=" * 100)
 
-id_ = w00["incline_decline"]
-dv_frac_id = (id_["v_decline_m_s"] - id_["v_incline_m_s"]) / id_["v_incline_m_s"]
-dF_frac_id = (id_["Favg_over_W_decline"] - id_["Favg_over_W_incline"]) / id_["Favg_over_W_incline"]
-dtsw_frac_id = id_["t_sw_min_pct_diff"]
-sensitivity_ratio_force_id = dv_frac_id / dF_frac_id
-sensitivity_ratio_swing_id = dv_frac_id / dtsw_frac_id if dtsw_frac_id > 0 else float("inf")
+    w00 = LIT["weyand2000"]
+    # Cross-sectional (33 subjects): fold changes
+    v_lo, v_hi = w00["v_top_range_m_s"]
+    dv_frac_cs = (v_hi - v_lo) / v_lo
+    dF_frac_cs = w00["Favg_over_W_ratio_fast_vs_slow"] - 1.0
+    # t_sw: no numeric effect size given (non-significant, P=0.18) -> treat observed signal as 0 for the
+    # adversary's best case (cannot claim more effect than a non-significant test licenses)
+    sensitivity_ratio_force_cs = dv_frac_cs / dF_frac_cs  # "how much speed-change per unit force-change"
 
-record("adversary_swingtime_leverage_vs_force_leverage_incline_decline",
-       value=dict(dv_frac=round(dv_frac_id, 4), dF_frac=round(dF_frac_id, 4),
-                   dtsw_frac_reported=dtsw_frac_id,
-                   force_leverage_ratio=round(sensitivity_ratio_force_id, 3),
-                   swingtime_leverage_ratio_needed=round(sensitivity_ratio_swing_id, 3)),
-       anchor="Weyand 2000 (PMID 11053354) within-subject incline/decline, n=5",
-       threshold="adversary's required leverage ratio (dv%/dtsw%) must be << force's leverage "
-                 "ratio (dv%/dF%) for the force account to dominate; PRE-REG: >=3x gap",
-       passed=(sensitivity_ratio_swing_id / sensitivity_ratio_force_id) >= 3.0 if np.isfinite(sensitivity_ratio_swing_id) else True,
-       note=f"force needs {sensitivity_ratio_force_id:.2f}x leverage per unit speed-change; "
-            f"an equally-complete swing-time account would need {sensitivity_ratio_swing_id:.2f}x "
-            f"leverage -- a {sensitivity_ratio_swing_id/sensitivity_ratio_force_id:.1f}x larger "
-            "required sensitivity for a change (8%) that is smaller in absolute terms than force's "
-            "own change (30.7%), and in the larger 33-subject cross-section is statistically "
-            "indistinguishable from zero (P=0.18) -- the adversary is not merely weaker, it is "
-            "measured to be ~non-existent in the better-powered sample.")
+    id_ = w00["incline_decline"]
+    dv_frac_id = (id_["v_decline_m_s"] - id_["v_incline_m_s"]) / id_["v_incline_m_s"]
+    dF_frac_id = (id_["Favg_over_W_decline"] - id_["Favg_over_W_incline"]) / id_["Favg_over_W_incline"]
+    dtsw_frac_id = id_["t_sw_min_pct_diff"]
+    sensitivity_ratio_force_id = dv_frac_id / dF_frac_id
+    sensitivity_ratio_swing_id = dv_frac_id / dtsw_frac_id if dtsw_frac_id > 0 else float("inf")
 
-record("adversary_crosssectional_tsw_nonsignificant",
-       value=w00["t_sw_pvalue_vs_topspeed"],
-       anchor="alpha=0.05 (standard significance threshold)",
-       threshold="P>0.05 required for adversary's mechanism to fail to reach significance across "
-                 "the full 1.8-fold, 33-subject speed range",
-       passed=w00["t_sw_pvalue_vs_topspeed"] > 0.05,
-       note=f"cross-sectional force fold-change=1.26x over a 1.8-fold (79%) speed range "
-            f"(implied elasticity ln(1.26)/ln(1.8)={math.log(1.26)/math.log(1.8):.3f}); "
-            "swing time shows NO detectable systematic change at all over the same range.")
+    record("adversary_swingtime_leverage_vs_force_leverage_incline_decline",
+           value=dict(dv_frac=round(dv_frac_id, 4), dF_frac=round(dF_frac_id, 4),
+                       dtsw_frac_reported=dtsw_frac_id,
+                       force_leverage_ratio=round(sensitivity_ratio_force_id, 3),
+                       swingtime_leverage_ratio_needed=round(sensitivity_ratio_swing_id, 3)),
+           anchor="Weyand 2000 (PMID 11053354) within-subject incline/decline, n=5",
+           threshold="adversary's required leverage ratio (dv%/dtsw%) must be << force's leverage "
+                     "ratio (dv%/dF%) for the force account to dominate; PRE-REG: >=3x gap",
+           passed=(sensitivity_ratio_swing_id / sensitivity_ratio_force_id) >= 3.0 if np.isfinite(sensitivity_ratio_swing_id) else True,
+           note=f"force needs {sensitivity_ratio_force_id:.2f}x leverage per unit speed-change; "
+                f"an equally-complete swing-time account would need {sensitivity_ratio_swing_id:.2f}x "
+                f"leverage -- a {sensitivity_ratio_swing_id/sensitivity_ratio_force_id:.1f}x larger "
+                "required sensitivity for a change (8%) that is smaller in absolute terms than force's "
+                "own change (30.7%), and in the larger 33-subject cross-section is statistically "
+                "indistinguishable from zero (P=0.18) -- the adversary is not merely weaker, it is "
+                "measured to be ~non-existent in the better-powered sample.")
 
-# ============================================================================================
-# PART 4 -- dysfunction/contrast-pole ladder (diverse instance-space, cross-population + within-
-# subject fatigue) -- does the force/contact-time pattern hold monotonically, not just at 2 points?
-# ============================================================================================
-print("\n" + "=" * 100)
-print("PART 4: dose-response ladder across independent populations + within-subject fatigue")
-print("=" * 100)
+    record("adversary_crosssectional_tsw_nonsignificant",
+           value=w00["t_sw_pvalue_vs_topspeed"],
+           anchor="alpha=0.05 (standard significance threshold)",
+           threshold="P>0.05 required for adversary's mechanism to fail to reach significance across "
+                     "the full 1.8-fold, 33-subject speed range",
+           passed=w00["t_sw_pvalue_vs_topspeed"] > 0.05,
+           note=f"cross-sectional force fold-change=1.26x over a 1.8-fold (79%) speed range "
+                f"(implied elasticity ln(1.26)/ln(1.8)={math.log(1.26)/math.log(1.8):.3f}); "
+                "swing time shows NO detectable systematic change at all over the same range.")
 
-ladder = [
-    dict(pop="Bolt (Berlin 2009, 60-80m)", v=12.26, metric_name="stride_length_m", metric=2.77,
-         freq_Hz=4.49, source="krzysztof_mero2013"),
-    dict(pop="Berlin 2009 rest-of-finalists (60-80m)", v=11.80, metric_name="stride_length_m", metric=2.48,
-         freq_Hz=4.77, source="krzysztof_mero2013"),
-    dict(pop="Clark&Weyand competitive sprinters", v=10.4, metric_name="F_firsthalf_BW", metric=2.65,
-         freq_Hz=None, source="clark_weyand2014"),
-    dict(pop="Clark&Weyand athletic nonsprinters", v=8.7, metric_name="F_firsthalf_BW", metric=2.21,
-         freq_Hz=None, source="clark_weyand2014"),
-    dict(pop="Weyand2000 33-subj fastest", v=11.1, metric_name="Favg_over_W_relative", metric=1.26,
-         freq_Hz=None, source="weyand2000"),
-    dict(pop="Weyand2000 33-subj slowest", v=6.2, metric_name="Favg_over_W_relative", metric=1.00,
-         freq_Hz=None, source="weyand2000"),
-]
-# Monotonicity check restricted to like-with-like metric pairs (Bolt vs rest; sprinters vs nonsprinters;
-# Weyand fast vs slow) -- NOT across different metric types, to avoid an apples-to-oranges claim.
-pairs = [
-    ("Bolt vs rest (stride length, same race/section)", 12.26, 2.77, 11.80, 2.48),
-    ("Clark&Weyand sprinters vs nonsprinters (first-half force)", 10.4, 2.65, 8.7, 2.21),
-    ("Weyand2000 fastest vs slowest (relative force)", 11.1, 1.26, 6.2, 1.00),
-]
-mono_pass = all((hv > lv) and (hm > lm) for _, hv, hm, lv, lm in pairs)
-record("dose_response_ladder_monotonic_v_and_forcelike_metric",
-       value=[(name, hv, hm, lv, lm) for name, hv, hm, lv, lm in pairs],
-       anchor="3 independent populations/datasets (video kinematics + 2 separate force-plate cohorts)",
-       threshold="higher-speed member of every pair has BOTH higher speed and higher force-like metric",
-       passed=mono_pass)
+    # ============================================================================================
+    # PART 4 -- dysfunction/contrast-pole ladder (diverse instance-space, cross-population + within-
+    # subject fatigue) -- does the force/contact-time pattern hold monotonically, not just at 2 points?
+    # ============================================================================================
+    print("\n" + "=" * 100)
+    print("PART 4: dose-response ladder across independent populations + within-subject fatigue")
+    print("=" * 100)
 
-# Explicit, honest counter-note: stride FREQUENCY is not monotonic with speed in the Bolt-vs-rest
-# pair (Bolt is SLOWER cadence, faster overall) -- record this as a machine-checked fact, not prose.
-freq_inverts = bolt["bolt_stride_freq_Hz"] < bolt["rest_stride_freq_Hz"]
-record("stride_frequency_is_NOT_the_driver_bolt_vs_rest",
-       value=dict(bolt_freq_Hz=bolt["bolt_stride_freq_Hz"], rest_freq_Hz=bolt["rest_stride_freq_Hz"],
-                   bolt_v=bolt["bolt_v_m_s"], rest_v=bolt["rest_v_m_s"]),
-       anchor="same race section, same measurement method (video), Krzysztof&Mero 2013",
-       threshold="Bolt is FASTER while running a LOWER stride frequency than the finalists he beat "
-                 "-- direct falsifier of a naive 'faster turnover' account, independent of Weyand's data",
-       passed=freq_inverts)
+    ladder = [
+        dict(pop="Bolt (Berlin 2009, 60-80m)", v=12.26, metric_name="stride_length_m", metric=2.77,
+             freq_Hz=4.49, source="krzysztof_mero2013"),
+        dict(pop="Berlin 2009 rest-of-finalists (60-80m)", v=11.80, metric_name="stride_length_m", metric=2.48,
+             freq_Hz=4.77, source="krzysztof_mero2013"),
+        dict(pop="Clark&Weyand competitive sprinters", v=10.4, metric_name="F_firsthalf_BW", metric=2.65,
+             freq_Hz=None, source="clark_weyand2014"),
+        dict(pop="Clark&Weyand athletic nonsprinters", v=8.7, metric_name="F_firsthalf_BW", metric=2.21,
+             freq_Hz=None, source="clark_weyand2014"),
+        dict(pop="Weyand2000 33-subj fastest", v=11.1, metric_name="Favg_over_W_relative", metric=1.26,
+             freq_Hz=None, source="weyand2000"),
+        dict(pop="Weyand2000 33-subj slowest", v=6.2, metric_name="Favg_over_W_relative", metric=1.00,
+             freq_Hz=None, source="weyand2000"),
+    ]
+    # Monotonicity check restricted to like-with-like metric pairs (Bolt vs rest; sprinters vs nonsprinters;
+    # Weyand fast vs slow) -- NOT across different metric types, to avoid an apples-to-oranges claim.
+    pairs = [
+        ("Bolt vs rest (stride length, same race/section)", 12.26, 2.77, 11.80, 2.48),
+        ("Clark&Weyand sprinters vs nonsprinters (first-half force)", 10.4, 2.65, 8.7, 2.21),
+        ("Weyand2000 fastest vs slowest (relative force)", 11.1, 1.26, 6.2, 1.00),
+    ]
+    mono_pass = all((hv > lv) and (hm > lm) for _, hv, hm, lv, lm in pairs)
+    record("dose_response_ladder_monotonic_v_and_forcelike_metric",
+           value=[(name, hv, hm, lv, lm) for name, hv, hm, lv, lm in pairs],
+           anchor="3 independent populations/datasets (video kinematics + 2 separate force-plate cohorts)",
+           threshold="higher-speed member of every pair has BOTH higher speed and higher force-like metric",
+           passed=mono_pass)
 
-# Morin 2006 within-subject fatigue/dysfunction contrast (verified numbers, reported AS STATED --
-# see honest_gaps for the one unresolved directionality tension flagged in the doc).
-m06 = LIT["morin2006"]["fatigue_deltas_pct_of_first100m"]
-record("fatigue_dysfunction_contrast_morin2006",
-       value=m06,
-       anchor="same 8 subjects, repeated 100m sprints, PMID 16475063",
-       threshold="descriptive (no PASS/FAIL gate) -- within-subject dysfunction axis for "
-                 "gait-deviation coupling; leg stiffness & max force PRESERVED while vertical "
-                 "stiffness/step-frequency/contact-time/speed all decline together under fatigue",
-       passed=True,
-       note="direction of the contact-time change (-14.7%) alongside a SPEED decrease is the one "
-            "number in this doc not mechanistically resolved from the abstract alone -- flagged "
-            "explicitly in honest_gaps, not papered over.")
+    # Explicit, honest counter-note: stride FREQUENCY is not monotonic with speed in the Bolt-vs-rest
+    # pair (Bolt is SLOWER cadence, faster overall) -- record this as a machine-checked fact, not prose.
+    freq_inverts = bolt["bolt_stride_freq_Hz"] < bolt["rest_stride_freq_Hz"]
+    record("stride_frequency_is_NOT_the_driver_bolt_vs_rest",
+           value=dict(bolt_freq_Hz=bolt["bolt_stride_freq_Hz"], rest_freq_Hz=bolt["rest_stride_freq_Hz"],
+                       bolt_v=bolt["bolt_v_m_s"], rest_v=bolt["rest_v_m_s"]),
+           anchor="same race section, same measurement method (video), Krzysztof&Mero 2013",
+           threshold="Bolt is FASTER while running a LOWER stride frequency than the finalists he beat "
+                     "-- direct falsifier of a naive 'faster turnover' account, independent of Weyand's data",
+           passed=freq_inverts)
 
-# ============================================================================================
-# Write raw results
-# ============================================================================================
+    # Morin 2006 within-subject fatigue/dysfunction contrast (verified numbers, reported AS STATED --
+    # see honest_gaps for the one unresolved directionality tension flagged in the doc).
+    m06 = LIT["morin2006"]["fatigue_deltas_pct_of_first100m"]
+    record("fatigue_dysfunction_contrast_morin2006",
+           value=m06,
+           anchor="same 8 subjects, repeated 100m sprints, PMID 16475063",
+           threshold="descriptive (no PASS/FAIL gate) -- within-subject dysfunction axis for "
+                     "gait-deviation coupling; leg stiffness & max force PRESERVED while vertical "
+                     "stiffness/step-frequency/contact-time/speed all decline together under fatigue",
+           passed=True,
+           note="direction of the contact-time change (-14.7%) alongside a SPEED decrease is the one "
+                "number in this doc not mechanistically resolved from the abstract alone -- flagged "
+                "explicitly in honest_gaps, not papered over.")
 
-
-def _clean(o):
-    if isinstance(o, dict):
-        return {k: _clean(v) for k, v in o.items()}
-    if isinstance(o, list):
-        return [_clean(v) for v in o]
-    if isinstance(o, (np.floating,)):
-        return float(o)
-    if isinstance(o, (np.integer,)):
-        return int(o)
-    if isinstance(o, np.ndarray):
-        return o.tolist()
-    return o
+    # ============================================================================================
+    # Write raw results
+    # ============================================================================================
 
 
-# strip bulky per-timestep arrays before dumping full grid (keep summary fields only)
-for gait in part1_matches:
-    for rec in part1_matches[gait]:
-        pass  # these grid records never carried ts/Fy arrays; sim dict did but wasn't stored here
+    def _clean(o):
+        if isinstance(o, dict):
+            return {k: _clean(v) for k, v in o.items()}
+        if isinstance(o, list):
+            return [_clean(v) for v in o]
+        if isinstance(o, (np.floating,)):
+            return float(o)
+        if isinstance(o, (np.integer,)):
+            return int(o)
+        if isinstance(o, np.ndarray):
+            return o.tolist()
+        return o
 
-results["part1_grid_n_forward_running"] = len(part1_matches["forward_running"])
-results["part1_grid_n_hopping"] = len(part1_matches["hopping"])
-n_pass = sum(1 for c in results["checks"] if c["verdict"] == "PASS")
-n_total = len(results["checks"])
-results["summary"] = {"n_checks": n_total, "n_pass": n_pass, "n_fail": n_total - n_pass}
 
-os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
-with open(OUT_PATH, "w") as f:
-    json.dump(_clean(results), f, indent=2)
+    # strip bulky per-timestep arrays before dumping full grid (keep summary fields only)
+    for gait in part1_matches:
+        for rec in part1_matches[gait]:
+            pass  # these grid records never carried ts/Fy arrays; sim dict did but wasn't stored here
 
-print("\n" + "=" * 100)
-print(f"SUMMARY: {n_pass}/{n_total} checks PASS")
-print(f"Raw results written to {OUT_PATH}")
-print("=" * 100)
+    results["part1_grid_n_forward_running"] = len(part1_matches["forward_running"])
+    results["part1_grid_n_hopping"] = len(part1_matches["hopping"])
+    n_pass = sum(1 for c in results["checks"] if c["verdict"] == "PASS")
+    n_total = len(results["checks"])
+    results["summary"] = {"n_checks": n_total, "n_pass": n_pass, "n_fail": n_total - n_pass}
+
+    os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
+    with open(OUT_PATH, "w") as f:
+        json.dump(_clean(results), f, indent=2)
+
+    print("\n" + "=" * 100)
+    print(f"SUMMARY: {n_pass}/{n_total} checks PASS")
+    print(f"Raw results written to {OUT_PATH}")
+    print("=" * 100)
+
+
+if __name__ == "__main__":
+    run()

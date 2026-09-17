@@ -61,7 +61,7 @@ OBLIGATE_LOSS_MG_DAY = 1.5
 K_DEGH = 0.0685                             # /h, Enculescu2017 best-fit
 H_NORMAL_NM = 23.0                          # nM, Parmar&Mendes2019 WT steady state
 FPN0 = 0.5
-FPN_FAST_RELAX_RATE = 3.1                   # /h
+FPN_FAST_RELAX_RATE = 3.1                   # 1/h
 BETA_IL6_FPN = 0.6
 NTBI_FRACTION_OF_OBLIGATE_LOSS = 0.5        # disclosed convention, shared with the iron_hepcidin cell
 

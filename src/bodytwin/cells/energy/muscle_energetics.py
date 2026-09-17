@@ -31,6 +31,7 @@ GATE: overall_pass = all gates in the GATES block.
 
 import json
 import math
+import sys
 from pathlib import Path
 
 import os as _os
@@ -364,6 +365,15 @@ respiratory_path = Path(OUT_ROOT) / "respiratory" / "respiratory_results.json"
 
 coupling = {"metabolic_cost_json_found": metabolic_path.exists(),
             "respiratory_json_found": respiratory_path.exists()}
+
+# Required inputs: fail fast with an explicit, documented, non-zero exit instead of the raw
+# NameError that `body_mass_kg` (bound only inside the gate below) produced at the module-level
+# evidence write. Mirrors the sibling cells' established style (e.g. cardiac_output.py,
+# blood_oxygen_transport.py): one clear FAIL line naming the exact missing path, no traceback.
+for _required_input in (metabolic_path, respiratory_path):
+    if not _required_input.exists():
+        print(f"FAIL: required input missing: {_required_input} -- run its producing script first.")
+        sys.exit(1)
 
 if metabolic_path.exists() and respiratory_path.exists():
     with open(metabolic_path) as f:

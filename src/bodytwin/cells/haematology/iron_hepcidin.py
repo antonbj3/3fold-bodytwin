@@ -292,7 +292,7 @@ def _load(path):
 erythro = _load(ERYTHRO_JSON)
 inflam = _load(INFLAM_JSON)
 
-HB_REF_G_DL = erythro["couples_to_siblings_readonly"]["hb_ref_g_dl"] if erythro else 15.0
+HB_REF_G_DL = erythro["couples_to_siblings_readonly"]["hb_ref_g_dl"] if erythro else 15.0  # 15.0 g/dL
 RBC_LIFESPAN_DAYS = (erythro["step1_rbc_lifespan"]["combined_true_lifespan_estimate_days"]
                      if erythro else 115.0)
 BLOOD_VOLUME_L = (erythro["step4_marrow_output_geometric_derivation"]["blood_volume_l"]
@@ -367,7 +367,7 @@ recycling_vs_lifespan = (HB_BOUND_IRON_G_DERIVED * 1000.0) / LIFESPAN_SWEEP_DAYS
 recycled_fraction_vs_lifespan = recycling_vs_lifespan / (recycling_vs_lifespan + ABSORPTION_MG_DAY_MID)
 frac_lifespan_sweep_dominant = float(np.mean(recycled_fraction_vs_lifespan > 0.85))
 
-HB_SWEEP_G_DL = np.linspace(8.0, 18.0, 41)                  # severe anemia to polycythemia
+HB_SWEEP_G_DL = np.linspace(8.0, 18.0, 41)                  # g/dL; severe anemia to polycythemia
 hb_mass_sweep_g = BLOOD_VOLUME_L * (HB_SWEEP_G_DL * 10.0) * FE_MG_PER_G_HB / 1000.0
 recycling_vs_hb = hb_mass_sweep_g * 1000.0 / RBC_LIFESPAN_DAYS
 recycled_fraction_vs_hb = recycling_vs_hb / (recycling_vs_hb + ABSORPTION_MG_DAY_MID)

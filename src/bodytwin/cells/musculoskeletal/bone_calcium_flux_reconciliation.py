@@ -103,10 +103,10 @@ ACTIVE_BMUS = 1.0e6                            # Eriksen/Parfitt consensus (Jilk
 # derived cortical-bone Ca density: apparent density ~1.9 g/cm3 * mineral(ash)
 # fraction ~0.65 * Ca fraction of hydroxyapatite (Ca10(PO4)6(OH)2, M=1004.6,
 # Ca mass fraction = 40.08*10/1004.6 = 0.3989) -- standard textbook combination
-APPARENT_DENSITY_G_CM3 = 1.9
+APPARENT_DENSITY_G_CM3 = 1.9  # g/cm3
 MINERAL_ASH_FRACTION = 0.65
 CA_FRACTION_OF_HA = 40.08 * 10 / 1004.6
-CA_DENSITY_MG_MM3 = (APPARENT_DENSITY_G_CM3 * MINERAL_ASH_FRACTION * CA_FRACTION_OF_HA
+CA_DENSITY_MG_MM3 = (APPARENT_DENSITY_G_CM3 * MINERAL_ASH_FRACTION * CA_FRACTION_OF_HA  # mg/mm3
                       * 1000.0 / 1000.0)  # g/cm3 -> mg/mm3 (1 g/cm3 = 1 mg/mm3)
 
 def leg_b_mg_day():

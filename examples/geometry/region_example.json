@@ -1,0 +1,145 @@
+{
+  "area": {
+    "by_pair": {
+      "1-2": 3600.0
+    },
+    "kind": "material_interface_area",
+    "method": "shared-face count once, back->front",
+    "units": "mm2",
+    "value": 3600.0
+  },
+  "mass_moments_region_2": {
+    "basis": "region_volume",
+    "centroid_mm": [
+      30.0,
+      30.0,
+      35.0
+    ],
+    "inertia_SI_units": "kg*m2 (multiply kg*mm2 by 1e-6)",
+    "inertia_kg_mm2": [
+      [
+        96.99,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        96.99,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        114.48
+      ]
+    ],
+    "mass_kg": 0.1908,
+    "missing": [],
+    "region_id": "SYNTH-BOX-2",
+    "units": {
+      "centroid": "mm",
+      "inertia": "kg*mm2",
+      "mass": "kg"
+    }
+  },
+  "regions": [
+    {
+      "density": {
+        "name": "density_muscle",
+        "provenance": "literal_cited",
+        "source": "src/bodytwin/cells/energy/muscle_energetics.py::MUSCLE_DENSITY_KG_PER_L",
+        "source_sha256": "d08a611c6549d3de86304e6b4fa74525471d7f44650af5ec8a82c0f574e0ed0c",
+        "units": "kg/L",
+        "value": 1.06
+      },
+      "heat_capacity": {
+        "missing": [],
+        "name": "heat_capacity",
+        "provenance": "assumption",
+        "units": "J/K",
+        "value": 133.1784
+      },
+      "mass": {
+        "missing": [],
+        "name": "mass",
+        "provenance": "literal_cited",
+        "units": "kg",
+        "value": 0.03816
+      },
+      "mass_basis": "region_volume",
+      "material_region_id": "MSK-MUSCLE",
+      "missing": [],
+      "region_id": "SYNTH-BOX-1",
+      "specific_heat": {
+        "name": "muscle_cp_assumption",
+        "provenance": "assumption",
+        "source": "src/bodytwin/cells/organ_systems/thermoregulation.py::SPECIFIC_HEAT_BODY_J_PER_KG_K",
+        "source_sha256": null,
+        "units": "J/(kg*K)",
+        "value": 3490.0
+      },
+      "volume_method": "outward boundary integral of a synthetic closed surface",
+      "volume_mm3": 36000.0
+    },
+    {
+      "density": {
+        "name": "density_muscle",
+        "provenance": "literal_cited",
+        "source": "src/bodytwin/cells/energy/muscle_energetics.py::MUSCLE_DENSITY_KG_PER_L",
+        "source_sha256": "d08a611c6549d3de86304e6b4fa74525471d7f44650af5ec8a82c0f574e0ed0c",
+        "units": "kg/L",
+        "value": 1.06
+      },
+      "heat_capacity": {
+        "missing": [],
+        "name": "heat_capacity",
+        "provenance": "assumption",
+        "units": "J/K",
+        "value": 665.8919999999999
+      },
+      "mass": {
+        "missing": [],
+        "name": "mass",
+        "provenance": "literal_cited",
+        "units": "kg",
+        "value": 0.1908
+      },
+      "mass_basis": "region_volume",
+      "material_region_id": "MSK-MUSCLE",
+      "missing": [],
+      "region_id": "SYNTH-BOX-2",
+      "specific_heat": {
+        "name": "muscle_cp_assumption",
+        "provenance": "assumption",
+        "source": "src/bodytwin/cells/organ_systems/thermoregulation.py::SPECIFIC_HEAT_BODY_J_PER_KG_K",
+        "source_sha256": null,
+        "units": "J/(kg*K)",
+        "value": 3490.0
+      },
+      "volume_method": "outward boundary integral of a synthetic closed surface",
+      "volume_mm3": 180000.0
+    }
+  ],
+  "schema": "i2_region_example_v1",
+  "source_sha256": {
+    "layered_box_v1.py": "7a8e9ba717c4a6b4b75b88911f08d97616bb978611b1d793e6bf46344f5cd6e5",
+    "mesh_ingest_v1.py": "a05396a93879319e9004b985cefd550b1d43476eb513a47e9c7c709c3c7277cd"
+  },
+  "synthetic": true,
+  "totals": {
+    "heat_capacity": {
+      "missing": [],
+      "name": "heat_capacity_j_per_k",
+      "provenance": "assumption",
+      "units": "J/K",
+      "value": 799.0704
+    },
+    "mass": {
+      "missing": [],
+      "name": "mass_kg",
+      "provenance": "literal_cited",
+      "units": "kg",
+      "value": 0.22896
+    }
+  }
+}

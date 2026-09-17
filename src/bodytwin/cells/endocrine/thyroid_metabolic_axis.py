@@ -37,6 +37,7 @@ CITATIONS (PMID/DOI, verified against NCBI E-utilities):
 import json
 import math
 import os
+import sys
 import numpy as np
 from scipy.special import erf
 
@@ -253,6 +254,14 @@ def find_inflection_points(f_log10, grid, d2_noise_floor=1e-5):
 
 
 def main():
+    # Required input: the thermoregulation result JSON is read in STEP 6 and its mass_kg is
+    # propagated into report["reference_body"]. Fail fast with an explicit, documented, non-zero
+    # exit instead of the raw UnboundLocalError that `mass_kg` produced at that report write when
+    # the JSON was absent. Mirrors the sibling cells' established style (cardiac_output.py,
+    # blood_oxygen_transport.py): one clear FAIL line naming the exact missing path, no traceback.
+    if not os.path.exists(THERMO_JSON):
+        print(f"FAIL: required input missing: {THERMO_JSON} -- run the thermoregulation cell first.")
+        return 1
     os.makedirs(OUT_DIR, exist_ok=True)
     report = {"citations": CITATIONS}
 
@@ -603,4 +612,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

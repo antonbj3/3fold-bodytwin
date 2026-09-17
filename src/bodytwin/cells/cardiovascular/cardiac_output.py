@@ -69,11 +69,31 @@ GATE: overall_pass = all pipeline-correctness gates in the GATES SUMMARY block; 
 otherwise. Open modeling uncertainty (walking HR at the mid a-vO2diff point) is reported separately
 and does not gate.
 """
+import hashlib
 import json
 import os
 import sys
+from datetime import datetime, timezone
 
 import numpy as np
+
+# --------------------------------------------------------------------------- I1 preflight --
+# Result-envelope preflight wiring: make the shared framework modules importable when this cell
+# is run standalone (python src/bodytwin/cells/cardiovascular/cardiac_output.py). The import
+# MUST NOT be silently skipped: a missing framework module is a hard error, never a downgrade
+# to the legacy unchecked cached-result read.
+_SRC_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+if _SRC_ROOT not in sys.path:
+    sys.path.insert(0, _SRC_ROOT)
+try:
+    from bodytwin.framework.consumer_preflight_v1 import preflight_metabolic_cost
+    from bodytwin.framework.result_envelope_v1 import Verdict, get_dotted
+except ImportError as _exc:  # pragma: no cover - exercised only on a broken checkout
+    raise ImportError(
+        "cardiac_output.py requires bodytwin.framework."
+        "result_envelope_v1 and bodytwin.framework.consumer_preflight_v1; ensure the "
+        f"src root is on sys.path (expected {_SRC_ROOT!r}). Original error: {_exc}"
+    ) from _exc
 
 # --------------------------------------------------------------------------- paths / consts --
 import os as _os
@@ -168,6 +188,41 @@ def load_json(path):
         return json.load(f)
 
 
+def _sha256_file(path):
+    """sha256 of an input file's bytes -- the ``current_input_sha256`` the consumer uses."""
+    with open(path, "rb") as f:
+        return hashlib.sha256(f.read()).hexdigest()
+
+
+def _load_registry_entry(path, result_name="metabolic_cost_results.json"):
+    """Load the I1 registry file and return the entry for the metabolic-cost result."""
+    from bodytwin.framework.consumer_preflight_v1 import load_registry, registry_entry
+    return registry_entry(load_registry(path), result_name)
+
+
+def _write_refused_report(mode, verdict, input_path):
+    """Write the I1 refusal record and print each failure prefixed ``REFUSED:``; return 2."""
+    record = {
+        "mode": mode,
+        "failures": list(verdict.failures),
+        "flags": list(verdict.flags),
+        "input": input_path,
+        "utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    }
+    # A REFUSE MUST NOT leave a stale ACCEPT behind: remove any prior accepted result so a
+    # downstream reader keyed on cardiac_output_results.json cannot pick up an older run.
+    stale_results_path = os.path.join(OUT_DIR, "cardiac_output_results.json")
+    if os.path.exists(stale_results_path):
+        os.remove(stale_results_path)
+    refused_path = os.path.join(OUT_DIR, "cardiac_output_refused.json")
+    with open(refused_path, "w", encoding="utf-8") as f:
+        json.dump(record, f, indent=2, default=str)
+    for failure in verdict.failures:
+        print(f"REFUSED: {failure}")
+    print(f"REFUSED: wrote {refused_path}")
+    return 2
+
+
 def main():
     if not os.path.exists(METCOST_JSON):
         print(f"FAIL: required input missing: {METCOST_JSON} -- run the metabolic_cost cell first.")
@@ -178,31 +233,58 @@ def main():
     print("=" * 78)
     print("STEP 1/9 -- load the already-computed metabolic rate (no re-solve)")
     print("=" * 78)
-    mc = load_json(METCOST_JSON)
-    mass_kg = mc["muscle_mass"]["total_body_mass_kg"]
-    umb_gross_w_per_kg = mc["headline"]["umberger2010_gross_w_per_kg"]
-    umb_net_w_per_kg = mc["headline"]["umberger2010_net_w_per_kg"]
-    bhg_gross_w_per_kg = mc["headline"]["bhargava2004_gross_w_per_kg"]
-    bhg_net_w_per_kg = mc["headline"]["bhargava2004_net_w_per_kg"]
+    # --- I1 preflight: decide evidence class / REFUSE before any number is used -----------------
+    mode = os.environ.get("BODYTWIN_EVIDENCE_MODE", "auto").strip().lower()
+    registry_entry = None
+    _registry_path = os.environ.get("BODYTWIN_I1_REGISTRY")
+    if _registry_path:
+        registry_entry = _load_registry_entry(_registry_path)
+    raw = load_json(METCOST_JSON)
+    try:
+        payload, verdict = preflight_metabolic_cost(
+            raw, mode=mode, registry_entry=registry_entry,
+            current_input_sha256=_sha256_file(METCOST_JSON), producer_path=None,
+        )
+    except ValueError as exc:
+        # An unknown BODYTWIN_EVIDENCE_MODE is a refusal, not a traceback.
+        return _write_refused_report(
+            mode,
+            Verdict("REFUSE", (f"invalid evidence mode: {exc}",), (), "refused"),
+            METCOST_JSON,
+        )
+    if verdict.state == "REFUSE":
+        return _write_refused_report(mode, verdict, METCOST_JSON)
+    mc = payload
+    if verdict.state == "ACCEPT_SYNTHETIC_DEMO":
+        print("EVIDENCE: SYNTHETIC DEMO -- not a scientific result")
+    elif verdict.state == "ACCEPT_SCIENTIFIC":
+        print(f"EVIDENCE: SCIENTIFIC provenance={verdict.evidence_class}")
+    mass_kg = get_dotted(mc, "muscle_mass.total_body_mass_kg")
+    umb_gross_w_per_kg = get_dotted(mc, "headline.umberger2010_gross_w_per_kg")
+    umb_net_w_per_kg = get_dotted(mc, "headline.umberger2010_net_w_per_kg")
+    bhg_gross_w_per_kg = get_dotted(mc, "headline.bhargava2004_gross_w_per_kg")
+    bhg_net_w_per_kg = get_dotted(mc, "headline.bhargava2004_net_w_per_kg")
     basal_w_per_kg = umb_gross_w_per_kg - umb_net_w_per_kg
-    combined_corrected_net_w_per_kg = mc["sensitivity"]["combined_tendon_and_mass_correction_w_per_kg"]
+    combined_corrected_net_w_per_kg = get_dotted(
+        mc, "sensitivity.combined_tendon_and_mass_correction_w_per_kg")
     combined_corrected_gross_w_per_kg = combined_corrected_net_w_per_kg + basal_w_per_kg
-    muscle_mass_fmax_derived_kg = mc["muscle_mass"]["summed_muscle_mass_kg"]
-    muscle_mass_correction_scale = mc["sensitivity"]["muscle_mass_correction_scale_applied"]
+    muscle_mass_fmax_derived_kg = get_dotted(mc, "muscle_mass.summed_muscle_mass_kg")
+    muscle_mass_correction_scale = get_dotted(
+        mc, "sensitivity.muscle_mass_correction_scale_applied")
     local_muscle_mass_kg = muscle_mass_fmax_derived_kg * muscle_mass_correction_scale  # re-derived
                                                                                         # from the
                                                                                         # JSON's
                                                                                         # stored scale
                                                                                         # factor, not
                                                                                         # re-typed
-                                                                                        # (-> 17.2 kg)
+                                                                                        # (model-relative: 17.2 kg is the value of one reference producer run, NOT a fixed constant)
     m_rest_w = basal_w_per_kg * mass_kg
     configs_gross_w = {
         "umberger_primary": umb_gross_w_per_kg * mass_kg,
         "bhargava_primary": bhg_gross_w_per_kg * mass_kg,
         "combined_corrected": combined_corrected_gross_w_per_kg * mass_kg,
     }
-    speed_mps = mc["distance_speed"]["speed_mps"]
+    speed_mps = get_dotted(mc, "distance_speed.speed_mps")
     print(f"Subject mass={mass_kg:.2f} kg  gait speed={speed_mps:.4f} m/s  basal={basal_w_per_kg:.4f} W/kg "
           f"-> M_rest={m_rest_w:.2f} W")
     for name, w in configs_gross_w.items():
@@ -427,9 +509,10 @@ def main():
     else:
         mean_walk_mlper100g = float(np.mean(list(mp["all80_settled"]["mean_mlper100g"].values())))
         q_rest_perfusion_mlper100g = mp["model"]["Q_rest_mlper100g"]
-        leg_mass_g = local_muscle_mass_kg * 1000.0   # SAME 17.2 kg already established in
-                                                      # metabolic_cost.py/thermoregulation.py, re-used
-                                                      # not re-typed -- the SAME 80-muscle lower-limb+
+        leg_mass_g = local_muscle_mass_kg * 1000.0   # model-relative lower-limb+hip mass, re-used
+                                                      # from the JSON's correction scale -- 17.2 kg is
+                                                      # the value of one reference producer run, NOT a
+                                                      # fixed constant -- the SAME 80-muscle lower-limb+
                                                       # hip set muscle_perfusion.py models.
         leg_flow_rest_l_min = q_rest_perfusion_mlper100g / 100.0 * leg_mass_g / 1000.0
         leg_flow_walk_l_min = mean_walk_mlper100g / 100.0 * leg_mass_g / 1000.0
@@ -529,6 +612,19 @@ def main():
                           "read-only, not re-derived here)",
         "mass_kg": mass_kg, "name": None, "body_fat_fraction": None,
         "class": "reference_body",
+    }
+    if verdict.state == "ACCEPT_SYNTHETIC_DEMO":
+        report["evidence_class"] = "synthetic_demo"
+        report["scientific_claim"] = False
+    else:
+        report["evidence_class"] = verdict.evidence_class
+        report["scientific_claim"] = True
+    report["preflight"] = {
+        "mode": mode,
+        "state": verdict.state,
+        "failures": list(verdict.failures),
+        "flags": list(verdict.flags),
+        "evidence_class": verdict.evidence_class,
     }
 
     out_path = f"{OUT_DIR}/cardiac_output_results.json"

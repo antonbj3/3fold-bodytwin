@@ -1,0 +1,116 @@
+{
+  "public_control": {
+    "path": "tests/fixtures/i1/public_control/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "6daf4320363121dbdc52157f455ccf9061aea4d46307210092ee231d78a5f197",
+    "mode": "auto",
+    "expected_state": "REFUSE",
+    "expected_failure_substring": "producer gates failed",
+    "note": "real producer gate outcome (overall_pass=false); refused for scientific use"
+  },
+  "contract_gates_pass": {
+    "path": "tests/fixtures/i1/contract_gates_pass/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "d8a8e091b0164b2924d9c699dd821f5da2ca0a552147e659a99c6859a9140794",
+    "mode": "auto",
+    "expected_state": "ACCEPT_SCIENTIFIC",
+    "expected_failure_substring": null,
+    "note": "contract test only: the producer gate outcome is replaced by a passing contract_test_fixture gate; not the producer's result, not evidence"
+  },
+  "variants/wrong_unit": {
+    "path": "tests/fixtures/i1/variants/wrong_unit/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "964f9e8b1264b1bc852b47ab91bb41f5917c564e5abf340ed2ff164603220621",
+    "mode": "auto",
+    "expected_state": "REFUSE",
+    "expected_failure_substring": "unit mismatch"
+  },
+  "variants/wrong_region": {
+    "path": "tests/fixtures/i1/variants/wrong_region/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "b592cec89435815da56cf2167fd98abe8d0c17fbfd04dcd230dd19cb6a5cf866",
+    "mode": "auto",
+    "expected_state": "REFUSE",
+    "expected_failure_substring": "region mismatch"
+  },
+  "variants/unknown_region": {
+    "path": "tests/fixtures/i1/variants/unknown_region/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "26469277de4447c79a0b314f5260ec31b12d260c8cc90a56d9e1a9b4e2b7f58c",
+    "mode": "auto",
+    "expected_state": "REFUSE",
+    "expected_failure_substring": "unknown region_id"
+  },
+  "variants/wrong_frame": {
+    "path": "tests/fixtures/i1/variants/wrong_frame/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "6ea8f31795da228937e185b8576f3e64c434089247b31c4483c35aedd0655a8b",
+    "mode": "auto",
+    "expected_state": "REFUSE",
+    "expected_failure_substring": "frame mismatch"
+  },
+  "variants/wrong_time": {
+    "path": "tests/fixtures/i1/variants/wrong_time/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "d04f0bdc221ca948f1b509769a8ac5b5ab5b22d8568998da8ba2d67beecfe8ea",
+    "mode": "auto",
+    "expected_state": "REFUSE",
+    "expected_failure_substring": "time mismatch"
+  },
+  "variants/wrong_regime": {
+    "path": "tests/fixtures/i1/variants/wrong_regime/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "de527d06569c01d865e8d15458302caae8ffd13f459c4c7d221a8e4bd558333b",
+    "mode": "auto",
+    "expected_state": "REFUSE",
+    "expected_failure_substring": "regime mismatch"
+  },
+  "variants/missing_regime": {
+    "path": "tests/fixtures/i1/variants/missing_regime/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "d4441f3e5f64e3ca480694bb44b57c05fea1ee52ac62f0b83394e7d1d4d4a3bc",
+    "mode": "auto",
+    "expected_state": "REFUSE",
+    "expected_failure_substring": "missing regime"
+  },
+  "variants/stale_input": {
+    "path": "tests/fixtures/i1/variants/stale_input/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "6dcbe3a2890436de602ceb0da4bf0f4d86987aa03fc7ea06442d3a6a147f3be5",
+    "mode": "auto",
+    "expected_state": "REFUSE",
+    "expected_failure_substring": "stale input"
+  },
+  "variants/changed_producer": {
+    "path": "tests/fixtures/i1/variants/changed_producer/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "8983a4a62854486738767daca8ca0d67a25bcf304f3f46dd215bd7207c4be798",
+    "mode": "auto",
+    "expected_state": "REFUSE",
+    "expected_failure_substring": "producer changed"
+  },
+  "variants/missing_provenance": {
+    "path": "tests/fixtures/i1/variants/missing_provenance/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "92e25550b656e206eeacf3446fac09c54ea5d94868521499d28e0098ce0a04d3",
+    "mode": "auto",
+    "expected_state": "REFUSE",
+    "expected_failure_substring": "disallowed provenance"
+  },
+  "variants/changed_payload": {
+    "path": "tests/fixtures/i1/variants/changed_payload/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "1ca8df92b8af17706e418ce9610e9afaea1e9cd41e0fab6b5348de94cbfe66dc",
+    "mode": "auto",
+    "expected_state": "REFUSE",
+    "expected_failure_substring": "stale result"
+  },
+  "variants/synthetic_in_strict": {
+    "path": "tests/fixtures/i1/variants/synthetic_in_strict/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "23cd56d4082ed29b6a213dea5ff30e5fec5bc7b6e323861ff79da2070ec505ae",
+    "mode": "auto",
+    "expected_state": "REFUSE",
+    "expected_failure_substring": "disallowed provenance"
+  },
+  "variants/stale_check_disabled": {
+    "path": "tests/fixtures/i1/variants/stale_check_disabled/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "3fc14cbec4b940d7750f8bc270dcdd1a4307d48b0127a4741257eab17a2f6551",
+    "mode": "auto",
+    "expected_state": "REFUSE",
+    "expected_failure_substring": "stale check disabled"
+  },
+  "synthetic_demo": {
+    "path": "tests/fixtures/i1/synthetic_demo/metabolic_cost/metabolic_cost_results.json",
+    "sha256": "4753cf5cef0738515bd6ffa32a54d5e041eb6e24103e5d15680d5b93a7c89357",
+    "mode": "auto",
+    "expected_state": "ACCEPT_SYNTHETIC_DEMO",
+    "expected_failure_substring": null
+  }
+}

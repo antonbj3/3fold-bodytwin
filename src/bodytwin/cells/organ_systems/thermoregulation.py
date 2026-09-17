@@ -83,11 +83,31 @@ READS: <BODYTWIN_OUT>/metabolic_cost/metabolic_cost_results.json
 WRITES: <BODYTWIN_OUT>/thermoregulation/thermoregulation_results.json
 GATE: overall_pass = all eight gates in the final GATES block; exit 0 on pass, 2 otherwise.
 """
+import hashlib
 import json
 import os
 import sys
+from datetime import datetime, timezone
 
 import numpy as np
+
+# --------------------------------------------------------------------------- I1 preflight --
+# Result-envelope preflight wiring: make the two framework modules importable when this cell is run
+# standalone (python src/bodytwin/cells/organ_systems/thermoregulation.py). The import MUST
+# NOT be silently skipped: a missing framework module is a hard error, never a downgrade
+# to the legacy unchecked cached-result read.
+_SRC_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+if _SRC_ROOT not in sys.path:
+    sys.path.insert(0, _SRC_ROOT)
+try:
+    from bodytwin.framework.consumer_preflight_v1 import preflight_thermoregulation
+    from bodytwin.framework.result_envelope_v1 import Verdict, get_dotted
+except ImportError as _exc:  # pragma: no cover - exercised only on a broken checkout
+    raise ImportError(
+        "thermoregulation.py requires bodytwin.framework."
+        "result_envelope_v1 and bodytwin.framework.consumer_preflight_v1; ensure the "
+        f"src root is on sys.path (expected {_SRC_ROOT!r}). Original error: {_exc}"
+    ) from _exc
 
 # --------------------------------------------------------------------------- paths / consts --
 import os as _os
@@ -107,7 +127,7 @@ SPECIFIC_HEAT_BODY_J_PER_KG_K = 3490.0   # 3.49 kJ/(kg*K); TEXTBOOK-GRADE standa
                                           # (Gagge two-node / ISO 7933 lineage), NOT independently
                                           # re-verified via a live primary-source fetch
                                           # -- flagged, not silently asserted (docstring [5]).
-LATENT_HEAT_VAPORIZATION_SWEAT_J_PER_G = 2426.0   # at ~skin temperature; same flag as above.
+LATENT_HEAT_VAPORIZATION_SWEAT_J_PER_G = 2426.0   # 2426.0 J/g at ~skin temperature; same flag as above.
 
 # Malchaire (2006), PMID 16922181, quoting Saltin & Hermansen (1966), PMID 5929300 -- fetched
 # full text live, see docstring [2].
@@ -160,6 +180,41 @@ def load_metabolic_cost():
         return json.load(f)
 
 
+def _sha256_file(path):
+    """sha256 of an input file's bytes -- the ``current_input_sha256`` the consumer uses."""
+    with open(path, "rb") as f:
+        return hashlib.sha256(f.read()).hexdigest()
+
+
+def _load_registry_entry(path, result_name="metabolic_cost_results.json"):
+    """Load the I1 registry file and return the entry for the metabolic-cost result."""
+    from bodytwin.framework.consumer_preflight_v1 import load_registry, registry_entry
+    return registry_entry(load_registry(path), result_name)
+
+
+def _write_refused_report(mode, verdict, input_path):
+    """Write the I1 refusal record and print each failure prefixed ``REFUSED:``; return 2."""
+    record = {
+        "mode": mode,
+        "failures": list(verdict.failures),
+        "flags": list(verdict.flags),
+        "input": input_path,
+        "utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    }
+    # A REFUSE MUST NOT leave a stale ACCEPT behind: remove any prior accepted result so a
+    # downstream reader keyed on thermoregulation_results.json cannot pick up an older run.
+    stale_results_path = os.path.join(OUT_DIR, "thermoregulation_results.json")
+    if os.path.exists(stale_results_path):
+        os.remove(stale_results_path)
+    refused_path = os.path.join(OUT_DIR, "thermoregulation_refused.json")
+    with open(refused_path, "w", encoding="utf-8") as f:
+        json.dump(record, f, indent=2, default=str)
+    for failure in verdict.failures:
+        print(f"REFUSED: {failure}")
+    print(f"REFUSED: wrote {refused_path}")
+    return 2
+
+
 def heat_production_w(m_gross_w, m_rest_w, efficiency):
     """H_prod = M_rest (100% heat, no mechanical work in resting/organ metabolism) + (1-eta) *
     (M_gross - M_rest) (the EXERCISE INCREMENT only gets the muscular-efficiency credit)."""
@@ -202,19 +257,50 @@ def main():
     print("=" * 78)
     print("STEP 1/7 -- load the already-computed metabolic rate (no re-solve)")
     print("=" * 78)
-    mc = load_metabolic_cost()
-    mass_kg = mc["muscle_mass"]["total_body_mass_kg"]
-    umb_gross_w_per_kg = mc["headline"]["umberger2010_gross_w_per_kg"]
-    umb_net_w_per_kg = mc["headline"]["umberger2010_net_w_per_kg"]
-    bhg_gross_w_per_kg = mc["headline"]["bhargava2004_gross_w_per_kg"]
-    bhg_net_w_per_kg = mc["headline"]["bhargava2004_net_w_per_kg"]
+    # --- I1 preflight: decide evidence class / REFUSE before any number is used -----------------
+    mode = os.environ.get("BODYTWIN_EVIDENCE_MODE", "auto").strip().lower()
+    registry_entry = None
+    _registry_path = os.environ.get("BODYTWIN_I1_REGISTRY")
+    if _registry_path:
+        registry_entry = _load_registry_entry(_registry_path)
+    raw = load_metabolic_cost()
+    try:
+        payload, verdict = preflight_thermoregulation(
+            raw, mode=mode, registry_entry=registry_entry,
+            current_input_sha256=_sha256_file(METCOST_JSON), producer_path=None,
+        )
+    except ValueError as exc:
+        # An unknown BODYTWIN_EVIDENCE_MODE is a refusal, not a traceback.
+        return _write_refused_report(
+            mode,
+            Verdict("REFUSE", (f"invalid evidence mode: {exc}",), (), "refused"),
+            METCOST_JSON,
+        )
+    if verdict.state == "REFUSE":
+        return _write_refused_report(mode, verdict, METCOST_JSON)
+    mc = payload
+    if verdict.state == "ACCEPT_SYNTHETIC_DEMO":
+        print("EVIDENCE: SYNTHETIC DEMO -- not a scientific result")
+    elif verdict.state == "ACCEPT_SCIENTIFIC":
+        print(f"EVIDENCE: SCIENTIFIC provenance={verdict.evidence_class}")
+    mass_kg = get_dotted(mc, "muscle_mass.total_body_mass_kg")
+    umb_gross_w_per_kg = get_dotted(mc, "headline.umberger2010_gross_w_per_kg")
+    umb_net_w_per_kg = get_dotted(mc, "headline.umberger2010_net_w_per_kg")
+    bhg_gross_w_per_kg = get_dotted(mc, "headline.bhargava2004_gross_w_per_kg")
+    bhg_net_w_per_kg = get_dotted(mc, "headline.bhargava2004_net_w_per_kg")
     basal_w_per_kg = umb_gross_w_per_kg - umb_net_w_per_kg   # self-consistency check below
     basal_w_per_kg_check = bhg_gross_w_per_kg - bhg_net_w_per_kg
-    combined_corrected_net_w_per_kg = mc["sensitivity"]["combined_tendon_and_mass_correction_w_per_kg"]
+    combined_corrected_net_w_per_kg = get_dotted(
+        mc, "sensitivity.combined_tendon_and_mass_correction_w_per_kg")
     combined_corrected_gross_w_per_kg = combined_corrected_net_w_per_kg + basal_w_per_kg
-    muscle_mass_fmax_derived_kg = mc["muscle_mass"]["summed_muscle_mass_kg"]
-    muscle_mass_correction_scale = mc["sensitivity"]["muscle_mass_correction_scale_applied"]
-    local_muscle_mass_kg = muscle_mass_fmax_derived_kg * muscle_mass_correction_scale  # -> 17.2 kg,
+    muscle_mass_fmax_derived_kg = get_dotted(mc, "muscle_mass.summed_muscle_mass_kg")
+    muscle_mass_correction_scale = get_dotted(
+        mc, "sensitivity.muscle_mass_correction_scale_applied")
+    local_muscle_mass_kg = muscle_mass_fmax_derived_kg * muscle_mass_correction_scale  # model-relative:
+                                                                                        # 17.2 kg is only the
+                                                                                        # value of one reference
+                                                                                        # producer run, NOT a
+                                                                                        # fixed constant;
                                                                                         # re-derived
                                                                                         # from the
                                                                                         # JSON, not
@@ -460,6 +546,19 @@ def main():
             "class": "reference_body",
         },
     })
+    if verdict.state == "ACCEPT_SYNTHETIC_DEMO":
+        report["evidence_class"] = "synthetic_demo"
+        report["scientific_claim"] = False
+    else:
+        report["evidence_class"] = verdict.evidence_class
+        report["scientific_claim"] = True
+    report["preflight"] = {
+        "mode": mode,
+        "state": verdict.state,
+        "failures": list(verdict.failures),
+        "flags": list(verdict.flags),
+        "evidence_class": verdict.evidence_class,
+    }
     out_path = f"{OUT_DIR}/thermoregulation_results.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2, default=str)

@@ -83,7 +83,7 @@ DV_PCT = 40.3   # Weyand2000 incline/decline delta-v, %
 DF_PCT = 30.7   # Weyand2000 incline/decline delta-F, %
 DTSW_PCT = 8.0  # Weyand2000 incline/decline delta-swing-time, %
 
-RHO = 1.2       # air density, kg/m^3
+RHO = 1.2       # air density, kg/m3
 CD = 0.9        # drag coefficient
 AREA_M2 = 0.45  # frontal area, m^2
 V_DRAG_REF = 12.0  # m/s

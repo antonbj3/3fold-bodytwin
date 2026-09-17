@@ -1,0 +1,52 @@
+{
+  "registry_version": 1,
+  "entries": {
+    "metabolic_cost_results.json": {
+      "producer_name": "metabolic_cost",
+      "producer_sha256": "6bf7599c63a2203b175c43749a20d4a52ccf99fabefb8303c15009243142fe38",
+      "input_sha256": "48016b0dc7f090cc095c7fcd6494a5b402fd7c62cf8f8fee14ae6089b155a224",
+      "provenance": "calibrated_public_model",
+      "regime": "level_walking_steady_state",
+      "upstream_input_file": "static-optimization activation file of the public OpenSim gait2392 example (adapted producer input)",
+      "units": {
+        "muscle_mass.total_body_mass_kg": "kg",
+        "muscle_mass.summed_muscle_mass_kg": "kg",
+        "headline.umberger2010_gross_w_per_kg": "W/kg",
+        "headline.umberger2010_net_w_per_kg": "W/kg",
+        "headline.bhargava2004_gross_w_per_kg": "W/kg",
+        "headline.bhargava2004_net_w_per_kg": "W/kg",
+        "sensitivity.combined_tendon_and_mass_correction_w_per_kg": "W/kg",
+        "sensitivity.muscle_mass_correction_scale_applied": "dimensionless",
+        "distance_speed.speed_mps": "m/s"
+      },
+      "region_ids": {
+        "muscle_mass.total_body_mass_kg": "WHOLE-BODY",
+        "muscle_mass.summed_muscle_mass_kg": "MSK-MUSCLE",
+        "headline.umberger2010_gross_w_per_kg": "WHOLE-BODY",
+        "headline.umberger2010_net_w_per_kg": "WHOLE-BODY",
+        "headline.bhargava2004_gross_w_per_kg": "WHOLE-BODY",
+        "headline.bhargava2004_net_w_per_kg": "WHOLE-BODY",
+        "sensitivity.combined_tendon_and_mass_correction_w_per_kg": "WHOLE-BODY",
+        "sensitivity.muscle_mass_correction_scale_applied": "MSK-MUSCLE",
+        "distance_speed.speed_mps": "WHOLE-BODY"
+      },
+      "frames": {
+        "default": "scalar"
+      },
+      "times": {
+        "default": "steady_state",
+        "mass_default": null
+      },
+      "notes": "TEST REGISTRY, not a production registry. Producer: the adapted public gait2392/Umberger2010/Bhargava2004 metabolic-cost producer. Its OWN five producer gates report overall_pass=false (speed_sanity_ok=false, expected_direction_pass=false), so its real result (fixture public_control) is refused for scientific use. payload_sha256 pins the contract-test fixture contract_gates_pass (same numbers, gate outcome replaced for contract testing); it is not evidence. Acceptance means the quantities are traceable and unit/region/frame/time-consistent, not that the physiology is correct. regime=level_walking_steady_state; any other or missing regime is refused. Admission: payload_sha256 is written only by tests/fixtures/i1/build_fixtures.py and takes effect through a reviewed commit; no runtime code writes this file.",
+      "payload_sha256": "e680fce8bd64bc976919557b4d3b32279adc89ed986c4833a669e236263e80c0"
+    },
+    "metabolic_cost_results.synthetic.json": {
+      "producer_name": "metabolic_cost_synthetic_standin",
+      "producer_sha256": null,
+      "input_sha256": null,
+      "provenance": "synthetic",
+      "declared_synthetic_region": "MSK-LOWERLIMB-HIP"
+    }
+  },
+  "_note": "Test pin for tests/test_*_preflight.py only. It is not the production registry: where a production registry lives and which BODYTWIN_EVIDENCE_MODE is the default are open decisions."
+}

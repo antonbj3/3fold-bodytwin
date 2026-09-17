@@ -20,7 +20,7 @@ N_ALVEOLI = 480e6
 V_ALVEOLUS_UM3 = 4.2e6
 S_TOTAL_M2 = 143.0
 
-S_TOTAL_UM2 = S_TOTAL_M2 * 1e12  # 1 m^2 = 1e12 um^2
+S_TOTAL_UM2 = S_TOTAL_M2 * 1e12  # um^2; 1 m^2 = 1e12 um^2
 
 # empirical per-alveolus area
 s_empirical = S_TOTAL_UM2 / N_ALVEOLI

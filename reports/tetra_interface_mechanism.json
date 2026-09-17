@@ -105,7 +105,11 @@
   ],
   "gates": {
     "full_repeat": true,
-    "finite_volumes": true
+    "finite_volumes": true,
+    "positive_oriented_volumes": true
+  },
+  "excluded_oriented_controls": {
+    "inverted": "intentionally inverted fixture; negative oriented six-volumes expected"
   },
   "scope": "Synthetic tetrahedron face inventory, not a boundary converter certificate."
 }

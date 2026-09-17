@@ -60,12 +60,42 @@ CITATIONS (PMIDs/DOIs verified against NCBI eutils, not recalled):
 READS: <BODYTWIN_OUT>/metabolic_cost/metabolic_cost_results.json
 WRITES: <BODYTWIN_OUT>/respiratory/respiratory_results.json
 GATE: overall_pass = all ten gates in the final GATES block; exit 0 on pass, 2 otherwise.
+
+RESULT ENVELOPE: this cell is a consumer of the shared metabolic-cost result
+envelope. Before any number is read, `consumer_preflight_v1.preflight_metabolic_cost` checks
+provenance / region / frame / time / regime / staleness / producer pin on
+`metabolic_cost_results.json`, and labels the result scientific evidence, an explicit synthetic
+demo (never promoted), or a refusal (exit 2, no numbers used). The shared quantity contract
+(`METABOLIC_COST_QUANTITY_SPECS`, nine keys) is a SUPERSET of what this cell reads (six keys:
+total body mass, the four headline w/kg values and the combined tendon+mass correction); the
+producer always emits all nine, so the full contract is reused unchanged. Its own ten gates and
+thresholds are NOT touched by the migration.
 """
+import hashlib
 import json
 import os
 import sys
+from datetime import datetime, timezone
 
 import numpy as np
+
+# --------------------------------------------------------------------------- I1 preflight --
+# Result-envelope preflight wiring: make the shared framework modules importable when this cell is
+# run standalone (python src/bodytwin/cells/respiratory/respiratory.py). The import MUST NOT be
+# silently skipped: a missing framework module is a hard error, never a downgrade to the legacy
+# unchecked cached-result read.
+_SRC_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+if _SRC_ROOT not in sys.path:
+    sys.path.insert(0, _SRC_ROOT)
+try:
+    from bodytwin.framework.consumer_preflight_v1 import preflight_metabolic_cost
+    from bodytwin.framework.result_envelope_v1 import Verdict, get_dotted
+except ImportError as _exc:  # pragma: no cover - exercised only on a broken checkout
+    raise ImportError(
+        "respiratory.py requires bodytwin.framework."
+        "result_envelope_v1 and bodytwin.framework.consumer_preflight_v1; ensure the "
+        f"src root is on sys.path (expected {_SRC_ROOT!r}). Original error: {_exc}"
+    ) from _exc
 
 # --------------------------------------------------------------------------- paths / consts --
 import os as _os
@@ -114,6 +144,41 @@ def load_metabolic_cost():
         return json.load(f)
 
 
+def _sha256_file(path):
+    """sha256 of an input file's bytes -- the ``current_input_sha256`` the consumer uses."""
+    with open(path, "rb") as f:
+        return hashlib.sha256(f.read()).hexdigest()
+
+
+def _load_registry_entry(path, result_name="metabolic_cost_results.json"):
+    """Load the I1 registry file and return the entry for the metabolic-cost result."""
+    from bodytwin.framework.consumer_preflight_v1 import load_registry, registry_entry
+    return registry_entry(load_registry(path), result_name)
+
+
+def _write_refused_report(mode, verdict, input_path):
+    """Write the I1 refusal record and print each failure prefixed ``REFUSED:``; return 2."""
+    record = {
+        "mode": mode,
+        "failures": list(verdict.failures),
+        "flags": list(verdict.flags),
+        "input": input_path,
+        "utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    }
+    # A REFUSE MUST NOT leave a stale ACCEPT behind: remove any prior accepted result so a
+    # downstream reader keyed on respiratory_results.json cannot pick up an older run.
+    stale_results_path = os.path.join(OUT_DIR, "respiratory_results.json")
+    if os.path.exists(stale_results_path):
+        os.remove(stale_results_path)
+    refused_path = os.path.join(OUT_DIR, "respiratory_refused.json")
+    with open(refused_path, "w", encoding="utf-8") as f:
+        json.dump(record, f, indent=2, default=str)
+    for failure in verdict.failures:
+        print(f"REFUSED: {failure}")
+    print(f"REFUSED: wrote {refused_path}")
+    return 2
+
+
 def vo2_ml_per_kg_min(power_w_per_kg, e_o2_kj_per_l=E_O2_KJ_PER_L):
     """VO2 [mL/(kg*min)] from metabolic power [W/kg]:
     P [W/kg] = P [J/(s*kg)]  ->  *60 -> [J/(min*kg)]  -> /1000 -> [kJ/(min*kg)]
@@ -143,16 +208,42 @@ def main():
     print("=" * 78)
     print("STEP 1/8 -- load the already-computed metabolic rate (no re-solve)")
     print("=" * 78)
-    mc = load_metabolic_cost()
-    mass_kg = mc["muscle_mass"]["total_body_mass_kg"]
-    umb_gross_w_per_kg = mc["headline"]["umberger2010_gross_w_per_kg"]
-    umb_net_w_per_kg = mc["headline"]["umberger2010_net_w_per_kg"]
-    bhg_gross_w_per_kg = mc["headline"]["bhargava2004_gross_w_per_kg"]
-    bhg_net_w_per_kg = mc["headline"]["bhargava2004_net_w_per_kg"]
+    # --- I1 preflight: decide evidence class / REFUSE before any number is used -----------------
+    mode = os.environ.get("BODYTWIN_EVIDENCE_MODE", "auto").strip().lower()
+    registry_entry = None
+    _registry_path = os.environ.get("BODYTWIN_I1_REGISTRY")
+    if _registry_path:
+        registry_entry = _load_registry_entry(_registry_path)
+    raw = load_metabolic_cost()
+    try:
+        payload, verdict = preflight_metabolic_cost(
+            raw, mode=mode, registry_entry=registry_entry,
+            current_input_sha256=_sha256_file(METCOST_JSON), producer_path=None,
+        )
+    except ValueError as exc:
+        # An unknown BODYTWIN_EVIDENCE_MODE is a refusal, not a traceback.
+        return _write_refused_report(
+            mode,
+            Verdict("REFUSE", (f"invalid evidence mode: {exc}",), (), "refused"),
+            METCOST_JSON,
+        )
+    if verdict.state == "REFUSE":
+        return _write_refused_report(mode, verdict, METCOST_JSON)
+    mc = payload
+    if verdict.state == "ACCEPT_SYNTHETIC_DEMO":
+        print("EVIDENCE: SYNTHETIC DEMO -- not a scientific result")
+    elif verdict.state == "ACCEPT_SCIENTIFIC":
+        print(f"EVIDENCE: SCIENTIFIC provenance={verdict.evidence_class}")
+    mass_kg = get_dotted(mc, "muscle_mass.total_body_mass_kg")
+    umb_gross_w_per_kg = get_dotted(mc, "headline.umberger2010_gross_w_per_kg")
+    umb_net_w_per_kg = get_dotted(mc, "headline.umberger2010_net_w_per_kg")
+    bhg_gross_w_per_kg = get_dotted(mc, "headline.bhargava2004_gross_w_per_kg")
+    bhg_net_w_per_kg = get_dotted(mc, "headline.bhargava2004_net_w_per_kg")
     basal_w_per_kg = umb_gross_w_per_kg - umb_net_w_per_kg
     basal_w_per_kg_check = bhg_gross_w_per_kg - bhg_net_w_per_kg
     basal_consistent = abs(basal_w_per_kg - basal_w_per_kg_check) < 1e-9
-    combined_corrected_net_w_per_kg = mc["sensitivity"]["combined_tendon_and_mass_correction_w_per_kg"]
+    combined_corrected_net_w_per_kg = get_dotted(
+        mc, "sensitivity.combined_tendon_and_mass_correction_w_per_kg")
     combined_corrected_gross_w_per_kg = combined_corrected_net_w_per_kg + basal_w_per_kg
 
     configs_w_per_kg = {
@@ -358,6 +449,19 @@ def main():
             "class": "reference_body",
         },
     })
+    if verdict.state == "ACCEPT_SYNTHETIC_DEMO":
+        report["evidence_class"] = "synthetic_demo"
+        report["scientific_claim"] = False
+    else:
+        report["evidence_class"] = verdict.evidence_class
+        report["scientific_claim"] = True
+    report["preflight"] = {
+        "mode": mode,
+        "state": verdict.state,
+        "failures": list(verdict.failures),
+        "flags": list(verdict.flags),
+        "evidence_class": verdict.evidence_class,
+    }
     out_path = f"{OUT_DIR}/respiratory_results.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2, default=str)

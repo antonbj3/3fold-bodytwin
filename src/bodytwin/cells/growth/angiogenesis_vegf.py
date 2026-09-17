@@ -391,7 +391,7 @@ def f1_hif_vegf_axis():
 O2_SOLUBILITY_ML_PER_ML_PER_MMHG = 0.003 / 100.0  # identical constant to the blood_oxygen_transport
 # cell's CaO2 dissolved-O2 term (0.003 mL/dL/mmHg = 3e-5 mL/mL/mmHg) -- reused, not reinvented.
 
-D_O2_RANGE_CM2_S = (1.0e-5, 2.0e-5)  # textbook tissue O2 diffusion coefficient range (disclosed tier,
+D_O2_RANGE_CM2_S = (1.0e-5, 2.0e-5)  # cm^2/s; textbook tissue O2 diffusion coefficient range (disclosed tier,
 # consistent with the Krogh 1919 formalism; not independently re-extracted from one live full-text
 # numeric quote).
 A_CONSUMPTION_RANGE_ML_PER_ML_S = (2.0e-4, 1.2e-3)  # textbook-plausible resting-to-metabolically-active

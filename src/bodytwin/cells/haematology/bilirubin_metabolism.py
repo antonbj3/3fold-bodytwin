@@ -48,7 +48,7 @@ OUT_JSON = os.path.join(OUT_DIR, "bilirubin_metabolism_results.json")
 with open(SIBLING_ERYTHROPOIESIS) as f:
     ery = json.load(f)
 
-HB_G_DL = ery["couples_to_siblings_readonly"]["hb_ref_g_dl"]                                  # 15.0
+HB_G_DL = ery["couples_to_siblings_readonly"]["hb_ref_g_dl"]                                  # 15.0 g/dL
 BLOOD_VOLUME_L = ery["step4_marrow_output_geometric_derivation"]["blood_volume_l"]              # 5.0
 RBC_LIFESPAN_DAYS = ery["step1_rbc_lifespan"]["combined_true_lifespan_estimate_days"]           # 115.0
 
@@ -112,8 +112,8 @@ G0_BONUS_PASS = abs(g0_fe_crosscheck_pctdiff) <= 0.02  # tight -- same arithmeti
 # ---------------------------------------------------------------------------
 # Standard neonatal hematology reference values (textbook tier, NOT independently re-verified
 # via a primary-source quote -- disclosed):
-NEONATAL_HB_G_DL = 17.0
-NEONATAL_BLOOD_VOLUME_ML_PER_KG = 85.0
+NEONATAL_HB_G_DL = 17.0                          # 17.0 g/dL
+NEONATAL_BLOOD_VOLUME_ML_PER_KG = 85.0           # 85.0 mL/kg
 # Pearson 1967 (PMID 5334979, live title/journal/year-confirmed) established that fetal/neonatal
 # RBC lifespan is SHORTER than the adult ~115-120 d figure; the exact day-count below is a
 # secondary/textbook figure (disclosed tier, NOT re-extracted from Pearson's paywalled 1967

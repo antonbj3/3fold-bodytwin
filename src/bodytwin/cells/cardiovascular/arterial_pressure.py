@@ -148,7 +148,7 @@ OUT_DIR = _os.path.join(OUT_ROOT, "arterial_pressure")
 OUT_PATH = _os.path.join(OUT_DIR, "arterial_pressure_results.json")
 
 # ---- unit-conversion physical constants (derived from FIRST PRINCIPLES, machine cross-checked) --
-MMHG_TO_DYN_PER_CM2 = 1333.22          # 1 mmHg in dyn/cm^2 (standard physical constant)
+MMHG_TO_DYN_PER_CM2 = 1333.22          # dyn/cm^2 per mmHg (1 mmHg = 1333.22 dyn/cm^2; standard physical constant)
 L_MIN_TO_ML_S = 1000.0 / 60.0          # 1 L/min in mL/s = 16.6667
 DYN_S_CM5_PER_WOODUNIT_PRECISE = MMHG_TO_DYN_PER_CM2 / L_MIN_TO_ML_S   # first-principles derivation
 DYN_S_CM5_PER_WOODUNIT_CLINICAL = 80.0  # Wikipedia "Vascular resistance" quoted rounded constant [9]

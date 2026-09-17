@@ -1,0 +1,113 @@
+{
+  "payload": {
+    "envelope_version": 1,
+    "producer": {
+      "name": "metabolic_cost",
+      "source_sha256": "6bf7599c63a2203b175c43749a20d4a52ccf99fabefb8303c15009243142fe38",
+      "command": "metabolic_cost_adapted.py",
+      "seed": null,
+      "provenance": "calibrated_public_model",
+      "input_sha256": "48016b0dc7f090cc095c7fcd6494a5b402fd7c62cf8f8fee14ae6089b155a224"
+    },
+    "quantities": {
+      "muscle_mass.total_body_mass_kg": {
+        "value": 72.6,
+        "units": "kg",
+        "region_id": "WHOLE-BODY",
+        "frame": "scalar",
+        "time": null,
+        "uncertainty": null,
+        "provenance": "calibrated_public_model"
+      },
+      "muscle_mass.summed_muscle_mass_kg": {
+        "value": 29.988746412564435,
+        "units": "kg",
+        "region_id": "MSK-MUSCLE",
+        "frame": "scalar",
+        "time": null,
+        "uncertainty": null,
+        "provenance": "calibrated_public_model"
+      },
+      "headline.umberger2010_gross_w_per_kg": {
+        "value": 4.925751924812641,
+        "units": "W/kg",
+        "region_id": "WHOLE-BODY",
+        "frame": "scalar",
+        "time": "steady_state",
+        "uncertainty": null,
+        "provenance": "calibrated_public_model"
+      },
+      "headline.umberger2010_net_w_per_kg": {
+        "value": 3.725751924812641,
+        "units": "W/kg",
+        "region_id": "WHOLE-BODY",
+        "frame": "scalar",
+        "time": "steady_state",
+        "uncertainty": null,
+        "provenance": "calibrated_public_model"
+      },
+      "headline.bhargava2004_gross_w_per_kg": {
+        "value": 4.06437653370986,
+        "units": "W/kg",
+        "region_id": "WHOLE-BODY",
+        "frame": "scalar",
+        "time": "steady_state",
+        "uncertainty": null,
+        "provenance": "calibrated_public_model"
+      },
+      "headline.bhargava2004_net_w_per_kg": {
+        "value": 2.8643765337098595,
+        "units": "W/kg",
+        "region_id": "WHOLE-BODY",
+        "frame": "scalar",
+        "time": "steady_state",
+        "uncertainty": null,
+        "provenance": "calibrated_public_model"
+      },
+      "sensitivity.combined_tendon_and_mass_correction_w_per_kg": {
+        "value": 3.1040227079491434,
+        "units": "W/kg",
+        "region_id": "WHOLE-BODY",
+        "frame": "scalar",
+        "time": "steady_state",
+        "uncertainty": null,
+        "provenance": "calibrated_public_model"
+      },
+      "sensitivity.muscle_mass_correction_scale_applied": {
+        "value": 0.5735484825999158,
+        "units": "dimensionless",
+        "region_id": "MSK-MUSCLE",
+        "frame": "scalar",
+        "time": null,
+        "uncertainty": null,
+        "provenance": "calibrated_public_model"
+      },
+      "distance_speed.speed_mps": {
+        "value": 0.04605247280557109,
+        "units": "m/s",
+        "region_id": "WHOLE-BODY",
+        "frame": "scalar",
+        "time": "steady_state",
+        "uncertainty": null,
+        "provenance": "calibrated_public_model"
+      }
+    },
+    "validity": {
+      "regime": "level_walking_steady_state",
+      "valid_from_utc": null,
+      "valid_until_utc": null,
+      "stale_if_input_sha256_mismatch": true
+    },
+    "gates": {
+      "contract_test_fixture": true
+    },
+    "overall_pass": true
+  },
+  "receipt": {
+    "payload_sha256": "e680fce8bd64bc976919557b4d3b32279adc89ed986c4833a669e236263e80c0",
+    "producer_sha256": "6bf7599c63a2203b175c43749a20d4a52ccf99fabefb8303c15009243142fe38",
+    "producer_path": "metabolic_cost_adapted.py",
+    "sealed_utc": "2026-09-16T00:00:00+00:00",
+    "schema": "result_receipt_v1"
+  }
+}

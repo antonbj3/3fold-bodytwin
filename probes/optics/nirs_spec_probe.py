@@ -10,7 +10,7 @@ import tempfile
 import numpy as np
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'src'))
 from bodytwin.chains.nirs_spec_v1 import Chain,generate
-from bodytwin.chains.nirs_chain_v1 import leg,propagate
+from bodytwin.chains.nirs_chain_v1 import leg,propagate,NOMINAL,BANDS,SEED,DRAWS
 
 
 def original_gates(legs):
@@ -32,7 +32,8 @@ def main():
         values=chain.propagate(paths,inputs);arrays[name]=values
         row=dict(name=name,spec_sha256=hashlib.sha256(raw).hexdigest(),legs=legs,gates=original_gates(legs),
                  full_records_reference_exact=values.tobytes()==propagate(paths,inputs).tobytes())
-        if name!='narrow':row['frozen_observer_bytes_exact']=json.dumps(legs[0],sort_keys=True).encode()==json.dumps(leg(paths),sort_keys=True).encode()
+        row['frozen_observer_bytes_exact']=json.dumps(legs[0],sort_keys=True).encode()==json.dumps(leg(paths),sort_keys=True).encode()
+        row['frozen_spec_match']=bool(np.array_equal(chain.nominal,NOMINAL) and np.array_equal(chain.bands,BANDS) and spec['seed']==SEED and spec['draws']==DRAWS)
         generated=generate(spec)
         row['generated_bytes_exact']=generated.encode()==generate(json.loads(raw)).encode()
         with tempfile.TemporaryDirectory() as folder:
@@ -51,12 +52,12 @@ def main():
     for spec in bad:
         try:Chain(spec)
         except ValueError:rejected+=1
-    gates=dict(frozen_two_exact=all(r.get('frozen_observer_bytes_exact',True) and r['full_records_reference_exact'] for r in rows),
+    gates=dict(frozen_two_exact=all(r['frozen_observer_bytes_exact']==r['frozen_spec_match'] and r['full_records_reference_exact'] for r in rows) and any(r['frozen_spec_match'] for r in rows),
                all_repeat=all(r['legs'][0]==r['legs'][1] for r in rows),original_gates=all(all(r['gates'].values()) for r in rows),
                third_narrower=rows[2]['legs'][0]['joint_span']<rows[1]['legs'][0]['joint_span'],invalid_rejected=rejected==5,generated=all(r['generated_bytes_exact'] and r['generated_execution_exact'] for r in rows))
     report=dict(rows=rows,gates=gates,rejected_controls=rejected,scope='Fixed registry NIRS data graphs; conditional synthetic paths; no clinical calibration or arbitrary program generation.')
     (ROOT/'reports/nirs_spec_probe.json').write_text(json.dumps(report,indent=2)+'\n');np.savez_compressed(ROOT/'reports/nirs_spec_records.npz',**arrays)
-    print(json.dumps(dict(gates=gates,rows=[dict(name=r['name'],gates=r['gates'],joint_span=r['legs'][0]['joint_span'],frozen_exact=r.get('frozen_observer_bytes_exact')) for r in rows])))
+    print(json.dumps(dict(gates=gates,rows=[dict(name=r['name'],gates=r['gates'],joint_span=r['legs'][0]['joint_span'],frozen_exact=r['frozen_observer_bytes_exact'],frozen_spec_match=r['frozen_spec_match']) for r in rows])))
     return 0 if all(gates.values()) else 2
 
 

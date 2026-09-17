@@ -57,7 +57,7 @@ E_MINERAL = 100.0   # GPa, hydroxyapatite (order-of-magnitude literature value)
 E_ORGANIC = 2.0      # GPa, collagen-water organic matrix (order-of-magnitude literature value)
 NU_MINERAL, NU_ORGANIC = 0.28, 0.35  # Poisson ratios, for shear-modulus conversion (HS bound)
 PHI = 0.43
-RHO = 30.0  # mineral platelet aspect ratio (L/t), cross-validated convention
+RHO = 30.0  # mineral platelet aspect ratio (length/thickness), dimensionless -- NOT a density/litre; cross-validated convention
 
 
 def shear_modulus(E, nu):

@@ -15,9 +15,12 @@ NOMINAL=np.array([60.,15.,1.]);BANDS=np.array([2.,.75,.1]);SEED=20260912;DRAWS=2
 
 
 def propagate(paths,inputs):
-    records=[]
+    records=[];cache={}
     for po2,hb,fraction in inputs:
-        sat=float(sao2_hill(po2));out,_=signal(paths,sat,hb,BLOOD_FRACTION*fraction)
+        sat=float(sao2_hill(po2));blend=BLOOD_FRACTION*fraction
+        key=(sat,float(hb),np.asarray(blend).tobytes());out=cache.get(key)
+        if out is None:
+            out,_=signal(paths,sat,hb,blend);cache[key]=out
         records.append([po2,hb,fraction,sat,*np.array(out['mua_per_mm']).ravel(),*out['intensities'],out['ratio_760_850']])
     return np.asarray(records)
 

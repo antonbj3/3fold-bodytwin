@@ -230,7 +230,7 @@ OUT["HbS_forced_negative"] = {
 #   recompute a-v delivery at pH7.2/39C (right), pH7.4/37C (baseline), pH7.6/33C (left).
 # ---------------------------------------------------------------------------
 Hufner = 1.34
-Hb_g_dL = 15.0
+Hb_g_dL = 15.0  # 15.0 g/dL
 dissolved_coef = 0.003
 
 def refit_at_c(c_val):

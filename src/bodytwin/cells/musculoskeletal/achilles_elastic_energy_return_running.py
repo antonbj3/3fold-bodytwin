@@ -36,7 +36,7 @@ OUT = _os.path.join(OUT_ROOT, "achilles_elastic_energy_return_running",
 
 # Route A inputs
 SIGMA_PA = 111e6
-E_GPA_CENTRAL = 1.6e9
+E_GPA_CENTRAL = 1.6e9  # Pa (1.6e9 Pa = 1.6 GPa; name retains legacy '-GPA' token)
 CSA_M2 = 57.5e-6
 L0_M = 0.200
 

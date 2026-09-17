@@ -82,7 +82,8 @@ def matrix(folder,expected):
             for key,a in data.items():
                 if backend!='L4':rows.append(dict(family=family,backend=backend,array=key,**compare(baseline[key],a)))
                 if '_0_' in key:repeats.append(dict(family=family,backend=backend,array=key,**compare(a,data[key.replace('_0_','_1_',1)])))
-    gates=dict(artifact_integrity=True,architectures=all(token in captures[b]['inventory'] for b,token in [('L4','L4'),('A10G','A10'),('H100','H100')]),
+    artifact_names={'capture.json'}|{tag+suffix for _,tag in FAMILIES.values() for suffix in ('.json','_arrays.npz')}
+    gates=dict(artifact_integrity=all((folder/backend).is_dir() and {p.name for p in (folder/backend).iterdir()}==artifact_names and all(p.stat().st_size>0 for p in (folder/backend).iterdir()) for backend in CAPTURES),architectures=all(token in captures[b]['inventory'] for b,token in [('L4','L4'),('A10G','A10'),('H100','H100')]),
                sources=all(c['source_hashes']==expected and c['reference_sha256']==REFERENCE_SHA and all(v==0 for v in c['exits'].values()) for c in captures.values()),
                original_gates=all(all(r['gates'].values()) for r in reports.values()),
                same_backend=all(r['exact'] for r in repeats),cross_backend=all(r['exact'] for r in rows))

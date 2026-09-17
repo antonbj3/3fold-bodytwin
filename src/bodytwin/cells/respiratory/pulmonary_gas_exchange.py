@@ -183,7 +183,7 @@ ALVEOLAR_NUMBER_MEAN = 480e6                 # Ochs 2004 [2]
 ALVEOLAR_NUMBER_RANGE = (274e6, 790e6)       # Ochs 2004 [2] -- 6 lungs, CV=37%
 ALVEOLAR_NUMBER_CV = 0.37                    # Ochs 2004 [2], directly stated
 BARRIER_THICKNESS_LOW_UM = 0.2               # Guyton & Hall via Wikipedia [3] -- thinnest
-BARRIER_THICKNESS_HIGH_UM = 0.6              # Guyton & Hall via Wikipedia [3] -- thickest (this task's "~0.5-1um" sits at/near this upper end)
+BARRIER_THICKNESS_HIGH_UM = 0.6              # 0.6 um -- Guyton & Hall via Wikipedia [3] -- thickest (this task's "~0.5-1um" sits at/near this upper end)
 BARRIER_THICKNESS_OUTLIER_HIGH_UM = 2.0      # Wikipedia "Blood-air barrier" -- looser/wider secondary figure, disclosed
 
 # ---- DLCO -> DLO2 (this task's explicit ASSUMPTION-LADEN, hold-OPEN conversion) -----------
@@ -196,7 +196,7 @@ PAO2_MMHG = 100.0             # [13], cross-checked vs [15]'s PaO2 75-100mmHg ba
 P50_MMHG = 26.6                # [14]
 HILL_N = 2.7                   # ubiquitous textbook Hill coefficient for human Hb-O2 binding, NOT
                                 # independently re-verified (flagged; ultra-standard)
-HB_G_DL = 15.0                  # standard reference value, matches [12]'s worked example
+HB_G_DL = 15.0                  # 15.0 g/dL; standard reference value, matches [12]'s worked example
 HUEFNER_MLO2_PER_G = 1.34       # standard clinical O2-carrying capacity of Hb (theoretical max 1.39;
                                 # 1.34 is the usual clinical constant accounting for some
                                 # dysfunctional Hb) -- textbook-grade, flagged
@@ -309,6 +309,13 @@ def load_json(path):
         return json.load(f)
 
 
+def fmt_optional(value, spec):
+    """Format an optional (possibly None) numeric value from the docstring-optional
+    respiratory input, rendering 'n/a' when that input is absent. Required-path values
+    are unaffected (format() is used unchanged when the value is present)."""
+    return format(value, spec) if value is not None else "n/a"
+
+
 def main():
     report = {}
     os.makedirs(OUT_DIR, exist_ok=True)
@@ -369,7 +376,8 @@ def main():
     print(f"cardiac_output cell: Q_rest={q_rest_l_min:.3f} L/min, HR_rest={hr_rest:.1f} bpm")
     print(f"Q_walk (combined-corrected, keyed by a-vO2diff mL/100mL): {q_walk_by_avo2}")
     print(f"respiratory cell VO2 (INTERNAL, non-independent, shared instrument chain -- see Honest Gaps): "
-          f"rest={twin_vo2_rest_internal:.1f} mL/min, walk(combined-corrected)={twin_vo2_walk_internal:.1f} mL/min")
+          f"rest={fmt_optional(twin_vo2_rest_internal, '.1f')} mL/min, "
+          f"walk(combined-corrected)={fmt_optional(twin_vo2_walk_internal, '.1f')} mL/min")
 
     print("\n" + "=" * 78)
     print("STEP 4/11 -- MODEL A: naive static Fick VO2 = DLO2 x (PAO2-PvO2) -- PRE-REGISTERED to FAIL")
@@ -492,7 +500,7 @@ def main():
     print(f"OODA ORIENT (forced diagnosis of the miss above, not hand-waved): this is a PASS-THROUGH of "
           f"cardiac_output.py's inherited MET-route VO2, not new diffusion physics (equilibration~1.0 "
           f"here too -- see Step 7). Using respiratory.py's, already-independently-verified E_O2-route "
-          f"VO2 for the identical physiological state instead: {resp_e_o2_route_vo2_ml_kg_min:.2f} mL/kg/min "
+          f"VO2 for the identical physiological state instead: {fmt_optional(resp_e_o2_route_vo2_ml_kg_min, '.2f')} mL/kg/min "
           f"-> {'INSIDE' if diagnostic_alt_in_range else 'outside'} the anchor. CONCLUSION: the ~2.8% miss "
           f"traces to a pre-existing, already-disclosed cross-route upstream common-mode difference "
           f"(cardiac_output.py's MET-route vs respiratory.py's E_O2-route, ~5% apart), NOT to a defect in "

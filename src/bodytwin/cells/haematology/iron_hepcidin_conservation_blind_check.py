@@ -135,7 +135,7 @@ k_synH = k_degH * H0  # baseline balance of dH/dt at Fe_p=Fe_p0, IL6=0
 # stated "FPN fast-relaxation rate = 3.1 /h" = linearized decay rate at the fixed point
 #   = k_synFPN + k_intFPN*H0  (standard linearization of a(1-x)-b*x type equation about x*)
 # => k_synFPN + k_intFPN*H0 = 3.1, and k_synFPN = H0*k_intFPN => 2*H0*k_intFPN = 3.1
-FPN_relax_rate = 3.1  # /h, stated
+FPN_relax_rate = 3.1  # 1/h, stated
 k_intFPN = FPN_relax_rate / (2.0 * H0)
 k_synFPN = H0 * k_intFPN
 

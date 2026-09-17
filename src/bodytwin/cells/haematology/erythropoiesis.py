@@ -350,7 +350,7 @@ HB_THRESHOLD_MCGONIGLE = HCT_EXPONENTIAL_THRESHOLD_MCGONIGLE * HB_PER_HCT_RATIO 
 HB_THRESHOLD_TASK = 12.0        # task's stated qualitative anchor (disclosed vs McGonigle's 10.67)
 EPO_SEVERE_ANEMIA_HB = 8.0
 EPO_SEVERE_ANEMIA_BAND = (100.0, 999.0)   # "hundreds of mIU/mL" -- task's qualitative anchor
-HINGE_SOFTNESS_G_DL = 1.5       # disclosed tier; see rationale below
+HINGE_SOFTNESS_G_DL = 1.5       # 1.5 g/dL; disclosed tier; see rationale below
 
 # GEOMETRIC/MECHANISTIC fix, forced via OODA (Observe: a hard max(0,thresh-hb) hinge creates a true
 # DEAD ZONE with EXACTLY zero restoring slope above hb_thresh -- Orient: this is not just a numerical
@@ -529,7 +529,7 @@ steady_state_selfconsistent = bool(np.allclose(_rbc_check, RBC_SS, rtol=1e-9))
 # modeled -- honestly expect this model (unconstrained by iron) to recover AT LEAST as fast as the
 # fastest real arm (iron-supplemented, 31-32 d), and probably faster.
 # ============================================================================================
-KISS_HB_DROP_G_DL = 1.3
+KISS_HB_DROP_G_DL = 1.3  # 1.3 g/dL
 KISS_BASELINE_HB = 14.2
 FRACTIONAL_DROP = KISS_HB_DROP_G_DL / KISS_BASELINE_HB
 RBC0_PERTURBED = RBC_SS * (1.0 - FRACTIONAL_DROP)
