@@ -164,7 +164,19 @@ def main() -> int:
                 rows.append((e['id'], 'UNCHECKED', f'{type(exc).__name__} reading evidence'))
                 continue
             idx = int(mline.group('line')) - 1
-            claimed = ' '.join(mline.group('text').split())
+            # Normalise the dash family before comparing. The cited text writes -90 with an ASCII
+            # hyphen while the source table uses the Unicode minus U+2212, and 25 of 30 stale
+            # flags came from that one difference in one file. Fourth sign-related bug in this
+            # checker tonight: exponent sign, hyphen-as-minus, heading-level citation, and now
+            # the dash encoding. Signs are where this kind of code keeps failing.
+            DASH = {'\u2212': '-', '\u2013': '-', '\u2014': '-', '\u2010': '-', '\u00ad': '-'}
+
+            def norm(s):
+                for a, b in DASH.items():
+                    s = s.replace(a, b)
+                return s
+
+            claimed = norm(' '.join(mline.group('text').split()))
             # The harvested citations point at the SECTION the claim lives in, not at the exact
             # line: L61 is '## 2. Method', L148 is '## 4. Falsifier A'. A plus-or-minus-three-line
             # window flagged 41 correctly cited edges as stale for that reason alone. When the
@@ -173,9 +185,9 @@ def main() -> int:
                 end = idx + 1
                 while end < len(lines) and not lines[end].lstrip().startswith('#'):
                     end += 1
-                window = ' '.join(' '.join(lines[idx:end]).split())
+                window = norm(' '.join(' '.join(lines[idx:end]).split()))
             else:
-                window = ' '.join(' '.join(lines[max(idx - 3, 0):idx + 4]).split())
+                window = norm(' '.join(' '.join(lines[max(idx - 3, 0):idx + 4]).split()))
             # the cited text, or every number in it, must appear within a few lines of the cite
             # A hyphen between digits is a RANGE, not a minus. Reading "1.176-1.357" as 1.176 and
             # -1.357 made the second number unfindable and flagged 43 correctly cited edges as
