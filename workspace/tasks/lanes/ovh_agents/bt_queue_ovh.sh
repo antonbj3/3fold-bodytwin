@@ -38,6 +38,20 @@ while true; do
       JMODEL=$([ -s "$f" ] && cat "$f" || echo swarm)
       rm -f $f $W/results/$J/.ovh_claim
       echo "[$(date +%T)] fetched $J exit=$(cat $W/results/$J/AGENT_EXIT 2>/dev/null || echo none-timeout) results=$([ -s $W/results/$J/RESULTS.md ] && echo yes || echo no)" >> $LOG
+      EX0=$(cat $W/results/$J/AGENT_EXIT 2>/dev/null || echo "")
+      # exit 75 is the provider rate limit. Record a per-model skip so the rotation stops asking for
+      # a model that is not answering: measured 3/10 21:56, five consecutive BT-CONN starts exited 75
+      # and every one ran on ling or free_worker while swarm answered 24 of 38, and throughput fell from
+      # 104 to 48 reports an hour. A third model raises the ceiling only while it answers.
+      if [ "$EX0" = "75" ]; then
+        MOD=$(python3 -c "import json;print(json.load(open('$W/results/$J/MODEL_ROUTE.json')).get('model',''))" 2>/dev/null)
+        case "$MOD" in
+          *ling*)    echo $(( $(date +%s) + 1200 )) > "$D/.skip_ling"
+                     echo "[$(date +%T)] rate-limit on ling, skipping it for 20 min" >> $LOG;;
+          *free_worker*) echo $(( $(date +%s) + 1200 )) > "$D/.skip_free_worker"
+                     echo "[$(date +%T)] rate-limit on free_worker, skipping it for 20 min" >> $LOG;;
+        esac
+      fi
       # exit 137 is SIGKILL, which for a unit with MemoryMax means the memory limit. Re-queue once.
       EX=$(cat $W/results/$J/AGENT_EXIT 2>/dev/null || echo "")
       if [ "$EX" = "137" ] && [ ! -s "$W/results/$J/RESULTS.md" ] && [ ! -f "$W/results/$J/.mem_retry_done" ]; then
@@ -99,7 +113,13 @@ while true; do
         LING_N=$(cat "$D/.ling_n" 2>/dev/null || echo 0)
         case "$LING_N" in (*[!0-9]*|"") LING_N=0;; esac
         LING_N=$((LING_N + 1)); echo "$LING_N" > "$D/.ling_n"
-        [ $((LING_N % 3)) -eq 0 ] && M=ling
+        # 3/10 21:56: ling and free_worker are BOTH rate-limited right now while swarm answers -- the
+        # five most recent BT-CONN starts all exited 75 and all of them ran on ling or free_worker, and
+        # throughput fell from 104 to 48 reports an hour. A third model raises the ceiling only while
+        # it answers; when it does not, it burns a slot per start. So a model that returns the
+        # rate-limit exit is skipped for 20 minutes, written as an epoch in .skip_<model>.
+        LING_SKIP=$(cat "$D/.skip_ling" 2>/dev/null || echo 0)
+        if [ $((LING_N % 3)) -eq 0 ] && [ "$(date +%s)" -ge "$LING_SKIP" ]; then M=ling; fi
       fi
       if [[ "$J" == BT-DW48-* ]] && [ ! -f ~/research/AGENT_DASHBOARD_20260930/AUTOMATIC_ENABLED.json ]; then
         DENT_N=$(find "$RUN" -maxdepth 1 -name 'BT-DW48-*' -type f | wc -l)
