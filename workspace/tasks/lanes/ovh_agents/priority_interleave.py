@@ -49,6 +49,9 @@ FETCH_PREFIX = 'BT-FETCH-'
 # a number with a unit or a stated absence, which is why they share the reserved slot.
 EDGE_PREFIX = 'BT-EDGE-'
 NEED_PREFIX = 'BT-NEED-'
+# Brainstorm angles, on the operator's call that a free resource is worth a low hit rate as long
+# as the filter sits inside the task. Each job reports its own hit rate.
+IDEA_PREFIX = 'BT-IDEA-'
 
 
 def job_of(line: str) -> str:
@@ -88,7 +91,8 @@ def main() -> int:
             elif j.startswith(HANDOVER_PREFIX) and is_live(j):
                 handover.append(ln)
             elif (j.startswith(SEED_PREFIX) or j.startswith(FETCH_PREFIX)
-                  or j.startswith(EDGE_PREFIX) or j.startswith(NEED_PREFIX)) and is_live(j):
+                  or j.startswith(EDGE_PREFIX) or j.startswith(NEED_PREFIX)
+                  or j.startswith(IDEA_PREFIX)) and is_live(j):
                 seed.append(ln)
             else:
                 other.append(ln)
