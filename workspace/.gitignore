@@ -62,3 +62,24 @@ tasks/free48/INITIAL_JOBS.json
 !tasks/lanes/ovh_agents/*.sh
 !tasks/lanes/seed_unblock_evidence/
 !tasks/lanes/seed_unblock_evidence/*.py
+
+# Runtime state under the tracked script directories: not source material, changes every minute.
+tasks/lanes/ovh_agents/running/
+tasks/lanes/ovh_agents/.*
+tasks/build_night/state/
+tasks/lanes/seed_unblock_evidence/*.AGENT_EXIT
+tasks/lanes/seed_unblock_evidence/*.txt
+tasks/lanes/seed_unblock_evidence/*.diff
+tasks/lanes/*.out
+tasks/lanes/bt_queue.max
+tasks/lanes/bt_queue_archive_*.txt
+tasks/lanes/cap_reserve_worker_local
+tasks/free48/CATALOG.json
+tasks/free48/GRAPH_PACKET.json
+tasks/free48/proposal_reviews/
+tasks/cloud/*.txt
+/inputs/
+/references/
+/graph
+/current
+/*.json
