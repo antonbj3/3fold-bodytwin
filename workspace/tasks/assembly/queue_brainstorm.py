@@ -25,6 +25,33 @@ W = Path('.')
 QUEUE = W / 'tasks/lanes/bt_queue.txt'
 RESULTS = W / 'results'
 
+# The operator caught a real flaw in the first eight: they are LINES, each pointing along a direction
+# I had already found, so the batch could only return variations of my own conclusions. A line extends
+# what I know; a LENS sees what I cannot see from where I stand. These six are lenses — none of them
+# starts from a measurement of mine, which is the point.
+LENSES = [
+    ('USER', 'Take the position of someone who has to ACT on this twin\'s output and carries the '
+             'consequence. What would they need that it does not give? Not more accuracy — a different '
+             'output, a different form, a caveat, a refusal to answer. Interview the artefacts: read '
+             'RESULTS_2026-10-03.md and say what a person could not do with it.'),
+    ('ADVERSARY', 'You want to show this twin is useless. What do you test first, and what is the '
+                  'cheapest experiment that would embarrass it? Be specific and technical. If you find '
+                  'the fastest route to a wrong answer, that is the most valuable thing in this batch.'),
+    ('NEIGHBOUR', 'Other fields predict outcomes from imperfect geometry and noisy instruments: weather '
+                  'forecasting, metallurgy, acoustics, structural engineering, seismology. What does one '
+                  'of them do routinely that we do not do at all? Name the practice, the field, and what '
+                  'it would cost us to adopt.'),
+    ('ABSENT', 'Our 45 cells are listed under tasks/free48/sources/. Which organ, tissue or process is '
+               'ENTIRELY missing, and does its absence block a question we are already asking? An '
+               'absence that blocks nothing is not interesting; one that silently breaks a chain is.'),
+    ('COST', 'What is expensive in the current chain — in compute, in measurement, in human time, in '
+             'data we must buy or beg for — and what would make it cheap? A tenfold cost reduction and a '
+             'tenfold accuracy gain are worth the same if neither is the binding constraint.'),
+    ('LUCK', 'Two decisions were scored against 89 real patients and beat their controls. What would '
+             'have to be TRUE for that to be luck rather than capability? Name the specific coincidence, '
+             'and the test that would separate the two. Do not reassure.'),
+]
+
 ANGLES = [
     ('DECISIONS', 'Which other decisions could the twin make, rather than predictions it could report? '
                   'The chain already chooses an implant power and a toric cylinder and is scored against '
@@ -76,7 +103,7 @@ FILTER = (
 
 def main() -> int:
     made = []
-    for tag, question in ANGLES:
+    for tag, question in ANGLES + LENSES:
         jid = f'BT-IDEA-{tag}'
         d = RESULTS / jid
         if (d / 'RESULTS.md').exists():

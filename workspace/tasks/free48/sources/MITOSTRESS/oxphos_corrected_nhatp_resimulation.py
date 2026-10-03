@@ -38,7 +38,33 @@ negligible vs leak, so RCR->1 is independent of ATP-synthase stoichiometry).
 import sys
 import json
 
-sys.path.insert(0, "source_repository/data/body_twin/agent_scratch_preserved")
+import os
+from pathlib import Path
+
+# PENDING_INDEPENDENT_REVIEW -- path portability only; no model change.
+_HERE = Path(__file__).resolve().parent
+_DEP = "oxphosswing_9f2c_reimpl_steadystate.py"
+_DEP_DEFAULT = "source_repository/data/body_twin/agent_scratch_preserved"
+
+
+def _dep_dir():
+    """Locate the reused reimpl module: env override, then beside this file, then
+    its canonical location. Lets the cell run from any working directory."""
+    cands = []
+    env = os.environ.get("BODYTWIN_SCRATCH_DIR")
+    if env:
+        cands.append(Path(env))
+    cands += [_HERE, Path(_DEP_DEFAULT)]
+    for c in cands:
+        if (c / _DEP).exists():
+            return c
+    raise FileNotFoundError(f"{_DEP} not found; set BODYTWIN_SCRATCH_DIR")
+
+
+OUT_DIR = Path(os.environ.get("CELL_OUT_DIR", str(_HERE)))
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+sys.path.insert(0, str(_dep_dir()))
 import oxphosswing_9f2c_reimpl_steadystate as ox  # noqa: E402  (reused unmodified, zero re-transcription)
 
 NH_ATP_OLD = 4.0            # published Route-B value (c_ring(8)/3 + ANT/Pi(1.333) = 4.0)
@@ -110,4 +136,4 @@ if __name__ == "__main__":
 
     json.dump(dict(published_baseline=pub, corrected=corr,
                     rcr_sweep_published=mine_sweep, rcr_sweep_corrected=corrected_sweep),
-              open("/tmp/oxphos_corrected_nhatp_final.json", "w"), indent=2)
+              open(OUT_DIR / "oxphos_corrected_nhatp_final.json", "w"), indent=2)

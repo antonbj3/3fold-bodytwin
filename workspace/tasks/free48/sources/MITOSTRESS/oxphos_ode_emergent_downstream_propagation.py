@@ -23,7 +23,33 @@ to reproduce them to <0.05% before being trusted (see FORMULA-FIDELITY CHECK), n
 import json
 import sys
 
-sys.path.insert(0, "source_repository/data/body_twin/agent_scratch_preserved")
+import os
+from pathlib import Path
+
+# PENDING_INDEPENDENT_REVIEW -- path portability only; no model change.
+_HERE = Path(__file__).resolve().parent
+_DEP = "oxphosswing_9f2c_reimpl_steadystate.py"
+_DEP_DEFAULT = "source_repository/data/body_twin/agent_scratch_preserved"
+
+
+def _dep_dir():
+    """Locate the reused reimpl module: env override, then beside this file, then
+    its canonical location. Lets the cell run from any working directory."""
+    cands = []
+    env = os.environ.get("BODYTWIN_SCRATCH_DIR")
+    if env:
+        cands.append(Path(env))
+    cands += [_HERE, Path(_DEP_DEFAULT)]
+    for c in cands:
+        if (c / _DEP).exists():
+            return c
+    raise FileNotFoundError(f"{_DEP} not found; set BODYTWIN_SCRATCH_DIR")
+
+
+OUT_DIR = Path(os.environ.get("CELL_OUT_DIR", str(_HERE)))
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+sys.path.insert(0, str(_dep_dir()))
 import oxphosswing_9f2c_reimpl_steadystate as ox  # noqa: E402  (same reused-unmodified reimpl the resimulation script uses)
 
 NH_ATP_OLD = 4.0
@@ -206,7 +232,7 @@ def _json_default(o):
     raise TypeError(f"not serializable: {type(o)}")
 
 
-out_path = "source_repository/data/oxphos_ode_emergent_downstream_propagation_results.json"
+out_path = OUT_DIR / "oxphos_ode_emergent_downstream_propagation_results.json"
 with open(out_path, "w") as f:
     json.dump(verdict, f, indent=2, default=_json_default)
 print(f"\nWrote {out_path}")

@@ -18,7 +18,33 @@ import sys
 import json
 import itertools
 
-sys.path.insert(0, "source_repository/data/body_twin/agent_scratch_preserved")
+import os
+from pathlib import Path
+
+# PENDING_INDEPENDENT_REVIEW -- path portability only; no model change.
+_HERE = Path(__file__).resolve().parent
+_DEP = "oxphosswing_9f2c_reimpl_steadystate.py"
+_DEP_DEFAULT = "source_repository/data/body_twin/agent_scratch_preserved"
+
+
+def _dep_dir():
+    """Locate the reused reimpl module: env override, then beside this file, then
+    its canonical location. Lets the cell run from any working directory."""
+    cands = []
+    env = os.environ.get("BODYTWIN_SCRATCH_DIR")
+    if env:
+        cands.append(Path(env))
+    cands += [_HERE, Path(_DEP_DEFAULT)]
+    for c in cands:
+        if (c / _DEP).exists():
+            return c
+    raise FileNotFoundError(f"{_DEP} not found; set BODYTWIN_SCRATCH_DIR")
+
+
+OUT_DIR = Path(os.environ.get("CELL_OUT_DIR", str(_HERE)))
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+sys.path.insert(0, str(_dep_dir()))
 import oxphosswing_9f2c_reimpl_steadystate as ox  # noqa: E402
 
 MEASURED_NADH = 2.5
@@ -125,5 +151,5 @@ out = dict(
 )
 
 print(json.dumps(out, indent=2, default=str))
-with open("/tmp/mt_vfoxphos_n7c4/voidfloor_oxphos_results.json", "w") as f:
+with open(OUT_DIR / "voidfloor_oxphos_results.json", "w") as f:
     json.dump(out, f, indent=2, default=str)

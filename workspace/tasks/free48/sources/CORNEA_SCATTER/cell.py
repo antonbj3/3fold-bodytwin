@@ -13,13 +13,37 @@ from scipy.integrate import quad
 from scipy.optimize import brentq
 from scipy.special import j1
 
-WORK = Path(__file__).resolve().parents[4]
-EYE = WORK / 'results/LANE_EYE_OPTICAL_TWIN'
+# PENDING_INDEPENDENT_REVIEW -- path portability only; no model change.
+import os
+HERE = Path(__file__).resolve().parent
+EYE_DEFAULT = './results/LANE_EYE_OPTICAL_TWIN'
+
+
+def _eye_dir():
+    """Eye-lane primitives: env override, beside this file, any ancestor workspace,
+    then the canonical lane directory. No fixed directory depth assumed."""
+    cands = []
+    env = os.environ.get('BODYTWIN_EYE_DIR')
+    if env:
+        cands.append(Path(env))
+    cands += [HERE, HERE / 'LANE_EYE_OPTICAL_TWIN']
+    cands += [p / 'results/LANE_EYE_OPTICAL_TWIN' for p in HERE.parents]
+    cands.append(Path(EYE_DEFAULT))
+    for c in cands:
+        if (c / 'scatter_port_r1.py').exists():
+            return c
+    raise FileNotFoundError('eye-lane primitives not found; set BODYTWIN_EYE_DIR')
+
+
+EYE = _eye_dir()
 sys.path.insert(0, str(EYE))
 from scatter_port_r1 import ray_angle
 from maxwell_cylinder_r1 import density as maxwell_density, coeff
 
-SOURCE = Path('source_repository/data/corneal_transparency/corneal_transparency_results.json')
+REPO = Path(os.environ.get('BODYTWIN_REPO', 'source_repository'))
+_REL = 'data/corneal_transparency/corneal_transparency_results.json'
+_LOCAL = HERE / Path(_REL).name
+SOURCE = _LOCAL if _LOCAL.exists() else REPO / _REL
 DATA = json.loads(SOURCE.read_text())
 PARAMS = DATA['params']
 

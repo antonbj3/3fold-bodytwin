@@ -13,8 +13,20 @@ from pathlib import Path
 import numpy as np
 from scipy.integrate import solve_ivp
 
-SOURCE = Path('source_repository/data/complement_cascade/complement_cascade_results.json')
-SCRIPT = Path('source_repository/scripts/msk/complement_cascade.py')
+# PENDING_INDEPENDENT_REVIEW -- path portability only; no model change.
+import os
+HERE = Path(__file__).resolve().parent
+REPO = Path(os.environ.get('BODYTWIN_REPO', 'source_repository'))
+
+
+def _acquired(rel):
+    """Input beside this file if it travelled with the cell, else from the repo."""
+    local = HERE / Path(rel).name
+    return local if local.exists() else REPO / rel
+
+
+SOURCE = _acquired('data/complement_cascade/complement_cascade_results.json')
+SCRIPT = _acquired('scripts/msk/complement_cascade.py')
 DATA = json.loads(SOURCE.read_text())
 C = DATA['constants']
 BASE = DATA['locked_params']
