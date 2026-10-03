@@ -106,6 +106,9 @@ def main() -> int:
         pos = 0
         # Cycle of four: handover first because it is the research line, then anchor, then dental,
         # then the shared ordering. Each reservation lapses as soon as its pool has no live row.
+        # Operator 2026-10-03 17:35: the brainstorm angles get priority for the next two hours.
+        # They hold TWO of five positions while any remain live; there are fourteen, so they
+        # drain quickly and the slot reverts by itself without a timer to forget.
         # The reserved slot is shared, and forty reference fetches were crowding out the
         # fourteen brainstorm angles at stream position 234. Ideas take the slot first until they
         # run out, then it falls back to the bounded jobs.
@@ -113,7 +116,7 @@ def main() -> int:
                or si < len(seed) or ii < len(idea) or oi < len(other)):
             pos += 1
             phase = pos % 5
-            if phase == 4 and ii < len(idea):
+            if phase in (2, 4) and ii < len(idea):
                 out.append(idea[ii]); ii += 1
             elif phase == 4 and si < len(seed):
                 out.append(seed[si]); si += 1
