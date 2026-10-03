@@ -1,58 +1,62 @@
-# Styrning r13 — Close the circuit back to the wave front, it is open since r7
+# Styrning r14 — The chain carries; now the surface flooring is all that is missing
 
-## Obstacle, measured in lanen's own files
-the lane owns real optics and it should be said first: `PORT_R7_V2.json` berries **total brytkraft 58,636 D med
-28 enskilda Zernike-termer** (`ZERNIKE_TERMS_R1.md`), OPD sparad som `.npz`, and a
-**Dispersal tail at an arc minute at: 1,6649e-4**.
+## Vad r13 gjorde, verifierat av mig i artefaktfilerna
+The chain runs all the way and passes my falsifier. I set the limit at a clinical autorefractory
+0,25 D, and you registered it yourself as `autorefractor_threshold.threshold_D = 0,25`:
 
-But that line of tail bears its own warning: *"R1 definition only, **not converted from this axial phase
-model**"*. And I searched the whole `r12/`: **noll filer** mentions wave front, Zernike, cornea, stroma,
-breaking or spreading. 8 till 12 has worked with charging inventory and
-Poisson–Boltzmann-intervall — physically relevant as a basis for hydration and swelling pressure; and
-calculationally clean (`max_charge_ledger_error = 6,62e-16`) — men **none of the five rounds have:
-producerat en optisk konsekvens.** The circuit from charging to wave front has been open since r7.
+| led | tal |
+|---|---|
+| laddning | 1,2195e-15 → 6,0976e-16 mol/m |
+| ionic swelling pressure | 3317,79 → 2828,15 I mean, Pa. **−489,65 Pa** |
+| pupillmedeltjocklek | 605,582 → 602,039 µm |
+| index | 1,3751008 → 1,3756288 |
+| **brytkraft** | 60,71208 → **60,28649 D, ie. −0,42559 D** |
+| RMS higher order | 0,24997 µm; Strehl 0,12273 → 0,10424 |
 
-## The operation this round: an entire chain, no new branch
-The operator's goal is to be able to: **simulate eye surgery**An operation changes the thickness, curvature
-and hydration; the twin must tell what happens to the vision. EN komplett kedja denna
-rounding, even if each joint becomes coarse:
+**And the rotating control gives −1,3592e-08 D** vid tjockleksfel 7,96e-13 µm, so the whole effect
+comes from the non-symmetrical structure. The number is pure: maximum power failure 4,19e-13 D and
+rung error 4,97e-15 This is a real result and it should be as such.
 
-1. **laddningsinventarium Q_t → hydrering/svoperating pressure** (det du redan byggt i r8–r12),
-2. **→ change in stroma thickness and refractive index**,
-3. **→ changed Zernike coefficients** i de 28 termer du redan har,
-4. **→ a surgically meaningful reading measure**: break force in diopters and strehl numbers; or
-   wave front RMS.
+## But the sweep says something sharper than the headline
+I read all twelve `OPTICAL_*_R13_V1.json`. Effekten **byter tecken mellan betingelser**:
 
-Report one number per line and indicate which line is weakest. A chain with a coarse line is worth more than
-a fifth charging interval, as it is the first to be tested against clinical data.
+| betingelse | delta_power_D |
+|---|---|
+| all05 | −0,42559 |
+| all15 | **+0,46578** |
+| K5610 | −0,56981 |
+| K13800 | −0,21103 |
+| K30100 | −0,09410 |
+| K47300 | −0,05941 |
+| source30 | −0,07283 |
+| source30increase | +0,07600 |
+| **eta = 0** | **+0,01059** |
+| **eta = 1** | **−0,86180** |
 
-5. **Convert the distribution tail or tell me why it cannot be converted.** 1,6649e-4 applies to:
-   R1-the definition and not the axial phase model. Either the conversion is done now, or it is written
-   det som en namngiven brist — but it must not remain as a number without its validity.
+Fem betingelser klarar 0,25 D and five do not, and the sign reverses. This means that a monotonic
+assumed direction would be wrong — and that **The surface flooring eta carries almost the entire outcome**: span over
+eta is 0,8724 D, which is **exakt** your own sufficiency gap
+`surface_sufficiency.downstream_power_difference_D = 0,87239` vid identitetsfel 0,0 i medeltjocklek, J
+and index fields.
 
-## Strongest control and falsifiers
-- **Kontroll:** a rotational symmetry of the cornea with the same mean thickness. It is prohibited to simulate a
-  surgery on a rotational cornea as if it were patient geometry, but which KONTROLL is it right:
-  profit is the part of the wave front change that the symmetry cannot reflect, i.e. the non-symmetric
-  Zernike-termerna.
-- **Falsifierare:** if the whole charging chain changes the breaking force less than the measurement uncertainty of a clinical
-  autorefraktor, cirka 0,25 D, the charge level is not load-bearing for optics — and then:8–r12
-  is reported as evidence for swelling, not vision. That would be a clear and useful negative
-  resultat.
-- **Forbidden:** a sixth batch of charge intervals without optical reading; to report a
-  Zernike's without specifying the pupil diameter; to treat the human
-  450 nm absorption as known — din egen r4-fil har den som UNKNOWN.
+## The operation this round
+1. **Try whether the eta IS the minimally sufficient enlargement.** That the hatch and the eta-span coincide
+   to four decimal places is a strong indication but no proof. Construct two states with identical
+   Average thickness, identical index field AND identical eta and measure if the breaking force still differs.
+   Don't make it that triple enough, and it's one of the most useful results of the night.
+2. **Name eta physically and give it a unit.** What is it an allocation? AV, between which surfaces; and
+   **what measurement gives it in a real cornea**? If no one exists: acquisition item with quantity, unit and
+   what it determines, in the form of: `notes/ACQUISITION_TARGETS.json`It is the post that determines whether we can
+   predict the direction of an intervention's refractive outcome.
+3. **Report the change of character as main result, not as a parameter sensitivity.** For a
+   surgical twin is the direction that matters: today we can say that the effect is clinical
+   big but not in which direction. It is an honest and important message.
+4. **Keep the rotating control in each future report.** It is cheap and it shows that the effect
+   is not a symmetric artifact.
 
-## APPENDIX — the conversion you lack is already counted in the source project
-`source_repository/data/corneal_transparency/corneal_transparency_results.json` (readable;
-skrivskyddad) bearing the exact relationship disturbed lattice order → spridning: `C_PREF` = 16,3511, a = 14,0 nm,
-φ_areal = 0,28, d_hex = 50,3917 nm, n_fibril = 1,411, n_matrix = 1,365, Δn = 0,046, L = 500 000 nm,
-**oordningens pris `falsifier_ratio_poisson_over_physio` = 20,2466 till 59,4856 med medel 38,1381**; and
-**wavelength exponent −4,8765**. Valideringen anger median relativt fel 7,9271 % in case of major disorder and
-declares that the perfect guitar gives zero response as side lobe artifact from finite patch.
-
-Dina egna r7-standard values (d = 53 nm, r = 14,73 nm) located close d_hex and a, so the scales are
-comparable. **Try your spreading tail 1,6649e-4 at a arc minute is compatible with this
-Disorder ratio, and indicate the margin.** The domain is our own previous account and therefore nothing external
-facit — it is input and comparison point. the lane LANE_DOMAIN_DATA_TO_CELLS bygger cellen; din uppgift
-is the compliance statement and the optical reading.
+## Control and falsifier
+- **Kontroll:** radiellt vinkelmedel med samma tjocklek — your own, and it gave 1,36e-08 D. Keep it.
+- **Falsifierare:** if the triple medium thickness, index field and eta still leaves more than 0,25 D
+  downstream difference is not the missing quantity, and then what remains should be named instead.
+- **Forbidden:** att redovisa −0,42559 D as the size of the effect without mentioning that all15 ger +0,46578;
+  to treat eta as known; to simulate an operation on a rotational symmetry of the cornea.
