@@ -1,5 +1,13 @@
 """Make a week of reports addressable: pull (quantity, value, unit) out of whatever shape they are in.
 
+KNOWN DEFECT, measured on this index own output: the suffix rule reads a COMPOUND unit as its last
+component. `mu_pa_s` is Pascal-seconds and was labelled seconds; `v_mol_s` is mol per second and was
+labelled seconds; `darcy_flux_m_s` is metres per second, same. 7511 of 1165253 rows are certainly
+wrong this way, 0.64 %, and that is a LOWER bound since it counts only the nine patterns I thought to
+check. The errors concentrate in compound units, which is to say velocities, fluxes and viscosities --
+exactly the quantities tissue transport is written in. Any dimensional filter built on this index is
+weakest precisely where it would matter most.
+
 The measurement that forced this, including my own false step. A mechanical test said 75 % of 13127
 reports carried neither a value with a unit nor an external locator, which reads as a week of work with
 doubtful content. The test was too narrow and I nearly reported it: a sample of the supposedly empty
