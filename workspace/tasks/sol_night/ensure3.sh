@@ -44,7 +44,27 @@ while read -r LANE; do
         echo "[$(date +%F' '%T)] $LANE snabbfel $f (${dur}s)" >> "$LOG"
         if [ $f -ge 3 ]; then echo $((now + 1800)) > "$ST/$LANE.backoff_until"; echo 0 > "$ST/$LANE.fastfail"
           echo "[$(date +%F' '%T)] ALERT $LANE 3 fast failure, waiting 30 min" >> "$LOG" | tee -a "$D/ALERTS.log" >/dev/null; continue; fi
-      else echo 0 > "$ST/$LANE.fastfail"; echo "[$(date +%F' '%T)] $LANE round end after ${dur}s" >> "$LOG"; fi
+      else
+        # 3/10 17:50: measured 30 of 437 rounds that died on "Selected model is at capacity" and 37 on
+        # speed limit, AFTER real work (one of them 143 784 tokens) and without leaving
+        # report file. The driver posted them as complete, so about 7 % of the Sol capacity was silently dropped.
+        # A round that ends in a provider error and has no report is now counted as aborted and gets
+        # rerun, not as completed. All in subshell with || true so the detector can never stop
+        # the driver - it has died silently once and it cost a night.
+        R_PREV=$(cat "$ST/$LANE.round" 2>/dev/null || echo 0)
+        LOGF="$ROOT/results/$LANE/night_rounds/codex_r$R_PREV.log"
+        ABORTED=0
+        if [ -f "$LOGF" ] && [ ! -f "$ROOT/results/$LANE/night_rounds/r$R_PREV.json" ]; then
+          if tail -40 "$LOGF" 2>/dev/null | grep -qiE 'at capacity|rate limit|usage limit'; then ABORTED=1; fi
+        fi
+        if [ "$ABORTED" = "1" ]; then
+          echo 0 > "$ST/$LANE.fastfail"
+          echo "[$(date +%F' '%T)] $LANE round $R_PREV ABORTED by provider error after ${dur}s, rerunning" >> "$LOG"
+          echo $((R_PREV - 1)) > "$ST/$LANE.round"
+        else
+          echo 0 > "$ST/$LANE.fastfail"; echo "[$(date +%F' '%T)] $LANE round ended after ${dur}s" >> "$LOG"
+        fi
+      fi
       # 3/10 11:55 (anton-5f): ONLY remove .go if it's older than the round we're just posting.
       # Otherwise, a review written by the coordinator while the round was ending will be deleted —
       # it happened for DOMAIN_DATA_TO_CELLS at 11:43 and the lane was idle waiting for a new .go.
