@@ -35,6 +35,13 @@ ts() { date '+%F %T'; }
   #    this only ever fires on an edge that is new, or whose answer has not come back yet.
   python3 tasks/assembly/queue_creative_from_net.py 2>&1 | sed "s/^/[$(ts)] /"
 
+  # 2b. Creative briefs from every lane's own stated obstacle, across the whole project and not just
+  #     the domains I happen to be working in. A lane that gates FAIL writes down exactly what it could
+  #     not get, in its own words with its own number beside it, and nothing was consuming that. 55 of
+  #     the 63 creative jobs queued on 3/10 came from here, which is the only source that covers every
+  #     domain automatically rather than following my attention.
+  python3 tasks/assembly/queue_from_anomalies.py 2>&1 | head -2 | sed "s/^/[$(ts)] /"
+
   # 3. Prune the queue. Measured 2026-10-03: 12837 of 13919 entries already had a RESULTS.md, so the
   #    queue was 92 % completed work that nothing removed, plus 35 malformed lines from a heredoc that
   #    ran away. The dispatcher re-read and skipped all of it every cycle, and it made freshly queued
