@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
-"""Admit the seeds that are already consumable, and queue each one against the cell that would consume it.
+"""Admit the candidate tracks that are already consumable, and queue each against its consuming cell.
 
-Why. The operator's 500-seed program has sat at `PROPOSED_NOT_ADMITTED` for every single seed since
+WEIGHTING, corrected 2026-10-03 after the operator put it right: the 500-entry program is a
+MACHINE-GENERATED candidate list from a brainstorm session with a weaker model, not the operator's
+own directives. The signal was in the data and I read past it -- the comparative improvement field, the status and
+the time window are byte-identical across all 500, which a hand-written idea list is not. So these
+carry no authority of their own: they are cheap, bound, falsifiable jobs and nothing more. Admitting
+one is not recirculation against the operator's seeds, and the base rate for value should be set as
+for generated candidates.
+
+Why. The 500-entry candidate program has sat at `PROPOSED_NOT_ADMITTED` for every single seed since
 2026-09-29, and dental confirmed on 2026-10-03 that no admission routine exists anywhere. A boundary
 survey then measured which of them are consumable TODAY, by one strict criterion: the seed's observable
 must carry a dimensioned unit that a named cell actually computes, matched against the 1057 unit strings
@@ -53,7 +61,8 @@ def brief(seed: dict, cell: str, observable: str) -> str:
         return v if isinstance(v, str) else json.dumps(v, ensure_ascii=False)
     return f"""# {seed.get('job_id')} — admitted seed, bound to the cell that computes its observable
 
-This seed has been sitting unadmitted since 2026-09-29 together with 499 others. It is admitted now
+This candidate track has been sitting unadmitted since 2026-09-29 together with 499 others. It
+comes from a generated program, not from the operator, so it carries no authority of its own. It is admitted now
 because its observable is a quantity **{cell}** already computes: {observable}. That is the whole
 reason, and it is the only kind of binding that does not require a new measurement.
 
