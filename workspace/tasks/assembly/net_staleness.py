@@ -134,6 +134,15 @@ def main() -> int:
     net = json.loads(NET.read_text())['bodytwin']['tissue_constraint_net']
     rows = []
     for e in net['edges']:
+        # An edge whose evidence was SEARCHED FOR and not found is a different state from one nobody
+        # examined, and lumping them under UNCHECKED hides the difference. T-E6's count exists only as
+        # the string "98/98", T-E9's numbers appear nowhere in its lane, and T-E18's index file is not
+        # under this workspace -- all three carry evidence_unresolved with a note saying what was
+        # searched. UNCHECKED should mean unexamined, and that number is the one that ought to be zero.
+        if e.get('evidence_unresolved'):
+            rows.append((e['id'], 'UNRESOLVED_DECLARED',
+                         str(e.get('evidence_unresolved_note', 'searched, not found'))[:120]))
+            continue
         ev = str(e.get('evidence', ''))
         m = EV.match(ev.strip())
         if not m:
