@@ -85,7 +85,7 @@ FILTER = (
     'A proposal counts only if it carries ONE of these:\n'
     '  (a) a quantity with a unit that one of our 45 cells under `tasks/free48/sources/` already '
     'computes — name the cell and the variable; or\n'
-    '  (b) an external measurement with a locator (DOI, PMID or dataset URL) and its unit.\n\n'
+    '  (b) an external measurement with a resolvable locator -- a DOI (10.xxxx/...) or a PMID, NOT a bare\nURL -- and its unit. Measured over the first batch: 89 of 175 rows satisfied this clause with a naked\nURL and only 1 carried a DOI or PMID, so the clause as first written tested formatting rather than\ntraceability.\n\n'
     'Anything else is a REJECTED candidate. Reject it yourself, in a list, with the reason in one line. '
     'A rejected candidate costs nothing; an unanchored proposal that travels downstream costs a reader '
     'their time and eventually a wrong number.\n\n'
