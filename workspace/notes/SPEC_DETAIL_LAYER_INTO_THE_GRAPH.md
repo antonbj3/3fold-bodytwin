@@ -72,6 +72,27 @@ ranked by external ground truth and executed falsification rather than number de
 4. **A number chosen to hit a target is no measurement.** A cell held a drag resistance whose own
    table said "chosen to give 0.03 mm/h", and that agreement had been read as a result for weeks.
 
+## Excluding harvest, unconditional
+
+Three things do not get in, and it is not a filter issue but a content issue.
+
+**1. Det excluded_category materialet — helt ute.** Not filtered from what is passed on, not rewritten, not
+Counted. It is not read, consumed, not quoted and not included in any sum.
+det: excluded_category, excluded_category, excluded_category, sinusoid, excluded_category, excluded_category.
+
+**2Everything related to the collaborator — helt ute.** Named people don't appear in anything I write, and that
+the material is not harvested.
+
+**3. excluded_category — conditional, and the condition is substantive.** It gets in. ENDAST whether the quantity can be formulated
+‘general' means an electromagnetic field with frequency, flow density and exposure time acting on tissue;
+with the tissue identified only by tissue type. If this cannot be written without the
+original application leaks through, so it stays out. Doubtful cases stay out — it is
+It's cheaper to miss an edge than to have to tear you down.
+
+the validation gate is mechanical and runs prior to administration: `tasks/assembly/exclusion_filter.py` overtakes the harvest
+output and rejects each entry that matches, with a line about why. It is fail-closed: an entry that does not go
+reading is rejected.
+
 ## Vad som NOT shall be made:
 
 - Inget skrivs i `~/projects/bodytwin`It's reading mode.
