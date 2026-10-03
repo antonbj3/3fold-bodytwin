@@ -19,6 +19,18 @@ The three corrections, which are the whole recipe:
 So each undetermined edge becomes a brief carrying its own quantified gap and nothing else. The net is
 assisting, which is what it is for: it already holds the pairs of numbers that cannot both be
 comfortable, each with the file the number came from.
+
+WHERE THIS FORM DOES NOT APPLY, from the dental lane's own audit and sharper than my generalisation.
+The bare form is for a job that HUNTS something outside us. A job that COMPUTES a number we then
+consume keeps the strict rules, because dental measured 12 of 30 such jobs failing on rigour -- a wrong
+tail, and a universal quantifier taken from a grid. Those are failure modes of computation, not of
+search, and removing the scaffolding there removes the only thing catching them. I was about to carry
+the free form across everything on the strength of one good batch.
+
+One detail that carries the whole result and is easy to lose when adapting this: `constraint` must
+CONTAIN the number, because the brief is literally that text quoted. An edge reading "uncertain, needs
+measurement" produces a worthless brief; one reading "identical surface history to 0.0 K leaves 0.3806 K
+at target depth" produces a good one. Numeric gaps on the edges are the precondition, not an improvement.
 """
 from __future__ import annotations
 
