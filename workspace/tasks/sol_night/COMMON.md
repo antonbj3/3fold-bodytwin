@@ -254,3 +254,27 @@ already adequate as run**. Refining at a stress point decides an open verdict. S
    are worth more than one number, because the next question can be asked of it too.
 5. **And absence counts.** `VERIFIED_ABSENCE_OF_EVIDENCE`, with the searches stated, closes a stress
    point honestly and tells us to change the readout instead of waiting.
+
+## Large intermediates: a round cleans up after its predecessor
+Measured 2026-10-03 11:50: `/mnt/games-240` reached **95 % with 12 GB free**, and the swarm's job store
+is on the same disk — so filling it stops throughput for every session, not just this one. One lane held
+**13.3 GB over four rounds** (r15 0.8, r16 2.9, r17 5.1, r18 4.7 GB), with 159 files in the 10–100 MB
+band. There is no alternative disk: `/` and `/mnt/shared_data` were already nearly full, which is why
+these files are here in the first place, and the only volume with room is a 29 GB removable stick.
+
+Compression does not solve it either: the `.npz` files are already deflate-compressed, so re-packing
+gains nothing. Only three large files were uncompressed and gzip freed 960 MB of them.
+
+**So the rule is a cap, not a cleanup:**
+1. **When a round starts, delete the large arrays of the round before last** — not the previous round,
+   the one before it. Keep reports, ports, round JSON and logs always; they are small and they are the
+   evidence.
+2. **Never delete a file whose name appears anywhere in the lane directory.** A file cited by the round
+   that produced it is still that round's evidence. Applied today: of 40 large files in one superseded
+   round, 11 were cited and kept, 29 were cited nowhere and removed, which freed only 0.80 GB — proof
+   that deletion after the fact is a weak lever and the cap is the real one.
+3. **A file above 50 MB must be regenerable**: record the script and the seed that produce it in the
+   round's port, so removing it loses nothing but time.
+4. **Prefer summaries to arrays in the port.** If a 277 MB array exists only so a later round can read
+   one percentile out of it, write the percentile.
+5. List what you remove in the round's own report with sizes, as `notes/DISK_RECLAIM_20261003.md` does.
