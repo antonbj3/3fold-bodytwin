@@ -60,6 +60,12 @@ p.write_text(json.dumps(d,indent=2,ensure_ascii=False))
 print(f'nat synkat: {before} -> {len(live[chr(34)+chr(34)]) if False else len(live[\"edges\"])} kanter')
 " 2>&1 | sed "s/^/[$(ts)] /"
 
+  # 2e. Harvest finished creative jobs into proposals. Reading them is not processing them: a
+  #     number that stays in a report changes nothing, which is the same defect as the 131
+  #     cited references nobody harvested. The gate is unit agreement AND a plausible range,
+  #     because unit agreement alone attached 801 mm to axial_length from an incision job.
+  python3 tasks/assembly/harvest_creative.py 2>&1 | tail -3 | sed "s/^/[$(ts)] /"
+
   # 3. Prune the queue. Measured 2026-10-03: 12837 of 13919 entries already had a RESULTS.md, so the
   #    queue was 92 % completed work that nothing removed, plus 35 malformed lines from a heredoc that
   #    ran away. The dispatcher re-read and skipped all of it every cycle, and it made freshly queued
