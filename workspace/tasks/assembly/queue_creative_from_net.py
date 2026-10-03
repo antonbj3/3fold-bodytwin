@@ -48,6 +48,8 @@ ASK = "\n\nBefore you look for anything: write down **three different ways of lo
 
 def main() -> int:
     net = json.loads(NET.read_text())['bodytwin']['tissue_constraint_net']
+    queued = {l.split()[-1] for l in QUEUE.read_text().splitlines() if l.split()} \
+        if QUEUE.exists() else set()
     made, skipped = [], 0
     for e in net['edges']:
         if e['status'] not in ('OPEN', 'UNKNOWN'):
@@ -59,6 +61,11 @@ def main() -> int:
         jid = f'BT-NET-{tag}'
         d = W / 'results' / jid
         if (d / 'RESULTS.md').exists():
+            continue
+        if jid in queued:
+            # Idempotent on job CREATION was not enough: brief_cycle.sh runs unattended, and a job
+            # whose answer has not come back yet has no RESULTS.md, so every cycle queued all twelve
+            # again. Measured at 13 duplicate rows after two cycles.
             continue
         d.mkdir(parents=True, exist_ok=True)
 
