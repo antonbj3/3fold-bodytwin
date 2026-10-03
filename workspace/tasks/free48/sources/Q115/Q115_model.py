@@ -25,6 +25,18 @@ class Parameters:
     active_force_pN: float = 0.9
     drag_pN_h_per_mm: float = 100.0
     baseline_path_mm: float = 1.95
+    # The net migration speed is now a DECLARED INPUT with a source, not a quotient of two
+    # illustrative forces over a drag constant whose own table entry read "chosen to give
+    # 0.03 mm/h". That constant was the dial and the speed was the target, so the agreement it
+    # produced was not evidence of anything. The default is the held-out measurement that the
+    # model was then refuted against; set migration_speed_um_h = 30.0 to recover the old value.
+    migration_speed_um_h: float = 9.00
+    migration_speed_um_h_sd: float = 0.465
+    migration_speed_source: str = (
+        "mouse duodenal thymidine-analogue fitted front velocity, control 9.00 +/- 0.465 um/h "
+        "(DOI 10.1096/fj.201601002); held out, i.e. not among this model's inputs when the "
+        "0.03 mm/h value was set"
+    )
     atrophy_path_factor: float = 0.55
     shedding_hazard_h: float = 0.12
     villus_radius_base_mm: float = 0.65
@@ -44,7 +56,18 @@ class Parameters:
 
     @property
     def migration_speed_mm_h(self) -> float:
+        return self.migration_speed_um_h / 1000.0
+
+    @property
+    def migration_speed_from_drag_mm_h(self) -> float:
+        """The old route, kept as a diagnostic only: nothing reads it to drive the model."""
         return (self.crypt_force_pN + self.active_force_pN) / self.drag_pN_h_per_mm
+
+    @property
+    def implied_drag_pN_h_per_mm(self) -> float:
+        """The drag the declared speed implies, given the same two forces. Reading it next to
+        drag_pN_h_per_mm shows how far the chosen constant sat from the measurement."""
+        return (self.crypt_force_pN + self.active_force_pN) / self.migration_speed_mm_h
 
     @property
     def expected_ta_amplification(self) -> float:
@@ -88,7 +111,7 @@ EQUATIONS = {
     "crypt_conservation": "dN/dt = J_crypt - J_shed",
     "crypt_production": "J_crypt = C*S/T_s*2*(1-p_self)*(1+q_TA)^R_TA",
     "lineage_division": "R_TA ~ Binomial(R_TA,max,q_TA); terminal daughters = 2^R_TA",
-    "mechanics": "eta*dr/dt = F_crypt + F_active; v = (F_crypt+F_active)/eta",
+    "mechanics": "v = v_meas (declared input); eta*dr/dt = F_crypt + F_active is retained only as a diagnostic identity and no longer sets v",
     "migration": "tau_min = L_path/v; a cell cannot shed before tau_min",
     "shedding": "J_shed = sum_j N_j*h_shed*I(age_j>tau_min)",
     "mean_shedding_age": "T_shed = sum_j age_j*J_shed,j / sum_j J_shed,j",
@@ -111,8 +134,10 @@ PARAMETER_TABLE = [
     ("max_age_h", "age_max", "tail cutoff", "240", "h", "tail is below 1e-8 at baseline hazard"),
     ("crypt_force_pN", "F_crypt", "mitotic-pressure migration force", "2.1", "pN", "illustrative force-scale assumption"),
     ("active_force_pN", "F_active", "active migration force", "0.9", "pN", "illustrative actomyosin-scale assumption"),
-    ("drag_pN_h_per_mm", "eta", "cell-substrate drag", "100", "pN h/mm", "chosen to give 0.03 mm/h; assumption"),
-    ("baseline_path_mm", "L_path", "crypt-orifice to villus-tip path", "1.95", "mm", "chosen with v=0.03 mm/h to represent 65 h"),
+    ("drag_pN_h_per_mm", "eta", "cell-substrate drag", "100", "pN h/mm", "was chosen to give 0.03 mm/h; NO LONGER DRIVES THE MODEL, retained as a diagnostic only"),
+    ("migration_speed_um_h", "v_meas", "net migration speed, declared input", "9.00", "um/h", "measured: mouse duodenal thymidine-analogue front velocity, control 9.00 +/- 0.465 um/h, DOI 10.1096/fj.201601002"),
+    ("migration_speed_um_h_sd", "sd(v_meas)", "reported uncertainty on the declared speed", "0.465", "um/h", "same source, DOI 10.1096/fj.201601002"),
+    ("baseline_path_mm", "L_path", "crypt-orifice to villus-tip path", "1.95", "mm", "chosen with the OLD v=0.03 mm/h to represent 65 h; still a chosen value, and with the measured speed the same path gives 216.7 h"),
     ("atrophy_path_factor", "alpha_L", "villus path scaling in perturbation", "0.55", "1", "preregistered geometry perturbation"),
     ("shedding_hazard_h", "h_shed", "tip extrusion hazard after transit", "0.12", "h^-1", "preregistered hazard assumption, not a measured rate"),
     ("villus_radius_base_mm", "r_base", "villus base radius", "0.65", "mm", "single-villus geometry assumption"),
@@ -129,7 +154,7 @@ PARAMETER_TABLE = [
     ("transport_velocity_per_area_mm_day", "v_abs", "saturating-area transport scale", "1.0", "mm/day", "normalized uptake scale, not measured"),
     ("concentration_over_Km", "C_over_Km", "fixed driving-force ratio", "0.1", "1", "dimensionless boundary-condition assumption"),
     ("mm2_to_cm2", "c_area", "area conversion", "0.01", "cm^2/mm^2", "exact unit conversion"),
-    ("migration_speed_mm_h", "v", "net migration speed", "0.03", "mm/h", "derived as (F_crypt+F_active)/eta"),
+    ("migration_speed_mm_h", "v", "net migration speed used by the model", "0.009", "mm/h", "the declared input v_meas converted, no longer derived from eta"),
     ("expected_ta_amplification", "E[2^R_TA]", "expected terminal TA daughters", "11.390625", "daughters/lineage", "derived as (1+q_TA)^R_TA"),
     ("crypt_output_cells_h", "J_crypt", "crypt-to-villus output", "22.78125", "cells/h", "derived from the conservation and lineage equations"),
 ]
@@ -138,6 +163,8 @@ PARAMETER_TABLE = [
 def parameter_dict(parameters: Parameters) -> dict[str, Any]:
     values = asdict(parameters)
     values["migration_speed_mm_h"] = parameters.migration_speed_mm_h
+    values["migration_speed_from_drag_mm_h"] = parameters.migration_speed_from_drag_mm_h
+    values["implied_drag_pN_h_per_mm"] = parameters.implied_drag_pN_h_per_mm
     values["expected_ta_amplification"] = parameters.expected_ta_amplification
     values["crypt_output_cells_h"] = parameters.crypt_output_cells_h
     return {key: float(value) if isinstance(value, (int, float, np.number)) else value for key, value in values.items()}
@@ -151,7 +178,7 @@ def parameter_table() -> list[dict[str, str]]:
 
 
 def migration_velocity(parameters: Parameters) -> float:
-    return (parameters.crypt_force_pN + parameters.active_force_pN) / parameters.drag_pN_h_per_mm
+    return parameters.migration_speed_mm_h
 
 
 def crypt_output_rate(parameters: Parameters) -> float:
@@ -372,7 +399,7 @@ def transition_cell(cell: CellState, parameters: Parameters, path_factor: float,
 def dimensional_check(parameters: Parameters) -> dict[str, Any]:
     checks = {
         "migration_speed": {
-            "expression": "pN / (pN h/mm) = mm/h",
+            "expression": "um/h / 1000 = mm/h (declared input); pN / (pN h/mm) = mm/h (diagnostic)",
             "value_mm_h": migration_velocity(parameters),
             "pass": True,
         },
@@ -404,6 +431,7 @@ def dimensional_check(parameters: Parameters) -> dict[str, Any]:
 def sensitivity_analysis(parameters: Parameters) -> list[dict[str, Any]]:
     names = [
         "shedding_hazard_h",
+        "migration_speed_um_h",
         "crypt_force_pN",
         "ta_division_probability",
         "mature_cell_area_mm2",
@@ -488,8 +516,76 @@ def evaluate_criteria(parameters: Parameters, baseline: dict[str, Any], atrophy:
     }
 
 
-def build_results() -> dict[str, Any]:
-    parameters = Parameters()
+def migration_speed_counterfactual(parameters: Parameters) -> dict[str, Any]:
+    """Run the model at the measured speed, at the old chosen 30.0 um/h, and at the measurement
+    plus and minus its reported uncertainty, and report what moves. Written because the point of
+    replacing a chosen constant is to find out whether it was load-bearing, which cannot be read
+    off the source: it has to be run both ways."""
+    cases: dict[str, float] = {
+        "measured_9.00": 9.00,
+        "measured_minus_1sd_8.535": 9.00 - parameters.migration_speed_um_h_sd,
+        "measured_plus_1sd_9.465": 9.00 + parameters.migration_speed_um_h_sd,
+        "old_chosen_30.0": 30.0,
+    }
+    rows: dict[str, Any] = {}
+    for label, speed in cases.items():
+        q = replace(parameters, migration_speed_um_h=speed)
+        base = run_scenario(q, 1.0)
+        atr = run_scenario(q, q.atrophy_path_factor, base)
+        crit = evaluate_criteria(q, base, atr, REFERENCE)
+        rows[label] = {
+            "migration_speed_um_h": float(speed),
+            "minimum_transit_h": float(geometry_metrics(q, 1.0)["minimum_transit_h"]),
+            "mean_shedding_age_h": float(base["mean_shedding_age_h"]),
+            "n_cells": float(base["n_cells"]),
+            "villus_area_mm2": float(base["villus_area_mm2"]),
+            "uptake_proxy_mm3_day": float(base["uptake_proxy_mm3_day"]),
+            "conductance_mS_cm2": float(base["conductance_mS_cm2"]),
+            "primary_turnover_predicted_T_h": float(crit["primary_turnover"]["predicted_T_h"]),
+            "primary_turnover_relative_error_percent": float(crit["primary_turnover"]["relative_error_percent"]),
+            "primary_turnover_status": crit["primary_turnover"]["status"],
+            "cell_census_ratio": float(crit["cell_census"]["ratio"]),
+            "cell_census_status": crit["cell_census"]["status"],
+            "all_numeric_criteria_pass": bool(crit["all_numeric_criteria_pass"]),
+            "implied_drag_pN_h_per_mm": float(q.implied_drag_pN_h_per_mm),
+        }
+    measured, old = rows["measured_9.00"], rows["old_chosen_30.0"]
+    deltas = {}
+    for key in ("minimum_transit_h", "mean_shedding_age_h", "n_cells", "villus_area_mm2",
+                "uptake_proxy_mm3_day", "conductance_mS_cm2", "primary_turnover_predicted_T_h",
+                "primary_turnover_relative_error_percent"):
+        a, b = measured[key], old[key]
+        deltas[key] = {
+            "at_measured_9.00": a,
+            "at_chosen_30.0": b,
+            "absolute_change": a - b,
+            "relative_change_percent": (100.0 * (a / b - 1.0)) if b != 0.0 else None,
+        }
+    return {
+        "why": ("the drag constant eta was documented as chosen to give 0.03 mm/h, so the speed "
+                "was the target rather than a result; the measurement it was later refuted "
+                "against is used as the default and the old value is run beside it"),
+        "declared_input": {
+            "migration_speed_um_h": float(parameters.migration_speed_um_h),
+            "migration_speed_um_h_sd": float(parameters.migration_speed_um_h_sd),
+            "source": parameters.migration_speed_source,
+        },
+        "ratio_old_over_measured": 30.0 / 9.00,
+        "cases": rows,
+        "downstream_change_measured_vs_chosen": deltas,
+        "load_bearing": any(
+            d["relative_change_percent"] is not None and abs(d["relative_change_percent"]) > 1e-9
+            for d in deltas.values()),
+        "uncertainty_band_on_primary_turnover_h": [
+            rows["measured_minus_1sd_8.535"]["primary_turnover_predicted_T_h"],
+            rows["measured_plus_1sd_9.465"]["primary_turnover_predicted_T_h"],
+        ],
+        "review_state": "PENDING_INDEPENDENT_REVIEW",
+    }
+
+
+def build_results(parameters: Parameters | None = None) -> dict[str, Any]:
+    parameters = parameters or Parameters()
     baseline = run_scenario(parameters, 1.0)
     atrophy = run_scenario(parameters, parameters.atrophy_path_factor, baseline)
     dimensions = dimensional_check(parameters)
@@ -506,6 +602,7 @@ def build_results() -> dict[str, Any]:
         "baseline": baseline,
         "atrophy_scenario": atrophy,
         "sensitivity": sensitivity_analysis(parameters),
+        "migration_speed_counterfactual": migration_speed_counterfactual(parameters),
         "criteria": evaluate_criteria(parameters, baseline, atrophy, REFERENCE),
         "provenance": {
             "published": "Kai 2021 values are used only as the external validation target and comparison scale.",
@@ -521,8 +618,14 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", default="results.json")
     parser.add_argument("--print-parameters", action="store_true")
+    parser.add_argument("--migration-speed-um-h", type=float, default=None,
+                        help="override the declared net migration speed (default: the measured "
+                             "9.00 um/h, DOI 10.1096/fj.201601002; pass 30.0 for the old chosen value)")
     args = parser.parse_args()
-    results = build_results()
+    parameters = Parameters()
+    if args.migration_speed_um_h is not None:
+        parameters = replace(parameters, migration_speed_um_h=args.migration_speed_um_h)
+    results = build_results(parameters)
     if args.print_parameters:
         for row in results["parameter_table"]:
             print(f"{row['symbol']}={row['value']} {row['unit']} [{row['source_or_assumption']}]")
