@@ -11,7 +11,10 @@ H=${BT_CLOUD_HOST:-ubuntu@51.77.110.4}; END=${BT_CLOUD_END:-1791042504}
 # Keep this default equal to the unit's Environment=BT_AGENT_MEMORY_MIB, or the script
 # default is a silent no-op. Measured 2026-10-03: our agents peak at 1282 MiB against this
 # 1500 booking, so there is only 15 % slack here -- the real waste was elsewhere.
-AGENT_MIB=${BT_AGENT_MEMORY_MIB:-1500}
+AGENT_MIB=${BT_AGENT_MEMORY_MIB:-1100}  # 3/10 22:00: measured 512-972 MiB actual across 19 live
+# agents on the host (mean ~680), against a 1500 MiB booking. Booking above 1100 leaves the host
+# with 19.5 GB free while admitting fewer jobs than it can run. The mem-kill requeue path already
+# handles a job that exceeds it, so the downside of booking tighter is a retry and not a loss.
 HEADROOM_MIB=${BT_HEADROOM_MIB:-4096}
 SLICE_HEADROOM_MIB=${BT_SLICE_HEADROOM_MIB:-2048}
 HOST_CAP=${BT_HOST_CAP:-17}
@@ -146,7 +149,16 @@ while true; do
       # class if the booking drops to p95 -- so this path is what makes lowering the quantile safe.
       # Bounded on purpose: one retry, never above RETRY_CAP_MIB, and the file is removed on success
       # so a job cannot escalate forever.
-      JOB_MIB="$AGENT_MIB"
+      # Per-prefix booking. The dental session measured its own 200 most recent successful runs
+      # from /opt/agents/resource_history: median 840 MiB, p95 1319, p99 2004, max 5906, with 24
+      # of 200 above 1024. Our own 19 live agents measured 512-972 with a mean of 680. One number
+      # cannot serve both profiles: at 1100 roughly a tenth of dental rows die once on memory and
+      # each costs a rerun of a 30-60 minute job, while booking 1500 for ours wastes a third of
+      # the host. Their measurement governs their rows and ours governs ours.
+      case "$J" in
+        BT-DW48-*|BT-DENT-*) JOB_MIB="${BT_DENTAL_MEMORY_MIB:-1500}";;
+        *)                   JOB_MIB="$AGENT_MIB";;
+      esac
       if [ -f "$W/results/$J/.mem_retry" ]; then
         R=$(cat "$W/results/$J/.mem_retry" 2>/dev/null)
         case "$R" in (*[!0-9]*|"") R=0;; esac
