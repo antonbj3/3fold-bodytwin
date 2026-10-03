@@ -11,7 +11,7 @@ claim that it is done.
 |---|---|---|---|
 | A3 | 162 consumable observables (1 consumed: the colon's gas regime, see D9) from 55 papers, 118 outside the eye, in `LANE_READ_CREATIVE/CONSUMABLE.json` | through the unit and range gate, then admitted edges with numbers in the text | me |
 | A4 | 13 orderable measurement targets and 7 dataset routes from the same round | those that can be retrieved without ordering anything: retrieved and consumed | the swarm |
-| A6 | detaljlagret: 312 av 313 document without node | se `notes/SPEC_DETAIL_LAYER_INTO_THE_GRAPH.md`The sun harvest is running | Sol |
+| A6 | the detail layer: harvest DONE — 312 inventoried, 99 edge proposals, 3 082 external references, 244 excluded records removed | edge proposals through the unit and range gate, then admitted; reference list crossed against our quantities | me |
 | A7 | `native_glucose.py` using `np.trapz` which disappeared in numby 2.4.1; `myofascial_transmission.py` requires opensim | executable import, or a line stating that the dependency does not exist | jag |
 
 ## KLART
