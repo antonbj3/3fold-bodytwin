@@ -1,0 +1,637 @@
+{
+  "cell_id": "CORNEA_SCATTER",
+  "source_cell_ids": [
+    "bodytwin:AUTO-CORNEA-TRANSPARENCY-SCATTERING-2D-PARACR"
+  ],
+  "source_status": "OPEN; retained, not admitted",
+  "claim_type": "information_link",
+  "review": "PENDING_INDEPENDENT_REVIEW",
+  "input_rows": [
+    {
+      "quantity": "a_nm",
+      "value": 14.0,
+      "unit": "nm",
+      "resolution_level": "FIBRIL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "cross-species geometry; human index estimates",
+        "tissue": "corneal stroma",
+        "temperature": "not specified in inherited numeric inputs",
+        "method": "inherited X-ray geometry / Gladstone-Dale mixture construction; no new raw-data measurement"
+      },
+      "source": "source_repository/data/corneal_transparency/corneal_transparency_results.json#/params/a_nm",
+      "lower_level_debt": "radius and thickness chosen scenarios; matched hydration/temperature/lamellar geometry required",
+      "source_review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "quantity": "phi_areal",
+      "value": 0.28,
+      "unit": "1",
+      "resolution_level": "TISSUE",
+      "leaf_status": "EXTERNALLY_MEASURED",
+      "applicability": {
+        "species": "cross-species geometry; human index estimates",
+        "tissue": "corneal stroma",
+        "temperature": "not specified in inherited numeric inputs",
+        "method": "inherited X-ray geometry / Gladstone-Dale mixture construction; no new raw-data measurement"
+      },
+      "source": "source_repository/data/corneal_transparency/corneal_transparency_results.json#/params/phi_areal",
+      "lower_level_debt": null,
+      "source_review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "quantity": "rho2d_per_nm2",
+      "value": 0.00045472840883398674,
+      "unit": "nm^-2",
+      "resolution_level": "FIBRIL",
+      "leaf_status": "DERIVED_UNDER_ASSUMPTIONS",
+      "applicability": {
+        "species": "cross-species geometry; human index estimates",
+        "tissue": "corneal stroma",
+        "temperature": "not specified in inherited numeric inputs",
+        "method": "inherited X-ray geometry / Gladstone-Dale mixture construction; no new raw-data measurement"
+      },
+      "source": "source_repository/data/corneal_transparency/corneal_transparency_results.json#/params/rho2d_per_nm2",
+      "lower_level_debt": null,
+      "source_review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "quantity": "d_hex_nm",
+      "value": 50.3916571460783,
+      "unit": "nm",
+      "resolution_level": "FIBRIL",
+      "leaf_status": "DERIVED_UNDER_ASSUMPTIONS",
+      "applicability": {
+        "species": "cross-species geometry; human index estimates",
+        "tissue": "corneal stroma",
+        "temperature": "not specified in inherited numeric inputs",
+        "method": "inherited X-ray geometry / Gladstone-Dale mixture construction; no new raw-data measurement"
+      },
+      "source": "source_repository/data/corneal_transparency/corneal_transparency_results.json#/params/d_hex_nm",
+      "lower_level_debt": null,
+      "source_review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "quantity": "n_fibril",
+      "value": 1.411,
+      "unit": "1",
+      "resolution_level": "FIBRIL",
+      "leaf_status": "EXTERNALLY_MEASURED",
+      "applicability": {
+        "species": "cross-species geometry; human index estimates",
+        "tissue": "corneal stroma",
+        "temperature": "not specified in inherited numeric inputs",
+        "method": "inherited X-ray geometry / Gladstone-Dale mixture construction; no new raw-data measurement"
+      },
+      "source": "source_repository/data/corneal_transparency/corneal_transparency_results.json#/params/n_fibril",
+      "lower_level_debt": null,
+      "source_review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "quantity": "n_matrix",
+      "value": 1.365,
+      "unit": "1",
+      "resolution_level": "TISSUE",
+      "leaf_status": "EXTERNALLY_MEASURED",
+      "applicability": {
+        "species": "cross-species geometry; human index estimates",
+        "tissue": "corneal stroma",
+        "temperature": "not specified in inherited numeric inputs",
+        "method": "inherited X-ray geometry / Gladstone-Dale mixture construction; no new raw-data measurement"
+      },
+      "source": "source_repository/data/corneal_transparency/corneal_transparency_results.json#/params/n_matrix",
+      "lower_level_debt": null,
+      "source_review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "quantity": "dn",
+      "value": 0.04600000000000004,
+      "unit": "1",
+      "resolution_level": "FIBRIL",
+      "leaf_status": "DERIVED_UNDER_ASSUMPTIONS",
+      "applicability": {
+        "species": "cross-species geometry; human index estimates",
+        "tissue": "corneal stroma",
+        "temperature": "not specified in inherited numeric inputs",
+        "method": "inherited X-ray geometry / Gladstone-Dale mixture construction; no new raw-data measurement"
+      },
+      "source": "source_repository/data/corneal_transparency/corneal_transparency_results.json#/params/dn",
+      "lower_level_debt": null,
+      "source_review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "quantity": "L_nm",
+      "value": 500000.0,
+      "unit": "nm",
+      "resolution_level": "TISSUE",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "cross-species geometry; human index estimates",
+        "tissue": "corneal stroma",
+        "temperature": "not specified in inherited numeric inputs",
+        "method": "inherited X-ray geometry / Gladstone-Dale mixture construction; no new raw-data measurement"
+      },
+      "source": "source_repository/data/corneal_transparency/corneal_transparency_results.json#/params/L_nm",
+      "lower_level_debt": "radius and thickness chosen scenarios; matched hydration/temperature/lamellar geometry required",
+      "source_review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "quantity": "C_PREF",
+      "value": 16.35109626093563,
+      "unit": "1",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "human donor and literature combined",
+        "tissue": "cornea, total transmission convention",
+        "temperature": "unresolved",
+        "method": "fit to total human transmission, reused unchanged"
+      },
+      "source": "source_repository/scripts/eye/corneal_transparency.py#calibrate",
+      "lower_level_debt": "replace with FIBRIL Maxwell width plus measured orientation, absorption and collection; Maxwell alternative executed",
+      "source_review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "quantity": "sigma_over_d",
+      "value": 0.15,
+      "unit": "1",
+      "resolution_level": "FIBRIL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "synthetic",
+        "tissue": "triangular fibril point process",
+        "temperature": "not used by geometric closure",
+        "method": "iid isotropic Gaussian jitter; unmeasured"
+      },
+      "source": "cell.py#density",
+      "lower_level_debt": "measure pair covariance and S(q) by matched EM/X-ray, no independent displacement mechanism established",
+      "source_review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "quantity": "wavelength_nm",
+      "value": 550.0,
+      "unit": "nm",
+      "resolution_level": "FIBRIL",
+      "leaf_status": "DERIVED_UNDER_ASSUMPTIONS",
+      "applicability": {
+        "species": "synthetic diagnostic",
+        "tissue": "cornea",
+        "temperature": "fixed nondispersive fibril indices",
+        "method": "chosen monochromatic query"
+      },
+      "source": "PREREG_R1.md",
+      "lower_level_debt": null,
+      "source_review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "quantity": "source_z_mm",
+      "value": 0.1,
+      "unit": "mm",
+      "resolution_level": "ORGAN",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "reference schematic human eye",
+        "tissue": "eye",
+        "temperature": "unresolved",
+        "method": "chosen on-axis source in reused Navarro ray geometry"
+      },
+      "source": "LANE_EYE_OPTICAL_TWIN/scatter_port_r1.py#ray_angle",
+      "lower_level_debt": "measure lamellar source depths and spatial orientation",
+      "source_review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "quantity": "pupil_mm",
+      "value": 5.7,
+      "unit": "mm",
+      "resolution_level": "ORGAN",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "reference schematic human eye",
+        "tissue": "eye",
+        "temperature": "unresolved",
+        "method": "entrance pupil; ray-traced physical iris, schematic eye"
+      },
+      "source": "LANE_EYE_OPTICAL_TWIN/scatter_port_r1.py#ray_angle",
+      "lower_level_debt": "measure subject pupil and geometry",
+      "source_review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "quantity": "tail_cutoff",
+      "value": 1.0,
+      "unit": "arcmin",
+      "resolution_level": "ORGAN",
+      "leaf_status": "DERIVED_UNDER_ASSUMPTIONS",
+      "applicability": {
+        "species": "synthetic diagnostic",
+        "tissue": "retina",
+        "temperature": "not applicable",
+        "method": "chosen retinal-tail definition"
+      },
+      "source": "PREREG_R1.md",
+      "lower_level_debt": null,
+      "source_review": "PENDING_INDEPENDENT_REVIEW"
+    }
+  ],
+  "defaults_reported": true,
+  "forward_facit_policy": "eye tail held until comparison; C_PREF calibrated transmission disclosed and excluded from external validation",
+  "output": {
+    "mode": "inherited",
+    "sigma_fraction": 0.15,
+    "poisson": false,
+    "tau_per_um": 0.00020295833789976412,
+    "optical_depth": 0.10147916894988207,
+    "ballistic": 0.9034999999999745,
+    "accepted_fraction": 0.019425931529912975,
+    "core_fraction": 1.6602278848665769e-12,
+    "retinal_tail_fraction": 0.002070526815666044,
+    "theta_quantiles_rad": {
+      "0.01": 0.5663685814630208,
+      "0.05": 0.981073218608852,
+      "0.5": 2.2957323889235135,
+      "0.95": 3.061501592419148,
+      "0.99": 3.1255820386717836
+    },
+    "angular_tail_mass_outside_aperture": 0.980574068470087,
+    "theta_cutoff_rad": 0.7092989925152523,
+    "theta_core_rad": 0.0003092562478067387,
+    "closure": "conditional on-axis meridional single-scatter; not 3D retinal halo",
+    "transport_gate": "EXTRAPOLATION",
+    "amplitude_status": "PHENOMENOLOGICAL calibrated to transmission"
+  },
+  "Maxwell_alternative": {
+    "mode": "maxwell",
+    "sigma_fraction": 0.15,
+    "poisson": false,
+    "tau_per_um": 1.4820824345576179e-05,
+    "optical_depth": 0.007410412172788089,
+    "ballistic": 0.99261697723414,
+    "accepted_fraction": 0.022387612685683067,
+    "core_fraction": 2.1950801440056003e-12,
+    "retinal_tail_fraction": 0.00016648993425981038,
+    "theta_quantiles_rad": {
+      "0.01": 0.5292875372646844,
+      "0.05": 0.9682070445849614,
+      "0.5": 2.4716302237776526,
+      "0.95": 3.0809747954230384,
+      "0.99": 3.129479244835736
+    },
+    "angular_tail_mass_outside_aperture": 0.977612387314317,
+    "theta_cutoff_rad": 0.7092989925152523,
+    "theta_core_rad": 0.0003092562478067387,
+    "closure": "conditional on-axis meridional single-scatter; not 3D retinal halo",
+    "transport_gate": "THIN",
+    "amplitude_status": "derived Maxwell single cylinder; ensemble closure synthetic"
+  },
+  "comparison": {
+    "held_eye_tail": 0.00016649,
+    "inherited_tail": 0.002070526815666044,
+    "ratio_inherited_over_eye": 12.436343418019364,
+    "log10_margin_to_factor10": 0.09469270617362557,
+    "compatibility_gate": "FAIL",
+    "Maxwell_tail": 0.00016648993425981038,
+    "Maxwell_over_eye": 0.999999605140311,
+    "inherited_tau_over_Maxwell": 13.694132874622762,
+    "maxwell_comparison_gate": "PASS_INTERNAL_SAME_LINEAGE",
+    "independent_validation": false,
+    "cause": "calibrated RGD amplitude and polarization law differ from uncalibrated Maxwell; geometry identical",
+    "external_math": [
+      {
+        "wavelength_nm": 400.0,
+        "polarization": "E_z",
+        "angular_width_nm": 0.0042360749613489105,
+        "external_eq41_width_nm": 0.00423607496134891,
+        "relative_error": 2.220446049250313e-16
+      },
+      {
+        "wavelength_nm": 400.0,
+        "polarization": "H_z",
+        "angular_width_nm": 0.001970897444622033,
+        "external_eq41_width_nm": 0.0019708974446220324,
+        "relative_error": 2.220446049250313e-16
+      },
+      {
+        "wavelength_nm": 450.0,
+        "polarization": "E_z",
+        "angular_width_nm": 0.002999021664344016,
+        "external_eq41_width_nm": 0.002999021664344016,
+        "relative_error": 0.0
+      },
+      {
+        "wavelength_nm": 450.0,
+        "polarization": "H_z",
+        "angular_width_nm": 0.0013961909115316857,
+        "external_eq41_width_nm": 0.001396190911531686,
+        "relative_error": 1.1102230246251565e-16
+      },
+      {
+        "wavelength_nm": 500.0,
+        "polarization": "E_z",
+        "angular_width_nm": 0.002198608320169121,
+        "external_eq41_width_nm": 0.002198608320169121,
+        "relative_error": 0.0
+      },
+      {
+        "wavelength_nm": 500.0,
+        "polarization": "H_z",
+        "angular_width_nm": 0.0010240809975889766,
+        "external_eq41_width_nm": 0.0010240809975889768,
+        "relative_error": 2.220446049250313e-16
+      },
+      {
+        "wavelength_nm": 550.0,
+        "polarization": "E_z",
+        "angular_width_nm": 0.0016586171567431367,
+        "external_eq41_width_nm": 0.001658617156743137,
+        "relative_error": 1.1102230246251565e-16
+      },
+      {
+        "wavelength_nm": 550.0,
+        "polarization": "H_z",
+        "angular_width_nm": 0.0007728877329905364,
+        "external_eq41_width_nm": 0.0007728877329905366,
+        "relative_error": 3.3306690738754696e-16
+      },
+      {
+        "wavelength_nm": 600.0,
+        "polarization": "E_z",
+        "angular_width_nm": 0.0012814774735954244,
+        "external_eq41_width_nm": 0.0012814774735954246,
+        "relative_error": 2.220446049250313e-16
+      },
+      {
+        "wavelength_nm": 600.0,
+        "polarization": "H_z",
+        "angular_width_nm": 0.000597357639840368,
+        "external_eq41_width_nm": 0.000597357639840368,
+        "relative_error": 0.0
+      },
+      {
+        "wavelength_nm": 700.0,
+        "polarization": "E_z",
+        "angular_width_nm": 0.0008103832397407341,
+        "external_eq41_width_nm": 0.0008103832397407343,
+        "relative_error": 2.220446049250313e-16
+      },
+      {
+        "wavelength_nm": 700.0,
+        "polarization": "H_z",
+        "angular_width_nm": 0.0003779643870089007,
+        "external_eq41_width_nm": 0.0003779643870089006,
+        "relative_error": 2.220446049250313e-16
+      }
+    ],
+    "external_math_gate": "PASS",
+    "external_locator": "ArrudaMartinez2010 eq41 DOI10.1364/JOSAA.27.001679",
+    "held_eye_not_forward_input": true,
+    "calibrated_transmission_not_external_facit": true
+  },
+  "distribution": {
+    "rows": [
+      {
+        "mode": "inherited",
+        "sigma_fraction": 0.06,
+        "poisson": false,
+        "tau_per_um": 3.304111949244174e-05,
+        "optical_depth": 0.016520559746220874,
+        "ballistic": 0.9836151563047897,
+        "accepted_fraction": 0.019124576713646205,
+        "core_fraction": 1.6316981861938085e-12,
+        "retinal_tail_fraction": 0.00031847151204213685,
+        "theta_quantiles_rad": {
+          "0.01": 0.569480682168905,
+          "0.05": 0.9859018284944033,
+          "0.5": 2.3001131594755577,
+          "0.95": 3.0619707523954105,
+          "0.99": 3.125675924223686
+        },
+        "angular_tail_mass_outside_aperture": 0.9808754232863538,
+        "theta_cutoff_rad": 0.7092989925152523,
+        "theta_core_rad": 0.0003092562478067387,
+        "closure": "conditional on-axis meridional single-scatter; not 3D retinal halo",
+        "transport_gate": "THIN",
+        "amplitude_status": "PHENOMENOLOGICAL calibrated to transmission"
+      },
+      {
+        "mode": "inherited",
+        "sigma_fraction": 0.1,
+        "poisson": false,
+        "tau_per_um": 9.124225181099628e-05,
+        "optical_depth": 0.04562112590549814,
+        "ballistic": 0.9554038714040345,
+        "accepted_fraction": 0.01922640796216274,
+        "core_fraction": 1.6413306843849875e-12,
+        "retinal_tail_fraction": 0.0008966412909724256,
+        "theta_quantiles_rad": {
+          "0.01": 0.5684222599089525,
+          "0.05": 0.9842607101263187,
+          "0.5": 2.298628506820655,
+          "0.95": 3.061811880238274,
+          "0.99": 3.1256441318919808
+        },
+        "angular_tail_mass_outside_aperture": 0.9807735920378373,
+        "theta_cutoff_rad": 0.7092989925152523,
+        "theta_core_rad": 0.0003092562478067387,
+        "closure": "conditional on-axis meridional single-scatter; not 3D retinal halo",
+        "transport_gate": "THIN",
+        "amplitude_status": "PHENOMENOLOGICAL calibrated to transmission"
+      },
+      {
+        "mode": "inherited",
+        "sigma_fraction": 0.15,
+        "poisson": false,
+        "tau_per_um": 0.00020295833789976412,
+        "optical_depth": 0.10147916894988207,
+        "ballistic": 0.9034999999999745,
+        "accepted_fraction": 0.019425931529912975,
+        "core_fraction": 1.6602278848665769e-12,
+        "retinal_tail_fraction": 0.002070526815666044,
+        "theta_quantiles_rad": {
+          "0.01": 0.5663685814630208,
+          "0.05": 0.981073218608852,
+          "0.5": 2.2957323889235135,
+          "0.95": 3.061501592419148,
+          "0.99": 3.1255820386717836
+        },
+        "angular_tail_mass_outside_aperture": 0.980574068470087,
+        "theta_cutoff_rad": 0.7092989925152523,
+        "theta_core_rad": 0.0003092562478067387,
+        "closure": "conditional on-axis meridional single-scatter; not 3D retinal halo",
+        "transport_gate": "EXTRAPOLATION",
+        "amplitude_status": "PHENOMENOLOGICAL calibrated to transmission"
+      },
+      {
+        "mode": "inherited",
+        "sigma_fraction": 0.2,
+        "poisson": false,
+        "tau_per_um": 0.00035511643815256647,
+        "optical_depth": 0.17755821907628322,
+        "ballistic": 0.8373122503709306,
+        "accepted_fraction": 0.0197066545792894,
+        "core_fraction": 1.6868687724991712e-12,
+        "retinal_tail_fraction": 0.0038143504500896693,
+        "theta_quantiles_rad": {
+          "0.01": 0.5635233006162238,
+          "0.05": 0.9766501597758028,
+          "0.5": 2.291686185399901,
+          "0.95": 3.0610672554535694,
+          "0.99": 3.1254951198257457
+        },
+        "angular_tail_mass_outside_aperture": 0.9802933454207106,
+        "theta_cutoff_rad": 0.7092989925152523,
+        "theta_core_rad": 0.0003092562478067387,
+        "closure": "conditional on-axis meridional single-scatter; not 3D retinal halo",
+        "transport_gate": "EXTRAPOLATION",
+        "amplitude_status": "PHENOMENOLOGICAL calibrated to transmission"
+      },
+      {
+        "mode": "inherited",
+        "sigma_fraction": 0.3,
+        "poisson": false,
+        "tau_per_um": 0.0007640076861141615,
+        "optical_depth": 0.38200384305708074,
+        "ballistic": 0.6824924303429832,
+        "accepted_fraction": 0.020517374758103817,
+        "core_fraction": 1.7641555066453068e-12,
+        "retinal_tail_fraction": 0.009454799722835345,
+        "theta_quantiles_rad": {
+          "0.01": 0.5555824571297638,
+          "0.05": 0.9642638795999657,
+          "0.5": 2.2801845364703817,
+          "0.95": 3.05982735389324,
+          "0.99": 3.125246982809559
+        },
+        "angular_tail_mass_outside_aperture": 0.9794826252418962,
+        "theta_cutoff_rad": 0.7092989925152523,
+        "theta_core_rad": 0.0003092562478067387,
+        "closure": "conditional on-axis meridional single-scatter; not 3D retinal halo",
+        "transport_gate": "EXTRAPOLATION",
+        "amplitude_status": "PHENOMENOLOGICAL calibrated to transmission"
+      },
+      {
+        "mode": "inherited",
+        "sigma_fraction": 0.5,
+        "poisson": false,
+        "tau_per_um": 0.0018510861704803508,
+        "optical_depth": 0.9255430852401754,
+        "ballistic": 0.39631612718024417,
+        "accepted_fraction": 0.023189703309920207,
+        "core_fraction": 2.0225788156332024e-12,
+        "retinal_tail_fraction": 0.03411826776257914,
+        "theta_quantiles_rad": {
+          "0.01": 0.531951609194944,
+          "0.05": 0.927051013741085,
+          "0.5": 2.2441033333463136,
+          "0.95": 3.05588802077981,
+          "0.99": 3.124458524520398
+        },
+        "angular_tail_mass_outside_aperture": 0.9768102966900798,
+        "theta_cutoff_rad": 0.7092989925152523,
+        "theta_core_rad": 0.0003092562478067387,
+        "closure": "conditional on-axis meridional single-scatter; not 3D retinal halo",
+        "transport_gate": "EXTRAPOLATION",
+        "amplitude_status": "PHENOMENOLOGICAL calibrated to transmission"
+      },
+      {
+        "mode": "inherited",
+        "sigma_fraction": 1.0,
+        "poisson": false,
+        "tau_per_um": 0.004392714340462407,
+        "optical_depth": 2.1963571702312037,
+        "ballistic": 0.11120753149015049,
+        "accepted_fraction": 0.036617800663259814,
+        "core_fraction": 3.4092520791450758e-12,
+        "retinal_tail_fraction": 0.22639937886739722,
+        "theta_quantiles_rad": {
+          "0.01": 0.44984482811139564,
+          "0.05": 0.7942360724466034,
+          "0.5": 2.097631878401042,
+          "0.95": 3.039263743234791,
+          "0.99": 3.1211299675079127
+        },
+        "angular_tail_mass_outside_aperture": 0.9633821993367402,
+        "theta_cutoff_rad": 0.7092989925152523,
+        "theta_core_rad": 0.0003092562478067387,
+        "closure": "conditional on-axis meridional single-scatter; not 3D retinal halo",
+        "transport_gate": "EXTRAPOLATION",
+        "amplitude_status": "PHENOMENOLOGICAL calibrated to transmission"
+      }
+    ],
+    "design_measure": "seven equally weighted synthetic sf cases, not biological probability",
+    "retinal_tail_distribution": {
+      "n": 7,
+      "quantiles": {
+        "0.01": 0.0003531616987779542,
+        "0.05": 0.0004919224457212235,
+        "0.5": 0.0038143504500896693,
+        "0.95": 0.16871504553595168,
+        "0.99": 0.21486251220110805
+      },
+      "min": 0.00031847151204213685,
+      "max": 0.22639937886739722,
+      "threshold": 0.01,
+      "empirical_mass_below": 0.7142857142857143,
+      "empirical_mass_above": 0.2857142857142857
+    },
+    "unresolved_absolute_halo": true
+  },
+  "sufficiency": {
+    "summary": "total optical depth",
+    "optical_depth": [
+      0.1,
+      0.1
+    ],
+    "identity_error": 0.0,
+    "laws": [
+      {
+        "name": "accepted_tail",
+        "atoms_rad": [
+          0.35480412438152953,
+          2.356194490192345
+        ],
+        "weights": [
+          0.5,
+          0.5
+        ]
+      },
+      {
+        "name": "rejected_tail",
+        "atoms_rad": [
+          0.00015462812390336936,
+          2.356194490192345
+        ],
+        "weights": [
+          0.5,
+          0.5
+        ]
+      }
+    ],
+    "retinal_tail": [
+      0.049958374957880004,
+      0.0
+    ],
+    "downstream_difference": 0.049958374957880004,
+    "verdict": "FAIL_SUFFICIENCY",
+    "minimal_extension_for_fixed_aperture_and_cut": "two masses: accepted angular mass and accepted mass outside core",
+    "for_arbitrary_new_aperture": "resolved angular CDF / density",
+    "physical_realizability": "positive synthetic atomic measures; not asserted Gaussian-lattice family"
+  },
+  "finest_edge": {
+    "quantity_class": "differential_scattering_width",
+    "unit": "nm/rad",
+    "producer_level": "FIBRIL",
+    "consumer_level": "ORGAN",
+    "edge_level": "FIBRIL",
+    "set_by": "producer angle,wavelength,polarization; consumer applies aperture",
+    "resolution_loss_levels": 0,
+    "timescale": "INTRAOPERATIVE",
+    "temporal_edge": "SIMULTANEOUS",
+    "unmodeled_axes": [
+      "3D lamellar orientations",
+      "finite axial correlations",
+      "depth distribution"
+    ]
+  },
+  "gate": "FAIL_COMPATIBILITY_CALIBRATED_BRANCH",
+  "biological_gate": "UNKNOWN",
+  "runnable": "python3 -B tasks/free48/sources/CORNEA_SCATTER/cell.py --output <new.json> [--mode maxwell]"
+}

@@ -1,43 +1,30 @@
-# Styrning r5 — You did it twelve times failed; sharpen and generalize it
+# Steering r6 — 175 of 188 cannot be tested; that is the answer, not an obstacle
 
-## Vad r4 faktiskt levererade
-You picked up. **originaltabellen**: 23 rader, 21 patienter, 23 cross-matching lines, and drove
-adequacy test against the published SAMMANFATTNINGEN instead of against our own cells.
-is the sharpest in lan's history:
+## What r5 showed
+`record_contract_counts`: **NOT_TESTABLE 175, INSUFFICIENT 11, SUFFICIENT_OBSERVED 2** of 188. And
+the provenance: **SUMMARY_CONFIRMED 126, UNKNOWN 62**, with 93 via the abstract-summary route.
 
-- Med nycklarna (`printed_lesion_size_cm`, `orientation`): **24 par, 16 rapporterade motexempel,
-  identitetsfel 0,0 and maximum power difference 0,5 N.** Two cases of identical printed summary have:
-  i.e. 0,5 N olika kraft.
-- Interventionsprovet: 14 instanser, 9 motexempel, maximal skillnad 0,1 N.
-- **The original table also contradicts its own summary in size: 4,5 mot 5,0 cm.**
-- And the minimum degree of enlargement is **EN skalar**, med
-  `minimum_extension_reconstruction_error_um = 0,0` and maximum restart difference 2,13e-14 µL over 512
-  omstarter.
-
-the validation gate stands FAIL And that's right: `new_validated_physical_predictions = 0` and
-`new_measured_micro_compliance_or_aperture_bindings = 0`Three malicious requests, three abandoned.
-Rapportera FAIL som FAIL — but the information link above is load-bearing and should not be buried under it.
+These are two different results and both are valuable. The first is a limit: the lane cannot speak about
+prevalence, as you write yourself. The second is a finding: **two thirds of the expert source's records are
+confirmed summaries**, and we know since r4 that a printed summary is not a sufficient
+statistic for the measurements behind it.
 
 ## The operation this round
-1. **Generalisera provet till fler publicerade sammanfattningar.** Du har visat att en tryckt
-   summary table is not sufficient statistics for the underlying measurements.
-   how often this applies. Run the same sample against each published summary that source material carries and
-   Report three numbers: sufficient, insufficient, not trialable.4 till ett resultat
-   instead of a case.
-2. **And that might explain why they 188 The posts never touched a cell.** If the entries are taken from
-   printed summaries that are not sufficient statisticians, the level crash is only half the reason.
-   Try it right away: how many of them 188 comes from a summary and how many from a
-   originaltabell?
-3. **Keep 4,5-mot-5,0-konflikten som en egen rad.** A source that contradicts itself shall be recorded with:
-   both values and which path we used, never silenced to a number.
-4. **And tell me what the only scalar is.** `minimal_extra_state_scalars_fixed_law = 1` is the lan's most
-   useful speech tonight — But only if the scalar has a name and a unit.
+1. **Name WHAT makes the 175 untestable**, in groups with counts. Is a number missing? Is a unit missing? Is
+   a validity range missing? Is it threshold text rather than a measured value? The distribution across the 175 is
+   the most useful thing the lane can deliver now, because it says what would make the source usable.
+2. **And connect the 126 to r4's rejection.** If a confirmed summary is not a sufficient
+   statistic, how many of the 126 carry a number that a cell uses today? That number determines whether something already
+   consumed rests on an insufficient basis, and it is a check on ourselves.
+3. **Stop generalising to prevalence.** Write explicitly that the selected cohort contracts do not show
+   general occurrence. You wrote it in r5 — keep it as a heading so that nobody reads the numbers as a proportion.
+4. Keep the source conflicts and the three declined queries in the accounting.
 
 ## Control and falsifier
-- **Kontroll:** r3 with scalar geometry without force, phase and condition per case. the lane is a
-  information link; the control shall be less informed.
-- **Falsifierare:** if the printed summaries are in most cases sufficient r4 ett urval av
-  the difficult, and then the original table hunt is not generally justified. It would be a soothing result and
-  ska rapporteras rent ut.
-- **Forbidden:** att kalla innovation_gate FAIL for something other than: FAIL; att rapportera den enda
-  the scalar without a name and unit; to release the three abandoned requests from the accounts.
+- **Control:** r3 with scalar geometry without force, phase and state per case. Less informed, as
+  the class requires.
+- **Falsifier:** if the 175 lack a number for the same reason in more than nine cases out of ten, the source is
+  systematically structured incorrectly for our use, and the question is then whether we should harvest it at all — a sharper
+  finding than the bridge.
+- **Forbidden:** reporting 2 of 188 as a prevalence; harvesting new records before the 175 are
+  grouped.
