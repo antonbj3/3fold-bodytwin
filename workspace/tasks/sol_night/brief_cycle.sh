@@ -47,6 +47,19 @@ ts() { date '+%F %T'; }
   #     itself as the queue drains. The others are one-per-thing and are already exhausted.
   python3 tasks/assembly/queue_connection_briefs.py 2>&1 | head -1 | sed "s/^/[$(ts)] /"
 
+  # 2d. Sync the live net into the tracked copy. The live file is a symlink into an untracked
+  #     generations directory, so every edit lives outside git until copied. A one-time sync
+  #     was done at 19:00 and the copy had already fallen 34 edges behind by 20:45.
+  python3 -c "
+import json,pathlib
+live=json.load(open('CONSTRAINT_NETS.json'))['bodytwin']['tissue_constraint_net']
+p=pathlib.Path('data/CONSTRAINT_NET_TISSUE.json'); d=json.loads(p.read_text())
+before=len(d['bodytwin']['tissue_constraint_net']['edges'])
+d['bodytwin']['tissue_constraint_net']=live
+p.write_text(json.dumps(d,indent=2,ensure_ascii=False))
+print(f'nat synkat: {before} -> {len(live[chr(34)+chr(34)]) if False else len(live[\"edges\"])} kanter')
+" 2>&1 | sed "s/^/[$(ts)] /"
+
   # 3. Prune the queue. Measured 2026-10-03: 12837 of 13919 entries already had a RESULTS.md, so the
   #    queue was 92 % completed work that nothing removed, plus 35 malformed lines from a heredoc that
   #    ran away. The dispatcher re-read and skipped all of it every cycle, and it made freshly queued

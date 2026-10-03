@@ -1,493 +1,977 @@
 {
- "bodytwin": {
-  "tissue_constraint_net": {
-   "seed": "The operator asked for the graph layer: variables in quantified relation with edge status, not bookkeeping. This net was assembled 2026-10-03 from the night's own measurements after the graph lane established that this slot was declared and empty.",
-   "objective": "Say, per pair of quantities, whether the relation is constrained by a measurement (TIGHT), measured to be insufficient or undetermined with the gap as the number (OPEN), or asserted in a model with nothing bearing on it (UNKNOWN).",
-   "schema_note": "Same shape as vehicle_constraints and projector_constraints: variables with unit and level, edges with between, constraint, status and evidence. Additive — nothing was moved and no other net was touched.",
-   "source_files": [
-    "data/CONSTRAINT_NET_TISSUE.json"
-   ],
-   "variables": [
-    {
-     "id": "charge_inventory",
-     "unit": "mol/m",
-     "level": "MOLECULE",
-     "domain": "cornea"
-    },
-    {
-     "id": "ionic_swelling_pressure",
-     "unit": "Pa",
-     "level": "TISSUE",
-     "domain": "cornea"
-    },
-    {
-     "id": "stromal_thickness",
-     "unit": "um",
-     "level": "TISSUE",
-     "domain": "cornea"
-    },
-    {
-     "id": "stromal_index",
-     "unit": "1",
-     "level": "TISSUE",
-     "domain": "cornea"
-    },
-    {
-     "id": "surface_allocation",
-     "unit": "1",
-     "level": "TISSUE",
-     "domain": "cornea"
-    },
-    {
-     "id": "surface_shape_field",
-     "unit": "um",
-     "level": "ORGAN",
-     "domain": "cornea"
-    },
-    {
-     "id": "pupil_diameter",
-     "unit": "mm",
-     "level": "ORGAN",
-     "domain": "eye"
-    },
-    {
-     "id": "refractive_power",
-     "unit": "D",
-     "level": "ORGAN",
-     "domain": "eye"
-    },
-    {
-     "id": "residual_cylinder",
-     "unit": "D",
-     "level": "ORGAN",
-     "domain": "eye"
-    },
-    {
-     "id": "posterior_corneal_astigmatism",
-     "unit": "D",
-     "level": "ORGAN",
-     "domain": "cornea"
-    },
-    {
-     "id": "implant_power",
-     "unit": "D",
-     "level": "ORGAN",
-     "domain": "eye"
-    },
-    {
-     "id": "lattice_order",
-     "unit": "1",
-     "level": "FIBRIL",
-     "domain": "cornea"
-    },
-    {
-     "id": "scatter_tail_fraction",
-     "unit": "1",
-     "level": "TISSUE",
-     "domain": "cornea"
-    },
-    {
-     "id": "delivered_energy",
-     "unit": "J",
-     "level": "PHENOMENOLOGICAL",
-     "domain": "laser"
-    },
-    {
-     "id": "surface_temperature_history",
-     "unit": "K",
-     "level": "TISSUE",
-     "domain": "laser"
-    },
-    {
-     "id": "depth_temperature",
-     "unit": "K",
-     "level": "TISSUE",
-     "domain": "laser"
-    },
-    {
-     "id": "cem43_thermal_dose",
-     "unit": "min",
-     "level": "PHENOMENOLOGICAL",
-     "domain": "laser"
-    },
-    {
-     "id": "removed_mass",
-     "unit": "kg",
-     "level": "TISSUE",
-     "domain": "laser"
-    },
-    {
-     "id": "ablation_fluence_threshold",
-     "unit": "J/cm^2",
-     "level": "TISSUE",
-     "domain": "laser"
-    },
-    {
-     "id": "c3b_recycling_fraction",
-     "unit": "1",
-     "level": "MOLECULE",
-     "domain": "immune"
-    },
-    {
-     "id": "self_surface_growth_rate",
-     "unit": "1/min",
-     "level": "CELL",
-     "domain": "immune"
-    },
-    {
-     "id": "mac_concentration",
-     "unit": "nM",
-     "level": "CELL",
-     "domain": "immune"
-    },
-    {
-     "id": "activator_host_discrimination",
-     "unit": "1",
-     "level": "CELL",
-     "domain": "immune"
-    },
-    {
-     "id": "boundary_condition_class",
-     "unit": "categorical",
-     "level": "TISSUE",
-     "domain": "flow"
-    },
-    {
-     "id": "hydraulic_conductance",
-     "unit": "m/(Pa s)",
-     "level": "TISSUE",
-     "domain": "flow"
-    },
-    {
-     "id": "needle_forward_friction",
-     "unit": "N/mm",
-     "level": "TISSUE",
-     "domain": "needle"
-    },
-    {
-     "id": "passage_number",
-     "unit": "count",
-     "level": "TISSUE",
-     "domain": "needle"
-    },
-    {
-     "id": "epithelial_front_velocity",
-     "unit": "um/h",
-     "level": "TISSUE",
-     "domain": "skin"
-    },
-    "lens_position",
-    "axial_length",
-    "iol_label_power"
-   ],
-   "edges": [
-    {
-     "id": "T-E1-charge_inventory-vs-ionic_swelling_pressure",
-     "between": [
-      "charge_inventory",
-      "ionic_swelling_pressure"
-     ],
-     "constraint": "halving the charge inventory lowers the swelling pressure by 489.65 Pa",
-     "status": "TIGHT",
-     "evidence": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r13.json :: chain_all05.Pi_change_Pa = -489.64879350600813",
-     "evidence_mtime_at_last_check": 1791046583.616,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E2-ionic_swelling_pressure-vs-stromal_thickness",
-     "between": [
-      "ionic_swelling_pressure",
-      "stromal_thickness"
-     ],
-     "constraint": "pupil-mean thickness falls 605.582 to 602.039 um over that pressure change",
-     "status": "TIGHT",
-     "evidence": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r13.json :: chain_all05.pupil_mean_thickness_after_um = 602.0390240447553",
-     "evidence_mtime_at_last_check": 1791046583.616,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E3-stromal_thickness-vs-refractive_power",
-     "between": [
-      "refractive_power",
-      "stromal_thickness",
-      "stromal_index"
-     ],
-     "constraint": "thickness, index, hydration AND surface allocation together leave 0.3056 D undetermined; identity errors exactly 0.0 in 4 of 4 pairs",
-     "status": "OPEN",
-     "evidence": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r14.json :: outcome.eta_sufficiency.powergap_D = 0.3056391116672543",
-     "note_added_2026_10_03": "stromal_index is named in this constraint and was not an endpoint, so the node was invisible to any neighbourhood walk: a brief generated from the graph gave it zero edges. Being named in the text of a constraint is not the same as being connected by it.",
-     "evidence_mtime_at_last_check": 1791017602.717,
-     "last_checked_status": "OK",
-     "evidence_was_before_2026_10_03": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r14.json :: eta_sufficiency.powergap_D = 0.3056391116672543"
-    },
-    {
-     "id": "T-E4-surface_allocation-vs-refractive_power",
-     "between": [
-      "refractive_power",
-      "surface_allocation"
-     ],
-     "constraint": "the span over this variable alone is 0.8724 D and the sign of the change flips across conditions",
-     "status": "OPEN",
-     "evidence": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r13.json :: surface_sufficiency.downstream_power_difference_D = 0.8723871708712494",
-     "evidence_mtime_at_last_check": 1791046583.616,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E5-surface_shape_field-vs-refractive_power",
-     "between": [
-      "refractive_power",
-      "surface_shape_field"
-     ],
-     "constraint": "with native pupil-limited shape data the maximum gap is 0.2396 D, below the 0.25 D clinical threshold, 0 violations in 101 cases",
-     "status": "TIGHT",
-     "evidence": "results/LANE_CORNEA_SHAPE/night_rounds/r2.json :: native_pupil_max_gap_D = 0.23961891826215265",
-     "evidence_mtime_at_last_check": 1791034417.391,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E6-pupil_diameter-vs-refractive_power",
-     "between": [
-      "pupil_diameter",
-      "refractive_power"
-     ],
-     "constraint": "at large pupil the shape field no longer closes the gap: violations in 98 of 98 cases",
-     "status": "OPEN",
-     "evidence": "results/LANE_CORNEA_SHAPE/night_rounds/r2.json :: large_pupil_violations = 98/98",
-     "evidence_unresolved": true,
-     "evidence_unresolved_note": "searched every numeric key in results/LANE_CORNEA_SHAPE/night_rounds/r2.json for the 98 the text states: the count exists only as the STRING \"98/98\" under outcome.large_pupil_violations (and \"63/63\" for the clean-QC subset), so no numeric key path holds it"
-    },
-    {
-     "id": "T-E7-posterior_corneal_astigmatism-vs-residual_cylinder",
-     "between": [
-      "posterior_corneal_astigmatism",
-      "residual_cylinder"
-     ],
-     "constraint": "measuring it instead of estimating it cuts residual cylinder error from 0.6264 to 0.2817 D against measured refraction on 69 patients, and this is now confirmed by THREE independent sources for the same input: 0.2817 (IOLMaster posterior), 0.2934 (CASIA posterior, conventions aligned) and 0.3112 D (CASIA total cornea measured in one step). The two devices print ORTHOGONAL posterior meridians, 86 degrees apart in median, and taking the printed axis gives 0.7577 D, which nearly produced a false refutation of this edge",
-     "status": "TIGHT",
-     "evidence": "results/ASSEMBLY_TORIC_CROSS_DEVICE/CROSS_DEVICE_V1.json :: residual_cylinder_mae_D.iolmaster_posterior = 0.2817",
-     "evidence_was_before_2026_10_03": "results/ASSEMBLY_TORIC_CROSS_DEVICE/CROSS_DEVICE_V1.json :: residual_cylinder_mae_D",
-     "evidence_mtime_at_last_check": 1791044114.047,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E8-implant_power-vs-refractive_power",
-     "between": [
-      "implant_power",
-      "refractive_power"
-     ],
-     "constraint": "inverted to a decision that runs BEFORE the operation: mean miss against the hindsight-correct power 0.535 D versus the implanted lens 1.130 D on 89 eyes, closer in 36 against 22. The earlier figure on this edge (11 of 20, 0.688 against 1.070 D) is withdrawn: that chain consumed the POSTOPERATIVE lens position, which the surgeon it was compared against could not know, so it was not an equally informed comparison",
-     "status": "TIGHT",
-     "evidence": "results/ASSEMBLY_PROSPECTIVE_POWER/PROSPECTIVE_V1.json :: scored_against_hindsight_correct_power.mean_miss_with_predicted_position_D = 0.5345",
-     "superseded_2026_10_03": "inverted to a decision: the twin lands closer to the hindsight-correct power than the implanted lens in 11 of 20 cases against 2, mean miss 0.688 against 1.070 D",
-     "evidence_mtime_at_last_check": 1791044237.559,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E9-lattice_order-vs-scatter_tail_fraction",
-     "between": [
-      "lattice_order",
-      "scatter_tail_fraction"
-     ],
-     "constraint": "domain data gives a disorder ratio of 20.2466 to 59.4856 and a wavelength exponent of -4.8765, but the amplitude is not transferable to our chain and the causal exponent shift proved analytically forced rather than measured",
-     "status": "UNKNOWN",
-     "evidence": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json :: optical_shift_origin = ANALYTICALLY_FORCED_NOT_EMPIRICAL_CAUSAL_MEASUREMENT",
-     "evidence_unresolved": true,
-     "evidence_unresolved_note": "searched results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json and every JSON in that lane for 20.2466, 59.4856 and -4.8765: the named file holds only the string outcome.optical_shift_origin, and the three greps across results/ matched nothing but digit substrings of unrelated femur-geometry and event-kernel decimals"
-    },
-    {
-     "id": "T-E10-delivered_energy-vs-removed_mass",
-     "between": [
-      "delivered_energy",
-      "removed_mass"
-     ],
-     "constraint": "identical delivered energy to 0.0 J gives removed mass 0.0 against 1.255e-9 kg",
-     "status": "OPEN",
-     "evidence": "results/LANE_LASER_SURGERY/night_rounds/r17.json :: outcome.sufficiency_energy.b.conditional_removed_mass_kg = 1.255019203345805e-09",
-     "evidence_mtime_at_last_check": 1791016047.142,
-     "last_checked_status": "OK",
-     "evidence_was_before_2026_10_03": "results/LANE_LASER_SURGERY/night_rounds/r17.json :: sufficiency_energy.b.conditional_removed_mass_kg = 1.255019203345805e-09"
-    },
-    {
-     "id": "T-E11-surface_temperature_history-vs-depth_temperature",
-     "between": [
-      "depth_temperature",
-      "surface_temperature_history"
-     ],
-     "constraint": "identical surface history to 0.0 K leaves 0.3806 K at target depth, with numerics three orders cleaner at 4.33e-05 K; a separated readout widens it to 35.0 K",
-     "status": "OPEN",
-     "evidence": "results/LANE_DEPTH_TEMPERATURE/night_rounds/r4.json :: separated_grating_target_gap_K = 35.0",
-     "evidence_mtime_at_last_check": 1791036940.813,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E12-cem43_thermal_dose-vs-removed_mass",
-     "between": [
-      "cem43_thermal_dose",
-      "removed_mass"
-     ],
-     "constraint": "the standard clinical thermal dose with time and peak temperature leaves 5.04 percentage points in conditional loss over 7 counterexamples at identity error 0.0",
-     "status": "OPEN",
-     "evidence": "results/LANE_LASER_SURGERY/night_rounds/r19.json :: conditional_loss_difference_percentage_points = 5.038748758105517",
-     "evidence_mtime_at_last_check": 1791021417.62,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E13-ablation_fluence_threshold-vs-removed_mass",
-     "between": [
-      "ablation_fluence_threshold",
-      "removed_mass"
-     ],
-     "constraint": "published threshold 1.15 J/cm^2 as the x-intercept of a mass-loss regression; our chain sits 26.51 percent above it with a slope error of -24.97 percent",
-     "status": "TIGHT",
-     "evidence": "results/LANE_LASER_SURGERY/night_rounds/r17.json :: primary_prediction.relative_error = 0.26508185342208535",
-     "evidence_mtime_at_last_check": 1791016047.142,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E14-c3b_recycling_fraction-vs-self_surface_growth_rate",
-     "between": [
-      "c3b_recycling_fraction",
-      "self_surface_growth_rate"
-     ],
-     "constraint": "the growth rate on a self surface crosses zero at a recycling fraction of 0.69012, moving from -0.15115 to -0.00188 per minute",
-     "status": "TIGHT",
-     "evidence": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r1_V1.json :: rho_critical = 0.6901150139263259",
-     "evidence_mtime_at_last_check": 1791015218.234,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E15-c3b_recycling_fraction-vs-activator_host_discrimination",
-     "between": [
-      "activator_host_discrimination",
-      "c3b_recycling_fraction"
-     ],
-     "constraint": "discrimination is 486.11 without recycling and 4.969 with it, a factor of 97.83; published biology supports the recycling end",
-     "status": "TIGHT",
-     "evidence": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json :: discrimination_change_factor = 97.83134000044933",
-     "evidence_mtime_at_last_check": 1791018446.897,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E16-mac_concentration-vs-self_surface_growth_rate",
-     "between": [
-      "mac_concentration",
-      "self_surface_growth_rate"
-     ],
-     "constraint": "identical surface occupancy at identity error 0.0 leaves 0.16723 nM of MAC undetermined",
-     "status": "OPEN",
-     "evidence": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json :: occupancy_MAC_gap_nM = 0.16723269204490165",
-     "evidence_mtime_at_last_check": 1791018446.897,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E17-boundary_condition_class-vs-hydraulic_conductance",
-     "between": [
-      "boundary_condition_class",
-      "hydraulic_conductance"
-     ],
-     "constraint": "a stationary end value cannot identify the conductance under maintained pressure boundaries, where q_ss = -K dP/L is nonzero; closed finite reservoirs give q(inf) = 0 to 7.211e-12. All 45 flow cells now carry a declared boundary class, none unknown",
-     "status": "TIGHT",
-     "evidence": "results/LANE_ZERO_FLUX_AUDIT/night_rounds/r15.json :: boundary_census.baseline_regimes.UNKNOWN = 0",
-     "evidence_mtime_at_last_check": 1791018148.962,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E18-passage_number-vs-needle_forward_friction",
-     "between": [
-      "needle_forward_friction",
-      "passage_number"
-     ],
-     "constraint": "no digitised series separates forward friction on first versus repeated passage in the same hole, so the equal-friction assumption is uncertain. Nine published curves are readable with sources and reading errors",
-     "status": "UNKNOWN",
-     "evidence": "3fold-motion-engine/_private/romi_collab/build/SOL_FALT_NALFRIKTION_20261001/raw/anchor_curves/INDEX.json :: measurement_status = OSAKER",
-     "owner": "field lane, read-only for us",
-     "evidence_unresolved": true,
-     "evidence_unresolved_note": "the named INDEX.json is not under this workspace at all (it resolves only under the public staging tree/3fold-motion-engine/..., field-lane owned) and holds no numeric key; its digitization.json summary lists 6 curves while this text says nine, so no path in the named file holds the number stated"
-    },
-    {
-     "id": "T-E19-epithelial_front_velocity-vs-epithelial_front_velocity",
-     "between": [
-      "epithelial_front_velocity"
-     ],
-     "constraint": "our value of 30.0 um/h against a held-out measurement of 9.00 +/- 0.465 um/h, ratio 3.3333, and the constant was chosen to produce 0.03 mm/h rather than measured",
-     "status": "OPEN",
-     "evidence": "/mnt/games-240/research/bunny48_20260926/bodytwin/BT-FW48-AUTO-ab449fce1f6f56/results.json :: external_facit.q115_over_anchor_ratio = 3.3333333333333335",
-     "note": "a self-edge marking a quantity refuted against its own external referent",
-     "evidence_mtime_at_last_check": 1791014551.542,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E20-lens_position-vs-refractive_power",
-     "between": [
-      "lens_position",
-      "refractive_power"
-     ],
-     "constraint": "the chain converts 1 mm of lens position into 1.349 D of refraction (median over 89 eyes); the position is predictable from preoperative biometry to 0.114 mm mean absolute error against the quantity own spread of 0.284 mm, so the induced refraction error is 0.114 D median",
-     "status": "TIGHT",
-     "evidence": "results/ASSEMBLY_PROSPECTIVE_POWER/PROSPECTIVE_V1.json :: lens_position_prediction.mean_abs_error_mm = 0.114",
-     "evidence_mtime_at_last_check": 1791044237.559,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E21-axial_length-vs-refractive_power",
-     "between": [
-      "axial_length",
-      "refractive_power"
-     ],
-     "constraint": "the largest single term in the refraction calculation and we hold it from ONE instrument only; no second source exists in our data, so its between-device bias is unmeasured. For comparison the two devices we can compare disagree systematically by 9.90 um on corneal thickness and 0.1441 mm on anterior chamber depth, so a bias of that order here is not excluded",
-     "status": "UNKNOWN",
-     "evidence": "results/ASSEMBLY_INSTRUMENT_COMPONENT/INSTRUMENT_V1.json :: length_quantities_both_devices[0].mean_difference = 9.89721",
-     "evidence_was_before_2026_10_03": "results/ASSEMBLY_INSTRUMENT_COMPONENT/INSTRUMENT_V1.json :: length_quantities_both_devices",
-     "evidence_mtime_at_last_check": 1791044113.515,
-     "last_checked_status": "OK"
-    },
-    {
-     "id": "T-E22-iol_label_power-vs-implant_power",
-     "between": [
-      "iol_label_power",
-      "implant_power"
-     ],
-     "constraint": "we treat the printed label as exact. The decision is quantised to a 0.5 D manufacturing grid, and our choice lands on a different step than the lens that was implanted in 44 of 89 eyes, so if the tolerance on the label approaches a grid step it places a floor under every power decision that no model can go below",
-     "status": "UNKNOWN",
-     "evidence": "results/ASSEMBLY_PROSPECTIVE_POWER/PROSPECTIVE_V1.json :: power_recommendation_shift_D.eyes_where_the_grid_choice_changes = 44",
-     "evidence_mtime_at_last_check": 1791044237.559,
-     "last_checked_status": "OK"
+  "bodytwin": {
+    "tissue_constraint_net": {
+      "seed": "The operator asked for the graph layer: variables in quantified relation with edge status, not bookkeeping. This net was assembled 2026-10-03 from the night's own measurements after the graph lane established that this slot was declared and empty.",
+      "objective": "Say, per pair of quantities, whether the relation is constrained by a measurement (TIGHT), measured to be insufficient or undetermined with the gap as the number (OPEN), or asserted in a model with nothing bearing on it (UNKNOWN).",
+      "schema_note": "Same shape as vehicle_constraints and projector_constraints: variables with unit and level, edges with between, constraint, status and evidence. Additive — nothing was moved and no other net was touched.",
+      "source_files": [
+        "data/CONSTRAINT_NET_TISSUE.json"
+      ],
+      "variables": [
+        {
+          "id": "charge_inventory",
+          "unit": "mol/m",
+          "level": "MOLECULE",
+          "domain": "cornea"
+        },
+        {
+          "id": "ionic_swelling_pressure",
+          "unit": "Pa",
+          "level": "TISSUE",
+          "domain": "cornea"
+        },
+        {
+          "id": "stromal_thickness",
+          "unit": "um",
+          "level": "TISSUE",
+          "domain": "cornea"
+        },
+        {
+          "id": "stromal_index",
+          "unit": "1",
+          "level": "TISSUE",
+          "domain": "cornea"
+        },
+        {
+          "id": "surface_allocation",
+          "unit": "1",
+          "level": "TISSUE",
+          "domain": "cornea"
+        },
+        {
+          "id": "surface_shape_field",
+          "unit": "um",
+          "level": "ORGAN",
+          "domain": "cornea"
+        },
+        {
+          "id": "pupil_diameter",
+          "unit": "mm",
+          "level": "ORGAN",
+          "domain": "eye"
+        },
+        {
+          "id": "refractive_power",
+          "unit": "D",
+          "level": "ORGAN",
+          "domain": "eye"
+        },
+        {
+          "id": "residual_cylinder",
+          "unit": "D",
+          "level": "ORGAN",
+          "domain": "eye"
+        },
+        {
+          "id": "posterior_corneal_astigmatism",
+          "unit": "D",
+          "level": "ORGAN",
+          "domain": "cornea"
+        },
+        {
+          "id": "implant_power",
+          "unit": "D",
+          "level": "ORGAN",
+          "domain": "eye"
+        },
+        {
+          "id": "lattice_order",
+          "unit": "1",
+          "level": "FIBRIL",
+          "domain": "cornea"
+        },
+        {
+          "id": "scatter_tail_fraction",
+          "unit": "1",
+          "level": "TISSUE",
+          "domain": "cornea"
+        },
+        {
+          "id": "delivered_energy",
+          "unit": "J",
+          "level": "PHENOMENOLOGICAL",
+          "domain": "laser"
+        },
+        {
+          "id": "surface_temperature_history",
+          "unit": "K",
+          "level": "TISSUE",
+          "domain": "laser"
+        },
+        {
+          "id": "depth_temperature",
+          "unit": "K",
+          "level": "TISSUE",
+          "domain": "laser"
+        },
+        {
+          "id": "cem43_thermal_dose",
+          "unit": "min",
+          "level": "PHENOMENOLOGICAL",
+          "domain": "laser"
+        },
+        {
+          "id": "removed_mass",
+          "unit": "kg",
+          "level": "TISSUE",
+          "domain": "laser"
+        },
+        {
+          "id": "ablation_fluence_threshold",
+          "unit": "J/cm^2",
+          "level": "TISSUE",
+          "domain": "laser"
+        },
+        {
+          "id": "c3b_recycling_fraction",
+          "unit": "1",
+          "level": "MOLECULE",
+          "domain": "immune"
+        },
+        {
+          "id": "self_surface_growth_rate",
+          "unit": "1/min",
+          "level": "CELL",
+          "domain": "immune"
+        },
+        {
+          "id": "mac_concentration",
+          "unit": "nM",
+          "level": "CELL",
+          "domain": "immune"
+        },
+        {
+          "id": "activator_host_discrimination",
+          "unit": "1",
+          "level": "CELL",
+          "domain": "immune"
+        },
+        {
+          "id": "boundary_condition_class",
+          "unit": "categorical",
+          "level": "TISSUE",
+          "domain": "flow"
+        },
+        {
+          "id": "hydraulic_conductance",
+          "unit": "m/(Pa s)",
+          "level": "TISSUE",
+          "domain": "flow"
+        },
+        {
+          "id": "needle_forward_friction",
+          "unit": "N/mm",
+          "level": "TISSUE",
+          "domain": "needle"
+        },
+        {
+          "id": "passage_number",
+          "unit": "count",
+          "level": "TISSUE",
+          "domain": "needle"
+        },
+        {
+          "id": "epithelial_front_velocity",
+          "unit": "um/h",
+          "level": "TISSUE",
+          "domain": "skin"
+        },
+        "lens_position",
+        "axial_length",
+        "iol_label_power",
+        "ambitious_history_inverse",
+        "ambitious_query_graph",
+        "anchor_cells",
+        "anchor_prediction",
+        "capacity_from_tmao",
+        "cells_from_domain_data",
+        "coarsest_sufficient",
+        "couple_end_to_end",
+        "ct_exterior_interior",
+        "ct_organ_depth",
+        "dej_bond_inventory",
+        "distributional_gates",
+        "external_model_run",
+        "external_solver",
+        "fibril_network_fracture",
+        "function_graph_densify",
+        "history_representation",
+        "immune_setpoint",
+        "laser_forms",
+        "lens_resolution",
+        "phenomenological_units",
+        "quantity_key_bridge",
+        "registration_scope",
+        "robot_fleet_foundation",
+        "skin_toughness_gap",
+        "summary_repair",
+        "surgical_bindings",
+        "surgical_incision",
+        "surgical_response",
+        "surgical_synthesis",
+        "swarm_ports_integration",
+        "tissue_behaviour_expert",
+        "wound_crosslink_chemistry",
+        "xseed_review"
+      ],
+      "edges": [
+        {
+          "id": "T-E1-charge_inventory-vs-ionic_swelling_pressure",
+          "between": [
+            "charge_inventory",
+            "ionic_swelling_pressure"
+          ],
+          "constraint": "halving the charge inventory lowers the swelling pressure by 489.65 Pa",
+          "status": "TIGHT",
+          "evidence": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r13.json :: chain_all05.Pi_change_Pa = -489.64879350600813",
+          "evidence_mtime_at_last_check": 1791046583.616,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E2-ionic_swelling_pressure-vs-stromal_thickness",
+          "between": [
+            "ionic_swelling_pressure",
+            "stromal_thickness"
+          ],
+          "constraint": "pupil-mean thickness falls 605.582 to 602.039 um over that pressure change",
+          "status": "TIGHT",
+          "evidence": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r13.json :: chain_all05.pupil_mean_thickness_after_um = 602.0390240447553",
+          "evidence_mtime_at_last_check": 1791046583.616,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E3-stromal_thickness-vs-refractive_power",
+          "between": [
+            "refractive_power",
+            "stromal_thickness",
+            "stromal_index"
+          ],
+          "constraint": "thickness, index, hydration AND surface allocation together leave 0.3056 D undetermined; identity errors exactly 0.0 in 4 of 4 pairs",
+          "status": "OPEN",
+          "evidence": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r14.json :: outcome.eta_sufficiency.powergap_D = 0.3056391116672543",
+          "note_added_2026_10_03": "stromal_index is named in this constraint and was not an endpoint, so the node was invisible to any neighbourhood walk: a brief generated from the graph gave it zero edges. Being named in the text of a constraint is not the same as being connected by it.",
+          "evidence_mtime_at_last_check": 1791017602.717,
+          "last_checked_status": "OK",
+          "evidence_was_before_2026_10_03": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r14.json :: eta_sufficiency.powergap_D = 0.3056391116672543"
+        },
+        {
+          "id": "T-E4-surface_allocation-vs-refractive_power",
+          "between": [
+            "refractive_power",
+            "surface_allocation"
+          ],
+          "constraint": "the span over this variable alone is 0.8724 D and the sign of the change flips across conditions",
+          "status": "OPEN",
+          "evidence": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r13.json :: surface_sufficiency.downstream_power_difference_D = 0.8723871708712494",
+          "evidence_mtime_at_last_check": 1791046583.616,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E5-surface_shape_field-vs-refractive_power",
+          "between": [
+            "refractive_power",
+            "surface_shape_field"
+          ],
+          "constraint": "with native pupil-limited shape data the maximum gap is 0.2396 D, below the 0.25 D clinical threshold, 0 violations in 101 cases",
+          "status": "TIGHT",
+          "evidence": "results/LANE_CORNEA_SHAPE/night_rounds/r2.json :: native_pupil_max_gap_D = 0.23961891826215265",
+          "evidence_mtime_at_last_check": 1791034417.391,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E6-pupil_diameter-vs-refractive_power",
+          "between": [
+            "pupil_diameter",
+            "refractive_power"
+          ],
+          "constraint": "at large pupil the shape field no longer closes the gap: violations in 98 of 98 cases",
+          "status": "OPEN",
+          "evidence": "results/LANE_CORNEA_SHAPE/night_rounds/r2.json :: large_pupil_violations = 98/98",
+          "evidence_unresolved": true,
+          "evidence_unresolved_note": "searched every numeric key in results/LANE_CORNEA_SHAPE/night_rounds/r2.json for the 98 the text states: the count exists only as the STRING \"98/98\" under outcome.large_pupil_violations (and \"63/63\" for the clean-QC subset), so no numeric key path holds it"
+        },
+        {
+          "id": "T-E7-posterior_corneal_astigmatism-vs-residual_cylinder",
+          "between": [
+            "posterior_corneal_astigmatism",
+            "residual_cylinder"
+          ],
+          "constraint": "measuring it instead of estimating it cuts residual cylinder error from 0.6264 to 0.2817 D against measured refraction on 69 patients, and this is now confirmed by THREE independent sources for the same input: 0.2817 (IOLMaster posterior), 0.2934 (CASIA posterior, conventions aligned) and 0.3112 D (CASIA total cornea measured in one step). The two devices print ORTHOGONAL posterior meridians, 86 degrees apart in median, and taking the printed axis gives 0.7577 D, which nearly produced a false refutation of this edge",
+          "status": "TIGHT",
+          "evidence": "results/ASSEMBLY_TORIC_CROSS_DEVICE/CROSS_DEVICE_V1.json :: residual_cylinder_mae_D.iolmaster_posterior = 0.2817",
+          "evidence_was_before_2026_10_03": "results/ASSEMBLY_TORIC_CROSS_DEVICE/CROSS_DEVICE_V1.json :: residual_cylinder_mae_D",
+          "evidence_mtime_at_last_check": 1791044114.047,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E8-implant_power-vs-refractive_power",
+          "between": [
+            "implant_power",
+            "refractive_power"
+          ],
+          "constraint": "inverted to a decision that runs BEFORE the operation: mean miss against the hindsight-correct power 0.535 D versus the implanted lens 1.130 D on 89 eyes, closer in 36 against 22. The earlier figure on this edge (11 of 20, 0.688 against 1.070 D) is withdrawn: that chain consumed the POSTOPERATIVE lens position, which the surgeon it was compared against could not know, so it was not an equally informed comparison",
+          "status": "TIGHT",
+          "evidence": "results/ASSEMBLY_PROSPECTIVE_POWER/PROSPECTIVE_V1.json :: scored_against_hindsight_correct_power.mean_miss_with_predicted_position_D = 0.5345",
+          "superseded_2026_10_03": "inverted to a decision: the twin lands closer to the hindsight-correct power than the implanted lens in 11 of 20 cases against 2, mean miss 0.688 against 1.070 D",
+          "evidence_mtime_at_last_check": 1791044237.559,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E9-lattice_order-vs-scatter_tail_fraction",
+          "between": [
+            "lattice_order",
+            "scatter_tail_fraction"
+          ],
+          "constraint": "domain data gives a disorder ratio of 20.2466 to 59.4856 and a wavelength exponent of -4.8765, but the amplitude is not transferable to our chain and the causal exponent shift proved analytically forced rather than measured",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json :: optical_shift_origin = ANALYTICALLY_FORCED_NOT_EMPIRICAL_CAUSAL_MEASUREMENT",
+          "evidence_unresolved": true,
+          "evidence_unresolved_note": "searched results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json and every JSON in that lane for 20.2466, 59.4856 and -4.8765: the named file holds only the string outcome.optical_shift_origin, and the three greps across results/ matched nothing but digit substrings of unrelated femur-geometry and event-kernel decimals"
+        },
+        {
+          "id": "T-E10-delivered_energy-vs-removed_mass",
+          "between": [
+            "delivered_energy",
+            "removed_mass"
+          ],
+          "constraint": "identical delivered energy to 0.0 J gives removed mass 0.0 against 1.255e-9 kg",
+          "status": "OPEN",
+          "evidence": "results/LANE_LASER_SURGERY/night_rounds/r17.json :: outcome.sufficiency_energy.b.conditional_removed_mass_kg = 1.255019203345805e-09",
+          "evidence_mtime_at_last_check": 1791016047.142,
+          "last_checked_status": "OK",
+          "evidence_was_before_2026_10_03": "results/LANE_LASER_SURGERY/night_rounds/r17.json :: sufficiency_energy.b.conditional_removed_mass_kg = 1.255019203345805e-09"
+        },
+        {
+          "id": "T-E11-surface_temperature_history-vs-depth_temperature",
+          "between": [
+            "depth_temperature",
+            "surface_temperature_history"
+          ],
+          "constraint": "identical surface history to 0.0 K leaves 0.3806 K at target depth, with numerics three orders cleaner at 4.33e-05 K; a separated readout widens it to 35.0 K",
+          "status": "OPEN",
+          "evidence": "results/LANE_DEPTH_TEMPERATURE/night_rounds/r4.json :: separated_grating_target_gap_K = 35.0",
+          "evidence_mtime_at_last_check": 1791036940.813,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E12-cem43_thermal_dose-vs-removed_mass",
+          "between": [
+            "cem43_thermal_dose",
+            "removed_mass"
+          ],
+          "constraint": "the standard clinical thermal dose with time and peak temperature leaves 5.04 percentage points in conditional loss over 7 counterexamples at identity error 0.0",
+          "status": "OPEN",
+          "evidence": "results/LANE_LASER_SURGERY/night_rounds/r19.json :: conditional_loss_difference_percentage_points = 5.038748758105517",
+          "evidence_mtime_at_last_check": 1791021417.62,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E13-ablation_fluence_threshold-vs-removed_mass",
+          "between": [
+            "ablation_fluence_threshold",
+            "removed_mass"
+          ],
+          "constraint": "published threshold 1.15 J/cm^2 as the x-intercept of a mass-loss regression; our chain sits 26.51 percent above it with a slope error of -24.97 percent",
+          "status": "TIGHT",
+          "evidence": "results/LANE_LASER_SURGERY/night_rounds/r17.json :: primary_prediction.relative_error = 0.26508185342208535",
+          "evidence_mtime_at_last_check": 1791016047.142,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E14-c3b_recycling_fraction-vs-self_surface_growth_rate",
+          "between": [
+            "c3b_recycling_fraction",
+            "self_surface_growth_rate"
+          ],
+          "constraint": "the growth rate on a self surface crosses zero at a recycling fraction of 0.69012, moving from -0.15115 to -0.00188 per minute",
+          "status": "TIGHT",
+          "evidence": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r1_V1.json :: rho_critical = 0.6901150139263259",
+          "evidence_mtime_at_last_check": 1791015218.234,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E15-c3b_recycling_fraction-vs-activator_host_discrimination",
+          "between": [
+            "activator_host_discrimination",
+            "c3b_recycling_fraction"
+          ],
+          "constraint": "discrimination is 486.11 without recycling and 4.969 with it, a factor of 97.83; published biology supports the recycling end",
+          "status": "TIGHT",
+          "evidence": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json :: discrimination_change_factor = 97.83134000044933",
+          "evidence_mtime_at_last_check": 1791018446.897,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E16-mac_concentration-vs-self_surface_growth_rate",
+          "between": [
+            "mac_concentration",
+            "self_surface_growth_rate"
+          ],
+          "constraint": "identical surface occupancy at identity error 0.0 leaves 0.16723 nM of MAC undetermined",
+          "status": "OPEN",
+          "evidence": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json :: occupancy_MAC_gap_nM = 0.16723269204490165",
+          "evidence_mtime_at_last_check": 1791018446.897,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E17-boundary_condition_class-vs-hydraulic_conductance",
+          "between": [
+            "boundary_condition_class",
+            "hydraulic_conductance"
+          ],
+          "constraint": "a stationary end value cannot identify the conductance under maintained pressure boundaries, where q_ss = -K dP/L is nonzero; closed finite reservoirs give q(inf) = 0 to 7.211e-12. All 45 flow cells now carry a declared boundary class, none unknown",
+          "status": "TIGHT",
+          "evidence": "results/LANE_ZERO_FLUX_AUDIT/night_rounds/r15.json :: boundary_census.baseline_regimes.UNKNOWN = 0",
+          "evidence_mtime_at_last_check": 1791018148.962,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E18-passage_number-vs-needle_forward_friction",
+          "between": [
+            "needle_forward_friction",
+            "passage_number"
+          ],
+          "constraint": "no digitised series separates forward friction on first versus repeated passage in the same hole, so the equal-friction assumption is uncertain. Nine published curves are readable with sources and reading errors",
+          "status": "UNKNOWN",
+          "evidence": "3fold-motion-engine/_private/romi_collab/build/SOL_FALT_NALFRIKTION_20261001/raw/anchor_curves/INDEX.json :: measurement_status = OSAKER",
+          "owner": "field lane, read-only for us",
+          "evidence_unresolved": true,
+          "evidence_unresolved_note": "the named INDEX.json is not under this workspace at all (it resolves only under the public staging tree/3fold-motion-engine/..., field-lane owned) and holds no numeric key; its digitization.json summary lists 6 curves while this text says nine, so no path in the named file holds the number stated"
+        },
+        {
+          "id": "T-E19-epithelial_front_velocity-vs-epithelial_front_velocity",
+          "between": [
+            "epithelial_front_velocity"
+          ],
+          "constraint": "our value of 30.0 um/h against a held-out measurement of 9.00 +/- 0.465 um/h, ratio 3.3333, and the constant was chosen to produce 0.03 mm/h rather than measured",
+          "status": "OPEN",
+          "evidence": "/mnt/games-240/research/bunny48_20260926/bodytwin/BT-FW48-AUTO-ab449fce1f6f56/results.json :: external_facit.q115_over_anchor_ratio = 3.3333333333333335",
+          "note": "a self-edge marking a quantity refuted against its own external referent",
+          "evidence_mtime_at_last_check": 1791014551.542,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E20-lens_position-vs-refractive_power",
+          "between": [
+            "lens_position",
+            "refractive_power"
+          ],
+          "constraint": "the chain converts 1 mm of lens position into 1.349 D of refraction (median over 89 eyes); the position is predictable from preoperative biometry to 0.114 mm mean absolute error against the quantity own spread of 0.284 mm, so the induced refraction error is 0.114 D median",
+          "status": "TIGHT",
+          "evidence": "results/ASSEMBLY_PROSPECTIVE_POWER/PROSPECTIVE_V1.json :: lens_position_prediction.mean_abs_error_mm = 0.114",
+          "evidence_mtime_at_last_check": 1791044237.559,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E21-axial_length-vs-refractive_power",
+          "between": [
+            "axial_length",
+            "refractive_power"
+          ],
+          "constraint": "the largest single term in the refraction calculation and we hold it from ONE instrument only; no second source exists in our data, so its between-device bias is unmeasured. For comparison the two devices we can compare disagree systematically by 9.90 um on corneal thickness and 0.1441 mm on anterior chamber depth, so a bias of that order here is not excluded",
+          "status": "UNKNOWN",
+          "evidence": "results/ASSEMBLY_INSTRUMENT_COMPONENT/INSTRUMENT_V1.json :: length_quantities_both_devices[0].mean_difference = 9.89721",
+          "evidence_was_before_2026_10_03": "results/ASSEMBLY_INSTRUMENT_COMPONENT/INSTRUMENT_V1.json :: length_quantities_both_devices",
+          "evidence_mtime_at_last_check": 1791044113.515,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "T-E22-iol_label_power-vs-implant_power",
+          "between": [
+            "iol_label_power",
+            "implant_power"
+          ],
+          "constraint": "we treat the printed label as exact. The decision is quantised to a 0.5 D manufacturing grid, and our choice lands on a different step than the lens that was implanted in 44 of 89 eyes, so if the tolerance on the label approaches a grid step it places a floor under every power decision that no model can go below",
+          "status": "UNKNOWN",
+          "evidence": "results/ASSEMBLY_PROSPECTIVE_POWER/PROSPECTIVE_V1.json :: power_recommendation_shift_D.eyes_where_the_grid_choice_changes = 44",
+          "evidence_mtime_at_last_check": 1791044237.559,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E1-ambitious_history_inverse",
+          "between": [
+            "ambitious_history_inverse"
+          ],
+          "constraint": "outcome.normalization_probe_exposure_difference = 23.309567730474555 in the lane's own latest round. Obstacle as the lane states it: all-region history map needs20 directions in measured ensemble; original absolute-capacity law mismatch, numerical remainder and complete cost advantage remain unresolved",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_AMBITIOUS_HISTORY_INVERSE/night_rounds/r1.json :: outcome.normalization_probe_exposure_difference = 23.309567730474555",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790806812.987,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E2-ambitious_query_graph",
+          "between": [
+            "ambitious_query_graph"
+          ],
+          "constraint": "outcome.measurements.composition_additive_max_early_error_mg_kg = 0.3598975439846015 in the lane's own latest round. Obstacle as the lane states it: Continuous interpolation/tangent remainder, old heterogeneous history projection and cross terms, nonlinear/native tube and continuous numerical error remain UNKNOWN; standard physical atlas and causal Volterra are equal",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_AMBITIOUS_QUERY_GRAPH/night_rounds/r1.json :: outcome.measurements.composition_additive_max_early_error_mg_kg = 0.3598975439846015",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790804669.833,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E3-anchor_cells",
+          "between": [
+            "anchor_cells"
+          ],
+          "constraint": "outcome.max_float_C_absolute_error_J = 1.9539925233402755e-14 in the lane's own latest round. Obstacle as the lane states it: Closed: current accepted observations do not bind preparation work projection and physical joint metrology. Further unchanged mathematical work cannot pay this acquisition requirement.",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_ANCHOR_CELLS/night_rounds/r19.json :: outcome.max_float_C_absolute_error_J = 1.9539925233402755e-14",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1791013919.828,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E4-anchor_prediction",
+          "between": [
+            "anchor_prediction"
+          ],
+          "constraint": "outcome.conditional_ratio = 0.49345297970847457 in the lane's own latest round. Obstacle as the lane states it: Independent capacity does not determine basal utilization; regime-matched absolute holo-complex/recovery, consumer fluxes, fuel pools and covariance incomplete",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_ANCHOR_PREDICTION/night_rounds/r2.json :: outcome.conditional_ratio = 0.49345297970847457",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790849112.951,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E5-capacity_from_tmao",
+          "between": [
+            "capacity_from_tmao"
+          ],
+          "constraint": "outcome.mass_port.naive_asynchronous_ratio_counterexamples = 1296.0 in the lane's own latest round. Obstacle as the lane states it: No bound same-cell/all-cell two-sided TMAO count/inventory + isolated H/drivers/bypass metrology; native saturation/inventory/area unbound",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_CAPACITY_FROM_TMAO/night_rounds/r4.json :: outcome.mass_port.naive_asynchronous_ratio_counterexamples = 1296.0",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790972942.678,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E6-cells_from_domain_data",
+          "between": [
+            "cells_from_domain_data"
+          ],
+          "constraint": "outcome.sufficiency.synthase_gap_J_mol = -41166.93333333333 in the lane's own latest round. Obstacle as the lane states it: missing matched reaction forces, species/activity conventions, intrinsic kinetics and absolute donor scale; external unchangedPi transport contractFAIL",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_CELLS_FROM_DOMAIN_DATA/night_rounds/r17_BEFORE_DELIVERY_V1.json :: outcome.sufficiency.synthase_gap_J_mol = -41166.93333333333",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1791022264.841,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E7-coarsest_sufficient",
+          "between": [
+            "coarsest_sufficient"
+          ],
+          "constraint": "outcome.critical_common_endpoint_detector_error = 513.5 in the lane's own latest round. Obstacle as the lane states it: Physical detector error and original paired pixel truth unmeasured; endogenous LC3-II calibration/mechanism/population remain unmatched. Relative1e-4 enumeration unresolved, not a feasible sign flip certificate.",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r13.json :: outcome.critical_common_endpoint_detector_error = 513.5",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1791027050.003,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E8-couple_end_to_end",
+          "between": [
+            "couple_end_to_end"
+          ],
+          "constraint": "outcome.minimum_mean_reading_separation_pmol_per_cm2 = 574.9910511872091 in the lane's own latest round. Obstacle as the lane states it: Actual joint receiver metrology, pointwise CELL source and independent competing return/productive carrier law; original same-person lower-source/independent-disposition/held-response panel",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_COUPLE_END_TO_END/night_rounds/r27.json :: outcome.minimum_mean_reading_separation_pmol_per_cm2 = 574.9910511872091",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1791027533.977,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E9-ct_exterior_interior",
+          "between": [
+            "ct_exterior_interior"
+          ],
+          "constraint": "outcome.label_error_paired_SSE.gain_cm4 = 92422.44653459961 in the lane's own latest round. Obstacle as the lane states it: Individual wall error, absent confirmed contrast/patient lineage, pathological/institute transport and full exterior acquisition contract prevent universal true-VAT ceiling or individual error guarantee",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_CT_EXTERIOR_INTERIOR/night_rounds/r2.json :: outcome.label_error_paired_SSE.gain_cm4 = 92422.44653459961",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790822218.181,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E10-ct_organ_depth",
+          "between": [
+            "ct_organ_depth"
+          ],
+          "constraint": "outcome.right_kidney_anterior_depth.common_fixed_prediction_target_error_capacity_mm = 4.19979366567591 in the lane's own latest round. Obstacle as the lane states it: Exact complete anatomy/skin-organlabel/unitcalibration, cohorttransport, patientlineage and independentclinicaloutcomes absent",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_CT_ORGAN_DEPTH/night_rounds/r1.json :: outcome.right_kidney_anterior_depth.common_fixed_prediction_target_error_capacity_mm = 4.19979366567591",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790841094.402,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E11-dej_bond_inventory",
+          "between": [
+            "dej_bond_inventory"
+          ],
+          "constraint": "outcome.conditional_ratio_cases = 4096.0 in the lane's own latest round. Obstacle as the lane states it: Unmeasured directional full work, energy-weighted rebinding budget, actual terminal contact cut and extra losses/positive opening lower work; native densities also needed for absolute Gamma.",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_DEJ_BOND_INVENTORY/night_rounds/r1.json :: outcome.conditional_ratio_cases = 4096.0",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790963653.6,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E12-distributional_gates",
+          "between": [
+            "distributional_gates"
+          ],
+          "constraint": "outcome.external_concentration_measurements = 220.0 in the lane's own latest round. Obstacle as the lane states it: No matched measured production law;35primary distributions unresolved;source prior invalidity andnative local mechanics support remain unacquired. Moment/covariance/serum-only summaries are structurally insufficient.",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_DISTRIBUTIONAL_GATES/night_rounds/r10.json :: outcome.external_concentration_measurements = 220.0",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1791046843.259,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E13-external_model_run",
+          "between": [
+            "external_model_run"
+          ],
+          "constraint": "outcome.new_intervention.mean_bias_N_DERIVED = 385.11975893154647 in the lane's own latest round. Obstacle as the lane states it: Joint q/u reachability, uniform feasibleobjective cap, native100-time observationerror and lower actual applicability",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_EXTERNAL_MODEL_RUN/night_rounds/r5.json :: outcome.new_intervention.mean_bias_N_DERIVED = 385.11975893154647",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1791004355.004,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E14-external_solver",
+          "between": [
+            "external_solver"
+          ],
+          "constraint": "outcome.finite_witness_ratio_gap = 0.2000732278178923 in the lane's own latest round. Obstacle as the lane states it: Source-specific independently bounded common offset and joint nonlinear load/time residuals unacquired; lower-state/fixture/passive-spectrum physical membership unqualified.",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_EXTERNAL_SOLVER/night_rounds/r7.json :: outcome.finite_witness_ratio_gap = 0.2000732278178923",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1791045522.187,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E15-fibril_network_fracture",
+          "between": [
+            "fibril_network_fracture"
+          ],
+          "constraint": "outcome.external_held.EDC_slow_time_ratio = 3.4285714285714284 in the lane's own latest round. Obstacle as the lane states it: Endogenous macro trajectory and floating point error budget; matched native slip/lock kinetics, contact pressure map, irreversible terminal work and crack area.",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_FIBRIL_NETWORK_FRACTURE/night_rounds/r8_v2.json :: outcome.external_held.EDC_slow_time_ratio = 3.4285714285714284",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790983902.095,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E16-function_graph_densify",
+          "between": [
+            "function_graph_densify"
+          ],
+          "constraint": "outcome.independent_gain_max_error = 0.3067479707849784 in the lane's own latest round. Obstacle as the lane states it: Actual same-specimen stress/strain/commoncalibration, jointcovariance, intrinsicmemory and radial/contactfluidgeometry remainunbound; original49unknown/875pairs unchanged",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_FUNCTION_GRAPH_DENSIFY/night_rounds/r10.json :: outcome.independent_gain_max_error = 0.3067479707849784",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790992353.583,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E17-history_representation",
+          "between": [
+            "history_representation"
+          ],
+          "constraint": "outcome.source_max_abs_error = 2.220446049250313e-16 in the lane's own latest round. Obstacle as the lane states it: Native adoption owned by graph lane; empirical surgical pressure/force and lower constituent law unresolved",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_HISTORY_REPRESENTATION/night_rounds/r3.json :: outcome.source_max_abs_error = 2.220446049250313e-16",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790971593.712,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E18-immune_setpoint",
+          "between": [
+            "immune_setpoint"
+          ],
+          "constraint": "outcome.constant_no_colony_errors = 335.0 in the lane's own latest round. Obstacle as the lane states it: Unacquired calibrated organism census/firstfission/viability/release/recovery and hostinjury; source/quantizer/volume uncertainty prevents native physical edge.",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_IMMUNE_SETPOINT/night_rounds/r9.json :: outcome.constant_no_colony_errors = 335.0",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790982957.805,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E19-laser_forms",
+          "between": [
+            "laser_forms"
+          ],
+          "constraint": "outcome.additional_release_gap_per_dye = 0.2969970751451323 in the lane's own latest round. Obstacle as the lane states it: Matched class-specific exchange/oxidation, chemical-electronic joint stock, active oxygen stoichiometry/recycling and calibrated release observation remain unacquired. The common-hazard factorization is not physically id",
+          "status": "OPEN",
+          "evidence": "results/LANE_LASER_FORMS/night_rounds/r7.json :: outcome.additional_release_gap_per_dye = 0.2969970751451323",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1791046897.328,
+          "last_checked_status": "OK",
+          "refuted_by_external_measurement": {
+            "what": "the quantity is named per_dye and carries a single dye-independent value to 16 digits; published per-fluorophore singlet-oxygen production factors span 2033x across six clinically used dyes (2.44 for IR700 down to 0.0012 for ICG, cm^2 J^-1 um^-1)",
+            "source": "DOI 10.1111/php.13638, PMID 35442536",
+            "verified_by_coordinator": "the constant was located in results/LANE_LASER_FORMS r7 and r8 under the key additional_release_gap_per_dye, and 2.44/0.0012 = 2033 was recomputed",
+            "consequence": "no constant can be attached to \"the dye\" and survive a second dye, so this edge cannot be promoted by more precision on the same quantity; it needs a dye index",
+            "found_by": "BT-NET-H-E19-LASER-FORMS, a free-form brief generated from this edge"
+          }
+        },
+        {
+          "id": "H-E20-lens_resolution",
+          "between": [
+            "lens_resolution"
+          ],
+          "constraint": "outcome.clinical.hypothetical_GRIN_D.max_absolute_error_D = 1.4391933688259477 in the lane's own latest round. Obstacle as the lane states it: Independent native sensor/irradiance/registration error, perturbation sup and signed complement, matched hydrated geometry/material and held transmitted endpoint; same20pose/observer",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_LENS_RESOLUTION/night_rounds/r8.json :: outcome.clinical.hypothetical_GRIN_D.max_absolute_error_D = 1.4391933688259477",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1791046474.689,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E21-phenomenological_units",
+          "between": [
+            "phenomenological_units"
+          ],
+          "constraint": "outcome.collagen_max_fraction_partition_error = 0.5760000000000001 in the lane's own latest round. Obstacle as the lane states it: Counts, signed pixel fractions and source area departure rates have incompatible operators; original A/P and mechanics remain uncalibrated.",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_PHENOMENOLOGICAL_UNITS/night_rounds/r20_BEFORE_SEAL_V1.json :: outcome.collagen_max_fraction_partition_error = 0.5760000000000001",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1791027150.55,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E22-quantity_key_bridge",
+          "between": [
+            "quantity_key_bridge"
+          ],
+          "constraint": "outcome.printed_QM_relative_error = 0.0367112711456008 in the lane's own latest round. Obstacle as the lane states it: Coherent external physical flux, continuum/closure budget and endogenous species/eta/ADP chronology remain unresolved. Static theta is insufficient for kinetic restart.",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_QUANTITY_KEY_BRIDGE/night_rounds/r10.json :: outcome.printed_QM_relative_error = 0.0367112711456008",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1791027613.13,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E23-registration_scope",
+          "between": [
+            "registration_scope"
+          ],
+          "constraint": "outcome.candidate_query_difference_files = 39.0 in the lane's own latest round. Obstacle as the lane states it: No matched elapsed records in inspected public routes; private recording/retention/access and same-procedure demand/deadlines/error unknown.",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_REGISTRATION_SCOPE/night_rounds/r4_v1.json :: outcome.candidate_query_difference_files = 39.0",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790981760.845,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E24-robot_fleet_foundation",
+          "between": [
+            "robot_fleet_foundation"
+          ],
+          "constraint": "outcome.rational_basis_entries_checked = 8748.0 in the lane's own latest round. Obstacle as the lane states it: Compatible arithmetic closure, exact cylinder integration/assembly and piecewise-material Green/PDE point remainder; native matched contact/force/material/injury.",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_ROBOT_FLEET_FOUNDATION/night_rounds/r9.json :: outcome.rational_basis_entries_checked = 8748.0",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1791003028.793,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E25-skin_toughness_gap",
+          "between": [
+            "skin_toughness_gap"
+          ],
+          "constraint": "outcome.metrics.observed_I_III_ratio = 1.474757281553398 in the lane's own latest round. Obstacle as the lane states it: Native registered connected endpoints/terminalopening, recruitment and anchor survival absent; rotation moment cannot identify crossings; fixedcommon terminallaw modeinvariant; localbridgework not separately observed fro",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_SKIN_TOUGHNESS_GAP/night_rounds/r2.json :: outcome.metrics.observed_I_III_ratio = 1.474757281553398",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790817150.196,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E26-summary_repair",
+          "between": [
+            "summary_repair"
+          ],
+          "constraint": "outcome.fibre_results.eight_H.maximum_gap = 0.0028077006096823842 in the lane's own latest round. Obstacle as the lane states it: Three-minute uncertainty/overapproximation and unknown empirical observation maps",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_SUMMARY_REPAIR/night_rounds/r4.json :: outcome.fibre_results.eight_H.maximum_gap = 0.0028077006096823842",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1791046065.956,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E27-surgical_bindings",
+          "between": [
+            "surgical_bindings"
+          ],
+          "constraint": "outcome.metrics.single_DEJ_SASS_nominal_required_area_ratio_cut150.I = 5322.183098591549 in the lane's own latest round. Obstacle as the lane states it: Native dermal interface work, independent newly detached area, terminal fiber work and blade-contact transfer have not been acquired.",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_SURGICAL_BINDINGS/night_rounds/r4.json :: outcome.metrics.single_DEJ_SASS_nominal_required_area_ratio_cut150.I = 5322.183098591549",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790813099.511,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E28-surgical_incision",
+          "between": [
+            "surgical_incision"
+          ],
+          "constraint": "outcome.Owen100_to_new_ratio = 1.8285714285714287 in the lane's own latest round. Obstacle as the lane states it: Diameter/bevel/contact co-vary; tool-dependent effective paired-work J, unknown true3D area/repeat nuisance drift, Gamma0+B null and unknown viability/perfusion widths",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_SURGICAL_INCISION/night_rounds/r4.json :: outcome.Owen100_to_new_ratio = 1.8285714285714287",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790815114.083,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E29-surgical_response",
+          "between": [
+            "surgical_response"
+          ],
+          "constraint": "outcome.HP_inventory_ratio42_10 = 2.220261437908497 in the lane's own latest round. Obstacle as the lane states it: Absolute nativeglyco-precursor/yield/rateorder and initialwoundstate unobserved; chemistry/bridge/traction jointport null",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_SURGICAL_RESPONSE/night_rounds/r4.json :: outcome.HP_inventory_ratio42_10 = 2.220261437908497",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790818352.08,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E30-surgical_synthesis",
+          "between": [
+            "surgical_synthesis"
+          ],
+          "constraint": "outcome.restart.max_strength_error_pp = 6.750155989720952e-14 in the lane's own latest round. Obstacle as the lane states it: Mass ledger solved under synthetic shared ports; autonomous maturity and chemical site capacity do not reproduce externalHP component. Native connected chemistry/traction and matched acquisition missing.",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_SURGICAL_SYNTHESIS/night_rounds/r3.json :: outcome.restart.max_strength_error_pp = 6.750155989720952e-14",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790825606.988,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E31-swarm_ports_integration",
+          "between": [
+            "swarm_ports_integration"
+          ],
+          "constraint": "outcome.metrics.old_heterogeneous_max_relative_error = 339.73182643677694 in the lane's own latest round. Obstacle as the lane states it: No measured full closures or formal numerical/Hessian family certificate; chronological interval width costly; strongest equally informed exact operators match",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_SWARM_PORTS_INTEGRATION/night_rounds/r3.json :: outcome.metrics.old_heterogeneous_max_relative_error = 339.73182643677694",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790843323.171,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E32-tissue_behaviour_expert",
+          "between": [
+            "tissue_behaviour_expert"
+          ],
+          "constraint": "outcome.fixed_ramp.error_box_corners = 64.0 in the lane's own latest round. Obstacle as the lane states it: ['Same-territory absolute QA(t), local Pe(t), Pa/Pv and measured instrument bandwidth/error are unbound; applied vacuum and normalized LDF are not substitutes.', 'Absolute baseline vascular blood inventory/capacity and v",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_TISSUE_BEHAVIOUR_EXPERT/night_rounds/r12.json :: outcome.fixed_ramp.error_box_corners = 64.0",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790992471.744,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E33-wound_crosslink_chemistry",
+          "between": [
+            "wound_crosslink_chemistry"
+          ],
+          "constraint": "outcome.reference_cap_target_ratio = 0.5623043083792691 in the lane's own latest round. Obstacle as the lane states it: Synthetic newborn budget mistaken for measured capacity; role/product fate and terminal clock fail transfer, native old precursor/volume/registration/traction unknown",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_WOUND_CROSSLINK_CHEMISTRY/night_rounds/r2.json :: outcome.reference_cap_target_ratio = 0.5623043083792691",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790834537.659,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "H-E34-xseed_review",
+          "between": [
+            "xseed_review"
+          ],
+          "constraint": "outcome.original_margin = 9.430535904834802 in the lane's own latest round. Obstacle as the lane states it: Empirical allele-intensity/FFPE calibration, donor/recipient references and joint covariance; SNP-DNA fraction vs cell fraction, source clocks and bulk-g vs donor-cell-g_D. 4B2 attack uses fabricated differences.",
+          "status": "UNKNOWN",
+          "evidence": "results/LANE_XSEED_REVIEW/night_rounds/r1.json :: outcome.original_margin = 9.430535904834802",
+          "provenance": "auto_harvested_2026_10_03",
+          "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
+          "evidence_mtime_at_last_check": 1790826516.909,
+          "last_checked_status": "OK"
+        }
+      ],
+      "stress_points": [
+        {
+          "variable": "surface_shape_field",
+          "why": "it decides the SIGN of a procedure's refractive outcome; the span over its proxy is 0.8724 D against a 0.25 D clinical threshold",
+          "closing_measurement": "corneal topography height field with common registration, routinely acquired"
+        },
+        {
+          "variable": "depth_temperature",
+          "why": "no measurable surrogate determines it: delivered energy, surface history and CEM43 all fail, the last two at identity error exactly 0.0",
+          "closing_measurement": "depth-resolved temperature with a registered thermal frame; the proposed optical route misses its own 0.10 K target on 10 held bench temperatures"
+        },
+        {
+          "variable": "c3b_recycling_fraction",
+          "why": "a factor of 97.83 in the protective margin depends on it alone",
+          "closing_measurement": "the regulator's own uncertainty, currently unmeasured, which is why the 0.69012 threshold is uncertified"
+        },
+        {
+          "variable": "pupil_diameter",
+          "why": "it separates the regime where the shape field closes the refractive gap from the regime where it does not: 0 of 101 violations at native pupil against 98 of 98 at large pupil",
+          "closing_measurement": "none needed; it is a declared condition, so the net must carry it as an explicit regime axis rather than a fixed value"
+        },
+        "axial_length is the largest term in the refraction calculation and is held from a single instrument"
+      ],
+      "counts": {
+        "variables": 28,
+        "edges": 19,
+        "TIGHT": 9,
+        "OPEN": 8,
+        "UNKNOWN": 2
+      },
+      "review_state": "PENDING_INDEPENDENT_REVIEW"
     }
-   ],
-   "stress_points": [
-    {
-     "variable": "surface_shape_field",
-     "why": "it decides the SIGN of a procedure's refractive outcome; the span over its proxy is 0.8724 D against a 0.25 D clinical threshold",
-     "closing_measurement": "corneal topography height field with common registration, routinely acquired"
-    },
-    {
-     "variable": "depth_temperature",
-     "why": "no measurable surrogate determines it: delivered energy, surface history and CEM43 all fail, the last two at identity error exactly 0.0",
-     "closing_measurement": "depth-resolved temperature with a registered thermal frame; the proposed optical route misses its own 0.10 K target on 10 held bench temperatures"
-    },
-    {
-     "variable": "c3b_recycling_fraction",
-     "why": "a factor of 97.83 in the protective margin depends on it alone",
-     "closing_measurement": "the regulator's own uncertainty, currently unmeasured, which is why the 0.69012 threshold is uncertified"
-    },
-    {
-     "variable": "pupil_diameter",
-     "why": "it separates the regime where the shape field closes the refractive gap from the regime where it does not: 0 of 101 violations at native pupil against 98 of 98 at large pupil",
-     "closing_measurement": "none needed; it is a declared condition, so the net must carry it as an explicit regime axis rather than a fixed value"
-    },
-    "axial_length is the largest term in the refraction calculation and is held from a single instrument"
-   ],
-   "counts": {
-    "variables": 28,
-    "edges": 19,
-    "TIGHT": 9,
-    "OPEN": 8,
-    "UNKNOWN": 2
-   },
-   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  "_meta": {
+    "synced_from_live_2026_10_03": "the live net is a symlink into generations/ and was never tracked; every edit made on 2026-10-03 lived outside git until this sync. Three nodes (lens_position, axial_length, iol_label_power), three edges, two corrected constraints and one missing endpoint were only in the untracked copy.",
+    "resynced_2026_10_03_2045": "the tracked copy had fallen 34 edges behind again: the first sync caught 31 variables and 22 edges, and the 34 harvested H-* edges plus the H-E19 refutation landed only in the untracked generations copy afterwards. A one-time sync is not a fix when the live file is a symlink outside git."
   }
- },
- "_meta": {
-  "synced_from_live_2026_10_03": "the live net is a symlink into generations/ and was never tracked; every edit made on 2026-10-03 lived outside git until this sync. Three nodes (lens_position, axial_length, iol_label_power), three edges, two corrected constraints and one missing endpoint were only in the untracked copy."
- }
 }

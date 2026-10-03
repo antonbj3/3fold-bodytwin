@@ -24,3 +24,36 @@ No single open source provides µm-calibrated crypt–tip length, migration rate
 
 ## Next step
 Retrieve `zenodo:7544194` (or a µm-calibrated 3D sample) for villus geometry; search open pulse-chase/EdU line tracking for the age distribution; get absolute TEER in ohm·cm² from the `20200485` authors or the Ussing campaign. Command: `python3 fetch_and_check.py && python3 prov_stats.py`.
+
+---
+
+## CORRECTION 2026-10-03: the PASS above are no longer valid
+
+The text above is unchanged and not touched, as it is reviewed. But the numbers it rests on have fallen.
+
+The migration rate of the cell was never a measurement. It fell out of `drag_pN_h_per_mm = 100.0`
+(`Q115_model.py:26`), whose own parameter table on line 114 said **"chosen to give 0.03 mm/h; assumption"**.
+The speed was the target and the drag was the steering wheel: (2,1 + 0,9) / 100 = 0,03 mm/h = 30,0 µm/h.
+
+With the sustained measurement 9,00 ± 0,465 µm/h (DOI 10.1096/fj.201601002) as declared input:
+
+| | before | now |
+|---|---|---|
+| turnover time | 73,33 h | **223,16 h** |
+| error against 72,5 h reference | 1,15 % | **207,81 %** |
+| cell count | 1670 | 5103 |
+| uptake | — | **+282,68 %** |
+| `primary_turnover` | PASS | **FAIL** |
+| `cell_census` | PASS | **FAIL** |
+| `mechanistic_perturbation` | FAIL | **PASS** |
+
+The match of 1,15 % was produced **twice**: also `baseline_path_mm = 1.95` was selected
+"with v=0.03 to represent 65 h", and 65 h is the figure the reference's 72,5 h is derived from. So were both
+the speed and distance set to hit the reference.
+
+`--migration-speed-um-h 30.0` reproduces the old blocks identically, so nothing is lost.
+
+Checked separately: the model's age ceiling of 240 h does not explain the outcome — the ceiling flow is exactly 0,0
+at both 30,0 and 9,00 µm/h.
+
+Status PENDING_INDEPENDENT_REVIEW.
