@@ -77,7 +77,7 @@ def is_live(job: str) -> bool:
 def main() -> int:
     data = sys.stdin.read()
     try:
-        dental, anchor, handover, seed, other = [], [], [], [], []
+        dental, anchor, handover, seed, idea, other = [], [], [], [], [], []
         for ln in data.splitlines(keepends=True):
             s = ln.strip()
             if not s or s.startswith('#'):
@@ -90,26 +90,32 @@ def main() -> int:
                 anchor.append(ln)
             elif j.startswith(HANDOVER_PREFIX) and is_live(j):
                 handover.append(ln)
+            elif j.startswith(IDEA_PREFIX) and is_live(j):
+                idea.append(ln)
             elif (j.startswith(SEED_PREFIX) or j.startswith(FETCH_PREFIX)
-                  or j.startswith(EDGE_PREFIX) or j.startswith(NEED_PREFIX)
-                  or j.startswith(IDEA_PREFIX)) and is_live(j):
+                  or j.startswith(EDGE_PREFIX) or j.startswith(NEED_PREFIX)) and is_live(j):
                 seed.append(ln)
             else:
                 other.append(ln)
-        if not dental and not anchor and not handover and not seed:
+        if not dental and not anchor and not handover and not seed and not idea:
             sys.stdout.write(data)        # nothing to guarantee; touch nothing
             return 0
 
         out = []
-        di = ai = hi = si = oi = 0
+        di = ai = hi = si = ii = oi = 0
         pos = 0
         # Cycle of four: handover first because it is the research line, then anchor, then dental,
         # then the shared ordering. Each reservation lapses as soon as its pool has no live row.
+        # The reserved slot is shared, and forty reference fetches were crowding out the
+        # fourteen brainstorm angles at stream position 234. Ideas take the slot first until they
+        # run out, then it falls back to the bounded jobs.
         while (di < len(dental) or ai < len(anchor) or hi < len(handover)
-               or si < len(seed) or oi < len(other)):
+               or si < len(seed) or ii < len(idea) or oi < len(other)):
             pos += 1
             phase = pos % 5
-            if phase == 4 and si < len(seed):
+            if phase == 4 and ii < len(idea):
+                out.append(idea[ii]); ii += 1
+            elif phase == 4 and si < len(seed):
                 out.append(seed[si]); si += 1
             elif phase == 1 and hi < len(handover):
                 out.append(handover[hi]); hi += 1
@@ -119,6 +125,8 @@ def main() -> int:
                 out.append(dental[di]); di += 1
             elif oi < len(other):
                 out.append(other[oi]); oi += 1
+            elif ii < len(idea):
+                out.append(idea[ii]); ii += 1
             elif si < len(seed):
                 out.append(seed[si]); si += 1
             elif hi < len(handover):
