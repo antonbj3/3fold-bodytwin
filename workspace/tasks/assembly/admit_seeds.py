@@ -57,6 +57,10 @@ This seed has been sitting unadmitted since 2026-09-29 together with 499 others.
 because its observable is a quantity **{cell}** already computes: {observable}. That is the whole
 reason, and it is the only kind of binding that does not require a new measurement.
 
+**{cell} is shipped with this job, under `inputs/{cell}/`.** The first admitted seed stopped at step 1
+because the cell was named but not shipped, and the sandbox correctly refused reads outside the job
+directory. Read it there; do not look for it elsewhere on the host.
+
 ## The seed, as written
 **Decision.** {g('decision')[:1200]}
 
@@ -117,6 +121,23 @@ def main() -> int:
                    'breakthrough_priority': True,
                    'review_state': 'PENDING_INDEPENDENT_REVIEW'},
                   (out / 'JOB.json').open('w'), ensure_ascii=False, indent=1)
+        # Ship the consuming cell with the job. Naming it is not enough: the sandbox denies reads
+        # outside the job directory, which is what stopped BT-SEED-ADMIT-043 at step 1.
+        src = W / 'tasks/free48/sources' / cell
+        dst = out / 'inputs' / cell
+        if src.is_dir() and not dst.exists():
+            import shutil
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copytree(src, dst, ignore=shutil.ignore_patterns('*.npz', '*.npy', '.bak*',
+                                                                    '__pycache__'))
+        elif not src.is_dir():
+            lane = W / 'results' / cell
+            if lane.is_dir():
+                import shutil
+                dst.mkdir(parents=True, exist_ok=True)
+                for f in list(lane.glob('PORT*.json'))[:3] + list(lane.glob('RESULTS.md'))[:1]:
+                    if f.stat().st_size < 2_000_000:
+                        shutil.copy2(f, dst / f.name)
         made.append(out.name)
 
     slots = ('A', 'B', 'C', 'D')
