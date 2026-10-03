@@ -8,7 +8,7 @@ LOG=$D/queue_ovh.log; LLOG=$W/tasks/lanes/bt_queue.log; RUN=$D/running; mkdir -p
 SSHO=(-o ConnectTimeout=15 -o ServerAliveInterval=30 -i ~/.ssh/hunt_20260923 -o IdentitiesOnly=yes -o UserKnownHostsFile=~/research/sol6_recovery_20260923/CLOUD_HUNT_20260923/infra/known_hosts -o BatchMode=yes)
 H=${BT_CLOUD_HOST:-ubuntu@51.77.110.4}; END=${BT_CLOUD_END:-1791042504}
 # Shared with Field; the host lock makes the final check + unit start atomic.
-AGENT_MIB=${BT_AGENT_MEMORY_MIB:-1500}
+AGENT_MIB=${BT_AGENT_MEMORY_MIB:-1024}
 HEADROOM_MIB=${BT_HEADROOM_MIB:-4096}
 SLICE_HEADROOM_MIB=${BT_SLICE_HEADROOM_MIB:-2048}
 HOST_CAP=${BT_HOST_CAP:-17}
@@ -44,6 +44,28 @@ while true; do
     # Snapshot uses actual per-unit MemoryMax, plus non-agent slice memory.
     SLOTS=$(ssh -n "${SSHO[@]}" "$H" "$GUARD" 2>/dev/null) || SLOTS=0
     [[ "$SLOTS" =~ ^[0-9]+$ ]] || SLOTS=0
+    # Measured 2026-10-03: the guard charges reclaimable page cache to the slice, so it refused all
+    # starts while the host had 24 GiB available, 70 % idle CPU and agents using 0.6 GiB each of a
+    # 1 GiB booking. research.slice held 8621 MiB of file cache against 6062 MiB of real agent memory.
+    # Reclaiming the cache took slots 1 -> 6 without touching a single running agent. This is not a
+    # policy change and it raises capacity for every session on the host: it only stops cache from
+    # being counted as occupied. Rate-limited to once per RECLAIM_MIN_S.
+    if [ "$SLOTS" -eq 0 ]; then
+      NOW=$(date +%s); LAST=$(cat "$D/.last_reclaim" 2>/dev/null || echo 0)
+      case "$LAST" in (*[!0-9]*|"") LAST=0;; esac
+      if [ $((NOW-LAST)) -ge "${RECLAIM_MIN_S:-300}" ]; then
+        echo "$NOW" > "$D/.last_reclaim"
+        FILE_MIB=$(ssh -n "${SSHO[@]}" "$H" "awk '/^file /{printf \"%d\", \$2/1048576}' /sys/fs/cgroup/research.slice/memory.stat" 2>/dev/null)
+        case "$FILE_MIB" in (*[!0-9]*|"") FILE_MIB=0;; esac
+        if [ "$FILE_MIB" -gt 2048 ]; then
+          ssh -n "${SSHO[@]}" "$H" "echo $((FILE_MIB-1024))M | sudo tee /sys/fs/cgroup/research.slice/memory.reclaim >/dev/null" 2>/dev/null
+          echo "[$(date +%T)] reclaimed ${FILE_MIB}MiB-1024 page cache in research.slice" >> $LOG
+          SLOTS=$(ssh -n "${SSHO[@]}" "$H" "$GUARD" 2>/dev/null) || SLOTS=0
+          [[ "$SLOTS" =~ ^[0-9]+$ ]] || SLOTS=0
+          echo "[$(date +%T)] slots after reclaim: $SLOTS" >> $LOG
+        fi
+      fi
+    fi
   fi
   if [ $(date +%s) -lt $END ] && [ "$SLOTS" -gt 0 ]; then
     while read -r P M J; do
@@ -51,6 +73,19 @@ while true; do
       [ "$SLOTS" -le 0 ] && break
       [ -z "$J" ] && continue; [[ "$P" == \#* ]] && continue
       [ "$M" = reserve_worker ] && continue  # paid model remains paused
+      # Rate limits are per model, so a third free model raises the ceiling without more memory:
+      # measured 2026-10-03, 12.5 % of fetches returned the provider rate-limit exit. ling-3.1-flash
+      # was smoke-tested through the real launcher the same day and answered at zero cost. The host
+      # router still owns caps and backoff, so a request it cannot honour falls back to swarm by
+      # itself. Every third free start asks for ling.
+      if [ "$M" = swarm ]; then
+        # The counter must persist across dispatcher cycles: the start loop runs in a subshell and a
+        # cycle usually starts only one or two jobs, so an in-memory counter never reached three.
+        LING_N=$(cat "$D/.ling_n" 2>/dev/null || echo 0)
+        case "$LING_N" in (*[!0-9]*|"") LING_N=0;; esac
+        LING_N=$((LING_N + 1)); echo "$LING_N" > "$D/.ling_n"
+        [ $((LING_N % 3)) -eq 0 ] && M=ling
+      fi
       if [[ "$J" == BT-DW48-* ]] && [ ! -f ~/research/AGENT_DASHBOARD_20260930/AUTOMATIC_ENABLED.json ]; then
         DENT_N=$(find "$RUN" -maxdepth 1 -name 'BT-DW48-*' -type f | wc -l)
         [ "$DENT_N" -ge 12 ] && continue
