@@ -1,0 +1,28 @@
+{
+  "round": 2,
+  "status": "ROUND_COMPLETE_PARENT_GOAL_OPEN",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "gate": "FAIL",
+  "control_gate": "TIE",
+  "empirical_intrinsic_crossprediction": "UNKNOWN",
+  "portable_operators": [
+    "layered_skin_r2.py",
+    "layer_extension_r2.py",
+    "acquisition_r2.py"
+  ],
+  "main_results": [
+    "r2/world_crossprediction.json",
+    "r2/layer_extension_results.json",
+    "r2/acquisition_results.json"
+  ],
+  "preserve": [
+    "r1",
+    "r2/layers_n32",
+    "r2/layers_n64",
+    "r2/layers_n96",
+    "r2/layered_skin_r2_initial_snapshot.py",
+    "r2/layer_extension_r2_initial_snapshot.py"
+  ],
+  "next": "NEXT_ROUND.md",
+  "updated_utc": "2026-09-30T23:14:25.068640+00:00"
+}

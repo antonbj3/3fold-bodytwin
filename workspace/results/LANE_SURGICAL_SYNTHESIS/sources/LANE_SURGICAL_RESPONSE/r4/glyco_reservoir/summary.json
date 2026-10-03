@@ -1,0 +1,4261 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "independent_assay_rates": [
+    {
+      "group": "control",
+      "law": "first_order",
+      "rate": 0.06949679103768976,
+      "HP_yield": 0.2833333333333334,
+      "rate_units": "1/day",
+      "source_endpoint_reconstruction": [
+        0.2,
+        0.23,
+        0.8599999999999999
+      ]
+    },
+    {
+      "group": "control",
+      "law": "second_order",
+      "rate": 0.15306122448979592,
+      "HP_yield": 0.2833333333333334,
+      "rate_units": "1/(mol/molcollagen day)",
+      "source_endpoint_reconstruction": [
+        0.19999999999999998,
+        0.23,
+        0.8599999999999999
+      ]
+    },
+    {
+      "group": "LH3_knockdown",
+      "law": "first_order",
+      "rate": 0.04474153458912028,
+      "HP_yield": 0.9200000000000002,
+      "rate_units": "1/day",
+      "source_endpoint_reconstruction": [
+        0.2,
+        0.26,
+        0.03999999999999992
+      ]
+    },
+    {
+      "group": "LH3_knockdown",
+      "law": "second_order",
+      "rate": 0.12755102040816327,
+      "HP_yield": 0.9200000000000002,
+      "rate_units": "1/(mol/molcollagen day)",
+      "source_endpoint_reconstruction": [
+        0.19999999999999998,
+        0.26,
+        0.039999999999999925
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "label": "control_first_order_D_NS0.01",
+      "group": "control",
+      "law": "first_order",
+      "D_NS": 0.01,
+      "D10": 0.022000000000000002,
+      "rate": 0.06949679103768976,
+      "eta": 0.2833333333333334,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.018756394610378476,
+        "21": 0.019665599368718766,
+        "28": 0.020224567682753294,
+        "42": 0.02077948494433978,
+        "61": 0.021026633061561724,
+        "90": 0.021104668233754596
+      },
+      "HP42_relative_error": 0.5167561640851214,
+      "HP42_gate": "FAIL",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 15.56502075478602,
+            "error_pp": 7.617018143045058,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 26.750102039890404,
+            "error_pp": 7.173426728253158,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 31.210513475525026,
+            "error_pp": -9.105574194073903,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 31.210513475525026,
+            "error_pp": -7.673582009088143,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 32.45638778792375,
+            "error_pp": -37.87531702051029,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 33.23831683385282,
+            "error_pp": -40.855067478509596,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 33.8892327786398,
+            "error_pp": -39.80691234607675,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 33.8892327786398,
+            "error_pp": -46.72280254688905,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 31.782971707879348,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 15.56502075478602,
+            "error_pp": 7.617018143045058,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 26.750102039890404,
+            "error_pp": 7.173426728253158,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 31.210513475525023,
+            "error_pp": -9.105574194073906,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 31.210513475525023,
+            "error_pp": -7.673582009088147,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 32.456387787923745,
+            "error_pp": -37.875317020510295,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 33.23831683385282,
+            "error_pp": -40.855067478509596,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 33.889232778639794,
+            "error_pp": -39.80691234607676,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 33.889232778639794,
+            "error_pp": -46.722802546889056,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 31.782971707879348,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 2.42861286636753e-17,
+      "restart_error": 3.469446951953614e-18,
+      "aldehyde_balance_error": 6.938893903907228e-18,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2432
+    },
+    {
+      "label": "control_first_order_D_NS0.03",
+      "group": "control",
+      "law": "first_order",
+      "D_NS": 0.03,
+      "D10": 0.066,
+      "rate": 0.06949679103768976,
+      "eta": 0.2833333333333334,
+      "nominal": true,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.020269183831135427,
+        "21": 0.0229967981061563,
+        "28": 0.024673703048259887,
+        "42": 0.026338454833019345,
+        "61": 0.027079899184685178,
+        "90": 0.027314004701263793
+      },
+      "HP42_relative_error": 0.3874777945809454,
+      "HP42_gate": "FAIL",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 17.05943595578567,
+            "error_pp": 9.111433344044707,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 32.09703881486574,
+            "error_pp": 12.520363503228495,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 39.27224261945105,
+            "error_pp": -1.0438450501478798,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 39.27224261945105,
+            "error_pp": 0.38814713483787955,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 42.604267941550724,
+            "error_pp": -27.727436866883316,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 44.39960117313556,
+            "error_pp": -29.69378313922686,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 45.51218251908233,
+            "error_pp": -28.18396260563422,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 45.51218251908233,
+            "error_pp": -35.09985280644652,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 23.17981084535914,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 17.05943595578567,
+            "error_pp": 9.111433344044707,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 32.09703881486574,
+            "error_pp": 12.520363503228495,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 39.27224261945105,
+            "error_pp": -1.0438450501478798,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 39.27224261945105,
+            "error_pp": 0.38814713483787955,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 42.604267941550724,
+            "error_pp": -27.727436866883316,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 44.39960117313556,
+            "error_pp": -29.69378313922686,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 45.51218251908233,
+            "error_pp": -28.18396260563422,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 45.51218251908233,
+            "error_pp": -35.09985280644652,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 23.17981084535914,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 2.0816681711721685e-17,
+      "restart_error": 1.3877787807814457e-17,
+      "aldehyde_balance_error": 2.0816681711721685e-17,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2432
+    },
+    {
+      "label": "control_first_order_D_NS0.1",
+      "group": "control",
+      "law": "first_order",
+      "D_NS": 0.1,
+      "D10": 0.22000000000000003,
+      "rate": 0.06949679103768976,
+      "eta": 0.2833333333333334,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.025563946103784763,
+        "21": 0.03465599368718768,
+        "28": 0.04024567682753296,
+        "42": 0.04579484944339783,
+        "61": 0.04826633061561726,
+        "90": 0.04904668233754598
+      },
+      "HP42_relative_error": 0.06499649868367058,
+      "HP42_gate": "PASS",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 22.289889159284442,
+            "error_pp": 14.34188654754348,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 50.81131752727943,
+            "error_pp": 31.234642215642182,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 67.4882946231921,
+            "error_pp": 27.172206953593175,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 67.4882946231921,
+            "error_pp": 28.604199138578934,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 78.12184847924514,
+            "error_pp": 7.790143670811105,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 83.46409636062512,
+            "error_pp": 9.370712048262703,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 86.19250661063118,
+            "error_pp": 12.496361485914633,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 86.19250661063118,
+            "error_pp": 5.580471285102334,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 17.312324436179736,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 22.289889159284442,
+            "error_pp": 14.34188654754348,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 50.81131752727942,
+            "error_pp": 31.234642215642175,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 67.4882946231921,
+            "error_pp": 27.172206953593175,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 67.4882946231921,
+            "error_pp": 28.604199138578934,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 73.0198605629607,
+            "error_pp": 2.6881557545266617,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 73.75379910456388,
+            "error_pp": -0.3395852077985353,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": 1.1778759643995471,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": -5.738014236412752,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 16.052914499375056,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 8.326672684688674e-17,
+      "restart_error": 2.7755575615628914e-17,
+      "aldehyde_balance_error": 3.469446951953614e-17,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2432
+    },
+    {
+      "label": "control_first_order_D_NS0.3",
+      "group": "control",
+      "law": "first_order",
+      "D_NS": 0.3,
+      "D10": 0.66,
+      "rate": 0.06949679103768976,
+      "eta": 0.2833333333333334,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.040691838311354284,
+        "21": 0.06796798106156303,
+        "28": 0.08473703048259888,
+        "42": 0.10138454833019349,
+        "61": 0.1087989918468518,
+        "90": 0.11114004701263792
+      },
+      "HP42_relative_error": 1.3577801937254301,
+      "HP42_gate": "FAIL",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 37.23404116928092,
+            "error_pp": 29.28603855753996,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 104.2806852770328,
+            "error_pp": 84.70400996539556,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 148.10558606245226,
+            "error_pp": 107.78949839285333,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 148.10558606245226,
+            "error_pp": 109.22149057783909,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 179.6006500155149,
+            "error_pp": 109.26894520708086,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 195.07693975345248,
+            "error_pp": 120.98355544109006,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 202.42200401505642,
+            "error_pp": 128.72585889033985,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 202.42200401505642,
+            "error_pp": 121.80996868952757,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 108.489841733327,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 37.23404116928092,
+            "error_pp": 29.28603855753996,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 64.2043564064073,
+            "error_pp": 44.627681094770054,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 72.47906374283205,
+            "error_pp": 32.162976073233125,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 72.47906374283205,
+            "error_pp": 33.594968258218884,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 73.0198605629607,
+            "error_pp": 2.6881557545266617,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 73.75379910456388,
+            "error_pp": -0.3395852077985353,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": 1.1778759643995471,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": -5.738014236412752,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 20.916175132420342,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 2.7755575615628914e-16,
+      "restart_error": 1.1102230246251565e-16,
+      "aldehyde_balance_error": 7.632783294297951e-17,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2432
+    },
+    {
+      "label": "control_second_order_D_NS0.01",
+      "group": "control",
+      "law": "second_order",
+      "D_NS": 0.01,
+      "D10": 0.022000000000000002,
+      "rate": 0.15306122448979592,
+      "eta": 0.2833333333333334,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.018041421667337895,
+        "21": 0.01811132047623733,
+        "28": 0.018178112372522606,
+        "42": 0.018303168754605748,
+        "61": 0.018456792650004352,
+        "90": 0.018661414790996783
+      },
+      "HP42_relative_error": 0.5743449126835872,
+      "HP42_gate": "FAIL",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 14.858731722762993,
+            "error_pp": 6.910729111022031,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 24.255315140694552,
+            "error_pp": 4.678639829057307,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 27.502384353598348,
+            "error_pp": -12.81370331600058,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 27.502384353598348,
+            "error_pp": -11.381711131014821,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 27.93588121581922,
+            "error_pp": -42.39582359261482,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 28.499929497733017,
+            "error_pp": -45.593454814629396,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 29.315827533662198,
+            "error_pp": -44.38031759105435,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 29.315827533662198,
+            "error_pp": -51.29620779186665,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 35.493611137630424,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 14.858731722762991,
+            "error_pp": 6.910729111022029,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 24.255315140694552,
+            "error_pp": 4.678639829057307,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 27.502384353598348,
+            "error_pp": -12.81370331600058,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 27.502384353598348,
+            "error_pp": -11.381711131014821,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 27.935881215819215,
+            "error_pp": -42.395823592614825,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 28.499929497733014,
+            "error_pp": -45.5934548146294,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 29.3158275336622,
+            "error_pp": -44.38031759105435,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 29.3158275336622,
+            "error_pp": -51.29620779186665,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 35.493611137630424,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 2.42861286636753e-17,
+      "restart_error": 6.938893903907228e-18,
+      "aldehyde_balance_error": 6.938893903907228e-18,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2417
+    },
+    {
+      "label": "control_second_order_D_NS0.03",
+      "group": "control",
+      "law": "second_order",
+      "D_NS": 0.03,
+      "D10": 0.066,
+      "rate": 0.15306122448979592,
+      "eta": 0.2833333333333334,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.01836314240878776,
+        "21": 0.01893508586647075,
+        "28": 0.019438585736487653,
+        "42": 0.020284145589142506,
+        "61": 0.021179214088490807,
+        "90": 0.02217900677200903
+      },
+      "HP42_relative_error": 0.52827568397343,
+      "HP42_gate": "FAIL",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 15.176544911740494,
+            "error_pp": 7.228542299999532,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 25.577548308439795,
+            "error_pp": 6.000872996802549,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 29.786332585922466,
+            "error_pp": -10.529755083676463,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 29.786332585922466,
+            "error_pp": -9.097762898690704,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 31.552147521727452,
+            "error_pp": -38.77955728670659,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 33.51965259403521,
+            "error_pp": -40.57373171832721,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 35.900233937892615,
+            "error_pp": -37.795911186823936,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 35.900233937892615,
+            "error_pp": -44.711801387636235,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 31.221912429618463,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 15.176544911740493,
+            "error_pp": 7.22854229999953,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 25.577548308439795,
+            "error_pp": 6.000872996802549,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 29.786332585922462,
+            "error_pp": -10.529755083676466,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 29.786332585922462,
+            "error_pp": -9.097762898690707,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 31.55214752172745,
+            "error_pp": -38.77955728670659,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 33.51965259403521,
+            "error_pp": -40.57373171832721,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 35.900233937892615,
+            "error_pp": -37.795911186823936,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 35.900233937892615,
+            "error_pp": -44.711801387636235,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 31.221912429618463,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 4.163336342344337e-17,
+      "restart_error": 1.3877787807814457e-17,
+      "aldehyde_balance_error": 6.938893903907228e-18,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2432
+    },
+    {
+      "label": "control_second_order_D_NS0.1",
+      "group": "control",
+      "law": "second_order",
+      "D_NS": 0.1,
+      "D10": 0.22000000000000003,
+      "rate": 0.15306122448979592,
+      "eta": 0.2833333333333334,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.021699640287769786,
+        "21": 0.026424050632911394,
+        "28": 0.029761753494282086,
+        "42": 0.034165029469548136,
+        "61": 0.03769714607585431,
+        "90": 0.04072928176795581
+      },
+      "HP42_relative_error": 0.20546443094074096,
+      "HP42_gate": "FAIL",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 18.47251838910235,
+            "error_pp": 10.524515777361389,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 37.59815238292934,
+            "error_pp": 18.021477071292097,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 48.49167093455075,
+            "error_pp": 8.175583264951818,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 48.49167093455075,
+            "error_pp": 9.607575449937578,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 56.89165265767415,
+            "error_pp": -13.44005215075989,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 63.97615852950664,
+            "error_pp": -10.117225782855776,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 70.62357596927816,
+            "error_pp": -3.072569155438387,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 70.62357596927816,
+            "error_pp": -9.988459356250686,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 9.72562418840914,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 18.47251838910235,
+            "error_pp": 10.524515777361389,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 37.59815238292934,
+            "error_pp": 18.021477071292097,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 48.49167093455075,
+            "error_pp": 8.175583264951818,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 48.49167093455075,
+            "error_pp": 9.607575449937578,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 56.89165265767415,
+            "error_pp": -13.44005215075989,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 63.97615852950664,
+            "error_pp": -10.117225782855776,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 70.62357596927816,
+            "error_pp": -3.072569155438387,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 70.62357596927816,
+            "error_pp": -9.988459356250686,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 9.72562418840914,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 8.326672684688674e-17,
+      "restart_error": 5.551115123125783e-17,
+      "aldehyde_balance_error": 3.469446951953614e-17,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2432
+    },
+    {
+      "label": "control_second_order_D_NS0.3",
+      "group": "control",
+      "law": "second_order",
+      "D_NS": 0.3,
+      "D10": 0.66,
+      "rate": 0.15306122448979592,
+      "eta": 0.2833333333333334,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.044908430232558146,
+        "21": 0.06721290478492026,
+        "28": 0.07832476466328749,
+        "42": 0.08940983606557379,
+        "61": 0.09630179134184776,
+        "90": 0.10120449438202249
+      },
+      "HP42_relative_error": 1.079298513152879,
+      "HP42_gate": "FAIL",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 41.39941925169902,
+            "error_pp": 33.45141663995806,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 103.0687056175429,
+            "error_pp": 83.49203030590566,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 136.48671048610592,
+            "error_pp": 96.17062281650699,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 136.48671048610592,
+            "error_pp": 97.60261500149275,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 157.74085451941227,
+            "error_pp": 87.40914971097823,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 172.0340393680644,
+            "error_pp": 97.940655055702,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 183.82413458513838,
+            "error_pp": 110.12798946042183,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 183.82413458513838,
+            "error_pp": 103.21209925960953,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 92.51077102182751,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 39.51416841142986,
+            "error_pp": 31.566165799688896,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 64.2043564064073,
+            "error_pp": 44.627681094770054,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 72.47906374283205,
+            "error_pp": 32.162976073233125,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 72.47906374283205,
+            "error_pp": 33.594968258218884,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 73.0198605629607,
+            "error_pp": 2.6881557545266617,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 73.75379910456388,
+            "error_pp": -0.3395852077985353,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": 1.1778759643995471,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": -5.738014236412752,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 21.38475907239374,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 3.4083846855992306e-14,
+      "restart_error": 1.1102230246251565e-16,
+      "aldehyde_balance_error": 1.457167719820518e-16,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2432
+    },
+    {
+      "label": "LH3_knockdown_first_order_D_NS0.01",
+      "group": "LH3_knockdown",
+      "law": "first_order",
+      "D_NS": 0.01,
+      "D10": 0.022000000000000002,
+      "rate": 0.04474153458912028,
+      "eta": 0.9200000000000002,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.0196583217766215,
+        "21": 0.021933578662659395,
+        "28": 0.02359704273871309,
+        "42": 0.025702377650463286,
+        "61": 0.027086764232502798,
+        "90": 0.027837706820157904
+      },
+      "HP42_relative_error": 0.4022702871985282,
+      "HP42_gate": "FAIL",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 16.455993303330285,
+            "error_pp": 8.507990691589322,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 30.390455812653304,
+            "error_pp": 10.813780501016058,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 37.321359339325554,
+            "error_pp": -2.994728330273375,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 37.321359339325554,
+            "error_pp": -1.5627361452876158,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 41.443111262112616,
+            "error_pp": -28.888593546321424,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 44.412259257075156,
+            "error_pp": -29.68112505528726,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 46.492474606444645,
+            "error_pp": -27.203670518271906,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 46.492474606444645,
+            "error_pp": -34.119560719084205,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 23.001554551819304,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 16.45599330333028,
+            "error_pp": 8.507990691589319,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 30.390455812653308,
+            "error_pp": 10.813780501016062,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 37.321359339325554,
+            "error_pp": -2.994728330273375,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 37.321359339325554,
+            "error_pp": -1.5627361452876158,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 41.443111262112616,
+            "error_pp": -28.888593546321424,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 44.412259257075156,
+            "error_pp": -29.68112505528726,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 46.49247460644464,
+            "error_pp": -27.203670518271913,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 46.49247460644464,
+            "error_pp": -34.11956071908421,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 23.00155455181931,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 6.938893903907228e-18,
+      "restart_error": 6.938893903907228e-18,
+      "aldehyde_balance_error": 6.938893903907228e-18,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2432
+    },
+    {
+      "label": "LH3_knockdown_first_order_D_NS0.03",
+      "group": "LH3_knockdown",
+      "law": "first_order",
+      "D_NS": 0.03,
+      "D10": 0.066,
+      "rate": 0.04474153458912028,
+      "eta": 0.9200000000000002,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.0229749653298645,
+        "21": 0.029800735987978194,
+        "28": 0.03479112821613928,
+        "42": 0.04110713295138986,
+        "61": 0.04526029269750839,
+        "90": 0.04751312046047372
+      },
+      "HP42_relative_error": 0.044020163921165964,
+      "HP42_gate": "PASS",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 19.732353601418463,
+            "error_pp": 11.7843509896775,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 43.01810013315446,
+            "error_pp": 23.441424821517217,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 57.60478021085263,
+            "error_pp": 17.288692541253702,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 57.60478021085263,
+            "error_pp": 18.720684726239462,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 69.56443836411731,
+            "error_pp": -0.7672664443167321,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 77.92142844280254,
+            "error_pp": 3.8280441304401194,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 83.32190800249685,
+            "error_pp": 9.625762877780303,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 83.32190800249685,
+            "error_pp": 2.709872676968004,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 11.36080477040609,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 19.73235360141846,
+            "error_pp": 11.784350989677497,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 43.01810013315446,
+            "error_pp": 23.441424821517217,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 57.60478021085263,
+            "error_pp": 17.288692541253702,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 57.60478021085263,
+            "error_pp": 18.720684726239462,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 69.56443836411731,
+            "error_pp": -0.7672664443167321,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 73.75379910456388,
+            "error_pp": -0.3395852077985353,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": 1.1778759643995471,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": -5.738014236412752,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 10.844683158961784,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 2.7755575615628914e-17,
+      "restart_error": 1.3877787807814457e-17,
+      "aldehyde_balance_error": 2.0816681711721685e-17,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2432
+    },
+    {
+      "label": "LH3_knockdown_first_order_D_NS0.1",
+      "group": "LH3_knockdown",
+      "law": "first_order",
+      "D_NS": 0.1,
+      "D10": 0.22000000000000003,
+      "rate": 0.04474153458912028,
+      "eta": 0.9200000000000002,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.03458321776621501,
+        "21": 0.057335786626593985,
+        "28": 0.07397042738713092,
+        "42": 0.09502377650463287,
+        "61": 0.10886764232502799,
+        "90": 0.11637706820157907
+      },
+      "HP42_relative_error": 1.2098552675496017,
+      "HP42_gate": "FAIL",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 31.19961464472708,
+            "error_pp": 23.251612032986117,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 87.21485525490849,
+            "error_pp": 67.63817994327124,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 128.59675326119736,
+            "error_pp": 88.28066559159844,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 128.59675326119736,
+            "error_pp": 89.7126577765842,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 167.98908322113377,
+            "error_pp": 97.65737841269973,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 195.20352059284846,
+            "error_pp": 121.11013628048605,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 212.22492488867965,
+            "error_pp": 138.5287797639631,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 212.22492488867965,
+            "error_pp": 131.61288956315082,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 104.94847615795675,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 31.199614644727077,
+            "error_pp": 23.251612032986117,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 64.2043564064073,
+            "error_pp": 44.627681094770054,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 72.47906374283205,
+            "error_pp": 32.162976073233125,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 72.47906374283205,
+            "error_pp": 33.594968258218884,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 73.0198605629607,
+            "error_pp": 2.6881557545266617,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 73.75379910456388,
+            "error_pp": -0.3395852077985353,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": 1.1778759643995471,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": -5.738014236412752,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 19.803932087662872,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 1.249000902703301e-16,
+      "restart_error": 2.7755575615628914e-17,
+      "aldehyde_balance_error": 3.469446951953614e-17,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2432
+    },
+    {
+      "label": "LH3_knockdown_first_order_D_NS0.3",
+      "group": "LH3_knockdown",
+      "law": "first_order",
+      "D_NS": 0.3,
+      "D10": 0.66,
+      "rate": 0.04474153458912028,
+      "eta": 0.9200000000000002,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.06774965329864502,
+        "21": 0.13600735987978194,
+        "28": 0.18591128216139274,
+        "42": 0.24907132951389857,
+        "61": 0.290602926975084,
+        "90": 0.3131312046047372
+      },
+      "HP42_relative_error": 4.792356500323223,
+      "HP42_gate": "FAIL",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 63.96321762560885,
+            "error_pp": 56.01521501386789,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 213.49129845991993,
+            "error_pp": 193.9146231482827,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 331.4309619764681,
+            "error_pp": 291.1148743068692,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 331.4309619764681,
+            "error_pp": 292.5468664918549,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 449.20235424118073,
+            "error_pp": 378.8706494327467,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 530.2952124501226,
+            "error_pp": 456.2018281377601,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 580.5192588492018,
+            "error_pp": 506.82311372448527,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 580.5192588492018,
+            "error_pp": 499.907223523673,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 383.94739617079114,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 39.51416841142986,
+            "error_pp": 31.566165799688896,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 64.2043564064073,
+            "error_pp": 44.627681094770054,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 72.47906374283205,
+            "error_pp": 32.162976073233125,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 72.47906374283205,
+            "error_pp": 33.594968258218884,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 73.0198605629607,
+            "error_pp": 2.6881557545266617,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 73.75379910456388,
+            "error_pp": -0.3395852077985353,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": 1.1778759643995471,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": -5.738014236412752,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 21.38475907239374,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 3.3306690738754696e-16,
+      "restart_error": 1.1102230246251565e-16,
+      "aldehyde_balance_error": 1.457167719820518e-16,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2432
+    },
+    {
+      "label": "LH3_knockdown_second_order_D_NS0.01",
+      "group": "LH3_knockdown",
+      "law": "second_order",
+      "D_NS": 0.01,
+      "D10": 0.022000000000000002,
+      "rate": 0.12755102040816327,
+      "eta": 0.9200000000000002,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.018112330978809283,
+        "21": 0.018303024003959414,
+        "28": 0.018486585721223896,
+        "42": 0.01883385767790262,
+        "61": 0.01926697612140147,
+        "90": 0.019855333333333332
+      },
+      "HP42_relative_error": 0.5620033098162182,
+      "HP42_gate": "FAIL",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 14.928779784648466,
+            "error_pp": 6.980777172907503,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 24.563020181150407,
+            "error_pp": 4.986344869513161,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 28.061330841185487,
+            "error_pp": -12.254756828413441,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 28.061330841185487,
+            "error_pp": -10.822764643427682,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 28.90465199535535,
+            "error_pp": -41.42705281307869,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 29.993782222414545,
+            "error_pp": -44.09960208994787,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 31.55066458660204,
+            "error_pp": -42.14548053811451,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 31.55066458660204,
+            "error_pp": -49.06137073892681,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 34.14313942220461,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 14.928779784648466,
+            "error_pp": 6.980777172907503,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 24.563020181150407,
+            "error_pp": 4.986344869513161,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 28.06133084118549,
+            "error_pp": -12.254756828413438,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 28.06133084118549,
+            "error_pp": -10.822764643427679,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 28.904651995355348,
+            "error_pp": -41.42705281307869,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 29.993782222414545,
+            "error_pp": -44.09960208994787,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 31.55066458660204,
+            "error_pp": -42.14548053811451,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 31.55066458660204,
+            "error_pp": -49.06137073892681,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 34.14313942220461,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 2.0816681711721685e-17,
+      "restart_error": 6.938893903907228e-18,
+      "aldehyde_balance_error": 6.938893903907228e-18,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2417
+    },
+    {
+      "label": "LH3_knockdown_second_order_D_NS0.03",
+      "group": "LH3_knockdown",
+      "law": "second_order",
+      "D_NS": 0.03,
+      "D10": 0.066,
+      "rate": 0.12755102040816327,
+      "eta": 0.9200000000000002,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.01898902270483712,
+        "21": 0.020573121643707684,
+        "28": 0.021995090828533452,
+        "42": 0.024442958199356914,
+        "61": 0.027119378904158484,
+        "90": 0.030218048780487807
+      },
+      "HP42_relative_error": 0.4315591116428624,
+      "HP42_gate": "FAIL",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 15.794823397327741,
+            "error_pp": 7.846820785586779,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 28.206774129643957,
+            "error_pp": 8.630098818006712,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 34.418659974054016,
+            "error_pp": -5.897427695544913,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 34.418659974054016,
+            "error_pp": -4.465435510559153,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 39.14404544436092,
+            "error_pp": -31.18765936407312,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 44.472395655604025,
+            "error_pp": -29.620988656758392,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 50.94811895987087,
+            "error_pp": -22.748026164845683,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 50.94811895987087,
+            "error_pp": -29.663916365657983,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 21.921242334199107,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 15.794823397327743,
+            "error_pp": 7.846820785586781,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 28.206774129643957,
+            "error_pp": 8.630098818006712,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 34.418659974054016,
+            "error_pp": -5.897427695544913,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 34.418659974054016,
+            "error_pp": -4.465435510559153,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 39.14404544436092,
+            "error_pp": -31.18765936407312,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 44.472395655604025,
+            "error_pp": -29.620988656758392,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 50.948118959870875,
+            "error_pp": -22.748026164845676,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 50.948118959870875,
+            "error_pp": -29.663916365657975,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 21.921242334199103,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 2.7755575615628914e-17,
+      "restart_error": 2.0816681711721685e-17,
+      "aldehyde_balance_error": 6.938893903907228e-18,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2432
+    },
+    {
+      "label": "LH3_knockdown_second_order_D_NS0.1",
+      "group": "LH3_knockdown",
+      "law": "second_order",
+      "D_NS": 0.1,
+      "D10": 0.22000000000000003,
+      "rate": 0.12755102040816327,
+      "eta": 0.9200000000000002,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.028212844036697254,
+        "21": 0.04186978557504874,
+        "28": 0.0519620338983051,
+        "42": 0.06587956989247314,
+        "61": 0.07757313746065059,
+        "90": 0.08801257861635223
+      },
+      "HP42_relative_error": 0.5320830207551893,
+      "HP42_gate": "FAIL",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 24.906614134929256,
+            "error_pp": 16.958611523188296,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 62.39023916252646,
+            "error_pp": 42.81356385088922,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 88.71805939734898,
+            "error_pp": 48.40197172775005,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 88.71805939734898,
+            "error_pp": 49.83396391273581,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 114.78643564518325,
+            "error_pp": 44.454730836749206,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 137.50130497174626,
+            "error_pp": 63.40792065938385,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 159.1308401040224,
+            "error_pp": 85.43469497930586,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 159.1308401040224,
+            "error_pp": 78.51880477849356,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 59.25109599631161,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 24.906614134929256,
+            "error_pp": 16.958611523188296,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 62.390239162526456,
+            "error_pp": 42.81356385088921,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 72.47906374283205,
+            "error_pp": 32.162976073233125,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 72.47906374283205,
+            "error_pp": 33.594968258218884,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 73.0198605629607,
+            "error_pp": 2.6881557545266617,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 73.75379910456388,
+            "error_pp": -0.3395852077985353,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": 1.1778759643995471,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": -5.738014236412752,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 18.86920062502176,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 9.71445146547012e-17,
+      "restart_error": 2.7755575615628914e-17,
+      "aldehyde_balance_error": 3.469446951953614e-17,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2432
+    },
+    {
+      "label": "LH3_knockdown_second_order_D_NS0.3",
+      "group": "LH3_knockdown",
+      "law": "second_order",
+      "D_NS": 0.3,
+      "D10": 0.66,
+      "rate": 0.12755102040816327,
+      "eta": 0.9200000000000002,
+      "nominal": false,
+      "early_HP_role": "INPUT_ONLY",
+      "prediction_HP": {
+        "14": 0.09447938931297713,
+        "21": 0.16396927152317883,
+        "28": 0.20089898580121707,
+        "42": 0.23940994475138125,
+        "61": 0.2642452048192772,
+        "90": 0.28234828496042225
+      },
+      "HP42_relative_error": 4.567673133753052,
+      "HP42_gate": "FAIL",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 90.36829988719337,
+            "error_pp": 82.42029727545241,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 258.3732119838481,
+            "error_pp": 238.79653667221083,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 358.5883301632056,
+            "error_pp": 318.2722424936067,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 358.5883301632056,
+            "error_pp": 319.70423467859246,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 431.5655300360776,
+            "error_pp": 361.23382522764354,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 481.6956588317904,
+            "error_pp": 407.60227451942797,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 522.8982344833767,
+            "error_pp": 449.2020893586601,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 522.8982344833767,
+            "error_pp": 442.2861991578478,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 359.43014682927424,
+        "heldout_gate": "FAIL"
+      },
+      "capped_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893084,
+            "error_pp": 1.5523067676398195,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 39.51416841142986,
+            "error_pp": 31.566165799688896,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 64.2043564064073,
+            "error_pp": 44.627681094770054,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 72.47906374283205,
+            "error_pp": 32.162976073233125,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 72.47906374283205,
+            "error_pp": 33.594968258218884,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 73.0198605629607,
+            "error_pp": 2.6881557545266617,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 73.75379910456388,
+            "error_pp": -0.3395852077985353,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": 1.1778759643995471,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": -5.738014236412752,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 21.38475907239374,
+        "heldout_gate": "FAIL"
+      },
+      "nominal_joint_gate": "FAIL",
+      "empirical_joint_gate": "UNKNOWN",
+      "numeric_error": 1.2878587085651816e-14,
+      "restart_error": 1.1102230246251565e-16,
+      "aldehyde_balance_error": 1.8735013540549517e-16,
+      "min_state": 0.0,
+      "numeric_reference_nfev": 2432
+    }
+  ],
+  "inverse_requirements": [
+    {
+      "group": "control",
+      "law": "first_order",
+      "required_D10": 0.1978783879078153,
+      "required_D_NS": 0.08994472177627968,
+      "diagnostic_only": true,
+      "missing_observation": "absolute glyco-resolved DHLNL and aldehyde pool in native skin at10"
+    },
+    {
+      "group": "control",
+      "law": "second_order",
+      "required_D10": 0.29755533351362445,
+      "required_D_NS": 0.13525242432437473,
+      "diagnostic_only": true,
+      "missing_observation": "absolute glyco-resolved DHLNL and aldehyde pool in native skin at10"
+    },
+    {
+      "group": "LH3_knockdown",
+      "law": "first_order",
+      "required_D10": 0.0714065221103406,
+      "required_D_NS": 0.03245751005015481,
+      "diagnostic_only": true,
+      "missing_observation": "absolute glyco-resolved DHLNL and aldehyde pool in native skin at10"
+    },
+    {
+      "group": "LH3_knockdown",
+      "law": "second_order",
+      "required_D10": 0.14572195790883594,
+      "required_D_NS": 0.06623725359492542,
+      "diagnostic_only": true,
+      "missing_observation": "absolute glyco-resolved DHLNL and aldehyde pool in native skin at10"
+    }
+  ],
+  "numerical_checks": [
+    {
+      "label": "control_first_order_D_NS0.01",
+      "pass_numeric": true
+    },
+    {
+      "label": "control_first_order_D_NS0.03",
+      "pass_numeric": true
+    },
+    {
+      "label": "control_first_order_D_NS0.1",
+      "pass_numeric": true
+    },
+    {
+      "label": "control_first_order_D_NS0.3",
+      "pass_numeric": true
+    },
+    {
+      "label": "control_second_order_D_NS0.01",
+      "pass_numeric": true
+    },
+    {
+      "label": "control_second_order_D_NS0.03",
+      "pass_numeric": true
+    },
+    {
+      "label": "control_second_order_D_NS0.1",
+      "pass_numeric": true
+    },
+    {
+      "label": "control_second_order_D_NS0.3",
+      "pass_numeric": true
+    },
+    {
+      "label": "LH3_knockdown_first_order_D_NS0.01",
+      "pass_numeric": true
+    },
+    {
+      "label": "LH3_knockdown_first_order_D_NS0.03",
+      "pass_numeric": true
+    },
+    {
+      "label": "LH3_knockdown_first_order_D_NS0.1",
+      "pass_numeric": true
+    },
+    {
+      "label": "LH3_knockdown_first_order_D_NS0.3",
+      "pass_numeric": true
+    },
+    {
+      "label": "LH3_knockdown_second_order_D_NS0.01",
+      "pass_numeric": true
+    },
+    {
+      "label": "LH3_knockdown_second_order_D_NS0.03",
+      "pass_numeric": true
+    },
+    {
+      "label": "LH3_knockdown_second_order_D_NS0.1",
+      "pass_numeric": true
+    },
+    {
+      "label": "LH3_knockdown_second_order_D_NS0.3",
+      "pass_numeric": true
+    }
+  ],
+  "conditional_numerical_gate": "PASS",
+  "native_empirical_joint_gate": "UNKNOWN",
+  "strongest_control": "TIE",
+  "history_replay_in_analytic_future": false,
+  "scalar_query_cost": "O(1) per isolated reservoir; same conventional closedform has identical operation/cost",
+  "global_coupled_gain": false,
+  "CPU_s": 0.355741211,
+  "wall_s": 0.3565473430790007,
+  "max_RSS_KiB": 78240
+}

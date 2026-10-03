@@ -1,0 +1,16 @@
+{
+  "operation": "Refine constructed chain and test causal seal ablation with shared scenario directions",
+  "frozen_before_compute": true,
+  "cases": [
+    "nominal final code",
+    "half early/late steps",
+    "half front dx",
+    "seal-to-O2 coupling0",
+    "shared direction-1",
+    "shared direction+1"
+  ],
+  "joint_scenario_directions": "Not a distribution or posterior: sign jointly modifies demand±10%,radius±5%,injury/perfusion width±40um; no probabilities or CI",
+  "budget": "pressure.5Torr; strength1pp for numerical refinements; no empirical bound",
+  "strongest_control": "Identical conventional FV/cohort/chemical/plug history operations:TIE",
+  "checkpoint": "Sufficient state includes full late FV state,earlyhazard,threeQ,ledger totals,DHA,grid,absoluteclock,law/rates/reference"
+}

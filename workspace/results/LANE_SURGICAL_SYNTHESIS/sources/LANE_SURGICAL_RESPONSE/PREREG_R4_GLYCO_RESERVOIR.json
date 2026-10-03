@@ -1,0 +1,60 @@
+{
+  "round": 4,
+  "created_utc": "2026-10-01T01:22:23.255575+00:00",
+  "parent": "r4/SCORES_R4.json",
+  "operation": "LOX-off autonomous glyco-conditioned precursor conversion; retain competing-product aldehyde inventory; analytic nonlinear continuation from day10 without history replay",
+  "source": {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3391079/",
+    "doi": "10.1074/jbc.M112.343954",
+    "title": "Lysyl Hydroxylase 3-mediated Glucosylation in Type I Collagen: Molecular Loci and Biological Significance",
+    "retrieval": "web primarysource indexed fulltext, 2026-10-01; localfulltext endpoints returnedcaptcha/500; no fabricated acquiredXML",
+    "assay": "MC3T3-E1-derived cell/matrix at2wk, lyophilized, PBS+0.7mM BAPN+toluene, dark37C,0/2/4wk crosslinks; not skin or wound mechanical assay",
+    "reported_average_endpoints": {
+      "control": {
+        "D0": 1.4,
+        "D28": 0.2,
+        "H0": 0.06,
+        "H28": 0.23
+      },
+      "LH3_knockdown": {
+        "D0": 0.7,
+        "D28": 0.2,
+        "H0": 0.03,
+        "H28": 0.26
+      }
+    },
+    "endpoint_text_approximation": true,
+    "SD_not_covariance": true
+  },
+  "new_state": [
+    "D_HPprecursor",
+    "H_HP",
+    "A_otheraldehydeunits"
+  ],
+  "equations": [
+    "v=kD or v=alphaD^2",
+    "Ddot=-v",
+    "Hdot=eta*v/2",
+    "Adot=(1-eta)*v",
+    "D+2H+A conserved; Cmass fixednominal"
+  ],
+  "rates": "k=log(D0/D28)/28;alpha=(1/D28-1/D0)/28;eta=2*(H28-H0)/(D0-D28) from same independentassay. Effective closures, not nativechemicalconstants",
+  "skin_input": "day10h=.018;D10=2.2*D_NS where2.2 is graph7f WTday10/NS reading\u00b1.1; D_NS absolute unknown",
+  "D_NS_grid": [
+    0.01,
+    0.03,
+    0.1,
+    0.3
+  ],
+  "nominal_D_NS": 0.03,
+  "nominal_law": "first_order",
+  "nominal_source_group": "control",
+  "alternatives": "bothsourcegroups andfirst/secondorder retainedwithout choosingbystrength/HP42",
+  "strength": "unchangedR3native75*C*(h-.003)/.04; also capped separateclosure;HP0/3/5/10 interpolated INPUT, no earlykineticpredictionclaimed",
+  "post10C": "heldC10 for predictions; correctedmeasuredC42 used onlyasobservationsensitivity/diagnostic",
+  "falsifier": "nominalHP42miss20%;orRMSE>8.306367094671637;or5ppstrengthenvelopes miss. Initialprecursorunidentified => no biologicalPASS even ifconditionalprofilefits. HP42-known exploratorytransfer test, not blind",
+  "strongest_control": "sameequallyinformedconventionalfirst/secondorderstoichiometrickinetics andclosedform: TIE",
+  "numerical_verification": "DOP853 sameODE across90days vsanalytic law <1e-8; positivity;conservedaldehydeunits; direct vscheckpointrestart21 <1e-10;failedpredecessorsretained",
+  "bridge_port": "SKIN_TOUGHNESS_GAP.PORTS_R2_FINAL.native_healing_traction null; no Gamma/ultimate-strength conversion",
+  "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

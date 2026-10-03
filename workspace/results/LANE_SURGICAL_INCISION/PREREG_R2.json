@@ -1,0 +1,23 @@
+{
+  "lane": "LANE_SURGICAL_INCISION", "round": 2,
+  "status": "FROZEN_BEFORE_MODEL_COMPUTATION", "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "parent_ids": ["GRAPH_INVERSE", "MULTIPHYSICS", "BT-CTX-SURG-INCISION", "LANE_SURGICAL_BINDINGS/R1", "BT-HX-Q033", "BT-HX-Q049"],
+  "steering_priority": "steer/R2 overrides previous Green-column NEXT_ROUND; measured skin crossprediction",
+  "capability": "Joint skin cutting/tearing force and incision opening from one hierarchical parametrization",
+  "operation": "Mode-separated energy balance with reversible prestress release, intrinsic separation, fiber pullout and blade contact losses",
+  "unfitted_predictions": {"sharp_intrinsic_J_m2": 150, "tear_fiber_J_m2": 15000, "tear_to_intrinsic_ratio": 100, "origin": "Bindings R1 synthetic mechanistic profiles; 150 is an optimistic molecular/fibril upper candidate, not an independently measured skin calibration"},
+  "world_targets_before_computation": [
+    {"id": "PISSARENKO_2020_III", "value_J_m2": 20600, "SD_J_m2": 2150, "scope": "author PDF Table 2 to verify; juvenile porcine full skin Mode III, not scalpel"},
+    {"id": "PISSARENKO_2020_I", "value_J_m2": 30380, "SD_J_m2": 4900, "scope": "author PDF Table 2 to verify; same study Mode I"},
+    {"id": "PORCINE_PRESTRETCH", "lambda_x": 1.21, "lambda_y": 1.21, "area_stretch": 1.44, "scope": "single-animal control-patch study PMC4520804; marginal averages not a common specimen"},
+    {"id": "SMITH_2013_CUT", "value_J_m2": null, "blade_radius_m": 0.000012, "scope": "Primary thesis download sought; exact energy targets must be frozen in SOURCE_TARGETS_R2 before calculation; no guessed ordinates"}
+  ],
+  "strongest_control": "Phenomenological cohesive law with separate fitted cutting/tearing work and same prestress/contact information; identical layered equilibrium allowed",
+  "error_gate": {"relative_world_error_each_available_energy": 0.20, "force_and_gap": "20% only if independently measured compatible observations exist; otherwise UNKNOWN", "energy_balance_relative": 1e-8, "discrete_gap_refinement_relative": 0.02},
+  "falsifiers": ["150 J/m2 sharp-intercept candidate misses an identifiable skin intrinsic intercept by >20%", "15000 J/m2 unfitted tear candidate misses either frozen porcine mode by >20%", "cutting radius/contact data do not identify intrinsic work separately; declare UNKNOWN rather than fit arbitrary losses", "blade-radius-to-fiber-size transition is not predicted when contact strength/process-zone information is missing"],
+  "construction_if_failed": "Execute a layer-resolved prestress-release/contact acquisition test: expose the null directions and determine the same-specimen observables needed to distinguish intrinsic rupture from pullout/contact; synthetic instrument clearly labelled",
+  "defaults": {"threads": 2, "local_CPU_only": true, "layer_count": 3, "layers": ["epidermis", "dermis", "subcutis"], "unmeasured_layer_parameters": "null in empirical ports; explicit scenario defaults only in runnable instrument", "no_layer_replicates_as_measurements": true, "no_new_global_ROM": true},
+  "cost_contract": "Count source acquisition, setup, mechanical queries and checks; numerical cost ratio is not empirical innovation",
+  "writes": "only this lane; exclusive creation of new numerical result files; preserve R1",
+  "scientific_admission": false
+}

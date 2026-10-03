@@ -1,0 +1,50 @@
+{
+  "scope": "PUBLISHED_FORCE_DEPTH_WITH_UNVERIFIED_EFFECTIVE_F_EDGE_RADIUS_SCENARIO",
+  "changed_operation": "additive normal tip-pressure offset proportional to R rather than common flank pressure",
+  "training": "B fullcurve plus F12lbf/65% anchor; F effectiveR25.4um scenario, NOT a uniform measured radius",
+  "normal_offset_lbf_at_F": 8.045454545454545,
+  "normal_pressure_coefficient_N_m": 1408974.9926648324,
+  "K_heldout": {
+    "interval_pct": [
+      63.9999999999977,
+      63.9999999999977
+    ],
+    "point_pct": 63.9999999999977,
+    "scope": "INTERPOLATED_ON_REFERENCE_SUPPORT",
+    "observed_depth_pct": 40,
+    "observed_reading_band_pct": [
+      38,
+      42
+    ],
+    "relative_error": 0.5999999999999425,
+    "min_relative_error_with_reading": 0.523809523809469,
+    "gate": "FAIL"
+  },
+  "F_same_geometry_heldout_loads": [
+    {
+      "interval_pct": [
+        86.76136363636364,
+        86.76136363636364
+      ],
+      "point_pct": 86.76136363636364,
+      "scope": "INTERPOLATED_ON_REFERENCE_SUPPORT",
+      "normal_force_lbf": 16,
+      "observed_depth_pct": 80,
+      "min_relative_depth_error": 0.0845170454545455
+    },
+    {
+      "interval_pct": [
+        87,
+        100
+      ],
+      "point_pct": null,
+      "scope": "RIGHT_CENSORED_REFERENCE_SUPPORT",
+      "normal_force_lbf": 20,
+      "observed_depth_pct": 71,
+      "min_relative_depth_error": 0.22535211267605634
+    }
+  ],
+  "gate": "FAIL",
+  "strongest_control": "same additive contact law and same datum: TIE",
+  "why_not_empirical_radius_validation": "F local curvature varies; conditional pointprediction not validated across radius despite matched skin. Missing current tip radius/contact mechanism cannot be fitted from geometry label."
+}

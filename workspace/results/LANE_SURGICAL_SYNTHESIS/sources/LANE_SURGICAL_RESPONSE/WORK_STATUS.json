@@ -1,0 +1,51 @@
+{
+  "round": 3,
+  "lane": "LANE_SURGICAL_RESPONSE",
+  "updated_utc": "2026-10-01T01:06:21.504770+00:00",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "status": "ROUND_COMPLETE_PENDING_INDEPENDENT_REVIEW",
+  "parent_goal_status": "OPEN",
+  "round_gate": "FAIL",
+  "gate": "FAIL",
+  "strongest_control": "TIE",
+  "control_gate": "TIE",
+  "empirical_joint_crossprediction": "UNKNOWN",
+  "empirical_gate": "UNKNOWN",
+  "scientific_admission": false,
+  "numerical_verification_passed": true,
+  "numerical_verification": "VERIFICATION_R3.json",
+  "checkpoint": "CHECKPOINT_R3.json",
+  "new_fixture_state": "r3/joint_history/A_checkpoint.json",
+  "new_state_contract": "Q_U,Q_I,Q_M retain crosslink-maturity/load-direction correlation under direction-independent linear kinetics; synthetic, no native joint posterior",
+  "native_geometry_checkpoint": "r1/native_chain/native_geometry_response.npz",
+  "history_checkpoint": "r1/history_local/checkpoint60.npz",
+  "retained_sensor": "r2/sensor/junction100.npz",
+  "source_targets": "WORLD_TARGETS_R3_v2.json",
+  "no_new_strength_fit": true,
+  "outcomes": {
+    "native_HP_input_RMSE_pp": 8.306367094671637,
+    "nominal_HP_gate": "FAIL",
+    "quantity_proxy_heldout_max_relative": 0.12021077986970985,
+    "quantity_is_physical_mass": false,
+    "chemical_HP42_gate": "FAIL",
+    "same_initial_marginals_strength_pct": [
+      15,
+      60
+    ],
+    "tensor_max_full_error": 5.857980767132176e-12,
+    "global_coupled_gain": false
+  },
+  "defaults": "PREREG_R3*.json;2CPUthreads;syntheticrates/affineprojection and cross-studyHP forcing explicitly labelled; no automatic null-to-zero mapping",
+  "remaining": [
+    "matched physical collagen/precursor assay",
+    "pathwayresolved latechemistry/turnover",
+    "joint age-angle-cutbridging observation",
+    "empirical crosslink-to-traction/rupture law",
+    "vascular/hemostatic injury+O2 port",
+    "certified global coupledhistory gain vsstrongestcontrol"
+  ],
+  "results": "RESULTS.md",
+  "next": "NEXT_ROUND.md",
+  "next_round": "NEXT_ROUND.md",
+  "numerical_verification_scope": "Numerical, conservation, provenance and claim boundaries only; no empirical validation"
+}

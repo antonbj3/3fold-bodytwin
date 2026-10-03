@@ -1,0 +1,47 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "attempts": [
+    {
+      "parents": [
+        "INCISION R4",
+        "BINDINGS R4",
+        "GAP R2",
+        "RESPONSE R3"
+      ],
+      "operation": "Frozenports and full conditional nativechain reuse",
+      "evidence": "r1/scenario_nominal",
+      "gate": "ENGINEERING_RUN; EMPIRICAL_UNKNOWN",
+      "obstacle": "Instantaneous thrombin gate forgets previouslyformed seal",
+      "next": "Persistentseal state; PREREG_R1_SEAL_MEMORY"
+    },
+    {
+      "operation": "Irreversible perbinseal history and atmosphericO2closure",
+      "evidence": "r1/scenario_seal_memory_v2",
+      "gate": "CONDITIONAL_PASS",
+      "obstacle": "Native seal/erosion/perfusionlaw unmeasured",
+      "control": "Identical conventionalstate history TIE",
+      "next": "Matched radius/flow/seal data"
+    },
+    {
+      "parents": [
+        "RESPONSE R4"
+      ],
+      "operation": "Fixedreference D,H,A chemistry branch",
+      "evidence": "r1/nominal_complete_v4",
+      "gate": "NUMERICAL_PASS; NativeUNKNOWN; IntegratedstrengthproxyFAIL",
+      "obstacle": "No nativechemicalpool/age-angle-connectivity→tractionlaw",
+      "control": "Conservativeclosedform/coupledFVcohort=TIE",
+      "next": "Acquire precursor/turnover/connectivity and ultimate load"
+    },
+    {
+      "operation": "Numericalrefinement,causalablation,sharedscenarios andcheckpoint",
+      "evidence": [
+        "REFINEMENT_R1.json",
+        "r1/tests_final_v2/verification.json"
+      ],
+      "gate": "51testsPASS; RefinementsPASS; StrongestTIE",
+      "obstacle": "Fullspatialsuffixremains; empiricaljointUNKNOWN",
+      "next": "Earliestbrokeninjury/perfusion/radiusport acquisition"
+    }
+  ]
+}

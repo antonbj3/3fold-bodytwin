@@ -1,0 +1,1332 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "rows": [
+    {
+      "case": "nominal",
+      "score": {
+        "RMSE_pp": 30.950029883984936,
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 0.1762143185667857,
+            "error_pp": -3.4164118946864788,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 2.350125516272675,
+            "error_pp": -5.597877095468288,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 7.255597134688729,
+            "error_pp": -12.321078176948516,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 13.642315228535411,
+            "error_pp": -26.67377244106352,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 13.642315228535411,
+            "error_pp": -25.24178025607776,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 26.21104366859432,
+            "error_pp": -44.12066113983972,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 37.78275733144878,
+            "error_pp": -36.31062698091364,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 45.245255443602275,
+            "error_pp": -28.450889681114276,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 45.245255443602275,
+            "error_pp": -35.366779881926576,
+            "independent_day": true
+          }
+        ]
+      },
+      "chemical_score": {
+        "RMSE_pp": 50.218760634516315,
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 0.0,
+            "error_pp": -3.5926262132532645,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 1.3855365809905202,
+            "error_pp": -6.562466030750443,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 4.2325936774347745,
+            "error_pp": -15.344081634202471,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 6.882682325119083,
+            "error_pp": -33.433405344479844,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 6.882682325119083,
+            "error_pp": -32.001413159494085,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 10.477055368095241,
+            "error_pp": -59.8546494403388,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 12.651056034293333,
+            "error_pp": -61.442328278069084,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 13.566100369964024,
+            "error_pp": -60.130044754752525,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 13.566100369964024,
+            "error_pp": -67.04593495556483,
+            "independent_day": true
+          }
+        ]
+      },
+      "shared_reference": {
+        "version": "shared_reference_r3",
+        "reference": "Fixed registered reference volume; C and tensor traces normalized by same intact collagen mass",
+        "formation": "k_deposit F h(1-C)",
+        "removal": "0.008 macrophage C; proportional across all marks",
+        "additional_UI_death": 0.0,
+        "unused_legacy_ports": [
+          "birth_scale",
+          "turnover_U_I"
+        ],
+        "max_pointwise_trace_error": 2.7755575615628914e-15,
+        "max_collagen_ledger_error": 2.886579864025407e-15,
+        "max_site_ledger_error": 2.7755575615628914e-16,
+        "min_mark_eigenvalue": 0.0,
+        "max_cohort_tensor_error": null,
+        "site_equivalents_per_collagen_reference": 0.10200000000000001,
+        "chemical_maturity_upper_bound": 0.28625000000000006,
+        "synthetic": true,
+        "native_rupture_law": null
+      },
+      "costs": {
+        "blood_wall_s": 0.5459301660303026,
+        "late_wall_s": 1.585145811084658,
+        "full_wall_s": 3.712935841176659,
+        "CPU_s": 3.672606391,
+        "max_RSS_KiB": 80780,
+        "acquisition_wall_s": null,
+        "setup_import_included_in_full_wall": false
+      },
+      "strength90_pct": 45.245255443602275,
+      "C90": 0.6401697135517554,
+      "UIM90": [
+        0.002000313165285609,
+        0.03489932780510643,
+        0.6032700725813636
+      ]
+    },
+    {
+      "case": "all_R3",
+      "score": {
+        "RMSE_pp": 21.811181366256044,
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 0.06335767540812079,
+            "error_pp": -3.5292685378451436,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 0.9794018867423379,
+            "error_pp": -6.968600724998625,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 4.455795513615161,
+            "error_pp": -15.120879798022084,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 12.292704467159606,
+            "error_pp": -28.023383202439323,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 12.292704467159606,
+            "error_pp": -26.591391017453564,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 33.875515772389605,
+            "error_pp": -36.456189036044435,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 55.919860192620845,
+            "error_pp": -18.173524119741572,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 69.87829187971062,
+            "error_pp": -3.817853245005935,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 69.87829187971062,
+            "error_pp": -10.733743445818234,
+            "independent_day": true
+          }
+        ]
+      },
+      "chemical_score": {
+        "RMSE_pp": 44.34045698668247,
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 0.0,
+            "error_pp": -3.5926262132532645,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 1.1036608389636433,
+            "error_pp": -6.8443417727773195,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 5.191207312951966,
+            "error_pp": -14.385467998685279,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 10.409951743652368,
+            "error_pp": -29.90613592594656,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 10.409951743652368,
+            "error_pp": -28.474143740960802,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 17.04619666971783,
+            "error_pp": -53.28550813871621,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 20.231704072997445,
+            "error_pp": -53.86168023936497,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 21.26941748757078,
+            "error_pp": -52.426727637145774,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 21.26941748757078,
+            "error_pp": -59.34261783795807,
+            "independent_day": true
+          }
+        ]
+      },
+      "shared_reference": {
+        "version": "shared_reference_r3",
+        "reference": "Fixed registered reference volume; C and tensor traces normalized by same intact collagen mass",
+        "formation": "k_deposit F h(1-C)",
+        "removal": "0.008 macrophage C; proportional across all marks",
+        "additional_UI_death": 0.0,
+        "unused_legacy_ports": [
+          "birth_scale",
+          "turnover_U_I"
+        ],
+        "max_pointwise_trace_error": 4.6629367034256575e-15,
+        "max_collagen_ledger_error": 5.995204332975845e-15,
+        "max_site_ledger_error": 4.85722573273506e-16,
+        "min_mark_eigenvalue": 0.0,
+        "max_cohort_tensor_error": null,
+        "site_equivalents_per_collagen_reference": 0.10200000000000001,
+        "chemical_maturity_upper_bound": 0.28625000000000006,
+        "synthetic": true,
+        "native_rupture_law": null
+      },
+      "costs": {
+        "blood_wall_s": 1.0635657422244549,
+        "late_wall_s": 1.243290701881051,
+        "full_wall_s": 4.264168870169669,
+        "CPU_s": 4.228849557,
+        "max_RSS_KiB": 80940,
+        "acquisition_wall_s": null,
+        "setup_import_included_in_full_wall": false
+      },
+      "strength90_pct": 69.87829187971062,
+      "C90": 0.9983202811882145,
+      "UIM90": [
+        0.001406417178315066,
+        0.06520330561375787,
+        0.9317105583961416
+      ]
+    },
+    {
+      "case": "half_dt",
+      "score": {
+        "RMSE_pp": 21.814611636456874,
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 0.06315548182333133,
+            "error_pp": -3.529470731429933,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 0.977571885595506,
+            "error_pp": -6.970430726145457,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 4.451821925965535,
+            "error_pp": -15.12485338567171,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 12.287588342562058,
+            "error_pp": -28.02849932703687,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 12.287588342562058,
+            "error_pp": -26.59650714205111,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 33.87084276194588,
+            "error_pp": -36.46086204648816,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 55.9172062864301,
+            "error_pp": -18.176178025932316,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 69.87740082275944,
+            "error_pp": -3.8187443019571106,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 69.87740082275944,
+            "error_pp": -10.73463450276941,
+            "independent_day": true
+          }
+        ]
+      },
+      "chemical_score": {
+        "RMSE_pp": 44.34076344011693,
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 0.0,
+            "error_pp": -3.5926262132532645,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 1.1021820791522428,
+            "error_pp": -6.84582053258872,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 5.189937926191348,
+            "error_pp": -14.386737385445898,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 10.409107758211382,
+            "error_pp": -29.906979911387545,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 10.409107758211382,
+            "error_pp": -28.474987726401785,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 17.045804301903075,
+            "error_pp": -53.285900506530965,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 20.231554682515227,
+            "error_pp": -53.86182962984719,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 21.26935692316384,
+            "error_pp": -52.42678820155271,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 21.26935692316384,
+            "error_pp": -59.34267840236501,
+            "independent_day": true
+          }
+        ]
+      },
+      "shared_reference": {
+        "version": "shared_reference_r3",
+        "reference": "Fixed registered reference volume; C and tensor traces normalized by same intact collagen mass",
+        "formation": "k_deposit F h(1-C)",
+        "removal": "0.008 macrophage C; proportional across all marks",
+        "additional_UI_death": 0.0,
+        "unused_legacy_ports": [
+          "birth_scale",
+          "turnover_U_I"
+        ],
+        "max_pointwise_trace_error": 5.662137425588298e-15,
+        "max_collagen_ledger_error": 8.659739592076221e-15,
+        "max_site_ledger_error": 6.800116025829084e-16,
+        "min_mark_eigenvalue": 0.0,
+        "max_cohort_tensor_error": null,
+        "site_equivalents_per_collagen_reference": 0.10200000000000001,
+        "chemical_maturity_upper_bound": 0.28625000000000006,
+        "synthetic": true,
+        "native_rupture_law": null
+      },
+      "costs": {
+        "blood_wall_s": 0.7150125610642135,
+        "late_wall_s": 3.24681045813486,
+        "full_wall_s": 7.076489150058478,
+        "CPU_s": 7.0362017340000005,
+        "max_RSS_KiB": 81740,
+        "acquisition_wall_s": null,
+        "setup_import_included_in_full_wall": false
+      },
+      "strength90_pct": 69.87740082275944,
+      "C90": 0.9983181333718474,
+      "UIM90": [
+        0.001406753978711975,
+        0.06521270175634288,
+        0.9316986776367926
+      ]
+    },
+    {
+      "case": "half_dx",
+      "score": {
+        "RMSE_pp": 21.810887888121936,
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 0.06337519926978502,
+            "error_pp": -3.5292510139834796,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 0.979527458137858,
+            "error_pp": -6.968475153603104,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 4.456069572948859,
+            "error_pp": -15.120605738688386,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 12.293109326442249,
+            "error_pp": -28.02297834315668,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 12.293109326442249,
+            "error_pp": -26.59098615817092,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 33.87594663441961,
+            "error_pp": -36.45575817401443,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 55.92012320975857,
+            "error_pp": -18.173261102603846,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 69.87838354310067,
+            "error_pp": -3.8177615816158834,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 69.87838354310067,
+            "error_pp": -10.733651782428183,
+            "independent_day": true
+          }
+        ]
+      },
+      "chemical_score": {
+        "RMSE_pp": 44.340408784111446,
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 0.0,
+            "error_pp": -3.5926262132532645,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 1.103740822572895,
+            "error_pp": -6.844261789168067,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 5.1913410914425135,
+            "error_pp": -14.385334220194732,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 10.41009079809009,
+            "error_pp": -29.90599687150884,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 10.41009079809009,
+            "error_pp": -28.47400468652308,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 17.046271297701704,
+            "error_pp": -53.28543351073233,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 20.231730647267025,
+            "error_pp": -53.86165366509539,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 21.269425431509383,
+            "error_pp": -52.42671969320717,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 21.269425431509383,
+            "error_pp": -59.34260989401947,
+            "independent_day": true
+          }
+        ]
+      },
+      "shared_reference": {
+        "version": "shared_reference_r3",
+        "reference": "Fixed registered reference volume; C and tensor traces normalized by same intact collagen mass",
+        "formation": "k_deposit F h(1-C)",
+        "removal": "0.008 macrophage C; proportional across all marks",
+        "additional_UI_death": 0.0,
+        "unused_legacy_ports": [
+          "birth_scale",
+          "turnover_U_I"
+        ],
+        "max_pointwise_trace_error": 4.551914400963142e-15,
+        "max_collagen_ledger_error": 5.995204332975845e-15,
+        "max_site_ledger_error": 4.996003610813204e-16,
+        "min_mark_eigenvalue": 0.0,
+        "max_cohort_tensor_error": null,
+        "site_equivalents_per_collagen_reference": 0.10200000000000001,
+        "chemical_maturity_upper_bound": 0.28625000000000006,
+        "synthetic": true,
+        "native_rupture_law": null
+      },
+      "costs": {
+        "blood_wall_s": 1.0475139080081135,
+        "late_wall_s": 1.613532145973295,
+        "full_wall_s": 4.2610419450793415,
+        "CPU_s": 4.2475805740000006,
+        "max_RSS_KiB": 82172,
+        "acquisition_wall_s": null,
+        "setup_import_included_in_full_wall": false
+      },
+      "strength90_pct": 69.87838354310067,
+      "C90": 0.9983204978129323,
+      "UIM90": [
+        0.0014063638435716334,
+        0.06520235339468526,
+        0.9317117805746755
+      ]
+    },
+    {
+      "case": "noformation",
+      "score": {
+        "RMSE_pp": 60.434534708279024,
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 0.0,
+            "error_pp": -3.5926262132532645,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 0.0,
+            "error_pp": -7.948002611740963,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 0.0,
+            "error_pp": -19.576675311637246,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 0.0,
+            "error_pp": -40.31608766959893,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 0.0,
+            "error_pp": -38.88409548461317,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 0.0,
+            "error_pp": -70.33170480843404,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 0.0,
+            "error_pp": -74.09338431236242,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 0.0,
+            "error_pp": -73.69614512471655,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 0.0,
+            "error_pp": -80.61203532552885,
+            "independent_day": true
+          }
+        ]
+      },
+      "shared_reference": {
+        "version": "shared_reference_r3",
+        "reference": "Fixed registered reference volume; C and tensor traces normalized by same intact collagen mass",
+        "formation": "k_deposit F h(1-C)",
+        "removal": "0.008 macrophage C; proportional across all marks",
+        "additional_UI_death": 0.0,
+        "unused_legacy_ports": [
+          "birth_scale",
+          "turnover_U_I"
+        ],
+        "max_pointwise_trace_error": 0.0,
+        "max_collagen_ledger_error": 0.0,
+        "max_site_ledger_error": 0.0,
+        "min_mark_eigenvalue": 0.0,
+        "max_cohort_tensor_error": 0.0,
+        "site_equivalents_per_collagen_reference": 0.10200000000000001,
+        "chemical_maturity_upper_bound": 0.28625000000000006,
+        "synthetic": true,
+        "native_rupture_law": null
+      },
+      "wall_s": 1.150922916131094,
+      "strength90_pct": 0.0,
+      "C90": 0.0
+    },
+    {
+      "case": "noremove",
+      "score": {
+        "RMSE_pp": 21.752679186999494,
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 0.06477164165446772,
+            "error_pp": -3.527854571598797,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 0.9999914885253351,
+            "error_pp": -6.948011123215627,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 4.511411999305503,
+            "error_pp": -15.065263312331743,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 12.375824474837037,
+            "error_pp": -27.94026319476189,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 12.375824474837037,
+            "error_pp": -26.50827100977613,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 33.96047226170488,
+            "error_pp": -36.37123254672916,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 55.96958059638622,
+            "error_pp": -18.123803715976194,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 69.89536519724464,
+            "error_pp": -3.8007799274719076,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 69.89536519724464,
+            "error_pp": -10.716670128284207,
+            "independent_day": true
+          }
+        ]
+      },
+      "shared_reference": {
+        "version": "shared_reference_r3",
+        "reference": "Fixed registered reference volume; C and tensor traces normalized by same intact collagen mass",
+        "formation": "k_deposit F h(1-C)",
+        "removal": "0.008 macrophage C; proportional across all marks",
+        "additional_UI_death": 0.0,
+        "unused_legacy_ports": [
+          "birth_scale",
+          "turnover_U_I"
+        ],
+        "max_pointwise_trace_error": 3.552713678800501e-15,
+        "max_collagen_ledger_error": 3.552713678800501e-15,
+        "max_site_ledger_error": 4.718447854656915e-16,
+        "min_mark_eigenvalue": 0.0,
+        "max_cohort_tensor_error": 0.0,
+        "site_equivalents_per_collagen_reference": 0.10200000000000001,
+        "chemical_maturity_upper_bound": 0.28625000000000006,
+        "synthetic": true,
+        "native_rupture_law": null
+      },
+      "wall_s": 1.19163697399199,
+      "strength90_pct": 69.89536519724464,
+      "C90": 0.9983686635112397
+    },
+    {
+      "case": "pathway_block_k1",
+      "score": {
+        "RMSE_pp": 60.434534708279024,
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 0.0,
+            "error_pp": -3.5926262132532645,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 0.0,
+            "error_pp": -7.948002611740963,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 0.0,
+            "error_pp": -19.576675311637246,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 0.0,
+            "error_pp": -40.31608766959893,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 0.0,
+            "error_pp": -38.88409548461317,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 0.0,
+            "error_pp": -70.33170480843404,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 0.0,
+            "error_pp": -74.09338431236242,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 0.0,
+            "error_pp": -73.69614512471655,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 0.0,
+            "error_pp": -80.61203532552885,
+            "independent_day": true
+          }
+        ]
+      },
+      "shared_reference": {
+        "version": "shared_reference_r3",
+        "reference": "Fixed registered reference volume; C and tensor traces normalized by same intact collagen mass",
+        "formation": "k_deposit F h(1-C)",
+        "removal": "0.008 macrophage C; proportional across all marks",
+        "additional_UI_death": 0.0,
+        "unused_legacy_ports": [
+          "birth_scale",
+          "turnover_U_I"
+        ],
+        "max_pointwise_trace_error": 0.0,
+        "max_collagen_ledger_error": 7.105427357601002e-15,
+        "max_site_ledger_error": 4.85722573273506e-16,
+        "min_mark_eigenvalue": 0.0,
+        "max_cohort_tensor_error": 0.0,
+        "site_equivalents_per_collagen_reference": 0.10200000000000001,
+        "chemical_maturity_upper_bound": 0.28625000000000006,
+        "synthetic": true,
+        "native_rupture_law": null
+      },
+      "wall_s": 1.8283581908326596,
+      "strength90_pct": 0.0,
+      "C90": 0.9983202811882145
+    },
+    {
+      "case": "pathway_block_k2",
+      "score": {
+        "RMSE_pp": 60.434534708279024,
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 0.0,
+            "error_pp": -3.5926262132532645,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 0.0,
+            "error_pp": -7.948002611740963,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 0.0,
+            "error_pp": -19.576675311637246,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 0.0,
+            "error_pp": -40.31608766959893,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 0.0,
+            "error_pp": -38.88409548461317,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 0.0,
+            "error_pp": -70.33170480843404,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 0.0,
+            "error_pp": -74.09338431236242,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 0.0,
+            "error_pp": -73.69614512471655,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 0.0,
+            "error_pp": -80.61203532552885,
+            "independent_day": true
+          }
+        ]
+      },
+      "shared_reference": {
+        "version": "shared_reference_r3",
+        "reference": "Fixed registered reference volume; C and tensor traces normalized by same intact collagen mass",
+        "formation": "k_deposit F h(1-C)",
+        "removal": "0.008 macrophage C; proportional across all marks",
+        "additional_UI_death": 0.0,
+        "unused_legacy_ports": [
+          "birth_scale",
+          "turnover_U_I"
+        ],
+        "max_pointwise_trace_error": 3.885780586188048e-15,
+        "max_collagen_ledger_error": 6.217248937900877e-15,
+        "max_site_ledger_error": 4.85722573273506e-16,
+        "min_mark_eigenvalue": 0.0,
+        "max_cohort_tensor_error": 0.0,
+        "site_equivalents_per_collagen_reference": 0.10200000000000001,
+        "chemical_maturity_upper_bound": 0.28625000000000006,
+        "synthetic": true,
+        "native_rupture_law": null
+      },
+      "wall_s": 2.2671139650046825,
+      "strength90_pct": 0.0,
+      "C90": 0.9983202811882145
+    },
+    {
+      "case": "cohort_control",
+      "score": {
+        "RMSE_pp": 21.811181366256044,
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 0.06335767540812079,
+            "error_pp": -3.5292685378451436,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 0.9794018867423379,
+            "error_pp": -6.968600724998625,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 4.455795513615161,
+            "error_pp": -15.120879798022084,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 12.292704467159606,
+            "error_pp": -28.023383202439323,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 12.292704467159606,
+            "error_pp": -26.591391017453564,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 33.875515772389605,
+            "error_pp": -36.456189036044435,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 55.919860192620845,
+            "error_pp": -18.173524119741572,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 69.87829187971062,
+            "error_pp": -3.817853245005935,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 69.87829187971062,
+            "error_pp": -10.733743445818234,
+            "independent_day": true
+          }
+        ]
+      },
+      "shared_reference": {
+        "version": "shared_reference_r3",
+        "reference": "Fixed registered reference volume; C and tensor traces normalized by same intact collagen mass",
+        "formation": "k_deposit F h(1-C)",
+        "removal": "0.008 macrophage C; proportional across all marks",
+        "additional_UI_death": 0.0,
+        "unused_legacy_ports": [
+          "birth_scale",
+          "turnover_U_I"
+        ],
+        "max_pointwise_trace_error": 4.6629367034256575e-15,
+        "max_collagen_ledger_error": 5.995204332975845e-15,
+        "max_site_ledger_error": 4.85722573273506e-16,
+        "min_mark_eigenvalue": 0.0,
+        "max_cohort_tensor_error": 0.0,
+        "site_equivalents_per_collagen_reference": 0.10200000000000001,
+        "chemical_maturity_upper_bound": 0.28625000000000006,
+        "synthetic": true,
+        "native_rupture_law": null
+      },
+      "wall_s": 2.174218202009797,
+      "strength90_pct": 69.87829187971062,
+      "C90": 0.9983202811882145
+    }
+  ],
+  "reference_score": {
+    "RMSE_pp": 8.306367094671637,
+    "rows": [
+      {
+        "day": 7,
+        "target_pct": 3.5926262132532645,
+        "prediction_pct": 5.144932980893085,
+        "error_pp": 1.5523067676398203,
+        "independent_day": false
+      },
+      {
+        "day": 14,
+        "target_pct": 7.948002611740963,
+        "prediction_pct": 17.904857561429157,
+        "error_pp": 9.956854949688195,
+        "independent_day": true
+      },
+      {
+        "day": 21,
+        "target_pct": 19.576675311637246,
+        "prediction_pct": 37.87053834909181,
+        "error_pp": 18.293863037454564,
+        "independent_day": false
+      },
+      {
+        "day": 28,
+        "target_pct": 40.31608766959893,
+        "prediction_pct": 52.66056975065141,
+        "error_pp": 12.344482081052483,
+        "independent_day": true
+      },
+      {
+        "day": 28,
+        "target_pct": 38.88409548461317,
+        "prediction_pct": 52.66056975065141,
+        "error_pp": 13.776474266038242,
+        "independent_day": true
+      },
+      {
+        "day": 42,
+        "target_pct": 70.33170480843404,
+        "prediction_pct": 73.0198605629607,
+        "error_pp": 2.6881557545266617,
+        "independent_day": true
+      },
+      {
+        "day": 61,
+        "target_pct": 74.09338431236242,
+        "prediction_pct": 73.75379910456388,
+        "error_pp": -0.3395852077985353,
+        "independent_day": true
+      },
+      {
+        "day": 90,
+        "target_pct": 73.69614512471655,
+        "prediction_pct": 74.8740210891161,
+        "error_pp": 1.1778759643995471,
+        "independent_day": true
+      },
+      {
+        "day": 90,
+        "target_pct": 80.61203532552885,
+        "prediction_pct": 74.8740210891161,
+        "error_pp": -5.738014236412752,
+        "independent_day": true
+      }
+    ]
+  },
+  "external_HP_with_new_C_diagnostic": {
+    "RMSE_pp": 8.402970216319796,
+    "rows": [
+      {
+        "day": 7,
+        "target_pct": 3.5926262132532645,
+        "prediction_pct": 5.144932980893085,
+        "error_pp": 1.5523067676398203,
+        "independent_day": false
+      },
+      {
+        "day": 14,
+        "target_pct": 7.948002611740963,
+        "prediction_pct": 17.904857561429157,
+        "error_pp": 9.956854949688195,
+        "independent_day": true
+      },
+      {
+        "day": 21,
+        "target_pct": 19.576675311637246,
+        "prediction_pct": 37.87053834909181,
+        "error_pp": 18.293863037454564,
+        "independent_day": false
+      },
+      {
+        "day": 28,
+        "target_pct": 40.31608766959893,
+        "prediction_pct": 52.66056975065141,
+        "error_pp": 12.344482081052483,
+        "independent_day": true
+      },
+      {
+        "day": 28,
+        "target_pct": 38.88409548461317,
+        "prediction_pct": 52.66056975065141,
+        "error_pp": 13.776474266038242,
+        "independent_day": true
+      },
+      {
+        "day": 42,
+        "target_pct": 70.33170480843404,
+        "prediction_pct": 74.58611981381684,
+        "error_pp": 4.254415005382796,
+        "independent_day": true
+      },
+      {
+        "day": 61,
+        "target_pct": 74.09338431236242,
+        "prediction_pct": 74.8286879573424,
+        "error_pp": 0.7353036449799788,
+        "independent_day": true
+      },
+      {
+        "day": 90,
+        "target_pct": 73.69614512471655,
+        "prediction_pct": 74.87402108911608,
+        "error_pp": 1.177875964399533,
+        "independent_day": true
+      },
+      {
+        "day": 90,
+        "target_pct": 80.61203532552885,
+        "prediction_pct": 74.87402108911608,
+        "error_pp": -5.738014236412766,
+        "independent_day": true
+      }
+    ]
+  },
+  "external_HP_fed_into_candidate": false,
+  "late_strength_fit": false,
+  "refinement_max_strength_pp": {
+    "half_dt": 0.005263729860249811,
+    "half_dx": 0.00045296097820468617
+  },
+  "restart": {
+    "max_strength_error_pp": 6.750155989720952e-14,
+    "max_tensor_error": 9.43689570931383e-16,
+    "wall_s": 1.527942764107138,
+    "prefix_replayed": false,
+    "global_suffix_recomputed": true
+  },
+  "engineering_gate": "PASS",
+  "autonomous_component_reproduction_gate": "FAIL",
+  "strongest_control_gate": "TIE",
+  "empirical_joint_gate": "UNKNOWN",
+  "total_wall_s": 29.62414681399241,
+  "total_CPU_s": 29.487406358999998,
+  "max_RSS_KiB": 82972
+}

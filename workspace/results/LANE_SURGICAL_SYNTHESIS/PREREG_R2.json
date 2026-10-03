@@ -1,0 +1,70 @@
+{
+  "round": 2,
+  "lane": "LANE_SURGICAL_SYNTHESIS",
+  "frozen_utc": "2026-10-01T02:14:36.075401+00:00",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "scope": "Coordinator steer: diagnosis and quantitative acquisition planning only; no new biology or fitted strength parameters",
+  "operation": "Exact factor-port substitution and factorial attribution, upstream substitutions, nonlinear synthetic uncertainty propagation and noisy-measurement conditional linear prediction error",
+  "attribution": {
+    "target": "Preserved nine Levenson rows; RMSE on independent_day rows only, including replicate rows",
+    "baseline": "r1/nominal_complete_v4/fields.npz",
+    "factorization": "S=75 A m for isotropic bridge=1; A=U+I+M; m=M/A; no division at zero",
+    "reference": "sources/LANE_SURGICAL_RESPONSE/r3/crosslink_port/native.npz; A=C_R3; m=(HP-.003)/.040",
+    "cases": [
+      "A only",
+      "m only",
+      "both A and m",
+      "current FV C only",
+      "DHA-derived normalized HP only",
+      "gap R3 only",
+      "biological width R3 only",
+      "perfusion width R3 only",
+      "face conductance R3 only",
+      "k_deposit R3 only",
+      "k_mature_legacy R3 only",
+      "early state and hazard R3 only",
+      "all R3 upstream ports",
+      "bridge and angle reference identity"
+    ],
+    "interaction": "Full 2x2 factor table; two-factor Shapley RMSE reduction, explicitly descriptive and order dependent otherwise",
+    "audit": "R3 C inherits k_deposit fitted to early strength target; report lineage, not pure forward comparator",
+    "falsifiers": [
+      "both factors fails to reproduce 8.306367 within1e-8pp",
+      "factorization residual>1e-10pp",
+      "claiming common chemistry although chemistry branch has no strength consumer"
+    ]
+  },
+  "uncertainty": {
+    "samples": 256,
+    "design": "Scrambled Sobol seed6122; bounded synthetic planning prior, shared width donor driver; independent other drivers an explicit assumption, never an empirical posterior",
+    "outputs": [
+      "strength28 proxy pp",
+      "strength90 proxy pp",
+      "min(hemostasis,120) min",
+      "closure indicator by120",
+      "Q036 injury proxy width at120min um",
+      "hypoxia proxy width at120min um"
+    ],
+    "native_outputs": {
+      "native_strength": null,
+      "unrestricted_hemostasis_mean": null,
+      "edge_necrosis": null
+    },
+    "measurement_packages": "Every row1..6 of MEASUREMENT_SPEC_R1.md; sub-observations separately and bundled",
+    "method": "Cyy-Cyz(Czz+R)^-1Czy: expected MSE of optimal linear predictor using joint nonlinear ensemble moments; Gaussian-planning approximation to posterior variance, not measured credible interval",
+    "noise": "Prospective instrument budgets frozen in MEASUREMENT_DESIGN_R2.json before ensemble; covariance and common calibration error explicit",
+    "cost": "Assumed normalized workload units, ranges0.5x..2x; actual labmoney/time null; rank equal-weight mean variance contraction per cost on strength28/90,cappedhemostasis,injuryproxy; report censor and hypoxia separately",
+    "missing_channels": "Native necrosis and uncalibrated chemistry/traction map stay null. Chemistry-only and Gamma-only have exactly zero implemented causal gain, no spurious sample correlation. Package5 is synthetic-observer planning upper information scenario, requiring assay map, never native identification",
+    "robustness": [
+      "128 vs256 sample moment estimates",
+      "noise0.5x and2x",
+      "cost0.5x and2x",
+      "added unresolved observation-law variance floor20pp strength,50um injury; sensitivity not empirical bounds"
+    ],
+    "numerical_check": "Four preregistered ensemble samples rerun with half early/late time step; strength<=1pp,injury width<=25um,cappedclosuretime<=1min else disclose failure and refine before ranking"
+  },
+  "control": "Same equally informed conventional FV/cohort model and optimal linear experimental design with all data, ports and costs: TIE; no costgain claim",
+  "resources": "Threads2; chunks32 or64; no subagents; results lane only, bulky fields on /mnt/games-240/research/bodytwin_solnight/LANE_SURGICAL_SYNTHESIS/",
+  "preservation": "exclusive new filenames and directories; r1 immutable except new RESULTS section and WORK_STATUS/NEXT_ROUND handoff"
+}

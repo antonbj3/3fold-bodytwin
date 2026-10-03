@@ -1,0 +1,21 @@
+{
+  "round": 2,
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "frozen_utc": "2026-10-01T02:38:52.050663+00:00",
+  "trigger": "Linear estimator train128/test128 hypoxia MSE worsens68% forM2 and32%forM1; all failures retained",
+  "operation": "Goal-specific positive kernel conditional mean with noisy-port cross-validation, tested on64 new untouched scenarios",
+  "physics": "Exactly unchanged R1 chain; only noisy observations to output-estimate operation changes, no biological law added",
+  "training": "Existing256 scenario outputs. Whiten measurement byCzz+R; positive Gaussian kernel; leave-one-out under8 noisy observations pertrainingrow",
+  "hyperparameters": "Bandwidth .25,.5,1,2,4; choose least mean normalized MSE on strength28/90,injury,hypoxia usingtrainingonly",
+  "validation": "64 new Sobol scenarios seed6124, same ranges/sharedwidth prior, not existingtest128. Independent prospective measurement noise32 draws/sample withseed6125; save allraw fields and residuals",
+  "controls": [
+    "same-training optimal linear estimator",
+    "noinformationprior mean",
+    "same-information conventional kernel regression (TIE)"
+  ],
+  "outputs": "All six R2 proxies; native outcomes remainnull. Quantify test expected MSE, not biologicalposterior CI",
+  "success": "M2 andM1 hypoxia MSE <= noinformationmean, no more than10% mean normalizedMSE degradation onstrength28/90/injury; disclose allfailures",
+  "value_per_cost": "Same declared workloadunits asfrozenR2design; no new inferred labcost",
+  "preservation": "New filesNONLINEAR_INFORMATION_*; old MEASUREMENT_VALUE and128testfailures immutable"
+}

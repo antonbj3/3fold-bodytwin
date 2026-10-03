@@ -1,0 +1,1354 @@
+{
+  "schema": "bodytwin-surgical-bindings-ports-v4-final",
+  "round": 4,
+  "lane": "LANE_SURGICAL_BINDINGS",
+  "generated_utc": "2026-09-30T23:58:49.412227+00:00",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "consumer": "LANE_SURGICAL_INCISION",
+  "target_id": "BT-CTX-SURG-COLLAGEN",
+  "scope": "Final data/geometry handoff. Earlier reference and synthetic histories retained. Native layer cutting, dermal interface law, transition radius and thermal mechanical change remain unknown.",
+  "default_choice": "UNKNOWN/null for empirical cut/radius/thermal-change inputs. Public porcine full-skin tear values only as labelled reference surrogate. 150..380J/m2 requires explicit scenario selection.",
+  "unknown_policy": "null is unknown; never replace by zero, copy dermis parameters into another layer, or claim one-step kinetics from Tm.",
+  "layers": [
+    {
+      "layer": "epidermis",
+      "G_c_J_m2": null,
+      "failure_strain": null,
+      "anisotropy_ratio": null,
+      "cell_damage_threshold": {
+        "areal_strain": null,
+        "pressure_Pa": null,
+        "temperature_time": null,
+        "status": "UNKNOWN",
+        "required": "cell type, loading time, membrane/ECM strain transfer and viability assay"
+      },
+      "denaturation_kinetics": {
+        "A_s_inverse": null,
+        "Ea_J_mol": null,
+        "ln_A_s_inverse": null,
+        "status": "UNKNOWN",
+        "reason": "No verified layer-specific kinetic pair in this round"
+      },
+      "uncertainty": {
+        "G_c_J_m2": null,
+        "failure_strain": null,
+        "anisotropy_ratio": null
+      },
+      "sources": [],
+      "status": "UNKNOWN",
+      "empirically_jointly_calibrated": false,
+      "Gamma_cut_J_m2": null,
+      "Gamma_tear_J_m2": null,
+      "tear_cut_ratio": null,
+      "transition_length_m": null,
+      "transition_edge_radius_m": null,
+      "microstructure_to_fracture_status": "UNKNOWN",
+      "uncertainty_R2": {
+        "Gamma_cut_J_m2": null,
+        "Gamma_tear_J_m2": null,
+        "transition_edge_radius_m": null,
+        "reason": "No jointly matched layer-specific length/friction/severance/contact data; null means unknown."
+      },
+      "Gamma_cut_uncertainty_R4": {
+        "interval_J_m2": null,
+        "status": "UNKNOWN",
+        "reason": "No verified sharp-cut energy for this native layer/cohort; no borrowing across layers."
+      },
+      "transition_radius_uncertainty_R4": {
+        "interval_m": null,
+        "status": "UNKNOWN",
+        "requires": "Matched sharpness/wedge/contact/local-opening measurement and frozen transition definition"
+      },
+      "thermal_change_R4": {
+        "Gamma_cut_factor": null,
+        "Gamma_tear_factor": null,
+        "transition_radius_factor": null,
+        "status": "UNKNOWN",
+        "requires": "Matched temperature-time and full mechanical work curves; no scalar native-fraction multiplication as calibrated biology"
+      }
+    },
+    {
+      "layer": "dermis",
+      "G_c_J_m2": 30380.0,
+      "failure_strain": 0.54,
+      "anisotropy_ratio": 1.2953846153846154,
+      "cell_damage_threshold": {
+        "areal_strain": null,
+        "pressure_Pa": null,
+        "temperature_time": null,
+        "status": "UNKNOWN",
+        "required": "cell type, loading time, membrane/ECM strain transfer and viability assay"
+      },
+      "denaturation_kinetics": {
+        "A_s_inverse": null,
+        "Ea_J_mol": null,
+        "ln_A_s_inverse": null,
+        "status": "UNKNOWN",
+        "reason": "No verified layer-specific kinetic pair in this round"
+      },
+      "uncertainty": {
+        "G_c_J_m2": {
+          "reported_SD": 4900.0,
+          "mean_plus_minus_SD": [
+            25480.0,
+            35280.0
+          ],
+          "kind": "reported dispersion, not CI"
+        },
+        "failure_strain": {
+          "reported_SD": 0.17,
+          "mean_plus_minus_SD": [
+            0.37,
+            0.71
+          ],
+          "kind": "reported dispersion, not CI"
+        },
+        "anisotropy_ratio": {
+          "bound": null,
+          "reason": "No joint ratio uncertainty calculated; source group means and SDs retained"
+        }
+      },
+      "sources": [
+        "PISSARENKO_2020",
+        "NI_ANNAIDH_2012"
+      ],
+      "status": "PUBLIC_REFERENCE_SURROGATE_ONLY",
+      "empirically_jointly_calibrated": false,
+      "G_c_scope": "Juvenile porcine full skin, Mode I crack opening. Proxy for dermis; not measured human dermis/scalpel toughness.",
+      "failure_strain_scope": "Engineering strain at tensile failure of excised human back skin, 56 specimens, .012/s; not a cell rupture threshold.",
+      "anisotropy_scope": "Mode I transverse/longitudinal tear-energy ratio in porcine full skin. Not an elastic-modulus ratio or guaranteed cut-angle law.",
+      "mode_specific_observations": {
+        "III": {
+          "mean_J_m2": 20600.0,
+          "reported_SD_J_m2": 2150.0,
+          "longitudinal_J_m2": 20770.0,
+          "transverse_J_m2": 20420.0
+        },
+        "I": {
+          "mean_J_m2": 30380.0,
+          "reported_SD_J_m2": 4900.0,
+          "longitudinal_J_m2": 26000.0,
+          "longitudinal_SD_J_m2": 4410.0,
+          "transverse_J_m2": 33680.0,
+          "transverse_SD_J_m2": 1130.0
+        }
+      },
+      "joint_warning": "G, failure strain and anisotropy come from different species/cohorts/modes; no measured common parameter posterior. Independent scalar defaults do not establish crossprediction.",
+      "peak_cohesive_traction_Pa": null,
+      "observed_process_zone_m": null,
+      "tensile_UTS_reference_Pa": 21600000.0,
+      "tensile_UTS_warning": "Human uniaxial UTS is not measured porcine crack-plane cohesive traction.",
+      "elasticity_reference": {
+        "human_back_initial_slope_Pa": 1180000.0,
+        "initial_slope_SD_Pa": 880000.0,
+        "human_back_linear_tangent_modulus_Pa": 83300000.0,
+        "linear_tangent_SD_Pa": 34900000.0,
+        "source": "NI_ANNAIDH_2012",
+        "small_strain_indentation_not_interchangeable": true
+      },
+      "Gamma_cut_J_m2": null,
+      "Gamma_tear_J_m2": 30380.0,
+      "tear_cut_ratio": null,
+      "transition_length_m": null,
+      "transition_edge_radius_m": null,
+      "microstructure_to_fracture_status": "UNKNOWN",
+      "uncertainty_R2": {
+        "Gamma_cut_J_m2": null,
+        "Gamma_tear_J_m2": {
+          "reported_SD_J_m2": 4900,
+          "kind": "Porcine full-skin ModeI reference, not measured human dermis or same-cohort cut/radius"
+        },
+        "transition_edge_radius_m": null,
+        "reason": "No jointly matched layer-specific length/friction/severance/contact data; null means unknown."
+      },
+      "Gamma_tear_scope": "Juvenile porcine full skin, Mode I crack opening. Proxy for dermis; not measured human dermis/scalpel toughness.",
+      "microstructure_references": {
+        "fibril_diameter_mean_m": 8.2e-08,
+        "fibril_diameter_SD_m": 1.436e-08,
+        "source": "PISSARENKO_2020_CONSTITUTIVE",
+        "effective_embedment_length_m": null,
+        "friction_Pa": null,
+        "intrinsic_collagen_severance_work_J_m2": null,
+        "crosslink_density_sources": [
+          "SELL_2005",
+          "NIELSEN_2016"
+        ],
+        "not_common_species_or_cohort": true
+      },
+      "conditional_synthetic_ports": {
+        "profile": "A",
+        "source": "PREREG_R2.json / SPECTRUM_RESULTS_R2.json",
+        "native_fraction": 1.0,
+        "Gamma_cut_J_m2": 150.0,
+        "Gamma_pullout_J_m2": 7800.000000000001,
+        "Gamma_tear_J_m2": 7950.000000000001,
+        "tear_cut_ratio": 53.00000000000001,
+        "peak_traction_Pa": 3600000.0,
+        "recruitment_work_J_m2": 90.0,
+        "cohesive_branch_work_J_m2": 7890.000000000001,
+        "transition_edge_radius_m": 5.75e-05,
+        "transition_definition": "50% recovered pullout-energy threshold across toy tensile/bending branch switch; not measured cutting/ripping transition",
+        "intrinsic_severance_J_m2": 500,
+        "uncertainty_kind": "Assumed parameter sensitivity, not empirical CI",
+        "cut_sensitivity": [
+          {
+            "intrinsic_fiber_J_m2": 50,
+            "Gamma_cut_J_m2": 15.0,
+            "Gamma_tear_J_m2": 7815.000000000001,
+            "tear_cut_ratio": 521.0000000000001
+          },
+          {
+            "intrinsic_fiber_J_m2": 500,
+            "Gamma_cut_J_m2": 150.0,
+            "Gamma_tear_J_m2": 7950.000000000001,
+            "tear_cut_ratio": 53.00000000000001
+          },
+          {
+            "intrinsic_fiber_J_m2": 5000,
+            "Gamma_cut_J_m2": 1500.0,
+            "Gamma_tear_J_m2": 9300.0,
+            "tear_cut_ratio": 6.2
+          }
+        ],
+        "radius_sensitivity": "SPECTRUM_RESULTS_R2.json radius_sensitivity;lambda0 means no bending-triggered transition",
+        "toughness_contract": "Gamma_tear=Gamma_cut+Gamma_pullout is an already-recruited idealization. Finite recruitment adds90J/m2 to this scenario full opening work; do not double count.",
+        "assumptions": "Parallel independent fibers, sharp knife severs without extra matrix/friction; denatured fibers carry zero remaining load; all model microparameters synthetic."
+      },
+      "sources_R2": [
+        "YANG_2015",
+        "PISSARENKO_2020_CONSTITUTIVE",
+        "PISSARENKO_2020_TEAR",
+        "SELL_2005",
+        "NIELSEN_2016"
+      ],
+      "h_pz_m": null,
+      "process_zone_status": "UNKNOWN; microscopic-cell/partial-loop construction FAIL",
+      "Gamma_tear_mode_I_J_m2": 30380.0,
+      "Gamma_tear_mode_III_J_m2": 20600.0,
+      "mode_port_scope_R3": "Published juvenile porcine full-skin reference observations, not model predictions or human dermis values.",
+      "conditional_R3_cell_volume": {
+        "h_m": 1.4700978102718317e-05,
+        "Gamma_cut_J_m2": 150.0,
+        "Gamma_tear_mode_I_J_m2": 156.77632974408735,
+        "Gamma_tear_mode_III_J_m2": 156.77632974408735,
+        "transition_edge_radius_m": null,
+        "status": "FAILED_UNVALIDATED_CLOSURE; cut baseline synthetic"
+      },
+      "sources_R3": [
+        "PISSARENKO_2019_TENSILE",
+        "PISSARENKO_2020_CONSTITUTIVE",
+        "PISSARENKO_2020_TEAR",
+        "YANG_2015"
+      ],
+      "Gamma_cut_uncertainty_R4": {
+        "interval_J_m2": null,
+        "status": "UNKNOWN",
+        "reason": "No verified sharp-cut energy for this native layer/cohort; no borrowing across layers."
+      },
+      "transition_radius_uncertainty_R4": {
+        "interval_m": null,
+        "status": "UNKNOWN",
+        "requires": "Matched sharpness/wedge/contact/local-opening measurement and frozen transition definition"
+      },
+      "thermal_change_R4": {
+        "Gamma_cut_factor": null,
+        "Gamma_tear_factor": null,
+        "transition_radius_factor": null,
+        "status": "UNKNOWN",
+        "requires": "Matched temperature-time and full mechanical work curves; no scalar native-fraction multiplication as calibrated biology"
+      },
+      "explicit_scenario_cut_port_R4": {
+        "nominal_cleavage_J_m2": 150,
+        "contact_opening_scenario_band_J_m2": [
+          150,
+          380
+        ],
+        "uncertainty_kind": "Chosen synthetic scenario envelope; not measurement dispersion or CI",
+        "sources": [
+          "SPECTRUM_RESULTS_R2.json",
+          "DIMENSIONED_CONNECTIVITY_RESULTS_R3.json"
+        ],
+        "exact_R3_same_radius_values_J_m2": [
+          150,
+          379.27501220295295
+        ],
+        "origin": "150=phi0.3 * synthetic gf500 severance in R2; R1 same number was a different short-fibril sliding ceiling. R3 extra work comes from chosen wedge boundary drive.",
+        "requires_explicit_selection": true,
+        "native_layer_transfer": false,
+        "intrinsic_work_warning": "380 includes chosen process/contact-driven opening; it is not a revised intrinsic severance value."
+      },
+      "best_tear_explanation_R4": {
+        "mechanism": "Recruitment, reorientation and long fiber bridging/pullout with terminal interface/fiber failure; qualitatively supported in skin, quantitative evidence only in pericardial analogue. Native skin work/active-area law unknown.",
+        "status": "QUALITATIVE_SUPPORTED_QUANTITATIVE_UNKNOWN",
+        "predicted_G_I_J_m2": null,
+        "predicted_G_III_J_m2": null,
+        "sources": [
+          "PISSARENKO_2020_TEAR",
+          "YANG_2015",
+          "TANG_2025_BRIDGING"
+        ],
+        "known_measured_surrogate_I_III_J_m2": [
+          30380,
+          20600
+        ],
+        "native_gamma_interface_J_m2": null,
+        "active_interface_area_per_crack_area": null,
+        "full_fracture_bulk_work_J_m2": null,
+        "fiber_rupture_work_J_m2": null,
+        "hypothesis_gate": "UNKNOWN",
+        "one_equal_area_interface_analogue_gate": "FAIL",
+        "do_not_infer": "No repeated dermal lamellar count from thickness/fiber diameter; no biological rejection from borrowed energy or assumed V/A."
+      }
+    },
+    {
+      "layer": "subcutis",
+      "G_c_J_m2": 4100.0,
+      "failure_strain": null,
+      "anisotropy_ratio": null,
+      "cell_damage_threshold": {
+        "areal_strain": null,
+        "pressure_Pa": null,
+        "temperature_time": null,
+        "status": "UNKNOWN",
+        "required": "cell type, loading time, membrane/ECM strain transfer and viability assay"
+      },
+      "denaturation_kinetics": {
+        "A_s_inverse": null,
+        "Ea_J_mol": null,
+        "ln_A_s_inverse": null,
+        "status": "UNKNOWN",
+        "reason": "No verified layer-specific kinetic pair in this round"
+      },
+      "uncertainty": {
+        "G_c_J_m2": {
+          "reported_SD": null,
+          "reason": "abstract gives mean only"
+        },
+        "failure_strain": null,
+        "anisotropy_ratio": null
+      },
+      "sources": [
+        "COMLEY_FLECK_2010"
+      ],
+      "status": "PUBLIC_REFERENCE_SURROGATE_ONLY",
+      "empirically_jointly_calibrated": false,
+      "G_c_scope": "Porcine adipose trouser tear, not human fat hydraulic interface fracture",
+      "Gamma_cut_J_m2": null,
+      "Gamma_tear_J_m2": null,
+      "tear_cut_ratio": null,
+      "transition_length_m": null,
+      "transition_edge_radius_m": null,
+      "microstructure_to_fracture_status": "UNKNOWN",
+      "uncertainty_R2": {
+        "Gamma_cut_J_m2": null,
+        "Gamma_tear_J_m2": null,
+        "transition_edge_radius_m": null,
+        "reason": "No jointly matched layer-specific length/friction/severance/contact data; null means unknown."
+      },
+      "Gamma_cut_uncertainty_R4": {
+        "interval_J_m2": null,
+        "status": "UNKNOWN",
+        "reason": "No verified sharp-cut energy for this native layer/cohort; no borrowing across layers."
+      },
+      "transition_radius_uncertainty_R4": {
+        "interval_m": null,
+        "status": "UNKNOWN",
+        "requires": "Matched sharpness/wedge/contact/local-opening measurement and frozen transition definition"
+      },
+      "thermal_change_R4": {
+        "Gamma_cut_factor": null,
+        "Gamma_tear_factor": null,
+        "transition_radius_factor": null,
+        "status": "UNKNOWN",
+        "requires": "Matched temperature-time and full mechanical work curves; no scalar native-fraction multiplication as calibrated biology"
+      }
+    },
+    {
+      "layer": "fascia",
+      "G_c_J_m2": null,
+      "failure_strain": null,
+      "anisotropy_ratio": null,
+      "cell_damage_threshold": {
+        "areal_strain": null,
+        "pressure_Pa": null,
+        "temperature_time": null,
+        "status": "UNKNOWN",
+        "required": "cell type, loading time, membrane/ECM strain transfer and viability assay"
+      },
+      "denaturation_kinetics": {
+        "A_s_inverse": null,
+        "Ea_J_mol": null,
+        "ln_A_s_inverse": null,
+        "status": "UNKNOWN",
+        "reason": "No verified layer-specific kinetic pair in this round"
+      },
+      "uncertainty": {
+        "G_c_J_m2": null,
+        "failure_strain": null,
+        "anisotropy_ratio": null
+      },
+      "sources": [],
+      "status": "UNKNOWN",
+      "empirically_jointly_calibrated": false,
+      "Gamma_cut_J_m2": null,
+      "Gamma_tear_J_m2": null,
+      "tear_cut_ratio": null,
+      "transition_length_m": null,
+      "transition_edge_radius_m": null,
+      "microstructure_to_fracture_status": "UNKNOWN",
+      "uncertainty_R2": {
+        "Gamma_cut_J_m2": null,
+        "Gamma_tear_J_m2": null,
+        "transition_edge_radius_m": null,
+        "reason": "No jointly matched layer-specific length/friction/severance/contact data; null means unknown."
+      },
+      "microstructure_references": {
+        "bundle_width_m": [
+          2e-06,
+          1e-05
+        ],
+        "estimated_fibril_diameter_m": 3e-08,
+        "source": "FASCIA_RIVARD_2011",
+        "scope": "mouse skeletal-muscle fascia; microscopy morphology only",
+        "effective_embedment_length_m": null,
+        "friction_Pa": null,
+        "crosslink_density": null
+      },
+      "sources_R2": [
+        "FASCIA_RIVARD_2011"
+      ],
+      "Gamma_cut_uncertainty_R4": {
+        "interval_J_m2": null,
+        "status": "UNKNOWN",
+        "reason": "No verified sharp-cut energy for this native layer/cohort; no borrowing across layers."
+      },
+      "transition_radius_uncertainty_R4": {
+        "interval_m": null,
+        "status": "UNKNOWN",
+        "requires": "Matched sharpness/wedge/contact/local-opening measurement and frozen transition definition"
+      },
+      "thermal_change_R4": {
+        "Gamma_cut_factor": null,
+        "Gamma_tear_factor": null,
+        "transition_radius_factor": null,
+        "status": "UNKNOWN",
+        "requires": "Matched temperature-time and full mechanical work curves; no scalar native-fraction multiplication as calibrated biology"
+      }
+    },
+    {
+      "layer": "muscle",
+      "G_c_J_m2": null,
+      "failure_strain": null,
+      "anisotropy_ratio": null,
+      "cell_damage_threshold": {
+        "areal_strain": null,
+        "pressure_Pa": null,
+        "temperature_time": null,
+        "status": "UNKNOWN",
+        "required": "cell type, loading time, membrane/ECM strain transfer and viability assay"
+      },
+      "denaturation_kinetics": {
+        "A_s_inverse": null,
+        "Ea_J_mol": null,
+        "ln_A_s_inverse": null,
+        "status": "UNKNOWN",
+        "reason": "No verified layer-specific kinetic pair in this round"
+      },
+      "uncertainty": {
+        "G_c_J_m2": null,
+        "failure_strain": null,
+        "anisotropy_ratio": null
+      },
+      "sources": [],
+      "status": "UNKNOWN",
+      "empirically_jointly_calibrated": false,
+      "Gamma_cut_J_m2": null,
+      "Gamma_tear_J_m2": null,
+      "tear_cut_ratio": null,
+      "transition_length_m": null,
+      "transition_edge_radius_m": null,
+      "microstructure_to_fracture_status": "UNKNOWN",
+      "uncertainty_R2": {
+        "Gamma_cut_J_m2": null,
+        "Gamma_tear_J_m2": null,
+        "transition_edge_radius_m": null,
+        "reason": "No jointly matched layer-specific length/friction/severance/contact data; null means unknown."
+      },
+      "Gamma_cut_uncertainty_R4": {
+        "interval_J_m2": null,
+        "status": "UNKNOWN",
+        "reason": "No verified sharp-cut energy for this native layer/cohort; no borrowing across layers."
+      },
+      "transition_radius_uncertainty_R4": {
+        "interval_m": null,
+        "status": "UNKNOWN",
+        "requires": "Matched sharpness/wedge/contact/local-opening measurement and frozen transition definition"
+      },
+      "thermal_change_R4": {
+        "Gamma_cut_factor": null,
+        "Gamma_tear_factor": null,
+        "transition_radius_factor": null,
+        "status": "UNKNOWN",
+        "requires": "Matched temperature-time and full mechanical work curves; no scalar native-fraction multiplication as calibrated biology"
+      }
+    },
+    {
+      "layer": "vascular_wall",
+      "G_c_J_m2": null,
+      "failure_strain": null,
+      "anisotropy_ratio": null,
+      "cell_damage_threshold": {
+        "areal_strain": null,
+        "pressure_Pa": null,
+        "temperature_time": null,
+        "status": "UNKNOWN",
+        "required": "cell type, loading time, membrane/ECM strain transfer and viability assay"
+      },
+      "denaturation_kinetics": {
+        "A_s_inverse": null,
+        "Ea_J_mol": null,
+        "ln_A_s_inverse": null,
+        "status": "UNKNOWN",
+        "reason": "No verified layer-specific kinetic pair in this round"
+      },
+      "uncertainty": {
+        "G_c_J_m2": null,
+        "failure_strain": null,
+        "anisotropy_ratio": null
+      },
+      "sources": [],
+      "status": "UNKNOWN",
+      "empirically_jointly_calibrated": false,
+      "Gamma_cut_J_m2": null,
+      "Gamma_tear_J_m2": null,
+      "tear_cut_ratio": null,
+      "transition_length_m": null,
+      "transition_edge_radius_m": null,
+      "microstructure_to_fracture_status": "UNKNOWN",
+      "uncertainty_R2": {
+        "Gamma_cut_J_m2": null,
+        "Gamma_tear_J_m2": null,
+        "transition_edge_radius_m": null,
+        "reason": "No jointly matched layer-specific length/friction/severance/contact data; null means unknown."
+      },
+      "microstructure_references": {
+        "fiber_diameter_m": 5e-06,
+        "microfilament_diameter_m": [
+          8e-08,
+          1e-07
+        ],
+        "source": "COPE_ROACH_1975",
+        "scope": "fixed human cerebral artery adventitia autopsy SEM",
+        "effective_embedment_length_m": null,
+        "friction_Pa": null,
+        "crosslink_density": null
+      },
+      "sources_R2": [
+        "COPE_ROACH_1975"
+      ],
+      "Gamma_cut_uncertainty_R4": {
+        "interval_J_m2": null,
+        "status": "UNKNOWN",
+        "reason": "No verified sharp-cut energy for this native layer/cohort; no borrowing across layers."
+      },
+      "transition_radius_uncertainty_R4": {
+        "interval_m": null,
+        "status": "UNKNOWN",
+        "requires": "Matched sharpness/wedge/contact/local-opening measurement and frozen transition definition"
+      },
+      "thermal_change_R4": {
+        "Gamma_cut_factor": null,
+        "Gamma_tear_factor": null,
+        "transition_radius_factor": null,
+        "status": "UNKNOWN",
+        "requires": "Matched temperature-time and full mechanical work curves; no scalar native-fraction multiplication as calibrated biology"
+      }
+    }
+  ],
+  "reference_kinetics_not_layer_calibration": {
+    "A_s_inverse": 2.771888182211833e+72,
+    "ln_A_s_inverse": 166.80565543777792,
+    "Ea_J_mol": 480400.0,
+    "reaction": "dn/dt=-A*exp(-Ea/(R*T))*n",
+    "R_J_mol_K": 8.31446261815324,
+    "input_temperature_units": "K",
+    "source": "HOVHANNISYAN_2009",
+    "population": "chicken dermis, apparent SHG decay",
+    "measured_T_C_range": [
+      54.5,
+      63.2
+    ],
+    "reported_uncertainty": {
+      "Ea_J_mol": 27600.0,
+      "ln_A_per_min": 9.8,
+      "covariance": null,
+      "rule": "Marginals must not be sampled independently as an empirical joint CI"
+    },
+    "same_paper_nominal_rate_check": "FAIL:38.1--42.5% discrepancy vs rounded graph examples; retain original fit and calibration alternative",
+    "electrosurgical_zone_prediction_status": "UNVALIDATED_EXTRAPOLATION",
+    "human_layer_transfer_status": "UNKNOWN",
+    "can_be_used_as_synthetic_scenario": true
+  },
+  "reference_cell_counterexample": {
+    "source": "LI_CHAN_OHL_2013",
+    "cell_type": "human RBC",
+    "quasistatic_areal_strain_range": [
+      0.02,
+      0.04
+    ],
+    "impulsive_50pct_viability_areal_strain": 0.4,
+    "impulse_duration_scope": "tens of microseconds",
+    "dermal_transfer_allowed": false
+  },
+  "synthetic_mechanistic_profiles": {
+    "nominal_unfitted_fiber": {
+      "Gc_J_m2": 14999.999999999998,
+      "formal_sliding_Gc_J_m2": 14999.999999999998,
+      "peak_traction_Pa": 6000000.0,
+      "fiber_peak_stress_Pa": 20000000.0,
+      "valid_sliding_branch": true,
+      "critical_sliding_length_m": 0.025,
+      "max_sliding_G_at_fixed_length_J_m2": 75000.0,
+      "characteristic_length_m": 0.008333333333333331,
+      "parameters": {
+        "phi": 0.3,
+        "tau_Pa": 10000.0,
+        "l_m": 0.005,
+        "r_m": 5e-06,
+        "sigma_f_Pa": 100000000.0
+      }
+    },
+    "Gc_17000_identifiability_family": [
+      {
+        "Gc_J_m2": 17000.0,
+        "formal_sliding_Gc_J_m2": 17000.0,
+        "peak_traction_Pa": 22666666.666666664,
+        "fiber_peak_stress_Pa": 75555555.55555555,
+        "valid_sliding_branch": true,
+        "critical_sliding_length_m": 0.0019852941176470586,
+        "max_sliding_G_at_fixed_length_J_m2": 22500.0,
+        "characteristic_length_m": 0.000661764705882353,
+        "parameters": {
+          "phi": 0.3,
+          "tau_Pa": 125925.92592592594,
+          "l_m": 0.0015,
+          "r_m": 5e-06,
+          "sigma_f_Pa": 100000000.0
+        }
+      },
+      {
+        "Gc_J_m2": 17000.0,
+        "formal_sliding_Gc_J_m2": 17000.0,
+        "peak_traction_Pa": 6800000.0,
+        "fiber_peak_stress_Pa": 22666666.666666668,
+        "valid_sliding_branch": true,
+        "critical_sliding_length_m": 0.022058823529411766,
+        "max_sliding_G_at_fixed_length_J_m2": 75000.0,
+        "characteristic_length_m": 0.007352941176470588,
+        "parameters": {
+          "phi": 0.3,
+          "tau_Pa": 11333.333333333334,
+          "l_m": 0.005,
+          "r_m": 5e-06,
+          "sigma_f_Pa": 100000000.0
+        }
+      },
+      {
+        "Gc_J_m2": 17000.0,
+        "formal_sliding_Gc_J_m2": 17000.0,
+        "peak_traction_Pa": 3400000.0,
+        "fiber_peak_stress_Pa": 11333333.333333334,
+        "valid_sliding_branch": true,
+        "critical_sliding_length_m": 0.08823529411764706,
+        "max_sliding_G_at_fixed_length_J_m2": 150000.0,
+        "characteristic_length_m": 0.029411764705882353,
+        "parameters": {
+          "phi": 0.3,
+          "tau_Pa": 2833.3333333333335,
+          "l_m": 0.01,
+          "r_m": 5e-06,
+          "sigma_f_Pa": 100000000.0
+        }
+      }
+    ],
+    "joint_marked_survivor": {
+      "Ea_J_mol": [
+        400400.0,
+        560400.0
+      ],
+      "ln_A_per_s": [
+        137.92440554007993,
+        195.6869053354759
+      ],
+      "moments": [
+        [
+          0.15,
+          0.15
+        ],
+        [
+          600000.0,
+          2999999.9999999995
+        ],
+        [
+          300.0,
+          7499.999999999999
+        ]
+      ],
+      "moment_rows": [
+        "collagen_volume_fraction",
+        "peak_traction_Pa",
+        "Gc_J_m2"
+      ],
+      "lengths_m": [
+        0.001,
+        0.005
+      ],
+      "initial_survival": [
+        1.0,
+        1.0
+      ],
+      "unheated": {
+        "surviving_fraction": 1.0,
+        "peak_traction_Pa": 3599999.9999999995,
+        "Gc_J_m2": 7799.999999999999,
+        "characteristic_length_m": 0.012037037037037039
+      },
+      "api": "bindings_r1.survivor_ports(moments,surviving)",
+      "scope": "Synthetic positive joint length/kinetic-barrier correlation; exact only for these kinetic strata and energy/peak outputs.",
+      "full_traction_opening_curve_available": false,
+      "heat_history_api": "extension_r1.marked_heat_profile(nx,nt)",
+      "local_material_edit": "Update affected group M1/M2 for length edit; kinetic mark changes after heating require historical damage for new mark.",
+      "validity": "Uniform group temperature/history; non-interacting monotonic recruited fibers; no rebinding, force-dependent rates or strain redistribution."
+    },
+    "thermal_nominal_pulse": {
+      "zone_halfwidth_m": 0.00021743893686654216,
+      "meaning": "Omega>=1 halfwidth under imposed Gaussian field; not histological coagulation or cell death",
+      "scenario_only": true
+    },
+    "thermal_same_paper_calibration_alternative": {
+      "Ea_J_mol": 494140.71949325886,
+      "ln_A_per_s": 172.28912981949733,
+      "A_per_s": 6.671421381756723e+74,
+      "T_C": [
+        57.1,
+        62.1
+      ],
+      "fit_k_per_min": [
+        0.02799999999999985,
+        0.4099999999999978
+      ],
+      "training_relative_error": 5.3280792476430506e-15,
+      "prescribed_pulse_zone_halfwidth_m": 0.00023341937229803345,
+      "independent_validation": false,
+      "nominal_parameter_FAIL_preserved": true
+    },
+    "coupled_heat_halfwidths": {
+      "volume_survival_m": 0.00023070398529813815,
+      "traction_survival_m": 0.00024511476622285865,
+      "energy_survival_m": 0.00024838049872899075
+    }
+  },
+  "required_port_extension": {
+    "cohesion": "G alone is insufficient; obtain peak traction/opening or complete traction-separation envelope, direction and loading/unloading history.",
+    "thermal": "retain joint kinetic/mechanical marks or sufficient conditional moments; scalar native fraction is insufficient when correlated.",
+    "cells": "require membrane strain mapping, cell identity, loading duration and thermal viability kinetics"
+  },
+  "claims": {
+    "mechanistic_prediction_gate": "FAIL",
+    "strongest_matched_mechanistic_control": "TIE",
+    "empirical_joint_crossprediction": "UNKNOWN",
+    "innovation_passed": false,
+    "synthetic_curve_and_energy_checks": "PASS",
+    "continuous_two_observation_contraction": "PASS_CONDITIONAL",
+    "coupled_quasistatic_energy": "PASS_SYNTHETIC_WITH_TIMESCALE_ASSUMPTION",
+    "empirical_R4_crossprediction": "UNKNOWN",
+    "R4_innovation_passed": false
+  },
+  "reproduction": {
+    "module": "bindings_r1.py",
+    "extension": "extension_r1.py",
+    "raw": [
+      "MARKED_RAW_R1.npz",
+      "THERMAL_RAW_R1.npz",
+      "COUPLED_HEAT_RAW_R1.npz"
+    ]
+  },
+  "source_registry_R2": "SOURCES_R2.json",
+  "thermal_edge_predictions_R2": {
+    "empirical_status": "UNKNOWN",
+    "synthetic_histories": [
+      {
+        "T_C": 55.0,
+        "duration_s": 7135.020408913201,
+        "survival_by_group": [
+          0.35169385604541126,
+          0.6483061439545887
+        ],
+        "ports": {
+          "native_fraction": 0.5,
+          "Gamma_cut_J_m2": 75.0,
+          "Gamma_pullout_J_m2": 4967.804236473039,
+          "Gamma_tear_J_m2": 5042.804236473039,
+          "tear_cut_ratio": 67.23738981964053,
+          "peak_traction_Pa": 2155934.745491013,
+          "recruitment_work_J_m2": 53.898368637275325,
+          "cohesive_branch_work_J_m2": 5021.702605110314
+        },
+        "conditional_radius": {
+          "branch_radii_m": [
+            4.708333333333334e-05,
+            5.75e-05
+          ],
+          "energy_weighted_radius50_m": 5.75e-05,
+          "radius_range_m": [
+            4.708333333333334e-05,
+            5.75e-05
+          ],
+          "conformity": 1.0,
+          "fiber_E_Pa": 1000000000.0
+        }
+      },
+      {
+        "T_C": 85.0,
+        "duration_s": 0.0016493593880558602,
+        "survival_by_group": [
+          0.9486839059400548,
+          0.05131609405757395
+        ],
+        "ports": {
+          "native_fraction": 0.4999999999988144,
+          "Gamma_cut_J_m2": 74.99999999982217,
+          "Gamma_pullout_J_m2": 669.4758772138211,
+          "Gamma_tear_J_m2": 744.4758772136433,
+          "tear_cut_ratio": 9.926345029538782,
+          "peak_traction_Pa": 723158.6257367549,
+          "recruitment_work_J_m2": 18.078965643418872,
+          "cohesive_branch_work_J_m2": 687.5548428572399
+        },
+        "conditional_radius": {
+          "branch_radii_m": [
+            4.708333333333334e-05,
+            5.75e-05
+          ],
+          "energy_weighted_radius50_m": 5.75e-05,
+          "radius_range_m": [
+            4.708333333333334e-05,
+            5.75e-05
+          ],
+          "conformity": 1.0,
+          "fiber_E_Pa": 1000000000.0
+        }
+      }
+    ],
+    "prediction": "At native fraction0.5 Gamma_cut=75J/m2 in both histories, while Gamma_tear=5042.80/744.48J/m2. The intrinsicgf survival-only rule and length/kinetic correlation are unmeasured.",
+    "electrosurgery_example": "85C1.649ms scenario consumes marked kinetics;55C7135s is counterfactual comparator, not surgery.",
+    "mechanical_state_requirement": "Same finalmax opening and group survival cannot recover prior mechanical dissipation; retainD_mech andQ_heat_storage.",
+    "heat_opening_order": {
+      "heat_first": [
+        {
+          "event": "heat",
+          "delta_m": 0.0,
+          "max_opening_m": 0.0,
+          "work_J_m2": 0.0,
+          "stored_J_m2": 0.0,
+          "mechanical_dissipation_J_m2": 0.0,
+          "thermal_storage_release_J_m2": 0.0,
+          "balance_J_m2": 0.0
+        },
+        {
+          "event": "open",
+          "delta_m": 0.004,
+          "max_opening_m": 0.004,
+          "work_J_m2": 670.5820447476974,
+          "stored_J_m2": 64.65827851254316,
+          "mechanical_dissipation_J_m2": 605.9237662351543,
+          "thermal_storage_release_J_m2": 0.0,
+          "balance_J_m2": 0.0
+        },
+        {
+          "event": "open",
+          "delta_m": 0.0,
+          "max_opening_m": 0.004,
+          "work_J_m2": 605.9237662351543,
+          "stored_J_m2": 0.0,
+          "mechanical_dissipation_J_m2": 605.9237662351543,
+          "thermal_storage_release_J_m2": 0.0,
+          "balance_J_m2": 0.0
+        }
+      ],
+      "open_first": [
+        {
+          "event": "open",
+          "delta_m": 0.004,
+          "max_opening_m": 0.004,
+          "work_J_m2": 7559.250000000001,
+          "stored_J_m2": 1259.9999999999998,
+          "mechanical_dissipation_J_m2": 6299.250000000001,
+          "thermal_storage_release_J_m2": 0.0,
+          "balance_J_m2": 0.0
+        },
+        {
+          "event": "heat",
+          "delta_m": 0.004,
+          "max_opening_m": 0.004,
+          "work_J_m2": 7559.250000000001,
+          "stored_J_m2": 64.65827851254316,
+          "mechanical_dissipation_J_m2": 6299.250000000001,
+          "thermal_storage_release_J_m2": 1195.3417214874567,
+          "balance_J_m2": 4.547473508864641e-13
+        },
+        {
+          "event": "open",
+          "delta_m": 0.0,
+          "max_opening_m": 0.004,
+          "work_J_m2": 7494.591721487458,
+          "stored_J_m2": 0.0,
+          "mechanical_dissipation_J_m2": 6299.250000000001,
+          "thermal_storage_release_J_m2": 1195.3417214874567,
+          "balance_J_m2": 4.547473508864641e-13
+        }
+      ]
+    },
+    "limits": "No thermal variation of gf,tau,Ef,strength,conformity; no boiling/electrical/heat/perfusion model; no histological or cell-necrosis zone.",
+    "coupled_bridge_results": "QUASISTATIC_HEAT_RESULTS_R2.json",
+    "coupled_metrics": {
+      "coupled_heat_first_work_J_m2": 605.0772809704703,
+      "coupled_drive_first_work_J_m2": 7411.23373810949,
+      "coupled_same_final_state_D_ratio": 10.105729421661126,
+      "heat_induced_opening_change_m": 0.0002516118730182507,
+      "additional_D_during_heat_J_m2": 213.18478068199641,
+      "coupled_max_balance_J_m2": 7.275957614183426e-12,
+      "instantaneous_heat_edit_relative_balance_FAIL": 0.01268185315310075
+    },
+    "heat_update_contract": "For finite slow hazard ramp, integrate n(u), solve local equilibrium and bookD/Q throughout ramp. A single finalsurvivor multiplication omits thermal-driven slip.",
+    "instantaneous_edit": "COUPLED_BRIDGE_RESULTS_R2.json FAIL; finite relaxation energy requires inertial/damping port. Quasistatic ramp is a changed physical contract, not an instantaneous edit certificate."
+  },
+  "cohesive_spectrum_R2": {
+    "module": "spectrum_r2.py",
+    "profile_A": {
+      "length_m": [
+        0.001,
+        0.005
+      ],
+      "probabilities": [
+        0.5,
+        0.5
+      ],
+      "kinetic_group": [
+        0,
+        1
+      ]
+    },
+    "profile_B": {
+      "length_m": [
+        0.0028,
+        0.023
+      ],
+      "probabilities": [
+        0.9900990099009901,
+        0.009900990099009901
+      ]
+    },
+    "API": [
+      "Spectrum.tail(slip_m)",
+      "Spectrum.traction(delta_m,max_opening_m)",
+      "history(Spectrum,events)"
+    ],
+    "opening_to_slip": "s=max(delta-50um,0) on loading; unloading requires h=maxpastdelta, not virgin tail(delta)",
+    "history_for_cut": "Cut/tear virgin-cohort ports do not create new energy on an already opened seam.",
+    "admissibility": "2tauL/r<=sigma_f required; B leaves sliding after+8.7%friction, new rupture law required.",
+    "compression": "Per uniform-history kinetic group: sorted positive tails0/1/2. SetupO(NlogN), queryO(KlogN), memoryO(N); no history replay. General material/kinetic edits may require rebuild and old hazard acquisition.",
+    "consumer_scale_warning": "Do not replace INCISION syntheticG200J/m2/E200kPa by porcine30kJ/m2 without explicit scale/load rerun.",
+    "coupled_heat_consumer_module": "quasistatic_heat_r2.py"
+  },
+  "prospective_acquisition_R2": {
+    "openings_m": [
+      0.0023,
+      0.0038
+    ],
+    "slips_m": [
+      0.00225,
+      0.00375
+    ],
+    "traction_budget_Pa": 50000,
+    "continuous_cases_file": "CONTINUOUS_MOMENTS_RESULTS_R2.json",
+    "scope": "Same specimen/same direction/mode; prospective synthetic design under exact moments and assumed0.1-25mm support. Not performed on tissue.",
+    "goal": "Bound remaining pullout work at3mm slip; acquire curvature-sensitive workcurve information absent inG/peak."
+  },
+  "process_volume_R3": {
+    "gate": "FAIL",
+    "empirical_status": "UNKNOWN",
+    "numerical_network_gate": "PASS",
+    "w_partial_cycle_reference_J_m3": 460944.1424060317,
+    "w_scope": "8.67MPa longitudinal partial loop, not fracture-stage or ModeIII dissipation",
+    "h_pz_m": null,
+    "h_pz_definition": "Energy-equivalent incremental dissipative V/new crack referenceA; DIC ahead gradient is a different observable.",
+    "cell_hypothesis": {
+      "h_m": 1.4700978102718317e-05,
+      "Gamma_cut_J_m2": 150.0,
+      "Gamma_tear_mode_I_J_m2": 156.77632974408735,
+      "Gamma_tear_mode_III_J_m2": 156.77632974408735,
+      "transition_edge_radius_m": null,
+      "status": "FAILED_UNVALIDATED_CLOSURE; cut baseline synthetic"
+    },
+    "source_informed_network_cases": [
+      {
+        "hierarchy": "interfibril",
+        "diameter_m": 8.2e-08,
+        "gap_m": 1.2008891520233126e-08,
+        "E_Pa": 426500000.0,
+        "G_Pa": 1610000.0,
+        "eta": 0.0003017570885504647,
+        "virgin_linear_transfer_length_m": 2.5537299572734137e-07,
+        "modes": {
+          "I": {
+            "h_equivalent_m": 1.4700978102718317e-05,
+            "D_J_m2": 6.776329744087346,
+            "Gamma_J_m2": 156.77632974408735,
+            "relative_target_error": 0.9948394888168504,
+            "within_target_SD": false,
+            "numerical_case": {
+              "eta": 0.0003017570885504647,
+              "maxdrive": 2.0,
+              "nodes": 65,
+              "steps": 512,
+              "method": "newton",
+              "phases": [
+                {
+                  "phase": "load",
+                  "drive": 2.0,
+                  "reaction": 1.0006033321722458,
+                  "work": 1.5006033321722458,
+                  "stored": 0.500603332172246,
+                  "D": 1.0,
+                  "balance": -1.1102230246251565e-16,
+                  "balance_relative": 7.398510991029308e-17,
+                  "plastic_nodes": 1
+                },
+                {
+                  "phase": "unload",
+                  "drive": 0.0,
+                  "reaction": -1.0,
+                  "work": 1.5000000000000002,
+                  "stored": 0.5,
+                  "D": 1.0,
+                  "balance": 2.220446049250313e-16,
+                  "balance_relative": 1.480297366166875e-16,
+                  "plastic_nodes": 1
+                }
+              ],
+              "max_equilibrium_residual": 1.0842021724855044e-19,
+              "Newton_or_control_iterations": 1024,
+              "cpu_s": 0.273905223
+            }
+          },
+          "III": {
+            "h_equivalent_m": 1.0206063530424614e-05,
+            "D_J_m2": 4.70442520137305,
+            "Gamma_J_m2": 154.70442520137306,
+            "relative_target_error": 0.9924900764465353,
+            "within_target_SD": false,
+            "numerical_case": {
+              "eta": 0.0003017570885504647,
+              "maxdrive": 1.6942438427642743,
+              "nodes": 65,
+              "steps": 512,
+              "method": "newton",
+              "phases": [
+                {
+                  "phase": "load",
+                  "drive": 1.6942438427642743,
+                  "reaction": 1.0005110959089847,
+                  "work": 1.1946759282662922,
+                  "stored": 0.5004329605484296,
+                  "D": 0.6942438427642743,
+                  "balance": -8.750464116635825e-07,
+                  "balance_relative": 7.324545092339432e-07,
+                  "plastic_nodes": 1
+                },
+                {
+                  "phase": "unload",
+                  "drive": 0.0,
+                  "reaction": -0.6942438427642743,
+                  "work": 0.9352302243259155,
+                  "stored": 0.24098725660805323,
+                  "D": 0.6942438427642743,
+                  "balance": -8.750464119966495e-07,
+                  "balance_relative": 8.750464119966495e-07,
+                  "plastic_nodes": 1
+                }
+              ],
+              "max_equilibrium_residual": 2.168404344971009e-19,
+              "Newton_or_control_iterations": 1024,
+              "cpu_s": 0.21782530999999994
+            }
+          }
+        }
+      },
+      {
+        "hierarchy": "interfiber_ground",
+        "diameter_m": 2.23e-06,
+        "gap_m": 1.6472504988286785e-06,
+        "E_Pa": 294285000.0,
+        "G_Pa": 1000,
+        "eta": 1250.489888313148,
+        "virgin_linear_transfer_length_m": 0.0005198599047090929,
+        "modes": {
+          "I": {
+            "h_equivalent_m": 0.00018067878440282403,
+            "D_J_m2": 83.28282732752402,
+            "Gamma_J_m2": 233.28282732752402,
+            "relative_target_error": 0.9923211709240447,
+            "within_target_SD": false,
+            "numerical_case": {
+              "eta": 1250.489888313148,
+              "maxdrive": 2.0,
+              "nodes": 426,
+              "steps": 512,
+              "method": "newton",
+              "phases": [
+                {
+                  "phase": "load",
+                  "drive": 2.0,
+                  "reaction": 61.75044996124831,
+                  "work": 67.8955571550082,
+                  "stored": 55.605321958866796,
+                  "D": 12.290256004763059,
+                  "balance": -2.080862164888231e-05,
+                  "balance_relative": 3.06479777814529e-07,
+                  "plastic_nodes": 26
+                },
+                {
+                  "phase": "unload",
+                  "drive": 0.0,
+                  "reaction": -9.981152268457077,
+                  "work": 16.126259462216947,
+                  "stored": 3.836024266075548,
+                  "D": 12.290256004763059,
+                  "balance": -2.080862165954045e-05,
+                  "balance_relative": 1.2903547073511423e-06,
+                  "plastic_nodes": 26
+                }
+              ],
+              "max_equilibrium_residual": 5.14366327308835e-13,
+              "Newton_or_control_iterations": 1050,
+              "cpu_s": 0.19739014999999993
+            }
+          },
+          "III": {
+            "h_equivalent_m": 9.656575470241377e-05,
+            "D_J_m2": 44.51141898709534,
+            "Gamma_J_m2": 194.51141898709534,
+            "relative_target_error": 0.9905576981074226,
+            "within_target_SD": false,
+            "numerical_case": {
+              "eta": 1250.489888313148,
+              "maxdrive": 1.6942438427642743,
+              "nodes": 426,
+              "steps": 512,
+              "method": "newton",
+              "phases": [
+                {
+                  "phase": "load",
+                  "drive": 1.6942438427642743,
+                  "reaction": 55.15185698354311,
+                  "work": 50.00466736007433,
+                  "stored": 43.436016107516394,
+                  "D": 6.568661896350833,
+                  "balance": -1.0643792898612503e-05,
+                  "balance_relative": 2.1285594315374536e-07,
+                  "plastic_nodes": 20
+                },
+                {
+                  "phase": "unload",
+                  "drive": 0.0,
+                  "reaction": -5.613555721104201,
+                  "work": 8.039686412629981,
+                  "stored": 1.4710351600720617,
+                  "D": 6.568661896350833,
+                  "balance": -1.0643792913711536e-05,
+                  "balance_relative": 1.3239047241473153e-06,
+                  "plastic_nodes": 20
+                }
+              ],
+              "max_equilibrium_residual": 5.108136136300345e-13,
+              "Newton_or_control_iterations": 1044,
+              "cpu_s": 0.17298211100000005
+            }
+          }
+        }
+      }
+    ],
+    "same_radius_contact_counterexample": {
+      "same_edge_radius_m": 1e-06,
+      "radius_not_used_as_fitted_parameter": true,
+      "cleavage_without_wedge_drive": {
+        "Gamma_J_m2": 150.0,
+        "volume_work_J_m2": 0.0,
+        "u0": 0.0
+      },
+      "wedge_with_remote_opening": {
+        "Gamma_J_m2": 379.27501220295295,
+        "volume_work_J_m2": 229.27501220295295,
+        "u0_in_yield_units": 2.0,
+        "h_effective_m": 0.0004974030280679682
+      },
+      "scope": "Synthetic BC counterexample; sharp radius alone does not suppress a zone under transmitted wedge loading."
+    },
+    "unresolved": [
+      "finite-work fracture-stage interface law",
+      "mode-specific volume measure",
+      "spatial anchorage/connectivity",
+      "blade wedge/contact/friction",
+      "matched same-specimen cut/radius"
+    ],
+    "replaces_radius_heuristic": false,
+    "use_previous_R2_radius": "Only its labelled tensile/bending toy; no empirical radius or rho<<h_pz suppression theorem.",
+    "files": [
+      "PROCESS_VOLUME_RESULTS_R3.json",
+      "SHEAR_LAG_RESULTS_R3_REPRO.json",
+      "DIMENSIONED_CONNECTIVITY_RESULTS_R3.json",
+      "SOURCES_R3.json"
+    ]
+  },
+  "status": "LANE_SCOPE_CLOSED_REQUIRES_MEASUREMENT",
+  "source_registry_R4": "SOURCES_R4.json",
+  "measurement_spec": "MEASUREMENT_SPEC_R4.md",
+  "final_interface_budget_R4": {
+    "equation": "G_tear=Gamma_cut+sum_j gamma_j*DeltaA_newly_detached_j/DeltaA_crack+G_other",
+    "definition": "One reference geometric crack-plane area; unique interface area counted once. Equal-area counts are a special geometry.",
+    "geometry": "For through-thickness crack t*da and skin-parallel delamination widths w_j*da, M=sum(w_j)/t; DEJ physical count one does not imply M=one.",
+    "native_dermal_interface_count": null,
+    "native_dermal_interface_area_census": null,
+    "Gamma_interface_native_dermis_J_m2": null,
+    "Gamma_interface_native_DEJ_J_m2": null,
+    "public_observations": [
+      {
+        "id": "DEJ_fibrin_ideal_T",
+        "source": "SIERRA_SANCHEZ_2023_DEJ",
+        "work_band_J_m2": [
+          2.0,
+          3.88
+        ],
+        "kind": "derived external ideal-T work, mean+/-SD only",
+        "native_dermis_transfer_allowed": false
+      },
+      {
+        "id": "DEJ_SASS_ideal_T",
+        "source": "SIERRA_SANCHEZ_2023_DEJ",
+        "work_band_J_m2": [
+          0.7199999999999998,
+          10.64
+        ],
+        "kind": "derived external ideal-T work, mean+/-SD only",
+        "native_dermis_transfer_allowed": false
+      },
+      {
+        "id": "SC_untreated_depth_range",
+        "source": "WU_2006_SC",
+        "work_band_J_m2": [
+          3,
+          15
+        ],
+        "kind": "reported depth range",
+        "native_dermis_transfer_allowed": false
+      },
+      {
+        "id": "SC_delipidized_depth_range",
+        "source": "WU_2006_SC",
+        "work_band_J_m2": [
+          7,
+          18
+        ],
+        "kind": "reported treatment/depth range",
+        "native_dermis_transfer_allowed": false
+      },
+      {
+        "id": "amnion_ideal_T",
+        "source": "KUMAR_2009_AMNION",
+        "work_band_J_m2": [
+          3.4000000000000004,
+          52.400000000000006
+        ],
+        "kind": "derived external ideal-T work, observed range",
+        "native_dermis_transfer_allowed": false
+      },
+      {
+        "id": "aortic_media_circ",
+        "source": "WANG_2021_ARTERY",
+        "work_band_J_m2": [
+          80.6,
+          132.24
+        ],
+        "kind": "measured mean+/-SD",
+        "native_dermis_transfer_allowed": false
+      },
+      {
+        "id": "aortic_media_long",
+        "source": "WANG_2021_ARTERY",
+        "work_band_J_m2": [
+          125.7,
+          241.86
+        ],
+        "kind": "measured mean+/-SD",
+        "native_dermis_transfer_allowed": false
+      },
+      {
+        "id": "antler_nominal_range",
+        "source": "GUPTA_2013_ANTLER",
+        "work_band_J_m2": [
+          0.18,
+          0.27
+        ],
+        "kind": "five individual measured nominal values",
+        "native_dermis_transfer_allowed": false
+      },
+      {
+        "id": "antler_reported_error_envelope",
+        "source": "GUPTA_2013_ANTLER",
+        "work_band_J_m2": [
+          0.15,
+          0.3
+        ],
+        "kind": "reported measurement errors, not CI",
+        "native_dermis_transfer_allowed": false
+      }
+    ],
+    "analogue_bridge_work_J_m2": 95900,
+    "analogue_bridge_work_scope": "Difference between reported crack onset and global failure in fresh bovine pericardium, not intrinsic interface energy or skin prediction",
+    "same_information_control": "TIE; conventional energy ledger with identical measured curves/area",
+    "no_double_counting": "Do not add composite crack-plane pullout traction work to microscopic interface work from the same events. SC/DEJ/aortic work cannot be assigned to dermal collagen by naming.",
+    "results_file": "INTERFACE_BUDGET_RESULTS_R4.json",
+    "measurement_spec": "MEASUREMENT_SPEC_R4.md"
+  },
+  "final_transition_radius_R4": {
+    "native_m": null,
+    "status": "UNKNOWN",
+    "definition_to_freeze": "50% separately measured extra bridging work under fixed wedge/prestress/speed",
+    "preserved_synthetic_R2_bending_radius_m": 5.75e-05,
+    "synthetic_scope": "R2 conforming circular beam/severance branch; not skin transition",
+    "peer_INCISION_synthetic_bridge_radius_m": 0.000732,
+    "peer_scope": "INCISION R2 assumed delta_blade=2R; different operation, not an uncertainty range of the R2 bending radius"
+  },
+  "final_thermal_change_R4": {
+    "native_layer_mechanical_change": "UNKNOWN",
+    "empirical_cut_factor": null,
+    "empirical_tear_factor": null,
+    "empirical_radius_factor": null,
+    "SC_observed_trend": "WU2005/2006: intercellular delamination weakens with heating/hydration; different layer and assay, not a dermal damage law",
+    "preserved_synthetic_R2": {
+      "same_native_fraction": 0.5,
+      "scenario_cut_J_m2": [
+        75,
+        75
+      ],
+      "scenario_tear_J_m2": [
+        5042.804236473039,
+        744.4758772136433
+      ],
+      "kinetics_and_joint_marks": "Synthetic length/kinetic correlation, chicken SHG reference/extrapolation; not joint skin calibration"
+    },
+    "history_contract": "Retain D_mech, Q_heat_storage, maximum opening and group survival; thermal edits must account for ongoing mechanical relaxation/work."
+  }
+}

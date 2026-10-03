@@ -1,0 +1,62 @@
+{
+  "root": "Predict changed blade geometry, gap/damage and bleeding without full global state/history recomputation",
+  "leaves": [
+    {
+      "operation": "Acquire same-skin published geometry series",
+      "information": "NBS specimen18, nominal edge radius/angle, Fn and residual injury depth",
+      "status": "ACQUIRED_WITH_LIMITS"
+    },
+    {
+      "operation": "Transfer mean normal contact pressure using blade width",
+      "information": "A reference curve, nominal geometry, assumed depth/contact mapping",
+      "status": "FAIL",
+      "relative_error": 0.9111911652376025
+    },
+    {
+      "operation": "Acquire constant nose-pressure product and transfer radius",
+      "information": "B reference+F12lb anchor",
+      "status": "CONDITIONAL_FAIL_EMPIRICAL_RADIUS_UNKNOWN",
+      "K_depth_prediction_pct": 64
+    },
+    {
+      "operation": "Identify actual curvature separately from contact coefficient",
+      "information": "Only k*RF acquired; local RF absent",
+      "status": "UNKNOWN",
+      "required_RF_precision_um_conditional": 0.5034349542286052
+    },
+    {
+      "operation": "Test same-F offset with changed load",
+      "information": "F12/16/20lb and B shared curve",
+      "status": "FAIL_WITH_RESOLUTION_ALLOWANCES"
+    },
+    {
+      "operation": "Acquire work conjugate to cutting motion",
+      "information": "Fn known but vn=0; Ft absent",
+      "status": "UNKNOWN",
+      "direct_energy_observation_rank_Gamma": 0
+    },
+    {
+      "operation": "Separate intrinsic cleavage from pre-cut process",
+      "information": "Effective work includes Gamma0+B0 plus release/contact",
+      "status": "UNKNOWN_EXACT_R2_NULL_REMAINS"
+    },
+    {
+      "operation": "Map advancing fracture work to microstructure",
+      "information": "BINDINGS r3 process zone null; cell contour/partial loop are scenarios",
+      "status": "UNKNOWN"
+    },
+    {
+      "operation": "Local nonlinear history update vs strongest FE",
+      "information": "R1/R2 preserved, no new adequate acquisition",
+      "status": "NOT_TESTED_R3"
+    },
+    {
+      "operation": "Cell damage/vessel bleeding",
+      "information": "No common measured ports",
+      "status": "UNKNOWN"
+    }
+  ],
+  "control": "Same information and same contact/work laws; algebraic TIE. Uniform fine FE not run.",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

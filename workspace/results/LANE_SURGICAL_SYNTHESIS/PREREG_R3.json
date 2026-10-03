@@ -1,0 +1,63 @@
+{
+  "round": 3,
+  "lane": "LANE_SURGICAL_SYNTHESIS",
+  "frozen_utc": "2026-10-01T03:15:38.571944+00:00",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "parent_goals": [
+    "GRAPH_INVERSE",
+    "MULTIPHYSICS",
+    "BT-CTX-SURG-HEALING",
+    "BT-CTX-SURG-COLLAGEN"
+  ],
+  "capability": "Single referenced collagen inventory carrying FV oxygen feedback, U/I/M direction and strength without externally supplied abundance or HP trajectories",
+  "operation": "Synchronized midpoint FV and tensor inventory; same J_form=k_deposit F h(1-C), J_remove=.008 macrophage C in both; proportional removal of all marks, no extra UI death; trace(U+I+M)=C",
+  "control": "Same-information conventional diagonal-cohort midpoint operator, identical FV/O2/formation/removal and parameters; eligible separate curves on their own observational support",
+  "defaults": {
+    "kinetics": "R1 k1=.1/day, k2=.05/day, zero additional UI death, isotropic birth; proportional removal synthetic",
+    "primary_config": "all six upstream R3 parameters as frozen in R2 attribution; full rebuild day0 explicitly charged, not reinterpret old checkpoint",
+    "nominal": "R1 upstream parameters separate diagnostic",
+    "refinement": "dt .1->.05day, dx 5->2.5um",
+    "chemical_pivot": "if RMSE target fails: shared birth/removal D/H/A marks, total site budget .102 mol/molreference collagen from D10+2H10+A10, existing k=.069496791/day and eta=.283333333; births initially precursor, no dynamic external HP; stress map (.H/C-.003)/.040 clipped[0,1] diagnostic only, native stress UNKNOWN"
+  },
+  "metrics": [
+    "integrated seven independent-day-row RMSE including replicates",
+    "pointwise trace(Qsum)-FV C",
+    "reference birth/removal ledger residual",
+    "PSD and nonnegative states",
+    "cohort-control agreement",
+    "time/space refinement strength",
+    "restart suffix equality",
+    "complete compute costs"
+  ],
+  "gates": {
+    "component_RMSE_pp": 8.306367094671637,
+    "RMSE_tolerance_pp": 0.1,
+    "pointwise_inventory_tolerance": 1e-10,
+    "ledger_tolerance": 1e-10,
+    "tensor_cohort_strength_tolerance_pp": 1e-09,
+    "refinement_strength_budget_pp": 1.0,
+    "restart_tolerance_pp": 1e-09
+  },
+  "cases": [
+    "nominal",
+    "all_R3",
+    "noformation",
+    "noremove",
+    "pathway_block_k1",
+    "pathway_block_k2",
+    "half_dt",
+    "half_dx",
+    "day21_restart"
+  ],
+  "falsifiers": [
+    "mass/ref/reference discrepancy or negative tensors",
+    "autonomous RMSE above reference+.1pp",
+    "reference8.306 only achievable through externally fed HP curve",
+    "additional late strength calibration or hidden flux/reference renormalization"
+  ],
+  "source_audit": "AUDIT_TABLE.json currently SURG families UNKNOWN_UNEXECUTED; no source-wide conservation claim",
+  "no_late_strength_fit": true,
+  "old_checkpoint": "r1/nominal_complete_v4/checkpoint21.npz cannot restart new law; rebuild charged",
+  "external_reference": "R3 HP diagnostic remains separately labeled observational, never input to candidate solver"
+}

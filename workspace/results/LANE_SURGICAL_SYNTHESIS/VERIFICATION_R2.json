@@ -1,0 +1,105 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "passed": 70,
+  "count": 70,
+  "original_R1_tests": 51,
+  "new_R2_tests": 19,
+  "gate": "PASS",
+  "log": "TESTS_R2_v1.log",
+  "attribution_gate": "PASS",
+  "numerical_refinement_gate": "PASS",
+  "R1_code_integrity": [
+    {
+      "file": "surgical_chain/__init__.py",
+      "sha256": "f697a764cd16e51700188ba2f6f6b3da37d7a3340be311e3cad6a4852c6f7d02",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/__main__.py",
+      "sha256": "add34c3e370859bbc6b245d7edc4699a3bbb0139063063652148ab74e6ee82c4",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/chain.py",
+      "sha256": "6f0a28faca9f3df36a00c31df45374f82380daa8e0f7f68a7380d9aef42c9685",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/closure_manifest.py",
+      "sha256": "276e9c1a7a136e6e07b8da836b9057aa105b2448b356f511d4dc4bf9de36e3e4",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/controls.py",
+      "sha256": "ffaab2bd837fa4ea00eade554c28cbae3c6687e2cf49d7c58b904f9659cf8d9c",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/hemostasis.py",
+      "sha256": "d07347274d93a121e8693bda3da40e25f2f817363a69e4c3489720355f34e50a",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/initial_chain.py",
+      "sha256": "a4b73e5fb7549ba9eaf4ba8b36c092e754827f884f8238aa7a1abcf6a03c44f4",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/initial_hemostasis.py",
+      "sha256": "495e233f3c930080cc9b36b05b0d08042dc4491248e11e1fd6e665350f25e55c",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/initial_scenario.py",
+      "sha256": "cf5352f8689bc2ec7cb11771e7ce36715f98335a9ccc29c62d2640e44194d5f9",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/inventories.py",
+      "sha256": "3b8bba52bc58dd1c5d552a33d4a1714f4f3e7e16516585ffbc9b4e1b4ee0a2b7",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/ports.py",
+      "sha256": "c3d13a05649e971ac554681c26c5ab8176d0e70a0dafa93ce21560b6c3144b7a",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/scenario.py",
+      "sha256": "bb0b5c06be97b19de941c1bf106b7685c0f8436037640829af3688174b0a6da7",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/vendor/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/vendor/coagulation_hemostasis.py.source",
+      "sha256": "81978b8e53c6bf297117df3b75527566a8ad9411895cd590b9fdf71bebdc987e",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/vendor/platelet_hemostasis.py.source",
+      "sha256": "0e9bdf47cc260b3b1535a105175191db2a9cda335dab02c8183022ca6c2d3099",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/vendor/q036.py",
+      "sha256": "7fc32ef16b937b8f628506b866db832e5c1b9c2d5ebec428aa21ff11572b6274",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/vendor/response_r1.py",
+      "sha256": "33b5956f90cbc0de475b5013438b7d2c0fbfab2c189faafee2ec4e4299839ac5",
+      "unchanged": true
+    },
+    {
+      "file": "surgical_chain/vendor/storage_r1.py",
+      "sha256": "1333afffe6fa4a3e0c6b703bfb5286b28ad8c620df4fe3f725c05bb56877a97a",
+      "unchanged": true
+    }
+  ],
+  "scope": "Mathematical/source/diagnostic regressions; no native biological validation"
+}

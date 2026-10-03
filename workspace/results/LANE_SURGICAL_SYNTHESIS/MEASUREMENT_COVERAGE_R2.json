@@ -1,0 +1,101 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "scope": "Every bundled R1 measurement post, including subobservations not represented by current chain; no numerical value assigned to missing map",
+  "rows": [
+    {
+      "id": "M1",
+      "implemented": [
+        "gap",
+        "separate supplied biological/perfusion widths",
+        "radius histogram scalar rescaling",
+        "count density",
+        "pressure",
+        "viscosity",
+        "tube length"
+      ],
+      "unrepresented": [
+        "observed connectivity and vascular rerouting",
+        "Ft/Fn/x/z to native damage law",
+        "blade-to-gap/viability law"
+      ],
+      "native_information_gain": null
+    },
+    {
+      "id": "M2",
+      "implemented": [
+        "pressure profile20/100/300um at120min",
+        "faceflux",
+        "storage port",
+        "atmosphericpressure"
+      ],
+      "unrepresented": [
+        "Hb/bloodadvection",
+        "measured drymass/volume to oxygen-demand normalization",
+        "sensorresponse law"
+      ],
+      "native_information_gain": null
+    },
+    {
+      "id": "M3",
+      "implemented": [
+        "coverage and seal at8min",
+        "initialQ",
+        "identified synthetic aggregation and sealrates"
+      ],
+      "unrepresented": [
+        "native fibrin/platelet concentrations to plug geometry",
+        "erosion",
+        "observed r(t)/Q(t) to native seal/O2 law"
+      ],
+      "native_information_gain": null
+    },
+    {
+      "id": "M4",
+      "implemented": [
+        "isolated D10/H10/rate/yield observation; no requested-output consumer"
+      ],
+      "unrepresented": [
+        "GG/G/free subdivision",
+        "catalyticLOX",
+        "absolute collagenmol to FV/UIM reference",
+        "chemicalage to matureQ"
+      ],
+      "implemented_chemistry_only_gain": 0,
+      "native_information_gain": null
+    },
+    {
+      "id": "M5",
+      "implemented": [
+        "conditional direct observation of synthetic traceM21",
+        "bridge",
+        "constant affine referencefactor",
+        "strengthproxy21"
+      ],
+      "unrepresented": [
+        "native chemistry-age-angle to connectedcrossing",
+        "anchor survival to tractionopening",
+        "ultimate-load observation under fracture"
+      ],
+      "numeric_estimate": "conditional direct-port upper-information scenario",
+      "native_information_gain": null
+    },
+    {
+      "id": "M6",
+      "implemented": [
+        "Gamma cleavage alone; no requested-output consumer"
+      ],
+      "unrepresented": [
+        "newarea and work-ledger uncertainty: crackarea fixed in current prior",
+        "contact/release/pre-tip work",
+        "activeinterfaces to terminalwork",
+        "newtool biological/perfusion transfer"
+      ],
+      "implemented_Gamma_only_gain": 0,
+      "native_information_gain": null
+    }
+  ],
+  "costs": "All six workload costs synthetic assumptions; observedhours and money null",
+  "censoring": "Restricted120min metric may be constant; native laterhemostasis UNKNOWN",
+  "edge_necrosis": "No viability conversion; both proxywidths separate from native necrosis"
+}

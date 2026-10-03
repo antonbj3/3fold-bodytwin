@@ -1,0 +1,53 @@
+{
+  "parent_goal": ["GRAPH_INVERSE", "MULTIPHYSICS", "BT-CTX-SURG-INCISION"],
+  "decision_observable": {
+    "action": "Extend a prescribed incision and ask for opening, mechanical damage proxies, energy and local physiological initial state",
+    "units": {"force":"N", "gap":"m", "fracture_energy":"J/m2", "failure_work":"J/m3", "area":"m2", "exudate":"m3/s", "history_time":"min"},
+    "regime": "Synthetic scalar 2D opening proxy; quasi-static mechanics; irreversible cohesive history; later fixed-history convex nonlinear bulk; normalized Q036 physiology"
+  },
+  "scales": [
+    {"scale":"molecular triple helix / bonds", "constituents":"collagen, hydration, crosslinks", "state":"bond populations and rupture free energies absent", "status":"UNKNOWN", "provenance":"Private collagen thermal script computes melting/composition arithmetic; does not supply mechanical bond rupture energy", "stop":"Melting temperature alone cannot identify rate-dependent fracture energy; a deeper bond model changes the required calibration but cannot be executed honestly with present inputs"},
+    {"scale":"hydrated fibril and fibre", "constituents":"fibrils, sliding, recruitment", "state":"orientation and irreversible pullout absent", "status":"UNKNOWN", "provenance":"tendon_collagen_hierarchical_mechanics.py contains modulus ratios and tendon-specific strength arithmetic", "stop":"Modulus is not fracture energy, tendon is not dermis, and fibre volume/connectivity are missing"},
+    {"scale":"process zone", "state":"kappa=max previous opening, cohesive damage 1-exp(-kappa/delta0)", "relations":"delta0=G0/(e*sigma_c), K=G0/delta0^2, t=K delta exp(-kappa/delta0)", "status":"CONSTITUTIVE_CLOSURE", "stop":"A cohesive strength/failure strain is needed in addition to G0; observed strain-threshold width is distinct from a cell-death width"},
+    {"scale":"tissue", "state":"scalar opening u on heterogeneous anisotropic P1 membrane; delta=2u at seam", "relations":"linear exterior energy plus cohesive energy; later positive quartic bulk energy", "status":"CONSTITUTIVE_CLOSURE", "stop":"Vector incompressibility, collagen direction fields and real epidermis/dermis/subcutis/fascia layers are missing; no layered skin validity is claimed"},
+    {"scale":"organ surroundings", "state":"Schur response S and forcing f; finite near-seam observation pullback", "relations":"S=Abb-Abi Aii^-1 Aib; fb=fb_original-Abi Aii^-1 fi", "status":"DERIVED_UNDER_ASSUMPTIONS", "stop":"Exact only for the acquired linear discrete exterior; nonlinear exterior requires response acquisition or a residual enclosure"},
+    {"scale":"vascular/cellular", "state":"Q036 q,o,A,Gly,L,H,C,R,M,D,E,F", "relations":"mechanical uncut damage mean -> synthetic q_ext, initial M and D; Q036 internal feedback retained", "status":"CONSTITUTIVE_CLOSURE", "stop":"Mechanics-to-cell mapping and cut vascular network are unmeasured; Darcy exudate cannot identify bleeding or hemostasis"}
+  ],
+  "ports": [
+    {"name":"cleavage_G0", "unit":"J/m2", "classification":"CONSTITUTIVE_CLOSURE", "value_in_synthetic_skin_proxy":200, "public_anchor":"Goda PAAm cutting intercept1.6 is externally measured regression summary, not transferred to skin"},
+    {"name":"distributed_failure_work_Wf", "unit":"J/m3", "classification":"EXTERNALLY_MEASURED", "value":6973, "reported_spread":500, "population":"PAAm in Goda2024 SI; separate tensile assay", "role":"Predict held-out published radius slope4Wf; not a skin material constant"},
+    {"name":"skin_tear_G_mode", "unit":"J/m2", "classification":"EXTERNALLY_MEASURED", "values":{"I":30400,"III":20400}, "population":"juvenile porcine skin, Pissarenko2020", "role":"References only; cannot identify blade cleavage or sigma_c"},
+    {"name":"cohesive_strength", "unit":"Pa", "classification":"CONSTITUTIVE_CLOSURE", "values":[50000,100000,200000], "shared_uncertainty":"G and E held fixed for every strength intervention; no independent probabilistic marginals invented"},
+    {"name":"prestress", "unit":"Pa or prescribed strain", "classification":"CONSTITUTIVE_CLOSURE", "synthetic_strains":[0.03,0.10,0.03,0.10]},
+    {"name":"mechanical_strain_width", "unit":"m", "classification":"DERIVED_UNDER_ASSUMPTIONS", "definition":"normal-strain exceedance0.15 in an8mm upper-half observation strip; full transverse band is not automatically twice this near-tip sample"},
+    {"name":"gap_and_exposed_area", "unit":"m and m2", "classification":"DERIVED_UNDER_ASSUMPTIONS", "definition":"delta=2u, area=sum seam quadrature weights*delta on severed support; Q033 receives computed area instead of fitted b"},
+    {"name":"vessel_map", "unit":"radii m, pressure Pa, edge conductance m3/(Pa s)", "classification":"UNKNOWN", "missing":"OMAG area fraction is not an oriented 3D intersection/radius graph; Poiseuille needs upstream network and viscosity"},
+    {"name":"hemostasis_clock", "unit":"min", "classification":"UNKNOWN", "public_reference":"standardized Ivy mean5min,2SD range2.5-10min; different assay from surgical incision"},
+    {"name":"Q036_time_history", "unit":"min", "classification":"CONSTITUTIVE_CLOSURE", "scheme":"10min synthetic reduced delivery then10min recovery; no rate transfer from mouse muscle to incised skin is validated"}
+  ],
+  "energy_inventory": {
+    "relation":"blade work = change in bulk/cohesive free energy + irreversible cohesive dissipation for fixed boundary displacement; G0 convention is per projected crack area and already accounts for fracture surfaces",
+    "cohesive_dissipation_per_area":"G0[1-(1+x+x^2/2)exp(-x)], x=kappa/delta0; severed surface dissipation set toG0",
+    "missing_terms":"blade friction, finite-radius indentation, viscoelastic bulk history, heat, fluid-mechanical work",
+    "force_scope":"computed blade-advance energy derivative for imposed trajectory, not measured force-depth data"
+  },
+  "residual_compiler": {
+    "state":"affine U=Uref+Pz; exact cubic bulk residual Cv(z); seam-supported Bs(z,cut,kappa)",
+    "relation":"||r||_A0inverse^2 = v^T H v +2s^T Dv+s^T Gs; H=C^T A0inverse C, D=B^T A0inverse C, G=B^T A0inverse B",
+    "classification":"DERIVED_UNDER_ASSUMPTIONS",
+    "gap_bound":"2 max_i sqrt((A0inverse)_ii)*||r||_A0inverse for convex full bulk and fixed nonnegative cohesive stiffness",
+    "query_information":"small matrices, supplied seam history, cut support; no global state or global solve in query",
+    "stop":"arithmetic enclosure, evolving nonconvex cohesive history branch, and new-tip representation remain unresolved"
+  },
+  "discriminating_tests": [
+    "uniform fine same-law FE vs exact Schur and strongest same-information conventional condensation",
+    "freeze completed wake then eliminate it exactly",
+    "replace linear exterior with distributed convex nonlinear hardening; use certified fallback costs",
+    "compile full residual Gram, then affine-prestress recenter to separate artificial arithmetic cancellation from new topology error",
+    "matched topology vs new topology vs supplied kappa change, all with full nonlinear reference",
+    "same G and E with three cohesive strengths",
+    "tear-to-cut intercept prediction then independent tensile-work-to-radius-slope prediction"
+  ],
+  "review_state":"PENDING_INDEPENDENT_REVIEW",
+  "empirical_skin_prediction":"UNKNOWN"
+}

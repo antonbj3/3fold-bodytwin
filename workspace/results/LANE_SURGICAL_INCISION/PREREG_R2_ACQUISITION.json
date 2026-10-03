@@ -1,0 +1,17 @@
+{
+  "status":"FROZEN_BEFORE_ACQUISITION_COMPUTATION", "round":2,"review_state":"PENDING_INDEPENDENT_REVIEW",
+  "load_bearing_change":"Blade arrival truncates the work accumulated on recruited fiber bridges; distinguish micro cleavage from prior pullout work instead of identifying them with a radius-zero intercept",
+  "derived_relation":"T(delta)=2 phi tau (l-delta)_+/r_f; W_before_blade=phi tau/r_f (2l delta_b-delta_b^2), capped at full pullout work",
+  "closure_for_counterexample_only":"delta_b=2R. No measured skin map from radius to bridge opening; result conditional. Sweep R=0..l/2 and examine R=r_f and R=2r_f.",
+  "frozen_fiber_params_from_bindings_R1":{"phi":0.3,"tau_Pa":10000,"l_m":0.005,"r_f_m":0.000005,"sigma_f_Pa":100000000,"Gamma0_J_m2":150},
+  "measurement_instrument":"synthetic observations only: y(R)=Gamma0+B0+A(R/20um)+B f(R); f=2q-q^2, q=min(2R/l,1). Includes layer-model prestress correction when force is interpreted.",
+  "true_scenario_params_NOT_skin_data":{"Gamma0_J_m2":150,"constant_process_B0_J_m2":900,"contact_A_J_m2":60,"fiber_B_J_m2":15000},
+  "radii_m":[0.000001,0.000005,0.000010,0.000020,0.000040],
+  "acquisitions":["cutting radius series","same-path recut/contact force","independent pre-cleavage bridge traction-opening work at a measured local opening"],
+  "gate":"Γ0 identification interval halfwidth <=30 J/m2; no empirical validation claim",
+  "error_budgets":{"cut_radius_series_J_m2":10,"contact_J_m2":5,"independent_bridge_work_first_J_m2":20,"independent_bridge_work_refined_J_m2":5},
+  "falsifiers":["radius-only Jacobian does not separate Gamma0 from B0","radius near fiber diameter does not approach tear energy under explicit bridge closure","contact removal alone does not eliminate constant process null direction"],
+  "strongest_control":"Same-information conventional positive constrained least squares / linear programming cohesive inverse; all acquisitions and bounds available to it",
+  "if_control_matches":"Report TIE. Execute the new independent-work acquisition and identify exact residual noise/constitutive assumptions; no cached-ROM claim.",
+  "cost":"count LP solves and FE release evaluation; acquisition precision is a scenario requirement, not real achievable measurement noise"
+}

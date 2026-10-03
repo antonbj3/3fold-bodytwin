@@ -1,0 +1,46 @@
+{
+  "round": 3,
+  "created_utc": "2026-09-30T23:28:12.297798+00:00",
+  "status": "FROZEN_BEFORE_NEW_COMPUTATION",
+  "operation": "Acquire published same-material sharpness/geometry series; calibrate one geometry and predict another with no target-specific toughness fit; confront bindings process-volume port if available",
+  "parent_ids": [
+    "GRAPH_INVERSE",
+    "MULTIPHYSICS",
+    "BT-CTX-SURG-INCISION",
+    "LANE_SURGICAL_BINDINGS/R3"
+  ],
+  "priority": "Latest steering overrides R2 traction-work proposal; no extra FE/LP as main experiment",
+  "data_hierarchy": [
+    "same mammalian skin cohort blade-edge-radius series",
+    "same mammalian skin cohort known alternative cutting/penetrator geometries",
+    "skin cutting sharp/blunt series lacking radius: report identification limit",
+    "non-skin public analog series: explicitly segregated, not skin validation"
+  ],
+  "freeze_rule": "Freeze exact tables/figure coordinates plus digitization bands and train/heldout partition in SOURCE_TARGETS_R3*.json before any model calibration; do not fabricate observations or covariance",
+  "error_requirement": {
+    "heldout_relative_error_max": 0.2,
+    "intercept_target": "effective sharp-cut work, never automatically chemical Gamma0",
+    "prediction_band": "propagate declared digitization/measurement bounds; SD is descriptive dispersion, not CI"
+  },
+  "controls": [
+    "uniform fine cohesive/phase-field/XFEM with same data and prestress, full cost if actually executed",
+    "same-information conventional geometry-specific cutting law and mode-separated cohesive workcurve; extra fitted parameters only training, not heldout",
+    "constant toughness transferred across geometries as explicit weaker ablation"
+  ],
+  "falsifiers": [
+    "no verified primary numeric matched series: empirical sharpness prediction UNKNOWN",
+    "heldout error >20%: FAIL",
+    "equal-information algebra/model matches: TIE",
+    "unmeasured edge radius or work/release prevents chemical Gamma0 claim regardless of predictive fit",
+    "micro port cannot produce matched-skin prediction without extra arbitrary fit: UNKNOWN or FAIL for explicit conditional closure"
+  ],
+  "defaults": {
+    "threads": 2,
+    "no_new_layer_FE": true,
+    "species_and_materials_separate": true,
+    "radius_definition": "distinguish blade edge curvature, punch shank radius and specimen thickness",
+    "out_of_sample_type": "new geometry within published study; not prospective independent lab replication"
+  },
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

@@ -1,0 +1,126 @@
+{
+  "training": "Gauge16 at20mm/s ONLY",
+  "training_J_J_m2": 1153.4569983136594,
+  "heldout_tools": [
+    {
+      "gauge": 18,
+      "diameter_mm": 1.27,
+      "speed_mm_s": 20,
+      "heldout_effective_J_J_m2": 1801.0118043844857,
+      "predicted_effective_J_J_m2": 1153.4569983136594,
+      "J_relative_error": 0.3595505617977528,
+      "predicted_propagation_force_N": 1.2774846325409344,
+      "reference_propagation_force_J_times_a_N": 1.9946689876516346,
+      "force_reference_scope": "constructed from independently reported steady-work J and unloaded all-speed crack mean, not synchronous peak force",
+      "same_crack_port_reading_error": {
+        "best_relative_error": 0.3127076611932393,
+        "worst_relative_error": 0.40386279779528994,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      },
+      "central_gate": "FAIL",
+      "extra_work_required_vs_single_J_J_m2": 647.5548060708263
+    },
+    {
+      "gauge": 21,
+      "diameter_mm": 0.82,
+      "speed_mm_s": 20,
+      "heldout_effective_J_J_m2": 944.3507588532883,
+      "predicted_effective_J_J_m2": 1153.4569983136594,
+      "J_relative_error": 0.2214285714285715,
+      "predicted_propagation_force_N": 0.8805962030136539,
+      "reference_propagation_force_J_times_a_N": 0.7209559556836932,
+      "force_reference_scope": "constructed from independently reported steady-work J and unloaded all-speed crack mean, not synchronous peak force",
+      "same_crack_port_reading_error": {
+        "best_relative_error": 0.109726108708556,
+        "worst_relative_error": 0.34562081644197234,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      },
+      "central_gate": "FAIL",
+      "extra_work_required_vs_single_J_J_m2": -209.10623946037106
+    },
+    {
+      "gauge": 25,
+      "diameter_mm": 0.51,
+      "speed_mm_s": 20,
+      "heldout_effective_J_J_m2": 2543.001686340641,
+      "predicted_effective_J_J_m2": 1153.4569983136594,
+      "J_relative_error": 0.5464190981432361,
+      "predicted_propagation_force_N": 0.5519229723113747,
+      "reference_propagation_force_J_times_a_N": 1.2168126348619197,
+      "force_reference_scope": "constructed from independently reported steady-work J and unloaded all-speed crack mean, not synchronous peak force",
+      "same_crack_port_reading_error": {
+        "best_relative_error": 0.5172658707342646,
+        "worst_relative_error": 0.5744480213312523,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      },
+      "central_gate": "FAIL",
+      "extra_work_required_vs_single_J_J_m2": 1389.5446880269815
+    }
+  ],
+  "heldout_speed_same_tool": [
+    {
+      "gauge": 16,
+      "heldout_speed_mm_s": 1,
+      "observed_J_J_m2": 1139.9662731871838,
+      "predicted_J_J_m2": 1153.4569983136594,
+      "relative_error": 0.011834319526627248,
+      "reading_error": {
+        "best_relative_error": 0,
+        "worst_relative_error": 0.10412315309043091,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      }
+    },
+    {
+      "gauge": 16,
+      "heldout_speed_mm_s": 40,
+      "observed_J_J_m2": 1160.202360876897,
+      "predicted_J_J_m2": 1153.4569983136594,
+      "relative_error": 0.00581395348837201,
+      "reading_error": {
+        "best_relative_error": 0,
+        "worst_relative_error": 0.08820455653870264,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      }
+    },
+    {
+      "gauge": 16,
+      "heldout_speed_mm_s": 80,
+      "observed_J_J_m2": 1187.1838111298482,
+      "predicted_J_J_m2": 1153.4569983136594,
+      "relative_error": 0.028409090909090884,
+      "reading_error": {
+        "best_relative_error": 0,
+        "worst_relative_error": 0.10808968854358343,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      }
+    }
+  ],
+  "common_J_feasible": false,
+  "intersection_endpoints_J_m2": [
+    1757.7571669477234,
+    1169.7301854974705
+  ],
+  "per_tool_plotted_bar_plus_reading_bands_J_m2": {
+    "16": [
+      907.8414839797639,
+      1399.0725126475547
+    ],
+    "18": [
+      1406.9983136593592,
+      2201.77065767285
+    ],
+    "21": [
+      718.9713322091062,
+      1169.7301854974705
+    ],
+    "25": [
+      1757.7571669477234,
+      3328.2462057335583
+    ]
+  },
+  "error_bar_statistic": "UNSPECIFIED in Fig9 caption; descriptive plotting bands, not CI",
+  "control": "Conventional first-minus-repeat work/area, same inputs -> identical values:TIE",
+  "gate": "FAIL",
+  "intrinsic_Gamma0_J_m2": null,
+  "chemical_identifiability": "Effective J includes radius-independent irreversible work. Gamma0+B_before null remains."
+}

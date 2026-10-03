@@ -1,0 +1,95 @@
+{
+  "schema": "bodytwin-surgical-synthesis-r1",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "round": 1,
+  "engineering_gate": "PASS",
+  "regression_count": 51,
+  "passed": 51,
+  "strongest_control_gate": "TIE",
+  "empirical_joint_gate": "UNKNOWN",
+  "integrated_strength_proxy_gate": "FAIL",
+  "integrated_strength_proxy_RMSE_pp": 43.703695914540624,
+  "R3_HP_input_proxy_RMSE_pp": 8.306367094671637,
+  "control_legacy_Hill_RMSE_pp": 14.91,
+  "source_R3_RMSE_role": "IndependentHPcurve input and synthetic prior C; not U/I/M joint prediction or newchain accuracy",
+  "tool_specific_needle_speed_error_max": 0.028409090909090884,
+  "new_tool_common_needle_errors": [
+    0.3595505617977528,
+    0.2214285714285715,
+    0.5464190981432361
+  ],
+  "prospective_Gamma0_bound_J_m2": 29.050100200400802,
+  "bound_achieved": false,
+  "count_control_flow_ratio": 25.375671641791048,
+  "count_control_direction": "OVERPREDICTION; NIGHT_LOG direction corrected locally",
+  "wall_shear": "dp*r/(2muL), not source equationtextR^3",
+  "native_injury_and_traction_ports": null,
+  "R4_HP_inventory42_10": 2.220261437908497,
+  "R4_denominator_only_gate": "FAIL_UNDER_FIXED_ASSAY_REFERENCE",
+  "R4_glyco_joint_pass_count": 0,
+  "nominal_strength90_pct": 22.945180659759835,
+  "nominal_oxygen_edge_Torr": 54.256019586889245,
+  "nominal_blood_uL_at120min": 118.76799085897807,
+  "nominal_hemostasis_time_min": null,
+  "hemostasis_censor_horizon_min": 120.0,
+  "nominal_seal_fraction": 0.6177950272739207,
+  "nominal_grid_cells": 273,
+  "numerics": {
+    "cells": 273,
+    "oxygen_inventory": {
+      "initial_ml_m2": 12.239999999999998,
+      "final_ml_m2": 12.214584014728526,
+      "integrated_net_supply_ml_m2": -0.025415869929530193,
+      "cumulative_inflow_ml_m2": 1314.1400716284168,
+      "cumulative_consumption_ml_m2": 1314.1654874983476,
+      "relative_conservation_error": 8.776820199324566e-11,
+      "terminal_face_flux_ml_m2_min": 0.12098085918392346,
+      "alpha_ml_m3_Torr": 30.0,
+      "alpha_status": "SYNTHETIC_SENSITIVITY"
+    },
+    "early_oxygen": {
+      "calls": 2400,
+      "newton_iterations": 2488,
+      "newton_cell_work": 679224,
+      "max_relative_balance": 3.4485717826583317e-09,
+      "max_relative_residual": 9.263380145575385e-11
+    },
+    "late_oxygen": {
+      "calls": 1800,
+      "newton_iterations": 2038,
+      "newton_cell_work": 556374,
+      "max_relative_balance": 1.1421174101899174e-09,
+      "max_relative_residual": 9.689697382837637e-11
+    },
+    "UIM_balance": 2.886579864025407e-15,
+    "fibrinogen_error_nM": 3.637978807091713e-11
+  },
+  "refinements": [
+    {
+      "case": "refine_time_v1",
+      "strength_pp": 0.01307765136162331,
+      "pressure_Torr": 0.0017463058530466924,
+      "gate": "PASS"
+    },
+    {
+      "case": "refine_space_v1",
+      "strength_pp": 0.0017179918806746741,
+      "pressure_Torr": 0.27460845380318233,
+      "gate": "PASS"
+    }
+  ],
+  "seal_oxygen_ablation_strength90_pp": 2.631165163535613,
+  "shared_scenarios": {
+    "joint_minus_v1": 20.111493086560806,
+    "nominal_complete_v4": 22.945180659759835,
+    "joint_plus_v1": 23.852193982280262
+  },
+  "shared_scenarios_are_CI": false,
+  "checkpoint_strength_max_error_pp": 7.105427357601002e-15,
+  "checkpoint_chemical_max_error": 1.3877787807814457e-17,
+  "prefix_replay_avoided": true,
+  "spatial_global_suffix_recomputed": true,
+  "global_certified_cost_gain": false,
+  "scope": "Syntheticcoupling only: prescribed injury/gap,seal→atmosphericH,earlyQ036/FVhistory→UIMobserver. UIM does not replaceFV Cfeedback; isolatedR4DHA has no nativechemistry→rupturelaw. UNKNOWN native rupture stress. No matched commonbiologicalposterior."
+}

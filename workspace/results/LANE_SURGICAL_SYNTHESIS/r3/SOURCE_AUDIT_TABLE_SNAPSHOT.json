@@ -1,0 +1,4832 @@
+{
+  "lane": "LANE_SOURCE_CONSERVATION_AUDIT",
+  "round": 1,
+  "review": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "counts": {
+    "families_total": 43,
+    "scripts_total": 68,
+    "families_executed": 10,
+    "scripts_executed": 10,
+    "families_with_tested_defects": 8,
+    "passing_tested_contracts": 2,
+    "tests": 237,
+    "failed_source_tests": 47,
+    "defect_findings": 11,
+    "proposal_tested_contracts_pass": 10,
+    "scripts_unknown": 58,
+    "families_unknown": 33
+  },
+  "families": {
+    "BIORESP": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "analyze_remodel.py"
+      ],
+      "findings": []
+    },
+    "IMMUNITY": {
+      "coverage_status": "TESTED_CONTRACT_PASS",
+      "audited_scripts": [
+        "complement_cascade.py"
+      ],
+      "untested_scripts": [
+        "tcell_activation_exhaustion.py",
+        "lymphatic_return.py",
+        "acute_phase_inflammation.py",
+        "macrophage_polarization.py",
+        "complement_ap_bistability_eculizumab.py"
+      ],
+      "findings": [
+        {
+          "id": "IMMUNITY_C3_decay",
+          "classification": "OK",
+          "inventory": "C3+C3b+C3bBb+iC3b moieties",
+          "ports": "-v_decay is a declared terminal sink in the supplied RHS",
+          "tests": [
+            {
+              "name": "C3_moiety_with_declared_decay",
+              "residual": 0.0,
+              "unit": "nM/min",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                -0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "C3_moiety_with_declared_decay",
+              "residual": 0.0,
+              "unit": "nM/min",
+              "roundoff_budget": 1.3133618505585697e-12,
+              "passed": true,
+              "terms": [
+                -0.0,
+                0.0,
+                -23.104906018664842,
+                0.0,
+                23.104906018664842
+              ]
+            },
+            {
+              "name": "C3_moiety_with_declared_decay",
+              "residual": -8.326672684688674e-17,
+              "unit": "nM/min",
+              "roundoff_budget": 3.6379788070917137e-13,
+              "passed": true,
+              "terms": [
+                -5.0,
+                -1.4,
+                5.768950939813352,
+                0.4,
+                0.23104906018664842
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/IMMUNITY/complement_cascade.py:246",
+          "baseline": [
+            {
+              "surface": "activator",
+              "initial_C3_nM": 6684.491978609625,
+              "final_C3_nM": 1300.0270982788538,
+              "disappeared_C3_nM": 5384.464880330772,
+              "relative_loss": 0.8055159460974836
+            },
+            {
+              "surface": "host",
+              "initial_C3_nM": 6684.491978609625,
+              "final_C3_nM": 6507.078619584818,
+              "disappeared_C3_nM": 177.4133590248075,
+              "relative_loss": 0.026541038510111206
+            }
+          ],
+          "worst_declared_stress": [
+            {
+              "state_nM": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "C3_loss_nM_min": -0.0
+            },
+            {
+              "state_nM": [
+                0,
+                0,
+                1000,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "C3_loss_nM_min": 23.104906018664842
+            },
+            {
+              "state_nM": [
+                6000,
+                20,
+                10,
+                5,
+                400,
+                30,
+                20,
+                0
+              ],
+              "C3_loss_nM_min": 0.2310490601866485
+            }
+          ],
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "Open inventory closes with the explicit decay sink. A closed dissociation interpretation would require C3b return; source terminology alone does not validate that alternative. Proposed return diff is conditional, not a demonstrated bug fix.",
+          "witness": "witness_IMMUNITY.py",
+          "raw_file": "RAW_IMMUNITY_SOURCE_FINAL_R1_v2.json",
+          "max_abs_balance_residual": 8.326672684688674e-17,
+          "tests_passed": 3,
+          "tests_failed": 0
+        },
+        {
+          "id": "IMMUNITY_C5",
+          "classification": "OK",
+          "inventory": "C5+C5b+MAC (C5 moieties)",
+          "ports": "cleavage and MAC formation internal",
+          "tests": [
+            {
+              "name": "C5_moiety",
+              "residual": 0.0,
+              "unit": "nM/min",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                -0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "C5_moiety",
+              "residual": 0.0,
+              "unit": "nM/min",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                -0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "C5_moiety",
+              "residual": 0.0,
+              "unit": "nM/min",
+              "roundoff_budget": 5.115907697472721e-13,
+              "passed": true,
+              "terms": [
+                -0.024615384615384615,
+                -8.975384615384616,
+                9.0
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/IMMUNITY/complement_cascade.py:248-250",
+          "baseline": null,
+          "worst_declared_stress": null,
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "C5 moiety only; C5a, Bb, C6-C9 mass not represented. Other five scripts untested.",
+          "witness": "witness_IMMUNITY.py",
+          "raw_file": "RAW_IMMUNITY_SOURCE_FINAL_R1_v2.json",
+          "max_abs_balance_residual": 0.0,
+          "tests_passed": 3,
+          "tests_failed": 0
+        }
+      ],
+      "raw_file": "RAW_IMMUNITY_SOURCE_FINAL_R1_v2.json",
+      "source_hashes": [
+        {
+          "path": "tasks/free48/sources/IMMUNITY/complement_cascade.py",
+          "sha256": "b915680c9c502a589025f63199f2eb41981627fcc20e4cb02f78147f086fc993"
+        }
+      ],
+      "consumer_scope": "Complement C3/C5 moiety inventories under explicit terminal decay; biological dissociation closure and five other scripts UNKNOWN.",
+      "proposal_witness_pass": true,
+      "proposal_note": "CONDITIONAL dissociation contract; not a bug fix"
+    },
+    "MITOSTRESS": {
+      "coverage_status": "TESTED_DEFECTS",
+      "audited_scripts": [
+        "BT-HX-Q082_model.py"
+      ],
+      "untested_scripts": [
+        "oxphos_corrected_nhatp_resimulation.py",
+        "oxphos_scrambled_stoichiometry_voidfloor.py",
+        "BT-HX-Q077_model.py",
+        "BT-HX-Q083_model.py",
+        "hpa_cortisol_axis.py",
+        "BT-HX-Q023_model.py",
+        "oxphos_ode_emergent_downstream_propagation.py",
+        "mitochondrial_oxphos.py",
+        "autophagy_mitophagy.py"
+      ],
+      "findings": [
+        {
+          "id": "MITOSTRESS_Q082_shared_donor",
+          "classification": "LEAK",
+          "inventory": "left + right + bound neutral solute; separately ion moieties (charge F*N)",
+          "ports": "declared boundary exchanges; displacement/membrane/binding internal",
+          "tests": [
+            {
+              "name": "baseline_dt0.02_s",
+              "residual": -2.710505431213761e-19,
+              "unit": "mol",
+              "roundoff_budget": 7.105427357600994e-18,
+              "passed": true,
+              "terms": [
+                0.00012499999999999973,
+                -0.000125,
+                -0.0
+              ]
+            },
+            {
+              "name": "baseline_dt0.02_i",
+              "residual": 2.168404344971009e-19,
+              "unit": "mol",
+              "roundoff_budget": 3.410605131648487e-18,
+              "passed": true,
+              "terms": [
+                6.000000000000022e-05,
+                -6e-05,
+                -0.0
+              ]
+            },
+            {
+              "name": "baseline_boundary_dt0.02_s",
+              "residual": -2.988322311745821e-19,
+              "unit": "mol",
+              "roundoff_budget": 7.105927578416752e-18,
+              "passed": true,
+              "terms": [
+                0.00012500879997765383,
+                -0.000125,
+                -8.799977654125307e-09
+              ]
+            },
+            {
+              "name": "baseline_boundary_dt0.02_i",
+              "residual": 2.6535954050701128e-20,
+              "unit": "mol",
+              "roundoff_budget": 3.4109407350497464e-18,
+              "passed": true,
+              "terms": [
+                6.000590399747221e-05,
+                -6e-05,
+                -5.903997472180158e-09
+              ]
+            },
+            {
+              "name": "empty_dt0.02_s",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "empty_dt0.02_i",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "shared_donor_dt0.02_s",
+              "residual": 8.131516293641283e-20,
+              "unit": "mol",
+              "roundoff_budget": 7.105427357601005e-18,
+              "passed": true,
+              "terms": [
+                1.7761793739524716e-11,
+                -0.000125,
+                0.00012499998223820634
+              ]
+            },
+            {
+              "name": "shared_donor_dt0.02_i",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 3.4106051316484814e-18,
+              "passed": true,
+              "terms": [
+                1e-05,
+                -6e-05,
+                5e-05
+              ]
+            },
+            {
+              "name": "baseline_dt0.01_s",
+              "residual": -2.710505431213761e-20,
+              "unit": "mol",
+              "roundoff_budget": 7.105427357601002e-18,
+              "passed": true,
+              "terms": [
+                0.00012499999999999998,
+                -0.000125,
+                -0.0
+              ]
+            },
+            {
+              "name": "baseline_dt0.01_i",
+              "residual": 1.3552527156068805e-20,
+              "unit": "mol",
+              "roundoff_budget": 3.4106051316484814e-18,
+              "passed": true,
+              "terms": [
+                6.0000000000000015e-05,
+                -6e-05,
+                -0.0
+              ]
+            },
+            {
+              "name": "baseline_boundary_dt0.01_s",
+              "residual": -2.1863872514879117e-19,
+              "unit": "mol",
+              "roundoff_budget": 7.10592755605648e-18,
+              "passed": true,
+              "terms": [
+                0.0001250087995842878,
+                -0.000125,
+                -8.799584288014175e-09
+              ]
+            },
+            {
+              "name": "baseline_boundary_dt0.01_i",
+              "residual": -1.097594226602738e-19,
+              "unit": "mol",
+              "roundoff_budget": 3.4109407336121237e-18,
+              "passed": true,
+              "terms": [
+                6.0005903972181214e-05,
+                -6e-05,
+                -5.903972181322111e-09
+              ]
+            },
+            {
+              "name": "empty_dt0.01_s",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "empty_dt0.01_i",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "shared_donor_dt0.01_s",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 7.105427357601002e-18,
+              "passed": true,
+              "terms": [
+                1.8870171234629894e-11,
+                -0.000125,
+                0.00012499998112982876
+              ]
+            },
+            {
+              "name": "shared_donor_dt0.01_i",
+              "residual": -2.236166980751353e-19,
+              "unit": "mol",
+              "roundoff_budget": 3.410605131648475e-18,
+              "passed": true,
+              "terms": [
+                1e-05,
+                -6e-05,
+                4.999999999999978e-05
+              ]
+            },
+            {
+              "name": "baseline_dt0.005_s",
+              "residual": 5.149960319306146e-19,
+              "unit": "mol",
+              "roundoff_budget": 7.105427357601017e-18,
+              "passed": true,
+              "terms": [
+                0.00012500000000000052,
+                -0.000125,
+                -0.0
+              ]
+            },
+            {
+              "name": "baseline_dt0.005_i",
+              "residual": -3.3881317890172014e-19,
+              "unit": "mol",
+              "roundoff_budget": 3.4106051316484713e-18,
+              "passed": true,
+              "terms": [
+                5.999999999999966e-05,
+                -6e-05,
+                -0.0
+              ]
+            },
+            {
+              "name": "baseline_boundary_dt0.005_s",
+              "residual": -5.050334686330259e-19,
+              "unit": "mol",
+              "roundoff_budget": 7.105927544879802e-18,
+              "passed": true,
+              "terms": [
+                0.00012500879938766546,
+                -0.000125,
+                -8.799387665959765e-09
+              ]
+            },
+            {
+              "name": "baseline_boundary_dt0.005_i",
+              "residual": -5.1391904277307056e-20,
+              "unit": "mol",
+              "roundoff_budget": 3.4109407328937788e-18,
+              "passed": true,
+              "terms": [
+                6.000590395954399e-05,
+                -6e-05,
+                -5.90395954404039e-09
+              ]
+            },
+            {
+              "name": "empty_dt0.005_s",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "empty_dt0.005_i",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "shared_donor_dt0.005_s",
+              "residual": -2.439454888092385e-19,
+              "unit": "mol",
+              "roundoff_budget": 7.105427357600996e-18,
+              "passed": true,
+              "terms": [
+                1.9445468006020475e-11,
+                -0.000125,
+                0.00012499998055453176
+              ]
+            },
+            {
+              "name": "shared_donor_dt0.005_i",
+              "residual": -2.1006417091906648e-19,
+              "unit": "mol",
+              "roundoff_budget": 3.4106051316484752e-18,
+              "passed": true,
+              "terms": [
+                1e-05,
+                -6e-05,
+                4.999999999999979e-05
+              ]
+            },
+            {
+              "name": "baseline_dt1.0_s",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 7.105427357601002e-18,
+              "passed": true,
+              "terms": [
+                0.000125,
+                -0.000125,
+                -0.0
+              ]
+            },
+            {
+              "name": "baseline_dt1.0_i",
+              "residual": -1.3552527156068805e-20,
+              "unit": "mol",
+              "roundoff_budget": 3.4106051316484806e-18,
+              "passed": true,
+              "terms": [
+                5.999999999999999e-05,
+                -6e-05,
+                -0.0
+              ]
+            },
+            {
+              "name": "baseline_boundary_dt1.0_s",
+              "residual": -1.1443216594058585e-20,
+              "unit": "mol",
+              "roundoff_budget": 7.105929815441655e-18,
+              "passed": true,
+              "terms": [
+                0.00012500883933181224,
+                -0.000125,
+                -8.839331812251957e-09
+              ]
+            },
+            {
+              "name": "baseline_boundary_dt1.0_i",
+              "residual": -3.9952823586311237e-22,
+              "unit": "mol",
+              "roundoff_budget": 3.410940881905574e-18,
+              "passed": true,
+              "terms": [
+                6.0005906580987234e-05,
+                -6e-05,
+                -5.906580987233353e-09
+              ]
+            },
+            {
+              "name": "empty_dt1.0_s",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "empty_dt1.0_i",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "shared_donor_dt1.0_s",
+              "residual": 0.001225,
+              "unit": "mol",
+              "roundoff_budget": 4.192202140984591e-17,
+              "passed": false,
+              "terms": [
+                0.000125,
+                -0.000125,
+                0.001225
+              ]
+            },
+            {
+              "name": "shared_donor_dt1.0_i",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 3.4106051316484814e-18,
+              "passed": true,
+              "terms": [
+                1e-05,
+                -6e-05,
+                5e-05
+              ]
+            },
+            {
+              "name": "baseline_dt0.5_s",
+              "residual": 8.131516293641283e-20,
+              "unit": "mol",
+              "roundoff_budget": 7.105427357601005e-18,
+              "passed": true,
+              "terms": [
+                0.00012500000000000008,
+                -0.000125,
+                -0.0
+              ]
+            },
+            {
+              "name": "baseline_dt0.5_i",
+              "residual": -6.776263578034403e-21,
+              "unit": "mol",
+              "roundoff_budget": 3.4106051316484806e-18,
+              "passed": true,
+              "terms": [
+                5.9999999999999995e-05,
+                -6e-05,
+                -0.0
+              ]
+            },
+            {
+              "name": "baseline_boundary_dt0.5_s",
+              "residual": 2.6163722775052265e-20,
+              "unit": "mol",
+              "roundoff_budget": 7.10592866268684e-18,
+              "passed": true,
+              "terms": [
+                0.00012500881905233512,
+                -0.000125,
+                -8.819052335087914e-09
+              ]
+            },
+            {
+              "name": "baseline_boundary_dt0.5_i",
+              "residual": -1.6091144455994047e-20,
+              "unit": "mol",
+              "roundoff_budget": 3.410940805504699e-18,
+              "passed": true,
+              "terms": [
+                6.000590523692883e-05,
+                -6e-05,
+                -5.90523692884633e-09
+              ]
+            },
+            {
+              "name": "empty_dt0.5_s",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "empty_dt0.5_i",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "shared_donor_dt0.5_s",
+              "residual": 0.0019750000000000006,
+              "unit": "mol",
+              "roundoff_budget": 6.323830348264893e-17,
+              "passed": false,
+              "terms": [
+                0.0001,
+                -0.000125,
+                0.0020000000000000005
+              ]
+            },
+            {
+              "name": "shared_donor_dt0.5_i",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 3.4106051316484814e-18,
+              "passed": true,
+              "terms": [
+                1e-05,
+                -6e-05,
+                5e-05
+              ]
+            },
+            {
+              "name": "baseline_dt0.25_s",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 7.105427357601002e-18,
+              "passed": true,
+              "terms": [
+                0.000125,
+                -0.000125,
+                -0.0
+              ]
+            },
+            {
+              "name": "baseline_dt0.25_i",
+              "residual": 1.3552527156068805e-20,
+              "unit": "mol",
+              "roundoff_budget": 3.4106051316484814e-18,
+              "passed": true,
+              "terms": [
+                6.0000000000000015e-05,
+                -6e-05,
+                -0.0
+              ]
+            },
+            {
+              "name": "baseline_boundary_dt0.25_s",
+              "residual": -4.9935239218601175e-20,
+              "unit": "mol",
+              "roundoff_budget": 7.105928095267032e-18,
+              "passed": true,
+              "terms": [
+                0.00012500880907018023,
+                -0.000125,
+                -8.809070180277264e-09
+              ]
+            },
+            {
+              "name": "baseline_boundary_dt0.25_i",
+              "residual": 1.5722221902795397e-20,
+              "unit": "mol",
+              "roundoff_budget": 3.410940768455447e-18,
+              "passed": true,
+              "terms": [
+                6.000590458515151e-05,
+                -6e-05,
+                -5.9045851514899135e-09
+              ]
+            },
+            {
+              "name": "empty_dt0.25_s",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "empty_dt0.25_i",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "shared_donor_dt0.25_s",
+              "residual": 2.710505431213761e-20,
+              "unit": "mol",
+              "roundoff_budget": 7.105427357601002e-18,
+              "passed": true,
+              "terms": [
+                3.6072473662016996e-12,
+                -0.000125,
+                0.00012499999639275266
+              ]
+            },
+            {
+              "name": "shared_donor_dt0.25_i",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 3.4106051316484814e-18,
+              "passed": true,
+              "terms": [
+                1e-05,
+                -6e-05,
+                5e-05
+              ]
+            },
+            {
+              "name": "baseline_dt0.125_s",
+              "residual": -5.421010862427522e-20,
+              "unit": "mol",
+              "roundoff_budget": 7.105427357601e-18,
+              "passed": true,
+              "terms": [
+                0.00012499999999999995,
+                -0.000125,
+                -0.0
+              ]
+            },
+            {
+              "name": "baseline_dt0.125_i",
+              "residual": 4.0657581468206416e-20,
+              "unit": "mol",
+              "roundoff_budget": 3.410605131648482e-18,
+              "passed": true,
+              "terms": [
+                6.000000000000004e-05,
+                -6e-05,
+                -0.0
+              ]
+            },
+            {
+              "name": "baseline_boundary_dt0.125_s",
+              "residual": 2.6545880218051764e-20,
+              "unit": "mol",
+              "roundoff_budget": 7.105927813759182e-18,
+              "passed": true,
+              "terms": [
+                0.0001250088041178418,
+                -0.000125,
+                -8.804117841775369e-09
+              ]
+            },
+            {
+              "name": "baseline_boundary_dt0.125_i",
+              "residual": -2.9453420071175656e-20,
+              "unit": "mol",
+              "roundoff_budget": 3.410940750219261e-18,
+              "passed": true,
+              "terms": [
+                6.0005904264337114e-05,
+                -6e-05,
+                -5.904264337142243e-09
+              ]
+            },
+            {
+              "name": "empty_dt0.125_s",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "empty_dt0.125_i",
+              "residual": 0.0,
+              "unit": "mol",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "shared_donor_dt0.125_s",
+              "residual": 5.421010862427522e-20,
+              "unit": "mol",
+              "roundoff_budget": 7.105427357601004e-18,
+              "passed": true,
+              "terms": [
+                9.03232885599886e-12,
+                -0.000125,
+                0.0001249999909676712
+              ]
+            },
+            {
+              "name": "shared_donor_dt0.125_i",
+              "residual": 6.776263578034403e-21,
+              "unit": "mol",
+              "roundoff_budget": 3.4106051316484814e-18,
+              "passed": true,
+              "terms": [
+                1e-05,
+                -6e-05,
+                5.000000000000001e-05
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/MITOSTRESS/BT-HX-Q082_model.py:370-433",
+          "baseline": [
+            {
+              "case": "baseline",
+              "dt_s": 0.02,
+              "solute_residual_mol": -2.710505431213761e-19,
+              "ion_residual_mol": 2.168404344971009e-19,
+              "diagnostics": {
+                "step_count": 1000,
+                "dt": 0.02,
+                "max_normalized_mass_residual": 4.3368086899420177e-16,
+                "max_normalized_charge_residual": 1.1293772630057336e-16,
+                "max_relative_volume_residual": 1.3552527156068805e-16,
+                "min_inventory": 0.0,
+                "min_concentration": 0.2,
+                "min_surface_bound_count": 0.0,
+                "initial_solute_mol": 0.000125,
+                "initial_ion_mol": 6e-05,
+                "cumulative_boundary_solute_mol": 0.0,
+                "cumulative_boundary_ion_mol": 0.0,
+                "cumulative_membrane_solute_mol": 5.055916812565041e-06,
+                "cumulative_membrane_ion_mol": 4.0075468050517423e-07,
+                "cumulative_displacement_solute_mol": 8.400120672975777e-06,
+                "cumulative_displacement_ion_mol": 3.071115895449837e-06,
+                "cumulative_binding_solute_mol": 1.5648902929053098e-08,
+                "cumulative_binding_ion_mol": 4.999e-15,
+                "boundary_flow_volume_residual_m3_s": 0.0,
+                "final_concentrations": {
+                  "solute_left_mol_m3": 1.5896700762689449,
+                  "solute_right_mol_m3": 0.6187370325596933,
+                  "ion_left_mol_m3": 0.8103132493837825,
+                  "ion_right_mol_m3": 0.20941825100158154
+                },
+                "final_voltage_V": 0.011205825438169701,
+                "final_surface_bound_counts": {
+                  "solute_mol": 1.5648902929053098e-08,
+                  "ion_mol": 4.999e-15
+                }
+              }
+            },
+            {
+              "case": "baseline_boundary",
+              "dt_s": 0.02,
+              "solute_residual_mol": -2.988322311745821e-19,
+              "ion_residual_mol": 2.6535954050701128e-20,
+              "diagnostics": {
+                "step_count": 1000,
+                "dt": 0.02,
+                "max_normalized_mass_residual": 5.140200493694016e-16,
+                "max_normalized_charge_residual": 1.9020344646263246e-16,
+                "max_relative_volume_residual": 1.3552527156068805e-16,
+                "min_inventory": 0.0,
+                "min_concentration": 0.2,
+                "min_surface_bound_count": 0.0,
+                "initial_solute_mol": 0.000125,
+                "initial_ion_mol": 6e-05,
+                "cumulative_boundary_solute_mol": 8.799977654125307e-09,
+                "cumulative_boundary_ion_mol": 5.903997472180158e-09,
+                "cumulative_membrane_solute_mol": 5.055555124969981e-06,
+                "cumulative_membrane_ion_mol": 4.006680343269217e-07,
+                "cumulative_displacement_solute_mol": 8.401592281947804e-06,
+                "cumulative_displacement_ion_mol": 3.0720784199868132e-06,
+                "cumulative_binding_solute_mol": 1.564894573355429e-08,
+                "cumulative_binding_ion_mol": 4.999e-15,
+                "boundary_flow_volume_residual_m3_s": 0.0,
+                "final_concentrations": {
+                  "solute_left_mol_m3": 1.5896982801729835,
+                  "solute_right_mol_m3": 0.6189360805907523,
+                  "ion_left_mol_m3": 0.8103293904717067,
+                  "ion_right_mol_m3": 0.20955696033749327
+                },
+                "final_voltage_V": 0.011205825438169701,
+                "final_surface_bound_counts": {
+                  "solute_mol": 1.564894573355429e-08,
+                  "ion_mol": 4.999e-15
+                }
+              }
+            }
+          ],
+          "worst_declared_stress": [
+            {
+              "case": "shared_donor",
+              "dt_s": 0.02,
+              "solute_residual_mol": 8.131516293641283e-20,
+              "ion_residual_mol": 0.0,
+              "diagnostics": {
+                "step_count": 1000,
+                "dt": 0.02,
+                "max_normalized_mass_residual": 1.3044307387716225e-16,
+                "max_normalized_charge_residual": 8.117399077853711e-17,
+                "max_relative_volume_residual": 0.0,
+                "min_inventory": 0.0,
+                "min_concentration": 1.867381446670192e-18,
+                "min_surface_bound_count": 0.0,
+                "initial_solute_mol": 0.000125,
+                "initial_ion_mol": 6e-05,
+                "cumulative_boundary_solute_mol": -0.00012499998223820634,
+                "cumulative_boundary_ion_mol": -5e-05,
+                "cumulative_membrane_solute_mol": -2.4999989022948428e-05,
+                "cumulative_membrane_ion_mol": 0.0,
+                "cumulative_displacement_solute_mol": 0.0,
+                "cumulative_displacement_ion_mol": 0.0,
+                "cumulative_binding_solute_mol": 0.0,
+                "cumulative_binding_ion_mol": 0.0,
+                "boundary_flow_volume_residual_m3_s": 0.0,
+                "final_concentrations": {
+                  "solute_left_mol_m3": 1.356948432535443e-07,
+                  "solute_right_mol_m3": 2.1954103153695e-07,
+                  "ion_left_mol_m3": 1.867381446670192e-18,
+                  "ion_right_mol_m3": 0.2
+                },
+                "final_voltage_V": 0.01,
+                "final_surface_bound_counts": {
+                  "solute_mol": 0.0,
+                  "ion_mol": 0.0
+                }
+              }
+            },
+            {
+              "case": "shared_donor",
+              "dt_s": 0.01,
+              "solute_residual_mol": 0.0,
+              "ion_residual_mol": -2.236166980751353e-19,
+              "diagnostics": {
+                "step_count": 2000,
+                "dt": 0.01,
+                "max_normalized_mass_residual": 1.5077186461126546e-16,
+                "max_normalized_charge_residual": 8.293864275198357e-17,
+                "max_relative_volume_residual": 0.0,
+                "min_inventory": 0.0,
+                "min_concentration": 2.8323791254544598e-18,
+                "min_surface_bound_count": 0.0,
+                "initial_solute_mol": 0.000125,
+                "initial_ion_mol": 6e-05,
+                "cumulative_boundary_solute_mol": -0.00012499998112982876,
+                "cumulative_boundary_ion_mol": -4.999999999999978e-05,
+                "cumulative_membrane_solute_mol": -2.4999988337968984e-05,
+                "cumulative_membrane_ion_mol": 0.0,
+                "cumulative_displacement_solute_mol": 0.0,
+                "cumulative_displacement_ion_mol": 0.0,
+                "cumulative_binding_solute_mol": 0.0,
+                "cumulative_binding_ion_mol": 0.0,
+                "boundary_flow_volume_residual_m3_s": 0.0,
+                "final_concentrations": {
+                  "solute_left_mol_m3": 1.4416280526522997e-07,
+                  "solute_right_mol_m3": 2.332406194273679e-07,
+                  "ion_left_mol_m3": 2.8323791254544598e-18,
+                  "ion_right_mol_m3": 0.2
+                },
+                "final_voltage_V": 0.01,
+                "final_surface_bound_counts": {
+                  "solute_mol": 0.0,
+                  "ion_mol": 0.0
+                }
+              }
+            },
+            {
+              "case": "shared_donor",
+              "dt_s": 0.005,
+              "solute_residual_mol": -2.439454888092385e-19,
+              "ion_residual_mol": -2.1006417091906648e-19,
+              "diagnostics": {
+                "step_count": 4000,
+                "dt": 0.005,
+                "max_normalized_mass_residual": 1.6178329292557136e-16,
+                "max_normalized_charge_residual": 8.470329472543002e-17,
+                "max_relative_volume_residual": 0.0,
+                "min_inventory": 0.0,
+                "min_concentration": 3.473588675197262e-18,
+                "min_surface_bound_count": 0.0,
+                "initial_solute_mol": 0.000125,
+                "initial_ion_mol": 6e-05,
+                "cumulative_boundary_solute_mol": -0.00012499998055453176,
+                "cumulative_boundary_ion_mol": -4.999999999999979e-05,
+                "cumulative_membrane_solute_mol": -2.499998798243493e-05,
+                "cumulative_membrane_ion_mol": 0.0,
+                "cumulative_displacement_solute_mol": 0.0,
+                "cumulative_displacement_ion_mol": 0.0,
+                "cumulative_binding_solute_mol": 0.0,
+                "cumulative_binding_ion_mol": 0.0,
+                "boundary_flow_volume_residual_m3_s": 0.0,
+                "final_concentrations": {
+                  "solute_left_mol_m3": 1.4855805969678519e-07,
+                  "solute_right_mol_m3": 2.403513004236243e-07,
+                  "ion_left_mol_m3": 3.473588675197262e-18,
+                  "ion_right_mol_m3": 0.2
+                },
+                "final_voltage_V": 0.01,
+                "final_surface_bound_counts": {
+                  "solute_mol": 0.0,
+                  "ion_mol": 0.0
+                }
+              }
+            },
+            {
+              "case": "shared_donor",
+              "dt_s": 1.0,
+              "solute_residual_mol": 0.001225,
+              "ion_residual_mol": 0.0,
+              "diagnostics": {
+                "step_count": 20,
+                "dt": 1.0,
+                "max_normalized_mass_residual": 1.0,
+                "max_normalized_charge_residual": 0.0,
+                "max_relative_volume_residual": 0.0,
+                "min_inventory": 0.0,
+                "min_concentration": 0.0,
+                "min_surface_bound_count": 0.0,
+                "initial_solute_mol": 0.000125,
+                "initial_ion_mol": 6e-05,
+                "cumulative_boundary_solute_mol": -0.001225,
+                "cumulative_boundary_ion_mol": -5e-05,
+                "cumulative_membrane_solute_mol": -2.4999999999999998e-05,
+                "cumulative_membrane_ion_mol": 0.0,
+                "cumulative_displacement_solute_mol": 0.0,
+                "cumulative_displacement_ion_mol": 0.0,
+                "cumulative_binding_solute_mol": 0.0,
+                "cumulative_binding_ion_mol": 0.0,
+                "boundary_flow_volume_residual_m3_s": 0.0,
+                "final_concentrations": {
+                  "solute_left_mol_m3": 2.5,
+                  "solute_right_mol_m3": 0.0,
+                  "ion_left_mol_m3": 0.0,
+                  "ion_right_mol_m3": 0.2
+                },
+                "final_voltage_V": 0.01,
+                "final_surface_bound_counts": {
+                  "solute_mol": 0.0,
+                  "ion_mol": 0.0
+                }
+              }
+            },
+            {
+              "case": "shared_donor",
+              "dt_s": 0.5,
+              "solute_residual_mol": 0.0019750000000000006,
+              "ion_residual_mol": 0.0,
+              "diagnostics": {
+                "step_count": 40,
+                "dt": 0.5,
+                "max_normalized_mass_residual": 0.8,
+                "max_normalized_charge_residual": 0.0,
+                "max_relative_volume_residual": 0.0,
+                "min_inventory": 0.0,
+                "min_concentration": 0.0,
+                "min_surface_bound_count": 0.0,
+                "initial_solute_mol": 0.000125,
+                "initial_ion_mol": 6e-05,
+                "cumulative_boundary_solute_mol": -0.0020000000000000005,
+                "cumulative_boundary_ion_mol": -5e-05,
+                "cumulative_membrane_solute_mol": -2.4999999999999998e-05,
+                "cumulative_membrane_ion_mol": 0.0,
+                "cumulative_displacement_solute_mol": 0.0,
+                "cumulative_displacement_ion_mol": 0.0,
+                "cumulative_binding_solute_mol": 0.0,
+                "cumulative_binding_ion_mol": 0.0,
+                "boundary_flow_volume_residual_m3_s": 0.0,
+                "final_concentrations": {
+                  "solute_left_mol_m3": 2.0,
+                  "solute_right_mol_m3": 0.0,
+                  "ion_left_mol_m3": 0.0,
+                  "ion_right_mol_m3": 0.2
+                },
+                "final_voltage_V": 0.01,
+                "final_surface_bound_counts": {
+                  "solute_mol": 0.0,
+                  "ion_mol": 0.0
+                }
+              }
+            },
+            {
+              "case": "shared_donor",
+              "dt_s": 0.25,
+              "solute_residual_mol": 2.710505431213761e-20,
+              "ion_residual_mol": 0.0,
+              "diagnostics": {
+                "step_count": 80,
+                "dt": 0.25,
+                "max_normalized_mass_residual": 5.421010862427522e-17,
+                "max_normalized_charge_residual": 5.646886315028668e-17,
+                "max_relative_volume_residual": 0.0,
+                "min_inventory": 0.0,
+                "min_concentration": 8.271806125530277e-25,
+                "min_surface_bound_count": 0.0,
+                "initial_solute_mol": 0.000125,
+                "initial_ion_mol": 6e-05,
+                "cumulative_boundary_solute_mol": -0.00012499999639275266,
+                "cumulative_boundary_ion_mol": -5e-05,
+                "cumulative_membrane_solute_mol": -2.4999997770613743e-05,
+                "cumulative_membrane_ion_mol": 0.0,
+                "cumulative_displacement_solute_mol": 0.0,
+                "cumulative_displacement_ion_mol": 0.0,
+                "cumulative_binding_solute_mol": 0.0,
+                "cumulative_binding_ion_mol": 0.0,
+                "boundary_flow_volume_residual_m3_s": 0.0,
+                "final_concentrations": {
+                  "solute_left_mol_m3": 2.7557222110361585e-08,
+                  "solute_right_mol_m3": 4.45877252136724e-08,
+                  "ion_left_mol_m3": 8.271806125530277e-25,
+                  "ion_right_mol_m3": 0.2
+                },
+                "final_voltage_V": 0.01,
+                "final_surface_bound_counts": {
+                  "solute_mol": 0.0,
+                  "ion_mol": 0.0
+                }
+              }
+            },
+            {
+              "case": "shared_donor",
+              "dt_s": 0.125,
+              "solute_residual_mol": 5.421010862427522e-20,
+              "ion_residual_mol": 6.776263578034403e-21,
+              "diagnostics": {
+                "step_count": 160,
+                "dt": 0.125,
+                "max_normalized_mass_residual": 6.776263578034403e-17,
+                "max_normalized_charge_residual": 7.058607893785836e-17,
+                "max_relative_volume_residual": 0.0,
+                "min_inventory": 0.0,
+                "min_concentration": 1.0228269032269614e-20,
+                "min_surface_bound_count": 0.0,
+                "initial_solute_mol": 0.000125,
+                "initial_ion_mol": 6e-05,
+                "cumulative_boundary_solute_mol": -0.0001249999909676712,
+                "cumulative_boundary_ion_mol": -5.000000000000001e-05,
+                "cumulative_membrane_solute_mol": -2.4999994417819945e-05,
+                "cumulative_membrane_ion_mol": 0.0,
+                "cumulative_displacement_solute_mol": 0.0,
+                "cumulative_displacement_ion_mol": 0.0,
+                "cumulative_binding_solute_mol": 0.0,
+                "cumulative_binding_ion_mol": 0.0,
+                "boundary_flow_volume_residual_m3_s": 0.0,
+                "final_concentrations": {
+                  "solute_left_mol_m3": 6.900297569302276e-08,
+                  "solute_right_mol_m3": 1.1164360142695442e-07,
+                  "ion_left_mol_m3": 1.0228269032269614e-20,
+                  "ion_right_mol_m3": 0.2
+                },
+                "final_voltage_V": 0.01,
+                "final_surface_bound_counts": {
+                  "solute_mol": 0.0,
+                  "ion_mol": 0.0
+                }
+              }
+            }
+          ],
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "One of ten scripts only. Boundary withdrawal computed from old donor before internal transfers; final positivity clamp may create inventory. Stress uses declared synthetic one-volume/s turnover, not empirically realistic.",
+          "witness": "witness_MITOSTRESS.py",
+          "raw_file": "RAW_MITOSTRESS_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 0.0019750000000000006,
+          "tests_passed": 54,
+          "tests_failed": 2
+        }
+      ],
+      "raw_file": "RAW_MITOSTRESS_SOURCE_FINAL_R1.json",
+      "source_hashes": [
+        {
+          "path": "tasks/free48/sources/MITOSTRESS/BT-HX-Q082_model.py",
+          "sha256": "24087b916ae078e4fdabdce47d6b765d40ff745fb52833bd549b76973bb8e3cf"
+        }
+      ],
+      "consumer_scope": "Q082 moving-interface transport/binding plus simultaneous boundary withdrawals; other nine cluster scripts UNKNOWN.",
+      "proposal_witness_pass": true,
+      "proposal_note": "Lane-local proposal only; no source edits"
+    },
+    "Q005": {
+      "coverage_status": "TESTED_DEFECTS",
+      "audited_scripts": [
+        "Q005_model.py"
+      ],
+      "untested_scripts": [],
+      "findings": [
+        {
+          "id": "Q005_cell_conversion",
+          "classification": "ENHETSFEL",
+          "inventory": "steady intracellular substrate",
+          "ports": "OCT2 pmol cm^-2 min^-1 versus MATE P[cm/s]*C[uM]*1000*60",
+          "tests": [
+            {
+              "name": "creatinine_oct0.0_mate0.1",
+              "residual": 0.0,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "creatinine_oct0.0_mate1.0",
+              "residual": 0.0,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "creatinine_oct0.0_mate2.0",
+              "residual": 0.0,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "creatinine_oct0.1_mate0.1",
+              "residual": -2279.0337890625,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 6.490371388482668e-11,
+              "passed": false,
+              "terms": [
+                2.2813151041666666,
+                -2281.315104166667
+              ]
+            },
+            {
+              "name": "creatinine_oct0.1_mate1.0",
+              "residual": -2279.0337890625,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 6.490371388482668e-11,
+              "passed": false,
+              "terms": [
+                2.2813151041666666,
+                -2281.315104166667
+              ]
+            },
+            {
+              "name": "creatinine_oct0.1_mate2.0",
+              "residual": -2279.0337890625,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 6.490371388482668e-11,
+              "passed": false,
+              "terms": [
+                2.2813151041666666,
+                -2281.315104166667
+              ]
+            },
+            {
+              "name": "creatinine_oct1.0_mate0.1",
+              "residual": -22790.337890624996,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 6.490371388482666e-10,
+              "passed": false,
+              "terms": [
+                22.813151041666664,
+                -22813.151041666664
+              ]
+            },
+            {
+              "name": "creatinine_oct1.0_mate1.0",
+              "residual": -22790.337890625,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 6.490371388482667e-10,
+              "passed": false,
+              "terms": [
+                22.813151041666664,
+                -22813.151041666668
+              ]
+            },
+            {
+              "name": "creatinine_oct1.0_mate2.0",
+              "residual": -22790.337890625,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 6.490371388482667e-10,
+              "passed": false,
+              "terms": [
+                22.813151041666664,
+                -22813.151041666668
+              ]
+            },
+            {
+              "name": "creatinine_oct2.0_mate0.1",
+              "residual": -45580.67578124999,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 1.2980742776965333e-09,
+              "passed": false,
+              "terms": [
+                45.62630208333333,
+                -45626.30208333333
+              ]
+            },
+            {
+              "name": "creatinine_oct2.0_mate1.0",
+              "residual": -45580.67578125,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 1.2980742776965335e-09,
+              "passed": false,
+              "terms": [
+                45.62630208333333,
+                -45626.302083333336
+              ]
+            },
+            {
+              "name": "creatinine_oct2.0_mate2.0",
+              "residual": -45580.67578125,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 1.2980742776965335e-09,
+              "passed": false,
+              "terms": [
+                45.62630208333333,
+                -45626.302083333336
+              ]
+            },
+            {
+              "name": "metformin_oct0.0_mate0.1",
+              "residual": 0.0,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "metformin_oct0.0_mate1.0",
+              "residual": 0.0,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "metformin_oct0.0_mate2.0",
+              "residual": 0.0,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "metformin_oct0.1_mate0.1",
+              "residual": -1491.3710751665083,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 4.247217484148448e-11,
+              "passed": false,
+              "terms": [
+                1.4928639391056138,
+                -1492.8639391056138
+              ]
+            },
+            {
+              "name": "metformin_oct0.1_mate1.0",
+              "residual": -1491.3710751665083,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 4.247217484148448e-11,
+              "passed": false,
+              "terms": [
+                1.4928639391056138,
+                -1492.8639391056138
+              ]
+            },
+            {
+              "name": "metformin_oct0.1_mate2.0",
+              "residual": -1491.3710751665083,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 4.247217484148448e-11,
+              "passed": false,
+              "terms": [
+                1.4928639391056138,
+                -1492.8639391056138
+              ]
+            },
+            {
+              "name": "metformin_oct1.0_mate0.1",
+              "residual": -14913.710751665081,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 4.247217484148449e-10,
+              "passed": false,
+              "terms": [
+                14.928639391056137,
+                -14928.639391056138
+              ]
+            },
+            {
+              "name": "metformin_oct1.0_mate1.0",
+              "residual": -14913.710751665081,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 4.247217484148449e-10,
+              "passed": false,
+              "terms": [
+                14.928639391056137,
+                -14928.639391056138
+              ]
+            },
+            {
+              "name": "metformin_oct1.0_mate2.0",
+              "residual": -14913.710751665081,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 4.247217484148449e-10,
+              "passed": false,
+              "terms": [
+                14.928639391056137,
+                -14928.639391056138
+              ]
+            },
+            {
+              "name": "metformin_oct2.0_mate0.1",
+              "residual": -29827.421503330163,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 8.494434968296898e-10,
+              "passed": false,
+              "terms": [
+                29.857278782112274,
+                -29857.278782112277
+              ]
+            },
+            {
+              "name": "metformin_oct2.0_mate1.0",
+              "residual": -29827.421503330163,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 8.494434968296898e-10,
+              "passed": false,
+              "terms": [
+                29.857278782112274,
+                -29857.278782112277
+              ]
+            },
+            {
+              "name": "metformin_oct2.0_mate2.0",
+              "residual": -29827.421503330163,
+              "unit": "pmol cm^-2 min^-1",
+              "roundoff_budget": 8.494434968296898e-10,
+              "passed": false,
+              "terms": [
+                29.857278782112274,
+                -29857.278782112277
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q005/Q005_model.py:232",
+          "baseline": [
+            {
+              "substrate": "creatinine",
+              "oct2": 1.0,
+              "mate": 1.0,
+              "returned_cell_uM": 316.84932002314815,
+              "dimensioned_cell_uM": 0.31684932002314814,
+              "residual_pmol_cm2_min": -22790.337890625
+            },
+            {
+              "substrate": "metformin",
+              "oct2": 1.0,
+              "mate": 1.0,
+              "returned_cell_uM": 207.3422137646686,
+              "dimensioned_cell_uM": 0.20734221376466858,
+              "residual_pmol_cm2_min": -14913.710751665081
+            }
+          ],
+          "worst_declared_stress": [
+            {
+              "substrate": "creatinine",
+              "oct2": 0.0,
+              "mate": 0.1,
+              "returned_cell_uM": 0.0,
+              "dimensioned_cell_uM": 0.0,
+              "residual_pmol_cm2_min": 0.0
+            },
+            {
+              "substrate": "creatinine",
+              "oct2": 0.0,
+              "mate": 1.0,
+              "returned_cell_uM": 0.0,
+              "dimensioned_cell_uM": 0.0,
+              "residual_pmol_cm2_min": 0.0
+            },
+            {
+              "substrate": "creatinine",
+              "oct2": 0.0,
+              "mate": 2.0,
+              "returned_cell_uM": 0.0,
+              "dimensioned_cell_uM": 0.0,
+              "residual_pmol_cm2_min": 0.0
+            },
+            {
+              "substrate": "creatinine",
+              "oct2": 0.1,
+              "mate": 0.1,
+              "returned_cell_uM": 316.84932002314815,
+              "dimensioned_cell_uM": 0.31684932002314814,
+              "residual_pmol_cm2_min": -2279.0337890625
+            },
+            {
+              "substrate": "creatinine",
+              "oct2": 0.1,
+              "mate": 1.0,
+              "returned_cell_uM": 31.684932002314817,
+              "dimensioned_cell_uM": 0.031684932002314814,
+              "residual_pmol_cm2_min": -2279.0337890625
+            },
+            {
+              "substrate": "creatinine",
+              "oct2": 0.1,
+              "mate": 2.0,
+              "returned_cell_uM": 15.842466001157408,
+              "dimensioned_cell_uM": 0.015842466001157407,
+              "residual_pmol_cm2_min": -2279.0337890625
+            },
+            {
+              "substrate": "creatinine",
+              "oct2": 1.0,
+              "mate": 0.1,
+              "returned_cell_uM": 3168.4932002314813,
+              "dimensioned_cell_uM": 3.168493200231481,
+              "residual_pmol_cm2_min": -22790.337890624996
+            },
+            {
+              "substrate": "creatinine",
+              "oct2": 1.0,
+              "mate": 1.0,
+              "returned_cell_uM": 316.84932002314815,
+              "dimensioned_cell_uM": 0.31684932002314814,
+              "residual_pmol_cm2_min": -22790.337890625
+            },
+            {
+              "substrate": "creatinine",
+              "oct2": 1.0,
+              "mate": 2.0,
+              "returned_cell_uM": 158.42466001157408,
+              "dimensioned_cell_uM": 0.15842466001157407,
+              "residual_pmol_cm2_min": -22790.337890625
+            },
+            {
+              "substrate": "creatinine",
+              "oct2": 2.0,
+              "mate": 0.1,
+              "returned_cell_uM": 6336.986400462963,
+              "dimensioned_cell_uM": 6.336986400462962,
+              "residual_pmol_cm2_min": -45580.67578124999
+            },
+            {
+              "substrate": "creatinine",
+              "oct2": 2.0,
+              "mate": 1.0,
+              "returned_cell_uM": 633.6986400462963,
+              "dimensioned_cell_uM": 0.6336986400462963,
+              "residual_pmol_cm2_min": -45580.67578125
+            },
+            {
+              "substrate": "creatinine",
+              "oct2": 2.0,
+              "mate": 2.0,
+              "returned_cell_uM": 316.84932002314815,
+              "dimensioned_cell_uM": 0.31684932002314814,
+              "residual_pmol_cm2_min": -45580.67578125
+            },
+            {
+              "substrate": "metformin",
+              "oct2": 0.0,
+              "mate": 0.1,
+              "returned_cell_uM": 0.0,
+              "dimensioned_cell_uM": 0.0,
+              "residual_pmol_cm2_min": 0.0
+            },
+            {
+              "substrate": "metformin",
+              "oct2": 0.0,
+              "mate": 1.0,
+              "returned_cell_uM": 0.0,
+              "dimensioned_cell_uM": 0.0,
+              "residual_pmol_cm2_min": 0.0
+            },
+            {
+              "substrate": "metformin",
+              "oct2": 0.0,
+              "mate": 2.0,
+              "returned_cell_uM": 0.0,
+              "dimensioned_cell_uM": 0.0,
+              "residual_pmol_cm2_min": 0.0
+            },
+            {
+              "substrate": "metformin",
+              "oct2": 0.1,
+              "mate": 0.1,
+              "returned_cell_uM": 207.34221376466857,
+              "dimensioned_cell_uM": 0.20734221376466858,
+              "residual_pmol_cm2_min": -1491.3710751665083
+            },
+            {
+              "substrate": "metformin",
+              "oct2": 0.1,
+              "mate": 1.0,
+              "returned_cell_uM": 20.73422137646686,
+              "dimensioned_cell_uM": 0.02073422137646686,
+              "residual_pmol_cm2_min": -1491.3710751665083
+            },
+            {
+              "substrate": "metformin",
+              "oct2": 0.1,
+              "mate": 2.0,
+              "returned_cell_uM": 10.36711068823343,
+              "dimensioned_cell_uM": 0.01036711068823343,
+              "residual_pmol_cm2_min": -1491.3710751665083
+            },
+            {
+              "substrate": "metformin",
+              "oct2": 1.0,
+              "mate": 0.1,
+              "returned_cell_uM": 2073.4221376466858,
+              "dimensioned_cell_uM": 2.0734221376466855,
+              "residual_pmol_cm2_min": -14913.710751665081
+            },
+            {
+              "substrate": "metformin",
+              "oct2": 1.0,
+              "mate": 1.0,
+              "returned_cell_uM": 207.3422137646686,
+              "dimensioned_cell_uM": 0.20734221376466858,
+              "residual_pmol_cm2_min": -14913.710751665081
+            },
+            {
+              "substrate": "metformin",
+              "oct2": 1.0,
+              "mate": 2.0,
+              "returned_cell_uM": 103.6711068823343,
+              "dimensioned_cell_uM": 0.10367110688233429,
+              "residual_pmol_cm2_min": -14913.710751665081
+            },
+            {
+              "substrate": "metformin",
+              "oct2": 2.0,
+              "mate": 0.1,
+              "returned_cell_uM": 4146.8442752933715,
+              "dimensioned_cell_uM": 4.146844275293371,
+              "residual_pmol_cm2_min": -29827.421503330163
+            },
+            {
+              "substrate": "metformin",
+              "oct2": 2.0,
+              "mate": 1.0,
+              "returned_cell_uM": 414.6844275293372,
+              "dimensioned_cell_uM": 0.41468442752933715,
+              "residual_pmol_cm2_min": -29827.421503330163
+            },
+            {
+              "substrate": "metformin",
+              "oct2": 2.0,
+              "mate": 2.0,
+              "returned_cell_uM": 207.3422137646686,
+              "dimensioned_cell_uM": 0.20734221376466858,
+              "residual_pmol_cm2_min": -29827.421503330163
+            }
+          ],
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "Secretion clearance conversion is correct; Ccell and Ccell-based descendants inherit factor 1000. Zero MATE has no finite steady closure.",
+          "witness": "witness_Q005.py",
+          "raw_file": "RAW_Q005_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 45580.67578125,
+          "tests_passed": 6,
+          "tests_failed": 18
+        }
+      ],
+      "raw_file": "RAW_Q005_SOURCE_FINAL_R1.json",
+      "source_hashes": [
+        {
+          "path": "tasks/free48/sources/Q005/Q005_model.py",
+          "sha256": "a5be6d70c1e03f33f0a8b4dd0f9326a6e3aff505eea0361af94fd33d8bc142a8"
+        }
+      ],
+      "consumer_scope": "Intracellular concentration, accumulation and toxicity proxies; uptake and secretion clearance do not inherit this conversion error.",
+      "proposal_witness_pass": true,
+      "proposal_note": "Lane-local proposal only; no source edits"
+    },
+    "Q009": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q009_model.py"
+      ],
+      "findings": []
+    },
+    "Q012": {
+      "coverage_status": "TESTED_DEFECTS",
+      "audited_scripts": [
+        "Q012_model.py"
+      ],
+      "untested_scripts": [],
+      "findings": [
+        {
+          "id": "Q012_RHS",
+          "classification": "OK",
+          "inventory": "Vd*C (TMAO moles)",
+          "ports": "declared source - renal clearance*C",
+          "tests": [
+            {
+              "name": "RHS_linear_0.0",
+              "residual": 0.0,
+              "unit": "mol/h",
+              "roundoff_budget": 3.105739630180586e-19,
+              "passed": true,
+              "terms": [
+                5.463674937965262e-06,
+                -5.463674937965262e-06,
+                0.0
+              ]
+            },
+            {
+              "name": "RHS_linear_1e-07",
+              "residual": 2.117582368135751e-22,
+              "unit": "mol/h",
+              "roundoff_budget": 3.105739630180586e-19,
+              "passed": true,
+              "terms": [
+                4.632074937965262e-06,
+                -5.463674937965262e-06,
+                8.316e-07
+              ]
+            },
+            {
+              "name": "RHS_linear_1e-05",
+              "residual": 0.0,
+              "unit": "mol/h",
+              "roundoff_budget": 4.727098712464795e-18,
+              "passed": true,
+              "terms": [
+                -7.769632506203475e-05,
+                -5.463674937965262e-06,
+                8.316000000000001e-05
+              ]
+            },
+            {
+              "name": "RHS_saturable_0.0",
+              "residual": 0.0,
+              "unit": "mol/h",
+              "roundoff_budget": 3.524291969370097e-21,
+              "passed": true,
+              "terms": [
+                6.2e-08,
+                -6.2e-08,
+                0.0
+              ]
+            },
+            {
+              "name": "RHS_saturable_1e-07",
+              "residual": 2.117582368135751e-22,
+              "unit": "mol/h",
+              "roundoff_budget": 3.105739630180586e-19,
+              "passed": true,
+              "terms": [
+                4.632074937965262e-06,
+                -5.463674937965262e-06,
+                8.316e-07
+              ]
+            },
+            {
+              "name": "RHS_saturable_1e-05",
+              "residual": 0.0,
+              "unit": "mol/h",
+              "roundoff_budget": 4.727098712464795e-18,
+              "passed": true,
+              "terms": [
+                -7.769632506203475e-05,
+                -5.463674937965262e-06,
+                8.316000000000001e-05
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q012/Q012_model.py:350-362",
+          "baseline": {
+            "steady_mol_L": 6.57007568297891e-07
+          },
+          "worst_declared_stress": null,
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "Saturable source uses product C as its catalytic substrate proxy; biochemical validity not established by molar identity.",
+          "witness": "witness_Q012.py",
+          "raw_file": "RAW_Q012_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 2.117582368135751e-22,
+          "tests_passed": 6,
+          "tests_failed": 0
+        },
+        {
+          "id": "Q012_day_hour",
+          "classification": "ENHETSFEL",
+          "inventory": "time-integrated TMAO moles",
+          "ports": "RHS mol L^-1 h^-1 integrated on days grid",
+          "tests": [
+            {
+              "name": "one_declared_day_n101",
+              "residual": -5.441021191366859e-07,
+              "unit": "mol/L",
+              "roundoff_budget": 2.129843323240519e-20,
+              "passed": false,
+              "terms": [
+                1.0263494031070162e-07,
+                -6.467370594473875e-07
+              ]
+            },
+            {
+              "name": "one_declared_day_n201",
+              "residual": -5.436883978817472e-07,
+              "unit": "mol/L",
+              "roundoff_budget": 2.1284401501499974e-20,
+              "passed": false,
+              "terms": [
+                1.0259495211756116e-07,
+                -6.462833499993084e-07
+              ]
+            },
+            {
+              "name": "one_declared_day_n401",
+              "residual": -5.434789447697169e-07,
+              "unit": "mol/L",
+              "roundoff_budget": 2.1277312856730318e-20,
+              "passed": false,
+              "terms": [
+                1.0257497391598586e-07,
+                -6.460539186857027e-07
+              ]
+            },
+            {
+              "name": "one_declared_day_n801",
+              "residual": -5.433735807982565e-07,
+              "unit": "mol/L",
+              "roundoff_budget": 2.1273750643551388e-20,
+              "passed": false,
+              "terms": [
+                1.0256498878474242e-07,
+                -6.459385695829989e-07
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q012/Q012_model.py:365-374",
+          "baseline": {
+            "one_day_mol_L": 6.458228022206308e-07,
+            "default_dt_declared_days": 0.001
+          },
+          "worst_declared_stress": [
+            {
+              "n": 101,
+              "returned_mol_L": 1.0263494031070162e-07,
+              "one_day_expected_mol_L": 6.458228022206308e-07,
+              "exact_day_Euler_mol_L": 6.467370594473875e-07,
+              "one_hour_expected_mol_L": 1.0255500629826226e-07,
+              "one_hour_error": 7.993401243936393e-11,
+              "one_day_error": -5.431878619099292e-07
+            },
+            {
+              "n": 201,
+              "returned_mol_L": 1.0259495211756116e-07,
+              "one_day_expected_mol_L": 6.458228022206308e-07,
+              "exact_day_Euler_mol_L": 6.462833499993084e-07,
+              "one_hour_expected_mol_L": 1.0255500629826226e-07,
+              "one_hour_error": 3.994581929889623e-11,
+              "one_day_error": -5.432278501030697e-07
+            },
+            {
+              "n": 401,
+              "returned_mol_L": 1.0257497391598586e-07,
+              "one_day_expected_mol_L": 6.458228022206308e-07,
+              "exact_day_Euler_mol_L": 6.460539186857027e-07,
+              "one_hour_expected_mol_L": 1.0255500629826226e-07,
+              "one_hour_error": 1.9967617723601054e-11,
+              "one_day_error": -5.432478283046449e-07
+            },
+            {
+              "n": 801,
+              "returned_mol_L": 1.0256498878474242e-07,
+              "one_day_expected_mol_L": 6.458228022206308e-07,
+              "exact_day_Euler_mol_L": 6.459385695829989e-07,
+              "one_hour_expected_mol_L": 1.0255500629826226e-07,
+              "one_hour_error": 9.98248648016382e-12,
+              "one_day_error": -5.432578134358885e-07
+            }
+          ],
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "dt tends to zero towards the one-hour answer per declared day: factor24 persists. It is not an Euler discretization error.",
+          "witness": "witness_Q012.py",
+          "raw_file": "RAW_Q012_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 5.441021191366859e-07,
+          "tests_passed": 0,
+          "tests_failed": 4
+        }
+      ],
+      "raw_file": "RAW_Q012_SOURCE_FINAL_R1.json",
+      "source_hashes": [
+        {
+          "path": "tasks/free48/sources/Q012/Q012_model.py",
+          "sha256": "e65430b145a3216e80ee617957e0097f73b0fdcd99491bc25d313d1630fb5ee1"
+        }
+      ],
+      "consumer_scope": "Transient time-to-threshold and day-labelled trajectories; steady-state, Monte Carlo and algebraic ratio consumers do not inherit this time-grid error.",
+      "proposal_witness_pass": true,
+      "proposal_note": "Lane-local proposal only; no source edits"
+    },
+    "Q013": {
+      "coverage_status": "TESTED_CONTRACT_PASS",
+      "audited_scripts": [
+        "Q013_model.py"
+      ],
+      "untested_scripts": [],
+      "findings": [
+        {
+          "id": "Q013_PK",
+          "classification": "OK",
+          "inventory": "bioavailable gut + plasma amount",
+          "ports": "absorption internal; elimination external; unavailable dose external at administration",
+          "tests": [
+            {
+              "name": "plasma_oral_1.5",
+              "residual": 3.3306690738754696e-16,
+              "unit": "normalized concentration",
+              "roundoff_budget": 2.842170943040401e-14,
+              "passed": true,
+              "terms": [
+                3.3306690738754696e-16
+              ]
+            },
+            {
+              "name": "local_oral_1.5",
+              "residual": 2.220446049250313e-16,
+              "unit": "normalized concentration",
+              "roundoff_budget": 2.842170943040401e-14,
+              "passed": true,
+              "terms": [
+                2.220446049250313e-16
+              ]
+            },
+            {
+              "name": "plasma_inventory_oral_1.5",
+              "residual": 1.1102230246251565e-16,
+              "unit": "normalized amount",
+              "roundoff_budget": 3.979039320256561e-14,
+              "passed": true,
+              "terms": [
+                4.616832970219405e-08,
+                3.7661303120147967e-32,
+                0.6999999538316704,
+                -0.7
+              ]
+            },
+            {
+              "name": "plasma_oral_0.35",
+              "residual": 1.3877787807814457e-16,
+              "unit": "normalized concentration",
+              "roundoff_budget": 2.842170943040401e-14,
+              "passed": true,
+              "terms": [
+                1.3877787807814457e-16
+              ]
+            },
+            {
+              "name": "local_oral_0.35",
+              "residual": 3.3306690738754696e-16,
+              "unit": "normalized concentration",
+              "roundoff_budget": 2.842170943040401e-14,
+              "passed": true,
+              "terms": [
+                3.3306690738754696e-16
+              ]
+            },
+            {
+              "name": "plasma_inventory_oral_0.35",
+              "residual": 0.0,
+              "unit": "normalized amount",
+              "roundoff_budget": 3.979039320256561e-14,
+              "passed": true,
+              "terms": [
+                5.946480865642593e-07,
+                3.539571943834877e-08,
+                0.6999993699561939,
+                -0.7
+              ]
+            },
+            {
+              "name": "plasma_iv_1.5",
+              "residual": 4.440892098500626e-16,
+              "unit": "normalized concentration",
+              "roundoff_budget": 2.842170943040401e-14,
+              "passed": true,
+              "terms": [
+                4.440892098500626e-16
+              ]
+            },
+            {
+              "name": "local_iv_1.5",
+              "residual": 3.3306690738754696e-16,
+              "unit": "normalized concentration",
+              "roundoff_budget": 2.842170943040401e-14,
+              "passed": true,
+              "terms": [
+                3.3306690738754696e-16
+              ]
+            },
+            {
+              "name": "plasma_inventory_iv_1.5",
+              "residual": 0.0,
+              "unit": "normalized amount",
+              "roundoff_budget": 5.684341886080802e-14,
+              "passed": true,
+              "terms": [
+                5.056531348335539e-08,
+                0.0,
+                0.9999999494346865,
+                -1.0
+              ]
+            },
+            {
+              "name": "plasma_iv_0.35",
+              "residual": 1.1102230246251565e-16,
+              "unit": "normalized concentration",
+              "roundoff_budget": 2.987359245141942e-14,
+              "passed": true,
+              "terms": [
+                1.1102230246251565e-16
+              ]
+            },
+            {
+              "name": "local_iv_0.35",
+              "residual": 3.3306690738754696e-16,
+              "unit": "normalized concentration",
+              "roundoff_budget": 2.987359245141942e-14,
+              "passed": true,
+              "terms": [
+                3.3306690738754696e-16
+              ]
+            },
+            {
+              "name": "plasma_inventory_iv_0.35",
+              "residual": 0.0,
+              "unit": "normalized amount",
+              "roundoff_budget": 5.684341886080802e-14,
+              "passed": true,
+              "terms": [
+                5.056531348335539e-08,
+                0.0,
+                0.9999999494346865,
+                -1.0
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q013/Q013_model.py:174-240,280-291",
+          "baseline": [
+            {
+              "route": "oral",
+              "ka": 1.5,
+              "plasma_max_error": 3.3306690738754696e-16,
+              "local_max_error": 2.220446049250313e-16
+            },
+            {
+              "route": "oral",
+              "ka": 0.35,
+              "plasma_max_error": 1.3877787807814457e-16,
+              "local_max_error": 3.3306690738754696e-16
+            },
+            {
+              "route": "iv",
+              "ka": 1.5,
+              "plasma_max_error": 4.440892098500626e-16,
+              "local_max_error": 3.3306690738754696e-16
+            },
+            {
+              "route": "iv",
+              "ka": 0.35,
+              "plasma_max_error": 1.1102230246251565e-16,
+              "local_max_error": 3.3306690738754696e-16
+            }
+          ],
+          "worst_declared_stress": [
+            {
+              "dt_h": 0.04,
+              "AUC_quadrature_deficit": 0.0001401210952727272
+            },
+            {
+              "dt_h": 0.02,
+              "AUC_quadrature_deficit": 3.513123398346529e-05
+            },
+            {
+              "dt_h": 0.01,
+              "AUC_quadrature_deficit": 8.88186739333996e-06
+            },
+            {
+              "dt_h": 0.005,
+              "AUC_quadrature_deficit": 2.319406906314825e-06
+            }
+          ],
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "Local concentration has no volume and is a one-way effect compartment; adding it to plasma mass would create an undeclared material model. dt controls sampling/quadrature, not propagation.",
+          "witness": "witness_Q013.py",
+          "raw_file": "RAW_Q013_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 4.440892098500626e-16,
+          "tests_passed": 12,
+          "tests_failed": 0
+        }
+      ],
+      "raw_file": "RAW_Q013_SOURCE_FINAL_R1.json",
+      "source_hashes": [
+        {
+          "path": "tasks/free48/sources/Q013/Q013_model.py",
+          "sha256": "d7bafbd043112fa036dcf8c8d5283665489634d283103f209fff911a808caaaa"
+        }
+      ],
+      "consumer_scope": "Normalized oral/IV PK and driven effect-compartment exposure; no closed plasma+cell mass claim.",
+      "proposal_witness_pass": true,
+      "proposal_note": "Lane-local proposal only; no source edits"
+    },
+    "Q014": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q014_model.py"
+      ],
+      "findings": []
+    },
+    "Q017": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q017_model.py"
+      ],
+      "findings": []
+    },
+    "Q019": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q019_model.py"
+      ],
+      "findings": []
+    },
+    "Q020": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q020_model.py"
+      ],
+      "findings": []
+    },
+    "Q021": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q021_model.py"
+      ],
+      "findings": []
+    },
+    "Q022": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q022_model.py"
+      ],
+      "findings": []
+    },
+    "Q026": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q026_model.py"
+      ],
+      "findings": []
+    },
+    "Q031": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q031_model.py"
+      ],
+      "findings": []
+    },
+    "Q036": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q036_model.py"
+      ],
+      "findings": []
+    },
+    "Q043": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q043_model.py"
+      ],
+      "findings": []
+    },
+    "Q044": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q044_model.py"
+      ],
+      "findings": []
+    },
+    "Q049": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q049_model.py"
+      ],
+      "findings": []
+    },
+    "Q052": {
+      "coverage_status": "TESTED_DEFECTS",
+      "audited_scripts": [
+        "Q052_model.py"
+      ],
+      "untested_scripts": [],
+      "findings": [
+        {
+          "id": "Q052_stencil",
+          "classification": "OK",
+          "inventory": "steady interior normalized nutrient per unit area",
+          "ports": "upwind boundary fluxes - interior consumption",
+          "tests": [
+            {
+              "name": "stencil_n51_drive20000.0_sink0.05",
+              "residual": -6.830473686658678e-17,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 1.466230820405857e-14,
+              "passed": true,
+              "terms": [
+                0.2579310344826188,
+                -5.509385554271427e-06,
+                5.509641873278242e-06,
+                -0.25734373064685123,
+                5.509641873278237e-06,
+                -5.497096528308908e-06,
+                -0.000587316637431609
+              ]
+            },
+            {
+              "name": "stencil_n51_drive0.0_sink0.05",
+              "residual": 1.6940658945086007e-21,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 6.263737615516035e-19,
+              "passed": true,
+              "terms": [
+                0.0,
+                -1.404410432121689e-06,
+                5.509641873278237e-06,
+                -0.0,
+                5.509641873278237e-06,
+                -1.404410432121689e-06,
+                -8.210462882313096e-06
+              ]
+            },
+            {
+              "name": "stencil_n51_drive0.0_sink0.0",
+              "residual": -1.6940658945086007e-21,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 6.263737615516035e-19,
+              "passed": true,
+              "terms": [
+                0.0,
+                -5.509641873278238e-06,
+                5.509641873278237e-06,
+                -0.0,
+                5.509641873278237e-06,
+                -5.509641873278238e-06,
+                -0.0
+              ]
+            },
+            {
+              "name": "stencil_n101_drive20000.0_sink0.05",
+              "residual": -1.7001374266745195e-15,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 1.466293457782008e-14,
+              "passed": true,
+              "terms": [
+                0.2579310344826172,
+                -1.101902742158724e-05,
+                1.1019283746556418e-05,
+                -0.2573377504261293,
+                1.1019283746556474e-05,
+                -1.0993937570692539e-05,
+                -0.0005933096589905335
+              ]
+            },
+            {
+              "name": "stencil_n101_drive0.0_sink0.05",
+              "residual": -1.6940658945086007e-21,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 1.252747523103207e-18,
+              "passed": true,
+              "terms": [
+                0.0,
+                -5.352352197309137e-06,
+                1.1019283746556474e-05,
+                -0.0,
+                1.1019283746556474e-05,
+                -5.352352197309137e-06,
+                -1.1333863098494675e-05
+              ]
+            },
+            {
+              "name": "stencil_n101_drive0.0_sink0.0",
+              "residual": 0.0,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 1.252747523103207e-18,
+              "passed": true,
+              "terms": [
+                0.0,
+                -1.1019283746556476e-05,
+                1.1019283746556474e-05,
+                -0.0,
+                1.1019283746556474e-05,
+                -1.1019283746556472e-05,
+                -0.0
+              ]
+            },
+            {
+              "name": "stencil_n201_drive20000.0_sink0.05",
+              "residual": 8.797324847764632e-15,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 1.466418732534307e-14,
+              "passed": true,
+              "terms": [
+                0.25793103448262056,
+                -2.2038311165162655e-05,
+                2.203856749311312e-05,
+                -0.25733477951540745,
+                2.203856749311295e-05,
+                -2.1987621295946935e-05,
+                -0.0005963061697294332
+              ]
+            },
+            {
+              "name": "stencil_n201_drive0.0_sink0.05",
+              "residual": 1.8634724839594607e-20,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 2.5054950462064136e-18,
+              "passed": true,
+              "terms": [
+                0.0,
+                -1.5270212004907398e-05,
+                2.203856749311295e-05,
+                -0.0,
+                2.203856749311295e-05,
+                -1.527021200490739e-05,
+                -1.3536710976411088e-05
+              ]
+            },
+            {
+              "name": "stencil_n201_drive0.0_sink0.0",
+              "residual": -6.776263578034403e-21,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 2.505495046206414e-18,
+              "passed": true,
+              "terms": [
+                0.0,
+                -2.2038567493112952e-05,
+                2.203856749311295e-05,
+                -0.0,
+                2.203856749311295e-05,
+                -2.2038567493112952e-05,
+                -0.0
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q052/Q052_model.py:194-203",
+          "baseline": {
+            "n": 101,
+            "drive_Pa_m": 20000.0,
+            "sink_s": 0.05,
+            "inlet_flux": 0.2579310347389422,
+            "conservative_outlet_flux": 0.2573377250799534,
+            "reported_outlet_flux": 0.2579310091364427,
+            "residual": -0.0005932840564910241
+          },
+          "worst_declared_stress": null,
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "Concentration normalized; absolute moles require a declared concentration scale and area. No time integration.",
+          "witness": "witness_Q052.py",
+          "raw_file": "RAW_Q052_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 8.797324847764632e-15,
+          "tests_passed": 9,
+          "tests_failed": 0
+        },
+        {
+          "id": "Q052_outlet",
+          "classification": "LEAK",
+          "inventory": "same discrete nutrient inventory",
+          "ports": "reported outlet port",
+          "tests": [
+            {
+              "name": "reported_outlet_n51_drive20000.0_sink0.05",
+              "residual": 0.0005873038357673277,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 1.4644988938209162e-14,
+              "passed": false,
+              "terms": [
+                0.2579310219372736,
+                -0.25734371810150625
+              ]
+            },
+            {
+              "name": "reported_outlet_n51_drive0.0_sink0.05",
+              "residual": 0.0,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 2.3335539033022023e-19,
+              "passed": true,
+              "terms": [
+                -4.105231441156549e-06,
+                4.105231441156549e-06
+              ]
+            },
+            {
+              "name": "reported_outlet_n51_drive0.0_sink0.0",
+              "residual": 0.0,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 6.954145720956578e-35,
+              "passed": true,
+              "terms": [
+                1.2233862530304756e-21,
+                -1.2233862530304756e-21
+              ]
+            },
+            {
+              "name": "reported_outlet_n101_drive20000.0_sink0.05",
+              "residual": 0.000593284056489285,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 1.464481824247048e-14,
+              "passed": false,
+              "terms": [
+                0.2579310091364427,
+                -0.2573377250799534
+              ]
+            },
+            {
+              "name": "reported_outlet_n101_drive0.0_sink0.05",
+              "residual": 0.0,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 3.2212776370939405e-19,
+              "passed": true,
+              "terms": [
+                -5.666931549247337e-06,
+                5.666931549247337e-06
+              ]
+            },
+            {
+              "name": "reported_outlet_n101_drive0.0_sink0.0",
+              "residual": 0.0,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 6.954145720956578e-35,
+              "passed": true,
+              "terms": [
+                -1.2233862530304756e-21,
+                1.2233862530304756e-21
+              ]
+            },
+            {
+              "name": "reported_outlet_n201_drive20000.0_sink0.05",
+              "residual": 0.0005962549672111073,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 1.4644732348916468e-14,
+              "passed": false,
+              "terms": [
+                0.2579309835364214,
+                -0.2573347285692103
+              ]
+            },
+            {
+              "name": "reported_outlet_n201_drive0.0_sink0.05",
+              "residual": 0.0,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 3.847364660149172e-19,
+              "passed": true,
+              "terms": [
+                -6.768355488205557e-06,
+                6.768355488205557e-06
+              ]
+            },
+            {
+              "name": "reported_outlet_n201_drive0.0_sink0.0",
+              "residual": 0.0,
+              "unit": "normalized concentration*m/s",
+              "roundoff_budget": 2.7816582883826313e-34,
+              "passed": true,
+              "terms": [
+                4.893545012121902e-21,
+                -4.893545012121902e-21
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q052/Q052_model.py:275",
+          "baseline": {
+            "n": 101,
+            "drive_Pa_m": 20000.0,
+            "sink_s": 0.05,
+            "inlet_flux": 0.2579310347389422,
+            "conservative_outlet_flux": 0.2573377250799534,
+            "reported_outlet_flux": 0.2579310091364427,
+            "residual": -0.0005932840564910241
+          },
+          "worst_declared_stress": [
+            {
+              "n": 51,
+              "drive_Pa_m": 20000.0,
+              "sink_s": 0.05,
+              "inlet_flux": 0.2579310347389378,
+              "conservative_outlet_flux": 0.25734371810150625,
+              "reported_outlet_flux": 0.2579310219372736,
+              "residual": -0.0005873038357673803
+            },
+            {
+              "n": 51,
+              "drive_Pa_m": 0.0,
+              "sink_s": 0.05,
+              "inlet_flux": 4.105231441156549e-06,
+              "conservative_outlet_flux": -4.105231441156549e-06,
+              "reported_outlet_flux": -4.105231441156549e-06,
+              "residual": 1.6940658945086007e-21
+            },
+            {
+              "n": 51,
+              "drive_Pa_m": 0.0,
+              "sink_s": 0.0,
+              "inlet_flux": -1.2233862530304756e-21,
+              "conservative_outlet_flux": 1.2233862530304756e-21,
+              "reported_outlet_flux": 1.2233862530304756e-21,
+              "residual": -2.446772506060951e-21
+            },
+            {
+              "n": 101,
+              "drive_Pa_m": 20000.0,
+              "sink_s": 0.05,
+              "inlet_flux": 0.2579310347389422,
+              "conservative_outlet_flux": 0.2573377250799534,
+              "reported_outlet_flux": 0.2579310091364427,
+              "residual": -0.0005932840564910241
+            },
+            {
+              "n": 101,
+              "drive_Pa_m": 0.0,
+              "sink_s": 0.05,
+              "inlet_flux": 5.666931549247337e-06,
+              "conservative_outlet_flux": -5.666931549247337e-06,
+              "reported_outlet_flux": -5.666931549247337e-06,
+              "residual": -1.6940658945086007e-21
+            },
+            {
+              "n": 101,
+              "drive_Pa_m": 0.0,
+              "sink_s": 0.0,
+              "inlet_flux": -2.446772506060951e-21,
+              "conservative_outlet_flux": -1.2233862530304756e-21,
+              "reported_outlet_flux": -1.2233862530304756e-21,
+              "residual": -1.2233862530304756e-21
+            },
+            {
+              "n": 201,
+              "drive_Pa_m": 20000.0,
+              "sink_s": 0.05,
+              "inlet_flux": 0.2579310347389485,
+              "conservative_outlet_flux": 0.2573347285692103,
+              "reported_outlet_flux": 0.2579309835364214,
+              "residual": -0.0005962549672023261
+            },
+            {
+              "n": 201,
+              "drive_Pa_m": 0.0,
+              "sink_s": 0.05,
+              "inlet_flux": 6.768355488205552e-06,
+              "conservative_outlet_flux": -6.768355488205557e-06,
+              "reported_outlet_flux": -6.768355488205557e-06,
+              "residual": 2.0328790734103208e-20
+            },
+            {
+              "n": 201,
+              "drive_Pa_m": 0.0,
+              "sink_s": 0.0,
+              "inlet_flux": -4.893545012121902e-21,
+              "conservative_outlet_flux": 4.893545012121902e-21,
+              "reported_outlet_flux": 4.893545012121902e-21,
+              "residual": -9.787090024243805e-21
+            }
+          ],
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "Reported v*c[-1] differs from stencil upwind v*c[-2]; boundary-cell reservoir convention cannot be silently mixed with interior ledger.",
+          "witness": "witness_Q052.py",
+          "raw_file": "RAW_Q052_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 0.0005962549672111073,
+          "tests_passed": 6,
+          "tests_failed": 3
+        },
+        {
+          "id": "Q052_Pascal",
+          "classification": "ENHETSFEL",
+          "inventory": "dimension metadata",
+          "ports": "Pa = kg m^-1 s^-2",
+          "tests": [
+            {
+              "name": "Pascal_L_exponent",
+              "residual": 2.0,
+              "unit": "exponent of metre",
+              "roundoff_budget": 5.684341886080802e-14,
+              "passed": false,
+              "terms": [
+                1.0,
+                1.0
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q052/Q052_model.py:63",
+          "baseline": {
+            "declared": [
+              1.0,
+              1.0,
+              -2.0
+            ],
+            "expected": [
+              -1,
+              1,
+              -2
+            ]
+          },
+          "worst_declared_stress": null,
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "Helper defines Newton exponents as Pascal; transport numerical SI values remain consistent.",
+          "witness": "witness_Q052.py",
+          "raw_file": "RAW_Q052_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 2.0,
+          "tests_passed": 0,
+          "tests_failed": 1
+        }
+      ],
+      "raw_file": "RAW_Q052_SOURCE_FINAL_R1.json",
+      "source_hashes": [
+        {
+          "path": "tasks/free48/sources/Q052/Q052_model.py",
+          "sha256": "4d2e116a80da3049f2ed621584a7d8d8e2f61fa5909241f970aa259206867fdd"
+        }
+      ],
+      "consumer_scope": "Reported outlet and nutrient uptake budgets, dimension-check consumers; the interior discrete flux stencil itself closes.",
+      "proposal_witness_pass": true,
+      "proposal_note": "Lane-local proposal only; no source edits"
+    },
+    "Q054": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q054_model.py"
+      ],
+      "findings": []
+    },
+    "Q058": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q058_model.py"
+      ],
+      "findings": []
+    },
+    "Q077": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q077_model.py"
+      ],
+      "findings": []
+    },
+    "Q080": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q080_model.py"
+      ],
+      "findings": []
+    },
+    "Q084": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q084_model.py"
+      ],
+      "findings": []
+    },
+    "Q088": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q088_model.py"
+      ],
+      "findings": []
+    },
+    "Q090": {
+      "coverage_status": "TESTED_DEFECTS",
+      "audited_scripts": [
+        "Q090_model.py"
+      ],
+      "untested_scripts": [],
+      "findings": [
+        {
+          "id": "Q090_dissipation",
+          "classification": "LEAK",
+          "inventory": "kinetic + declared static elastic energy",
+          "ports": "external power - declared dissipation",
+          "tests": [
+            {
+              "name": "energy_bone1.0_q0.0_v0.002",
+              "residual": -1.3993877681309913e-06,
+              "unit": "W",
+              "roundoff_budget": 1.8185916736205935e-16,
+              "passed": false,
+              "terms": [
+                0.0031986006122318687,
+                -0.0031999999999999997
+              ]
+            },
+            {
+              "name": "energy_bone1.0_q1e-05_v0.002",
+              "residual": -1.923305989873659e-06,
+              "unit": "W",
+              "roundoff_budget": 1.818442767105957e-16,
+              "passed": false,
+              "terms": [
+                0.003198076694010126,
+                -0.0031999999999999997
+              ]
+            },
+            {
+              "name": "energy_bone1.0_q-1e-05_v-0.002",
+              "residual": -1.923305989873659e-06,
+              "unit": "W",
+              "roundoff_budget": 1.818442767105957e-16,
+              "passed": false,
+              "terms": [
+                0.003198076694010126,
+                -0.0031999999999999997
+              ]
+            },
+            {
+              "name": "energy_bone1.0_q5e-05_v-0.001",
+              "residual": -3.603181743176199e-06,
+              "unit": "W",
+              "roundoff_budget": 4.537232650411692e-17,
+              "passed": false,
+              "terms": [
+                0.0007963968182568237,
+                -0.0007999999999999999
+              ]
+            },
+            {
+              "name": "energy_bone1.0_q0.0_v0.0",
+              "residual": 0.0,
+              "unit": "W",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "energy_bone0.1_q0.0_v0.002",
+              "residual": -1.3939017076645792e-05,
+              "unit": "W",
+              "roundoff_budget": 1.8150276966148777e-16,
+              "passed": false,
+              "terms": [
+                0.003186060982923354,
+                -0.0031999999999999997
+              ]
+            },
+            {
+              "name": "energy_bone0.1_q1e-05_v0.002",
+              "residual": -1.908220419489853e-05,
+              "unit": "W",
+              "roundoff_budget": 1.8135659149166658e-16,
+              "passed": false,
+              "terms": [
+                0.003180917795805101,
+                -0.0031999999999999997
+              ]
+            },
+            {
+              "name": "energy_bone0.1_q-1e-05_v-0.002",
+              "residual": -1.908220419489853e-05,
+              "unit": "W",
+              "roundoff_budget": 1.8135659149166658e-16,
+              "passed": false,
+              "terms": [
+                0.003180917795805101,
+                -0.0031999999999999997
+              ]
+            },
+            {
+              "name": "energy_bone0.1_q5e-05_v-0.001",
+              "residual": -3.370717219432879e-05,
+              "unit": "W",
+              "roundoff_budget": 4.4516719634818605e-17,
+              "passed": false,
+              "terms": [
+                0.0007662928278056711,
+                -0.0007999999999999999
+              ]
+            },
+            {
+              "name": "energy_bone0.1_q0.0_v0.0",
+              "residual": 0.0,
+              "unit": "W",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "energy_bone0.01_q0.0_v0.002",
+              "residual": -0.00013413197245086637,
+              "unit": "W",
+              "roundoff_budget": 1.7808668040826015e-16,
+              "passed": false,
+              "terms": [
+                0.0030658680275491334,
+                -0.0031999999999999997
+              ]
+            },
+            {
+              "name": "energy_bone0.01_q1e-05_v0.002",
+              "residual": -0.00017716302723814114,
+              "unit": "W",
+              "roundoff_budget": 1.7686366427261242e-16,
+              "passed": false,
+              "terms": [
+                0.0030228369727618586,
+                -0.0031999999999999997
+              ]
+            },
+            {
+              "name": "energy_bone0.01_q-1e-05_v-0.002",
+              "residual": -0.00017716302723814114,
+              "unit": "W",
+              "roundoff_budget": 1.7686366427261242e-16,
+              "passed": false,
+              "terms": [
+                0.0030228369727618586,
+                -0.0031999999999999997
+              ]
+            },
+            {
+              "name": "energy_bone0.01_q5e-05_v-0.001",
+              "residual": -0.0002097285402577881,
+              "unit": "W",
+              "roundoff_budget": 3.9513891458176765e-17,
+              "passed": false,
+              "terms": [
+                0.0005902714597422118,
+                -0.0007999999999999999
+              ]
+            },
+            {
+              "name": "energy_bone0.01_q0.0_v0.0",
+              "residual": 0.0,
+              "unit": "W",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                -0.0
+              ]
+            },
+            {
+              "name": "linear_energy",
+              "residual": 0.0,
+              "unit": "J",
+              "roundoff_budget": 4.264375376213285e-16,
+              "passed": true,
+              "terms": [
+                0.0075019684981570585,
+                -0.0075019684981570585
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q090/Q090_model.py:310-346,477-489",
+          "baseline": {
+            "summary": {
+              "converged": true,
+              "message": "The solver successfully reached the end of the integration interval.",
+              "sample_count": 201,
+              "final_time_s": 0.2,
+              "final_jaw_translation_um": 2.795887091105182,
+              "final_jaw_pitch_deg": 0.0,
+              "final_tooth_forces_n": {
+                "tooth_left": 2.4691937395181345,
+                "tooth_right": 2.4691937395181345
+              },
+              "final_tmj_forces_n": {
+                "tmj_left": 47.530809062335024,
+                "tmj_right": 47.530809062335024
+              },
+              "final_tooth_displacements_um": {
+                "tooth_left": 2.795887091105182,
+                "tooth_right": 2.795887091105182
+              },
+              "max_abs_inertial_force_n": 0.14449453835901238,
+              "max_abs_rotational_inertial_moment_nm": 0.0,
+              "max_post_ramp_inertial_to_load": 0.0014449453835901239,
+              "external_contact_work_mj": 0.1402036277024609,
+              "fluid_viscous_dissipation_mj": 0.0003778409288600245
+            },
+            "compatible_dissipation_J": 3.776741743591184e-07,
+            "reported_dissipation_J": 3.778409288600245e-07,
+            "excess_reported_J": 1.66754500906127e-10
+          },
+          "worst_declared_stress": [
+            {
+              "bone_modulus_ratio": 1.0,
+              "q_m": 0.0,
+              "v_m_s": 0.002,
+              "actual_resistive_power_W": 0.0031986006122318687,
+              "reported_dissipation_W": 0.0031999999999999997,
+              "unaccounted_power_W": 1.3993877681309913e-06
+            },
+            {
+              "bone_modulus_ratio": 1.0,
+              "q_m": 1e-05,
+              "v_m_s": 0.002,
+              "actual_resistive_power_W": 0.003198076694010126,
+              "reported_dissipation_W": 0.0031999999999999997,
+              "unaccounted_power_W": 1.923305989873659e-06
+            },
+            {
+              "bone_modulus_ratio": 1.0,
+              "q_m": -1e-05,
+              "v_m_s": -0.002,
+              "actual_resistive_power_W": 0.003198076694010126,
+              "reported_dissipation_W": 0.0031999999999999997,
+              "unaccounted_power_W": 1.923305989873659e-06
+            },
+            {
+              "bone_modulus_ratio": 1.0,
+              "q_m": 5e-05,
+              "v_m_s": -0.001,
+              "actual_resistive_power_W": 0.0007963968182568237,
+              "reported_dissipation_W": 0.0007999999999999999,
+              "unaccounted_power_W": 3.603181743176199e-06
+            },
+            {
+              "bone_modulus_ratio": 1.0,
+              "q_m": 0.0,
+              "v_m_s": 0.0,
+              "actual_resistive_power_W": 0.0,
+              "reported_dissipation_W": 0.0,
+              "unaccounted_power_W": 0.0
+            },
+            {
+              "bone_modulus_ratio": 0.1,
+              "q_m": 0.0,
+              "v_m_s": 0.002,
+              "actual_resistive_power_W": 0.003186060982923354,
+              "reported_dissipation_W": 0.0031999999999999997,
+              "unaccounted_power_W": 1.3939017076645792e-05
+            },
+            {
+              "bone_modulus_ratio": 0.1,
+              "q_m": 1e-05,
+              "v_m_s": 0.002,
+              "actual_resistive_power_W": 0.003180917795805101,
+              "reported_dissipation_W": 0.0031999999999999997,
+              "unaccounted_power_W": 1.908220419489853e-05
+            },
+            {
+              "bone_modulus_ratio": 0.1,
+              "q_m": -1e-05,
+              "v_m_s": -0.002,
+              "actual_resistive_power_W": 0.003180917795805101,
+              "reported_dissipation_W": 0.0031999999999999997,
+              "unaccounted_power_W": 1.908220419489853e-05
+            },
+            {
+              "bone_modulus_ratio": 0.1,
+              "q_m": 5e-05,
+              "v_m_s": -0.001,
+              "actual_resistive_power_W": 0.0007662928278056711,
+              "reported_dissipation_W": 0.0007999999999999999,
+              "unaccounted_power_W": 3.370717219432879e-05
+            },
+            {
+              "bone_modulus_ratio": 0.1,
+              "q_m": 0.0,
+              "v_m_s": 0.0,
+              "actual_resistive_power_W": 0.0,
+              "reported_dissipation_W": 0.0,
+              "unaccounted_power_W": 0.0
+            },
+            {
+              "bone_modulus_ratio": 0.01,
+              "q_m": 0.0,
+              "v_m_s": 0.002,
+              "actual_resistive_power_W": 0.0030658680275491334,
+              "reported_dissipation_W": 0.0031999999999999997,
+              "unaccounted_power_W": 0.00013413197245086637
+            },
+            {
+              "bone_modulus_ratio": 0.01,
+              "q_m": 1e-05,
+              "v_m_s": 0.002,
+              "actual_resistive_power_W": 0.0030228369727618586,
+              "reported_dissipation_W": 0.0031999999999999997,
+              "unaccounted_power_W": 0.00017716302723814114
+            },
+            {
+              "bone_modulus_ratio": 0.01,
+              "q_m": -1e-05,
+              "v_m_s": -0.002,
+              "actual_resistive_power_W": 0.0030228369727618586,
+              "reported_dissipation_W": 0.0031999999999999997,
+              "unaccounted_power_W": 0.00017716302723814114
+            },
+            {
+              "bone_modulus_ratio": 0.01,
+              "q_m": 5e-05,
+              "v_m_s": -0.001,
+              "actual_resistive_power_W": 0.0005902714597422118,
+              "reported_dissipation_W": 0.0007999999999999999,
+              "unaccounted_power_W": 0.0002097285402577881
+            },
+            {
+              "bone_modulus_ratio": 0.01,
+              "q_m": 0.0,
+              "v_m_s": 0.0,
+              "actual_resistive_power_W": 0.0,
+              "reported_dissipation_W": 0.0,
+              "unaccounted_power_W": 0.0
+            }
+          ],
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "An energy-bookkeeping mismatch, not disappearing mass. Rate-dependent series partition differs from static energy partition. Compatible reduced dissipation is (F(q,v)-F(q,0))*v; actual Kelvin-Voigt internal energy requires an added state.",
+          "witness": "witness_Q090.py",
+          "raw_file": "RAW_Q090_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 0.0002097285402577881,
+          "tests_passed": 4,
+          "tests_failed": 12
+        }
+      ],
+      "raw_file": "RAW_Q090_SOURCE_FINAL_R1.json",
+      "source_hashes": [
+        {
+          "path": "tasks/free48/sources/Q090/Q090_model.py",
+          "sha256": "60c6816b9cbc6041d1c9e38c0a31323cf311d3d532c3334e126763be38f7fd4d"
+        }
+      ],
+      "consumer_scope": "Dynamic damping, transient work/heat and energy budgets; static force solution unaffected by this particular port mismatch.",
+      "proposal_witness_pass": true,
+      "proposal_note": "Lane-local proposal only; no source edits"
+    },
+    "Q100": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q100_model.py"
+      ],
+      "findings": []
+    },
+    "Q107": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q107_model.py"
+      ],
+      "findings": []
+    },
+    "Q115": {
+      "coverage_status": "TESTED_DEFECTS",
+      "audited_scripts": [
+        "Q115_model.py"
+      ],
+      "untested_scripts": [],
+      "findings": [
+        {
+          "id": "Q115_cutoff",
+          "classification": "TRUNCATION THAT IS DECLARED AND NEGLIGIBLE",
+          "inventory": "sum age-bin cells",
+          "ports": "birth - shedding - explicit LAST_CUTOFF_OUTFLOW",
+          "tests": [
+            {
+              "name": "last_dt1.0_hazard0.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.81383829967308e-11,
+              "passed": true,
+              "terms": [
+                22.78125,
+                -1000.0,
+                -22.78125,
+                0.0,
+                1000.0
+              ]
+            },
+            {
+              "name": "empty_dt1.0_hazard0.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 1.2949641359227826e-12,
+              "passed": true,
+              "terms": [
+                22.78125,
+                -0.0,
+                -22.78125,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt1.0_hazard0.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 6.979128386319644e-11,
+              "passed": true,
+              "terms": [
+                1217.78125,
+                -1205.0,
+                -22.78125,
+                0.0,
+                10.0
+              ]
+            },
+            {
+              "name": "last_dt1.0_hazard0.01",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.81383829967308e-11,
+              "passed": true,
+              "terms": [
+                22.78125,
+                -1000.0,
+                -22.78125,
+                10.0,
+                990.0
+              ]
+            },
+            {
+              "name": "empty_dt1.0_hazard0.01",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 1.2949641359227826e-12,
+              "passed": true,
+              "terms": [
+                22.78125,
+                -0.0,
+                -22.78125,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt1.0_hazard0.01",
+              "residual": -1.5276668818842154e-13,
+              "unit": "cells",
+              "roundoff_budget": 6.979128386319644e-11,
+              "passed": true,
+              "terms": [
+                1206.6979166666665,
+                -1205.0,
+                -22.78125,
+                11.183333333333332,
+                9.9
+              ]
+            },
+            {
+              "name": "last_dt1.0_hazard0.12",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.81383829967308e-11,
+              "passed": true,
+              "terms": [
+                22.78125,
+                -1000.0,
+                -22.78125,
+                120.0,
+                880.0
+              ]
+            },
+            {
+              "name": "empty_dt1.0_hazard0.12",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 1.2949641359227826e-12,
+              "passed": true,
+              "terms": [
+                22.78125,
+                -0.0,
+                -22.78125,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt1.0_hazard0.12",
+              "residual": -2.3803181647963356e-13,
+              "unit": "cells",
+              "roundoff_budget": 6.979128386319644e-11,
+              "passed": true,
+              "terms": [
+                1084.7812499999998,
+                -1205.0,
+                -22.78125,
+                134.2,
+                8.8
+              ]
+            },
+            {
+              "name": "last_dt1.0_hazard1.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.81383829967308e-11,
+              "passed": true,
+              "terms": [
+                22.78125,
+                -1000.0,
+                -22.78125,
+                1000.0,
+                0.0
+              ]
+            },
+            {
+              "name": "empty_dt1.0_hazard1.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 1.2949641359227826e-12,
+              "passed": true,
+              "terms": [
+                22.78125,
+                -0.0,
+                -22.78125,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt1.0_hazard1.0",
+              "residual": 2.2737367544323206e-13,
+              "unit": "cells",
+              "roundoff_budget": 6.979128386319644e-11,
+              "passed": true,
+              "terms": [
+                109.44791666666667,
+                -1205.0,
+                -22.78125,
+                1118.3333333333335,
+                0.0
+              ]
+            },
+            {
+              "name": "last_dt1.0_hazard10.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.81383829967308e-11,
+              "passed": true,
+              "terms": [
+                22.78125,
+                -1000.0,
+                -22.78125,
+                1000.0,
+                0.0
+              ]
+            },
+            {
+              "name": "empty_dt1.0_hazard10.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 1.2949641359227826e-12,
+              "passed": true,
+              "terms": [
+                22.78125,
+                -0.0,
+                -22.78125,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt1.0_hazard10.0",
+              "residual": 2.2737367544323206e-13,
+              "unit": "cells",
+              "roundoff_budget": 6.979128386319644e-11,
+              "passed": true,
+              "terms": [
+                109.44791666666667,
+                -1205.0,
+                -22.78125,
+                1118.3333333333335,
+                0.0
+              ]
+            },
+            {
+              "name": "last_dt0.5_hazard0.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.7490900928769406e-11,
+              "passed": true,
+              "terms": [
+                11.390625,
+                -1000.0,
+                -11.390625,
+                0.0,
+                1000.0
+              ]
+            },
+            {
+              "name": "empty_dt0.5_hazard0.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 6.474820679613913e-13,
+              "passed": true,
+              "terms": [
+                11.390625,
+                -0.0,
+                -11.390625,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.5_hazard0.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 1.3735590442820467e-10,
+              "passed": true,
+              "terms": [
+                2406.390625,
+                -2405.0,
+                -11.390625,
+                0.0,
+                10.0
+              ]
+            },
+            {
+              "name": "last_dt0.5_hazard0.01",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.7490900928769406e-11,
+              "passed": true,
+              "terms": [
+                11.390625,
+                -1000.0,
+                -11.390625,
+                5.0,
+                995.0
+              ]
+            },
+            {
+              "name": "empty_dt0.5_hazard0.01",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 6.474820679613913e-13,
+              "passed": true,
+              "terms": [
+                11.390625,
+                -0.0,
+                -11.390625,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.5_hazard0.01",
+              "residual": -3.552713678800501e-15,
+              "unit": "cells",
+              "roundoff_budget": 1.3735590442820467e-10,
+              "passed": true,
+              "terms": [
+                2395.2890625,
+                -2405.0,
+                -11.390625,
+                11.151562499999997,
+                9.95
+              ]
+            },
+            {
+              "name": "last_dt0.5_hazard0.12",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.7490900928769406e-11,
+              "passed": true,
+              "terms": [
+                11.390625,
+                -1000.0,
+                -11.390625,
+                60.0,
+                940.0
+              ]
+            },
+            {
+              "name": "empty_dt0.5_hazard0.12",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 6.474820679613913e-13,
+              "passed": true,
+              "terms": [
+                11.390625,
+                -0.0,
+                -11.390625,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.5_hazard0.12",
+              "residual": -5.329070518200751e-15,
+              "unit": "cells",
+              "roundoff_budget": 1.3735590442820467e-10,
+              "passed": true,
+              "terms": [
+                2273.171875,
+                -2405.0,
+                -11.390625,
+                133.81875,
+                9.4
+              ]
+            },
+            {
+              "name": "last_dt0.5_hazard1.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.7490900928769406e-11,
+              "passed": true,
+              "terms": [
+                11.390625,
+                -1000.0,
+                -11.390625,
+                500.0,
+                500.0
+              ]
+            },
+            {
+              "name": "empty_dt0.5_hazard1.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 6.474820679613913e-13,
+              "passed": true,
+              "terms": [
+                11.390625,
+                -0.0,
+                -11.390625,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.5_hazard1.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 1.3735590442820467e-10,
+              "passed": true,
+              "terms": [
+                1296.234375,
+                -2405.0,
+                -11.390625,
+                1115.15625,
+                5.0
+              ]
+            },
+            {
+              "name": "last_dt0.5_hazard10.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.7490900928769406e-11,
+              "passed": true,
+              "terms": [
+                11.390625,
+                -1000.0,
+                -11.390625,
+                1000.0,
+                0.0
+              ]
+            },
+            {
+              "name": "empty_dt0.5_hazard10.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 6.474820679613913e-13,
+              "passed": true,
+              "terms": [
+                11.390625,
+                -0.0,
+                -11.390625,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.5_hazard10.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 1.3735590442820467e-10,
+              "passed": true,
+              "terms": [
+                186.078125,
+                -2405.0,
+                -11.390625,
+                2230.3125,
+                0.0
+              ]
+            },
+            {
+              "name": "last_dt0.25_hazard0.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.716715989478871e-11,
+              "passed": true,
+              "terms": [
+                5.6953125,
+                -1000.0,
+                -5.6953125,
+                0.0,
+                1000.0
+              ]
+            },
+            {
+              "name": "empty_dt0.25_hazard0.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 3.2374103398069565e-13,
+              "passed": true,
+              "terms": [
+                5.6953125,
+                -0.0,
+                -5.6953125,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.25_hazard0.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 2.734563686601632e-10,
+              "passed": true,
+              "terms": [
+                4800.6953125,
+                -4805.0,
+                -5.6953125,
+                0.0,
+                10.0
+              ]
+            },
+            {
+              "name": "last_dt0.25_hazard0.01",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.716715989478871e-11,
+              "passed": true,
+              "terms": [
+                5.6953125,
+                -1000.0,
+                -5.6953125,
+                2.5,
+                997.5
+              ]
+            },
+            {
+              "name": "empty_dt0.25_hazard0.01",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 3.2374103398069565e-13,
+              "passed": true,
+              "terms": [
+                5.6953125,
+                -0.0,
+                -5.6953125,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.25_hazard0.01",
+              "residual": -6.075140390748857e-13,
+              "unit": "cells",
+              "roundoff_budget": 2.734563686601632e-10,
+              "passed": true,
+              "terms": [
+                4789.584635416666,
+                -4805.0,
+                -5.6953125,
+                11.135677083333333,
+                9.975
+              ]
+            },
+            {
+              "name": "last_dt0.25_hazard0.12",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.716715989478871e-11,
+              "passed": true,
+              "terms": [
+                5.6953125,
+                -1000.0,
+                -5.6953125,
+                30.0,
+                970.0
+              ]
+            },
+            {
+              "name": "empty_dt0.25_hazard0.12",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 3.2374103398069565e-13,
+              "passed": true,
+              "terms": [
+                5.6953125,
+                -0.0,
+                -5.6953125,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.25_hazard0.12",
+              "residual": -9.272582701669307e-13,
+              "unit": "cells",
+              "roundoff_budget": 2.734563686601632e-10,
+              "passed": true,
+              "terms": [
+                4667.367187499999,
+                -4805.0,
+                -5.6953125,
+                133.62812499999998,
+                9.7
+              ]
+            },
+            {
+              "name": "last_dt0.25_hazard1.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.716715989478871e-11,
+              "passed": true,
+              "terms": [
+                5.6953125,
+                -1000.0,
+                -5.6953125,
+                250.0,
+                750.0
+              ]
+            },
+            {
+              "name": "empty_dt0.25_hazard1.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 3.2374103398069565e-13,
+              "passed": true,
+              "terms": [
+                5.6953125,
+                -0.0,
+                -5.6953125,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.25_hazard1.0",
+              "residual": 4.547473508864641e-13,
+              "unit": "cells",
+              "roundoff_budget": 2.7345636866016326e-10,
+              "passed": true,
+              "terms": [
+                3689.627604166667,
+                -4805.0,
+                -5.6953125,
+                1113.5677083333335,
+                7.5
+              ]
+            },
+            {
+              "name": "last_dt0.25_hazard10.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.716715989478871e-11,
+              "passed": true,
+              "terms": [
+                5.6953125,
+                -1000.0,
+                -5.6953125,
+                1000.0,
+                0.0
+              ]
+            },
+            {
+              "name": "empty_dt0.25_hazard10.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 3.2374103398069565e-13,
+              "passed": true,
+              "terms": [
+                5.6953125,
+                -0.0,
+                -5.6953125,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.25_hazard10.0",
+              "residual": 9.094947017729282e-13,
+              "unit": "cells",
+              "roundoff_budget": 2.734563686601632e-10,
+              "passed": true,
+              "terms": [
+                356.4244791666667,
+                -4805.0,
+                -5.6953125,
+                4454.270833333334,
+                0.0
+              ]
+            },
+            {
+              "name": "last_dt0.125_hazard0.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.700528937779836e-11,
+              "passed": true,
+              "terms": [
+                2.84765625,
+                -1000.0,
+                -2.84765625,
+                0.0,
+                1000.0
+              ]
+            },
+            {
+              "name": "empty_dt0.125_hazard0.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 1.6187051699034782e-13,
+              "passed": true,
+              "terms": [
+                2.84765625,
+                -0.0,
+                -2.84765625,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.125_hazard0.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.461429086750513e-10,
+              "passed": true,
+              "terms": [
+                9597.84765625,
+                -9605.0,
+                -2.84765625,
+                0.0,
+                10.0
+              ]
+            },
+            {
+              "name": "last_dt0.125_hazard0.01",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.700528937779836e-11,
+              "passed": true,
+              "terms": [
+                2.84765625,
+                -1000.0,
+                -2.84765625,
+                1.25,
+                998.75
+              ]
+            },
+            {
+              "name": "empty_dt0.125_hazard0.01",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 1.6187051699034782e-13,
+              "passed": true,
+              "terms": [
+                2.84765625,
+                -0.0,
+                -2.84765625,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.125_hazard0.01",
+              "residual": 3.552713678800501e-15,
+              "unit": "cells",
+              "roundoff_budget": 5.461429086750513e-10,
+              "passed": true,
+              "terms": [
+                9586.732421875,
+                -9605.0,
+                -2.84765625,
+                11.127734375000003,
+                9.9875
+              ]
+            },
+            {
+              "name": "last_dt0.125_hazard0.12",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.700528937779836e-11,
+              "passed": true,
+              "terms": [
+                2.84765625,
+                -1000.0,
+                -2.84765625,
+                15.0,
+                985.0
+              ]
+            },
+            {
+              "name": "empty_dt0.125_hazard0.12",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 1.6187051699034782e-13,
+              "passed": true,
+              "terms": [
+                2.84765625,
+                -0.0,
+                -2.84765625,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.125_hazard0.12",
+              "residual": 5.329070518200751e-15,
+              "unit": "cells",
+              "roundoff_budget": 5.461429086750513e-10,
+              "passed": true,
+              "terms": [
+                9464.46484375,
+                -9605.0,
+                -2.84765625,
+                133.5328125,
+                9.85
+              ]
+            },
+            {
+              "name": "last_dt0.125_hazard1.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.700528937779836e-11,
+              "passed": true,
+              "terms": [
+                2.84765625,
+                -1000.0,
+                -2.84765625,
+                125.0,
+                875.0
+              ]
+            },
+            {
+              "name": "empty_dt0.125_hazard1.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 1.6187051699034782e-13,
+              "passed": true,
+              "terms": [
+                2.84765625,
+                -0.0,
+                -2.84765625,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.125_hazard1.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.461429086750513e-10,
+              "passed": true,
+              "terms": [
+                8486.32421875,
+                -9605.0,
+                -2.84765625,
+                1112.7734375,
+                8.75
+              ]
+            },
+            {
+              "name": "last_dt0.125_hazard10.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.700528937779836e-11,
+              "passed": true,
+              "terms": [
+                2.84765625,
+                -1000.0,
+                -2.84765625,
+                1000.0,
+                0.0
+              ]
+            },
+            {
+              "name": "empty_dt0.125_hazard10.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 1.6187051699034782e-13,
+              "passed": true,
+              "terms": [
+                2.84765625,
+                -0.0,
+                -2.84765625,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "distributed_dt0.125_hazard10.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 5.461429086750513e-10,
+              "passed": true,
+              "terms": [
+                705.66015625,
+                -9605.0,
+                -2.84765625,
+                8902.1875,
+                0.0
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q115/Q115_model.py:259-284",
+          "baseline": {
+            "tail_cells_h": 4.385763170858279e-09
+          },
+          "worst_declared_stress": {
+            "legacy_last_bin_loss_cells": 880.0,
+            "zero_hazard_cutoff_cells": 1000.0
+          },
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "Current three-value return still requires reading a mutable module-global cutoff port. Not a global safety claim.",
+          "witness": "witness_Q115.py",
+          "raw_file": "RAW_Q115_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 9.272582701669307e-13,
+          "tests_passed": 60,
+          "tests_failed": 0
+        },
+        {
+          "id": "Q115_steady_grid",
+          "classification": "TIDSSTEGSARTEFAKT",
+          "inventory": "stationary cells",
+          "ports": "birth_rate*dt and hazard_rate*dt must appear in stationary age recurrence",
+          "tests": [
+            {
+              "name": "stationary_cells_dt1.0",
+              "residual": 0.0,
+              "unit": "cells",
+              "roundoff_budget": 9.496403663250918e-11,
+              "passed": true,
+              "terms": [
+                1670.6249999678378,
+                -1670.6249999678378
+              ]
+            },
+            {
+              "name": "stationary_cells_dt0.5",
+              "residual": 1480.7812500701898,
+              "unit": "cells",
+              "roundoff_budget": 1.3705037104983292e-10,
+              "passed": false,
+              "terms": [
+                3151.40625,
+                -1670.6249999298102
+              ]
+            },
+            {
+              "name": "stationary_cells_dt0.25",
+              "residual": 4442.343750101247,
+              "unit": "cells",
+              "roundoff_budget": 2.2122303988393109e-10,
+              "passed": false,
+              "terms": [
+                6112.96875,
+                -1670.6249998987532
+              ]
+            },
+            {
+              "name": "stationary_cells_dt0.125",
+              "residual": 10365.468750120936,
+              "unit": "cells",
+              "roundoff_budget": 3.8956837755333323e-10,
+              "passed": false,
+              "terms": [
+                12036.09375,
+                -1670.6249998790638
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q115/Q115_model.py:206-215",
+          "baseline": {
+            "dt_h": 1,
+            "n_cells": 1670.6249999678378
+          },
+          "worst_declared_stress": [
+            {
+              "dt_h": 1.0,
+              "hazard_h": 0.12,
+              "n_cells": 1670.6249999678378,
+              "steady_step_change_cells": 0.0,
+              "cutoff_cells_per_step": 3.859471590355286e-09
+            },
+            {
+              "dt_h": 0.5,
+              "hazard_h": 0.12,
+              "n_cells": 3151.40625,
+              "steady_step_change_cells": 0.0,
+              "cutoff_cells_per_step": 7.936712636666319e-19
+            },
+            {
+              "dt_h": 0.25,
+              "hazard_h": 0.12,
+              "n_cells": 6112.96875,
+              "steady_step_change_cells": 0.0,
+              "cutoff_cells_per_step": 3.0354269758250864e-38
+            },
+            {
+              "dt_h": 0.125,
+              "hazard_h": 0.12,
+              "n_cells": 12036.09375,
+              "steady_step_change_cells": 0.0,
+              "cutoff_cells_per_step": 4.23403838303051e-77
+            }
+          ],
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "Steady recurrence uses hazard per bin and birth rate as cells; transition uses rates times dt. Baseline dt=1 hides both omissions.",
+          "witness": "witness_Q115.py",
+          "raw_file": "RAW_Q115_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 10365.468750120936,
+          "tests_passed": 1,
+          "tests_failed": 3
+        }
+      ],
+      "raw_file": "RAW_Q115_SOURCE_FINAL_R1.json",
+      "source_hashes": [
+        {
+          "path": "tasks/free48/sources/Q115/Q115_model.py",
+          "sha256": "a591d5858c4c06084b816f20d3811f7fc766a77a621204114690c1c54464c903"
+        }
+      ],
+      "consumer_scope": "Age-grid refinement, cell counts and area/conductance proxies; corrected age_transition requires explicit cutoff port.",
+      "proposal_witness_pass": true,
+      "proposal_note": "Lane-local proposal only; no source edits"
+    },
+    "Q121": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q121_model.py"
+      ],
+      "findings": []
+    },
+    "Q127": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q127_model.py"
+      ],
+      "findings": []
+    },
+    "Q140": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q140_model.py"
+      ],
+      "findings": []
+    },
+    "Q146": {
+      "coverage_status": "TESTED_DEFECTS",
+      "audited_scripts": [
+        "Q146_model.py"
+      ],
+      "untested_scripts": [],
+      "findings": [
+        {
+          "id": "Q146_ODE",
+          "classification": "OK",
+          "inventory": "nasal + gut + plasma moles",
+          "ports": "external drainage + mucosal metabolism + GI first-pass loss + systemic elimination",
+          "tests": [
+            {
+              "name": "instantaneous_total",
+              "residual": 0.0,
+              "unit": "mol/s",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "instantaneous_total",
+              "residual": 2.710505431213761e-20,
+              "unit": "mol/s",
+              "roundoff_budget": 1.3338424087989897e-17,
+              "passed": true,
+              "terms": [
+                -0.00023465203809523805,
+                0.00023465203809523808
+              ]
+            },
+            {
+              "name": "instantaneous_total",
+              "residual": 0.0,
+              "unit": "mol/s",
+              "roundoff_budget": 1.4684549872375403e-23,
+              "passed": true,
+              "terms": [
+                -2.583333333333333e-10,
+                2.583333333333333e-10
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q146/Q146_model.py:253-267",
+          "baseline": {
+            "dose_mol": 6.164088023176972e-06,
+            "endpoint_quadrature_residual_mol": 1.2114675959929984e-11
+          },
+          "worst_declared_stress": null,
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "Only RHS is machine-precision; returned route integrals use quadrature. T_dep_s is ignored by bolus construction.",
+          "witness": "witness_Q146.py",
+          "raw_file": "RAW_Q146_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 2.710505431213761e-20,
+          "tests_passed": 3,
+          "tests_failed": 0
+        },
+        {
+          "id": "Q146_GI_report",
+          "classification": "LEAK",
+          "inventory": "systemic moles",
+          "ports": "reported GI-to-blood port",
+          "tests": [
+            {
+              "name": "GI_reported_port",
+              "residual": 1.4057161432526358e-06,
+              "unit": "mol",
+              "roundoff_budget": 1.3630974319876272e-19,
+              "passed": false,
+              "terms": [
+                3.10084443364552e-06,
+                -1.6951282903928844e-06
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q146/Q146_model.py:305",
+          "baseline": {
+            "reported_mol": 3.10084443364552e-06,
+            "actual_mol": 1.6951282903928844e-06,
+            "factor": 1.829268292682927
+          },
+          "worst_declared_stress": null,
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "Reporting mismatch: model injects F_oral*Jgi, report uses F_gi_avail*Jgi.",
+          "witness": "witness_Q146.py",
+          "raw_file": "RAW_Q146_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 1.4057161432526358e-06,
+          "tests_passed": 0,
+          "tests_failed": 1
+        },
+        {
+          "id": "Q146_local_AUC",
+          "classification": "ENHETSFEL",
+          "inventory": "exposure",
+          "ports": "local concentration integral",
+          "tests": [
+            {
+              "name": "local_AUC_seconds",
+              "residual": 11323.39453566821,
+              "unit": "mol*s/m^3",
+              "roundoff_budget": 3.2200907350935526e-10,
+              "passed": false,
+              "terms": [
+                11326.54079700071,
+                -3.1462613325001976
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q146/Q146_model.py:370-371",
+          "baseline": {
+            "factor": 3600,
+            "actual_mol_s_m3": 3.1462613325001976
+          },
+          "worst_declared_stress": null,
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": null,
+          "witness": "witness_Q146.py",
+          "raw_file": "RAW_Q146_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 11323.39453566821,
+          "tests_passed": 0,
+          "tests_failed": 1
+        },
+        {
+          "id": "Q146_local_concentration",
+          "classification": "ENHETSFEL",
+          "inventory": "local concentration",
+          "ports": "mol/m3 -> mg/mL",
+          "tests": [
+            {
+              "name": "local_mg_per_mL",
+              "residual": 29970.000000000004,
+              "unit": "mg/mL",
+              "roundoff_budget": 8.535039341950324e-10,
+              "passed": false,
+              "terms": [
+                30000.000000000004,
+                -30.000000000000004
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q146/Q146_model.py:367",
+          "baseline": {
+            "reported_mg_mL": 30000.000000000004,
+            "actual_mg_mL": 30.000000000000004,
+            "factor": 1000
+          },
+          "worst_declared_stress": null,
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": null,
+          "witness": "witness_Q146.py",
+          "raw_file": "RAW_Q146_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 29970.000000000004,
+          "tests_passed": 0,
+          "tests_failed": 1
+        }
+      ],
+      "raw_file": "RAW_Q146_SOURCE_FINAL_R1.json",
+      "source_hashes": [
+        {
+          "path": "tasks/free48/sources/Q146/Q146_model.py",
+          "sha256": "17a068a16c440e2286a048e920e154b7a6cdc34598d581e1214408407a74abac"
+        }
+      ],
+      "consumer_scope": "GI/systemic route decomposition and local concentration/exposure consumers; systemic RHS itself closes.",
+      "proposal_witness_pass": true,
+      "proposal_note": "Lane-local proposal only; no source edits"
+    },
+    "Q154": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q154_model.py"
+      ],
+      "findings": []
+    },
+    "Q156": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q156_model.py"
+      ],
+      "findings": []
+    },
+    "Q160": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q160_model.py"
+      ],
+      "findings": []
+    },
+    "Q168": {
+      "coverage_status": "TESTED_DEFECTS",
+      "audited_scripts": [
+        "Q168_model.py"
+      ],
+      "untested_scripts": [],
+      "findings": [
+        {
+          "id": "Q168_RHS",
+          "classification": "OK",
+          "inventory": "Vl*g + Vl*l + Vp*p + Vs*o (tracer-moiety inventory)",
+          "ports": "four explicitly declared loss ports",
+          "tests": [
+            {
+              "name": "RHS_0",
+              "residual": 0.0,
+              "unit": "umol/h",
+              "roundoff_budget": 6.3e-322,
+              "passed": true,
+              "terms": [
+                -0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "name": "RHS_1",
+              "residual": 3.552713678800501e-15,
+              "unit": "umol/h",
+              "roundoff_budget": 1.8498825659702085e-12,
+              "passed": true,
+              "terms": [
+                -0.0,
+                0.0,
+                -32.54347826086956,
+                13.043478260869566,
+                19.5
+              ]
+            },
+            {
+              "name": "RHS_2",
+              "residual": -1.4210854715202004e-14,
+              "unit": "umol/h",
+              "roundoff_budget": 4.173931042065045e-12,
+              "passed": true,
+              "terms": [
+                -73.42857142857143,
+                3.428571428571429,
+                0.0,
+                0.0,
+                69.99999999999999
+              ]
+            },
+            {
+              "name": "RHS_3",
+              "residual": 1.7053025658242404e-13,
+              "unit": "umol/h",
+              "roundoff_budget": 8.629607469448934e-11,
+              "passed": true,
+              "terms": [
+                -61.68702953290742,
+                1076.075341556806,
+                -1275.8682370636704,
+                -180.581334331698,
+                442.06125937147004
+              ]
+            },
+            {
+              "name": "RHS_4",
+              "residual": 5.684341886080802e-14,
+              "unit": "umol/h",
+              "roundoff_budget": 2.295654972898097e-11,
+              "passed": true,
+              "terms": [
+                -44.85975887576298,
+                -90.09581434238139,
+                -143.08423871192815,
+                -125.81608184004837,
+                403.85589377012093
+              ]
+            },
+            {
+              "name": "RHS_5",
+              "residual": 0.0,
+              "unit": "umol/h",
+              "roundoff_budget": 2.973635226085968e-11,
+              "passed": true,
+              "terms": [
+                -38.357444587117016,
+                -322.8363335805487,
+                110.49134633011168,
+                -161.93366308766812,
+                412.6360949252221
+              ]
+            },
+            {
+              "name": "RHS_6",
+              "residual": -1.1368683772161603e-13,
+              "unit": "umol/h",
+              "roundoff_budget": 7.962946562380227e-11,
+              "passed": true,
+              "terms": [
+                -67.75110510688442,
+                933.8386115364765,
+                -1137.884418978258,
+                -195.2208497862152,
+                467.0177623348811
+              ]
+            },
+            {
+              "name": "RHS_7",
+              "residual": -2.2737367544323206e-13,
+              "unit": "umol/h",
+              "roundoff_budget": 7.790047147331431e-11,
+              "passed": true,
+              "terms": [
+                -20.357325934730195,
+                -1145.742333491558,
+                980.5256299367237,
+                -204.3399276799789,
+                389.9139571695431
+              ]
+            },
+            {
+              "name": "RHS_8",
+              "residual": -1.1368683772161603e-13,
+              "unit": "umol/h",
+              "roundoff_budget": 5.3269335165326086e-11,
+              "passed": true,
+              "terms": [
+                -66.36765113227648,
+                397.91470480589925,
+                -665.0919587481927,
+                -205.66444481029887,
+                539.2093498848687
+              ]
+            },
+            {
+              "name": "RHS_9",
+              "residual": 5.684341886080802e-14,
+              "unit": "umol/h",
+              "roundoff_budget": 3.738166774405226e-11,
+              "passed": true,
+              "terms": [
+                -61.57236088254275,
+                -383.79742598155036,
+                296.76571578653335,
+                -212.2554667398188,
+                360.85953781737857
+              ]
+            },
+            {
+              "name": "RHS_10",
+              "residual": -1.7053025658242404e-13,
+              "unit": "umol/h",
+              "roundoff_budget": 8.460018276717396e-11,
+              "passed": true,
+              "terms": [
+                -18.46519708263227,
+                1005.1196324873052,
+                -1250.491094596153,
+                -219.34586295293536,
+                483.18252214441526
+              ]
+            },
+            {
+              "name": "RHS_11",
+              "residual": 5.684341886080802e-14,
+              "unit": "umol/h",
+              "roundoff_budget": 3.980760365709387e-11,
+              "passed": true,
+              "terms": [
+                -70.38974093744967,
+                -478.6273275703059,
+                286.3035911218319,
+                -151.2857010102146,
+                413.9991783961383
+              ]
+            },
+            {
+              "name": "RHS_12",
+              "residual": 1.1368683772161603e-13,
+              "unit": "umol/h",
+              "roundoff_budget": 6.276420858272143e-11,
+              "passed": true,
+              "terms": [
+                -69.85348037736674,
+                -848.8418941509452,
+                723.7971273360199,
+                -185.46425978945493,
+                380.36250698174706
+              ]
+            },
+            {
+              "name": "RHS_13",
+              "residual": -2.842170943040401e-14,
+              "unit": "umol/h",
+              "roundoff_budget": 1.0626250760358116e-11,
+              "passed": true,
+              "terms": [
+                -18.381973750148614,
+                88.6729538411054,
+                -156.29407371029927,
+                -12.262932870389074,
+                98.26602648973154
+              ]
+            },
+            {
+              "name": "RHS_14",
+              "residual": -5.684341886080802e-14,
+              "unit": "umol/h",
+              "roundoff_budget": 3.2947587906783986e-11,
+              "passed": true,
+              "terms": [
+                -55.38677201316676,
+                275.55927930030884,
+                -353.47498551676597,
+                -170.75833864096194,
+                304.06081687058577
+              ]
+            },
+            {
+              "name": "RHS_15",
+              "residual": -2.842170943040401e-14,
+              "unit": "umol/h",
+              "roundoff_budget": 1.9297651727447554e-11,
+              "passed": true,
+              "terms": [
+                -24.46359072716675,
+                208.1912093401904,
+                -271.0623168595779,
+                -43.961971822858565,
+                131.29667006941278
+              ]
+            },
+            {
+              "name": "RHS_16",
+              "residual": 1.7053025658242404e-13,
+              "unit": "umol/h",
+              "roundoff_budget": 5.89248969110335e-11,
+              "passed": true,
+              "terms": [
+                -68.82118407874559,
+                827.5286538006693,
+                -967.7965650281894,
+                13.024033958205237,
+                196.06506134806062
+              ]
+            },
+            {
+              "name": "RHS_17",
+              "residual": 5.684341886080802e-14,
+              "unit": "umol/h",
+              "roundoff_budget": 4.333133377528117e-11,
+              "passed": true,
+              "terms": [
+                -61.300583640765154,
+                443.1758176370232,
+                -680.4012788641909,
+                -20.59102282247697,
+                319.11706769040984
+              ]
+            },
+            {
+              "name": "RHS_18",
+              "residual": -2.842170943040401e-14,
+              "unit": "umol/h",
+              "roundoff_budget": 2.9824601909205555e-11,
+              "passed": true,
+              "terms": [
+                -2.1665516295600256,
+                -391.4349993367598,
+                350.48400496298336,
+                -131.0783945210689,
+                174.19594052440536
+              ]
+            },
+            {
+              "name": "RHS_19",
+              "residual": -5.684341886080802e-14,
+              "unit": "umol/h",
+              "roundoff_budget": 5.3844739172823744e-11,
+              "passed": true,
+              "terms": [
+                -6.986571553328429,
+                -726.5314651244962,
+                626.5759171471426,
+                -213.7286323635448,
+                320.6707518942267
+              ]
+            },
+            {
+              "name": "RHS_20",
+              "residual": 5.684341886080802e-14,
+              "unit": "umol/h",
+              "roundoff_budget": 3.259367691910443e-11,
+              "passed": true,
+              "terms": [
+                -71.27469347598331,
+                -461.14901267606075,
+                375.43891707638903,
+                -40.97032208042875,
+                197.9551111560838
+              ]
+            },
+            {
+              "name": "RHS_21",
+              "residual": 5.684341886080802e-14,
+              "unit": "umol/h",
+              "roundoff_budget": 3.627421318005163e-11,
+              "passed": true,
+              "terms": [
+                -22.921555477168308,
+                -463.3887467449118,
+                412.3015654311278,
+                -151.8324046561952,
+                225.84114144714755
+              ]
+            },
+            {
+              "name": "RHS_22",
+              "residual": 0.0,
+              "unit": "umol/h",
+              "roundoff_budget": 2.6783948781816552e-11,
+              "passed": true,
+              "terms": [
+                -16.07555085183812,
+                23.48899732394348,
+                -277.4169288130059,
+                -177.6957303089821,
+                447.6992126498826
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q168/Q168_model.py:140-153",
+          "baseline": {
+            "max_residual": 2.2737367544323206e-13
+          },
+          "worst_declared_stress": null,
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "Conserved tracer moiety, not full molecular mass. Barrier at l=0 is zero even for portal>0: reverse transport closure is one-sided but not a leak.",
+          "witness": "witness_Q168.py",
+          "raw_file": "RAW_Q168_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 2.2737367544323206e-13,
+          "tests_passed": 23,
+          "tests_failed": 0
+        },
+        {
+          "id": "Q168_baseline",
+          "classification": "LEAK",
+          "inventory": "forced steady tracer-moiety inventory",
+          "ports": "Vl*q_endogenous minus declared sinks",
+          "tests": [
+            {
+              "name": "baseline_stationary",
+              "residual": -1.705882352941175,
+              "unit": "umol/h",
+              "roundoff_budget": 1.6969432395211804e-12,
+              "passed": false,
+              "terms": [
+                29.0,
+                -29.0,
+                -0.33650838955611795,
+                -0.238501161486622,
+                -1.130872801898435
+              ]
+            }
+          ],
+          "location": "tasks/free48/sources/Q168/Q168_model.py:207",
+          "baseline": {
+            "stationarity_deficit_umol_h": -1.7058823529411755,
+            "microbial_transfer_umol_h": 1.7058823529411766
+          },
+          "worst_declared_stress": null,
+          "worst_realistic": "UNKNOWN: no measured parameter envelope",
+          "limitation": "Baseline precursor=q/k_pre omits microbial consumption although tracer RHS includes it. Baseline and dynamic inventory contracts disagree.",
+          "witness": "witness_Q168.py",
+          "raw_file": "RAW_Q168_SOURCE_FINAL_R1.json",
+          "max_abs_balance_residual": 1.705882352941175,
+          "tests_passed": 0,
+          "tests_failed": 1
+        }
+      ],
+      "raw_file": "RAW_Q168_SOURCE_FINAL_R1.json",
+      "source_hashes": [
+        {
+          "path": "tasks/free48/sources/Q168/Q168_model.py",
+          "sha256": "3b90cd44b06ffe9a99049f1e0e1b004164150cda6a03b392bae5a517efc735cd"
+        }
+      ],
+      "consumer_scope": "Forced baseline and baseline-calibrated comparison consumers; tracer RHS conservation is intact.",
+      "proposal_witness_pass": true,
+      "proposal_note": "Lane-local proposal only; no source edits"
+    },
+    "SOLBENCH": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "context_operator.py",
+        "model.py",
+        "native_glucose.py",
+        "response_operator.py"
+      ],
+      "findings": []
+    },
+    "SURG_COLLAGEN": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "collagen_triple_helix_thermal_stability.py",
+        "myofascial_transmission.py",
+        "tendon_collagen_hierarchical_mechanics.py"
+      ],
+      "findings": []
+    },
+    "SURG_HEALING": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q036_ischemia_model.py",
+        "acute_phase_inflammation.py",
+        "wound_healing_cascade.py"
+      ],
+      "findings": []
+    },
+    "SURG_HEMOSTASIS": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "coagulation_hemostasis.py",
+        "platelet_hemostasis.py"
+      ],
+      "findings": []
+    },
+    "SURG_INCISION": {
+      "coverage_status": "UNKNOWN_UNEXECUTED",
+      "audited_scripts": [],
+      "untested_scripts": [
+        "Q033_incision_model.py",
+        "bone_fracture_toughness_lefm.py",
+        "skin_barrier_tewl.py",
+        "skin_pulp_mechanics.py"
+      ],
+      "findings": []
+    }
+  },
+  "interpretation": "PASS certifies only the executed finite inventory contract. UNKNOWN families are not declared safe. Realistic maxima unavailable; declared stress cases are synthetic."
+}

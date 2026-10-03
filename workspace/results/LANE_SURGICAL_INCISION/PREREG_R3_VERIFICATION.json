@@ -1,0 +1,15 @@
+{
+  "status": "FROZEN_BEFORE_VERIFICATION",
+  "purpose": "Independent analytic/finite-difference checks; execute predeclared same-F load-offset falsifier without altering prior fits",
+  "checks": [
+    "Tangency and derivative continuity of circular nose and wedge flank",
+    "Analytic piecewise B-curve inverse vs saved heldout K result",
+    "Finite-difference local-radius sensitivity vs metrology derivative",
+    "Shared reference rounding corners plus deterministic interior samples (not certified outward arithmetic)",
+    "F12/16/20 identified offset intervals with shared B depth rounding: constant-offset feasibility; no radius fit",
+    "Primary PDF hash and frozen source hash integrity; manual Table B and Figure17 correspondence"
+  ],
+  "limits": "No force calibration or biological repeatability bound. Residual injury depth is used as contact depth only under an explicit closure. No FE/clinical validation.",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

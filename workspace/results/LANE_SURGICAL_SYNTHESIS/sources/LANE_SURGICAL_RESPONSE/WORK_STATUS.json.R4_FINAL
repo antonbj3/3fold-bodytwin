@@ -1,0 +1,95 @@
+{
+  "round": 4,
+  "lane": "LANE_SURGICAL_RESPONSE",
+  "updated_utc": "2026-10-01T01:32:32.071467+00:00",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "status": "ROUND_COMPLETE_PENDING_INDEPENDENT_REVIEW",
+  "parent_goal_status": "OPEN",
+  "round_gate": "FAIL",
+  "gate": "FAIL",
+  "strongest_control": "TIE",
+  "control_gate": "TIE",
+  "empirical_joint_crossprediction": "UNKNOWN",
+  "empirical_gate": "UNKNOWN",
+  "scientific_admission": false,
+  "numerical_verification_passed": true,
+  "numerical_verification": "VERIFICATION_R4.json",
+  "checkpoint": "CHECKPOINT_R4.json",
+  "new_fixture_state": "r4/glyco_reservoir/control_first_order_D_NS0.03_checkpoint21.json",
+  "new_state_contract": "D,H,A autonomous chemical inventory with glyco-dependent HP yield; isolated closure, synthetic skin substrate; native O2/angle/bridge coupling not updated",
+  "native_geometry_checkpoint": "r1/native_chain/native_geometry_response.npz",
+  "history_checkpoint": "r1/history_local/checkpoint60.npz",
+  "retained_sensor": "r2/sensor/junction100.npz",
+  "source_targets": "OBSERVATIONS_R4.json",
+  "no_new_strength_fit": true,
+  "outcomes": {
+    "HP_inventory_ratio42_10": 2.220261437908497,
+    "HP_inventory_ratio_reading_box": [
+      1.747159090909091,
+      2.8467987804878048
+    ],
+    "collagen_mass_ratio42_10": 0.9294117647058824,
+    "collagen_mass_ratio_reading_box": [
+      0.8522727272727273,
+      1.0121951219512195
+    ],
+    "no_new_HP_required_massratio_box": [
+      0.35555555555555557,
+      0.48780487804878037
+    ],
+    "selective_denominator_only": "FAIL_WITHIN_FROZEN_READING_BOX_UNDER_FIXED_ASSAY_REFERENCE",
+    "nominal_candidates": [
+      {
+        "label": "reservoir_start0",
+        "HP42": 0.036869183583607114,
+        "early_gate": "FAIL",
+        "HP42_gate": "PASS",
+        "strength_RMSE_pp": 17.767977641699016,
+        "joint_gate": "FAIL"
+      },
+      {
+        "label": "feedback_b0.001",
+        "HP42": 0.020757209685064622,
+        "early_gate": "FAIL",
+        "HP42_gate": "FAIL",
+        "strength_RMSE_pp": 32.097986671987194,
+        "joint_gate": "FAIL"
+      },
+      {
+        "label": "selective_f0.5_d0.03",
+        "HP42": 0.026032384984478033,
+        "early_gate": "PASS",
+        "HP42_gate": "FAIL",
+        "strength_RMSE_pp": 18.617514828406016,
+        "joint_gate": "FAIL"
+      }
+    ],
+    "glyco_nominal_HP42": 0.026338454833019345,
+    "glyco_nominal_strength_RMSE_pp": 23.17981084535914,
+    "illustrative_LH3_HP42": 0.04110713295138986,
+    "illustrative_LH3_strength_RMSE_pp": 11.36080477040609,
+    "illustrative_case_not_selected_winner": true,
+    "all_glyco_joint_gates": "FAIL",
+    "native_joint_gate": "UNKNOWN",
+    "prior_HP42_awareness": true,
+    "blind_validation": false,
+    "fitted_strength_parameters": false,
+    "numerical_checks": "126/126",
+    "numerical_gate": "PASS",
+    "strongest_control": "TIE",
+    "global_coupled_gain": false,
+    "parent_goal_status": "OPEN"
+  },
+  "defaults": "PREREG_R4*.json; 2CPUthreads; model-specific onset/capacity/turnover/pool closures; former .04 HP mechanical scale reused; no blind-validation claim",
+  "remaining": [
+    "absolute native glyco-resolved precursor and aldehydeproduct assays",
+    "constant sampling/reference and sharedcohort posterior",
+    "independently identified rate law under LOXoff/loadperturbation",
+    "joint age-angle-connectivity/traction port",
+    "vascular/O2/hemostatic feedback and certified globalquery error/cost"
+  ],
+  "results": "RESULTS.md",
+  "next": "NEXT_ROUND.md",
+  "next_round": "NEXT_ROUND.md",
+  "numerical_verification_scope": "Numerical, conservation, provenance and claim boundaries only; no empirical validation"
+}

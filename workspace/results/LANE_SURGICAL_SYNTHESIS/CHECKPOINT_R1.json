@@ -1,0 +1,23 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "round": 1,
+  "main_case": "r1/nominal_complete_v4",
+  "memory_npz": "r1/nominal_complete_v4/checkpoint21.npz",
+  "sha256": "7bce859d7d1714255043253e03dccabb340d4f9c02ceb2c43d606c9b90a4bb54",
+  "metadata": "r1/nominal_complete_v4/checkpoint21.json",
+  "code_manifest": "CODE_MANIFEST_R1.json",
+  "tested_restart": "r1/tests_final_v2/restart",
+  "required_state": [
+    "early12state",
+    "hazard",
+    "lateFV6state",
+    "threeQ_U_I_M",
+    "born/removed/initial-reference",
+    "D,H,A",
+    "grid",
+    "absoluteclock",
+    "rates/laws/BC/config"
+  ],
+  "known_limits": "Native injury/chemistry/traction null; no empiricalposterior; suffixspatialsolveglobal; jointUIMobserverone-way; chemistryisolated"
+}

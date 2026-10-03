@@ -1,0 +1,41 @@
+{
+  "round": 2,
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "attempts": [
+    {
+      "operation": "same-skin cut/tear crossprediction from nominated micro/fiber ports",
+      "parents": [
+        "BINDINGS/MECHANICAL_RESULTS_R1",
+        "PISSARENKO_2020"
+      ],
+      "outcome": "15kJ/m2 tear candidate FAIL 27.18%/50.63%; intrinsic skin intercept UNKNOWN. 150 is a synthetic pullout ceiling, not cleavage.",
+      "obstacle": "No measured common cutting/intercept/microstructure parameter set",
+      "next": "integrate bridge work up to blade arrival",
+      "evidence": "r2/world_crossprediction.json"
+    },
+    {
+      "operation": "pre-cleavage bridge-work truncation",
+      "outcome": "Conditional R=10um gives269.76J/m2 vs15150J/m2 total tear; half-pullout radius732um=73.2 fiber diameters.",
+      "control": "ordinary same-information cohesive bridge law TIE",
+      "obstacle": "delta_b(R,friction,prestretch) and recruitment are unmeasured",
+      "next": "layer-release and independent work acquisition",
+      "evidence": "r2/bridge_work.json"
+    },
+    {
+      "operation": "three coupled finite-strain vector layers",
+      "outcome": "Resolved full/partial-depth gap, anisotropy and interlayer prestress release; numerical scenario only",
+      "preserved_failures": "initial oblique-family symmetry; first force quadrature length; mis-signed energy reporting check;64->96partial gap>2%",
+      "next_executed": "mirror fiber families;physical crack lengths;correct energy check;targeted128 refinement",
+      "control": "identical conventional FE TIE",
+      "evidence": "r2/layer_extension_results.json"
+    },
+    {
+      "operation": "independent pre-cleavage work acquisition after radius/contact nullspace",
+      "outcome": "\u0393 interval0..1060.52J/m2 after recut;work20J gives119.875..180.125 FAIL;work5J gives134.875..165.125 PASS_SYNTHETIC",
+      "control": "same positive LP inverse TIE",
+      "obstacle": "real microscopic work precision, missing layer closures and empirical release uncertainty",
+      "next": "same-sample traction/opening work plus contact and prestretch observations",
+      "evidence": "r2/acquisition_results.json"
+    }
+  ]
+}

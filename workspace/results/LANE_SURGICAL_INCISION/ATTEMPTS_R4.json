@@ -1,0 +1,28 @@
+{
+  "parent": "CHECKPOINT_R3.json",
+  "attempts": [
+    {
+      "operation": "one-anchor F/D geometry transfer on independent primary skin series",
+      "evidence": "r4/total_force_transfer.json; r4/human_and_crossstudy.json; r4/piglet_geometry_history.json",
+      "outcome": "Human central PASS but reading FAIL; Barnett/Owen transfer FAIL; strongest identical-scaling TIE",
+      "obstacle": "Shank geometry changes bevel/contact; tissue and force port differ across studies",
+      "next": "Paired first-pass/repeat work and observed crack area"
+    },
+    {
+      "operation": "one-gauge paired-work J transferred across gauges and speed",
+      "evidence": "r4/fracture_transfer.json",
+      "outcome": "Newtools FAIL35.96/22.14/54.64%; same-tool speed max2.84%; common plotted-band intersection empty",
+      "obstacle": "Tool-conditioned terminal work/area/contact not a single invariant; repeat-nuisance equality unverified",
+      "next": "True crack area plus independent nuisance drift and microscopic process work"
+    },
+    {
+      "operation": "true-area/nuisance precision and terminal-work measurement design",
+      "evidence": "r4/work_area_requirements.json",
+      "outcome": "Best constantJ cannot reach20% on these means:lowerbound45.84%; prospective strictGamma0 budget29.05J/m2 under unachieved assumptions",
+      "obstacle": "No matched acquisition or biological damage widths; Gamma0/B_before null",
+      "next": "Final PORTS and MEASUREMENT_SPEC_R4.md; lane closes in this form"
+    }
+  ],
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

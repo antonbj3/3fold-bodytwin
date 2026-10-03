@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "lane": "LANE_SKIN_TOUGHNESS_GAP",
+  "round": 2,
+  "updated_utc": "2026-10-01T01:12:30.196390+00:00",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "consumers": [
+    "LANE_SURGICAL_INCISION",
+    "LANE_SURGICAL_RESPONSE"
+  ],
+  "empirical_prediction": {
+    "native_Gamma_cut_J_m2": null,
+    "native_Gamma_tear_I_J_m2": null,
+    "native_Gamma_tear_III_J_m2": null,
+    "native_tool_transition_radius_m": null,
+    "native_bridge_opening_at_failure_m": null,
+    "native_connected_anchor_length_m": null,
+    "native_poro_fraction": null,
+    "native_thermal_change": null,
+    "native_healing_traction": null,
+    "native_bridge_zone_length_m": null,
+    "native_G_bridge_by_mode_orientation_J_m2": {
+      "I_long": null,
+      "I_trans": null,
+      "III_long": null,
+      "III_trans": null
+    },
+    "native_bridge_terminal_survival_by_mode": null,
+    "native_Tnormal_Tshear_vs_opening_history": null
+  },
+  "observed_targets": {
+    "porcine_modes": "SOURCE_TARGETS_R2 snapshot; original13 rows in r1/scales/bridge_scales.json",
+    "human_needle_geometry_work_product_J_m2": [
+      1837.8317023500288,
+      1649.3361431346411
+    ],
+    "cohort_fusion_allowed": false
+  },
+  "reusable_diagnostics": {
+    "modeI_opening_normal_strength_ratio_relative_error": 0.39698352095106787,
+    "modeIII_prediction": null,
+    "corrected_affine_ratio_relative_error": 0.6635980370499182,
+    "modeI_required_triangular_opening_mm": [
+      2.637755102040816,
+      4.380143696930111
+    ],
+    "required_opening_is_prediction_input": false,
+    "modeI_trans_long_required_work_length_ratio": 1.6605573783332725,
+    "needle_constant_product_floor_at_alpha1_J_m2": 1555.0883635269477,
+    "needle_floor_is_intrinsic_Gamma": false,
+    "R2_required_pullout_shape_opening_m": [
+      0.0040201698197527185,
+      0.006675722656343119
+    ],
+    "R2_required_III_I_terminal_work_ratio": {
+      "long": 0.7976528243487232,
+      "trans": 0.6046234153616704
+    },
+    "R2_diagnostics_are_forward_inputs": false
+  },
+  "synthetic_operator": {
+    "script": "nonlocal_events_r1.py",
+    "law": "T=active*sigma*(delta/(L eps_f))^p until irreversible severance/rupture, conservative stored-work release",
+    "state": [
+      "opening",
+      "cohort_alive",
+      "maximum_opening_or_event",
+      "Psi",
+      "D_unresolved_wave_fracture_heat"
+    ],
+    "cohort_example": "r1/nonlocal/front_history_sever_2500um.npy",
+    "force_units": "Pa",
+    "work_units": "J/m2",
+    "reference_area": "one geometric crack-plane area; event paid once",
+    "opening_first_vs_cut_first": "delta_before_tip must be measured; geometric wake need not be absent",
+    "biological_closures": "SYNTHETIC; no mapping to cell injury, vessel damage or scar tensile strength",
+    "same_information_control": "TIE; no global nonlinear equilibrium or history-free query implemented",
+    "axis_mapping": "In nonlocal_events_r1 initial keys long/trans are MATERIAL tractionaxes, not tearcrack labels. For openingnormal cracklong use materialtrans; cracktrans use materiallong. Source geometry insufficient for actual rotating wake peak traction; proxy explicit."
+  },
+  "energy_constraints": [
+    "Integrate both tool force components with conjugate motion",
+    "Separate ΔPsi/contact/bulk/precleavage terminal work; no double counting",
+    "Do not use shankD as edgeR or delta=2R",
+    "Do not add bridge work and same-volume partial-loop/interface work",
+    "Do not interpret loading-rate insensitivity as proof of zero poro contribution",
+    "PublishedJ=2F/t and localGbridge are distinct until assaywork balance is acquired",
+    "SAXSpeak/SHGintensity is not conservedcrossing count",
+    "Visiblemacroaperture is not bridgefailureopening"
+  ],
+  "next_required_observations": [
+    "MEASUREMENT_SPEC_R2.md: matched3D connected endpoints, initialcrossings and survival vsnormal/shear",
+    "independent local fulltraction-opening with matchedlegcompliance and terminalevents",
+    "registered material/Langer/crack axes",
+    "synchronousF,u,a,t and completePsi/leg/contact ledger",
+    "tooltip location/severancetime and nativepretip work",
+    "native healing traction not Gamma-to-strengthratio"
+  ],
+  "controlling_results": "r2/rotation_vector_v2/summary.json",
+  "mechanism_table": "MECHANISM_TABLE_R2_FINAL.json",
+  "independent_observations_R2": {
+    "Yang_rabbit_notch_aperture_mm": [
+      1.1320754716981132,
+      4.577464788732394,
+      7.481481481481482
+    ],
+    "is_bridge_rupture_opening": false,
+    "Yang_peak_rotation_deg": [
+      25,
+      0
+    ],
+    "Yang_terminal_H": 0.76,
+    "Tang_bovine_pericardium_pullout_m": 0.006,
+    "Tang_pulled_ligament_length_m": 0.01,
+    "Tang_tail_max_separation_m": 0.0048,
+    "is_native_skin_port": false
+  },
+  "conditional_R2_scenarios": {
+    "status": "SYNTHETIC_NOT_NATIVE_PREDICTION",
+    "vector_Gbridge_by_mode_orientation_J_m2": {
+      "I_long": 11789.295029044604,
+      "III_long": 11789.295029044604,
+      "I_trans": 16564.374362730316,
+      "III_trans": 16564.374362730316
+    },
+    "connected_L_m": 0.005,
+    "radial_failure_fraction": 0.5,
+    "aggregate_strength_proxy_Pa": 17455000.0,
+    "reference_axis_to_spine_deg": 0.0,
+    "reference_is_measured": false,
+    "analogue_shape_q": 0.32806513409961685,
+    "mode_invariant_under_fixed_common_terminal_state": true,
+    "same_information_control": "TIE",
+    "pooled_modeIII_J_m2": 14326.834695887459,
+    "pooled_modeIII_relative_error": 0.3045225875782787,
+    "pooled_modeIII_gate": "FAIL_25PCT"
+  }
+}

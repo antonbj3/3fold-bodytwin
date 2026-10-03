@@ -1,0 +1,109 @@
+{
+  "source": "Owen2022",
+  "single_calibration": "experiment2 first-use21G0.45N; independent-cohortheldout no refit",
+  "heldout": [
+    {
+      "experiment": 2,
+      "tool": "18_new",
+      "observed_median_N": 1.32,
+      "predicted_median_N": 0.6969512195121952,
+      "relative_error": 0.47200665188470065,
+      "central_gate": "FAIL",
+      "observed_range_N": [
+        0.98,
+        1.74
+      ],
+      "diameter_scope": "nominal scenario borrowed from Barnett, true Owen diameters unknown"
+    },
+    {
+      "experiment": 3,
+      "tool": "21_new",
+      "observed_median_N": 0.62,
+      "predicted_median_N": 0.45,
+      "relative_error": 0.27419354838709675,
+      "central_gate": "FAIL",
+      "observed_range_N": [
+        0.46,
+        1.1
+      ],
+      "diameter_scope": "same21G nominal diameter; tool/cohort differences unmodelled"
+    },
+    {
+      "experiment": 4,
+      "tool": "21_new",
+      "observed_median_N": 0.7,
+      "predicted_median_N": 0.45,
+      "relative_error": 0.3571428571428571,
+      "central_gate": "FAIL",
+      "observed_range_N": [
+        0.56,
+        1.02
+      ],
+      "diameter_scope": "same21G nominal diameter; tool/cohort differences unmodelled"
+    },
+    {
+      "experiment": 4,
+      "tool": "18_new",
+      "observed_median_N": 1.4,
+      "predicted_median_N": 0.6969512195121952,
+      "relative_error": 0.502177700348432,
+      "central_gate": "FAIL",
+      "observed_range_N": [
+        1.2,
+        1.48
+      ],
+      "diameter_scope": "nominal scenario borrowed from Barnett, true Owen diameters unknown"
+    }
+  ],
+  "same_cohort_history_adverse_test": [
+    {
+      "tool_history": "21_reuse12",
+      "diameter_changed": false,
+      "new_median_N": 0.7,
+      "history_median_N": 0.9,
+      "history_to_new_ratio": 1.2857142857142858,
+      "no_history_pred_relative_error": 0.2222222222222223,
+      "central_gate": "FAIL",
+      "interpretation": "Tool wear/residue changes. New site every puncture; not same-hole repeat assay; radius not measured."
+    },
+    {
+      "tool_history": "21_reuse36",
+      "diameter_changed": false,
+      "new_median_N": 0.7,
+      "history_median_N": 0.94,
+      "history_to_new_ratio": 1.342857142857143,
+      "no_history_pred_relative_error": 0.2553191489361702,
+      "central_gate": "FAIL",
+      "interpretation": "Tool wear/residue changes. New site every puncture; not same-hole repeat assay; radius not measured."
+    },
+    {
+      "tool_history": "21_reuse100",
+      "diameter_changed": false,
+      "new_median_N": 0.7,
+      "history_median_N": 1.28,
+      "history_to_new_ratio": 1.8285714285714287,
+      "no_history_pred_relative_error": 0.45312500000000006,
+      "central_gate": "FAIL",
+      "interpretation": "Tool wear/residue changes. New site every puncture; not same-hole repeat assay; radius not measured."
+    },
+    {
+      "tool_history": "21_blunt",
+      "diameter_changed": false,
+      "new_median_N": 0.7,
+      "history_median_N": 1.3,
+      "history_to_new_ratio": 1.8571428571428574,
+      "no_history_pred_relative_error": 0.46153846153846156,
+      "central_gate": "FAIL",
+      "interpretation": "Tool wear/residue changes. New site every puncture; not same-hole repeat assay; radius not measured."
+    }
+  ],
+  "effective_J_J_m2": null,
+  "why": "No displacement work, first-minus-same-hole-repeat force or crack area; cannot separate friction/deformation/Gamma",
+  "n_conflicts_preserved": {
+    "exp2_18G_methods": 5,
+    "exp2_18G_results_caption": 10,
+    "exp4_21blunt_methods_caption": 6,
+    "exp4_21blunt_results": 7
+  },
+  "range_not_CI": true
+}

@@ -1,0 +1,32 @@
+{
+  "lane": "LANE_SURGICAL_INCISION",
+  "round": 4,
+  "status": "LANE_SCOPE_CLOSED_DATA_ACQUISITION_REQUIRED",
+  "round_complete": true,
+  "lane_scope_complete": true,
+  "parent_goal_status": "OPEN",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "innovation_gate": "FAIL",
+  "strongest_equally_informed_control_gate": "TIE",
+  "same_tool_effective_J_speed_gate": "PASS_FOR_REPORTED_ASSAY_READINGS",
+  "new_tool_common_effective_J_gate": "FAIL",
+  "empirical_skin_Gamma0_Gamma_cut_and_biological_damage": "UNKNOWN",
+  "completed_capability": "Three public independent skin needle series frozen; calibrated single-gauge tool/rate/crossstudy tests, conditional paired-work identification, area/nuisance budget and consumer handoff",
+  "independent_numeric_primary_studies": 3,
+  "last_checkpoint": "CHECKPOINT_R4_FINAL.json",
+  "next_round": "NEXT_ROUND.md",
+  "next_operation": "Matched Ft/Fn/x/z, true3D crack area, measured local edge radius, independent release/contact/repeat drift and terminal precleavage work plus biological/vascular damage acquisition; MEASUREMENT_SPEC_R4.md",
+  "blockers": [
+    "Diameter/bevel/contact co-vary; tool-dependent effective paired-work J, unknown true3D area/repeat nuisance drift, Gamma0+B null and unknown viability/perfusion widths",
+    "Per-tool phase3 friction and synchronous first/repeat force-depth curves not acquired; source printed regressions unreproducible as stated",
+    "True skin scalpel work and terminalprocess/active-area acquisition absent; biological/vascular closures unknown"
+  ],
+  "defaults": "PREREG_R4_SERIES.json; SOURCE_TARGETS_R4_v2.json; null empirical unknowns; syntheticcut150..380 opt-in only",
+  "results": "RESULTS.md",
+  "final_ports": "PORTS.json",
+  "measurement_spec": "MEASUREMENT_SPEC_R4.md",
+  "costs": "COST_ACCOUNTING_R4.json",
+  "verification": "VERIFICATION_R4.json",
+  "updated_utc": "2026-10-01T00:38:34.083279+00:00"
+}

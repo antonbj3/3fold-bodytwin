@@ -1,0 +1,116 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "recorded_chain_cases": [
+    {
+      "case": "r1/joint_minus_v1",
+      "blood_wall_s": 0.4503148670773953,
+      "late_wall_s": 1.007687501842156,
+      "full_wall_s": 2.8042251251172274,
+      "CPU_s": 2.795897729,
+      "max_RSS_KiB": 82244,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    {
+      "case": "r1/joint_plus_v1",
+      "blood_wall_s": 0.5571438521146774,
+      "late_wall_s": 1.3003670668695122,
+      "full_wall_s": 3.6644191509112716,
+      "CPU_s": 3.654814853999998,
+      "max_RSS_KiB": 82404,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    {
+      "case": "r1/no_seal_oxygen_v1",
+      "blood_wall_s": 0.6000475939363241,
+      "late_wall_s": 0.7839243628550321,
+      "full_wall_s": 2.9331217990256846,
+      "CPU_s": 2.926254739999999,
+      "max_RSS_KiB": 82244,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    {
+      "case": "r1/nominal_complete_v4",
+      "blood_wall_s": 0.424676361028105,
+      "late_wall_s": 0.7713003889657557,
+      "full_wall_s": 2.2839359999634326,
+      "CPU_s": 2.282922063,
+      "max_RSS_KiB": 81124,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    {
+      "case": "r1/refine_space_v1",
+      "blood_wall_s": 0.42834068601951003,
+      "late_wall_s": 0.9916413398459554,
+      "full_wall_s": 2.572646465850994,
+      "CPU_s": 2.571682109,
+      "max_RSS_KiB": 81764,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    {
+      "case": "r1/refine_time_v1",
+      "blood_wall_s": 0.41750617302022874,
+      "late_wall_s": 1.5175627230200917,
+      "full_wall_s": 4.0485532730817795,
+      "CPU_s": 4.047755705,
+      "max_RSS_KiB": 81604,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    {
+      "case": "r1/scenario_final_v3",
+      "blood_wall_s": 0.4519616139587015,
+      "late_wall_s": 0.8652142689097673,
+      "full_wall_s": 2.5164739401079714,
+      "CPU_s": 2.511364165,
+      "max_RSS_KiB": 287608,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    {
+      "case": "r1/scenario_nominal",
+      "blood_wall_s": 0.3954198379069567,
+      "late_wall_s": 1.0313628048170358,
+      "full_wall_s": 2.940739640034735,
+      "CPU_s": 2.929005908,
+      "max_RSS_KiB": 287608,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    {
+      "case": "r1/scenario_seal_memory_v2",
+      "blood_wall_s": 0.4201086671091616,
+      "late_wall_s": 0.7841099048964679,
+      "full_wall_s": 2.2061386299319565,
+      "CPU_s": 2.1956514890000003,
+      "max_RSS_KiB": 287608,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    }
+  ],
+  "recorded_chain_solver_wall_sum_s": 25.970254024025053,
+  "recorded_chain_CPU_sum_s": 25.915348761999997,
+  "max_recorded_RSS_KiB": 287608,
+  "engineering_tests_wall_s": {
+    "r1/tests_final_v1/verification.json": 1.3126167959999293,
+    "r1/tests_final_v2/verification.json": 2.472249324899167
+  },
+  "initial_test_wall_s": 2.183027771068737,
+  "checkpoint_restarts_wall_s": {
+    "r1/tests_final_v1/restart/summary.json": 0.6066774539649487,
+    "r1/tests_final_v2/restart/summary.json": 1.2460066438652575
+  },
+  "initial_restart_wall_s": 0.8118496378883719,
+  "setup_import_acquisition_development_wall_s": null,
+  "physical_acquisition_cost": null,
+  "whole_round_elapsed_s": null,
+  "summed_solver_cost_is_total_round_cost": false,
+  "rebuilds": "New full-chain scenarios and refinements counted separately; no hidden cache advantage",
+  "certification": "Regression/refinement/checkpoint tests are model-scoped; no physical certificate",
+  "fallback": "Evidence-mode refuses native predictions; no certified cheaperlocalpath; fullglobal suffixrecomputed",
+  "strongest_same_information_cost_ratio": "1 algebraically; no independent timingadvantage asserted"
+}

@@ -1,0 +1,501 @@
+"""Synthetic spatial incision response. Source modules and graphs remain read-only.
+
+Pressure transport uses oxygen permeability, not a diffusion coefficient mislabeled
+as permeability. Q036's original equations are vectorized mechanically; its local
+oxygen balance is replaced explicitly by conservative spatial pressure transport.
+"""
+from __future__ import annotations
+import argparse
+import ast
+from dataclasses import dataclass, asdict, replace
+import hashlib
+import importlib.util
+import inspect
+import json
+from pathlib import Path
+import sys
+import time
+
+import numpy as np
+from scipy.integrate import solve_ivp
+from scipy.linalg import solve_banded
+from scipy.optimize import least_squares
+
+ROOT = Path(__file__).resolve().parent
+QPATH = ROOT.parent / 'BT-HX-Q036' / 'model.py'
+spec = importlib.util.spec_from_file_location('q036_readonly', QPATH)
+q036 = importlib.util.module_from_spec(spec)
+sys.modules[spec.name] = q036
+spec.loader.exec_module(q036)
+
+def write_json(path, obj):
+    with Path(path).open('x') as f:
+        json.dump(obj, f, indent=2, allow_nan=False,
+                  default=lambda x: x.tolist() if isinstance(x, np.ndarray) else x.item())
+
+class Vectorize(ast.NodeTransformer):
+    """Algebraic array transformation; explicit scalar-vs-vector check below."""
+    def visit_GeneratorExp(self, node):
+        if ast.unparse(node) == '(float(value) for value in state)':
+            return ast.Name(id='state', ctx=ast.Load())
+        return self.generic_visit(node)
+    def visit_Call(self, node):
+        node = self.generic_visit(node)
+        if isinstance(node.func, ast.Name) and node.func.id == 'max':
+            node.func = ast.Attribute(value=ast.Name(id='np', ctx=ast.Load()), attr='maximum', ctx=ast.Load())
+        return node
+    def visit_IfExp(self, node):
+        node = self.generic_visit(node)
+        # All three denominators have strictly positive additive gate constants;
+        # their numerators are nonnegative, so the rational value is zero at zero.
+        if isinstance(node.test, ast.Compare) and isinstance(node.test.left, ast.Name) and node.test.left.id in ('calcium_excess', 'ros', 'energy_deficit'):
+            return node.body
+        return node
+
+def make_vector_rhs():
+    source = '\n'.join(inspect.getsource(f) for f in [q036.respiration_rate, q036.glycolysis_rate, q036.rhs])
+    tree = Vectorize().visit(ast.parse(source))
+    ast.fix_missing_locations(tree)
+    ns = dict(q036.__dict__)
+    ns['clamp'] = lambda v, lower=0., upper=1.: np.clip(v, lower, upper)
+    def bound(raw, value, upper=None):
+        raw = np.where((value <= 0) & (raw < 0), 0., raw)
+        return np.where((value >= upper) & (raw > 0), 0., raw) if upper is not None else raw
+    ns['bounded_derivative'] = bound
+    exec(compile(tree, '<Q036 array transformation>', 'exec'), ns)
+    return ns['rhs'], ns, ast.unparse(tree)
+
+QRHS, QNS, QTRANSFORM = make_vector_rhs()
+QP = q036.Parameters()
+SCENARIO = q036.Scenario(pre_ischemia_min=0, ischemia_min=120, reperfusion_min=1)
+O_SCALE = 51. / q036.healthy_oxygen(QP)
+
+@dataclass(frozen=True)
+class Params:
+    domain_m: float = .008
+    width_m: float = .00025
+    gap_m: float = .0002
+    cut_length_m: float = .01
+    cut_depth_m: float = .002
+    vessel_crossings_per_m2: float = 1.2e6
+    permeability: float = 1.3e-6  # ml O2/(m min Torr), paper's literature-based viable-layer value
+    consumption: float = 1470.  # ml O2/(m3 min), same paper's dermal proxy
+    pcap_Torr: float = 60.
+    healthy_Torr: float = 51.
+    km_Torr: float = 3.
+    face_Torr: float = 160.
+    face_conductance: float = 0.  # ml O2/(m2 min Torr), synthetic wound/dressing boundary
+    outside_flow: float = 1.
+    vessel_transition_m: float = 15e-6
+    early_dt_min: float = .1
+    early_minutes: float = 120.
+    dt_day: float = .1
+    k_deposit_day: float = .1
+    k_mature_day: float = .04
+    fibro_diffusion_m2_day: float = 2e-8
+    oxygen_feedback: bool = True
+    memory_transfer: bool = True
+
+    @property
+    def L_m(self):
+        # sqrt(D*C0/M) = sqrt(permeability*P0/M); no solubility required for steady state.
+        return np.sqrt(self.permeability*self.healthy_Torr/self.consumption)
+    @property
+    def exchange(self):
+        return self.consumption*self.healthy_Torr/(self.km_Torr+self.healthy_Torr)/(self.pcap_Torr-self.healthy_Torr)
+
+class Grid:
+    def __init__(self, p, kind='graded', dx=5e-6):
+        start = time.perf_counter()
+        if kind == 'uniform':
+            edges = np.linspace(0, p.domain_m, round(p.domain_m/dx)+1)
+        else:
+            # Deterministic front-aware grading, no fine-reference acquisition.
+            fine_end = min(p.domain_m, p.width_m+4*p.L_m)
+            edges = list(np.arange(0, fine_end, dx))
+            if not edges or edges[-1] < fine_end:
+                edges.append(fine_end)
+            step = dx
+            while edges[-1] < p.domain_m:
+                step = min(step*1.12, .00025)
+                edges.append(min(p.domain_m, edges[-1]+step))
+            edges = np.array(edges)
+        self.edges = edges
+        self.x = .5*(edges[1:]+edges[:-1])
+        self.dx = np.diff(edges)
+        self.dist = np.diff(self.x)
+        self.n = len(self.x)
+        self.kind = kind
+        self.build_s = time.perf_counter()-start
+
+def cut_flow(grid, p):
+    z = np.clip((grid.x-p.width_m)/p.vessel_transition_m, -60, 60)
+    return .01 + .99/(1+np.exp(-z))
+
+class Oxygen:
+    def __init__(self, grid, p):
+        self.g, self.p = grid, p
+        self.calls = self.newton = self.cell_work = 0
+        self.max_balance = self.max_residual = 0.
+        self.P = np.full(grid.n, p.healthy_Torr)
+        self.right_Torr = p.healthy_Torr
+
+    def solve(self, flow, demand, matrix=None,storage_alpha=0.,dt_min=None,previous_pressure=None):
+        g, p = self.g, self.p
+        self.calls += 1
+        perm = np.full(g.n, p.permeability)
+        if matrix is not None and p.oxygen_feedback:
+            perm /= 1+.3*matrix
+        c = 1/(.5*g.dx[:-1]/perm[:-1]+.5*g.dx[1:]/perm[1:])
+        left = 0. if p.face_conductance == 0 else 1/(1/p.face_conductance+.5*g.dx[0]/perm[0])
+        right = 2*perm[-1]/g.dx[-1]
+        diag = np.zeros(g.n)
+        diag[:-1] += c
+        diag[1:] += c
+        diag[0] += left
+        diag[-1] += right
+        exchange = p.exchange*np.clip(flow, 0, 1)*g.dx
+        source = exchange*p.pcap_Torr
+        source[0] += left*p.face_Torr
+        source[-1] += right*self.right_Torr
+        sink = np.maximum(demand, 0)*g.dx
+        diag += exchange
+        if storage_alpha:
+            if dt_min is None or previous_pressure is None:
+                raise ValueError('Storage requires timestep and previous pressure')
+            storage = storage_alpha*g.dx/dt_min
+            diag += storage
+            source += storage*previous_pressure
+        def residual(v):
+            r = diag*v-source+sink*v/(p.km_Torr+v)
+            r[:-1] -= c*v[1:]
+            r[1:] -= c*v[:-1]
+            return r
+        P = np.clip(self.P, 1e-12, max(p.face_Torr, p.pcap_Torr))
+        scale = max(float(np.max(source)), float(np.max(sink)), 1e-15)
+        for _ in range(45):
+            r = residual(P)
+            rel = float(np.max(np.abs(r)))/scale
+            if rel < 1e-10:
+                break
+            band = np.zeros((3, g.n))
+            band[0,1:] = -c
+            band[1] = diag + sink*p.km_Torr/(p.km_Torr+P)**2
+            band[2,:-1] = -c
+            delta = solve_banded((1,1), band, -r, check_finite=False)
+            step = 1.
+            neg = delta < 0
+            if np.any(neg):
+                step = min(step, .95*float(np.min(-P[neg]/delta[neg])))
+            oldnorm = float(np.max(np.abs(r)))
+            for _ in range(30):
+                trial = P+step*delta
+                if float(np.max(np.abs(residual(trial)))) <= oldnorm*(1-1e-4*step) + scale*1e-12:
+                    P = trial
+                    break
+                step *= .5
+            else:
+                raise RuntimeError('Oxygen Newton backtracking failed')
+            self.newton += 1
+            self.cell_work += g.n
+        else:
+            raise RuntimeError('Oxygen solve did not converge')
+        self.max_residual = max(self.max_residual, rel)
+        supply = np.sum(exchange*(p.pcap_Torr-P))+left*(p.face_Torr-P[0])+right*(self.right_Torr-P[-1])
+        consumption = np.sum(sink*P/(p.km_Torr+P))
+        inventory_rate = 0. if not storage_alpha else float(np.sum(storage_alpha*g.dx*(P-previous_pressure))/dt_min)
+        self.last_supply,self.last_consumption,self.last_inventory_rate=float(supply),float(consumption),inventory_rate
+        self.last_left_flux = float(left*(p.face_Torr-P[0]))
+        balance = abs(supply-consumption-inventory_rate)/max(abs(consumption),abs(inventory_rate),1e-12)
+        self.max_balance = max(self.max_balance, float(balance))
+        self.P = P
+        return P.copy()
+
+    def stats(self):
+        return dict(calls=self.calls, newton_iterations=self.newton, newton_cell_work=self.cell_work,
+                    max_relative_balance=self.max_balance, max_relative_residual=self.max_residual)
+
+def project_q(Y):
+    Y = Y.copy()
+    Y[[0,1,2,3,8,9,10,11]] = np.clip(Y[[0,1,2,3,8,9,10,11]],0,1)
+    Y[6] = np.clip(Y[6],0,5)
+    Y[[4,5,7]] = np.maximum(Y[[4,5,7]],0)
+    return Y
+
+def early(grid, p, initial=None, external=None):
+    start = time.perf_counter()
+    solver = Oxygen(grid,p)
+    Y = np.repeat(q036.healthy_state(QP)[:,None],grid.n,axis=1) if initial is None else initial.copy()
+    hazard = np.zeros(grid.n)
+    cf = cut_flow(grid,p)
+    def evaluate(t,Y):
+        demand = p.consumption*(.35+.65*Y[2]*(1-Y[8]))
+        P = solver.solve(Y[0],demand)
+        Ys = Y.copy()
+        Ys[1] = np.clip(P/O_SCALE,0,1)
+        QNS['external_flow'] = lambda _, __: cf if external is None else external(t,cf)
+        dy = QRHS(t,Ys,QP,SCENARIO)
+        dy[1] = 0
+        h = QP.k_injury*Ys[8]*(1-Ys[2])*(1+np.maximum(0,Ys[6]-1))
+        return dy,h,P
+    steps = int(np.ceil(p.early_minutes/p.early_dt_min))
+    dt = p.early_minutes/steps
+    initial_P = None
+    snapshots = []
+    max_projection = 0.
+    for i in range(steps):
+        t = i*dt
+        dy,h,P = evaluate(t,Y)
+        if initial_P is None:
+            # initial healthy state precedes rapid perfusion relaxation; save injured field later.
+            initial_P = P
+        mid = project_q(Y+.5*dt*dy)
+        dym,hm,Pm = evaluate(t+.5*dt,mid)
+        raw = Y+dt*dym
+        Y = project_q(raw)
+        max_projection = max(max_projection,float(np.max(np.abs(raw-Y))))
+        Y[1] = np.clip(Pm/O_SCALE,0,1)
+        hazard += dt*np.maximum(hm,0)
+        if i in (int(10/dt)-1,int(30/dt)-1,steps-1):
+            snapshots.append({'min':(i+1)*dt,'P':Pm.copy(),'state':Y.copy(),'hazard':hazard.copy()})
+    return dict(state=Y,hazard=hazard,pressure=solver.P.copy(),snapshots=snapshots,
+                wall_s=time.perf_counter()-start,oxygen=solver.stats(),projection=max_projection)
+
+def diffuse_fibro(F,grid,D,dt,right_value=None):
+    c = D/grid.dist
+    diag = grid.dx.copy()
+    diag[:-1] += dt*c
+    diag[1:] += dt*c
+    band = np.zeros((3,grid.n))
+    band[0,1:] = -dt*c
+    band[1] = diag
+    band[2,:-1] = -dt*c
+    source = grid.dx*F
+    if right_value is not None:
+        bc = 2*D/grid.dx[-1]
+        band[1,-1] += dt*bc
+        source[-1] += dt*bc*right_value
+    return solve_banded((1,1),band,source,check_finite=False)
+
+def long_rhs(t,Y,P,grid,p,hazard):
+    N,M,F,C,X,V = Y
+    h = P/(10+P)
+    if not p.oxygen_feedback:
+        h = np.full(grid.n,p.healthy_Torr/(10+p.healthy_Torr))
+    h /= p.healthy_Torr/(10+p.healthy_Torr)
+    h = np.minimum(h,1.)
+    footprint = np.exp(-grid.x/(p.width_m+p.L_m))
+    pulse = (t/.6)*np.exp(1-t/.6) if t>0 else 0.
+    dead = 1-np.exp(-hazard)
+    dN = 2.4*pulse*footprint + 1.5*dead*np.exp(-t/4) - 1.8*N
+    dM = .8*N-.35*M
+    migration_gate = 1/(1+p.gap_m/.0005)
+    dF = .45*M*h*(1-F)*migration_gate-.06*F
+    dC = p.k_deposit_day*F*h*(1-C)-.008*M*C
+    dX = p.k_mature_day*C*h*(1-X)
+    dV = (.20*F*h+.005)*(1-V)-.025*M*V
+    return np.array([dN,dM,dF,dC,dX,dV])
+
+def long(grid,p,early_result,until=90.,initial=None,start_day=0.,boundary_port=None,observer=None):
+    start = time.perf_counter()
+    oxygen = Oxygen(grid,p)
+    H = early_result['hazard'] if p.memory_transfer else np.zeros(grid.n)
+    if initial is None:
+        Y = np.zeros((6,grid.n))
+        Y[5] = np.clip(early_result['state'][0],.01,1)
+    else:
+        Y = initial.copy()
+    dt = p.dt_day
+    nstep = int(np.ceil((until-start_day)/dt))
+    dt = (until-start_day)/nstep
+    days=[]; fields=[]; pressures=[]; strength=[]
+    max_project = 0.
+    monitor = np.maximum(0,np.minimum(grid.edges[1:],p.width_m)-grid.edges[:-1])/p.width_m
+    def evaluate(t,Y):
+        N,M,F,C,X,V = Y
+        flow = V*p.outside_flow/(1+.20*M+.50*(1-np.exp(-H))*np.exp(-t/7))
+        demand = p.consumption*(1+.12*N+.20*M+.08*F)
+        if boundary_port is not None:
+            oxygen.right_Torr = boundary_port(t)[0]
+        P = oxygen.solve(flow,demand,C)
+        return long_rhs(t,Y,P,grid,p,H),P
+    for i in range(nstep):
+        t=start_day+i*dt
+        bv = None if boundary_port is None else boundary_port(t)[1]
+        Y[2] = diffuse_fibro(Y[2],grid,p.fibro_diffusion_m2_day,.5*dt,bv)
+        dY,P=evaluate(t,Y)
+        mid = Y+.5*dt*dY
+        mid[:2] = np.maximum(mid[:2],0)
+        mid[2:] = np.clip(mid[2:],0,1)
+        dm,Pm=evaluate(t+.5*dt,mid)
+        raw = Y+dt*dm
+        Y = raw.copy()
+        Y[:2] = np.maximum(Y[:2],0)
+        Y[2:] = np.clip(Y[2:],0,1)
+        max_project=max(max_project,float(np.max(np.abs(raw-Y))))
+        bv = None if boundary_port is None else boundary_port(t+dt)[1]
+        Y[2] = diffuse_fibro(Y[2],grid,p.fibro_diffusion_m2_day,.5*dt,bv)
+        tt=start_day+(i+1)*dt
+        days.append(tt)
+        strength.append(75*float(np.sum(monitor*Y[3]*Y[4])))
+        if observer is not None:
+            observer(tt,Y,Pm)
+        if any(abs(tt-d)<dt/3 for d in [1,3,7,10,14,21,28,90]):
+            fields.append(Y.copy()); pressures.append(Pm.copy())
+    return dict(days=np.array(days),strength_pct=np.array(strength),state=Y,pressure=oxygen.P.copy(),
+                saved_days=np.array([d for d in [1,3,7,10,14,21,28,90] if start_day<d<=until]),
+                fields=np.array(fields),pressures=np.array(pressures),wall_s=time.perf_counter()-start,
+                oxygen=oxygen.stats(),projection=max_project)
+
+def observables(grid,p,e,l):
+    hypwidth=float(np.sum(grid.dx*(e['pressure']<10)))
+    injury=1-np.exp(-e['hazard'])
+    deadwidth=float(np.sum(grid.dx*(injury>.20)))
+    monitor=np.maximum(0,np.minimum(grid.edges[1:],p.width_m)-grid.edges[:-1])/p.width_m
+    return dict(cells=grid.n,L_m=p.L_m,early_face_pressure_Torr=float(e['pressure'][0]),
+                hypoxic_width_m=hypwidth,injury_proxy_width_m=deadwidth,
+                mean_injury_proxy=float(np.sum(monitor*injury)),
+                strength_pct={str(d):float(np.interp(d,l['days'],l['strength_pct'])) for d in [7,14,28,90]},
+                early_s=e['wall_s'],long_s=l['wall_s'],grid_setup_s=grid.build_s,
+                early_oxygen=e['oxygen'],long_oxygen=l['oxygen'],
+                max_projection=max(e['projection'],l['projection']))
+
+def compare(gr,er,lr,gc,ec,lc):
+    pressure=np.max(np.abs(np.interp(gr.x,gc.x,ec['pressure'])-er['pressure']))
+    injury=np.max(np.abs(np.interp(gr.x,gc.x,ec['hazard'])-er['hazard']))
+    strengths=np.max(np.abs(lr['strength_pct']-np.interp(lr['days'],lc['days'],lc['strength_pct'])))
+    wr=np.sum(gr.dx*(er['pressure']<10));wc=np.sum(gc.dx*(ec['pressure']<10))
+    # Boundary interpolation uses constant extension over half a control volume; also
+    # report interior-only field errors to expose boundary reconstruction effects.
+    valid=(gr.x>=gc.x[0])&(gr.x<=gc.x[-1])
+    interior=np.max(np.abs(np.interp(gr.x[valid],gc.x,ec['pressure'])-er['pressure'][valid]))
+    return dict(max_pressure_Torr=float(pressure),interior_pressure_Torr=float(interior),
+                max_hazard_absolute=float(injury),strength_pp=float(strengths),hypoxic_width_error_m=float(abs(wr-wc)),
+                gate='PASS' if pressure<=.5 and injury<=.01 and strengths<=1. and abs(wr-wc)<=25e-6 else 'FAIL')
+
+def save_case(out,name,grid,p,e,l):
+    path=out/(name+'.npz')
+    if path.exists():raise FileExistsError(path)
+    np.savez_compressed(path,x=grid.x,edges=grid.edges,early_state=e['state'],hazard=e['hazard'],
+                        early_pressure=e['pressure'],days=l['days'],strength_pct=l['strength_pct'],
+                        fields=l['fields'],field_days=l['saved_days'],pressures=l['pressures'],long_state=l['state'])
+    write_json(out/(name+'.json'),dict(parameters=asdict(p),observables=observables(grid,p,e,l)))
+
+def scalar_vector_check():
+    rng=np.random.default_rng(6101)
+    Y=np.repeat(q036.healthy_state(QP)[:,None],8,axis=1)
+    Y[[0,1,2,3,8,9,10,11]]=rng.uniform(.05,.95,(8,8))
+    Y[4:6]=rng.uniform(0,.5,(2,8));Y[6]=rng.uniform(1,3,8);Y[7]=rng.uniform(0,.5,8)
+    QNS['external_flow']=q036.external_flow
+    v=QRHS(50,Y,QP,SCENARIO)
+    s=np.column_stack([q036.rhs(50,Y[:,i],QP,SCENARIO) for i in range(8)])
+    err=float(np.max(np.abs(v-s)))
+    if err>1e-12:raise AssertionError(err)
+    return err
+
+def bleeding(p):
+    """Original 15-species coagulation and platelet ODE equations, new synthetic vessel port."""
+    import types
+    def load_defs(name,stop):
+        path=Path('source_repository/scripts/msk')/(name+'.py')
+        tree=ast.parse(path.read_text());nodes=[]
+        for node in tree.body:
+            if isinstance(node,ast.Assign) and any(isinstance(t,ast.Name) and t.id==stop for t in node.targets):break
+            if isinstance(node,(ast.Import,ast.ImportFrom,ast.FunctionDef)) or isinstance(node,ast.Assign) and not any(isinstance(t,ast.Name) and t.id=='OUT_DIR' for t in node.targets):
+                nodes.append(node)
+        ns={};exec(compile(ast.Module(body=nodes,type_ignores=[]),str(path),'exec'),ns);return ns
+    co=load_defs('coagulation_hemostasis','sol_cat')
+    pl=load_defs('platelet_hemostasis','_baseline_probe')
+    # All numbers below are a labelled microvessel scenario; INCISION has no measured vessel port.
+    vessels=p.vessel_crossings_per_m2*p.cut_length_m*p.cut_depth_m
+    radius=8e-6;pressure=4000.;mu=.0035;length=.001
+    Q0=vessels*np.pi*radius**4*pressure/(8*mu*length)
+    par=dict(co['LOCKED'],TF=1000.,XIIa=0.,S_amp=5.)
+    y0=np.array(co['y0_vec']()+[0.,0.,0.])
+    def rhs(t,y):
+        A,P,B=y[-3:]
+        cov=pl['W_A']*A+pl['W_P']*P
+        clot=y[co['IDX']['IIa']]>=co['CLOT_THRESHOLD_NM']
+        leak=0. if clot and cov>=pl['THETA_C'] else max(1-cov/pl['THETA_C'],0)**2
+        return np.r_[co['rhs'](t,y[:15],par),
+                     pl['K_ON0']*(1-A)-pl['KOFF_A']*A,
+                     pl['K_AGG0']*A*(1-P)-pl['KOFF_P']*P,Q0*60*leak]
+    sol=solve_ivp(rhs,(0,10),y0,method='LSODA',rtol=1e-8,atol=1e-11,t_eval=np.linspace(0,10,10001),max_step=.01)
+    if not sol.success:raise RuntimeError(sol.message)
+    cov=pl['W_A']*sol.y[-3]+pl['W_P']*sol.y[-2]
+    hits=np.flatnonzero((cov>=pl['THETA_C'])&(sol.y[co['IDX']['IIa']]>=co['CLOT_THRESHOLD_NM']))
+    fibr=np.flatnonzero(sol.y[co['IDX']['IIa']]>=co['CLOT_THRESHOLD_NM'])
+    total=float(sol.y[-1,-1]);fgn=sol.y[co['IDX']['Fg']]+sol.y[co['IDX']['Fbn']]
+    return dict(synthetic_vessels=vessels,vessel_crossings_per_m2=p.vessel_crossings_per_m2,
+                cut_length_m=p.cut_length_m,cut_depth_m=p.cut_depth_m,
+                coag_amplification=5.,radius_m=radius,driving_pressure_Pa=pressure,flow_length_m=length,
+                viscosity_Pa_s=mu,initial_flow_m3_s=Q0,hemostasis_min=float(sol.t[hits[0]]) if len(hits) else None,
+                fibrin_onset_min=float(sol.t[fibr[0]]) if len(fibr) else None,blood_volume_m3=total,blood_volume_uL=total*1e9,
+                max_fibrinogen_fibrin_inventory_error_nM=float(np.max(np.abs(fgn-fgn[0]))),
+                geometry_to_vessel_density='UNKNOWN; no empirically measured incision-to-vessel mapping',
+                seal_effect='Seals bleeding exit; does not restore transected perfusion',t=sol.t,coverage=cov,blood_m3=sol.y[-1],thrombin_nM=sol.y[co['IDX']['IIa']])
+
+def main():
+    parser=argparse.ArgumentParser();parser.add_argument('--out',default=str(ROOT/'r1'/'coupled_v2'));args=parser.parse_args()
+    out=Path(args.out);out.mkdir(parents=True,exist_ok=False)
+    frozen=ROOT/'PREREG_R1.json';expected=(ROOT/'PREREG_R1.sha256').read_text().split()[0]
+    if hashlib.sha256(frozen.read_bytes()).hexdigest()!=expected:raise RuntimeError('PREREG changed')
+    start=time.perf_counter();checks={'q036_vectorization_error':scalar_vector_check()}
+    write_json(out/'source_contracts.json',{'Q036_SHA256':hashlib.sha256(QPATH.read_bytes()).hexdigest(),
+        'transformation':QTRANSFORM,'replaced_operator':'local oxygen relaxation -> conservative quasi-steady spatial pressure transport',
+        'clinical_damage_threshold':None,'stiffness_Pa':None,'incision_vessel_density_per_layer':None,
+        'incision_ports_source':'LANE_SURGICAL_INCISION/r1/physical_patch/HX_chain.json',
+        'bindings_ports_source':'LANE_SURGICAL_BINDINGS/PORTS.json','scenario_only':True})
+    p=Params();b=bleeding(p)
+    np.savez_compressed(out/'bleeding.npz',t_min=b.pop('t'),coverage=b.pop('coverage'),blood_m3=b.pop('blood_m3'),thrombin_nM=b.pop('thrombin_nM'))
+    write_json(out/'bleeding.json',b)
+    g0=Grid(p);e0=early(g0,p)
+    fit_start=time.perf_counter();fit_calls=[]
+    def objective(theta):
+        pp=replace(p,k_deposit_day=float(np.exp(theta[0])),k_mature_day=float(np.exp(theta[1])))
+        ll=long(g0,pp,e0,until=21)
+        predictions=np.interp([7,21],ll['days'],ll['strength_pct'])
+        fit_calls.append({'rates':np.exp(theta),'prediction':predictions,'wall_s':ll['wall_s']})
+        return (predictions-np.array([3.,20.]))/np.array([3.,20.])
+    fit=least_squares(objective,np.log([.15,.05]),bounds=(np.log([.001,.001]),np.log([5.,5.])),max_nfev=18,diff_step=.01,ftol=1e-7,xtol=1e-7,gtol=1e-7)
+    fit_s=time.perf_counter()-fit_start
+    p=replace(p,k_deposit_day=float(np.exp(fit.x[0])),k_mature_day=float(np.exp(fit.x[1])))
+    write_json(out/'calibration.json',{'scope':'Two global synthetic rates fit to the same legacy secondary strength points as Hill control; no empirical validation',
+        'rates_day_inverse':np.exp(fit.x),'relative_residual':fit.fun,'fit_success':bool(fit.success),'wall_s':fit_s,'calls':fit_calls})
+    cases=[];comparisons=[];stored={}
+    for width in [.00025,.0005,.00075]:
+        for face in [0.,.003]:
+            pp=replace(p,width_m=width,face_conductance=face)
+            name=f'w{round(width*1e6)}_'+('sealed' if face==0 else 'exposed')
+            pair={}
+            for mesh in ['uniform','graded']:
+                gg=Grid(pp,mesh);ee=early(gg,pp);ll=long(gg,pp,ee)
+                pair[mesh]=(gg,ee,ll)
+                save_case(out,name+'_'+mesh,gg,pp,ee,ll)
+                obs=observables(gg,pp,ee,ll);cases.append({'case':name,'mesh':mesh,**obs})
+                print(name,mesh,gg.n,round(ee['wall_s']+ll['wall_s'],3),obs['strength_pct'],flush=True)
+            comparisons.append({'case':name,**compare(*pair['uniform'],*pair['graded'])})
+            stored[name]=(pp,pair)
+    # Independent spatial and time refinements on the preregistered widest sealed case.
+    pp,pair=stored['w750_sealed'];gr,er,lr=pair['uniform']
+    gf=Grid(pp,'uniform',2.5e-6);ef=early(gf,pp);lf=long(gf,pp,ef)
+    save_case(out,'w750_uniform2p5um',gf,pp,ef,lf)
+    checks['space_refinement']=compare(gf,ef,lf,gr,er,lr)
+    ph=replace(pp,early_dt_min=.05,dt_day=.05);eh=early(gr,ph);lh=long(gr,ph,eh)
+    save_case(out,'w750_half_dt',gr,ph,eh,lh)
+    checks['time_refinement']=compare(gr,eh,lh,gr,er,lr)
+    # Oxygen and history ablations, using the identical mesh and globally fitted parameters.
+    for change in ['oxygen_feedback','memory_transfer']:
+        pa=replace(pp,**{change:False});ga=Grid(pa);ea=early(ga,pa);la=long(ga,pa,ea)
+        save_case(out,'ablate_'+change,ga,pa,ea,la)
+        checks['ablate_'+change]=observables(ga,pa,ea,la)
+    hill=json.loads((ROOT/'r1'/'baseline'/'wound_healing_cascade'/'wound_healing_cascade_results.json').read_text())['remodeling_phase']['hill_fit']
+    kd,nh=hill['k_days'],hill['n'];hill_out={str(d):float(75*d**nh/(d**nh+kd**nh)) for d in [7,14,28,90]}
+    summary={'parameters':asdict(p),'cases':cases,'comparisons':comparisons,'checks':checks,'calibration_s':fit_s,
+             'hill_control_strength_pct':hill_out,'empirical_joint_crossprediction':'UNKNOWN',
+             'strongest_equal_information_control':{'operation':'Same conventional graded finite-volume operator and Q036 array state',
+                 'algebraic_identity':True,'gain':1.,'gate':'TIE'},
+             'full_measured_experiment_wall_s':time.perf_counter()-start,'review_state':'PENDING_INDEPENDENT_REVIEW'}
+    write_json(out/'summary.json',summary)
+
+if __name__=='__main__':main()

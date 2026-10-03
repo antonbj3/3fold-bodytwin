@@ -1,0 +1,1364 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "baseline_RMSE_pp": 43.703695914540624,
+  "reference_RMSE_pp": 8.306367094671637,
+  "factorization_max_error_pp": 7.105427357601002e-15,
+  "factorial_interaction_RMSE_pp": -0.4473505556186179,
+  "two_factor_Shapley_RMSE_reduction_pp": {
+    "abundance": 30.9267391128524,
+    "maturity": 4.470589707016597
+  },
+  "factor_check_days": [
+    {
+      "day": 7,
+      "chain_A": 0.17054249632416,
+      "chain_m": 0.013444364005321405,
+      "R3_C": 0.1693805096590316,
+      "R3_HP_fraction": 0.405
+    },
+    {
+      "day": 14,
+      "chain_A": 0.34194288009097307,
+      "chain_m": 0.08063503590736086,
+      "R3_C": 0.5268555788190648,
+      "R3_HP_fraction": 0.45312500000000006
+    },
+    {
+      "day": 21,
+      "chain_A": 0.3877894221670264,
+      "chain_m": 0.19966820601058102,
+      "R3_C": 0.856058085418764,
+      "R3_HP_fraction": 0.5898437500000001
+    },
+    {
+      "day": 28,
+      "chain_A": 0.384519364064545,
+      "chain_m": 0.34741919873427,
+      "R3_C": 0.966387516571094,
+      "R3_HP_fraction": 0.7265625
+    },
+    {
+      "day": 42,
+      "chain_A": 0.35220745950334864,
+      "chain_m": 0.6321214460719088,
+      "R3_C": 0.973598140839476,
+      "R3_HP_fraction": 1.0
+    },
+    {
+      "day": 90,
+      "chain_A": 0.31301183248650055,
+      "chain_m": 0.9773935371702774,
+      "R3_C": 0.9983202811882146,
+      "R3_HP_fraction": 1.0
+    }
+  ],
+  "rows": [
+    {
+      "RMSE_pp": 43.703695914540624,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 0.17196265492186458,
+          "error_pp": -3.4206635583314,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 2.0679432310801498,
+          "error_pp": -5.880059380660812,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 5.80719136754775,
+          "error_pp": -13.769483944089496,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 10.019205702083648,
+          "error_pp": -30.296881967515283,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 10.019205702083648,
+          "error_pp": -28.864889782529524,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 16.69784164639275,
+          "error_pp": -53.633863162041294,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 21.114941150521368,
+          "error_pp": -52.97844316184105,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 22.945180659759835,
+          "error_pp": -50.750964464956716,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 22.945180659759835,
+          "error_pp": -57.666854665769016,
+          "independent_day": true
+        }
+      ],
+      "case": "baseline",
+      "port": "none",
+      "delta_RMSE_pp": 0.0,
+      "scope": "Preserved R1 integrated proxy"
+    },
+    {
+      "RMSE_pp": 43.70369591454063,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 0.1719626549218646,
+          "error_pp": -3.4206635583314,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 2.06794323108015,
+          "error_pp": -5.880059380660812,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 5.80719136754775,
+          "error_pp": -13.769483944089496,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 10.019205702083648,
+          "error_pp": -30.296881967515283,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 10.019205702083648,
+          "error_pp": -28.864889782529524,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 16.69784164639275,
+          "error_pp": -53.633863162041294,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 21.114941150521364,
+          "error_pp": -52.97844316184106,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 22.945180659759835,
+          "error_pp": -50.750964464956716,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 22.945180659759835,
+          "error_pp": -57.666854665769016,
+          "independent_day": true
+        }
+      ],
+      "case": "factor_A0_m0",
+      "port": "abundance=chain_UIM,maturity=chain_M_fraction",
+      "delta_RMSE_pp": -7.105427357601002e-15,
+      "scope": "Diagnostic matched observation formula; R3 quantity inherits early strength calibration; HP observed input"
+    },
+    {
+      "RMSE_pp": 39.456781485333345,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 5.18022832584636,
+          "error_pp": 1.5876021125930957,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 11.620715065591664,
+          "error_pp": 3.6727124538507017,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 17.1551375235999,
+          "error_pp": -2.4215377880373445,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 20.95330128398595,
+          "error_pp": -19.362786385612978,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 20.95330128398595,
+          "error_pp": -17.93079420062722,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 26.415559462751148,
+          "error_pp": -43.91614534568289,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 24.367113163934818,
+          "error_pp": -49.7262711484276,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 23.47588743648754,
+          "error_pp": -50.22025768822901,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 23.47588743648754,
+          "error_pp": -57.13614788904131,
+          "independent_day": true
+        }
+      ],
+      "case": "factor_A0_m1",
+      "port": "abundance=chain_UIM,maturity=R3_HP",
+      "delta_RMSE_pp": 4.24691442920728,
+      "scope": "Diagnostic matched observation formula; R3 quantity inherits early strength calibration; HP observed input"
+    },
+    {
+      "RMSE_pp": 13.000632079497544,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 0.17079099204471593,
+          "error_pp": -3.4218352212085485,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 3.1862263887051507,
+          "error_pp": -4.761776223035811,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 12.8195686617313,
+          "error_pp": -6.757106649905946,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 25.180618250544793,
+          "error_pp": -15.135469419054136,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 25.180618250544793,
+          "error_pp": -13.703477234068377,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 46.15741985102786,
+          "error_pp": -24.17428495740618,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 63.91020213363538,
+          "error_pp": -10.183182178727037,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 73.18138431445313,
+          "error_pp": -0.5147608102634251,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 73.18138431445313,
+          "error_pp": -7.4306510110757245,
+          "independent_day": true
+        }
+      ],
+      "case": "factor_A1_m0",
+      "port": "abundance=R3_C,maturity=chain_M_fraction",
+      "delta_RMSE_pp": 30.703063835043082,
+      "scope": "Diagnostic matched observation formula; R3 quantity inherits early strength calibration; HP observed input"
+    },
+    {
+      "RMSE_pp": 8.306367094671637,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 5.144932980893085,
+          "error_pp": 1.5523067676398203,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 17.904857561429157,
+          "error_pp": 9.956854949688195,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 37.87053834909181,
+          "error_pp": 18.293863037454564,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 52.66056975065141,
+          "error_pp": 12.344482081052483,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 52.66056975065141,
+          "error_pp": 13.776474266038242,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 73.0198605629607,
+          "error_pp": 2.6881557545266617,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 73.75379910456388,
+          "error_pp": -0.3395852077985353,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 74.8740210891161,
+          "error_pp": 1.1778759643995471,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 74.8740210891161,
+          "error_pp": -5.738014236412752,
+          "independent_day": true
+        }
+      ],
+      "case": "factor_A1_m1",
+      "port": "abundance=R3_C,maturity=R3_HP",
+      "delta_RMSE_pp": 35.39732881986899,
+      "scope": "Diagnostic matched observation formula; R3 quantity inherits early strength calibration; HP observed input"
+    },
+    {
+      "RMSE_pp": 29.56090124494433,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 0.18004051492165613,
+          "error_pp": -3.4125856983316085,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 2.4275326364863976,
+          "error_pp": -5.520469975254565,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 7.696802300294471,
+          "error_pp": -11.879873011342774,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 14.853883585328791,
+          "error_pp": -25.462204084270137,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 14.853883585328791,
+          "error_pp": -24.030211899284378,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 27.776791183178883,
+          "error_pp": -42.55491362525515,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 39.473617925926646,
+          "error_pp": -34.61976638643577,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 46.92733055382251,
+          "error_pp": -26.768814570894044,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 46.92733055382251,
+          "error_pp": -33.68470477170634,
+          "independent_day": true
+        }
+      ],
+      "case": "current_FV_C_only",
+      "port": "abundance",
+      "delta_RMSE_pp": 14.142794669596295,
+      "scope": "Substitute preserved FV C (sparse saved times interpolated), retain UIM mature fraction"
+    },
+    {
+      "RMSE_pp": 47.26890838015903,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 4.796507709117,
+          "error_pp": 1.2038814958637354,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 11.072014605072962,
+          "error_pp": 3.124011993331999,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 14.53977521770695,
+          "error_pp": -5.036900093930296,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 15.626172211951282,
+          "error_pp": -24.689915457647647,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 15.626172211951282,
+          "error_pp": -23.257923272661888,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 15.412458535258862,
+          "error_pp": -54.919246273175176,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 14.668940710234137,
+          "error_pp": -59.42444360212828,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 14.26982093742744,
+          "error_pp": -59.42632418728911,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 14.26982093742744,
+          "error_pp": -66.34221438810141,
+          "independent_day": true
+        }
+      ],
+      "case": "DHA_HP_only",
+      "port": "maturity",
+      "delta_RMSE_pp": -3.5652124656184085,
+      "scope": "Illustrative R3 HP observation normalization on isolated R4 H, held constant below day10; not identified native map"
+    },
+    {
+      "RMSE_pp": 43.703695914540624,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 0.17196265492186458,
+          "error_pp": -3.4206635583314,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 2.0679432310801498,
+          "error_pp": -5.880059380660812,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 5.80719136754775,
+          "error_pp": -13.769483944089496,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 10.019205702083648,
+          "error_pp": -30.296881967515283,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 10.019205702083648,
+          "error_pp": -28.864889782529524,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 16.69784164639275,
+          "error_pp": -53.633863162041294,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 21.114941150521368,
+          "error_pp": -52.97844316184105,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 22.945180659759835,
+          "error_pp": -50.750964464956716,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 22.945180659759835,
+          "error_pp": -57.666854665769016,
+          "independent_day": true
+        }
+      ],
+      "case": "bridge_reference_identity",
+      "port": "bridge",
+      "delta_RMSE_pp": 0.0,
+      "scope": "R1 and R3 both bridge=1; no differing reference input"
+    },
+    {
+      "RMSE_pp": 43.703695914540624,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 0.17196265492186458,
+          "error_pp": -3.4206635583314,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 2.0679432310801498,
+          "error_pp": -5.880059380660812,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 5.80719136754775,
+          "error_pp": -13.769483944089496,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 10.019205702083648,
+          "error_pp": -30.296881967515283,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 10.019205702083648,
+          "error_pp": -28.864889782529524,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 16.69784164639275,
+          "error_pp": -53.633863162041294,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 21.114941150521368,
+          "error_pp": -52.97844316184105,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 22.945180659759835,
+          "error_pp": -50.750964464956716,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 22.945180659759835,
+          "error_pp": -57.666854665769016,
+          "independent_day": true
+        }
+      ],
+      "case": "angle_reference_identity",
+      "port": "load_direction",
+      "delta_RMSE_pp": 0.0,
+      "scope": "Isotropic UIM tensors make direction immaterial; R3 isotropic reference"
+    },
+    {
+      "RMSE_pp": 52.892705922580575,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 0.04847538849884234,
+          "error_pp": -3.5441508247544222,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 0.7083274197345399,
+          "error_pp": -7.239675192006422,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 2.213970700110181,
+          "error_pp": -17.362704611527064,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 4.071451297048798,
+          "error_pp": -36.24463637255013,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 4.071451297048798,
+          "error_pp": -34.81264418756437,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 7.280956054540294,
+          "error_pp": -63.05074875389374,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 9.602156974730036,
+          "error_pp": -64.49122733763238,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 10.64457387551161,
+          "error_pp": -63.05157124920494,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 10.64457387551161,
+          "error_pp": -69.96746145001724,
+          "independent_day": true
+        }
+      ],
+      "case": "upstream_gap",
+      "port": "gap",
+      "delta_RMSE_pp": -9.18901000803995,
+      "scope": "Single R3 port substitution; all other R1 ports retained"
+    },
+    {
+      "RMSE_pp": 43.004371136020566,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 0.18882948827549673,
+          "error_pp": -3.403796724977768,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 2.110714080609549,
+          "error_pp": -5.8372885311314135,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 5.886631809129886,
+          "error_pp": -13.69004350250736,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 10.199495196428142,
+          "error_pp": -30.116592473170787,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 10.199495196428142,
+          "error_pp": -28.684600288185027,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 17.212181858284634,
+          "error_pp": -53.1195229501494,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 22.02838593868087,
+          "error_pp": -52.06499837368155,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 24.11929201861133,
+          "error_pp": -49.57685310610522,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 24.11929201861133,
+          "error_pp": -56.49274330691752,
+          "independent_day": true
+        }
+      ],
+      "case": "upstream_biological_width",
+      "port": "biological_width",
+      "delta_RMSE_pp": 0.699324778520058,
+      "scope": "Single R3 port substitution; all other R1 ports retained"
+    },
+    {
+      "RMSE_pp": 45.734779794207,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 0.011504387485855874,
+          "error_pp": -3.5811218257674087,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 0.548326830473832,
+          "error_pp": -7.39967578126713,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 2.8748428399146264,
+          "error_pp": -16.701832471722618,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 6.523601819725444,
+          "error_pp": -33.792485849873486,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 6.523601819725444,
+          "error_pp": -32.36049366488773,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 13.69293099854081,
+          "error_pp": -56.63877380989323,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 19.199212474696957,
+          "error_pp": -54.89417183766546,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 21.68983976192349,
+          "error_pp": -52.00630536279306,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 21.68983976192349,
+          "error_pp": -58.92219556360536,
+          "independent_day": true
+        }
+      ],
+      "case": "upstream_perfusion_width",
+      "port": "perfusion_width",
+      "delta_RMSE_pp": -2.031083879666376,
+      "scope": "Single R3 port substitution; all other R1 ports retained"
+    },
+    {
+      "RMSE_pp": 45.366986173677475,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 0.0375283568872765,
+          "error_pp": -3.555097856365988,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 1.0976247812548787,
+          "error_pp": -6.850377830486083,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 4.079720836601274,
+          "error_pp": -15.496954475035972,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 7.941545476938775,
+          "error_pp": -32.37454219266015,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 7.941545476938775,
+          "error_pp": -30.942550007674395,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 14.628304673945747,
+          "error_pp": -55.70340013448829,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 19.328737885752563,
+          "error_pp": -54.76464642660986,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 21.347666184574408,
+          "error_pp": -52.348478940142144,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 21.347666184574408,
+          "error_pp": -59.26436914095444,
+          "independent_day": true
+        }
+      ],
+      "case": "upstream_face_conductance",
+      "port": "face_conductance",
+      "delta_RMSE_pp": -1.6632902591368506,
+      "scope": "Single R3 port substitution; all other R1 ports retained"
+    },
+    {
+      "RMSE_pp": 59.82772921263865,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 0.04715811803356153,
+          "error_pp": -3.545468095219703,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 0.21943253448837308,
+          "error_pp": -7.72857007725259,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 0.39170648298952726,
+          "error_pp": -19.18496882864772,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 0.5204126288746009,
+          "error_pp": -39.795675040724326,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 0.5204126288746009,
+          "error_pp": -38.36368285573857,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 0.6601960272497751,
+          "error_pp": -69.67150878118426,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 0.721411003122964,
+          "error_pp": -73.37197330923945,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 0.738053957298437,
+          "error_pp": -72.95809116741812,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 0.738053957298437,
+          "error_pp": -79.87398136823042,
+          "independent_day": true
+        }
+      ],
+      "case": "upstream_k_deposit",
+      "port": "k_deposit",
+      "delta_RMSE_pp": -16.124033298098027,
+      "scope": "Single R3 port substitution; all other R1 ports retained"
+    },
+    {
+      "RMSE_pp": 43.703695914540624,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 0.17196265492186458,
+          "error_pp": -3.4206635583314,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 2.0679432310801498,
+          "error_pp": -5.880059380660812,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 5.80719136754775,
+          "error_pp": -13.769483944089496,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 10.019205702083648,
+          "error_pp": -30.296881967515283,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 10.019205702083648,
+          "error_pp": -28.864889782529524,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 16.69784164639275,
+          "error_pp": -53.633863162041294,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 21.114941150521368,
+          "error_pp": -52.97844316184105,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 22.945180659759835,
+          "error_pp": -50.750964464956716,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 22.945180659759835,
+          "error_pp": -57.666854665769016,
+          "independent_day": true
+        }
+      ],
+      "case": "upstream_k_mature_legacy",
+      "port": "k_mature_legacy",
+      "delta_RMSE_pp": 0.0,
+      "scope": "Single R3 port substitution; all other R1 ports retained"
+    },
+    {
+      "RMSE_pp": 60.00765081179816,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 0.0012307193081894131,
+          "error_pp": -3.591395493945075,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 0.01698250132364018,
+          "error_pp": -7.931020110417323,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 0.06997181778640323,
+          "error_pp": -19.506703493850843,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 0.17663094935824242,
+          "error_pp": -40.13945672024069,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 0.17663094935824242,
+          "error_pp": -38.70746453525493,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 0.40937556098180955,
+          "error_pp": -69.92232924745223,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 0.5664401838638359,
+          "error_pp": -73.52694412849858,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 0.620359732549519,
+          "error_pp": -73.07578539216703,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 0.620359732549519,
+          "error_pp": -79.99167559297933,
+          "independent_day": true
+        }
+      ],
+      "case": "upstream_all_R3",
+      "port": "six_upstream_ports",
+      "delta_RMSE_pp": -16.303954897257533,
+      "scope": "All six R3 geometry/FV rate/face ports; chain UIM observer unchanged"
+    },
+    {
+      "RMSE_pp": 45.69700771635733,
+      "rows": [
+        {
+          "day": 7,
+          "target_pct": 3.5926262132532645,
+          "prediction_pct": 0.011476894695745424,
+          "error_pp": -3.581149318557519,
+          "independent_day": false
+        },
+        {
+          "day": 14,
+          "target_pct": 7.948002611740963,
+          "prediction_pct": 0.5485054971390096,
+          "error_pp": -7.399497114601953,
+          "independent_day": true
+        },
+        {
+          "day": 21,
+          "target_pct": 19.576675311637246,
+          "prediction_pct": 2.8812063758521944,
+          "error_pp": -16.69546893578505,
+          "independent_day": false
+        },
+        {
+          "day": 28,
+          "target_pct": 40.31608766959893,
+          "prediction_pct": 6.540997800106988,
+          "error_pp": -33.77508986949194,
+          "independent_day": true
+        },
+        {
+          "day": 28,
+          "target_pct": 38.88409548461317,
+          "prediction_pct": 6.540997800106988,
+          "error_pp": -32.34309768450618,
+          "independent_day": true
+        },
+        {
+          "day": 42,
+          "target_pct": 70.33170480843404,
+          "prediction_pct": 13.73053671872131,
+          "error_pp": -56.60116808971273,
+          "independent_day": true
+        },
+        {
+          "day": 61,
+          "target_pct": 74.09338431236242,
+          "prediction_pct": 19.249535289536603,
+          "error_pp": -54.843849022825815,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 73.69614512471655,
+          "prediction_pct": 21.744363618967604,
+          "error_pp": -51.95178150574895,
+          "independent_day": true
+        },
+        {
+          "day": 90,
+          "target_pct": 80.61203532552885,
+          "prediction_pct": 21.744363618967604,
+          "error_pp": -58.86767170656125,
+          "independent_day": true
+        }
+      ],
+      "case": "early_state_hazard_R3",
+      "port": "early_state_and_hazard",
+      "delta_RMSE_pp": -1.9933118018167022,
+      "scope": "R3 early state and hazard mapped in physical x; R1 geometry, FV law, seal-boundary and observer retained"
+    }
+  ],
+  "costs": {
+    "gap": {
+      "blood_wall_s": 0.5849216170608997,
+      "late_wall_s": 1.5939408328849822,
+      "full_wall_s": 4.721904265927151,
+      "CPU_s": 4.716907204,
+      "max_RSS_KiB": 336792,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    "biological_width": {
+      "blood_wall_s": 1.0411788439378142,
+      "late_wall_s": 1.5647148329298943,
+      "full_wall_s": 4.992294889176264,
+      "CPU_s": 4.990321105,
+      "max_RSS_KiB": 336792,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    "perfusion_width": {
+      "blood_wall_s": 1.074721700977534,
+      "late_wall_s": 1.3285496400203556,
+      "full_wall_s": 4.552215890027583,
+      "CPU_s": 4.502937804999998,
+      "max_RSS_KiB": 336792,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    "face_conductance": {
+      "blood_wall_s": 0.5335787059739232,
+      "late_wall_s": 1.6284512360580266,
+      "full_wall_s": 3.4699783010873944,
+      "CPU_s": 3.461242105,
+      "max_RSS_KiB": 336792,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    "k_deposit": {
+      "blood_wall_s": 1.0931843530852348,
+      "late_wall_s": 1.7216239890549332,
+      "full_wall_s": 5.445105880033225,
+      "CPU_s": 5.443516782,
+      "max_RSS_KiB": 336792,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    "k_mature_legacy": {
+      "blood_wall_s": 1.110204105032608,
+      "late_wall_s": 1.800920708104968,
+      "full_wall_s": 5.5404154430143535,
+      "CPU_s": 5.539634938999999,
+      "max_RSS_KiB": 336792,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    "all_R3": {
+      "blood_wall_s": 1.1659148449543864,
+      "late_wall_s": 1.9134351438842714,
+      "full_wall_s": 6.050647720927373,
+      "CPU_s": 6.042427561,
+      "max_RSS_KiB": 336792,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    "early_R3": {
+      "wall_s": 1.669728779932484
+    }
+  },
+  "wall_s": 36.633486666949466,
+  "CPU_s": 36.553796707000004,
+  "strongest_control": "TIE: same conventional port interventions and factorial algebra",
+  "lineage_correction": {
+    "R3_k_deposit_day": 4.999999999999985,
+    "chain_k_deposit_day": 0.1,
+    "R3_rate_fit": "response_r1.py main: least_squares to legacy strength3% at7 and20% at21, not new R3 strength fit",
+    "R3_C_is_measured_collagen": false,
+    "same_chemistry_input_claim": false,
+    "chemistry_strength_coupling_in_R1": false
+  },
+  "gate": "PASS",
+  "integrated_empirical_gate": "UNKNOWN",
+  "reference_proxy_gate": "FAIL"
+}

@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "PREREG_R1_hash": true,
+    "PREREG_R1_EXTENSION_hash": true,
+    "PREREG_R1_RESIDUAL_COMPILER_hash": true,
+    "PREREG_R1_CENTERED_RESIDUAL_hash": true,
+    "exact_linear_all_meshes": true,
+    "exact_wake_capsule_all_meshes": true,
+    "frozen_wake_failure_preserved": true,
+    "nonlinear_no_unbudgeted_accept": true,
+    "nonlinear_bounds_contain_errors": true,
+    "centered_all_bounds_contain_errors": true,
+    "centered_polynomial_identity_abs": true,
+    "centered_gram_numeric_allowance_contains_direct": true,
+    "centered_no_false_accept": true,
+    "centered_all_rejections_have_costed_fallback": true,
+    "portable_support9_accept": true,
+    "portable_new_support8_reject": true,
+    "portable_query_no_global_solve_or_reconstruction": true,
+    "physical_observation_strip_not_censored": true,
+    "HX_reported_normalized_states_bounded": true,
+    "all_lane_python_ast_parses": true
+  },
+  "all_passed": true,
+  "meaning": "Implementation/numerical discriminants passed; innovation and empirical gates did not become PASS",
+  "updated_utc": "2026-09-30T22:31:44.323780+00:00"
+}

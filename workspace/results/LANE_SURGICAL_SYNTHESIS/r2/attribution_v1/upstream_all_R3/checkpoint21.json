@@ -1,0 +1,460 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "absolute_day": 21.0,
+  "parameters": {
+    "domain_m": 0.008,
+    "width_m": 0.00075,
+    "gap_m": 0.0020771774218157745,
+    "cut_length_m": 0.01,
+    "cut_depth_m": 0.002,
+    "vessel_crossings_per_m2": 1200000.0,
+    "permeability": 1.3e-06,
+    "consumption": 1470.0,
+    "pcap_Torr": 60.0,
+    "healthy_Torr": 51.0,
+    "km_Torr": 3.0,
+    "face_Torr": 160.0,
+    "face_conductance": 0.0,
+    "outside_flow": 1.0,
+    "vessel_transition_m": 1.5e-05,
+    "early_dt_min": 0.1,
+    "early_minutes": 120.0,
+    "dt_day": 0.1,
+    "k_deposit_day": 4.999999999999985,
+    "k_mature_day": 0.022702301521274892,
+    "fibro_diffusion_m2_day": 2e-08,
+    "oxygen_feedback": true,
+    "memory_transfer": true
+  },
+  "inventory_rates": {
+    "k_U_I": 0.1,
+    "k_I_M": 0.05,
+    "turnover_U_I": 0.03,
+    "birth_scale": 0.1,
+    "bridge_fraction": 1.0,
+    "load_angle": 0.0
+  },
+  "full_config": {
+    "tool": {
+      "kind": "scalpel",
+      "edge_radius": {
+        "value": 5e-06,
+        "unit": "m",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Local edge radius; no calibrated radius→work law",
+        "joint_id": "scenario_nominal"
+      },
+      "speed": {
+        "value": 0.02,
+        "unit": "m/s",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Tangential path speed; not used to extrapolate toughness",
+        "joint_id": "scenario_nominal"
+      }
+    },
+    "path": {
+      "value": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.01,
+          0.0,
+          0.0
+        ]
+      ],
+      "unit": "m",
+      "status": "SYNTETISKT",
+      "uncertainty": "Specified scenario, no CI",
+      "source": "PREREG_R1.json / documented scenario",
+      "scope": "Straight planar incision path",
+      "joint_id": "scenario_nominal"
+    },
+    "cut_depth": {
+      "value": 0.002,
+      "unit": "m",
+      "status": "SYNTETISKT",
+      "uncertainty": "Specified scenario, no CI",
+      "source": "PREREG_R1.json / documented scenario",
+      "scope": "Penetration depth, single geometric crack plane",
+      "joint_id": "scenario_nominal"
+    },
+    "layers": [
+      {
+        "name": "dermis",
+        "thickness": {
+          "value": 0.0015,
+          "unit": "m",
+          "status": "SYNTETISKT",
+          "uncertainty": "Specified scenario, no CI",
+          "source": "PREREG_R1.json / documented scenario",
+          "scope": "Synthetic dermal thickness",
+          "joint_id": "scenario_nominal"
+        },
+        "gamma_cut": {
+          "value": 150.0,
+          "unit": "J/m²",
+          "status": "SYNTETISKT",
+          "uncertainty": "Specified scenario, no CI",
+          "source": "PREREG_R1.json / documented scenario",
+          "scope": "Synthetic BINDINGS severance scenario; not needle J",
+          "joint_id": "scenario_nominal"
+        }
+      },
+      {
+        "name": "subcutis",
+        "thickness": {
+          "value": 0.0005,
+          "unit": "m",
+          "status": "SYNTETISKT",
+          "uncertainty": "Specified scenario, no CI",
+          "source": "PREREG_R1.json / documented scenario",
+          "scope": "Synthetic subcutis thickness",
+          "joint_id": "scenario_nominal"
+        },
+        "gamma_cut": {
+          "value": 150.0,
+          "unit": "J/m²",
+          "status": "SYNTETISKT",
+          "uncertainty": "Specified scenario, no CI",
+          "source": "PREREG_R1.json / documented scenario",
+          "scope": "Explicit assumed subcutis cutting law; not borrowed empirical dermis",
+          "joint_id": "scenario_nominal"
+        }
+      }
+    ],
+    "parameters": {
+      "gap": {
+        "value": 0.0020771774218157745,
+        "unit": "m",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic gap; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "biological_width": {
+        "value": 0.00075,
+        "unit": "m",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic biological_width; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "perfusion_width": {
+        "value": 0.00075,
+        "unit": "m",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic perfusion_width; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "radius_bins": {
+        "value": [
+          8e-06,
+          2.5e-05
+        ],
+        "unit": "m",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic radius_bins; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "density_bins": {
+        "value": [
+          1180000.0,
+          20000.0
+        ],
+        "unit": "1/m²",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic density_bins; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "driving_pressure": {
+        "value": 4000.0,
+        "unit": "Pa",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic driving_pressure; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "blood_viscosity": {
+        "value": 0.0035,
+        "unit": "Pa s",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic blood_viscosity; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "vascular_path": {
+        "value": 0.001,
+        "unit": "m",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic vascular_path; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "domain": {
+        "value": 0.008,
+        "unit": "m",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic domain; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "grid_dx": {
+        "value": 5e-06,
+        "unit": "m",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic grid_dx; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "early_dt": {
+        "value": 0.1,
+        "unit": "min",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic early_dt; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "early_until": {
+        "value": 120.0,
+        "unit": "min",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic early_until; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "late_dt": {
+        "value": 0.1,
+        "unit": "day",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic late_dt; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "late_until": {
+        "value": 90.0,
+        "unit": "day",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic late_until; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "oxygen_storage": {
+        "value": 30.0,
+        "unit": "mlO2/(m³ Torr)",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic oxygen_storage; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "oxygen_permeability": {
+        "value": 1.3e-06,
+        "unit": "mlO2/(m min Torr)",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "RESPONSE R1 Stücker viable-skin proxy; transfer to incision SYNTHETIC",
+        "scope": "Synthetic oxygen_permeability; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "oxygen_consumption": {
+        "value": 1470.0,
+        "unit": "mlO2/(m³ min)",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "RESPONSE R1 dermal consumption proxy; dry-volume/lineage transfer SYNTHETIC",
+        "scope": "Synthetic oxygen_consumption; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "face_conductance": {
+        "value": 0.0,
+        "unit": "mlO2/(m² min Torr)",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic face_conductance; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "face_pressure": {
+        "value": 160.0,
+        "unit": "Torr",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic face_pressure; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "seal_rate": {
+        "value": 20.0,
+        "unit": "1/min",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic seal_rate; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "seal_oxygen_coupling": {
+        "value": 1.0,
+        "unit": "1",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic seal_oxygen_coupling; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "aggregation_factor": {
+        "value": 1.0,
+        "unit": "1",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic aggregation_factor; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "k_deposit": {
+        "value": 4.999999999999985,
+        "unit": "1/day",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic k_deposit; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "k_mature_legacy": {
+        "value": 0.022702301521274892,
+        "unit": "1/day",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic k_mature_legacy; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "k_U_I": {
+        "value": 0.1,
+        "unit": "1/day",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic k_U_I; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "k_I_M": {
+        "value": 0.05,
+        "unit": "1/day",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic k_I_M; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "turnover_U_I": {
+        "value": 0.03,
+        "unit": "1/day",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic turnover_U_I; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "chemistry_D10": {
+        "value": 0.066,
+        "unit": "mol/molreference collagen",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic chemistry_D10; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "chemistry_H10": {
+        "value": 0.018,
+        "unit": "mol/molreference collagen",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic chemistry_H10; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "chemistry_A10": {
+        "value": 0.0,
+        "unit": "mol/molreference collagen",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic chemistry_A10; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "chemistry_rate": {
+        "value": 0.06949679103768976,
+        "unit": "1/day",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic chemistry_rate; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "chemistry_yield": {
+        "value": 0.2833333333333334,
+        "unit": "1",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic chemistry_yield; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "birth_scale": {
+        "value": 0.1,
+        "unit": "1/day",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic birth_scale; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "bridge_fraction": {
+        "value": 1.0,
+        "unit": "1",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic bridge_fraction; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      },
+      "load_angle": {
+        "value": 0.0,
+        "unit": "degree",
+        "status": "SYNTETISKT",
+        "uncertainty": "Specified scenario, no CI",
+        "source": "PREREG_R1.json / documented scenario",
+        "scope": "Synthetic load_angle; joint scenario, no identified native posterior",
+        "joint_id": "scenario_nominal"
+      }
+    },
+    "review_state": "PENDING_INDEPENDENT_REVIEW",
+    "scientific_admission": false
+  },
+  "sufficient_for": "This same synthetic late FV+observer closure; requires all stored state/hazard, absolute clock, rates/boundaries, grid and reference; not an empirical history certificate"
+}

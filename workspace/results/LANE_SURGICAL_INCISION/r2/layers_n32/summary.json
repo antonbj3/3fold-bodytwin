@@ -1,0 +1,962 @@
+{
+  "scope": "SYNTHETIC_FINITE_STRAIN_COUPLED_LAYER_INSTRUMENT",
+  "empirical_force_gap_accuracy": "UNKNOWN",
+  "strongest_same_information_equilibrium_control": "TIE",
+  "nx": 32,
+  "ny": 16,
+  "layers": 3,
+  "displacement_components": 2,
+  "scenario_defaults": "SOURCE_TARGETS_R2.json",
+  "records": [
+    {
+      "lengths_m": [
+        0,
+        0,
+        0
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.08944392476170757,
+      "layer_bulk_J": [
+        0.0019524429656591227,
+        0.0784235216993737,
+        0.009067960096674743
+      ],
+      "slip_J": 0.0,
+      "minJ": 1.4640999999999988,
+      "max_gap_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "area_m2": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "projected_crack_length_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "iterations": 1,
+      "residual_relative": 1.2077078697255286e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.027999579000000052,
+      "global_solves": 0,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 0,
+      "kind": "full_depth"
+    },
+    {
+      "lengths_m": [
+        0.008,
+        0.008,
+        0.008
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.08859641166053307,
+      "layer_bulk_J": [
+        0.0019266279720469882,
+        0.07778026515106425,
+        0.008884665948734334
+      ],
+      "slip_J": 4.852588687507634e-06,
+      "minJ": 1.1264344831715791,
+      "max_gap_m": [
+        0.0025384194050497347,
+        0.002513196009843993,
+        0.0027420884786600115
+      ],
+      "area_m2": [
+        1.3431123890315164e-05,
+        1.3209202287208179e-05,
+        1.475449415694604e-05
+      ],
+      "projected_crack_length_m": [
+        0.006,
+        0.006,
+        0.006
+      ],
+      "iterations": 6,
+      "residual_relative": 2.1220312996159835e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.262809674,
+      "global_solves": 5,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 0,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 0.14125218352908225,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": 0.08374781647091775,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    },
+    {
+      "lengths_m": [
+        0.012,
+        0.012,
+        0.012
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.087380540437704,
+      "layer_bulk_J": [
+        0.0018899859324196114,
+        0.07684674954587051,
+        0.008635952858623161
+      ],
+      "slip_J": 7.852100790721073e-06,
+      "minJ": 1.113557122116046,
+      "max_gap_m": [
+        0.003856911534608375,
+        0.003842261136696844,
+        0.004002907926590685
+      ],
+      "area_m2": [
+        3.260047292976986e-05,
+        3.22795701021844e-05,
+        3.457555420228789e-05
+      ],
+      "projected_crack_length_m": [
+        0.01,
+        0.01,
+        0.01
+      ],
+      "iterations": 6,
+      "residual_relative": 2.1453926658294605e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.284498758,
+      "global_solves": 5,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 0,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 0.303967805707267,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": -0.078967805707267,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    },
+    {
+      "lengths_m": [
+        0.016,
+        0.016,
+        0.016
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.08575275299608257,
+      "layer_bulk_J": [
+        0.0018416659238847358,
+        0.07558536879713633,
+        0.008315622948857303
+      ],
+      "slip_J": 1.0095326204195765e-05,
+      "minJ": 1.1107825316232665,
+      "max_gap_m": [
+        0.005016333020330317,
+        0.005006761021963491,
+        0.005119059666404453
+      ],
+      "area_m2": [
+        5.8186413831749726e-05,
+        5.7789035461134156e-05,
+        6.064195198364757e-05
+      ],
+      "projected_crack_length_m": [
+        0.014,
+        0.014,
+        0.014
+      ],
+      "iterations": 6,
+      "residual_relative": 4.6759792032255494e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.26160143300000005,
+      "global_solves": 5,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 0,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 0.4069468604053598,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": -0.18194686040535982,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    },
+    {
+      "lengths_m": [
+        0.02,
+        0.02,
+        0.02
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.08381745657335987,
+      "layer_bulk_J": [
+        0.001785196222831954,
+        0.07407167783085973,
+        0.007948924445406288
+      ],
+      "slip_J": 1.1658074261900344e-05,
+      "minJ": 1.110133366549528,
+      "max_gap_m": [
+        0.005994187185688929,
+        0.005987438413754297,
+        0.0060681745826713
+      ],
+      "area_m2": [
+        8.849197417013966e-05,
+        8.803930363943184e-05,
+        9.128835388107223e-05
+      ],
+      "projected_crack_length_m": [
+        0.018000000000000002,
+        0.018000000000000002,
+        0.018000000000000002
+      ],
+      "iterations": 6,
+      "residual_relative": 2.993110745274427e-13,
+      "line_search_failures": 0,
+      "cpu_s": 0.2765690839999999,
+      "global_solves": 5,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 0,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 0.4838241056806731,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": -0.25882410568067304,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    },
+    {
+      "lengths_m": [
+        0.024,
+        0.024,
+        0.024
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.0816688706689956,
+      "layer_bulk_J": [
+        0.0017235580913473412,
+        0.07237658412440143,
+        0.00755610339995977
+      ],
+      "slip_J": 1.2625053287050745e-05,
+      "minJ": 1.1101914882302044,
+      "max_gap_m": [
+        0.006792105826943981,
+        0.006787131230078545,
+        0.006846717334456579
+      ],
+      "area_m2": [
+        0.00012198744164486526,
+        0.00012149745243100285,
+        0.00012501138821214823
+      ],
+      "projected_crack_length_m": [
+        0.022,
+        0.022,
+        0.022
+      ],
+      "iterations": 6,
+      "residual_relative": 9.53945416702135e-13,
+      "line_search_failures": 0,
+      "cpu_s": 0.25983420199999996,
+      "global_solves": 5,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 0,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 0.5371464760910686,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": -0.3121464760910686,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    },
+    {
+      "lengths_m": [
+        0.02,
+        0,
+        0
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.08943246909419661,
+      "layer_bulk_J": [
+        0.0019333398193484676,
+        0.07842360754085483,
+        0.009067964967713189
+      ],
+      "slip_J": 7.556766280132901e-06,
+      "minJ": 1.2962063872055682,
+      "max_gap_m": [
+        0.00038649679202354257,
+        0.0,
+        0.0
+      ],
+      "area_m2": [
+        6.8884918502302795e-06,
+        0.0,
+        0.0
+      ],
+      "projected_crack_length_m": [
+        0.018000000000000002,
+        0.0,
+        0.0
+      ],
+      "iterations": 5,
+      "residual_relative": 2.1452187545994936e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.24470327999999975,
+      "global_solves": 4,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 0,
+      "kind": "partial_depth"
+    },
+    {
+      "lengths_m": [
+        0.02,
+        0.02,
+        0
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.08663422908675203,
+      "layer_bulk_J": [
+        0.0018196383509230078,
+        0.07470112103615949,
+        0.009436862377068846
+      ],
+      "slip_J": 0.0006766073226006932,
+      "minJ": 1.1476752707186588,
+      "max_gap_m": [
+        0.003637088094457343,
+        0.003551264884297343,
+        0.0
+      ],
+      "area_m2": [
+        5.582859853985755e-05,
+        5.430202887581138e-05,
+        0.0
+      ],
+      "projected_crack_length_m": [
+        0.018000000000000002,
+        0.018000000000000002,
+        0.0
+      ],
+      "iterations": 6,
+      "residual_relative": 1.9962177999091775e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.3095920080000001,
+      "global_solves": 5,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 0,
+      "kind": "partial_depth"
+    },
+    {
+      "lengths_m": [
+        0.02,
+        0.02,
+        0.02
+      ],
+      "stretch": 1.0,
+      "energy_J": 0.0,
+      "layer_bulk_J": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "slip_J": 0.0,
+      "minJ": 1.0,
+      "max_gap_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "area_m2": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "projected_crack_length_m": [
+        0.018000000000000002,
+        0.018000000000000002,
+        0.018000000000000002
+      ],
+      "iterations": 1,
+      "residual_relative": 0.0,
+      "line_search_failures": 0,
+      "cpu_s": 0.024188414000000158,
+      "global_solves": 0,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 0,
+      "kind": "prestretch_ablation"
+    },
+    {
+      "lengths_m": [
+        0.02,
+        0.02,
+        0.02
+      ],
+      "stretch": 1.1,
+      "energy_J": 0.018827347108086635,
+      "layer_bulk_J": [
+        0.00041087021824029603,
+        0.016511283200942736,
+        0.0019036135212023462
+      ],
+      "slip_J": 1.5801677012550494e-06,
+      "minJ": 1.0449417068837052,
+      "max_gap_m": [
+        0.0033463803818460434,
+        0.003345014725335975,
+        0.0033637900552002217
+      ],
+      "area_m2": [
+        4.964808581433485e-05,
+        4.953436347450947e-05,
+        5.039152898104614e-05
+      ],
+      "projected_crack_length_m": [
+        0.018000000000000002,
+        0.018000000000000002,
+        0.018000000000000002
+      ],
+      "iterations": 5,
+      "residual_relative": 8.677085712380245e-12,
+      "line_search_failures": 0,
+      "cpu_s": 0.22604821100000017,
+      "global_solves": 4,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 0,
+      "kind": "prestretch_ablation"
+    },
+    {
+      "lengths_m": [
+        0,
+        0,
+        0
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.07609013700917396,
+      "layer_bulk_J": [
+        0.0018623896103991376,
+        0.06424178006508291,
+        0.00992997125508799
+      ],
+      "slip_J": 5.59960786039175e-05,
+      "minJ": 1.1150273894130347,
+      "max_gap_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "area_m2": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "projected_crack_length_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "iterations": 6,
+      "residual_relative": 2.0901618367052495e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.2784754130000002,
+      "global_solves": 5,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 45,
+      "kind": "full_depth"
+    },
+    {
+      "lengths_m": [
+        0.008,
+        0.008,
+        0.008
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.074564986705946,
+      "layer_bulk_J": [
+        0.0018229460208648185,
+        0.06298846527472818,
+        0.009694392144117093
+      ],
+      "slip_J": 5.918326623591339e-05,
+      "minJ": 1.067783630963743,
+      "max_gap_m": [
+        0.0035396336793040006,
+        0.003550279529968121,
+        0.0035312531052066106
+      ],
+      "area_m2": [
+        1.8724646351098165e-05,
+        1.8798325926805593e-05,
+        1.8743444302976056e-05
+      ],
+      "projected_crack_length_m": [
+        0.006,
+        0.006,
+        0.006
+      ],
+      "iterations": 6,
+      "residual_relative": 2.187036541278211e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.3685768450000002,
+      "global_solves": 5,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 45,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 0.25419171720465994,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": -0.029191717204659934,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    },
+    {
+      "lengths_m": [
+        0.012,
+        0.012,
+        0.012
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.07242777404954245,
+      "layer_bulk_J": [
+        0.0017677768897309176,
+        0.06122387977455289,
+        0.009376051234334624
+      ],
+      "slip_J": 6.00661509240241e-05,
+      "minJ": 1.065351484478064,
+      "max_gap_m": [
+        0.0053061145479001495,
+        0.0053158824218300605,
+        0.0052761628954625245
+      ],
+      "area_m2": [
+        4.4929950203213004e-05,
+        4.506342976561499e-05,
+        4.475700169653192e-05
+      ],
+      "projected_crack_length_m": [
+        0.01,
+        0.01,
+        0.01
+      ],
+      "iterations": 6,
+      "residual_relative": 2.1987474840880877e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.409286587,
+      "global_solves": 5,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 45,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 0.5343031641008855,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": -0.30930316410088554,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    },
+    {
+      "lengths_m": [
+        0.016,
+        0.016,
+        0.016
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.0696772970533206,
+      "layer_bulk_J": [
+        0.001697116483564304,
+        0.05894615385656102,
+        0.00897465994927877
+      ],
+      "slip_J": 5.9366763916500695e-05,
+      "minJ": 1.066155830646444,
+      "max_gap_m": [
+        0.006745831941984781,
+        0.0067560175331158965,
+        0.00670751292878389
+      ],
+      "area_m2": [
+        7.852157384212328e-05,
+        7.871258321587321e-05,
+        7.812087294671228e-05
+      ],
+      "projected_crack_length_m": [
+        0.014,
+        0.014,
+        0.014
+      ],
+      "iterations": 6,
+      "residual_relative": 1.3307746526027313e-12,
+      "line_search_failures": 0,
+      "cpu_s": 0.45575135599999994,
+      "global_solves": 5,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 45,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 0.6876192490554641,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": -0.46261924905546414,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    },
+    {
+      "lengths_m": [
+        0.02,
+        0.02,
+        0.02
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.0665526345141332,
+      "layer_bulk_J": [
+        0.0016173695001724924,
+        0.05635039271151397,
+        0.008527350975890299
+      ],
+      "slip_J": 5.752132655641907e-05,
+      "minJ": 1.0693094649213142,
+      "max_gap_m": [
+        0.007839774334365175,
+        0.007850314673825878,
+        0.007796946726762608
+      ],
+      "area_m2": [
+        0.0001163380648818862,
+        0.00011658247079545609,
+        0.00011571186007485341
+      ],
+      "projected_crack_length_m": [
+        0.018000000000000002,
+        0.018000000000000002,
+        0.018000000000000002
+      ],
+      "iterations": 7,
+      "residual_relative": 2.31228588003089e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.3408899400000003,
+      "global_solves": 6,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 45,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 0.7811656347968505,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": -0.5561656347968505,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    },
+    {
+      "lengths_m": [
+        0.024,
+        0.024,
+        0.024
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.06323060384819447,
+      "layer_bulk_J": [
+        0.0015332281841417042,
+        0.05358168605302375,
+        0.008060685167545927
+      ],
+      "slip_J": 5.500444348309358e-05,
+      "minJ": 1.0708204502966414,
+      "max_gap_m": [
+        0.008622493500111017,
+        0.008633363349660233,
+        0.008576390811869006
+      ],
+      "area_m2": [
+        0.00015603866260861698,
+        0.0001563327828865951,
+        0.0001551909963006126
+      ],
+      "projected_crack_length_m": [
+        0.022,
+        0.022,
+        0.022
+      ],
+      "iterations": 6,
+      "residual_relative": 4.1474719624880304e-11,
+      "line_search_failures": 0,
+      "cpu_s": 0.26115259300000027,
+      "global_solves": 5,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 45,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 0.8305076664846818,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": -0.6055076664846818,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    },
+    {
+      "lengths_m": [
+        0,
+        0,
+        0
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.08944392476170757,
+      "layer_bulk_J": [
+        0.0019524429656591227,
+        0.0784235216993737,
+        0.009067960096674743
+      ],
+      "slip_J": 0.0,
+      "minJ": 1.4640999999999988,
+      "max_gap_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "area_m2": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "projected_crack_length_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "iterations": 1,
+      "residual_relative": 2.027794056937282e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.026412782000000412,
+      "global_solves": 0,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 90,
+      "kind": "full_depth"
+    },
+    {
+      "lengths_m": [
+        0.008,
+        0.008,
+        0.008
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.0861010753540848,
+      "layer_bulk_J": [
+        0.0018945430446963903,
+        0.07531415474442987,
+        0.008883869288863568
+      ],
+      "slip_J": 8.508276094968045e-06,
+      "minJ": 1.1081407127734402,
+      "max_gap_m": [
+        0.004507610799860419,
+        0.004507987021555176,
+        0.004446401747335429
+      ],
+      "area_m2": [
+        2.3947420041870887e-05,
+        2.397249313679259e-05,
+        2.3509274324960722e-05
+      ],
+      "projected_crack_length_m": [
+        0.006,
+        0.006,
+        0.006
+      ],
+      "iterations": 6,
+      "residual_relative": 6.411428458845297e-11,
+      "line_search_failures": 0,
+      "cpu_s": 0.24276665000000008,
+      "global_solves": 5,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 90,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 0.5571415679371273,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": -0.33214156793712735,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    },
+    {
+      "lengths_m": [
+        0.012,
+        0.012,
+        0.012
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.08223129338004305,
+      "layer_bulk_J": [
+        0.001820479566097163,
+        0.07179160383096689,
+        0.00860908931455531
+      ],
+      "slip_J": 1.0120668423690853e-05,
+      "minJ": 1.0922927202990682,
+      "max_gap_m": [
+        0.006167948362409133,
+        0.006167570956244807,
+        0.006154763350757043
+      ],
+      "area_m2": [
+        5.257105116075886e-05,
+        5.259000922282463e-05,
+        5.224153425767466e-05
+      ],
+      "projected_crack_length_m": [
+        0.01,
+        0.01,
+        0.01
+      ],
+      "iterations": 7,
+      "residual_relative": 3.6106390348455276e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.2691485829999998,
+      "global_solves": 6,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 90,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 0.9674454935104382,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": -0.7424454935104382,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    },
+    {
+      "lengths_m": [
+        0.016,
+        0.016,
+        0.016
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.07789070100075053,
+      "layer_bulk_J": [
+        0.0017332658026470629,
+        0.06789066010262335,
+        0.008256497239657259
+      ],
+      "slip_J": 1.027785582285711e-05,
+      "minJ": 1.0942571829454462,
+      "max_gap_m": [
+        0.007300383062070291,
+        0.007300308885147604,
+        0.007298177852892939
+      ],
+      "area_m2": [
+        8.578773772199577e-05,
+        8.580527010581149e-05,
+        8.55248932615021e-05
+      ],
+      "projected_crack_length_m": [
+        0.014,
+        0.014,
+        0.014
+      ],
+      "iterations": 7,
+      "residual_relative": 3.5549282382026354e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.29901510899999995,
+      "global_solves": 6,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 90,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 1.0851480948231296,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": -0.8601480948231296,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    },
+    {
+      "lengths_m": [
+        0.02,
+        0.02,
+        0.02
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.07337690538274486,
+      "layer_bulk_J": [
+        0.0016405997328146028,
+        0.06385865153323717,
+        0.00786741750705412
+      ],
+      "slip_J": 1.0236609638966465e-05,
+      "minJ": 1.1011250576444858,
+      "max_gap_m": [
+        0.008094108230348757,
+        0.008094095007674744,
+        0.008093728179294797
+      ],
+      "area_m2": [
+        0.00012166424116408964,
+        0.00012168091386666153,
+        0.00012142537616659711
+      ],
+      "projected_crack_length_m": [
+        0.018000000000000002,
+        0.018000000000000002,
+        0.018000000000000002
+      ],
+      "iterations": 7,
+      "residual_relative": 3.515879836726683e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.28780758500000037,
+      "global_solves": 6,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 90,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 1.1284489045014183,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": -0.9034489045014183,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    },
+    {
+      "lengths_m": [
+        0.024,
+        0.024,
+        0.024
+      ],
+      "stretch": 1.21,
+      "energy_J": 0.0687976945776008,
+      "layer_bulk_J": [
+        0.001545879515944183,
+        0.05977719369738251,
+        0.007464378616281821
+      ],
+      "slip_J": 1.0242747992267769e-05,
+      "minJ": 1.106443545360916,
+      "max_gap_m": [
+        0.008665659086199654,
+        0.008665656302470633,
+        0.008665582450471611
+      ],
+      "area_m2": [
+        0.00015926781220184405,
+        0.00015928395935673853,
+        0.00015903547211272033
+      ],
+      "projected_crack_length_m": [
+        0.022,
+        0.022,
+        0.022
+      ],
+      "iterations": 7,
+      "residual_relative": 3.30117385258495e-14,
+      "line_search_failures": 0,
+      "cpu_s": 0.31650801400000006,
+      "global_solves": 6,
+      "empirical_accuracy": "UNKNOWN",
+      "angle_deg": 90,
+      "kind": "full_depth",
+      "all_layer_elastic_release_force_N": 1.1448027012860167,
+      "dermis_intrinsic_surface_force_N": 0.225,
+      "conditional_blade_force_known_dermis_minus_all_release_N": -0.9198027012860167,
+      "other_layer_fracture_force_N": null,
+      "contact_and_process_force_N": null,
+      "meaning": "Known-term balance only; missing other layers/contact. Negative term is not a negative measured cutting force."
+    }
+  ],
+  "max_residual_relative": 6.411428458845297e-11,
+  "CPU_s": 5.833588886
+}

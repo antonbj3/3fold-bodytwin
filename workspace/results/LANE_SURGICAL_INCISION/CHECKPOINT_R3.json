@@ -1,0 +1,33 @@
+{
+  "round": 3,
+  "status": "ROUND_COMPLETE_PARENT_GOAL_OPEN",
+  "gate": "FAIL",
+  "control_gate": "TIE",
+  "empirical_intrinsic_crossprediction": "UNKNOWN",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "main_results": [
+    "r3/geometry/summary.json",
+    "r3/geometry/power_port_results.json",
+    "r3/metrology_results.json",
+    "VERIFICATION_R3.json"
+  ],
+  "portable_operators": [
+    "geometry_r3.py",
+    "metrology_r3.py",
+    "verify_r3.py"
+  ],
+  "data": "SOURCE_TARGETS_R3_v2.json",
+  "preserve": [
+    "r1",
+    "r2",
+    "SOURCE_TARGETS_R3.json",
+    "SOURCE_TARGETS_R3_v2.json",
+    "r3"
+  ],
+  "verification": "VERIFICATION_R3.json",
+  "costs": "COST_ACCOUNTING_R3.json",
+  "next": "NEXT_ROUND.md",
+  "observations_template": "NEXT_WORK_PORT_R3.json",
+  "updated_utc": "2026-09-30T23:57:52.096652+00:00"
+}

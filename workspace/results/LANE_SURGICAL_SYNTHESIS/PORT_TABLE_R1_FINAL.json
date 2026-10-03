@@ -1,0 +1,362 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "ports": [
+    {
+      "step": "verktyg→mekanik",
+      "port": "hypodermic_16G.effective_J",
+      "value": 1153.4569983136594,
+      "unit": "J/m²",
+      "status": "MEASURED",
+      "uncertainty": [
+        1103.4569983136594,
+        1203.4569983136594
+      ],
+      "source": "LANE_SURGICAL_INCISION/PORTS_R4_FINAL.json",
+      "scope": "first-pass minus same-hole repeat effective work; intrinsic cleavage and terminal-process components unseparated; fullskin, tool-specific, figure reading not CI"
+    },
+    {
+      "step": "verktyg→mekanik",
+      "port": "hypodermic_18G.effective_J",
+      "value": 1801.0118043844857,
+      "unit": "J/m²",
+      "status": "MEASURED",
+      "uncertainty": [
+        1751.0118043844857,
+        1851.0118043844857
+      ],
+      "source": "LANE_SURGICAL_INCISION/PORTS_R4_FINAL.json",
+      "scope": "first-pass minus same-hole repeat effective work; intrinsic cleavage and terminal-process components unseparated; fullskin, tool-specific, figure reading not CI"
+    },
+    {
+      "step": "verktyg→mekanik",
+      "port": "hypodermic_21G.effective_J",
+      "value": 944.3507588532883,
+      "unit": "J/m²",
+      "status": "MEASURED",
+      "uncertainty": [
+        894.3507588532883,
+        994.3507588532883
+      ],
+      "source": "LANE_SURGICAL_INCISION/PORTS_R4_FINAL.json",
+      "scope": "first-pass minus same-hole repeat effective work; intrinsic cleavage and terminal-process components unseparated; fullskin, tool-specific, figure reading not CI"
+    },
+    {
+      "step": "verktyg→mekanik",
+      "port": "hypodermic_25G.effective_J",
+      "value": 2543.001686340641,
+      "unit": "J/m²",
+      "status": "MEASURED",
+      "uncertainty": [
+        2493.001686340641,
+        2593.001686340641
+      ],
+      "source": "LANE_SURGICAL_INCISION/PORTS_R4_FINAL.json",
+      "scope": "first-pass minus same-hole repeat effective work; intrinsic cleavage and terminal-process components unseparated; fullskin, tool-specific, figure reading not CI"
+    },
+    {
+      "step": "snitt→respons",
+      "port": "Gamma_cut_empirical_J_m2",
+      "value": null,
+      "unit": "J/m²",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_INCISION/PORTS_R4_FINAL.json",
+      "scope": "Cannot fill from another assay"
+    },
+    {
+      "step": "snitt→respons",
+      "port": "Gamma0_intrinsic_J_m2",
+      "value": null,
+      "unit": "J/m²",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_INCISION/PORTS_R4_FINAL.json",
+      "scope": "Cannot fill from another assay"
+    },
+    {
+      "step": "snitt→respons",
+      "port": "wound_gap_empirical_m",
+      "value": null,
+      "unit": "m",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_INCISION/PORTS_R4_FINAL.json",
+      "scope": "Cannot fill from another assay"
+    },
+    {
+      "step": "snitt→respons",
+      "port": "bleeding_flow_m3_s",
+      "value": null,
+      "unit": "m³/s",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_INCISION/PORTS_R4_FINAL.json",
+      "scope": "Cannot fill from another assay"
+    },
+    {
+      "step": "snitt→respons",
+      "port": "vessel_map",
+      "value": null,
+      "unit": "documented map/law",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_INCISION/PORTS_R4_FINAL.json",
+      "scope": "Cannot fill from another assay"
+    },
+    {
+      "step": "snitt→respons",
+      "port": "healing_strength_law",
+      "value": null,
+      "unit": "documented map/law",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_INCISION/PORTS_R4_FINAL.json",
+      "scope": "Cannot fill from another assay"
+    },
+    {
+      "step": "skadezon",
+      "port": "mechanical_strain_zone_halfwidth_m",
+      "value": null,
+      "unit": "m",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_INCISION/PORTS_R4_FINAL.json",
+      "scope": "Distinct widths; no mechanical→biological transfer"
+    },
+    {
+      "step": "skadezon",
+      "port": "cell_viability_zone_halfwidth_m",
+      "value": null,
+      "unit": "m",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_INCISION/PORTS_R4_FINAL.json",
+      "scope": "Distinct widths; no mechanical→biological transfer"
+    },
+    {
+      "step": "skadezon",
+      "port": "perfusion_loss_zone_halfwidth_m",
+      "value": null,
+      "unit": "m",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_INCISION/PORTS_R4_FINAL.json",
+      "scope": "Distinct widths; no mechanical→biological transfer"
+    },
+    {
+      "step": "snittarbete",
+      "port": "Gamma_cut_scenario",
+      "value": [
+        150,
+        380
+      ],
+      "unit": "J/m²",
+      "status": "SYNTETISKT",
+      "uncertainty": "scenario envelope, not CI",
+      "source": "LANE_SURGICAL_BINDINGS/PORTS_R4_FINAL.json",
+      "scope": "Explicit opt-in; not native cut"
+    },
+    {
+      "step": "mikro→makro",
+      "port": "fibril_inventory_upper",
+      "value": 6965.365853658535,
+      "unit": "J/m²",
+      "status": "SYNTETISKT",
+      "uncertainty": "borrowed interface bound and imposed V/A",
+      "source": "LANE_SURGICAL_BINDINGS/INTERFACE_BUDGET_RESULTS_R4.json",
+      "scope": "Conditional ceiling, not universal native upper bound"
+    },
+    {
+      "step": "bryggning",
+      "port": "mode_work_reference",
+      "value": [
+        30380,
+        20600
+      ],
+      "unit": "J/m²",
+      "status": "MEASURED",
+      "uncertainty": "SD 4900/2150; one juvenile porcine fullskin cohort",
+      "source": "LANE_SURGICAL_BINDINGS/PORTS_R4_FINAL.json",
+      "scope": "Tear assay I/III, not cut or healing stress"
+    },
+    {
+      "step": "bryggning",
+      "port": "native_terminal_traction",
+      "value": null,
+      "unit": "Pa",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SKIN_TOUGHNESS_GAP/PORTS_R2_FINAL_V2.json",
+      "scope": "Mode recruitment/anchor survival and cut connectivity absent"
+    },
+    {
+      "step": "bryggning",
+      "port": "mm_bridge_work",
+      "value": [
+        24500,
+        19137.5
+      ],
+      "unit": "J/m²",
+      "status": "SYNTETISKT",
+      "uncertainty": "L5mm,eps.5 strength-as-traction; not CI",
+      "source": "LANE_SKIN_TOUGHNESS_GAP/MECHANISM_TABLE_R2_FINAL.json",
+      "scope": "Corrected crack/opening axes; anisotropy FAIL"
+    },
+    {
+      "step": "bleeding",
+      "port": "vessel_radius_histogram",
+      "value": null,
+      "unit": "m and 1/m² per layer",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "BT-FW48-AUTO-55a5902a27c3f6/vessel_map_flow_results.json",
+      "scope": "Source histogram explicitly assumed; count control OVERpredicts25.3757x"
+    },
+    {
+      "step": "hemostas",
+      "port": "shear_adhesion_law",
+      "value": null,
+      "unit": "1/min versus 1/s",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "BT-FW48-AUTO-27a6dac22a7a23/platelet_hemostasis_shear.py",
+      "scope": "Qualitative anchors support synthetic rate closure; no native shear/closure assay"
+    },
+    {
+      "step": "syrekant",
+      "port": "dry_mass_density",
+      "value": null,
+      "unit": "kg/m³",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_RESPONSE/RESULTS.md",
+      "scope": "Same-specimen quantities not identified by resting human skin proxies"
+    },
+    {
+      "step": "syrekant",
+      "port": "vascular_flow_Hb_map",
+      "value": null,
+      "unit": "m³/s and mlO2/m³",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_RESPONSE/RESULTS.md",
+      "scope": "Same-specimen quantities not identified by resting human skin proxies"
+    },
+    {
+      "step": "syrekant",
+      "port": "oxygen_boundary",
+      "value": null,
+      "unit": "Torr and mlO2/(m² min Torr)",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_RESPONSE/RESULTS.md",
+      "scope": "Same-specimen quantities not identified by resting human skin proxies"
+    },
+    {
+      "step": "syrekant",
+      "port": "cell_damage_law",
+      "value": null,
+      "unit": "1/min",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_RESPONSE/RESULTS.md",
+      "scope": "Same-specimen quantities not identified by resting human skin proxies"
+    },
+    {
+      "step": "healing→strength",
+      "port": "physical_collagen_birth_turnover",
+      "value": null,
+      "unit": "reference mass/day",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_RESPONSE/RESPONSE_PORTS_R3.json",
+      "scope": "Tracer≠mass, HP≠total maturity; species/cohort joint posterior null"
+    },
+    {
+      "step": "healing→strength",
+      "port": "catalytic_LOX",
+      "value": null,
+      "unit": "1/day",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_RESPONSE/RESPONSE_PORTS_R3.json",
+      "scope": "Tracer≠mass, HP≠total maturity; species/cohort joint posterior null"
+    },
+    {
+      "step": "healing→strength",
+      "port": "joint_Q_U_Q_I_Q_M",
+      "value": null,
+      "unit": "reference mass tensor",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_RESPONSE/RESPONSE_PORTS_R3.json",
+      "scope": "Tracer≠mass, HP≠total maturity; species/cohort joint posterior null"
+    },
+    {
+      "step": "healing→strength",
+      "port": "chemistry_to_strength_law",
+      "value": null,
+      "unit": "Pa or %intact",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_RESPONSE/RESPONSE_PORTS_R3.json",
+      "scope": "Tracer≠mass, HP≠total maturity; species/cohort joint posterior null"
+    },
+    {
+      "step": "healing→strength",
+      "port": "chemistry_61_90",
+      "value": null,
+      "unit": "mol/molcollagen",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_RESPONSE/RESPONSE_PORTS_R3.json",
+      "scope": "Tracer≠mass, HP≠total maturity; species/cohort joint posterior null"
+    },
+    {
+      "step": "healing→strength",
+      "port": "R3_HP_input_strength_RMSE",
+      "value": 8.306367094671637,
+      "unit": "percentage points",
+      "status": "SYNTETISKT",
+      "uncertainty": "conditional observation proxy, nominal gate FAIL",
+      "source": "LANE_SURGICAL_RESPONSE/r3/crosslink_port/summary.json",
+      "scope": "HP42 input, not predicted from early chemistry; Levenson heldout diagnostic"
+    },
+    {
+      "step": "slutlig kemi R4",
+      "port": "native precursor D10",
+      "value": null,
+      "unit": "mol/molreference collagen",
+      "status": "UNKNOWN",
+      "uncertainty": null,
+      "source": "LANE_SURGICAL_RESPONSE/RESPONSE_PORTS_R4.json",
+      "scope": "Same reference and absolute glyco pools missing"
+    },
+    {
+      "step": "slutlig kemi R4",
+      "port": "cell-free first-order control k,eta",
+      "value": [
+        0.06949679103768976,
+        0.2833333333333334
+      ],
+      "unit": "1/day,1",
+      "status": "MEASURED",
+      "uncertainty": "Apparent endpoint-derived analogue; first/second order nonidentified",
+      "source": "LANE_SURGICAL_RESPONSE/RESPONSE_PORTS_R4.json",
+      "scope": "External cell-culture typeI assay, native transfer synthetic"
+    },
+    {
+      "step": "slutlig kemi R4",
+      "port": "HP inventory42/10",
+      "value": 2.220261437908497,
+      "unit": "1",
+      "status": "MEASURED",
+      "uncertainty": [
+        1.747159090909091,
+        2.8467987804878048
+      ],
+      "source": "LANE_SURGICAL_RESPONSE/r4/SCORES_R4_v2.json",
+      "scope": "Ratio of group means; fixed assay reference; graphical box, not CI"
+    }
+  ]
+}

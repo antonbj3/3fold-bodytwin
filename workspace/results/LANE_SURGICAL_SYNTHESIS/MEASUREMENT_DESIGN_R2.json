@@ -1,0 +1,336 @@
+{
+  "schema": "synthetic-noisy-measurement-planning-r2",
+  "frozen_before_ensemble": true,
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "ranges": {
+    "gap": [
+      0.0001,
+      0.0004
+    ],
+    "biological_width": [
+      0.0001,
+      0.0007
+    ],
+    "perfusion_width": [
+      0.0001,
+      0.0007
+    ],
+    "radius_factor": [
+      0.8,
+      1.2
+    ],
+    "density_factor": [
+      0.7,
+      1.3
+    ],
+    "driving_pressure": [
+      2000.0,
+      6000.0
+    ],
+    "blood_viscosity": [
+      0.0028,
+      0.0042
+    ],
+    "vascular_path": [
+      0.0007,
+      0.0013
+    ],
+    "oxygen_consumption": [
+      1000.0,
+      2000.0
+    ],
+    "oxygen_permeability": [
+      8e-07,
+      1.8e-06
+    ],
+    "oxygen_storage": [
+      10.0,
+      100.0
+    ],
+    "face_conductance": [
+      0.001,
+      0.005
+    ],
+    "face_pressure": [
+      100.0,
+      160.0
+    ],
+    "seal_oxygen_coupling": [
+      0.5,
+      1.0
+    ],
+    "aggregation_factor": [
+      0.6,
+      1.4
+    ],
+    "seal_rate": [
+      10.0,
+      30.0
+    ],
+    "k_deposit": [
+      0.07,
+      0.13
+    ],
+    "k_U_I": [
+      0.06,
+      0.14
+    ],
+    "k_I_M": [
+      0.025,
+      0.075
+    ],
+    "turnover_U_I": [
+      0.015,
+      0.045
+    ],
+    "birth_scale": [
+      0.07,
+      0.13
+    ],
+    "bridge_fraction": [
+      0.5,
+      1.0
+    ],
+    "strength_reference_factor": [
+      0.7,
+      1.3
+    ],
+    "chemistry_D10": [
+      0.04,
+      0.09
+    ],
+    "chemistry_H10": [
+      0.014,
+      0.022
+    ],
+    "chemistry_rate": [
+      0.04,
+      0.1
+    ],
+    "chemistry_yield": [
+      0.15,
+      0.45
+    ],
+    "gamma_cut": [
+      150.0,
+      380.0
+    ]
+  },
+  "parameter_names": [
+    "gap",
+    "biological_width",
+    "perfusion_width",
+    "radius_factor",
+    "density_factor",
+    "driving_pressure",
+    "blood_viscosity",
+    "vascular_path",
+    "oxygen_consumption",
+    "oxygen_permeability",
+    "oxygen_storage",
+    "face_conductance",
+    "face_pressure",
+    "seal_oxygen_coupling",
+    "aggregation_factor",
+    "seal_rate",
+    "k_deposit",
+    "k_U_I",
+    "k_I_M",
+    "turnover_U_I",
+    "birth_scale",
+    "bridge_fraction",
+    "strength_reference_factor",
+    "chemistry_D10",
+    "chemistry_H10",
+    "chemistry_rate",
+    "chemistry_yield",
+    "gamma_cut"
+  ],
+  "prior": "Uniform Sobol drivers on displayed bounds; shared width driver .65; all other drivers independent BY ASSUMPTION",
+  "seed": 6122,
+  "n": 256,
+  "measurements": {
+    "M1": {
+      "title": "Registered gap, independent injury/perfusion widths, radius/density/pressure/flow",
+      "cost": 8.0,
+      "obs": [
+        "gap",
+        "biological_width",
+        "perfusion_width",
+        "radius_factor",
+        "density_factor",
+        "driving_pressure",
+        "blood_viscosity",
+        "vascular_path"
+      ],
+      "sigma": [
+        1e-05,
+        2.5e-05,
+        2.5e-05,
+        0.05,
+        0.1,
+        200.0,
+        0.000175,
+        5e-05
+      ],
+      "common_sigma": [
+        0,
+        1e-05,
+        1e-05,
+        0.02,
+        0.02,
+        80.0,
+        0,
+        0
+      ]
+    },
+    "M2": {
+      "title": "Oxygen/storage/boundary flux with fixed reference volume",
+      "cost": 3.0,
+      "obs": [
+        "pressure20",
+        "pressure100",
+        "pressure300",
+        "face_flux",
+        "oxygen_storage",
+        "face_pressure"
+      ],
+      "sigma": [
+        2.0,
+        2.0,
+        2.0,
+        0.02,
+        6.0,
+        2.0
+      ],
+      "common_sigma": [
+        1.0,
+        1.0,
+        1.0,
+        0.005,
+        0,
+        1.0
+      ]
+    },
+    "M3": {
+      "title": "Early radius-matched plug and persistent-seal dynamics",
+      "cost": 5.0,
+      "obs": [
+        "coverage8_small",
+        "coverage8_large",
+        "seal8",
+        "initial_flow",
+        "aggregation_factor",
+        "seal_rate"
+      ],
+      "sigma": [
+        0.03,
+        0.03,
+        0.05,
+        1e-10,
+        0.1,
+        2.0
+      ],
+      "common_sigma": [
+        0.01,
+        0.01,
+        0.02,
+        0,
+        0,
+        0
+      ]
+    },
+    "M4": {
+      "title": "Absolute precursor/HP chemistry and reference collagen (missing observer map)",
+      "cost": 12.0,
+      "obs": [
+        "chemistry_D10",
+        "chemistry_H10",
+        "chemistry_rate",
+        "chemistry_yield"
+      ],
+      "sigma": [
+        0.005,
+        0.002,
+        0.007,
+        0.03
+      ],
+      "common_sigma": [
+        0.002,
+        0.001,
+        0,
+        0
+      ],
+      "disconnected": true,
+      "unrepresented": [
+        "GG/G/free subdivision",
+        "catalytic LOX map",
+        "native collagen mass to dimensionless UIM abundance"
+      ]
+    },
+    "M5": {
+      "title": "Chemistry-age-connected bridge and independent traction/ultimate-load port",
+      "cost": 16.0,
+      "obs": [
+        "trace_M21",
+        "bridge_fraction",
+        "strength_reference_factor",
+        "strength21"
+      ],
+      "sigma": [
+        0.015,
+        0.05,
+        0.05,
+        1.0
+      ],
+      "common_sigma": [
+        0.005,
+        0,
+        0.02,
+        0.5
+      ],
+      "scope": "Conditional upper-information design: assumes assays directly identify existing synthetic observer ports; native map UNKNOWN"
+    },
+    "M6": {
+      "title": "Full force/work/new-area/interface and terminal-work ledger",
+      "cost": 20.0,
+      "obs": [
+        "gamma_cut"
+      ],
+      "sigma": [
+        30.0
+      ],
+      "common_sigma": [
+        0.0
+      ],
+      "disconnected": true,
+      "unrepresented": [
+        "native tool-work to cell injury/perfusion transfer",
+        "mode-specific newly detached area",
+        "contact/release/pre-tip work"
+      ]
+    }
+  },
+  "outputs": [
+    "strength28_pp",
+    "strength90_pp",
+    "restricted_hemostasis120_min",
+    "closed_by120_indicator",
+    "injury_proxy_width_um",
+    "hypoxia_proxy_width_um"
+  ],
+  "cost_unit": "Assumed relative combined preparation/instrument/analysis workload; nominal and0.5x..2x; actualhours/money UNKNOWN",
+  "measurement_noise": "Independent Gaussian precision budgets plus one shared calibration error per package: R=diag(sigma^2)+common_sigma outer product",
+  "rank_score": "mean fractional optimal-linear variance reduction of strength28,strength90,restrictedhemostasis,injuryproxy / workload",
+  "error_floor": "Optional independent unresolved observation-map SD20pp in each strength output and50um in injury; sensitivity scenario, not identified discrepancy",
+  "native_prediction_uncertainty": {
+    "strength28": null,
+    "strength90": null,
+    "uncensored_hemostasis": null,
+    "edge_necrosis": null
+  },
+  "M4_M6_policy": "Zero gain refers only to absent implemented output paths; assay value after future transfer-law identification remains UNKNOWN",
+  "M5_policy": "Direct observation of synthetic Q/bridge/reference is a planning scenario, not an available calibrated native assay",
+  "unmapped_subobservations": "Every missing subobservable explicit; no fabricated Hb advection, native necrosis or tool-injury law"
+}

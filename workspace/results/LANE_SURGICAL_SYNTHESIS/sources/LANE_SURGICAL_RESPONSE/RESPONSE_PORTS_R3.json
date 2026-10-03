@@ -1,0 +1,46 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "round": 3,
+  "scientific_admission": false,
+  "consumers": [
+    "SURG-HEALING",
+    "SURG-HEMOSTASIS",
+    "LANE_SURGICAL_INCISION",
+    "LANE_SURGICAL_BINDINGS"
+  ],
+  "observed_inputs": {
+    "targets": "WORLD_TARGETS_R3_v2.json",
+    "tracer": "dpm/umol contrast with own20h/daily schedules; not scar mass",
+    "LOX": "OD570; no catalytic conversion",
+    "crosslinks": "HP mol/molcollagen mouse wound; other skin pathways not reduced toHP",
+    "alignment": "dimensionless FT eccentricity, missing load angle and chemistry joint distribution",
+    "late_chemistry_61_90": null,
+    "joint_biological_parameter_posterior": null
+  },
+  "conditional_operator": {
+    "checkpoint": "CHECKPOINT_R3.json",
+    "query": "S(e)=150 e^TQ_M e percent under synthetic75%,isotropicreference.5",
+    "initial_same_marginals_strength_pct": [
+      15,
+      60
+    ],
+    "angular_threshold_pct": 40,
+    "empirical": false,
+    "native_stress_law": null,
+    "crosslink_to_tau_law": null,
+    "strongest_control": "TIE"
+  },
+  "injury_ports": {
+    "source": "r3/LANE_SURGICAL_INCISION_R4_FINAL_PORT_SNAPSHOT.json",
+    "biological_width": null,
+    "vascular_damage": null
+  },
+  "binding_port": {
+    "source": "r3/LANE_SURGICAL_BINDINGS_PORT_SNAPSHOT.json",
+    "synthetic_reference_traction_Pa": 6000000,
+    "transfer_law": "phi*min(sigma_f,2*tau*L/r)",
+    "empirical_healing_parameters": null
+  },
+  "admissibility": "No conversion Gamma/Jm2 to strengthratio; no replacement of null damageports with mechanical width. No measured posterior.",
+  "needed": "Matched pathway chemistry/turnover, age-angle/cut-plane bridges and material rupture/traction with independent early forcing."
+}

@@ -1,0 +1,39 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "round": 4,
+  "scientific_admission": false,
+  "previous": "CHECKPOINT_R3.json",
+  "new_state": "r4/glyco_reservoir/control_first_order_D_NS0.03_checkpoint21.json",
+  "state_contract": [
+    "D",
+    "H",
+    "A",
+    "rate",
+    "eta",
+    "law",
+    "reference_C_day10",
+    "absolute_day"
+  ],
+  "checkpoint_type": "ISOLATED_AUTONOMOUS_CHEMICAL_INVENTORY_NOT_NATIVE_POSTERIOR",
+  "all_checkpoints": "r4/glyco_reservoir/*_checkpoint21.json",
+  "invariant": "D+2H+A",
+  "post_LOX_conversion": true,
+  "history_replay_required": false,
+  "conventional_operator_same_state_and_cost": true,
+  "native_empirical_joint_gate": "UNKNOWN",
+  "global_coupled_restart": false,
+  "integrated_early_O2_feedback_changed": false,
+  "native_spatial_checkpoint": "r1/native_chain/native_geometry_response.npz",
+  "history_checkpoint": "r1/history_local/checkpoint60.npz",
+  "retained_joint_tensors": [
+    "r3/joint_history/A_checkpoint.json",
+    "r3/joint_history/B_checkpoint.json"
+  ],
+  "numeric_max_ODE_error": 3.4083846855992306e-14,
+  "numeric_max_restart_error": 1.1102230246251565e-16,
+  "unknowns": [
+    "nativeD_NS",
+    "glyco-specificnativeeta",
+    "nativechemistrytoanchor/tractionlaw"
+  ]
+}

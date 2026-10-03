@@ -1,0 +1,44 @@
+{
+  "round": 1,
+  "lane": "LANE_SURGICAL_SYNTHESIS",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "authority": "Latest synthesis steer: runnable tested chain and unified measurements",
+  "capability": "Tool+path+layer stack -> injury/gap -> radius-resolved bleeding+seal -> oxygen -> U/I/M directional bridge inventories -> strength over time",
+  "operation": "Strict dimensioned provenance ports plus explicit conditional executable chain; reuse frozen FV/Q036/coagulation equations",
+  "controls": [
+    "Same-information conventional FV/cohort/Poiseuille/coagulation operators: expect TIE",
+    "Separately calibrated observable curves: in-sample interpolation only; no heldout extrapolation declared without data",
+    "Count-only vessel histogram as information-loss diagnostic, never strongest control"
+  ],
+  "unknowns": "Never zero-fill native cut, gap, viability/perfusion, chemistry or rupture law; default evidence mode stops at missing ports",
+  "defaults": "Explicit synthetic scenario, 10mm by2mm cut, dermis1.5mm/subcutis0.5mm; width250um,gap200um,5um front grid; 120min early/90day late; threadlimit2",
+  "measurements": [
+    "units/provenance/uncertainty per consumed and output port",
+    "regress source negative/positive outcomes with independent arithmetic/raw curves",
+    "energy and oxygen inventories; nonnegative mass and PSD tensors",
+    "r^4 and linear wall-shear analytic limits; zero wound, zero vessels, no chemistry",
+    "causal seals must not restore cut perfusion; unknown propagation",
+    "midpoint inventory refinement and early/late timestep refinement",
+    "full-replay vs checkpoint continuation with all required state",
+    "shared scenario draws stay joint; do not fabricate probabilities"
+  ],
+  "error_requirements": {
+    "numeric_mass": 1e-09,
+    "tensor_eigenvalue": -1e-10,
+    "oxygen_relative_balance": 1e-06,
+    "source_numeric_regression": 1e-07,
+    "checkpoint_strength_pp": 1e-07,
+    "refinement_strength_pp": 1.0,
+    "refinement_pressure_Torr": 0.5
+  },
+  "falsifiers": [
+    "Missing native port yields finite empirical strength",
+    "Mechanical width silently becomes ischemic width",
+    "Gamma becomes tensile strength",
+    "Lost radius or maturity-angle correlation",
+    "Unaccounted inventory or duplicate interface work",
+    "Claimed advantage against equally informed identical operator"
+  ],
+  "scientific_gate": "UNKNOWN unless matched native acquisition; engineering PASS distinct from innovation TIE",
+  "costs": "Report setup/vendor import, full-chain and refinement/replay solves, storage/test cost separately; unknown laboratory acquisition cost=null"
+}

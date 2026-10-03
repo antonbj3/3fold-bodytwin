@@ -1,0 +1,291 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scope": "Numerical, conservation, provenance and claim boundaries only; no empirical validation",
+  "passed": 35,
+  "checks": 35,
+  "failed": [],
+  "numerical_gate": "PASS",
+  "rows": [
+    {
+      "name": "frozen:PREREG_R3.json",
+      "passed": true,
+      "evidence": "1f87b50ed18fb1ad21c8e9ab18eb8ec276f2b88e337f610490355fd4c827d802"
+    },
+    {
+      "name": "frozen:PREREG_R3_CROSSLINK_PORT.json",
+      "passed": true,
+      "evidence": "77c395ef04625c147f9de6c31682ad58a5c997e3e6008c15048a99d565930086"
+    },
+    {
+      "name": "frozen:PREREG_R3_INVENTORIES.json",
+      "passed": true,
+      "evidence": "7037b9b6ae511c7dc3aae01457a12064b718d3630b7187a7aec874d470ded0d8"
+    },
+    {
+      "name": "frozen:PREREG_R3_JOINT_HISTORY.json",
+      "passed": true,
+      "evidence": "95fa469417a0e174ed6168639cda41d1fd5a8a50f063a1f59ba1b96120dc466c"
+    },
+    {
+      "name": "frozen:PREREG_R3_KINETICS_UNCERTAINTY.json",
+      "passed": true,
+      "evidence": "cb4bc213a49f8d763bb3cf6e07ef48746cdc254aa7979235f544271cc226aa6d"
+    },
+    {
+      "name": "frozen:WORLD_TARGETS_R3.json",
+      "passed": true,
+      "evidence": "576e3288824a48a5319829c161c472702175a06d1758702933d75f0ec79feb2f"
+    },
+    {
+      "name": "frozen:WORLD_TARGETS_R3_v2.json",
+      "passed": true,
+      "evidence": "a2a64aaac521bd8c90483b11d1cbe242f6ee5a32124cab598dad94d54cd31c8c"
+    },
+    {
+      "name": "all R2 manifest entries preserved or archived",
+      "passed": true,
+      "evidence": {
+        "count": 216,
+        "unexpected": []
+      }
+    },
+    {
+      "name": "RESULTS append-only",
+      "passed": true,
+      "evidence": "R2 bytes are unchanged prefix"
+    },
+    {
+      "name": "metadata-only target correction",
+      "passed": true,
+      "evidence": "Madden DOI corrected; all numerical targets unchanged"
+    },
+    {
+      "name": "nonnegative renewal pools",
+      "passed": true,
+      "evidence": {
+        "minimum": 0.0,
+        "count": 13
+      }
+    },
+    {
+      "name": "birth-minus-removed mass conservation",
+      "passed": true,
+      "evidence": {
+        "max_residual": 2.2648549702353193e-14
+      }
+    },
+    {
+      "name": "independent time-step refinement",
+      "passed": true,
+      "evidence": 4.101901396325047e-08
+    },
+    {
+      "name": "reported quantity fit selected without strength",
+      "passed": true,
+      "evidence": {
+        "label": "selective_fit1",
+        "max_heldout_relative": 0.12021077986970985
+      }
+    },
+    {
+      "name": "quantity-admissible strength nonidentifiability",
+      "passed": true,
+      "evidence": {
+        "k2": [
+          0.1,
+          0.2,
+          0.5
+        ],
+        "strength42_pct": [
+          46.069708051669636,
+          56.92858290565024,
+          61.926123808764366
+        ]
+      }
+    },
+    {
+      "name": "BINDINGS dimensional traction reconstruction",
+      "passed": true,
+      "evidence": {
+        "traction_Pa": 6000000.0,
+        "empirical": false
+      }
+    },
+    {
+      "name": "joint feasible-set bounds day7",
+      "passed": true,
+      "evidence": {
+        "bounds": [
+          0.07994600431965448,
+          0.405
+        ],
+        "width_pp": 9.77526971649867
+      }
+    },
+    {
+      "name": "joint feasible-set bounds day14",
+      "passed": true,
+      "evidence": {
+        "bounds": [
+          0.24760874049300896,
+          0.45312500000000006
+        ],
+        "width_pp": 15.127126457648778
+      }
+    },
+    {
+      "name": "joint feasible-set bounds day21",
+      "passed": true,
+      "evidence": {
+        "bounds": [
+          0.28404907927547196,
+          0.5898437500000001
+        ],
+        "width_pp": 45.869200608679236
+      }
+    },
+    {
+      "name": "joint feasible-set bounds day28",
+      "passed": true,
+      "evidence": {
+        "bounds": [
+          0.4081792950378298,
+          0.6816167950378297
+        ],
+        "width_pp": 35.94255254648343
+      }
+    },
+    {
+      "name": "tensor vs explicit cohort trajectory",
+      "passed": true,
+      "evidence": {
+        "max_error": 5.857980767132176e-12,
+        "trajectories": 12
+      }
+    },
+    {
+      "name": "tensor positive semidefinite",
+      "passed": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "initial identical amount maturity total orientation",
+      "passed": true,
+      "evidence": {
+        "amount": 1.0,
+        "mature": 0.5,
+        "Q": [
+          [
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.5
+          ]
+        ]
+      }
+    },
+    {
+      "name": "inverse feasible-set boundary",
+      "passed": true,
+      "evidence": {
+        "boundary_residuals": [
+          0.0,
+          7.105427357601002e-15
+        ],
+        "initial_difference_pp": 45.0
+      }
+    },
+    {
+      "name": "future marginals reported honestly",
+      "passed": true,
+      "evidence": "Initial totalQ equal; future totalQ differs under selective turnover"
+    },
+    {
+      "name": "precision corners preserve day21 falsifier",
+      "passed": true,
+      "evidence": [
+        {
+          "case": "Madden_tracer_proxy",
+          "heldout_passing_corners": 12,
+          "all_age_consistent_corners": 0,
+          "corners": 32
+        },
+        {
+          "case": "native",
+          "heldout_passing_corners": 8,
+          "all_age_consistent_corners": 0,
+          "corners": 32
+        },
+        {
+          "case": "sutured250",
+          "heldout_passing_corners": 0,
+          "all_age_consistent_corners": 0,
+          "corners": 32
+        }
+      ]
+    },
+    {
+      "name": "chemical late-time falsifier retained",
+      "passed": true,
+      "evidence": {
+        "predicted_HP42": [
+          0.01981439171500576,
+          0.019745898476917094,
+          0.020678122610442183,
+          0.019999515062262326
+        ],
+        "target": 0.043
+      }
+    },
+    {
+      "name": "conditional-only operator claim",
+      "passed": true,
+      "evidence": {
+        "conditional_sufficient_checkpoint": true,
+        "biological_validation": false,
+        "global_coupled_history_cost_gain": false
+      }
+    },
+    {
+      "name": "source bytes and hashes",
+      "passed": true,
+      "evidence": {
+        "count": 52,
+        "errors": []
+      }
+    },
+    {
+      "name": "review status:WORK_STATUS.json",
+      "passed": true,
+      "evidence": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "name": "review status:night_rounds/r3.json",
+      "passed": true,
+      "evidence": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "name": "review status:CHECKPOINT_R3.json",
+      "passed": true,
+      "evidence": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "name": "review status:RESPONSE_PORTS_R3.json",
+      "passed": true,
+      "evidence": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "name": "review status:DECOMPOSITION_R3.json",
+      "passed": true,
+      "evidence": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "name": "review status:COST_ACCOUNTING_R3.json",
+      "passed": true,
+      "evidence": "PENDING_INDEPENDENT_REVIEW"
+    }
+  ],
+  "wall_s": 0.13936112308874726
+}

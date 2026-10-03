@@ -1,0 +1,1306 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "crosslink_profile_is_input": true,
+  "crosslink_profile_predicted": false,
+  "rate_law_calibrated_from_Levenson": false,
+  "observed_HP_WT": [
+    0.003,
+    0.0215,
+    0.02,
+    0.018,
+    0.043
+  ],
+  "input_chemistry_warning": "HP/molcollagen is a species-specific assay. Day42 normalization is a synthetic wound reference, not normal skin maturity. Plateau beyond42 is unmeasured.",
+  "curves": [
+    {
+      "label": "Madden_tracer_proxy",
+      "scope": "Scar-specific tracer contrast, NOT a collagen mass fraction.",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 6.089733225545675,
+            "error_pp": 2.497107012292411,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 16.676245452708166,
+            "error_pp": 8.728242840967203,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 44.23828125000001,
+            "error_pp": 24.66160593836276,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 47.75224838318512,
+            "error_pp": 7.43616071358619,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 47.75224838318512,
+            "error_pp": 8.86815289857195,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 65.17784963621665,
+            "error_pp": -5.153855172217391,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 65.17784963621665,
+            "error_pp": -8.915534676145768,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 65.17784963621665,
+            "error_pp": -8.518295488499902,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 65.17784963621665,
+            "error_pp": -15.434185689312201,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 9.463820375521452,
+        "heldout_gate": "FAIL"
+      },
+      "amount_only": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 15.036378334680679,
+            "error_pp": 11.443752121427414,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 36.802748585286984,
+            "error_pp": 28.854745973546024,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 75.0,
+            "error_pp": 55.423324688362754,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 65.72352465642683,
+            "error_pp": 25.407436986827904,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 65.72352465642683,
+            "error_pp": 26.839429171813663,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 65.17784963621665,
+            "error_pp": -5.153855172217391,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 65.17784963621665,
+            "error_pp": -8.915534676145768,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 65.17784963621665,
+            "error_pp": -8.518295488499902,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 65.17784963621665,
+            "error_pp": -15.434185689312201,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 19.329154904760617,
+        "heldout_gate": "FAIL"
+      }
+    },
+    {
+      "label": "native",
+      "scope": "Preserved dimensionless matrix closure; no new global solves.",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 5.144932980893085,
+            "error_pp": 1.5523067676398203,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 17.904857561429157,
+            "error_pp": 9.956854949688195,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 37.87053834909181,
+            "error_pp": 18.293863037454564,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 52.66056975065141,
+            "error_pp": 12.344482081052483,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 52.66056975065141,
+            "error_pp": 13.776474266038242,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 73.0198605629607,
+            "error_pp": 2.6881557545266617,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 73.75379910456388,
+            "error_pp": -0.3395852077985353,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": 1.1778759643995471,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": -5.738014236412752,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 8.306367094671637,
+        "heldout_gate": "FAIL"
+      },
+      "amount_only": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 12.70353822442737,
+            "error_pp": 9.110912011174104,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 39.51416841142986,
+            "error_pp": 31.566165799688896,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 64.2043564064073,
+            "error_pp": 44.627681094770054,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 72.47906374283205,
+            "error_pp": 32.162976073233125,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 72.47906374283205,
+            "error_pp": 33.594968258218884,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 73.0198605629607,
+            "error_pp": 2.6881557545266617,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 73.75379910456388,
+            "error_pp": -0.3395852077985353,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": 1.1778759643995471,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 74.8740210891161,
+            "error_pp": -5.738014236412752,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 21.38475907239374,
+        "heldout_gate": "FAIL"
+      }
+    },
+    {
+      "label": "sutured250",
+      "scope": "Preserved dimensionless matrix closure; no new global solves.",
+      "strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 29.94050946264986,
+            "error_pp": 26.347883249396595,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 33.96685024918054,
+            "error_pp": 26.018847637439578,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 44.23121927804875,
+            "error_pp": 24.654543966411502,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 54.48928179967739,
+            "error_pp": 14.173194130078464,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 54.48928179967739,
+            "error_pp": 15.605186315064223,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 74.99689753266532,
+            "error_pp": 4.665192724231275,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 74.99811458597114,
+            "error_pp": 0.9047302736087204,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 74.99997219364843,
+            "error_pp": 1.3038270689318807,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 74.99997219364843,
+            "error_pp": -5.612063131880419,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 12.96786953424914,
+        "heldout_gate": "FAIL"
+      },
+      "amount_only": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 73.92718385839471,
+            "error_pp": 70.33455764514144,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 74.9613246878467,
+            "error_pp": 67.01332207610574,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 74.98802738530118,
+            "error_pp": 55.411352073663934,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 74.99600075654523,
+            "error_pp": 34.6799130869463,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 74.99600075654523,
+            "error_pp": 36.11190527193206,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 74.99689753266532,
+            "error_pp": 4.665192724231275,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 74.99811458597114,
+            "error_pp": 0.9047302736087204,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 74.99997219364843,
+            "error_pp": 1.3038270689318807,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 74.99997219364843,
+            "error_pp": -5.612063131880419,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 31.743006400526625,
+        "heldout_gate": "FAIL"
+      }
+    }
+  ],
+  "orientation_rotations": [
+    {
+      "day": 0,
+      "eccentricity": 0.744,
+      "a2_load_aligned": 0.6913410911021637,
+      "a2_load_rotated": 0.3086589088978363,
+      "exact_spectrum_same": true,
+      "strength_aligned_pct": 0.0,
+      "strength_rotated_pct": 0.0
+    },
+    {
+      "day": 1,
+      "eccentricity": 0.798,
+      "a2_load_aligned": 0.7335702276121703,
+      "a2_load_rotated": 0.2664297723878297,
+      "exact_spectrum_same": true,
+      "strength_aligned_pct": 0.0,
+      "strength_rotated_pct": 0.0
+    },
+    {
+      "day": 2,
+      "eccentricity": 0.73,
+      "a2_load_aligned": 0.6816167950378297,
+      "a2_load_rotated": 0.3183832049621703,
+      "exact_spectrum_same": true,
+      "strength_aligned_pct": 0.0,
+      "strength_rotated_pct": 0.0
+    },
+    {
+      "day": 3,
+      "eccentricity": 0.754,
+      "a2_load_aligned": 0.6985757437735944,
+      "a2_load_rotated": 0.30142425622640556,
+      "exact_spectrum_same": true,
+      "strength_aligned_pct": 2.0764556894806265,
+      "strength_rotated_pct": 0.8959574067198585
+    },
+    {
+      "day": 5,
+      "eccentricity": 0.775,
+      "a2_load_aligned": 0.7146047342563644,
+      "a2_load_rotated": 0.2853952657436356,
+      "exact_spectrum_same": true,
+      "strength_aligned_pct": 5.542591590324096,
+      "strength_rotated_pct": 2.2135725163856863
+    },
+    {
+      "day": 7,
+      "eccentricity": 0.72,
+      "a2_load_aligned": 0.6749460043196545,
+      "a2_load_rotated": 0.32505399568034554,
+      "exact_spectrum_same": true,
+      "strength_aligned_pct": 8.220482215909389,
+      "strength_rotated_pct": 3.9589842351819615
+    },
+    {
+      "day": 14,
+      "eccentricity": 0.861,
+      "a2_load_aligned": 0.794483740493009,
+      "a2_load_rotated": 0.20551625950699104,
+      "exact_spectrum_same": true,
+      "strength_aligned_pct": 26.49801172929423,
+      "strength_rotated_pct": 6.854479176122101
+    },
+    {
+      "day": 21,
+      "eccentricity": 0.748,
+      "a2_load_aligned": 0.6942053292754717,
+      "a2_load_rotated": 0.30579467072452826,
+      "exact_spectrum_same": true,
+      "strength_aligned_pct": 61.420901203474365,
+      "strength_rotated_pct": 27.05566129652565
+    },
+    {
+      "day": 28,
+      "eccentricity": 0.73,
+      "a2_load_aligned": 0.6816167950378297,
+      "a2_load_rotated": 0.3183832049621703,
+      "exact_spectrum_same": true,
+      "strength_aligned_pct": 65.09746899759405,
+      "strength_rotated_pct": 30.40702776877619
+    }
+  ],
+  "binding_laws": [
+    {
+      "law": "constant",
+      "full_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 3.007275666936136,
+            "error_pp": -0.5853505463171285,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 7.360549717057397,
+            "error_pp": -0.5874528946835653,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 15.0,
+            "error_pp": -4.576675311637246,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 13.144704931285368,
+            "error_pp": -27.17138273831356,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 13.144704931285368,
+            "error_pp": -25.7393905533278,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 13.03556992724333,
+            "error_pp": -57.29613488119071,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 13.03556992724333,
+            "error_pp": -61.05781438511909,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 13.03556992724333,
+            "error_pp": -60.66057519747322,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 13.03556992724333,
+            "error_pp": -67.57646539828552,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 48.782803169760804,
+        "heldout_gate": "FAIL"
+      },
+      "sigma_day42_Pa": 20000000.0,
+      "synthetic": "tau versus crosslink chemistry not measured; finite-length law follows idealized BINDINGS force equilibrium"
+    },
+    {
+      "law": "increasing",
+      "full_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 7.879062247372675,
+            "error_pp": 4.28643603411941,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 20.701546079223927,
+            "error_pp": 12.753543467482965,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 50.390625,
+            "error_pp": 30.813949688362754,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 51.346503637833464,
+            "error_pp": 11.030415968234536,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 51.346503637833464,
+            "error_pp": 12.462408153220295,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 65.17784963621664,
+            "error_pp": -5.153855172217405,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 65.17784963621664,
+            "error_pp": -8.915534676145782,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 65.17784963621664,
+            "error_pp": -8.518295488499916,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 65.17784963621664,
+            "error_pp": -15.434185689312216,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 11.061251492136416,
+        "heldout_gate": "FAIL"
+      },
+      "sigma_day42_Pa": 99999999.99999999,
+      "synthetic": "tau versus crosslink chemistry not measured; finite-length law follows idealized BINDINGS force equilibrium"
+    },
+    {
+      "law": "decreasing",
+      "full_strength": {
+        "rows": [
+          {
+            "day": 7,
+            "target_pct": 3.5926262132532645,
+            "prediction_pct": 1.1478151400519603,
+            "error_pp": -2.444811073201304,
+            "interval": [
+              2.715407693336646,
+              4.6566790546022085
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": false
+          },
+          {
+            "day": 14,
+            "target_pct": 7.948002611740963,
+            "prediction_pct": 2.61708434384263,
+            "error_pp": -5.3309182678983325,
+            "interval": [
+              5.6142373840112265,
+              10.750819800634936
+            ],
+            "pass_envelope_plus5": true,
+            "independent_day": true
+          },
+          {
+            "day": 21,
+            "target_pct": 19.576675311637246,
+            "prediction_pct": 4.4651162790697665,
+            "error_pp": -15.11155903256748,
+            "interval": [
+              15.534796488836735,
+              24.40268965559437
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": false
+          },
+          {
+            "day": 28,
+            "target_pct": 40.31608766959893,
+            "prediction_pct": 3.365044462409054,
+            "error_pp": -36.951043207189876,
+            "interval": [
+              32.97402490350281,
+              49.02691417483655
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 28,
+            "target_pct": 38.88409548461317,
+            "prediction_pct": 3.365044462409054,
+            "error_pp": -35.51905102220412,
+            "interval": [
+              32.76559843858213,
+              46.177817139254564
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 42,
+            "target_pct": 70.33170480843404,
+            "prediction_pct": 2.607113985448666,
+            "error_pp": -67.72459082298538,
+            "interval": [
+              59.74914913586333,
+              82.87830592678348
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 61,
+            "target_pct": 74.09338431236242,
+            "prediction_pct": 2.607113985448666,
+            "error_pp": -71.48627032691375,
+            "interval": [
+              62.863123332649295,
+              87.43042083816691
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 73.69614512471655,
+            "prediction_pct": 2.607113985448666,
+            "error_pp": -71.08903113926789,
+            "interval": [
+              63.353878293592324,
+              86.24335960119842
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          },
+          {
+            "day": 90,
+            "target_pct": 80.61203532552885,
+            "prediction_pct": 2.607113985448666,
+            "error_pp": -78.00492134008019,
+            "interval": [
+              69.28526550685703,
+              94.28419501904688
+            ],
+            "pass_envelope_plus5": false,
+            "independent_day": true
+          }
+        ],
+        "heldout_RMSE_pp": 57.92942309172657,
+        "heldout_gate": "FAIL"
+      },
+      "sigma_day42_Pa": 3999999.9999999995,
+      "synthetic": "tau versus crosslink chemistry not measured; finite-length law follows idealized BINDINGS force equilibrium"
+    }
+  ],
+  "BINDINGS_nominal_reconstructed_traction_Pa": 6000000.0,
+  "BINDINGS_port_peak_traction_Pa": 6000000.0,
+  "joint_families": [
+    {
+      "day": 7,
+      "maturity_proxy": 0.405,
+      "load_a2_closure": 0.6749460043196545,
+      "quantity_proxy": 0.20048504446240906,
+      "joint_low": [
+        0.0,
+        0.595,
+        0.32505399568034554,
+        0.07994600431965448
+      ],
+      "joint_high": [
+        0.32505399568034554,
+        0.26994600431965443,
+        0.0,
+        0.405
+      ],
+      "constraint_residual": 0.0,
+      "lower_strength_pct": 2.404196734592681,
+      "upper_strength_pct": 12.17946645109135,
+      "factorized_strength_pct": 8.220482215909389,
+      "frechet_bounds": [
+        0.07994600431965448,
+        0.405
+      ],
+      "strength_width_pp": 9.77526971649867,
+      "scope": "Exact LP bound for synthetic binary mature/load-direction marks. Chemistry and Q observation maps still unmeasured."
+    },
+    {
+      "day": 14,
+      "maturity_proxy": 0.45312500000000006,
+      "load_a2_closure": 0.794483740493009,
+      "quantity_proxy": 0.49070331447049315,
+      "joint_low": [
+        0.0,
+        0.546875,
+        0.2055162595069911,
+        0.24760874049300896
+      ],
+      "joint_high": [
+        0.2055162595069911,
+        0.3413587404930089,
+        0.0,
+        0.45312500000000006
+      ],
+      "constraint_residual": 0.0,
+      "lower_strength_pct": 18.225364447767554,
+      "upper_strength_pct": 33.35249090541633,
+      "factorized_strength_pct": 26.49801172929423,
+      "frechet_bounds": [
+        0.24760874049300896,
+        0.45312500000000006
+      ],
+      "strength_width_pp": 15.127126457648778,
+      "scope": "Exact LP bound for synthetic binary mature/load-direction marks. Chemistry and Q observation maps still unmeasured."
+    },
+    {
+      "day": 21,
+      "maturity_proxy": 0.5898437500000001,
+      "load_a2_closure": 0.6942053292754717,
+      "quantity_proxy": 1.0,
+      "joint_low": [
+        0.0,
+        0.4101562499999999,
+        0.30579467072452826,
+        0.28404907927547185
+      ],
+      "joint_high": [
+        0.30579467072452826,
+        0.10436157927547163,
+        0.0,
+        0.5898437500000001
+      ],
+      "constraint_residual": 0.0,
+      "lower_strength_pct": 42.60736189132078,
+      "upper_strength_pct": 88.47656250000001,
+      "factorized_strength_pct": 61.420901203474365,
+      "frechet_bounds": [
+        0.28404907927547196,
+        0.5898437500000001
+      ],
+      "strength_width_pp": 45.869200608679236,
+      "scope": "Exact LP bound for synthetic binary mature/load-direction marks. Chemistry and Q observation maps still unmeasured."
+    },
+    {
+      "day": 28,
+      "maturity_proxy": 0.7265625,
+      "load_a2_closure": 0.6816167950378297,
+      "quantity_proxy": 0.8763136620856912,
+      "joint_low": [
+        0.0,
+        0.2734375,
+        0.3183832049621703,
+        0.4081792950378297
+      ],
+      "joint_high": [
+        0.2734375,
+        0.0,
+        0.04494570496217032,
+        0.6816167950378297
+      ],
+      "constraint_residual": 0.0,
+      "lower_strength_pct": 53.653963923323445,
+      "upper_strength_pct": 89.59651646980687,
+      "factorized_strength_pct": 65.09746899759405,
+      "frechet_bounds": [
+        0.4081792950378298,
+        0.6816167950378297
+      ],
+      "strength_width_pp": 35.94255254648343,
+      "scope": "Exact LP bound for synthetic binary mature/load-direction marks. Chemistry and Q observation maps still unmeasured."
+    }
+  ],
+  "same_measured_marginals": {
+    "cohort_A": [
+      0.4,
+      0.1,
+      0.1,
+      0.4
+    ],
+    "cohort_B": [
+      0.1,
+      0.4,
+      0.4,
+      0.1
+    ],
+    "marginals_A": [
+      1.0,
+      0.5,
+      0.5
+    ],
+    "marginals_B": [
+      1.0,
+      0.5,
+      0.5
+    ],
+    "strain_proxy_fixed": true,
+    "mean_strength_A_pct": 60.0,
+    "mean_strength_B_pct": 15.0,
+    "factorized_strength_pct": 37.5,
+    "missing_state": "crosslink-age/load-direction correlation; birth-time-labelled organization is necessary for this closure"
+  },
+  "strength_heldout_joint_gate": "FAIL",
+  "empirical_joint_gate": "UNKNOWN",
+  "strongest_control": "TIE: identical conventional interpolation/renewal/joint feasible-set operations",
+  "native_healing_stress_law": null,
+  "CPU_s": 0.103150725,
+  "wall_s": 0.03591460105963051,
+  "max_RSS_KiB": 78400
+}
