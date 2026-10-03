@@ -29,3 +29,16 @@ venv/
 *.pt
 *.tar.gz
 *.zip
+
+# Generated job cards and runtime state in free48 (7500+ files) -- machine output, not source material.
+tasks/free48/BT-FW48-*
+tasks/free48/STATE.json*
+tasks/free48/STATUS.json
+tasks/free48/WINDOW.json
+tasks/free48/sources_backup_*
+
+# Own backups before editing. Git carries the history now, so they are redundant.
+*.bak
+.bak_*
+*.bak-*
+*.bak_*
