@@ -45,7 +45,15 @@ while read -r LANE; do
         if [ $f -ge 3 ]; then echo $((now + 1800)) > "$ST/$LANE.backoff_until"; echo 0 > "$ST/$LANE.fastfail"
           echo "[$(date +%F' '%T)] ALERT $LANE 3 fast failure, waiting 30 min" >> "$LOG" | tee -a "$D/ALERTS.log" >/dev/null; continue; fi
       else echo 0 > "$ST/$LANE.fastfail"; echo "[$(date +%F' '%T)] $LANE round end after ${dur}s" >> "$LOG"; fi
-      echo "$now" > "$ST/$LANE.ended"; rm -f "$ST/$LANE.go"
+      # 3/10 11:55 (anton-5f): ONLY remove .go if it's older than the round we're just posting.
+      # Otherwise, a review written by the coordinator while the round was ending will be deleted —
+      # it happened for DOMAIN_DATA_TO_CELLS at 11:43 and the lane was idle waiting for a new .go.
+      if [ -f "$ST/$LANE.go" ] && [ "$ST/$LANE.go" -nt "$ST/$LANE.round" ]; then
+        echo "[$(date +%F' '%T)] $LANE keeps fresh .go through the bookkeeping" >> "$LOG"
+        echo "$now" > "$ST/$LANE.ended"
+      else
+        echo "$now" > "$ST/$LANE.ended"; rm -f "$ST/$LANE.go"
+      fi
     fi
     # The coordinator reads completed round and writes state/<LANE>.go (and possibly new slot/control). Without a response to 40 min the lane continues by itself.
     if [ -f "$ST/$LANE.ended" ] && [ ! -f "$ST/$LANE.go" ]; then
