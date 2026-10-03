@@ -83,3 +83,7 @@ tasks/cloud/*.txt
 /graph
 /current
 /*.json
+
+# ...men de handgjorda analysutdata under results/ASSEMBLY_* are deliveries, not in-law data.
+!results/ASSEMBLY_*/
+!results/ASSEMBLY_*/*.json
