@@ -1,163 +1,445 @@
 {
- "_meta": {
-  "what": "Variables in quantified relation for the tissue twin, with edge status and an evidence pointer per edge.",
-  "why": "GRAPH_MAP lists constraint nets for vehicle, projector and fleet_factory plus a stress map. No net exists for tissue, and dental confirmed on 2026-10-03 that they have none either. This is the layer the operator means by the graph: quantities coupled by relations whose status is TIGHT, OPEN or UNKNOWN, with each edge tightened by a measurement rather than asserted. Every edge below carries a number this session verified in the producing run's own artefact files.",
-  "schema": "Same shape as CONSTRAINT_NET_PROJECTOR.json: variables with unit, edges with status and evidence as {file, key, value}.",
-  "status_meaning": {
-   "TIGHT": "the relation is quantified and a measurement constrains it",
-   "OPEN": "the relation exists and is measured to be insufficient or undetermined; the gap is the number",
-   "UNKNOWN": "the relation is asserted in a model but no measurement bears on it"
-  },
-  "built": "2026-10-03",
-  "review_state": "PENDING_INDEPENDENT_REVIEW",
-  "rule": "An edge may be added only with a verified number and a file pointer. No edge from a model assumption alone; such a relation is UNKNOWN and says so."
+ "bodytwin": {
+  "tissue_constraint_net": {
+   "seed": "The operator asked for the graph layer: variables in quantified relation with edge status, not bookkeeping. This net was assembled 2026-10-03 from the night's own measurements after the graph lane established that this slot was declared and empty.",
+   "objective": "Say, per pair of quantities, whether the relation is constrained by a measurement (TIGHT), measured to be insufficient or undetermined with the gap as the number (OPEN), or asserted in a model with nothing bearing on it (UNKNOWN).",
+   "schema_note": "Same shape as vehicle_constraints and projector_constraints: variables with unit and level, edges with between, constraint, status and evidence. Additive — nothing was moved and no other net was touched.",
+   "source_files": [
+    "data/CONSTRAINT_NET_TISSUE.json"
+   ],
+   "variables": [
+    {
+     "id": "charge_inventory",
+     "unit": "mol/m",
+     "level": "MOLECULE",
+     "domain": "cornea"
+    },
+    {
+     "id": "ionic_swelling_pressure",
+     "unit": "Pa",
+     "level": "TISSUE",
+     "domain": "cornea"
+    },
+    {
+     "id": "stromal_thickness",
+     "unit": "um",
+     "level": "TISSUE",
+     "domain": "cornea"
+    },
+    {
+     "id": "stromal_index",
+     "unit": "1",
+     "level": "TISSUE",
+     "domain": "cornea"
+    },
+    {
+     "id": "surface_allocation",
+     "unit": "1",
+     "level": "TISSUE",
+     "domain": "cornea"
+    },
+    {
+     "id": "surface_shape_field",
+     "unit": "um",
+     "level": "ORGAN",
+     "domain": "cornea"
+    },
+    {
+     "id": "pupil_diameter",
+     "unit": "mm",
+     "level": "ORGAN",
+     "domain": "eye"
+    },
+    {
+     "id": "refractive_power",
+     "unit": "D",
+     "level": "ORGAN",
+     "domain": "eye"
+    },
+    {
+     "id": "residual_cylinder",
+     "unit": "D",
+     "level": "ORGAN",
+     "domain": "eye"
+    },
+    {
+     "id": "posterior_corneal_astigmatism",
+     "unit": "D",
+     "level": "ORGAN",
+     "domain": "cornea"
+    },
+    {
+     "id": "implant_power",
+     "unit": "D",
+     "level": "ORGAN",
+     "domain": "eye"
+    },
+    {
+     "id": "lattice_order",
+     "unit": "1",
+     "level": "FIBRIL",
+     "domain": "cornea"
+    },
+    {
+     "id": "scatter_tail_fraction",
+     "unit": "1",
+     "level": "TISSUE",
+     "domain": "cornea"
+    },
+    {
+     "id": "delivered_energy",
+     "unit": "J",
+     "level": "PHENOMENOLOGICAL",
+     "domain": "laser"
+    },
+    {
+     "id": "surface_temperature_history",
+     "unit": "K",
+     "level": "TISSUE",
+     "domain": "laser"
+    },
+    {
+     "id": "depth_temperature",
+     "unit": "K",
+     "level": "TISSUE",
+     "domain": "laser"
+    },
+    {
+     "id": "cem43_thermal_dose",
+     "unit": "min",
+     "level": "PHENOMENOLOGICAL",
+     "domain": "laser"
+    },
+    {
+     "id": "removed_mass",
+     "unit": "kg",
+     "level": "TISSUE",
+     "domain": "laser"
+    },
+    {
+     "id": "ablation_fluence_threshold",
+     "unit": "J/cm^2",
+     "level": "TISSUE",
+     "domain": "laser"
+    },
+    {
+     "id": "c3b_recycling_fraction",
+     "unit": "1",
+     "level": "MOLECULE",
+     "domain": "immune"
+    },
+    {
+     "id": "self_surface_growth_rate",
+     "unit": "1/min",
+     "level": "CELL",
+     "domain": "immune"
+    },
+    {
+     "id": "mac_concentration",
+     "unit": "nM",
+     "level": "CELL",
+     "domain": "immune"
+    },
+    {
+     "id": "activator_host_discrimination",
+     "unit": "1",
+     "level": "CELL",
+     "domain": "immune"
+    },
+    {
+     "id": "boundary_condition_class",
+     "unit": "categorical",
+     "level": "TISSUE",
+     "domain": "flow"
+    },
+    {
+     "id": "hydraulic_conductance",
+     "unit": "m/(Pa s)",
+     "level": "TISSUE",
+     "domain": "flow"
+    },
+    {
+     "id": "needle_forward_friction",
+     "unit": "N/mm",
+     "level": "TISSUE",
+     "domain": "needle"
+    },
+    {
+     "id": "passage_number",
+     "unit": "count",
+     "level": "TISSUE",
+     "domain": "needle"
+    },
+    {
+     "id": "epithelial_front_velocity",
+     "unit": "um/h",
+     "level": "TISSUE",
+     "domain": "skin"
+    },
+    "lens_position",
+    "axial_length",
+    "iol_label_power"
+   ],
+   "edges": [
+    {
+     "id": "T-E1-charge_inventory-vs-ionic_swelling_pressure",
+     "between": [
+      "charge_inventory",
+      "ionic_swelling_pressure"
+     ],
+     "constraint": "halving the charge inventory lowers the swelling pressure by 489.65 Pa",
+     "status": "TIGHT",
+     "evidence": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r13.json :: chain_all05.Pi_change_Pa = -489.64879350600813"
+    },
+    {
+     "id": "T-E2-ionic_swelling_pressure-vs-stromal_thickness",
+     "between": [
+      "ionic_swelling_pressure",
+      "stromal_thickness"
+     ],
+     "constraint": "pupil-mean thickness falls 605.582 to 602.039 um over that pressure change",
+     "status": "TIGHT",
+     "evidence": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r13.json :: chain_all05.pupil_mean_thickness_after_um = 602.0390240447553"
+    },
+    {
+     "id": "T-E3-stromal_thickness-vs-refractive_power",
+     "between": [
+      "refractive_power",
+      "stromal_thickness",
+      "stromal_index"
+     ],
+     "constraint": "thickness, index, hydration AND surface allocation together leave 0.3056 D undetermined; identity errors exactly 0.0 in 4 of 4 pairs",
+     "status": "OPEN",
+     "evidence": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r14.json :: eta_sufficiency.powergap_D = 0.3056391116672543",
+     "note_added_2026_10_03": "stromal_index is named in this constraint and was not an endpoint, so the node was invisible to any neighbourhood walk: a brief generated from the graph gave it zero edges. Being named in the text of a constraint is not the same as being connected by it."
+    },
+    {
+     "id": "T-E4-surface_allocation-vs-refractive_power",
+     "between": [
+      "refractive_power",
+      "surface_allocation"
+     ],
+     "constraint": "the span over this variable alone is 0.8724 D and the sign of the change flips across conditions",
+     "status": "OPEN",
+     "evidence": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r13.json :: surface_sufficiency.downstream_power_difference_D = 0.8723871708712494"
+    },
+    {
+     "id": "T-E5-surface_shape_field-vs-refractive_power",
+     "between": [
+      "refractive_power",
+      "surface_shape_field"
+     ],
+     "constraint": "with native pupil-limited shape data the maximum gap is 0.2396 D, below the 0.25 D clinical threshold, 0 violations in 101 cases",
+     "status": "TIGHT",
+     "evidence": "results/LANE_CORNEA_SHAPE/night_rounds/r2.json :: native_pupil_max_gap_D = 0.23961891826215265"
+    },
+    {
+     "id": "T-E6-pupil_diameter-vs-refractive_power",
+     "between": [
+      "pupil_diameter",
+      "refractive_power"
+     ],
+     "constraint": "at large pupil the shape field no longer closes the gap: violations in 98 of 98 cases",
+     "status": "OPEN",
+     "evidence": "results/LANE_CORNEA_SHAPE/night_rounds/r2.json :: large_pupil_violations = 98/98"
+    },
+    {
+     "id": "T-E7-posterior_corneal_astigmatism-vs-residual_cylinder",
+     "between": [
+      "posterior_corneal_astigmatism",
+      "residual_cylinder"
+     ],
+     "constraint": "measuring it instead of estimating it cuts residual cylinder error from 0.6264 to 0.2817 D against measured refraction on 69 patients, and this is now confirmed by THREE independent sources for the same input: 0.2817 (IOLMaster posterior), 0.2934 (CASIA posterior, conventions aligned) and 0.3112 D (CASIA total cornea measured in one step). The two devices print ORTHOGONAL posterior meridians, 86 degrees apart in median, and taking the printed axis gives 0.7577 D, which nearly produced a false refutation of this edge",
+     "status": "TIGHT",
+     "evidence": "results/ASSEMBLY_TORIC_CROSS_DEVICE/CROSS_DEVICE_V1.json :: residual_cylinder_mae_D"
+    },
+    {
+     "id": "T-E8-implant_power-vs-refractive_power",
+     "between": [
+      "implant_power",
+      "refractive_power"
+     ],
+     "constraint": "inverted to a decision that runs BEFORE the operation: mean miss against the hindsight-correct power 0.535 D versus the implanted lens 1.130 D on 89 eyes, closer in 36 against 22. The earlier figure on this edge (11 of 20, 0.688 against 1.070 D) is withdrawn: that chain consumed the POSTOPERATIVE lens position, which the surgeon it was compared against could not know, so it was not an equally informed comparison",
+     "status": "TIGHT",
+     "evidence": "results/ASSEMBLY_PROSPECTIVE_POWER/PROSPECTIVE_V1.json :: scored_against_hindsight_correct_power.mean_miss_with_predicted_position_D = 0.5345",
+     "superseded_2026_10_03": "inverted to a decision: the twin lands closer to the hindsight-correct power than the implanted lens in 11 of 20 cases against 2, mean miss 0.688 against 1.070 D"
+    },
+    {
+     "id": "T-E9-lattice_order-vs-scatter_tail_fraction",
+     "between": [
+      "lattice_order",
+      "scatter_tail_fraction"
+     ],
+     "constraint": "domain data gives a disorder ratio of 20.2466 to 59.4856 and a wavelength exponent of -4.8765, but the amplitude is not transferable to our chain and the causal exponent shift proved analytically forced rather than measured",
+     "status": "UNKNOWN",
+     "evidence": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json :: optical_shift_origin = ANALYTICALLY_FORCED_NOT_EMPIRICAL_CAUSAL_MEASUREMENT"
+    },
+    {
+     "id": "T-E10-delivered_energy-vs-removed_mass",
+     "between": [
+      "delivered_energy",
+      "removed_mass"
+     ],
+     "constraint": "identical delivered energy to 0.0 J gives removed mass 0.0 against 1.255e-9 kg",
+     "status": "OPEN",
+     "evidence": "results/LANE_LASER_SURGERY/night_rounds/r17.json :: sufficiency_energy.b.conditional_removed_mass_kg = 1.255019203345805e-09"
+    },
+    {
+     "id": "T-E11-surface_temperature_history-vs-depth_temperature",
+     "between": [
+      "depth_temperature",
+      "surface_temperature_history"
+     ],
+     "constraint": "identical surface history to 0.0 K leaves 0.3806 K at target depth, with numerics three orders cleaner at 4.33e-05 K; a separated readout widens it to 35.0 K",
+     "status": "OPEN",
+     "evidence": "results/LANE_DEPTH_TEMPERATURE/night_rounds/r4.json :: separated_grating_target_gap_K = 35.0"
+    },
+    {
+     "id": "T-E12-cem43_thermal_dose-vs-removed_mass",
+     "between": [
+      "cem43_thermal_dose",
+      "removed_mass"
+     ],
+     "constraint": "the standard clinical thermal dose with time and peak temperature leaves 5.04 percentage points in conditional loss over 7 counterexamples at identity error 0.0",
+     "status": "OPEN",
+     "evidence": "results/LANE_LASER_SURGERY/night_rounds/r19.json :: conditional_loss_difference_percentage_points = 5.038748758105517"
+    },
+    {
+     "id": "T-E13-ablation_fluence_threshold-vs-removed_mass",
+     "between": [
+      "ablation_fluence_threshold",
+      "removed_mass"
+     ],
+     "constraint": "published threshold 1.15 J/cm^2 as the x-intercept of a mass-loss regression; our chain sits 26.51 percent above it with a slope error of -24.97 percent",
+     "status": "TIGHT",
+     "evidence": "results/LANE_LASER_SURGERY/night_rounds/r17.json :: primary_prediction.relative_error = 0.26508185342208535"
+    },
+    {
+     "id": "T-E14-c3b_recycling_fraction-vs-self_surface_growth_rate",
+     "between": [
+      "c3b_recycling_fraction",
+      "self_surface_growth_rate"
+     ],
+     "constraint": "the growth rate on a self surface crosses zero at a recycling fraction of 0.69012, moving from -0.15115 to -0.00188 per minute",
+     "status": "TIGHT",
+     "evidence": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r1_V1.json :: rho_critical = 0.6901150139263259"
+    },
+    {
+     "id": "T-E15-c3b_recycling_fraction-vs-activator_host_discrimination",
+     "between": [
+      "activator_host_discrimination",
+      "c3b_recycling_fraction"
+     ],
+     "constraint": "discrimination is 486.11 without recycling and 4.969 with it, a factor of 97.83; published biology supports the recycling end",
+     "status": "TIGHT",
+     "evidence": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json :: discrimination_change_factor = 97.83134000044933"
+    },
+    {
+     "id": "T-E16-mac_concentration-vs-self_surface_growth_rate",
+     "between": [
+      "mac_concentration",
+      "self_surface_growth_rate"
+     ],
+     "constraint": "identical surface occupancy at identity error 0.0 leaves 0.16723 nM of MAC undetermined",
+     "status": "OPEN",
+     "evidence": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json :: occupancy_MAC_gap_nM = 0.16723269204490165"
+    },
+    {
+     "id": "T-E17-boundary_condition_class-vs-hydraulic_conductance",
+     "between": [
+      "boundary_condition_class",
+      "hydraulic_conductance"
+     ],
+     "constraint": "a stationary end value cannot identify the conductance under maintained pressure boundaries, where q_ss = -K dP/L is nonzero; closed finite reservoirs give q(inf) = 0 to 7.211e-12. All 45 flow cells now carry a declared boundary class, none unknown",
+     "status": "TIGHT",
+     "evidence": "results/LANE_ZERO_FLUX_AUDIT/night_rounds/r15.json :: boundary_census.baseline_regimes.UNKNOWN = 0"
+    },
+    {
+     "id": "T-E18-passage_number-vs-needle_forward_friction",
+     "between": [
+      "needle_forward_friction",
+      "passage_number"
+     ],
+     "constraint": "no digitised series separates forward friction on first versus repeated passage in the same hole, so the equal-friction assumption is uncertain. Nine published curves are readable with sources and reading errors",
+     "status": "UNKNOWN",
+     "evidence": "3fold-motion-engine/_private/romi_collab/build/SOL_FALT_NALFRIKTION_20261001/raw/anchor_curves/INDEX.json :: measurement_status = OSAKER",
+     "owner": "field lane, read-only for us"
+    },
+    {
+     "id": "T-E19-epithelial_front_velocity-vs-epithelial_front_velocity",
+     "between": [
+      "epithelial_front_velocity"
+     ],
+     "constraint": "our value of 30.0 um/h against a held-out measurement of 9.00 +/- 0.465 um/h, ratio 3.3333, and the constant was chosen to produce 0.03 mm/h rather than measured",
+     "status": "OPEN",
+     "evidence": "/mnt/games-240/research/bunny48_20260926/bodytwin/BT-FW48-AUTO-ab449fce1f6f56/results.json :: external_facit.q115_over_anchor_ratio = 3.3333333333333335",
+     "note": "a self-edge marking a quantity refuted against its own external referent"
+    },
+    {
+     "id": "T-E20-lens_position-vs-refractive_power",
+     "between": [
+      "lens_position",
+      "refractive_power"
+     ],
+     "constraint": "the chain converts 1 mm of lens position into 1.349 D of refraction (median over 89 eyes); the position is predictable from preoperative biometry to 0.114 mm mean absolute error against the quantity own spread of 0.284 mm, so the induced refraction error is 0.114 D median",
+     "status": "TIGHT",
+     "evidence": "results/ASSEMBLY_PROSPECTIVE_POWER/PROSPECTIVE_V1.json :: lens_position_prediction.mean_abs_error_mm = 0.114"
+    },
+    {
+     "id": "T-E21-axial_length-vs-refractive_power",
+     "between": [
+      "axial_length",
+      "refractive_power"
+     ],
+     "constraint": "the largest single term in the refraction calculation and we hold it from ONE instrument only; no second source exists in our data, so its between-device bias is unmeasured. For comparison the two devices we can compare disagree systematically by 9.90 um on corneal thickness and 0.1441 mm on anterior chamber depth, so a bias of that order here is not excluded",
+     "status": "UNKNOWN",
+     "evidence": "results/ASSEMBLY_INSTRUMENT_COMPONENT/INSTRUMENT_V1.json :: length_quantities_both_devices"
+    },
+    {
+     "id": "T-E22-iol_label_power-vs-implant_power",
+     "between": [
+      "iol_label_power",
+      "implant_power"
+     ],
+     "constraint": "we treat the printed label as exact. The decision is quantised to a 0.5 D manufacturing grid, and our choice lands on a different step than the lens that was implanted in 44 of 89 eyes, so if the tolerance on the label approaches a grid step it places a floor under every power decision that no model can go below",
+     "status": "UNKNOWN",
+     "evidence": "results/ASSEMBLY_PROSPECTIVE_POWER/PROSPECTIVE_V1.json :: power_recommendation_shift_D.eyes_where_the_grid_choice_changes = 44"
+    }
+   ],
+   "stress_points": [
+    {
+     "variable": "surface_shape_field",
+     "why": "it decides the SIGN of a procedure's refractive outcome; the span over its proxy is 0.8724 D against a 0.25 D clinical threshold",
+     "closing_measurement": "corneal topography height field with common registration, routinely acquired"
+    },
+    {
+     "variable": "depth_temperature",
+     "why": "no measurable surrogate determines it: delivered energy, surface history and CEM43 all fail, the last two at identity error exactly 0.0",
+     "closing_measurement": "depth-resolved temperature with a registered thermal frame; the proposed optical route misses its own 0.10 K target on 10 held bench temperatures"
+    },
+    {
+     "variable": "c3b_recycling_fraction",
+     "why": "a factor of 97.83 in the protective margin depends on it alone",
+     "closing_measurement": "the regulator's own uncertainty, currently unmeasured, which is why the 0.69012 threshold is uncertified"
+    },
+    {
+     "variable": "pupil_diameter",
+     "why": "it separates the regime where the shape field closes the refractive gap from the regime where it does not: 0 of 101 violations at native pupil against 98 of 98 at large pupil",
+     "closing_measurement": "none needed; it is a declared condition, so the net must carry it as an explicit regime axis rather than a fixed value"
+    },
+    "axial_length is the largest term in the refraction calculation and is held from a single instrument"
+   ],
+   "counts": {
+    "variables": 28,
+    "edges": 19,
+    "TIGHT": 9,
+    "OPEN": 8,
+    "UNKNOWN": 2
+   },
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  }
  },
-
- "variables": [
-  {"id": "charge_inventory", "unit": "mol/m", "level": "MOLECULE", "domain": "cornea"},
-  {"id": "ionic_swelling_pressure", "unit": "Pa", "level": "TISSUE", "domain": "cornea"},
-  {"id": "stromal_thickness", "unit": "um", "level": "TISSUE", "domain": "cornea"},
-  {"id": "stromal_index", "unit": "1", "level": "TISSUE", "domain": "cornea"},
-  {"id": "surface_allocation", "unit": "1", "level": "TISSUE", "domain": "cornea"},
-  {"id": "surface_shape_field", "unit": "um", "level": "ORGAN", "domain": "cornea"},
-  {"id": "pupil_diameter", "unit": "mm", "level": "ORGAN", "domain": "eye"},
-  {"id": "refractive_power", "unit": "D", "level": "ORGAN", "domain": "eye"},
-  {"id": "residual_cylinder", "unit": "D", "level": "ORGAN", "domain": "eye"},
-  {"id": "posterior_corneal_astigmatism", "unit": "D", "level": "ORGAN", "domain": "cornea"},
-  {"id": "implant_power", "unit": "D", "level": "ORGAN", "domain": "eye"},
-  {"id": "lattice_order", "unit": "1", "level": "FIBRIL", "domain": "cornea"},
-  {"id": "scatter_tail_fraction", "unit": "1", "level": "TISSUE", "domain": "cornea"},
-
-  {"id": "delivered_energy", "unit": "J", "level": "PHENOMENOLOGICAL", "domain": "laser"},
-  {"id": "surface_temperature_history", "unit": "K", "level": "TISSUE", "domain": "laser"},
-  {"id": "depth_temperature", "unit": "K", "level": "TISSUE", "domain": "laser"},
-  {"id": "cem43_thermal_dose", "unit": "min", "level": "PHENOMENOLOGICAL", "domain": "laser"},
-  {"id": "removed_mass", "unit": "kg", "level": "TISSUE", "domain": "laser"},
-  {"id": "ablation_fluence_threshold", "unit": "J/cm^2", "level": "TISSUE", "domain": "laser"},
-
-  {"id": "c3b_recycling_fraction", "unit": "1", "level": "MOLECULE", "domain": "immune"},
-  {"id": "self_surface_growth_rate", "unit": "1/min", "level": "CELL", "domain": "immune"},
-  {"id": "mac_concentration", "unit": "nM", "level": "CELL", "domain": "immune"},
-  {"id": "activator_host_discrimination", "unit": "1", "level": "CELL", "domain": "immune"},
-
-  {"id": "boundary_condition_class", "unit": "categorical", "level": "TISSUE", "domain": "flow"},
-  {"id": "hydraulic_conductance", "unit": "m/(Pa s)", "level": "TISSUE", "domain": "flow"},
-  {"id": "needle_forward_friction", "unit": "N/mm", "level": "TISSUE", "domain": "needle"},
-  {"id": "passage_number", "unit": "count", "level": "TISSUE", "domain": "needle"},
-  {"id": "epithelial_front_velocity", "unit": "um/h", "level": "TISSUE", "domain": "skin"}
- ],
-
- "edges": [
-  {"from": "charge_inventory", "to": "ionic_swelling_pressure", "status": "TIGHT",
-   "relation": "halving the charge inventory lowers the swelling pressure by 489.65 Pa",
-   "evidence": {"file": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r13.json",
-                "key": "chain_all05.Pi_change_Pa", "value": -489.64879350600813}},
-
-  {"from": "ionic_swelling_pressure", "to": "stromal_thickness", "status": "TIGHT",
-   "relation": "pupil-mean thickness falls 605.582 to 602.039 um over that pressure change",
-   "evidence": {"file": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r13.json",
-                "key": "chain_all05.pupil_mean_thickness_after_um", "value": 602.0390240447553}},
-
-  {"from": "stromal_thickness", "to": "refractive_power", "status": "OPEN",
-   "relation": "thickness, index, hydration AND surface allocation together leave 0.3056 D undetermined; identity errors exactly 0.0 in 4 of 4 pairs",
-   "evidence": {"file": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r14.json",
-                "key": "eta_sufficiency.powergap_D", "value": 0.3056391116672543}},
-
-  {"from": "surface_allocation", "to": "refractive_power", "status": "OPEN",
-   "relation": "the span over this variable alone is 0.8724 D and the sign of the change flips across conditions",
-   "evidence": {"file": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r13.json",
-                "key": "surface_sufficiency.downstream_power_difference_D", "value": 0.8723871708712494}},
-
-  {"from": "surface_shape_field", "to": "refractive_power", "status": "TIGHT",
-   "relation": "with native pupil-limited shape data the maximum gap is 0.2396 D, below the 0.25 D clinical threshold, 0 violations in 101 cases",
-   "evidence": {"file": "results/LANE_CORNEA_SHAPE/night_rounds/r2.json",
-                "key": "native_pupil_max_gap_D", "value": 0.23961891826215265}},
-
-  {"from": "pupil_diameter", "to": "refractive_power", "status": "OPEN",
-   "relation": "at large pupil the shape field no longer closes the gap: violations in 98 of 98 cases",
-   "evidence": {"file": "results/LANE_CORNEA_SHAPE/night_rounds/r2.json",
-                "key": "large_pupil_violations", "value": "98/98"}},
-
-  {"from": "posterior_corneal_astigmatism", "to": "residual_cylinder", "status": "TIGHT",
-   "relation": "measuring it instead of estimating it cuts residual cylinder error from 0.6264 to 0.2817 D against measured refraction on 69 patients",
-   "evidence": {"file": "results/ASSEMBLY_TORIC_DECISION/TORIC_V1.json",
-                "key": "summary.residual_cyl_mae_with_measured_posterior_D", "value": 0.2817}},
-
-  {"from": "implant_power", "to": "refractive_power", "status": "TIGHT",
-   "relation": "inverted to a decision: the twin lands closer to the hindsight-correct power than the implanted lens in 11 of 20 cases against 2, mean miss 0.688 against 1.070 D",
-   "evidence": {"file": "results/ASSEMBLY_IOL_DECISION/DECISION_V1.json",
-                "key": "summary.mean_power_miss_twin_D", "value": 0.6883}},
-
-  {"from": "lattice_order", "to": "scatter_tail_fraction", "status": "UNKNOWN",
-   "relation": "domain data gives a disorder ratio of 20.2466 to 59.4856 and a wavelength exponent of -4.8765, but the amplitude is not transferable to our chain and the causal exponent shift proved analytically forced rather than measured",
-   "evidence": {"file": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json",
-                "key": "optical_shift_origin", "value": "ANALYTICALLY_FORCED_NOT_EMPIRICAL_CAUSAL_MEASUREMENT"}},
-
-  {"from": "delivered_energy", "to": "removed_mass", "status": "OPEN",
-   "relation": "identical delivered energy to 0.0 J gives removed mass 0.0 against 1.255e-9 kg",
-   "evidence": {"file": "results/LANE_LASER_SURGERY/night_rounds/r17.json",
-                "key": "sufficiency_energy.b.conditional_removed_mass_kg", "value": 1.255019203345805e-09}},
-
-  {"from": "surface_temperature_history", "to": "depth_temperature", "status": "OPEN",
-   "relation": "identical surface history to 0.0 K leaves 0.3806 K at target depth, with numerics three orders cleaner at 4.33e-05 K; a separated readout widens it to 35.0 K",
-   "evidence": {"file": "results/LANE_DEPTH_TEMPERATURE/night_rounds/r4.json",
-                "key": "separated_grating_target_gap_K", "value": 35.0}},
-
-  {"from": "cem43_thermal_dose", "to": "removed_mass", "status": "OPEN",
-   "relation": "the standard clinical thermal dose with time and peak temperature leaves 5.04 percentage points in conditional loss over 7 counterexamples at identity error 0.0",
-   "evidence": {"file": "results/LANE_LASER_SURGERY/night_rounds/r19.json",
-                "key": "conditional_loss_difference_percentage_points", "value": 5.038748758105517}},
-
-  {"from": "ablation_fluence_threshold", "to": "removed_mass", "status": "TIGHT",
-   "relation": "published threshold 1.15 J/cm^2 as the x-intercept of a mass-loss regression; our chain sits 26.51 percent above it with a slope error of -24.97 percent",
-   "evidence": {"file": "results/LANE_LASER_SURGERY/night_rounds/r17.json",
-                "key": "primary_prediction.relative_error", "value": 0.26508185342208535}},
-
-  {"from": "c3b_recycling_fraction", "to": "self_surface_growth_rate", "status": "TIGHT",
-   "relation": "the growth rate on a self surface crosses zero at a recycling fraction of 0.69012, moving from -0.15115 to -0.00188 per minute",
-   "evidence": {"file": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r1_V1.json",
-                "key": "rho_critical", "value": 0.6901150139263259}},
-
-  {"from": "c3b_recycling_fraction", "to": "activator_host_discrimination", "status": "TIGHT",
-   "relation": "discrimination is 486.11 without recycling and 4.969 with it, a factor of 97.83; published biology supports the recycling end",
-   "evidence": {"file": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json",
-                "key": "discrimination_change_factor", "value": 97.83134000044933}},
-
-  {"from": "mac_concentration", "to": "self_surface_growth_rate", "status": "OPEN",
-   "relation": "identical surface occupancy at identity error 0.0 leaves 0.16723 nM of MAC undetermined",
-   "evidence": {"file": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json",
-                "key": "occupancy_MAC_gap_nM", "value": 0.16723269204490165}},
-
-  {"from": "boundary_condition_class", "to": "hydraulic_conductance", "status": "TIGHT",
-   "relation": "a stationary end value cannot identify the conductance under maintained pressure boundaries, where q_ss = -K dP/L is nonzero; closed finite reservoirs give q(inf) = 0 to 7.211e-12. All 45 flow cells now carry a declared boundary class, none unknown",
-   "evidence": {"file": "results/LANE_ZERO_FLUX_AUDIT/night_rounds/r15.json",
-                "key": "boundary_census.baseline_regimes.UNKNOWN", "value": 0}},
-
-  {"from": "passage_number", "to": "needle_forward_friction", "status": "UNKNOWN",
-   "relation": "no digitised series separates forward friction on first versus repeated passage in the same hole, so the equal-friction assumption is uncertain. Nine published curves are readable with sources and reading errors",
-   "evidence": {"file": "3fold-motion-engine/_private/romi_collab/build/SOL_FALT_NALFRIKTION_20261001/raw/anchor_curves/INDEX.json",
-                "key": "measurement_status", "value": "OSAKER"},
-   "owner": "field lane, read-only for us"},
-
-  {"from": "epithelial_front_velocity", "to": "epithelial_front_velocity", "status": "OPEN",
-   "relation": "our value of 30.0 um/h against a held-out measurement of 9.00 +/- 0.465 um/h, ratio 3.3333, and the constant was chosen to produce 0.03 mm/h rather than measured",
-   "evidence": {"file": "/mnt/games-240/research/bunny48_20260926/bodytwin/BT-FW48-AUTO-ab449fce1f6f56/results.json",
-                "key": "external_facit.q115_over_anchor_ratio", "value": 3.3333333333333335},
-   "note": "a self-edge marking a quantity refuted against its own external referent"}
- ],
-
- "stress_points": [
-  {"variable": "surface_shape_field",
-   "why": "it decides the SIGN of a procedure's refractive outcome; the span over its proxy is 0.8724 D against a 0.25 D clinical threshold",
-   "closing_measurement": "corneal topography height field with common registration, routinely acquired"},
-  {"variable": "depth_temperature",
-   "why": "no measurable surrogate determines it: delivered energy, surface history and CEM43 all fail, the last two at identity error exactly 0.0",
-   "closing_measurement": "depth-resolved temperature with a registered thermal frame; the proposed optical route misses its own 0.10 K target on 10 held bench temperatures"},
-  {"variable": "c3b_recycling_fraction",
-   "why": "a factor of 97.83 in the protective margin depends on it alone",
-   "closing_measurement": "the regulator's own uncertainty, currently unmeasured, which is why the 0.69012 threshold is uncertified"},
-  {"variable": "pupil_diameter",
-   "why": "it separates the regime where the shape field closes the refractive gap from the regime where it does not: 0 of 101 violations at native pupil against 98 of 98 at large pupil",
-   "closing_measurement": "none needed; it is a declared condition, so the net must carry it as an explicit regime axis rather than a fixed value"}
- ]
+ "_meta": {
+  "synced_from_live_2026_10_03": "the live net is a symlink into generations/ and was never tracked; every edit made on 2026-10-03 lived outside git until this sync. Three nodes (lens_position, axial_length, iol_label_power), three edges, two corrected constraints and one missing endpoint were only in the untracked copy."
+ }
 }
