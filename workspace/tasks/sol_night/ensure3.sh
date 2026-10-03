@@ -90,9 +90,9 @@ while read -r LANE; do
     systemd-run --user --unit="$U" --collect --quiet -p TimeoutStopSec=60 -p RuntimeMaxSec="$ROUND_TIMEOUT" -p MemoryMax="${LANE_MEM:-4G}" --slice=bt-solnight.slice \
       -p WorkingDirectory="$ROOT" \
       -E OMP_NUM_THREADS=2 -E OPENBLAS_NUM_THREADS=2 -E MKL_NUM_THREADS=2 -E NUMEXPR_NUM_THREADS=2 -E HOME=~ -E PATH="$PATH" \
-      /bin/bash -c "exec nice -n 10 lane_runner exec -m '$MODEL' -c model_reasoning_effort='$EFFORT' --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check -C '$ROOT' \"\$0\" </dev/null >> '$OUT/night_rounds/codex_r$R.log' 2>&1" "$PROMPT" \
+      /bin/bash -c "exec nice -n 10 lane_runner exec -m '$MODEL' -c model_reasoning_effort='$EFFORT' -c tools.web_search=true --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check -C '$ROOT' \"\$0\" </dev/null >> '$OUT/night_rounds/lane_runner_r$R.log' 2>&1" "$PROMPT" \
       && echo "[$(date +%F' '%T)] start $LANE round $R ($MODEL/$EFFORT)" >> "$LOG" \
-      || { echo "[$(date +%F' '%T)] ALERT systemd-run misslyckades $LANE" >> "$LOG"; rm -f "$ST/$LANE.started"; }
+      || { echo "[$(date +%F' '%T)] ALERT systemd-run failed $LANE" >> "$LOG"; rm -f "$ST/$LANE.started"; }
   } || true
 done < "$D/slots.txt"
 exit 0

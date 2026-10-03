@@ -13,7 +13,7 @@ $(cat "$B")
 
 Working directory: $W. Your directory for this round: $D (tag $T). The final message is saved as SOL_FINAL_$T.md."
 echo "{\"tag\":\"$T\",\"dir\":\"$D\",\"started\":\"$(date -Is)\"}" > "$W/tasks/build_night/logs/$T.start.json"
-nice -n 10 lane_runner exec --skip-git-repo-check -m lane-model -c model_reasoning_effort="xhigh" \
+nice -n 10 lane_runner exec --skip-git-repo-check -m lane-model -c model_reasoning_effort="xhigh" -c tools.web_search=true \
   --dangerously-bypass-approvals-and-sandbox -C "$W" -o "$D/SOL_FINAL_$T.md" "$P" \
   > "$W/tasks/build_night/logs/$T.log" 2>&1
 echo "{\"tag\":\"$T\",\"finished\":\"$(date -Is)\",\"rc\":$?}" > "$W/tasks/build_night/logs/$T.end.json"
