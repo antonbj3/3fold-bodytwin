@@ -33,7 +33,12 @@ from pathlib import Path
 
 W = Path('.')
 NET = W / 'CONSTRAINT_NETS.json'
-EV = re.compile(r'^(?P<file>[^\s:]+)\s*::\s*(?P<key>[^=]+?)\s*=\s*(?P<value>-?[\d.eE+]+)\s*$')
+# The value class used to be [\d.eE+], which accepts 1.25e+09 and rejects 1.25e-09. Four edges
+# whose provenance resolved perfectly were therefore reported as "evidence carries no
+# file :: key = value": the exponent sign, not the evidence, was the defect. Exponents of either
+# sign are now accepted, and the grammar is spelled out rather than being a character bag.
+EV = re.compile(r'^(?P<file>[^\s:]+)\s*::\s*(?P<key>[^=]+?)\s*=\s*'
+                r'(?P<value>[+-]?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?)\s*$')
 
 
 def dig(obj, dotted: str):
@@ -44,16 +49,31 @@ def dig(obj, dotted: str):
     # nesting, because a value sits under `summary` or a level deeper than the path says. A
     # provenance link that only resolves when a human typed the nesting correctly is decorative,
     # so the leaf name is searched for when the path misses, and the row records which found it.
+    # List indices count as nesting too. The path walker only stepped through dicts, so an edge
+    # whose number sits in a list -- one device row of several -- could not be addressed at all,
+    # and the leaf search then found one value per row and called the leaf ambiguous. A path
+    # segment of the form name[i] now steps into the list as well.
     cur, ok = obj, True
     for part in dotted.split('.'):
-        if isinstance(cur, dict) and part in cur:
-            cur = cur[part]
+        part = part.strip()
+        idx = re.findall(r'\[(\d+)\]', part)
+        name = part.split('[')[0]
+        if isinstance(cur, dict) and name in cur:
+            cur = cur[name]
         else:
             ok = False
             break
+        for i in idx:
+            if isinstance(cur, list) and int(i) < len(cur):
+                cur = cur[int(i)]
+            else:
+                ok = False
+                break
+        if not ok:
+            break
     if ok:
         return cur, 'path'
-    leaf = dotted.split('.')[-1].strip()
+    leaf = dotted.split('.')[-1].strip().split('[')[0]
     found = []
 
     def walk(o):
@@ -80,12 +100,32 @@ def number_appears(text: str, value: float) -> bool:
     # prose that says "26.51 percent". A checker that cries wolf is worse than one that stays
     # quiet, because the next real flag gets ignored. Sign and percent are accepted as the same
     # number; a different number is not.
+    # A rendering only counts if it still IS the value. At zero decimal places every quantity
+    # below 0.5 renders as "0", and "0" occurs in almost any prose, so the loop used to clear such
+    # an edge on a digit that carries none of its information -- a silent pass, the mirror of the
+    # false alarm this module was written to stop. Measured on the 56-edge net: all 53 verifiable
+    # edges match a rendering within 1 percent, so no current verdict rests on the loose reading
+    # and this bound changes no count today; it stops a future edge from being cleared by a zero.
     for v in (value, -value, value * 100.0, value / 100.0):
         for places in range(0, 7):
             s = f'{v:.{places}f}'
             if s.endswith('.'):
                 s = s[:-1]
-            if s in text:
+            if s in text and abs(float(s) - v) <= 0.01 * max(abs(v), 1e-300):
+                return True
+    # Prose writes a small number in scientific notation and it writes it short: an evidence value
+    # of 1.255019203345805e-09 appears in the text as "1.255e-9". Fixed-point rendering of that
+    # value is "0.000000" at every width the loop above tries, so a correct edge was one rounding
+    # convention away from being called STALE -- the cry-wolf failure this module exists to avoid.
+    # Only renderings OF THIS VALUE are accepted, so a different mantissa or exponent still flags.
+    for digits in range(1, 8):
+        sci = f'{value:.{digits}e}'
+        mant, _, exp = sci.partition('e')
+        mant = mant.rstrip('0').rstrip('.') if '.' in mant else mant
+        sign = '-' if exp[0] == '-' else ''
+        n = exp[1:].lstrip('0') or '0'
+        for e_txt in (f'e{sign}{n}', f'e{sign}{int(n):02d}'):
+            if f'{mant}{e_txt}' in text:
                 return True
     return repr(value) in text
 
