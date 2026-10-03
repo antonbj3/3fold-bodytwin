@@ -36,15 +36,33 @@ W = Path('.')
 OUT = W / 'results/ASSEMBLY_QUANTITY_INDEX'
 
 # Unit suffixes as they appear in key names across this corpus, longest first so _mm_s beats _s.
+# Compound units FIRST and matched longest-first, because the defect this fixes was reading only the
+# last component: `mu_pa_s` is Pascal-seconds and came out as seconds, `v_mol_s` is mol per second,
+# `darcy_flux_m_s` is metres per second. 7511 rows were wrong that way and they concentrated in
+# velocities, fluxes and viscosities -- the quantities tissue transport is written in, so the
+# dimensional filter built on this index was weakest exactly where it mattered most.
 UNIT_SUFFIX = [
-    ('_percentage_points', 'percentage points'), ('_pmol_per_l', 'pmol/L'), ('_ml_min', 'mL/min'),
-    ('_j_per_mol', 'J/mol'), ('_j_mol', 'J/mol'), ('_mm_s', 'mm/s'), ('_um_h', 'um/h'),
-    ('_n_mm', 'N/mm'), ('_mpa', 'MPa'), ('_kpa', 'kPa'), ('_pa', 'Pa'), ('_nm', 'nm'),
-    ('_um', 'um'), ('_mm', 'mm'), ('_cm4', 'cm^4'), ('_cm', 'cm'), ('_deg', 'deg'),
-    ('_degc', 'degC'), ('_k', 'K'), ('_d', 'D'), ('_nn', 'nM'), ('_nm_conc', 'nM'),
-    ('_mol', 'mol'), ('_j', 'J'), ('_n', 'N'), ('_s', 's'), ('_h', 'h'), ('_hz', 'Hz'),
+    # compound, longest first
+    ('_w_m_k', 'W/(m*K)'), ('_j_kg_k', 'J/(kg*K)'), ('_mol_m2_s', 'mol/(m^2*s)'),
+    ('_mol_m3_s', 'mol/(m^3*s)'), ('_percentage_points', 'percentage points'),
+    ('_pmol_per_l', 'pmol/L'), ('_m_per_pa_s', 'm/(Pa*s)'), ('_pa_s', 'Pa*s'),
+    ('_mol_s', 'mol/s'), ('_mol_m3', 'mol/m^3'), ('_kg_m3', 'kg/m^3'), ('_j_mol', 'J/mol'),
+    ('_j_per_mol', 'J/mol'), ('_j_kg', 'J/kg'), ('_n_m', 'N*m'), ('_n_mm', 'N/mm'),
+    ('_ml_min', 'mL/min'), ('_l_min', 'L/min'), ('_um_h', 'um/h'), ('_mm_h', 'mm/h'),
+    ('_um_s', 'um/s'), ('_mm_s', 'mm/s'), ('_m_s', 'm/s'), ('_cm_s', 'cm/s'),
+    ('_pa_1', '1/Pa'), ('_per_s', '1/s'), ('_per_h', '1/h'), ('_cm4', 'cm^4'),
+    ('_mm2', 'mm^2'), ('_m2', 'm^2'), ('_m3', 'm^3'), ('_um2', 'um^2'),
+    # single
+    ('_mpa', 'MPa'), ('_kpa', 'kPa'), ('_gpa', 'GPa'), ('_pa', 'Pa'),
+    ('_nm', 'nm'), ('_um', 'um'), ('_mm', 'mm'), ('_cm', 'cm'),
+    ('_degc', 'degC'), ('_deg', 'deg'), ('_k', 'K'), ('_d', 'D'),
+    ('_nn', 'nM'), ('_mol', 'mol'), ('_j', 'J'), ('_n', 'N'),
+    ('_hz', 'Hz'), ('_s', 's'), ('_h', 'h'),
     ('_percent', 'percent'), ('_pct', 'percent'), ('_fraction', '1'), ('_ratio', '1'),
 ]
+# Longest suffix wins regardless of list order, so a later single-unit entry cannot shadow a compound.
+UNIT_SUFFIX.sort(key=lambda kv: -len(kv[0]))
+
 DOI = re.compile(r'10\.\d{4,9}/[^\s",\)\]]+')
 PMID = re.compile(r'pmid["\s:]*(\d{6,9})', re.I)
 SKIP_KEY = re.compile(r'seed|version|epoch|elapsed|timestamp|index$|_id$|sha256|count$|^n_|_n$', re.I)
