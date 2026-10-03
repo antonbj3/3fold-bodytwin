@@ -57,7 +57,13 @@ IDEA_PREFIX = 'BT-IDEA-'
 # hunts fell to the back. Measured before this change: 42 creative jobs against 1052 computation
 # jobs, median creative position 912 of 1101. They are the ones that produced the external anchors
 # tonight, so they go first until told otherwise.
-CREATIVE_PREFIXES = (IDEA_PREFIX, 'BT-NET-', 'BT-2ND-')
+CREATIVE_PREFIXES = (IDEA_PREFIX, 'BT-NET-', 'BT-2ND-', 'BT-ANOM-', 'BT-OBST-', 'BT-CAP-')
+# 3/10 20:35 (Anton: "maximum value tonight, almost exclusively creative" - with the judgement left
+# to me). Measured basis for agreeing on the free tier and only there: 37 of 37 completed creative
+# results carry a DOI or PMID against 1 DOI across 175 table rows from the templated batch, and 0 of
+# 69 templated jobs produced a quantity any of our cells consume. Sol is NOT switched: every decision
+# built tonight came from a Sol lane, and the dental lane measured 12 of 30 computation jobs failing
+# on rigour, which is what the strict form catches.
 
 
 def job_of(line: str) -> str:

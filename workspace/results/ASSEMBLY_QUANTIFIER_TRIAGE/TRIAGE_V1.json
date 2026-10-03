@@ -1,0 +1,188 @@
+{
+ "artifact": "ASSEMBLY_QUANTIFIER_TRIAGE/TRIAGE_V1",
+ "triaged": "the first 12 job ids in results/ASSEMBLY_QUANTIFIER_SCAN.json, in file order",
+ "scan_population": 237,
+ "method": "for each job the universal claim was located in its own text, then the code or, where the job has no code, the enumerated data was read to establish the domain actually iterated or proved, and the two domains were compared; the scan output carries only job ids, so the triggering sentence was found by searching each directory",
+ "verdict_definitions": {
+  "CONFIRMED": "the stated domain exceeds what is computed or proved",
+  "CLEARED": "the claim is proved, definitional, or bounded by an enumeration the job covers",
+  "UNDECIDABLE": "the code needed to settle it is not in the job directory"
+ },
+ "counts": {
+  "CLEARED": 9,
+  "CONFIRMED": 3
+ },
+ "no_extrapolation": "these 12 are the head of a ranking, not a sample: they were ordered by the detector, so the rate here must not be projected onto the remaining 225. No estimate of the population rate is made or implied.",
+ "detector_reading": "the detector is a text-proximity heuristic and 5 of these 12 fired on preregistration boilerplate, measurement specifications, null-model definitions or source-coverage statements rather than on a result claim, which is why the ranking needs the code read behind each headline",
+ "undecidable_note": "two jobs (ranks 1 and 8) hold no .py, which is the brief's UNDECIDABLE condition, but both claims are coverage statements over data enumerated inside the job directory and were settled against that data, so neither is recorded as UNDECIDABLE",
+ "rows": [
+  {
+   "rank": 1,
+   "job": "BT-DATG-987EEBCED1D203A5",
+   "verdict": "CLEARED",
+   "claim": "per-arm STARTED / COMPLETED / NOT-COMPLETED counts \"for all 29 records\" and per-arm n_analysed \"for all 43 primary outcomes\"",
+   "read": [
+    "BT-DATG-987EEBCED1D203A5/results.json:79-80",
+    "BT-DATG-987EEBCED1D203A5/ledger.json"
+   ],
+   "code_in_job_dir": false,
+   "evidence": "The claimed domain is a closed named set, not a sweep: ledger.json holds exactly 29 NCT records, all 29 carry a non-empty participant_flow, and the primary_outcomes entries sum to exactly 43, so the quantifier enumerates its whole domain.",
+   "method_note": "No .py in the directory, but the claim is a coverage statement about extracted source data, so it was checked against the enumerated ledger rather than against code; this is decidable, not UNDECIDABLE."
+  },
+  {
+   "rank": 2,
+   "job": "BT-FW48-SEED-174",
+   "verdict": "CLEARED",
+   "claim": "\"no dose at any level reduces the burden and c = 0 is the unique optimum for every arm\"",
+   "read": [
+    "BT-FW48-SEED-174/PREREG.md:112-118",
+    "BT-FW48-SEED-174/m174_sim.py:33",
+    "BT-FW48-SEED-174/m174_sim.py:66",
+    "BT-FW48-SEED-174/results_run1_degenerate.json"
+   ],
+   "code_in_job_dir": true,
+   "evidence": "The kill term is monotone in dose, so evaluating it at the frozen peak limit bounds the whole interval: k_d*c_max - k_n = 0.80 - 0.70 = +0.10 > 0 means the net rate stays positive for every c <= c_max, not merely at the 5 grid levels of ACT, and the run confirms the consequence with mean_J_CAND equal to mean_J_best_control to all 16 digits and switch and memory effects of exactly 0.0.",
+   "method_note": "A self-diagnosis of a degenerate run, not a capability claim; the universal holds by a bound at the extreme of a monotone function."
+  },
+  {
+   "rank": 3,
+   "job": "BT-FW48-AUTO-c8a3e727f946e1",
+   "verdict": "CONFIRMED",
+   "claim": "\"The literal reading is a tautological no that fails for every measured nasal-Papp CV located; the endpoint-anchored reading passes for all of them\"",
+   "read": [
+    "BT-FW48-AUTO-c8a3e727f946e1/results.json:7",
+    "BT-FW48-AUTO-c8a3e727f946e1/calc_ke.py:192-206",
+    "BT-FW48-AUTO-c8a3e727f946e1/calc_ke.py:208-214",
+    "BT-FW48-AUTO-c8a3e727f946e1/a1_frontier.json"
+   ],
+   "code_in_job_dir": true,
+   "evidence": "The fail side holds on every located value, but the pass side does not: the endpoint-anchored threshold is rB_CV_req_at_32 = 0.2519, which the four melatonin CVs (0.0404 to 0.2461) clear, while four of the seven located comparator CVs in the same file exceed it (porcine mannitol 0.593 and 0.626, porcine testosterone 0.937 and 1.069), so 'all of them' is true only of the melatonin subset the scope flags select, not of every located CV as written.",
+   "method_note": "The code's own scope flags (porcine, Franz cell, passive transcellular, paracellular Flu-Na excluded) justify the narrow set; the defect is that the sentence states the wider domain."
+  },
+  {
+   "rank": 4,
+   "job": "BT-DW48-AUTO-ca96b86e565843",
+   "verdict": "CLEARED",
+   "claim": "\"if |alpha| < 0.0525 for all five, the STATIC class is confirmed\" and the partition headline fraction",
+   "read": [
+    "BT-DW48-AUTO-ca96b86e565843/FOLLOWUPS.json:11-19",
+    "BT-DW48-AUTO-ca96b86e565843/results.json primary_metric"
+   ],
+   "code_in_job_dir": true,
+   "evidence": "Both quantifiers are bounded by enumeration: the 'for all five' is a proposed future falsifier over five named materials, and the reported headline is a classification over an explicitly stated denominator of 9 inheriting resolvable nodes (7 insensitive, 2 sensitive, UNRESOLVED excluded and counted at 0), with the falsifier left LIVE-UNRESOLVED rather than asserted.",
+   "method_note": "No result is generalised past the node set that was classified."
+  },
+  {
+   "rank": 5,
+   "job": "BT-FW48-AUTO-d522db17c4fe30",
+   "verdict": "CONFIRMED",
+   "claim": "\"dMAC/dt changes sign for every k_clear >= 1e-4 /min\"",
+   "read": [
+    "BT-FW48-AUTO-d522db17c4fe30/results.json .actual_gain.confirmed[1]",
+    "BT-FW48-AUTO-d522db17c4fe30/run_step3_sweep.py:22",
+    "BT-FW48-AUTO-d522db17c4fe30/step3_sweep.json"
+   ],
+   "code_in_job_dir": true,
+   "evidence": "K_CLEAR_GRID is ten declared points from 0.0 to 1.0 and the output contains 19 distinct evaluated values spanning 1e-4 to 2.333 after the CD59 fold factor, so the claim quantifies over the unbounded half-line [1e-4, infinity) while the computation covers a bounded interval, and its lower bound coincides exactly with the grid minimum rather than with any analytic threshold.",
+   "method_note": "A sign-change argument from the decaying upstream flux might prove it for all k_clear > 0, but no such proof is stated and the bound asserted is the grid edge."
+  },
+  {
+   "rank": 6,
+   "job": "BT-DW48-AUTO-243987c466d57e",
+   "verdict": "CONFIRMED",
+   "claim": "\"the worst-case constrained design loop has an EMPTY feasible set for every ds >= 0.002\" and \"0.33-0.36 for EVERY shrink error when eps_geo >= 26 um\"",
+   "read": [
+    "BT-DW48-AUTO-243987c466d57e/ATTEMPTS.json:45",
+    "BT-DW48-AUTO-243987c466d57e/WORK_STATUS.md:17-21",
+    "BT-DW48-AUTO-243987c466d57e/toy_crown.py:295",
+    "BT-DW48-AUTO-243987c466d57e/toy_crown.py:329",
+    "BT-DW48-AUTO-243987c466d57e/toy_crown.py:341"
+   ],
+   "code_in_job_dir": true,
+   "evidence": "Every ds loop in the cell iterates a finite list whose largest entry is 0.020 (0.0, 0.002, 0.005, 0.010 and in one case 0.020), and the output holds exactly those five values, so 'for every ds >= 0.002' asserts an unbounded half-line from at most four computed points above the bound.",
+   "method_note": "Same shape of defect on the eps_geo axis, where the grid stops at 0.200 mm."
+  },
+  {
+   "rank": 7,
+   "job": "BT-DAT-GUTBARRIER",
+   "verdict": "CLEARED",
+   "claim": "\"the residual is at float64 round-off for every P_pore and every renewal rate swept, i.e. closure is structural, not a tuning result\"",
+   "read": [
+    "BT-DAT-GUTBARRIER/results.json .C4_ledger.closure_note",
+    "BT-DAT-GUTBARRIER/gutbarrier_analysis.py:446-465"
+   ],
+   "code_in_job_dir": true,
+   "evidence": "The sentence bounds itself with the word 'swept' and the sweep is exactly what it says: 2 P_pore values times 5 renewal half-lives times 3 cell loadings, 30 ledger runs, with max_residual_normalised 1.237e-14, and the naive double-counting negative control on the same grid returns 0.784, so the check demonstrably can fail and the zero is a real zero.",
+   "method_note": "The quantifier is explicitly restricted to the swept set, which is the correct form."
+  },
+  {
+   "rank": 8,
+   "job": "BT-DATG-CF907AA73BCF6588",
+   "verdict": "CLEARED",
+   "claim": "\"no machine-readable per-subject values, therefore file_hash = NOT_COMPUTED for every source\"",
+   "read": [
+    "BT-DATG-CF907AA73BCF6588/results.json:69",
+    "BT-DATG-CF907AA73BCF6588/DATA_SOURCES.json sources[0..4]"
+   ],
+   "code_in_job_dir": false,
+   "evidence": "The domain is the five enumerated sources S1 to S5 and all five carry raw_per_subject_machine_readable false with a null file_hash, matching sources_evaluated 5 and sources_passing 0, so the quantifier covers its entire finite domain.",
+   "method_note": "The prose says NOT_COMPUTED where the data stores JSON null; the substance matches but the rendering differs."
+  },
+  {
+   "rank": 9,
+   "job": "BT-DW48-AUTO-fc806b49bc09e8",
+   "verdict": "CLEARED",
+   "claim": "\"R = 80 for every a including a = 0\" and \"exactly 80.0 for every decade\"",
+   "read": [
+    "BT-DW48-AUTO-fc806b49bc09e8/ATTEMPTS.json:25",
+    "BT-DW48-AUTO-fc806b49bc09e8/PREREG_DEVIATIONS.md:95",
+    "BT-DW48-AUTO-fc806b49bc09e8/propagate.py:138",
+    "BT-DW48-AUTO-fc806b49bc09e8/propagate.py:147"
+   ],
+   "code_in_job_dir": true,
+   "evidence": "R_rate is computed as D_rate / D_nom where D_rate is defined one line earlier as S * D_nom, so R is identically S and the exponent a never enters the expression, which is why the claim can legitimately cover a = 0 outside the a_grid; the identity is exercised on 200 cells to max_abs_err 1.42e-14 and across 12 decades of C to 2.22e-16 relative.",
+   "method_note": "An exact algebraic identity, with the stricter bit-identity demand reported as failing by 1 ULP rather than being asserted away."
+  },
+  {
+   "rank": 10,
+   "job": "BT-DW48-AUTO-23d587308762ec",
+   "verdict": "CLEARED",
+   "claim": "\"for every tested specimen emit ...\" and \"identical for every estimator and every pool\", around the PROVED_UNDER_DEFINITION headline",
+   "read": [
+    "BT-DW48-AUTO-23d587308762ec/results.json decision",
+    "BT-DW48-AUTO-23d587308762ec/analysis.py:283-292",
+    "BT-DW48-AUTO-23d587308762ec/analysis_results.json .P1_amplitude_identity"
+   ],
+   "code_in_job_dir": true,
+   "evidence": "The two universal phrases are a measurement specification and a frozen permutation design, not result claims, and the result they sit beside is bounded to the enumerated sample: the E1 identity is checked on 37 of 37 pairs with 0 fallbacks and max_abs_residual exactly 0.0, while the headline answer is split by pool and states NO on the held-out 3-study cluster where the falsifier fires.",
+   "method_note": "The detector fired on preregistration boilerplate; the adjacent empirical claim is scoped and partly negative."
+  },
+  {
+   "rank": 11,
+   "job": "BT-FW48-SEED-213",
+   "verdict": "CLEARED",
+   "claim": "\"kappa_H > kappa_D for all T so the positive sign is right\"",
+   "read": [
+    "BT-FW48-SEED-213/results.json .defects_found_and_repaired[3]",
+    "BT-FW48-SEED-213/m213_contrast.py:68-69"
+   ],
+   "code_in_job_dir": true,
+   "evidence": "kappa_wigner returns 1 + (theta_c*sqrt(M_H/m_x))^2/(24*T*T), in which the temperature enters only as a common positive factor 1/(24T^2), so the H/D ordering reduces to sqrt(M_H/M_D) = 0.7074 < 1 and holds for every T > 0; evaluated over 2003 temperatures from 1e-3 to 1e6 K at three theta_c values the minimum of kappa_H - kappa_D stayed positive (smallest 1.87e-09).",
+   "method_note": "The universal is a property of the closed form, not an extrapolation from the three fitted temperatures."
+  },
+  {
+   "rank": 12,
+   "job": "BT-CPL-Q062-Q063",
+   "verdict": "CLEARED",
+   "claim": "\"F_TS = 0 for every load state\"",
+   "read": [
+    "BT-CPL-Q062-Q063/results.json .null_models.a_zero_model",
+    "BT-CPL-Q062-Q063/coupled_model.py:393-395"
+   ],
+   "code_in_job_dir": true,
+   "evidence": "The phrase is the definition field of the a_zero_model null, i.e. it stipulates the null rather than reporting a measured result, and the neighbouring 'for all 15 moment arms' is a bounded enumeration over the frozen moment-arm set.",
+   "method_note": "A definitional universal cannot exceed a computed domain."
+  }
+ ],
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

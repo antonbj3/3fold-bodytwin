@@ -42,6 +42,11 @@ ts() { date '+%F %T'; }
   #     domain automatically rather than following my attention.
   python3 tasks/assembly/queue_from_anomalies.py 2>&1 | head -2 | sed "s/^/[$(ts)] /"
 
+  # 2c. Connection briefs are the only generator that does not run dry: one per PAIR of cells
+  #     that share at least two dimensions, 257 such pairs against 120 queued, so it refills
+  #     itself as the queue drains. The others are one-per-thing and are already exhausted.
+  python3 tasks/assembly/queue_connection_briefs.py 2>&1 | head -1 | sed "s/^/[$(ts)] /"
+
   # 3. Prune the queue. Measured 2026-10-03: 12837 of 13919 entries already had a RESULTS.md, so the
   #    queue was 92 % completed work that nothing removed, plus 35 malformed lines from a heredoc that
   #    ran away. The dispatcher re-read and skipped all of it every cycle, and it made freshly queued
