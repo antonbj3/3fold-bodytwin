@@ -1,5 +1,12 @@
 """A decision that declines: which eyes cannot be decided to the clinical threshold, said beforehand.
 
+CORRECTION, from auditing this cell against its own headline. What it composes is NOT a floor, and I
+reported it as one. A floor bounds every unit; 50 of 89 eyes have a realised miss below their own
+composed value, averaging 0.2035 D against 0.4508, which is what a composed standard deviation does.
+The median was the tell and I read past it: realised 0.3675 D against composed 0.4794 D. The honest
+claim is that input uncertainty is the same magnitude as the residual error, so there is little
+headroom left -- not that 0.08 D of model error remains.
+
 This is the capability the failed probability work was reaching for and could not get. Scoring the
 decision as a probability gave a Brier skill of +0.038 and -0.085 against the cohort rate, with a
 resolution of 0.0034, because the uncertainty was fitted from outcomes and an additive split of a
