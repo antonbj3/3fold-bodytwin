@@ -616,12 +616,13 @@
       "posterior_corneal_astigmatism",
       "residual_cylinder"
      ],
-     "constraint": "measuring it instead of estimating it cuts residual cylinder error from 0.6264 to 0.2817 D against measured refraction on 69 patients, and this is now confirmed by THREE independent sources for the same input: 0.2817 (IOLMaster posterior), 0.2934 (CASIA posterior, conventions aligned) and 0.3112 D (CASIA total cornea measured in one step). The two devices print ORTHOGONAL posterior meridians, 86 degrees apart in median, and taking the printed axis gives 0.7577 D, which nearly produced a false refutation of this edge",
+     "constraint": "measuring it instead of estimating it cuts residual cylinder error from 0.6209 to 0.2808 D against measured refraction on 69 patients, and this is now confirmed by THREE independent sources for the same input: 0.2808 (IOLMaster posterior), 0.2932 (CASIA posterior, conventions aligned) and 0.3112 D (CASIA total cornea measured in one step). The two devices print ORTHOGONAL posterior meridians, 86 degrees apart in median, and taking the printed axis gives 0.7525 D, which nearly produced a false refutation of this edge",
      "status": "TIGHT",
-     "evidence": "results/ASSEMBLY_TORIC_CROSS_DEVICE/CROSS_DEVICE_V1.json :: residual_cylinder_mae_D.iolmaster_posterior = 0.2817",
+     "evidence": "results/ASSEMBLY_TORIC_CROSS_DEVICE/CROSS_DEVICE_V1.json :: residual_cylinder_mae_D.iolmaster_posterior = 0.2808",
      "evidence_was_before_2026_10_03": "results/ASSEMBLY_TORIC_CROSS_DEVICE/CROSS_DEVICE_V1.json :: residual_cylinder_mae_D",
      "evidence_mtime_at_last_check": 1791044114.047,
-     "last_checked_status": "OK"
+     "last_checked_status": "OK",
+     "updated_2026_10_03_axis_fix": "from_vector rotated every axis by 90 degrees; fixing it moved the figures in the fourth decimal where the axis was shared and more where it was fixed"
     },
     {
      "id": "T-E8-implant_power-vs-refractive_power",
