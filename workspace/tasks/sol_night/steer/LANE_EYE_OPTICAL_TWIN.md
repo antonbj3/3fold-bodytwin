@@ -1,62 +1,51 @@
-# Styrning r14 — The chain carries; now the surface flooring is all that is missing
+# Steer, round 25: leave the spectral line and build the one connection that has data and no owner
 
-## Vad r13 gjorde, verifierat av mig i artefaktfilerna
-The chain runs all the way and passes my falsifier. I set the limit at a clinical autorefractory
-0,25 D, and you registered it yourself as `autorefractor_threshold.threshold_D = 0,25`:
+## Why you are being turned
+Round 24 gated FAIL with the obstacle stated as unacquired registered spectral stimulus and
+same-specimen component response. That is an honest stop: the line cannot proceed without data that is
+not on this machine. The CIE tables you acquired are real external facit with DOI metadata and they
+stay; the spectral question moves to the swarm, which is the half of the division of labour that
+fetches external references. Do not spend round 25 on it.
 
-| led | tal |
-|---|---|
-| laddning | 1,2195e-15 → 6,0976e-16 mol/m |
-| ionic swelling pressure | 3317,79 → 2828,15 I mean, Pa. **−489,65 Pa** |
-| pupillmedeltjocklek | 605,582 → 602,039 µm |
-| index | 1,3751008 → 1,3756288 |
-| **brytkraft** | 60,71208 → **60,28649 D, ie. −0,42559 D** |
-| RMS higher order | 0,24997 µm; Strehl 0,12273 → 0,10424 |
+## The obstacle that is actually binding
+The decision chain this lane feeds now makes two decisions scored against real outcomes, and both were
+strengthened today: the implant power runs prospectively at 0.535 D mean miss against the implanted
+power's 1.130 D on 89 eyes, and the toric cylinder holds against a second instrument at 0.2934 D
+against 0.2817 D. What neither can do is say WHICH eyes it should not be trusted on. A forecast-
+verification attempt failed at exactly that: Brier skill +0.038 and -0.085 against the cohort rate,
+resolution 0.0034, i.e. the per-patient confidence carried almost no information.
 
-**And the rotating control gives −1,3592e-08 D** vid tjockleksfel 7,96e-13 µm, so the whole effect
-comes from the non-symmetrical structure. The number is pure: maximum power failure 4,19e-13 D and
-rung error 4,97e-15 This is a real result and it should be as such.
+The reason is identifiability, and it is already diagnosed: an additive stage decomposition of a total
+observed only once is not identifiable, so a per-eye uncertainty cannot be fitted from outcomes alone.
+It needs a per-eye measurement of the instrument's own spread.
 
-## But the sweep says something sharper than the headline
-I read all twelve `OPTICAL_*_R13_V1.json`. Effekten **byter tecken mellan betingelser**:
+## That measurement exists and nothing consumes it
+`results/LANE_CORNEA_SHAPE/r3/REPEATABILITY_V1.json` holds 900 exams over 300 eyes, three per eye, with
+the per-eye repeat range and sample spread for KrSEQ, Kf3rSEQ, Kf6rSEQ and the zone difference. Measured
+from it: the repeat range exceeds the 0.25 D clinical threshold in 43 of 300 eyes and 0.50 D in 6.
 
-| betingelse | delta_power_D |
-|---|---|
-| all05 | −0,42559 |
-| all15 | **+0,46578** |
-| K5610 | −0,56981 |
-| K13800 | −0,21103 |
-| K30100 | −0,09410 |
-| K47300 | −0,05941 |
-| source30 | −0,07283 |
-| source30increase | +0,07600 |
-| **eta = 0** | **+0,01059** |
-| **eta = 1** | **−0,86180** |
+## The operation for round 25
+Propagate a per-eye instrument spread through the chain to a per-eye spread on the DECISION, not on the
+prediction. Concretely: for an eye with a measured repeat spread in corneal power, what is the induced
+spread in the recommended implant power on the 0.5 D manufacturing grid, and in the recommended toric
+cylinder? The chain's sensitivities are already measured — 1.349 D/mm to lens position, and `dR/dP` per
+eye is in `results/ASSEMBLY_IOL_DECISION/DECISION_V1.json`.
 
-Fem betingelser klarar 0,25 D and five do not, and the sign reverses. This means that a monotonic
-assumed direction would be wrong — and that **The surface flooring eta carries almost the entire outcome**: span over
-eta is 0,8724 D, which is **exakt** your own sufficiency gap
-`surface_sufficiency.downstream_power_difference_D = 0,87239` vid identitetsfel 0,0 i medeltjocklek, J
-and index fields.
+Deliver the fraction of eyes where the induced spread crosses a grid step, because that is the decision
+changing, not the number moving.
 
-## The operation this round
-1. **Try whether the eta IS the minimally sufficient enlargement.** That the hatch and the eta-span coincide
-   to four decimal places is a strong indication but no proof. Construct two states with identical
-   Average thickness, identical index field AND identical eta and measure if the breaking force still differs.
-   Don't make it that triple enough, and it's one of the most useful results of the night.
-2. **Name eta physically and give it a unit.** What is it an allocation? AV, between which surfaces; and
-   **what measurement gives it in a real cornea**? If no one exists: acquisition item with quantity, unit and
-   what it determines, in the form of: `notes/ACQUISITION_TARGETS.json`It is the post that determines whether we can
-   predict the direction of an intervention's refractive outcome.
-3. **Report the change of character as main result, not as a parameter sensitivity.** For a
-   surgical twin is the direction that matters: today we can say that the effect is clinical
-   big but not in which direction. It is an honest and important message.
-4. **Keep the rotating control in each future report.** It is cheap and it shows that the effect
-   is not a symmetric artifact.
+## Strongest control
+The cohort base rate. Always answering "decidable" is right in 257 of 300 eyes, so accuracy is
+worthless here; the question is whether the eyes you flag carry a materially higher rate of crossing a
+grid step than the cohort does. State the lift over the base rate, not the accuracy.
 
-## Control and falsifier
-- **Kontroll:** radiellt vinkelmedel med samma tjocklek — your own, and it gave 1,36e-08 D. Keep it.
-- **Falsifierare:** if the triple medium thickness, index field and eta still leaves more than 0,25 D
-  downstream difference is not the missing quantity, and then what remains should be named instead.
-- **Forbidden:** att redovisa −0,42559 D as the size of the effect without mentioning that all15 ger +0,46578;
-  to treat eta as known; to simulate an operation on a rotational symmetry of the cornea.
+## Falsifier
+If the induced spread crosses a grid step in a fraction of eyes indistinguishable from the cohort rate,
+or if the flagged and unflagged groups have overlapping confidence intervals on that fraction, say so
+and stop. A second falsifier is available and should be run: the 300-eye cohort is a DIFFERENT
+instrument and cohort from the 89 surgical eyes, so if your propagation only works when the two are
+treated as one population, that is a failure and must be reported as one rather than assumed away.
+
+## Rules
+Status PENDING_INDEPENDENT_REVIEW. No clinical framing, measurement and model level only. No
+breakthrough without an equally informed control. Internal data stays on the machine.
