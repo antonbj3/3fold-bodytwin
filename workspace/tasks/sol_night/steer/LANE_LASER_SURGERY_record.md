@@ -64,3 +64,8 @@ classification requires:** — And it's stronger targeted than the ablation thre
 **Forbidden in this directory:** konsumera eller citera poster som namnger en apparat, en enhet eller
 a target tissue analogue of a private character — stick to tissue generic optics and thermics.
 contain such items and they do not leave the machine.
+
+## OBLIGATORISKT FILTER — read tasks/build_night/LIT_REFS_FILTER.md before the first entry
+Two files in `tissue_lit_refs` are not used at all, and the other eight are read with row filters. After the filter
+remaining 549 of 671 records. Your lane loses almost nothing: the thermal file has an affected entry of 25 and
+bend/stretch file zero of 62. Report how many records the filter removed.

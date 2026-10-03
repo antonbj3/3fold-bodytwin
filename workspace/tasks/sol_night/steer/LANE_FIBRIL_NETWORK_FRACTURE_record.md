@@ -173,3 +173,8 @@ ours.
 
 **Prohibited:** Entries naming a device, device, or private target tissue analog — tissue generic
 mechanics only.
+
+## OBLIGATORISKT FILTER — read tasks/build_night/LIT_REFS_FILTER.md before the first entry
+Two files in `tissue_lit_refs` are not used at all, and the other eight are read with row filters. After the filter
+remaining 549 of 671 records. Your lane loses almost nothing: the thermal file has an affected entry of 25 and
+bend/stretch file zero of 62. Report how many records the filter removed.
