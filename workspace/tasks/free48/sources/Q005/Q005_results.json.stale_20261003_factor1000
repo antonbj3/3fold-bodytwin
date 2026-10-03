@@ -1,0 +1,415 @@
+{
+  "base_parameters": {
+    "C_creatinine_uM": 100.0,
+    "C_metformin_uM": 7.5,
+    "Cr_error_cv": 0.05,
+    "Jmax_OCT2_prior_cv": 0.25,
+    "Jmax_OCT2_ref_pmol_cm2_min": 1046.0,
+    "K_J_log_correlation": 0.7,
+    "K_OCT2_prior_cv": 0.3,
+    "K_OCT2_ref_uM": 518.0,
+    "Met_error_cv": 0.08,
+    "P_MATE_cm_s": 0.0012,
+    "P_MATE_prior_cv": 0.3,
+    "area_cm2": 200000.0,
+    "f_u": 1.0,
+    "f_u_prior_cv": 0.2,
+    "f_u_prior_mean": 0.95,
+    "gfr_mL_min": 94.99,
+    "gfr_prior_cv": 0.15,
+    "jmax_factor_creatinine": 0.067,
+    "kappa_creatinine": 0.4,
+    "outcome_error_correlation": 0.35
+  },
+  "boundary": "assumption-based mechanistic scenario; no patient or internal measurement is a prediction target",
+  "equations": {
+    "MATE_steady_state": "Ccell = Jup/(60 * P_MATE)",
+    "OCT2_uptake": "Jup = Jmax * Cu/(K_OCT2 + Cu)",
+    "metformin_unit_conversion": "CL_Met_L_h = CL_Met_mL_min * 0.06",
+    "renal_clearance": "CL = f_u * GFR + CLsecret",
+    "secretion_clearance": "CLsecret = area * Jup/(1000 * Cu)",
+    "unbound_concentration": "Cu = f_u * C_total"
+  },
+  "id": "BT-HX-Q005",
+  "model": "renal OCT2/MATE steady-state clearance and value-of-parameter model",
+  "n_draws": 20000,
+  "nominal": {
+    "CL_Cr_mL_min": 140.61630208333332,
+    "CL_Met_L_h": 29.585223025689817,
+    "CL_Met_mL_min": 493.08705042816365,
+    "Cr_Cu_uM": 100.0,
+    "Cr_cell_uM": 316.84932002314815,
+    "Cr_secretion_mL_min": 45.62630208333333,
+    "Met_Cu_uM": 7.5,
+    "Met_cell_uM": 207.3422137646686,
+    "Met_secretion_mL_min": 398.09705042816364
+  },
+  "null_model": {
+    "CL_Cr_mL_min": 94.99,
+    "CL_Met_L_h": 5.6994,
+    "description": "filtration-only null model; no active tubular secretion"
+  },
+  "parameter_table": [
+    {
+      "kind": "molecular",
+      "name": "K_OCT2_ref_uM",
+      "source_or_assumption": "Severance et al. 2017, Table 1, DOI 10.1124/jpet.117.242552; metformin apparent Ktapp 518 +/- 45 microM",
+      "unit": "microM"
+    },
+    {
+      "kind": "molecular",
+      "name": "Jmax_OCT2_ref_pmol_cm2_min",
+      "source_or_assumption": "Severance et al. 2017, Table 1, DOI 10.1124/jpet.117.242552; metformin Jmax 1046 +/- 171",
+      "unit": "pmol cm^-2 min^-1"
+    },
+    {
+      "kind": "molecular",
+      "name": "f_u",
+      "source_or_assumption": "bounded near-unity assumption; nominal 1.0, prior mean 0.95, prior CV 0.20",
+      "unit": "dimensionless"
+    },
+    {
+      "kind": "molecular",
+      "name": "P_MATE_cm_s",
+      "source_or_assumption": "linear MATE efflux assumption; no direct human value used",
+      "unit": "cm s^-1"
+    },
+    {
+      "kind": "physiological",
+      "name": "gfr_mL_min",
+      "source_or_assumption": "Topletz-Erickson et al. 2021, Table 3, DOI 10.1002/jcph.1750; 94.99 mL min^-1 1.73m^-2",
+      "unit": "mL min^-1"
+    },
+    {
+      "kind": "geometric",
+      "name": "area_cm2",
+      "source_or_assumption": "2.0e5 cm^2 total modeled kidney area scenario assumption",
+      "unit": "cm^2"
+    },
+    {
+      "kind": "substrate mapping",
+      "name": "kappa_creatinine",
+      "source_or_assumption": "0.40 fixed derived mapping, not a measured creatinine K",
+      "unit": "dimensionless"
+    },
+    {
+      "kind": "substrate mapping",
+      "name": "jmax_factor_creatinine",
+      "source_or_assumption": "0.067 fixed mapping chosen to reproduce the cited secretion scale; not a measured creatinine Jmax",
+      "unit": "dimensionless"
+    },
+    {
+      "kind": "exposure",
+      "name": "C_creatinine_uM",
+      "source_or_assumption": "100 microM bounded scenario assumption",
+      "unit": "microM"
+    },
+    {
+      "kind": "exposure",
+      "name": "C_metformin_uM",
+      "source_or_assumption": "7.5 microM scenario scale from cited 1.3 microg/mL Cmax and 129.9 g/mol",
+      "unit": "microM"
+    }
+  ],
+  "reference_anchors": {
+    "OCT2_metformin_Jmax": {
+      "doi": "10.1124/jpet.117.242552",
+      "location": "Severance et al. 2017, Table 1",
+      "uncertainty": 171.0,
+      "unit": "pmol cm^-2 min^-1",
+      "value": 1046.0
+    },
+    "OCT2_metformin_Ktapp": {
+      "doi": "10.1124/jpet.117.242552",
+      "location": "Severance et al. 2017, Table 1",
+      "uncertainty": 45.0,
+      "unit": "microM",
+      "value": 518.0
+    },
+    "baseline_creatinine_clearance": {
+      "doi": "10.1002/jcph.1750",
+      "location": "Topletz-Erickson et al. 2021, Figure 3A and Results",
+      "unit": "mL min^-1",
+      "value": 152.3
+    },
+    "baseline_metformin_renal_clearance": {
+      "doi": "10.1002/jcph.1750",
+      "location": "Topletz-Erickson et al. 2021, Table 2",
+      "unit": "L h^-1",
+      "value": 30.0
+    },
+    "inhibited_creatinine_clearance": {
+      "doi": "10.1002/jcph.1750",
+      "location": "Topletz-Erickson et al. 2021, Figure 3A and Results",
+      "unit": "mL min^-1",
+      "value": 117.2
+    },
+    "iohexol_GFR": {
+      "doi": "10.1002/jcph.1750",
+      "location": "Topletz-Erickson et al. 2021, Table 3",
+      "unit": "mL min^-1 1.73m^-2",
+      "value": 94.99
+    }
+  },
+  "reference_check": {
+    "passed": 1,
+    "primary_ratio_to_reference": 0.9232849775662069,
+    "primary_within_0.5_to_2_reference": 1,
+    "secondary_ratio_to_reference": 0.9861741008563273,
+    "secondary_within_0.5_to_2_reference": 1
+  },
+  "seed": 20260925,
+  "sensitivity": {
+    "nominal": {
+      "CL_Cr_mL_min": 140.61630208333332,
+      "CL_Met_L_h": 29.585223025689817,
+      "CL_Met_mL_min": 493.08705042816365,
+      "Cr_Cu_uM": 100.0,
+      "Cr_cell_uM": 316.84932002314815,
+      "Cr_secretion_mL_min": 45.62630208333333,
+      "Met_Cu_uM": 7.5,
+      "Met_cell_uM": 207.3422137646686,
+      "Met_secretion_mL_min": 398.09705042816364
+    },
+    "records": [
+      {
+        "all_finite": 1,
+        "expected_primary_direction": -1,
+        "minus50": {
+          "CL_Cr_mL_min": 163.83282907662084,
+          "CL_Met_L_h": 52.79883714821763,
+          "Cr_cell_uM": 478.07520192097803,
+          "Met_cell_uM": 408.8492808005003,
+          "relative_CL_Cr_change": 0.1651055151452406
+        },
+        "parameter": "K_OCT2_ref_uM",
+        "plus50": {
+          "CL_Cr_mL_min": 129.10976630963972,
+          "CL_Met_L_h": 21.6994,
+          "Cr_cell_uM": 236.94282159472036,
+          "Met_cell_uM": 138.88888888888889,
+          "relative_CL_Cr_change": -0.08182931568542096
+        },
+        "primary_direction_consistent": 1
+      },
+      {
+        "all_finite": 1,
+        "expected_primary_direction": 1,
+        "minus50": {
+          "CL_Cr_mL_min": 117.80315104166667,
+          "CL_Met_L_h": 17.64231151284491,
+          "Cr_cell_uM": 158.42466001157408,
+          "Met_cell_uM": 103.6711068823343,
+          "relative_CL_Cr_change": -0.16223688650372073
+        },
+        "parameter": "Jmax_OCT2_ref_pmol_cm2_min",
+        "plus50": {
+          "CL_Cr_mL_min": 163.42945312499998,
+          "CL_Met_L_h": 41.52813453853473,
+          "Cr_cell_uM": 475.2739800347222,
+          "Met_cell_uM": 311.0133206470029,
+          "relative_CL_Cr_change": 0.16223688650372073
+        },
+        "primary_direction_consistent": 1
+      },
+      {
+        "all_finite": 1,
+        "expected_primary_direction": 1,
+        "minus50": {
+          "CL_Cr_mL_min": 101.99111197511664,
+          "CL_Met_L_h": 26.90719880210829,
+          "Cr_cell_uM": 189.22261102471057,
+          "Met_cell_uM": 104.41622743970613,
+          "relative_CL_Cr_change": -0.2746850083237594
+        },
+        "parameter": "f_u",
+        "plus50": {
+          "CL_Cr_mL_min": 140.61630208333332,
+          "CL_Met_L_h": 29.585223025689817,
+          "Cr_cell_uM": 316.84932002314815,
+          "Met_cell_uM": 207.3422137646686,
+          "relative_CL_Cr_change": 0.0
+        },
+        "primary_direction_consistent": 1
+      },
+      {
+        "all_finite": 1,
+        "expected_primary_direction": 0,
+        "minus50": {
+          "CL_Cr_mL_min": 140.61630208333332,
+          "CL_Met_L_h": 29.585223025689817,
+          "Cr_cell_uM": 633.6986400462963,
+          "Met_cell_uM": 414.6844275293372,
+          "relative_CL_Cr_change": 0.0
+        },
+        "parameter": "P_MATE_cm_s",
+        "plus50": {
+          "CL_Cr_mL_min": 140.61630208333332,
+          "CL_Met_L_h": 29.585223025689817,
+          "Cr_cell_uM": 211.23288001543207,
+          "Met_cell_uM": 138.22814250977905,
+          "relative_CL_Cr_change": 0.0
+        },
+        "primary_direction_consistent": 1
+      },
+      {
+        "all_finite": 1,
+        "expected_primary_direction": 1,
+        "minus50": {
+          "CL_Cr_mL_min": 93.12130208333332,
+          "CL_Met_L_h": 26.73552302568982,
+          "Cr_cell_uM": 316.84932002314815,
+          "Met_cell_uM": 207.3422137646686,
+          "relative_CL_Cr_change": -0.33776311349627924
+        },
+        "parameter": "gfr_mL_min",
+        "plus50": {
+          "CL_Cr_mL_min": 188.11130208333333,
+          "CL_Met_L_h": 32.43492302568981,
+          "Cr_cell_uM": 316.84932002314815,
+          "Met_cell_uM": 207.3422137646686,
+          "relative_CL_Cr_change": 0.33776311349627924
+        },
+        "primary_direction_consistent": 1
+      }
+    ]
+  },
+  "uncertainty": {
+    "baseline_rmse_primary_mL_min": 20.53914220891676,
+    "baseline_rmse_secondary_L_h": 5.860958528046297,
+    "candidates": [
+      {
+        "cost_units": 2.0,
+        "joint_rmse_after": 0.2255974447052516,
+        "joint_rmse_before": 0.24613070787215025,
+        "joint_score_per_cost": 0.010266631583449329,
+        "parameter": "K_OCT2_ref_uM",
+        "primary_rmse_after_mL_min": 20.982399079246278,
+        "primary_rmse_before_mL_min": 20.53914220891676,
+        "primary_rmse_reduction": -0.4432568703295168,
+        "primary_rmse_reduction_fraction": -0.021581079960441747,
+        "primary_score_mL_min_per_cost": -0.2216284351647584,
+        "primary_variance_share": 0.0,
+        "secondary_rmse_after_L_h": 5.005796516641967,
+        "secondary_rmse_before_L_h": 5.860958528046297,
+        "secondary_rmse_reduction": 0.8551620114043299,
+        "secondary_score_L_h_per_cost": 0.42758100570216495,
+        "secondary_variance_share": 0.0
+      },
+      {
+        "cost_units": 1.0,
+        "joint_rmse_after": 0.2540732483464935,
+        "joint_rmse_before": 0.24613070787215025,
+        "joint_score_per_cost": -0.00794254047434323,
+        "parameter": "Jmax_OCT2_ref_pmol_cm2_min",
+        "primary_rmse_after_mL_min": 19.637599647600073,
+        "primary_rmse_before_mL_min": 20.53914220891676,
+        "primary_rmse_reduction": 0.9015425613166883,
+        "primary_rmse_reduction_fraction": 0.04389387600253807,
+        "primary_score_mL_min_per_cost": 0.9015425613166883,
+        "primary_variance_share": 0.0,
+        "secondary_rmse_after_L_h": 6.279461615825881,
+        "secondary_rmse_before_L_h": 5.860958528046297,
+        "secondary_rmse_reduction": -0.4185030877795848,
+        "secondary_score_L_h_per_cost": -0.4185030877795848,
+        "secondary_variance_share": 0.0
+      },
+      {
+        "cost_units": 1.0,
+        "joint_rmse_after": 0.23814293986682486,
+        "joint_rmse_before": 0.24613070787215025,
+        "joint_score_per_cost": 0.007987768005325385,
+        "parameter": "f_u",
+        "primary_rmse_after_mL_min": 18.609104565061212,
+        "primary_rmse_before_mL_min": 20.53914220891676,
+        "primary_rmse_reduction": 1.9300376438555489,
+        "primary_rmse_reduction_fraction": 0.09396875605728325,
+        "primary_score_mL_min_per_cost": 1.9300376438555489,
+        "primary_variance_share": 0.1454536686808576,
+        "secondary_rmse_after_L_h": 5.857447639782654,
+        "secondary_rmse_before_L_h": 5.860958528046297,
+        "secondary_rmse_reduction": 0.003510888263642542,
+        "secondary_score_L_h_per_cost": 0.003510888263642542,
+        "secondary_variance_share": 0.012413258213650313
+      },
+      {
+        "cost_units": 2.0,
+        "joint_rmse_after": 0.24613070787215025,
+        "joint_rmse_before": 0.24613070787215025,
+        "joint_score_per_cost": 0.0,
+        "parameter": "P_MATE_cm_s",
+        "primary_rmse_after_mL_min": 20.53914220891676,
+        "primary_rmse_before_mL_min": 20.53914220891676,
+        "primary_rmse_reduction": 0.0,
+        "primary_rmse_reduction_fraction": 0.0,
+        "primary_score_mL_min_per_cost": 0.0,
+        "primary_variance_share": 0.0,
+        "secondary_rmse_after_L_h": 5.860958528046297,
+        "secondary_rmse_before_L_h": 5.860958528046297,
+        "secondary_rmse_reduction": 0.0,
+        "secondary_score_L_h_per_cost": 0.0,
+        "secondary_variance_share": 0.0
+      },
+      {
+        "cost_units": 3.0,
+        "joint_rmse_after": 0.23207406898977356,
+        "joint_rmse_before": 0.24613070787215025,
+        "joint_score_per_cost": 0.00468554629412556,
+        "parameter": "gfr_mL_min",
+        "primary_rmse_after_mL_min": 17.283442570782867,
+        "primary_rmse_before_mL_min": 20.53914220891676,
+        "primary_rmse_reduction": 3.255699638133894,
+        "primary_rmse_reduction_fraction": 0.15851195755977,
+        "primary_score_mL_min_per_cost": 1.085233212711298,
+        "primary_variance_share": 0.5200886701971259,
+        "secondary_rmse_after_L_h": 5.82393162570599,
+        "secondary_rmse_before_L_h": 5.860958528046297,
+        "secondary_rmse_reduction": 0.03702690234030648,
+        "secondary_score_L_h_per_cost": 0.012342300780102159,
+        "secondary_variance_share": 0.02028736125742231
+      }
+    ],
+    "decision": "tie",
+    "joint_baseline_rmse": 0.24613070787215025,
+    "latent_output_correlation": {
+      "CL_Cr_CL_Met": 0.5853630393171471,
+      "CL_Cr_variance": 315.72980450220115,
+      "CL_Met_L_h_variance": 28.61172693394316
+    },
+    "leading_molecular_meets_10_percent_reduction": 0,
+    "leading_molecular_parameter": "f_u",
+    "leading_molecular_score_mL_min_per_cost": 1.9300376438555489,
+    "meets_frozen_10_percent_reduction": [
+      "gfr_mL_min"
+    ],
+    "molecular_ranked_by_primary_score": [
+      "f_u",
+      "Jmax_OCT2_ref_pmol_cm2_min",
+      "P_MATE_cm_s",
+      "K_OCT2_ref_uM"
+    ],
+    "n_draws": 20000,
+    "ranked_by_primary_score": [
+      "f_u",
+      "gfr_mL_min",
+      "Jmax_OCT2_ref_pmol_cm2_min",
+      "P_MATE_cm_s",
+      "K_OCT2_ref_uM"
+    ],
+    "seed": 20260925,
+    "top_score_margin_over_second": 1.7784542725462937,
+    "winner": null
+  },
+  "unit_check": {
+    "checks": {
+      "Ccell_balance": "Jup/(60 P_MATE) is microM",
+      "Jup_dimension": "Jmax times dimensionless saturation fraction is pmol cm^-2 min^-1",
+      "K_dimension": "K and Cu are both microM",
+      "creatinine_numeric_balance": 1,
+      "metformin_conversion": "1 mL min^-1 = 0.06 L h^-1",
+      "metformin_numeric_balance": 1,
+      "secretion_conversion": "area * Jup/(1000 Cu) is mL min^-1"
+    },
+    "passed": 1
+  }
+}
