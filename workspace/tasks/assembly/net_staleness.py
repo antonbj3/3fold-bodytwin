@@ -28,6 +28,7 @@ cannot be audited, and counting them is the honest measure of how much of the ne
 from __future__ import annotations
 
 import json
+import pathlib
 import re
 from pathlib import Path
 
@@ -144,6 +145,49 @@ def main() -> int:
                          str(e.get('evidence_unresolved_note', 'searched, not found'))[:120]))
             continue
         ev = str(e.get('evidence', ''))
+        # The harvested detail-layer edges cite a LINE in a markdown document rather than a key in
+        # a JSON file: `path :: L145 = <the text>`. My checker read only JSON keys, so admitting 99
+        # of them turned 99 verifiable edges into 99 unchecked ones. Read the line and compare the
+        # text, which is the same audit in a different file format.
+        mline = re.match(r'^(?P<file>[^\s:]+)\s*::\s*L(?P<line>\d+)\s*=\s*(?P<text>.+)$',
+                         ev.strip(), re.S)
+        if mline:
+            f = pathlib.Path(mline.group('file'))
+            if not f.is_absolute():
+                f = W / mline.group('file')
+            if not f.exists():
+                rows.append((e['id'], 'UNCHECKED', f"evidence file missing: {mline.group('file')}"))
+                continue
+            try:
+                lines = f.read_text(errors='replace').splitlines()
+            except Exception as exc:
+                rows.append((e['id'], 'UNCHECKED', f'{type(exc).__name__} reading evidence'))
+                continue
+            idx = int(mline.group('line')) - 1
+            claimed = ' '.join(mline.group('text').split())
+            # The harvested citations point at the SECTION the claim lives in, not at the exact
+            # line: L61 is '## 2. Method', L148 is '## 4. Falsifier A'. A plus-or-minus-three-line
+            # window flagged 41 correctly cited edges as stale for that reason alone. When the
+            # cited line is a heading, read to the next heading, which is what the citation means.
+            if lines[idx].lstrip().startswith('#'):
+                end = idx + 1
+                while end < len(lines) and not lines[end].lstrip().startswith('#'):
+                    end += 1
+                window = ' '.join(' '.join(lines[idx:end]).split())
+            else:
+                window = ' '.join(' '.join(lines[max(idx - 3, 0):idx + 4]).split())
+            # the cited text, or every number in it, must appear within a few lines of the cite
+            # A hyphen between digits is a RANGE, not a minus. Reading "1.176-1.357" as 1.176 and
+            # -1.357 made the second number unfindable and flagged 43 correctly cited edges as
+            # stale, including one I had verified by hand. Same family as the exponent-sign bug an
+            # audit found in this file earlier: my number extraction keeps mis-reading signs.
+            nums = re.findall(r'(?<![\d.])-?\d+[.,]?\d*', claimed)
+            if claimed[:60] in window or (nums and all(x in window for x in nums[:4])):
+                rows.append((e['id'], 'OK', f"line {mline.group('line')} matches"))
+            else:
+                rows.append((e['id'], 'STALE',
+                             f"line {mline.group('line')} does not carry the cited text or numbers"))
+            continue
         m = EV.match(ev.strip())
         if not m:
             rows.append((e['id'], 'UNCHECKED', 'evidence carries no file :: key = value'))

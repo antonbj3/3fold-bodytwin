@@ -11,6 +11,7 @@ claim that it is done.
 |---|---|---|---|
 | A3 | 162 consumable observables (1 consumed: the colon's gas regime, see D9) from 55 papers, 118 outside the eye, in `LANE_READ_CREATIVE/CONSUMABLE.json` | through the unit and range gate, then admitted edges with numbers in the text | me |
 | A4 | 13 orderable measurement targets and 7 dataset routes from the same round | those that can be retrieved without ordering anything: retrieved and consumed | the swarm |
+| A8 | 30 STALE and 24 ogranskade bland de 99 admitterade kanterna | each STALE either corrected or downgraded with reasons; 24 has a proof format check not read | jag |
 | A6 | the detail layer: harvest DONE — 312 inventoried, 99 edge proposals, 3 082 external references, 244 excluded records removed | edge proposals through the unit and range gate, then admitted; reference list crossed against our quantities | me |
 | A7 | `native_glucose.py` using `np.trapz` which disappeared in numby 2.4.1; `myofascial_transmission.py` requires opensim | executable import, or a line stating that the dependency does not exist | jag |
 
@@ -22,6 +23,7 @@ claim that it is done.
 | D2 | the net's tracked copy 34 edges behind | 56 of 56 in both copies, sync in the hourly cycle |
 | D3 | the queue 92 % completed work | 13 919 → 1 047 rows, pruning in the cycle |
 | D4 | Sol lanes without web search | `tools.web_search=true` in all three drivers |
+| D10 | 99 edge proposals admitted | the net 56 → 155 edges, external references 15 → 27, gate 99 of 99, one verified line by line |
 | D9 | first harvested observable consumed into a decision | gas-regime decision outside the eye: threshold 76 mL/6h separates two regimes, single-coefficient control 77,8 % high in every row |
 | D8 | three edges reported as UNCHECKED | all three already carried `evidence_unresolved` with a note; the error was in my check that did not read the field. Now **UNRESOLVED_DECLARED** (searched for, does not exist) is distinguished from **UNCHECKED** (unchecked), and UNCHECKED is zero |
 | D7 | the laser refutation was mine, and it was wrong | quantities, denominators and observation operators differ; and I wrote the unit **µm⁻¹** where the source table says **µM**, thus read a concentration as an inverse length. The spread 2033× is real and does not affect the witness. Edge back to UNKNOWN, original annotation preserved verbatim |
