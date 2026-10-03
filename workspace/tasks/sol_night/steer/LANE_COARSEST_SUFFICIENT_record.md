@@ -1,43 +1,39 @@
-# Styrning r9 — end of enlargement, start naming what they do 51 Unsolvable
+# Control r10 — the question is answered; convert the 17 to orderable entries and close the atlas
 
-## Obstacle, measured in your own r8-port
-I recalculated the distribution from `PORT_R8_V2.json` And it's exactly right: 108 rader, **REQUIRES_FINER 3,
-COARSER_SUFFICIENT 3, ADEQUATE_SAME 51, UNDECIDABLE_MIN_RESOLUTION 51**The speeches are holding.
+## Your r9 refuted my hypothesis, and this is the result
+The falsifier I set was: if more than 80 % of the 51 undecidables lack a nameable second quantity is
+the undecidability lack of information and not cross-linking, and then the acquisition list is the right instrument and
+not the atlas. Your r9 gives **`no_supported_second_sigma = 49 of 51`, so 96,08 %**, and
+`strict_preregistered_falsifier_triggered = true`. The distribution is **UNKNOWN 32, MISSING_MEASUREMENT 17,
+NAMED_OTHER_QUANTITY_FLOOR 2**.
 
-But the increase won't last. 20 nya raderna (rank 81–100) har **noll konvergensdiagnostik** — they are:
-classified out of existing source gates, not calculated — and **68 av 108 rows carry
-`r7_reused_without_source_recomputation = True`**. A round that adds 20 classifications without a
-only new refinement series does not move the issue. NOT till rank 101–120.
+And I checked the two that carry a floor: `fatigue_resolution_frontier_ct` (MPa) and
+`lpbf_hagb_veto_decidability_governor` (µm). **Both are `NOT_APPLICABLE_ENGINEERING_TRANSFER` out of it
+inherited the screening group, i.e. materials technology.** In biology, the transverse size floor is thus **zero of
+51**. It is a stronger statement than the one you wrote and it should be in RESULTS.md.
 
-## And your three calibration cases undermined my own claim, which is the value of r8
-I wrote in the brief that resolution determines, measured three times independence.
-- **Heat dose:** the convergence regime is pure (p = 1,9942 / 1,9985 / 1,9996, i.e. second order) and
-  10 µm is grossly sufficient in ≤ 0,2 % — men `cost_factor_contract` says that 20,0 is
-  **200/10 as a sampling ratio and that the actual analytical point core does not incur that cost**; and
-  att 200 µm var ett **mean contaktatum**. Faktorn 254× was thus not a measured calculation debt.
-- **Transporten:** `Q154_PASSIVE_INITIAL_EXTRACTION` is now **ADEQUATE_SAME med kostnadsfaktor 1,0** and
-  "no axial debt for this fixed initial-passive QoI". Skulden 181× does not apply to the quantity.
-- **Deflection:** UNDECIDABLE, and the old exclusion may not be transferred to the new bend
-  operatorn.
+Your own shade number should remain alongside: with the loose reading, where an unmeasured primitive name counts as
+a name, it becomes 19 candidate name and 32 of 51 unnameables, thus 62,7 % — under my threshold. Write
+out both and say which binds: **the strict, because a name without measurement floors nothing in
+practice.**
 
-It is a corrigendum and it should remain in RESULTS.md in that shape. Don't soften it.
+## The operation this round — build, then close
+1. **Turn the 17 MISSING_MEASUREMENT into orderable acquisition records** in the form in
+   `notes/ACQUISITION_TARGETS.json`: node name, magnitude, **unit**, what the measurement determines, and keyword. A
+   mail without unit cannot be searched. It is the lane's only remaining supply of value.
+2. **Divide the 32 UNKNOWN into two piles:** those that become MISSING_MEASUREMENT when the question is specified, and those that
+   are undecidable for another reason you name. Two numbers are enough.
+3. **Then close the atlas.** Make no new rank ranges and no new primal-dual certificates for rank 87 —
+   they do not answer any open question. Write a concluding line about what the atlas decided: **3 by 108
+   quantities require finer resolution, 51 are sufficient as they run, and the undecidability is
+   measurement deficiency and not cross-connection.**
+4. **Keep the measured cost factor.** You replaced the sampling ratio with actual warm-kernel time in three rows,
+   which was correct — enter the numbers and that physical acquisition cost is separate UNKNOWN.
 
-## The operation this round
-1. **Ta de 51 UNDECIDABLE-the lines and name for each which ANNAN storhet som golvar den.** It's
-   KLASS 2 i `decidability_abstention_atlas.py`: the intransitability is levelled, and then there is a
-   andra storhet vars σ deliver one line per unsettled quantity with the named second the quantity,
-   eller `NO_SECOND_QUANTITY_NAMEABLE` when there is no one.
-2. **Measure the cost as cost.** For the 3 REQUIRES_FINER: running actual wall time or surgery count
-   too rough and fine, so the factor becomes a measurement and not a sample ratio. The only factor you have today
-   Failed by your own contract line.
-3. **Distinguish the two irreconcilability classes in three numbers:** golvad av en namngiven annan storhet, golvad av en
-   missing measurement, and unknown. That's the whole point of the line — 51 av 108 is almost half of the register.
-
-## Strongest control and falsifiers
-- **Kontroll:** the current situation, where irrevocable is a label for no reason. The gain is the number of irrevocable quantities
-  which receives a named binding counterparty, not the number of lines in the registry.
-- **Falsifierare:** if more than 80 % av de 51 missing a name-giver other quantity is indistinguishability
-  lack of information and not cross-linking — and then the acquisition list is the right instrument and not the atlas.
-  That would be a sharper response than the bridge and should be reported cleanly.
-- **Forbidden:** to extend to new ranges; to account for a cost factor that is not measured; to:
-  count a rating without a convergence series as a settled line.
+## Control and falsifier
+- **Control:** the previous undecidability labels without observation links. The win is the number
+  orderable records, not the number of classified rows.
+- **Falsifiers:** if more than half of the 17 on closer inspection lack a magnitude with unity, they are
+  not orderable, and then the question is ill-posed rather than unmeasured — say so in that case.
+- **Forbidden:** new rank ranges; to report the loose nameability number as a main number; to count one
+  material engineering row as a biological cross floor.
