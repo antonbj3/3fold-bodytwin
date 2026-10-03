@@ -8,7 +8,10 @@ LOG=$D/queue_ovh.log; LLOG=$W/tasks/lanes/bt_queue.log; RUN=$D/running; mkdir -p
 SSHO=(-o ConnectTimeout=15 -o ServerAliveInterval=30 -i ~/.ssh/hunt_20260923 -o IdentitiesOnly=yes -o UserKnownHostsFile=~/research/sol6_recovery_20260923/CLOUD_HUNT_20260923/infra/known_hosts -o BatchMode=yes)
 H=${BT_CLOUD_HOST:-ubuntu@51.77.110.4}; END=${BT_CLOUD_END:-1791042504}
 # Shared with Field; the host lock makes the final check + unit start atomic.
-AGENT_MIB=${BT_AGENT_MEMORY_MIB:-1024}
+# Keep this default equal to the unit's Environment=BT_AGENT_MEMORY_MIB, or the script
+# default is a silent no-op. Measured 2026-10-03: our agents peak at 1282 MiB against this
+# 1500 booking, so there is only 15 % slack here -- the real waste was elsewhere.
+AGENT_MIB=${BT_AGENT_MEMORY_MIB:-1500}
 HEADROOM_MIB=${BT_HEADROOM_MIB:-4096}
 SLICE_HEADROOM_MIB=${BT_SLICE_HEADROOM_MIB:-2048}
 HOST_CAP=${BT_HOST_CAP:-17}
