@@ -45,6 +45,10 @@ SEED_PREFIX = 'BT-SEED-ADMIT-'
 # Reference fetches: 131 of 135 DOIs our own lanes cited were in no consumable store. A fetch
 # against a given source is cheaper than an open search and shares the seed slot.
 FETCH_PREFIX = 'BT-FETCH-'
+# Bounded improvement jobs: close an open edge, or find a quantity a cell needs. Each outcome is
+# a number with a unit or a stated absence, which is why they share the reserved slot.
+EDGE_PREFIX = 'BT-EDGE-'
+NEED_PREFIX = 'BT-NEED-'
 
 
 def job_of(line: str) -> str:
@@ -83,7 +87,8 @@ def main() -> int:
                 anchor.append(ln)
             elif j.startswith(HANDOVER_PREFIX) and is_live(j):
                 handover.append(ln)
-            elif (j.startswith(SEED_PREFIX) or j.startswith(FETCH_PREFIX)) and is_live(j):
+            elif (j.startswith(SEED_PREFIX) or j.startswith(FETCH_PREFIX)
+                  or j.startswith(EDGE_PREFIX) or j.startswith(NEED_PREFIX)) and is_live(j):
                 seed.append(ln)
             else:
                 other.append(ln)
