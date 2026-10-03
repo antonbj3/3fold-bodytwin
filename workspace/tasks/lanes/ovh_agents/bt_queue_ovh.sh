@@ -90,7 +90,7 @@ while true; do
     # it and guarantees a live dental row every third position. It is fail-open: on error
     # the stream is printed unchanged, so the queue cannot be starved by the filter.
     done < <(python3 "$W/tasks/lanes/seed_unblock_evidence/seed_queue_order.py" "$Q" \
-             | python3 "$D/dental_interleave.py")
+             | python3 "$D/priority_interleave.py")
   fi
   [ $(date +%s) -ge $END ] && [ "$(ls $RUN | wc -l)" -eq 0 ] && { echo "[$(date +%T)] 07:30 passed and empty — exiting" >> $LOG; exit 0; }
   sleep 15

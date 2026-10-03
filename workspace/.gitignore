@@ -55,3 +55,10 @@ tasks/index/
 tasks/build_night/swarm/
 tasks/free48/SEED_PROGRAM_*.json
 tasks/free48/INITIAL_JOBS.json
+
+# ...but the dispatcher scripts under tasks/lanes/ are handwritten and should be tracked.
+!tasks/lanes/ovh_agents/
+!tasks/lanes/ovh_agents/*.py
+!tasks/lanes/ovh_agents/*.sh
+!tasks/lanes/seed_unblock_evidence/
+!tasks/lanes/seed_unblock_evidence/*.py
