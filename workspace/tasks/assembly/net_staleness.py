@@ -1,5 +1,11 @@
 """Re-read every edge's evidence and flag the ones whose text no longer matches the file.
 
+READ THIS FIRST: sign and percent-versus-fraction are the same number here. The first version of
+this script raised three STALE alarms and two were its own fault -- a signed -489.6488 against prose
+that says "lowers it by 489.65", and a fraction 0.26508 against prose that says "26.51 percent". An
+alarm that cries wolf twice means the third one gets ignored, so any new comparison added below must
+be checked against that before it is allowed to flag.
+
 Why this exists. The net handed a brief a number I had withdrawn hours earlier: the implant-power edge
 still said "11 of 20, 0.688 against 1.070 D", a comparison against a surgeon who did not have the
 postoperative lens position the chain was using. Every job generated from that node received it.
@@ -115,10 +121,41 @@ def main() -> int:
         else:
             rows.append((e['id'], 'OK', f'{m.group("key").strip()} = {current} ({how})'))
 
+    # Write a stamp back onto each verified edge so a LATER run can see that the evidence moved,
+    # without anyone having to declare a supersession. That is the half the graph lane's
+    # consumers_of_superseded() cannot cover: it needs the supersession declared, and the failure
+    # that started this was precisely that nobody declared it. A stamp turns movement into something
+    # the file itself reports.
+    full = json.loads(NET.read_text())
+    net_w = full['bodytwin']['tissue_constraint_net']
+    by_id = {e['id']: e for e in net_w['edges']}
+    moved = []
+    for eid, status, detail in rows:
+        e = by_id.get(eid)
+        if e is None:
+            continue
+        m = EV.match(str(e.get('evidence', '')).strip())
+        if not m:
+            continue
+        f = W / m.group('file')
+        if not f.exists():
+            continue
+        stamp = round(f.stat().st_mtime, 3)
+        prev = e.get('evidence_mtime_at_last_check')
+        if prev is not None and stamp != prev and status == 'OK':
+            moved.append((eid, prev, stamp))
+        e['evidence_mtime_at_last_check'] = stamp
+        e['last_checked_status'] = status
+    NET.write_text(json.dumps(full, indent=1, ensure_ascii=False))
+
     counts = {}
     for _, s, _ in rows:
         counts[s] = counts.get(s, 0) + 1
+    if moved:
+        counts['MOVED_SINCE_LAST_CHECK'] = len(moved)
     out = {'checked': len(rows), 'counts': counts,
+           'evidence_moved_since_last_check': [
+               {'edge': a, 'was': b, 'now': c} for a, b, c in moved],
            'rows': [{'edge': a, 'status': b, 'detail': c} for a, b, c in rows],
            'why': ('an edge is a snapshot of prose plus one evidence path; nothing links a new '
                    'measurement back to the edges that cite it, so staleness is silent'),
@@ -131,6 +168,8 @@ def main() -> int:
     for a, b, c in rows:
         if b != 'OK':
             print(f'  [{b:9s}] {a[:56]:56s} {c}')
+    for a, b, c in moved:
+        print(f'  [MOVED    ] {a[:56]:56s} beviset andrades efter forra kontrollen')
     return 0
 
 
