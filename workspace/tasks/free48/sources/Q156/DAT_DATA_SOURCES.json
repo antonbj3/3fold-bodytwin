@@ -1,0 +1,295 @@
+{
+  "task_id": "BT-DAT-Q156",
+  "generated": "2026-09-26",
+  "prereg": {
+    "file": "PREREG.md",
+    "sha256": "515b9d8fa07ba3ec3561b12109862a9ca67769247ab636e975006b6c5618f894",
+    "frozen_before": "all dataset inspection and download in this directory"
+  },
+  "model_constrained": {
+    "file": "inputs/Q156_model.py",
+    "model_id": "BT-HX-Q156",
+    "unmeasured_parameters": {
+      "eps_isf": 0.20,
+      "eps_pvs": 0.10,
+      "D_isf_m2_s": 1e-10,
+      "D_pvs_m2_s": 1e-9,
+      "L_m": 250e-6,
+      "k_csf_per_s": 1.0,
+      "k_exchange_per_s": 1e-2,
+      "hydraulic_conductivity_m2": 1.9e-15,
+      "reference_t50_s": 600.0
+    }
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "artifact_type": "measured",
+      "counts_toward_C1": true,
+      "title": "Non-invasive imaging of CSF-mediated brain clearance pathways via assessment of perivascular fluid movement with DTI MRI",
+      "creators": "Harrison IF, Siow B, Akilo AB, Evans PG, Ismail O, Ohene Y, Nahavandi P, Thomas DL, Lythgoe MF, Wells JA (University College London)",
+      "year": 2018,
+      "urls": [
+        "https://doi.org/10.5061/dryad.121hs31",
+        "https://zenodo.org/records/4973308"
+      ],
+      "record_license": "CC0 (Dryad, read from https://zenodo.org/api/records/4973308 -> metadata.license.id)",
+      "access_right": "open",
+      "archive": {
+        "name": "zenodo4973308_Dryad_data.7z",
+        "bytes": 7411757,
+        "sha256": "3e5c62d7e830b682f7cea8c30beb4fc40b2db050996ac44cd8a2eeed26a4ea76",
+        "md5_declared_by_record": "ad16352c98eda8a2e5b3d11db98712d6",
+        "container": "7-zip, version 0.4",
+        "reader": "py7zr 1.1.3",
+        "members": 29,
+        "extracted_to": "samples/dryad121hs31/Dryad_data/"
+      },
+      "format_verified": {
+        "type": "NIfTI-1",
+        "magic": "n+1\\u0000",
+        "sizeof_hdr": 348,
+        "datatype": "float64 (64 bit)",
+        "nifti_files": 28,
+        "file_sizes_bytes": {
+          "part_1_MDDW": 524640,
+          "part_2_DTI": 459104,
+          "part_3_ECG": 786784,
+          "part_4_Dobutamine": 786784
+        },
+        "arrays": {
+          "part_1_MDDW": "10 files, dim=(128,128,4), 65536 voxels",
+          "part_2_DTI": "7 files, dim=(128,64,1,7), 57344 voxels (6 directions + 1 reference, count not declared in file)",
+          "part_3_ECG": "5 files, dim=(128,128,3,2), 98304 voxels",
+          "part_4_Dobutamine": "6 files, dim=(128,128,3,2), 98304 voxels"
+        },
+        "form_check_C2": "PASS"
+      },
+      "subjects": {
+        "species": "rat (Sprague-Dawley per record context)",
+        "n_by_part": {"MDDW": 10, "DTI": 6, "ECG_gated": 5, "dobutamine": 6},
+        "read_from": "file names + record notes field of the Dryad record",
+        "note": "one DTI file is a post-mortem repeat of rat_04, so the DTI part holds 6 animals / 7 acquisitions"
+      },
+      "units_verified_C3": {
+        "xyzt_units_code": 0,
+        "xyzt_units": "UNKNOWN",
+        "pixdim": [1.0, 1.0, 1.0],
+        "voxel_size_recoverable_from_file": false,
+        "scl_slope": 0.0,
+        "scl_inter": 0.0,
+        "cal_min": 0.0,
+        "cal_max": 0.0,
+        "payload": "raw float64 signal intensity, arbitrary units",
+        "b_values_in_file": false,
+        "TR_in_file": false,
+        "units_status": "UNKNOWN - the file declares neither spatial nor temporal units and pixdim is an all-ones placeholder; b-values and TR exist only in the paper text",
+        "value_ranges_checked": {
+          "part_1_MDDW_rat_01": {"min": 18.0725, "max": 1685.98, "mean": 125.942},
+          "part_2_DTI_rat_01": {"min": 1.59733, "max": 1059.78, "mean": 76.0641},
+          "part_3_ECG_rat_01": {"min": 33.8775, "max": 1303.33, "mean": 143.48},
+          "part_4_Dobutamine_rat_01": {"min": 44.1289, "max": 1715.1, "mean": 139.464}
+        },
+        "all_values_finite": true
+      },
+      "coordinate_frame_C3": {
+        "sform_code": 1,
+        "qform_code": 0,
+        "srow_diag": [1.0, 1.0, 1.0],
+        "srow_offset": [1.0, 1.0, 1.0],
+        "verdict": "degenerate placeholder (identity srow with all-ones pixdim) - orientation nominally NIfTI-RAS but carries no real registration; frame for model use = UNKNOWN"
+      },
+      "time_resolution": {
+        "is_time_resolved": false,
+        "why": "part_3 and part_4 hold exactly 2 volumes = 2 experimental conditions (per the record notes: 36 ms vs 116 ms ECG delay; baseline vs dobutamine/saline), not a time series; part_1 holds 4 volumes, part_2 holds 7 volumes, and no acquisition order or time axis is stored"
+      },
+      "constrains_Q156": {
+        "quantity": "perivascular-space fluid signal amplitude and its dependence on flow direction and on cardiac/pressor state",
+        "model_parameters": ["D_pvs_m2_s (order of magnitude only, after the paper's b-values are supplied)", "eps_pvs (only via the paper's CSA estimate, not from these files)"],
+        "does_not_constrain": ["t50_ISF", "k_exchange", "L"],
+        "value_class": "UNVERIFIED without the paper's b-values; the payload is a signal, not a diffusivity map"
+      }
+    },
+    {
+      "id": "S2",
+      "artifact_type": "measured",
+      "counts_toward_C1": true,
+      "title": "Perivascular cerebrospinal fluid inflow matches interstitial fluid efflux in anesthetized rat brains",
+      "creators": "Mortensen K (Aarhus University / Danish Research Centre for Magnetic Resonance)",
+      "year": 2025,
+      "urls": [
+        "https://doi.org/10.17632/78rvmj2wh8.1",
+        "https://data.mendeley.com/datasets/78rvmj2wh8/1"
+      ],
+      "record_license": "CC BY 4.0 (Mendeley public API field data_licence.description: share/copy/modify with credit; page states 'Licence CC BY 4.0')",
+      "access_right": "open",
+      "archive": {
+        "total_bytes_declared": 5227422599,
+        "n_files_declared": 76,
+        "note": "5.23 GB total - exceeds the 50 MB cap, so only member files were sampled; the per-file sha256 values come from the Mendeley public API and all six downloads matched byte for byte"
+      },
+      "samples_downloaded": [
+        {"file": "README.txt", "bytes": 172, "sha256": "886dd3e9978c7cb17240deb0ff6d689af6e95f0d1c693d35c3694d9bcc41d886", "matches_api_sha256": true},
+        {"file": "input_sources.nii.gz", "bytes": 93046, "sha256": "04ce221e3b86e4e5eab1649ac4c61009fdcd711ae3b78d1bb42950ed9da91848", "matches_api_sha256": true},
+        {"file": "tissue_atlas.nii.gz", "bytes": 404446, "sha256": "d810160fc71e065e38a93fb349164e9d96d0de39fd66682d1b0169d2bf76f332", "matches_api_sha256": true},
+        {"file": "calculate_pvs_csa.m", "bytes": 1098, "sha256": "8e317fcc743909f4b70e379884c5d6702bfd1919d4034375a6ba3aa70ccc53c0", "matches_api_sha256": true},
+        {"file": "dce_mri_calc_concentration.py", "bytes": 2694, "sha256": "0b84608f2819fad5921527944a6d31b264302ed768ed0e7a8f63d83a3683f0f9", "matches_api_sha256": true},
+        {"file": "t2.nii.gz", "bytes": 33615553, "sha256": "4afbca00372de069fa9d9691c50c3f39d07deea13d5a4d07db7b2c5a4e7af854", "matches_api_sha256": true}
+      ],
+      "format_verified": {
+        "type": "NIfTI-1 (gzip)",
+        "magic": "n+1\\u0000",
+        "sizeof_hdr": 348,
+        "datatype": "float32",
+        "scl_slope_inter": [1.0, 0.0],
+        "arrays": {
+          "input_sources.nii.gz": "dim=(250,375,128), 12000000 voxels, 3 unique labels {0,3,4}",
+          "tissue_atlas.nii.gz": "dim=(250,375,128), 12000000 voxels, 4 unique labels {0,1,2,3}",
+          "t2.nii.gz": "dim=(330,384,128), 16220160 voxels, T2-weighted anatomical volume used for the pial PVS area measurement"
+        },
+        "form_check_C2": "PASS"
+      },
+      "subjects": {
+        "species": "rat (Sprague-Dawley, 175-400 g, ketamine/dexmedetomidine anaesthesia)",
+        "n": "UNKNOWN from the sampled files (per-animal counts are in the unsampled 4D DCE volumes)",
+        "n_files_by_group_from_api": {"B1_scans": 7, "T1_scans": 7, "t2": 12, "dce": "multiple files of 201-216 MB each"}
+      },
+      "units_verified_C3": {
+        "spatial_unit_declared_in_header": "meter (xyzt_units code 10 = 2|8)",
+        "actual_voxel_size": {
+          "input_sources/tissue_atlas": [0.08, 0.08, 0.11],
+          "t2.nii.gz": [0.09115, 0.09115, 0.156]
+        },
+        "verdict": "UNIT METADATA DEFECT - the header declares metres but the values are millimetres (80/80/110 um and 91/91/156 um, consistent with the paper's stated 220 um slices with 110 um overlap and a 375x250 matrix over 30x20 mm). Trusting the header gives a 1000x length error and a 10^6 x volume error.",
+        "units_readable_from_repository_code": {
+          "calculate_pvs_csa.m": "pvs_volume = sum(partial_volume)*prod(pixdim) [mm^3]; pvs_csa = pvs_volume/pvs_length [mm^2]; max_length in mm; partial volume dimensionless",
+          "dce_mri_calc_concentration.py": "T1 map read as milliseconds then multiplied by 1e-3 -> seconds; TR likewise converted to seconds; flip angle in degrees; Gd_conc = invT1c / Gd_calib, Gd_calib default 2.69, README states 1.398 for this data set (Gd relaxivity per unit concentration)",
+          "implied_concentration_unit": "mmol/L, numerically identical to mol/m3, which matches the model's concentration unit exactly"
+        },
+        "temporal_resolution": "T1 map frame time and TR are script arguments, not stored in the sampled files; the record states DCE frame rate 4 min 5 s with 3 baseline + 42 post-infusion frames, i.e. 45 time points over about 3.1 h",
+        "units_status": "ESTABLISHED from repository code and record text, but NOT from the sampled image headers (which are wrong); the 45-frame series itself was not downloaded because each dce.nii.gz is 201-216 MB"
+      },
+      "coordinate_frame_C3": {
+        "sform_code": 1,
+        "qform_code": {"input_sources": 0, "tissue_atlas": 0, "t2": -31288},
+        "sform_srow_diag": {
+          "input_sources/tissue_atlas": [-0.08, 0.08, 0.11],
+          "t2": [-0.0911, 0.0002, 0.0004]
+        },
+        "sform_offset": {
+          "input_sources/tissue_atlas": [10.0, -15.04, -6.71],
+          "t2": [13.599, 8.962, -16.804]
+        },
+        "verdict": "NIfTI-RAS nominal (sform_code 1) with the x axis flipped, as expected for a Bruker/Paravision V4 export; template and anatomy share the same grid, so they are co-registered. t2.nii.gz carries an invalid qform_code (-31288) and must be read through sform only."
+      },
+      "constrains_Q156": {
+        "quantity": "pial perivascular-space cross-sectional area [mm^2] measured on T2, and CSF-to-brain tracer concentration time series [mmol/L] after cisterna-magna Gd-DTPA (0.5 kDa) infusion",
+        "model_parameters": ["eps_pvs (via CSA and the paper's vessel-surface normalisation)", "k_csf / k_exchange (via the 45-frame arrival curve)", "D_isf (parenchymal spread of a 0.5 kDa tracer, i.e. a size-matched partner to the model's 3 kD D_isf)"],
+        "does_not_constrain": ["sleep dependence (all scans under anaesthesia)", "human values (rat only)"],
+        "value_class": "SOURCE for geometry and units; the numeric CSA and inflow values are in the paper, not in the sampled files, so no number is claimed here"
+      }
+    },
+    {
+      "id": "X1",
+      "artifact_type": "code",
+      "counts_toward_C1": false,
+      "reason_excluded": "C5 - model code, not a measurement",
+      "title": "Network model of time-dependent solute transport in the brain",
+      "creators": "Gan Y (University of Rochester)",
+      "urls": ["https://doi.org/10.5281/zenodo.16996736"],
+      "record_license": "CC-BY-4.0",
+      "archive": {"declared_bytes": 356154411, "md5": "0354b7b1add2a0ac3132231b10c841e2"},
+      "sampled": {
+        "path": "samples/zenodo16996736_network_model/",
+        "files": 5,
+        "contents": "MATLAB scripts (Readme.txt, setParam_gapfraction.m, find_Diffusivity_Edges.m, Dimensionalize_Parameters.m) plus param_1g.mat, 518 bytes",
+        "payload": "hydraulic-resistance network parameters, not tracer data"
+      },
+      "note": "inherited from the interrupted session; the record's own Data section lists .mat result files that were not part of the 5 files kept locally"
+    },
+    {
+      "id": "X2",
+      "artifact_type": "figure",
+      "counts_toward_C1": false,
+      "reason_excluded": "C5 - figure images, not a measurement",
+      "title": "Dataset and codes for 'Enhancing glymphatic fluid transport by pan-adrenergic inhibition suppresses epileptogenesis in male mice'",
+      "creators": "Sun Q, Peng S, Xu Q, Weikop P, Hussain R, Song W, Nedergaard M, Ding F (Fudan University)",
+      "urls": ["https://doi.org/10.5281/zenodo.13739055"],
+      "record_license": "CC-BY-4.0",
+      "archive": {"name": "zenodo13739055_Fig6D_glymphatic_efflux.zip", "bytes": 6346471, "sha256": "b907e6ed8f62213656b2c71bb2d09273ef8983b044d9f703fe5b336911a58e9a"},
+      "verified_content": "9 PNG micrographs named KA ppa-cy5-{45,90,120}.png, KA-cy5-{45,90,120}.png, Sham-cy5-{45,90,120}.png (582-910 kB each) - fluorescence figure panels",
+      "other_files_in_record": "4 EEG .mat files of 60-225 MB (exceed the 50 MB cap) and codes.zip at 2429 bytes"
+    },
+    {
+      "id": "X3",
+      "artifact_type": "simulation",
+      "counts_toward_C1": false,
+      "reason_excluded": "C5 - record text states 'Output functionals of interest from finite element simulations'",
+      "title": "Uncertainty quantification of parenchymal tracer distribution using random diffusion and convective velocity fields (data sets)",
+      "urls": ["https://doi.org/10.5281/zenodo.3241364"],
+      "record_license": "CC-BY-4.0",
+      "archive": {"name": "croci-rognes-vinje-dataset-2019.tar.gz", "bytes": 35614267, "md5": "da82dfaf2b25f0a513c005dd540e3499"},
+      "action": "not downloaded - it is simulated output, so downloading it would not add a constraint"
+    },
+    {
+      "id": "X4",
+      "artifact_type": "UNKNOWN",
+      "counts_toward_C1": false,
+      "reason_excluded": "could not be classified within the time budget",
+      "title": "Data from: Fluid flow and amyloid transport and aggregation in the Brain Interstitial Space",
+      "urls": ["https://doi.org/10.5281/zenodo.12518349"],
+      "record_license": "CC-BY-4.0",
+      "archive": {"declared_bytes": 24531000000, "note": "22.9 GB single file - far above the cap and not inspected"},
+      "status": "UNVERIFIED"
+    }
+  ],
+  "search_coverage": {
+    "archives_queried": ["Zenodo REST API (q=glymphatic, perivascular space volume, interstitial fluid diffusion brain)", "Dryad via Zenodo mirror record", "Mendeley Data public API", "OpenNeuro GraphQL"],
+    "openneuro": "unreachable from this host (DNS resolution failed for api.openneuro.org), so no human sleep-CSF deposit was checked",
+    "known_but_not_retrieved": "Fultz et al. 2019 Science (10.1126/science.aax5440, human NREM CSF-wave fMRI/EEG, n=13) and the 2025 aging-CSF follow-up; no public archive deposit for either was located inside the time budget"
+  },
+  "criteria": {
+    "C1_coverage_3_measured_sources": {
+      "required": 3,
+      "observed": 2,
+      "passed": false,
+      "detail": "S1 and S2 are verified measured sources. Only 2 of 3 were achieved; the shortfall is reported, not padded."
+    },
+    "C1a_at_least_one_diffusivity_or_porosity": {"passed": true, "which": "S2 (pial PVS cross-sectional area, i.e. eps_pvs)"},
+    "C1b_at_least_one_time_resolved": {
+      "passed": false,
+      "which": "S2 provides a 45-frame tracer series in the repository (3 baseline + 42 post-infusion frames at 4 min 5 s) but every series file is 201-216 MB and therefore outside the 50 MB cap, so no time-resolved payload was actually verified; S1 is explicitly not time-resolved"
+    },
+    "C2_form_check": {"passed": true, "detail": "6/6 NIfTI-1 headers parsed from Dryad S1 and 3/3 NIfTI-1 headers from Mendeley S2, magic and sizeof_hdr correct in every case"},
+    "C3_unit_frame_check": {
+      "passed": true,
+      "detail": "every stored file received an explicit unit and frame verdict; two real defects found (S1 declares no units at all, S2 declares metres for millimetre voxels) and one invalid field (S2 t2.nii.gz qform_code = -31288)"
+    },
+    "C4_size_50mb": {"passed": true, "largest_stored_file_bytes": 33615553, "largest_stored_file": "samples/mendeley78rvmj2wh8/t2.nii.gz"},
+    "C5_artifact_typing": {"passed": true, "detail": "X1 code, X2 figure, X3 simulation, X4 unknown - none counted toward C1"},
+    "C6_no_invention": {"passed": true, "detail": "no numeric measurement is claimed for S1 or S2; the only numbers are file sizes, sha256 sums, header fields, voxel value ranges, and label sets, all of which are in this JSON"}
+  },
+  "controls": {
+    "control_1_placebo_irrelevant_dataset": {
+      "status": "partially executed",
+      "finding": "S1 is a glymphatic-targeted dataset yet all five record-level fields are fillable, while it yields no usable number without the paper's b-values. Field-completeness therefore did not track usefulness. The literal musculoskeletal-GRF placebo archive was not fetched inside the time budget."
+    },
+    "control_2_inherited_artifact_audit": {
+      "status": "executed",
+      "finding": "Of the three artifacts inherited from the interrupted session, one is a measured dataset (S1, Dryad 121hs31) and two are not (X1 code, X2 figure). The interrupted session had therefore not yet produced a single verified measured sample, and the second half of the task was not started."
+    },
+    "control_3_unit_trap": {
+      "status": "executed",
+      "finding": "S2's NIfTI headers declare spatial unit = metre while pixdim are millimetres; S1 declares no unit and carries an all-ones pixdim placeholder. Both would silently corrupt eps_pvs and L if trusted. This is the single most consequential result of the audit."
+    }
+  },
+  "bottom_line": {
+    "measured_sources_verified": 2,
+    "code_or_figure_artifacts_discarded": 3,
+    "eps_isf_0p20": "still unconstrained by any downloaded public measurement",
+    "D_isf_1e-10_for_3kD": "still unconstrained - the closest is S2's 0.5 kDa Gd-DTPA parenchymal spread, whose numeric value lives in the paper, not in the files",
+    "L_250um": "no public vessel-spacing measurement was retrieved; S2's 80-156 um voxel grid is an imaging limit, not a spacing measurement",
+    "t50_600s": "no downloaded dataset can test the 600 s half-filling criterion; S2's hourly frame rate is 36x too coarse for a 600 s target",
+    "recommendation": "the Q156 next step is still not data-feasible as a held-out sub-10-minute test. A workable version is a two-tier test: seconds-to-minutes geometry and exchange from S2 at its native 4 min 5 s cadence, and hours-to-days clearance from a CSF/ISF tracer series. The 600 s criterion itself has to be sourced from an animal two-photon or fibre-optic tracer series with known geometry, which no public archive located here provides."
+  }
+}

@@ -1,0 +1,8 @@
+# PREREG CLOUD-W6-MUSCLE-EMG3
+
+Question: Can synchronized multi-channel EMG plus 60°/s isokinetic torque give a transferable person-specific activation/strength model for held-out 90°/s torque in three public Grand Challenge persons, and which individual muscle parameters remain gauge-free?
+
+Frozen primary falsifier: construct one common method (person-specific fitted coefficients allowed) using each person's 60°/s torque, angle, velocity and EMG, and 90°/s angle/velocity/EMG as input covariates only. Do not inspect any 90°/s torque until method, filtering, hyperparameters, cycle/angle masks and baseline are frozen. Relative RMSE gain = 1 − RMSE(method)/RMSE(strong angle-only baseline), evaluated separately for flexion and extension on 90°/s. PASS predictive transfer only if gain >=10% on both directions for at least 2 of the 3 persons DM/JW/SC, each with at least 5 10° bins spanning at least 50°. Otherwise FAIL; if data integrity/overlap prevents the test, UNKNOWN. Report every person/direction even if fail; no cherry-picking. Baseline uses the same 60°/s training torque, strong regularized angle-only curve with complexity tuned using only 60°/s repetitions.
+
+Separate parameter-identifiability status: Fmax, optimal fibre length and tendon slack may be called individually identified only if a local sensitivity/Fisher rank check, after fixing every explicitly measured calibration, is full rank and invariant to reasonable EMG gain rescaling. Otherwise report only identifiable products/combinations and a concrete additional measurement. This status does not relax the predictive-transfer falsifier.
+

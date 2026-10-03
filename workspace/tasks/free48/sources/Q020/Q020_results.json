@@ -1,0 +1,798 @@
+{
+  "id": "BT-HX-Q020",
+  "model": "4-compartment capillary-interstitium-lymph (first principles)",
+  "prereg_sha256": "df19abf518f8bba0e68273cb7bdc06fc10aa55ee99c9c752ff0958490f70b5e5",
+  "parameters": {
+    "M_body": {
+      "value": 70.0,
+      "unit": "kg",
+      "source": "ANTAGANDE (brief: 70 kg vuxen)"
+    },
+    "V_plasma0": {
+      "value": 3.0,
+      "unit": "L",
+      "source": "DERIVED: 0.043 L/kg plasma"
+    },
+    "V_isc0": {
+      "value": 11.0,
+      "unit": "L",
+      "source": "DERIVED: ECF 0.2 L/kg - plasma 0.043 L/kg"
+    },
+    "V_cell0": {
+      "value": 28.0,
+      "unit": "L",
+      "source": "DERIVED: TBW 0.6 L/kg - ECF 0.2 L/kg"
+    },
+    "c_plasma": {
+      "value": 40.0,
+      "unit": "g/L",
+      "source": "ANTAGANDE: plasmaalbumin 4 g/dL; ger pi_p=18.4 mmHg"
+    },
+    "c_isc0": {
+      "value": 15.0,
+      "unit": "g/L",
+      "source": "ANTAGANDE: ~0.38 c_p; ger pi_i~5 mmHg (subkutan litteratur)"
+    },
+    "T": {
+      "value": 310.0,
+      "unit": "K",
+      "source": "ANTAGANDE 37 C"
+    },
+    "M_n": {
+      "value": 69300.0,
+      "unit": "g/mol",
+      "source": "ANTAGANDE albuminmonomer"
+    },
+    "n_Hill": {
+      "value": 1.5,
+      "unit": "-",
+      "source": "KALIBRERAD pa (pi(10 g/L)=3.1, pi(40 g/L)=18.4 mmHg)"
+    },
+    "pi_max": {
+      "value": null,
+      "unit": "mmHg",
+      "source": "DERIVED from the calibration above"
+    },
+    "c_half": {
+      "value": null,
+      "unit": "g/L",
+      "source": "DERIVED from the calibration above"
+    },
+    "Pc_cap": {
+      "value": 20.0,
+      "unit": "mmHg",
+      "source": "ASSUMPTION: capillary pressure mean (20-25)"
+    },
+    "K_f0": {
+      "value": 0.05,
+      "unit": "mL/min/mmHg",
+      "source": "ANTAGANDE: helkroppseffektiv K_f; ger nettofiltr. ~0.5 mL/min"
+    },
+    "L_p": {
+      "value": 1.5e-07,
+      "unit": "cm/s",
+      "source": "Michel & Curry 1999 Physiol Rev 79:703-761 (10.1152/physrev.1999.79.3.703) - INTERVALL OVERIFIERAD"
+    },
+    "A_cap": {
+      "value": 3000.0,
+      "unit": "m^2",
+      "source": "ANTAGANDE: helkroppens kapillaryarea"
+    },
+    "sigma_g0": {
+      "value": 0.95,
+      "unit": "-",
+      "source": "ANTAGANDE: glykokalysens onkotiska screening"
+    },
+    "sigma_s0": {
+      "value": 0.9,
+      "unit": "-",
+      "source": "ANTAGANDE: albuminreflektion"
+    },
+    "D_ratio": {
+      "value": 0.0002,
+      "unit": "-",
+      "source": "ANTAGANDE: diffusiv/reflektiv (L_p D_s)/(K_f delta); kalibrerat sa att c_isc0 ~ 0.4 c_p"
+    },
+    "f_glyc": {
+      "value": 2.0,
+      "unit": "-",
+      "source": "ANTAGANDE: E~0.5 nar dP_eff = f_glyc*pi_p"
+    },
+    "n_glyc": {
+      "value": 12.0,
+      "unit": "-",
+      "source": "ANTAGANDE: skarpa knaet"
+    },
+    "k_leak": {
+      "value": 2.0,
+      "unit": "-",
+      "source": "ANTAGANDE: K_f-okning nar glykocalysen tappar"
+    },
+    "E_min": {
+      "value": 0.05,
+      "unit": "-",
+      "source": "ANTAGANDE: golv pa glykokalys"
+    },
+    "E_fixed": {
+      "value": null,
+      "unit": "-",
+      "source": "Nollmodell N3: None = fri E, 1.0 = laserad glykokalys"
+    },
+    "a_stiff": {
+      "value": 12.0,
+      "unit": "mmHg",
+      "source": "ANTAGANDE: P = a ln(V/V_k)"
+    },
+    "pv_form": {
+      "value": "log",
+      "unit": "-",
+      "source": "'log' = Guyton-riktande; 'linear' = nollmodell N0"
+    },
+    "V_k_ratio": {
+      "value": 1.2,
+      "unit": "-",
+      "source": "ANTAGANDE: V_k = 1.20 V_isc0 -> P_ISC,0 ~ -2.2 mmHg"
+    },
+    "R_mob_max": {
+      "value": 100000.0,
+      "unit": "-",
+      "source": "Guyton/Scheel/Murphree 1966 Circ Res 19:412-419 (10.1161/01.res.19.2.412): >1e5 ggr MOBILITETSfall"
+    },
+    "P_half_mob": {
+      "value": 0.25,
+      "unit": "mmHg",
+      "source": "ANTAGANDE: knaets halvbredd"
+    },
+    "P_min": {
+      "value": -14.0,
+      "unit": "mmHg",
+      "source": "ANTAGANDE: golv pa P_ISC"
+    },
+    "P_max": {
+      "value": 25.0,
+      "unit": "mmHg",
+      "source": "ANTAGANDE: tak pa P_ISC"
+    },
+    "K_lymph": {
+      "value": 1.0,
+      "unit": "mL/min/mmHg",
+      "source": "ANTAGANDE: lymfansangio-konduktans (dimensionellt K_L)"
+    },
+    "P_pump": {
+      "value": 0.5,
+      "unit": "mmHg",
+      "source": "ANTAGANDE: vilande pumptryck"
+    },
+    "beta": {
+      "value": 0.05,
+      "unit": "mmHg^-1",
+      "source": "ANTAGANDE: K_A A_L / K_L (Humphrey-formen) - OVERIFIERAD"
+    },
+    "P_out": {
+      "value": 0.0,
+      "unit": "mmHg",
+      "source": "ANTAGANDE: extrinsiskt/visceralt referenstryck"
+    },
+    "sigma_L": {
+      "value": 0.1,
+      "unit": "-",
+      "source": "ANTAGANDE: lymfans proteinreflektion"
+    },
+    "tau_l": {
+      "value": 20.0,
+      "unit": "min",
+      "source": "ANTAGANDE: lymfvaskompartimentets omsattningstid"
+    },
+    "f_p_lymph": {
+      "value": 0.3,
+      "unit": "-",
+      "source": "ANTAGANDE: andel lymfprotein som ater till plasma"
+    },
+    "tau_hep": {
+      "value": 120.0,
+      "unit": "min",
+      "source": "ANTAGANDE: hepatostatisk reglering av c_p (lever som kallande mangkomp)"
+    },
+    "pi_cell": {
+      "value": null,
+      "unit": "mmHg",
+      "source": "DERIVED/CALIBRATED: so that J_cell=0 in baseline equilibrium (see PREREG A4)"
+    },
+    "P_cell": {
+      "value": 0.0,
+      "unit": "mmHg",
+      "source": "ASSUMPTION: intracellular hydrostatic"
+    },
+    "K_cell": {
+      "value": 0.5,
+      "unit": "mL/min/mmHg",
+      "source": "ANTAGANDE: cellmembrans konduktans"
+    },
+    "c_cell": {
+      "value": 50.0,
+      "unit": "mmHg",
+      "source": "ANTAGANDE: cellernas P-V-stelhet (dP_c/d(V/V0))"
+    },
+    "tau_cell": {
+      "value": 500.0,
+      "unit": "min",
+      "source": "ANTAGANDE: langsam cellvolymreglering (VRAC etc.)"
+    },
+    "c_prop": {
+      "value": 0.0001,
+      "unit": "-",
+      "source": "ANTAGANDE: extracell. proteinklarande /tau_l -> k=5e-6 1/min (t1/2 ~ 5 d)"
+    }
+  },
+  "derived_params": {
+    "pi_max": 62.387499999999974,
+    "c_half": 71.51562896972337,
+    "f_A_eff": 0.0001851851851851852
+  },
+  "unit_check": [
+    {
+      "relation": "1  pi = f(c)                     [mmHg] = f[g/L]",
+      "lhs_unit": "mmHg^1  [mmHg]",
+      "rhs_unit": "mmHg^1  [mmHg]",
+      "value": 5.467632602035051,
+      "ok": true
+    },
+    {
+      "relation": "2  J_net = K_f*dP_eff            [mL/min] = [mL/min/mmHg]*[mmHg]",
+      "lhs_unit": "mL^1 min^-1  [mL/min]",
+      "rhs_unit": "mL^1 min^-1  [mL/min/mmHg*mmHg]",
+      "value": 0.4951056253273691,
+      "ok": true
+    },
+    {
+      "relation": "2  dP_eff = J_net/K_f            [mmHg]",
+      "lhs_unit": "mmHg^1  [mmHg]",
+      "rhs_unit": "mmHg^1  [mL/min/mL/min/mmHg]",
+      "value": 9.902109653460752,
+      "ok": true
+    },
+    {
+      "relation": "2  (pi_p - pi_i) sigma_g         [mmHg] -> dimensionless * [mmHg]",
+      "lhs_unit": "mmHg^1  [mmHg]",
+      "rhs_unit": "mmHg^1  [mmHg]",
+      "value": 12.932367397964951,
+      "ok": true
+    },
+    {
+      "relation": "3  G_d = K_f0*D_ratio*1e3        [mL/min]",
+      "lhs_unit": "mL^1 min^-1  [mL/min]",
+      "rhs_unit": "mL^1 min^-1  [mL/min]",
+      "value": 0.01,
+      "ok": true
+    },
+    {
+      "relation": "3  J_p,conv = (1-s_s)*c_p*J      [mg/min] = - * [g/L] * [mL/min]",
+      "lhs_unit": "mg^1 min^-1  [mg/min]",
+      "rhs_unit": "mg^1 min^-1  [g/L*mL/min]",
+      "value": 0.7426594009080686,
+      "ok": true
+    },
+    {
+      "relation": "3  J_p,diff = G_d*(c_p - c_i)     [mg/min] = [mL/min]*[g/L]",
+      "lhs_unit": "mg^1 min^-1  [mg/min]",
+      "rhs_unit": "mg^1 min^-1  [mL/min*g/L]",
+      "value": 0.0,
+      "ok": true
+    },
+    {
+      "relation": "4  P_ISC = a ln(V/V_k)           [mmHg] = a[mmHg]*dimensionellt",
+      "lhs_unit": "mmHg^1  [mmHg]",
+      "rhs_unit": "mmHg^1  [mmHg]",
+      "value": -2.187858681527455,
+      "ok": true
+    },
+    {
+      "relation": "5  R_mob(P)                      [1] : R(-1)=1 ... R(+1)->R_mob_max",
+      "lhs_unit": "1  [mL^0]",
+      "rhs_unit": "1  [mL^0]",
+      "value": 99610.89883268482,
+      "ok": true
+    },
+    {
+      "relation": "6  Q_L = K_L P_pump exp(beta dP)  [mL/min] = [mL/min/mmHg]*[mmHg]*1",
+      "lhs_unit": "mL^1 min^-1  [mL/min]",
+      "rhs_unit": "mL^1 min^-1  [mL/min/mmHg*mmHg]",
+      "value": 0.5000002509766157,
+      "ok": true
+    },
+    {
+      "relation": "6  dP_L_eff = dP_L/(1+R_mob)     [mmHg]",
+      "lhs_unit": "mmHg^1  [mmHg]",
+      "rhs_unit": "mmHg^1  [mmHg]",
+      "value": 1.0039062107849137e-05,
+      "ok": true
+    },
+    {
+      "relation": "7  c_l = (1-s_L) c_i             [g/L]",
+      "lhs_unit": "mL^-1 mg^1  [g/L]",
+      "rhs_unit": "mL^-1 mg^1  [g/L]",
+      "value": 13.5,
+      "ok": true
+    },
+    {
+      "relation": "7  M_l_ret = f_p c_l Q_L         [mg/min] = - * [g/L] * [mL/min]",
+      "lhs_unit": "mg^1 min^-1  [mg/min]",
+      "rhs_unit": "mg^1 min^-1  [g/L*mL/min]",
+      "value": 2.025001016455294,
+      "ok": true
+    },
+    {
+      "relation": "8  J_osm = K_c*(dP + dpi)         [mL/min] = [mL/min/mmHg]*[mmHg]",
+      "lhs_unit": "mL^1 min^-1  [mL/min]",
+      "rhs_unit": "mL^1 min^-1  [mL/min/mmHg*mmHg]",
+      "value": 0.5,
+      "ok": true
+    },
+    {
+      "relation": "8  J_reg = (V_c0 - V_c)/tau_c    [mL/min] = [mL]/[min]",
+      "lhs_unit": "mL^1 min^-1  [mL/min]",
+      "rhs_unit": "mL^1 min^-1  [mL/min]",
+      "value": 56.0,
+      "ok": true
+    },
+    {
+      "relation": "9  S_hep = c_p*(V_p - V_p0)/tau  [mg/min] = [g/L]*[mL]/[min]",
+      "lhs_unit": "mg^1 min^-1  [mg/min]",
+      "rhs_unit": "mg^1 min^-1  [g/L*mL/min]",
+      "value": 333.3333333333333,
+      "ok": true
+    }
+  ],
+  "baseline": {
+    "V_isc_L": 11.068461248895863,
+    "M_isc_g": 143.2941541163642,
+    "c_isc_gL": 12.94616757416561,
+    "c_pl_gL": 39.97466187970234,
+    "pi_isc_mmHg": 4.461528949580168,
+    "pi_pl_mmHg": 18.387671560856948,
+    "P_isc_mmHg": -2.113405133278393,
+    "J_net_mLmin": 0.44359291596762,
+    "Q_L_mLmin": 0.44986063813141486,
+    "E_glyc": 0.9999999614526698,
+    "mass_balance_rel_resid": 6.1775122987960095e-06
+  },
+  "y0_equilibrated": [
+    3.0,
+    120.0,
+    11.0,
+    165.0,
+    28.0
+  ],
+  "scenarios": {
+    "2": {
+      "dP_c_mmHg": 2.0,
+      "dV_isc_L": 1.1866531484128355,
+      "dM_alb_g": -14.617927728156618,
+      "R_ret_mg_mL": -12.318618753684083,
+      "P_isc_ss_mmHg": -0.9585057712920724,
+      "E_glyc_ss": 0.9999999185629078,
+      "K_f_ss": 0.050000008143709224,
+      "Q_L_ss_mLmin": 0.4766024998655144,
+      "J_net_ss_mLmin": 0.472121046392013,
+      "t90_h": 96.0,
+      "c_isc_ss_gL": 12.339899268523027,
+      "M_isc_ss_g": 150.38207227184338,
+      "V_isc_ss_L": 12.186653148412836,
+      "convergence": {
+        "dV_isc_L_per_day": 0.005926842059068804,
+        "dM_alb_g_per_day": 0.25679755837863194,
+        "rel_dV_per_day": 0.0004863387828380677,
+        "rel_dM_per_day": 0.0017076341248604614,
+        "converged": true
+      },
+      "V_l_ss_L": 0.009532049997310289,
+      "M_l_ss_g": 0.10586208311040073
+    },
+    "5": {
+      "dP_c_mmHg": 5.0,
+      "dV_isc_L": 3.4146113905791955,
+      "dM_alb_g": -2.1918712848297144,
+      "R_ret_mg_mL": -0.6419094397907233,
+      "P_isc_ss_mmHg": 1.0563065094153212,
+      "E_glyc_ss": 0.9999998447709588,
+      "K_f_ss": 0.05000001552290412,
+      "Q_L_ss_mLmin": 0.5000002649052611,
+      "J_net_ss_mLmin": 0.4981947914616809,
+      "t90_h": 168.0,
+      "c_isc_ss_gL": 11.294659585590706,
+      "M_isc_ss_g": 162.80812871517028,
+      "V_isc_ss_L": 14.414611390579195,
+      "convergence": {
+        "dV_isc_L_per_day": 0.002855379517064648,
+        "dM_alb_g_per_day": 0.09036528460111003,
+        "rel_dV_per_day": 0.0001980892470629356,
+        "rel_dM_per_day": 0.0005550416021254219,
+        "converged": true
+      },
+      "V_l_ss_L": 0.010000005298105222,
+      "M_l_ss_g": 0.1016519901265818
+    },
+    "10": {
+      "dP_c_mmHg": 10.0,
+      "no_physical_solution": true,
+      "reason": "nonphysical solution; negative volume in V_plasma=-0.925",
+      "R_ret_mg_mL": null,
+      "dV_isc_L": null
+    }
+  },
+  "P4_mobility_knee": {
+    "R_mob_Pminus1": 1.0,
+    "R_mob_Pplus1": 99610.89883268482,
+    "ratio": 99610.89883268482,
+    "threshold_P4": 100.0,
+    "ok": true
+  },
+  "P5_threshold_scan": {
+    "rows": [
+      {
+        "dP_c": 0.0,
+        "dV_isc_L": 0.2122106531525478,
+        "dM_alb_g": -15.48046474003006,
+        "E_glyc_ss": 0.9999999602152967,
+        "P_isc_ss": -1.9585608993514523
+      },
+      {
+        "dP_c": 1.0,
+        "dV_isc_L": 0.7384840362628092,
+        "dM_alb_g": -12.859925471405761,
+        "E_glyc_ss": 0.9999999424427871,
+        "P_isc_ss": -1.4081298194012049
+      },
+      {
+        "dP_c": 2.0,
+        "dV_isc_L": 1.2893822105102173,
+        "dM_alb_g": -10.154772291020723,
+        "E_glyc_ss": 0.9999999168343096,
+        "P_isc_ss": -0.8577740992037122
+      },
+      {
+        "dP_c": 3.0,
+        "dV_isc_L": 1.866420752539563,
+        "dM_alb_g": -7.3621226025983635,
+        "E_glyc_ss": 0.999999880133444,
+        "P_isc_ss": -0.3071514536306511
+      },
+      {
+        "dP_c": 4.0,
+        "dV_isc_L": 2.581680300601829,
+        "dM_alb_g": -4.179075632533349,
+        "E_glyc_ss": 0.9999998529700356,
+        "P_isc_ss": 0.34206022031644845
+      },
+      {
+        "dP_c": 5.0,
+        "dV_isc_L": 3.4587348829369167,
+        "dM_alb_g": -0.6466576138449309,
+        "E_glyc_ss": 0.9999998456984576,
+        "P_isc_ss": 1.0929827100500877
+      },
+      {
+        "dP_c": 6.0,
+        "dV_isc_L": 4.388074594931611,
+        "dM_alb_g": 2.9775519071878516,
+        "E_glyc_ss": 0.9999998349399681,
+        "P_isc_ss": 1.8405120346806705
+      },
+      {
+        "dP_c": 7.0,
+        "dV_isc_L": 5.365844176136206,
+        "dM_alb_g": 6.701925380733679,
+        "E_glyc_ss": 0.9999998187708757,
+        "P_isc_ss": 2.57975593528041
+      },
+      {
+        "dP_c": 8.0,
+        "dV_isc_L": 6.389205202834994,
+        "dM_alb_g": 10.494019076846365,
+        "E_glyc_ss": 0.9999997953295356,
+        "P_isc_ss": 3.3075935215750434
+      },
+      {
+        "dP_c": 9.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 10.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 11.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 12.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 13.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 14.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 15.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 16.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 17.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 18.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 19.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 20.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 21.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 22.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 23.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      },
+      {
+        "dP_c": 24.0,
+        "runaway_no_steady_state": true,
+        "dV_isc_L": null,
+        "dM_alb_g": null,
+        "E_glyc_ss": null,
+        "P_isc_ss": null
+      }
+    ],
+    "summary": {
+      "dP_c_threshold_mmHg": 9.0,
+      "window": [
+        4.0,
+        20.0
+      ],
+      "ok": true
+    }
+  },
+  "null_models": {
+    "N1_no_lymph": {
+      "runaway_no_steady_state": true,
+      "note": "nonphysical solution; negative volume in V_plasma=-4.83"
+    },
+    "N2_sigma0": {
+      "dV_isc_L": 2.5380019757479277,
+      "dM_alb_g": -59.53707348535544,
+      "R_ret_mg_mL": -23.458245523158183
+    },
+    "N3_full_glycocalyx": {
+      "2": {
+        "dV_isc_L": 1.2893799039568385,
+        "E_glyc_ss": 1.0
+      },
+      "5": {
+        "dV_isc_L": 3.4587106189130536,
+        "E_glyc_ss": 1.0
+      },
+      "10": {
+        "runaway_no_steady_state": true
+      },
+      "dV_spread": null
+    },
+    "N0_balloon": {
+      "2": {
+        "dV_isc_L": 1.4337701501611027,
+        "R_ret_mg_mL": -6.574551591779574,
+        "P_isc_ss": -0.8844312722900891
+      },
+      "5": {
+        "dV_isc_L": 3.5801598748691577,
+        "R_ret_mg_mL": -0.017650275137834508,
+        "P_isc_ss": 1.0668321138081427
+      },
+      "10": {
+        "runaway_no_steady_state": true
+      }
+    }
+  },
+  "sensitivity": {
+    "base_dV_isc_L": 3.4146113905791955,
+    "base_dM_alb_g": 2.1918712848297144,
+    "base_R_ret_mg_mL": 0.6419094397907235,
+    "rows": [
+      {
+        "param": "K_f0",
+        "value": 0.07500000000000001,
+        "sign": "+",
+        "runaway_no_steady_state": true,
+        "note": "nonphysical solution; negative volume in V_plasma=-0.122"
+      },
+      {
+        "param": "K_f0",
+        "value": 0.025,
+        "sign": "-",
+        "runaway_no_steady_state": true,
+        "note": "nonphysical solution; negative volume in V_plasma=-16.8,V_isc=-7.07"
+      },
+      {
+        "param": "beta",
+        "value": 0.07500000000000001,
+        "sign": "+",
+        "dV_isc_L": 3.416061196443736,
+        "dM_alb_g": -2.1476334137652593,
+        "R_ret_mg_mL": -0.6286870434291507,
+        "dV_pct": 0.04245888327264513,
+        "dM_pct": -197.981730434144
+      },
+      {
+        "param": "beta",
+        "value": 0.025,
+        "sign": "-",
+        "dV_isc_L": 3.412933247547484,
+        "dM_alb_g": -2.243068190330174,
+        "R_ret_mg_mL": -0.6572259190659621,
+        "dV_pct": -0.04914594487505593,
+        "dM_pct": -202.33576240789327
+      },
+      {
+        "param": "a_stiff",
+        "value": 18.0,
+        "sign": "+",
+        "dV_isc_L": 3.0342227957885424,
+        "dM_alb_g": -4.687710691384942,
+        "R_ret_mg_mL": -1.5449461054380769,
+        "dV_pct": -11.140025943805293,
+        "dM_pct": -313.8679731711129
+      },
+      {
+        "param": "a_stiff",
+        "value": 6.0,
+        "sign": "-",
+        "dV_isc_L": 4.1338009811670595,
+        "dM_alb_g": 1.6078373905508487,
+        "R_ret_mg_mL": 0.38894891115365743,
+        "dV_pct": 21.062121229141486,
+        "dM_pct": -26.64544667020623
+      }
+    ]
+  },
+  "prereg_verdict": {
+    "P1_R_ret_equals_c_isc_and_invariant": {
+      "R_ret_mg_mL": {
+        "2": -12.318618753684083,
+        "5": -0.6419094397907233
+      },
+      "c_isc_ss_gL": {
+        "2": 12.339899268523027,
+        "5": 11.294659585590706
+      },
+      "rel_err_vs_c_isc": {
+        "2": 1.9982754709438169,
+        "5": 1.0568330045652412
+      },
+      "all_R_ret_positive": false,
+      "spread_pct": 180.18878767259184,
+      "spread_limit_pct": 15.0,
+      "ok": false
+    },
+    "P2_dV_spread_ge3": {
+      "value": 2.8775142889447385,
+      "limit": 3.0,
+      "ok": false
+    },
+    "P3_P_isc_ss_positive_at_5mmHg": {
+      "value": 1.0563065094153212,
+      "ok": true
+    },
+    "P7_no_plasma_depletion": {
+      "scenarios_without_physical_solution": [
+        "10"
+      ],
+      "note": "closed water budget without infusion: a persistent dP_c exhausts plasma"
+    },
+    "P4_mobility_ratio": 99610.89883268482,
+    "P5_threshold_in_window": {
+      "dP_c_threshold_mmHg": 9.0,
+      "window": [
+        4.0,
+        20.0
+      ],
+      "ok": true
+    },
+    "P6_basal_flows_in_range": {
+      "J_net_mLmin": 0.44359291596762,
+      "Q_L_mLmin": 0.44986063813141486,
+      "window_mLmin": [
+        0.2,
+        4.0
+      ],
+      "ok": true
+    }
+  },
+  "prereg_sha256_frozen_initial": "529cad92a49b7e69719de2e05bb3ea63c87e86e4ee0f8ed9772f268605611239",
+  "amendments": [
+    "A1 K_lymph (unit check)",
+    "A2 D_ratio (baseline equilibrium)",
+    "A3 c_cell/tau_cell/c_prop",
+    "A4 pi_cell kalibrerad",
+    "A5 hepatostat PI pa albuminmassa",
+    "A6 Radau + L/g-skalning",
+    "A7 BUGFIX: dV_p -= J_c dubbelraknades (vattenbalansen brotts, hittad av T3)"
+  ],
+  "amendment_note": "Metadata changes after the run: no numbers in baseline/scenarios/sensitivity/null_models have changed. All changes are calibrations or error corrections, tested against unit check and mass balance -- not against the P1-P6 outcome. See PREREG.md §8."
+}

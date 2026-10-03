@@ -1,0 +1,5 @@
+# Steering LANE_SURGICAL_SYNTHESIS — round 3 (coordinator, 1/10 05:20)
+
+Review of round 2: attribution solved the puzzle — Shapley: the collagen **amount** port carries 30,9 of 35,4 pp (integrated 43,7 → amount alone 13,0 → both ports 8,3; verified r2/attribution_v1/ATTRIBUTION.json). Cause: the FV chain's C and the U/I/M inventory use different reference inventories and formation/loss ports. Measurement ranking M2 first. 70/70 tests.
+
+Round 3 (last for this lane tonight): **a shared collagen reference inventory** with shared formation and removal ports throughout the chain, so that the integrated chain reproduces the component's 8,3 pp without any port being fed externally. Keep all tests green and add a regression test for the integrated strength RMSE. Note: SOURCE_CONSERVATION_AUDIT now reviews the SURG_* sources; read results/LANE_SOURCE_CONSERVATION_AUDIT/AUDIT_TABLE.json before trusting their conservation. Finish with updated RESULTS.md for a reader and a prioritized measurement list (value per cost).

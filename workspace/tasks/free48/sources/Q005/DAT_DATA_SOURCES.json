@@ -1,0 +1,153 @@
+{
+  "id": "BT-DAT-Q005",
+  "question": "Which PUBLIC measured datasets constrain the model in inputs/ (BT-HX-Q005 renal OCT2/MATE steady-state clearance)?",
+  "model_under_constraint": "inputs/Q005_model.py; primary output CL_Cr (mL/min), secondary CL_Met (L/h); parameters K_OCT2_ref_uM, Jmax_OCT2_ref_pmol_cm2_min, f_u, P_MATE_cm_s, gfr_mL_min, area_cm2, kappa_creatinine, jmax_factor_creatinine, C_metformin_uM",
+  "frozen_verdict_vocabulary": ["CONSTRAINS", "CONSTRAINS-WEAK", "NO-CONSTRAINT", "DATA-GAP", "OVERIFIERAD"],
+  "frozen_rules": "R1 stable URL resolved 200 in-session; R2 license read from the publisher or the file; R3 a nameable one-directional constraint path; R4 measured (not simulated/atlas/synthetic). See PREREG.md section 2.",
+  "downloaded_sample": {
+    "id": "S1",
+    "bytes_total": 7693200,
+    "budget_bytes": 52428800,
+    "files": [
+      {"name": "patient.csv.gz", "url": "https://physionet.org/files/eicu-crd-demo/2.0/patient.csv.gz", "bytes": 136791, "sha256": "15e1eb52169828e3cfff3b67132a087298de4d0365bbb31bb294f6043bffd474"},
+      {"name": "lab.csv.gz", "url": "https://physionet.org/files/eicu-crd-demo/2.0/lab.csv.gz", "bytes": 5729763, "sha256": "e06852850abeb65211bc22ac43f17121ba41b14656fac862396449af84d8273a"},
+      {"name": "intakeOutput.csv.gz", "url": "https://physionet.org/files/eicu-crd-demo/2.0/intakeOutput.csv.gz", "bytes": 1826646, "sha256": "45db8ee0e64a4e3745284bde5828f740175770c45d00ea0c27daff789d18106e"}
+    ]
+  },
+  "sources": [
+    {
+      "id": "D4",
+      "name": "eICU Collaborative Research Database - demonstration subset (eicu-crd-demo) v2.0",
+      "url": "https://physionet.org/files/eicu-crd-demo/2.0/",
+      "landing_page": "https://physionet.org/content/eicu-crd-demo/2.0/",
+      "access": "open to anyone, no registration, HTTP 200 verified in-session",
+      "license": "Open Data Commons Open Database License v1.0 (ODbL 1.0)",
+      "license_evidence": "read from the publisher content page in-session: 'Access Policy: Anyone can access the files, as long as they conform to the terms of the specified license. License (for files): Open Data Commons Open Database License v1.0'",
+      "doi": "10.13026/gxmm-es70",
+      "size": "7,693,200 bytes downloaded (3 of 30 demo tables); whole demo is larger, full CRD is ~2.6 GB",
+      "format": "gzip-compressed CSV, 3 tables, no header metadata file",
+      "subjects": "measured, 1,841 unique de-identified patients / 2,520 ICU unit stays in the patient table; 2,414 adult (>=18 y) stays; 2,271 adult stays with serum creatinine; 2,091 survive the anthropometry plausibility window and enter the derived GFR/CG computation",
+      "type": "clinical time series (labs with minute offsets), anthropometry, measured fluid balance",
+      "measured_quantity_of_interest": "serum creatinine (14631 lab rows, 3 unit spellings of mg/dL), BUN, measured urine volumes, age, sex, admission weight and height",
+      "verdict": "CONSTRAINS",
+      "constrains": [
+        {"model_target": "gfr_mL_min (94.99 mL/min/1.73 m2, prior CV 0.15)", "strength": "moderate", "path": "lab.creatinine + patient.age/sex/weight/height -> CKD-EPI 2021 -> de-indexed mL/min", "empirical_result": "cohort median 71.04 mL/min/1.73 m2 (IQR 43.35-96.84, n=2091); 71.1% of stays fall inside the model's frozen 0.5-2.0 x 94.99 plausibility window; cohort CV 0.471 is 3.19x the prior CV 0.15"},
+        {"model_target": "CL_Cr (primary output, 140.616 mL/min)", "strength": "weak", "path": "serum creatinine + weight + age + sex -> Cockcroft-Gault (mL/min) and a steady-state mass balance against measured urine flow", "empirical_result": "CG median 74.46 mL/min (IQR 44.39-109.85, n=2091); implied urine creatinine at the model's CL_Cr and measured flow has median 110.3 mg/dL"},
+        {"model_target": "Cr_error_cv (frozen residual 0.05)", "strength": "moderate", "path": "repeat serum creatinine within the first 24 h -> within-stay SD/mean", "empirical_result": "median within-stay CV 0.110 (IQR 0.061-0.194, n=1572 stays), i.e. 2.2x the frozen 0.05 residual"}
+      ],
+      "cannot_constrain": ["f_u", "P_MATE_cm_s", "K_OCT2_ref_uM", "Jmax_OCT2_ref_pmol_cm2_min", "area_cm2", "C_metformin_uM", "kappa_creatinine", "jmax_factor_creatinine"],
+      "why": "no albumin and no metformin in the sample, and no transporter uptake, efflux, intracellular accumulation or imaging: a bedside steady-state endpoint cannot identify a saturable transport constant or a membrane permeability",
+      "provenance": "source (measured creatinine/urine/weight/age/sex) + derived (CKD-EPI 2021, Cockcroft-Gault, Du Bois de-indexing, steady-state mass balance) - see analyze_sample.py"
+    },
+    {
+      "id": "D4b",
+      "name": "eICU Collaborative Research Database v2.0 (full)",
+      "url": "https://physionet.org/content/eicu-crd/2.0/",
+      "access": "credentialed: DUA signature + CITI 'Data or Specimens Only Research' training required; verified in-session on the content page",
+      "license": "PhysioNet Credentialed Health Data License 1.5.0 + PhysioNet Credentialed Health Data Use Agreement 1.5.0",
+      "license_evidence": "read from the publisher content page in-session",
+      "size": "~2.6 GB compressed",
+      "format": "gzip CSV, 31 tables",
+      "subjects": "~200,000 unique ICU patients / ~280,000 unit stays across ~208 US hospitals",
+      "verdict": "OVERIFIERAD (not downloaded: credentialing cannot be completed inside a 45-min local job; listed so the access route is not rediscovered from scratch)",
+      "constrains": ["CL_Cr", "Cr_error_cv", "gfr_mL_min", "the correlation structure between the two readouts"]
+    },
+    {
+      "id": "D5",
+      "name": "MIMIC-IV (PhysioNet)",
+      "url": "https://physionet.org/content/mimic-iv/2.2/",
+      "access": "credentialed (PhysioNet) - the content page did not return a license block in this session",
+      "license": "OVERIFIERAD - not re-read from the publisher in-session, therefore not asserted",
+      "size": "UNKNOWN - not measured in-session",
+      "format": "CSV (v2.x) / parquet (v3.x), 26+ tables",
+      "subjects": "UNKNOWN in-session (documented order of 1e5 hospital admissions; not verified here)",
+      "verdict": "OVERIFIERAD",
+      "constrains": ["CL_Cr time series", "Cr_error_cv", "urine-output-based mass balance"],
+      "note": "would be the strongest time-series constraint on CL_Cr; flagged so the next session does not re-derive the access route"
+    },
+    {
+      "id": "D2",
+      "name": "ChEMBL 37 - metformin x human OCT2 / MATE1 / MATE2-K bioactivity",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1431&target_chembl_id__in=CHEMBL1743122,CHEMBL1743126,CHEMBL1743127",
+      "landing_page": "https://www.ebi.ac.uk/chembl/",
+      "access": "open REST API, HTTP 200 verified in-session",
+      "license": "Creative Commons Attribution-Share Alike 3.0 Unported",
+      "license_evidence": "read from https://www.ebi.ac.uk/chembl/about/ in-session: 'The ChEMBL data is made available on a Creative Commons Attribution-Share Alike 3.0 Unported License'",
+      "targets": {"SLC22A2_OCT2": "CHEMBL1743122", "SLC47A1_MATE1": "CHEMBL1743126", "SLC47A2_MATE2-K": "CHEMBL1743127", "metformin": "CHEMBL1431"},
+      "size": "API response for the query above: 7 activity records; database 24,527,044 activities / 18,552 targets (db version ChEMBL_37, verified in-session via /status.json)",
+      "format": "JSON over REST (also bulk TSV/SQLite releases)",
+      "subjects": "in-vitro transporter assays, Homo sapiens targets; 2 of the 7 metformin records carry a numeric standard value",
+      "verdict": "CONSTRAINS-WEAK",
+      "constrains": [
+        {"model_target": "K_OCT2_ref_uM / Jmax_OCT2_ref", "strength": "weak", "path": "assay standard_type/standard_value -> inhibition IC50, not uptake Km/Vmax", "empirical_result": "OCT2 IC50 = 1700000 nM (assay CHEMBL2075996), MATE1 IC50 = 250000 nM (CHEMBL2320306), MATE2-K 1 record with no numeric value; 1 raw 'Drug uptake = 110.0 pmol/mg' (CHEMBL2427054)"},
+        {"model_target": "unit frame of Jmax_OCT2_ref_pmol_cm2_min", "strength": "moderate", "path": "the only numeric uptake record is normalised per mg protein, i.e. a different frame from the model's per-cm2-per-min surface-normalised value", "empirical_result": "confirms that the public record does NOT supply the model's frame; a tissue-surface conversion is needed and is itself unvalidated"}
+      ],
+      "why_weak": "inhibition IC50 against an expressed transporter is not the saturable uptake constant the model's Michaelis-Menten step needs; and N is 2 usable numeric records, so it cannot set a prior CV of 0.30 on a defensible spread"
+    },
+    {
+      "id": "D1",
+      "name": "Metrabase - measured transporter uptake/efflux kinetics",
+      "url": "https://www.metrabase.ch/",
+      "access": "FAILED in-session: 'Could not resolve host' (DNS) for both metrabase.ch and www.metrabase.ch",
+      "license": "OVERIFIERAD - not re-read from the publisher",
+      "size": "UNKNOWN",
+      "format": "MITAB TSV per drug-transporter pair (documented; not confirmed here)",
+      "subjects": "UNKNOWN",
+      "verdict": "OVERIFIERAD",
+      "constrains": ["K_OCT2_ref_uM", "Jmax_OCT2_ref_pmol_cm2_min", "P_MATE_cm_s"],
+      "note": "on paper this is the single most on-target public resource for the model's two molecular parameters, and the reason the K/J anchor remains a one-study, CHO-cell, in-vitro value. It could not be verified from this sandbox and is therefore NOT used as a measured input."
+    },
+    {
+      "id": "D3",
+      "name": "NHANES (CDC) - albumin/creatinine and biochemistry, cycle 2005-2006",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/ALB_CR_D.xpt",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Nhanes/2005-2006/ALB_CR_D.htm",
+      "access": "open, no registration; HTTP 200 verified in-session for both the .xpt and the codebook page",
+      "license": "US federal government work, no copyright asserted by NHANES/CDC; reuse is unrestricted subject to CDC terms (NOT re-read from a publisher license page in this session)",
+      "size": "324,880 bytes for ALB_CR_D.xpt (verified in-session via HTTP Content-Length; body not stored, see the one-sample budget in PREREG.md section 2)",
+      "format": "SAS transport V5 (XPT), with a companion HTM codebook carrying the units",
+      "subjects": "UNKNOWN - cycle total is documented as of order 1e4 adults, but the analysed subset size was NOT verified in-session and is not asserted",
+      "verdict": "CONSTRAINS-WEAK (registered, not exercised in this session)",
+      "constrains": [
+        {"model_target": "f_u (leading molecular candidate, nominal 1.0, prior mean 0.95)", "strength": "weak", "path": "serum albumin -> plasma protein binding context for the metformin branch of f_u", "empirical_result": "NOT COMPUTED - the sample budget was spent on the eICU demo, so no albumin number is claimed"},
+        {"model_target": "gfr_mL_min", "strength": "weak", "path": "population-representative serum creatinine + demographics + CDC survey weights"}
+      ],
+      "why_weak": "an NHANES albumin concentration constrains the protein-binding context but is not a metformin unbound fraction; a population cross-section also cannot set a within-person prior CV"
+    },
+    {
+      "id": "D6",
+      "name": "Renal geometry imaging (TCIA collections, e.g. TCGA-KIRC; Visible Human Project)",
+      "url": "https://www.cancerimagingarchive.net/",
+      "access": "NOT probed in-session",
+      "license": "OVERIFIERAD",
+      "size": "UNKNOWN",
+      "format": "DICOM series (CT/MRI) plus NIfTI derivatives",
+      "subjects": "UNKNOWN",
+      "verdict": "OVERIFIERAD",
+      "constrains": ["area_cm2 (2.0e5 cm2, flagged 'geometric assumption' in inputs/Q005_RESULTS.md)"],
+      "note": "a measured kidney volume from CT would attack the model's worst-sourced parameter, but converting a volume to an effective tubular exchange area requires an allometry that is itself not measured, so the expected verdict is CONSTRAINS-WEAK at best. Not verified here."
+    },
+    {
+      "id": "D7",
+      "name": "MIT-BIH Arrhythmia Database (placebo class, frozen as N1)",
+      "url": "https://physionet.org/content/mitdb/1.0.0/",
+      "access": "open, HTTP 200 verified in-session",
+      "license": "Open Data Commons Attribution License v1.0",
+      "license_evidence": "read from the publisher content page in-session",
+      "size": "~2 MB, 48 records",
+      "format": "WFDB (.dat/.hea) 2-lead ECG, 360 Hz, 30 min per record",
+      "subjects": "2 subjects (MIT-BIH arrhythmia database)",
+      "verdict": "NO-CONSTRAINT",
+      "constrains": [],
+      "why": "public, measured, open-licensed and completely useless here - no column maps to any model parameter. Reported precisely so the search is not cherry-picked, and it changed 0 model numbers (results.json:null_and_placebo.N1_placebo_dataset.model_numbers_changed = 0)."
+    }
+  ],
+  "summary": {
+    "n_sources": 8,
+    "verdict_counts": {"CONSTRAINS": 1, "CONSTRAINS-WEAK": 3, "NO-CONSTRAINT": 1, "DATA-GAP": 2, "OVERIFIERAD": 3},
+    "data_gaps": ["kappa_creatinine (0.40)", "jmax_factor_creatinine (0.067)", "P_MATE_cm_s (0.0012)", "area_cm2 (2.0e5)", "K_OCT2_ref_uM (518 microM, still one in-vitro CHO study)", "Jmax_OCT2_ref_pmol_cm2_min (1046, same study)"],
+    "downloaded": 1,
+    "bytes_downloaded": 7693200,
+    "unknown": ["K02, K08, K10, K11 node content (absent from this job directory)", "verified 24-h urine creatinine reference interval", "Metrabase reachability and license", "MIMIC-IV license string and subject count", "NHANES subset size"]
+  }
+}

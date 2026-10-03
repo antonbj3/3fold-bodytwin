@@ -1,0 +1,169 @@
+{
+  "cell": "SURG_COLLAGEN",
+  "claim_type": "information_link",
+  "claim_type_reason": "The cell adds no algorithm that competes with a control. It makes two quantities a surgeon controls (blade temperature, incision direction) predictive of cutting work, so the control is practice WITHOUT that link.",
+  "edges_this_cell_offers": [
+    {
+      "level": "TISSUE",
+      "note": "SURG_INCISION carries tool-specific toughness; this cell says what the material does, so the edge is drawn at TISSUE, the finest level both hold.",
+      "shared_quantity": "work of cutting per unit crack area",
+      "to": "SURG_INCISION",
+      "type": "SIMULTANEOUS"
+    },
+    {
+      "level": "TISSUE",
+      "note": "HANDOVER and not SIMULTANEOUS: cutting work is set within milliseconds, bleeding and plug formation run over minutes.",
+      "shared_quantity": "cut depth and length",
+      "to": "SURG_HEMOSTASIS",
+      "type": "HANDOVER"
+    },
+    {
+      "level": "MOLECULE",
+      "shared_quantity": "crosslink density",
+      "to": "SURG_HEALING",
+      "type": "HANDOVER"
+    }
+  ],
+  "external_referent": "collagen type-I Tm mammalian anchor 310.15-313.15 K, over-determined by two non-circular published routes (this folder's verified script)",
+  "fibril_level": {
+    "bending_exponent_band": [
+      0.98,
+      1.186
+    ],
+    "bending_exponent_used": 0.98,
+    "gamma_fibril_J_m2": null,
+    "gamma_fibril_release_requires": "full force-opening curve to rupture on a single fibril plus interfibrillar node separation work (ACQUISITION_LIST item 8)",
+    "gamma_fibril_status": "NULL_NO_MEASUREMENT_EXISTS",
+    "recruitment_band": [
+      0.27172862824673377,
+      0.34073925195167765
+    ]
+  },
+  "molecule_level": {
+    "Tm_anchor_band_K": [
+      310.15,
+      313.15
+    ],
+    "Tm_predicted_K": 311.485,
+    "anchor_reproduced": true,
+    "note": "The anchor is a CHECK on this cell, not an input to it. If it stops reproducing, the chain is broken upstream of anything surgical."
+  },
+  "negative_result": false,
+  "parameters": {
+    "Tm_band_K": [
+      310.15,
+      313.15
+    ],
+    "Tm_native_K": 311.5,
+    "bending_exponent": 0.98,
+    "bending_exponent_band": [
+      0.98,
+      1.186
+    ],
+    "crosslink_density": 1.0,
+    "edge_radius_m": 1e-06,
+    "fibril_diameter_m": 1e-07,
+    "gamma_fibril_J_m2": null,
+    "hyp_fraction": 0.095,
+    "k_crosslink": 0.6,
+    "kappa_slide_over_rupture_band": [
+      0.05,
+      0.5
+    ],
+    "phi_denatured_band": [
+      0.01,
+      0.3
+    ],
+    "recruit_realized_max": 1.9629,
+    "recruit_realized_mean": 1.209,
+    "recruit_target_band": [
+      1.2978,
+      2.1836
+    ],
+    "theta_c_rad": 0.5236
+  },
+  "quantities": {
+    "R_recruit": {
+      "resolution_level": "TISSUE",
+      "unit": "ratio [1]"
+    },
+    "R_thermal": {
+      "resolution_level": "TISSUE",
+      "unit": "ratio [1]"
+    },
+    "Tm": {
+      "resolution_level": "MOLECULE",
+      "unit": "melting temperature [K]"
+    },
+    "crosslink_density": {
+      "resolution_level": "MOLECULE",
+      "unit": "mol crosslink / mol collagen [1]"
+    },
+    "gamma_fibril": {
+      "resolution_level": "FIBRIL",
+      "unit": "work of separation [J/m^2]"
+    },
+    "gamma_tissue": {
+      "resolution_level": "TISSUE",
+      "unit": "work of cutting [J/m^2]"
+    },
+    "hyp_fraction": {
+      "resolution_level": "MOLECULE",
+      "unit": "mol Hyp / mol residues [1]"
+    },
+    "recruitment": {
+      "resolution_level": "FIBRIL",
+      "unit": "load-carrying fibril fraction [1]"
+    }
+  },
+  "refutes_us": [
+    "Self-refuted once already: version 1 of r_recruit implicitly set kappa=1 and returned 0.9657, the wrong sign. The surviving statement is weaker and true -- Gamma_fibril cancels in both ratios, but only R_thermal is free of a second unknown.",
+    "If R_thermal's lower bound falls below 1.0, a heated blade does not cut a softer material and the thermal branch of this chain is wrong.",
+    "If R_recruit lands outside the measured target band 1.2978-2.1836, the recruitment route disagrees with tonight's measurement and one of the two is wrong."
+  ],
+  "tissue_level_decisive": {
+    "R_recruit_band": [
+      1.425924064939597,
+      5.25924064939597
+    ],
+    "R_recruit_band_overlaps_measured_target": true,
+    "R_recruit_depends_on_declared_debt": {
+      "kappa_slide_over_rupture_band": [
+        0.05,
+        0.5
+      ]
+    },
+    "R_thermal_band": [
+      4.519774011299435,
+      159.0457256461233
+    ],
+    "R_thermal_depends_on_declared_debt": {
+      "phi_denatured_band": [
+        0.01,
+        0.3
+      ]
+    },
+    "R_thermal_lower_bound_is_informative": true,
+    "bluntness_fibril_diameters": 10.0,
+    "measured_realized_max": 1.9629,
+    "measured_realized_mean": 1.209,
+    "measured_target_band": [
+      1.2978,
+      2.1836
+    ],
+    "only_R_thermal_is_a_clean_ratio": true,
+    "overlap_is_a_weak_test": "kappa is free over a factor of 10, so an overlap with the measured band 1.2978-2.1836 is nearly unavoidable and must not be reported as agreement. Measuring kappa is what would make this ratio decisive.",
+    "sharp_blade_idealisation_holds": false
+  },
+  "unit_check": {
+    "R_recruit_dimensionless": true,
+    "R_thermal_dimensionless": true,
+    "Tm_in_kelvin": true,
+    "all_passed": true,
+    "bluntness_dimensionless": true,
+    "every_quantity_has_level": true,
+    "gamma_absolute_declared_null": true
+  },
+  "validation_status": "structural and dimensional check; no internal data used",
+  "what": "molecule-to-tissue chain for cutting; emits ratios because the absolute is a declared null"
+}

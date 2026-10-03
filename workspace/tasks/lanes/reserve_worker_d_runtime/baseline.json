@@ -1,0 +1,114 @@
+[
+  {
+    "time": 1790720080.5730166,
+    "policy": {
+      "free_worker_verified_accounts": [
+        "A",
+        "B",
+        "C"
+      ],
+      "allocation": "The swarm first; free_worker on cooldown; reserve_worker when both free models cooldown",
+      "paid_fallback": false,
+      "free_worker_backoff_until": 1790721555.0486672,
+      "backoff_reason": "free_worker provider rate errors; temporary free-model routing, no extra accounts or changed endpoints",
+      "free_worker_active_cap": 4,
+      "free_worker_fill_target": 4,
+      "bunny_active_cap": 2,
+      "bunny_backoff_until": 1790721241.606271,
+      "desired_host_concurrency": 17,
+      "capacity_authorization": "Anton 2026-09-28: 60 actual free workers across existing hosts; preserve rate cooldowns",
+      "reserve_worker_reserve_until": 0,
+      "reserve_worker_reserve_cap": 16,
+      "reserve_worker_reserve_account": "A",
+      "reserve_worker_reserve_authorization": "Anton 2026-09-28: increase reserve_worker reserve to 25 total",
+      "unattended_updated": 1790605179.691318,
+      "bunny_cap_authorization": "Anton 2026-09-28: increase The swarm concurrency where existing hosts have safe memory headroom; cooldowns, accounts, routes and lease expiry preserved",
+      "bunny_cap_updated": 1790609350.018291,
+      "reserve_worker_backoff_until": 2790683370.388853,
+      "reserve_worker_weekly_stop_pct": 95,
+      "reserve_worker_weekly_used_pct": 65.87,
+      "reserve_worker_weekly_updated": 1790719796.1347668,
+      "reserve_worker_weekly_note": "manual: run reserve_worker-usage <pct> after checking the console; router stops reserve_worker at >=stop_pct",
+      "reserve_worker_weekly_budget_usd": 30,
+      "reserve_worker_value_only": false
+    },
+    "failed": "",
+    "services": "agent-BT-DW48-AUTO-bbda6f0915cf1e-1790719398.service    loaded active running /bin/bash -c \"python3 /opt/agents/jobs/BT-DW48-AUTO-bbda6f0915cf1e/_run_dental.py B swarm --dir /opt/agents/jobs/BT-DW48-AUTO-bbda6f0915cf1e --title BT-DW48-AUTO-bbda6f0915cf1e \\\"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\\\\\"BT-DW48-AUTO-bbda6f0915cf1e\\\\\\\" when done.\\\" > agent.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-BT-DW48-AUTO-f2f7714c08d8fa-1790719393.service    loaded active running /bin/bash -c \"python3 /opt/agents/jobs/BT-DW48-AUTO-f2f7714c08d8fa/_run_dental.py C swarm --dir /opt/agents/jobs/BT-DW48-AUTO-f2f7714c08d8fa --title BT-DW48-AUTO-f2f7714c08d8fa \\\"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\\\\\"BT-DW48-AUTO-f2f7714c08d8fa\\\\\\\" when done.\\\" > agent.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-BT-FW48-SEED-083-1790719535.service               loaded active running /bin/bash -c \"python3 /opt/agents/jobs/BT-FW48-SEED-083/_run_dental.py A swarm --dir /opt/agents/jobs/BT-FW48-SEED-083 --title BT-FW48-SEED-083 \\\"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\\\\\"BT-FW48-SEED-083\\\\\\\" when done.\\\" > agent.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-BT-FW48-SEED-084-1790719540.service               loaded active running /bin/bash -c \"python3 /opt/agents/jobs/BT-FW48-SEED-084/_run_dental.py B swarm --dir /opt/agents/jobs/BT-FW48-SEED-084 --title BT-FW48-SEED-084 \\\"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\\\\\"BT-FW48-SEED-084\\\\\\\" when done.\\\" > agent.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-BT-FW48-SEED-085-1790719769.service               loaded active running /bin/bash -c \"python3 /opt/agents/jobs/BT-FW48-SEED-085/_run_dental.py C swarm --dir /opt/agents/jobs/BT-FW48-SEED-085 --title BT-FW48-SEED-085 \\\"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\\\\\"BT-FW48-SEED-085\\\\\\\" when done.\\\" > agent.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-BT-FW48-SEED-086-1790719774.service               loaded active running /bin/bash -c \"python3 /opt/agents/jobs/BT-FW48-SEED-086/_run_dental.py A swarm --dir /opt/agents/jobs/BT-FW48-SEED-086 --title BT-FW48-SEED-086 \\\"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\\\\\"BT-FW48-SEED-086\\\\\\\" when done.\\\" > agent.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-BT-FW48-SEED-087-1790719779.service               loaded active running /bin/bash -c \"python3 /opt/agents/jobs/BT-FW48-SEED-087/_run_dental.py B swarm --dir /opt/agents/jobs/BT-FW48-SEED-087 --title BT-FW48-SEED-087 \\\"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\\\\\"BT-FW48-SEED-087\\\\\\\" when done.\\\" > agent.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-BT-FW48-SEED-192-1790719529.service               loaded active running /bin/bash -c \"python3 /opt/agents/jobs/BT-FW48-SEED-192/_run_dental.py B swarm --dir /opt/agents/jobs/BT-FW48-SEED-192 --title BT-FW48-SEED-192 \\\"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\\\\\"BT-FW48-SEED-192\\\\\\\" when done.\\\" > agent.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-BT-FW48-SEED-193-1790719764.service               loaded active running /bin/bash -c \"python3 /opt/agents/jobs/BT-FW48-SEED-193/_run_dental.py C swarm --dir /opt/agents/jobs/BT-FW48-SEED-193 --title BT-FW48-SEED-193 \\\"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\\\\\"BT-FW48-SEED-193\\\\\\\" when done.\\\" > agent.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-BT-FW48-SEED-194-1790719350.service               loaded active running /bin/bash -c \"python3 /opt/agents/jobs/BT-FW48-SEED-194/_run_dental.py A swarm --dir /opt/agents/jobs/BT-FW48-SEED-194 --title BT-FW48-SEED-194 \\\"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\\\\\"BT-FW48-SEED-194\\\\\\\" when done.\\\" > agent.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-F_FB_FREE_AUD_5a79bd33724bbcb3-1790719511.service loaded active running /bin/bash -c \"python3 _run_bunny.py A F_FB_FREE_AUD_5a79bd33724bbcb3 FB_FREE_AUD_5a79bd33724bbcb3 >> wrapper.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-F_FB_FREE_AUD_690e94d00e13bd27-1790719313.service loaded active running /bin/bash -c \"python3 _run_bunny.py C F_FB_FREE_AUD_690e94d00e13bd27 FB_FREE_AUD_690e94d00e13bd27 >> wrapper.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-F_FB_FREE_AUD_94985f7292e90c52-1790719590.service loaded active running /bin/bash -c \"python3 _run_bunny.py B F_FB_FREE_AUD_94985f7292e90c52 FB_FREE_AUD_94985f7292e90c52 >> wrapper.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-F_FB_FREE_AUD_d2c525c11f0c6fe1-1790719473.service loaded active running /bin/bash -c \"python3 _run_bunny.py B F_FB_FREE_AUD_d2c525c11f0c6fe1 FB_FREE_AUD_d2c525c11f0c6fe1 >> wrapper.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-F_FB_FREE_AUD_f73951d16b5d64ca-1790719140.service loaded active running /bin/bash -c \"python3 _run_bunny.py C F_FB_FREE_AUD_f73951d16b5d64ca FB_FREE_AUD_f73951d16b5d64ca >> wrapper.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-F_FB_RATE_8b7fcf007e3c0ed2-1790719281.service     loaded active running /bin/bash -c \"python3 _run_bunny.py A F_FB_RATE_8b7fcf007e3c0ed2 FB_RATE_8b7fcf007e3c0ed2 >> wrapper.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\ncron.service                                            loaded active running Regular background program processing daemon\ndbus.service                                            loaded active running D-Bus System Message Bus\nfwupd.service                                           loaded active running Firmware update daemon\ngetty@tty1.service                                      loaded active running Getty on tty1\nhome-egress-router.service                              loaded active running Route research model CONNECT traffic through home SSH egress\nModemManager.service                                    loaded active running Modem Manager\nmultipathd.service                                      loaded active running Device-Mapper Multipath Device Controller\npolkit.service                                          loaded active running Authorization Manager\nqemu-guest-agent.service                                loaded active running QEMU Guest Agent\nrsyslog.service                                         loaded active running System Logging Service\nserial-getty@ttyS0.service                              loaded active running Serial Getty on ttyS0\nssh.service                                             loaded active running OpenBSD Secure Shell server\nsystemd-journald.service                                loaded active running Journal Service\nsystemd-logind.service                                  loaded active running User Login Management\nsystemd-networkd.service                                loaded active running Network Configuration\nsystemd-resolved.service                                loaded active running Network Name Resolution\nsystemd-timesyncd.service                               loaded active running Network Time Synchronization\nsystemd-udevd.service                                   loaded active running Rule-based Manager for Device Events and Files\nudisks2.service                                         loaded active running Disk Manager\nunattended-upgrades.service                             loaded active running Unattended Upgrades Shutdown\nuser@1000.service                                       loaded active running User Manager for UID 1000\n",
+    "protected_hashes": {
+      "run_profile_ovh.before_bunny_recovery.py": "6fee95c61f2cec400af5b035bf5b8134691f5626ca3c693b0697a96e9051bf95",
+      "run_profile_ovh.before_20260926.py": "efe67cb94f955ed8708f1b638b34e07791d1db0597fe1256cf02374caa23afa4",
+      "route_runtime.before_go_reserve_20260928.py": "3d4c9e5558362c74ae074e6061e86166fbb462ef94199b201c2728bb5cfd28a8",
+      "route_runtime.py": "d0f9664dbdb0cd5ca961d5ebf52505a0f2ca197e0c24d9169f6d34ce8ebf9160",
+      "route_runtime.before_bunny_recovery.py": "b55c98922b500f2b4ec4a465e2ebddf22a3414f818e6fdbe00e2505108db23e9",
+      "route_runtime.before_unattended_20260928.py": "47153637dee6da0383b00db4065dcf630983af4867885e8a3032d786cc5b31fe",
+      "launch_reserved.py": "77440711fbf43a37b679d00c1e4aa42f7d75675c0829b25b9524f58c54bebe39",
+      "run_profile_ovh.before_rate_backoff_20260927.py": "f3f9122ed008871c37517406684a77817523a84a5c1c08df1f63f61b80a24e9a",
+      "run_profile_ovh.py": "4394007531bac456d4ea0b9d93805d5edd41e29ac4e183be4a6d50397401924b",
+      "run_profile_ovh.before_direct_ramp.py": "3ec33cf10d1495497a34340dd9c1ade107f9df26269ecce6505dd564bdb5fc15",
+      "egress_pool.py": "f0a5a5eee56a00e3f3fadf65b703d4e097435ab1d0b8122ec6dc535338192057",
+      "fallback_reserve.py": "351d687a6521e10a26a8531659b2ca74e24ed733663c05a04c2495d7f715577c"
+    },
+    "profile_D": {
+      "uid": 1000,
+      "mode": "0o600",
+      "providers": [
+        "opencode",
+        "opencode-go"
+      ]
+    }
+  },
+  {
+    "time": 1790720073.8911707,
+    "policy": {
+      "free_worker_verified_accounts": [
+        "A",
+        "B",
+        "C"
+      ],
+      "free_worker_backoff_until": 0,
+      "backoff_reason": "free_worker provider rate errors; temporary free-model routing, no extra accounts or changed endpoints",
+      "bunny_active_cap": 3,
+      "bunny_backoff_until": 1790718050.4482872,
+      "desired_host_concurrency": 3,
+      "capacity_authorization": "Anton 2026-09-28: 60 actual free workers across existing hosts; preserve rate cooldowns",
+      "reserve_worker_reserve_until": 0,
+      "reserve_worker_reserve_cap": 3,
+      "reserve_worker_reserve_account": "C",
+      "reserve_worker_reserve_authorization": "Anton 2026-09-28: increase reserve_worker reserve to 25 total",
+      "allocation": "The swarm first; free_worker on cooldown; reserve_worker when both free models cooldown",
+      "free_worker_fill_target": 1,
+      "unattended_updated": 1790605153.1148317,
+      "bunny_cap_authorization": "Anton 2026-09-28: increase The swarm concurrency where existing hosts have safe memory headroom; cooldowns, accounts, routes and lease expiry preserved",
+      "bunny_cap_updated": 1790609321.5902934,
+      "reserve_worker_weekly_stop_pct": 95,
+      "reserve_worker_weekly_used_pct": 86.78,
+      "reserve_worker_weekly_updated": 1790719790.1923318,
+      "reserve_worker_weekly_note": "manual: run reserve_worker-usage <pct> after checking the console; router stops reserve_worker at >=stop_pct",
+      "reserve_worker_weekly_budget_usd": 30,
+      "reserve_worker_value_only": false,
+      "free_worker_active_cap": 1,
+      "reserve_worker_backoff_until": 2790683364.9455686
+    },
+    "failed": "",
+    "services": "acpid.service                                             loaded active running ACPI event daemon\nagent-BT-DW48-AUTO-25b5fd306d3b9d-1790719981.service      loaded active running /bin/bash -c \"python3 /opt/agents/jobs/BT-DW48-AUTO-25b5fd306d3b9d/_run_dental.py B swarm --dir /opt/agents/jobs/BT-DW48-AUTO-25b5fd306d3b9d --title BT-DW48-AUTO-25b5fd306d3b9d \\\"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\\\\\"BT-DW48-AUTO-25b5fd306d3b9d\\\\\\\" when done.\\\" > agent.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-BT-DW48-PLAN-1790714762903268138-1790719327.service loaded active running /bin/bash -c \"python3 /opt/agents/jobs/BT-DW48-PLAN-1790714762903268138/_run_dental.py B swarm --dir /opt/agents/jobs/BT-DW48-PLAN-1790714762903268138 --title BT-DW48-PLAN-1790714762903268138 \\\"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\\\\\"BT-DW48-PLAN-1790714762903268138\\\\\\\" when done.\\\" > agent.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\nagent-BT-FW48-SEED-088-1790719898.service                 loaded active running /bin/bash -c \"python3 /opt/agents/jobs/BT-FW48-SEED-088/_run_dental.py C swarm --dir /opt/agents/jobs/BT-FW48-SEED-088 --title BT-FW48-SEED-088 \\\"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\\\\\"BT-FW48-SEED-088\\\\\\\" when done.\\\" > agent.log 2>&1 < /dev/null; echo \\$? > AGENT_EXIT\"\ncron.service                                              loaded active running Regular background program processing daemon\ndbus.service                                              loaded active running D-Bus System Message Bus\ngetty@tty1.service                                        loaded active running Getty on tty1\nhome-egress-router.service                                loaded active running Route research model CONNECT traffic through home SSH egress\nModemManager.service                                      loaded active running Modem Manager\nmultipathd.service                                        loaded active running Device-Mapper Multipath Device Controller\npolkit.service                                            loaded active running Authorization Manager\nrsyslog.service                                           loaded active running System Logging Service\nssh.service                                               loaded active running OpenBSD Secure Shell server\nsystemd-journald.service                                  loaded active running Journal Service\nsystemd-logind.service                                    loaded active running User Login Management\nsystemd-networkd.service                                  loaded active running Network Configuration\nsystemd-resolved.service                                  loaded active running Network Name Resolution\nsystemd-timesyncd.service                                 loaded active running Network Time Synchronization\nsystemd-udevd.service                                     loaded active running Rule-based Manager for Device Events and Files\nudisks2.service                                           loaded active running Disk Manager\nunattended-upgrades.service                               loaded active running Unattended Upgrades Shutdown\nupower.service                                            loaded active running Daemon for power management\nuser@0.service                                            loaded active running User Manager for UID 0\n",
+    "protected_hashes": {
+      "route_runtime.py": "d0f9664dbdb0cd5ca961d5ebf52505a0f2ca197e0c24d9169f6d34ce8ebf9160",
+      "run_profile_ovh.py": "bc5a02b39e4d680ae250ca9e039336cafb37bc885c3c6ca26e293f0c70b5d591",
+      "route_runtime.before_unattended_20260928.py": "47153637dee6da0383b00db4065dcf630983af4867885e8a3032d786cc5b31fe",
+      "run_profile_ovh.before_rate_backoff_20260927.py": "f3f9122ed008871c37517406684a77817523a84a5c1c08df1f63f61b80a24e9a",
+      "egress_pool.py": "f0a5a5eee56a00e3f3fadf65b703d4e097435ab1d0b8122ec6dc535338192057",
+      "route_runtime.before_go_reserve_20260928.py": "3d4c9e5558362c74ae074e6061e86166fbb462ef94199b201c2728bb5cfd28a8",
+      "fallback_reserve.py": "351d687a6521e10a26a8531659b2ca74e24ed733663c05a04c2495d7f715577c",
+      "run_profile_ovh.before_bunny_recovery.py": "3ec33cf10d1495497a34340dd9c1ade107f9df26269ecce6505dd564bdb5fc15",
+      "launch_reserved.py": "77440711fbf43a37b679d00c1e4aa42f7d75675c0829b25b9524f58c54bebe39"
+    },
+    "profile_D": {
+      "uid": 1000,
+      "mode": "0o600",
+      "providers": [
+        "opencode",
+        "opencode-go"
+      ]
+    }
+  }
+]

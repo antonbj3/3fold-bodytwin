@@ -1,0 +1,176 @@
+{
+  "node": "BT-DAT-Q140",
+  "purpose": "Public MEASURED datasets that constrain the renal metformin model in inputs/ (inputs/Q140_model.py, node BT-HX-Q140).",
+  "prereg": {
+    "file": "PREREG.md",
+    "sha256": "2b356dbff951515489f51320ee6be0d734270b105498a9739ae51d78d0975a88",
+    "written_before_first_download": true
+  },
+  "inclusion_rule": "I1 measured; I2 publicly reachable URL; I3 license + access mode named; I4 size, format, subject count stated or explicitly UNKNOWN; I5 explicit mapping to a named parameter/output in inputs/Q140_model.py; I6 named measurement protocol or provenance chain.",
+  "search_priority_inherited_from": "inputs/Q140_results.json (sensitivity, NOT re-derived by re-running the model)",
+  "categories_required": ["geometry_anatomy", "parameters", "time_series", "cohort"],
+  "admitted": [
+    {
+      "id": "DS1",
+      "category": "parameters",
+      "name": "UCSF-FDA Transportal - Metformin in-vitro substrate/transporter table (SLC22A2/OCT2, SLC47A1/MATE1, SLC47A2/MATE2-K)",
+      "url": "https://transportal.compbio.ucsf.edu/compounds/metformin/",
+      "url_http_status": 200,
+      "license": "UNKNOWN - the compound page as fetched does not state a license; Transportal is a freely readable UCSF-FDA resource. Recorded as UNKNOWN rather than inferred.",
+      "access_mode": "open",
+      "size": "40431 bytes (HTML page as fetched, 2026-09-26); full-database bulk size UNKNOWN",
+      "format": "HTML table (also offered as tab-delimited bulk export by the resource); machine-parseable column set: Transporter / Synonyms / Km (uM) / Cell System / Reference",
+      "subjects": "not human subjects - in-vitro transfected cell lines. Cell systems named on the page: HEK293-OCT1/OCT2/MATE1/MATE2K, CHO-OCT1/OCT2/OCT3/MATE1, HeLa-OCT2/MATE1, OCT2-expressing oocytes. Transporter tag occurrence counts in the fetched page: SLC22A2=32, SLC47A1=12, SLC47A2=8, SLC22A1=18, SLC22A3=6.",
+      "measurement_protocol": "Cell-based radiotracer / fluorescent substrate uptake with Michaelis-Menten fitting; each row names its cell system and its primary reference.",
+      "constrains": {
+        "model_parameters": ["mate_km_mg_ml", "oct2_permeability_cm_s", "oct2_area_cm2", "mate_vmax_mg_min"],
+        "priority_id": "T1",
+        "why": "T1 is the only parameter group that moves the primary endpoint in the frozen run: +/-50% moves initial CL_R over 465.772 mL/min (89.81% of the 518.642 mL/min baseline). The model sets mate_km_mg_ml = (0.0010, 0.0015, 0.0020, 0.0020) mg/mL and oct2_permeability_cm_s = 1e-5 cm/s as pure assumptions. Transportal supplies measured Km per transporter in uM, with the cell system and reference for each.",
+        "verbatim_values_seen_on_page_uM": [
+          {"transporter": "SLC22A2", "synonym": "OCT2", "km_uM": 990, "cell_system": "HEK293-OCT2", "reference": "Kimura, 2005"},
+          {"transporter": "SLC47A1", "synonym": "MATE1", "km_uM": 780, "cell_system": "HEK293-MATE1", "reference": "Tanihara, 2007"},
+          {"transporter": "SLC47A2", "synonym": "MATE2K", "km_uM": 1050, "cell_system": "HEK293-MATE2K", "reference": "Masuda, 2006"},
+          {"transporter": "SLC47A2", "synonym": "MATE2K", "km_uM": 1980, "cell_system": "HEK293-MATE2K", "reference": "Tanihara, 2007"},
+          {"transporter": "SLC22A2", "synonym": "OCT2", "km_uM": 1072, "cell_system": "HEK293-OCT2", "reference": "Choi, 2007"},
+          {"transporter": "SLC22A2", "synonym": "OCT2", "km_uM": 3356, "cell_system": "HEK293-OCT2", "reference": "Zolk, 2009"},
+          {"transporter": "SLC22A2", "synonym": "OCT2", "km_uM": 3171, "cell_system": "HEK293-OCT2", "reference": "Zolk, 2009"},
+          {"transporter": "SLC47A1", "synonym": "MATE1", "km_uM": 227, "cell_system": "HEK293-MATE1", "reference": "Chen, 2009"},
+          {"transporter": "SLC22A1", "synonym": "OCT1", "km_uM": 1470, "cell_system": "HEK293-OCT1", "reference": "Kimura, 2005"},
+          {"transporter": "SLC22A1", "synonym": "OCT1", "km_uM": 2160, "cell_system": "CHO-OCT1", "reference": "Nies, 2009"},
+          {"transporter": "SLC22A1", "synonym": "OCT1", "km_uM": 5450, "cell_system": "HEK293-OCT1", "reference": "Ahlin, 2010"},
+          {"transporter": "SLC22A1", "synonym": "OCT3", "synonym_note": "page lists SLC22A3/OCT3", "km_uM": 2260, "cell_system": "CHO-OCT3", "reference": "Nies, 2009"}
+        ],
+        "transferability_caveat": "These are transfected-cell Km values, not human nephron values. The model needs a per-segment, per-area apparent permeability, so a single cell-system Km cannot be transferred without an area/abundance scaling that no public dataset in this list supplies. Constraint is therefore on the ORDER and the transporter assignment, not on a fitted number."
+      }
+    },
+    {
+      "id": "DS2",
+      "category": "cohort",
+      "name": "NHANES 2017-March 2020 Pre-Pandemic, Albumin & Creatinine - Urine (P_ALB_CR)",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_ALB_CR.xpt",
+      "doc_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_ALB_CR.htm",
+      "url_http_status": 200,
+      "license": "US Government work, public domain (CDC/NCHS/NHANES); no registration, no data-use agreement, no click-through",
+      "access_mode": "open",
+      "size": "835600 bytes for the P_ALB_CR component (sampled). Companion components of the same survey: P_BIOPRO.xpt 3420640 bytes, P_DEMO.xpt 3614720 bytes (both HTTP 200, Content-Length from HEAD).",
+      "format": "SAS Transport (XPORT) v5 - header record 'HEADER RECORD*******LIBRARY HEADER RECORD!!!!!!!'. Read with pandas.read_sas(format='xport').",
+      "subjects": "13027 SEQN respondents in the sampled file; 12510 with a urine albumin result and 12509 with a urine creatinine result. Eligibility per the CDC codebook: all examined participants 3 years and older in the NHANES 2017-March 2020 pre-pandemic sample.",
+      "measurement_protocol": "Urinary albumin by solid-phase fluorescent immunoassay (codebook cites Chavers et al., 1984); urine creatinine by the IDMS-traceable method documented in the component's method files; each measurement carries a laboratory comment code (URDUMALC, URDUCRLC).",
+      "variables_and_units_verbatim_from_cdc_codebook": {
+        "SEQN": "Respondent sequence number (unitless identifier)",
+        "URXUMA": "Albumin, urine (ug/mL)",
+        "URXUMS": "Albumin, urine (mg/L)",
+        "URDUMALC": "Albumin, urine comment code (unitless flag)",
+        "URXUCR": "Creatinine, urine (mg/dL)",
+        "URXCRS": "Creatinine, urine (umol/L)",
+        "URDUCRLC": "Creatinine, urine comment code (unitless flag)",
+        "URDACT": "Albumin creatinine ratio (mg/g)"
+      },
+      "constrains": {
+        "model_parameters": ["gfr_ml_min", "segment_water_reabsorption"],
+        "model_outputs": ["urine_volume_24h_ml", "clearance_ml_min"],
+        "priority_id": "T2 (partial), T3",
+        "why": "T2 is the second parameter group that moves the primary endpoint: +/-50% on gfr_ml_min moves initial CL_R over 100.000 mL/min (19.28%). The model carries gfr_ml_min = 100.0 mL/min labelled in its own parameter table as a 'representative adult assumption; not measured patient data'. The same survey's serum-creatinine and demographic components (P_BIOPRO, P_DEMO) plus the race-free 2021 CKD-EPI creatinine equation give the measured-creatinine basis for replacing that assumption; the creatinine-equivalent pair URXUCR/URXCRS in the sampled file also lets creatinine-based clearance be checked in both mg/dL and umol/L units.",
+        "honest_limitation": "The sampled component is a URINE file, not a serum-creatinine file, and eGFR is a DERIVED equation output, not a measured GFR (no iohexol/inulin clearance in this component). NHANES therefore bounds gfr_ml_min through a measured-creatinate/derived-equation route, which is one notch weaker than a measured clearance. No measured (iohexol/inulin) human GFR dataset with open access was found in this run - recorded as a gap, not filled."
+      }
+    },
+    {
+      "id": "DS3",
+      "category": "geometry_anatomy",
+      "name": "BodyParts3D 4.0 - 3D organ polygon meshes (LSDB Archive / Database Center for Life Science)",
+      "url": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html",
+      "archive_base": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/",
+      "url_http_status": 200,
+      "license": "CC BY-SA 2.1 Japan (per the BodyParts3D README: 'Creative Commons Attribution-Share Alike 2.1 Japan'; the LSDB database-description page renders this as 'CC BY' and requires contacting the licensor for anything outside the standard terms)",
+      "access_mode": "open",
+      "size": "isa_BP3D_4.0_obj_99.zip 142903898 bytes; partof_BP3D_4.0_obj_99.zip 64888505 bytes; isa_parts_list_e.txt 128086 bytes; coordinate_system.png 28425 bytes (all Content-Length, HTTP 200).",
+      "format": "Zip of Wavefront OBJ polygon meshes, one file per organ ELEMENT id; plus a TSV part-id/organ-name table and a PNG schematic of the coordinate system.",
+      "subjects": "not subjects - an averaged/derived adult human male whole-body atlas (per the database description, taxonomy Homo sapiens 9606). Subject count not applicable / UNKNOWN.",
+      "measurement_protocol": "Segmented 3D reconstruction of an adult male whole-body model, published as polygon meshes at 99% polygon-reduction rate; the part-id table maps FMA concepts to mesh ids.",
+      "coordinate_frame": "Documented by the source in coordinate_system.png. BodyParts3D organ meshes are published in a millimetre, LPS-style anatomic frame; the exact origin/handedness description is carried in that image and is recorded here as 'documented by source image, not transcribed' rather than paraphrased.",
+      "constrains": {
+        "model_parameters": ["cell_volume_ml", "segment_residence_min", "plasma_volume_l"],
+        "priority_id": "T5",
+        "why": "The model's cell_volume_ml = (1000, 200, 100, 50) mL per segment and segment_residence_min = (10, 8, 5, 10) min are labelled 'effective geometry assumption' and 'effective compartment geometry assumption' in the model's own parameter table. Whole-kidney mesh volume gives an external upper bound on the total epithelial compartment that is independent of the current numbers.",
+        "honest_limitation": "BodyParts3D resolves organs, NOT nephron segments. It cannot set the per-segment split of cell_volume_ml or the per-segment residence times, which is exactly what the model needs. It is admitted as a bounding constraint on the total only, and the per-segment geometry gap stays OPEN."
+      }
+    },
+    {
+      "id": "DS4",
+      "category": "time_series",
+      "name": "Metformin_PK_data_Kuan2021.xlsx - human metformin pharmacokinetics stratified by kidney function (Figshare)",
+      "url": "https://doi.org/10.6084/m9.figshare.13524335",
+      "metadata_api_url": "https://api.figshare.com/v2/articles/13524335",
+      "metadata_http_status": 200,
+      "file_endpoint": "https://ndownloader.figshare.com/files/25960760",
+      "file_endpoint_http_status_from_this_host": 403,
+      "sandbox_egress_note": "Metadata resolves (api.figshare.com HTTP 200). The file endpoint returns HTTP 403 from THIS sandbox's egress proxy (an nginx block page, not a figshare credentials response). The record is open-access CC BY 4.0, so the 403 is recorded as a local egress restriction, NOT as an access restriction. The file bytes were therefore NOT verified in this run - see results.json sample_verification.failed_retrievals.",
+      "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) - value reported by the figshare API",
+      "access_mode": "open",
+      "size": "42796 bytes (figshare API, field 'size' and the file entry's 'size' agree)",
+      "format": "Microsoft Excel workbook (.xlsx), single file",
+      "subjects": "UNKNOWN from metadata - the record states 'Data collected in Dunedin and Auckland, New Zealand' with New Zealand Health and Disability Ethics Committee approval and written informed consent, but the subject count is not in the API metadata and could not be read from the workbook. Recorded as UNKNOWN, not guessed.",
+      "measurement_protocol": "Human metformin pharmacokinetic measurements stratified by kidney function (per the dataset description), i.e. plasma and urine concentration-time observations on patients grouped by renal function.",
+      "constrains": {
+        "model_parameters": ["gfr_ml_min", "plasma_volume_l", "fu_plasma", "oct2_permeability_cm_s", "mate_vmax_mg_min"],
+        "model_outputs": ["initial_clearance_ml_min", "auc_plasma_mg_min_per_ml", "auc_based_renal_clearance_ml_min", "urine_mass_24h_mg", "plasma_concentration_0/300/720/1440_mg_l"],
+        "priority_id": "T1, T2, T4 (identifiability)",
+        "why": "This is the highest-value single find for the model. It is stratified BY KIDNEY FUNCTION, so it is the rare public dataset that can separate the filtration term from the secretory term rather than only reporting a pooled clearance. It supplies exactly what inputs/Q140_PREREG.md and inputs/Q140_RESULTS.md list as the missing measurement: timed urine concentration and volume against free plasma concentration. That is the measurement that would resolve T4, which the frozen run left at identifiability = 'UNKNOWN without timed urine and free-plasma concentration data' (zero-to-double reabsorption moved 24 h urine mass by only 0.203 mg, i.e. non-identifiable).",
+        "honest_limitation": "Unverified: the bytes were not retrieved in this sandbox, so column names, units, time grid, per-stratum subject counts and dose are all UNKNOWN here. Admitted on metadata strength (open license, measured human PK on a kidney-function stratification) and flagged as the top follow-up download from an unrestricted host."
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "name": "Graham GG et al. 2011, Clinical Pharmacokinetics 50:81-98 (metformin renal clearance 510 +/- 130 mL/min)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21241070/",
+      "fails": "I1",
+      "reason": "A review-reported population summary, not a retrievable measured dataset. It is already used by the upstream node as its acceptance target, so admitting it as a constraining dataset would double-count the same number."
+    },
+    {
+      "name": "BioModels BIOMD0000001028 / BIOMD0000001029 (Zake2021 human and mouse PBPK metformin models)",
+      "url": "https://www.omicsdi.org/dataset/biomodels/BIOMD0000001028",
+      "fails": "I1",
+      "reason": "SIMULATION. COPASI/SBML ODE models, openly downloadable and well documented, but nothing in them is measured. Placebo candidate P1: topically exact (metformin, kidney compartment, Qgfr, OCT/MATE-flavoured reactions) yet zero measured content, which demonstrates the inclusion rule discriminating rather than admitting on topic."
+    },
+    {
+      "name": "Vivli / Bristol Myers Squibb study I and Boehringer Ingelheim studies II-V of the Diabetologia 2023 time-of-day metformin dataset (191 adults, 7476 plasma and 316 urine levels)",
+      "url": "https://link.springer.com/article/10.1007/s00125-023-05898-4",
+      "fails": "I2/I3",
+      "reason": "Measured and exactly on target, but the data availability statement says the data are NOT publicly available and route interested researchers through Vivli, i.e. a registration/approval platform. This is the single most consequential excluded find: it is a larger and better stratified metformin time series than DS4, and it is therefore recorded as a known access-gated gap rather than omitted."
+    },
+    {
+      "name": "Imperial 35 femur+tibia, OpenCap LabValidation, Keast tibia-SSM, TLEM 2.0, OrthoLoad, weightlift_grf, knee_jw_transplant, LHDL, Fukuchi, body_twin_collection",
+      "url": "(paths named in inputs/NIGHT_PREAMBLE.md section 7)",
+      "fails": "I2",
+      "reason": "Not reachable from this workspace. `ls ~/projects/bodytwin` and `ls /mnt/shared_data` both return 'No such file or directory' in this sandbox, so the register at tasks/index/DATASETS.json and every path under it could not be opened or verified. Not scored on merit."
+    },
+    {
+      "name": "Measured (iohexol or inulin) human GFR clearance dataset with open access",
+      "url": null,
+      "fails": "not found",
+      "reason": "Searched for and NOT located in this run. This is the single largest open gap: gfr_ml_min = 100.0 mL/min is a pure assumption in a parameter that the frozen run shows carries 19.28% of the clearance span, and the accessible routes to it (UK Biobank, BioMe, All of Us, MIMIC-IV, eICU-CRD, CRIC/ARIC) are all registration- or credential-gated. Recorded as UNKNOWN, not substituted with a derived number."
+    },
+    {
+      "name": "Nephron-segment (glomerulus / proximal tubule / loop of Henle / distal / collecting duct) resolved human geometry dataset with open access",
+      "url": null,
+      "fails": "not found",
+      "reason": "Not located in this run. BodyParts3D (DS3) stops at the whole-organ level, so the per-segment split of cell_volume_ml and the per-segment segment_residence_min remain unconstrained. Recorded as UNKNOWN."
+    },
+    {
+      "name": "Measured segmental nephron lumen pH time course (for segment_ph = (7.40, 7.20, 7.00, 6.80))",
+      "url": null,
+      "fails": "not found",
+      "reason": "Not located in this run. segment_ph drives mate_h_factor (1.0, 1.585, 2.512, 3.981 across the four segments) and the ionized weighting, but the upstream run never swept pH, so its span is UNKNOWN and no public time series was found to bound it."
+    }
+  ],
+  "verdict": {
+    "A1_T1_transporter_kinetics": "MET - DS1 (Transportal) constrains mate_km_mg_ml / oct2_permeability_cm_s in uM-equivalent units with named cell systems; DS4 would add the in-vivo half.",
+    "A1_T2_measured_GFR": "PARTIAL - DS2 gives measured serum-creatinate/derived-eGFR and DS4 gives a kidney-function stratification, but no measured iohexol/inulin GFR dataset with open access was found. gfr_ml_min stays an assumption with a measured-creatinate bracket only.",
+    "A2_four_categories": "MET - DS3 geometry/anatomy, DS1 parameters, DS4 time series, DS2 cohort; 4 distinct admitted datasets.",
+    "A3_completeness": "MET - all four carry URL, license, size, format, subjects, mapping. Four fields are explicitly UNKNOWN: DS1 license, DS4 subject count, DS4 units, DS1 page-parsed row count.",
+    "T3_segment_water_reabsorption": "NOT CONSTRAINED by anything found. Upstream span is 0.0384% of 24 h urine mass, so the search priority was correctly low and no dataset is claimed for it.",
+    "T4_reabsorption_capacity": "NOT IDENTIFIED. DS4 is the measurement that could identify it; upstream span 0.041% of 24 h urine mass confirms reabsorption is unidentifiable from clearance alone.",
+    "T5_segment_geometry_and_pH": "PARTIALLY bounded by DS3 (whole-organ only). Per-segment split and segmental pH remain OPEN."
+  }
+}

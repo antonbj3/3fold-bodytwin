@@ -1,0 +1,3 @@
+# Steering LANE_SWARM_FINDINGS_REVIEW — round 3 (coordinator, 1/10 07:30)
+
+Rounds 1–2: 17 claims — 3 CONFIRMED, 13 PARTIAL, 1 WRONG; conditionally usable ports: free/bound substance with separate sinks, local series conductance, forcing-bearing cascade, receptor-history stencil, pressure→force. Round 3 (last): the remaining candidates in TOP_CONSTRUCTIVE_20261001_0600.txt, and then write a final PORTS_FROM_SWARM.json: every conditionally usable port with conditions, scope of validity, source job and whether the source family was corrected tonight (06:15/06:45/R3). That file is what BodyTwin can build on.

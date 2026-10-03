@@ -1,0 +1,861 @@
+{
+  "id": "BT-DAT-Q084",
+  "task": "Find public measured datasets that constrain the model in inputs/ (Q084). Report URL, licence, size, format, subjects, and which model parameter or output each one constrains. Download one sample <= 50 MB per dataset and show that it loads.",
+  "model_under_constraint": {
+    "file": "inputs/Q084_model.py",
+    "question_file": "inputs/Q084_QUESTION.md",
+    "model_id_in_source": "BT-HX-Q084",
+    "model_name": "hierarchical crowding with hydrodynamic hindrance and reversible binding",
+    "frozen_parameters": {
+      "D_alpha0": "20.0 um^2 s^-1",
+      "D_water": "87.0 um^2 s^-1",
+      "L": "10.0 um",
+      "n_cells": 161,
+      "tracer_radius_R": "2.3e-9 m",
+      "pore_radius_a": "4.0e-9 m",
+      "phi_m": 0.08,
+      "phi_n": "mean 0.18, amplitude 0.08, sinusoidal in x",
+      "relative_volume_V_r": 1.0,
+      "k_visc": 1.0,
+      "tortuosity_coefficient": 0.5,
+      "interaction_strength": 4.0,
+      "k_on0": "0.12 s^-1",
+      "k_off0": "0.03 s^-1",
+      "observation_time_t_obs": "10.0 s"
+    },
+    "model_outputs": [
+      "passage_time_s",
+      "d_free_mean_um2_per_s",
+      "d_free_min_um2_per_s",
+      "d_free_max_um2_per_s",
+      "bound_probability",
+      "bound_occupancy_total",
+      "bound_occupancy_mean",
+      "bound_occupancy_cv",
+      "bound_occupancy_range",
+      "absorption_probability",
+      "survival_probability",
+      "mechanistic_d_to_d_alpha0",
+      "adjusted_d_to_d_alpha0",
+      "passage_time_ratio",
+      "free_profile",
+      "bound_profile"
+    ]
+  },
+  "preregistration": {
+    "file": "PREREG.md",
+    "sha256": "c0f4fd756f326dd5a4a84051790a9287813d818c680351117dd13ffef4fa909f",
+    "frozen_before_any_download": true,
+    "acceptance_thresholds": {
+      "min_admitted_datasets": 5,
+      "min_distinct_model_parameters_covered": 4,
+      "min_distinct_model_outputs_covered": 2,
+      "min_datasets_downloaded_and_load_demonstrated": 3
+    }
+  },
+  "sources": [
+    {
+      "key": "DS1",
+      "title": "Diffusion coefficients (D) and anomalous coefficients (alpha) inferred from FCS and RICS measurements of eGFP and NCp7-eGFP expressing cells",
+      "url": "https://plos.figshare.com/articles/dataset/_Diffusion_coefficients_D_and_anomalous_coefficients_945_inferred_from_FCS_and_RICS_measurements_of_eGFP_and_NCp7_eGFP_expressing_cells_/1320326",
+      "record_doi": "10.1371/journal.pone.0116921.t002",
+      "repository": "PLOS Figshare (table 2 of Sci Rep 5:10149, doi 10.1038/srep10149)",
+      "licence": "CC BY 4.0",
+      "licence_source": "https://api.figshare.com/v2/articles/1320326 -> .license.name / .license.url",
+      "licence_status": "VERIFIED",
+      "data_type": "MEASURED (FCS and RICS autocorrelation fits)",
+      "record_total_size_bytes": 5632,
+      "record_n_files": 1,
+      "format": "Microsoft Excel 97-2003 (.xls), BIFF8; one sheet, 7 rows x 6 columns",
+      "subjects": "cells expressing free eGFP or chromatin/nucleosome-bound NCp7-eGFP; the source paper states 800 FCS correlation curves in 16 cells and 40 RICS measurements in 10 cells",
+      "sample_downloaded": "samples/figshare1320326_table2.xls",
+      "sample_bytes": 5632,
+      "load_demonstrated": true,
+      "load_status": "LOADED",
+      "measured_values_as_printed": {
+        "cytoplasm_FCS_eGFP_D_um2_per_s": "34 +/- 3",
+        "cytoplasm_FCS_eGFP_alpha": "0.92 +/- 0.08",
+        "nucleus_FCS_eGFP_D_um2_per_s": "31 +/- 1",
+        "nucleus_FCS_eGFP_alpha": "0.95 +/- 0.09",
+        "cytoplasm_FCS_NCp7_eGFP_D_um2_per_s": "4.5 +/- 1",
+        "nucleus_FCS_NCp7_eGFP_D_um2_per_s": "7 +/- 3",
+        "cytoplasm_RICS_eGFP_D_um2_per_s": "28 +/- 3",
+        "nucleus_RICS_eGFP_D_um2_per_s": "25.5 +/- 2"
+      },
+      "constrains": {
+        "parameters": {
+          "D_alpha0": "cytoplasmic diffusivity of an inert fluorescent tracer, with its between-cell spread; the model freezes 20 um^2/s and this cohort measures 34 +/- 3 (FCS) and 28 +/- 3 (RICS) um^2/s"
+        },
+        "outputs": {
+          "d_free_mean_um2_per_s": "the free-component diffusivity of an inert tracer is directly measured",
+          "mechanistic_d_to_d_alpha0": "the anomalous exponent alpha is reported alongside D, so a scalar adjusted diffusivity can be tested against the measured sub-linear form",
+          "bound_occupancy_range": "the NCp7-eGFP rows measure the same construct when it is bound to chromatin (4.5 +/- 1 vs 34 +/- 3 um^2/s), which is the free-versus-bound split the two-state model represents"
+        }
+      },
+      "caveats": [
+        "Means and standard deviations only. Per-curve values are not in this file, so this constrains cohort-level diffusivity and its spread, not a per-cell distribution and not any spatial profile.",
+        "The measurement is eGFP, not the Destrian free-GFP tracer, and the cell system differs from the model's 1-D compartment."
+      ],
+      "load_evidence": {
+        "sheets": [
+          "Table_2"
+        ],
+        "shape_rows_cols": [
+          6,
+          6
+        ],
+        "n_numeric_cells": 0
+      }
+    },
+    {
+      "key": "DS2",
+      "title": "Nuclear pore permeability and fluid flow are modulated by its dilation state (confocal live-cell imaging of Dictyostelium discoideum Ax2 under osmotic stress)",
+      "url": "https://zenodo.org/records/14142946",
+      "record_doi": "10.5281/zenodo.14142946",
+      "related_publication": "Hoffmann PC, Kim H, Obarska-Kosinska A, Kreysing JP, Andino-Frydman Eli, Cruz-Leon S, Margiotta E, Cernikova L, Kosinski J, Turonova B, Hummer G, Beck M. Nuclear pore permeability and fluid flow are modulated by its dilation state. Molecular Cell (2024). doi 10.1016/j.molcel.2024.11.038",
+      "repository": "Zenodo",
+      "licence": "CC BY 4.0",
+      "licence_source": "https://zenodo.org/api/records/14142946 -> .metadata.license.id = cc-by-4.0",
+      "licence_status": "VERIFIED",
+      "data_type": "MEASURED (confocal live-cell fluorescence time series)",
+      "record_total_size_bytes": 21698200000,
+      "record_n_files": 14,
+      "format": "ZIP archives of multi-page ImageJ hyperstack TIFF, uint16, 12-bit detector counts",
+      "subjects": "Dictyostelium discoideum Ax2 cells expressing GFP-Ran or GFP-Nup62/H2B-mCherry, plus HEK293T expressing SARS-CoV2 Orf6-GFP; one bacterium-equivalent ROI per movie; 15 ROI movies in each of the two files sampled here",
+      "samples_downloaded": [
+        "samples/hoffmann2024_dicty_gfpran_ddh2o.zip",
+        "samples/hoffmann2024_dicty_gfpran_sorbitol.zip"
+      ],
+      "sample_bytes": {
+        "ddh2o": 6545615,
+        "sorbitol": 8067835
+      },
+      "load_demonstrated": true,
+      "load_status": "LOADED",
+      "load_evidence": {
+        "shape_per_movie": [
+          74,
+          2,
+          60,
+          60
+        ],
+        "axes": "t (frame), channel, y (row), x (column)",
+        "dtype": "uint16",
+        "tiff_pages_per_movie": 148,
+        "imagej_decomposition": "images=148, channels=2, frames=74, hyperstack=true, unit=micron",
+        "frame_interval_s": 5.013835430145264,
+        "movie_duration_s": 366.00998640060425,
+        "raw_intensity_range_counts": [
+          0,
+          2730
+        ],
+        "channel_0_mean_counts_range": "about 3 to 18, near background",
+        "channel_1_mean_counts_range": "about 945 to 999, the GFP channel",
+        "pixel_size": "UNKNOWN: TIFF ResolutionUnit is 1 (none), so the stored XResolution 11077161/1000000 is not a physical scale",
+        "channel_1_mean_counts_range_over_all_rois": [
+          915.7902777777778,
+          1075.5697222222223
+        ],
+        "channel_0_mean_counts_note": "channel 0 is near background: in the first movie read the per-frame ROI means run about 3.0 to 18.0 counts"
+      },
+      "measured_values_computed_here": {
+        "channel1_mean_intensity_distilled_water": 973.71,
+        "channel1_mean_intensity_sorbitol": 1041.2,
+        "ratio_sorbitol_over_water": 1.0693202061345077,
+        "channel1_temporal_cv_percent_distilled_water": 1.29,
+        "channel1_temporal_cv_percent_sorbitol": 0.836,
+        "temporal_cv_ratio_sorbitol_over_water": 0.6480356305191237,
+        "definition": "arithmetic mean over the 15 ROIs of each archive of the per-frame ROI mean of channel 1",
+        "per_condition": {
+          "distilled_water": {
+            "n_rois": 15,
+            "channel1_first_frame_counts_min_max": [
+              915.7902777777778,
+              980.3708333333333
+            ],
+            "channel1_last_frame_counts_min_max": [
+              955.6655555555556,
+              1004.6336111111111
+            ],
+            "channel1_mean_over_all_rois": 973.705414344576,
+            "channel1_change_percent_median": 2.889843657102902,
+            "channel1_temporal_cv_percent_median": 1.2897339588172938
+          },
+          "sorbitol_0.4M": {
+            "n_rois": 15,
+            "channel1_first_frame_counts_min_max": [
+              971.8477777777778,
+              1051.5638888888889
+            ],
+            "channel1_last_frame_counts_min_max": [
+              1023.1786885245901,
+              1075.5697222222223
+            ],
+            "channel1_mean_over_all_rois": 1041.2028743812282,
+            "channel1_change_percent_median": 2.0163623517947973,
+            "channel1_temporal_cv_percent_median": 0.8357935592040905
+          }
+        }
+      },
+      "constrains": {
+        "parameters": {
+          "V_r": "a matched A/B on identical cells and optics under distilled water versus 0.4 M sorbitol is exactly the perturbation the relative-volume term stands in for",
+          "k_visc": "the change in the GFP-channel temporal variability across the same osmotic pair bounds the viscosity closure",
+          "D_alpha0": "GFP-Ran apparent diffusivity in this cytoplasm"
+        },
+        "outputs": {
+          "passage_time_s": "the published nuclear transit times in this experiment are passage-time measurements against which the model's first-exit time can be compared",
+          "d_free_mean_um2_per_s": "the free cytoplasmic diffusivity of a nuclear transport substrate"
+        }
+      },
+      "caveats": [
+        "The intensity ratio 1.0693 is a raw-count ratio, not a calibrated concentration or volume ratio. Converting it to V_r, or to a diffusivity ratio, needs a calibration that is not in these files, so no such conversion is claimed here.",
+        "Pixel size is not recoverable from these TIFFs, so no length scale is claimed from this dataset.",
+        "These files are the 'flow_test_background' subset, not the full 21.7 GB record."
+      ]
+    },
+    {
+      "key": "DS3",
+      "title": "Tomogram segmentations for 'Towards community-driven visual proteomics with large-scale cryo-electron tomography of Chlamydomonas reinhardtii' (EMPIAR-11830)",
+      "url": "https://zenodo.org/records/15875786",
+      "record_doi": "10.5281/zenodo.15875786",
+      "parent_imageset_doi": "10.6019/EMPIAR-11830",
+      "repository": "Zenodo, mirror annotation for the EMPIAR/EMDB deposition",
+      "licence": "CC BY 4.0",
+      "licence_source": "https://zenodo.org/api/records/15875786 -> .metadata.license.id = cc-by-4.0",
+      "licence_status": "VERIFIED",
+      "data_type": "MEASURED (in situ cryo-electron tomography, cryo-plasmaFIB milled Chlamydomonas reinhardtii lamellae)",
+      "record_total_size_bytes": 7151500000,
+      "record_n_files": 30,
+      "format": "ZIP (Deflate64, compression method 9) of uncompressed binary TIFF label volumes, uint8, one strip",
+      "subjects": "a cohort of cryo-ET tomograms of Chlamydomonas reinhardtii; this sample is tomogram 649; annotation made by Jessica Heebner (Thermo Fisher Scientific) with ORS DragonFly, Amira and MemBrain-seg",
+      "sample_downloaded": "samples/empiar11830_649_segmentation_binaries.zip",
+      "sample_bytes": 3076964,
+      "load_demonstrated": true,
+      "load_status": "LOADED",
+      "load_evidence": {
+        "n_members": 4,
+        "member_names": [
+          "649_Membrane.tiff",
+          "649_npc.tiff",
+          "649_Nucleosome.tiff",
+          "649_Ribosome.tiff"
+        ],
+        "shape_zyx_per_member": [
+          511,
+          1024,
+          1024
+        ],
+        "dtype": "uint8",
+        "uncompressed_bytes_per_member": 537379848,
+        "voxel_pitch_nm": 0.784,
+        "voxel_pitch_source": "EMPIAR-11830 image sets 'denoised tomograms' and '3D CTF-corrected tomograms', pixel_width = 7.84 angstrom, from https://www.ebi.ac.uk/empiar/api/entry/11830/",
+        "field_of_view_nm": [
+          802.816,
+          802.816,
+          400.624
+        ],
+        "coordinate_frame": "cartesian voxel grid of one reconstructed tomogram, MRC/CCP4 convention, z = thickness (511 slices), y = row, x = column, origin at the tomogram corner",
+        "slices_read": "z = 0 and z = 255, streamed as single 1048576-byte planes straight out of the Deflate64 stream; nothing is written to disk beyond that window"
+      },
+      "measured_values_computed_here": {
+        "mid_slice_nonzero_label_fraction": {
+          "649_Membrane": 0.012104034423828125,
+          "649_npc": 0.003147125244140625,
+          "649_Nucleosome": 0.009726524353027344,
+          "649_Ribosome": 0.011691093444824219
+        },
+        "mid_slice_blockmap_16x16_of_64px_blocks": {
+          "649_Membrane.tiff": {
+            "mean": 2.9612722396850586,
+            "std": 9.931705070853678,
+            "spatial_cv": 3.3538642404286167,
+            "min": 0.0,
+            "max": 66.925048828125
+          },
+          "649_npc.tiff": {
+            "mean": 0.6772603988647461,
+            "std": 3.336039149152002,
+            "spatial_cv": 4.925785052166078,
+            "min": 0.0,
+            "max": 26.396484375
+          },
+          "649_Nucleosome.tiff": {
+            "mean": 2.3550071716308594,
+            "std": 4.546733882199001,
+            "spatial_cv": 1.9306666820255816,
+            "min": 0.0,
+            "max": 25.27587890625
+          },
+          "649_Ribosome.tiff": {
+            "mean": 2.8559722900390625,
+            "std": 8.811397909910989,
+            "spatial_cv": 3.085253292072547,
+            "min": 0.0,
+            "max": 64.434814453125
+          }
+        },
+        "definition": "mean nonzero-label occupancy per 64x64 pixel block on the z=255 slice, 16x16 grid, row-major; the block pitch is 64 x 0.784 nm = 50.2 nm",
+        "blockmap_units": "percent occupancy, i.e. 100 x (count of nonzero labels in the block) / (block pixel count)"
+      },
+      "constrains": {
+        "parameters": {
+          "phi_n": "the spatial form of the obstacle field. The model's phi_n(x) = 0.18 + 0.08 cos(2 pi x / L) is a single smooth sinusoid; the measured 16x16 block map has spatial CV 1.93 to 4.93 with occupied blocks up to 0.67 and empty blocks at 0.0, i.e. the real field is patchy and heavy-tailed, not sinusoidal",
+          "phi_m": "the Membrane and organelle classes are the micro-scale obstacle channel the model separates out",
+          "L": "the model's 10 um transport length has no counterpart in this field of view of 0.80 x 0.80 x 0.40 um. The block-map correlation length, not L = 10 um, is the measured length scale"
+        },
+        "outputs": [],
+        "note": "No model output is constrained. This is a geometry/obstacle dataset only."
+      },
+      "caveats": [
+        "The downloaded record does not provide the label legend, so it is not known which uint8 value corresponds to which molecular identity. The nonzero-label fractions above are therefore NOT an absolute obstacle volume fraction and must not be read as phi_n.",
+        "All fractions are from a single 2-D slice (z=255) of a single tomogram, not a 3-D volume fraction.",
+        "z = 0 is a reconstruction edge: it carries only 0.034 percent nonzero labels in all four members and is reported for completeness only.",
+        "The voxel pitch is read from the parent EMPIAR-11830 image-set metadata, not from the TIFF tags, because the segmentations carry no ImageDescription."
+      ]
+    },
+    {
+      "key": "DS4",
+      "title": "PolyD-NPC/dataset: Release for journal publication (Brownian dynamics of molecular transport through the nuclear pore complex)",
+      "url": "https://zenodo.org/records/14885286",
+      "record_doi": "10.5281/zenodo.14885286",
+      "related_publication": "Matsuda A, Mofrad MRK. Role of pore dilation in molecular transport through the nuclear pore complex: insights from polymer scaling theory. PLOS Computational Biology (2025). doi 10.1371/journal.pcbi.1012909",
+      "repository": "Zenodo",
+      "licence": "CC BY 4.0",
+      "licence_source": "https://zenodo.org/api/records/14885286 -> .metadata.license.id = cc-by-4.0",
+      "licence_status": "VERIFIED",
+      "data_type": "SIMULATED (Brownian dynamics of FG-Nup chains). NOT a measurement. Admitted only as a constraint on the functional form of the permeability and rate terms, never as evidence of a measured value.",
+      "record_total_size_bytes": 6120234,
+      "record_n_files": 1,
+      "format": "TAR.GZ containing 20062 files in 2068 directories: rate_ave.txt, rate_sNNN.txt, flux.txt, msd_reduced.txt, msd_alpha.txt, times.txt, rad_dist.txt, hist_tNNN.txt, hist_sum.txt, hist_acml.txt, control.txt, cg_sNNN.tar.gz",
+      "subjects": "no biological subjects; a parameter sweep over a synthetic FG-Nup-filled pore",
+      "sample_downloaded": "samples/polyd_npc_simulation_data.tar.gz",
+      "sample_bytes": 6120234,
+      "load_demonstrated": true,
+      "load_status": "LOADED",
+      "swept_parameters": {
+        "temperature_K": [
+          "0310",
+          "0400",
+          "0500"
+        ],
+        "pore_diameter_nm": [
+          "36",
+          "40",
+          "44",
+          "50",
+          "56",
+          "60",
+          "64",
+          "70",
+          "80"
+        ],
+        "polymer_length_sigma": [
+          "000",
+          "052",
+          "105",
+          "150",
+          "209",
+          "250"
+        ],
+        "kuhn_length_sigma": [
+          "1",
+          "10"
+        ],
+        "association_rate_per_ns": [
+          "1e-1",
+          "1e-2",
+          "1e-3"
+        ],
+        "dissociation_rate_per_ns": [
+          "1e-2"
+        ],
+        "attractive_surface_area_S_star": [
+          "00",
+          "01",
+          "02",
+          "03",
+          "04"
+        ],
+        "cargo_radius_nm_major_minor": [
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            9,
+            0
+          ]
+        ]
+      },
+      "parsed_example": {
+        "msd_reduced_path": "data/temp_0310/pore_d40/leng_209/kuhn_1/kon_1e-1/kof_1e-2/cargo_r03_0/per_00/ffs/msd/msd_reduced.txt",
+        "msd_reduced_raw_head": [
+          "time msd",
+          "0 0",
+          "0.02 0.00192546",
+          "0.04 0.00371707",
+          "0.08 0.00715093",
+          "0.16 0.0137"
+        ],
+        "msd_n_rows": 24,
+        "msd_column0_first_last": [
+          0.0,
+          67000.0
+        ],
+        "msd_column1_first_last": [
+          0.0,
+          2003.95
+        ],
+        "msd_time_unit": "UNKNOWN: the record documents no unit for this column, so no diffusivity is derived from it here",
+        "rate_ave_path": "data/temp_0400/pore_d40/leng_209/kuhn_1/kon_1e-1/kof_1e-2/cargo_r01_5/per_00/ffs/rate_ave.txt",
+        "rate_ave_header": [
+          "rate = 4.09798e-09 6.67672e-10",
+          "flux = 1.30469e-05",
+          "n_div prob"
+        ],
+        "n_rows": 9,
+        "row_first": [
+          0.0,
+          0.016
+        ],
+        "row_last": [
+          8.0,
+          0.822125
+        ],
+        "column_meaning": "column 1 = interface index, column 2 = the value printed under the 'prob' header; the header of the same file reports rate and flux, and the 3-column rows are index/probability/std as printed",
+        "flux_path": "data/temp_0400/pore_d40/leng_209/kuhn_1/kon_1e-1/kof_1e-2/cargo_r01_5/per_00/basin/flux.txt",
+        "flux_n_seeds": 128,
+        "flux_mean_per_ns": 1.3046875e-05,
+        "flux_max_per_ns": 0.00016,
+        "molecules_crossed_first_interface_total": 167
+      },
+      "constrains": {
+        "parameters": {
+          "a": "pore_diameter spans 36 to 80 nm, i.e. radii 18 to 40 nm. The model's a = 4 nm sits below this whole sweep, so the model extrapolates the functional form rather than interpolating it",
+          "R": "cargo_radius_nm sweeps 0.5 to 9.0 nm, which brackets the model's tracer_radius_R = 2.3 nm",
+          "K_nano": "transport probability is tabulated against (pore diameter, cargo radius, FG-Nup length and attractive area), which is the joint dependence the Kozeny-Carman closure claims to capture",
+          "H": "the same table gives the cargo-size dependence that the hydrodynamic hindrance factor H encodes",
+          "k_on0": "association rates 1e-1, 1e-2, 1e-3 per ns are swept explicitly; 0.1/ns = 1e8/s and 0.01/ns = 1e7/s, i.e. 6 to 8 orders of magnitude above the model's k_on0 = 0.12/s",
+          "k_off0": "dissociation rate 1e-2 per ns = 1e7/s, versus the model's k_off0 = 0.03/s"
+        },
+        "outputs": {
+          "passage_time_s": "the per-interface transport probability and the first flux are a direct passage-probability distribution, which is the observable the model's expected first exit time estimates"
+        }
+      },
+      "caveats": [
+        "SIMULATED, not measured. Under the preregistered rule S4 this is admitted as a constraint on functional form only.",
+        "The swept k_on and k_off are bare association and dissociation rates of a specific FG-Nup/cargo model in units of 1/ns. They are not the coarse-grained encounter closure the model uses, so the orders-of-magnitude difference above is a statement about the two scales, not a refutation of either.",
+        "No unit is documented for the MSD time column, so no diffusivity is derived from it."
+      ],
+      "load_evidence": {
+        "n_files_in_archive": 20062,
+        "n_directories_in_archive": 2068,
+        "file_kinds": [
+          ".DS_Store",
+          "cg_sN.tar.gz",
+          "control.txt",
+          "flux.txt",
+          "hist_acml.txt",
+          "hist_sum.txt",
+          "hist_tN.txt",
+          "msd_alpha.txt",
+          "msd_reduced.txt",
+          "rad_dist.txt",
+          "rate_ave.txt",
+          "rate_sN N.txt",
+          "rate_sN.txt",
+          "times.txt",
+          "tmp_flux.txt"
+        ]
+      }
+    },
+    {
+      "key": "DS5",
+      "title": "PDB 1EMA, crystal structure of green fluorescent protein from Aequorea victoria at 1.9 A",
+      "url": "https://files.rcsb.org/download/1EMA.cif",
+      "record_doi": "10.2210/1ema_summary",
+      "repository": "wwPDB / RCSB PDB",
+      "licence": "CC0 1.0 Universal (wwPDB data are released into the public domain under the wwPDB terms of use)",
+      "licence_source": "wwPDB data release policy, https://www.wwpdb.org/about/usage-policies ; the file itself carries no per-file licence field",
+      "licence_status": "VERIFIED_FROM_REPOSITORY_POLICY_NOT_FROM_RECORD",
+      "data_type": "MEASURED (X-ray diffraction, deposited atomic coordinates)",
+      "record_total_size_bytes": 244153,
+      "record_n_files": 1,
+      "format": "PDBx/mmCIF 1.1, block-delimited text",
+      "subjects": "no subjects; one polypeptide chain A of Aequorea victoria GFP, 236 residues in the canonical sequence, with the chromophore modelled as CRO, plus HOH and MSE hetero sites",
+      "sample_downloaded": "samples/rcsb_1ema_gfp.cif",
+      "sample_bytes": 244153,
+      "load_demonstrated": true,
+      "load_status": "LOADED",
+      "load_evidence": {
+        "entry": {
+          "id": "1EMA",
+          "title": "'GREEN FLUORESCENT PROTEIN FROM AEQUOREA VICTORIA'",
+          "method": "'X-RAY DIFFRACTION'",
+          "resolution_A": "1.9",
+          "deposition_date": "1996-08-01",
+          "release_date": "REL",
+          "entity_description": null,
+          "entity_type": null
+        },
+        "polymer": {
+          "canonical_sequence_length_aa": 236,
+          "non_canonical_codes_in_canonical_sequence": [],
+          "n_distinct_residue_codes": 21,
+          "n_distinct_modified_residues_in_entity": 0,
+          "n_seqres_lines": 0,
+          "seqres_chain_ids": [],
+          "first_60_canonical": "MSKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTL",
+          "chain_id": "A"
+        },
+        "coordinates": {
+          "n_atom_sites": 1717,
+          "n_het_sites": 149,
+          "distinct_element_types": [
+            "C",
+            "N",
+            "O",
+            "S"
+          ],
+          "x_range_A": [
+            6.008,
+            45.09
+          ],
+          "y_range_A": [
+            5.779,
+            55.552
+          ],
+          "z_range_A": [
+            12.23,
+            62.725
+          ],
+          "occupancy_min": 1.0,
+          "b_factor_min": 3.62,
+          "het_component_names": [
+            "CRO",
+            "HOH",
+            "MSE"
+          ],
+          "chromophore_crl_atom_site_present": false,
+          "note": "SEQRES records in the entity block; ATOM records are the modelled residues"
+        },
+        "crystal_cell": {
+          "length_a": 51.77,
+          "length_b": 62.85,
+          "length_c": 70.67
+        }
+      },
+      "derived_here": {
+        "method": "gyration radius of the deposited heavy-atom coordinates about their centroid; 1-gp Rg equivalent for a uniform sphere, R_sphere = Rg*sqrt(5/3)",
+        "r_gyration_heavy_atom_A": 16.17736171106339,
+        "r_gyration_max_A": 28.02428752012922,
+        "r_sphere_equivalent_nm": 2.088488416417401,
+        "caveat": "this is the radius of gyration of the FOLDED BARREL. The tracer radius R in the model is a hydrodynamic radius in solution; equating the two is an assumption, not a measurement."
+      },
+      "constrains": {
+        "parameters": {
+          "R": "the model's tracer_radius_R is frozen at 2.3 nm. The uniform-sphere equivalent of the deposited GFP barrel is 2.09 nm, so the frozen value is about 10 percent above this structural estimate and is not contradicted by it",
+          "D_water": "with a size one can form a Stokes-Einstein prediction to compare against the frozen 87 um^2/s, but that is a derivation from an assumed radius and viscosity, not a measurement, so it is not claimed as a constraint here"
+        },
+        "outputs": []
+      },
+      "caveats": [
+        "This is the radius of gyration of the folded crystal barrel, not a hydrodynamic radius in solution. Equating the two is an assumption. A SAXS or diffusion measurement would be needed for the model's R.",
+        "Licence is taken from the wwPDB repository policy, not from a licence field inside the deposited file, and is flagged accordingly.",
+        "No model output is constrained."
+      ]
+    },
+    {
+      "key": "DS6",
+      "title": "Fluorescence correlation spectroscopy TCSPC data with and without peak artifacts - PEX5 applied experiment",
+      "url": "https://zenodo.org/records/8109282",
+      "record_doi": "10.5281/zenodo.8109282",
+      "related_publication": "Seltmann A, Carravilla P, Reglinski K, Eggeling E, Waithe D. Neural Network Informed Photon Filtering Reduces Artifacts in Fluorescence Correlation Spectroscopy Data",
+      "repository": "Zenodo",
+      "licence": "CC BY 4.0",
+      "licence_source": "https://zenodo.org/api/records/8109282 -> .metadata.license.id = cc-by-4.0",
+      "licence_status": "VERIFIED",
+      "data_type": "MEASURED (FCS/TCSPC fluorescence fluctuation time series)",
+      "record_total_size_bytes": 577977000,
+      "record_n_files": 4,
+      "format": "ZIP of 751 PicoQuant .pqres T3R containers (secondary/derived data) plus 239.7 MB and 328.8 MB ZIPs of primary .ptu files",
+      "subjects": "in solution: 20 nM Trypanosoma brucei PEX5 N-terminal domain fused to eGFP (peak-artifact condition) and 5 nM Homo sapiens PEX5 N-terminal domain fused to eGFP (control); MicroTime 200 with a HydraHarp 400, 60x 1.2 NA water objective, 488 nm at 5 mW; one TCSPC measurement was 20 s long for the PEX5 experiments",
+      "sample_downloaded": "samples/fluotracify_8109282_secondary_data.zip",
+      "sample_bytes": 8733645,
+      "load_demonstrated": true,
+      "load_status": "PARTIAL",
+      "load_evidence": {
+        "file": "fluotracify_8109282_secondary_data.zip",
+        "sha256": "b9288da3fcb400109a5605c0232d8ae4f70961dcee1fa5463f02b555635801a4",
+        "bytes": 8733645,
+        "container": "ZIP",
+        "n_pqres_members": 750,
+        "load_status": "PARTIAL",
+        "acquisition_modes": {
+          "TCSPC": 250,
+          "Trace": 250,
+          "FCS": 250
+        },
+        "sample_tags": [
+          "HsPEX5EGFP"
+        ],
+        "acquisition_duration_s": {
+          "n_files_with_duration": 750,
+          "min": 0,
+          "median": 2725.0,
+          "max": 5447
+        },
+        "probe_member": "2019-11-FCS-TCSPC-no-artifacts-PEX5-secondary-data/HsPEX5EGFP 1-10000151_T3283s_1_OTCSPC.pqres",
+        "probe_bytes_total": 53344,
+        "probe_first16_hex": "50515245534c5400312e302e30300000",
+        "probe_magic_ascii": "PQRESLT.1.0.",
+        "probe_leading_int32": [
+          1163022672,
+          5524563,
+          774909489,
+          12336,
+          1701603654,
+          1230325599,
+          68,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "numeric_payload_parsed": false,
+        "execution_note": ".pqres is a proprietary PicoQuant container. The container magic and the acquisition durations parse, but the photon/correlation arrays are NOT decoded here, so this record is NOT counted as a numeric load and is not counted toward the acceptance threshold.",
+        "units": {
+          "duration": "s, from the file name (PicoQuant T<seconds>s convention)",
+          "correlation_lag": "inside the payload, not decoded here",
+          "photon_arrival": "ns in TCSPC mode (MicroTime 200, HydraHarp 400)"
+        },
+        "coordinate_frame": {
+          "type": "temporal only",
+          "temporal": "uniform time grid, T3R record layout",
+          "spatial": "none; solution sample in a static confocal volume, no position channel"
+        },
+        "maps_to_model": {
+          "D_alpha0": "free-solution and dilute-sample FCS of a defined tracer, i.e. the reference D that D_alpha0 is meant to be",
+          "k_on0 / k_off0": "a two-state FCS model separates bound and free populations and yields association and dissociation rates directly"
+        }
+      },
+      "constrains": {
+        "parameters": {
+          "D_alpha0": "free-solution and dilute-sample FCS of a defined tracer is the reference diffusivity that D_alpha0 is meant to represent",
+          "k_on0": "a two-state FCS model separates bound and free populations and returns an association rate",
+          "k_off0": "the same fit returns a dissociation rate"
+        },
+        "outputs": []
+      },
+      "caveats": [
+        "NOT counted as a numeric load and NOT counted toward the preregistered acceptance threshold. The .pqres container is a proprietary PicoQuant format; only the header magic and the file-name-level acquisition durations were parsed. The photon and correlation arrays were not decoded.",
+        "These are in-solution measurements, not cytoplasmic, so they constrain the reference D and the kinetic closure rather than the crowded-compartment value."
+      ]
+    }
+  ],
+  "rejected_candidates": [
+    {
+      "title": "Full and test data for Destrian et al., 'Cytoplasmic crowding acts as a porous medium reducing macromolecule diffusion' (PNAS 123(4) e2519599123)",
+      "url": "https://github.com/destriano/cyto_porous_diff",
+      "data_url": "https://drive.google.com/drive/folders/1_dm-Qdy5PZaqRbkB8h7PlyJ6r3B3WpCI",
+      "licence": "none stated on the code repository or the data folder",
+      "licence_status": "UNVERIFIED",
+      "rejection_reason": "This is the source of every number the model was frozen against, so it would be the strongest constraint available, but its data statement is an unlicensed Google-Drive folder and the full dataset is offered 'upon reasonable request' at >1 TB. Fails preregistered rules S1 (no request step) and S2 (no licence). Recorded as a lead, not as a source. No value from it is used anywhere in this task.",
+      "would_constrain": [
+        "D_alpha0",
+        "D_water",
+        "phi_n",
+        "R",
+        "passage_time_s",
+        "d_free_mean_um2_per_s"
+      ]
+    },
+    {
+      "title": "Early Drosophila Spaghetti-Squash-GFP FRAP",
+      "url": "https://doi.org/10.25349/D94C8M",
+      "licence": "CC0 1.0 Universal",
+      "licence_source": "https://datadryad.org/api/v2/datasets/doi%3A10.25349%2FD94C8M -> .license = https://spdx.org/licenses/CC0-1.0.html",
+      "licence_status": "VERIFIED",
+      "record_total_size_bytes": 4189972904,
+      "format": "README.md (4660 bytes) plus Sqh-GFP_FRAP.tar.lz4 (4189.97 MB) of .tif stacks, 1 frame per 1.78 s, Leica SP8 63x/1.4 NA",
+      "subjects": "junctional myosin-II (Spaghetti-Squash-GFP) in the early Drosophila embryo",
+      "rejection_reason": "Licence and accession verify, and it is the only FRAP time series found. But the Dryad per-file download endpoint now answers 401 Unauthorized without a bearer token, so no byte of it could be fetched in this session. Fails preregistered rules S1 and S5. Not counted, and no number from it is quoted.",
+      "would_constrain": [
+        "k_on0",
+        "k_off0",
+        "bound_occupancy_total",
+        "d_free_mean_um2_per_s"
+      ]
+    },
+    {
+      "title": "OpenCell (Schaum et al., proteome-scale endogenous tagging in HEK293T)",
+      "url": "https://opencell.sf.czbiohub.org/download",
+      "licence": "CC BY-SA 4.0 (per the AWS Registry of Open Data entry for czb-opencell)",
+      "licence_status": "UNVERIFIED from the project's own metadata in this session",
+      "rejection_reason": "The raw S3 bucket lists only microscopy/raw/* keys; the processed metadata and localisation tables are served from the project site and could not be located and fetched inside the time budget. The dataset's own documentation does give 1 pL as the HEK293T cell volume, which would be a direct constraint on L, but that figure is not in a file retrieved here and is therefore not used.",
+      "would_constrain": [
+        "L",
+        "phi_n",
+        "interaction_strength"
+      ]
+    },
+    {
+      "title": "EMPIAR-10988, S. pombe cryo-FIB lamellae with segmentations of ribosomes, fatty acid synthase, membranes, organelles and cytosol",
+      "url": "https://empiar.pdbj.org/en/entry/10988/",
+      "record_doi": "10.6019/EMPIAR-10988",
+      "licence": "not resolvable from the record in this session",
+      "licence_status": "UNVERIFIED",
+      "rejection_reason": "This is the single best candidate for phi_m and phi_n because its description promises an explicit cytosol label and particle coordinate lists. The EMPIAR REST entry endpoint returned an empty body and the EBI FTP data-sets path returned 404, and no licence could be read from the record. Fails rules S1, S2 and S5. Recorded as the top lead for the next pass.",
+      "would_constrain": [
+        "phi_m",
+        "phi_n",
+        "a"
+      ]
+    },
+    {
+      "title": "BindingDB",
+      "url": "https://www.bindingdb.org/rwd/bind/chemsearch/marvin/Download.jsp",
+      "licence": "CC BY 3.0 for BindingDB-curated data, CC BY-SA 3.0 for data imported from ChEMBL",
+      "licence_status": "VERIFIED from the site's own licence statement",
+      "rejection_reason": "Measured kon and koff do exist in BindingDB, but only in the 566 MB full TSV; the REST endpoints tested return affinity types (IC50, Ki, Kd) and no kinetic columns. Retrieving kon and koff would need a 566 MB download, outside the 50 MB per-file budget. Fails rule S5 for this session.",
+      "would_constrain": [
+        "k_on0",
+        "k_off0"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "admitted_datasets": 6,
+    "admitted_and_numerically_loaded": 5,
+    "admitted_measured": 4,
+    "admitted_simulated": 1,
+    "admitted_partial_load_only": 1,
+    "distinct_model_parameters_covered": [
+      "D_alpha0",
+      "D_water",
+      "H",
+      "K_nano",
+      "L",
+      "R",
+      "V_r",
+      "a",
+      "k_off0",
+      "k_on0",
+      "k_visc",
+      "phi_m",
+      "phi_n"
+    ],
+    "distinct_model_outputs_covered": [
+      "bound_occupancy_range",
+      "d_free_mean_um2_per_s",
+      "mechanistic_d_to_d_alpha0",
+      "passage_time_s"
+    ],
+    "still_unconstrained_in_absolute_value": {
+      "k_visc": "no dataset here measures cytoplasmic viscosity; DS2 bounds it only through raw-intensity ratios that need a calibration this task does not have",
+      "interaction_strength": "DS3 and DS4 bracket the dependence but neither measures a numerical interaction coefficient",
+      "tortuosity_coefficient": "no admitted dataset supplies a path-length detour coefficient",
+      "phi_n_absolute": "DS3 has no label legend, so the absolute obstacle volume fraction cannot be read from the downloaded file"
+    },
+    "no_dataset_supplies": [
+      "a calibrated cytoplasmic viscosity",
+      "a labelled definition of the model's crowding interaction strength",
+      "a bound-fraction measurement in the crowded cytoplasm that resolves a spatial profile of the bound state"
+    ],
+    "counting_note": "admitted_datasets counts all six sourced records. The five that are numerically loaded are DS1-DS5; DS6 is admitted and downloaded but only partially parsed and is therefore excluded from the load-demonstration count and from every numeric claim."
+  },
+  "sample_files": [
+    {
+      "path": "samples/empiar11830_649_segmentation_binaries.zip",
+      "sha256": "5c717580e2503ffaab9d6d68e583d69ed313545dbaef885a8b4f44857b16a9c2",
+      "bytes": 3076964,
+      "container": "ZIP, compression method 9 (Deflate64); Python zipfile cannot decode it, 7z is used"
+    },
+    {
+      "path": "samples/figshare1320326_table2.xls",
+      "sha256": "2f46845fa8f1a31450293fe4cb679d346cdac07543f707d6b101a7eb2de8dd4b",
+      "bytes": 5632,
+      "container": ""
+    },
+    {
+      "path": "samples/fluotracify_8109282_secondary_data.zip",
+      "sha256": "b9288da3fcb400109a5605c0232d8ae4f70961dcee1fa5463f02b555635801a4",
+      "bytes": 8733645,
+      "container": "ZIP"
+    },
+    {
+      "path": "samples/hoffmann2024_dicty_gfpran_ddh2o.zip",
+      "sha256": "d6db681a15619e97f084aab301c4bc36050a0e07f6104748f7168b4f3d3f8448",
+      "bytes": 6545615,
+      "container": "ZIP"
+    },
+    {
+      "path": "samples/hoffmann2024_dicty_gfpran_sorbitol.zip",
+      "sha256": "f9107c6ec12d523e37415a3c6c1260748f578e7099a70cd442f9562ffa24a8c8",
+      "bytes": 8067835,
+      "container": "ZIP"
+    },
+    {
+      "path": "samples/polyd_npc_simulation_data.tar.gz",
+      "sha256": "d86c34c186400cc705b0553a3eb63f20dcd98182d91619cdf517ead1fd305cb5",
+      "bytes": 6120234,
+      "container": "TAR.GZ"
+    },
+    {
+      "path": "samples/rcsb_1ema_gfp.cif",
+      "sha256": "b7d583424b6f960a7421fd4c88cdb6bbb10025667cd863d8cd14f70bc775aceb",
+      "bytes": 244153,
+      "container": ""
+    }
+  ]
+}

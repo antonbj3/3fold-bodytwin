@@ -1,0 +1,469 @@
+{
+  "id": "BT-HX-Q012",
+  "substance_question": "S1: dietary precursor intake x microbial conversion capacity -> steady-state plasma TMAO",
+  "parameters": {
+    "body_mass_kg": 70.0,
+    "precursor_intake_g_day": 0.43,
+    "precursor_mw_g_mol": 161.2,
+    "f_colonic_escape": 0.3,
+    "nu_stoich": 1.0,
+    "y_microbial_conversion": 0.2,
+    "f_tma_to_hepatic": 0.9,
+    "f_fmo3": 0.9,
+    "fmo3_vmax_umol_h": 1000.0,
+    "fmo3_km_umol_l": 5.0,
+    "gfr_ml_min_per_kg": 1.8,
+    "f_reabsorption": 0.0,
+    "f_tubular_secretion": 0.1,
+    "vd_l": 49.0,
+    "r_host_umol_h": 0.062,
+    "tmao_mw_g_mol": 75.11,
+    "hepatic_mode": "linear",
+    "mc_draws": 20000,
+    "mc_seed": 20260925
+  },
+  "parameter_table": {
+    "body_mass_kg": {
+      "value": 70.0,
+      "unit": "kg",
+      "source_or_assumption": "assumption: adult reference individual",
+      "block": "host"
+    },
+    "precursor_intake_g_day": {
+      "value": 0.43,
+      "unit": "g/d",
+      "source_or_assumption": "SOURCE: Koeth 2013 Nat Med 19:576-585 doi:10.1038/nm.3145, Fig. 1 legend + Supplementary Methods: 250 mg d3-L-carnitine capsule + 8 oz sirloin steak (~180 mg L-carnitine) = 430 mg",
+      "block": "diet"
+    },
+    "precursor_mw_g_mol": {
+      "value": 161.2,
+      "unit": "g/mol",
+      "source_or_assumption": "chemical formula weight of L-carnitine free base",
+      "block": "constant"
+    },
+    "f_colonic_escape": {
+      "value": 0.3,
+      "unit": "-",
+      "source_or_assumption": "ASSUMPTION, not looked up: fraction of ingested precursor escaping small-intestinal absorption to reach colonic microbiota",
+      "block": "diet"
+    },
+    "nu_stoich": {
+      "value": 1.0,
+      "unit": "mol/mol",
+      "source_or_assumption": "ASSUMPTION from reaction stoichiometry: CntA/CntB (carnitine) and CutC (choline) release one TMA per precursor, 1:1",
+      "block": "microbiome"
+    },
+    "y_microbial_conversion": {
+      "value": 0.2,
+      "unit": "-",
+      "source_or_assumption": "ASSUMPTION, not looked up: realized fraction of the 1:1 stoichiometry by the resident TMA-producing community",
+      "block": "microbiome"
+    },
+    "f_tma_to_hepatic": {
+      "value": 0.9,
+      "unit": "-",
+      "source_or_assumption": "ASSUMPTION: fraction of produced TMA reaching the liver",
+      "block": "microbiome"
+    },
+    "f_fmo3": {
+      "value": 0.9,
+      "unit": "-",
+      "source_or_assumption": "ASSUMPTION; route existence supported by Wang 2011 Nature 472:57-63 doi:10.1038/nature09922 (flavin monooxygenase expression segregates with disease)",
+      "block": "host"
+    },
+    "fmo3_vmax_umol_h": {
+      "value": 1000.0,
+      "unit": "umol/h",
+      "source_or_assumption": "ASSUMPTION, not looked up: hepatic FMO3 capacity",
+      "block": "host"
+    },
+    "fmo3_km_umol_l": {
+      "value": 5.0,
+      "unit": "umol/L",
+      "source_or_assumption": "ASSUMPTION, not looked up: hepatic FMO3 half-saturation",
+      "block": "host"
+    },
+    "gfr_ml_min_per_kg": {
+      "value": 1.8,
+      "unit": "mL/min/kg",
+      "source_or_assumption": "ASSUMPTION, not looked up in this run: adult reference glomerular filtration",
+      "block": "host"
+    },
+    "f_reabsorption": {
+      "value": 0.0,
+      "unit": "-",
+      "source_or_assumption": "ASSUMPTION: tubular reabsorption fraction",
+      "block": "host"
+    },
+    "f_tubular_secretion": {
+      "value": 0.1,
+      "unit": "-",
+      "source_or_assumption": "ASSUMPTION: tubular secretion fraction of GFR",
+      "block": "host"
+    },
+    "vd_l": {
+      "value": 49.0,
+      "unit": "L",
+      "source_or_assumption": "ASSUMPTION: 0.7 L/kg apparent distribution volume",
+      "block": "host"
+    },
+    "r_host_umol_h": {
+      "value": 0.062,
+      "unit": "umol/h",
+      "source_or_assumption": "ASSUMPTION, not looked up: non-microbial TMAO source; the only free knob in Phi",
+      "block": "host"
+    },
+    "tmao_mw_g_mol": {
+      "value": 75.11,
+      "unit": "g/mol",
+      "source_or_assumption": "chemical formula weight of TMAO",
+      "block": "constant"
+    }
+  },
+  "priors_lognormal": {
+    "f_colonic_escape": {
+      "median": 0.3,
+      "sigma_ln": 0.6,
+      "block": "diet"
+    },
+    "y_microbial_conversion": {
+      "median": 0.2,
+      "sigma_ln": 0.9,
+      "block": "microbiome"
+    },
+    "f_tma_to_hepatic": {
+      "median": 0.9,
+      "sigma_ln": 0.2,
+      "block": "microbiome"
+    },
+    "f_fmo3": {
+      "median": 0.9,
+      "sigma_ln": 0.2,
+      "block": "host"
+    },
+    "gfr_ml_min_per_kg": {
+      "median": 1.8,
+      "sigma_ln": 0.15,
+      "block": "host"
+    },
+    "vd_l": {
+      "median": 49.0,
+      "sigma_ln": 0.2,
+      "block": "host"
+    },
+    "r_host_umol_h": {
+      "median": 0.062,
+      "sigma_ln": 1.0,
+      "block": "host"
+    }
+  },
+  "intermediates": {
+    "renal_clearance_l_h": 8.316,
+    "precursor_mol_per_day": 0.0026674937965260547,
+    "tma_production_delivered_mol_h": 6.001861042183623e-06,
+    "tmao_source_mol_h": 5.463674937965262e-06,
+    "linear_half_life_h": 4.084200558854896
+  },
+  "predictions": {
+    "C_ss_umol_l_linear": 0.657007568297891,
+    "C_ss_umol_l_saturable": 0.657007568297891,
+    "branch_split": {
+      "c_substrate_branch_umol_l": 0.657007568297891,
+      "c_capacity_branch_umol_l": 103.23292483380479,
+      "selected_branch": "substrate",
+      "intake_at_which_capacity_binds_g_day": 68.33471015820683
+    },
+    "C_ss_umol_l": 0.657007568297891,
+    "phi_microbial_dependence": 0.988652326373009,
+    "capacity_ceiling_umol_l": 108.23256373256372,
+    "exposure_contrast_fold": 3.3183707299430854
+  },
+  "criteria": {
+    "predicted_C_ss_umol_l": 0.657007568297891,
+    "predicted_phi": 0.988652326373009,
+    "G1_phi_ge_0.95": {
+      "value": 0.988652326373009,
+      "threshold": 0.95,
+      "pass": true
+    },
+    "G2_exposure_contrast_ge_2": {
+      "value": 3.3183707299430854,
+      "threshold": 2.0,
+      "pass": true
+    },
+    "G3_identifiability": {
+      "product_sigma_ln": 1.0816653826391969,
+      "rel_width_90pct_product": 34.105662967508046,
+      "rel_width_90pct_f_colonic_escape": 6.19815218665492,
+      "rel_width_90pct_y_microbial_conversion": 18.312190497548688,
+      "product_narrower_than_each_factor": false,
+      "G3_pass": false,
+      "thresholds": {
+        "product_rel_width_max": 0.1,
+        "factor_rel_width_min": 0.5
+      },
+      "pass": false
+    },
+    "G4_capacity_margin_ge_3": {
+      "capacity_ceiling_umol_l": 108.23256373256372,
+      "margin_capacity_over_predicted": 164.73564225898,
+      "threshold": 3.0,
+      "pass": true
+    }
+  },
+  "sensitivity_plus_minus_50pct": {
+    "base_C_ss_umol_l": 0.657007568297891,
+    "params": {
+      "y_microbial_conversion": {
+        "block": "microbiome",
+        "base": 0.2,
+        "minus50": {
+          "parameter_value": 0.1,
+          "C_ss_umol_l": 0.3322315378766992,
+          "abs_change_umol_l": -0.32477603042119174,
+          "rel_change": -0.4943261631865046,
+          "phi": 0.9775593024576902
+        },
+        "plus50": {
+          "parameter_value": 0.30000000000000004,
+          "C_ss_umol_l": 0.9817835987190827,
+          "abs_change_umol_l": 0.3247760304211918,
+          "rel_change": 0.4943261631865046,
+          "phi": 0.9924061601097894
+        }
+      },
+      "f_colonic_escape": {
+        "block": "diet",
+        "base": 0.3,
+        "minus50": {
+          "parameter_value": 0.15,
+          "C_ss_umol_l": 0.3322315378766992,
+          "abs_change_umol_l": -0.32477603042119174,
+          "rel_change": -0.4943261631865046,
+          "phi": 0.9775593024576902
+        },
+        "plus50": {
+          "parameter_value": 0.44999999999999996,
+          "C_ss_umol_l": 0.9817835987190826,
+          "abs_change_umol_l": 0.32477603042119163,
+          "rel_change": 0.49432616318650435,
+          "phi": 0.9924061601097894
+        }
+      },
+      "gfr_ml_min_per_kg": {
+        "block": "host",
+        "base": 1.8,
+        "minus50": {
+          "parameter_value": 0.9,
+          "C_ss_umol_l": 1.314015136595782,
+          "abs_change_umol_l": 0.657007568297891,
+          "rel_change": 1.0,
+          "phi": 0.988652326373009
+        },
+        "plus50": {
+          "parameter_value": 2.7,
+          "C_ss_umol_l": 0.4380050455319273,
+          "abs_change_umol_l": -0.2190025227659636,
+          "rel_change": -0.33333333333333326,
+          "phi": 0.988652326373009
+        }
+      }
+    }
+  },
+  "null_models": {
+    "N0_A_diet_only_umol_l": 0.657007568297891,
+    "N0_B_microbiome_is_everything_umol_l": 2.413203880945816,
+    "placebo": {
+      "saturable_with_km_1e-3_umol_l": 6.57007568297891e-07,
+      "linear_closed_form": 6.57007568297891e-07,
+      "abs_rel_diff": 0.0
+    }
+  },
+  "monte_carlo": {
+    "draws": 20000,
+    "seed": 20260925,
+    "params_sampled": [
+      "f_colonic_escape",
+      "y_microbial_conversion",
+      "f_tma_to_hepatic",
+      "f_fmo3",
+      "gfr_ml_min_per_kg",
+      "vd_l",
+      "r_host_umol_h"
+    ],
+    "C_ss_umol_l_median": 0.6549649571982137,
+    "C_ss_umol_l_p5": 0.10934905652728655,
+    "C_ss_umol_l_p95": 4.199799492034191,
+    "C_ss_fold_width_90pct": 38.40727689302183,
+    "per_param": {
+      "f_colonic_escape": {
+        "spearman_rho_with_ln_C": 0.5205837504939593,
+        "block": "diet",
+        "rel_width_90pct_lognormal_prior": 6.19815218665492
+      },
+      "y_microbial_conversion": {
+        "spearman_rho_with_ln_C": 0.7809974467569935,
+        "block": "microbiome",
+        "rel_width_90pct_lognormal_prior": 18.312190497548688
+      },
+      "f_tma_to_hepatic": {
+        "spearman_rho_with_ln_C": 0.15702575491756438,
+        "block": "microbiome",
+        "rel_width_90pct_lognormal_prior": 0.9308135658028669
+      },
+      "f_fmo3": {
+        "spearman_rho_with_ln_C": 0.1649979703559949,
+        "block": "host",
+        "rel_width_90pct_lognormal_prior": 0.9308135658028669
+      },
+      "gfr_ml_min_per_kg": {
+        "spearman_rho_with_ln_C": -0.14242364610205913,
+        "block": "host",
+        "rel_width_90pct_lognormal_prior": 0.6379674084724192
+      },
+      "vd_l": {
+        "spearman_rho_with_ln_C": -0.007832155234580387,
+        "block": "host",
+        "rel_width_90pct_lognormal_prior": 0.9308135658028669
+      },
+      "r_host_umol_h": {
+        "spearman_rho_with_ln_C": 0.013708095737770237,
+        "block": "host",
+        "rel_width_90pct_lognormal_prior": 25.8350066624377
+      }
+    }
+  },
+  "variance_contributions": {
+    "method": "one-at-a-time log-variance share, interactions neglected",
+    "seed": 20260925,
+    "raw_shares": {
+      "f_colonic_escape": 0.28708241666495393,
+      "y_microbial_conversion": 0.6425792165563686,
+      "f_tma_to_hepatic": 0.03200664907320783,
+      "f_fmo3": 0.03200664907320783,
+      "gfr_ml_min_per_kg": 0.01842700101274329,
+      "vd_l": 0.0,
+      "r_host_umol_h": 0.00023396522970098494
+    },
+    "normalised_shares": {
+      "f_colonic_escape": 0.28358415160686123,
+      "y_microbial_conversion": 0.6347490176662737,
+      "f_tma_to_hepatic": 0.03161662956807697,
+      "f_fmo3": 0.03161662956807697,
+      "gfr_ml_min_per_kg": 0.018202457362466198,
+      "vd_l": 0.0,
+      "r_host_umol_h": 0.0002311142282450971
+    },
+    "share_by_block": {
+      "diet": 0.28358415160686123,
+      "microbiome": 0.6663656472343505,
+      "host": 0.050050201158788256
+    }
+  },
+  "needed_variables": {
+    "target_fold_width_90pct": 2.0,
+    "seed": 20260925,
+    "start_fold_width_90pct": 38.40727689302183,
+    "final_fold_width_90pct": 1.645058298801623,
+    "criterion_met": true,
+    "greedy_order": [
+      {
+        "step": 1,
+        "variable": "y_microbial_conversion",
+        "block": "microbiome",
+        "fold_width_90pct_after": 9.05170250061988
+      },
+      {
+        "step": 2,
+        "variable": "f_colonic_escape",
+        "block": "diet",
+        "fold_width_90pct_after": 2.8637043639266606
+      },
+      {
+        "step": 3,
+        "variable": "f_tma_to_hepatic",
+        "block": "microbiome",
+        "fold_width_90pct_after": 2.265076635329631
+      },
+      {
+        "step": 4,
+        "variable": "f_fmo3",
+        "block": "host",
+        "fold_width_90pct_after": 1.645058298801623
+      }
+    ]
+  },
+  "identifiability": {
+    "product_sigma_ln": 1.0816653826391969,
+    "rel_width_90pct_product": 34.105662967508046,
+    "rel_width_90pct_f_colonic_escape": 6.19815218665492,
+    "rel_width_90pct_y_microbial_conversion": 18.312190497548688,
+    "product_narrower_than_each_factor": false,
+    "G3_pass": false
+  },
+  "dimensional_check": {
+    "status": "PASS",
+    "checks": {
+      "precursor_rate_mol_per_day": {
+        "lhs_dim": "mol^1 d^-1",
+        "rhs_dim": "mol^1 d^-1",
+        "status": "PASS"
+      },
+      "tma_production_mol_per_h": {
+        "lhs_dim": "mol^1 h^-1",
+        "rhs_dim": "mol^1 h^-1",
+        "status": "PASS"
+      },
+      "tmao_source_term_fmo3": {
+        "lhs_dim": "mol^1 h^-1",
+        "rhs_dim": "mol^1 h^-1",
+        "status": "PASS"
+      },
+      "tmao_source_term_host": {
+        "lhs_dim": "mol^1 h^-1",
+        "rhs_dim": "mol^1 h^-1",
+        "status": "PASS"
+      },
+      "tmao_source_mol_per_h": {
+        "lhs_dim": "mol^1 h^-1",
+        "rhs_dim": "mol^1 h^-1",
+        "status": "PASS"
+      },
+      "renal_clearance_l_per_h": {
+        "lhs_dim": "L^1 h^-1",
+        "rhs_dim": "L^1 h^-1",
+        "status": "PASS"
+      },
+      "steady_state_concentration": {
+        "lhs_dim": "mol^1 L^-1",
+        "rhs_dim": "mol^1 L^-1",
+        "status": "PASS"
+      },
+      "transient_rate_mol_per_l_per_h": {
+        "lhs_dim": "mol^1 L^-1 h^-1",
+        "rhs_dim": "mol^1 L^-1 h^-1",
+        "status": "PASS"
+      },
+      "capacity_ceiling_mol_per_l": {
+        "lhs_dim": "mol^1 L^-1",
+        "rhs_dim": "mol^1 L^-1",
+        "status": "PASS"
+      },
+      "half_life_h": {
+        "lhs_dim": "h^1",
+        "rhs_dim": "h^1",
+        "status": "PASS"
+      },
+      "molar_bridge_umol_to_mol": {
+        "note": "fmo3_vmax_umol_h, fmo3_km_umol_l, r_host_umol_h carry a 1e-6 mol/umol bridge",
+        "status": "PASS"
+      }
+    }
+  },
+  "verification": {
+    "transient_converges_to_closed_form_linear": 6.57007568297735e-07,
+    "closed_form_linear": 6.57007568297891e-07,
+    "transient_converges_to_closed_form_saturable": 6.57007568297735e-07,
+    "closed_form_saturable": 6.57007568297891e-07
+  }
+}

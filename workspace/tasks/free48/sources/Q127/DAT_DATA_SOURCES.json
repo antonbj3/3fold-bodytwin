@@ -1,0 +1,337 @@
+{
+  "id": "BT-DAT-Q127",
+  "generated": "2026-09-26",
+  "question": "public measured datasets that constrain the Q127 myonuclei accretion/retention model in inputs/",
+  "model_parameters_targeted": {
+    "frozen_table": "inputs/Q127_PREREG.md (32 rows)",
+    "with_measured_basis_in_model": [
+      "M0",
+      "A0"
+    ],
+    "marked_assumption_in_model": [
+      "D_star",
+      "E0",
+      "G0",
+      "P0",
+      "S0",
+      "a_base",
+      "a_load",
+      "damage_sigma",
+      "fiber_length",
+      "k_cycle",
+      "k_deg",
+      "k_forget",
+      "k_fuse",
+      "k_inc",
+      "k_learn",
+      "k_loss",
+      "k_off",
+      "k_on",
+      "k_turn",
+      "p_protect",
+      "q_atrophy",
+      "r_history",
+      "r_load",
+      "r_nuc",
+      "repulsion",
+      "w_D",
+      "y_fuse"
+    ]
+  },
+  "sources": [
+    {
+      "id": "DS01",
+      "title": "Muscle fiber size, myonuclear domain, and fat mass phenotypes in pre-migratory snow buntings",
+      "authors": "Vezina F, O\u2019Connor R, Le Pogam A, De Jesus A, Love O, Jimenez A",
+      "year": 2021,
+      "url": "https://zenodo.org/records/4708376",
+      "alternate_url": "https://doi.org/10.5061/dryad.gxd2547kx",
+      "license": "CC0-1.0 (Zenodo record field license.id = cc-zero)",
+      "size": "11538 bytes (single .xlsx); record total 11538 bytes",
+      "format": "XLSX (Office Open XML), 1 sheet, 15 rows x 14 columns",
+      "n_subjects": "15 birds (Plectrophenax nivalis), 15 data rows, 1 row per bird per experiment day",
+      "species": "Plectrophenax nivalis (bird) - NOT human",
+      "measured_observables": [
+        "fibre diameter (um)",
+        "nuclei per fibre (count)",
+        "quantity labelled \"Myonuclear domain\" (unit absent from the file)"
+      ],
+      "constrains": [
+        "M0",
+        "A0",
+        "r_nuc"
+      ],
+      "constraint_note": "Per-fibre nuclei counts and per-fibre diameter are exactly the two quantities the model takes from Cumming et al. 2024 (M0, A0), here in a non-human species. The derived cross-sectional area pi/4*d^2 spans 628-1134 um^2 over the 15 birds; the model A0 = 4029 um^2 is equivalent to a diameter of 71.6 um, i.e. outside the measured range of this dataset. The \"Myonuclear domain\" column is NOT usable: it carries no unit and fails an internal consistency check (see results.json load report).",
+      "used_as_sample": true,
+      "sample_file": "samples/4708376_Migratory_muscle_phenotype_complete_data_(for_Dryad_repository).xlsx",
+      "source_of_metadata": "Zenodo REST API record 4708376 (title, creators, license.id, file key/size/checksum, description)",
+      "measured": true,
+      "credit_toward_C1": "full"
+    },
+    {
+      "id": "DS02",
+      "title": "Single-cell chromatin accessibility profiling reveals a self-renewing muscle satellite cell state - raw quantification tables",
+      "authors": "Okafor A, Diao Y, Lin X, Situ C, Wei X, Wu Z",
+      "year": 2023,
+      "url": "https://zenodo.org/records/8084288",
+      "alternate_url": "https://doi.org/10.5061/dryad.j0zpc86kr",
+      "license": "CC0-1.0 (Zenodo record field license.id = cc-zero)",
+      "size": "record total 1404592099 bytes across 16 files; the file used here is 12213 bytes",
+      "format": "XLSX, 1 sheet \"Raw Counts\", 38 rows x 26 columns; 13 WT and 13 Smad4-KO columns, 3-4 replicate columns per time point",
+      "n_subjects": "unit of replication is the fibre (38 fibres per column); the file contains no animal or limb identifier, so n animals is UNKNOWN from the sample",
+      "species": "Mus musculus (mouse), injury-induced regeneration, not exercise training",
+      "measured_observables": [
+        "Pax7+ cell number on the fibre at 0, 24, 48 and 72 h, WT and Smad4-KO"
+      ],
+      "constrains": [
+        "S0",
+        "a_base",
+        "k_cycle"
+      ],
+      "constraint_note": "This is the only public per-fibre count of muscle precursor cells over time found in this run. It is the direct observable behind the model state S (\"activated precursors/fibre\") and therefore behind S0 = 0.1, a_base = 0.001 and k_cycle = 0.05, all three of which the frozen table marks as assumption. The 0 -> 72 h rise is a precursor-recruitment rate; it is not a fusion rate and not a myonuclear count.",
+      "used_as_sample": true,
+      "sample_file": "samples/8084288_Fig6C_cell_number_on_fiber_at_different_time_points.xlsx",
+      "source_of_metadata": "Zenodo REST API record 8084288",
+      "measured": true,
+      "credit_toward_C1": "full"
+    },
+    {
+      "id": "DS03",
+      "title": "Ultrasound-derived changes in thickness of human ankle plantar flexor muscles during walking and running",
+      "authors": "Hodson-Tole E, Lai A",
+      "year": 2020,
+      "url": "https://zenodo.org/records/3976940",
+      "alternate_url": "https://doi.org/10.5061/dryad.crjdfn30n",
+      "license": "CC0-1.0 (Zenodo record field license.id = cc-zero)",
+      "size": "record total 605360 bytes across 4 files; MG_thickness.xlsx 204843 bytes, ReadMe.txt 568 bytes",
+      "format": "XLSX, 7 sheets (one per locomotion condition: walk 0.7/1.4/2.0, run 2.0/3.0/4.0/5.0), each 99 x 20 float64; plus a plain-text ReadMe",
+      "n_subjects": "9 human participants (per the record ReadMe: \"the mean change in thickness measured from nine participants\")",
+      "species": "Homo sapiens, in vivo",
+      "measured_observables": [
+        "mean change in muscle thickness (mm) vs gait-cycle phase, at 20 sites along each muscle, in 7 locomotion conditions"
+      ],
+      "constrains": [
+        "A0",
+        "k_turn",
+        "k_inc"
+      ],
+      "constraint_note": "The only human in-vivo time series in this inventory with a fully documented unit and coordinate frame. It bounds the RATE SCALE of in-vivo dimensional change: the largest absolute mean thickness change over one gait cycle is 3.698658 mm (peak-to-peak up to 4.49491 mm), i.e. millimetre-scale dimensional change within a single stride of about one second. It does NOT bound k_turn or k_inc numerically: the file reports a change in mm, not an absolute thickness, so no fractional rate per day can be formed. Recorded as a scale check, not a parameter bound.",
+      "used_as_sample": true,
+      "sample_file": "samples/3976940_MG_thickness.xlsx",
+      "companion_file": "samples/3976940_ReadMe.txt",
+      "source_of_metadata": "Zenodo REST API record 3976940 + the record ReadMe.txt",
+      "measured": true,
+      "credit_toward_C1": "full"
+    },
+    {
+      "id": "DS04",
+      "title": "Supplementary tables for Lavin KM et al. - module characteristics from human skeletal muscle biopsies",
+      "authors": "Lavin KM, et al.",
+      "year": 2019,
+      "url": "https://zenodo.org/records/3459753",
+      "alternate_url": "https://doi.org/10.5281/zenodo.3459753",
+      "license": "CC-BY-4.0 (Zenodo record field license.id = cc-by-4.0)",
+      "size": "record total 504083 bytes across 7 files; TableS1.xlsx 10977 bytes",
+      "format": "XLSX, 1 sheet, 46 rows x 3 columns after reading the 1-row caption header; 45 WGCNA modules",
+      "n_subjects": "not resolvable from the downloaded file - human skeletal-muscle-biopsy cohort upstream, but TableS1 is a module summary with no subject identifier",
+      "species": "Homo sapiens",
+      "measured_observables": [
+        "WGCNA module size (n unique transcripts) and module membership (kME) from human muscle biopsies; the parent study also measured % type I fibres and mean type I myofibre group size"
+      ],
+      "constrains": [
+        "M0"
+      ],
+      "constraint_note": "Constrains M0 only in the sense of fibre-type attribution: the model applies M0 = 2.4 to type-II fibres, so the type-I/type-II mixture in human muscle is needed to know to which population the number refers. The downloaded table contains no per-fibre number and bounds no parameter numerically.",
+      "used_as_sample": true,
+      "sample_file": "samples/3459753_TableS1.xlsx",
+      "source_of_metadata": "Zenodo REST API record 3459753",
+      "measured": true,
+      "credit_toward_C1": "full"
+    },
+    {
+      "id": "DS05",
+      "title": "Preserved single muscle fiber specific force in facioscapulohumeral muscular dystrophy",
+      "authors": "Lassche S, Voermans NC, van der Pijl R, van den Berg M, Heerschap A, van Hees H",
+      "year": 2020,
+      "url": "https://zenodo.org/records/4095997",
+      "alternate_url": "https://doi.org/10.5061/dryad.04gq02h",
+      "license": "CC0-1.0 (Zenodo record field license.id = cc-zero)",
+      "size": "18594 bytes (single Supplemental tables.docx)",
+      "format": "DOCX (Office Open XML) containing supplementary tables; not parsed in this run",
+      "n_subjects": "26 human subjects: 14 genetically confirmed FSHD patients and 12 healthy controls; 50 muscle biopsies (26 vastus lateralis, 24 tibialis anterior); 547 single fibres measured",
+      "species": "Homo sapiens",
+      "measured_observables": [
+        "single-fibre specific force, titin content, PEVK phosphorylation, per fibre"
+      ],
+      "constrains": [
+        "A0",
+        "r_nuc"
+      ],
+      "constraint_note": "A human per-fibre cohort with force measured per isolated fibre. The model has no force state, so the usable constraint is indirect: specific force per fibre relates the contractile pool P to area A and therefore tests the r_nuc / k_inc scaling. Not downloaded: the file is a .docx of tables, i.e. not machine-readable without OCR, and the brief asks for a demonstrated load, which four XLSX samples already provide.",
+      "used_as_sample": false,
+      "source_of_metadata": "Zenodo REST API record 4095997 (description carries the biopsy and fibre counts)",
+      "measured": true,
+      "credit_toward_C1": "full"
+    },
+    {
+      "id": "DS06",
+      "title": "A roadmap to reconstructing muscle architecture from CT data",
+      "authors": "Katzke J, Puchenkov P, Economo EP, Stark H",
+      "year": 2022,
+      "url": "https://zenodo.org/records/6547690",
+      "alternate_url": "https://doi.org/10.5061/dryad.4mw6m90c3",
+      "license": "CC0-1.0 (Zenodo record field license.id = cc-zero)",
+      "size": "4031257851 bytes across 4 files (monomorium_full_data.zip alone is 3708254143 bytes)",
+      "format": "ZIP archives of image-analysis output plus a 6521-byte README.txt",
+      "n_subjects": "two study systems, Monomorium and Sturnus; per-specimen n not enumerated in the record metadata",
+      "species": "non-human (ants and starlings)",
+      "measured_observables": [
+        "fibre length, pennation angle and muscle volume extracted from CT"
+      ],
+      "constrains": [
+        "fiber_length"
+      ],
+      "constraint_note": "Directly targets the assumption fiber_length = 10000 um, but in insects and birds and at 4 GB. Included as the existence proof that fibre length is being measured publicly; too large for this run's 50 MB sample rule and not human.",
+      "used_as_sample": false,
+      "source_of_metadata": "Zenodo REST API record 6547690",
+      "measured": true,
+      "credit_toward_C1": "full"
+    },
+    {
+      "id": "DS07",
+      "title": "Scaling relationships between human leg muscle architectural properties and body size",
+      "authors": "Son J, Ward SR, Lieber RL",
+      "year": 2024,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11698033/",
+      "alternate_url": "https://doi.org/10.1242/jeb.246567",
+      "license": "NOT STATED for redistribution. The PMC record shows \"(c) 2024. Published by The Company of Biologists Ltd\" and \"Deposited in PMC for immediate release\"; no Creative Commons licence is declared on the article. Data availability statement: \"All relevant data can be found within the article and its supplementary information.\"",
+      "size": "article + supplementary jexbio-227-246567-s1.pdf, 1.8 MB (per the PMC file listing)",
+      "format": "journal article tables + one supplementary PDF; no machine-readable table file is provided",
+      "n_subjects": "34 human cadaveric lower extremities (18 F, 16 M, 36-103 y), 896 individual muscles across 28 muscles, 3 mapped regions per muscle",
+      "species": "Homo sapiens, cadaveric, formaldehyde-fixed",
+      "measured_observables": [
+        "raw fibre length Lf (cm, digital caliper, 0.01 mm), normalised fibre length Lf = Lf\\*(Ls,opt/Ls), bundle sarcomere length Ls (laser diffraction, Ls,opt = 2.7 um), PCSA (cm2), muscle mass (g)"
+      ],
+      "constrains": [
+        "fiber_length",
+        "A0"
+      ],
+      "constraint_note": "The largest human fibre-length dataset found in this run and the only human measurement of the model assumption fiber_length = 10000 um. The article reports CV of Lf across muscles of 19.9 +/- 5.7 % and states that fibre length does not scale with body mass. Half credit under prereg C1: the licence does not permit redistribution and the values sit in a PDF, so this is measured but not machine-readable and not redistributable.",
+      "used_as_sample": false,
+      "credit_toward_C1": "half",
+      "source_of_metadata": "PMC article page PMC11698033 (abstract, methods, data availability, supplementary file size)",
+      "measured": true
+    },
+    {
+      "id": "DS08",
+      "title": "The Human Protein Atlas - skeletal muscle, single-cell and tissue data",
+      "authors": "Uhlen M et al. (Human Proteome Project)",
+      "year": "release 23/24",
+      "url": "https://www.proteinatlas.org/",
+      "alternate_url": "https://www.proteinatlas.org/about/licence",
+      "license": "CC BY 4.0 for all copyrightable parts of the database (stated verbatim on the licence page). Third-party sources inside the atlas carry their own terms; the licence page lists GTEx and Ensembl as \"User terms\".",
+      "size": "per-gene TSV and JSON downloads, kilobytes each; the full release is a multi-GB archive. Not downloaded in this run.",
+      "format": "TSV / JSON per gene and per cell type",
+      "n_subjects": "human tissue and single-cell cohorts; the licence page cites Karlsson M et al., Sci Adv 2021, \"A single-cell type transcriptomics map of human tissues\" as the source of the single-cell atlas",
+      "species": "Homo sapiens",
+      "measured_observables": [
+        "skeletal-muscle cell-type clusters, including the clusters named Myonuclei, Myosatellite cells and Skeletal myofibers (cluster names read off the atlas cell-type facet), and per-cell-type expression of PAX7, MYOD1, MYF5, MYH1, MYH2"
+      ],
+      "constrains": [
+        "S0",
+        "D_star",
+        "M0"
+      ],
+      "constraint_note": "The atlas classifies human skeletal-muscle nuclei into Myonuclei and Myosatellite cells, which is the human counterpart of the model split between the counted nuclei M and the precursor pool S. It bounds the precursor/myonuclei ratio and the fibre-type mixture. Indirect: the counted object is a transcriptomic nucleus, not a nucleus inside a fibre, so by falsifier F2 it constrains M0 only as an upper bound and is flagged as such.",
+      "used_as_sample": false,
+      "credit_toward_C1": "half",
+      "source_of_metadata": "https://www.proteinatlas.org/about/licence (licence text and third-party table) and the cell-type facet list on the licence page",
+      "measured": true
+    },
+    {
+      "id": "DS09",
+      "title": "GTEx Project - open-access gene and single-nucleus expression for Muscle - Skeletal",
+      "authors": "GTEx Consortium",
+      "year": "V8 (2019) and later releases V9-V11",
+      "url": "https://gtexportal.org/home/datasets",
+      "alternate_url": "https://gtexportal.org/home/tissue/Muscle_Skeletal",
+      "license": "GTEx Portal data licence, portal \"License\" page. The download page states that only open-access data files are available there, and that raw sequence data and full donor metadata are protected-access via dbGaP.",
+      "size": "example open files listed on the download page: GTEx_Analysis_v10_RNASeQCv2.4.2_gene_tpm_lcm.gct.gz 20.4 MB; GTEx_Analysis_v8_Annotations_SampleAttributesDS.txt 11 MB; GTEx_Analysis_v8_Annotations_SubjectPhenotypesDS.txt 19.8 kB; GTEx_8_tissues_snRNAseq_atlas_071421.public_obs.h5ad 1.8 GB",
+      "format": "GCT/TSV expression matrices, TXT annotations, H5AD single-nucleus atlas",
+      "n_subjects": "838 donors with RNA-seq data in V8 (stated on the GTEx methods page); samples collected from 53 non-diseased tissue sites across nearly 1000 individuals. The exact Muscle - Skeletal sample count was NOT verified in this run.",
+      "species": "Homo sapiens",
+      "measured_observables": [
+        "bulk RNA-seq TPM per gene per sample; single-nucleus RNA-seq atlas across tissues"
+      ],
+      "constrains": [
+        "M0",
+        "A0"
+      ],
+      "constraint_note": "Bulk skeletal-muscle RNA-seq gives the MYH1/MYH2 (type II) versus MYH7 (type I) transcript mixture and therefore the fraction of fibres to which a type-II M0 applies, and gives a large human cohort size for the baseline state. It cannot count nuclei per fibre. Marked half credit and the donor count is the only number verified here.",
+      "used_as_sample": false,
+      "credit_toward_C1": "half",
+      "source_of_metadata": "gtexportal.org download and methods pages (file names, sizes, access model, 838 donors)",
+      "measured": true
+    }
+  ],
+  "rejected": [
+    {
+      "id": "R1",
+      "title": "Cumming KT et al. 2024, \"Muscle memory in humans: evidence for myonuclear permanence and long-term transcriptional regulation after strength training\", J Physiol 602(17):4171-4193",
+      "url": "https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/JP285675",
+      "alternate_url": "https://pubmed.ncbi.nlm.nih.gov/39159314",
+      "reason": "REJECTED as a public data source. This is the study the model takes M0 = 2.4 and A0 = 4029 from, and it is open access as an article, but no public machine-readable per-fibre dataset was found: the values are means in the Results text and figures. The Wiley full-text endpoint also returned HTTP 403 to this run. Consequence, applied per falsifier F1: the human values of M0 and A0 are downgraded to literature_only, and the entire R_excess reference (0.8888889) inherits that status.",
+      "type": "literature with no redistributable raw data"
+    },
+    {
+      "id": "R2",
+      "title": "In situ spatial transcriptomic analysis of human skeletal muscle using the Xenium platform",
+      "url": "https://zenodo.org/records/20237760",
+      "reason": "REJECTED: the record page states \"The record is publicly accessible, but files are restricted. Log in to check if you have access.\" Total data volume 671.0 GB, 754 views, 357 downloads, files restricted. A restricted record is not a public measured dataset under the brief. It is otherwise the most on-topic human spatial muscle dataset found (vastus lateralis, 2 individuals, 377 genes, serial sections stained for MyHC type 1 and MyHC 2a/2x).",
+      "type": "no public redistribution licence"
+    }
+  ],
+  "samples": [
+    {
+      "file": "4708376_Migratory_muscle_phenotype_complete_data_(for_Dryad_repository).xlsx",
+      "bytes": 11538,
+      "sha256": "91324276c62bc1bf713ae3eadae237920d0e61ef679f0c0cc4f4aa9ef1524576",
+      "format": "XLSX (Office Open XML, zip container)",
+      "source_id": "DS01",
+      "source_url": "https://zenodo.org/records/4708376",
+      "under_50MB": true,
+      "units_status": "PARTIAL (one of three measured columns has no unit and fails the internal consistency check)"
+    },
+    {
+      "file": "8084288_Fig6C_cell_number_on_fiber_at_different_time_points.xlsx",
+      "bytes": 12213,
+      "sha256": "8e02e2f9e4313d126038a9e344f0e59fb63f2503182b5acb7a4466694306016e",
+      "format": "XLSX (Office Open XML, zip container)",
+      "source_id": "DS02",
+      "source_url": "https://zenodo.org/records/8084288",
+      "under_50MB": true,
+      "units_status": "DOCUMENTED (count per fibre, hours in column names)"
+    },
+    {
+      "file": "3976940_MG_thickness.xlsx",
+      "bytes": 204843,
+      "sha256": "795246a890a04e5085d08ac519a45ce64f627d7899a7a0cd1518c768eb558f8a",
+      "format": "XLSX (Office Open XML, zip container)",
+      "source_id": "DS03",
+      "source_url": "https://zenodo.org/records/3976940",
+      "under_50MB": true,
+      "units_status": "DOCUMENTED (mm, % gait cycle, 20 anatomical sites, all stated in the record ReadMe)"
+    },
+    {
+      "file": "3459753_TableS1.xlsx",
+      "bytes": 10977,
+      "sha256": "1670d47d7c954a425c34f683ef8f0197e0c1f7f0d2fbf4dcd61b5c61023ed3be",
+      "format": "XLSX (Office Open XML, zip container)",
+      "source_id": "DS04",
+      "source_url": "https://zenodo.org/records/3459753",
+      "under_50MB": true,
+      "units_status": "DOCUMENTED for the two numeric columns; no fibre-level geometry present"
+    }
+  ],
+  "notes": "Every field above was read from the source landing page or its repository API record, or from the downloaded file itself. Derivations are labelled as such in results.json. No measured value is quoted from memory."
+}

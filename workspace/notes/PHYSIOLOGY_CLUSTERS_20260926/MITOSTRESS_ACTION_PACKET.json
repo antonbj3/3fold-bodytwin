@@ -1,0 +1,50 @@
+{
+  "schema": "bodytwin-research-action-packet-v1",
+  "id": "BT-RESEARCH-MITOSTRESS",
+  "goal_path": "general_bodytwin",
+  "path_authority": "explicit local research definition; no native scientific admission",
+  "claim": "Define and test first-principles mechanisms in mitostress, reusing native code and preserving unresolved evidence.",
+  "source_status": null,
+  "source_status_origin": "new research action",
+  "admission_state": "PENDING_REVIEW",
+  "source_file": "notes/PHYSIOLOGY_CLUSTERS_20260926/MITOSTRESS.md",
+  "source_line": 1,
+  "source_sha256": "c9443a37f1de95c76429f597d85936fbfbe79c179ccea445eff493777895571c",
+  "scientific_depends_on": [],
+  "typed_relations": [
+    {
+      "type": "related_context_only",
+      "target": "bodytwin:MODEL-MITOCHONDRIAL-BIOENERGETICS",
+      "target_source_status": "OPEN"
+    },
+    {
+      "type": "related_context_only",
+      "target": "bodytwin:MODEL-HPA-CORTISOL-ULTRADIAN",
+      "target_source_status": "OPEN"
+    }
+  ],
+  "design_role": "research_action",
+  "units": "task-specific SI quantities and documented conversions",
+  "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+  "validity": "DEFINITION_ONLY",
+  "numerical_dispatch_allowed": false,
+  "rank": {
+    "priority_class": "user_requested_first_principles_cluster",
+    "score": 9,
+    "action": "Decompose, identify missing bindings and run only explicitly conditional mechanism probes.",
+    "blocked_prerequisites": [
+      "Independent calibration, observation map and task-specific native bindings"
+    ]
+  },
+  "best_baseline": "Existing source-bound native physiology and applicable primary QSP models",
+  "expected_observation": "A discriminating measurement or conditional counterexample that changes a model decision",
+  "falsifier": "Alternative mechanism reproduces the claimed signature or unbound closure determines the result",
+  "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+  "result_bindings": [],
+  "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  "topic": "mitostress first principles physiology receptor cell organ energy immunity"
+}

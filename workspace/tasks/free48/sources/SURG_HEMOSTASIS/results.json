@@ -1,0 +1,275 @@
+{
+  "acquisition_required": [
+    {
+      "how": "paired pressure measurement proximal and distal to a transection plane in the same vessel, or regional flow before and after controlled transection",
+      "quantity": "upstream_fraction_f per layer",
+      "why": "the entire result turns on it and all five values are textbook, not measured"
+    },
+    {
+      "how": "perfusion imaging of the wound margin, depth-resolved",
+      "quantity": "drainage distance",
+      "why": "route B spans a factor of 4 on it alone"
+    },
+    {
+      "how": "edge to Q036 rather than a new experiment",
+      "quantity": "layer perfusion",
+      "why": "replaces the cell's weakest STANDARD number"
+    }
+  ],
+  "cell": "SURG_HEMOSTASIS",
+  "claim_type": "capability",
+  "claim_type_reason": "Nothing in the project previously turned cut length and depth into a bleeding rate at all, so there is no method to contest. It is judged by whether the answer survives an external facit.",
+  "decisive": {
+    "blood_loss_mL_band": [
+      0.04896,
+      0.88128
+    ],
+    "consistency_test": "If 1/f is the right amplification, route A amplified should land near route B. The remaining gap is the unexplained part and is the number this cell should be judged on.",
+    "exceeds_field_clearing": false,
+    "field_clearing_mL_min": 20.0,
+    "route_a_amplification_is_the_1_over_f_step": true,
+    "route_a_amplified_vs_route_b": 5.259087701965266,
+    "route_a_luminal_amplified_mL_min": 0.5149698677764388,
+    "route_a_luminal_raw_mL_min": 0.3101882922448418,
+    "route_b_perfusion_mL_min_band": [
+      0.02448,
+      0.09792
+    ],
+    "route_disagreement_factor_band": [
+      0.07891980649184893,
+      0.3156792259673957
+    ],
+    "route_disagreement_is_the_mechanism": true,
+    "route_disagreement_note": "Compared RAW against route B, as version 1 failed to do. Route A raw counts lumina and must under-predict, because a severed capillary drains its upstream arteriole. The factor is a measurement of that, not an error bar, and the two routes are never averaged."
+  },
+  "depth_response": [
+    {
+      "depth_mm": 0.05,
+      "predictable": true,
+      "route_b_mL_min": 0.0
+    },
+    {
+      "depth_mm": 0.1,
+      "predictable": true,
+      "route_b_mL_min": 0.0
+    },
+    {
+      "depth_mm": 0.3,
+      "predictable": true,
+      "route_b_mL_min": 0.012240000000000001
+    },
+    {
+      "depth_mm": 0.5,
+      "predictable": true,
+      "route_b_mL_min": 0.024480000000000002
+    },
+    {
+      "depth_mm": 1.0,
+      "predictable": true,
+      "route_b_mL_min": 0.048960000000000004
+    },
+    {
+      "depth_mm": 2.0,
+      "predictable": true,
+      "route_b_mL_min": 0.09792
+    },
+    {
+      "depth_mm": 5.0,
+      "predictable": false,
+      "route_b_mL_min": 0.15911999999999998
+    },
+    {
+      "depth_mm": 10.0,
+      "predictable": false,
+      "route_b_mL_min": 0.26112
+    },
+    {
+      "depth_mm": 11.0,
+      "predictable": false,
+      "route_b_mL_min": 0.27744
+    }
+  ],
+  "edges_this_cell_offers": [
+    {
+      "level": "TISSUE",
+      "shared_quantity": "cut depth",
+      "to": "SURG_INCISION",
+      "type": "HANDOVER"
+    },
+    {
+      "level": "TISSUE",
+      "shared_quantity": "cut length and depth",
+      "to": "SURG_COLLAGEN",
+      "type": "HANDOVER"
+    },
+    {
+      "level": "TISSUE",
+      "note": "WITHDRAWN 2026-10-02: Q156 does NOT hold a vascular pressure drop. Its `pressure_delta_mmhg` is an INPUT defaulting to 0, for Darcy flow in brain parenchyma at k = 1.9e-15 m^2 -- wrong level and wrong quantity. This edge was my error. f still needs a measurement; see acquisition_required.",
+      "shared_quantity": "directed pressure drop across a vascular segment",
+      "to": "Q156",
+      "type": "SIMULTANEOUS"
+    },
+    {
+      "level": "TISSUE",
+      "note": "Route B needs layer perfusion; Q036 computes regional flow. Today route B uses a STANDARD textbook perfusion instead, which is the weakest number in the cell.",
+      "shared_quantity": "normalized regional flow",
+      "to": "Q036",
+      "type": "SIMULTANEOUS"
+    },
+    {
+      "level": "TISSUE",
+      "shared_quantity": "time to hemostasis",
+      "to": "SURG_HEALING",
+      "type": "HANDOVER"
+    }
+  ],
+  "external_referent": "template bleeding time 2-9 min and the clinical fact that an epidermis-depth incision does not bleed; both STANDARD, neither verified in this file",
+  "identifiability_certificate": {
+    "all_entered_layers_predictable": true,
+    "bound_for_unpredictable": "Q_cut <= total supply of the territory distal to the cut; this cell does not hold that territory's flow, so the bound is open upward and no point value may be emitted.",
+    "f_floor_frozen_before_run": 0.5,
+    "layers_entered": [
+      "epidermis",
+      "papillary_dermis",
+      "reticular_dermis"
+    ],
+    "max_depth_fully_predictable_mm": 2.0,
+    "predictable_layers": [
+      "epidermis",
+      "papillary_dermis",
+      "reticular_dermis"
+    ],
+    "unpredictable_layers": []
+  },
+  "layers": [
+    {
+      "depth_from_mm": 0.0,
+      "depth_to_mm": 0.1,
+      "name": "epidermis",
+      "perfusion_mL_min_g": 0.0,
+      "source_class": "STANDARD",
+      "thickness_mm": 0.1,
+      "upstream_fraction_f": 1.0,
+      "vessel_density_per_mm2": 0.0,
+      "vessel_radius_m": 0.0,
+      "vessel_velocity_m_s": 0.0
+    },
+    {
+      "depth_from_mm": 0.1,
+      "depth_to_mm": 0.5,
+      "name": "papillary_dermis",
+      "perfusion_mL_min_g": 0.15,
+      "source_class": "STANDARD",
+      "thickness_mm": 0.4,
+      "upstream_fraction_f": 0.8,
+      "vessel_density_per_mm2": 40.0,
+      "vessel_radius_m": 4e-06,
+      "vessel_velocity_m_s": 0.0005
+    },
+    {
+      "depth_from_mm": 0.5,
+      "depth_to_mm": 2.0,
+      "name": "reticular_dermis",
+      "perfusion_mL_min_g": 0.12,
+      "source_class": "STANDARD",
+      "thickness_mm": 1.5,
+      "upstream_fraction_f": 0.6,
+      "vessel_density_per_mm2": 12.0,
+      "vessel_radius_m": 1.5e-05,
+      "vessel_velocity_m_s": 0.002
+    },
+    {
+      "depth_from_mm": 2.0,
+      "depth_to_mm": 10.0,
+      "name": "subcutaneous",
+      "perfusion_mL_min_g": 0.05,
+      "source_class": "STANDARD",
+      "thickness_mm": 8.0,
+      "upstream_fraction_f": 0.25,
+      "vessel_density_per_mm2": 1.2,
+      "vessel_radius_m": 0.0001,
+      "vessel_velocity_m_s": 0.008
+    },
+    {
+      "depth_from_mm": 10.0,
+      "depth_to_mm": 12.0,
+      "name": "perforator_plane",
+      "perfusion_mL_min_g": 0.04,
+      "source_class": "STANDARD",
+      "thickness_mm": 2.0,
+      "upstream_fraction_f": 0.08,
+      "vessel_density_per_mm2": 0.05,
+      "vessel_radius_m": 0.0005,
+      "vessel_velocity_m_s": 0.2
+    }
+  ],
+  "negative_result": true,
+  "negative_result_what": "Bleeding rate is structurally unidentifiable from cut geometry wherever less than half the series resistance lies upstream of the cut plane. No parameter fit can repair this.",
+  "parameters": {
+    "arterial_pressure_mmHg": 90.0,
+    "blood_density_g_mL": 1.06,
+    "cut_depth_mm": 2.0,
+    "cut_length_mm": 100.0,
+    "drainage_distance_mm_band": [
+      0.5,
+      2.0
+    ],
+    "field_clearing_mL_min": 20.0,
+    "plug_time_s_band": [
+      120.0,
+      540.0
+    ],
+    "predictable_f_floor": 0.5,
+    "tissue_density_g_mL": 1.02
+  },
+  "quantities": {
+    "bleeding_rate": {
+      "resolution_level": "TISSUE",
+      "unit": "mL/min [L^3 T^-1]"
+    },
+    "blood_loss": {
+      "resolution_level": "WHOLE_BODY",
+      "unit": "mL [L^3]"
+    },
+    "cut_depth": {
+      "resolution_level": "TISSUE",
+      "unit": "mm [L]"
+    },
+    "cut_length": {
+      "resolution_level": "WHOLE_BODY",
+      "unit": "mm [L]"
+    },
+    "plug_time": {
+      "resolution_level": "CELL",
+      "unit": "s [T]"
+    },
+    "upstream_fraction": {
+      "resolution_level": "TISSUE",
+      "unit": "f, dimensionless [1]"
+    },
+    "vessel_density": {
+      "resolution_level": "TISSUE",
+      "unit": "vessels / mm^2 [L^-2]"
+    },
+    "vessel_radius": {
+      "resolution_level": "TISSUE",
+      "unit": "m [L]"
+    }
+  },
+  "refutes_us": [
+    "If an epidermis-only incision is predicted to bleed, the chain is wrong before any parameter is defended.",
+    "If route A and route B agree within 20 percent, the upstream-drainage mechanism this cell is built on does not operate and the certificate is unmotivated.",
+    "If measured f exceeds 0.5 in the subcutaneous and perforator planes, arterial bleeding is predictable after all and the certificate is too strict."
+  ],
+  "unit_check": {
+    "all_passed": true,
+    "depths_are_contiguous": true,
+    "epidermis_cannot_bleed": true,
+    "every_quantity_has_level": true,
+    "f_is_a_fraction": true,
+    "route_a_gives_mL_min": true,
+    "route_b_gives_mL_min": true
+  },
+  "validation_status": "structural and dimensional check; no internal data used",
+  "what": "incision geometry -> bleeding rate -> blood loss, with a certificate for where the chain may be used"
+}

@@ -1,0 +1,180 @@
+[
+  {
+    "path": "source_repository/scripts/msk/tcell_activation_exhaustion.py",
+    "sha256": "1bff51c1cca029df004b031dd343b5d06927820ce7b927cbbe030720ad1f731d",
+    "bytes": 39091,
+    "docstring": "MECHANISM T-CELL ACTIVATION + EXHAUSTION\n========================================\nBuilds and MEASURES a reduced, citation-anchored model of: (1) the two-signal activation gate\n(TCR signal-1 kinetic-proofreading discrimination + CD28 signal-2 required AND-gate), (2) acute\nclonal-expansion kinetics (piecewise growth/death ODE, cross-checked against LSODA), (3) the\nWherry-hierarchy of graded functional exhaustion under chronic antigen (IL-2/cytotoxicity > TNF >\nIFN-gamma, ordered-threshold model on a cumulative-signal axis), and (4) checkpoint-blockade\n(anti-PD-1) reinvigoration as a two-compartment (progenitor-vs-terminal) partial-recovery process.\n\nFALSIFIER (task's own wording, pre-registered before computing):\n  PRIMARY (compound): does the model reproduce the MEASURED clonal-expansion burst size / division\n  rate (>=14 divisions in 1 week, Blattman 2002; ~6-8h commonly-cited division rate) AND the\n  HIERARCHICAL functional exhaustion order (IL-2 lost first, then TNF, then IFN-gamma, Wherry 2003)?\n  DECORRELATED CHECK: checkpoint blockade (anti-PD-1) partially reverses exhaustion -> measured\n  proliferative-burst / function recovery, concentrated in the progenitor (not terminal) subset\n  (Barber 2006; Im 2016; Huang 2017; Trautmann 2006).\n\nSYMMETRIC QC (stated up front, not discovered after the fact): exhaustion is a continuous spectrum,\nnot 4 discrete boxes; progenitor-vs-terminal is itself a simplification of a richer (>=4-subset,\nBeltra 2020) continuum; mouse-LCMV vs human-tumor (and human chronic viral infection) differ in\nkinetics/context and are NOT assumed interchang",
+    "functions": [
+      "_native",
+      "kinetic_proofreading_P",
+      "kinetic_proofreading_montecarlo",
+      "part1_two_signal_gate",
+      "_rate_fn",
+      "part2_clonal_expansion",
+      "_crossing_times",
+      "part3_exhaustion_hierarchy",
+      "_sigmoid",
+      "part4_checkpoint_blockade",
+      "robustness_sweep",
+      "main"
+    ],
+    "scope": "code inspected as source, not revalidated or safely imported"
+  },
+  {
+    "path": "source_repository/scripts/msk/complement_cascade.py",
+    "sha256": "b915680c9c502a589025f63199f2eb41981627fcc20e4cb02f78147f086fc993",
+    "bytes": 47548,
+    "docstring": "MECHANISM build: COMPLEMENT CASCADE -- the twin's FIRST quantitative immune-system cert.\n\nReduced 8-state compartmental ODE model of the complement system: three activation pathways\n(classical / lectin / alternative) converging on the C3 convertase -> C3b amplification\n(autocatalytic) feedback loop -> C5 convertase -> membrane attack complex (MAC, C5b-9); the\nalternative-pathway \"tick-over\" spontaneous C3 hydrolysis; regulatory brakes (Factor H, CD55/DAF,\nCD59) implementing surface-dependent self/non-self discrimination.\n\nFALSIFIERS (task pre-registered):\n  F1: does the model reproduce the MEASURED alternative-pathway amplification behavior -- the C3b\n      feedback loop is an exponential amplifier (one deposited C3b spawns many via the loop),\n      quantified against Harboe et al. 2004/2008 + Pangburn 2023's independently-measured finding\n      that the AP amplification loop contributes >80-90% of TOTAL terminal (C5a/C5b-9) output even\n      when the INITIATING trigger is classical-pathway-specific?\n  F2: does the model reproduce measured self/non-self discrimination -- is Factor-H-mediated decay\n      acceleration of the C3 convertase SURFACE-DEPENDENT (sialic-acid/host surfaces suppress\n      amplification), quantified against the measured convertase decay/half-life difference on\n      activator vs non-activator (host) surfaces -- AND does a forced adversary (surface-BLIND\n      regulation) fail to discriminate?\n\nGEOMETRIC STRUCTURE: the (C3b, C3bBb) subsystem is a linear branching process near C3~C3_0; its\n2x2 Jacobian's LEADING EIGENVALUE lambda is the loop's net reprod",
+    "functions": [
+      "rhs",
+      "y0_vec",
+      "simulate",
+      "endpoint",
+      "leading_eigenvalue"
+    ],
+    "scope": "code inspected as source, not revalidated or safely imported"
+  },
+  {
+    "path": "source_repository/scripts/msk/complement_ap_bistability_eculizumab.py",
+    "sha256": "aada1035ad4d4616a938c62ab83cb27ab0619b4efadff91ab1a97dc0f05b1bd3",
+    "bytes": 14721,
+    "docstring": "complement_ap_bistability_eculizumab.py — resolves graph node MODEL-COMPLEMENT-AMPLIFICATION\n(BUILD-MISSING-COMPUTATIONS-BATCH4-2026-07-28).\n\nDISTINCT FROM scripts/msk/complement_cascade.py: that script builds an 8-state mass-action\ncomplement ODE and asks whether the C3b feedback loop's LEADING EIGENVALUE is supercritical\n(linear/near-DFE amplification-rate question) and whether Factor-H decay is surface-dependent.\nTHIS script answers a different question this node poses: is the REDUCED 1D QSS-collapsed\nC3b-pool ODE dx/dt = k_tick*(C3_tot-x) + K*x*(C3_tot-x) - m*Vmax*x/(Km_reg+x) - k_synth*x a\ngenuine SADDLE-NODE BISTABLE switch with HYSTERESIS under a Factor-H down-then-up ramp, fit to\nZewde&Morikis 2018's two summary-statistic anchors (7% consumption at m=1.0, 76% at m=0.1),\nand does eculizumab (C5 blockade) leave that C3b pool numerically unchanged while suppressing\nonly the downstream terminal(C5) flux? Neither the bistability/hysteresis geometry nor the\nC5-independence claim is touched by complement_cascade.py.\n\nQUESTION / PRE-REGISTERED GATES:\n  G1 (fit quality): for Km_reg in {0.3, 1.0, 3.0} uM, does a 2-free-parameter (K, Vmax) fit\n     reproduce BOTH anchors (7% at m=1.0 steady state; 76% at m=0.1, t=3600s from that state)\n     to <1% relative residual? Pre-registered per the claim's own stated \"residual<1e-4\".\n  G2 (Km_reg=10uM claimed to FAIL the fit, max reachable 64.8% per the claim's own internal\n     negative control): re-derived via an EXACT analytic reduction (anchor-1 is linear in Vmax\n     at fixed K; anchor-2 becomes a 1D root in K, bracket-searched + b",
+    "functions": [
+      "dxdt",
+      "_roots_fast",
+      "steady_state_lowbranch",
+      "steady_state_nearest_branch",
+      "integrate_from",
+      "fit_K_Vmax",
+      "count_roots",
+      "main"
+    ],
+    "scope": "code inspected as source, not revalidated or safely imported"
+  },
+  {
+    "path": "source_repository/scripts/msk/acute_phase_inflammation.py",
+    "sha256": "7bc211bb569fbb582275795a29fabedd6dc08cfbf07c3b2dd20f09cffe9628b5",
+    "bytes": 42905,
+    "docstring": "MSK/biology build: ACUTE-PHASE INFLAMMATORY RESPONSE / cytokine cascade layer -- a reduced\ncompartmental ODE cascade (stimulus -> TNF-alpha -> IL-1 -> IL-6 -> hepatic acute-phase protein\nsynthesis, read out as CRP [positive reactant] and albumin [negative reactant]), extending the\nimmune branch. Couples to coagulation (Levi & van der Poll 2004/2010, live-verified) and hepatic\n(synthesis site) and forward-references complement (parallel innate response; that sibling doc did\nnot exist in this repo as of this session -- see docs/MECHANISM_ACUTE_PHASE_INFLAMMATION.md Sec.9).\n\nFALSIFIER (pre-registered, matches the task):\n  F1: does the model reproduce the MEASURED temporal ordering -- early cytokines (TNF/IL-1/IL-6)\n      peaking within ~1-6h, CRP peaking two orders of magnitude later (~24-48h) -- anchored to 3\n      INDEPENDENT live-verified human-endotoxemia studies (Michie 1988 PMID 2835680, Van Deventer\n      1990 PMID 2124934, Cannon 1990 PMID 2295861) for the cytokines, and Vigushin 1993 (PMID\n      8473487) + StatPearls/Wikipedia (live-fetched) for CRP?\n  F2: does the model reproduce the MEASURED CRP magnitude (basal <3 mg/L -> peak >100 mg/L, i.e.\n      >=100-fold, literature envelope up to ~1000-fold [StatPearls] / ~10,000-fold extreme\n      [Wikipedia])?\n  F3: does a DECORRELATED, opposite-direction check hold -- albumin (negative acute-phase\n      reactant) FALLS while CRP RISES, both driven by the same IL-6 signal with opposite\n      regulatory sign (Wikipedia \"Acute-phase protein\"/\"Hypoalbuminemia\", live-verified)?\n  F4 (forced adversary, geometric): is the ~24-48h ",
+    "functions": [
+      "stimulus",
+      "stimulus_scalar",
+      "simulate",
+      "peak_time_value",
+      "pct_change",
+      "numeric_jacobian",
+      "f_generic"
+    ],
+    "scope": "code inspected as source, not revalidated or safely imported"
+  },
+  {
+    "path": "source_repository/scripts/msk/macrophage_polarization.py",
+    "sha256": "4d2af4b3a0c3b2a13f1ad277431a0f3302e5afb0f6bcdd0a2036cac78eaf1e25",
+    "bytes": 64693,
+    "docstring": "MSK/biology build: MACROPHAGE POLARIZATION -- the M1 (classically-activated: LPS/IFN-gamma ->\niNOS/NO, TNF/IL-12) vs M2 (alternatively-activated: IL-4/IL-13 -> Arg1, IL-10/TGF-beta) functional\ndichotomy, its METABOLIC signature (M1 glycolytic + broken TCA -> itaconate/succinate; M2\noxidative/FAO), and PLASTICITY (a reversible spectrum, NOT fixed lineages). This is the first\nMEASURE/CERTIFY pass on this foundational in-vitro mechanism layer -- a DIFFERENT, more basic\nhidden state than the existing `IMMUNE-MACROPHAGE-POLARIZATION` graph cell (data/MECHANISM_ANCHOR_\nGRAPH.json), which corners the in-vivo TAM/cancer-continuum question (status OPEN, SEED-DESIGN,\nnever computed) -- this script COUPLES to that cell (Sec. symmetric_qc + couples_to below) rather\nthan re-deriving it.\n\nSCOPE, stated up front: a REDUCED, PHENOMENOLOGICAL forward model (flux-partition + a small linear-\nchain ODE + a relaxation ODE), not a genome-scale metabolic/signaling simulation. Couples to two\nALREADY-CERTIFIED sibling models in this repo -- not re-deriving their mechanism:\n  - `wound_healing_cascade.py`'s own F4 (macrophage M1-like->M2-like bidirectional fit vs Daley\n    2010's murine Gr-1+ timepoints) supplies this script's plasticity-ODE time constant (LIVE-\n    LOADED at runtime from wound_healing_cascade_results.json), not re-fit here.\n  - `acute_phase_inflammation.py`'s upstream TNF pulse is mechanistically the secretory output of\n    the M1 state modeled here (a qualitative, disclosed coupling -- that model's TNF source is\n    deliberately generic/any-cell, not re-derived as macrophage-specifi",
+    "functions": [
+      "load_wound_healing_coupling",
+      "flux_partition",
+      "tca_segment_rhs",
+      "run_to_steady_state",
+      "numeric_jacobian",
+      "phi_target",
+      "reversible_rhs",
+      "simulate_ratchet"
+    ],
+    "scope": "code inspected as source, not revalidated or safely imported"
+  },
+  {
+    "path": "source_repository/scripts/msk/mitochondrial_oxphos.py",
+    "sha256": "d23015de40a072e29f8b354e9ab2e9a37195882c8b1bf4ec33bb87569bdccaaa",
+    "bytes": 40327,
+    "docstring": "MECHANISM MITOCHONDRIAL OXPHOS -- the organelle-level ETC/ATP-synthase/P-O certified model (2026-07-22)\n\nBuilds a first CERTIFIED organelle-level model of oxidative phosphorylation:\n  (A) electron-transport-chain (complex I-IV) proton-pumping stoichiometry (H+/2e-);\n  (B) ATP synthase (complex V) H+/ATP stoichiometry, DERIVED GEOMETRICALLY as a gear ratio between\n      two coupled rotary symmetries on one shaft -- the c-ring (n c-subunits, one proton-binding\n      glutamate each) and the F1 head (a fixed 3-fold catalytic-site symmetry) -- NOT asserted as a\n      memorized fraction;\n  (C) the P/O ratio grid this implies (H+/2e- supply over H+/ATP cost), cross-checked against the\n      DIRECTLY-MEASURED flux consensus (Hinkle 2005) via a genuinely decorrelated instrument\n      (cryo-EM c-ring structure, Watt et al. 2010) that is also temporally decorrelated (2010\n      postdates and could not have influenced the 2005 flux synthesis, nor vice versa);\n  (D) mitochondrial membrane potential / proton-motive-force decomposition (Deltap = Deltapsi -\n      60*DeltapH), cross-checked against a decorrelated intact-cell quantitative measurement.\n\nFALSIFIER (pre-registered, per task brief): does this model reproduce the MEASURED P/O ratio\n(~2.3-2.5 NADH / ~1.5 succinate, Hinkle 2005's careful synthesis -- the modern non-integer values\nthat refuted the old textbook 3.0/2.0) AND the measured membrane potential (~150-180 mV)? Symmetric\nadversary, forced not assumed: the mammalian c-ring cryo-EM structure (Watt 2010) predicts a\nSTRUCTURAL CEILING on P/O -- if the independently-measured flux ",
+    "functions": [
+      "h_per_atp",
+      "po_ratio"
+    ],
+    "scope": "code inspected as source, not revalidated or safely imported"
+  },
+  {
+    "path": "source_repository/scripts/msk/oxphos_corrected_nhatp_resimulation.py",
+    "sha256": "5c5e5ece72fec6ab085e9dfbc43212f358a18df9030e9c09704c916927f42b46",
+    "bytes": 6232,
+    "docstring": "EXECUTES HOLE-OXPHOS-PO-NADH-BRACKET-PROPAGATION-REPAIR-2026-07-26's own named,\nnever-run honest_gap: \"Did not re-execute MODEL-OXIDATIVE-PHOSPHORYLATION's own ODE\n... with corrected n_H_ATP=3.6667 to get a new emergent dPsi/RCR/P-O simulation\noutput -- only the anchor/target comparison text is repaired.\" That node's own text\nstates this repair was \"independently diagnosed FIVE times ... and executed zero\ntimes before now\" -- referring to the TEXT-bracket correction (2.45-2.73 -> 2.78+-0.04).\nThe dynamical re-simulation named in the same honest_gap was still unexecuted; this\nscript executes it.\n\nBacking script for MODEL-OXIDATIVE-PHOSPHORYLATION (\"oxphos_final.py\", cited internally\nin cert_design.legs as internal:oxphos_final.py:void_floor_sweep / :ic_stability /\n:thermo_consistency) is confirmed ABSENT from disk and from all 35,932 commits of git\nhistory (bt_memory: computation-loss-is-structural-zero-of-164). This script instead\nimports the EXISTING, independently-built, on-disk steady-state reimplementation\n(data/body_twin/agent_scratch_preserved/oxphosswing_9f2c_reimpl_steadystate.py,\nbuilt for a sibling node, HOLE-OXPHOS-DPSI-SWING-CAPACITY-RATIO-GOVERNOR-CONTRADICTION)\nUNMODIFIED -- zero re-transcription of the flux equations -- rather than retyping them\na third time.\n\nFidelity gate (must pass before trusting the corrected run): reproduce the ALREADY-\nPUBLISHED baseline (nH_ATP=4.0, the old Route-B value) against MODEL-OXIDATIVE-\nPHOSPHORYLATION's own documented targets: dPsi_state4=184.45mV, dPsi_state3=176.1mV,\nRCR=10.09, P/O(NADH)=2.481, P/O(succ)=1.487, and the pu",
+    "functions": [
+      "steady",
+      "point_estimates",
+      "rcr_vs_leak_sweep"
+    ],
+    "scope": "code inspected as source, not revalidated or safely imported"
+  },
+  {
+    "path": "source_repository/scripts/msk/oxphos_scrambled_stoichiometry_voidfloor.py",
+    "sha256": "d8e0e3602822cd052644de23d03e0c735996212f83242941f28d47bb1ac0cf22",
+    "bytes": 6680,
+    "docstring": "Scrambled-stoichiometry void-floor adversary for MODEL-OXIDATIVE-PHOSPHORYLATION.\nRe-executes the model's own two mechanisms (pure stoichiometric arithmetic, and the\ndynamical ODE steady-state solve) but with deliberately WRONG proton-per-electron /\nproton-per-ATP integers, and asks: does the model STILL converge to something that\nlooks like the textbook P/O (~2.3-2.5 NADH), i.e. is \"landing near the measured value\"\na property of the arithmetic/dynamics structure rather than evidence the specific\nstoichiometry (CI=4,CIII=4,CIV=2,c_ring=8) is correct?\n\nPRE-REGISTERED falsifier: if >=20% of a WIDE grid of deliberately-wrong-but-textbook-\nscale integer stoichiometries ALSO land within the model's own tolerance band of the\nmeasured P/O (gate g08: |P/O-2.5|<=0.10, and the looser textbook band [2.2,2.8]), the\n\"convergence\" claim is void-floor-consistent (hollow) -- the arithmetic's own bounded\nsmall-integer structure does the work, not the specific stoichiometry.",
+    "functions": [
+      "po_at_state3"
+    ],
+    "scope": "code inspected as source, not revalidated or safely imported"
+  },
+  {
+    "path": "source_repository/scripts/msk/oxphos_ode_emergent_downstream_propagation.py",
+    "sha256": "567553dad33eb5beef16acdd906b0ad6a879ece763c12638670d330ff6844227",
+    "bytes": 12850,
+    "docstring": "EXECUTES the specific, precisely-named, never-run step that FIVE independent audit passes on\nMODEL-OXIDATIVE-PHOSPHORYLATION / MODEL-ATP-SYNTHASE-STOICHIOMETRY / HOLE-PO-ROUTEA-COMPLEXI-\nENTANGLEMENT-CONTRADICTION / HOLE-OXPHOS-PO-NADH-BRACKET-PROPAGATION-REPAIR-2026-07-26 all flagged\nidentically and none closed: \"NOT DONE: this cell's own ODE has not been re-simulated under the\ncorrected n_H_ATP -- anchor text repaired, emergent simulation output not.\"\n\nscripts/msk/oxphos_corrected_nhatp_resimulation.py (already in-repo, dated 2026-07-26 10:24, verified\nby this script to still execute and exactly reproduce its own documented numbers) DID close that\nspecific gap for the P/O ratio itself: ODE-emergent P/O(NADH)=2.7051 at the corrected stoichiometry,\nvs the pure-algebraic point estimate 2.7845 used everywhere downstream so far.\n\nWhat NO node has done: propagate the ODE-EMERGENT number (2.7051), rather than the pure-algebra\nnumber (2.7845), through the exact same three downstream formulas that HOLE-OXPHOS-PO-NADH-BRACKET-\nPROPAGATION-REPAIR-2026-07-26 already used the algebra number for:\n  - HOLE-GLUCOSE-ATP-YIELD-CONTRADICTION: ATP/glucose (no-shuttle and G3P-shuttle conventions)\n  - HOLE-CARDIAC-WORK-O2-ATP-CONTRADICTION: OxPhos-capture-efficiency (documented \"exactly linear in P/O\")\n  - HOLE-ATP-SUPPLY-DEMAND-BUDGET-CONTRADICTION: whole-body ATP turnover kg/day + capture efficiency\n\nFormulas below were REVERSE-ENGINEERED from the graph's own quoted before/after numbers and VERIFIED\nto reproduce them to <0.05% before being trusted (see FORMULA-FIDELITY CHECK), not invented f",
+    "functions": [
+      "po_point_estimates",
+      "atp_per_glucose_noshuttle",
+      "atp_per_glucose_shuttle",
+      "cardiac_capture_efficiency",
+      "atp_budget_kg_day",
+      "_json_default"
+    ],
+    "scope": "code inspected as source, not revalidated or safely imported"
+  },
+  {
+    "path": "source_repository/scripts/msk/autophagy_mitophagy.py",
+    "sha256": "b5b07de0c3a3edb69ab08e806d0b7aac22000b02dc691e70f81cf02e2f6a577e",
+    "bytes": 46694,
+    "docstring": "MECHANISM AUTOPHAGY / MITOPHAGY -- macroautophagy + flux-identifiability + PINK1/Parkin\ncertified model (2026-07-22)\n\nBuilds this twin's first CERTIFIED model of autophagic quality control:\n  (A) macroautophagy staging (phagophore -> autophagosome -> autolysosome) and the LC3-I->LC3-II\n      lipidation marker (proteolytic cleavage + E1/E2-like conjugation to phosphatidylethanolamine);\n  (B) a GEOMETRIC IDENTIFIABILITY model of \"autophagic flux\" -- LC3-II abundance obeys a linear\n      2-parameter kinetic ODE (formation rate k_form, degradation rate k_deg); a single steady-state\n      snapshot observes only the RATIO k_form/k_deg, which is a rank-1 map from a 2D parameter space\n      -- PROVABLY non-identifiable (a 1-dimensional null space, computed via SVD, not asserted) --\n      between \"true induction\" (k_form up) and \"clearance blockade\" (k_deg down). A second,\n      independent observation arm (a saturating lysosomal/fusion inhibitor, bafilomycin A1/\n      chloroquine, forcing k_deg -> ~0) makes the combined system full-rank (sigma_min > 0, machine-\n      computed via SVD) and recovers k_form (the flux) unambiguously. The adversary (a dense,\n      noiseless multi-timepoint relaxation curve WITHOUT any inhibitor could, in principle, separate\n      k_form from k_deg by curve-fitting) is FORCED and conceded where it is fair (per-condition\n      independent fitting DOES recover the truth, machine-verified) and shown to fail in the realistic\n      failure mode (a naive SHARED/pooled k_deg assumption across conditions silently reintroduces the\n      exact induction/blockade co",
+    "functions": [
+      "steady_state",
+      "jacobian_single_obs",
+      "jacobian_two_obs",
+      "null_space_dim",
+      "null_vector",
+      "relaxation_curve",
+      "fit_kdeg_from_two_points"
+    ],
+    "scope": "code inspected as source, not revalidated or safely imported"
+  },
+  {
+    "path": "source_repository/scripts/msk/hpa_cortisol_axis.py",
+    "sha256": "f1153d14d92052330fee31e312b8c8420f409ea87c88442eb2941141b04067ac",
+    "bytes": 74432,
+    "docstring": "MSK build: HPA AXIS / CORTISOL -- CRH -> ACTH -> cortisol cascade with fast+delayed negative\nfeedback, the circadian rhythm (cortisol awakening response / nadir), the ultradian pulsatility\n(~15-20 pulses/day), and the acute stress response, as a CERTIFIED model -- supplying a\nliterature-anchored, machine-checked input to the pre-existing SEED-DESIGN hypothesis nodes\n`ORG-ADRENAL-STRESS-HORMONES` / `AUTO-ADRENAL-GLAND-CELL-4-NODE-STATE-MACHINE` (the zF-cortisol\nnode of the 4-node adrenal state machine), `ORG-HPA-PSYCH-BRIDGE` / `AUTO-HPA-BRIDGE-CELL-...`\n(the CRH-ACTH-cortisol delay/feedback ODE those nodes explicitly ask for and defer), and\n`ENDO-HPA-CORTISOL-AXIS` (HPA reactivity/set-point) already sitting OPEN in\ndata/MECHANISM_ANCHOR_GRAPH.json (999 nodes; NOT edited this session -- isolation rule \"touch only\nfiles you create\"). This document does not resolve those nodes in full and is not folded into the\ngraph this session -- same disclosed precedent as MECHANISM_THYROID_AXIS.md / MECHANISM_RAAS.md /\nMECHANISM_REPRODUCTIVE_HPG.md.\n\nGEOMETRIC STRUCTURE (derive from the geometry, not rote algebra):\n\n1. FEEDBACK is not one timescale but (at least) THREE, per Keller-Wood & Dallman 1984's own\n   pharmacological dissection: FAST (non-genomic, membrane-level, no protein synthesis required,\n   sub-minute-to-minutes), INTERMEDIATE/DELAYED (requires a corticosteroid-dependent protein,\n   measured onset ~2h in vivo), and SLOW (classical genomic action on POMC mRNA, days). The task's\n   \"fast + delayed\" pair maps onto the first two.\n\n2. ULTRADIAN PULSATILITY is modeled as the OUTPUT of",
+    "functions": [
+      "build_cascade_feedback_mechanism",
+      "lambertw_rightmost_root",
+      "hopf_closed_form",
+      "build_ultradian_pulsatility",
+      "build_circadian_falsifier",
+      "build_acute_stress_response",
+      "build_dst_falsifier",
+      "build_addisons_decorrelation",
+      "build_couples_to",
+      "main"
+    ],
+    "scope": "code inspected as source, not revalidated or safely imported"
+  },
+  {
+    "path": "source_repository/scripts/msk/lymphatic_return.py",
+    "sha256": "36c8867e19bf2530a9e76473a077b2c6ad467299293102d3ceddeeafe446161d",
+    "bytes": 62217,
+    "docstring": "MSK build: LYMPHATIC RETURN -- closes the microcirculation fluid loop opened by\ndocs/MECHANISM_CAPILLARY_STARLING.md / scripts/msk/capillary_starling.py: whole-body lymph flow,\nthe intrinsic+extrinsic lymphatic pump, the interstitial-pressure-vs-lymph-flow relationship\n(Guyton/Aukland), and protein return. Reads two sibling JSONs read-only (capillary_starling,\nfluid_compartments); writes only under data/lymphatic_return/. Couples to (does not fold into)\ndata/MECHANISM_ANCHOR_GRAPH.json's OPEN AUTO-CROSS-CHECK-THE-REVISED-STARLING-LYMPHAT and\nAUTO-LYMPHATIC-IMMUNE-TRAFFICKING-ORGAN-CELL nodes -- isolation discipline, concurrent writer.\n\nQUESTION (pre-registered, exactly as tasked):\n  (1) MASS-BALANCE CLOSURE: does modeled whole-body lymph flow match the net capillary filtration\n      rate the capillary-Starling thread independently computed (~2-4 L/day)?\n  (2) Pi-vs-Q_L SHAPE: does the interstitial-pressure-vs-lymph-flow relationship reproduce the\n      measured Guyton/Aukland curve (flow rises steeply as Pi rises from negative toward 0, then\n      PLATEAUS above ~0)?\n  (3) PUMP: quantify intrinsic (lymphangion contraction) + extrinsic (skeletal-muscle) contributions\n      with real measured numbers, not prose.\n  (4) PROTEIN RETURN: quantify the plasma<->lymph protein flux and show it is a DIFFERENT quantity\n      from albumin synthesis/degradation turnover (a confound forced apart, not conflated).\n\n*** THE ADVERSARY THIS SCRIPT IS BUILT NOT TO DODGE (WATERTIGHT rule 1) ***\ncapillary_starling.py's own disclosed_uncertainty says its Kf_total (1.205 L/day/mmHg) was\nCALIBRATED FR",
+    "functions": [
+      "main"
+    ],
+    "scope": "code inspected as source, not revalidated or safely imported"
+  }
+]

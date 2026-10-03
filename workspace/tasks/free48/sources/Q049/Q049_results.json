@@ -1,0 +1,917 @@
+{
+  "checks": {
+    "analytical_limit": {
+      "expected_fluid_support": 1.0,
+      "expected_surface_pressure_Pa": 36500.0,
+      "normalized_mass_balance_error": 2.413463740121842e-15,
+      "numerical_fluid_support": 1.0000000000000009,
+      "numerical_surface_pressure_Pa": 36500.00000000004,
+      "pass": true,
+      "relative_pressure_error": 9.967065224908802e-16
+    },
+    "resolution": {
+      "coarse_cells_per_layer": 16,
+      "cumulative_bone_flux_relative_difference_10s": 0.036561412576907815,
+      "cumulative_top_flux_relative_difference_10s": 0.013613021444261292,
+      "fine_cells_per_layer": 32,
+      "fluid_support_absolute_difference_1s": 0.00017399935545841377,
+      "instantaneous_bone_flux_relative_difference_10s": 0.08023436135949276,
+      "instantaneous_top_flux_relative_difference_1s": 0.0032586891177771565,
+      "pass": true
+    },
+    "unit_and_parameter_check": {
+      "checks": {
+        "nonnegative_permeability": true,
+        "positive_alpha": true,
+        "positive_cell_count": true,
+        "positive_conductances": true,
+        "positive_modulus": true,
+        "positive_thickness": true,
+        "positive_viscosity": true
+      },
+      "derived_conductivity_m2_Pa_s": [
+        3.8999999999999995e-13,
+        5.8e-13,
+        4.9999999999999995e-14
+      ],
+      "derived_storage_Pa_inv": [
+        3.125e-06,
+        1.3698630136986302e-06,
+        2e-09
+      ],
+      "dimension_relations": {
+        "Darcy_flux": "K [m^2/(Pa s)] * grad(p) [Pa/m] = m/s",
+        "boundary_flux": "G [m/(Pa s)] * p [Pa] = m/s",
+        "storage_rate": "S [1/Pa] * dp/dt [Pa/s] = 1/s"
+      },
+      "status": "pass"
+    }
+  },
+  "decision": {
+    "barrier_transport_relevant": true,
+    "core_mechanistic_test_pass": false,
+    "film_transport_relevant": true,
+    "full_fluid_support_10s": 0.0010165339917584976,
+    "full_fluid_support_1s": 0.05322150698762828,
+    "interpretation_rule": "A false layer flag means not resolved as necessary by this model, not biological absence.",
+    "mass_balance_pass": true,
+    "plausibility_anchor_pass": false,
+    "superficial_layer_resolved_as_necessary": true
+  },
+  "frozen_preregistration_sha256": "19f43a692263df5add62985912991197f7d0746c47dac182354cf988b60fc747",
+  "id": "BT-HX-Q049",
+  "layer_effects": {
+    "barrier_bone_flux_relative_delta_10s": 0.9783585563298026,
+    "barrier_fluid_support_delta_10s": 0.0010034750991081585,
+    "film_fluid_support_delta_1s": 0.05269943508461859,
+    "film_top_flux_relative_delta_1s": 0.019058398457139414,
+    "superficial_bone_flux_relative_delta_10s": 0.43450014919954977,
+    "superficial_fluid_support_delta_1s": 0.003918596860114386
+  },
+  "model": "one-dimensional layered poroelastic consolidation with interfacial and bone boundary resistances",
+  "next_step": "Replace the assumed film conductance and one-dimensional boundary laws with matched contact/transport experiments, then add lateral contact geometry and cyclic compression before assigning biological necessity.",
+  "parameter_table": [
+    {
+      "name": "superficial.thickness",
+      "provenance": "Krishnan et al. 2003, Table 1, femur layer 4; thickness frozen assumption",
+      "unit": "m",
+      "value": 0.0002
+    },
+    {
+      "name": "superficial.modulus",
+      "provenance": "Krishnan et al. 2003, Table 1, femur layer 4; thickness frozen assumption",
+      "unit": "Pa",
+      "value": 320000.0
+    },
+    {
+      "name": "superficial.permeability",
+      "provenance": "Krishnan et al. 2003, Table 1, femur layer 4; thickness frozen assumption",
+      "unit": "m^4/(N s)",
+      "value": 3.9e-16
+    },
+    {
+      "name": "bulk.thickness",
+      "provenance": "Krishnan et al. 2003, Table 1, femur layer 1; thickness frozen assumption",
+      "unit": "m",
+      "value": 0.0018
+    },
+    {
+      "name": "bulk.modulus",
+      "provenance": "Krishnan et al. 2003, Table 1, femur layer 1; thickness frozen assumption",
+      "unit": "Pa",
+      "value": 730000.0
+    },
+    {
+      "name": "bulk.permeability",
+      "provenance": "Krishnan et al. 2003, Table 1, femur layer 1; thickness frozen assumption",
+      "unit": "m^4/(N s)",
+      "value": 5.8e-16
+    },
+    {
+      "name": "calcified_barrier.thickness",
+      "provenance": "frozen mechanistic assumption; no measured value claimed",
+      "unit": "m",
+      "value": 0.0001
+    },
+    {
+      "name": "calcified_barrier.modulus",
+      "provenance": "frozen mechanistic assumption; no measured value claimed",
+      "unit": "Pa",
+      "value": 500000000.0
+    },
+    {
+      "name": "calcified_barrier.permeability",
+      "provenance": "frozen mechanistic assumption; no measured value claimed",
+      "unit": "m^4/(N s)",
+      "value": 5e-17
+    },
+    {
+      "name": "film.thickness",
+      "provenance": "frozen mechanistic assumption",
+      "unit": "m",
+      "value": 1e-06
+    },
+    {
+      "name": "film.modulus",
+      "provenance": "frozen mechanistic assumption",
+      "unit": "Pa",
+      "value": 1000000.0
+    },
+    {
+      "name": "film.hydraulic_conductance",
+      "provenance": "frozen mechanistic assumption",
+      "unit": "m/(Pa s)",
+      "value": 1e-08
+    },
+    {
+      "name": "direct_drain_conductance",
+      "provenance": "frozen mechanistic assumption",
+      "unit": "m/(Pa s)",
+      "value": 1e-06
+    },
+    {
+      "name": "bone_boundary_conductance",
+      "provenance": "frozen mechanistic assumption",
+      "unit": "m/(Pa s)",
+      "value": 1e-06
+    },
+    {
+      "name": "viscosity",
+      "provenance": "frozen water-like first-order assumption",
+      "unit": "Pa s",
+      "value": 0.001
+    },
+    {
+      "name": "alpha",
+      "provenance": "frozen reduced-storage assumption",
+      "unit": "dimensionless",
+      "value": 1.0
+    },
+    {
+      "name": "normalization_strain",
+      "provenance": "frozen load normalization; not patient-specific",
+      "unit": "dimensionless",
+      "value": 0.05
+    },
+    {
+      "name": "reference_modulus",
+      "provenance": "bulk anchor from Krishnan et al. 2003, Table 1",
+      "unit": "Pa",
+      "value": 730000.0
+    }
+  ],
+  "reference_anchors": {
+    "flannery_1999": {
+      "citation": "Flannery et al., Biochemical and Biophysical Research Communications 254, 535-541 (1999)",
+      "doi": "10.1006/bbrc.1998.0104",
+      "location": "article abstract/title",
+      "unit": "not used as a numeric parameter",
+      "value": "surface-associated lubricating protein context"
+    },
+    "krishnan_2003": {
+      "citation": "Krishnan et al., Journal of Biomechanical Engineering 125, 569-577 (2003)",
+      "doi": "10.1115/1.1610018",
+      "location": "Tables 1-2",
+      "unit": "MPa, m^4/(N s), dimensionless",
+      "value": "femur H-A 0.32-0.73 MPa, kz 0.39-0.58e-15 m^4/(N s), contact Wp/W 0.93-0.98"
+    },
+    "park_2003": {
+      "citation": "Park et al., Journal of Biomechanics 36, 1785-1796 (2003)",
+      "doi": "10.1016/S0021-9290(03)00231-8",
+      "location": "Table 1",
+      "unit": "dimensionless",
+      "value": "bovine articular surface 94 +/- 4% and deep zone 71 +/- 8% fluid load support"
+    }
+  },
+  "scenarios": {
+    "full": {
+      "bone_conductance_m_per_Pa_s": 1e-06,
+      "drainage_half_time_s": 0.5281066307380372,
+      "film_present": true,
+      "layers": [
+        {
+          "modulus_Pa": 320000.0,
+          "name": "superficial",
+          "permeability_m4_Ns": 3.9e-16,
+          "provenance": "Krishnan et al. 2003, Table 1, femur layer 4; thickness frozen assumption",
+          "thickness_m": 0.0002
+        },
+        {
+          "modulus_Pa": 730000.0,
+          "name": "bulk",
+          "permeability_m4_Ns": 5.8e-16,
+          "provenance": "Krishnan et al. 2003, Table 1, femur layer 1; thickness frozen assumption",
+          "thickness_m": 0.0018
+        },
+        {
+          "modulus_Pa": 500000000.0,
+          "name": "calcified_barrier",
+          "permeability_m4_Ns": 5e-17,
+          "provenance": "frozen mechanistic assumption; no measured value claimed",
+          "thickness_m": 0.0001
+        }
+      ],
+      "max_mass_balance_error": 2.3724316697903256e-14,
+      "n_cells": 48,
+      "n_per_layer": 16,
+      "scenario": "full",
+      "snapshots": [
+        {
+          "bone_exchange_flux_m_s": 0.0365,
+          "bone_pressure_Pa": 36500.0,
+          "cumulative_bone_exchange_m": 0.0,
+          "cumulative_outflow_m": 0.0,
+          "cumulative_top_exudation_m": 0.0,
+          "film_series_compliance_m_per_Pa": 1e-12,
+          "film_solid_strain": 0.0365,
+          "fluid_content_m": 0.00011281980000000001,
+          "fluid_support_bone": 1.0,
+          "fluid_support_surface": 1.0,
+          "layer_pressure_mean_Pa": {
+            "bulk": 36500.0,
+            "calcified_barrier": 36500.00000000001,
+            "superficial": 36500.0
+          },
+          "mass_balance_residual_m": 0.0,
+          "mean_tissue_solid_strain": 0.0,
+          "net_outward_flux_m_s": 0.036864999999999995,
+          "solid_stress_surface_Pa": 0.0,
+          "surface_pressure_Pa": 36500.0,
+          "time_s": 0.0,
+          "top_exudation_flux_m_s": 0.000365
+        },
+        {
+          "bone_exchange_flux_m_s": 9.144535122810786e-06,
+          "bone_pressure_Pa": 9.144535122810787,
+          "cumulative_bone_exchange_m": 1.0893236932909551e-05,
+          "cumulative_outflow_m": 4.9834347985381956e-05,
+          "cumulative_top_exudation_m": 3.89411110524724e-05,
+          "film_series_compliance_m_per_Pa": 1e-12,
+          "film_solid_strain": 0.0365,
+          "fluid_content_m": 6.298545201461699e-05,
+          "fluid_support_bone": 0.00025053520884413114,
+          "fluid_support_surface": 0.05322150698762828,
+          "layer_pressure_mean_Pa": {
+            "bulk": 23904.334373239955,
+            "calcified_barrier": 8582.053803941219,
+            "superficial": 6466.4660142095445
+          },
+          "mass_balance_residual_m": 1.0706496453294356e-18,
+          "mean_tissue_solid_strain": 0.02373064189780144,
+          "net_outward_flux_m_s": 2.8570385173295107e-05,
+          "solid_stress_surface_Pa": 34557.41499495157,
+          "surface_pressure_Pa": 1942.585005048432,
+          "time_s": 1.0,
+          "top_exudation_flux_m_s": 1.9425850050484322e-05
+        },
+        {
+          "bone_exchange_flux_m_s": 2.0826467801334343e-07,
+          "bone_pressure_Pa": 0.20826467801334345,
+          "cumulative_bone_exchange_m": 3.256007316074295e-05,
+          "cumulative_outflow_m": 0.00011147470624947036,
+          "cumulative_top_exudation_m": 7.891463308872726e-05,
+          "film_series_compliance_m_per_Pa": 1e-12,
+          "film_solid_strain": 0.0365,
+          "fluid_content_m": 1.3450937505270633e-06,
+          "fluid_support_bone": 5.70588158940667e-06,
+          "fluid_support_surface": 0.0010165339917584976,
+          "layer_pressure_mean_Pa": {
+            "bulk": 513.9370412300341,
+            "calcified_barrier": 195.4537884998912,
+            "superficial": 124.50022447687442
+          },
+          "mass_balance_residual_m": 2.5826034561783617e-18,
+          "mean_tissue_solid_strain": 0.05308319345212997,
+          "net_outward_flux_m_s": 5.79299585005195e-07,
+          "solid_stress_surface_Pa": 36462.896509300816,
+          "surface_pressure_Pa": 37.103490699185166,
+          "time_s": 10.0,
+          "top_exudation_flux_m_s": 3.7103490699185167e-07
+        },
+        {
+          "bone_exchange_flux_m_s": 1.1637910156470469e-16,
+          "bone_pressure_Pa": 1.163791015647047e-10,
+          "cumulative_bone_exchange_m": 3.304364941644741e-05,
+          "cumulative_outflow_m": 0.00011281979999924569,
+          "cumulative_top_exudation_m": 7.977615058279808e-05,
+          "film_series_compliance_m_per_Pa": 1e-12,
+          "film_solid_strain": 0.0365,
+          "fluid_content_m": 7.516435363146395e-16,
+          "fluid_support_bone": 3.1884685360193067e-15,
+          "fluid_support_surface": 5.68043067176909e-13,
+          "layer_pressure_mean_Pa": {
+            "bulk": 2.871899863324849e-07,
+            "calcified_barrier": 1.0922032732577327e-07,
+            "superficial": 6.957119987599864e-08
+          },
+          "mass_balance_residual_m": 2.676572664994106e-18,
+          "mean_tissue_solid_strain": 0.05372371428535637,
+          "net_outward_flux_m_s": 3.237148210842765e-16,
+          "solid_stress_surface_Pa": 36499.99999997926,
+          "surface_pressure_Pa": 2.073357195195718e-08,
+          "time_s": 60.0,
+          "top_exudation_flux_m_s": 2.073357195195718e-16
+        }
+      ],
+      "top_conductance_m_per_Pa_s": 1e-08,
+      "total_stress_Pa": 36500.0
+    },
+    "homogeneous": {
+      "bone_conductance_m_per_Pa_s": 1e-06,
+      "drainage_half_time_s": 0.500000000001666,
+      "film_present": false,
+      "layers": [
+        {
+          "modulus_Pa": 24465714.285714287,
+          "name": "homogeneous",
+          "permeability_m4_Ns": 5.366666666666667e-16,
+          "provenance": "thickness-weighted arithmetic placebo from frozen layers",
+          "thickness_m": 0.0021
+        }
+      ],
+      "max_mass_balance_error": 9.818849183415921e-16,
+      "n_cells": 16,
+      "n_per_layer": 16,
+      "scenario": "homogeneous",
+      "snapshots": [
+        {
+          "bone_exchange_flux_m_s": 0.0365,
+          "bone_pressure_Pa": 36500.0,
+          "cumulative_bone_exchange_m": 0.0,
+          "cumulative_outflow_m": 0.0,
+          "cumulative_top_exudation_m": 0.0,
+          "film_series_compliance_m_per_Pa": 0.0,
+          "film_solid_strain": 0.0,
+          "fluid_content_m": 3.1329557398108138e-06,
+          "fluid_support_bone": 1.0,
+          "fluid_support_surface": 1.0,
+          "layer_pressure_mean_Pa": {
+            "homogeneous": 36500.000000000015
+          },
+          "mass_balance_residual_m": 0.0,
+          "mean_tissue_solid_strain": 0.0,
+          "net_outward_flux_m_s": 0.073,
+          "solid_stress_surface_Pa": 0.0,
+          "surface_pressure_Pa": 36500.0,
+          "time_s": 0.0,
+          "top_exudation_flux_m_s": 0.0365
+        },
+        {
+          "bone_exchange_flux_m_s": 1.2161687498807064e-13,
+          "bone_pressure_Pa": 1.2161687498807065e-07,
+          "cumulative_bone_exchange_m": 1.566477866250562e-06,
+          "cumulative_outflow_m": 3.1329557325011244e-06,
+          "cumulative_top_exudation_m": 1.5664778662505624e-06,
+          "film_series_compliance_m_per_Pa": 0.0,
+          "film_solid_strain": 0.0,
+          "fluid_content_m": 7.309692429033367e-15,
+          "fluid_support_bone": 3.3319691777553603e-12,
+          "fluid_support_surface": 3.331969177755363e-12,
+          "layer_pressure_mean_Pa": {
+            "homogeneous": 8.51604030881806e-05
+          },
+          "mass_balance_residual_m": -3.076201990751963e-21,
+          "mean_tissue_solid_strain": 0.001491883682143391,
+          "net_outward_flux_m_s": 2.4323374997614137e-13,
+          "solid_stress_surface_Pa": 36499.99999987838,
+          "surface_pressure_Pa": 1.2161687498807075e-07,
+          "time_s": 1.0,
+          "top_exudation_flux_m_s": 1.2161687498807074e-13
+        },
+        {
+          "bone_exchange_flux_m_s": 3.129110567961378e-90,
+          "bone_pressure_Pa": 3.129110567961378e-84,
+          "cumulative_bone_exchange_m": 1.5664778699054082e-06,
+          "cumulative_outflow_m": 3.1329557398108167e-06,
+          "cumulative_top_exudation_m": 1.5664778699054086e-06,
+          "film_series_compliance_m_per_Pa": 0.0,
+          "film_solid_strain": 0.0,
+          "fluid_content_m": 1.8807287911713886e-91,
+          "fluid_support_bone": 8.57290566564761e-89,
+          "fluid_support_surface": 8.57290566564762e-89,
+          "layer_pressure_mean_Pa": {
+            "homogeneous": 2.1911130120817147e-81
+          },
+          "mass_balance_residual_m": -2.964615315390051e-21,
+          "mean_tissue_solid_strain": 0.0014918836856241972,
+          "net_outward_flux_m_s": 6.258221135922759e-90,
+          "solid_stress_surface_Pa": 36500.0,
+          "surface_pressure_Pa": 3.129110567961381e-84,
+          "time_s": 10.0,
+          "top_exudation_flux_m_s": 3.129110567961381e-90
+        },
+        {
+          "bone_exchange_flux_m_s": 0.0,
+          "bone_pressure_Pa": 0.0,
+          "cumulative_bone_exchange_m": 1.5664778699054082e-06,
+          "cumulative_outflow_m": 3.1329557398108167e-06,
+          "cumulative_top_exudation_m": 1.5664778699054086e-06,
+          "film_series_compliance_m_per_Pa": 0.0,
+          "film_solid_strain": 0.0,
+          "fluid_content_m": 0.0,
+          "fluid_support_bone": 0.0,
+          "fluid_support_surface": 0.0,
+          "layer_pressure_mean_Pa": {
+            "homogeneous": 0.0
+          },
+          "mass_balance_residual_m": -2.964615315390051e-21,
+          "mean_tissue_solid_strain": 0.0014918836856241972,
+          "net_outward_flux_m_s": 0.0,
+          "solid_stress_surface_Pa": 36500.0,
+          "surface_pressure_Pa": 0.0,
+          "time_s": 60.0,
+          "top_exudation_flux_m_s": 0.0
+        }
+      ],
+      "top_conductance_m_per_Pa_s": 1e-06,
+      "total_stress_Pa": 36500.0
+    },
+    "merged_surface": {
+      "bone_conductance_m_per_Pa_s": 1e-06,
+      "drainage_half_time_s": 0.5259298732754756,
+      "film_present": true,
+      "layers": [
+        {
+          "modulus_Pa": 730000.0,
+          "name": "bulk_merged",
+          "permeability_m4_Ns": 5.8e-16,
+          "provenance": "surface zone merged into bulk; bulk values from Krishnan et al. 2003 Table 1",
+          "thickness_m": 0.002
+        },
+        {
+          "modulus_Pa": 500000000.0,
+          "name": "calcified_barrier",
+          "permeability_m4_Ns": 5e-17,
+          "provenance": "frozen mechanistic assumption; no measured value claimed",
+          "thickness_m": 0.0001
+        }
+      ],
+      "max_mass_balance_error": 1.9088337494677647e-14,
+      "n_cells": 32,
+      "n_per_layer": 16,
+      "scenario": "merged_surface",
+      "snapshots": [
+        {
+          "bone_exchange_flux_m_s": 0.0365,
+          "bone_pressure_Pa": 36500.0,
+          "cumulative_bone_exchange_m": 0.0,
+          "cumulative_outflow_m": 0.0,
+          "cumulative_top_exudation_m": 0.0,
+          "film_series_compliance_m_per_Pa": 1e-12,
+          "film_solid_strain": 0.0365,
+          "fluid_content_m": 0.0001000073,
+          "fluid_support_bone": 1.0,
+          "fluid_support_surface": 1.0,
+          "layer_pressure_mean_Pa": {
+            "bulk_merged": 36500.0,
+            "calcified_barrier": 36500.00000000001
+          },
+          "mass_balance_residual_m": 0.0,
+          "mean_tissue_solid_strain": 0.0,
+          "net_outward_flux_m_s": 0.036864999999999995,
+          "solid_stress_surface_Pa": 0.0,
+          "surface_pressure_Pa": 36500.0,
+          "time_s": 0.0,
+          "top_exudation_flux_m_s": 0.000365
+        },
+        {
+          "bone_exchange_flux_m_s": 8.711814574686225e-06,
+          "bone_pressure_Pa": 8.711814574686226,
+          "cumulative_bone_exchange_m": 1.060574043787283e-05,
+          "cumulative_outflow_m": 4.700489836079861e-05,
+          "cumulative_top_exudation_m": 3.639915792292578e-05,
+          "film_series_compliance_m_per_Pa": 1e-12,
+          "film_solid_strain": 0.0365,
+          "fluid_content_m": 5.3002401639200744e-05,
+          "fluid_support_bone": 0.00023867985136126647,
+          "fluid_support_surface": 0.049302910127513894,
+          "layer_pressure_mean_Pa": {
+            "bulk_merged": 19345.279755213865,
+            "calcified_barrier": 8175.9328000831965
+          },
+          "mass_balance_residual_m": 6.437450399132683e-19,
+          "mean_tissue_solid_strain": 0.022383284933713932,
+          "net_outward_flux_m_s": 2.6707376771228796e-05,
+          "solid_stress_surface_Pa": 34700.44378034574,
+          "surface_pressure_Pa": 1799.5562196542571,
+          "time_s": 1.0,
+          "top_exudation_flux_m_s": 1.799556219654257e-05
+        },
+        {
+          "bone_exchange_flux_m_s": 1.1777364434354952e-07,
+          "bone_pressure_Pa": 0.11777364434354953,
+          "cumulative_bone_exchange_m": 2.875000429939825e-05,
+          "cumulative_outflow_m": 9.932126061342681e-05,
+          "cumulative_top_exudation_m": 7.057125631402858e-05,
+          "film_series_compliance_m_per_Pa": 1e-12,
+          "film_solid_strain": 0.0365,
+          "fluid_content_m": 6.86039386571432e-07,
+          "fluid_support_bone": 3.226675187494508e-06,
+          "fluid_support_surface": 0.0005947559044020686,
+          "layer_pressure_mean_Pa": {
+            "bulk_merged": 250.39630748950887,
+            "calcified_barrier": 110.52889128478424
+          },
+          "mass_balance_residual_m": 1.753781717290029e-18,
+          "mean_tissue_solid_strain": 0.04729583838734694,
+          "net_outward_flux_m_s": 3.3485954945030455e-07,
+          "solid_stress_surface_Pa": 36478.29140948933,
+          "surface_pressure_Pa": 21.708590510675503,
+          "time_s": 10.0,
+          "top_exudation_flux_m_s": 2.1708590510675505e-07
+        },
+        {
+          "bone_exchange_flux_m_s": 3.9741429665688e-18,
+          "bone_pressure_Pa": 3.9741429665688e-12,
+          "cumulative_bone_exchange_m": 2.899129160608979e-05,
+          "cumulative_outflow_m": 0.00010000729999997494,
+          "cumulative_top_exudation_m": 7.101600839388529e-05,
+          "film_series_compliance_m_per_Pa": 1e-12,
+          "film_solid_strain": 0.0365,
+          "fluid_content_m": 2.3149649617239745e-17,
+          "fluid_support_bone": 1.0888062922106302e-16,
+          "fluid_support_surface": 2.006938821073013e-14,
+          "layer_pressure_mean_Pa": {
+            "bulk_merged": 8.4493498438942e-09,
+            "calcified_barrier": 3.729676689130242e-09
+          },
+          "mass_balance_residual_m": 1.908973094331476e-18,
+          "mean_tissue_solid_strain": 0.04762252380951278,
+          "net_outward_flux_m_s": 1.1299469663485299e-17,
+          "solid_stress_surface_Pa": 36499.999999999265,
+          "surface_pressure_Pa": 7.325326696916498e-10,
+          "time_s": 60.0,
+          "top_exudation_flux_m_s": 7.325326696916498e-18
+        }
+      ],
+      "top_conductance_m_per_Pa_s": 1e-08,
+      "total_stress_Pa": 36500.0
+    },
+    "no_barrier": {
+      "bone_conductance_m_per_Pa_s": 1e-06,
+      "drainage_half_time_s": 0.5250287318091567,
+      "film_present": true,
+      "layers": [
+        {
+          "modulus_Pa": 320000.0,
+          "name": "superficial",
+          "permeability_m4_Ns": 3.9e-16,
+          "provenance": "Krishnan et al. 2003, Table 1, femur layer 4; thickness frozen assumption",
+          "thickness_m": 0.0002
+        },
+        {
+          "modulus_Pa": 730000.0,
+          "name": "bulk",
+          "permeability_m4_Ns": 5.8e-16,
+          "provenance": "Krishnan et al. 2003, Table 1, femur layer 1; thickness frozen assumption",
+          "thickness_m": 0.0018
+        }
+      ],
+      "max_mass_balance_error": 9.409339404651509e-15,
+      "n_cells": 32,
+      "n_per_layer": 16,
+      "scenario": "no_barrier",
+      "snapshots": [
+        {
+          "bone_exchange_flux_m_s": 0.0365,
+          "bone_pressure_Pa": 36500.0,
+          "cumulative_bone_exchange_m": 0.0,
+          "cumulative_outflow_m": 0.0,
+          "cumulative_top_exudation_m": 0.0,
+          "film_series_compliance_m_per_Pa": 1e-12,
+          "film_solid_strain": 0.0365,
+          "fluid_content_m": 0.00011281250000000001,
+          "fluid_support_bone": 1.0,
+          "fluid_support_surface": 1.0,
+          "layer_pressure_mean_Pa": {
+            "bulk": 36500.0,
+            "superficial": 36500.0
+          },
+          "mass_balance_residual_m": 0.0,
+          "mean_tissue_solid_strain": 0.0,
+          "net_outward_flux_m_s": 0.036864999999999995,
+          "solid_stress_surface_Pa": 0.0,
+          "surface_pressure_Pa": 36500.0,
+          "time_s": 0.0,
+          "top_exudation_flux_m_s": 0.000365
+        },
+        {
+          "bone_exchange_flux_m_s": 1.6191436736850648e-05,
+          "bone_pressure_Pa": 16.191436736850648,
+          "cumulative_bone_exchange_m": 3.8569200912752556e-05,
+          "cumulative_outflow_m": 7.686784982737693e-05,
+          "cumulative_top_exudation_m": 3.829864891462438e-05,
+          "film_series_compliance_m_per_Pa": 1e-12,
+          "film_solid_strain": 0.0365,
+          "fluid_content_m": 3.5944650172622345e-05,
+          "fluid_support_bone": 0.0004436010064890588,
+          "fluid_support_surface": 0.04767116596250286,
+          "layer_pressure_mean_Pa": {
+            "bulk": 13124.330295778349,
+            "superficial": 5733.260479152401
+          },
+          "mass_balance_residual_m": 7.318364664277155e-19,
+          "mean_tissue_solid_strain": 0.03843392491368883,
+          "net_outward_flux_m_s": 3.359141231316419e-05,
+          "solid_stress_surface_Pa": 34760.00244236865,
+          "surface_pressure_Pa": 1739.9975576313543,
+          "time_s": 1.0,
+          "top_exudation_flux_m_s": 1.7399975576313544e-05
+        },
+        {
+          "bone_exchange_flux_m_s": 4.507148297717558e-09,
+          "bone_pressure_Pa": 0.004507148297717558,
+          "cumulative_bone_exchange_m": 5.599712408811463e-05,
+          "cumulative_outflow_m": 0.00011280253994646434,
+          "cumulative_top_exudation_m": 5.680541585834965e-05,
+          "film_series_compliance_m_per_Pa": 1e-12,
+          "film_solid_strain": 0.0365,
+          "fluid_content_m": 9.960053534611196e-09,
+          "fluid_support_bone": 1.234835150059605e-07,
+          "fluid_support_surface": 1.3058892650339159e-05,
+          "layer_pressure_mean_Pa": {
+            "bulk": 3.6406633840906637,
+            "superficial": 1.5729205236229657
+          },
+          "mass_balance_residual_m": 1.0614911015872485e-18,
+          "mean_tissue_solid_strain": 0.0564012699732327,
+          "net_outward_flux_m_s": 9.273644115091351e-09,
+          "solid_stress_surface_Pa": 36499.52335041826,
+          "surface_pressure_Pa": 0.4766495817373793,
+          "time_s": 10.0,
+          "top_exudation_flux_m_s": 4.766495817373793e-09
+        },
+        {
+          "bone_exchange_flux_m_s": 7.801567121105917e-29,
+          "bone_pressure_Pa": 7.801567121105917e-23,
+          "cumulative_bone_exchange_m": 5.600196484302999e-05,
+          "cumulative_outflow_m": 0.00011281249999999901,
+          "cumulative_top_exudation_m": 5.68105351569688e-05,
+          "film_series_compliance_m_per_Pa": 1e-12,
+          "film_solid_strain": 0.0365,
+          "fluid_content_m": 1.724017517221508e-28,
+          "fluid_support_bone": 2.1374156496180594e-27,
+          "fluid_support_surface": 2.2604054894262707e-25,
+          "layer_pressure_mean_Pa": {
+            "bulk": 6.301740675058157e-20,
+            "superficial": 2.722618434218797e-20
+          },
+          "mass_balance_residual_m": 1.0028870093766899e-18,
+          "mean_tissue_solid_strain": 0.056406250000000005,
+          "net_outward_flux_m_s": 1.6052047157511804e-28,
+          "solid_stress_surface_Pa": 36500.0,
+          "surface_pressure_Pa": 8.250480036405888e-21,
+          "time_s": 60.0,
+          "top_exudation_flux_m_s": 8.250480036405888e-29
+        }
+      ],
+      "top_conductance_m_per_Pa_s": 1e-08,
+      "total_stress_Pa": 36500.0
+    },
+    "no_film": {
+      "bone_conductance_m_per_Pa_s": 1e-06,
+      "drainage_half_time_s": 0.5002611723022257,
+      "film_present": false,
+      "layers": [
+        {
+          "modulus_Pa": 320000.0,
+          "name": "superficial",
+          "permeability_m4_Ns": 3.9e-16,
+          "provenance": "Krishnan et al. 2003, Table 1, femur layer 4; thickness frozen assumption",
+          "thickness_m": 0.0002
+        },
+        {
+          "modulus_Pa": 730000.0,
+          "name": "bulk",
+          "permeability_m4_Ns": 5.8e-16,
+          "provenance": "Krishnan et al. 2003, Table 1, femur layer 1; thickness frozen assumption",
+          "thickness_m": 0.0018
+        },
+        {
+          "modulus_Pa": 500000000.0,
+          "name": "calcified_barrier",
+          "permeability_m4_Ns": 5e-17,
+          "provenance": "frozen mechanistic assumption; no measured value claimed",
+          "thickness_m": 0.0001
+        }
+      ],
+      "max_mass_balance_error": 1.5480617240990102e-14,
+      "n_cells": 48,
+      "n_per_layer": 16,
+      "scenario": "no_film",
+      "snapshots": [
+        {
+          "bone_exchange_flux_m_s": 0.0365,
+          "bone_pressure_Pa": 36500.0,
+          "cumulative_bone_exchange_m": 0.0,
+          "cumulative_outflow_m": 0.0,
+          "cumulative_top_exudation_m": 0.0,
+          "film_series_compliance_m_per_Pa": 0.0,
+          "film_solid_strain": 0.0,
+          "fluid_content_m": 0.00011281980000000001,
+          "fluid_support_bone": 1.0,
+          "fluid_support_surface": 1.0,
+          "layer_pressure_mean_Pa": {
+            "bulk": 36500.0,
+            "calcified_barrier": 36500.00000000001,
+            "superficial": 36500.0
+          },
+          "mass_balance_residual_m": 0.0,
+          "mean_tissue_solid_strain": 0.0,
+          "net_outward_flux_m_s": 0.073,
+          "solid_stress_surface_Pa": 0.0,
+          "surface_pressure_Pa": 36500.0,
+          "time_s": 0.0,
+          "top_exudation_flux_m_s": 0.0365
+        },
+        {
+          "bone_exchange_flux_m_s": 9.058942614537527e-06,
+          "bone_pressure_Pa": 9.058942614537527,
+          "cumulative_bone_exchange_m": 1.0866478047695072e-05,
+          "cumulative_outflow_m": 5.32670565565801e-05,
+          "cumulative_top_exudation_m": 4.240057850888502e-05,
+          "film_series_compliance_m_per_Pa": 0.0,
+          "film_solid_strain": 0.0,
+          "fluid_content_m": 5.955274344341924e-05,
+          "fluid_support_bone": 0.0002481902086174665,
+          "fluid_support_surface": 0.0005220719030096863,
+          "layer_pressure_mean_Pa": {
+            "bulk": 23004.865615869512,
+            "calcified_barrier": 8501.72036212966,
+            "superficial": 4522.747077168348
+          },
+          "mass_balance_residual_m": 6.640738306473715e-19,
+          "mean_tissue_solid_strain": 0.025365265026943223,
+          "net_outward_flux_m_s": 2.8114567074391075e-05,
+          "solid_stress_surface_Pa": 36480.944375540144,
+          "surface_pressure_Pa": 19.05562445985355,
+          "time_s": 1.0,
+          "top_exudation_flux_m_s": 1.905562445985355e-05
+        },
+        {
+          "bone_exchange_flux_m_s": 1.7159675980475112e-07,
+          "bone_pressure_Pa": 0.17159675980475114,
+          "cumulative_bone_exchange_m": 3.135693048479456e-05,
+          "cumulative_outflow_m": 0.00011175502731346429,
+          "cumulative_top_exudation_m": 8.039809682866973e-05,
+          "film_series_compliance_m_per_Pa": 0.0,
+          "film_solid_strain": 0.0,
+          "fluid_content_m": 1.0647726865341586e-06,
+          "fluid_support_bone": 4.701281090541127e-06,
+          "fluid_support_surface": 8.45561175103206e-06,
+          "layer_pressure_mean_Pa": {
+            "bulk": 413.1396597546631,
+            "calcified_barrier": 161.0413054886979,
+            "superficial": 73.66391579384268
+          },
+          "mass_balance_residual_m": 1.5564230405797769e-18,
+          "mean_tissue_solid_strain": 0.05321667967307897,
+          "net_outward_flux_m_s": 4.802265887174213e-07,
+          "solid_stress_surface_Pa": 36499.69137017109,
+          "surface_pressure_Pa": 0.3086298289126702,
+          "time_s": 10.0,
+          "top_exudation_flux_m_s": 3.086298289126702e-07
+        },
+        {
+          "bone_exchange_flux_m_s": 3.54547742893635e-17,
+          "bone_pressure_Pa": 3.54547742893635e-11,
+          "cumulative_bone_exchange_m": 3.173739993178371e-05,
+          "cumulative_outflow_m": 0.00011281979999977826,
+          "cumulative_top_exudation_m": 8.108240006799451e-05,
+          "film_series_compliance_m_per_Pa": 0.0,
+          "film_solid_strain": 0.0,
+          "fluid_content_m": 2.1999992918659274e-16,
+          "fluid_support_bone": 9.71363679160644e-16,
+          "fluid_support_surface": 1.7470714537760964e-15,
+          "layer_pressure_mean_Pa": {
+            "bulk": 8.536159603242422e-08,
+            "calcified_barrier": 3.32738400413908e-08,
+            "superficial": 1.5220202667842318e-08
+          },
+          "mass_balance_residual_m": 1.746520141005055e-18,
+          "mean_tissue_solid_strain": 0.05372371428560953,
+          "net_outward_flux_m_s": 9.922288235219102e-17,
+          "solid_stress_surface_Pa": 36499.999999999935,
+          "surface_pressure_Pa": 6.376810806282752e-11,
+          "time_s": 60.0,
+          "top_exudation_flux_m_s": 6.376810806282751e-17
+        }
+      ],
+      "top_conductance_m_per_Pa_s": 1e-06,
+      "total_stress_Pa": 36500.0
+    }
+  },
+  "sensitivity": {
+    "G_top": {
+      "base_value": 1e-08,
+      "cases": {
+        "minus50": {
+          "barrier_bone_flux_relative_delta_10s": 0.9707774947401324,
+          "barrier_fluid_support_delta_10s": 0.00235943385035846,
+          "film_fluid_support_delta_1s": 0.10643529858184475,
+          "film_top_flux_relative_delta_1s": 0.0237757329989452,
+          "superficial_bone_flux_relative_delta_10s": 0.4161728996800167,
+          "superficial_fluid_support_delta_1s": 0.008188350268819894
+        },
+        "plus50": {
+          "barrier_bone_flux_relative_delta_10s": 0.9805558356850238,
+          "barrier_fluid_support_delta_10s": 0.0006310131162366541,
+          "film_fluid_support_delta_1s": 0.03478693980671526,
+          "film_top_flux_relative_delta_1s": 0.014280155442781535,
+          "superficial_bone_flux_relative_delta_10s": 0.4409604786856779,
+          "superficial_fluid_support_delta_1s": 0.0025358636476433896
+        }
+      },
+      "minus50_value": 5e-09,
+      "plus50_value": 1.5000000000000002e-08,
+      "sign_robustness": {
+        "barrier_fluid_support_delta_10s": true,
+        "film_fluid_support_delta_1s": true,
+        "superficial_fluid_support_delta_1s": true
+      }
+    },
+    "M_superficial": {
+      "base_value": 320000.0,
+      "cases": {
+        "minus50": {
+          "barrier_bone_flux_relative_delta_10s": 0.9696964197701233,
+          "barrier_fluid_support_delta_10s": 0.0012094129264504283,
+          "film_fluid_support_delta_1s": 0.067514265579923,
+          "film_top_flux_relative_delta_1s": 0.07018158905628882,
+          "superficial_bone_flux_relative_delta_10s": 0.4932567622269884,
+          "superficial_fluid_support_delta_1s": 0.01884500733565639
+        },
+        "plus50": {
+          "barrier_bone_flux_relative_delta_10s": 0.9804929600150356,
+          "barrier_fluid_support_delta_10s": 0.000943588172390884,
+          "film_fluid_support_delta_1s": 0.0489687617467265,
+          "film_top_flux_relative_delta_1s": 0.00120066631641876,
+          "superficial_bone_flux_relative_delta_10s": 0.41407228790004275,
+          "superficial_fluid_support_delta_1s": 0.00015988569430217675
+        }
+      },
+      "minus50_value": 160000.0,
+      "plus50_value": 480000.0,
+      "sign_robustness": {
+        "barrier_fluid_support_delta_10s": true,
+        "film_fluid_support_delta_1s": true,
+        "superficial_fluid_support_delta_1s": true
+      }
+    },
+    "k_bulk": {
+      "base_value": 5.8e-16,
+      "cases": {
+        "minus50": {
+          "barrier_bone_flux_relative_delta_10s": 0.8269629618401692,
+          "barrier_fluid_support_delta_10s": 0.0016289298748141938,
+          "film_fluid_support_delta_1s": 0.04265662595825884,
+          "film_top_flux_relative_delta_1s": 0.047387414776315896,
+          "superficial_bone_flux_relative_delta_10s": 0.025145445756025404,
+          "superficial_fluid_support_delta_1s": 0.006977327149983462
+        },
+        "plus50": {
+          "barrier_bone_flux_relative_delta_10s": 0.996076057742951,
+          "barrier_fluid_support_delta_10s": 0.0006995786490162509,
+          "film_fluid_support_delta_1s": 0.05837702153228721,
+          "film_top_flux_relative_delta_1s": 0.004046618618132907,
+          "superficial_bone_flux_relative_delta_10s": 0.7184595784394686,
+          "superficial_fluid_support_delta_1s": 0.0011194160177662935
+        }
+      },
+      "minus50_value": 2.9e-16,
+      "plus50_value": 8.699999999999999e-16,
+      "sign_robustness": {
+        "barrier_fluid_support_delta_10s": true,
+        "film_fluid_support_delta_1s": true,
+        "superficial_fluid_support_delta_1s": true
+      }
+    }
+  },
+  "status": "FAIL",
+  "stress_normalization": {
+    "definition": "normalization_strain * reference_modulus",
+    "reference_modulus_Pa": 730000.0,
+    "total_stress_Pa": 36500.0
+  },
+  "units": "SI"
+}

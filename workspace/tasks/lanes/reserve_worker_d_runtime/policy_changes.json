@@ -1,0 +1,143 @@
+[
+  {
+    "time": 1790720205.3088782,
+    "backup": "/opt/agents/FREE_MODEL_POLICY.before_LANE_RUNNER_reserve_worker_D_1790720205.json",
+    "changes": {
+      "reserve_worker_reserve_until": {
+        "before": 0,
+        "after": 1790806605.307248
+      },
+      "reserve_worker_reserve_account": {
+        "before": "A",
+        "after": "D"
+      },
+      "reserve_worker_reserve_authorization": {
+        "before": "Anton 2026-09-28: increase reserve_worker reserve to 25 total",
+        "after": "Anton LANE_RUNNER_reserve_worker_D: account D fallback only while both free models cooldown; high-value jobs; 24h reserve window pending exact quota tomorrow"
+      },
+      "reserve_worker_backoff_until": {
+        "before": 2790683370.388853,
+        "after": 0
+      },
+      "reserve_worker_weekly_used_pct": {
+        "before": 65.87,
+        "after": 0
+      },
+      "reserve_worker_weekly_updated": {
+        "before": 1790719796.1347668,
+        "after": 1790720205.3072479
+      },
+      "reserve_worker_weekly_note": {
+        "before": "manual: run reserve_worker-usage <pct> after checking the console; router stops reserve_worker at >=stop_pct",
+        "after": "manual account D: initial 0% is UNKNOWN console usage, not a measurement; Anton will update exact usage tomorrow via reserve_worker-usage <pct>; stop at >=95%; estimator excluded for D"
+      },
+      "reserve_worker_value_only": {
+        "before": false,
+        "after": true
+      }
+    },
+    "policy": {
+      "free_worker_verified_accounts": [
+        "A",
+        "B",
+        "C"
+      ],
+      "allocation": "The swarm first; free_worker on cooldown; reserve_worker when both free models cooldown",
+      "paid_fallback": false,
+      "free_worker_backoff_until": 1790721555.0486672,
+      "backoff_reason": "free_worker provider rate errors; temporary free-model routing, no extra accounts or changed endpoints",
+      "free_worker_active_cap": 4,
+      "free_worker_fill_target": 4,
+      "bunny_active_cap": 2,
+      "bunny_backoff_until": 1790721241.606271,
+      "desired_host_concurrency": 17,
+      "capacity_authorization": "Anton 2026-09-28: 60 actual free workers across existing hosts; preserve rate cooldowns",
+      "reserve_worker_reserve_until": 1790806605.307248,
+      "reserve_worker_reserve_cap": 16,
+      "reserve_worker_reserve_account": "D",
+      "reserve_worker_reserve_authorization": "Anton LANE_RUNNER_reserve_worker_D: account D fallback only while both free models cooldown; high-value jobs; 24h reserve window pending exact quota tomorrow",
+      "unattended_updated": 1790605179.691318,
+      "bunny_cap_authorization": "Anton 2026-09-28: increase The swarm concurrency where existing hosts have safe memory headroom; cooldowns, accounts, routes and lease expiry preserved",
+      "bunny_cap_updated": 1790609350.018291,
+      "reserve_worker_backoff_until": 0,
+      "reserve_worker_weekly_stop_pct": 95,
+      "reserve_worker_weekly_used_pct": 0,
+      "reserve_worker_weekly_updated": 1790720205.3072479,
+      "reserve_worker_weekly_note": "manual account D: initial 0% is UNKNOWN console usage, not a measurement; Anton will update exact usage tomorrow via reserve_worker-usage <pct>; stop at >=95%; estimator excluded for D",
+      "reserve_worker_weekly_budget_usd": 30,
+      "reserve_worker_value_only": true
+    },
+    "uid": 1000,
+    "reserve_expiry_utc": "2026-09-30T22:16:45.307248+00:00"
+  },
+  {
+    "time": 1790720198.9648376,
+    "backup": "/opt/agents/FREE_MODEL_POLICY.before_LANE_RUNNER_reserve_worker_D_1790720198.json",
+    "changes": {
+      "reserve_worker_reserve_until": {
+        "before": 0,
+        "after": 1790806598.9634993
+      },
+      "reserve_worker_reserve_account": {
+        "before": "C",
+        "after": "D"
+      },
+      "reserve_worker_reserve_authorization": {
+        "before": "Anton 2026-09-28: increase reserve_worker reserve to 25 total",
+        "after": "Anton LANE_RUNNER_reserve_worker_D: account D fallback only while both free models cooldown; high-value jobs; 24h reserve window pending exact quota tomorrow"
+      },
+      "reserve_worker_weekly_used_pct": {
+        "before": 86.78,
+        "after": 0
+      },
+      "reserve_worker_weekly_updated": {
+        "before": 1790719790.1923318,
+        "after": 1790720198.963499
+      },
+      "reserve_worker_weekly_note": {
+        "before": "manual: run reserve_worker-usage <pct> after checking the console; router stops reserve_worker at >=stop_pct",
+        "after": "manual account D: initial 0% is UNKNOWN console usage, not a measurement; Anton will update exact usage tomorrow via reserve_worker-usage <pct>; stop at >=95%; estimator excluded for D"
+      },
+      "reserve_worker_value_only": {
+        "before": false,
+        "after": true
+      },
+      "reserve_worker_backoff_until": {
+        "before": 2790683364.9455686,
+        "after": 0
+      }
+    },
+    "policy": {
+      "free_worker_verified_accounts": [
+        "A",
+        "B",
+        "C"
+      ],
+      "free_worker_backoff_until": 0,
+      "backoff_reason": "free_worker provider rate errors; temporary free-model routing, no extra accounts or changed endpoints",
+      "bunny_active_cap": 3,
+      "bunny_backoff_until": 1790718050.4482872,
+      "desired_host_concurrency": 3,
+      "capacity_authorization": "Anton 2026-09-28: 60 actual free workers across existing hosts; preserve rate cooldowns",
+      "reserve_worker_reserve_until": 1790806598.9634993,
+      "reserve_worker_reserve_cap": 3,
+      "reserve_worker_reserve_account": "D",
+      "reserve_worker_reserve_authorization": "Anton LANE_RUNNER_reserve_worker_D: account D fallback only while both free models cooldown; high-value jobs; 24h reserve window pending exact quota tomorrow",
+      "allocation": "The swarm first; free_worker on cooldown; reserve_worker when both free models cooldown",
+      "free_worker_fill_target": 1,
+      "unattended_updated": 1790605153.1148317,
+      "bunny_cap_authorization": "Anton 2026-09-28: increase The swarm concurrency where existing hosts have safe memory headroom; cooldowns, accounts, routes and lease expiry preserved",
+      "bunny_cap_updated": 1790609321.5902934,
+      "reserve_worker_weekly_stop_pct": 95,
+      "reserve_worker_weekly_used_pct": 0,
+      "reserve_worker_weekly_updated": 1790720198.963499,
+      "reserve_worker_weekly_note": "manual account D: initial 0% is UNKNOWN console usage, not a measurement; Anton will update exact usage tomorrow via reserve_worker-usage <pct>; stop at >=95%; estimator excluded for D",
+      "reserve_worker_weekly_budget_usd": 30,
+      "reserve_worker_value_only": true,
+      "free_worker_active_cap": 1,
+      "reserve_worker_backoff_until": 0
+    },
+    "uid": 1000,
+    "reserve_expiry_utc": "2026-09-30T22:16:38.963499+00:00"
+  }
+]

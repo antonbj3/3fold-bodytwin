@@ -1,0 +1,898 @@
+{
+  "baseline": {
+    "conductivity": {
+      "csf_s_per_m": 1.79,
+      "gray_matter_s_per_m": 0.33,
+      "scalp_s_per_m": 0.43,
+      "skull_s_per_m": 0.01,
+      "white_matter_s_per_m": 0.14
+    },
+    "depth_error_m": 3.469446951953614e-18,
+    "forward": {
+      "peak_abs_referenced_potential_v": 5.468019587723266e-10,
+      "reference_potential_v": 1.5058026573020077e-10,
+      "referenced_potential_v": [
+        2.4564142731192507e-10,
+        -5.468019587723266e-10,
+        9.096099055850266e-11,
+        9.096099055850266e-11,
+        3.155859327945415e-10,
+        3.155859327945415e-10,
+        2.9692961487605946e-10,
+        -1.5058026573020077e-10,
+        -1.5058026573020077e-10,
+        1.924896326059214e-10,
+        1.924896326059214e-10,
+        3.879335309759491e-10,
+        -1.5058026573020077e-10,
+        -1.5058026573020077e-10,
+        5.237090587171229e-11,
+        5.237090587171229e-11,
+        -4.2771000092133296e-11,
+        -9.780970296257601e-11,
+        -2.0335082849782553e-10,
+        -3.7013247178981245e-10,
+        -3.7013247178981245e-10
+      ],
+      "topography_norm_v": 1.1448842015556827e-09
+    },
+    "geometry": {
+      "csf_thickness_m": 0.003,
+      "r_csf_m": 0.083,
+      "r_gm_m": 0.08,
+      "r_scalp_m": 0.09500000000000001,
+      "r_skull_m": 0.09000000000000001,
+      "r_wm_m": 0.05,
+      "scalp_thickness_m": 0.005,
+      "skull_thickness_m": 0.007
+    },
+    "inverse_depth": {
+      "amplitudes": [
+        0.9772742655556295,
+        0.9804762318355491,
+        0.9834150647846106,
+        0.9860921767445703,
+        0.9885103231024857,
+        0.9906736497726767,
+        0.9925876424962952,
+        0.9942590167809962,
+        0.9956955790031827,
+        0.996906079665394,
+        0.9979000749286833,
+        0.9986878047799147,
+        0.9992800942663747,
+        0.9996882806561481,
+        0.999924166812389,
+        0.9999999999999997,
+        0.9999284743894847,
+        0.9997227545069483,
+        0.999396516667155,
+        0.998964005569124,
+        0.9984401017191026,
+        0.9978403965143139,
+        0.997181270429272,
+        0.9964799686935691,
+        0.9957546682416811,
+        0.9950245283873129
+      ],
+      "depth_m": 0.02,
+      "index": 15,
+      "score": 3.6480372689592685e-16
+    }
+  },
+  "criteria": {
+    "all_frozen_criteria_pass": true,
+    "analytical_limit_and_unit_checks": true,
+    "skull_inverse_depth_error_at_least_1_mm": true,
+    "skull_rdm_at_least_0_05": true,
+    "skull_rdm_exceeds_csf_thickness_rdm": true
+  },
+  "equations": {
+    "boundary": "continuity of phi and sigma dphi/dr; zero potential at infinity",
+    "current_pair": "J = I(delta(x-r_s+d/2)-delta(x-r_s-d/2))",
+    "inverse": "least-squares fit over fixed depth grid with baseline leadfields",
+    "poisson": "nabla . (sigma grad(phi)) = -nabla . J",
+    "radial_harmonic": "phi_l=A_l r^l+B_l r^(-(l+1))",
+    "rdm": "||u_test/||u_test||-u_ref/||u_ref||||_2"
+  },
+  "frozen_setup": {
+    "air_sigma_s_per_m": 1e-06,
+    "depth_grid_m": [
+      0.005,
+      0.006,
+      0.007,
+      0.008,
+      0.009000000000000001,
+      0.01,
+      0.011,
+      0.012,
+      0.013000000000000001,
+      0.014000000000000002,
+      0.015,
+      0.016,
+      0.017,
+      0.018000000000000002,
+      0.019,
+      0.02,
+      0.021,
+      0.022000000000000002,
+      0.023000000000000003,
+      0.024,
+      0.025,
+      0.026000000000000002,
+      0.027,
+      0.028,
+      0.029,
+      0.030000000000000002
+    ],
+    "electrode_count": 21,
+    "electrode_names": [
+      "Fp1",
+      "Fp2",
+      "F7",
+      "F8",
+      "F3",
+      "F4",
+      "Fz",
+      "T3",
+      "T4",
+      "C3",
+      "C4",
+      "Cz",
+      "T7",
+      "T8",
+      "P3",
+      "P4",
+      "Pz",
+      "O1",
+      "O2",
+      "M1",
+      "M2"
+    ],
+    "lmax": 32,
+    "reference_solver": "average",
+    "source": {
+      "center_m": [
+        0.0,
+        0.0,
+        0.063
+      ],
+      "current_a": 1e-09,
+      "moment_a_m": [
+        6e-12,
+        0.0,
+        0.0
+      ],
+      "orientation": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "separation_m": 0.006
+    },
+    "true_source_depth_below_inner_skull_m": 0.020000000000000004
+  },
+  "id": "BT-HX-Q044",
+  "limitations": [
+    "Concentric spherical geometry is a first mechanistic reduction, not an individual head.",
+    "Electrode positions are on the ideal scalp boundary and have no finite electrode impedance model.",
+    "The inverse grid tests depth bias only and does not estimate a clinical localization error.",
+    "The literature Sobol and localization values are anchors, not measurements from this run."
+  ],
+  "null_model": {
+    "description": "same source and parameters recomputed without perturbation",
+    "inverse_depth": {
+      "amplitudes": [
+        0.9772742655556295,
+        0.9804762318355491,
+        0.9834150647846106,
+        0.9860921767445703,
+        0.9885103231024857,
+        0.9906736497726767,
+        0.9925876424962952,
+        0.9942590167809962,
+        0.9956955790031827,
+        0.996906079665394,
+        0.9979000749286833,
+        0.9986878047799147,
+        0.9992800942663747,
+        0.9996882806561481,
+        0.999924166812389,
+        0.9999999999999997,
+        0.9999284743894847,
+        0.9997227545069483,
+        0.999396516667155,
+        0.998964005569124,
+        0.9984401017191026,
+        0.9978403965143139,
+        0.997181270429272,
+        0.9964799686935691,
+        0.9957546682416811,
+        0.9950245283873129
+      ],
+      "depth_m": 0.02,
+      "index": 15,
+      "score": 3.6480372689592685e-16
+    },
+    "metrics": {
+      "mag": 1.0,
+      "max_abs_delta_v": 0.0,
+      "rdm": 0.0
+    }
+  },
+  "parameter_table": [
+    {
+      "parameter": "r_wm",
+      "source_or_assumption": "spherical first-run assumption",
+      "unit": "m",
+      "value_m": 0.05
+    },
+    {
+      "parameter": "r_gm",
+      "source_or_assumption": "spherical first-run assumption",
+      "unit": "m",
+      "value_m": 0.08
+    },
+    {
+      "parameter": "csf_thickness",
+      "source_or_assumption": "spherical first-run assumption",
+      "unit": "m",
+      "value_m": 0.003
+    },
+    {
+      "parameter": "skull_thickness",
+      "source_or_assumption": "spherical first-run assumption",
+      "unit": "m",
+      "value_m": 0.007
+    },
+    {
+      "parameter": "scalp_thickness",
+      "source_or_assumption": "spherical first-run assumption",
+      "unit": "m",
+      "value_m": 0.005
+    },
+    {
+      "parameter": "sigma_air",
+      "source_or_assumption": "quasi-static exterior-air assumption; positive numerical value",
+      "unit": "S/m",
+      "value": 1e-06
+    },
+    {
+      "parameter": "sigma_white_matter",
+      "source_or_assumption": "Vorwerk et al. 2024 Table 1 standard, DOI 10.3389/fnhum.2024.1335212",
+      "unit": "S/m",
+      "value": 0.14
+    },
+    {
+      "parameter": "sigma_gray_matter",
+      "source_or_assumption": "Vorwerk et al. 2024 Table 1 standard, DOI 10.3389/fnhum.2024.1335212",
+      "unit": "S/m",
+      "value": 0.33
+    },
+    {
+      "parameter": "sigma_csf",
+      "source_or_assumption": "Vorwerk et al. 2024 Table 1 standard, DOI 10.3389/fnhum.2024.1335212",
+      "unit": "S/m",
+      "value": 1.79
+    },
+    {
+      "parameter": "sigma_skull",
+      "source_or_assumption": "Vorwerk et al. 2024 Table 1 standard, DOI 10.3389/fnhum.2024.1335212",
+      "unit": "S/m",
+      "value": 0.01
+    },
+    {
+      "parameter": "sigma_scalp",
+      "source_or_assumption": "Vorwerk et al. 2024 Table 1 standard, DOI 10.3389/fnhum.2024.1335212",
+      "unit": "S/m",
+      "value": 0.43
+    },
+    {
+      "parameter": "source_current",
+      "source_or_assumption": "frozen synthetic finite-difference dipole",
+      "unit": "A",
+      "value": 1e-09
+    },
+    {
+      "parameter": "source_separation",
+      "source_or_assumption": "frozen synthetic finite-difference dipole",
+      "unit": "m",
+      "value": 0.006
+    },
+    {
+      "parameter": "source_depth_below_inner_skull",
+      "source_or_assumption": "frozen preregistration",
+      "unit": "m",
+      "value": 0.02
+    },
+    {
+      "parameter": "reference",
+      "source_or_assumption": "frozen preregistration; linked mastoid alternative implemented",
+      "unit": "categorical",
+      "value": "average"
+    }
+  ],
+  "provenance": {
+    "derived": "RDM, MAG, referenced potentials, and inverse depth errors are computed by model.py and run_sensitivity.py",
+    "literature": "conductivity standards and sensitivity anchors from Vorwerk et al. 2024; DOI listed under reference",
+    "measurement": "none; no clinical EEG or subject-specific anatomy was used",
+    "synthetic_assumption": "spherical radii, finite dipole pair, electrode angles, air conductivity, and depth grid are assumptions"
+  },
+  "reference": {
+    "citation": "Vorwerk J, Wolters CH, Baumgarten D (2024)",
+    "doi": "10.3389/fnhum.2024.1335212",
+    "figure_2_reference": "full skull-conductivity Sobol index above 80% for source depths below 30 mm; first-order about 60% up to 35 mm",
+    "figure_7_reference": "average localization error up to 10 mm in sulci and below 5 mm superficially",
+    "pmcid": "PMC10963400",
+    "table_1_standard_values_mS_per_m": {
+      "csf": 1790.0,
+      "gray_matter": 330.0,
+      "skin": 430.0,
+      "skull": 10.0,
+      "white_matter": 140.0
+    },
+    "title": "Global sensitivity of EEG source analysis to tissue conductivity uncertainties"
+  },
+  "reference_robustness": {
+    "comparison": "average reference versus linked bilateral mastoid reference",
+    "metrics": {
+      "mag": 1.7874223913036573,
+      "max_abs_delta_v": 3.7013247178981245e-10,
+      "rdm": 0.9386534504500491
+    }
+  },
+  "sensitivity": {
+    "csf_thickness": {
+      "+50%": {
+        "conductivity": {
+          "csf_s_per_m": 1.79,
+          "gray_matter_s_per_m": 0.33,
+          "scalp_s_per_m": 0.43,
+          "skull_s_per_m": 0.01,
+          "white_matter_s_per_m": 0.14
+        },
+        "depth_error_m": 0.0010000000000000044,
+        "forward": {
+          "peak_abs_referenced_potential_v": 5.093896936926348e-10,
+          "reference_potential_v": 1.4193451553680172e-10,
+          "referenced_potential_v": [
+            2.2552066261903128e-10,
+            -5.093896936926348e-10,
+            8.476235624123538e-11,
+            8.476235624123538e-11,
+            3.010356077190352e-10,
+            3.010356077190352e-10,
+            2.870047972428994e-10,
+            -1.4193451553680172e-10,
+            -1.4193451553680172e-10,
+            1.7622452090608706e-10,
+            1.7622452090608706e-10,
+            3.697890377515773e-10,
+            -1.4193451553680172e-10,
+            -1.4193451553680172e-10,
+            4.3097336716440644e-11,
+            4.3097336716440644e-11,
+            -4.444141730690124e-11,
+            -9.429584637716168e-11,
+            -1.8957318469644177e-10,
+            -3.435579682793793e-10,
+            -3.435579682793793e-10
+          ],
+          "topography_norm_v": 1.0744034384733548e-09
+        },
+        "geometry": {
+          "csf_thickness_m": 0.0045000000000000005,
+          "r_csf_m": 0.0845,
+          "r_gm_m": 0.08,
+          "r_scalp_m": 0.09500000000000001,
+          "r_skull_m": 0.09000000000000001,
+          "r_wm_m": 0.05,
+          "scalp_thickness_m": 0.005,
+          "skull_thickness_m": 0.005500000000000005
+        },
+        "inverse_depth": {
+          "amplitudes": [
+            0.9803263282557909,
+            0.9833140210258345,
+            0.9860367482077307,
+            0.9884963629271246,
+            0.9906960652292623,
+            0.992640445192261,
+            0.9943354292290457,
+            0.9957881684081905,
+            0.9970068990429123,
+            0.9980007965448039,
+            0.9987798382725583,
+            0.9993546838430939,
+            0.9997365791562808,
+            0.9999372867501263,
+            0.9999690429321116,
+            0.9998445407390123,
+            0.9995769369560216,
+            0.999179880517692,
+            0.998667559243251,
+            0.9980547624710001,
+            0.997356954670237,
+            0.9965903576637539,
+            0.9957720366289728,
+            0.9949199843673487,
+            0.9940531979041146,
+            0.9931917400552299
+          ],
+          "depth_m": 0.019,
+          "index": 14,
+          "score": 0.007868492704200805
+        },
+        "metrics": {
+          "mag": 0.9384385224404723,
+          "max_abs_delta_v": 3.741226507969186e-11,
+          "rdm": 0.01763288183975628
+        }
+      },
+      "-50%": {
+        "conductivity": {
+          "csf_s_per_m": 1.79,
+          "gray_matter_s_per_m": 0.33,
+          "scalp_s_per_m": 0.43,
+          "skull_s_per_m": 0.01,
+          "white_matter_s_per_m": 0.14
+        },
+        "depth_error_m": 3.469446951953614e-18,
+        "forward": {
+          "peak_abs_referenced_potential_v": 6.030560023325455e-10,
+          "reference_potential_v": 1.660008509310374e-10,
+          "referenced_potential_v": [
+            2.710543004704707e-10,
+            -6.030560023325455e-10,
+            9.934538591387396e-11,
+            9.934538591387396e-11,
+            3.462077199823626e-10,
+            3.462077199823626e-10,
+            3.3046245464776353e-10,
+            -1.660008509310374e-10,
+            -1.660008509310374e-10,
+            2.124259114345233e-10,
+            2.124259114345233e-10,
+            4.25709838521002e-10,
+            -1.660008509310374e-10,
+            -1.660008509310374e-10,
+            5.996709264447945e-11,
+            5.996709264447945e-11,
+            -4.5287975146437807e-11,
+            -1.0683715550386227e-10,
+            -2.2516454635821256e-10,
+            -4.093848652622534e-10,
+            -4.093848652622534e-10
+          ],
+          "topography_norm_v": 1.262562004746078e-09
+        },
+        "geometry": {
+          "csf_thickness_m": 0.0015,
+          "r_csf_m": 0.0815,
+          "r_gm_m": 0.08,
+          "r_scalp_m": 0.09500000000000001,
+          "r_skull_m": 0.09000000000000001,
+          "r_wm_m": 0.05,
+          "scalp_thickness_m": 0.005,
+          "skull_thickness_m": 0.008500000000000008
+        },
+        "inverse_depth": {
+          "amplitudes": [
+            0.9773334039530636,
+            0.9805208224374037,
+            0.983446485668352,
+            0.9861118307482463,
+            0.9885196350153186,
+            0.9906740601972078,
+            0.9925805995630952,
+            0.9942459665861549,
+            0.9956779554500441,
+            0.9968852941562881,
+            0.9978775062474484,
+            0.9986647893654698,
+            0.9992579169866539,
+            0.9996681661944524,
+            0.9999072716197159,
+            0.9999874048479622,
+            0.9999211774776039,
+            0.9997216650412388,
+            0.9994024489398177,
+            0.9989776733959678,
+            0.9984621133050435,
+            0.9978712496386103,
+            0.9972213479927771,
+            0.9965295346742158,
+            0.9958138640972549,
+            0.9950933700437284
+          ],
+          "depth_m": 0.02,
+          "index": 15,
+          "score": 0.00501897852528682
+        },
+        "metrics": {
+          "mag": 1.1027857691026686,
+          "max_abs_delta_v": 5.625404356021885e-11,
+          "rdm": 0.005018994329060867
+        }
+      }
+    },
+    "skull_conductivity": {
+      "+50%": {
+        "conductivity": {
+          "csf_s_per_m": 1.79,
+          "gray_matter_s_per_m": 0.33,
+          "scalp_s_per_m": 0.43,
+          "skull_s_per_m": 0.015,
+          "white_matter_s_per_m": 0.14
+        },
+        "depth_error_m": 0.0040000000000000036,
+        "forward": {
+          "peak_abs_referenced_potential_v": 6.049635928512099e-10,
+          "reference_potential_v": 1.7377058392687314e-10,
+          "referenced_potential_v": [
+            2.574224249974637e-10,
+            -6.049635928512099e-10,
+            9.85246306610911e-11,
+            9.85246306610911e-11,
+            3.762131053063568e-10,
+            3.762131053063568e-10,
+            3.813057064518287e-10,
+            -1.7377058392687314e-10,
+            -1.7377058392687314e-10,
+            1.9956732754853033e-10,
+            1.9956732754853033e-10,
+            4.6161483916817417e-10,
+            -1.7377058392687314e-10,
+            -1.7377058392687314e-10,
+            3.7711370525997244e-11,
+            3.7711370525997244e-11,
+            -6.352473653647036e-11,
+            -1.2001599796645792e-10,
+            -2.2752516988728835e-10,
+            -4.066320028762492e-10,
+            -4.066320028762492e-10
+          ],
+          "topography_norm_v": 1.3028452951511703e-09
+        },
+        "geometry": {
+          "csf_thickness_m": 0.003,
+          "r_csf_m": 0.083,
+          "r_gm_m": 0.08,
+          "r_scalp_m": 0.09500000000000001,
+          "r_skull_m": 0.09000000000000001,
+          "r_wm_m": 0.05,
+          "scalp_thickness_m": 0.005,
+          "skull_thickness_m": 0.007
+        },
+        "inverse_depth": {
+          "amplitudes": [
+            0.9873600264477972,
+            0.9897430808647263,
+            0.9918596390170696,
+            0.9937127766309055,
+            0.99530691887755,
+            0.996647864547746,
+            0.9977427197587613,
+            0.9985997793174072,
+            0.9992283848123874,
+            0.9996387799016433,
+            0.9998419772416565,
+            0.9998496454941813,
+            0.9996740219730629,
+            0.9993278529088917,
+            0.9988243618504188,
+            0.9981772449892422,
+            0.9974006913762197,
+            0.9965094254689754,
+            0.9955187689899484,
+            0.9944447203067215,
+            0.9933040453298293,
+            0.9921143792963242,
+            0.9908943342157502,
+            0.9896636067510799,
+            0.9884430813361573,
+            0.9872549218815203
+          ],
+          "depth_m": 0.016,
+          "index": 11,
+          "score": 0.017340311564679342
+        },
+        "metrics": {
+          "mag": 1.1379712405681275,
+          "max_abs_delta_v": 8.437609157576922e-11,
+          "rdm": 0.06037805910689035
+        }
+      },
+      "-50%": {
+        "conductivity": {
+          "csf_s_per_m": 1.79,
+          "gray_matter_s_per_m": 0.33,
+          "scalp_s_per_m": 0.43,
+          "skull_s_per_m": 0.005,
+          "white_matter_s_per_m": 0.14
+        },
+        "depth_error_m": 0.008999999999999998,
+        "forward": {
+          "peak_abs_referenced_potential_v": 4.240692840029575e-10,
+          "reference_potential_v": 1.09887302465089e-10,
+          "referenced_potential_v": [
+            2.0429467907277953e-10,
+            -4.240692840029575e-10,
+            7.106823107849185e-11,
+            7.106823107849185e-11,
+            2.163778553292156e-10,
+            2.163778553292156e-10,
+            1.8187347756711852e-10,
+            -1.09887302465089e-10,
+            -1.09887302465089e-10,
+            1.6216072335168723e-10,
+            1.6216072335168723e-10,
+            2.669783419121194e-10,
+            -1.09887302465089e-10,
+            -1.09887302465089e-10,
+            6.428517887697465e-11,
+            6.428517887697465e-11,
+            -1.351407882755313e-11,
+            -6.227222998995114e-11,
+            -1.5750237494022685e-10,
+            -2.920116491018557e-10,
+            -2.920116491018557e-10
+          ],
+          "topography_norm_v": 8.592054010648312e-10
+        },
+        "geometry": {
+          "csf_thickness_m": 0.003,
+          "r_csf_m": 0.083,
+          "r_gm_m": 0.08,
+          "r_scalp_m": 0.09500000000000001,
+          "r_skull_m": 0.09000000000000001,
+          "r_wm_m": 0.05,
+          "scalp_thickness_m": 0.005,
+          "skull_thickness_m": 0.007
+        },
+        "inverse_depth": {
+          "amplitudes": [
+            0.955314240838168,
+            0.9596944012950067,
+            0.963820717606674,
+            0.9676921587275908,
+            0.9713090100607322,
+            0.9746729505487433,
+            0.9777870225115382,
+            0.9806555333454559,
+            0.9832839213203926,
+            0.9856786067028108,
+            0.9878468465792662,
+            0.9897966013326345,
+            0.991536420330982,
+            0.9930753510095917,
+            0.9944228709623436,
+            0.9955888431604194,
+            0.9965834927863623,
+            0.9974174026461002,
+            0.9981015245364899,
+            0.9986472018471843,
+            0.9990662020513873,
+            0.9993707517415616,
+            0.9995735710455005,
+            0.999687901216768,
+            0.9997275177019647,
+            0.9997067200290365
+          ],
+          "depth_m": 0.029,
+          "index": 24,
+          "score": 0.02334288648535787
+        },
+        "metrics": {
+          "mag": 0.7504736285969641,
+          "max_abs_delta_v": 1.227326747693691e-10,
+          "rdm": 0.09392717220890456
+        }
+      }
+    },
+    "skull_thickness": {
+      "+50%": {
+        "conductivity": {
+          "csf_s_per_m": 1.79,
+          "gray_matter_s_per_m": 0.33,
+          "scalp_s_per_m": 0.43,
+          "skull_s_per_m": 0.01,
+          "white_matter_s_per_m": 0.14
+        },
+        "depth_error_m": 0.008000000000000004,
+        "forward": {
+          "peak_abs_referenced_potential_v": 6.998221661096265e-10,
+          "reference_potential_v": 2.0849529727117363e-10,
+          "referenced_potential_v": [
+            2.828315715672792e-10,
+            -6.998221661096265e-10,
+            1.1129963458390382e-10,
+            1.1129963458390382e-10,
+            4.629860572977091e-10,
+            4.629860572977091e-10,
+            4.953858724418789e-10,
+            -2.0849529727117363e-10,
+            -2.0849529727117363e-10,
+            2.1689549324690563e-10,
+            2.1689549324690563e-10,
+            5.673002460949867e-10,
+            -2.0849529727117363e-10,
+            -2.0849529727117363e-10,
+            2.4129613382615573e-11,
+            2.4129613382615573e-11,
+            -8.888562798841973e-11,
+            -1.5032887398733671e-10,
+            -2.666617205550106e-10,
+            -4.682298547006627e-10,
+            -4.682298547006627e-10
+          ],
+          "topography_norm_v": 1.549092677732409e-09
+        },
+        "geometry": {
+          "csf_thickness_m": 0.003,
+          "r_csf_m": 0.083,
+          "r_gm_m": 0.08,
+          "r_scalp_m": 0.09500000000000001,
+          "r_skull_m": 0.0935,
+          "r_wm_m": 0.05,
+          "scalp_thickness_m": 0.0015000000000000152,
+          "skull_thickness_m": 0.0105
+        },
+        "inverse_depth": {
+          "amplitudes": [
+            0.9930437332550366,
+            0.9947371286553204,
+            0.9961620854799845,
+            0.9973230639767433,
+            0.9982258741601336,
+            0.9988776805336071,
+            0.9992869230202186,
+            0.9994631915316387,
+            0.9994170819822447,
+            0.9991600536965327,
+            0.998704301235537,
+            0.9980626491077248,
+            0.9972484741896641,
+            0.9962756571035707,
+            0.9951585632291546,
+            0.9939120518266803,
+            0.9925515109570648,
+            0.9910929158157172,
+            0.98955290744801,
+            0.9879488908726597,
+            0.9862991452951854,
+            0.9846229478320204,
+            0.9829407050419814,
+            0.981274087343894,
+            0.9796461619926048,
+            0.978081518747006
+          ],
+          "depth_m": 0.012,
+          "index": 7,
+          "score": 0.032761696741633775
+        },
+        "metrics": {
+          "mag": 1.353056209202191,
+          "max_abs_delta_v": 1.9845625756581947e-10,
+          "rdm": 0.11034444411314627
+        }
+      },
+      "-50%": {
+        "conductivity": {
+          "csf_s_per_m": 1.79,
+          "gray_matter_s_per_m": 0.33,
+          "scalp_s_per_m": 0.43,
+          "skull_s_per_m": 0.01,
+          "white_matter_s_per_m": 0.14
+        },
+        "depth_error_m": 0.0020000000000000018,
+        "forward": {
+          "peak_abs_referenced_potential_v": 5.340606483990764e-10,
+          "reference_potential_v": 1.4969492729032272e-10,
+          "referenced_potential_v": [
+            2.346707938184309e-10,
+            -5.340606483990764e-10,
+            8.808307496706699e-11,
+            8.808307496706699e-11,
+            3.181714919278209e-10,
+            3.181714919278209e-10,
+            3.0913162921092757e-10,
+            -1.4969492729032272e-10,
+            -1.4969492729032272e-10,
+            1.8310501753839422e-10,
+            1.8310501753839422e-10,
+            3.9079949070346514e-10,
+            -1.4969492729032272e-10,
+            -1.4969492729032272e-10,
+            4.3754064018981596e-11,
+            4.3754064018981596e-11,
+            -4.76892459364097e-11,
+            -9.983946454171103e-11,
+            -1.9955039003893441e-10,
+            -3.6045487627996443e-10,
+            -3.6045487627996443e-10
+          ],
+          "topography_norm_v": 1.1309275880193513e-09
+        },
+        "geometry": {
+          "csf_thickness_m": 0.003,
+          "r_csf_m": 0.083,
+          "r_gm_m": 0.08,
+          "r_scalp_m": 0.09500000000000001,
+          "r_skull_m": 0.08650000000000001,
+          "r_wm_m": 0.05,
+          "scalp_thickness_m": 0.008500000000000008,
+          "skull_thickness_m": 0.0035
+        },
+        "inverse_depth": {
+          "amplitudes": [
+            0.9819337239818887,
+            0.9847942573831583,
+            0.9873900758181587,
+            0.9897232892848966,
+            0.991797354139646,
+            0.993617110981634,
+            0.9951887274927835,
+            0.9965195847927523,
+            0.9976181372479476,
+            0.9984937665245711,
+            0.9991566453169523,
+            0.9996176191521932,
+            0.9998881123460857,
+            0.999980060601133,
+            0.9999058706366551,
+            0.9996784058877496,
+            0.9993109964134776,
+            0.9988174703444687,
+            0.9982122038782688,
+            0.9975101874379776,
+            0.9967271029513567,
+            0.9958794101494226,
+            0.994984437042685,
+            0.9940604691202116,
+            0.9931268314781815,
+            0.9922039567008671
+          ],
+          "depth_m": 0.018000000000000002,
+          "index": 13,
+          "score": 0.006314934691227139
+        },
+        "metrics": {
+          "mag": 0.9878095850066173,
+          "max_abs_delta_v": 1.27413103732502e-11,
+          "rdm": 0.025361155819499083
+        }
+      }
+    }
+  },
+  "status": "synthetic mechanistic sensitivity run; no measured EEG",
+  "units": {
+    "air_conductivity": 1e-06,
+    "air_conductivity_unit": "S/m",
+    "all_dimensions_finite": true,
+    "conductivity_unit": "S/m",
+    "homogeneous_peak_potential_v": 1.0840208588064949e-09,
+    "length_unit": "m",
+    "potential_unit": "V",
+    "source_current_unit": "A",
+    "source_moment": 6e-12,
+    "source_moment_unit": "A m",
+    "source_separation_unit": "m"
+  },
+  "verification": {
+    "homogeneous_sphere_relative_error": 1.2464849328560538e-07,
+    "unit_check": {
+      "air_conductivity": 1e-06,
+      "air_conductivity_unit": "S/m",
+      "all_dimensions_finite": true,
+      "conductivity_unit": "S/m",
+      "homogeneous_peak_potential_v": 1.0840208588064949e-09,
+      "length_unit": "m",
+      "potential_unit": "V",
+      "source_current_unit": "A",
+      "source_moment": 6e-12,
+      "source_moment_unit": "A m",
+      "source_separation_unit": "m"
+    }
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "job": "BT-DAT-Q017",
+  "purpose": "Public measured datasets that constrain the Q017 cardiorenal-transient model in inputs/Q017_model.py",
+  "written_utc": "2026-09-26",
+  "frozen_requirements": "PREREG.md 'Frysade dataset-krav': every post carries (a) landing URL answering HTTP 200 at check time, (b) license string copied verbatim from the source's own page, (c) size in bytes/MB from the source's file index, (d) file format, (e) number of subjects with a source, (f) which model parameter or output it constrains, (g) verification status in {downloaded_parsed, listing_verified_only, metadata_only}. Posts without a substantive (a) and (b) are not counted as candidates.",
+  "sample_budget": {
+    "limit_mb": 50.0,
+    "used_mb": 42.407,
+    "used_bytes": 42407414,
+    "measured_on": "all files under samples/ (including samples/SHA256SUMS_LOCAL.txt)",
+    "respected": true
+  },
+  "http_check_method": "curl -s -o /dev/null -w '%{http_code}' -L --max-time 25 -A 'Mozilla/5.0' <url>, run 2026-09-26 from this session; page text read with scripts/fetch_page.py and with an inline tag-stripper, saved under web_evidence/",
+  "posts": [
+    {
+      "id": "EICU-CRD-DEMO-2.0.1",
+      "name": "eICU Collaborative Research Database - demo version 2.0.1",
+      "landing_url": "https://physionet.org/content/eicu-crd-demo/2.0.1/",
+      "a_url_http_200": true,
+      "license_verbatim": "License (for files): Open Data Commons Open Database License v1.0",
+      "access_policy_verbatim": "Access Policy: Anyone can access the files, as long as they conform to the terms of the specified license.",
+      "license_url": "https://physionet.org/content/eicu-crd-demo/view-license/2.0.1/",
+      "doi": {"version_2_0_1": "https://doi.org/10.13026/4mxk-na84", "latest": "https://doi.org/10.13026/krfm-4167"},
+      "c_size": {
+        "whole_release": {"files": 33, "bytes": 54817938, "mib": 52.28, "source": "PhysioNet file index table on the landing page, sizes summed"},
+        "downloaded_subset": {"files": 8, "bytes": 30136573, "mb": 30.137,
+                              "files_list": ["LICENSE.txt 25815 B", "SHA256SUMS.txt 2805 B", "patient.csv.gz 136791 B", "vitalPeriodic.csv.gz 19391070 B", "vitalAperiodic.csv.gz 2619980 B", "intakeOutput.csv.gz 1826646 B", "lab.csv.gz 5729763 B", "infusiondrug.csv.gz 403703 B"]}
+      },
+      "d_format": "gzip-compressed CSV, one file per table (SAS XPORT .xpt for NHANES below); vendor format, long/tidy, one row per observation",
+      "e_subjects": {
+        "unit_stays": 2520,
+        "distinct_patients_uniquepid": 1841,
+        "hospital_stays": 2174,
+        "source": "measured in this run from samples/eicu_crd_demo_2.0.1/patient.csv.gz (results.json:/cohort_sizes)"
+      },
+      "f_constrains": [
+        {"model_item": "arterial_pressure_mmHg (output) and the simulated MAP span 34.5054-183.673 mmHg", "measured_quantity": "systemicmean (NIBP MAP), pamean (invasive MAP), noninvasivemean", "controls": ["K1"]},
+        {"model_item": "venous_pressure0_mmHg = 5.0 (P_v0)", "measured_quantity": "cvp (invasive CVP), paop (pulmonary artery occlusion pressure)", "controls": ["K2"]},
+        {"model_item": "gfr0_ml_min = 122.8 (G0)", "measured_quantity": "serum creatinine mg/dL -> CKD-EPI 2021 eGFR", "controls": ["K3"]},
+        {"model_item": "reabsorption_fraction0 = 0.992 and other_loss_ml_s", "measured_quantity": "urine output events, ml/min", "controls": ["K4", "M4"]},
+        {"model_item": "glomerular_oncotic_pressure_mmHg = 32.0 (pi_gc)", "measured_quantity": "albumin g/dL", "controls": ["K5"]},
+        {"model_item": "bolus_volume_ml = 3000 over bolus_duration_s = 10800 (protocol placement)", "measured_quantity": "per-patient maximum 3 h intake volume", "controls": ["K6"]},
+        {"model_item": "ecf_volume0_ml = 17690 (V0) via admissionweight", "measured_quantity": "admissionweight kg, Bodyweight (kg) flowsheet entries", "controls": ["K9"]}
+      ],
+      "g_verification_status": "downloaded_parsed",
+      "integrity": "all 6 downloaded data files match the sha256 values in the publisher's own samples/eicu_crd_demo_2.0.1/SHA256SUMS.txt; local digests in samples/SHA256SUMS_LOCAL.txt",
+      "counts_as_candidate": true,
+      "caveats": [
+        "the demo is a de-identified convenience subset, not a random sample of ICU admissions",
+        "vitalPeriodic.pamean is artefact-laden in the demo (median 25 mmHg, 29954 of 32632 non-missing rows outside the declared 40-260 mmHg window)",
+        "vitalAperiodic.cardiacoutput is zero-inflated (M2 status ZERO_INFLATED) and carries no control",
+        "no unit string for svr/svri/pvr could be verified verbatim in this run, so no resistance conversion is asserted"
+      ]
+    },
+    {
+      "id": "NHANES-2017-2018",
+      "name": "National Health and Nutrition Examination Survey, 2017-2018 cycle (US CDC/NCHS)",
+      "landing_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/BIOPRO_J.htm",
+      "a_url_http_200": true,
+      "license_verbatim": null,
+      "license_status": "NO_LICENSE_STRING_ON_THE_SOURCE_PAGE",
+      "license_verbatim_available_text": "National Health and Nutrition Examination Survey / 2017-2018 Data Documentation, Codebook, and Frequencies / Standard Biochemistry Profile (BIOPRO_J) / Data File: BIOPRO_J.xpt / First Published: February 2020 / Last Revised: NA",
+      "operational_terms_verified": "all 5 .xpt files were downloaded from the CDC URLs with no login, no data use agreement, no application form and no payment; the CDC file index at https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=2017-2018 (HTTP 200) offers the same files to anyone",
+      "license_caveat": "this is the one frozen field (b) that could not be filled with a verbatim licence string: the modern CDC pages carry no licence block, and the CDC terms-of-use pages either soft-404 with HTTP 200 or answer HTTP 403 to this client. No licence claim is asserted beyond the verified no-DUA public download. Treated as a US federal work in the public domain is an assumption, not a verified quotation.",
+      "c_size": {
+        "downloaded_subset": {"files": 5, "bytes": 12270841, "mb": 12.271,
+                              "source_index_sizes": {"DEMO_J": "3.3 MB", "BPX_J": "1.4 MB", "BMX_J": "1.4 MB", "DXX_J": "3.6 MB", "BIOPRO_J": "2 MB", "source": "CDC 2017-2018 data file index"}}
+      },
+      "d_format": "SAS XPORT transport (.xpt), one row per examined participant, wide format; codebook pages give per-variable counts and ranges",
+      "e_subjects": {
+        "examined_participants": 9254,
+        "with_blood_pressure_BPX_J": 8704,
+        "with_standard_biochemistry_BIOPRO_J": 6401,
+        "with_DXA_DXX_J": 5114,
+        "source": "row counts measured in this run from the four .xpt files; the CDC codebook pages independently report 6401 records for BIOPRO_J (5901 non-missing uric acid + 500 missing), which matches the parsed file"
+      },
+      "f_constrains": [
+        {"model_item": "arterial_pressure0_mmHg = 100.0 with claimed spread +/- 12 mmHg", "measured_quantity": "BPXSY1-3 / BPXDI1-3 -> MAP = (SBP+2*DBP)/3, adults RIDAGEYR >= 18", "controls": ["K7"]},
+        {"model_item": "gfr0_ml_min = 122.8 (G0)", "measured_quantity": "LBXSCR -> CKD-EPI 2021 eGFR, adults", "controls": ["K8"]},
+        {"model_item": "glomerular_oncotic_pressure_mmHg = 32.0 (pi_gc)", "measured_quantity": "LBXSAL albumin g/dL, adults", "controls": ["K5"]},
+        {"model_item": "ecf_volume0_ml = 17690 assumed for 73 kg", "measured_quantity": "BMXWT body mass kg, adults", "controls": ["K9"]}
+      ],
+      "g_verification_status": "downloaded_parsed",
+      "integrity": "sha256 of all 5 files recorded in samples/SHA256SUMS_LOCAL.txt; no publisher-side checksum file is published for the NHANES .xpt downloads, so the sha256 is a local record, not a publisher match",
+      "counts_as_candidate": true,
+      "caveats": [
+        "no survey weights (SDMVPSU/SDMVSTRA) are applied: all NHANES numbers are unweighted cycle medians/means, not population estimates",
+        "cross-sectional by design: no within-participant time axis, so NHANES cannot supply a transient, only a distribution",
+        "DXX_J gives fat/lean/bone compartments but no total body water, so the ECF fraction of body mass behind V0 stays unconstrained by this dataset"
+      ]
+    },
+    {
+      "id": "MIMIC-IV-DEMO-2.2",
+      "name": "MIMIC-IV demo version 2.2 (PhysioNet)",
+      "landing_url": "https://physionet.org/content/mimic-iv-demo/2.2/",
+      "a_url_http_200": true,
+      "license_verbatim": "License (for files): Open Data Commons Open Database License v1.0",
+      "access_policy_verbatim": "Access Policy: Anyone can access the files, as long as they conform to the terms of the specified license.",
+      "doi": {"version_2_2": "https://doi.org/10.13026/dp1f-ex47", "latest": "https://doi.org/10.13026/ng9m-3n32"},
+      "c_size": {"files": 4, "bytes_total_from_index": "about 30 KB (LICENSE.txt 25.2 KB, README.txt 978 B, SHA256SUMS.txt 2.9 KB, demo_subject_id.csv 911 B)", "source": "PhysioNet file index table on the landing page"},
+      "d_format": "gzip-compressed CSV plus a plain subject-id list",
+      "e_subjects": {"patients": 100, "source": "landing page abstract, verbatim: 'Here, we have provided an openly-available demo of MIMIC-IV containing a subset of 100 patients.'"},
+      "f_constrains": [
+        {"model_item": "all of the above, in principle", "measured_quantity": "chartevents (MAP/CVP/PCWP), inputevents (crystalloid volume), outputevents (urine), labevents (creatinine, albumin) at 1 h resolution per stay", "controls": []}
+      ],
+      "g_verification_status": "listing_verified_only",
+      "not_downloaded_reason": "the openly available demo ships only LICENSE.txt, README.txt, SHA256SUMS.txt and demo_subject_id.csv - it contains no measurement table at all, so downloading it would add a file but no constraint. The 50 MB budget was not the binding constraint.",
+      "counts_as_candidate": true,
+      "caveats": ["cannot constrain anything in its published form; it is an access probe, listed so that the open-access route to MIMIC-IV is on record"]
+    },
+    {
+      "id": "MIMIC-IV-3.1",
+      "name": "MIMIC-IV version 3.1 (full, PhysioNet)",
+      "landing_url": "https://physionet.org/content/mimiciv/3.1/",
+      "a_url_http_200": true,
+      "license_verbatim": "License (for files): PhysioNet Credentialed Health Data License 1.5.0",
+      "access_policy_verbatim": "Access Policy: Only credentialed users who sign the DUA can access the files.",
+      "data_use_agreement_verbatim": "Data Use Agreement: PhysioNet Credentialed Health Data Use Agreement 1.5.0",
+      "required_training_verbatim": "Required training: CITI Data or Specimens Only Research",
+      "doi": {"version_3_1": "https://doi.org/10.13026/kpb9-mt58", "latest": "https://doi.org/10.13026/07hj-2a80"},
+      "c_size": {"bytes": null, "status": "NOT_DISCLOSED_WITHOUT_CREDENTIALED_ACCESS", "source": "https://physionet.org/content/mimiciv/3.1/files/ answers HTTP 403 and the landing page carries no file index for anonymous clients"},
+      "d_format": "gzip-compressed CSV, one file per table (PostgreSQL/other load scripts also published)",
+      "e_subjects": {"patients": "over 65,000", "source": "landing page abstract, verbatim: 'MIMIC-IV contains data for over 65,000 patients admitted to an ICU'"},
+      "f_constrains": [
+        {"model_item": "synchronous MAP + crystalloid input + urine output + creatinine/albumin in the same ICU stay", "measured_quantity": "chartevents, inputevents, outputevents, labevents joined on hadm_id/stay_id with chart times", "controls": []},
+        {"model_item": "arterial_pressure0_mmHg, venous_pressure0_mmHg, gfr0_ml_min, reabsorption_fraction0, bolus protocol", "measured_quantity": "same tables, larger n and full-population coverage", "controls": []}
+      ],
+      "g_verification_status": "metadata_only",
+      "not_downloaded_reason": "credentialed access, DUA and CITI training required; PREREG.md 'Not redone' forbids fetching access-protected material in this lane",
+      "counts_as_candidate": false,
+      "missing_fields": ["c_size"],
+      "why_it_matters": "this is the single most important unexploited constraint for Q017: it is the only candidate that natively carries pressure, fluid volume and a renal marker on one stay-level time axis at hour resolution, i.e. exactly the 'synkrona perturbationsserier' the Q017 question demands. The eICU demo substitutes for it only partially (1039 unit stays carry MAP+intake+urine+creatinine, but the demo is 2520 stays, about 4 % of the full database)."
+    },
+    {
+      "id": "HIRID-1.1.1",
+      "name": "HiRID version 1.1.1 (PhysioNet)",
+      "landing_url": "https://physionet.org/content/hirid/",
+      "a_url_http_200": true,
+      "license_verbatim": "License (for files): PhysioNet Contributor Review Health Data License 1.5.0",
+      "access_policy_verbatim": "Access Policy: Only credentialed users who sign the DUA can access the files. In addition, users must have individual studies reviewed by the contributor.",
+      "doi": {"version_1_1_1": "https://doi.org/10.13026/nkwc-js72", "latest": "https://doi.org/10.13026/323r-nk04"},
+      "c_size": {"bytes": null, "status": "NOT_DISCLOSED_WITHOUT_CREDENTIALED_ACCESS"},
+      "d_format": "gzip-compressed CSV, one general table plus one table per variable, high resolution (every 2 s to 1 min)",
+      "e_subjects": {"admissions": "almost 34 thousand", "source": "landing page abstract, verbatim: 'HiRID is a freely accessible critical care dataset containing data relating to almost 34 thousand patient admissions to the Department of Intensive Care Medicine of the Bern University Hospital, Switzerland (ICU)'"},
+      "f_constrains": [
+        {"model_item": "renal and cardiovascular time constants (tau_a = 20 s, tau_S = 5 s, tau_N = 30 s, tau_A = 300 s)", "measured_quantity": "high-resolution per-variable time series, the only candidate whose native cadence could resolve a 5-30 s feedback time constant", "controls": []},
+        {"model_item": "MAP, CVP/PAOP, urine output, creatinine on one time axis", "measured_quantity": "same", "controls": []}
+      ],
+      "g_verification_status": "metadata_only",
+      "not_downloaded_reason": "credentialed access, DUA and per-study contributor review required",
+      "counts_as_candidate": false,
+      "missing_fields": ["c_size"]
+    },
+    {
+      "id": "EICU-CRD-FULL-2.0",
+      "name": "eICU Collaborative Research Database, full version 2.0 (PhysioNet)",
+      "landing_url": "https://physionet.org/content/eicu-crd/2.0/",
+      "a_url_http_200": true,
+      "license_verbatim": "License (for files): PhysioNet Credentialed Health Data License 1.5.0",
+      "access_policy_verbatim": "Access Policy: Only credentialed users who sign the DUA can access the files.",
+      "c_size": {"bytes": null, "status": "NOT_DISCLOSED_WITHOUT_CREDENTIALED_ACCESS"},
+      "d_format": "gzip-compressed CSV, one file per table",
+      "e_subjects": {"admissions": "over 200,000", "source": "eICU-CRD demo landing page abstract, verbatim: 'a multi-center database comprised of deidentified health data for over 200,000 admissions to ICUs across the United States between 2014-2015'"},
+      "f_constrains": [
+        {"model_item": "every eICU constraint in EICU-CRD-DEMO-2.0.1, with about 80x more stays and without the demo's per-table truncation", "measured_quantity": "same tables", "controls": []}
+      ],
+      "g_verification_status": "metadata_only",
+      "not_downloaded_reason": "credentialed access, DUA and CITI training required",
+      "counts_as_candidate": false,
+      "missing_fields": ["c_size"]
+    },
+    {
+      "id": "CARDIA",
+      "name": "Coronary Artery Risk Development in Young Adults (CARDIA), NHLBI BioLINCC",
+      "landing_url": "https://biolincc.nhlbi.nih.gov/studies/cardia/",
+      "a_url_http_200": true,
+      "license_verbatim": "Data Use Agreement required; the study page offers 'Renew Existing Data Use Agreement' and 'Agreement Templates'",
+      "access_policy_verbatim": "Available data for request include exam data through Year 35 and outcomes and death data through 2022.",
+      "c_size": {"bytes": null, "status": "NOT_DISCLOSED_ON_THE_PUBLIC_STUDY_PAGE"},
+      "d_format": "SAS/Stata transport files and SAS export scripts, distributed per approved request",
+      "e_subjects": {"participants": 5115, "source": "study page, verbatim: 'CARDIA is a population-based observational study of 5,115 participants aged 18-30 years recruited in 1985-1986'"},
+      "f_constrains": [
+        {"model_item": "arterial_pressure0_mmHg, gfr0_ml_min, ecf_volume0_ml, reabsorption_fraction0 - but longitudinally", "measured_quantity": "repeated clinic BP, weight, creatinine and albumin across up to 6 exam visits over 35 years in the same participant", "controls": []}
+      ],
+      "g_verification_status": "metadata_only",
+      "not_downloaded_reason": "Data Use Agreement and a per-request approval by the study coordinating centre",
+      "counts_as_candidate": false,
+      "missing_fields": ["c_size"],
+      "why_it_matters": "the only identified candidate with a genuine repeated-measures design in a population cohort (as opposed to ICU stays): it is the natural test bed for whether a Q017-style parameter set transfers from one care episode to another, and for slow feedback time constants on a years scale. The cohort is 18-30 years old at entry, so it brackets the Davies-Shock 20-29 year group the model initialises from."
+    },
+    {
+      "id": "OPENCAP",
+      "name": "OpenCap human movement data (Stanford, SimTK)",
+      "landing_url": "https://simtk.org/frs/?group_id=91",
+      "a_url_http_200": true,
+      "g_verification_status": "listing_verified_only",
+      "counts_as_candidate": false,
+      "excluded_reason": "not_applicable: inputs/Q017_model.py is a lumped (0-D) haemodynamic model with no geometric, anatomical or inertial parameter, so a marker-based motion-capture dataset cannot constrain any of its parameters or outputs. Recorded here so the exclusion is on record rather than silent; the same reasoning applies to the Imperial College femur/tibia statistical shape models, VSD bone models and CT data mentioned in inputs/NIGHT_PREAMBLE.md section 7."
+    }
+  ],
+  "rejected_url_checks": [
+    {"url": "https://physionet.org/content/mimic-iv/3.1/", "http": 404, "note": "wrong PhysioNet slug; the live path is /content/mimiciv/3.1/"},
+    {"url": "https://physionet.org/content/hirid/1.0.0/", "http": 404, "note": "current version is 1.1.1; /content/hirid/ redirects there"},
+    {"url": "https://www.ukbiobank.ac.uk/enable-your-research/costs/", "http": 403, "note": "UK Biobank is application-based and blocked this client; no landing page, no verbatim licence, therefore not a candidate in this run"},
+    {"url": "https://zenodo.org/records/5137251", "http": 403, "note": "Zenodo blocked this client; the Imperial College femur/tibia SSM record could not be verified"},
+    {"url": "https://eicu-crd.mit.edu/static/eicu-crd-datadictionary-v2.pdf", "http": 200, "note": "returns the site shell (18829 bytes of HTML), not a PDF; this is why no verbatim unit string for svr/svri/pvr is asserted"},
+    {"url": "https://wwwn.cdc.gov/nchs/nhanes/index.htm", "http": 200, "note": "soft-404: HTTP 200 with a 'Page Not Found | CDC' body; the reason the NHANES licence string could not be quoted"},
+    {"url": "https://www.cdc.gov/nchs/nhanes/about/index.html", "http": 403, "note": "blocked this client"},
+    {"url": "https://www.ebi.ac.uk/gxl/json/amsterdamumcdb_1.json", "http": 404, "note": "AmsterdamUMCdb JSON manifest not found at the guessed path; the study was not verified and is therefore not a candidate"},
+    {"url": "https://opencap.stanford.edu/", "http": 0, "note": "no response; the SimTK mirror above answered HTTP 200"}
+  ],
+  "summary": {
+    "n_posts": 8,
+    "n_counted_as_candidate": 3,
+    "n_downloaded_and_parsed": 2,
+    "n_listing_verified_only": 1,
+    "n_metadata_only": 4,
+    "n_excluded_not_applicable": 1,
+    "measured_model_quantities_constrained": 8,
+    "verdict_H1": "PARTIAL_MET - the >=5 downloaded datasets part is not met (2 downloaded, 3 candidates total, 5 posts lack a public file index or need a DUA); the synchronous-series part is met inside the eICU demo",
+    "verdict_H3": "SUPPORTED - two datasets were downloaded and parsed in this run with no login, no DUA and no application"
+  }
+}

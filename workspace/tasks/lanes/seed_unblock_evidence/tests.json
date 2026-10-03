@@ -1,0 +1,32 @@
+{
+  "passed": 27,
+  "checks": [
+    "matching process accepted",
+    "reused PID start ticks rejected",
+    "different boot rejected",
+    "legacy reused PID rejected",
+    "5700 second ceiling enforced",
+    "unrelated process rejected",
+    "dead and malformed slots removed",
+    "D reserve without global cooldown",
+    "95 percent hard stop",
+    "cannot relax 95 percent threshold",
+    "cap 16 enforced",
+    "reserve expiry enforced",
+    "reserve_worker cooldown enforced",
+    "egress counter permanently cleans dead slots",
+    "route counter permanently cleans dead slots",
+    "all-IP backoff blocks free admission",
+    "healthy alternate model remains free",
+    "healthy free model wins before fallback",
+    "ordinary SEED reserves D reserve_worker on egress backoff",
+    "own marker released",
+    "SIGTERM returns 143",
+    "SIGTERM removes own slot",
+    "SIGTERM kills own child",
+    "unrelated process group survives",
+    "deadline returns 124",
+    "deadline removes own slot",
+    "deadline kills own child"
+  ]
+}

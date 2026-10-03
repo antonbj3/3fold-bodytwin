@@ -1,0 +1,5 @@
+# PREREG CLOUD-A359DATA
+
+Primary split: train 1999–2000, holdout 2001–02. Target: measured isokinetic peak force, with fixed 0.30 m conversion reported separately as an assumed torque. Same complete-case persons for all models. Primary comparison: leg lean × height versus mass-only. Secondary required comparison: mass+height+sex+age versus leg lean × height+sex+age. Report percent RMSE reduction and paired bootstrap 95% CI, sample sizes, sex residuals and missingness. Evaluate 0.20×height lever only as a sensitivity, because it embeds height in the target.
+
+Evidence criterion: the primary DXA improvement exceeds 10% on held-out real persons, and the lower 95% bootstrap bound exceeds 0, with no identified data leakage. This does **not** imply superiority over the stronger baseline. A claim that the register's 19.1% or 28.7/36.5 Nm was reproduced requires those numbers within rounding under a documented matching protocol; otherwise explicitly state mismatch. If DXA multiple-imputation handling materially changes the result, report it as a range and mark the criterion uncertain. Do not tune analysis to pass. Freeze this file.

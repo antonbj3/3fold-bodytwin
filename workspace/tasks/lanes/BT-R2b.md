@@ -1,0 +1,5 @@
+# BT-R2b — omklassning av gates enligt AU8 + C1b:s motprov i pytest
+Read First tasks/lanes/_PREAMBLE.md (bindande)Mandate to drive without asking.
+UNDERLAG: results/AU8/AUDIT.md (R2: 79/82 celler generellt klass B; minst tcell, mapk, hpa har kontroller mot sluten form/konvergens without assist = klass A enligt BT-R2:s PREREG), results/BT-R2 (klassificering, patchar), results/BT-C1b (9 counterexample runs in scripts but not in pytest).
+UPPDRAG: (1) I klonen /mnt/shared_data/bodytwin_work/R1/bodytwin_fix, ny gren fix/gates-exit-2 from fix/gates-exit: go through all 79 B-celler mot PREREG:s definition, reclassify with file:line-motivation, fix new class A case with regression test (falls before, passes after); format-patch till results/BT-R2b/patches/; commit messages factual, English, without AI-attribution/privata namn. (2) Kopiera results/BT-C1b/compose till results/BT-R2b/c1b_tests/ and put it down 9 The counter-tests as pytest-case; run.
+Utdata endast results/BT-R2b/. RESULTS.md sist.

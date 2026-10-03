@@ -1,0 +1,521 @@
+{
+  "analytical_limit_check": {
+    "boundary_concentration_mol_per_m3": 0.037,
+    "geometry": "two_cj",
+    "maximum_absolute_error_mol_per_m3": 4.163336342344337e-17,
+    "passed": true
+  },
+  "comparisons": {
+    "branched_over_one_atp_flux": 1.0147711062018545,
+    "branched_over_one_transport_time": 0.8469309600862995,
+    "two_over_one_atp_flux": 1.0195388937394612,
+    "two_over_one_transport_time": 0.7003603957422475
+  },
+  "concentration_unit": "mol/m3; 1 mM = 1 mol/m3",
+  "derived_parameters": {
+    "ant_k_m_per_s": 1.494485160456462e-07,
+    "ant_vmax_mol_per_m2_per_s": 1.494485160456462e-07,
+    "as_vmax_mol_per_m2_per_s": 1.494485160456462e-07,
+    "crista_length_um": 0.8999999999999999,
+    "electrochemical_factor": 625.5528763627394,
+    "junction_conductance_m3_per_s": 3.9999999999999995e-18,
+    "pmf_factor": 0.9984039655107718
+  },
+  "final_status": {
+    "checks": {
+      "analytical_limit_passed": true,
+      "flux_ratio_ge_1_10": false,
+      "matched_area_volume_and_sites": true,
+      "two_cj_depletion_lower": true,
+      "two_cj_diffusion_time_le_0_30": true
+    },
+    "failed_conditions": [
+      "flux_ratio_ge_1_10"
+    ],
+    "primary_criterion_passed": false
+  },
+  "flux_unit": "mol/(m2 s) for local flux and mol/s for total flux",
+  "length_unit": "m",
+  "literature_anchor": {
+    "doi": "10.3390/cells14040257",
+    "figure": "Figure 4",
+    "membrane_potential_magnitude_mV": 172.0,
+    "model_max_flux_molecules_per_ms_per_um2": 100.0,
+    "pmcid": "PMC11853683",
+    "relative_flux_bottlenecked": 0.6,
+    "relative_flux_high_connectivity": 0.9,
+    "reported_connectivity_increase_percent": 17.0,
+    "status": "VERIFIED"
+  },
+  "model": "BT-HX-Q077 first-principles crista ADP transport model",
+  "parameter_table": [
+    {
+      "name": "diffusion_coefficient",
+      "source_or_assumption": "effective IMS ADP diffusivity; sensitivity parameter",
+      "unit": "m2/s"
+    },
+    {
+      "name": "crista_length",
+      "source_or_assumption": "long-crista comparison scale from Adams et al. 2025, Fig. 4",
+      "unit": "m"
+    },
+    {
+      "name": "total_membrane_area",
+      "source_or_assumption": "held identical across geometries; abstract unit",
+      "unit": "m2"
+    },
+    {
+      "name": "total_ims_volume",
+      "source_or_assumption": "held identical across geometries; abstract unit",
+      "unit": "m3"
+    },
+    {
+      "name": "cyt_adp",
+      "source_or_assumption": "0.037 mM, Adams et al. 2025, Fig. 1/Section 2.1",
+      "unit": "mol/m3"
+    },
+    {
+      "name": "cyt_atp",
+      "source_or_assumption": "4.0 mM, Adams et al. 2025, Section 2.1",
+      "unit": "mol/m3"
+    },
+    {
+      "name": "matrix_total_adenylate",
+      "source_or_assumption": "0.44 + 0.72 mM starting matrix ATP + ADP, Adams et al. 2025, Section 2.1",
+      "unit": "mol/m3"
+    },
+    {
+      "name": "pi_matrix",
+      "source_or_assumption": "fixed Pi assumption; sensitivity not run",
+      "unit": "mol/m3"
+    },
+    {
+      "name": "as_site_density",
+      "source_or_assumption": "matched ATP-synthase site density; scale assumption",
+      "unit": "molecules/m2"
+    },
+    {
+      "name": "ant_site_density",
+      "source_or_assumption": "matched ANT site density; scale assumption",
+      "unit": "molecules/m2"
+    },
+    {
+      "name": "as_kcat",
+      "source_or_assumption": "sensitivity parameter; scale assumption",
+      "unit": "1/s"
+    },
+    {
+      "name": "ant_kcat",
+      "source_or_assumption": "sensitivity parameter; scale assumption",
+      "unit": "1/s"
+    },
+    {
+      "name": "as_k_adp",
+      "source_or_assumption": "Michaelis parameter assumption",
+      "unit": "mol/m3"
+    },
+    {
+      "name": "as_k_atp",
+      "source_or_assumption": "ATP inhibition parameter assumption",
+      "unit": "mol/m3"
+    },
+    {
+      "name": "as_k_pi",
+      "source_or_assumption": "Pi Michaelis parameter assumption",
+      "unit": "mol/m3"
+    },
+    {
+      "name": "ant_k_adp",
+      "source_or_assumption": "external/matrix ADP exchange scale assumption",
+      "unit": "mol/m3"
+    },
+    {
+      "name": "ant_k_atp",
+      "source_or_assumption": "external/matrix ATP exchange scale assumption",
+      "unit": "mol/m3"
+    },
+    {
+      "name": "ant_fraction_pmf",
+      "source_or_assumption": "0.5 effective potential fraction, Adams et al. 2025 Eq. 1",
+      "unit": "1"
+    },
+    {
+      "name": "membrane_potential",
+      "source_or_assumption": "-172 mV, Adams et al. 2025 Section 2.1",
+      "unit": "V"
+    },
+    {
+      "name": "temperature",
+      "source_or_assumption": "310 K physiological assumption",
+      "unit": "K"
+    },
+    {
+      "name": "reference_concentration",
+      "source_or_assumption": "1 mM reference for low-substrate ANT scale",
+      "unit": "mol/m3"
+    },
+    {
+      "name": "junction_area_total",
+      "source_or_assumption": "total CJ area held fixed; sensitivity parameter",
+      "unit": "m2"
+    },
+    {
+      "name": "junction_length",
+      "source_or_assumption": "effective junction transport length assumption",
+      "unit": "m"
+    },
+    {
+      "name": "solver_tolerance",
+      "source_or_assumption": "numerical convergence threshold",
+      "unit": "1"
+    },
+    {
+      "name": "solver_max_iterations",
+      "source_or_assumption": "numerical convergence limit",
+      "unit": "1"
+    },
+    {
+      "name": "matrix_root_tolerance",
+      "source_or_assumption": "scalar balance root tolerance",
+      "unit": "mol/m3"
+    }
+  ],
+  "parameters": {
+    "ant_fraction_pmf": 0.5,
+    "ant_k_adp": 0.1,
+    "ant_k_atp": 1.0,
+    "ant_kcat": 90.0,
+    "ant_site_density": 1000000000000000.0,
+    "as_k_adp": 0.8,
+    "as_k_atp": 2.0,
+    "as_k_pi": 1.0,
+    "as_kcat": 90.0,
+    "as_site_density": 1000000000000000.0,
+    "crista_length": 9e-07,
+    "cyt_adp": 0.037,
+    "cyt_atp": 4.0,
+    "diffusion_coefficient": 1e-11,
+    "junction_area_total": 2e-14,
+    "junction_length": 5e-08,
+    "matrix_root_tolerance": 1e-10,
+    "matrix_total_adenylate": 1.16,
+    "membrane_potential": -0.172,
+    "pi_matrix": 5.0,
+    "reference_concentration": 1.0,
+    "solver_max_iterations": 200,
+    "solver_tolerance": 1e-11,
+    "temperature": 310.0,
+    "total_ims_volume": 5e-19,
+    "total_membrane_area": 2e-12
+  },
+  "preregistration": {
+    "diffusion_time_ratio_threshold": 0.3,
+    "file": "PREREG.md",
+    "flux_ratio_threshold": 1.1,
+    "no_sink_equal_boundary_required": true,
+    "primary_quantity": "J_ATP(two_trans_CJ) / J_ATP(one_CJ)",
+    "status": "frozen_before_final_default_run"
+  },
+  "sensitivity": [
+    {
+      "branched_atp_flux_mol_per_s": 7.327318817050131e-20,
+      "branched_over_one_atp_flux": 1.0113760270549996,
+      "factor": 0.5,
+      "one_cj_atp_flux_mol_per_s": 7.244900631455904e-20,
+      "one_cj_max_adp_depletion": 0.9999188934197338,
+      "one_cj_transport_time_s": 0.41200000000000025,
+      "parameter": "diffusion_coefficient",
+      "two_cj_atp_flux_mol_per_s": 7.321170257036662e-20,
+      "two_cj_max_adp_depletion": 0.9999174934569159,
+      "two_cj_transport_time_s": 0.28854848304580616,
+      "two_over_one_atp_flux": 1.0105273528872998,
+      "value": 5e-12
+    },
+    {
+      "branched_atp_flux_mol_per_s": 1.44332757392832e-19,
+      "branched_over_one_atp_flux": 1.0147711062018545,
+      "factor": 1.0,
+      "one_cj_atp_flux_mol_per_s": 1.4223183584034947e-19,
+      "one_cj_max_adp_depletion": 0.9997656984506117,
+      "one_cj_transport_time_s": 0.20600000000000013,
+      "parameter": "diffusion_coefficient",
+      "two_cj_atp_flux_mol_per_s": 1.4501088856720255e-19,
+      "two_cj_max_adp_depletion": 0.9997079398178961,
+      "two_cj_transport_time_s": 0.14427424152290308,
+      "two_over_one_atp_flux": 1.0195388937394612,
+      "value": 1e-11
+    },
+    {
+      "branched_atp_flux_mol_per_s": 2.0943986513799203e-19,
+      "branched_over_one_atp_flux": 1.0093999155538038,
+      "factor": 1.5,
+      "one_cj_atp_flux_mol_per_s": 2.074894815332767e-19,
+      "one_cj_max_adp_depletion": 0.9993636625132531,
+      "one_cj_transport_time_s": 0.13733333333333342,
+      "parameter": "diffusion_coefficient",
+      "two_cj_atp_flux_mol_per_s": 2.140933761989283e-19,
+      "two_cj_max_adp_depletion": 0.9980900136482975,
+      "two_cj_transport_time_s": 0.09618282768193537,
+      "two_over_one_atp_flux": 1.0318276117750695,
+      "value": 1.5e-11
+    },
+    {
+      "branched_atp_flux_mol_per_s": 1.4148892776001834e-19,
+      "branched_over_one_atp_flux": 1.0129180690810402,
+      "factor": 0.5,
+      "one_cj_atp_flux_mol_per_s": 1.3968447407437678e-19,
+      "one_cj_max_adp_depletion": 0.9997676591190253,
+      "one_cj_transport_time_s": 0.20600000000000013,
+      "parameter": "ant_kcat",
+      "two_cj_atp_flux_mol_per_s": 1.4364590821540145e-19,
+      "two_cj_max_adp_depletion": 0.9992700982597565,
+      "two_cj_transport_time_s": 0.14427424152290308,
+      "two_over_one_atp_flux": 1.0283598744046196,
+      "value": 45.0
+    },
+    {
+      "branched_atp_flux_mol_per_s": 1.44332757392832e-19,
+      "branched_over_one_atp_flux": 1.0147711062018545,
+      "factor": 1.0,
+      "one_cj_atp_flux_mol_per_s": 1.4223183584034947e-19,
+      "one_cj_max_adp_depletion": 0.9997656984506117,
+      "one_cj_transport_time_s": 0.20600000000000013,
+      "parameter": "ant_kcat",
+      "two_cj_atp_flux_mol_per_s": 1.4501088856720255e-19,
+      "two_cj_max_adp_depletion": 0.9997079398178961,
+      "two_cj_transport_time_s": 0.14427424152290308,
+      "two_over_one_atp_flux": 1.0195388937394612,
+      "value": 90.0
+    },
+    {
+      "branched_atp_flux_mol_per_s": 1.453937186103704e-19,
+      "branched_over_one_atp_flux": 1.0139380352610268,
+      "factor": 1.5,
+      "one_cj_atp_flux_mol_per_s": 1.4339507302627269e-19,
+      "one_cj_max_adp_depletion": 0.9997619968062104,
+      "one_cj_transport_time_s": 0.20600000000000013,
+      "parameter": "ant_kcat",
+      "two_cj_atp_flux_mol_per_s": 1.4562333002343967e-19,
+      "two_cj_max_adp_depletion": 0.9997457080482812,
+      "two_cj_transport_time_s": 0.14427424152290308,
+      "two_over_one_atp_flux": 1.015539285626353,
+      "value": 135.0
+    },
+    {
+      "branched_atp_flux_mol_per_s": 7.332614205933182e-20,
+      "branched_over_one_atp_flux": 1.0071762627042329,
+      "factor": 0.5,
+      "one_cj_atp_flux_mol_per_s": 7.280368369926999e-20,
+      "one_cj_max_adp_depletion": 0.999918360953975,
+      "one_cj_transport_time_s": 0.3310000000000002,
+      "parameter": "junction_area_total",
+      "two_cj_atp_flux_mol_per_s": 7.339305293946628e-20,
+      "two_cj_max_adp_depletion": 0.999912318938588,
+      "two_cj_transport_time_s": 0.2692742415229031,
+      "two_over_one_atp_flux": 1.008095321695957,
+      "value": 1e-14
+    },
+    {
+      "branched_atp_flux_mol_per_s": 1.44332757392832e-19,
+      "branched_over_one_atp_flux": 1.0147711062018545,
+      "factor": 1.0,
+      "one_cj_atp_flux_mol_per_s": 1.4223183584034947e-19,
+      "one_cj_max_adp_depletion": 0.9997656984506117,
+      "one_cj_transport_time_s": 0.20600000000000013,
+      "parameter": "junction_area_total",
+      "two_cj_atp_flux_mol_per_s": 1.4501088856720255e-19,
+      "two_cj_max_adp_depletion": 0.9997079398178961,
+      "two_cj_transport_time_s": 0.14427424152290308,
+      "two_over_one_atp_flux": 1.0195388937394612,
+      "value": 2e-14
+    },
+    {
+      "branched_atp_flux_mol_per_s": 2.0900567891667282e-19,
+      "branched_over_one_atp_flux": 1.018950140992132,
+      "factor": 1.5,
+      "one_cj_atp_flux_mol_per_s": 2.051186515496902e-19,
+      "one_cj_max_adp_depletion": 0.9994092998599517,
+      "one_cj_transport_time_s": 0.16433333333333344,
+      "parameter": "junction_area_total",
+      "two_cj_atp_flux_mol_per_s": 2.1271488740953124e-19,
+      "two_cj_max_adp_depletion": 0.9987711467208581,
+      "two_cj_transport_time_s": 0.1026075748562364,
+      "two_over_one_atp_flux": 1.037033374597828,
+      "value": 3e-14
+    }
+  ],
+  "topologies": {
+    "branched": {
+      "ant_flux_mol_per_s": 1.4433275739282492e-19,
+      "ant_site_count": 2000.0,
+      "area_m2": 2e-12,
+      "as_site_count": 2000.0,
+      "atp_flux_mol_per_m2_per_s": 7.2166378696416e-08,
+      "atp_flux_mol_per_s": 1.44332757392832e-19,
+      "atp_flux_molecules_per_ms_per_um2": 43.459609064928244,
+      "atp_flux_molecules_per_s": 86919.21812985648,
+      "ims_volume_m3": 5e-19,
+      "matrix_adp_mol_per_m3": 0.5405674112013947,
+      "matrix_atp_mol_per_m3": 0.6194325887986052,
+      "max_fractional_adp_depletion": 0.9997581653271327,
+      "mean_fractional_adp_depletion": 0.9963908176171117,
+      "mean_ims_adp_mol_per_m3": 0.00013353974816686872,
+      "min_ims_adp_mol_per_m3": 8.947882896091683e-06,
+      "name": "branched",
+      "parameter_ant_vmax_mol_per_m2_per_s": 1.494485160456462e-07,
+      "parameter_as_vmax_mol_per_m2_per_s": 1.494485160456462e-07,
+      "transport": {
+        "cj_count": 4,
+        "cross_sectional_area_m2": 3.5842293906810026e-13,
+        "diffusion_time_s": 0.04946777777777778,
+        "end_to_end_transport_time_s": 0.1744677777777778,
+        "junction_exchange_time_s": 0.12500000000000003,
+        "max_graph_distance_to_cj_m": 7.033333333333333e-07,
+        "mean_graph_distance_to_cj_m": 3.100396825396825e-07,
+        "n_nodes": 42,
+        "total_path_length_m": 1.3950000000000004e-06
+      },
+      "unit_check": {
+        "area_m2_positive": true,
+        "area_sum_matches": true,
+        "area_volume_ratio_m_inv": 3999999.9999999995,
+        "atp_flux_mol_per_s_positive": true,
+        "atp_flux_molecules_per_s_consistent": true,
+        "diffusion_time_s_positive": true,
+        "junction_time_s_positive": true,
+        "positive_si_parameters": true,
+        "volume_m3_positive": true,
+        "volume_sum_matches": true
+      }
+    },
+    "flat": {
+      "ant_flux_mol_per_s": 1.4744314893465182e-19,
+      "ant_site_count": 2000.0,
+      "area_m2": 2e-12,
+      "as_site_count": 2000.0,
+      "atp_flux_mol_per_m2_per_s": 7.372157446732625e-08,
+      "atp_flux_mol_per_s": 1.474431489346525e-19,
+      "atp_flux_molecules_per_ms_per_um2": 44.39616984910607,
+      "atp_flux_molecules_per_s": 88792.33969821213,
+      "ims_volume_m3": 5e-19,
+      "matrix_adp_mol_per_m3": 0.5529509289811851,
+      "matrix_atp_mol_per_m3": 0.6070490710188148,
+      "max_fractional_adp_depletion": 0.9962374928017625,
+      "mean_fractional_adp_depletion": 0.9962374928017625,
+      "mean_ims_adp_mol_per_m3": 0.0001392127663347903,
+      "min_ims_adp_mol_per_m3": 0.0001392127663347903,
+      "name": "flat",
+      "parameter_ant_vmax_mol_per_m2_per_s": 1.494485160456462e-07,
+      "parameter_as_vmax_mol_per_m2_per_s": 1.494485160456462e-07,
+      "transport": {
+        "cj_count": 1,
+        "cross_sectional_area_m2": 5.555555555555556e-13,
+        "diffusion_time_s": 0.0,
+        "end_to_end_transport_time_s": 0.12500000000000003,
+        "junction_exchange_time_s": 0.12500000000000003,
+        "max_graph_distance_to_cj_m": 0.0,
+        "mean_graph_distance_to_cj_m": 0.0,
+        "n_nodes": 1,
+        "total_path_length_m": 9e-07
+      },
+      "unit_check": {
+        "area_m2_positive": true,
+        "area_sum_matches": true,
+        "area_volume_ratio_m_inv": 3999999.9999999995,
+        "atp_flux_mol_per_s_positive": true,
+        "atp_flux_molecules_per_s_consistent": true,
+        "diffusion_time_s_positive": true,
+        "junction_time_s_positive": true,
+        "positive_si_parameters": true,
+        "volume_m3_positive": true,
+        "volume_sum_matches": true
+      }
+    },
+    "one_cj": {
+      "ant_flux_mol_per_s": 1.422318358391853e-19,
+      "ant_site_count": 2000.0,
+      "area_m2": 2e-12,
+      "as_site_count": 2000.0,
+      "atp_flux_mol_per_m2_per_s": 7.111591792017473e-08,
+      "atp_flux_mol_per_s": 1.4223183584034947e-19,
+      "atp_flux_molecules_per_ms_per_um2": 42.827006799189874,
+      "atp_flux_molecules_per_s": 85654.01359837974,
+      "ims_volume_m3": 5e-19,
+      "matrix_adp_mol_per_m3": 0.5322215255247108,
+      "matrix_atp_mol_per_m3": 0.6277784744752891,
+      "max_fractional_adp_depletion": 0.9997656984506117,
+      "mean_fractional_adp_depletion": 0.9964908464734515,
+      "mean_ims_adp_mol_per_m3": 0.0001298386804822891,
+      "min_ims_adp_mol_per_m3": 8.669157327370344e-06,
+      "name": "one_cj",
+      "parameter_ant_vmax_mol_per_m2_per_s": 1.494485160456462e-07,
+      "parameter_as_vmax_mol_per_m2_per_s": 1.494485160456462e-07,
+      "transport": {
+        "cj_count": 1,
+        "cross_sectional_area_m2": 5.555555555555553e-13,
+        "diffusion_time_s": 0.0810000000000001,
+        "end_to_end_transport_time_s": 0.20600000000000013,
+        "junction_exchange_time_s": 0.12500000000000003,
+        "max_graph_distance_to_cj_m": 9.000000000000005e-07,
+        "mean_graph_distance_to_cj_m": 4.500000000000002e-07,
+        "n_nodes": 42,
+        "total_path_length_m": 9.000000000000005e-07
+      },
+      "unit_check": {
+        "area_m2_positive": true,
+        "area_sum_matches": true,
+        "area_volume_ratio_m_inv": 3999999.9999999995,
+        "atp_flux_mol_per_s_positive": true,
+        "atp_flux_molecules_per_s_consistent": true,
+        "diffusion_time_s_positive": true,
+        "junction_time_s_positive": true,
+        "positive_si_parameters": true,
+        "volume_m3_positive": true,
+        "volume_sum_matches": true
+      }
+    },
+    "two_cj": {
+      "ant_flux_mol_per_s": 1.4501088856719916e-19,
+      "ant_site_count": 2000.0,
+      "area_m2": 2e-12,
+      "as_site_count": 2000.0,
+      "atp_flux_mol_per_m2_per_s": 7.250544428360128e-08,
+      "atp_flux_mol_per_s": 1.4501088856720255e-19,
+      "atp_flux_molecules_per_ms_per_um2": 43.66379913421842,
+      "atp_flux_molecules_per_s": 87327.59826843685,
+      "ims_volume_m3": 5e-19,
+      "matrix_adp_mol_per_m3": 0.5432644759877775,
+      "matrix_atp_mol_per_m3": 0.6167355240122224,
+      "max_fractional_adp_depletion": 0.9997079398178961,
+      "mean_fractional_adp_depletion": 0.9963579322502986,
+      "mean_ims_adp_mol_per_m3": 0.0001347565067389566,
+      "min_ims_adp_mol_per_m3": 1.0806226737844113e-05,
+      "name": "two_cj",
+      "parameter_ant_vmax_mol_per_m2_per_s": 1.494485160456462e-07,
+      "parameter_as_vmax_mol_per_m2_per_s": 1.494485160456462e-07,
+      "transport": {
+        "cj_count": 2,
+        "cross_sectional_area_m2": 5.555555555555553e-13,
+        "diffusion_time_s": 0.019274241522903045,
+        "end_to_end_transport_time_s": 0.14427424152290308,
+        "junction_exchange_time_s": 0.12500000000000003,
+        "max_graph_distance_to_cj_m": 4.3902439024390257e-07,
+        "mean_graph_distance_to_cj_m": 2.195121951219512e-07,
+        "n_nodes": 42,
+        "total_path_length_m": 9.000000000000005e-07
+      },
+      "unit_check": {
+        "area_m2_positive": true,
+        "area_sum_matches": true,
+        "area_volume_ratio_m_inv": 3999999.9999999995,
+        "atp_flux_mol_per_s_positive": true,
+        "atp_flux_molecules_per_s_consistent": true,
+        "diffusion_time_s_positive": true,
+        "junction_time_s_positive": true,
+        "positive_si_parameters": true,
+        "volume_m3_positive": true,
+        "volume_sum_matches": true
+      }
+    }
+  }
+}

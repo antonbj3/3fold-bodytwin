@@ -1,0 +1,96 @@
+{
+ "_meta": {
+  "what": "The nine acquisition entries from notes/ACQUISITION_LIST.md, written in NODE FORM so the node-driven data collection channel can consume them.",
+  "why": "Measured 2026-10-03 05:40: 57 data collection jobs in three hours search for public raw data, but they are driven by GRAPH NODES and zero of them hit any of our nine named acquisition entries. The overlap is generic words: concentration 13, area 11, permeability 5, flux 4, clearance 3, conductance 2, GFR 1. The specific quantities (Cread, DEJ separation work, rete ridge geometry, fibril fracture work) get zero hits. The channel works and is pointed elsewhere.",
+  "status": "PENDING_INDEPENDENT_REVIEW. This CHANGES no other lane's controller or queue. It is consumable material; routing into the channel requires the channel owner's OK.",
+  "key_rule": "Each entry carries a quantity, UNIT and what changes if the measurement is made. An entry without a unit cannot be searched for.",
+  "source": "notes/ACQUISITION_LIST.md (nine entries, entry 7 rewritten 2026-10-02 after the ratio alone was proved insufficient)"
+ },
+ "targets": [
+  {
+   "node_id": "bodytwin:ACQ-NEEDLE-CONTACT-READ-RATIO",
+   "quantity": "contact readout ratio Cread at needle-tissue contact",
+   "unit": "dimensionless [1]",
+   "replicates_required": 7,
+   "orderable": true,
+   "decides": "which of two remaining mechanisms carries the needle force's velocity dependence; predicted separation 1,0 versus 1,4552",
+   "search_terms": ["needle insertion force rate dependence porcine skin", "contact mechanics read ratio tissue", "poroelastic needle insertion drained support"]
+  },
+  {
+   "node_id": "bodytwin:ACQ-DEJ-MODE-RESOLVED-SEPARATION-WORK",
+   "quantity": "separation work for the dermo-epidermal boundary in opening, shear and mixed mode",
+   "unit": "J/m^2",
+   "orderable": false,
+   "no_measurement_exists": true,
+   "decides": "The SIGN of the age prediction for blister times; the ratio Gamma_II/Gamma_I is unbounded between 1 and 1e6",
+   "search_terms": ["dermal epidermal junction fracture energy mode mixity", "skin blister interface work of separation natural human", "basement membrane peel energy per unit area"]
+  },
+  {
+   "node_id": "bodytwin:ACQ-RETE-RIDGE-GEOMETRY-DISTRIBUTION",
+   "quantity": "rete ridge geometry wavelength and amplitude per body region and age",
+   "unit": "um",
+   "orderable": true,
+   "locators_confirmed": true,
+   "decides": "which side of the reversal real skin lies on; the reversals 0,148 / 0,227 / 0,288 / 0,334 / 0,368 for 100-300 um",
+   "caveat": "section-plane bias: a wavelength from a 2D section is a chord through a 3D surface",
+   "search_terms": ["rete ridge wavelength amplitude body site age histology", "dermal papillae spacing quantitative morphometry"]
+  },
+  {
+   "node_id": "bodytwin:ACQ-INTRAOPERATIVE-REGISTRATION-CADENCE",
+   "quantity": "actual clinical registration cadence and number of model updates per procedure, including SPATIAL registration time separately",
+   "unit": "s respektive antal",
+   "orderable": true,
+   "reporting_request_not_experiment": true,
+   "decides": "whether computation time constrains anything at all; core capacity 1192, strict setup ceiling 1072, whole cycle UNKNOWN",
+   "measured_note": "published timing EXCLUDES spatial registration (verified 2026-10-03); 145 s is the phantom core; one-time overhead of at least 866,75 s is HYPOTHETICAL and unmeasured",
+   "search_terms": ["intraoperative neuronavigation registration time breakdown", "image guided surgery workflow timing spatial registration separate"]
+  },
+  {
+   "node_id": "bodytwin:ACQ-JOINT-GFR-AND-TUBULAR-SECRETION",
+   "quantity": "measured GFR and tubular secretion capacity in the SAME individuals with the correlation preserved",
+   "unit": "mL/min respektive mL/min",
+   "orderable": true,
+   "same_subject_required": true,
+   "decides": "whether our only sign-reversing anchor reverses in a PATIENT or only in a fixture; the boundary 56,67 mL/min currently rests on a synthetic low-secretory fixture",
+   "caveat": "GFR must come from a reference method, not an estimation equation",
+   "search_terms": ["measured GFR and tubular secretion same subjects paired", "inulin clearance plus PAH secretion individual data"]
+  },
+  {
+   "node_id": "bodytwin:ACQ-RAW-DEGREES-OF-FREEDOM-ENZYME",
+   "quantity": "raw degrees of freedom and covariance between quantity and activity in the same preparation",
+   "unit": "antal respektive dimensionless",
+   "orderable": true,
+   "reporting_request_not_experiment": true,
+   "decides": "whether the enzyme residual exists; the interval [0,9852; 1,5942] ENCLOSES 1,0 under partial information, and 2,1 percent extra symmetric error erases it",
+   "search_terms": ["enzyme abundance activity covariance same preparation supplementary", "raw degrees of freedom reported protein activity correlation"]
+  },
+  {
+   "node_id": "bodytwin:ACQ-ABSOLUTE-MEMBRANE-FLUX-WITH-FREE-SPECIES",
+   "quantity": "absolute steady membrane flux AND free species inside, in the membrane and outside, in the same preparation",
+   "unit": "nmol/m^2/s respektive uM",
+   "orderable": false,
+   "corrected_2026_10_02": "The entry previously read 'intracellular accumulation ratio - the only non-flow-limited route'. WRONG: the scaling a,b -> lambda*a,lambda*b preserves steady state while flux scales with lambda, so a RATIO cannot constrain turnover alone.",
+   "decides": "transporter capacity, which is structurally unidentifiable from clearance when the extraction ratio approaches 1 (metformin 0,698 fails; TMAO 0,368 and creatinine 0,200 succeed)",
+   "search_terms": ["absolute transporter flux with free intracellular concentration same preparation", "membrane flux nmol per cm2 per min unbound species simultaneous"]
+  },
+  {
+   "node_id": "bodytwin:ACQ-FIBRIL-RUPTURE-AND-NODE-WORK",
+   "quantity": "full force-opening curve to fracture on an INDIVIDUAL fibril, and separation work for an interfibrillar junction",
+   "unit": "J/m^2 respektive J",
+   "orderable": false,
+   "two_data_laws": true,
+   "decides": "Gamma per layer, which is null today; without it the recruitment mechanism can only be tested as a RATIO",
+   "measured_note": "the network's bending slope converges towards the published 1,0 but the collapse holds only at MATCHED stress and size (2,69 percent) and not per realisation (18,84 percent)",
+   "search_terms": ["single collagen fibril force displacement to rupture AFM", "interfibrillar crosslink node separation work measurement"]
+  },
+  {
+   "node_id": "bodytwin:ACQ-DEJ-MICROSCOPY-AFTER-INCISION",
+   "quantity": "histology of fresh incisions with DEJ statistics",
+   "unit": "fraction [1] and um",
+   "orderable": true,
+   "decides": "which interface actually ruptures during an incision",
+   "caveat": "published histology exists but lacks the statistics",
+   "search_terms": ["fresh incision histology dermal epidermal junction separation statistics", "surgical wound edge basement membrane integrity quantitative"]
+  }
+ ]
+}

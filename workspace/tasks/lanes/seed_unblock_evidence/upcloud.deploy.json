@@ -1,0 +1,24 @@
+{
+  "time": 1790758620.0068831,
+  "uid": 1000,
+  "cleanup": {
+    "dead": 1067,
+    "live": 2
+  },
+  "live_after": 2,
+  "policy_changes": {
+    "reserve_worker_reserve_authorization": {
+      "before": "Anton LANE_RUNNER_reserve_worker_D: account D fallback only while both free models cooldown; high-value jobs; 24h reserve window pending exact quota tomorrow",
+      "after": "Anton LANE_RUNNER_SEED_UNBLOCK 2026-09-30: ordinary SEED and other queued jobs may use D reserve when no free admission (cooldown/cap/egress); 95% stop, existing stricter host cap 3 and window preserved"
+    },
+    "allocation": {
+      "before": "The swarm first; free_worker on cooldown; reserve_worker when both free models cooldown",
+      "after": "Available free model/egress first; reserve_worker reserve on unavailable free admission"
+    },
+    "reserve_worker_value_only": {
+      "before": true,
+      "after": false
+    }
+  },
+  "egress_sha256": "f8757c57b159d46d81c16b3465e667c362ed662badccc0740679f0ba9596b965"
+}

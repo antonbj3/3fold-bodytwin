@@ -1,0 +1,239 @@
+{
+  "id": "BT-DAT-Q058",
+  "purpose": "Public measured datasets that can constrain the model in inputs/Q058_model.py (BT-HX-Q058). No dataset here is used to change a model value; the constraint class vocabulary is frozen in PREREG.md (C2).",
+  "model_under_constraint": {
+    "file": "inputs/Q058_model.py",
+    "parameter_table_entries": 15,
+    "geometrical_or_anatomical_parameters": 0,
+    "geometry_finding": "NOT_APPLICABLE by construction: every entry of PARAMETER_TABLE is a time constant, a dimensionless weight, a normalised force or a numerical perturbation setting. No length, mass, moment arm, origin/insertion or anatomical frame exists in the model, so no anatomy or geometry dataset can constrain it. Verified by reading PARAMETER_TABLE in inputs/Q058_model.py lines 51-157.",
+    "units": "F/F_max dimensionless; time constants in s; k_f and k_s in s^-1; weights in 1",
+    "assumption_parameters_needing_data": [
+      "tau_a", "tau_x", "gamma_h", "tau_f", "k_f", "tau_s", "k_s", "w_f", "w_s"
+    ],
+    "literature_sourced_parameters": [
+      "tau_h = 22.0 s", "beta_ct = 0.379", "c0 = 0.050 s"
+    ]
+  },
+  "constraint_classes": {
+    "CONSTRAINED": "numerical interval on a named model parameter",
+    "BOUND_ONLY": "one-sided bound only",
+    "NOT_IDENTIFIED": "not identifiable from this dataset, reason given",
+    "NOT_APPLICABLE": "dataset does not bear on the named quantity"
+  },
+  "sources": [
+    {
+      "rank": 1,
+      "name": "Multi-channel Surface EMG Dataset for Fatigue analysis",
+      "url": "https://doi.org/10.5281/zenodo.5189275",
+      "repository_record": "https://zenodo.org/records/5189275",
+      "license": "CC-BY-4.0",
+      "size_bytes": 10603743,
+      "size_note": "single ZIP containing 1 MAT (3,542,248 B), 15 TXT (about 3.13 MB each) and 1 PDF (2,309,958 B)",
+      "format": "ZIP -> MATLAB v5 MAT and whitespace-delimited TXT, 8 columns per row = 8 sEMG channels",
+      "subjects": "15 healthy subjects, one TXT file per subject (sub1.txt .. sub15.txt)",
+      "protocol": "6 kg load, elbow flexed to 90 deg, 120 s continuous hold; sampling 200 Hz; 8-bit resolution; 50 Hz notch filtered",
+      "measured_quantity": "multi-channel surface EMG amplitude time series under sustained submaximal isometric load",
+      "downloaded": true,
+      "local_sample": "samples/zenodo_5189275_emg_fatigue.zip",
+      "verifies_as": {
+        "form": "24085 x 8 float64 per subject (8 channels x 120.4 s at 200 Hz)",
+        "units": "8-bit ADC counts, full scale -128..+127; amplifier gain not published, microvolt value UNKNOWN",
+        "coordinate_frame": "NOT_APPLICABLE - EMG channels carry no anatomical frame; channel-to-muscle mapping not supplied in the record"
+      },
+      "constrains": [
+        {
+          "model_quantity": "tau_f, tau_s (fast/slow fatigue-memory time constants)",
+          "class": "BOUND_ONLY",
+          "basis": "PREREG C4: EMG log amplitude may not set k_f, k_s, w_f, w_s, gamma_h. Measured envelope trend is +0.00352 /s mean aggregate (results.json M2_fatigue_change.aggregate_log_slope_per_s), i.e. rising, which bounds the sign question but gives no force-domain time constant."
+        },
+        {
+          "model_quantity": "monotone capacity decay C = clip(1 - w_f*m_f - w_s*m_s, 0, 1) under constant load",
+          "class": "BOUND_ONLY",
+          "basis": "Measured median channel RMS ratio last 20 s / first 20 s is 1.399 +- 0.286 (mean +- SD over 15 subjects, range 1.076-2.326); 90.0% of the 120 subject-channel comparisons are > 1. The model's structural assumption of monotone capacity loss under constant external load is not reproduced by any activation-domain measure available here, so k_f and k_s cannot both be positive in a way that the data would support unopposed."
+        },
+        {
+          "model_quantity": "between-subject spread of any fatigue parameter",
+          "class": "CONSTRAINED",
+          "basis": "All 15 of 15 subjects show a majority of channels rising (5-8 of 8). Any per-subject fatigue parameter therefore needs an interval at least as wide as the observed 1.08-2.33 envelope ratio spread; a single population value is insufficient."
+        },
+        {
+          "model_quantity": "tau_a = 0.025 s, tau_x = 0.015 s",
+          "class": "NOT_IDENTIFIED",
+          "basis": "PREREG C3: sampling-resolvable floor is 2/f_s = 0.010 s and the record contains no load onset (see M1 below), so neither constant can be estimated."
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Spatial variation and inconsistency between estimates of onset of muscle activation",
+      "url": "https://doi.org/10.5281/zenodo.232032",
+      "repository_record": "https://zenodo.org/records/232032",
+      "license": "CC-BY-4.0",
+      "size_bytes": 15626608689,
+      "size_note": "15.6 GB total; per-subject ultrasound DICOM about 3.2 MB and per-trial .tvd about 67-74 MB",
+      "format": "DICOM (ultrasound cine) plus .tvd volume files",
+      "subjects": "10 healthy men (file names encode e.g. S15M2, S28M3)",
+      "protocol": "isometric elbow flexion at 20-70% of maximal force, multi-channel EMG registered simultaneously with ultrasound motion of a deep muscle",
+      "measured_quantity": "onset of muscle activation measured two independent ways (EMG excitation vs ultrasound muscle motion)",
+      "downloaded": true,
+      "local_sample": "samples/zenodo_232032_ultrasound_ons.dcm",
+      "verifies_as": {
+        "form": "3,234,380 byte DICOM, DICM magic at offset 128, file-meta group parsed",
+        "units": "ultrasound B-mode pixel data; pixel spacing and frame time NOT_PARSED (implicit VR data set, no pydicom in environment), so spatial calibration is UNKNOWN",
+        "coordinate_frame": "US Ultrasound Image Storage (SOP class 1.2.840.10008.5.1.4.1.1.6.1), transfer syntax 1.2.840.10008.1.2 implicit VR little endian; the ultrasound scan-plane frame is defined by the undecoded data set and is therefore UNKNOWN here"
+      },
+      "constrains": [
+        {
+          "model_quantity": "tau_a (activation-filter time constant 0.025 s)",
+          "class": "CONSTRAINED",
+          "basis": "This is the only located public dataset whose measured quantity is the EMG-versus-motion activation delay itself, and it reports that the two onset estimates disagree. It can therefore bound tau_a from measured onsets; it cannot set it, and the delay is confounded with electrode geometry, so a point value is not licensed. This is the recommended next acquisition for Q058."
+        },
+        {
+          "model_quantity": "gamma_h (central adaptation target current)",
+          "class": "BOUND_ONLY",
+          "basis": "Onset inconsistency bounds how much of the model's central adaptation can be attributed to the neural drive u rather than to detection lag."
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Dataset Effect of hypnotic suggestion on knee extensor neuromuscular properties in recreational athletes",
+      "url": "https://doi.org/10.5281/zenodo.1213604",
+      "repository_record": "https://zenodo.org/records/1213604",
+      "license": "CC-BY-4.0",
+      "size_bytes": 877542,
+      "size_note": "one XLSX of 838,468 B plus per-figure CSVs; the two CSVs kept here are 14,102 B and 1,818 B",
+      "format": "CSV (semicolon separated) and XLSX; per-participant values, no raw time series",
+      "subjects": "13 participants (participant ids 1-13 repeat across 3 tables in Dataset Table 2.csv)",
+      "protocol": "knee extensor maximal voluntary contraction, interpolated twitch and motor evoked potential, pre and post, control and hypnosis session",
+      "measured_quantity": "M-wave amplitude (mV), motor evoked potential amplitude (mV and normalised %), maximal voluntary activation (%)",
+      "downloaded": true,
+      "local_samples": [
+        "samples/zenodo_1213604_knee_extensor_Table1.csv",
+        "samples/zenodo_1213604_knee_extensor_Table2.csv"
+      ],
+      "verifies_as": {
+        "form": "Table 1 = 192 x 32, Table 2 = 59 x 14 as read with sep=';'",
+        "units": "mV for M-wave and MEP amplitudes, % for normalised MEP and voluntary activation",
+        "coordinate_frame": "NOT_APPLICABLE - scalar per-muscle values, no frame"
+      },
+      "constrains": [
+        {
+          "model_quantity": "u (normalised drive) scale and hence gamma_h",
+          "class": "BOUND_ONLY",
+          "basis": "Voluntary activation percentage and MEP/M-wave ratio give a measured ceiling on how far the normalised drive can sit below 1. PREREG C4 still forbids using this to set gamma_h as a point value; it bounds the admissible drive range only."
+        },
+        {
+          "model_quantity": "c0 (0.050 s) and beta_ct (0.379) contraction-time terms",
+          "class": "NOT_APPLICABLE",
+          "basis": "PREREG C5: the retained CSVs hold amplitudes, not contraction times. Peak doublet force is reported in the XLSX but no contraction time is in the sampled files, so neither c0 nor beta_ct is touched."
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Fatiguing effects of indirect vibration stimulation in upper limb muscles (Dryad jq8bg5c)",
+      "url": "https://doi.org/10.5061/dryad.jq8bg5c",
+      "repository_record": "https://zenodo.org/records/5002235",
+      "license": "CC0-1.0",
+      "size_bytes": 1045383,
+      "size_note": "three XLSX: MVCs_MEF+MDF 139,097 B (sampled), MVCs_RMS 139,810 B, Trial 80%_RMS 766,476 B",
+      "format": "XLSX, one sheet per subject (8 sheets in the sampled file), tabulated per-trial EMG metrics",
+      "subjects": "13 healthy volunteers, each exposed to vibration-superimposed and control isometric protocols",
+      "protocol": "sustained isometric upper limb contractions at 80% of maximum voluntary contraction, plus MVC trials; 30 Hz vibration in the superimposed condition",
+      "measured_quantity": "EMG median frequency (MDF), mean frequency (MEF) and RMS amplitude, per trial, as fatigue indices",
+      "downloaded": true,
+      "local_sample": "samples/dryad_jq8bg5c_MVCs_MEF_MDF.xlsx",
+      "verifies_as": {
+        "form": "17 sheets as read by pandas.read_excel: 13 per-subject sheets labelled '1'..'13' (55 x 23 each, except sheet '4' at 54 x 23) plus 4 analysis sheets (Calculations-MEF 63 x 23, Paired T-tests-MEF 60 x 20, Calculations-MDF 62 x 23, Paired T-tests MDF 60 x 20). The 13 subject sheets independently confirm the cohort size of 13.",
+        "units": "Hz for MEF/MDF; numeric range 0.50-129.00 in the sampled sheet",
+        "coordinate_frame": "NOT_APPLICABLE - per-trial scalar metrics"
+      },
+      "constrains": [
+        {
+          "model_quantity": "tau_f and tau_s as a two-timescale split",
+          "class": "BOUND_ONLY",
+          "basis": "MDF and MEF at 80% MVC are the standard frequency-domain fatigue indices and give the two-timescale shape over a sustained isometric hold, but they are activation-domain and PREREG C4 bars a point value. Usable as an interval check once a force-domain dataset is available."
+        },
+        {
+          "model_quantity": "model output E_switch after a switch plus a later perturbation",
+          "class": "NOT_IDENTIFIED",
+          "basis": "The protocol has no documented model-detail switch and no post-switch perturbation, so it cannot speak to the Q058 switching criterion itself."
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Effects of Perturbation Velocity, Direction, Background muscle activation, and Task Intensity on Motor Evoked Potentials",
+      "url": "https://doi.org/10.5281/zenodo.4641292",
+      "repository_record": "https://zenodo.org/records/4641292",
+      "license": "CC-BY-4.0",
+      "size_bytes": 78364779,
+      "size_note": "one EMG.mat of 78,364,779 B plus README.docx 18,955 B; the single MAT exceeds the 50 MB sampling limit in PREREG C1, so it was catalogued but not downloaded",
+      "format": "MATLAB v7 MAT; workspace holds cell arrays of normalised EMG tracks for ECU, FCR, ECU-LR, FCR-LR against a time vector",
+      "subjects": "not stated in the record metadata; each condition repeated 10 times per subject",
+      "protocol": "motor perturbation with velocity, direction, background activation and task intensity varied",
+      "measured_quantity": "normalised EMG time series around externally triggered perturbations",
+      "downloaded": false,
+      "constrains": [
+        {
+          "model_quantity": "model output post_perturbation_max_error, and the switch error after a background-activation change",
+          "class": "NOT_APPLICABLE",
+          "basis": "Best structural match found to the model's perturbation test (a background activation is changed and the EMG response is recorded), but the file cannot be sampled under the 50 MB rule and no document-level switching event is present, so it is a lead for a later run rather than a constraint used here."
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "Determining voluntary activation in synergistic muscles (mechanomyography)",
+      "url": "https://doi.org/10.5281/zenodo.5534422",
+      "repository_record": "https://zenodo.org/records/5534422",
+      "license": "CC-BY-4.0",
+      "size_bytes": 101123,
+      "format": "XLSX, per-participant values",
+      "subjects": "25 men, age 25 (SD 1) y, body mass 77 (SD 2) kg, stature 1.81 (SD 0.02) m",
+      "protocol": "unilateral single-leg quadriceps exercise to failure, mechanomyography of the superficial quadriceps heads, voluntary activation measured per head",
+      "measured_quantity": "voluntary activation level (%) of individual quadriceps heads correlated with MMG change after a fatiguing task",
+      "downloaded": false,
+      "constrains": [
+        {
+          "model_quantity": "gamma_h and the memory weights w_f, w_s through between-muscle-head activation divergence",
+          "class": "BOUND_ONLY",
+          "basis": "Per-head voluntary activation after a fatiguing task is a direct human measure of how activation capacity is redistributed, which bounds the two-timescale weighting. Values are tabular, so PREREG C6 rules it out as a source of measured quantities here."
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "A comprehensive mathematical model of motor unit pool organization, surface EMG and force (Dryad 326qs26)",
+      "url": "https://doi.org/10.5061/dryad.326qs26",
+      "repository_record": "https://zenodo.org/records/4962148",
+      "license": "CC0-1.0",
+      "size_bytes": 202525657,
+      "format": "MAT (202,509,144 B simulation output), R configuration (13,735 B), M plotting script, README",
+      "subjects": "none - this is a simulation record, not a human cohort",
+      "measured_quantity": "simulated surface EMG and force for rectus abdominis from a motor unit pool model",
+      "downloaded": false,
+      "constrains": [
+        {
+          "model_quantity": "all parameters",
+          "class": "NOT_APPLICABLE",
+          "basis": "Listed explicitly because the brief asks for measured datasets. This record is a model output, so under the brief's own terms it cannot constrain the model; it is retained only as a structural cross-check on tau_a and tau_x and is not used as evidence."
+        }
+      ]
+    }
+  ],
+  "sample_manifest": [
+    {"path": "samples/zenodo_5189275_emg_fatigue.zip", "bytes": 10603743, "md5_from_record": "a954b4eff5594fd8b1670b1a1d0eb864", "verified": true},
+    {"path": "samples/zenodo_232032_ultrasound_ons.dcm", "bytes": 3234380, "verified": true},
+    {"path": "samples/dryad_jq8bg5c_MVCs_MEF_MDF.xlsx", "bytes": 139097, "verified": true},
+    {"path": "samples/zenodo_1213604_knee_extensor_Table1.csv", "bytes": 14102, "verified": true},
+    {"path": "samples/zenodo_1213604_knee_extensor_Table2.csv", "bytes": 1818, "verified": true}
+  ],
+  "no_sample_exceeds": 50000000,
+  "gap_summary": {
+    "force_domain_fatigue_timeseries": "NOT LOCATED. No public record in this sweep gives a sustained-isometric force time series in F/F_max with a documented switch or perturbation. This is the single largest gap for Q058, because the model's load term is force-dimensioned and C4 therefore blocks the EMG route.",
+    "twitch_contraction_time_series": "PARTIAL. Record 1213604 reports peak doublet force but the sampled files carry no contraction time; a dedicated evoked-twitch time-series record is still wanted for c0 and tau_x.",
+    "paired_fine_coarse_switch_records": "NOT LOCATED. Nothing public documents a model-detail switch on the same preparation, which is exactly the quantity Q058 asks about."
+  }
+}

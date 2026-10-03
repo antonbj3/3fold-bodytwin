@@ -1,0 +1,927 @@
+{
+  "id": "BT-HX-Q090",
+  "model": "rigid-jaw 2DOF nonlinear compliant support network",
+  "equations": {
+    "fiber_homogenization": "E_ax = sum_i f_i E_i cos^2(alpha_i) [Pa]",
+    "pdl_solid_force": "F_PDL = (E_ax A/t) delta [1 + a_PDL (delta/(t epsilon_ref))^2] [N]",
+    "bone_series_force": "F_bone = (E_bone A/L_bone) delta [N]",
+    "darcy_consolidation_drag": "F_drag = (eta t A/k_perm) delta_dot [N]",
+    "tooth_series_force": "F_tooth = F_PDL + F_bone + F_drag [N]",
+    "tmj_series_force": "F_TMJ = F_disc(F) + F_condylar_cartilage(F) + F_temporal_cartilage(F) [N]",
+    "rigid_jaw_kinematics": "u_i = y + x_i theta; u_dot_i = y_dot + x_i theta_dot [m]",
+    "static_momentum_balance": "sum_i F_i = F_close; sum_i x_i F_i = M_external [N, N m]",
+    "energy": "U = sum_i integral_0^u_i F_i(s) ds; D_dot = c_pdl sum_tooth(u_dot_i)^2; W_ext = integral Q(t)^T q(t) dt",
+    "dynamic_momentum_balance": "diag(m,I) q_ddot + J(q)^T f(J q, J q_dot) = Q(t)",
+    "dimensional_checks": "k t/A = E; C E A/L = 1; c k_perm/(eta t A) = 1; F x = N m",
+    "damage_scope": "No irreversible damage law; reversible nonlinear elasticity and Darcy dissipation only"
+  },
+  "preregistration": {
+    "path": "/opt/agents/jobs/BT-HX-Q090/PREREG.md",
+    "expected_sha256": "a84ba74c54f80b296bccb00c26806236509770a3c24057c4e9eefe4f196c8ca4",
+    "actual_sha256": "a84ba74c54f80b296bccb00c26806236509770a3c24057c4e9eefe4f196c8ca4",
+    "matches": true
+  },
+  "parameter_table": [
+    {
+      "name": "fiber_vertical_area_fraction",
+      "value_si": 0.3,
+      "unit": "1",
+      "source_assumption": "Three assumed fibre families; homogenisation assumption, not measured data"
+    },
+    {
+      "name": "fiber_vertical_modulus",
+      "value_si": 2000000.0,
+      "unit": "Pa",
+      "source_assumption": "Antagen homogeniserad fibermodul"
+    },
+    {
+      "name": "fiber_vertical_angle",
+      "value_si": 0.0,
+      "unit": "rad",
+      "source_assumption": "Antagen familjeriktning relativt tandaxeln"
+    },
+    {
+      "name": "fiber_oblique_45deg_area_fraction",
+      "value_si": 0.55,
+      "unit": "1",
+      "source_assumption": "Three assumed fibre families; homogenisation assumption, not measured data"
+    },
+    {
+      "name": "fiber_oblique_45deg_modulus",
+      "value_si": 1000000.0,
+      "unit": "Pa",
+      "source_assumption": "Antagen homogeniserad fibermodul"
+    },
+    {
+      "name": "fiber_oblique_45deg_angle",
+      "value_si": 0.7853981633974483,
+      "unit": "rad",
+      "source_assumption": "Antagen familjeriktning relativt tandaxeln"
+    },
+    {
+      "name": "fiber_circumferential_area_fraction",
+      "value_si": 0.15,
+      "unit": "1",
+      "source_assumption": "Three assumed fibre families; homogenisation assumption, not measured data"
+    },
+    {
+      "name": "fiber_circumferential_modulus",
+      "value_si": 3000000.0,
+      "unit": "Pa",
+      "source_assumption": "Antagen homogeniserad fibermodul"
+    },
+    {
+      "name": "fiber_circumferential_angle",
+      "value_si": 1.5707963267948966,
+      "unit": "rad",
+      "source_assumption": "Antagen familjeriktning relativt tandaxeln"
+    },
+    {
+      "name": "molar_support_area_m2",
+      "value_si": 0.0002,
+      "unit": "m^2",
+      "source_assumption": "Assumed root support area of an adult molar"
+    },
+    {
+      "name": "pdl_thickness_m",
+      "value_si": 0.0002,
+      "unit": "m",
+      "source_assumption": "Antagen genomsnittlig axiell PDL-tjocklek"
+    },
+    {
+      "name": "pdl_strain_scale",
+      "value_si": 0.2,
+      "unit": "1",
+      "source_assumption": "Assumed reference strain for reversible stiffening"
+    },
+    {
+      "name": "pdl_stiffening_coefficient",
+      "value_si": 2.0,
+      "unit": "1",
+      "source_assumption": "Antagen fiber-crimp/engagemangsterm"
+    },
+    {
+      "name": "alveolar_bone_modulus_pa",
+      "value_si": 20000000000.0,
+      "unit": "Pa",
+      "source_assumption": "Assumed short-term modulus in alveolar bone"
+    },
+    {
+      "name": "alveolar_bone_thickness_m",
+      "value_si": 0.002,
+      "unit": "m",
+      "source_assumption": "Assumed load-bearing bone length in series"
+    },
+    {
+      "name": "fluid_viscosity_pa_s",
+      "value_si": 0.001,
+      "unit": "Pa s",
+      "source_assumption": "Assumed pore fluid viscosity"
+    },
+    {
+      "name": "pdl_permeability_m2",
+      "value_si": 1e-13,
+      "unit": "m^2",
+      "source_assumption": "Assumed PDL permeability; controls Darcy damping"
+    },
+    {
+      "name": "tmj_joint_area_m2",
+      "value_si": 0.0005,
+      "unit": "m^2",
+      "source_assumption": "Antagen effektiv TMJ-kontaktarea"
+    },
+    {
+      "name": "tmj_disc_thickness_m",
+      "value_si": 0.0015,
+      "unit": "m",
+      "source_assumption": "Antagen komprimerad skivtjocklek"
+    },
+    {
+      "name": "tmj_disc_modulus_pa",
+      "value_si": 1000000.0,
+      "unit": "Pa",
+      "source_assumption": "Antagen skivmodul"
+    },
+    {
+      "name": "tmj_condylar_cartilage_thickness_m",
+      "value_si": 0.00015,
+      "unit": "m",
+      "source_assumption": "Antagen kondylkartiltjocklek"
+    },
+    {
+      "name": "tmj_condylar_cartilage_modulus_pa",
+      "value_si": 2000000.0,
+      "unit": "Pa",
+      "source_assumption": "Antagen kondylkartilmodul"
+    },
+    {
+      "name": "tmj_temporal_cartilage_thickness_m",
+      "value_si": 0.0001,
+      "unit": "m",
+      "source_assumption": "Antagen temporal kartiltjocklek"
+    },
+    {
+      "name": "tmj_temporal_cartilage_modulus_pa",
+      "value_si": 2000000.0,
+      "unit": "Pa",
+      "source_assumption": "Antagen temporal kartilmodul"
+    },
+    {
+      "name": "tmj_displacement_scale_m",
+      "value_si": 0.0001,
+      "unit": "m",
+      "source_assumption": "Assumed reference displacement for TMJ stiffening"
+    },
+    {
+      "name": "tmj_stiffening_coefficient",
+      "value_si": 1.0,
+      "unit": "1",
+      "source_assumption": "Assumed disc/tissue engagement term"
+    },
+    {
+      "name": "tmj_retrodiscal_tension_fraction",
+      "value_si": 0.2,
+      "unit": "1",
+      "source_assumption": "Assumed tensile fraction for open-joint control"
+    },
+    {
+      "name": "molar_lever_m",
+      "value_si": 0.03,
+      "unit": "m",
+      "source_assumption": "Assumed half molar support distance from the sagittal plane"
+    },
+    {
+      "name": "condyle_lever_m",
+      "value_si": 0.045,
+      "unit": "m",
+      "source_assumption": "Assumed half condylar distance from the sagittal plane"
+    },
+    {
+      "name": "effective_condyle_radius_m",
+      "value_si": 0.02,
+      "unit": "m",
+      "source_assumption": "Assumed geometric angle proxy for condylar translation"
+    },
+    {
+      "name": "close_load_n",
+      "value_si": 100.0,
+      "unit": "N",
+      "source_assumption": "Frozen normalising 100 N scenario, not measured data"
+    },
+    {
+      "name": "external_moment_nm",
+      "value_si": 0.0,
+      "unit": "N m",
+      "source_assumption": "Frozen external moment; zero in the primary symmetric run"
+    },
+    {
+      "name": "mandible_mass_kg",
+      "value_si": 4.0,
+      "unit": "kg",
+      "source_assumption": "Assumed effective jaw mass for 1D control"
+    },
+    {
+      "name": "mandible_inertia_kgm2",
+      "value_si": 0.004,
+      "unit": "kg m^2",
+      "source_assumption": "Antagen effektiv rotationsinertsi"
+    },
+    {
+      "name": "load_ramp_s",
+      "value_si": 0.02,
+      "unit": "s",
+      "source_assumption": "Frozen time profile for checking quasi-statics"
+    },
+    {
+      "name": "simulation_time_s",
+      "value_si": 0.2,
+      "unit": "s",
+      "source_assumption": "Numerical control window"
+    },
+    {
+      "name": "root_tolerance",
+      "value_si": 1e-12,
+      "unit": "1",
+      "source_assumption": "Numerisk tolerans"
+    },
+    {
+      "name": "integration_max_step_s",
+      "value_si": 0.001,
+      "unit": "s",
+      "source_assumption": "Numerisk tidsstegstak"
+    },
+    {
+      "name": "reference_mobility_m",
+      "value_si": 8e-05,
+      "unit": "m",
+      "source_assumption": "UNVERIFIED, FROM MEMORY: comparison anchor 0.08 mm"
+    }
+  ],
+  "derived_baseline_parameters": {
+    "effective_pdl_axial_modulus_pa": 875000.0,
+    "pdl_tangent_stiffness_n_per_m": 875000.0,
+    "bone_stiffness_n_per_m": 2000000000.0,
+    "hydraulic_drag_n_s_per_m": 400.0,
+    "tmj_tangent_stiffness_n_per_m": 17000000.0
+  },
+  "static_baseline": {
+    "converged": true,
+    "message": "The solution converged.",
+    "iterations": 7,
+    "jaw_translation_um": 2.795886940677234,
+    "jaw_pitch_deg": 0.0,
+    "branch_displacements_um": {
+      "tooth_left": 2.795886940677234,
+      "tooth_right": 2.795886940677234,
+      "tmj_left": 2.795886940677234,
+      "tmj_right": 2.795886940677234
+    },
+    "pdl_local_deflections_um": {
+      "tooth_left": 2.7946523439296898,
+      "tooth_right": 2.7946523439296898
+    },
+    "contact_forces_n": {
+      "tooth_left": 2.4691934950576497,
+      "tooth_right": 2.4691934950576497
+    },
+    "tmj_forces_n": {
+      "tmj_left": 47.53080650494232,
+      "tmj_right": 47.53080650494232
+    },
+    "pdl_pressure_kpa": {
+      "tooth_left": 12.345967475288248,
+      "tooth_right": 12.345967475288248
+    },
+    "tmj_angle_deg": {
+      "tmj_left": 0.008009626032651523,
+      "tmj_right": 0.008009626032651523
+    },
+    "tooth_load_fraction": 0.049383869901153024,
+    "tmj_load_fraction": 0.9506161300988469,
+    "equilibrium_residual": {
+      "force_n": -5.684341886080802e-14,
+      "moment_nm": 0.0,
+      "force_relative": 5.684341886080802e-16,
+      "moment_relative": 0.0
+    },
+    "external_contact_work_mj": 0.1397599664162792,
+    "stored_elastic_energy_mj": 0.13975997067298204,
+    "energy_residual_mj": -4.256702846108795e-09
+  },
+  "single_tooth_100n_control": {
+    "force_n": 100.0,
+    "tooth_displacement_um": 39.21897741187839,
+    "pdl_deflection_um": 39.168977411879126,
+    "bone_deflection_um": 0.04999999999926938,
+    "pdl_stress_kpa": 500.0
+  },
+  "reference_comparison": {
+    "reference_mobility_m": 8e-05,
+    "reference_value": "0.08 mm",
+    "reference_force": "nominal 100 N",
+    "reference_source": "Bien & Topp (1970), Changes in the periodicity of the tooth mobility pattern during mastication, Journal of Periodology",
+    "reference_source_status": "OVERIFIERAD, UR MINNET",
+    "model_to_reference_ratio": 0.4902372176484799,
+    "frozen_numeric_interval": [
+      0.5,
+      2.0
+    ],
+    "numeric_proxy_status": "PROXY_FAIL",
+    "external_validation_status": "UNKNOWN",
+    "reason": "No internet verification and no verified matching force protocol"
+  },
+  "linear_analytical_limit": {
+    "matrix_solution": {
+      "stiffness_matrix_n_per_m": [
+        [
+          35749234.70981446,
+          0.0
+        ],
+        [
+          0.0,
+          70424.311238833
+        ]
+      ],
+      "generalized_coordinates": [
+        2.797262677417438e-06,
+        0.0
+      ],
+      "forces_n": {
+        "tooth_left": 2.446534483903781,
+        "tooth_right": 2.446534483903781,
+        "tmj_left": 47.55346551609645,
+        "tmj_right": 47.55346551609645
+      },
+      "residual": [
+        4.689582056016661e-13,
+        0.0
+      ]
+    },
+    "nonlinear_solver_in_linear_limit": {
+      "converged": true,
+      "message": "The solution converged.",
+      "iterations": 5,
+      "jaw_translation_um": 2.797262677417425,
+      "jaw_pitch_deg": 0.0,
+      "branch_displacements_um": {
+        "tooth_left": 2.797262677417425,
+        "tooth_right": 2.797262677417425,
+        "tmj_left": 2.797262677417425,
+        "tmj_right": 2.797262677417425
+      },
+      "pdl_local_deflections_um": {
+        "tooth_left": 2.7960394101757498,
+        "tooth_right": 2.7960394101757498
+      },
+      "contact_forces_n": {
+        "tooth_left": 2.446534483903781,
+        "tooth_right": 2.446534483903781
+      },
+      "tmj_forces_n": {
+        "tmj_left": 47.55346551609624,
+        "tmj_right": 47.55346551609624
+      },
+      "pdl_pressure_kpa": {
+        "tooth_left": 12.232672419518904,
+        "tooth_right": 12.232672419518904
+      },
+      "tmj_angle_deg": {
+        "tmj_left": 0.008013567228021167,
+        "tmj_right": 0.008013567228021167
+      },
+      "tooth_load_fraction": 0.048930689678075595,
+      "tmj_load_fraction": 0.9510693103219243,
+      "equilibrium_residual": {
+        "force_n": 4.263256414560601e-14,
+        "moment_nm": 0.0,
+        "force_relative": 4.263256414560601e-16,
+        "moment_relative": 0.0
+      },
+      "external_contact_work_mj": 0.13986313387086954,
+      "stored_elastic_energy_mj": 0.1398631338708706,
+      "energy_residual_mj": -1.0570971181733668e-15
+    },
+    "relative_error": 4.69352084394268e-15,
+    "status": "PASS"
+  },
+  "sensitivity": {
+    "baseline": {
+      "converged": true,
+      "message": "The solution converged.",
+      "iterations": 7,
+      "jaw_translation_um": 2.795886940677234,
+      "jaw_pitch_deg": 0.0,
+      "branch_displacements_um": {
+        "tooth_left": 2.795886940677234,
+        "tooth_right": 2.795886940677234,
+        "tmj_left": 2.795886940677234,
+        "tmj_right": 2.795886940677234
+      },
+      "pdl_local_deflections_um": {
+        "tooth_left": 2.7946523439296898,
+        "tooth_right": 2.7946523439296898
+      },
+      "contact_forces_n": {
+        "tooth_left": 2.4691934950576497,
+        "tooth_right": 2.4691934950576497
+      },
+      "tmj_forces_n": {
+        "tmj_left": 47.53080650494232,
+        "tmj_right": 47.53080650494232
+      },
+      "pdl_pressure_kpa": {
+        "tooth_left": 12.345967475288248,
+        "tooth_right": 12.345967475288248
+      },
+      "tmj_angle_deg": {
+        "tmj_left": 0.008009626032651523,
+        "tmj_right": 0.008009626032651523
+      },
+      "tooth_load_fraction": 0.049383869901153024,
+      "tmj_load_fraction": 0.9506161300988469,
+      "equilibrium_residual": {
+        "force_n": -5.684341886080802e-14,
+        "moment_nm": 0.0,
+        "force_relative": 5.684341886080802e-16,
+        "moment_relative": 0.0
+      },
+      "external_contact_work_mj": 0.1397599664162792,
+      "stored_elastic_energy_mj": 0.13975997067298204,
+      "energy_residual_mj": -4.256702846108795e-09
+    },
+    "ranked_parameters": [
+      {
+        "rank": 1,
+        "parameter": "t_PDL",
+        "max_abs_relative_change_percent": 94.85650685426413,
+        "mean_abs_relative_change_percent": 23.440639591556828
+      },
+      {
+        "rank": 2,
+        "parameter": "E_PDL",
+        "max_abs_relative_change_percent": 48.698176109427614,
+        "mean_abs_relative_change_percent": 17.47668995560308
+      },
+      {
+        "rank": 3,
+        "parameter": "E_TMJ_disc",
+        "max_abs_relative_change_percent": 0.9589745607341049,
+        "mean_abs_relative_change_percent": 0.6436906078454642
+      }
+    ],
+    "cases": [
+      {
+        "parameter": "t_PDL",
+        "perturbations": [
+          {
+            "factor": 0.5,
+            "relative_change_percent": {
+              "tooth_load_fraction": 94.85650685426386,
+              "tmj_load_fraction": -4.9277318629989075,
+              "tooth_left_displacement_um": -4.927591792252695,
+              "pdl_pressure_left_kpa": 94.85650685426413,
+              "tmj_left_load_n": -4.927731862998774,
+              "tmj_left_angle_deg": -4.927591732721714
+            },
+            "result": {
+              "converged": true,
+              "message": "The solution converged.",
+              "iterations": 8,
+              "jaw_translation_um": 2.658117045267758,
+              "jaw_pitch_deg": 0.0,
+              "branch_displacements_um": {
+                "tooth_left": 2.658117045267758,
+                "tooth_right": 2.658117045267758,
+                "tmj_left": 2.658117045267758,
+                "tmj_right": 2.658117045267758
+              },
+              "pdl_local_deflections_um": {
+                "tooth_left": 2.6557113531718923,
+                "tooth_right": 2.6557113531718923
+              },
+              "contact_forces_n": {
+                "tooth_left": 4.811384191942053,
+                "tooth_right": 4.811384191942053
+              },
+              "tmj_forces_n": {
+                "tmj_left": 45.18861580805798,
+                "tmj_right": 45.18861580805798
+              },
+              "pdl_pressure_kpa": {
+                "tooth_left": 24.056920959710265,
+                "tooth_right": 24.056920959710265
+              },
+              "tmj_angle_deg": {
+                "tmj_left": 0.0076149443624446604,
+                "tmj_right": 0.0076149443624446604
+              },
+              "tooth_load_fraction": 0.09622768383884099,
+              "tmj_load_fraction": 0.9037723161611589,
+              "equilibrium_residual": {
+                "force_n": 7.105427357601002e-14,
+                "moment_nm": 0.0,
+                "force_relative": 7.105427357601002e-16,
+                "moment_relative": 0.0
+              },
+              "external_contact_work_mj": 0.13268737232187333,
+              "stored_elastic_energy_mj": 0.13268739885251463,
+              "energy_residual_mj": -2.653064129064936e-08
+            }
+          },
+          {
+            "factor": 1.5,
+            "relative_change_percent": {
+              "tooth_load_fraction": -32.550143973357834,
+              "tmj_load_fraction": 1.6909581316245426,
+              "tooth_left_displacement_um": 1.6909049759042727,
+              "pdl_pressure_left_kpa": -32.550143973357805,
+              "tmj_left_load_n": 1.690958131624587,
+              "tmj_left_angle_deg": 1.6909049533127662
+            },
+            "result": {
+              "converged": true,
+              "message": "The solution converged.",
+              "iterations": 7,
+              "jaw_translation_um": 2.8431627320778032,
+              "jaw_pitch_deg": 0.0,
+              "branch_displacements_um": {
+                "tooth_left": 2.8431627320778032,
+                "tooth_right": 2.8431627320778032,
+                "tmj_left": 2.8431627320778032,
+                "tmj_right": 2.8431627320778032
+              },
+              "pdl_local_deflections_um": {
+                "tooth_left": 2.8423299983502144,
+                "tooth_right": 2.8423299983502144
+              },
+              "contact_forces_n": {
+                "tooth_left": 1.665467457435599,
+                "tooth_right": 1.665467457435599
+              },
+              "tmj_forces_n": {
+                "tmj_left": 48.33453254256439,
+                "tmj_right": 48.33453254256439
+              },
+              "pdl_pressure_kpa": {
+                "tooth_left": 8.327337287177995,
+                "tooth_right": 8.327337287177995
+              },
+              "tmj_angle_deg": {
+                "tmj_left": 0.008145061195979457,
+                "tmj_right": 0.008145061195979457
+              },
+              "tooth_load_fraction": 0.03330934914871199,
+              "tmj_load_fraction": 0.966690650851288,
+              "equilibrium_residual": {
+                "force_n": -2.842170943040401e-14,
+                "moment_nm": 0.0,
+                "force_relative": 2.842170943040401e-16,
+                "moment_relative": 0.0
+              },
+              "external_contact_work_mj": 0.14214647030953856,
+              "stored_elastic_energy_mj": 0.14214647175724598,
+              "energy_residual_mj": -1.4477074324493328e-09
+            }
+          }
+        ],
+        "max_abs_relative_change_percent": 94.85650685426413,
+        "mean_abs_relative_change_percent": 23.440639591556828
+      },
+      {
+        "parameter": "E_PDL",
+        "perturbations": [
+          {
+            "factor": 0.5,
+            "relative_change_percent": {
+              "tooth_load_fraction": -48.698176109427614,
+              "tmj_load_fraction": 2.529837562467341,
+              "tooth_left_displacement_um": 2.529757046880454,
+              "pdl_pressure_left_kpa": -48.698176109427614,
+              "tmj_left_load_n": 2.5298375624673186,
+              "tmj_left_angle_deg": 2.529757012660827
+            },
+            "result": {
+              "converged": true,
+              "message": "The solution converged.",
+              "iterations": 7,
+              "jaw_translation_um": 2.8666160875818267,
+              "jaw_pitch_deg": 0.0,
+              "branch_displacements_um": {
+                "tooth_left": 2.8666160875818267,
+                "tooth_right": 2.8666160875818267,
+                "tmj_left": 2.8666160875818267,
+                "tmj_right": 2.8666160875818267
+              },
+              "pdl_local_deflections_um": {
+                "tooth_left": 2.8659827169329133,
+                "tooth_right": 2.8659827169329133
+              },
+              "contact_forces_n": {
+                "tooth_left": 1.2667412983519444,
+                "tooth_right": 1.2667412983519444
+              },
+              "tmj_forces_n": {
+                "tmj_left": 48.73325870164801,
+                "tmj_right": 48.73325870164801
+              },
+              "pdl_pressure_kpa": {
+                "tooth_left": 6.333706491759722,
+                "tooth_right": 6.333706491759722
+              },
+              "tmj_angle_deg": {
+                "tmj_left": 0.008212250108900431,
+                "tmj_right": 0.008212250108900431
+              },
+              "tooth_load_fraction": 0.02533482596703891,
+              "tmj_load_fraction": 0.974665174032961,
+              "equilibrium_residual": {
+                "force_n": -8.526512829121202e-14,
+                "moment_nm": 0.0,
+                "force_relative": 8.526512829121202e-16,
+                "moment_relative": 0.0
+              },
+              "external_contact_work_mj": 0.1433112283702267,
+              "stored_elastic_energy_mj": 0.14331123079763894,
+              "energy_residual_mj": -2.427412247986774e-09
+            }
+          },
+          {
+            "factor": 1.5,
+            "relative_change_percent": {
+              "tooth_load_fraction": 46.292691612138334,
+              "tmj_load_fraction": -2.4048742574043214,
+              "tooth_left_displacement_um": -2.404803177514925,
+              "pdl_pressure_left_kpa": 46.292691612138405,
+              "tmj_left_load_n": -2.404874257404299,
+              "tmj_left_angle_deg": -2.40480314730549
+            },
+            "result": {
+              "converged": true,
+              "message": "The solution converged.",
+              "iterations": 8,
+              "jaw_translation_um": 2.7286513626881033,
+              "jaw_pitch_deg": -3.6947325165311766e-20,
+              "branch_displacements_um": {
+                "tooth_left": 2.7286513626881033,
+                "tooth_right": 2.7286513626881033,
+                "tmj_left": 2.7286513626881033,
+                "tmj_right": 2.7286513626881033
+              },
+              "pdl_local_deflections_um": {
+                "tooth_left": 2.726845237875493,
+                "tooth_right": 2.726845237875493
+              },
+              "contact_forces_n": {
+                "tooth_left": 3.6122496250316694,
+                "tooth_right": 3.6122496250316694
+              },
+              "tmj_forces_n": {
+                "tmj_left": 46.38775037496831,
+                "tmj_right": 46.38775037496831
+              },
+              "pdl_pressure_kpa": {
+                "tooth_left": 18.061248125158347,
+                "tooth_right": 18.061248125158347
+              },
+              "tmj_angle_deg": {
+                "tmj_left": 0.007817010293730919,
+                "tmj_right": 0.007817010293730919
+              },
+              "tooth_load_fraction": 0.0722449925006334,
+              "tmj_load_fraction": 0.9277550074993666,
+              "equilibrium_residual": {
+                "force_n": -2.842170943040401e-14,
+                "moment_nm": 0.0,
+                "force_relative": 2.842170943040401e-16,
+                "moment_relative": 0.0
+              },
+              "external_contact_work_mj": 0.13638628388261556,
+              "stored_elastic_energy_mj": 0.13638628960569493,
+              "energy_residual_mj": -5.72307937260659e-09
+            }
+          }
+        ],
+        "max_abs_relative_change_percent": 48.698176109427614,
+        "mean_abs_relative_change_percent": 17.47668995560308
+      },
+      {
+        "parameter": "E_TMJ_disc",
+        "perturbations": [
+          {
+            "factor": 0.5,
+            "relative_change_percent": {
+              "tooth_load_fraction": 0.9589745607341049,
+              "tmj_load_fraction": -0.04981808476244298,
+              "tooth_left_displacement_um": 0.9405388202333276,
+              "pdl_pressure_left_kpa": 0.9589745607340383,
+              "tmj_left_load_n": -0.0498180847625207,
+              "tmj_left_angle_deg": 0.9405388078063126
+            },
+            "result": {
+              "converged": true,
+              "message": "The solution converged.",
+              "iterations": 7,
+              "jaw_translation_um": 2.822183342724138,
+              "jaw_pitch_deg": 0.0,
+              "branch_displacements_um": {
+                "tooth_left": 2.822183342724138,
+                "tooth_right": 2.822183342724138,
+                "tmj_left": 2.822183342724138,
+                "tmj_right": 2.822183342724138
+              },
+              "pdl_local_deflections_um": {
+                "tooth_left": 2.8209369065080745,
+                "tooth_right": 2.8209369065080745
+              },
+              "contact_forces_n": {
+                "tooth_left": 2.492872432530552,
+                "tooth_right": 2.492872432530552
+              },
+              "tmj_forces_n": {
+                "tmj_left": 47.507127567469375,
+                "tmj_right": 47.507127567469375
+              },
+              "pdl_pressure_kpa": {
+                "tooth_left": 12.46436216265276,
+                "tooth_right": 12.46436216265276
+              },
+              "tmj_angle_deg": {
+                "tmj_left": 0.008084959673848768,
+                "tmj_right": 0.008084959673848768
+              },
+              "tooth_load_fraction": 0.04985744865061111,
+              "tmj_load_fraction": 0.9501425513493889,
+              "equilibrium_residual": {
+                "force_n": -1.4210854715202004e-13,
+                "moment_nm": 0.0,
+                "force_relative": 1.4210854715202005e-15,
+                "moment_relative": 0.0
+              },
+              "external_contact_work_mj": 0.1410740034199679,
+              "stored_elastic_energy_mj": 0.14107400777342968,
+              "energy_residual_mj": -4.353461764260852e-09
+            }
+          },
+          {
+            "factor": 1.5,
+            "relative_change_percent": {
+              "tooth_load_fraction": -0.9407682060607936,
+              "tmj_load_fraction": 0.04887227685734796,
+              "tooth_left_displacement_um": -0.9231717105689374,
+              "pdl_pressure_left_kpa": -0.9407682060606715,
+              "tmj_left_load_n": 0.048872276857458985,
+              "tmj_left_angle_deg": -0.9231716987076144
+            },
+            "result": {
+              "converged": true,
+              "message": "The solution converged.",
+              "iterations": 7,
+              "jaw_translation_um": 2.7700761033814105,
+              "jaw_pitch_deg": 0.0,
+              "branch_displacements_um": {
+                "tooth_left": 2.7700761033814105,
+                "tooth_right": 2.7700761033814105,
+                "tmj_left": 2.7700761033814105,
+                "tmj_right": 2.7700761033814105
+              },
+              "pdl_local_deflections_um": {
+                "tooth_left": 2.768853121327613,
+                "tooth_right": 2.768853121327613
+              },
+              "contact_forces_n": {
+                "tooth_left": 2.445964107710029,
+                "tooth_right": 2.445964107710029
+              },
+              "tmj_forces_n": {
+                "tmj_left": 47.55403589229,
+                "tmj_right": 47.55403589229
+              },
+              "pdl_pressure_kpa": {
+                "tooth_left": 12.229820538550145,
+                "tooth_right": 12.229820538550145
+              },
+              "tmj_angle_deg": {
+                "tmj_left": 0.007935683431945766,
+                "tmj_right": 0.007935683431945766
+              },
+              "tooth_load_fraction": 0.04891928215420055,
+              "tmj_load_fraction": 0.9510807178457995,
+              "equilibrium_residual": {
+                "force_n": 5.684341886080802e-14,
+                "moment_nm": 0.0,
+                "force_relative": 5.684341886080802e-16,
+                "moment_relative": 0.0
+              },
+              "external_contact_work_mj": 0.1384701859109588,
+              "stored_elastic_energy_mj": 0.13847019007358485,
+              "energy_residual_mj": -4.1626260543960875e-09
+            }
+          }
+        ],
+        "max_abs_relative_change_percent": 0.9589745607341049,
+        "mean_abs_relative_change_percent": 0.6436906078454642
+      }
+    ]
+  },
+  "transient_check": {
+    "converged": true,
+    "message": "The solver successfully reached the end of the integration interval.",
+    "sample_count": 201,
+    "final_time_s": 0.2,
+    "final_jaw_translation_um": 2.7958867625147614,
+    "final_jaw_pitch_deg": 0.0,
+    "final_tooth_forces_n": {
+      "tooth_left": 2.4691934122830492,
+      "tooth_right": 2.4691934122830492
+    },
+    "final_tmj_forces_n": {
+      "tmj_left": 47.530803476041015,
+      "tmj_right": 47.530803476041015
+    },
+    "final_tooth_displacements_um": {
+      "tooth_left": 2.7958867625147614,
+      "tooth_right": 2.7958867625147614
+    },
+    "max_abs_inertial_force_n": 0.1444945382366143,
+    "max_abs_rotational_inertial_moment_nm": 0.0,
+    "max_post_ramp_inertial_to_load": 0.0014449453823661429,
+    "external_contact_work_mj": 0.14020360425845663,
+    "fluid_viscous_dissipation_mj": 0.0003778409245911467
+  },
+  "common_compliance_placebo": {
+    "scale": 2.0,
+    "scaled_solution": {
+      "converged": true,
+      "message": "The solution converged.",
+      "iterations": 7,
+      "jaw_translation_um": 5.591773881354469,
+      "jaw_pitch_deg": 0.0,
+      "branch_displacements_um": {
+        "tooth_left": 5.591773881354469,
+        "tooth_right": 5.591773881354469,
+        "tmj_left": 5.591773881354469,
+        "tmj_right": 5.591773881354469
+      },
+      "pdl_local_deflections_um": {
+        "tooth_left": 5.5893046878593795,
+        "tooth_right": 5.5893046878593795
+      },
+      "contact_forces_n": {
+        "tooth_left": 2.4691934950576497,
+        "tooth_right": 2.4691934950576497
+      },
+      "tmj_forces_n": {
+        "tmj_left": 47.53080650494233,
+        "tmj_right": 47.53080650494233
+      },
+      "pdl_pressure_kpa": {
+        "tooth_left": 12.345967475288248,
+        "tooth_right": 12.345967475288248
+      },
+      "tmj_angle_deg": {
+        "tmj_left": 0.01601925175224748,
+        "tmj_right": 0.01601925175224748
+      },
+      "tooth_load_fraction": 0.04938386990115301,
+      "tmj_load_fraction": 0.9506161300988469,
+      "equilibrium_residual": {
+        "force_n": -2.842170943040401e-14,
+        "moment_nm": 0.0,
+        "force_relative": 2.842170943040401e-16,
+        "moment_relative": 0.0
+      },
+      "external_contact_work_mj": 0.2795199328325585,
+      "stored_elastic_energy_mj": 0.2795199413459642,
+      "energy_residual_mj": -8.513405746427699e-09
+    },
+    "max_fraction_difference": 1.3877787807814457e-17,
+    "status": "PASS"
+  },
+  "dimensional_checks": {
+    "dimensionless_identities": {
+      "pdl_k_times_t_over_A_recovered_E_ratio": 1.0,
+      "bone_C_times_E_times_A_over_L": 1.0,
+      "drag_C_times_k_over_eta_t_A": 1.0,
+      "disc_C_times_E_times_A_over_t": 1.0,
+      "condylar_C_times_E_times_A_over_t": 1.0,
+      "temporal_C_times_E_times_A_over_t": 1.0,
+      "force_times_lever_recovered_moment": 1.0
+    },
+    "status": "PASS"
+  },
+  "criteria": {
+    "reference_proxy": "PROXY_FAIL",
+    "external_validation": "UNKNOWN",
+    "equilibrium": "PASS",
+    "mechanism": "PASS",
+    "analytical_limit": "PASS",
+    "quasi_static_post_ramp": "PASS",
+    "overall_external_claim": "UNKNOWN"
+  },
+  "limitations": [
+    "No individual geometry, microscopy, simultaneous force-motion data, or damage threshold was available",
+    "The literature comparator is explicitly unverified and may not share the modeled load protocol",
+    "The first model is sagittal and symmetric; fracture, contact loss, and muscle recruitment are not resolved",
+    "The TMJ angle is a geometric translation-to-angle proxy, not a measured joint angle"
+  ]
+}

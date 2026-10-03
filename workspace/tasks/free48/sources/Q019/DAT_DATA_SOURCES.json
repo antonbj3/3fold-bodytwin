@@ -1,0 +1,201 @@
+{
+  "id": "BT-DAT-Q019",
+  "prereg": "PREREG.md",
+  "generated_from": "samples/inspection.json",
+  "sources": [
+    {
+      "id": "S1",
+      "name": "eICU Collaborative Research Database, demo v2.0 (urine output, urine chemistry)",
+      "url": "https://physionet.org/content/eicu-crd-demo/2.0/",
+      "file_urls": [
+        "https://physionet.org/files/eicu-crd-demo/2.0/intakeOutput.csv.gz",
+        "https://physionet.org/files/eicu-crd-demo/2.0/lab.csv.gz",
+        "https://physionet.org/files/eicu-crd-demo/2.0/patient.csv.gz"
+      ],
+      "http_status": {
+        "content_page": 200,
+        "intakeOutput.csv.gz": 200,
+        "lab.csv.gz": 200,
+        "patient.csv.gz": 200
+      },
+      "license": "PhysioNet Credentialed Health Data License is NOT required for the demo subset; PhysioNet Terms of Use (https://physionet.org/content/eicu-crd-demo/2.0/ -> 'License': Open Access / free for all users)",
+      "license_verified_how": "HTTP 200 on the content page and unauthenticated HTTP 200 on each file URL (samples/api/eicu_demo_index.html)",
+      "access": "open, no login, no Data Use Agreement",
+      "size_bytes": {
+        "intakeOutput.csv.gz": 1826646,
+        "lab.csv.gz": 5729763,
+        "patient.csv.gz": 136791
+      },
+      "size_source": "HTTP Content-Length of each file plus the byte count of the file written to samples/",
+      "format": "gzip-compressed CSV, one row per charted event",
+      "subjects": "unit stays: 2185 (patients in patient.csv.gz: 2185); demo subset",
+      "measured_quantity": "urine volume per event in mL with time offset in minutes; 24 h urine urea nitrogen in mg/dL; serum sodium/chloride/BUN/creatinine",
+      "constrains": {
+        "model_outputs": [
+          "urine_flow_ml_min_per_kidney"
+        ],
+        "model_parameters": [
+          "residence_min",
+          "lp_cm_s",
+          "avp_floor"
+        ],
+        "how": "measured whole-patient urine flow over minutes gives the target the per-kidney terminal flow must be scaled to; urea nitrogen gives an upper bound on urinary urea excretion"
+      },
+      "sample_files": [
+        "samples/eicu_crd_demo_2.0_intakeOutput.csv.gz",
+        "samples/eicu_crd_demo_2.0_lab.csv.gz",
+        "samples/eicu_crd_demo_2.0_patient.csv.gz"
+      ]
+    },
+    {
+      "id": "S2",
+      "name": "MIMIC-IV demo v2.2 (urine volume, urine sodium, urine osmolality, urine urea nitrogen)",
+      "url": "https://physionet.org/content/mimic-iv-demo/2.2/",
+      "file_urls": [
+        "https://physionet.org/files/mimic-iv-demo/2.2/icu/outputevents.csv.gz",
+        "https://physionet.org/files/mimic-iv-demo/2.2/hosp/labevents.csv.gz",
+        "https://physionet.org/files/mimic-iv-demo/2.2/hosp/d_labitems.csv.gz",
+        "https://physionet.org/files/mimic-iv-demo/2.2/icu/icustays.csv.gz",
+        "https://physionet.org/files/mimic-iv-demo/2.2/icu/d_items.csv.gz",
+        "https://physionet.org/files/mimic-iv-demo/2.2/hosp/patients.csv.gz"
+      ],
+      "http_status": {
+        "content_page": 200,
+        "all six file URLs": 200
+      },
+      "license": "PhysioNet Open Data License (MIMIC-IV demo subset: citation and attribution required, no credentialing, no DUA)",
+      "license_verified_how": "HTTP 200 unauthenticated on the content page and on every file URL; the module README/LICENSE.txt is listed at https://physionet.org/files/mimic-iv-demo/2.2/",
+      "access": "open, no login, no Data Use Agreement",
+      "size_bytes": {
+        "icu_outputevents.csv.gz": 96413,
+        "hosp_labevents.csv.gz": 1963979,
+        "hosp_d_labitems.csv.gz": 13520,
+        "icu_icustays.csv.gz": 5667,
+        "icu_d_items.csv.gz": 57073,
+        "hosp_patients.csv.gz": 1083
+      },
+      "size_source": "HTTP Content-Length of each file",
+      "format": "gzip-compressed CSV with explicit valueuom unit string per lab row",
+      "subjects": "unit stays with urine output rows: 137; distinct patients in labevents: 100 (demo subset, 100 patients)",
+      "measured_quantity": "urine output in mL with charttime; urine sodium in mEq/L (itemid 51100); urine osmolality in mOsm/kg (itemid 51093); urine urea nitrogen in mg/dL (itemid 51104)",
+      "constrains": {
+        "model_outputs": [
+          "urine_flow_ml_min_per_kidney",
+          "urinary_na_equiv_umol_min_per_kidney",
+          "urinary_urea_umol_min_per_kidney",
+          "urine_osm_mM"
+        ],
+        "model_parameters": [
+          "residence_min",
+          "vmax_na_umol_min",
+          "vmax_cl_umol_min",
+          "cinter_osm_mM",
+          "lp_cm_s"
+        ],
+        "how": "paired concentration and flow in the same stay give urinary Na excretion in umol/min; urine osmolality bounds the terminal osmolality directly; the flow distribution bounds residence times and water conductance"
+      },
+      "sample_files": [
+        "samples/mimic4_demo_2.2_icu_outputevents.csv.gz",
+        "samples/mimic4_demo_2.2_hosp_labevents.csv.gz",
+        "samples/mimic4_demo_2.2_hosp_d_labitems.csv.gz",
+        "samples/mimic4_demo_2.2_icu_icustays.csv.gz",
+        "samples/mimic4_demo_2.2_icu_d_items.csv.gz",
+        "samples/mimic4_demo_2.2_hosp_patients.csv.gz"
+      ]
+    },
+    {
+      "id": "S3",
+      "name": "TCIA C4KC-KiTS (CT of 300 kidney tumour patients) with DICOM SEG kidney/tumour segmentations",
+      "url": "https://www.cancerimagingarchive.net/collection/c4kc-kits/",
+      "api_url": "https://services.cancerimagingarchive.net/nbia-api/services/v1/getSeries?Collection=C4KC-KiTS&format=json",
+      "http_status": {
+        "collection_api": 200,
+        "seg_series_api": 200,
+        "getImage_seg": 200,
+        "getImage_ct": 200
+      },
+      "license": "Creative Commons Attribution 3.0 Unported License (CC BY 3.0), as returned per series in the NBIA API response (LicenseName/LicenseURI); collection DOI 10.7937/TCIA.2019.IX49E8NX",
+      "license_verified_how": "samples/api/tcia_kits_series.json and samples/api/tcia_C4KC-KiTS_seg.json, field LicenseName",
+      "access": "open, no login",
+      "size_bytes": {
+        "series_CT_example": 32742944,
+        "series_SEG_example": 4077822,
+        "total_CT_series": 37681877338,
+        "total_SEG_series": 3040920688
+      },
+      "size_source": "FileSize field per series in the NBIA API response; the CT series of patient KiTS-00007 is 32742944 bytes and the SEG series 4077822 bytes",
+      "format": "DICOM CT (Explicit VR Little Endian) and DICOM Segmentation objects (BINARY, 1 bit allocated)",
+      "subjects": "CT series: 621 across the collection; DICOM SEG series: 210 (one per labelled patient); the downloaded patient is KiTS-00007",
+      "measured_quantity": "kidney and tumour masks of a human kidney in millimetre CT geometry (HU images, 512x512)",
+      "constrains": {
+        "model_outputs": [
+          "all per-kidney outputs (organ scale)"
+        ],
+        "model_parameters": [
+          "nephron_count",
+          "lengths_cm",
+          "diameters_um",
+          "cinter_osm_mM"
+        ],
+        "how": "gives the size of the organ the per-kidney outputs are reported for, and a per-patient geometric anchor for the nephron; the SEG object proved internally inconsistent in this download, see results.json k7"
+      },
+      "sample_files": [
+        "samples/tcia_c4kc_kits21_seg_KiTS-00007.zip",
+        "samples/tcia_c4kc_kits21_ct_KiTS-00007_late.zip",
+        "samples/tcia_c4kc_kits21_seg_KiTS-00007.dcm"
+      ]
+    },
+    {
+      "id": "S4",
+      "name": "PhysioNet MIMIC-III Clinical Database demo v1.4 (examined, not usable)",
+      "url": "https://physionet.org/content/mimic-iii-demo/",
+      "http_status": 404,
+      "license": "UNKNOWN (page not served)",
+      "access": "unavailable at run time",
+      "constrains": {
+        "model_outputs": [],
+        "model_parameters": [],
+        "how": "would have constrained the same outputs as S2"
+      },
+      "rejected_because": "HTTP 404 at run time; recorded so the search is reproducible, not used for any number"
+    },
+    {
+      "id": "S5",
+      "name": "MIMIC-IV full database and eICU full database (access-controlled, not counted as public)",
+      "url": "https://physionet.org/content/mimic-iv/3.1/ and https://eicu-crd.mit.edu/",
+      "license": "PhysioNet Credentialed Health Data License (credentialed, DUA required)",
+      "access": "not open; requires credentialing and a data use agreement",
+      "constrains": {
+        "model_outputs": [
+          "urine_osm_mM",
+          "urinary_na_equiv_umol_min_per_kidney",
+          "urinary_urea_umol_min_per_kidney",
+          "urinary_cl_equiv_umol_min_per_kidney",
+          "urine_flow_ml_min_per_kidney"
+        ],
+        "model_parameters": [
+          "residence_min",
+          "lp_cm_s"
+        ]
+      },
+      "rejected_because": "the brief asks for public datasets; these are the same quantities as S1/S2 but cannot be downloaded anonymously"
+    },
+    {
+      "id": "S6",
+      "name": "UK Biobank renal function cohort (access-controlled, not counted as public)",
+      "url": "https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=30720",
+      "license": "UK Biobank application + distribution agreement",
+      "access": "not open",
+      "constrains": {
+        "model_outputs": [
+          "urinary_urea_umol_min_per_kidney"
+        ],
+        "model_parameters": [
+          "filtered_urea_mM",
+          "cinter_urea_mM"
+        ]
+      },
+      "rejected_because": "serum urea/creatinine only, no urine collection volumes; application required"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+# CX-ACTIVEINF-MATCH — sharpen altered-vs-normal comparison
+Read results/CX-ACTIVEINF/RESULTS.md. Reassess AI-2 with within-person altered/normal gait matching jointly on GRF, speed and knee moment, avoiding repeated reuse of controls; report common support, effect sizes by person, and loss of sample size. Treat the three-person cohort as a limit on inference. Keep force excess and epsilon2 separate. Own output in results/CX-ACTIVEINF-MATCH/; source projects read-only.

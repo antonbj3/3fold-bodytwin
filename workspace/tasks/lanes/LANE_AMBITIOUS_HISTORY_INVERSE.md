@@ -1,0 +1,9 @@
+# LANE_AMBITIOUS_HISTORY_INVERSE
+
+Active user AMBITION requirement: demonstrate an operation beyond the oldpassive/scalarinverse primitive. Many genuinely interacting nonlinear finite-binding/history regions share plasma andnative endocrine feedback. Inverse choices edit transport/dose/schedule, retainjointsourceμ and all localupper/lowerexposureconstraints afterfutureprotocolchange.
+
+Baseline capability: fullsparseadaptive native+regions propagation answers each query; known localizedRB/trustregion/hyperreduction are eligiblematchedcontrols, not claimednovelty. Proposed newoperation: conservedinventory/native-secretion-potential discrepancy +spatial/local exposureenclosures drivesjointinversefeasiblesets with refinement/fallback. Barrier: separatecomponent/globalmaxerror loses conservation and canforceglobalrefinement despite smallmean/nativeerror. Atfail/TIE executea load-bearing physicalrepresentationpivot in the samebenchmark and preserve negatives.
+
+Bodyworker owns shared Coupled(n) model32/128/512 with actualnativeanchor. Graphworker owns conditional nonlinear influencebounds. This laneowns jointinverseconstraintconsumer, changedconstraintstructure/protocol, totalcost/correctness and executedpivot. Root/body/graph contracts precedefreeze. Sources500/v6 BM7/M85/M294/M423 +W01capacity, O04/O05/O06/O09/T43/T45/W07/W09 preserved; nativeanchorupdatedtocoupledDallaManwhileoldNFkB primitive retained asancestor, no pathwayequivalence.
+
+Each numericalcommand <=60s,1core,peak<=750MiB, totalCPUbudget600s; noGPU/cloud/sourcegraphcanonical changes or subagents. Biologicalclosures, assaycalibration anddecisionthresholds UNKNOWN empirically. Localcodeconstraints synthetic only. PENDING_INDEPENDENT_REVIEW; graphdefinitiondispatch iscontext, not scientificadmission. AMBITION_CONTRACT.json namesbaseline/newoperation/conflict/barrier/nextpivot. Finalresult mustreport actualobservedoutcomeand strongestmatchedcomparison.

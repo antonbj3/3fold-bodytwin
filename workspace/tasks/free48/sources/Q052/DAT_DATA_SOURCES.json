@@ -1,0 +1,257 @@
+{
+  "id": "BT-DAT-Q052",
+  "facet": "Q052-datatackning-begransningsrevision",
+  "compiled": "2026-09-25",
+  "prereg_sha256": "0df6a79b68ba077fa52a9760e94a8abe450ddee6519fbace2dd987653c80b4e1",
+  "selection_criteria": [
+    "open access without login",
+    "explicit license in record metadata",
+    "measured (not simulated) quantities",
+    "at least one field matching a frozen model parameter/output",
+    "a file small enough to fetch within the 50 MB sample budget"
+  ],
+  "metadata_source": "Zenodo REST API GET /api/records/<id> (HTTP 200), read in this session",
+  "n_datasets": 7,
+  "n_fetched": 5,
+  "total_bytes_downloaded": 16470860,
+  "sample_budget_bytes": 50000000,
+  "datasets": [
+    {
+      "id": "DS-01",
+      "zenodo_record": 11061947,
+      "doi": "10.5281/zenodo.11061947",
+      "url": "https://zenodo.org/records/11061947",
+      "title": "MicroCT Trabecular Bone Samples for Trabecular Thickness and Separation Measures",
+      "creator": "Kuczynski, Michael",
+      "publication_date": "2024-04-24",
+      "license": "cc-by-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "resource_type": "dataset",
+      "access": "open, no login",
+      "n_files": 40,
+      "total_size_bytes": 242256000,
+      "total_size_mb": 242.26,
+      "format": "NIfTI-1 .nii (int16), plus IPL/Python distance transforms",
+      "subjects": "9 segmented trabecular-bone volumes (BMLPL_001-005, 007-009; groups REF and BML; no 006 in the record). Species/source and donor count are NOT stated by the record.",
+      "measured_quantities": [
+        "porosity",
+        "mean pore chord length",
+        "mean trabecular chord length",
+        "surface density S_v",
+        "pore-space connectivity"
+      ],
+      "constrains_model_parameter": [
+        "phi_min",
+        "phi_max",
+        "d_min",
+        "d_max",
+        "d_ref",
+        "b_tau"
+      ],
+      "constrains_model_output": [
+        "K",
+        "S_v"
+      ],
+      "status": "FETCHED_PARTIAL",
+      "fetched_files": 8,
+      "fetched_bytes": 14252604,
+      "evidence": "form/units/coordinate frame and geometry measured in results.json sample_audit"
+    },
+    {
+      "id": "DS-02",
+      "zenodo_record": 7516228,
+      "doi": "10.5281/zenodo.7516228",
+      "url": "https://zenodo.org/records/7516228",
+      "title": "Quantifying the impact of 3D pore space morphology on diffusive mass transport in loam and sand (supplementary data)",
+      "creator": "Prifling, Weber, Ray, Prechtel, Phalempin, Schlüter, Vetterlein, Schmidt",
+      "publication_date": "2023-01-09",
+      "license": "cc-by-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "n_files": 2,
+      "total_size_bytes": 684990000,
+      "total_size_mb": 684.99,
+      "format": "characteristics.csv (4608 rows) + segmented_stacks.zip (binarised 3D CT cutouts, 512/256/128 voxels per side)",
+      "subjects": "soil cores: loam and sand, several depths; 4608 analysed cutouts (not human)",
+      "measured_quantities": [
+        "porosity",
+        "specific surface area",
+        "geodesic and geometric tortuosity",
+        "constrictivity",
+        "mean chord length",
+        "M-factor = D_eff/D_0 (measured diffusion)"
+      ],
+      "constrains_model_parameter": [
+        "D_0"
+      ],
+      "constrains_model_output": [
+        "D_eff"
+      ],
+      "status": "FETCHED_PARTIAL",
+      "fetched_files": 1,
+      "fetched_bytes": 1512298,
+      "evidence": "M-factor inverts to tau = sqrt(phi/M); see other_measured_files."
+    },
+    {
+      "id": "DS-03",
+      "zenodo_record": 4641712,
+      "doi": "10.5281/zenodo.4641712",
+      "url": "https://zenodo.org/records/4641712",
+      "title": "Review of Tortuosity: Classical Theory and Modern Methods (additional information)",
+      "creator": "Holzer, Lorenz",
+      "publication_date": "2021-03-27",
+      "license": "cc-by-4.0",
+      "n_files": 5,
+      "total_size_bytes": 1310000,
+      "total_size_mb": 1.31,
+      "format": "xlsx (Table 2: empirical tortuosity-porosity compilation), docx, xlsx",
+      "subjects": "compilation of 2204 tau-epsilon points from 69 literature references (SOFC, PEMFC/GDL, battery, geology, granular packs, foams)",
+      "measured_quantities": [
+        "effective porosity",
+        "tortuosity"
+      ],
+      "constrains_model_parameter": [
+        "b_tau"
+      ],
+      "constrains_model_output": [
+        "tau",
+        "K",
+        "D_eff"
+      ],
+      "status": "FETCHED_PARTIAL_PARSE",
+      "fetched_files": 1,
+      "fetched_bytes": 650960,
+      "evidence": "only 2 usable (porosity, tau) pairs recovered by the parser -> marked PARTIAL"
+    },
+    {
+      "id": "DS-04",
+      "zenodo_record": 14617243,
+      "doi": "10.5281/zenodo.14617243",
+      "url": "https://zenodo.org/records/14617243",
+      "title": "BAM reference data: temperature-dependent Young's and shear modulus of AM and conventionally manufactured Ti-6Al-4V",
+      "creator": "Rehmer, Bayram, Avila Calderon, Mohr, Skrotzki",
+      "publication_date": "2025-01-08",
+      "license": "cc-by-4.0",
+      "n_files": 2,
+      "total_size_bytes": 140000,
+      "total_size_mb": 0.14,
+      "format": "xlsx (per-specimen T[degC], E(f), E(e), G in GPa; ASTM E1875:2020) + pdf coversheet",
+      "subjects": "6 specimens: Ti_C_L_1/2 (hot-formed lamellar), Ti_C_E_1/2 (hot-formed equiaxed), Ti_A_1/2 (DED-LB additively manufactured) - material specimens, no human subjects",
+      "measured_quantities": [
+        "Young's modulus vs temperature",
+        "shear modulus vs temperature",
+        "Poisson ratio",
+        "density"
+      ],
+      "constrains_model_parameter": [
+        "E_s"
+      ],
+      "constrains_model_output": [
+        "E_eff"
+      ],
+      "status": "FETCHED",
+      "fetched_files": 1,
+      "fetched_bytes": 50630,
+      "evidence": "E at 24 degC: 115-116 GPa (AM) and 111 GPa (hot-formed) vs frozen E_s = 110 GPa"
+    },
+    {
+      "id": "DS-05",
+      "zenodo_record": 20856007,
+      "doi": "10.5281/zenodo.20856007",
+      "url": "https://zenodo.org/records/20856007",
+      "title": "Compressive characterization of additively manufactured TPU (and reference PBT) lattice metamaterials: raw and processed data",
+      "creator": "Rosnitschek, Orgeldinger",
+      "publication_date": "2026-06-25",
+      "license": "cc-by-4.0",
+      "n_files": 6,
+      "total_size_bytes": 8620000,
+      "total_size_mb": 8.62,
+      "format": "xlsx (compression curves of pucks and single lattice cells) + README.md",
+      "subjects": "AM lattice specimens, TPU and PBT; specimen counts not resolvable without fetch",
+      "measured_quantities": [
+        "compressive stress-strain of lattice cells",
+        "effective density",
+        "specimen mass"
+      ],
+      "constrains_model_parameter": [
+        "chi_E",
+        "m_E",
+        "m_d"
+      ],
+      "constrains_model_output": [
+        "E_eff"
+      ],
+      "status": "NOT_FETCHED",
+      "fetched_files": 0,
+      "fetched_bytes": 0,
+      "evidence": "metadata from Zenodo API; file contents not inspected, so NOT counted as a measured constraint on chi_E/m_E/m_d"
+    },
+    {
+      "id": "DS-06",
+      "zenodo_record": 167808,
+      "doi": "10.5281/zenodo.167808",
+      "url": "https://zenodo.org/records/167808",
+      "title": "Imperial College London femur and tibia surface mesh set",
+      "creator": "Tsang, Zhang, Nolte, Kedgley, Bull",
+      "publication_date": "2016-11-21",
+      "license": "cc-by-4.0",
+      "n_files": 3,
+      "total_size_bytes": 153180000,
+      "total_size_mb": 153.18,
+      "format": "STL surface meshes inside two zip archives (+ Readme.txt)",
+      "subjects": "35 healthy volunteers (22 male, 13 female; height 155-193 cm; weight 45-108 kg; BMI 17.0-34.8), MR-segmented left/right femur, tibia and fibula",
+      "measured_quantities": [
+        "bone surface geometry (statistical shape models)"
+      ],
+      "constrains_model_parameter": [
+        "L"
+      ],
+      "constrains_model_output": [
+        "scale_context"
+      ],
+      "status": "NOT_FETCHED_ABOVE_50MB",
+      "fetched_files": 0,
+      "fetched_bytes": 0,
+      "evidence": "femur zip is 52.11 MB > the 50 MB sample budget; used only as anatomy-scale context, not as a measurement of the model's parameters"
+    },
+    {
+      "id": "DS-07",
+      "zenodo_record": 10635546,
+      "doi": "10.5281/zenodo.10635546",
+      "url": "https://zenodo.org/records/10635546",
+      "title": "Apparent Young's modulus of human cranial cancellous bone",
+      "creator": "Marcian, Petr",
+      "publication_date": "2024-02-08",
+      "license": "cc-by-4.0",
+      "n_files": 2,
+      "total_size_bytes": 4156,
+      "total_size_mb": 0.004,
+      "format": "csv, ';' separated: Fx/Fy/Fz [N], apparent Ex/Ey/Ez [MPa], BV/TV [-]",
+      "subjects": "human cranial cancellous bone, 5 compression segments, 39 measurement rows (donor count not stated)",
+      "measured_quantities": [
+        "apparent Young's modulus",
+        "BV/TV",
+        "reaction forces"
+      ],
+      "constrains_model_parameter": [],
+      "constrains_model_output": [
+        "E_eff",
+        "sigma_app_context"
+      ],
+      "status": "FETCHED",
+      "fetched_files": 2,
+      "fetched_bytes": 4156,
+      "evidence": "E median 1.44 GPa, range 0.18-5.34 GPa; BV/TV 0.082-0.581 -> phi 0.419-0.918"
+    }
+  ],
+  "coverage_gaps": [
+    "No open measured dataset was located for the hydraulic permeability K of trabecular bone or of a Ti scaffold, so the model's headline output K stays unvalidated by data (DS-01 gives geometry only, and K needs a pressure/flow measurement).",
+    "No open measured dataset for lambda (consumption rate), g_p (perfusion gradient), mu (viscosity) or sigma_app (compressive stress) was located within the time budget; DS-07 provides forces and apparent modulus but no contact area, so stress is unknown.",
+    "No open measured dataset links an AM process state s to the resulting (phi, d) on the same specimen, so the frozen process law (phi(s), d(s), q) has no data support.",
+    "The response law (epsilon_peak, epsilon_width, c_50, tau_opt, tau_ratio_width, response_max) is a hypothesis: 6 of 28 parameters have no public measurement and no dataset can make them observable."
+  ],
+  "not_considered": [
+    "Internal BodyTwin data (the collaborator's box-lift h5, LHDL, OrthoLoad locally, TLEM, Keast): internal per NIGHT_PREAMBLE.md paragraph 5, out of scope for a public-data audit.",
+    "Simulated-only datasets (e.g. OpenCell, Lattice Grain, AM-Bench CT reconstructions) were excluded by the PREREG requirement of measured quantities.",
+    "OrthoLoad (in vivo joint contact forces, a public time series) was not used: the host was unreachable from this session (DNS failure, no HTTP status) and its force time series does not measure any Q052 parameter directly."
+  ]
+}

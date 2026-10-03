@@ -1,0 +1,373 @@
+{
+ "id": "BT-DAT-Q080",
+ "task": "public measured datasets constraining inputs/Q080_model.py + inputs/Q080_QUESTION.md",
+ "prereg_sha256": "843314f5fe1847d65542aaa10f9cd11b2a073e9c7a8c9317d76300b00fdaf91f",
+ "provenance_label_policy": "measured = read from a downloaded public file; upstream = quoted from inputs/Q080_results.json; derived = computed here by a formula recorded in results.json; assumption; UNKNOWN",
+ "sample_budget": {
+  "limit_bytes": 52428800,
+  "largest_download_bytes": 7460135,
+  "all_within_limit": true
+ },
+ "frozen_target_quantities": [
+  "T1 mean_receptor_density",
+  "T2 patch_sigma_um",
+  "T3 receptor_diffusion_um2_s",
+  "T4 kon/koff/Kd",
+  "T5 ligand field and dose",
+  "T6 spatial activation outputs"
+ ],
+ "catalogue": [
+  {
+   "id": "D1",
+   "name": "ChEMBL bioactivity records, human Adenosine A1 receptor (ADORA1)",
+   "tier": "parameters",
+   "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?target_chembl_id=CHEMBL226&standard_type__in=Kd,Ki,IC50,EC50,Potency,Kon,Koff&limit=1000",
+   "landing_page": "https://www.ebi.ac.uk/chembl/explore/target/CHEMBL226",
+   "license": "Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0), ChEMBL data licence",
+   "access": "open, no authentication",
+   "format": "REST JSON (same endpoint serves .csv and .tsv via Accept/format parameter)",
+   "value_unit": "standard_units field per record, predominantly nM for Kd/Ki/IC50/EC50",
+   "coordinate_frame": "none - this is a tabular bioactivity record set, not a spatial dataset",
+   "subjects": {
+    "target": "Adenosine receptor A1, Homo sapiens, SINGLE PROTEIN (CHEMBL226)",
+    "records_returned": 1000,
+    "api_total_count": 9789,
+    "n_source_documents": 74,
+    "n_distinct_ligand_molecules": 837,
+    "n_distinct_assays": 236,
+    "records_by_standard_type": {
+     "Ki": 781,
+     "EC50": 85,
+     "IC50": 86,
+     "Kd": 46,
+     "Koff": 2
+    }
+   },
+   "constrains": [
+    {
+     "target_quantity": "T4",
+     "frozen_parameter": "koff_s1 = 0.66 s^-1, kon_s1_nM1 = 0.02 s^-1 nM^-1, Kd = 33.0 nM",
+     "frozen_label": "assumption, paired by construction to the Briddon 2004 Kd anchor",
+     "recorded_field": "activities[].standard_value with activities[].standard_units == 'nM', standard_type == 'Kd'",
+     "unit_transformation": "nM as retrieved; uM multiplied by 1000, pM divided by 1000",
+     "what_it_gives": "an independent measured distribution of equilibrium dissociation constants for the same receptor family as the frozen 33 nM anchor, i.e. a bracket, not a fit",
+     "strength": "direct for Kd; none for kon and koff separately"
+    }
+   ],
+   "observed": {
+    "http_status": 200,
+    "bytes_on_wire": 1473789,
+    "content_type": "application/json",
+    "last_modified": null,
+    "fetched_at": "2026-09-26T02:55:42+0200",
+    "local_path": "samples/chembl_CHEMBL226_ADORA1_activities.json",
+    "bytes_on_disk": 1473789,
+    "sha256": "0b050aa463dc22c7146350d0107718149a17469fee9238572b7d1b60ef31edc7",
+    "bytes_disk_equals_wire": true
+   },
+   "verified_live": true
+  },
+  {
+   "id": "D2",
+   "name": "ChEMBL bioactivity records, human Beta-2 adrenergic receptor (ADRB2)",
+   "tier": "parameters",
+   "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?target_chembl_id=CHEMBL210&standard_type__in=Kd,Ki,IC50,EC50,Potency,Kon,Koff&limit=1000",
+   "landing_page": "https://www.ebi.ac.uk/chembl/explore/target/CHEMBL210",
+   "license": "Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0), ChEMBL data licence",
+   "access": "open, no authentication",
+   "format": "REST JSON",
+   "value_unit": "standard_units per record, predominantly nM",
+   "coordinate_frame": "none - tabular record set",
+   "subjects": {
+    "target": "Beta-2 adrenergic receptor, Homo sapiens, SINGLE PROTEIN (CHEMBL210)",
+    "records_returned": 1000,
+    "api_total_count": 7286,
+    "records_by_standard_type": {
+     "Ki": 227,
+     "EC50": 406,
+     "IC50": 365,
+     "Kd": 2
+    }
+   },
+   "constrains": [
+    {
+     "target_quantity": "T4",
+     "frozen_parameter": "D_R = 0.04 um^2/s anchor provenance and the kon/koff pair",
+     "recorded_field": "activities[].standard_value, standard_units, standard_type",
+     "unit_transformation": "nM as retrieved",
+     "what_it_gives": "affinity context for the second receptor used in the upstream mobility anchor; affinity only, no kinetics, no density, no diffusion",
+     "strength": "weak: 2 Kd records only, and affinity does not enter the frozen diffusion parameter"
+    }
+   ],
+   "observed": {
+    "http_status": 200,
+    "bytes_on_wire": 1504305,
+    "content_type": "application/json",
+    "last_modified": null,
+    "fetched_at": "2026-09-26T02:55:49+0200",
+    "local_path": "samples/chembl_CHEMBL210_ADRB2_activities.json",
+    "bytes_on_disk": 1504305,
+    "sha256": "29320cf047b4055776bed0c83d24805d8131d7e837103347eca9503c1192653e",
+    "bytes_disk_equals_wire": true
+   },
+   "verified_live": true
+  },
+  {
+   "id": "D3",
+   "name": "ChEMBL kinetics subset for ADORA1 (Kon / Koff only)",
+   "tier": "parameters",
+   "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?target_chembl_id=CHEMBL226&standard_type__in=Kon,Koff&limit=1000",
+   "license": "CC BY-SA 3.0",
+   "access": "open",
+   "format": "REST JSON",
+   "value_unit": "as retrieved: 2 records, standard_type Koff, standard_units '1/nM.1/min'",
+   "coordinate_frame": "none",
+   "subjects": {
+    "target": "Adenosine receptor A1, Homo sapiens",
+    "records_returned": 2,
+    "records_by_standard_type": {
+     "Koff": 2
+    },
+    "kon_records": 0,
+    "koff_records": 2
+   },
+   "constrains": [
+    {
+     "target_quantity": "T4",
+     "frozen_parameter": "kon_s1_nM1 = 0.02 s^-1 nM^-1 and koff_s1 = 0.66 s^-1",
+     "recorded_field": "activities[].standard_units == '1/nM.1/min'",
+     "unit_transformation": "NOT APPLIED - the retrieved unit is a ChEMBL composite rate unit, not s^-1 or s^-1 nM^-1; converting it to the model's kon/koff would be an invention",
+     "what_it_gives": "evidence that measured single-receptor kon/koff in the model's own units is essentially absent from this source for the anchor receptor",
+     "strength": "negative result: 0 Kon records"
+    }
+   ],
+   "observed": {
+    "http_status": 200,
+    "bytes_on_wire": 2909,
+    "content_type": "application/json",
+    "last_modified": null,
+    "fetched_at": "2026-09-26T02:55:48+0200",
+    "local_path": "samples/chembl_CHEMBL226_ADORA1_kinetics.json",
+    "bytes_on_disk": 2909,
+    "sha256": "2d64767781b87ae3a919159fc3dc5aabc1a9b5c544e6bf6069f07b73356c350b",
+    "bytes_disk_equals_wire": true
+   },
+   "verified_live": true
+  },
+  {
+   "id": "D4",
+   "name": "RCSB PDB 3SN6 - beta2 adrenergic receptor / Gs / VHH ternary crystal structure",
+   "tier": "geometry",
+   "url": "https://files.rcsb.org/download/3SN6.cif",
+   "landing_page": "https://www.rcsb.org/structure/3SN6",
+   "license": "CC0 1.0 Universal (wwPDB data are in the public domain)",
+   "access": "open, no authentication",
+   "format": "mmCIF (PDBx/mmCIF), also available as legacy PDB and BCIF",
+   "value_unit": "angstrom (the _atom_site.length_unit header field is absent in this entry; the mmCIF default is applied and the coordinates are consistent with the 48.8/65.4/84.6 A cell reported in _cell)",
+   "coordinate_frame": {
+    "frame": "deposited crystallographic asymmetric unit of the P 1 21 1 cell, right-handed Cartesian",
+    "axes": "_atom_site.Cartn_x / Cartn_y / Cartn_z, origin at the deposited cell origin, not at the receptor",
+    "caveat": "this is a CRYSTAL frame, not a membrane frame. The xy projection used below is a projection in the crystal frame and is NOT the plane of the bilayer. Any statement about membrane packing is therefore an upper-bound argument, not a measurement of a membrane."
+   },
+   "subjects": {
+    "entry": "3SN6",
+    "title": "Crystal structure of the beta2 adrenergic receptor-Gs protein complex",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_angstrom": 3.2,
+    "space_group": "P 1 21 1",
+    "unit_cell_angstrom": [
+     119.339,
+     64.555,
+     131.24
+    ],
+    "n_atom_sites": 10274,
+    "n_chains": 5,
+    "chain_entity_map": {
+     "A": "Guanine nucleotide-binding protein G(s) subunit alpha isoforms short",
+     "B": "Guanine nucleotide-binding protein G(I)/G(S)/G(T) subunit beta-1",
+     "G": "Guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-2",
+     "N": "Camelid antibody VHH fragment",
+     "R": "Endolysin,Beta-2 adrenergic receptor"
+    }
+   },
+   "constrains": [
+    {
+     "target_quantity": "T2",
+     "frozen_parameter": "patch_sigma_um = 0.30 um (300 nm), labelled assumption",
+     "recorded_field": "_atom_site.Cartn_x/y/z of the C-alpha atoms of auth_asym_id R (Endolysin,Beta-2 adrenergic receptor)",
+     "unit_transformation": "angstrom -> nm by x 0.1; convex hull of the C-alpha xy projection in nm^2",
+     "what_it_gives": "the size of one receptor: it bounds a single-receptor patch from below, so a 300 nm Gaussian patch spans tens of receptor diameters, i.e. the frozen 'patch' is a many-receptor aggregate, not a receptor",
+     "strength": "direct and quantitative for receptor size; only an indirect bound for the patch parameter"
+    },
+    {
+     "target_quantity": "T1",
+     "frozen_parameter": "mean_receptor_density = 55.0 receptor/um^2 (Briddon 2004 anchor)",
+     "recorded_field": "same C-alpha cloud, projected hull area",
+     "unit_transformation": "1 / (hull_area_nm2 x 1e-6 um^2/nm^2)",
+     "what_it_gives": "implied_max_areal_packing_receptor_per_um2 = 42120.16, the density at which receptor-sized objects would tile the plane with no gap. The frozen 55 receptor/um^2 is 0.13 % of that.",
+     "strength": "a physical ceiling, not a measurement of an occupied membrane; a sparse membrane is entirely consistent with it"
+    }
+   ],
+   "observed": {
+    "http_status": 200,
+    "bytes_on_wire": 2016591,
+    "content_type": "chemical/x-cif",
+    "last_modified": null,
+    "fetched_at": "2026-09-26T02:56:00+0200",
+    "local_path": "samples/3SN6_b2ar_Gs.cif",
+    "bytes_on_disk": 2016591,
+    "sha256": "f17b5faa3097784a5d05604cb4946ac7e333a4e8fc731a1f909c265b044a6737",
+    "bytes_disk_equals_wire": true
+   },
+   "verified_live": true
+  },
+  {
+   "id": "D5",
+   "name": "Human Protein Atlas proteinatlas.tsv (per-gene summary table, 20162 genes x 119 columns)",
+   "tier": "cohort",
+   "url": "https://www.proteinatlas.org/download/proteinatlas.tsv.zip",
+   "landing_page": "https://www.proteinatlas.org/about/download",
+   "license": "CC0 1.0 Universal (Human Protein Atlas data are released under CC0)",
+   "access": "open, no authentication",
+   "format": "zipped tab-separated values, one row per gene",
+   "value_unit": "per-column, carried in the column name (nTPM / pTPM / nCPM / NX); NOT convertible to receptor/um^2",
+   "coordinate_frame": "none",
+   "subjects": {
+    "rows_genes": 20162,
+    "columns": 119,
+    "genes_of_interest_present": [
+     "ADORA1",
+     "ADRB2"
+    ],
+    "per_tissue_measurement_columns_found": 0
+   },
+   "constrains": [
+    {
+     "target_quantity": "T1",
+     "frozen_parameter": "mean_receptor_density = 55.0 receptor/um^2",
+     "recorded_field": "Gene / Ensembl columns",
+     "unit_transformation": "NONE APPLIED. The retrieved file carries no per-tissue expression value columns for these genes, so no cohort spread can be computed. RNA abundance in nTPM is in any case not a surface density in receptor/um^2.",
+     "what_it_gives": "presence of ADORA1 and ADRB2 as protein-coding genes in a human reference proteome cohort; nothing quantitative for the frozen density",
+     "strength": "none for T1 as retrieved - recorded as a partial result, not a constraint"
+    }
+   ],
+   "observed": {
+    "http_status": 200,
+    "bytes_on_wire": 7460135,
+    "content_type": "application/zip",
+    "last_modified": "Wed, 03 Jun 2026 11:06:49 GMT",
+    "fetched_at": "2026-09-26T02:56:01+0200",
+    "local_path": "samples/proteinatlas.tsv.zip",
+    "bytes_on_disk": 7460135,
+    "sha256": "ad401f8519ecdee5b67b0ad3bf28175d402d1ea0ad6c542b90fcab2bee39b470",
+    "bytes_disk_equals_wire": true
+   },
+   "verified_live": true
+  },
+  {
+   "id": "D6",
+   "name": "BioImage Archive / Europe PMC imaging records of membrane-receptor topography (nm scale)",
+   "tier": "geometry + time series",
+   "url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/S-EPMC9499342",
+   "members": [
+    {
+     "accession": "S-EPMC9499342",
+     "title": "Mapping the Nicotinic Acetylcholine Receptor Nanocluster Topography at the Cell Membrane with STED and STORM",
+     "api_url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/S-EPMC9499342",
+     "http_status_observed": 200
+    },
+    {
+     "accession": "S-EPMC6460894",
+     "title": "Fix Your Membrane Receptor Imaging: Actin Cytoskeleton and CD4 Membrane Organization Disruption by Chemical Fixation",
+     "api_url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/S-EPMC6460894",
+     "http_status_observed": 200
+    },
+    {
+     "accession": "S-EPMC7753144",
+     "title": "CRISPR/Cas12a-mediated labeling of MET receptor enables quantitative single-molecule imaging of endogenous protein",
+     "api_url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/S-EPMC7753144",
+     "http_status_observed": 200
+    }
+   ],
+   "license": "CC0 1.0 Universal (BioImage Archive terms: all deposited data openly accessible, no restriction on reuse)",
+   "access": "record metadata reachable; DATA FILES NOT RETRIEVED - the Europe PMC mirrors carry only the article supplementary files (PDF, AVI), not a localisation coordinate table",
+   "format": "record metadata (JSON) + supplementary PDF/AVI as mirrored",
+   "value_unit": "nm, per the abstracts; no coordinate table was obtained, so no unit was read from a file",
+   "coordinate_frame": "UNKNOWN - not obtainable from the retrieved record",
+   "subjects": {
+    "note": "receptor nanocluster and receptor organisation imaged in fixed cells; per-dataset cell counts not stated in the retrieved records"
+   },
+   "constrains": [
+    {
+     "target_quantity": "T2 / T3 / T6",
+     "frozen_parameter": "patch_sigma_um, receptor_diffusion_um2_s, and the spatial_cv / peak_to_mean outputs",
+     "recorded_field": "none obtained",
+     "unit_transformation": "none applied",
+     "what_it_gives": "these are the only public measured records found in budget that would supply in-membrane nanometre receptor coordinates and receptor diffusion. They are citable but not yet usable.",
+     "strength": "UNVERIFIED for file-level access - must not be counted as a delivered constraint"
+    }
+   ],
+   "observed": {
+    "record_metadata_http_status": 200,
+    "data_files_retrieved": 0
+   },
+   "verified_live": false
+  }
+ ],
+ "recorded_negatives": [
+  {
+   "id": "N1",
+   "what": "PDB 6G9J requested as the beta2AR-Gs-GRP101 ternary complex",
+   "observed": "HTTP 200, 658018 bytes, but entity descriptions read ['Mitogen-activated protein kinase 1', 'SULFATE ION', '2-[5-[5-chloranyl-2-(oxan-4-ylamino)pyrimidin-4-yl]-3-oxidanylidene-1~{H}-isoindol-2-yl]-~', 'water']",
+   "lesson": "the accession placebo fired a second time; a 200 response is not evidence of the right record. 6G9J is a MAPK1-inhibitor entry.",
+   "action": "file retained in samples/ as a recorded negative, excluded from all counts; 3SN6 used instead"
+  },
+  {
+   "id": "N2",
+   "what": "PDB 4SNI as a second beta1AR-Gs structure",
+   "observed": "HTTP 404 (entry not served at files.rcsb.org/download/4SNI.cif)",
+   "lesson": "an obsolete or withdrawn accession is not a licence problem, it is a dead link; a second structure was not obtained",
+   "action": "D4 rests on a single structure; no cross-structure reproducibility check was possible"
+  },
+  {
+   "id": "N3",
+   "what": "Human Protein Atlas tissue expression matrix for ADORA1 / ADRB2",
+   "observed": "proteinatlas.tsv contains 119 columns and 0 per-tissue expression value columns for these genes; the only numeric columns found for the matched rows were 'Chromosome' and 'Interactions', which are metadata counts",
+   "lesson": "the file that downloads is the per-gene summary table, not the consensus tissue matrix; a cohort spread of receptor abundance was therefore not computed and is not claimed",
+   "action": "D5 recorded with strength 'none for T1 as retrieved'"
+  },
+  {
+   "id": "N4",
+   "what": "kon in the model's own unit s^-1 nM^-1 for ADORA1",
+   "observed": "ChEMBL Kon query returned 0 records; the 2 Koff records carry standard_units '1/nM.1/min'",
+   "lesson": "the frozen kon/koff pair cannot be checked against this source in its own units",
+   "action": "recorded as UNKNOWN; the pair stays an assumption"
+  },
+  {
+   "id": "N5",
+   "what": "BindingDB kon/koff service for ADORA1 (UniProt P0DMS1)",
+   "observed": "HTTP 404 on all three URL forms tried (bindingdb.org and www.bindingdb.org, with and without code=0)",
+   "action": "not obtained; no BindingDB number is reported anywhere in this directory"
+  },
+  {
+   "id": "N6",
+   "what": "ligand-side datasets for T5 (ligand_diffusion_um2_s = 25 um^2/s, k_clear = 0.5 s^-1, source_rate_nM_s = 15000, pulse_duration_s = 0.1)",
+   "observed": "no public measured dataset was retrieved in budget that records an effective 2D ligand spread in um^2/s or a ligand concentration-vs-time dose field in nM.s for a membrane receptor system",
+   "action": "T5 has no delivered dataset; it remains an assumption and is reported as UNKNOWN, not estimated"
+  },
+  {
+   "id": "N7",
+   "what": "single-molecule receptor diffusion values in um^2/s (T3) from a public coordinate/tracking release",
+   "observed": "no retrievable localisation or tracking table was obtained (see D6); the Calebiro 2013 and Suzuki 2005 values used upstream are figure readings, and the preregistration forbids counting figure readings as datasets",
+   "action": "T3 has no delivered dataset; reported as UNKNOWN"
+  }
+ ],
+ "figure_anchors_not_datasets": {
+  "policy": "frozen in PREREG.md anchoring placebo; these are figure readings and are NOT counted in C3 coverage",
+  "items": [
+   "Briddon et al., PNAS 101:4673-4678 (2004), doi:10.1073/pnas.0400420101 - Fig. 6b and text: Kd = 33 nM, Bmax = 75 nM reported as about 55 receptor/um^2. Upstream source of the frozen T1 and T4 anchors.",
+   "Suzuki et al., Biophys J 88:3659-3680 (2005), doi:10.1529/biophysj.104.048538 - Fig. 4d and Conclusions: 210 nm compartment, 45 ms residency, D(25 us,100 ms) = 0.23 um^2/s. Motivates the frozen T2 value; not a dataset.",
+   "Calebiro et al., PNAS 110:743-748 (2013), doi:10.1073/pnas.1205798110 - Fig. 2D/I: median D = 0.052 um^2/s (beta1AR) and 0.039 um^2/s (beta2AR). Upstream source of the frozen T3 value; not a dataset."
+  ]
+ }
+}

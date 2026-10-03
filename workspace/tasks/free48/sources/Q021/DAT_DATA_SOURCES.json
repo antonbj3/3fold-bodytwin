@@ -1,0 +1,340 @@
+{
+  "job": "BT-DAT-Q021",
+  "question": "Which public, measured datasets could constrain parameters/outputs of the nine-region gas-exchange model in inputs/Q021_model.py?",
+  "prereg": {
+    "file": "PREREG.md",
+    "sha256": "8aa013b888d28df617578c2e2ac0cff0b3d880ba1661d724755ca95548bf006b",
+    "frozen_before_any_download": true,
+    "verified_at_end_of_job": "sha256sum -c PREREG.sha256 -> PREREG.md: OK"
+  },
+  "model_groups": {
+    "G1": "regional perfusion distribution (hydrostatic terms, extra-alveolar resistance law)",
+    "G2": "regional ventilation distribution (airway resistance and compliance gradients)",
+    "G3": "hypoxic pulmonary vasoconstriction (hpv_gain, hpv_reference_pao2_mmHg)",
+    "G4": "O2 carriage curve (hb_g_dl, p50_mmHg, hill_n, o2_dissolved_ml_dl_mmHg, o2_binding_ml_g)",
+    "G5": "state amplitudes at rest and at load (VA, Q, VCO2, PvO2, RQ)",
+    "G6": "model outputs / failure modes (A-aDO2, regional-minus-homogeneous A-aDO2, nondep/dep perfusion ratio, regional V/Q)",
+    "G7": "regional geometry (n_regions, lung_height_m, per-region volume/compliance weights)"
+  },
+  "metadata_rule": "every licence/size/format/subject-count value below was read from a publisher API or landing page fetched during this job and stored under provenance/. No value is quoted from memory.",
+  "candidates": [
+    {
+      "id": "DS1",
+      "title": "Perfusion quantification data for \"Towards Quantitative Perfusion MRI of the Lung in COPD: The Problem of Short-Term Repeatability\"",
+      "url": "https://doi.org/10.11588/DATA/ZPEZPX",
+      "landing_page": "https://heidata.uni-heidelberg.de/citation?persistentId=doi:10.11588/DATA/ZPEZPX",
+      "publisher": "heiDATA (Dataverse), University Hospital Heidelberg",
+      "doi": "10.11588/data/zpezpx",
+      "year": 2018,
+      "licence": "CC BY 4.0 (publisher termsOfUse field: 'Data is licensed under a Creative Commons Attribution 4.0 International License')",
+      "licence_evidence": [
+        "provenance/heidata_zpezpx_dataset.json",
+        "provenance/datacite_zpezpx.json"
+      ],
+      "access": "open, no registration; fileAccessRequest=false, restricted=false",
+      "total_size_bytes_publisher_declared": 563338,
+      "total_size_bytes_declared_breakdown": [
+        "perfusion_results.tab 562063",
+        "data_dictionary.txt 1275"
+      ],
+      "total_size_bytes_actually_downloaded": 556145,
+      "format": "2 files: comma-separated table with 46 columns (1 header row, 1976 data rows) + plain-text data dictionary",
+      "declared_format_in_registry": "text/tab-separated-values, text/plain",
+      "format_discrepancy": "declared text/tab-separated-values but the deposited file contains 0 tab characters; delimiter sniffed as ',' (reported, not silently fixed)",
+      "subjects": "19 prospectively enrolled COPD patients (median age 66 y), numbered 1-20 with no No 4; 4 measurements each = 2 days x (room air, 100% O2) = 76 measurements",
+      "subjects_evidence": [
+        "provenance/heidata_zpezpx_dataset.json",
+        "samples/data_dictionary.txt"
+      ],
+      "measured": true,
+      "human": true,
+      "regional_structure": "lungs split into 12 regions of equal volume: left/right lung each divided into upper/middle/lower thirds, each third split into front/back; also merged front+back and per whole lung; 42 region columns with and without vascular suppression (VS)",
+      "variables": "MTT [s], PBF [ml/100ml/s], PBV [ml/100ml], Volume [mm^3], Volume [Voxels], each as mean/median/min/max/Q.25/Q.75/StdDev/valid voxels",
+      "constrains_model_groups": {
+        "G1": "regional perfusion distribution: gives flow per lung third, i.e. a measured apical/axial perfusion gradient to test art_hydro_fraction, ven_hydro_fraction, rv_top_relative, rv_base_gradient, exercise_recruitment",
+        "G3": "hpv_gain: paired 100% O2 vs room-air acquisitions give the oxygen-responsive vasoconstriction direction and size in humans (hypoxia is the model's stimulus; hyperoxia is the reverse direction)",
+        "G6": "nondependent/dependent perfusion ratio: the model's headline output is compared against the measured upper/lower ratio",
+        "G7": "per-region volume weights: Volume [mm^3] per region is a measured substitute for the model's equal-height 9-column volume weights"
+      },
+      "constrains_parameters_named": [
+        "art_hydro_fraction",
+        "ven_hydro_fraction",
+        "rv_top_relative",
+        "rv_base_gradient",
+        "exercise_recruitment",
+        "hpv_gain",
+        "n_regions",
+        "lung_height_m"
+      ],
+      "admissible": true,
+      "admissibility_reason": "E1 open; E2 measured humans; E3 maps to G1/G3/G6/G7; E4 size/format/subjects read from heiDATA API; E5 licence stated by publisher; E6 not internal",
+      "second_route_K1": [
+        "provenance/datacite_zpezpx.json (DataCite: publisher heiDATA, rights openAccess + custom terms, sizes ['562063','1275'])",
+        "provenance/heidata_zpezpx_files.json (heiDATA file API: per-file id, filesize, md5, restricted=false)"
+      ],
+      "known_defects": [
+        "data dictionary states PBF in [ml/100ml/s]; at those units the file implies ~879 L/min for the six merged thirds, ~2 orders of magnitude above any cardiac output, so the stated time unit is probably wrong",
+        "body posture not stated in the file, so 'upper third' cannot be assumed nondependent",
+        "publisher's declared file size 562063 B differs from the 554870 B transferred (md5 matches the publisher's declared md5 exactly)"
+      ]
+    },
+    {
+      "id": "DS2",
+      "title": "Supplementary Material for: Lobar Quantification by Ventilation/Perfusion SPECT/CT in Patients with Severe Emphysema Undergoing Endoscopic Lung Volume Reduction",
+      "url": "https://doi.org/10.6084/m9.figshare.8230529",
+      "publisher": "Karger Publishers / figshare (Respiration)",
+      "doi": "10.6084/m9.figshare.8230529",
+      "year": 2019,
+      "licence": "Creative Commons Attribution 4.0 International",
+      "licence_evidence": [
+        "provenance/figshare_8230529.json",
+        "provenance/datacite_figshare8230529.json"
+      ],
+      "access": "open, no registration",
+      "total_size_bytes_publisher_declared": 3688334,
+      "format": "1 file: .docx appendix with 2 figures and tables (lobar volume, ventilation, perfusion before/after ELVR)",
+      "subjects": "not stated in the publisher record (E4 partial): the description says 'the first consecutive patients treated with ...' without a number",
+      "measured": true,
+      "human": true,
+      "regional_structure": "pulmonary lobes (lobar, not whole-lung): lobar volume, lobar ventilation and lobar perfusion, semi-automatic 3D V/Q SPECT/CT",
+      "constrains_model_groups": {
+        "G1": "regional (lobar) perfusion distribution and its change after lung volume reduction",
+        "G2": "regional (lobar) ventilation distribution and regional volumes",
+        "G6": "regional V/Q ratio per lobe"
+      },
+      "constrains_parameters_named": [
+        "aw_resistance_top_relative",
+        "compliance_base_gradient",
+        "rest_va_Lmin",
+        "rest_q_Lmin"
+      ],
+      "admissible": "partial",
+      "admissibility_reason": "E1 open, E2 measured humans, E3 maps to G1/G2/G6, E5 licence stated; E4 only partially satisfied because the subject count is absent from the publisher record, so it cannot be counted as fully admissible. Not downloaded (PREREG S1 allows exactly one sample).",
+      "second_route_K1": [
+        "provenance/figshare_8230529.json (figshare article API)",
+        "provenance/datacite_figshare8230529.json (DataCite: publisher Karger, rights CC BY 4.0, sizes ['3688334 Bytes'])"
+      ],
+      "known_defects": [
+        "subject count unverifiable from the publisher page (F1 avoided by recording it as not stated)"
+      ]
+    },
+    {
+      "id": "DS3",
+      "title": "Physiology of Body Lateralization on Regional Lung Ventilation and Lung Volumes in Healthy Subjects",
+      "url": "https://doi.org/10.5281/zenodo.14939011",
+      "publisher": "Zenodo",
+      "doi": "10.5281/zenodo.14939011",
+      "year": 2025,
+      "licence": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International",
+      "licence_evidence": [
+        "provenance/zenodo_14939011.json",
+        "provenance/datacite_zenodo14939011.json"
+      ],
+      "access": "open, no registration",
+      "total_size_bytes_publisher_declared": 2621346,
+      "format": "6 files: README.txt, LegendLATLUNGS.txt, codeRLATLUNGS.txt, StudySampleDataLATLUNGS.xlsx, EITdatabaseLATLUNGS.xlsx, FiguresReadme.zip",
+      "subjects": "healthy individuals; exact n not stated in the record metadata (E4 partial); StudySampleDataLATLUNGS.xlsx presumably holds it but was not downloaded (PREREG S1)",
+      "measured": true,
+      "human": true,
+      "regional_structure": "electrical impedance tomography: regional ventilation distribution per electrode row/section, measured supine and in body lateralization; spatial frame is the EIT electrode index space documented in LegendLATLUNGS.txt",
+      "constrains_model_groups": {
+        "G2": "regional ventilation distribution: regional ventilation fractions and lung volumes per EIT section, plus how lateralization redistributes them",
+        "G7": "per-region volume/compliance weights and the number of independent vertical regions the measurement can actually resolve"
+      },
+      "constrains_parameters_named": [
+        "aw_resistance_top_relative",
+        "aw_resistance_gradient",
+        "compliance_base_gradient",
+        "n_regions",
+        "lung_height_m"
+      ],
+      "admissible": "partial",
+      "admissibility_reason": "E1 open, E2 measured humans, E3 maps to G2/G7, E4 file list and per-file sizes read from the Zenodo API, E5 licence stated; E4 partially unmet on the exact subject count. CC BY-NC-ND forbids redistribution of derivatives, so only the untouched sample may be stored.",
+      "second_route_K1": [
+        "provenance/zenodo_14939011.json (Zenodo record API with per-file sizes)",
+        "provenance/datacite_zenodo14939011.json (DataCite rights CC BY-NC-ND 4.0)"
+      ],
+      "known_defects": [
+        "associated article was 'submitted and pending publication' at deposition time",
+        "NC-ND licence restricts derivative redistribution"
+      ]
+    },
+    {
+      "id": "DS4",
+      "title": "Lung Lobe Segmentation and Quantification Dataset (thoracic CT + lung perfusion SPECT, lobe/trachea segmentations in NIFTI)",
+      "url": "https://doi.org/10.5281/zenodo.15650888",
+      "publisher": "Zenodo (The Ottawa Hospital, RECOVERY protocol 20220303-01H)",
+      "doi": "10.5281/zenodo.15650888",
+      "year": 2025,
+      "licence": "Creative Commons Attribution 4.0",
+      "licence_evidence": [
+        "provenance/zenodo_15650888.json"
+      ],
+      "access": "record retrieved, but the file list could not be read",
+      "total_size_bytes_publisher_declared": "UNKNOWN (files array empty in the Zenodo record API; /files endpoint returned HTTP 403; landing page is client-rendered)",
+      "format": "per record text: CT + co-registered SPECT volumes + trachea and lung-lobe segmentations in NIFTI; 100 studies; SPECT 128x128, 4.83 mm pixel size",
+      "subjects": "100 studies, retrospectively collected patients who underwent lung perfusion SPECT for pre-operative lung function quantification",
+      "measured": true,
+      "human": true,
+      "regional_structure": "lung lobes and trachea as labelled NIfTI volumes on a CT/SPECT grid: the only public candidate with a true 3D voxel frame for the model's 9-column geometry",
+      "constrains_model_groups": {
+        "G1": "perfusion distribution per lobe/voxel",
+        "G2": "regional volumes and ventilation-adjacent anatomy",
+        "G7": "n_regions, lung_height_m and per-region volume/compliance weights, with a millimetre coordinate frame"
+      },
+      "constrains_parameters_named": [
+        "n_regions",
+        "lung_height_m",
+        "compliance_base_gradient",
+        "rest_q_Lmin"
+      ],
+      "admissible": false,
+      "admissibility_reason": "E4 fails: total size and per-file format could not be read from the publisher's own page or API during this job, and a size quoted from memory would be a failure (F1). Recorded as the most promising G7 target, not as a usable source today.",
+      "second_route_K1": "single_source: only the Zenodo record API resolved; DataCite/second route not obtained in the time budget",
+      "known_defects": [
+        "file list not retrievable via API or static HTML",
+        "second independent route missing (K1 downgrade applied)"
+      ]
+    },
+    {
+      "id": "DS5",
+      "title": "Dataset related to: \"Upper-limb interval versus constant-load exercise in patients with COPD: a physiological crossover study\"",
+      "url": "https://doi.org/10.5281/zenodo.14049935",
+      "publisher": "Zenodo (ERJ Open Research 2024;10(1):00779-2023)",
+      "doi": "10.5281/zenodo.14049935",
+      "year": 2024,
+      "licence": "Creative Commons Attribution 4.0",
+      "licence_evidence": [
+        "provenance/zenodo_14049935.json"
+      ],
+      "access": "record retrieved, but the file list could not be read",
+      "total_size_bytes_publisher_declared": "UNKNOWN (files array empty; /files endpoint HTTP 403)",
+      "format": "raw crossover-protocol exercise data (record text); per-file formats not readable",
+      "subjects": "26 stable COPD patients, three upper-limb exercise sessions each",
+      "measured": true,
+      "human": true,
+      "regional_structure": "none: whole-body exercise time series (ventilation, gas exchange, HR, symptoms), no regional or spatial component",
+      "constrains_model_groups": {
+        "G5": "state amplitudes at rest and at load: VA, VCO2, RQ and dynamic hyperinflation across a constant-load and an interval-work-rate protocol"
+      },
+      "constrains_parameters_named": [
+        "rest_va_Lmin",
+        "heavy_va_Lmin",
+        "rest_vco2_Lmin",
+        "heavy_vco2_Lmin",
+        "rest_rq",
+        "heavy_rq",
+        "rest_driving_pressure_cm_h2o",
+        "heavy_driving_pressure_cm_h2o"
+      ],
+      "admissible": false,
+      "admissibility_reason": "E4 fails on size/format (file list not retrievable), and with no regional structure it could never serve as the regional anchor the question asks for; it can only ever constrain G5. G5 therefore has no admissible dataset in this job.",
+      "second_route_K1": "single_source: only the Zenodo record API resolved",
+      "known_defects": [
+        "file list not retrievable",
+        "no regional structure (not F2, simply out of scope for regional claims)"
+      ]
+    },
+    {
+      "id": "DS6",
+      "title": "BOLD, a blood-gas and oximetry linked dataset",
+      "url": "https://doi.org/10.13026/phvt-3277",
+      "landing_page": "https://physionet.org/content/blood-gas-oximetry/1.0/",
+      "publisher": "PhysioNet",
+      "doi": "10.13026/phvt-3277",
+      "year": 2023,
+      "licence": "PhysioNet Credentialed Health Data License Agreement (DataCite rightsList empty; access terms quoted from the PhysioNet project page)",
+      "licence_evidence": [
+        "provenance/datacite_bold.json",
+        "provenance/physionet_bold.html"
+      ],
+      "access": "Credentialed Access: requires a PhysioNet Credentialed Health Data Use Agreement (v1.5.0) and completed credentialing; not open during this job",
+      "total_size_bytes_publisher_declared": "not stated in the record metadata retrieved",
+      "format": "time-varying EHR data linked to arterial blood gases and oximetry (SaO2, SpO2)",
+      "subjects": "ICU patients; one admission per patient kept, to avoid non-uniform overrepresentation",
+      "measured": true,
+      "human": true,
+      "regional_structure": "none: whole-patient blood gases and oximetry",
+      "constrains_model_groups": {
+        "G4": "O2 carriage: paired SaO2/SpO2 with arterial blood gases constrains hb_g_dl, p50_mmHg, hill_n and o2_dissolved_ml_dl_mmHg in ICU patients",
+        "G6": "A-aDO2: arterial PaO2 with documented FiO2 lets the alveolar-arterial gradient be computed against the model's frozen primary endpoint"
+      },
+      "admissible": false,
+      "admissibility_reason": "E1 fails: credentialed access, a bespoke data-use agreement would have to be signed during this job. Listed with its access condition stated honestly, exactly as PREREG E1 allows. Consequence: G4 has no admissible dataset in this job.",
+      "second_route_K1": [
+        "provenance/datacite_bold.json (DataCite -> landing page URL)",
+        "provenance/physionet_bold.html (PhysioNet project page: credentialing terms, per-admission subject selection)"
+      ],
+      "known_defects": [
+        "credentialed",
+        "size not stated in the retrieved record"
+      ]
+    },
+    {
+      "id": "DS7",
+      "title": "Pulmonary hypertension is attenuated and ventilation-perfusion matching is maintained during chronic hypoxia in deer mice (Archived data_WestCM.xlsx)",
+      "url": "https://doi.org/10.6084/m9.figshare.13348439.v2",
+      "publisher": "figshare",
+      "doi": "10.6084/m9.figshare.13348439.v2",
+      "year": 2020,
+      "licence": "Creative Commons Attribution 4.0 International",
+      "licence_evidence": [
+        "provenance/datacite_figshare13348439.json",
+        "provenance/figshare_13348439.json"
+      ],
+      "access": "open",
+      "total_size_bytes_publisher_declared": 20651,
+      "format": "1 file: .xlsx, SPECT-CT derived V/Q indices (log SDV, log SDQ, RDV, RDQ, Mean Log(V/Q), SD Log(V/Q), shunt perfusion, dead space), RVSP, RV/(LV+S), smooth-muscle thickness",
+      "subjects": "deer mice (high- vs low-altitude populations, chronic hypoxia)",
+      "measured": true,
+      "human": false,
+      "regional_structure": "regional V/Q distribution indices, but in an animal model",
+      "constrains_model_groups": {
+        "G3": "hypoxic pulmonary vasoconstriction: the only public quantitative V/Q dataset found that pairs chronic hypoxia with HPV readouts",
+        "G6": "regional V/Q inequality indices"
+      },
+      "admissible": false,
+      "admissibility_reason": "E2 fails: animal data, not humans. Reported explicitly as the only public option found for a hypoxia/HPV V/Q dataset, and it may not be counted as a human constraint on hpv_gain.",
+      "second_route_K1": [
+        "provenance/datacite_figshare13348439.json (DataCite: publisher figshare, rights CC BY 4.0, sizes ['20651 Bytes'])",
+        "provenance/figshare_13348439.json (figshare article API: file name/size/download URL)"
+      ],
+      "known_defects": [
+        "not human",
+        "single-file spreadsheet, no coordinate frame"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "G1": [
+      "DS1 (admissible, downloaded)",
+      "DS2 (partial)",
+      "DS4 (E4 fail)"
+    ],
+    "G2": [
+      "DS2 (partial)",
+      "DS3 (partial)",
+      "DS4 (E4 fail)"
+    ],
+    "G3": [
+      "DS1 (admissible, downloaded)",
+      "DS7 (E2 fail, animal)"
+    ],
+    "G4": [
+      "DS6 (E1 fail, credentialed) - no admissible dataset found in this job"
+    ],
+    "G5": [
+      "DS5 (E4 fail) - no admissible dataset found in this job"
+    ],
+    "G6": [
+      "DS1 (admissible, downloaded)",
+      "DS2 (partial)",
+      "DS6 (E1 fail)"
+    ],
+    "G7": [
+      "DS1 (admissible, downloaded)",
+      "DS3 (partial)",
+      "DS4 (E4 fail)"
+    ]
+  }
+}

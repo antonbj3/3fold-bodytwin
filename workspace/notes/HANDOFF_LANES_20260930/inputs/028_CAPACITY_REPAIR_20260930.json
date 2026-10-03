@@ -1,0 +1,323 @@
+{
+  "schema": "capacity-repair-20260930-v1",
+  "observations": [
+    {
+      "recorded_at_s": 1790790032.5114756,
+      "hosts": {
+        "local": {
+          "time": 1790790025.8435962,
+          "models": {
+            "opencode/space-swarm-free": 9,
+            "sol-session": 3
+          },
+          "cpu_pct": 21.482383868175553,
+          "memory_available": 41696620544,
+          "adaptive": null,
+          "error": null
+        },
+        "ovh": {
+          "time": 1790790026.5762146,
+          "models": {
+            "reserve_worker": 7,
+            "swarm": 10
+          },
+          "cpu_pct": 22.22708465945258,
+          "memory_available": 21742313472,
+          "adaptive": {
+            "enabled": true,
+            "decision": {
+              "allow": true,
+              "host_cap": 25,
+              "host_required_mib": 15258.878133773804,
+              "reasons": [],
+              "reserved_mib": 20834.288290023804,
+              "slice_usable_mib": 25877.03515625
+            },
+            "measured_at": 1790790022.0258114
+          },
+          "error": null
+        },
+        "upcloud": {
+          "time": 1790790024.503675,
+          "models": {
+            "swarm": 1,
+            "reserve_worker": 1
+          },
+          "cpu_pct": 13.553113553113553,
+          "memory_available": 5641519104,
+          "adaptive": {
+            "enabled": true,
+            "decision": {
+              "allow": false,
+              "host_cap": 5,
+              "host_required_mib": 6288.49609375,
+              "reasons": [
+                "slice_reservation_budget",
+                "host_headroom_and_burst_reserve"
+              ],
+              "reserved_mib": 3395.796875,
+              "slice_usable_mib": 5365.6015625
+            },
+            "measured_at": 1790790022.7315006
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "recorded_at_s": 1790790401.0322187,
+      "hosts": {
+        "local": {
+          "time": 1790790388.770094,
+          "models": {
+            "opencode/space-swarm-free": 9,
+            "sol-session": 3
+          },
+          "cpu_pct": 22.157921810699587,
+          "memory_available": 41740443648,
+          "adaptive": null,
+          "error": null
+        },
+        "ovh": {
+          "time": 1790790389.5534341,
+          "models": {
+            "reserve_worker": 8,
+            "swarm": 13
+          },
+          "cpu_pct": 34.01306671946149,
+          "memory_available": 19974156288,
+          "adaptive": {
+            "enabled": true,
+            "decision": {
+              "allow": true,
+              "host_cap": 25,
+              "host_required_mib": 15513.901065826416,
+              "reasons": [],
+              "reserved_mib": 20876.346378326416,
+              "slice_usable_mib": 25875.3046875
+            },
+            "measured_at": 1790790388.097776
+          },
+          "error": null
+        },
+        "upcloud": {
+          "time": 1790790387.2425058,
+          "models": {
+            "reserve_worker": 1,
+            "swarm": 2
+          },
+          "cpu_pct": 40.41368337311058,
+          "memory_available": 5181059072,
+          "adaptive": {
+            "enabled": true,
+            "decision": {
+              "allow": false,
+              "host_cap": 5,
+              "host_required_mib": 7684.878957748413,
+              "reasons": [
+                "slice_reservation_budget",
+                "host_headroom_and_burst_reserve"
+              ],
+              "reserved_mib": 5683.312551498413,
+              "slice_usable_mib": 5365.921875
+            },
+            "measured_at": 1790790382.5998063
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "recorded_at_s": 1790790518.494462,
+      "hosts": {
+        "local": {
+          "time": 1790790515.2385895,
+          "models": {
+            "opencode/space-swarm-free": 10,
+            "sol-session": 3
+          },
+          "cpu_pct": 24.543681871943228,
+          "memory_available": 41307729920,
+          "adaptive": null,
+          "error": null
+        },
+        "ovh": {
+          "time": 1790790516.0169215,
+          "models": {
+            "reserve_worker": 7,
+            "swarm": 10
+          },
+          "cpu_pct": 24.46197138440807,
+          "memory_available": 22552264704,
+          "adaptive": {
+            "enabled": true,
+            "decision": {
+              "allow": true,
+              "host_cap": 25,
+              "host_required_mib": 12364.089945793152,
+              "reasons": [],
+              "reserved_mib": 15176.902445793152,
+              "slice_usable_mib": 25872.5390625
+            },
+            "measured_at": 1790790515.2322173
+          },
+          "error": null
+        },
+        "upcloud": {
+          "time": 1790790513.654776,
+          "models": {
+            "swarm": 3
+          },
+          "cpu_pct": 35.518171718774795,
+          "memory_available": 5044969472,
+          "adaptive": {
+            "enabled": true,
+            "decision": {
+              "allow": false,
+              "host_cap": 5,
+              "host_required_mib": 5406.973334312439,
+              "reasons": [
+                "slice_reservation_budget",
+                "host_headroom_and_burst_reserve"
+              ],
+              "reserved_mib": 5540.270209312439,
+              "slice_usable_mib": 5367.421875
+            },
+            "measured_at": 1790790507.0406697
+          },
+          "error": null
+        }
+      }
+    }
+  ],
+  "updated_at_s": 1790790518.494467,
+  "authorisation": "Anton: h\u00f6j s\u00e5 mycket h\u00e5rdvaran p\u00e5 molnet klarar; automatisk p\u00e5fyllnad",
+  "tests": {
+    "adaptive_policy": {
+      "passed": 22,
+      "command": "python3 -B -m unittest test_adaptive_policy"
+    },
+    "local_capacity_receipt": "LOCAL_CAPACITY_CHECKS.json",
+    "cache_receipt": "CACHE_ACCOUNTING_CHECKS.json",
+    "cloud_queue_syntax": "bash -n: PASS"
+  },
+  "changes": [
+    "measured working memory + growth reserve; startup/stale full cap",
+    "inactive non-child cache credit only",
+    "larger successful peak tiers3072/4096; actual OOM at2048+ still review",
+    "CPU PSI gates only with >=65% actual host CPU; >=85% always gates",
+    "automatic The swarm model ceilings; old dental12 cap disabled under automatic policy",
+    "local automatic isolated systemd workers",
+    "15s startup full cap; then fresh measured forecast",
+    "subsecond fresh samples accepted; future/stale samples still full cap",
+    "same conservative cache credit applied to raw-current admission predicate"
+  ],
+  "limitations": [
+    "growth forecast permits monitored overcommit; simultaneous individual peaks not guaranteed",
+    "provider backoff remains authoritative",
+    "configured concurrency is not actual starts",
+    "no scientific admission or product commits from these changes"
+  ],
+  "receipts": {
+    "ELASTIC_CLOUD_DEPLOY.json": {
+      "ovh": {
+        "backup": "/opt/agents/backups/measured-growth-1790790353948837483",
+        "memory_high": 27917287424,
+        "memory_max": 30064771072,
+        "reservation_mode": "measured-growth"
+      },
+      "upcloud": {
+        "backup": "/opt/agents/backups/measured-growth-1790790352777871680",
+        "memory_high": 5905580032,
+        "memory_max": 7516192768,
+        "reservation_mode": "measured-growth"
+      }
+    },
+    "MODEL_CEILING_DEPLOY.json": {
+      "ovh": {
+        "ceiling": 26,
+        "backup": "/opt/agents/backups/model-ceiling-1790789825343865104"
+      },
+      "upcloud": {
+        "ceiling": 5,
+        "backup": "/opt/agents/backups/model-ceiling-1790789824111225489"
+      }
+    },
+    "CACHE_ACCOUNTING_DEPLOY.json": {
+      "ovh": {
+        "backup": "/opt/agents/backups/cache-accounting-1790788379223514430",
+        "files": [
+          "launch_reserved.py",
+          "adaptive_runtime.py",
+          "reservation_accounting.py"
+        ]
+      },
+      "upcloud": {
+        "backup": "/opt/agents/backups/cache-accounting-1790788378943423463",
+        "files": [
+          "launch_reserved.py",
+          "adaptive_runtime.py",
+          "reservation_accounting.py"
+        ]
+      }
+    }
+  },
+  "source_hashes": {
+    "adaptive_cloud.py": "d9dbfa38d66311b489570048abbcd64634169d0c9d176cde5b84d57747c40028",
+    "adaptive_policy.py": "177b3d5c4897e80e118b7cf4a5b6e21bd05a0e6265708d74ea9d57180295b8d9",
+    "reservation_accounting.py": "3de4483e2f8681917114b616bf1f01ca85425d646686b8a54493ec59cbdf9829",
+    "local_capacity.py": "9f23553281d2ad959fc9fa3cecb3a6af919d1302c1e0e494b996828fefb1ad4a",
+    "test_adaptive_policy.py": "3570baa518edd6f772f0ac0166512b1db623e142bedc791f21148c4391c3507b"
+  },
+  "last_audit": {
+    "ovh": {
+      "time": 1790790458.1134167,
+      "decision": {
+        "allow": true,
+        "host_cap": 25,
+        "host_required_mib": 17241.108348846436,
+        "reasons": [],
+        "reserved_mib": 22540.588817596436,
+        "slice_usable_mib": 25874.77734375
+      },
+      "oom_kill_total": 41,
+      "remote_hashes": {
+        "launch_reserved.py": "798f86814f806a9dbc5dcd671f0b23613192b2fbd33efdfde47130f0386cbcd8",
+        "adaptive_runtime.py": "5a65d61db09de027cbd9c8192b3cdf294e45f7c80a494bb5258fb29027c183f8",
+        "adaptive_policy.py": "177b3d5c4897e80e118b7cf4a5b6e21bd05a0e6265708d74ea9d57180295b8d9",
+        "reservation_accounting.py": "3de4483e2f8681917114b616bf1f01ca85425d646686b8a54493ec59cbdf9829"
+      }
+    },
+    "upcloud": {
+      "time": 1790790456.563203,
+      "decision": {
+        "allow": false,
+        "host_cap": 5,
+        "host_required_mib": 5255.641682624817,
+        "reasons": [
+          "slice_reservation_budget",
+          "host_headroom_and_burst_reserve"
+        ],
+        "reserved_mib": 5166.704182624817,
+        "slice_usable_mib": 5365.171875
+      },
+      "oom_kill_total": 97,
+      "remote_hashes": {
+        "launch_reserved.py": "798f86814f806a9dbc5dcd671f0b23613192b2fbd33efdfde47130f0386cbcd8",
+        "adaptive_runtime.py": "5a65d61db09de027cbd9c8192b3cdf294e45f7c80a494bb5258fb29027c183f8",
+        "adaptive_policy.py": "177b3d5c4897e80e118b7cf4a5b6e21bd05a0e6265708d74ea9d57180295b8d9",
+        "reservation_accounting.py": "3de4483e2f8681917114b616bf1f01ca85425d646686b8a54493ec59cbdf9829"
+      }
+    }
+  },
+  "historic_backups": [
+    "/opt/agents/backups/measured-growth-1790789484302569888",
+    "/opt/agents/backups/measured-growth-1790789483553906362",
+    "/opt/agents/backups/measured-growth-1790790177837563863",
+    "/opt/agents/backups/measured-growth-1790790176689307040",
+    "/opt/agents/backups/memory-refinement-1790789615639677325",
+    "/opt/agents/backups/memory-refinement-1790789614737278069",
+    "/opt/agents/backups/memory-refinement-1790789717973786500",
+    "/opt/agents/backups/memory-refinement-1790789717063923694"
+  ]
+}

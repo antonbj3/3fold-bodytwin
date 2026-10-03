@@ -1,0 +1,441 @@
+{
+  "default_case": {
+    "before_after": {
+      "after_exposed_area_m2": 0.00046966810171167404,
+      "after_opening_width_m": 0.013,
+      "before_exposed_area_m2": 0.0,
+      "before_opening_width_m": 0.0
+    },
+    "geometry": {
+      "a_m": 0.023,
+      "b_m": 0.0065,
+      "cut_exposed_area_m2": 0.00046966810171167404,
+      "exposed_area_m2": 0.00046966810171167404,
+      "exposed_perimeter_m": 0.10007969107477009,
+      "full_length_m": 0.046,
+      "full_width_m": 0.013,
+      "intact_exposed_area_m2": 0.0,
+      "opening_strain_max": 0.6499999999999999,
+      "opening_strain_mean": 0.5105088062083414,
+      "opening_width_m": 0.013
+    },
+    "mechanics": {
+      "incremental_force_n": 1.7318010561988568,
+      "nominal_stress_max_pa": 46692.96667619243,
+      "opening_strain_max": 0.6499999999999999,
+      "opening_strain_mean": 0.5105088062083414,
+      "opening_width_m": 0.013,
+      "prestress_force_n": 1.84,
+      "tip_stress_factor": 31.3315017762062,
+      "tip_stress_pa": 1462960.76835146,
+      "total_force_n": 3.571801056198857
+    },
+    "transport": {
+      "cut_darcy_flow_m3_s": 2.34834050855837e-10,
+      "cut_darcy_flux_m_s": 5e-07,
+      "cut_evap_flow_m3_s": 7.697338333607991e-13,
+      "cut_evap_flux_m_s": 1.638888888888889e-09,
+      "cut_total_flow_m3_s": 2.403004657063145e-10,
+      "exudate_flow_m3_s": 4.696681017116741e-12,
+      "intact_darcy_flow_m3_s": 4.69668101711674e-11,
+      "intact_darcy_flux_m_s": 1e-07,
+      "intact_evap_flow_m3_s": 1.3046336158657612e-13,
+      "intact_evap_flux_m_s": 2.7777777777777777e-10,
+      "intact_total_flow_m3_s": 4.709727353275398e-11,
+      "total_flow_ratio": 5.1022160664819936
+    },
+    "units": {
+      "before_after": {
+        "after_exposed_area_m2": "m^2",
+        "after_opening_width_m": "m",
+        "before_exposed_area_m2": "m^2",
+        "before_opening_width_m": "m"
+      },
+      "geometry": {
+        "a_m": "m",
+        "b_m": "m",
+        "cut_exposed_area_m2": "m^2",
+        "exposed_area_m2": "m^2",
+        "exposed_perimeter_m": "m",
+        "full_length_m": "m",
+        "full_width_m": "m",
+        "intact_exposed_area_m2": "m^2",
+        "opening_strain_max": "1",
+        "opening_strain_mean": "1",
+        "opening_width_m": "m"
+      },
+      "mechanics": {
+        "incremental_force_n": "N",
+        "nominal_stress_max_pa": "Pa",
+        "opening_strain_max": "1",
+        "opening_strain_mean": "1",
+        "opening_width_m": "m",
+        "prestress_force_n": "N",
+        "tip_stress_factor": "1",
+        "tip_stress_pa": "Pa",
+        "total_force_n": "N"
+      },
+      "transport": {
+        "cut_darcy_flow_m3_s": "m^3 s^-1",
+        "cut_darcy_flux_m_s": "m s^-1",
+        "cut_evap_flow_m3_s": "m^3 s^-1",
+        "cut_evap_flux_m_s": "m s^-1",
+        "cut_total_flow_m3_s": "m^3 s^-1",
+        "exudate_flow_m3_s": "m^3 s^-1",
+        "intact_darcy_flow_m3_s": "m^3 s^-1",
+        "intact_darcy_flux_m_s": "m s^-1",
+        "intact_evap_flow_m3_s": "m^3 s^-1",
+        "intact_evap_flux_m_s": "m s^-1",
+        "intact_total_flow_m3_s": "m^3 s^-1",
+        "total_flow_ratio": "1"
+      }
+    }
+  },
+  "equations": {
+    "closure_force": "F=integral[-a,a] h*sigma(g(y)/L_ref) dy",
+    "darcy_flux": "J_d=k*delta_p/(mu*L)",
+    "evaporation": "J_evap,cut=m_evap*J_evap,intact",
+    "exposed_area": "A_exposed=pi*a*b",
+    "opening_stress": "sigma=sigma0+E*expm1(beta*epsilon)/beta",
+    "opening_width": "g(y)=2*b*sqrt(1-(y/a)^2)",
+    "tip_stress_factor": "K_tip=1+2*sqrt(a/r_tip)",
+    "total_flow": "Q_total=Q_darcy+Q_evap+Q_exudate"
+  },
+  "id": "BT-HX-Q033",
+  "model_version": "0.1.0",
+  "parameters": [
+    {
+      "name": "a_m",
+      "source_or_assumption": "standard geometry; 46 mm full length",
+      "unit": "m",
+      "value": 0.023
+    },
+    {
+      "name": "b_m",
+      "source_or_assumption": "standard geometry; 13 mm full width",
+      "unit": "m",
+      "value": 0.0065
+    },
+    {
+      "name": "thickness_m",
+      "source_or_assumption": "assumption; load-bearing tissue thickness",
+      "unit": "m",
+      "value": 0.002
+    },
+    {
+      "name": "prestress_pa",
+      "source_or_assumption": "assumption; natural membrane stress",
+      "unit": "Pa",
+      "value": 20000.0
+    },
+    {
+      "name": "modulus_pa",
+      "source_or_assumption": "assumption; small-strain effective modulus",
+      "unit": "Pa",
+      "value": 20000.0
+    },
+    {
+      "name": "nonlinearity_beta",
+      "source_or_assumption": "assumption; exponential stress exponent",
+      "unit": "1",
+      "value": 2.0
+    },
+    {
+      "name": "reference_length_m",
+      "source_or_assumption": "assumption; opening strain gauge length",
+      "unit": "m",
+      "value": 0.02
+    },
+    {
+      "name": "tip_radius_m",
+      "source_or_assumption": "assumption; rounded incision tip radius",
+      "unit": "m",
+      "value": 0.0001
+    },
+    {
+      "name": "pressure_delta_pa",
+      "source_or_assumption": "assumption; tissue-to-surface pressure drop",
+      "unit": "Pa",
+      "value": 1000.0
+    },
+    {
+      "name": "viscosity_pa_s",
+      "source_or_assumption": "assumption; aqueous wound fluid viscosity",
+      "unit": "Pa s",
+      "value": 0.001
+    },
+    {
+      "name": "tissue_permeability_m2",
+      "source_or_assumption": "assumption; intrinsic tissue permeability",
+      "unit": "m^2",
+      "value": 1e-15
+    },
+    {
+      "name": "intact_path_length_m",
+      "source_or_assumption": "assumption; intact transport path",
+      "unit": "m",
+      "value": 0.01
+    },
+    {
+      "name": "wound_path_length_m",
+      "source_or_assumption": "assumption; open wound transport path",
+      "unit": "m",
+      "value": 0.002
+    },
+    {
+      "name": "intact_tewl_g_m2_h",
+      "source_or_assumption": "assumption; normalized intact barrier flux",
+      "unit": "g m^-2 h^-1",
+      "value": 1.0
+    },
+    {
+      "name": "barrier_damage_multiplier",
+      "source_or_assumption": "Barthe et al. 2024, DOI 10.3389/fmed.2024.1481645, Fig. 2; 5.9-fold TEWL analog",
+      "unit": "1",
+      "value": 5.9
+    },
+    {
+      "name": "exudate_velocity_m_s",
+      "source_or_assumption": "assumption; wound-fluid source velocity",
+      "unit": "m s^-1",
+      "value": 1e-08
+    }
+  ],
+  "prereg_checks": {
+    "all_pass": true,
+    "area_increases_with_a": true,
+    "area_increases_with_b": true,
+    "barrier_sensitivity_direction": true,
+    "evaporation_analog_ratio": true,
+    "force_increases_with_b": true,
+    "force_sanity_0p5_to_6_n": true,
+    "modulus_sensitivity_direction": true,
+    "placebo_area_zero": true,
+    "placebo_cut_flow_zero": true,
+    "placebo_incremental_force_zero": true,
+    "prestress_sensitivity_direction": true,
+    "sensitivity_finite": true,
+    "unit_check": true
+  },
+  "reference_values": [
+    {
+      "doi": "10.1055/a-2150-0587",
+      "location": "Table 1 and Fig. 7",
+      "quantity": "experienced-surgeon direct-closure upper threshold",
+      "unit": "N",
+      "value": 5.4
+    },
+    {
+      "doi": "10.1055/a-2150-0587",
+      "location": "Table 1 and Fig. 7",
+      "quantity": "experienced-surgeon minimum tension without direct-closure recommendation",
+      "unit": "N",
+      "value": 6.0
+    },
+    {
+      "doi": "10.1055/a-2150-0587",
+      "location": "Table 1",
+      "quantity": "fresh-cadaver pooled direct-closure upper threshold",
+      "unit": "N",
+      "value": 4.2
+    },
+    {
+      "doi": "10.3389/fmed.2024.1481645",
+      "location": "Fig. 2",
+      "quantity": "TEWL increase after mechanical dermabrasion",
+      "unit": "fold relative to control; TEWL measured in g m^-2 h^-1",
+      "value": 5.9
+    },
+    {
+      "doi": "10.3389/fmed.2024.1481645",
+      "location": "Fig. 4",
+      "quantity": "Lucifer Yellow receptor concentration increase after dermabrasion",
+      "unit": "fold relative to control",
+      "value": 133.0
+    }
+  ],
+  "sensitivity": {
+    "baseline": {
+      "before_after": {
+        "after_exposed_area_m2": 0.00046966810171167404,
+        "after_opening_width_m": 0.013,
+        "before_exposed_area_m2": 0.0,
+        "before_opening_width_m": 0.0
+      },
+      "geometry": {
+        "a_m": 0.023,
+        "b_m": 0.0065,
+        "cut_exposed_area_m2": 0.00046966810171167404,
+        "exposed_area_m2": 0.00046966810171167404,
+        "exposed_perimeter_m": 0.10007969107477009,
+        "full_length_m": 0.046,
+        "full_width_m": 0.013,
+        "intact_exposed_area_m2": 0.0,
+        "opening_strain_max": 0.6499999999999999,
+        "opening_strain_mean": 0.5105088062083414,
+        "opening_width_m": 0.013
+      },
+      "mechanics": {
+        "incremental_force_n": 1.7318010561988568,
+        "nominal_stress_max_pa": 46692.96667619243,
+        "opening_strain_max": 0.6499999999999999,
+        "opening_strain_mean": 0.5105088062083414,
+        "opening_width_m": 0.013,
+        "prestress_force_n": 1.84,
+        "tip_stress_factor": 31.3315017762062,
+        "tip_stress_pa": 1462960.76835146,
+        "total_force_n": 3.571801056198857
+      },
+      "transport": {
+        "cut_darcy_flow_m3_s": 2.34834050855837e-10,
+        "cut_darcy_flux_m_s": 5e-07,
+        "cut_evap_flow_m3_s": 7.697338333607991e-13,
+        "cut_evap_flux_m_s": 1.638888888888889e-09,
+        "cut_total_flow_m3_s": 2.403004657063145e-10,
+        "exudate_flow_m3_s": 4.696681017116741e-12,
+        "intact_darcy_flow_m3_s": 4.69668101711674e-11,
+        "intact_darcy_flux_m_s": 1e-07,
+        "intact_evap_flow_m3_s": 1.3046336158657612e-13,
+        "intact_evap_flux_m_s": 2.7777777777777777e-10,
+        "intact_total_flow_m3_s": 4.709727353275398e-11,
+        "total_flow_ratio": 5.1022160664819936
+      },
+      "units": {
+        "before_after": {
+          "after_exposed_area_m2": "m^2",
+          "after_opening_width_m": "m",
+          "before_exposed_area_m2": "m^2",
+          "before_opening_width_m": "m"
+        },
+        "geometry": {
+          "a_m": "m",
+          "b_m": "m",
+          "cut_exposed_area_m2": "m^2",
+          "exposed_area_m2": "m^2",
+          "exposed_perimeter_m": "m",
+          "full_length_m": "m",
+          "full_width_m": "m",
+          "intact_exposed_area_m2": "m^2",
+          "opening_strain_max": "1",
+          "opening_strain_mean": "1",
+          "opening_width_m": "m"
+        },
+        "mechanics": {
+          "incremental_force_n": "N",
+          "nominal_stress_max_pa": "Pa",
+          "opening_strain_max": "1",
+          "opening_strain_mean": "1",
+          "opening_width_m": "m",
+          "prestress_force_n": "N",
+          "tip_stress_factor": "1",
+          "tip_stress_pa": "Pa",
+          "total_force_n": "N"
+        },
+        "transport": {
+          "cut_darcy_flow_m3_s": "m^3 s^-1",
+          "cut_darcy_flux_m_s": "m s^-1",
+          "cut_evap_flow_m3_s": "m^3 s^-1",
+          "cut_evap_flux_m_s": "m s^-1",
+          "cut_total_flow_m3_s": "m^3 s^-1",
+          "exudate_flow_m3_s": "m^3 s^-1",
+          "intact_darcy_flow_m3_s": "m^3 s^-1",
+          "intact_darcy_flux_m_s": "m s^-1",
+          "intact_evap_flow_m3_s": "m^3 s^-1",
+          "intact_evap_flux_m_s": "m s^-1",
+          "intact_total_flow_m3_s": "m^3 s^-1",
+          "total_flow_ratio": "1"
+        }
+      }
+    },
+    "rows": [
+      {
+        "cut_total_flow_m3_s": 2.403004657063145e-10,
+        "evaporation_ratio": 5.9,
+        "exposed_area_m2": 0.00046966810171167404,
+        "factor": 0.5,
+        "incremental_force_n": 0.8659005280994284,
+        "parameter": "modulus_pa",
+        "relative_evaporation_ratio_change": 0.0,
+        "relative_flow_change": 0.0,
+        "relative_force_change": -0.2424268637797335,
+        "total_force_n": 2.7059005280994284,
+        "value": 10000.0
+      },
+      {
+        "cut_total_flow_m3_s": 2.403004657063145e-10,
+        "evaporation_ratio": 5.9,
+        "exposed_area_m2": 0.00046966810171167404,
+        "factor": 1.5,
+        "incremental_force_n": 2.597701584298285,
+        "parameter": "modulus_pa",
+        "relative_evaporation_ratio_change": 0.0,
+        "relative_flow_change": 0.0,
+        "relative_force_change": 0.24242686377973338,
+        "total_force_n": 4.437701584298285,
+        "value": 30000.0
+      },
+      {
+        "cut_total_flow_m3_s": 2.403004657063145e-10,
+        "evaporation_ratio": 5.9,
+        "exposed_area_m2": 0.00046966810171167404,
+        "factor": 0.5,
+        "incremental_force_n": 1.7318010561988568,
+        "parameter": "prestress_pa",
+        "relative_evaporation_ratio_change": 0.0,
+        "relative_flow_change": 0.0,
+        "relative_force_change": -0.2575731362202665,
+        "total_force_n": 2.651801056198857,
+        "value": 10000.0
+      },
+      {
+        "cut_total_flow_m3_s": 2.403004657063145e-10,
+        "evaporation_ratio": 5.9,
+        "exposed_area_m2": 0.00046966810171167404,
+        "factor": 1.5,
+        "incremental_force_n": 1.7318010561988568,
+        "parameter": "prestress_pa",
+        "relative_evaporation_ratio_change": 0.0,
+        "relative_flow_change": 0.0,
+        "relative_force_change": 0.2575731362202665,
+        "total_force_n": 4.491801056198857,
+        "value": 30000.0
+      },
+      {
+        "cut_total_flow_m3_s": 2.3991559878963415e-10,
+        "evaporation_ratio": 2.95,
+        "exposed_area_m2": 0.00046966810171167404,
+        "factor": 0.5,
+        "incremental_force_n": 1.7318010561988568,
+        "parameter": "barrier_damage_multiplier",
+        "relative_evaporation_ratio_change": -0.5,
+        "relative_flow_change": -0.0016016070362124958,
+        "relative_force_change": 0.0,
+        "total_force_n": 3.571801056198857,
+        "value": 2.95
+      },
+      {
+        "cut_total_flow_m3_s": 2.4068533262299495e-10,
+        "evaporation_ratio": 8.850000000000001,
+        "exposed_area_m2": 0.00046966810171167404,
+        "factor": 1.5,
+        "incremental_force_n": 1.7318010561988568,
+        "parameter": "barrier_damage_multiplier",
+        "relative_evaporation_ratio_change": 0.5000000000000001,
+        "relative_flow_change": 0.001601607036212711,
+        "relative_force_change": 0.0,
+        "total_force_n": 3.571801056198857,
+        "value": 8.850000000000001
+      }
+    ]
+  },
+  "sources": [
+    {
+      "doi": "10.1055/a-2150-0587",
+      "use": "verified force reference; Table 1 and Fig. 7"
+    },
+    {
+      "doi": "10.3389/fmed.2024.1481645",
+      "use": "verified 5.9-fold TEWL barrier-damage analog; Fig. 2 and Fig. 4"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+# BT-FV3 — foot contact: model the shoe, contact-aware filtering, free toe joint
+Read first tasks/lanes/_PREAMBLE.md (binding). You have the mandate to drive without asking.
+FYND (root 11:40): in OpenCap LabValidation stands the heel marker (r_calc/L_calc) 72–75 mm and 5the metatarsal marker 32–40 mm above the floor of the static1.trc (subject2, /media/anton/8838D60F38D5FBDE/mechanism_data/LabValidation_withVideos/subject2/MarkerData/Mocap) — ca 15–25 mm higher than barefoot. Hypothesis: persons wear shoes; M3/M4/FV2 tried to get BENETS heel to the floor, but the contact is via the sole. That explains the heel 18 mm (M4) and 14 mm (FV2) above the floor at HS.
+BACKGROUND: results/M2 (adapter, contact resolver), results/M3, M4 (anatomic points; HS +21 ms, TO −40 ms; stiff toes mtp 3°), results/FV2 (foot-floor conditions: 75 % within ±5 mm, HS 0/50, counter sample N1 did not bite), results/V3 (contact dependent filter), C2/C3 (6 Hz filter moves peaks).
+UPPDRAG:
+1. PREREG (hashed). Verify the shoe hypothesis first: marker heights in static for all 10 people against barefoot norms (source), and if metadata/article (Uhlrich 2023 OpenCap) denotes shoes. Reject the shoe hypothesis if the marker heights are within the dispersion of the barefoot norm.
+2. Model: sole as geometry (heel and forefoot points/ellipsoid under the foot, thickness t per person calibrated from static — NOT from walking trials), contact conditions on the sole; the condition on UNFILTERED kinematics and contact-aware filtering (no low-pass over HS/TO); mtp free in IK with toe marker. Parameters are chosen on 2 people, tried on 8.
+3. Criteria (same as M3/M4): HS and TO within ±20 ms for ≥ 80 % of events; vertical GRF peak within ±15 % for ≥ 70 %; marker residual increases ≤ 20 %. Baselines: M4 (anatomical points), Zeni. Counter test: t = 0 (barefoot) should give clearly worse HS; t from the wrong person should give worse.
+Utdata endast results/BT-FV3/. Reuse M2/M3/M4/FV2-kod via import (read-only, none `import *`). pinocchio: ~/projects/3fold_staging/.venv-motion/bin/python. Avsluta med RESULTS.md.
+
+ADDITIONS (Anton 11:45: "do we need a shoe model?" — yes, minimal):
+- Shoe model with four parts: (1) sole geometry: thickness heel/forefoot (drop) as rigid plate with contact points on the underside, calibrated from static per person; (2) midsole stiffness/damping as contact layer (Hunt–Crossley parameters for running shoes from literature, cite; compare with heel cushion assumption 10,3 mm from M4); (3) markers on the shoe: determine if calc/toe/5meta is on the shoe (height, distance to bone surface) and model offsets in the foot segment instead of interpreting them as skin markers; (4) sole bending stiffness: mtp free but with rotation spring (source of shoe bending stiffness), compare with fully free and fully locked.
+- Ablation: which of (1)–(4) explains most of HS/TO error and GRF peak.
+- Contract: sole thickness as own link with status (calibrated / literature / UNKNOWN); without shoe info, the chain should notice the result, not silently use bare feet.
+- No full FE shoe (only needed for impact transient/pressure-field breakdown — note as gap).

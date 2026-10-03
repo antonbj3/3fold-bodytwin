@@ -1,0 +1,619 @@
+{
+  "analytic_loss_limit": {
+    "M0": 2.4,
+    "days": 112,
+    "k_loss_day": 0.00035,
+    "predicted_without_flux": 2.3077401077718465
+  },
+  "dimension_audit": {
+    "checks": {
+      "dA_dt_incorporation": true,
+      "dA_dt_turnover": true,
+      "dM_dt_fusion": true,
+      "dM_dt_loss": true,
+      "dP_dt_degradation": true,
+      "dP_dt_synthesis": true,
+      "dS_dt_cycle": true,
+      "dS_dt_fusion_consumption": true,
+      "dS_dt_source": true,
+      "domain": true,
+      "fusion_rate": true,
+      "history_decay": true,
+      "history_rate": true,
+      "load_signal": true,
+      "yield_dimensionless": true
+    },
+    "passed": true
+  },
+  "id": "BT-HX-Q127",
+  "interpretation": "UNKNOWN",
+  "model": "first-principles longitudinal fibre/satellite-cell state model",
+  "parameters": {
+    "A0": {
+      "basis": "Cumming et al. 2024 type-II baseline fCSA mean",
+      "unit": "um^2/fibre",
+      "value": 4029.0
+    },
+    "D_star": {
+      "basis": "assumption",
+      "unit": "um^2/nucleus",
+      "value": 1200.0
+    },
+    "E0": {
+      "basis": "assumption",
+      "unit": "dimensionless",
+      "value": 0.0
+    },
+    "G0": {
+      "basis": "assumption",
+      "unit": "dimensionless",
+      "value": 0.0
+    },
+    "M0": {
+      "basis": "Cumming et al. 2024 type-II baseline mean",
+      "unit": "nuclei/fibre",
+      "value": 2.4
+    },
+    "P0": {
+      "basis": "assumption P0=A0",
+      "unit": "um^2-equivalent/fibre",
+      "value": 4029.0
+    },
+    "S0": {
+      "basis": "assumption",
+      "unit": "precursor/fibre",
+      "value": 0.1
+    },
+    "a_base": {
+      "basis": "assumption",
+      "unit": "precursor/(fibre day)",
+      "value": 0.001
+    },
+    "a_load": {
+      "basis": "assumption",
+      "unit": "precursor/(fibre day)",
+      "value": 0.03
+    },
+    "damage_sigma": {
+      "basis": "assumption",
+      "unit": "normalised fibre length",
+      "value": 0.12
+    },
+    "dt": {
+      "basis": "fixed numerical step",
+      "unit": "day",
+      "value": 1.0
+    },
+    "fiber_length": {
+      "basis": "assumption for axial spacing and density",
+      "unit": "um",
+      "value": 10000.0
+    },
+    "k_cycle": {
+      "basis": "assumption",
+      "unit": "day^-1",
+      "value": 0.05
+    },
+    "k_deg": {
+      "basis": "assumption",
+      "unit": "day^-1",
+      "value": 0.01
+    },
+    "k_forget": {
+      "basis": "assumption",
+      "unit": "day^-1",
+      "value": 0.002
+    },
+    "k_fuse": {
+      "basis": "assumption; yield separate",
+      "unit": "event/(precursor day)",
+      "value": 0.035
+    },
+    "k_inc": {
+      "basis": "assumption",
+      "unit": "day^-1",
+      "value": 0.01
+    },
+    "k_learn": {
+      "basis": "assumption",
+      "unit": "day^-1",
+      "value": 0.03
+    },
+    "k_loss": {
+      "basis": "assumption",
+      "unit": "day^-1",
+      "value": 0.00035
+    },
+    "k_off": {
+      "basis": "assumption",
+      "unit": "day^-1",
+      "value": 0.12
+    },
+    "k_on": {
+      "basis": "assumption",
+      "unit": "day^-1",
+      "value": 0.12
+    },
+    "k_turn": {
+      "basis": "assumption",
+      "unit": "day^-1",
+      "value": 0.01
+    },
+    "p_protect": {
+      "basis": "assumption",
+      "unit": "dimensionless",
+      "value": 0.5
+    },
+    "q_atrophy": {
+      "basis": "assumption",
+      "unit": "dimensionless",
+      "value": 1.0
+    },
+    "r_history": {
+      "basis": "assumption; ablation is run",
+      "unit": "dimensionless",
+      "value": 0.35
+    },
+    "r_load": {
+      "basis": "assumption",
+      "unit": "dimensionless",
+      "value": 0.2
+    },
+    "r_nuc": {
+      "basis": "derived assumption k_deg A0/M0",
+      "unit": "um^2/(nucleus day)",
+      "value": 16.8
+    },
+    "repulsion": {
+      "basis": "assumption",
+      "unit": "dimensionless",
+      "value": 0.35
+    },
+    "seed": {
+      "basis": "fixed random seed",
+      "unit": "dimensionless",
+      "value": 127.0
+    },
+    "stochastic_fibres": {
+      "basis": "fixed Monte Carlo size",
+      "unit": "fibres",
+      "value": 2000.0
+    },
+    "w_D": {
+      "basis": "assumption",
+      "unit": "dimensionless",
+      "value": 0.2
+    },
+    "y_fuse": {
+      "basis": "assumption",
+      "unit": "nuclei/event (dimensionless count ratio)",
+      "value": 1.0
+    }
+  },
+  "phase_summary": {
+    "control": {
+      "detraining": {
+        "A": 4025.3688205037174,
+        "E": 0.0,
+        "G": 0.0,
+        "M": 2.3527239868273706,
+        "M_acquired": 0.10084225841665462,
+        "P": 4002.8826196105024,
+        "S": 0.01230920049305809,
+        "day": 182,
+        "density_nuclei_per_mm2": 584.4741418086904,
+        "domain_um2": 1710.9396780248308,
+        "fusion_cumulative": 0.10290453687267664,
+        "fusion_events_cumulative": 0.10290453687267664,
+        "load": 0.0,
+        "loss_cumulative": 0.1501805500453017,
+        "mean_nearest_um": 5000.0,
+        "min_spacing_um": 5000.0,
+        "phase": "detraining",
+        "positions_normalised": [
+          0.25,
+          0.75
+        ]
+      },
+      "retraining": {
+        "A": 4245.522120464765,
+        "E": 0.8148242611449394,
+        "G": 0.9998700467783457,
+        "M": 2.86736098133238,
+        "M_acquired": 0.6699929456645183,
+        "P": 5011.9303826372325,
+        "S": 0.396211580626357,
+        "day": 252,
+        "density_nuclei_per_mm2": 675.3847701112637,
+        "domain_um2": 1480.6374740064969,
+        "fusion_cumulative": 0.6760342892086141,
+        "fusion_events_cumulative": 0.6760342892086141,
+        "load": 1.0,
+        "loss_cumulative": 0.20867330787622784,
+        "mean_nearest_um": 2495.3251032153926,
+        "min_spacing_um": 2485.9753096461777,
+        "phase": "retraining",
+        "positions_normalised": [
+          0.25,
+          0.4985975309646178,
+          0.75
+        ]
+      }
+    },
+    "history_ablation": {
+      "retraining": {
+        "A": 5244.82210133934,
+        "E": 0.9026770667237067,
+        "G": 0.9998700468570121,
+        "M": 3.5713080024518224,
+        "M_acquired": 1.3739214195830565,
+        "P": 5905.900601160824,
+        "S": 0.3985630602868482,
+        "day": 70,
+        "density_nuclei_per_mm2": 680.9207125518782,
+        "domain_um2": 1468.5997672949504,
+        "fusion_cumulative": 1.4049982875868934,
+        "fusion_events_cumulative": 1.4049982875868934,
+        "load": 1.0,
+        "loss_cumulative": 0.23369028513507187,
+        "mean_nearest_um": 3196.751942908863,
+        "min_spacing_um": 3020.831681352108,
+        "phase": "retraining",
+        "positions_normalised": [
+          0.023382390971665556,
+          0.32546555910687636,
+          0.6526070757633341,
+          1.0
+        ]
+      }
+    },
+    "trained": {
+      "detraining": {
+        "A": 4924.747172874259,
+        "E": 0.683119985311168,
+        "G": 6.053448321607612e-07,
+        "M": 3.076581319825117,
+        "M_acquired": 0.8246938560370202,
+        "P": 5221.51774922574,
+        "S": 0.012762354274925726,
+        "day": 182,
+        "density_nuclei_per_mm2": 624.7186326175428,
+        "domain_um2": 1600.7206249156443,
+        "fusion_cumulative": 0.843052017049341,
+        "fusion_events_cumulative": 0.843052017049341,
+        "load": 0.0,
+        "loss_cumulative": 0.1664706972242224,
+        "mean_nearest_um": 3708.577515806928,
+        "min_spacing_um": 3625.732547420786,
+        "phase": "detraining",
+        "positions_normalised": [
+          0.25,
+          0.6374267452579214,
+          1.0
+        ]
+      },
+      "first_training": {
+        "A": 4280.423868011858,
+        "E": 0.8148242611449394,
+        "G": 0.9998700467783457,
+        "M": 2.9345089077282984,
+        "M_acquired": 0.5925944543241175,
+        "P": 5106.111928543486,
+        "S": 0.39982454701507575,
+        "day": 70,
+        "density_nuclei_per_mm2": 685.565027720327,
+        "domain_um2": 1458.6508348088394,
+        "fusion_cumulative": 0.5956251495432391,
+        "fusion_events_cumulative": 0.5956251495432391,
+        "load": 1.0,
+        "loss_cumulative": 0.06111624181493829,
+        "mean_nearest_um": 3708.577515806928,
+        "min_spacing_um": 3625.732547420786,
+        "phase": "first_training",
+        "positions_normalised": [
+          0.25,
+          0.6374267452579214,
+          1.0
+        ]
+      },
+      "retraining": {
+        "A": 5449.264575214612,
+        "E": 0.9026770667237067,
+        "G": 0.9998700468570121,
+        "M": 3.580217028668837,
+        "M_acquired": 1.382830445800071,
+        "P": 6672.561563836895,
+        "S": 0.39380163494155085,
+        "day": 252,
+        "density_nuclei_per_mm2": 657.0092127574545,
+        "domain_um2": 1522.048672351214,
+        "fusion_cumulative": 1.4139313614775233,
+        "fusion_events_cumulative": 1.4139313614775233,
+        "load": 1.0,
+        "loss_cumulative": 0.23371433280868653,
+        "mean_nearest_um": 2407.391714753561,
+        "min_spacing_um": 2129.5668590142423,
+        "phase": "retraining",
+        "positions_normalised": [
+          0.25,
+          0.5383058048313765,
+          0.7870433140985758,
+          1.0
+        ]
+      }
+    }
+  },
+  "primary": {
+    "R_excess": 1.3542474644140028,
+    "criterion_met": false,
+    "criterion_tolerance": 0.3,
+    "detraining_fusion_events_per_fibre_day": 0.0022091684598759096,
+    "first_training_fusion_events_per_fibre_day": 0.008508930707760558,
+    "history_ablation_AR": 5244.82210133934,
+    "history_ablation_MR": 3.5713080024518224,
+    "history_effect_MR": 0.008909026217014393,
+    "model_M0": 2.4,
+    "model_M1": 2.9345089077282984,
+    "model_MC_D": 2.3527239868273706,
+    "model_MD": 3.076581319825117,
+    "model_MR": 3.580217028668837,
+    "model_MR_control": 2.86736098133238,
+    "raw_MD_over_M1": 1.0484143741130443,
+    "reference_R_excess": 0.8888888888888893,
+    "relative_error": 0.5235283974657524,
+    "retention_share_bounded": 1.0,
+    "retention_upper_bound_exceeded": true,
+    "retraining_fusion_events_per_fibre_day": 0.00815541920611689,
+    "size_only_effect_MR": 0.7128560473364569
+  },
+  "protocol_days": {
+    "detraining": 112,
+    "first_training": 70,
+    "retraining": 70,
+    "total": 252
+  },
+  "reference": {
+    "M0": 2.4,
+    "M0_sd": 0.5,
+    "M1": 3.3,
+    "M1_sd": 0.7,
+    "MC_D": 2.4,
+    "MC_D_sd": 0.5,
+    "MD": 3.2,
+    "MD_sd": 0.6,
+    "R_excess": 0.8888888888888893,
+    "criterion_relative_tolerance": 0.3
+  },
+  "sensitivity": {
+    "k_fuse": {
+      "absolute_span": 0.26640982559468585,
+      "minus50": {
+        "R_excess": 1.5446908022852144,
+        "delta_R": 0.1904433378712116,
+        "factor": 0.5,
+        "parameter_value": 0.0175
+      },
+      "plus50": {
+        "R_excess": 1.2782809766905285,
+        "delta_R": -0.07596648772347425,
+        "factor": 1.5,
+        "parameter_value": 0.052500000000000005
+      }
+    },
+    "k_loss": {
+      "absolute_span": 0.12457554725480868,
+      "minus50": {
+        "R_excess": 1.2949694828665774,
+        "delta_R": -0.05927798154742536,
+        "factor": 0.5,
+        "parameter_value": 0.000175
+      },
+      "plus50": {
+        "R_excess": 1.419545030121386,
+        "delta_R": 0.06529756570738332,
+        "factor": 1.5,
+        "parameter_value": 0.000525
+      }
+    },
+    "r_history": {
+      "absolute_span": 0.009267147772272999,
+      "minus50": {
+        "R_excess": 1.3493697092669306,
+        "delta_R": -0.004877755147072227,
+        "factor": 0.5,
+        "parameter_value": 0.175
+      },
+      "plus50": {
+        "R_excess": 1.3586368570392036,
+        "delta_R": 0.004389392625200772,
+        "factor": 1.5,
+        "parameter_value": 0.5249999999999999
+      }
+    }
+  },
+  "source": {
+    "citation": "Cumming et al. 2024, The Journal of Physiology 602(17):4171-4193, DOI 10.1113/JP285675",
+    "page": "https://www.ovid.com/journals/jphy/fulltext/10.1113/jp285675~muscle-memory-in-humans-evidence-for-myonuclear-permanence",
+    "reference_ratio_derivation": "(3.2-2.4)/(3.3-2.4)",
+    "verified": true
+  },
+  "status": "complete_criterion_failed",
+  "stochastic": {
+    "R_excess": 1.4027552674230146,
+    "control": {
+      "AD": {
+        "max": 5708.100022350222,
+        "mean": 4030.645885860831,
+        "median": 3662.8870063859954,
+        "min": 2763.46933647951,
+        "q025": 3040.742396111027,
+        "q975": 5051.498618667349,
+        "sd": 520.0038977590874
+      },
+      "AR": {
+        "max": 7022.964704918665,
+        "mean": 4272.966931321919,
+        "median": 3925.0086753522432,
+        "min": 2431.165981780848,
+        "q025": 2701.732693500275,
+        "q975": 5937.961417500108,
+        "sd": 780.5320778647111
+      },
+      "M0": {
+        "max": 3.0,
+        "mean": 2.3885,
+        "median": 2.0,
+        "min": 2.0,
+        "q025": 2.0,
+        "q975": 3.0,
+        "sd": 0.48753112033658763
+      },
+      "MD": {
+        "max": 5.0,
+        "mean": 2.3805,
+        "median": 2.0,
+        "min": 1.0,
+        "q025": 1.0,
+        "q975": 4.0,
+        "sd": 0.6840714340355338
+      },
+      "MR": {
+        "max": 6.0,
+        "mean": 3.003,
+        "median": 3.0,
+        "min": 1.0,
+        "q025": 1.0,
+        "q975": 5.0,
+        "sd": 0.9238060991649858
+      }
+    },
+    "detraining_fusion_events_per_fibre_day": 0.0030401785714285717,
+    "first_training_fusion_events_per_fibre_day": 0.009757142857142858,
+    "n_fibres": 2000,
+    "retention_share_bounded": 1.0,
+    "retention_upper_bound_exceeded": true,
+    "retraining_A_excess_over_control": 1345.9915220090852,
+    "retraining_M_excess_over_control": 0.806,
+    "retraining_fusion_events_per_fibre_day": 0.009157142857142857,
+    "seed": 127,
+    "trained": {
+      "A0": {
+        "max": 4029.0,
+        "mean": 4029.0,
+        "median": 4029.0,
+        "min": 4029.0,
+        "q025": 4029.0,
+        "q975": 4029.0,
+        "sd": 0.0
+      },
+      "A1": {
+        "max": 5010.476676542127,
+        "mean": 4282.515313620396,
+        "median": 4254.713095742901,
+        "min": 3744.0933456859216,
+        "q025": 4083.897742959281,
+        "q975": 4661.5576188382765,
+        "sd": 190.41137069257653
+      },
+      "AD": {
+        "max": 7660.295469107753,
+        "mean": 5005.969618199174,
+        "median": 5018.665475039226,
+        "min": 2933.1341080615184,
+        "q025": 3988.8847130429212,
+        "q975": 6385.134861211369,
+        "sd": 701.9338325525792
+      },
+      "AR": {
+        "max": 9304.228034246567,
+        "mean": 5618.958453331004,
+        "median": 5452.5610198014565,
+        "min": 2603.0950818602155,
+        "q025": 3982.6533693884735,
+        "q975": 7708.1204201869705,
+        "sd": 1038.0121795726461
+      },
+      "M0": {
+        "max": 3.0,
+        "mean": 2.3885,
+        "median": 2.0,
+        "min": 2.0,
+        "q025": 2.0,
+        "q975": 3.0,
+        "sd": 0.48753112033658763
+      },
+      "M1": {
+        "max": 6.0,
+        "mean": 3.0055,
+        "median": 3.0,
+        "min": 1.0,
+        "q025": 2.0,
+        "q975": 4.0,
+        "sd": 0.7725076919144775
+      },
+      "MD": {
+        "max": 6.0,
+        "mean": 3.246,
+        "median": 3.0,
+        "min": 1.0,
+        "q025": 2.0,
+        "q975": 5.0,
+        "sd": 0.8705532329879275
+      },
+      "MR": {
+        "max": 8.0,
+        "mean": 3.809,
+        "median": 4.0,
+        "min": 1.0,
+        "q025": 2.0,
+        "q975": 6.0,
+        "sd": 1.0639948507964034
+      },
+      "acquired_MD": {
+        "max": 4.0,
+        "mean": 1.0025,
+        "median": 1.0,
+        "min": 0.0,
+        "q025": 0.0,
+        "q975": 2.0,
+        "sd": 0.733323006127353
+      },
+      "fusion_events": {
+        "max": 5.0,
+        "mean": 1.6645,
+        "median": 2.0,
+        "min": 0.0,
+        "q025": 0.0,
+        "q975": 4.0,
+        "sd": 0.9382856387955563
+      },
+      "fusion_events_detraining": {
+        "max": 2.0,
+        "mean": 0.3405,
+        "median": 0.0,
+        "min": 0.0,
+        "q025": 0.0,
+        "q975": 1.0,
+        "sd": 0.4986823558599432
+      },
+      "fusion_events_first_training": {
+        "max": 3.0,
+        "mean": 0.683,
+        "median": 1.0,
+        "min": 0.0,
+        "q025": 0.0,
+        "q975": 2.0,
+        "sd": 0.6470860531491078
+      },
+      "fusion_events_retraining": {
+        "max": 3.0,
+        "mean": 0.641,
+        "median": 1.0,
+        "min": 0.0,
+        "q025": 0.0,
+        "q975": 2.0,
+        "sd": 0.6506386595743188
+      }
+    }
+  }
+}

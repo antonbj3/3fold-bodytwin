@@ -1,0 +1,473 @@
+{
+  "controls": {
+    "homogeneous_visibility": {
+      "detail_needed": false,
+      "emg_true_rms_mv": 0.05289823274982983,
+      "force_capacity_cv": 1.6723171023084202e-16,
+      "force_emg_correlation": 0.9934627894961156,
+      "force_lead_lag_ms": 8.0,
+      "force_true_peak_n": 291.32125692578376,
+      "geometry_visibility_cv": 0.0,
+      "mode": "homogeneous",
+      "mu_gain": 1.0,
+      "mu_joint_nrmse_test": 0.0,
+      "parameters": {
+        "action_potential_duration_ms": 5.0,
+        "dt_s": 0.001,
+        "duration_s": 4.0,
+        "geometry_length_mm": 12.0,
+        "n_mus": 120,
+        "recruitment_spread": 0.3,
+        "seed": 43
+      },
+      "placebo_joint_nrmse_test": 0.5448063490245781,
+      "placebo_minus_aligned_pooled": 0.46912727714657076,
+      "pooled_joint_nrmse_test": 0.07567907187800736
+    },
+    "phase_shuffled_emg_minus_aligned": 0.20272475408642782,
+    "phase_shuffled_emg_pooled_joint_nrmse_test": 0.6594664708947369,
+    "zero_drive": {
+      "detail_needed": false,
+      "emg_true_rms_mv": 0.0,
+      "force_capacity_cv": 0.0,
+      "force_emg_correlation": 0.0,
+      "force_lead_lag_ms": 0.0,
+      "force_true_peak_n": 0.0,
+      "geometry_visibility_cv": 0.0,
+      "mode": "zero",
+      "mu_gain": 0.0,
+      "mu_joint_nrmse_test": 0.0,
+      "parameters": {
+        "action_potential_duration_ms": 5.0,
+        "dt_s": 0.001,
+        "duration_s": 4.0,
+        "geometry_length_mm": 12.0,
+        "n_mus": 120,
+        "recruitment_spread": 0.3,
+        "seed": 43
+      },
+      "placebo_joint_nrmse_test": 0.0,
+      "placebo_minus_aligned_pooled": 0.0,
+      "pooled_joint_nrmse_test": 0.0
+    }
+  },
+  "equations": {
+    "emg": "E(t)=sum_m b_m g_m sum_j h_E(t-t_j), h_E=finite bipolar Gaussian derivative",
+    "force": "F_m(t)=G_m sum_j h_F(t-t_j), h_F(tau)=(tau/tau_p^2)exp(1-tau/tau_p) 1(tau>=0)",
+    "joint_error": "R_joint=sqrt(mean(((F_z-F_hat)^2+(E_z-E_hat)^2)/2))",
+    "observation": "F_obs=F+noise_F, E_obs=lowpass(abs(E))+noise_E",
+    "rate": "nu_m(t)=q_m(t)[f_min+(f_peak,m-f_min)clip((d(t)-r_m)/(1-r_m),0,1)]",
+    "recruitment": "q_m(t)=sigmoid((d(t)-r_m)/s_r)",
+    "spikes": "intervals_i~Gamma(1/CV^2, mean_interval/(1/CV^2)), mean_interval=1/nu_m"
+  },
+  "frozen_criterion": {
+    "detail_rule": "pooled_joint_nrmse_test >= 0.10 and mu_gain >= 0.20",
+    "mu_gain_threshold": 0.2,
+    "pooled_error_threshold": 0.1
+  },
+  "id": "BT-HX-Q043",
+  "model_version": "first-principles-v1",
+  "nominal": {
+    "detail_needed": true,
+    "emg_true_rms_mv": 0.06703423398571452,
+    "force_capacity_cv": 0.5407935377846519,
+    "force_emg_correlation": 0.7570554523923134,
+    "force_lead_lag_ms": -80.0,
+    "force_true_peak_n": 113.18410837026703,
+    "geometry_visibility_cv": 0.6028301028297379,
+    "mode": "nominal",
+    "mu_gain": 0.9408788802254647,
+    "mu_joint_nrmse_test": 0.027003081745450925,
+    "parameters": {
+      "action_potential_duration_ms": 5.0,
+      "dt_s": 0.001,
+      "duration_s": 4.0,
+      "geometry_length_mm": 12.0,
+      "n_mus": 120,
+      "recruitment_spread": 0.3,
+      "seed": 43
+    },
+    "placebo_joint_nrmse_test": 0.6594664708947369,
+    "placebo_minus_aligned_pooled": 0.20272475408642782,
+    "pooled_joint_nrmse_test": 0.45674171680830905
+  },
+  "observation_budget": {
+    "duration_s": 4.0,
+    "emg_channels": 1,
+    "force_channels": 1,
+    "sample_rate_hz": 1000.0,
+    "train_fraction": 0.6
+  },
+  "parameter_table": [
+    {
+      "name": "n_mus",
+      "source": "Kutch et al. 2010, Table 1",
+      "unit": "count",
+      "value": 120
+    },
+    {
+      "name": "dt",
+      "source": "frozen synthetic protocol",
+      "unit": "s",
+      "value": 0.001
+    },
+    {
+      "name": "duration_s",
+      "source": "frozen synthetic protocol",
+      "unit": "s",
+      "value": 4.0
+    },
+    {
+      "name": "recruitment_spread",
+      "source": "Kutch et al. 2010, Table 1, range 30 model units; scaled to 0.30",
+      "unit": "normalized drive",
+      "value": 0.3
+    },
+    {
+      "name": "recruitment_width",
+      "source": "smooth recruitment assumption",
+      "unit": "normalized drive",
+      "value": 0.035
+    },
+    {
+      "name": "min_rate_hz",
+      "source": "Kutch et al. 2010, Table 1",
+      "unit": "Hz",
+      "value": 8.0
+    },
+    {
+      "name": "first_peak_rate_hz",
+      "source": "Kutch et al. 2010, Table 1",
+      "unit": "Hz",
+      "value": 45.0
+    },
+    {
+      "name": "peak_rate_step_hz",
+      "source": "Kutch et al. 2010, Table 1",
+      "unit": "Hz",
+      "value": 10.0
+    },
+    {
+      "name": "isi_cv",
+      "source": "Kutch et al. 2010, Table 1",
+      "unit": "dimensionless",
+      "value": 0.2
+    },
+    {
+      "name": "total_peak_force_n",
+      "source": "normalization assumption; not a patient measurement",
+      "unit": "N",
+      "value": 100.0
+    },
+    {
+      "name": "reference_rate_hz",
+      "source": "force normalization assumption",
+      "unit": "Hz",
+      "value": 20.0
+    },
+    {
+      "name": "force_tau_min_s",
+      "source": "Kutch et al. 2010, Table 1, range 3 and longest 90 ms; mapped to 30\u201390 ms",
+      "unit": "s",
+      "value": 0.03
+    },
+    {
+      "name": "force_tau_max_s",
+      "source": "Kutch et al. 2010, Table 1, longest contraction time 90 ms",
+      "unit": "s",
+      "value": 0.09
+    },
+    {
+      "name": "action_potential_duration_ms",
+      "source": "Kutch et al. 2010, Table 1 and Figure 5B",
+      "unit": "ms",
+      "value": 5.0
+    },
+    {
+      "name": "emg_event_amplitude_mv",
+      "source": "amplitude assumption; geometry is relative",
+      "unit": "mV",
+      "value": 0.035
+    },
+    {
+      "name": "emg_lowpass_tau_s",
+      "source": "rectified EMG observation assumption",
+      "unit": "s",
+      "value": 0.012
+    },
+    {
+      "name": "muscle_half_width_mm",
+      "source": "geometry assumption",
+      "unit": "mm",
+      "value": 30.0
+    },
+    {
+      "name": "muscle_half_length_mm",
+      "source": "geometry assumption",
+      "unit": "mm",
+      "value": 35.0
+    },
+    {
+      "name": "electrode_half_separation_mm",
+      "source": "differential electrode assumption",
+      "unit": "mm",
+      "value": 5.0
+    },
+    {
+      "name": "geometry_length_mm",
+      "source": "volume-conduction length assumption",
+      "unit": "mm",
+      "value": 12.0
+    },
+    {
+      "name": "force_noise_fraction",
+      "source": "observation-noise assumption",
+      "unit": "fraction of force SD",
+      "value": 0.02
+    },
+    {
+      "name": "emg_noise_fraction",
+      "source": "observation-noise assumption",
+      "unit": "fraction of EMG SD",
+      "value": 0.05
+    }
+  ],
+  "references": [
+    {
+      "citation": "Kutch JJ, Kuo AD, Rymer WZ. Extraction of Individual Muscle Mechanical Action From Endpoint Force. Journal of Neurophysiology. 2010;103(6):3535-3546.",
+      "doi": "10.1152/jn.00956.2009",
+      "locations": [
+        {
+          "location": "Table 1",
+          "values": {
+            "action_potential_duration_ms": [
+              5,
+              20
+            ],
+            "first_unit_peak_rate_hz": 45,
+            "isi_cv": 0.2,
+            "longest_contraction_time_ms": 90,
+            "minimum_firing_rate_hz": 8,
+            "motor_units": 120,
+            "peak_rate_difference_hz": 10,
+            "recruitment_threshold_range_model_units": 30
+          }
+        },
+        {
+          "location": "Figure 5B",
+          "values": {
+            "action_potential_duration_ms_to_correlation": {
+              "10": 0.73,
+              "15": 0.53,
+              "20": 0.3,
+              "5": 0.91
+            }
+          }
+        },
+        {
+          "location": "Figure 5A",
+          "value": "peak near 50% MVC"
+        }
+      ]
+    }
+  ],
+  "sensitivity": [
+    {
+      "changed_parameter": "geometry_length_mm",
+      "detail_needed": true,
+      "emg_true_rms_mv": 0.10707811590563453,
+      "factor": 0.5,
+      "force_capacity_cv": 0.5407935377846519,
+      "force_emg_correlation": 0.7567119361933856,
+      "force_lead_lag_ms": -80.0,
+      "force_true_peak_n": 113.18410837026703,
+      "geometry_visibility_cv": 1.6329083781238265,
+      "mode": "nominal",
+      "mu_gain": 0.9420644549843593,
+      "mu_joint_nrmse_test": 0.027003081745450925,
+      "parameters": {
+        "action_potential_duration_ms": 5.0,
+        "dt_s": 0.001,
+        "duration_s": 4.0,
+        "geometry_length_mm": 6.0,
+        "n_mus": 120,
+        "recruitment_spread": 0.3,
+        "seed": 43
+      },
+      "placebo_joint_nrmse_test": 0.6505716146868806,
+      "placebo_minus_aligned_pooled": 0.1844832791381089,
+      "pooled_joint_nrmse_test": 0.4660883355487717
+    },
+    {
+      "changed_parameter": "geometry_length_mm",
+      "detail_needed": true,
+      "emg_true_rms_mv": 0.06154557783719967,
+      "factor": 1.5,
+      "force_capacity_cv": 0.5407935377846519,
+      "force_emg_correlation": 0.7345470888106367,
+      "force_lead_lag_ms": -88.0,
+      "force_true_peak_n": 113.18410837026703,
+      "geometry_visibility_cv": 0.42530380851195393,
+      "mode": "nominal",
+      "mu_gain": 0.9418642368627695,
+      "mu_joint_nrmse_test": 0.027003081745450925,
+      "parameters": {
+        "action_potential_duration_ms": 5.0,
+        "dt_s": 0.001,
+        "duration_s": 4.0,
+        "geometry_length_mm": 18.0,
+        "n_mus": 120,
+        "recruitment_spread": 0.3,
+        "seed": 43
+      },
+      "placebo_joint_nrmse_test": 0.6800966187368279,
+      "placebo_minus_aligned_pooled": 0.21561347981750711,
+      "pooled_joint_nrmse_test": 0.4644831389193208
+    },
+    {
+      "changed_parameter": "action_potential_duration_ms",
+      "detail_needed": true,
+      "emg_true_rms_mv": 0.05646865014533845,
+      "factor": 0.5,
+      "force_capacity_cv": 0.5407935377846519,
+      "force_emg_correlation": 0.7675193401107424,
+      "force_lead_lag_ms": -82.0,
+      "force_true_peak_n": 113.18410837026703,
+      "geometry_visibility_cv": 0.6028301028297379,
+      "mode": "nominal",
+      "mu_gain": 0.940552357088365,
+      "mu_joint_nrmse_test": 0.027003081745450925,
+      "parameters": {
+        "action_potential_duration_ms": 2.5,
+        "dt_s": 0.001,
+        "duration_s": 4.0,
+        "geometry_length_mm": 12.0,
+        "n_mus": 120,
+        "recruitment_spread": 0.3,
+        "seed": 43
+      },
+      "placebo_joint_nrmse_test": 0.6502763332086956,
+      "placebo_minus_aligned_pooled": 0.19604332374204214,
+      "pooled_joint_nrmse_test": 0.45423300946665346
+    },
+    {
+      "changed_parameter": "action_potential_duration_ms",
+      "detail_needed": true,
+      "emg_true_rms_mv": 0.08043155963396527,
+      "factor": 1.5,
+      "force_capacity_cv": 0.5407935377846519,
+      "force_emg_correlation": 0.7026335416904154,
+      "force_lead_lag_ms": -81.0,
+      "force_true_peak_n": 113.18410837026703,
+      "geometry_visibility_cv": 0.6028301028297379,
+      "mode": "nominal",
+      "mu_gain": 0.9452980172849189,
+      "mu_joint_nrmse_test": 0.027003081745450925,
+      "parameters": {
+        "action_potential_duration_ms": 7.5,
+        "dt_s": 0.001,
+        "duration_s": 4.0,
+        "geometry_length_mm": 12.0,
+        "n_mus": 120,
+        "recruitment_spread": 0.3,
+        "seed": 43
+      },
+      "placebo_joint_nrmse_test": 0.6580301617002312,
+      "placebo_minus_aligned_pooled": 0.16439025314155475,
+      "pooled_joint_nrmse_test": 0.49363990855867645
+    },
+    {
+      "changed_parameter": "recruitment_spread",
+      "detail_needed": true,
+      "emg_true_rms_mv": 0.06917191930080452,
+      "factor": 0.5,
+      "force_capacity_cv": 0.5407935377846519,
+      "force_emg_correlation": 0.7034464830406885,
+      "force_lead_lag_ms": -99.0,
+      "force_true_peak_n": 131.6743766888908,
+      "geometry_visibility_cv": 0.6028301028297379,
+      "mode": "nominal",
+      "mu_gain": 0.9438044261156057,
+      "mu_joint_nrmse_test": 0.02705810463070458,
+      "parameters": {
+        "action_potential_duration_ms": 5.0,
+        "dt_s": 0.001,
+        "duration_s": 4.0,
+        "geometry_length_mm": 12.0,
+        "n_mus": 120,
+        "recruitment_spread": 0.15,
+        "seed": 43
+      },
+      "placebo_joint_nrmse_test": 0.597343468325304,
+      "placebo_minus_aligned_pooled": 0.11584461066849727,
+      "pooled_joint_nrmse_test": 0.4814988576568068
+    },
+    {
+      "changed_parameter": "recruitment_spread",
+      "detail_needed": true,
+      "emg_true_rms_mv": 0.06671118812757272,
+      "factor": 1.5,
+      "force_capacity_cv": 0.5407935377846519,
+      "force_emg_correlation": 0.6742094600646424,
+      "force_lead_lag_ms": -89.0,
+      "force_true_peak_n": 93.26352591460545,
+      "geometry_visibility_cv": 0.6028301028297379,
+      "mode": "nominal",
+      "mu_gain": 0.9476796294677008,
+      "mu_joint_nrmse_test": 0.02708165196000998,
+      "parameters": {
+        "action_potential_duration_ms": 5.0,
+        "dt_s": 0.001,
+        "duration_s": 4.0,
+        "geometry_length_mm": 12.0,
+        "n_mus": 120,
+        "recruitment_spread": 0.44999999999999996,
+        "seed": 43
+      },
+      "placebo_joint_nrmse_test": 0.6462119745188407,
+      "placebo_minus_aligned_pooled": 0.12859996824890219,
+      "pooled_joint_nrmse_test": 0.5176120062699385
+    }
+  ],
+  "source_control_action_potential_20ms": {
+    "detail_needed": true,
+    "emg_true_rms_mv": 0.1391768659521271,
+    "force_capacity_cv": 0.5407935377846519,
+    "force_emg_correlation": 0.5287597868329311,
+    "force_lead_lag_ms": -93.0,
+    "force_true_peak_n": 113.18410837026703,
+    "geometry_visibility_cv": 0.6028301028297379,
+    "mode": "nominal",
+    "mu_gain": 0.9547114290827508,
+    "mu_joint_nrmse_test": 0.027003081745450925,
+    "parameters": {
+      "action_potential_duration_ms": 20.0,
+      "dt_s": 0.001,
+      "duration_s": 4.0,
+      "geometry_length_mm": 12.0,
+      "n_mus": 120,
+      "recruitment_spread": 0.3,
+      "seed": 43
+    },
+    "placebo_joint_nrmse_test": 0.730701894705882,
+    "placebo_minus_aligned_pooled": 0.1344569437492572,
+    "pooled_joint_nrmse_test": 0.5962449509566248
+  },
+  "status": "synthetic mechanistic benchmark; not measured data",
+  "unit_check": {
+    "emg_gain_unit": "mV per event",
+    "emg_kernel_unit": "dimensionless per event",
+    "emg_output_unit": "mV",
+    "force_gain_unit": "N s",
+    "force_kernel_integral_s": 1.0000000000000002,
+    "force_kernel_unit": "1/s",
+    "force_output_unit": "N"
+  },
+  "validity_notes": {
+    "data_status": "All signals are synthetic predictions; no measured data are fitted.",
+    "homogeneous_control": "Noise-free matched-temporal-response structural limit.",
+    "lag_sign": "Positive force_lead_lag_ms means EMG leads force; negative means force leads EMG.",
+    "mu_error": "The full motor-unit result is a frozen forward-model oracle scored against the generated pre-noise channels.",
+    "phase_shuffle_scope": "Nominal aligned versus phase-shuffled EMG only."
+  }
+}

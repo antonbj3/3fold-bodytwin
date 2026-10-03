@@ -1,0 +1,140 @@
+{
+  "time": 1790758863.7783334,
+  "marker_count": 12,
+  "rows": [
+    {
+      "pid": 1190765,
+      "account": "C",
+      "selected": "swarm",
+      "job": "BT-FW48-AUTO-e6f63183069942",
+      "started": 1790758235.7075436
+    },
+    {
+      "pid": 1207923,
+      "account": "D",
+      "selected": "reserve_worker",
+      "job": "BT-DW48-PLAN-1790756902472711392",
+      "started": 1790758845.8424065,
+      "start_ticks": 42189594,
+      "boot_id": "f1367dd0-8fca-487a-92c7-b645d17b987a",
+      "reason": "free models unavailable: cooldown, capacity or egress backoff"
+    },
+    {
+      "pid": 1208065,
+      "account": "D",
+      "selected": "reserve_worker",
+      "job": "BT-DW48-AUTO-657e5f8bdd1e34",
+      "started": 1790758852.708069,
+      "start_ticks": 42190281,
+      "boot_id": "f1367dd0-8fca-487a-92c7-b645d17b987a",
+      "reason": "free models unavailable: cooldown, capacity or egress backoff"
+    },
+    {
+      "pid": 1205656,
+      "account": "C",
+      "selected": "swarm",
+      "job": "F_FB_RATE_e561c1681b9e95eb",
+      "started": 1790758681.1559703,
+      "start_ticks": 42173125,
+      "boot_id": "f1367dd0-8fca-487a-92c7-b645d17b987a"
+    },
+    {
+      "pid": 1172653,
+      "account": "A",
+      "selected": "swarm",
+      "job": "BT-FW48-REVIEW-820962acc8941d",
+      "started": 1790757726.370896
+    },
+    {
+      "pid": 1206060,
+      "account": "C",
+      "selected": "swarm",
+      "job": "BT-FW48-PLAN-1790757910030870746",
+      "started": 1790758717.4642646,
+      "start_ticks": 42176756,
+      "boot_id": "f1367dd0-8fca-487a-92c7-b645d17b987a"
+    },
+    {
+      "pid": 1205001,
+      "account": "B",
+      "selected": "swarm",
+      "job": "F_FB_RATE_5e1691f374820df6",
+      "started": 1790758649.5254476,
+      "start_ticks": 42169962,
+      "boot_id": "f1367dd0-8fca-487a-92c7-b645d17b987a"
+    },
+    {
+      "pid": 1202400,
+      "account": "B",
+      "selected": "swarm",
+      "job": "BT-DW48-AUTO-ca71f02035e256",
+      "started": 1790758559.7334635
+    },
+    {
+      "pid": 1208201,
+      "account": "D",
+      "selected": "reserve_worker",
+      "job": "BT-DW48-AUTO-a44cd023397eb8",
+      "started": 1790758858.574337,
+      "start_ticks": 42190868,
+      "boot_id": "f1367dd0-8fca-487a-92c7-b645d17b987a",
+      "reason": "free models unavailable: cooldown, capacity or egress backoff"
+    },
+    {
+      "pid": 1190151,
+      "account": "A",
+      "selected": "swarm",
+      "job": "F_FB_FREE_AUD_2ee24cd1fb0e8a3a",
+      "started": 1790758226.7154694
+    },
+    {
+      "pid": 1196951,
+      "account": "C",
+      "selected": "swarm",
+      "job": "BT-FW48-AUTO-4f46ce8d021c22",
+      "started": 1790758374.8845592
+    },
+    {
+      "pid": 1172800,
+      "account": "B",
+      "selected": "swarm",
+      "job": "BT-FW48-AUTO-b50f5dc27f5c57",
+      "started": 1790757731.1186936
+    }
+  ],
+  "reserve_worker_runs": [
+    {
+      "route": {
+        "account": "D",
+        "requested": "swarm",
+        "selected": "reserve_worker",
+        "model": "opencode-go/reserve_worker-v4.1-flash",
+        "started": 1790758845.8425813
+      },
+      "job": "BT-DW48-PLAN-1790756902472711392",
+      "agent_tail": "n\\ninputs/graph_research/README.md\\ninputs/review\\ninputs/review/DENTAL.json\\ninputs/review/LATEST.md\\ninputs/review/REVIEW_FEEDBACK.json\\n\",\"metadata\":{\"output\":\"inputs\\ninputs/BIORESP\\ninputs/BIORESP/04_clinical_bio_registry.md\\ninputs/BIORESP/10_orthopedic_bone_transfer.md\\ninputs/BIORESP/bone_remodeling.jsonl\\ninputs/EXISTING_DECISIONS.json\\ninputs/FATIGUE\\ninputs/FATIGUE/RESULTS.md\\ninputs/FATIGUE/analysis.py\\ninputs/FATIGUE/estimability.json\\ninputs/FATIGUE/heterogeneity_results.json\\ninputs/GEOM\\ninputs/GEOM/RESULTS.md\\ninputs/GEOM/audit_results.json\\ninputs/GEOM/counterexample.json\\ninputs/GEOM/denominators.json\\ninputs/GEOM/fair_coverage.json\\ninputs/GRADE\\ninputs/GRADE/RESULTS.md\\ninputs/GRADE/envelope_model.py\\ninputs/GRADE/model_config.json\\ninputs/GRADE/thresholds.json\\ninputs/GRADE/tolerance.json\\ninputs/LOADCASE\\ninputs/LOADCASE/16_occlusion_jawmotion.md\\ninputs/LOADCASE/load_spectrum.jsonl\\ninputs/PDL\\ninputs/PDL/REPORT.md\\ninputs/PDL/anchors.json\\ninputs/PDL/ortho_summary.json\\ninputs/PDL/posthoc_powerlaw.json\\ninputs/PDL/posthoc_powerlaw.py\\ninputs/PRIVACY\\ninputs/PRIVACY/19_challenge_archives.md\\ninputs/PRIVACY/license_gate.jsonl\\ninputs/PROCPROP\\ninputs/PROCPROP/05_cadcam_repositories.md\\ninputs/PROCPROP/17_fabricate_test_pairs.md\\ninputs/REACH\\ninputs/REACH/RESULTS.md\\ninputs/REACH/frontier.json\\ninputs/REACH/oracle.json\\ninputs/REACH/probe.py\\ninputs/RECENT_RESULTS.json\\ninputs/RECOURSE\\ninputs/RECOURSE/RESULTS.md\\ninputs/RECOURSE/baseline_regret_exact.py\\ninputs/RECOURSE/regret_recourse.py\\ninputs/RECOURSE/regret_results.json\\ninputs/REMOVABLE\\ninputs/REMOVABLE/15_uncertainty_meshquality.md\\ninputs/REMOVABLE/18_dental_ceramics_data.md\\ninputs/SHELL\\ninputs/SHELL/PREREG_DEVIATIONS.md\\ninputs/SHELL/RESULTS.md\\ninputs/SHELL/metrics.json\\ninputs/SHELL/probe.py\\ninputs/SOURCE_CATALOG.json\\ninputs/THERMAL\\ninputs/THERMAL/REPORT.md\\ninputs/THERMAL/posthoc_steelman.json\\ninputs/THERMAL/protocols.py\\ninputs/THERMAL/rerun_compare.json\\ninputs/THERMAL/results.json\\ninputs/VALIDATE\\ninputs/VALIDATE/09_standards_protocols.md\\ninputs/VALIDATE/validation_v3.jsonl\\ninputs/chain_map\\ninputs/chain_map/CHAIN_PLANNER_FEEDBACK.md\\ninputs/chain_map/DENTAL_CHAIN_COVERAGE_20260928.json\\ninputs/chain_map/DENTAL_CHAIN_GAPS_RANKED_20260928.md\\ninputs/graph_research\\ninputs/graph_research/CANDIDATES.json\\ninputs/graph_research/GC28-362533688f69\\ninputs/graph_research/GC28-5e2076fe58b2\\ninputs/graph_research/PREVIOUS_FEEDBACK.json\\ninputs/graph_research/README.md\\ninputs/review\\ninputs/review/DENTAL.json\\ninputs/review/LATEST.md\\ninputs/review/REVIEW_FEEDBACK.json\\n\",\"exit\":0,\"truncated\":false},\"title\":\"find inputs -maxdepth 2 | sort\",\"time\":{\"start\":1790758857376,\"end\":1790758857394}},\"id\":\"prt_0f18baa920014pWJ4R7G4UFMl3\",\"sessionID\":\"ses_f0e747968ffeDEZO81ELX13vhU\",\"messageID\":\"msg_0f18b9e21001evHTyvBqGA5sXp\"}}\n{\"type\":\"step_finish\",\"timestamp\":1790758857446,\"sessionID\":\"ses_f0e747968ffeDEZO81ELX13vhU\",\"part\":{\"id\":\"prt_0f18baab4001g9asSlWR4YkN2n\",\"reason\":\"tool-calls\",\"messageID\":\"msg_0f18b9e21001evHTyvBqGA5sXp\",\"sessionID\":\"ses_f0e747968ffeDEZO81ELX13vhU\",\"type\":\"step-finish\",\"tokens\":{\"total\":14068,\"input\":522,\"output\":96,\"reasoning\":138,\"cache\":{\"write\":0,\"read\":13312}},\"cost\":0.000258636}}\n{\"type\":\"step_start\",\"timestamp\":1790758859631,\"sessionID\":\"ses_f0e747968ffeDEZO81ELX13vhU\",\"part\":{\"id\":\"prt_0f18bb36d001zkSWELBRzTUxqF\",\"messageID\":\"msg_0f18baabc001wSMLSdsdZLqF9b\",\"sessionID\":\"ses_f0e747968ffeDEZO81ELX13vhU\",\"type\":\"step-start\"}}\n"
+    },
+    {
+      "route": {
+        "account": "D",
+        "requested": "swarm",
+        "selected": "reserve_worker",
+        "model": "opencode-go/reserve_worker-v4.1-flash",
+        "started": 1790758852.7082407
+      },
+      "job": "BT-DW48-AUTO-657e5f8bdd1e34",
+      "agent_tail": ",\\\"state\\\":{\\\"status\\\":\\\"completed\\\",\\\"input\\\":{\\\"command\\\":\\\"ls -la\\\"},\\\"output\\\":\\\"total 84\\\\ndrwxrwxr-x   3 ubuntu ubuntu  4096 Sep 30 09:00 .\\\\ndrwxr-xr-x 166 ubuntu ubuntu 12288 Sep 30 09:00 ..\\\\n-rw-rw-r--   1 ubuntu ubuntu     0 Sep 30 07:16 ALLOW_WEB\\\\n-rw-rw-r--   1 ubuntu ubuntu 30419 Sep 30 07:16 BRIEF.md\\\\n-rw-rw-r--   1 ubuntu ubuntu   331 Sep 30 07:16 DISPATCH_RECEIPT.txt\\\\n-rw-rw-r--   1 ubuntu ubuntu   306 Sep 30 07:16 GRAPH_RESEARCH_RECEIPT.json\\\\n-rw-rw-r--   1 ubuntu ubuntu  4344 Sep 30 07:16 JOB.json\\\\n-rw-r--r--   1 ubuntu ubuntu   137 Sep 30 09:00 MODEL_ROUTE.json\\\\n-rw-rw-r--   1 ubuntu ubuntu  2434 Sep 27 10:36 _run_bunny.py\\\\n-rw-rw-r--   1 ubuntu ubuntu   453 Sep 26 14:19 _run_dental.py\\\\n-rw-r--r--   1 ubuntu ubuntu   250 Sep 30 09:00 agent.log\\\\ndrwxrwxr-x   5 ubuntu ubuntu  4096 Sep 30 07:16 inputs\\\\n\\\",\\\"metadata\\\":{\\\"output\\\":\\\"total 84\\\\ndrwxrwxr-x   3 ubuntu ubuntu  4096 Sep 30 09:00 .\\\\ndrwxr-xr-x 166 ubuntu ubuntu 12288 Sep 30 09:00 ..\\\\n-rw-rw-r--   1 ubuntu ubuntu     0 Sep 30 07:16 ALLOW_WEB\\\\n-rw-rw-r--   1 ubuntu ubuntu 30419 Sep 30 07:16 BRIEF.md\\\\n-rw-rw-r--   1 ubuntu ubuntu   331 Sep 30 07:16 DISPATCH_RECEIPT.txt\\\\n-rw-rw-r--   1 ubuntu ubuntu   306 Sep 30 07:16 GRAPH_RESEARCH_RECEIPT.json\\\\n-rw-rw-r--   1 ubuntu ubuntu  4344 Sep 30 07:16 JOB.json\\\\n-rw-r--r--   1 ubuntu ubuntu   137 Sep 30 09:00 MODEL_ROUTE.json\\\\n-rw-rw-r--   1 ubuntu ubuntu  2434 Sep 27 10:36 _run_bunny.py\\\\n-rw-rw-r--   1 ubuntu ubuntu   453 Sep 26 14:19 _run_dental.py\\\\n-rw-r--r--   1 ubuntu ubuntu   250 Sep 30 09:00 agent.log\\\\ndrwxrwxr-x   5 ubuntu ubuntu  4096 Sep 30 07:16 inputs\\\\n\\\",\\\"exit\\\":0,\\\"truncated\\\":false},\\\"title\\\":\\\"ls -la\\\",\\\"time\\\":{\\\"start\\\":1790758858500,\\\"end\\\":1790758858741}},\\\"id\\\":\\\"prt_0f18baee8001dQ1QV0sY7SxtIX\\\",\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"messageID\\\":\\\"msg_0f18ba55a001edO2nxoHyIfbdB\\\"}}\\n{\\\"type\\\":\\\"step_finish\\\",\\\"timestamp\\\":1790758858761,\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"part\\\":{\\\"id\\\":\\\"prt_0f18baffa001AYPvMJ6mxEMkei\\\",\\\"reason\\\":\\\"tool-calls\\\",\\\"messageID\\\":\\\"msg_0f18ba55a001edO2nxoHyIfbdB\\\",\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"type\\\":\\\"step-finish\\\",\\\"tokens\\\":{\\\"total\\\":7174,\\\"input\\\":5274,\\\"output\\\":94,\\\"reasoning\\\":14,\\\"cache\\\":{\\\"write\\\":0,\\\"read\\\":1792}},\\\"cost\\\":0.000861276}}\\n{\\\"type\\\":\\\"step_start\\\",\\\"timestamp\\\":1790758861026,\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"part\\\":{\\\"id\\\":\\\"prt_0f18bb8dc001VVDPwsfnqMhsH4\\\",\\\"messageID\\\":\\\"msg_0f18bb004001LVmKKOD2jzVkuF\\\",\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"type\\\":\\\"step-start\\\"}}\\n\",\"exit\":0,\"truncated\":true,\"outputPath\":\"/opt/agents/runtime/844d01f5ff80d4c86641e820/data/opencode/tool-output/tool_0f18bbe5e001Re3IVyxtaVhoMD\"},\"title\":\"find inputs -maxdepth 3 -type f | head -100; echo ---; cat JOB.json; echo ---; cat GRAPH_RESEARCH_RECEIPT.json; echo ---; cat MODEL_ROUTE.json; echo ---; cat agent.log\",\"time\":{\"start\":1790758862406,\"end\":1790758862438}},\"id\":\"prt_0f18bbe08001uEWtni0Rs9epSv\",\"sessionID\":\"ses_f0e745f1affePoXbhfePDlYNPQ\",\"messageID\":\"msg_0f18bb004001LVmKKOD2jzVkuF\"}}\n{\"type\":\"step_finish\",\"timestamp\":1790758862491,\"sessionID\":\"ses_f0e745f1affePoXbhfePDlYNPQ\",\"part\":{\"id\":\"prt_0f18bbe69001BluMIRfxwGWypk\",\"reason\":\"tool-calls\",\"messageID\":\"msg_0f18bb004001LVmKKOD2jzVkuF\",\"sessionID\":\"ses_f0e745f1affePoXbhfePDlYNPQ\",\"type\":\"step-finish\",\"tokens\":{\"total\":13981,\"input\":6673,\"output\":88,\"reasoning\":180,\"cache\":{\"write\":0,\"read\":7040}},\"cost\":0.00118287}}\n"
+    },
+    {
+      "route": {
+        "account": "D",
+        "requested": "swarm",
+        "selected": "reserve_worker",
+        "model": "opencode-go/reserve_worker-v4.1-flash",
+        "started": 1790758858.5745108
+      },
+      "job": "BT-DW48-AUTO-a44cd023397eb8",
+      "agent_tail": ""
+    }
+  ]
+}

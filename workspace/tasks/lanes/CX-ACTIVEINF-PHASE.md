@@ -1,0 +1,2 @@
+# CX-ACTIVEINF-PHASE — explain contact-force phase
+Read results/CX-ACTIVEINF/RESULTS.md. Anchor heel strike with raw GRF event timing and compare to the current model-window phase. In the same 113 GC gait trials, examine why meas−lo peaks at 60–80% of model window while hamstring EMG peaks at 0–20%. Test knee moment, GRF, contact geometry, moment arms, and alignment; keep trial/person clustering and distinguish an explanatory association from causal proof. Own output in results/CX-ACTIVEINF-PHASE/; source projects read-only.

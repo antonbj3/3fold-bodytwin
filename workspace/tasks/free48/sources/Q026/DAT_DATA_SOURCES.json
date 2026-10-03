@@ -1,0 +1,270 @@
+{
+  "anchor_paper_data_availability_finding": {
+    "checked_via": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10565248/fullTextXML",
+    "citation": "Harish RK et al., Development 150, dev201559 (2023), doi 10.1242/dev.201559, PMC10565248, CC BY",
+    "consequence": "the model's only VERIFIED numeric parameter (D = 55 um^2 s^-1) and its C0 = 8 nM / 40-70 um / 70-140 um windows have NO public machine-readable dataset behind them. They exist only as figure values in a PDF.",
+    "data_availability_statement_verbatim": "All relevant data can be found within the article and its supplementary information."
+  },
+  "criteria": {
+    "all_passed": true,
+    "at_least_one_time_resolved_source": true,
+    "download_integrity_sha256_recorded": true,
+    "every_source_names_a_model_parameter_or_output": true,
+    "every_source_subjects_counted_or_UNKNOWN": true,
+    "frozen_model_not_modified": true,
+    "no_invented_measurements": true,
+    "sample_downloaded_and_load_demonstrated": true,
+    "sample_shows_shape_units_coordinate_frame": true,
+    "sample_within_50MB": true,
+    "sources_have_url_license_size_format": true
+  },
+  "derived_from_frozen_model": {
+    "definition": "L = sqrt(2 D tau) with tau = 1/k_clear; a scale comparison, NOT a model output",
+    "diffusion_length_fast_um": 270.801280154532,
+    "diffusion_length_slow_um": 73.02967433402215,
+    "note": "derived from inputs/Q026_results.json only; no re-fit, no new measurement",
+    "residence_time_tau_min": 11.11111111111111,
+    "residence_time_tau_s": 666.6666666666666
+  },
+  "id": "BT-DAT-Q026",
+  "model_under_constraint": {
+    "equation": "dL/dt = D d2L/dx2 - k_clear L + s0 exp(-x^2/(2 sigma^2))",
+    "file": "inputs/Q026_model.py",
+    "note": "model is frozen and was NOT re-run or re-fitted by this job",
+    "outputs": {
+      "L_at_100um_nM": 5.481006917932761,
+      "threshold_span_um": 139.3351106694842,
+      "x_0.4_um": 203.81283515152379,
+      "x_0.8_um": 64.47772448203956,
+      "x_KD_um": 459.5244146409557
+    },
+    "parameters": {
+      "D_um2_per_s": 55.0,
+      "K_D_nM": 2.0,
+      "candidate_dx_um": 10.0,
+      "half_width_um": 500.0,
+      "k_clear_per_s": 0.0015,
+      "s0_nM_per_s": 1.0,
+      "sigma_um": 25.0
+    },
+    "receptor_readout": "theta = L/(K_D + L)",
+    "results": "inputs/Q026_results.json"
+  },
+  "question": "Q026 - which paracrine gradients must be resolved spatially? (inputs/Q026_QUESTION.md; requires spatial signal/receptor measurements with time anchors)",
+  "sample": {
+    "bytes": 595036,
+    "coordinate_frame": "orthonormal Cartesian fractional->Cartesian in the deposited unit cell, C 1 2 1 setting, origin at the crystallographic cell corner",
+    "demonstration": "sample_load.json + stdout of fetch_sample.py",
+    "form": "mmCIF text, data_2FDB",
+    "limit_bytes": 52428800,
+    "path": "samples/2FDB.cif",
+    "sha256": "d2d91ae0114cfbebaccdd3e3c3d4974e81ff980d8348f20f874e7dec3e506b56",
+    "source_id": "SRC1_PDB_2FDB",
+    "units": "angstrom (cell lengths, Cartesian atom coordinates)"
+  },
+  "sources": [
+    {
+      "class": "parameter / measured structure (geometry of ligand-receptor complex)",
+      "constrains": {
+        "how": "gives the physical receptor-binding surface of FGF8b against an FGFR2 Ig-like ectodomain, i.e. a structural prior on the L that a receptor-bearing cell must see. It does NOT yield a KD value; PDB stores no affinity.",
+        "model_parameter": "K_D_nM = 2.0 nM",
+        "secondary": "flags an isoform mismatch - the model anchors on Fgf8a, this structure is FGF8b",
+        "strength": "weak bound: structural only, no number"
+      },
+      "downloaded": true,
+      "format": "mmCIF (PDBx/mmCIF) text",
+      "id": "SRC1_PDB_2FDB",
+      "license": "CC0-1.0 (PDB data are in the public domain; RCSB Terms of Use)",
+      "license_verified": "RCSB PDB Terms of Use; entry payload field rcsb_accession_info.license is null for this 2005 entry, so the archive-wide CC0 statement is cited instead",
+      "measured_values_read_back": {
+        "atoms_per_chain": {
+          "A": 1161,
+          "B": 1506,
+          "C": 1128,
+          "D": 1425,
+          "E": 34,
+          "F": 39,
+          "G": 21,
+          "H": 31
+        },
+        "cell_a_A": "170.846",
+        "cell_b_A": "46.908",
+        "cell_beta_deg": "91.66",
+        "cell_c_A": "109.616",
+        "d_min_A": "2.28",
+        "exptl_method": "X-RAY DIFFRACTION",
+        "n_atoms": 5345,
+        "space_group": "C 1 2 1",
+        "space_group_int_tables": "5",
+        "temperature_K": "173"
+      },
+      "metadata_url": "https://data.rcsb.org/rest/v1/core/entry/2FDB",
+      "name": "PDB 2FDB - crystal structure of FGF8b in complex with FGFR2c",
+      "sha256": "d2d91ae0114cfbebaccdd3e3c3d4974e81ff980d8348f20f874e7dec3e506b56",
+      "size_bytes": 595036,
+      "size_human": "595036 B (~581 KiB) single mmCIF file",
+      "subjects": "not applicable - no human/animal subjects; 4 protein chains of a 2-protein complex (FGF8b + FGFR2c ectodomain) + 4 solvent chains; 1 crystal",
+      "url": "https://files.rcsb.org/download/2FDB.cif"
+    },
+    {
+      "class": "parameter / curated sequence + localisation",
+      "constrains": {
+        "how": "confirms FGF8_HUMAN is annotated 'Secreted', which is the assumption that licenses the model's purely extracellular field with no-flux boundaries; and fixes the molecular species (233 aa precursor) that D = 55 um^2 s^-1 refers to.",
+        "model_parameter": "source boundary condition and ligand identity behind D = 55 um^2 s^-1 and C0 = 8 nM",
+        "strength": "identity/assumption check, no number"
+      },
+      "downloaded": false,
+      "format": "JSON (also flatfile, TSV, XML, FASTA)",
+      "id": "SRC2_UNIPROT_P55075",
+      "license": "CC BY 4.0 (UniProtKB data)",
+      "metadata_url": "https://rest.uniprot.org/uniprotkb/P55075",
+      "name": "UniProtKB P55075 (FGF8_HUMAN)",
+      "sha256": null,
+      "size_bytes": null,
+      "size_human": "single JSON record, ~10 kB class; not downloaded (metadata verified via REST)",
+      "subjects": "not applicable - one human protein sequence; no subjects",
+      "url": "https://rest.uniprot.org/uniprotkb/P55075.json",
+      "verified_fields": {
+        "entry_name": "FGF8_HUMAN",
+        "gene": [
+          "FGF8"
+        ],
+        "pdb_crossref": [
+          "2FDB"
+        ],
+        "primary_accession": "P55075",
+        "sequence_length_aa": 233,
+        "subcellular": [
+          "Secreted"
+        ]
+      }
+    },
+    {
+      "class": "geometry / receptor architecture",
+      "constrains": {
+        "how": "FGFR1 is a single-pass cell-surface receptor: three Ig-like C2-type repeats (25-119, 158-246, 255-357 aa) then a kinase (478-767 aa). The ligand-binding face is on the ectodomain, so the model's receptor readout can only be evaluated on a bounded extracellular surface, not on the full 500 um domain. It also sets a ~333 aa (~30-40 nm) ectodomain scale that must not be confused with the 25 um sigma.",
+        "model_parameter": "the receptor term theta = L/(K_D + L) and sigma_um = 25 um",
+        "strength": "qualitative bound on the readout population and on the validity of a free-ligand field reaching a cell-surface receptor"
+      },
+      "downloaded": false,
+      "format": "JSON (also flatfile, TSV, XML, FASTA)",
+      "id": "SRC3_UNIPROT_P11362",
+      "license": "CC BY 4.0 (UniProtKB data)",
+      "metadata_url": "https://rest.uniprot.org/uniprotkb/P11362",
+      "name": "UniProtKB P11362 (FGFR1_HUMAN)",
+      "sha256": null,
+      "size_bytes": null,
+      "size_human": "single JSON record, ~10 kB class; not downloaded (metadata verified via REST)",
+      "subjects": "not applicable - one human protein sequence; no subjects",
+      "url": "https://rest.uniprot.org/uniprotkb/P11362.json",
+      "verified_fields": {
+        "entry_name": "FGFR1_HUMAN",
+        "gene": [
+          "FGFR1"
+        ],
+        "ig_like_domains_aa": [
+          {
+            "end": 119,
+            "note": "Ig-like C2-type 1",
+            "start": 25
+          },
+          {
+            "end": 246,
+            "note": "Ig-like C2-type 2",
+            "start": 158
+          },
+          {
+            "end": 357,
+            "note": "Ig-like C2-type 3",
+            "start": 255
+          }
+        ],
+        "kinase_domain_aa": [
+          {
+            "end": 767,
+            "start": 478
+          }
+        ],
+        "primary_accession": "P11362",
+        "sequence_length_aa": 822
+      }
+    },
+    {
+      "class": "parameter / measured in vivo diffusion + free-vs-bound pool partition (time series)",
+      "constrains": {
+        "how": "a measured in vivo FRAP dataset that explicitly separates a diffusible pool from a membrane-bound pool and quantifies their exchange. That is the same measurement that produced Harish et al.'s 93%/7% fast/slow split, so it is the closest public analogue for the slow pool the frozen model omits.",
+        "model_parameter": "D_um2_per_s = 55.0 and D_slow_um2_per_s = 4.0, and the excluded 7% slow/HSPG-bound pool",
+        "strength": "scale bound only, and a different compartment",
+        "why_not_stronger": "Dystrophin is a sarcolemmal/cytoskeletal protein, not a secreted morphogen, and the embryo is not a 500 um 1-D domain. It cannot confirm or refute 55 or 4 um^2 s^-1 numerically."
+      },
+      "download_blocked_by": "52428800 B sample limit (record is ~515 MB)",
+      "downloaded": false,
+      "format": "ZIP containing raw FRAP image series + analysis files/plots (per the record's usageNotes)",
+      "id": "SRC4_DRYAD_qg8dt",
+      "license": "https://spdx.org/licenses/CC0-1.0.html",
+      "license_short": "CC0-1.0",
+      "metadata_url": "https://doi.org/10.5061/dryad.qg8dt",
+      "name": "Dryad 10.5061/dryad.qg8dt - Bajanca et al., in vivo Dystrophin FRAP in zebrafish embryos",
+      "publisher_checksum": "md5:d9ee67137dc182c4a249a6abf015730d (as listed in the Zenodo mirror record 5001782)",
+      "sha256": null,
+      "size_bytes": 540209369,
+      "size_human": "540209369 B (~540 MB) in 1 file Bajanca_et_al.zip",
+      "subjects": "zebrafish (Danio rerio) embryos, in vivo; exact n not stated in the record metadata -> UNKNOWN",
+      "url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.qg8dt",
+      "verified_fields": {
+        "publication_date": "2016-10-06",
+        "title": "Data from: In vivo dynamics of skeletal muscle Dystrophin in zebrafish embryos revealed by improved FRAP analysis",
+        "usage_notes": "record states it provides the complete Dystrophin FRAP datasets used in Bajanca et al., eLife 2015, the FRAP analysis files and plots, and access instructions for the cytoplasmic-diffusion analysis software",
+        "version": 1
+      }
+    },
+    {
+      "class": "geometry/anatomy + time series (um voxels, 30 s time step)",
+      "constrains": {
+        "blocked": "licence forbids non-permissioned reuse, and the file is 5.8 GB, so it is listed but neither used nor downloaded",
+        "how": "the only public time-resolved 3-D gastrulation morphology at known um voxel size; it is the natural way to ask whether a 25 um-wide Gaussian source and a 500 um field are geometrically compatible with a real invaginating margin.",
+        "model_parameter": "sigma_um = 25 um (assumed source width) and half_width_um = 500 um (assumed domain)",
+        "strength": "qualitative/geometric only; NOT used as a numeric bound"
+      },
+      "download_blocked_by": "licence requires explicit permission + 5.8 GB exceeds the 50 MB limit",
+      "downloaded": false,
+      "format": "ZIP of TIFF 3-D image stacks over time + reference annotation",
+      "id": "SRC5_CTC_N3DL_DRO",
+      "license": "NOT an open licence - Conditions of use: CTC-related use needs no consent; any other public scientific use requires EXPLICIT PERMISSION from the organisers; commercial use requires permission from organisers AND data providers; cloning is forbidden",
+      "metadata_url": "https://celltrackingchallenge.net/3d-datasets/",
+      "name": "Cell Tracking Challenge - Fluo-N3DL-DRO, developing Drosophila embryo (light-sheet, gastrulation)",
+      "sha256": null,
+      "size_bytes": null,
+      "size_human": "training ZIP 5.8 GB, test ZIP 5.9 GB (as stated on the dataset page); other CTC 3D sets run 182 MB - 20.6 GB",
+      "subjects": "1 Drosophila melanogaster embryo per recording (Dr P. Keller, HHMI Janelia); Nature Methods 2014",
+      "url": "https://data.celltrackingchallenge.net/training-datasets/Fluo-N3DL-DRO.zip",
+      "verified_fields": {
+        "microscope": "SIMView light-sheet",
+        "objective": "16x/0.8 water",
+        "time_step_s": 30,
+        "voxel_size_um": "0.406 x 0.406 x 2.03"
+      }
+    },
+    {
+      "class": "cohort (quantitative receptor/cell-state expression across many experiments)",
+      "constrains": {
+        "how": "tells you, quantitatively, in which cell types FGFR transcripts are present, i.e. which cell classes are eligible to be 'receptor-bearing' in the readout. Without a receptor-bearing population, x_KD = 459.52 um is a distance no cell can sample.",
+        "model_parameter": "the receptor term theta = L/(K_D + L) and K_D_nM = 2.0 nM",
+        "strength": "population bound on the readout, not on K_D",
+        "why_not_stronger": "mRNA abundance is not a KD and not a membrane receptor number; Expression Atlas is tabular and has NO coordinate frame, so it cannot bound a um-scale distance."
+      },
+      "downloaded": true,
+      "downloaded_note": "only the experiment index (2.6 MB) was retrieved, to verify the collection size and license; no measurement was read from it",
+      "format": "JSON index; per-experiment TSV",
+      "id": "SRC6_GXA",
+      "license": "CC BY 4.0 (EMBL-EBI terms of use)",
+      "metadata_url": "https://www.ebi.ac.uk/gxa/home",
+      "name": "EMBL-EBI Expression Atlas experiment collection",
+      "sha256": "9ad615ed1152db11fa38d69fa209820c240ab1e0269fb0e6c8c240d4a4085dcc",
+      "size_bytes": 2610109,
+      "size_human": "experiment index 2610109 B; per-experiment TSV vary, typically 10^5 - 10^7 B",
+      "subjects": "4562 public experiments spanning multiple species and tissue types; per-experiment subject counts live inside each experiment and were not enumerated here -> per-experiment n = UNKNOWN",
+      "url": "https://www.ebi.ac.uk/gxa/json/experiments"
+    }
+  ]
+}

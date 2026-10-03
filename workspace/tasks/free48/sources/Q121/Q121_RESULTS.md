@@ -1,0 +1,9 @@
+BT-HX-Q121
+
+**Prediction.** The three-compartment first-principles model (`model.py`) predicts `222.465 mL` cumulative rectal-plus-breath H2-equivalent excretion over 24 h after 15 g lactulose, versus the verified Christl et al. (1992), *Gastroenterology*, DOI `10.1016/0016-5085(92)90765-q`, reference `227.0 +/- 60.7 mL/24 h` (https://europepmc.org/article/med/1551534). The frozen factor-of-two criterion is **MET**. Rectal gas is `217.074 mL`; breath is `5.390 mL`; fecal dissolved gas is tracked separately (`0.654 mL`).
+
+**Mechanism and mechanics.** Fermentation produces `10.541 mmol`; `0.302 mmol` enters blood, `0.516 mmol` is net phase transfer, `0.097 mmol` is microbial consumption, and `9.685 mmol` leaves as rectal gas. Retained gas is `4.64%` of gas input; the explicit proximal pressure-return pathway contributes `0.000 mmol` in this nominal geometry but is active for a pressure inversion. Predicted maximum gas volume is `162.155 mL`, maximum absolute pressure is `812.898 mmHg`, and final rectal gas flow is `0.170 mL/min`; final fecal mass flux is `0.277 g/h`. A descriptive 72-h probe gives solid-transit t50 `39.116 h`; t50 is not reached by 24 h.
+
+**Sensitivity.** The strongest +/-50% controls are `k_fermentation_h` (total output `111.776` to `331.046 mL`), `motility_gain` (`203.795` to `219.920 mL`), and `k_blood_transfer_h` (breath fraction `0.0131` to `0.0338`). Gas balance relative residual is `2.70e-15`; all five tests pass, including ideal-gas and closed-injection limits (`test_model.py`).
+
+**Next resolution step.** Replace assumed residence times, wall compliance, phase-transfer and blood-transfer coefficients with simultaneous time-resolved rectal gas volume/flow and H2/CH4 composition, intraluminal pressure, breath H2/CH4, substrate input, and perfusion data coupled to measured 3-D colon geometry. No individual measurements were used; all numerical outputs are in `results.json` and assumptions/sources are in `PREREG.md`.

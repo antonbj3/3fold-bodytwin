@@ -1,0 +1,2252 @@
+{
+ "schema": "bodytwin-research-action-extension-v1",
+ "packets": [
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-RESEARCH-MITOSTRESS",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Define and test first-principles mechanisms in mitostress, reusing native code and preserving unresolved evidence.",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/PHYSIOLOGY_CLUSTERS_20260926/MITOSTRESS.md",
+   "source_line": 1,
+   "source_sha256": "c9443a37f1de95c76429f597d85936fbfbe79c179ccea445eff493777895571c",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-MITOCHONDRIAL-BIOENERGETICS",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-HPA-CORTISOL-ULTRADIAN",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "user_requested_first_principles_cluster",
+    "score": 9,
+    "action": "Decompose, identify missing bindings and run only explicitly conditional mechanism probes.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-bound native physiology and applicable primary QSP models",
+   "expected_observation": "A discriminating measurement or conditional counterexample that changes a model decision",
+   "falsifier": "Alternative mechanism reproduces the claimed signature or unbound closure determines the result",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "mitostress first principles physiology receptor cell organ energy immunity"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-RESEARCH-IMMUNITY",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Define and test first-principles mechanisms in immunity, reusing native code and preserving unresolved evidence.",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/PHYSIOLOGY_CLUSTERS_20260926/IMMUNITY.md",
+   "source_line": 1,
+   "source_sha256": "c971b904f246f41053ba8ecb51a7b882eea0c4fc1405b3475821a7070606a16d",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:GOAL-CANCER-IMMUNE-WARGAME-TWIN",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-PD1-TCELL-EXHAUSTION",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-COMPLEMENT-AMPLIFICATION",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "user_requested_first_principles_cluster",
+    "score": 9,
+    "action": "Decompose, identify missing bindings and run only explicitly conditional mechanism probes.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-bound native physiology and applicable primary QSP models",
+   "expected_observation": "A discriminating measurement or conditional counterexample that changes a model decision",
+   "falsifier": "Alternative mechanism reproduces the claimed signature or unbound closure determines the result",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "immunity first principles physiology receptor cell organ energy immunity"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q005",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for molecular parameter worth computing better for an organ outcome: Change in an organ-outcome error budget per unit of computation, along a shared parameter chain with correlated terms.",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_20260930/Q005.md",
+   "source_line": 1,
+   "source_sha256": "4a4ae5f816efa86e4919e123feb1712ee6109ac800c8aecf55aa7259c853b875",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:AUDIT-CROSSCALE-HANDOFF-INTERFACE-SWEEP",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:HOLE-CROSSSCALE-HANDOFF-PASS2-BASERATE-ZERO-NEW-DEFECTS-2026-07-26",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "error budget cross scale handoff sensitivity parameter chain organ outcome molecular correlation"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q012",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for diet and microbiome variables needed for a given substance question: Metabolite and exposure outcome with residual uncertainty from diet, microbial function and host uptake.",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_20260930/Q012.md",
+   "source_line": 1,
+   "source_sha256": "5097014acb7a5977a7c810c78be4e4d3c06a5ccf2b1ee39f48d45275ad05ee5e",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-MICROBIOME-SCFA-CROSSFEED",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:SYS-GUT-MICROBIOME-HOST-AXIS",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:GI-INTESTINAL-BARRIER-PERMEABILITY",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "diet microbiome metabolite scfa fermentation substance exposure gut"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q013",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for separating pharmacokinetic interaction from changed cell sensitivity: Exposure and effect of a combination kept separate, with local/independent exposure measurement.",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_20260930/Q013.md",
+   "source_line": 1,
+   "source_sha256": "4284af83fe9da047b97ca1e97e718400d145cedfacb77d6a44bf823574a2f0cf",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MET-PHARMACOKINETICS-ADME",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:NEU-BLOOD-BRAIN-BARRIER",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "pharmacokinetic pharmacodynamic drug interaction exposure sensitivity combination clearance"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q052",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for process-dependent porosity coupled to mechanics and biological transport: Stiffness, permeability and coupled tissue response of the same microstructure.",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_20260930/Q052.md",
+   "source_line": 1,
+   "source_sha256": "49f85ce991935366c5f0f82db08c0a59e47c938ef6d7f7ca33229f5425abc17e",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-CARTILAGE-POROELASTIC-CONTACT",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MSK-BONE-ADAPTATION",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-KROGH-OXYGEN-DIFFUSION-TISSUE",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "porosity permeability poroelastic stiffness transport microstructure scaffold bone diffusion"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q090",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for tooth, periodontal ligament and jaw joint under chewing load: Load distribution through tooth, PDL and TMJ compliance as a network, not series springs.",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_20260930/Q090.md",
+   "source_line": 1,
+   "source_sha256": "4514e3be77f67cbe982f2333f590d20d62e7e48b0faa759329fce0ee41436665",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MSK-TMJ-DISC-CONTACT-LOAD",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings",
+     "Tooth/PDL mechanics has no native BodyTwin node (dental graph)"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "tooth periodontal ligament jaw tmj chewing contact compliance load path dental",
+   "graph_lane_context_selection": "graph lane claude_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q115",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for villi, crypts and epithelial turnover versus a constant absorption area: Uptake and barrier function from regional epithelial geometry and cell renewal.",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_20260930/Q115.md",
+   "source_line": 1,
+   "source_sha256": "b225e7b6327571b7b461976ed2e5b40da8e362143df9adbc5f4ab61b939d7203",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-GUT-CRYPT-DYNAMICS",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:GI-INTESTINAL-BARRIER-PERMEABILITY",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "villus crypt epithelium turnover absorption area barrier intestine uptake"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q146",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for nasal route with swallowed and systemic fractions: Local and systemic exposure from nasal geometry, with the swallowed fraction tracked separately.",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_20260930/Q146.md",
+   "source_line": 1,
+   "source_sha256": "056a51cd1455a0fa851a063d2051a12e12b1785dfbf9379379b36e865ec9f3f1",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MET-PHARMACOKINETICS-ADME",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "nasal deposition mucociliary swallowed systemic exposure mass balance first pass"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q168",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for measurements that separate microbial production, barrier passage and host metabolism: Observation operators that make competing causal chains distinguishable before a mechanistic conclusion.",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_20260930/Q168.md",
+   "source_line": 1,
+   "source_sha256": "32d41a0d8665d53dde1ada729e719864ba0a160eb3f672d107dede3432b33bfd",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:GI-INTESTINAL-BARRIER-PERMEABILITY",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:SYS-GUT-MICROBIOME-HOST-AXIS",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MOL-AKKERMANSIA-MUCINIPHILA-CAUSAL-VS-MARKER",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "identifiability measurement design microbial production barrier host metabolism observation operator"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-GLUCOSE-HISTORY",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for local tissue glucose exposure after history compression, counterfactual past and new coupling: Certified local exposure under deleted regional history and later geometry/coupling edits (Sol61 AMBITIOUS triad; DallaMan plus regional tissue benchmark).",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_20260930/GLUCOSE-HISTORY.md",
+   "source_line": 1,
+   "source_sha256": "316597598a0a7a7ff1834400b86b343515388ddfc3494076f075f849292590c3",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:ORG-PANCREAS-GLUCOSE-INSULIN",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-INSULIN-PI3K-GLUT4",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:HOLE-INSULIN-GLUCOSE-UPTAKE-DISPOSAL-HANDOFF-CONTRADICTION",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:CROSS-SCALE-GLUCOSE-FLUX-BALANCE-CLOSURE-2026-07-27",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "glucose insulin tissue exposure history deletion counterfactual coupling hessian reduced model dallaman local query"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q009",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for When do similar plasma curves give different free exposure in the target tissue?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q009.md",
+   "source_line": 1,
+   "source_sha256": "c955996239dffd0ac1df4249dfadd97ae3edae278ca693d9636808f5672ca45e",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MET-PHARMACOKINETICS-ADME",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:NEU-BLOOD-BRAIN-BARRIER",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "when do similar plasma curves give different free exposure in the target tissue?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q014",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for When does the order between two interventions change an observable outcome?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q014.md",
+   "source_line": 1,
+   "source_sha256": "8a1aeefe95eaeb0dbacbe152de160ba13cc71654959ea71b51defa26d0383f3b",
+   "scientific_depends_on": [],
+   "typed_relations": [],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "when does the order between two interventions change an observable outcome?"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q017",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for What feedbacks are needed for a measured heart-kidney transient?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q017.md",
+   "source_line": 1,
+   "source_sha256": "09683f3f7a48c8f24d601a4371eb93ff94fa1dfedd51af37de4ea7615d35e0f8",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:INT-CARDIORENAL-PRESSURE-AXIS",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-BAROREFLEX-BP-CONTROL",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:HOLE-PRESSURE-NATRIURESIS-BP-CONTRADICTION",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "what feedbacks are needed for a measured heart–kidney transient?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q019",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for What variation between nephron segments changes the organ's observable response?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q019.md",
+   "source_line": 1,
+   "source_sha256": "4c74a6be344f8edc7d064908e5339b42017f658f0e46a4f4bb7dad9648d62f50",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:ORG-KIDNEY-NEPHRON",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-NEPHRON-TGF-OSCILLATION",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-KIDNEY-COUNTERCURRENT-MULTIPLIER",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "what variation between nephron segments changes the organ's observable response?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q020",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Can vessels–interstitium–lymph explain both swelling and substance retention?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q020.md",
+   "source_line": 1,
+   "source_sha256": "ef4bcf31c877f4b2842b51d0f7942422825cc05bad98ac2553bebd8ae575fc80",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-STARLING-CAPILLARY-EXCHANGE",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:LYMPH-LYMPHATIC-TRANSPORT",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-CAPILLARY-STARLING-FILTRATION",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "can vessel–interstitium–lymph explain both swelling and substance retention?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q021",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for When does the lung model need regional ventilation and perfusion?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q021.md",
+   "source_line": 1,
+   "source_sha256": "4ee10eac994fa823b34acaddf49514cf69c6ed5135a534e19a582760adf8c050",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:ORG-LUNG-GASEXCHANGE",
+     "target_source_status": "ASSUMED"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-PULMONARY-O2-CASCADE",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:HOLE-PULMONARY-VQ-PVR-CONTRADICTION",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "when does the lung model need regional ventilation and perfusion?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q022",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for How is the electrical activity of the heart linked to force when the perfusion changes?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q022.md",
+   "source_line": 1,
+   "source_sha256": "e78b017282b03d31d80bed6ce31159c771c3d9ed4cb5e94fe0b944ca7822e8bb",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:ORG-CARDIAC-MECHANICS",
+     "target_source_status": "ASSUMED"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:HOLE-CORONARY-ABSOLUTE-FLOW-TWO-ROUTE-CLOSURE-2026-07-28",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "how is the heart's electrical activity coupled to force when perfusion changes?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q026",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Which paracrine gradients need to be resolved spatially?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q026.md",
+   "source_line": 1,
+   "source_sha256": "c568ab16b382c7f77374ace0b2a1ffb1800a655c8439b6854ff915b454fb5410",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-SENESCENCE-SASP-PARACRINE",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-ENZYME-DIFFUSION-LIMIT",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-KROGH-OXYGEN-DIFFUSION-TISSUE",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "which paracrine gradients need to be spatially resolved?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q031",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for When must membrane potential and ion transport be linked to volume change?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q031.md",
+   "source_line": 1,
+   "source_sha256": "3f1a375106463770b2e6b0758899c7ae781c9521a19f4b7a8a84937d4a69cd40",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-MEMBRANE-CAPACITANCE",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-NA-K-ATPASE-PUMP-THERMODYNAMICS",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "when must membrane potential and ion transport be coupled to volume change?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q036",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Which conditions from ischemia are needed to predict early reperfusion response?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q036.md",
+   "source_line": 1,
+   "source_sha256": "1f95dbbf5cce0a66ed4c8146ed7829796d4f5b9f377b2cc139ec364b22abd340",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MPTP-CYPD-REPERFUSION-NECROSIS-CAUSAL-GATE-POREID-HELD-OPEN",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:ORG-HIF-PHD-VHL-OXYGEN-SENSOR",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "what conditions from ischemia are needed to predict early reperfusion response?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q043",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for When is motor unit detail needed to explain EMG and force simultaneously?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q043.md",
+   "source_line": 1,
+   "source_sha256": "223e4544ed9db8d836b49cc39d6bea25977f6af05c3b8e47bc4bb4c60c29d898",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MSK-MOTOR-UNIT-JOINT-TORQUE-BRIDGE",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MSK-EMG-FORCE-XSUBJ",
+     "target_source_status": "REFUTED"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:COUNT-MOTOR-UNIT-NUMBER-FORCE-FACTORIZATION",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "when is motor unit detail needed to explain emg and power at the same time?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q044",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for How sensitive is the EEG forward model to head geometry and tissue properties?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q044.md",
+   "source_line": 1,
+   "source_sha256": "e2419566adc9d11e13b22111fd2a4ebe64e49734507e89581efac1e27ceeca7e",
+   "scientific_depends_on": [],
+   "typed_relations": [],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "how sensitive is the eeg forward model to head geometry and tissue properties?"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q049",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Which thin layers must be preserved for proper mechanics and transport?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q049.md",
+   "source_line": 1,
+   "source_sha256": "d0955147fd10b319b36a409e7041c24ebdd08a4d0de1fa4fd084c50a80427343",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:ORG-SKIN-BARRIER",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:GI-MUC2-INNER-MUCUS-BILAYER-BARRIER-NECESSITY",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-CARTILAGE-BIPHASIC-LUBRICATION",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "which thin layers must be preserved for proper mechanics and transport?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q054",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for How do real manufacturing deviations affect contact and load distribution?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q054.md",
+   "source_line": 1,
+   "source_sha256": "aa2ad958923d3b0143d124cfe8834205a71f3058baf3f7891d2dae698931d3a7",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MSK-JOINT-CONTACT-FORCE-ANCHORS",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MSK-TMJ-DISC-CONTACT-LOAD",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:HOLE-CONTACT-FORCE-BIAS-DOWNSTREAM-PROPAGATION-2026-07-29",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "how do real manufacturing deviations affect contact and load distribution?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q058",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for When can we switch between levels of detail without losing biological memory?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q058.md",
+   "source_line": 1,
+   "source_sha256": "cd7dc0ea55102070bb570ea45adb5353b2acaad2271a7c52bffa3ab1e1518f44",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MSK-DETRAINING-MUSCLE-MEMORY",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:INT-EXERCISE-ADAPTATION-MULTISYSTEM",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MOL-HYPERGLYCEMIC-SUPEROXIDE-MEMORY",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "when can we switch between levels of detail without losing biological memory?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q077",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for When do the junctions of the cristae produce different ATP outcomes despite the same membrane area and volume?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q077.md",
+   "source_line": 1,
+   "source_sha256": "5141aaf88df5cc0f003b7b0fcf7008f192e383062917a616ebd90ae6e94055ad",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-MITOCHONDRIAL-BIOENERGETICS",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-ATP-SYNTHASE-STOICHIOMETRY",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "when do the connections of the cristae give different atp outcomes despite the same membrane area and volume?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q080",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for How does the patch distribution of the receptors change responses at the same total number of receptors?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q080.md",
+   "source_line": 1,
+   "source_sha256": "1a2c8ddc91fb828be5835f5eb369aee4661987874d0771e168e8631b22a44da4",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-THYROID-RECEPTOR-OCCUPANCY-AMPLIFICATION",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "how does the patch distribution of the receptors change the response at the same total number of receptors?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q084",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for How much does molecular crowding change transport compared to an adjusted diffusivity?",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q084.md",
+   "source_line": 1,
+   "source_sha256": "e6c190563a3fe292023b1d82fda7e834c2480e8b6f8674972f68ee45394ab5c9",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-ENZYME-DIFFUSION-LIMIT",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:HOLE-MT-CATASTROPHE-KHYD-DIFFUSION-BOUND",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "how much does molecular crowding change transport compared to an adjusted diffusivity?",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q088",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for What combination of oxygen deprivation, energy demand and geometry alters cell recovery",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q088.md",
+   "source_line": 1,
+   "source_sha256": "41fb8dccdbd84318e429279271fda0f27b5fabe633a2141336109bca16d46784",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:ORG-HIF-PHD-VHL-OXYGEN-SENSOR",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-AMPK-ENERGY-SENSING",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-KROGH-OXYGEN-DIFFUSION-TISSUE",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "what combination of oxygen deprivation, energy demand and geometry alters cell recovery",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q100",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Vocal cord mechanics and self-oscillation",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q100.md",
+   "source_line": 1,
+   "source_sha256": "d81b484fb68e4fffe8d039e4d758af91a14a02dd69b74a4d5af987bd617aaeb1",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:NEU-SPEECH-VOCAL-FORWARD-MODEL",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "mechanics and self-oscillation of the vocal cords",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q107",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Stomach mechanics and emptying",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q107.md",
+   "source_line": 1,
+   "source_sha256": "0f58b316d6f6c3ff0b76af50192fac1711e5a46921a89a1176a47dd7b87c2723",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:ORG-GI-MOTILITY-ENS",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:HOLE-GASTRIC-EMPTYING-ABSORPTION-CONTRADICTION",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:HOLE-GASTRIC-EMPTYING-GUT-GLUCOSE-RA-HANDOFF-CONTRADICTION",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "gastric mechanics and emptying",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q121",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Colon transit and gas",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q121.md",
+   "source_line": 1,
+   "source_sha256": "017cda0ae2ffabc19c8c505fb1ad76b15cd30b9341b4548ab07c894af65d2011",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:ORG-GI-MOTILITY-ENS",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-MICROBIOME-SCFA-CROSSFEED",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:HOLE-GI-MOTILITY-SLOWWAVE-PROPULSION-HANDOFF-CONTRADICTION",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "colonic transit and gas",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q127",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Myonukleier's creation and retention",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q127.md",
+   "source_line": 1,
+   "source_sha256": "bab95cd41e3569b732462fbb34da4b8728943fa08bd10e2128459b4a8629ab77",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MSK-MYONUCLEAR-DOMAIN-CEILING-TEST-PETRELLA-2026-07-26",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MSK-SATELLITE-CELL-RESERVE",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MSK-DETRAINING-MUSCLE-MEMORY",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "myonuclei generation and retention",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q140",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Medicines through the kidney's different flow paths",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q140.md",
+   "source_line": 1,
+   "source_sha256": "6df376168b7092ecb503a82a7309051c7ff226c854bb1079f6688705b277a1ae",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:ORG-KIDNEY-NEPHRON",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MET-PHARMACOKINETICS-ADME",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:ORG-RENAL-FLUID-ELECTROLYTE",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "drugs through the kidney's various flow pathways",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q154",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for BBB influx, efflux, transcytosis and metabolism",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q154.md",
+   "source_line": 1,
+   "source_sha256": "465b8788feb2d371e361f30e0ba1437e6e1f90d762df29e38bf82847204230af",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:NEU-BLOOD-BRAIN-BARRIER",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MOL-ABC-EFFLUX-TRANSPORT",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:NEU-BBB-INTEGRITY",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "bbb influx, efflux, transcytosis and metabolism",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q156",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Perivascular, CSF and interstitial exchange",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q156.md",
+   "source_line": 1,
+   "source_sha256": "ee93b4b0199c75e46193ed8c69a77004d41133d387313b731aa7f8024d1f36a1",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:NEU-GLYMPHATIC-PARENCHYMAL-PECLET-BOUND-COMPARTMENT-SEPARATION",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:NEU-CSF-OUTFLOW-LYMPHATIC-DOMINANCE-GATE",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:HOLE-CSF-PRODUCTION-ABSORPTION-ICP-CONSERVATION-CONTRADICTION",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "perivascular, CSF and interstitial exchange",
+   "graph_lane_context_selection": "graph lane coordinator_24h 2026-09-30 23:45; native claims read; context only"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-Q160",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Biofilm's EPS mechanics and transport",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/Q160.md",
+   "source_line": 1,
+   "source_sha256": "2b1ba72367d75827270dd7217be886c4b6256a6c8d386dbde8ec92de9fde1040",
+   "scientific_depends_on": [],
+   "typed_relations": [],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "the movie's eps mechanics and transport"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-BIORESP",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Bone remodeling under implant load: a mechanistic physiological operator",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/BIORESP.md",
+   "source_line": 1,
+   "source_sha256": "c3a8126efcca1cdec52eac58f02151c72e290f49a799c3c977f9fdca1dc5344f",
+   "scientific_depends_on": [],
+   "typed_relations": [],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "bone remodeling under implant load: a mechanistic physiological operator"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-SURG-INCISION",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Scalpel incision through layered skin/subcutis/fascia: cutting mechanics, wound gape and local transport",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/SURG_INCISION.md",
+   "source_line": 1,
+   "source_sha256": "61e9699ad179ecea50350e79969e15f800708e374d5b805c7153ca8309f375af",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:SKIN-SUBCUTIS-DECOMPOSITION",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:SKIN-DERMAL-STIFFNESS-COLLAGEN-COMPOSITION",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MSK-FASCIA-NETWORK",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-BONE-FRACTURE-TOUGHNESS",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "scalpel incision through layered skin/subcutis/fascia: cutting mechanics, wound gape and local transport"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-SURG-COLLAGEN",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Collagen bindings to fibres to tissue: crosslinks, fibril sliding, thermal denaturation and rupture under a blade",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/SURG_COLLAGEN.md",
+   "source_line": 1,
+   "source_sha256": "b66f45d153e671411c21d7b22df1e33e46dd993f6c1948dd423f7cedaf5104dd",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-TENDON-COLLAGEN-MECHANICS",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-COLLAGEN-TRIPLE-HELIX-THERMAL-STABILITY",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MSK-FASCIA-NETWORK",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "collagen bindings to fibres to tissue: crosslinks, fibril sliding, thermal denaturation and rupture under a blade"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-SURG-HEMOSTASIS",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for Bleeding and hemostasis after a cut: severed vessel flow, platelet plug, coagulation and fibrinolysis",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/SURG_HEMOSTASIS.md",
+   "source_line": 1,
+   "source_sha256": "163147bd4ac846d90363c788f315557ea8355628a00f2041127d5fd3ca91f6a6",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-COAGULATION-THROMBIN-GENERATION",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-COAGULATION-FIBRINOLYSIS",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-PLATELET-ACTIVATION-AGGREGATION",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:HEMATO-HEMOSTATIC-BALANCE",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "bleeding and hemostasis after a cut: severed vessel flow, platelet plug, coagulation and fibrinolysis"
+  },
+  {
+   "schema": "bodytwin-research-action-packet-v1",
+   "id": "BT-CTX-SURG-HEALING",
+   "goal_path": "general_bodytwin",
+   "path_authority": "explicit local research definition; no native scientific admission",
+   "claim": "Target context for From incision to closure: inflammation, cell migration, matrix deposition and scar mechanics",
+   "source_status": null,
+   "source_status_origin": "new research action",
+   "admission_state": "PENDING_REVIEW",
+   "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/SURG_HEALING.md",
+   "source_line": 1,
+   "source_sha256": "0da3b41a4dfd38967b765debcad2da9dbd5e4179aaab7e1c5244f224fbb68b9a",
+   "scientific_depends_on": [],
+   "typed_relations": [
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:WOUND-HEALING-CASCADE",
+     "target_source_status": "OPEN"
+    },
+    {
+     "type": "related_context_only",
+     "target": "bodytwin:MODEL-NLRP3-INFLAMMASOME",
+     "target_source_status": "OPEN"
+    }
+   ],
+   "design_role": "research_action",
+   "units": "task-specific SI quantities and documented conversions",
+   "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+   "validity": "DEFINITION_ONLY",
+   "numerical_dispatch_allowed": false,
+   "rank": {
+    "priority_class": "source_family_target_context",
+    "score": 8,
+    "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+    "blocked_prerequisites": [
+     "Independent calibration, observation map and task-specific native bindings"
+    ]
+   },
+   "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+   "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+   "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+   "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+   "result_bindings": [],
+   "result_binding_template": {
+    "result_file": "results/<lane>/RESULTS.md",
+    "sha256": "<sha256>",
+    "review_state": "PENDING_INDEPENDENT_REVIEW"
+   },
+   "topic": "from incision to closure: inflammation, cell migration, matrix deposition and scar mechanics"
+  }
+ ]
+}

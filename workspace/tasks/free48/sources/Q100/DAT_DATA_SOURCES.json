@@ -1,0 +1,487 @@
+{
+  "id": "BT-DAT-Q100",
+  "title": "Public measured datasets that constrain the Q100 vocal-fold model (inputs/Q100_model.py, inputs/Q100_QUESTION.md)",
+  "compiled_utc": "2026-09-26",
+  "prereg": "PREREG.md",
+  "prereg_sha256_file": "PREREG.sha256",
+  "scope": "Availability and identifiability only. No Q100 parameter was fitted, changed or validated here (PREREG.md N3).",
+  "criteria": {
+    "C1": "resolvable public URL fetched with HTTP 200 in this session",
+    "C2": "licence stated by the record/landing page",
+    "C3": "size stated from record metadata; any downloaded sample <= 52,428,800 B (50 MiB)",
+    "C4": "measured (MRI/CT/HSV/pressure-flow/audio on tissue or speakers), not simulated",
+    "C5": "names at least one Parameters field of inputs/Q100_model.py or one of the four declared outputs",
+    "C6": "downloaded sample actually loaded here, with shape/dtype/units/coordinate frame printed by scripts/check_samples.py"
+  },
+  "sources": [
+    {
+      "key": "DS-01",
+      "name": "BAGLS - Benchmark for Automatic Glottis Segmentation",
+      "kind": "time series + cohort + geometry (2-D, pixel)",
+      "url_landing": "https://zenodo.org/records/3762320",
+      "url_api": "https://zenodo.org/api/records/3762320",
+      "doi": "10.5281/zenodo.3762320",
+      "paper": "Gomez et al., BAGLS, a multihospital Benchmark for Automatic Glottis Segmentation, Scientific Data 7:186 (2020), https://doi.org/10.1038/s41597-020-0526-3",
+      "licence": "CC-BY-NC-SA-4.0",
+      "licence_verified": true,
+      "licence_source": "Zenodo record metadata field license.id",
+      "size_bytes": 17571433690,
+      "size_files": [
+        {
+          "key": "raw.zip",
+          "bytes": 13444186410
+        },
+        {
+          "key": "videos.zip",
+          "bytes": 386198063
+        },
+        {
+          "key": "training.zip",
+          "bytes": 3533810759
+        },
+        {
+          "key": "test.zip",
+          "bytes": 207236572
+        },
+        {
+          "key": "_readme.md",
+          "bytes": 1886
+        }
+      ],
+      "format": "PNG endoscopic frames + PNG binary glottis masks + JSON metadata (.meta) + mp4 raw videos; lossless PNG",
+      "subjects": {
+        "species": "Homo sapiens",
+        "n_recordings": 640,
+        "n_videos_snippets": 559,
+        "n_frames_annotated": 59250,
+        "institutions": 7,
+        "health_status": "380 healthy, 262 identified disorder or clearly affected oscillation, 50 unknown",
+        "sex": "432 female, 177 male, 31 not reported",
+        "age_years": "mean 38.22 +/- 18.58, range 14-91",
+        "sampling_rate_Hz": "1000-10000",
+        "resolution_px": "256x120 to 512x512"
+      },
+      "measured": true,
+      "measurement_nature": "high-speed videoendoscopy of human vocal folds, expert-segmented glottal area per frame (ground truth, mean inter-expert IoU 0.772)",
+      "constrains": [
+        {
+          "target": "area0",
+          "how": "segmented glottal area per frame gives the open-area time series and its maximum, i.e. an empirical value for the rest/open area instead of the assumed 1.5e-5 m^2"
+        },
+        {
+          "target": "area_contact",
+          "how": "minimum segmented area per cycle bounds the contact threshold area, assumed 1.64e-5 m^2"
+        },
+        {
+          "target": "output: contact fraction [%]",
+          "how": "fraction of frames with area at/below the contact threshold is exactly the quantity the model reports as contact_percent; BAGLS supplies 55,750+3,500 labelled frames to measure it"
+        },
+        {
+          "target": "output: fundamental frequency [Hz]",
+          "how": "frame rate is declared per frame in .meta, so f0 is computable from the mask time series"
+        },
+        {
+          "target": "m1, m2",
+          "how": "lateral wall excursion amplitude per frame bounds the lumped lateral masses, currently assumed 8e-4 and 6e-4 kg"
+        }
+      ],
+      "sample_downloaded": true,
+      "sample_files": [
+        "samples/bagls_0.png",
+        "samples/bagls_0_seg.png",
+        "samples/bagls_0.meta",
+        "samples/BAGLS_readme.md"
+      ],
+      "sample_method": "HTTP Range into the 207,236,572 B test.zip: 4,000,000 B of tail for the zip central directory, then one image/mask/metadata triple, 4,028,979 B transferred in total (scripts/fetch_bagls_sample.py)",
+      "known_limits": [
+        "areas are in px^2; the record gives no endoscope working distance, so px^2 cannot be converted to mm^2 from the record alone",
+        "sampling rate varies per recording (1000-10000 Hz) and must be read per frame from .meta",
+        "CC-BY-NC-SA-4.0 forbids commercial use and requires share-alike",
+        "multi-hospital heterogeneity means a subject-matched comparison to one Q100 operating point is not possible"
+      ],
+      "strength_of_constraint": "direct"
+    },
+    {
+      "key": "DS-02",
+      "name": "Subglottal Pressure Experiments with Ex-vivo Porcine Larynges",
+      "kind": "parameters + time series (pressure, adduction, wall trajectories)",
+      "url_landing": "https://zenodo.org/records/10640031",
+      "url_api": "https://zenodo.org/api/records/10640031",
+      "doi": "10.5281/zenodo.10640031",
+      "creators": "Birk, Semmler, Donhauser, Gomez, Schuetzenberger, Doellinger",
+      "licence": "CC-BY-4.0",
+      "licence_verified": true,
+      "licence_source": "Zenodo record metadata field license.id",
+      "size_bytes": 4340255187,
+      "size_files": [
+        {
+          "key": "measures.csv",
+          "bytes": 12995
+        },
+        {
+          "key": "trajectories.npy",
+          "bytes": 28311680
+        },
+        {
+          "key": "videos.zip",
+          "bytes": 4311930512
+        }
+      ],
+      "format": "mp4 high-speed videoendoscopy + CSV metadata + numpy .npy trajectory array",
+      "subjects": {
+        "species": "Sus scrofa (ex-vivo larynges, not human)",
+        "n_larynges": 6,
+        "n_recordings": 288,
+        "geometry_levels": "metal shim gap 0, 1, 2 mm (from measures.csv)"
+      },
+      "measured": true,
+      "measurement_nature": "measured subglottal pressure in Pa, arytenoid adduction torque in mNm, glottal-wall trajectories from expert segmentation (Glottis Analysis Tools); in this session the sample gave psub 459.1-1494.1 Pa over 288 rows",
+      "constrains": [
+        {
+          "target": "p_sub",
+          "how": "measured subglottal pressure per recording; Q100 freezes p_sub = 800 Pa as a 'protocol input' and the record shows measured values spanning roughly 460-1490 Pa, so the protocol value is inside the measured range but is not a subject-matched value"
+        },
+        {
+          "target": "area0, area_slope",
+          "how": "left/right glottal-wall trajectories at three longitudinal positions give the medial-surface displacement directly, which is what area0 and the projected width area_slope encode"
+        },
+        {
+          "target": "area_contact, output: contact fraction [%]",
+          "how": "sham gap 0 mm larynges provide recordings at/through contact, so the contact threshold and the contact duty can be measured rather than assumed"
+        },
+        {
+          "target": "flow_resistance, output: subglottal pressure [Pa]",
+          "how": "pressure-set recordings at known geometry allow a pressure-flow characteristic if the videos are re-segmented"
+        }
+      ],
+      "sample_downloaded": true,
+      "sample_files": [
+        "samples/measures.csv",
+        "samples/trajectories.npy"
+      ],
+      "sample_method": "direct file download from the record, 28,326,561 B; md5 of both files matches the record metadata",
+      "known_limits": [
+        "ex-vivo porcine tissue: not human, no mucosal lubrication, no muscle activation",
+        "trajectories.npy declares no unit and no coordinate frame; magnitudes are O(10) and mm is plausible but unverified",
+        "frame rate of the source videos is not declared by the record"
+      ],
+      "strength_of_constraint": "direct"
+    },
+    {
+      "key": "DS-03",
+      "name": "Dynamic 3D MRI of vocal fold oscillations: thickness, contact area and glottal area waveform across phonation types",
+      "kind": "geometry/anatomy + time series (in vivo human 3-D)",
+      "url_landing": "https://zenodo.org/records/19629778",
+      "url_api": "https://zenodo.org/api/records/19629778",
+      "doi": "10.5281/zenodo.19629778",
+      "creators": "Traser, Stritt, Jordan, Koeberlein, Kirsch, Rummel, Zhang, Richter, Bock, Fischer, Echternach",
+      "licence": "CC-BY-4.0",
+      "licence_verified": true,
+      "licence_source": "Zenodo record metadata field license.id; record text also states CC BY 4.0 on acceptance",
+      "size_bytes": 5228064118,
+      "size_files": [
+        {
+          "key": "supplement submission JASA Revision.zip",
+          "bytes": 5228064118,
+          "md5": "5cf44cada22deb8fc2971846bc617029"
+        }
+      ],
+      "zip_members": {
+        "nrrd": 60,
+        "stl": 60,
+        "wav": 12,
+        "png": 6,
+        "mp4": 2,
+        "gif": 2,
+        "total": 159
+      },
+      "format": "NRRD volumes (raw double), binary STL surface reconstructions, WAV audio, MP4/GIF supplementary animations",
+      "subjects": {
+        "species": "Homo sapiens, in vivo",
+        "n_subjects": 1,
+        "subject_id_in_filenames": "MID00321",
+        "phonation_types": 6,
+        "frames_per_type": 10,
+        "types_named": [
+          "stiff",
+          "thick",
+          "thick_AES_narrow",
+          "thick_VenF_retract",
+          "thick_VenF_constrict",
+          "thin"
+        ]
+      },
+      "measured": true,
+      "measurement_nature": "dynamic 3-D ZTE MRI of the vibrating vocal folds with surface reconstruction, compared in the same record against simultaneous high-speed video, EGG and glottal area waveform",
+      "constrains": [
+        {
+          "target": "k_body, k_surface",
+          "how": "measured fold thickness per phonation type plus published tissue moduli is the only route to replacing the assumed 600 N/m and 1500 N/m layer springs with identified stiffnesses"
+        },
+        {
+          "target": "m1, m2",
+          "how": "3-D surface/volume per frame times tissue density bounds the lumped lateral masses (assumed 8e-4 / 6e-4 kg)"
+        },
+        {
+          "target": "area0, area_slope",
+          "how": "reconstructed medial surface gives the projected length/height that set the rest area and the projected-area derivative 3.0e-3 m"
+        },
+        {
+          "target": "area_contact, output: contact fraction [%]",
+          "how": "the record's own contact-area animations and GAW give contact duration per phonation type, the direct empirical counterpart of contact_percent"
+        },
+        {
+          "target": "output: fundamental frequency [Hz]",
+          "how": "frame index to phase mapping plus the paired audio gives f0 for the same subject and phonation type"
+        }
+      ],
+      "sample_downloaded": true,
+      "sample_files": [
+        "samples/vf3d_thick_frame01.stl",
+        "samples/vf3d_thick_nrrd_header.txt"
+      ],
+      "sample_method": "HTTP Range into the 5,228,064,118 B ZIP64 container: 200,000 B tail for the ZIP64 end-of-central-directory, one STL member read in full (1,405,684 B) and the first bytes of one 89,916,629 B NRRD member for its header; 840,639 B transferred (scripts/fetch_vf3d_members.py)",
+      "known_limits": [
+        "n = 1 subject, so it constrains magnitudes, not a cohort distribution",
+        "10 phases per phonation type, not a dense oscillation time series",
+        "the NRRD header has no 'space units' field; mm is inferred from spacing 0.383929 and the file name token '08mm'",
+        "manuscript was submitted to JASA at the time of the record; peer review status not checked here"
+      ],
+      "strength_of_constraint": "direct"
+    },
+    {
+      "key": "DS-04",
+      "name": "Supplementary data for Ikuma et al., Development of parameters towards voice bifurcations",
+      "kind": "time series + cohort (human high-speed video, pathology)",
+      "url_landing": "https://zenodo.org/records/4928535",
+      "url_api": "https://zenodo.org/api/records/4928535",
+      "doi": "10.5281/zenodo.4928535",
+      "creators": "Ikuma, Adkins, McWhorter, Kunduk",
+      "licence": "CC-BY-4.0",
+      "licence_verified": true,
+      "licence_source": "Zenodo record metadata field license.id",
+      "size_bytes": 6212491,
+      "size_files": [
+        {
+          "key": "Case1.mp4",
+          "bytes": 2316698
+        },
+        {
+          "key": "Case2.mp4",
+          "bytes": 202005
+        },
+        {
+          "key": "Case3.mp4",
+          "bytes": 926955
+        },
+        {
+          "key": "Case4.mp4",
+          "bytes": 2766833
+        }
+      ],
+      "format": "mp4 high-speed videoendoscopy, 2000 fps (Case1-3) and 4000 fps (Case4) as declared in the record",
+      "subjects": {
+        "species": "Homo sapiens",
+        "n_cases": 4,
+        "cases": "no pathology; unilateral vocal fold paralysis (biphonia); polyp (biphonia + subharmonics); polyp (subharmonics + random)"
+      },
+      "measured": true,
+      "measurement_nature": "laryngeal high-speed videoendoscopy of sustained /i/ phonation in healthy and pathological larynges",
+      "constrains": [
+        {
+          "target": "output: fundamental frequency [Hz]",
+          "how": "declared frame rate makes f0 measurable per case, including subharmonic and random vibration"
+        },
+        {
+          "target": "output: contact fraction [%]",
+          "how": "pathological vibration types are the falsification cases for a contact law tuned on one healthy operating point"
+        },
+        {
+          "target": "k_contact_surface, c_contact_surface",
+          "how": "biphonia/subharmonic cases are where a unilateral contact law either holds or breaks, so they are the discriminating data for the contact stiffness"
+        }
+      ],
+      "sample_downloaded": true,
+      "sample_files": [
+        "samples/ikuma_case2_paralysis_2000fps.mp4"
+      ],
+      "sample_method": "direct download of Case2.mp4, 202,005 B; md5 matches the record metadata",
+      "known_limits": [
+        "DATA QUALITY: the record declares 2000 fps, but the parsed MP4 time base (media timescale 10240, stts sample delta 1792) gives 5.714 fps over 904 frames and 158.2 s; f0 must not be derived from this file without an independent timing source",
+        "no geometry, pressure or area is stored, so only kinematics can be extracted",
+        "four cases, single centre, no healthy cohort for comparison"
+      ],
+      "strength_of_constraint": "direct"
+    },
+    {
+      "key": "DS-05",
+      "name": "Ultrafast dynamic 3-D MRI of the vocal fold oscillation, phase II - representative pathology cases",
+      "kind": "cohort + time series (human)",
+      "url_landing": "https://zenodo.org/records/19915187",
+      "url_api": "https://zenodo.org/api/records/19915187",
+      "doi": "10.5281/zenodo.19915187",
+      "creators": "Traser, Fischer",
+      "licence": "CC-BY-4.0",
+      "licence_verified": true,
+      "licence_source": "Zenodo record metadata field license.id",
+      "size_bytes": 72124458,
+      "size_files": [
+        {
+          "key": "VF polyp_resp_phon_no audio.mp4",
+          "bytes": 16381975
+        },
+        {
+          "key": "VF muscle tension dysphonia_resp_phon_no audio.mp4",
+          "bytes": 10522677
+        },
+        {
+          "key": "VF scar_resp_phon_no audio.mp4",
+          "bytes": 14584408
+        },
+        {
+          "key": "VF nodules_respo_phon_no audio.mp4",
+          "bytes": 20759814
+        },
+        {
+          "key": "VF paresis_resp_phon_no audio.mp4",
+          "bytes": 9875584
+        }
+      ],
+      "format": "mp4 videolaryngostroboscopy, audio removed for data protection",
+      "subjects": {
+        "species": "Homo sapiens",
+        "n_cases": 5,
+        "cases": "vocal fold polyp, muscle tension dysphonia, vocal fold scar, bilateral vocal fold nodules, vocal fold paresis"
+      },
+      "measured": true,
+      "measurement_nature": "videolaryngostroboscopic recording of respiration and phonation per pathology",
+      "constrains": [
+        {
+          "target": "output: fundamental frequency [Hz]",
+          "how": "per-pathology phonation videos give f0 and its variability, the cohort test for a model calibrated at one operating point"
+        },
+        {
+          "target": "output: contact fraction [%]",
+          "how": "organic and functional lesions are where measured contact behaviour departs most from a single contact stiffness"
+        }
+      ],
+      "sample_downloaded": false,
+      "known_limits": [
+        "total 72,124,458 B exceeds the 50 MiB single-sample budget although individual files fit; not downloaded because four samples were already verified",
+        "audio deliberately removed, so no acoustic reference",
+        "videos only, no geometry"
+      ],
+      "strength_of_constraint": "direct"
+    },
+    {
+      "key": "DS-06",
+      "name": "Dresden Vocal Tract Dataset (DVTD)",
+      "kind": "geometry/anatomy (vocal tract, not vocal folds) + measured aeroacoustics",
+      "url_landing": "https://springernature.figshare.com/articles/dataset/Dresden_Vocal_Tract_Dataset_complete_archive_/11897187",
+      "url_api": "https://api.figshare.com/v2/articles/11897187",
+      "doi": "10.6084/m9.figshare.11897187.v1",
+      "paper": "Birkholz et al., Printable 3D vocal tract shapes from MRI data and their acoustic and aerodynamic properties, Scientific Data (2020), https://doi.org/10.1038/s41597-020-00597-w",
+      "licence": "CC0",
+      "licence_verified": true,
+      "licence_source": "figshare API field license.name",
+      "size_bytes": 1129467424,
+      "size_files": [
+        {
+          "key": "dvtd.zip",
+          "bytes": 1129467424,
+          "download_url": "https://ndownloader.figshare.com/files/22817429"
+        }
+      ],
+      "format": "3-D MRI vocal tract shapes, printable STL models, FEM models, measured and simulated aeroacoustic data",
+      "subjects": {
+        "species": "Homo sapiens",
+        "n_speakers": 2,
+        "n_sounds": 22,
+        "sounds": "16 vowels, 5 fricatives, 1 lateral, German"
+      },
+      "measured": true,
+      "measurement_nature": "MRI of the vocal tract plus measured acoustic and aerodynamic response of 3-D printed replicas",
+      "constrains": [
+        {
+          "target": "output: fundamental frequency [Hz]",
+          "how": "only indirectly: measured tract length and the classic tract-length/f0 relation, i.e. a plausibility band for f0, not a vocal-fold constraint"
+        }
+      ],
+      "sample_downloaded": false,
+      "known_limits": [
+        "WEAKEST ENTRY: two speakers and no vocal fold at all; listed for completeness of the geometry category, it cannot identify any Q100 layer, contact or mucus parameter",
+        "1.13 GB, not downloaded"
+      ],
+      "strength_of_constraint": "indirect"
+    }
+  ],
+  "rejected_or_not_found": [
+    {
+      "candidate": "VocalFold11b / Zheng et al. 3-D vocal fold geometry and CFD boundary conditions (M5 profile)",
+      "status": "NOT FOUND as a public dataset record",
+      "reason": "no public record with a resolvable file URL, licence and file sizes was found on Zenodo or figshare; the widely cited M5 geometry is an idealized published model, so it fails C4 (measured, not simulated)",
+      "consequence": "the 3-D flow-based constraint on F_air remains uncovered by open data"
+    },
+    {
+      "candidate": "GIRAFE - Glottal Imaging Dataset (Zenodo 13773163)",
+      "status": "REJECTED (C2, C3)",
+      "reason": "record returns 0 files and no licence field; nothing to fetch, nothing licensed",
+      "consequence": "a 65-recording / 50-patient annotated set is referenced but not obtainable"
+    },
+    {
+      "candidate": "Aichinger et al. 2016, database of 375 laryngeal high-speed videos with audio, 80 pathological + 40 non-pathological subjects (LREC 2016, aclanthology L16-1122)",
+      "status": "NOT AVAILABLE",
+      "reason": "the paper is public but no public file URL was found for the database itself",
+      "consequence": "the strongest published pathological/non-pathological HSV cohort with simultaneous audio is not open"
+    },
+    {
+      "candidate": "public measured mucosal wave propagation speed, in vivo layer stiffness (E), layer thickness, meniscus/contact angle, mucus film rheology",
+      "status": "NOT FOUND",
+      "reason": "Zenodo API queries for 'mucosal wave vocal fold', 'vocal fold stiffness', 'hemilarynx experiment' and 'vocal fold surface tension' returned only journal articles and non-data records; the classic measured values (mucosal wave speed, zero-stress length, layer moduli) live in articles and on request, not in open datasets",
+      "consequence": "DECISIVE for the Q100 hypothesis: k_body, k_surface, c_body, c_surface, meniscus_force, meniscus_length, sheet_tension, mucus_height stay assumption-only. Public measured data can constrain geometry, kinematics, glottal area, contact duty, f0 and subglottal pressure, but NOT the layered-tissue material law. A layered-vs-two-mass comparison therefore cannot be settled from public data alone; it needs a targeted ex vivo measurement campaign or a private dataset."
+    }
+  ],
+  "coverage_of_q100_parameters": {
+    "constrained_by_public_measured_data": [
+      "area0",
+      "area_slope",
+      "area_contact",
+      "p_sub",
+      "m1",
+      "m2",
+      "k_contact_surface",
+      "c_contact_surface",
+      "flow_resistance",
+      "rho_air"
+    ],
+    "output_constrained": [
+      "output: subglottal pressure [Pa]",
+      "output: mucosal wave velocity [m/s] (kinematically via wall trajectories, not as a wave-speed measurement)",
+      "output: contact fraction [%]",
+      "output: fundamental frequency [Hz]"
+    ],
+    "not_constrained": [
+      "k_body",
+      "k_surface",
+      "c_body",
+      "c_surface",
+      "k_tissue_base",
+      "c_tissue_base",
+      "k_coupling",
+      "c_coupling",
+      "k_contact_base",
+      "c_contact_base",
+      "meniscus_force",
+      "meniscus_length",
+      "mucus_damping",
+      "mucus_height",
+      "sheet_tension",
+      "tissue_velocity_scale",
+      "air_damping",
+      "air_velocity_scale",
+      "air_projection",
+      "air_tau"
+    ],
+    "note": "mucosal wave velocity stays UNKNOWN as a measured quantity: DS-02 and DS-03 give wall motion, not a wave-speed measurement, and no open dataset was found that measures it"
+  }
+}

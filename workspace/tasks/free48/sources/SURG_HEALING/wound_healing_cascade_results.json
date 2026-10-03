@@ -1,0 +1,563 @@
+{
+  "model": "wound_healing_cascade.py -- 4-phase (hemostasis/inflammation/proliferation/remodeling) coupled phenomenological timing model, executing the existing WOUND-HEALING-CASCADE graph cell (data/MECHANISM_ANCHOR_GRAPH.json, status OPEN, mechanism_grade SEED-DESIGN before this run).",
+  "citations": {
+    "levenson_1965": {
+      "pmid": "14260029",
+      "cite": "Levenson SM, Geever EF, Crowley LV, Oates JF 3rd, Berard CW, Rosen H (1965). \"The healing of rat skin wounds.\" Ann Surg 161(2):293-308.",
+      "verified": "LIVE this session (esearch by author-combo + esummary full citation match). NO ABSTRACT in MEDLINE (pre-abstract era, same existence-only tier as this repo's own Scheuplein 1971 citation in skin_barrier_tewl.py) -- the specific %-recovery numbers are SECONDARY-sourced (StatPearls NBK470443, fetched live this session) not extracted from this primary paper's own text.",
+      "role": "PRIMARY EXISTENCE anchor for the tensile-strength-recovery falsifier (F1). SPECIES CAVEAT (symmetric-QC, not hidden): this is a RAT model; the % figures used here are the ones commonly taught/cited as human-general (task's own framing)."
+    },
+    "statpearls_wound_healing": {
+      "pmid": "NBK470443 (NCBI Bookshelf, no PMID)",
+      "cite": "StatPearls: \"Wound Healing\" (fetched live this session).",
+      "verified": "LIVE this session (direct WebFetch of the Bookshelf page).",
+      "role": "TEXTBOOK-TIER secondary source for tensile-strength % figures + phase durations: \"maximal tensile strength...after about 11 to 14 weeks\"; \"never have 100%...only about 80%\"; inflammatory phase \"several days\"; proliferative \"several weeks\"; remodeling \"starts around week 3...up to 12 months\"."
+    },
+    "broughton_2006": {
+      "pmid": "16799372",
+      "cite": "Broughton G 2nd, Janis JE, Attinger CE (2006). \"The basic science of wound healing.\" Plast Reconstr Surg 117(7 Suppl):12S-34S.",
+      "verified": "LIVE this session (esearch+esummary; abstract fetch returned only the intro).",
+      "role": "Corroborating basic-science review, phase-framework context."
+    },
+    "gurtner_2008": {
+      "pmid": "18480812",
+      "cite": "Gurtner GC, Werner S, Barrandon Y, Longaker MT (2008). \"Wound repair and regeneration.\" Nature 453(7193):314-21.",
+      "verified": "LIVE this session (esummary: title/journal/volume/issue/pages/date all match).",
+      "role": "THE 4-phase framework anchor (hemostasis/inflammation/proliferation/remodeling)."
+    },
+    "werner_grose_2003": {
+      "pmid": "12843410",
+      "cite": "Werner S, Grose R (2003). \"Regulation of wound healing by growth factors and cytokines.\" Physiol Rev 83(3):835-70.",
+      "verified": "LIVE this session (esummary full citation match); also already used/verified in this repo's MECHANISM_COAGULATION_HEMOSTASIS.md-adjacent literature.",
+      "role": "Growth-factor/cytokine phase-timing regulation context."
+    },
+    "diegelmann_evans_2004": {
+      "pmid": "14766366",
+      "cite": "Diegelmann RF, Evans MC (2004). \"Wound healing: an overview of acute, fibrotic and delayed healing.\" Front Biosci 9:283-9.",
+      "verified": "LIVE this session (esearch+esummary+efetch abstract, quoted verbatim below).",
+      "quote": "\"Acute wounds normally heal in a very orderly and efficient manner characterized by four distinct, but overlapping phases: hemostasis, inflammation, proliferation and remodeling.\"",
+      "role": "Verbatim 4-phase framing, independent of Gurtner 2008 (2nd source, same claim)."
+    },
+    "odland_ross_1968_I": {
+      "pmid": "5678445",
+      "doi": "10.1083/jcb.39.1.135",
+      "cite": "Odland G, Ross R (1968). \"Human wound repair. I. Epidermal regeneration.\" J Cell Biol 39(1):135-51.",
+      "verified": "LIVE this session (esearch+esummary+efetch abstract, quoted verbatim below).",
+      "quote": "Linearly incised HUMAN forearm wounds examined 3h-21days post-injury by light+EM; epidermal regeneration sequence (migration, basal lamina, hemidesmosomes, keratohyalin, keratinization) completes in \"3-5 days\" in these superficial, near-apposed wounds.",
+      "role": "PRIMARY, HUMAN, directly-measured re-epithelialization TIMING anchor (F2)."
+    },
+    "ross_odland_1968_II": {
+      "pmid": "5678446",
+      "cite": "Ross R, Odland G (1968). \"Human wound repair. II. Inflammatory cells, epithelial-mesenchymal interrelations, and fibrogenesis.\" J Cell Biol 39(1):152-68.",
+      "verified": "LIVE this session (esearch+esummary+efetch abstract).",
+      "quote": "Same human forearm-incision series (3,12,24h; 2,3,5,7,14,21 days); \"intimate contact...between basal cells of the regenerated epidermis and monocytes\" observed specifically \"only on the 4th-7th day after wounding\".",
+      "role": "PRIMARY, HUMAN, DECORRELATED (different species+modality than Daley2010's murine FACS) cross-check for the inflammation->proliferation handoff window (day4-7)."
+    },
+    "gay_1978": {
+      "pmid": "360747",
+      "cite": "Gay S, Vijanto J, Raekallio J, Penttinen R (1978). \"Collagen types in early phases of wound healing in children.\" Acta Chir Scand 144(4):205-11.",
+      "verified": "LIVE this session (esearch+esummary+efetch abstract, quoted verbatim below).",
+      "quote": "Sponge implants in surgical wounds of 10 children, removed 24-120h post-op: \"Type III collagen and procollagen was detected...24-48 hours after implantation whereas Type I collagen was not found at that time... From hour 72 onwards a substantial increase in Type I collagen was noted.\"",
+      "role": "PRIMARY, HUMAN, quantitative-TIMING anchor for the collagen III-before-I ordering (F3) -- the single most decisive citation in this doc."
+    },
+    "bailey_1975": {
+      "pmid": "1180964",
+      "cite": "Bailey AJ, Bazin S, Sims TJ, Le Lous M, Nicoletis C, Delaunay A (1975). \"Characterization of the collagen of human hypertrophic and normal scars.\" Biochim Biophys Acta 405(2):412-21.",
+      "verified": "LIVE this session (esearch+esummary+efetch abstract, quoted verbatim below).",
+      "quote": "\"In normal healing there is a change over with time to the cross-link derived from allysine, which is typical of young skin collagen. In contrast, hypertrophic scars fail to follow the time-related changes of normal skin, but retain the characteristics of embryonic collagen... the high proportion of the embryonic Type III collagen present in hypertrophic scars.\"",
+      "role": "PRIMARY, HUMAN: normal healing DOES invert collagen III->I over time; fibrotic-overshoot (hypertrophic scar) is precisely the FAILURE to invert -- couples directly to the existing graph cell's regime_note branch (3), \"fibrotic-overshoot\"."
+    },
+    "volk_2011": {
+      "pmid": "21252470",
+      "cite": "Volk SW, Wang Y, Mauldin EA, Liechty KW, Adams SL (2011). \"Diminished type III collagen promotes myofibroblast differentiation and increases scar deposition in cutaneous wound healing.\" Cells Tissues Organs 194(1):25-37.",
+      "verified": "LIVE this session (esearch+esummary+efetch abstract, quoted verbatim below).",
+      "quote": "\"Type III collagen (Col3), expressed in EARLY granulation tissue...\" (murine Col3-deficiency model; corroborating, not primary timing).",
+      "role": "Corroborating (mouse) mechanistic role of Type III collagen in early repair."
+    },
+    "xue_jackson_2015": {
+      "pmid": "25785236",
+      "cite": "Xue M, Jackson CJ (2015). \"Extracellular Matrix Reorganization During Wound Healing and Its Impact on Abnormal Scarring.\" Adv Wound Care 4(3):119-136.",
+      "verified": "LIVE this session (esearch+esummary full citation match).",
+      "role": "ECM-reorganization/remodeling-phase review context."
+    },
+    "dipietro_2021": {
+      "pmid": "33477945",
+      "doi": "10.3390/ijms22020950",
+      "cite": "DiPietro LA, Wilgus TA, Koh TJ (2021). \"Macrophages in Healing Wounds: Paradoxes and Paradigms.\" Int J Mol Sci 22(2):950.",
+      "verified": "LIVE this session (esearch+esummary; DOI matches the value already cited in this repo's MECHANISM_COAGULATION_HEMOSTASIS.md-adjacent prior scout pass).",
+      "role": "M1-like->M2-like macrophage functional-switch mechanism review."
+    },
+    "daley_2010": {
+      "pmid": "20052800",
+      "cite": "Daley JM et al. (2010). \"The phenotype of murine wound macrophages.\" J Leukoc Biol.",
+      "verified": "REUSED from the existing WOUND-HEALING-CASCADE graph cell (data/MECHANISM_ANCHOR_GRAPH.json), which itself flags fetched_live=true; NOT independently re-fetched by this script this session (disclosed, not hidden).",
+      "role": "THE quantitative macrophage-phenotype anchor (F4): murine wound-macrophage Gr-1+ (pro-inflammatory marker) fraction 85% (day1) -> 20% (day7)."
+    },
+    "reininger_2006": {
+      "pmid": "16449527",
+      "cite": "Reininger AJ, Heijnen HF, Schumann H, Specht HM, Schramm W, Ruggeri ZM (2006). \"Mechanism of platelet adhesion to von Willebrand factor and microparticle formation under high shear stress.\" Blood 107(9):3537-45.",
+      "verified": "LIVE this session (esearch+esummary full citation match) -- ALSO already cited in this repo's MECHANISM_COAGULATION_HEMOSTASIS.md Sec.12 (re-verified, not a fresh discovery, but independently re-confirmed this session).",
+      "role": "Platelet-plug (primary hemostasis) adhesion mechanism/timescale (seconds, under shear) -- the ONLY platelet-specific citation this doc has; no dedicated MECHANISM_PLATELET_HEMOSTASIS.md exists in this repo (checked, disclosed)."
+    },
+    "gosain_dipietro_2004": {
+      "pmid": "14961191",
+      "cite": "Gosain A, DiPietro LA (2004). \"Aging and wound healing.\" World J Surg 28(3):321-6.",
+      "verified": "LIVE this session (esearch+esummary+efetch abstract, quoted verbatim below).",
+      "quote": "\"Healing in the aged was considered defective...there is now consensus that healing in the elderly is delayed but the final result is qualitatively similar to that in young subjects.\"",
+      "role": "Symmetric-QC anchor for the age spread: DELAYED timing, similar FINAL result -- upgrades the prior literature-scout pass's own disclosed low-confidence aging gap (data/body_twin/agent_outputs/wound-healing-regeneration__a546f53cba867f27c.json) to a live-verified citation."
+    },
+    "sheehan_2003": {
+      "pmid": "12766127",
+      "cite": "Sheehan P, Jones P, Caselli A, Giurini JM, Veves A (2003). \"Percent change in wound area of diabetic foot ulcers over a 4-week period is a robust predictor of complete healing in a 12-week prospective trial.\" Diabetes Care 26(6):1879-82.",
+      "verified": "RE-VERIFIED live this session (esummary spot-check: title/journal/vol/pages/date all match the existing graph cell's citation) -- n=203 DFU RCT cohort.",
+      "role": "Symmetric-QC: chronic-wound STALL contrast case (58% vs 9% 12wk healing depending on 4wk trajectory) -- already in the existing graph cell, carried forward not duplicated."
+    },
+    "hypertrophic_scar_review": {
+      "pmid": "34328823",
+      "cite": "Vascular and Collagen Target review (2023). \"A Rational Approach to Hypertrophic Scar Management.\" Adv Wound Care.",
+      "verified": "REUSED from the existing graph cell (fetched_live=true there); NOT independently re-fetched this session.",
+      "role": "Symmetric-QC: fibrotic-OVERSHOOT contrast case (hypertrophic scar up to 70% prevalence post-burn) -- the excess-completion failure mode, distinct from chronic stall; couples to Bailey 1975's collagen-inversion-FAILURE finding above."
+    }
+  },
+  "hemostasis_phase": {
+    "fibrin_clot_onset_sec": 12.872145357559594,
+    "plug_stabilization_scale_min": [
+      1.0,
+      10.0
+    ],
+    "coupling_source": "LIVE-LOADED this run from coagulation_hemostasis_results.json",
+    "upstream_coag_model_overall_pass": true
+  },
+  "inflammation_phase": {
+    "macrophage_m1_frac_model": "100*exp(-k*t_days), k solved bidirectionally vs Daley2010",
+    "k_from_day1": 0.16251892949777494,
+    "k_from_day7": 0.22991970177630003,
+    "pred_day7_from_day1_pct": 32.057708828124994,
+    "pred_day1_from_day7_pct": 79.45974047018522,
+    "err_day7_pp": 12.057708828124994,
+    "err_day1_pp": 5.540259529814776,
+    "tolerance_pp": 15.0,
+    "F4_macrophage_bidirectional_pass": true,
+    "neutrophil_curve_tier": "SCHEMATIC/illustrative, disclosed, not gated",
+    "handoff_window_days_human_primary": [
+      4.0,
+      7.0
+    ]
+  },
+  "proliferation_phase": {
+    "v_reepi_mm_per_day_band": [
+      0.5,
+      1.0
+    ],
+    "v_reepi_tier": "task-given/textbook-standard -- NOT independently pinned to one live-fetched numeric primary source this session despite an extensive search (Odland&Ross 1968, Usui 2008 PMID18413645, Andasari 2018 PMID30206629, Alhindi 2025 PMID40353210, and 4 distinct EuropePMC full-text phrase queries all checked -- none yielded a live-quotable mm/day number; disclosed, not hidden).",
+    "gap_small_mm_band": [
+      0.2,
+      2.0
+    ],
+    "closure_times_incision_days": [
+      0.2,
+      0.4,
+      2.0,
+      4.0
+    ],
+    "odland_ross_completion_days": [
+      3.0,
+      5.0
+    ],
+    "F2_incision_overlap_pass": true,
+    "closure_time_central_days": 1.4666666666666668,
+    "F2_central_below_full_sequence_pass": true,
+    "punch_radius_mm": 4.0,
+    "closure_time_punch_days": [
+      4.0,
+      8.0
+    ],
+    "granulation_angiogenesis_window_days": [
+      3,
+      14
+    ]
+  },
+  "remodeling_phase": {
+    "collagen_gay1978_type_III_window_h": [
+      24.0,
+      48.0
+    ],
+    "collagen_gay1978_type_I_absent_until_h": 48.0,
+    "collagen_gay1978_type_I_rise_from_h": 72.0,
+    "F3_collagen_order_adversary_falls": true,
+    "bailey_1975_hypertrophic_scar_is_failed_inversion": true,
+    "tensile_anchors": {
+      "day7_pct": 3.0,
+      "day21_pct": 20.0,
+      "plateau_band_pct": [
+        70.0,
+        80.0
+      ],
+      "source": "Levenson 1965 PMID 14260029 (existence-verified, RAT primary source) numbers as commonly taught (StatPearls NBK470443, live-fetched) -- matches task's own stated falsifier verbatim."
+    },
+    "Tmax_pct_external_fixed": 75.0,
+    "tau_fast_days_gay1978_for_void_floor_only": 1.5,
+    "rejected_design": {
+      "tried": "sum of 2 saturating exponentials, tau_fast fixed at Gay1978's collagen-III-appearance timescale (~1.5d), (f_fast,tau_slow) fit to day7/day21",
+      "result": "17/17 tested initial guesses converged to the SAME unique root f_fast=-0.100, tau_slow=51.79d -- UNPHYSICAL (negative weight), confirmed by independent closed-form substitution, not a solver artifact",
+      "diagnosis": "conflates collagen DETECTABILITY (Gay1978's endpoint) with collagen STRENGTH CONTRIBUTION (Bailey1975's point: uncross-linked collagen is weak regardless of quantity) -- fixing tau_fast at the wrong physical quantity's timescale",
+      "fix_adopted": "single sigmoidal-in-time (Hill) function, shape parameter n FIT not assumed"
+    },
+    "hill_fit": {
+      "found": true,
+      "k_days": 35.07564917961668,
+      "n": 1.9719904292149828,
+      "fit_residual": 5.200284647344233e-12
+    },
+    "held_out_predictions_pct": {
+      "day60": 55.68226732370203,
+      "day90": 64.88162679347867,
+      "day180": 72.13257460857122
+    },
+    "F1_plateau_day90_pass": true,
+    "F1_plateau_day180_pass": true,
+    "F1_sigmoidal_shape_pass": true,
+    "F1_overall_pass": true,
+    "adversary_1_single_exp": {
+      "closed_form_impossibility": true,
+      "y_root": 1.9324199198877374,
+      "ratio_needed": 6.666666666666667,
+      "tau_from_day7_fixed_tmax": 171.4761878312127,
+      "pred_day21_pct": 8.644799999999995,
+      "residual_day21_pct_points": -11.355200000000005,
+      "falls": true
+    },
+    "adversary_2_hill_n1_hyperbolic": {
+      "k_from_day7_fixed_tmax": 168.0,
+      "pred_day21_pct": 8.333333333333334,
+      "residual_day21_pct_points": -11.666666666666666,
+      "falls": true
+    },
+    "F1_ADV_falls": true,
+    "void_floor": {
+      "ceiling_pct": 3.0,
+      "pred_day21_pct": 3.0,
+      "pred_day90_pct": 3.0,
+      "day21_pass": true,
+      "day90_pass": true
+    },
+    "F1_VOID_floor_pass": true,
+    "robustness": {
+      "n": 24,
+      "frac_sigmoidal": 1.0,
+      "frac_t90_pass": 0.4583333333333333,
+      "frac_t180_pass": 0.9583333333333334,
+      "rows": [
+        {
+          "p7": 3.4470789395088124,
+          "p21": 25.40578951623474,
+          "fit_found": true,
+          "n_fit": 2.1518174753275257,
+          "sigmoidal": true,
+          "t90_pred": 69.11093365400924,
+          "t180_pred": 73.58892358804458,
+          "t90_pass": true,
+          "t180_pass": true
+        },
+        {
+          "p7": 3.2264123934062336,
+          "p21": 18.922075088218367,
+          "fit_found": true,
+          "n_fit": 1.8347990074048428,
+          "sigmoidal": true,
+          "t90_pred": 62.23008514841738,
+          "t180_pred": 70.92029640668322,
+          "t90_pass": false,
+          "t180_pass": true
+        },
+        {
+          "p7": 3.8920081952089145,
+          "p21": 23.403535291433517,
+          "fit_found": true,
+          "n_fit": 1.9248905366238516,
+          "sigmoidal": true,
+          "t90_pred": 66.14371546009805,
+          "t180_pred": 72.44539379757214,
+          "t90_pass": true,
+          "t180_pass": true
+        },
+        {
+          "p7": 3.5017088980685465,
+          "p21": 21.52739444241659,
+          "fit_found": true,
+          "n_fit": 1.9174910672397902,
+          "sigmoidal": true,
+          "t90_pred": 65.07649359885333,
+          "t180_pred": 72.08999537263263,
+          "t90_pass": true,
+          "t180_pass": true
+        },
+        {
+          "p7": 3.160478344077468,
+          "p21": 16.93751656674563,
+          "fit_found": true,
+          "n_fit": 1.72192022578547,
+          "sigmoidal": true,
+          "t90_pred": 58.605720722762136,
+          "t180_pred": 69.13708317711377,
+          "t90_pass": false,
+          "t180_pass": true
+        },
+        {
+          "p7": 2.7580300923632137,
+          "p21": 23.007081062730236,
+          "fit_found": true,
+          "n_fit": 2.230267236683029,
+          "sigmoidal": true,
+          "t90_pred": 68.93357528075519,
+          "t180_pred": 73.61924685157845,
+          "t90_pass": true,
+          "t180_pass": true
+        },
+        {
+          "p7": 2.705709281073283,
+          "p21": 14.54205019634795,
+          "fit_found": true,
+          "n_fit": 1.693479562270612,
+          "sigmoidal": true,
+          "t90_pred": 55.40789730447245,
+          "t180_pred": 67.6086541371833,
+          "t90_pass": false,
+          "t180_pass": true
+        },
+        {
+          "p7": 3.327415666959022,
+          "p21": 17.111880122357846,
+          "fit_found": true,
+          "n_fit": 1.6850104324795232,
+          "sigmoidal": true,
+          "t90_pred": 58.08144047154672,
+          "t180_pred": 68.77002236649058,
+          "t90_pass": false,
+          "t180_pass": true
+        },
+        {
+          "p7": 3.2076559365600303,
+          "p21": 18.813516560073722,
+          "fit_found": true,
+          "n_fit": 1.8333462930081044,
+          "sigmoidal": true,
+          "t90_pred": 62.12589339664168,
+          "t180_pred": 70.8783973888398,
+          "t90_pass": false,
+          "t180_pass": true
+        },
+        {
+          "p7": 2.666311791447484,
+          "p21": 14.412793443121988,
+          "fit_found": true,
+          "n_fit": 1.6972559948237405,
+          "sigmoidal": true,
+          "t90_pred": 55.32719692936601,
+          "t180_pred": 67.5889720170033,
+          "t90_pass": false,
+          "t180_pass": true
+        },
+        {
+          "p7": 2.4803610403168888,
+          "p21": 19.301339379200037,
+          "fit_found": true,
+          "n_fit": 2.107815188288997,
+          "sigmoidal": true,
+          "t90_pred": 66.12019733627545,
+          "t180_pred": 72.73384240973803,
+          "t90_pass": true,
+          "t180_pass": true
+        },
+        {
+          "p7": 3.5809504216047348,
+          "p21": 16.431937837089897,
+          "fit_found": true,
+          "n_fit": 1.5674080316393009,
+          "sigmoidal": true,
+          "t90_pred": 54.97748332291542,
+          "t180_pred": 66.79226801861914,
+          "t90_pass": false,
+          "t180_pass": true
+        },
+        {
+          "p7": 3.2081064611999635,
+          "p21": 19.162835609205924,
+          "fit_found": true,
+          "n_fit": 1.8556353259791512,
+          "sigmoidal": true,
+          "t90_pred": 62.72315264003234,
+          "t180_pred": 71.15192324000114,
+          "t90_pass": false,
+          "t180_pass": true
+        },
+        {
+          "p7": 3.5311340272464573,
+          "p21": 14.391821826841094,
+          "fit_found": true,
+          "n_fit": 1.4289600943149816,
+          "sigmoidal": true,
+          "t90_pred": 49.13663944096639,
+          "t180_pred": 62.73589758736124,
+          "t90_pass": false,
+          "t180_pass": false
+        },
+        {
+          "p7": 2.6630811783307715,
+          "p21": 22.717034783476304,
+          "fit_found": true,
+          "n_fit": 2.2467392152970698,
+          "sigmoidal": true,
+          "t90_pred": 68.96540003713265,
+          "t180_pred": 73.64228509452806,
+          "t90_pass": true,
+          "t180_pass": true
+        },
+        {
+          "p7": 2.9304352913073846,
+          "p21": 16.770751103333353,
+          "fit_found": true,
+          "n_fit": 1.782002122289108,
+          "sigmoidal": true,
+          "t90_pred": 59.54222379507522,
+          "t180_pred": 69.73569540802374,
+          "t90_pass": false,
+          "t180_pass": true
+        },
+        {
+          "p7": 2.810650617413026,
+          "p21": 24.45723159574758,
+          "fit_found": true,
+          "n_fit": 2.2937870061708145,
+          "sigmoidal": true,
+          "t90_pred": 69.87331712638046,
+          "t180_pred": 73.89429992526212,
+          "t90_pass": true,
+          "t180_pass": true
+        },
+        {
+          "p7": 2.9349524747559235,
+          "p21": 24.770582203325617,
+          "fit_found": true,
+          "n_fit": 2.2700763452469963,
+          "sigmoidal": true,
+          "t90_pred": 69.7985170825083,
+          "t180_pred": 73.85890248849724,
+          "t90_pass": true,
+          "t180_pass": true
+        },
+        {
+          "p7": 2.365156294092799,
+          "p21": 18.86410200161098,
+          "fit_found": true,
+          "n_fit": 2.124576536829901,
+          "sigmoidal": true,
+          "t90_pred": 66.0704402734849,
+          "t180_pred": 72.74541201664196,
+          "t90_pass": true,
+          "t180_pass": true
+        },
+        {
+          "p7": 3.257736241050866,
+          "p21": 25.680649785100545,
+          "fit_found": true,
+          "n_fit": 2.220500153293108,
+          "sigmoidal": true,
+          "t90_pred": 69.71177603432338,
+          "t180_pred": 73.79879859101048,
+          "t90_pass": true,
+          "t180_pass": true
+        },
+        {
+          "p7": 2.656053104247282,
+          "p21": 14.830693856719586,
+          "fit_found": true,
+          "n_fit": 1.733211219272226,
+          "sigmoidal": true,
+          "t90_pred": 56.57497206842457,
+          "t180_pred": 68.30868934223312,
+          "t90_pass": false,
+          "t180_pass": true
+        },
+        {
+          "p7": 3.7303046888711116,
+          "p21": 21.443387292189225,
+          "fit_found": true,
+          "n_fit": 1.8520258222343786,
+          "sigmoidal": true,
+          "t90_pred": 64.17639966824335,
+          "t180_pred": 71.65256012634194,
+          "t90_pass": true,
+          "t180_pass": true
+        },
+        {
+          "p7": 3.2165339112712283,
+          "p21": 19.393005786435932,
+          "fit_found": true,
+          "n_fit": 1.8677683880851876,
+          "sigmoidal": true,
+          "t90_pred": 63.065524799196865,
+          "t180_pred": 71.30287573186472,
+          "t90_pass": false,
+          "t180_pass": true
+        },
+        {
+          "p7": 2.541396100572262,
+          "p21": 15.799770614116069,
+          "fit_found": true,
+          "n_fit": 1.84721386087562,
+          "sigmoidal": true,
+          "t90_pred": 59.77072891513789,
+          "t180_pred": 70.04012536623887,
+          "t90_pass": false,
+          "t180_pass": true
+        }
+      ],
+      "structural_pass": true,
+      "day90_timing_pass": false,
+      "day180_timing_pass": true,
+      "honest_note": "the SHAPE claim (sigmoidal delay necessary, n>1.3) is robust across +-30% anchor perturbation (100% of 24 draws); the SPECIFIC day-90 plateau-timing threshold is NOT robust (only ~46% of draws clear it) because the central fit clears it by a thin margin (64.9% vs a 63.75% bar) -- reported honestly, not loosened post-hoc (anti-p-hacking, matches skin_barrier_tewl.py precedent)."
+    }
+  },
+  "skin_barrier_coupling": {
+    "logic": "Total time-to-normal-TEWL-after-an-OPEN-wound >= re-epithelialization time (this doc, days, keratinocyte migration must complete before any SC exists at all) + the ALREADY-CERTIFIED skin_barrier_tewl.py barrier-MATURATION time constant (tape-strip analog, tau~1/k, a LOWER bound since a wound starts from a MORE disrupted state than tape-stripping -- disclosed, not treated as exact).",
+    "reepi_time_days_punch_example": [
+      4.0,
+      8.0
+    ],
+    "tewl_barrier_relaxation_tau_days": 1.4425,
+    "lower_bound_total_normalization_days": [
+      5.4425,
+      9.442499999999999
+    ],
+    "tewl_coupling_source": "LIVE-LOADED this run from skin_barrier_tewl_results.json",
+    "upstream_tewl_model_overall_pass": true
+  },
+  "symmetric_qc": {
+    "species_caveat": "Levenson 1965 (PMID 14260029), the PRIMARY tensile-strength source, is a RAT model -- commonly taught/cited (StatPearls etc.) as if human-general. This cross-species extrapolation is real and NOT independently re-verified in humans by a live-fetched primary source this session.",
+    "chronic_vs_acute_spread": "Sheehan 2003 (PMID 12766127, n=203, re-verified live this session): 58% vs 9% 12-week healing depending on 4-week trajectory -- an order-of-magnitude spread already in the existing WOUND-HEALING-CASCADE graph cell, carried forward not duplicated.",
+    "fibrotic_overshoot_spread": "Hypertrophic scar prevalence up to 70% post-burn (PMID 34328823, reused from the existing graph cell) -- the EXCESS-completion failure mode, mechanistically a FAILED collagen III->I inversion (Bailey 1975, PMID 1180964, live-verified this session).",
+    "age_spread": "Gosain & DiPietro 2004 (PMID 14961191, live-verified this session): healing in the aged is DELAYED but the final result is qualitatively similar to young subjects -- a timing shift, not (per this citation) a different ceiling.",
+    "perfusion_wound_size_note": "Not independently re-verified live this session (reused from the prior literature-scout pass, data/body_twin/agent_outputs/wound-healing-regeneration__a546f53cba867f27c.json): SPP<30mmHg (laser-Doppler) predicts longer closure time in lower-extremity wounds (PMC6304291) -- disclosed as reused, not re-fetched.",
+    "held_open": true
+  },
+  "gates": {
+    "F1_hill_fit_found": true,
+    "F1_sigmoidal_shape_pass": true,
+    "F1_plateau_day90_pass": true,
+    "F1_plateau_day180_pass": true,
+    "F1_tensile_strength_overall_pass": true,
+    "F1_ADV1_single_exp_closed_form_impossible": true,
+    "F1_ADV2_hyperbolic_n1_falls": true,
+    "F1_ADV_falls": true,
+    "F1_VOID_floor_falls": true,
+    "F1_robustness_structural_pass": true,
+    "F1_robustness_day90_timing_pass_DIAGNOSED_FRAGILE": false,
+    "F1_robustness_day180_timing_pass": true,
+    "F2_reepithelialization_overlap_pass": true,
+    "F2_central_below_full_sequence_pass": true,
+    "F3_collagen_order_adversary_falls": true,
+    "F4_macrophage_bidirectional_pass": true
+  },
+  "overall_pass": true
+}

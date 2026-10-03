@@ -1,0 +1,3 @@
+# Public primary source note (locally checked before launch)
+
+Krevolin JL, Pandy MG, Pearce JC, *Moment arm of the patellar tendon in the human knee*, Journal of Biomechanics 37(5):785–788 (2004), DOI 10.1016/j.jbiomech.2003.09.010, primary abstract at https://pubmed.ncbi.nlm.nih.gov/15047009/ . It reports six fresh cadaver knees, patellar tendon moment arm about the tibia–femur finite screw axis, peak 4–6 cm near 45° flexion. This is a measured anatomical definition, not an OpenSim model curve. The abstract does not supply digitizable individual curves or held-out values; do not infer a quantitative fit from it. Check tendon-line/axis definitions near extension.

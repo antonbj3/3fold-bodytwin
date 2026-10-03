@@ -1,0 +1,66 @@
+{
+  "time": 1790759760.4086933,
+  "uid": 1000,
+  "markers": 2,
+  "rows": [
+    {
+      "pid": 1639377,
+      "account": "A",
+      "selected": "swarm",
+      "job": "BT-FW48-SEED-489",
+      "started": 1790759381.4366534,
+      "start_ticks": 32489656,
+      "boot_id": "5cf3a18b-e663-4752-bc3d-6e0bb9624dc2"
+    },
+    {
+      "pid": 1646059,
+      "account": "A",
+      "selected": "swarm",
+      "job": "BT-FW48-SEED-459",
+      "started": 1790759633.7316358,
+      "start_ticks": 32514885,
+      "boot_id": "5cf3a18b-e663-4752-bc3d-6e0bb9624dc2"
+    }
+  ],
+  "models": {
+    "swarm": 2
+  },
+  "cleanup": {
+    "live": 2
+  },
+  "runtimes": [
+    {
+      "pid": 1639408,
+      "ppid": 1639377,
+      "job": "BT-FW48-SEED-489",
+      "model": "opencode/space-swarm-free"
+    },
+    {
+      "pid": 1646060,
+      "ppid": 1646059,
+      "job": "BT-FW48-SEED-459",
+      "model": "opencode/space-swarm-free"
+    }
+  ],
+  "orphan_runtimes": [],
+  "marker_setup_gaps": [],
+  "egress_sha256": "f8757c57b159d46d81c16b3465e667c362ed662badccc0740679f0ba9596b965",
+  "code_sha256": {
+    "route_runtime.py": "856f056be60eadeabc588b7fdc4a3a8bc7d61a0a6c6c26b7ca447c678a1b7433",
+    "egress_pool.py": "3051cf899d09b70cfcb4909b0f6bc6424142e1362f379149365dd1e49bf2cc48",
+    "fallback_reserve.py": "ab5e696a2a01e4438009e021e292214988ddea84994119272491c9f45ed25a41",
+    "run_profile_ovh.py": "e5bab99a8342ec0edc0072fbe0c37b5ba52da1b65388c6daed438efe7f0b5f86",
+    "slot_markers.py": "9366fe0d9e9f482fced7754ff583fb3adfacc0161511568acf5b3daa510fab9e"
+  },
+  "policy": {
+    "reserve_worker_value_only": false,
+    "reserve_worker_reserve_account": "D",
+    "reserve_worker_reserve_cap": 3,
+    "reserve_worker_weekly_used_pct": 0.0,
+    "reserve_worker_weekly_stop_pct": 95,
+    "reserve_worker_reserve_until": 1790806598.9634993,
+    "reserve_worker_backoff_until": 0,
+    "bunny_backoff_until": 1790759064.3141148,
+    "free_worker_backoff_until": 1790760569.8939323
+  }
+}

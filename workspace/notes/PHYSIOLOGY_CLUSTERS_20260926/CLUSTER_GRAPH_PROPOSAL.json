@@ -1,0 +1,3056 @@
+{
+  "schema": "bodytwin-physiology-research-clusters-v1",
+  "status": "PROPOSAL_NOT_NATIVE_ADMISSION",
+  "nodes": [
+    {
+      "id": "BT-CLUSTER-MITOSTRESS",
+      "kind": "research_goal",
+      "status": "OPEN_PROPOSAL",
+      "title": "Mitochondrial stress energetics"
+    },
+    {
+      "id": "BT-CLUSTER-IMMUNITY",
+      "kind": "research_goal",
+      "status": "OPEN_PROPOSAL",
+      "title": "Immune response, protection and organ toxicity"
+    },
+    {
+      "id": "BT-CLUSTER-CROSS",
+      "kind": "research_goal",
+      "status": "OPEN_PROPOSAL",
+      "title": "Coupled physiology and computational methods"
+    },
+    {
+      "id": "BT-M01-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "ATP supply and stress demand",
+      "constituents": [
+        "ATP",
+        "ADP",
+        "Pi",
+        "oxygen",
+        "glycolysis",
+        "respiratory complexes"
+      ],
+      "equation_proposal": "dN_ATP/dt = J_oxphos + J_glycolysis - J_maintenance - J_response",
+      "observable_and_units": "ATP flux mol/s; oxygen uptake mol/s",
+      "falsifier_or_discriminating_test": "Compare fixed ATP supply with demand feedback at matched total substrate; reject a benefit if compensation by glycolysis explains it.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M01-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "ATP; ADP; Pi; oxygen; glycolysis; respiratory complexes"
+    },
+    {
+      "id": "BT-M01-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dN_ATP/dt = J_oxphos + J_glycolysis - J_maintenance - J_response"
+    },
+    {
+      "id": "BT-M01-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "ATP flux mol/s; oxygen uptake mol/s"
+    },
+    {
+      "id": "BT-M01-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Compare fixed ATP supply with demand feedback at matched total substrate; reject a benefit if compensation by glycolysis explains it."
+    },
+    {
+      "id": "BT-M02-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Steroidogenesis across mitochondria and ER",
+      "constituents": [
+        "cholesterol",
+        "StAR",
+        "CYP11A1",
+        "ER intermediates",
+        "CYP11B1",
+        "NADPH"
+      ],
+      "equation_proposal": "dn/dt = S v(n,enzyme,NADPH) + transport; cortisol output is a boundary flux",
+      "observable_and_units": "intermediate amount mol; cortisol secretion mol/s",
+      "falsifier_or_discriminating_test": "Test transport-limited against enzyme-limited secretion; identify an intermediate measurement that separates them.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M02-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "cholesterol; StAR; CYP11A1; ER intermediates; CYP11B1; NADPH"
+    },
+    {
+      "id": "BT-M02-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dn/dt = S v(n,enzyme,NADPH) + transport; cortisol output is a boundary flux"
+    },
+    {
+      "id": "BT-M02-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "intermediate amount mol; cortisol secretion mol/s"
+    },
+    {
+      "id": "BT-M02-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Test transport-limited against enzyme-limited secretion; identify an intermediate measurement that separates them."
+    },
+    {
+      "id": "BT-M03-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Catecholamine turnover and local redox",
+      "constituents": [
+        "catecholamine pool",
+        "outer-membrane MAO",
+        "peroxide",
+        "clearance"
+      ],
+      "equation_proposal": "dN_CA/dt = synthesis_external - v_MAO - clearance; dN_H2O2/dt = yield*v_MAO - detox",
+      "observable_and_units": "catecholamine and peroxide mol/s",
+      "falsifier_or_discriminating_test": "Separate gland/vesicle synthesis from mitochondrial degradation and compare with lumped hormone clearance.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M03-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "catecholamine pool; outer-membrane MAO; peroxide; clearance"
+    },
+    {
+      "id": "BT-M03-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dN_CA/dt = synthesis_external - v_MAO - clearance; dN_H2O2/dt = yield*v_MAO - detox"
+    },
+    {
+      "id": "BT-M03-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "catecholamine and peroxide mol/s"
+    },
+    {
+      "id": "BT-M03-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Separate gland/vesicle synthesis from mitochondrial degradation and compare with lumped hormone clearance."
+    },
+    {
+      "id": "BT-M04-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "HPA feedback with mitochondrial capacity",
+      "constituents": [
+        "CRH",
+        "ACTH",
+        "free cortisol",
+        "bound cortisol",
+        "receptor",
+        "delay"
+      ],
+      "equation_proposal": "dx/dt = f(x(t),x(t-tau),u,capacity); secretion port from M02",
+      "observable_and_units": "cortisol concentration mol/m3; lag s",
+      "falsifier_or_discriminating_test": "Preserve Q023 failed onset gate; determine whether added capacity is identifiable separately from feedback delay.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M04-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "CRH; ACTH; free cortisol; bound cortisol; receptor; delay"
+    },
+    {
+      "id": "BT-M04-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dx/dt = f(x(t),x(t-tau),u,capacity); secretion port from M02"
+    },
+    {
+      "id": "BT-M04-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "cortisol concentration mol/m3; lag s"
+    },
+    {
+      "id": "BT-M04-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Preserve Q023 failed onset gate; determine whether added capacity is identifiable separately from feedback delay."
+    },
+    {
+      "id": "BT-M05-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Tissue receptor occupancy",
+      "constituents": [
+        "free hormone",
+        "receptor",
+        "bound receptor",
+        "trafficking",
+        "tissue exposure"
+      ],
+      "equation_proposal": "dB/dt = kon*C*(Rtot-B) - koff*B - kint*B",
+      "observable_and_units": "bound receptor mol/m3; downstream response",
+      "falsifier_or_discriminating_test": "Compare kinetic occupancy with instantaneous Hill response during short pulses; expression is not affinity or gain.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M05-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "free hormone; receptor; bound receptor; trafficking; tissue exposure"
+    },
+    {
+      "id": "BT-M05-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dB/dt = kon*C*(Rtot-B) - koff*B - kint*B"
+    },
+    {
+      "id": "BT-M05-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "bound receptor mol/m3; downstream response"
+    },
+    {
+      "id": "BT-M05-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Compare kinetic occupancy with instantaneous Hill response during short pulses; expression is not affinity or gain."
+    },
+    {
+      "id": "BT-M06-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Adaptation, damage and recovery",
+      "constituents": [
+        "mitochondrial capacity",
+        "damage",
+        "repair",
+        "mitophagy",
+        "repeated stress"
+      ],
+      "equation_proposal": "dQ/dt = biogenesis - loss(Q,D); dD/dt = injury(stress,Q)-repair(D)",
+      "observable_and_units": "capacity mol ATP/s; recovery time s",
+      "falsifier_or_discriminating_test": "Find regimes where repeated stress improves, exhausts or leaves capacity unchanged; do not hard-code acute good/chronic bad.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M06-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "mitochondrial capacity; damage; repair; mitophagy; repeated stress"
+    },
+    {
+      "id": "BT-M06-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dQ/dt = biogenesis - loss(Q,D); dD/dt = injury(stress,Q)-repair(D)"
+    },
+    {
+      "id": "BT-M06-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "capacity mol ATP/s; recovery time s"
+    },
+    {
+      "id": "BT-M06-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Find regimes where repeated stress improves, exhausts or leaves capacity unchanged; do not hard-code acute good/chronic bad."
+    },
+    {
+      "id": "BT-M07-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Crista geometry and substrate limitation",
+      "constituents": [
+        "crista junction",
+        "ADP",
+        "ANT",
+        "ATP synthase",
+        "diffusion surface"
+      ],
+      "equation_proposal": "partial_t c = div(D grad c)-r; -D grad(c).n = membrane flux",
+      "observable_and_units": "ATP mol/s; transport time s",
+      "falsifier_or_discriminating_test": "Reuse Q077 failure of 10% flux gain and segmentation uncertainty; compare equal area/volume with equal enzyme count.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M07-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "crista junction; ADP; ANT; ATP synthase; diffusion surface"
+    },
+    {
+      "id": "BT-M07-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "partial_t c = div(D grad c)-r; -D grad(c).n = membrane flux"
+    },
+    {
+      "id": "BT-M07-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "ATP mol/s; transport time s"
+    },
+    {
+      "id": "BT-M07-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Reuse Q077 failure of 10% flux gain and segmentation uncertainty; compare equal area/volume with equal enzyme count."
+    },
+    {
+      "id": "BT-M08-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Calcium and ER contact energetics",
+      "constituents": [
+        "ER calcium",
+        "mitochondrial calcium",
+        "MCU",
+        "NCLX",
+        "membrane potential"
+      ],
+      "equation_proposal": "dN_Ca,m/dt = J_MCU-J_NCLX; proton/charge balance coupled to ATP",
+      "observable_and_units": "calcium mol; voltage V; ATP mol/s",
+      "falsifier_or_discriminating_test": "Compare transient calcium-driven gain with depolarization cost under conserved calcium and matched oxygen.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M08-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "ER calcium; mitochondrial calcium; MCU; NCLX; membrane potential"
+    },
+    {
+      "id": "BT-M08-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dN_Ca,m/dt = J_MCU-J_NCLX; proton/charge balance coupled to ATP"
+    },
+    {
+      "id": "BT-M08-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "calcium mol; voltage V; ATP mol/s"
+    },
+    {
+      "id": "BT-M08-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Compare transient calcium-driven gain with depolarization cost under conserved calcium and matched oxygen."
+    },
+    {
+      "id": "BT-M09-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Redox buffering and ROS locality",
+      "constituents": [
+        "NADH",
+        "NADPH",
+        "glutathione",
+        "ROS",
+        "detoxification enzymes"
+      ],
+      "equation_proposal": "dn/dt = S v; constrain reducing-equivalent and cofactor pools",
+      "observable_and_units": "redox ratios; peroxide mol/m3",
+      "falsifier_or_discriminating_test": "Ask whether a redox observation separates ETC limitation from antioxidant limitation at equal ATP.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M09-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "NADH; NADPH; glutathione; ROS; detoxification enzymes"
+    },
+    {
+      "id": "BT-M09-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dn/dt = S v; constrain reducing-equivalent and cofactor pools"
+    },
+    {
+      "id": "BT-M09-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "redox ratios; peroxide mol/m3"
+    },
+    {
+      "id": "BT-M09-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Ask whether a redox observation separates ETC limitation from antioxidant limitation at equal ATP."
+    },
+    {
+      "id": "BT-M10-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "FGF21, GDF15 and circulating signals",
+      "constituents": [
+        "cell stress",
+        "secretion",
+        "blood",
+        "clearance",
+        "target receptor"
+      ],
+      "equation_proposal": "dN_blood/dt = sum(J_secretion)-CL*C; target-specific occupancy",
+      "observable_and_units": "plasma mol/m3; secretion mol/s",
+      "falsifier_or_discriminating_test": "Separate release from clearance before interpreting elevated signal as mitochondrial damage.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M10-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "cell stress; secretion; blood; clearance; target receptor"
+    },
+    {
+      "id": "BT-M10-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dN_blood/dt = sum(J_secretion)-CL*C; target-specific occupancy"
+    },
+    {
+      "id": "BT-M10-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "plasma mol/m3; secretion mol/s"
+    },
+    {
+      "id": "BT-M10-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Separate release from clearance before interpreting elevated signal as mitochondrial damage."
+    },
+    {
+      "id": "BT-M11-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "mtDNA release and innate sensing",
+      "constituents": [
+        "damaged mitochondria",
+        "cytosolic DNA",
+        "extracellular DNA",
+        "cGAS-STING",
+        "nucleases"
+      ],
+      "equation_proposal": "dN_DNA,k/dt = release_k + transport_k - degradation_k; sensing as explicit closure",
+      "observable_and_units": "DNA copies/volume; signaling response",
+      "falsifier_or_discriminating_test": "Distinguish vesicular/free and cytosolic/circulating DNA; test alternative clearance explanation.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M11-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "damaged mitochondria; cytosolic DNA; extracellular DNA; cGAS-STING; nucleases"
+    },
+    {
+      "id": "BT-M11-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dN_DNA,k/dt = release_k + transport_k - degradation_k; sensing as explicit closure"
+    },
+    {
+      "id": "BT-M11-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "DNA copies/volume; signaling response"
+    },
+    {
+      "id": "BT-M11-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Distinguish vesicular/free and cytosolic/circulating DNA; test alternative clearance explanation."
+    },
+    {
+      "id": "BT-M12-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Immune metabolic reprogramming",
+      "constituents": [
+        "T cells",
+        "macrophages",
+        "glucose",
+        "lactate",
+        "oxygen",
+        "mitochondria"
+      ],
+      "equation_proposal": "population dynamics coupled to stoichiometric ATP/carbon budgets",
+      "observable_and_units": "cell count; uptake mol/s; killing cells/s",
+      "falsifier_or_discriminating_test": "At matched viable-cell number test metabolic limits on tumor killing versus inflammatory output.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M12-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "T cells; macrophages; glucose; lactate; oxygen; mitochondria"
+    },
+    {
+      "id": "BT-M12-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "population dynamics coupled to stoichiometric ATP/carbon budgets"
+    },
+    {
+      "id": "BT-M12-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "cell count; uptake mol/s; killing cells/s"
+    },
+    {
+      "id": "BT-M12-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "At matched viable-cell number test metabolic limits on tumor killing versus inflammatory output."
+    },
+    {
+      "id": "BT-M13-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Circadian and lifestyle inputs",
+      "constituents": [
+        "light/sleep timing",
+        "meal substrate",
+        "activity",
+        "HPA phase",
+        "tissue clocks"
+      ],
+      "equation_proposal": "phase oscillator or measured drive -> exposure -> compartment balances",
+      "observable_and_units": "phase rad; energy J; hormone time series",
+      "falsifier_or_discriminating_test": "Separate time-of-day and feeding confounding from stress-induced mitochondrial response.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M13-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "light/sleep timing; meal substrate; activity; HPA phase; tissue clocks"
+    },
+    {
+      "id": "BT-M13-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "phase oscillator or measured drive -> exposure -> compartment balances"
+    },
+    {
+      "id": "BT-M13-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "phase rad; energy J; hormone time series"
+    },
+    {
+      "id": "BT-M13-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Separate time-of-day and feeding confounding from stress-induced mitochondrial response."
+    },
+    {
+      "id": "BT-M14-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Sex, age and cell-type heterogeneity",
+      "constituents": [
+        "receptor distribution",
+        "endocrine state",
+        "mitochondrial abundance",
+        "tissue composition"
+      ],
+      "equation_proposal": "hierarchical parameters by cell/tissue; observation mixture y=H(x,composition)",
+      "observable_and_units": "flux per cell and per tissue mass",
+      "falsifier_or_discriminating_test": "Compare within-cell-type change with mixture shift; prohibit a universal female-better multiplier.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M14-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "receptor distribution; endocrine state; mitochondrial abundance; tissue composition"
+    },
+    {
+      "id": "BT-M14-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "hierarchical parameters by cell/tissue; observation mixture y=H(x,composition)"
+    },
+    {
+      "id": "BT-M14-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "flux per cell and per tissue mass"
+    },
+    {
+      "id": "BT-M14-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Compare within-cell-type change with mixture shift; prohibit a universal female-better multiplier."
+    },
+    {
+      "id": "BT-M15-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Whole-body energy claim audit",
+      "constituents": [
+        "basal expenditure",
+        "net stress increment",
+        "duration",
+        "activity",
+        "body mass"
+      ],
+      "equation_proposal": "E_increment = integral(P_stress-P_matched_rest) dt",
+      "observable_and_units": "J and J/kg over specified duration",
+      "falsifier_or_discriminating_test": "Trace the mile-running comparison to direct measurements; return unsupported if only fibroblast or inferred expenditure exists.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M15-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "basal expenditure; net stress increment; duration; activity; body mass"
+    },
+    {
+      "id": "BT-M15-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "E_increment = integral(P_stress-P_matched_rest) dt"
+    },
+    {
+      "id": "BT-M15-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "J and J/kg over specified duration"
+    },
+    {
+      "id": "BT-M15-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Trace the mile-running comparison to direct measurements; return unsupported if only fibroblast or inferred expenditure exists."
+    },
+    {
+      "id": "BT-M16-MITOSTRESS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Best experiment and bounded resolution",
+      "constituents": [
+        "state",
+        "observation",
+        "noise",
+        "correlated errors",
+        "candidate measurement"
+      ],
+      "equation_proposal": "y=h(x,theta)+noise; propagate discretization and parameter error separately",
+      "observable_and_units": "prediction interval; information gain at fixed cost",
+      "falsifier_or_discriminating_test": "Find the cheapest independent measurement distinguishing a mitochondrial mechanism from endocrine-only baseline; preserve source covariance.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-M16-MITOSTRESS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "state; observation; noise; correlated errors; candidate measurement"
+    },
+    {
+      "id": "BT-M16-MITOSTRESS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "y=h(x,theta)+noise; propagate discretization and parameter error separately"
+    },
+    {
+      "id": "BT-M16-MITOSTRESS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "prediction interval; information gain at fixed cost"
+    },
+    {
+      "id": "BT-M16-MITOSTRESS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Find the cheapest independent measurement distinguishing a mitochondrial mechanism from endocrine-only baseline; preserve source covariance."
+    },
+    {
+      "id": "BT-I01-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Receptor binding and antigen discrimination",
+      "constituents": [
+        "peptide-MHC",
+        "TCR",
+        "CD28",
+        "PD-1",
+        "PD-L1",
+        "CTLA-4"
+      ],
+      "equation_proposal": "dB/dt=kon*C*(Rtot-B)-koff*B; proofreading chain with reverse/reset rates",
+      "observable_and_units": "occupancy; activation probability; dwell time s",
+      "falsifier_or_discriminating_test": "Compare kinetic discrimination with existing two-signal gate at matched receptor and antigen numbers.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I01-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "peptide-MHC; TCR; CD28; PD-1; PD-L1; CTLA-4"
+    },
+    {
+      "id": "BT-I01-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dB/dt=kon*C*(Rtot-B)-koff*B; proofreading chain with reverse/reset rates"
+    },
+    {
+      "id": "BT-I01-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "occupancy; activation probability; dwell time s"
+    },
+    {
+      "id": "BT-I01-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Compare kinetic discrimination with existing two-signal gate at matched receptor and antigen numbers."
+    },
+    {
+      "id": "BT-I02-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Antigen processing and dendritic priming",
+      "constituents": [
+        "tumor debris",
+        "uptake",
+        "proteolysis",
+        "MHC",
+        "cDC1",
+        "lymph-node T cells"
+      ],
+      "equation_proposal": "dn/dt=S*v; antigen flux -> presentation -> priming with finite delay",
+      "observable_and_units": "presented complexes/cell; primed cells/s",
+      "falsifier_or_discriminating_test": "Separate antigen abundance from presentation failure using perturbation of uptake versus MHC loading.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I02-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "tumor debris; uptake; proteolysis; MHC; cDC1; lymph-node T cells"
+    },
+    {
+      "id": "BT-I02-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dn/dt=S*v; antigen flux -> presentation -> priming with finite delay"
+    },
+    {
+      "id": "BT-I02-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "presented complexes/cell; primed cells/s"
+    },
+    {
+      "id": "BT-I02-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Separate antigen abundance from presentation failure using perturbation of uptake versus MHC loading."
+    },
+    {
+      "id": "BT-I03-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Tolerance, regulatory cells and autoimmunity",
+      "constituents": [
+        "self/foreign clones",
+        "Tregs",
+        "co-stimulation",
+        "suppressive signals"
+      ],
+      "equation_proposal": "birth-death-transition rates by clone/antigen; explicit suppressive interaction",
+      "observable_and_units": "clone counts; healthy-cell killing cells/s",
+      "falsifier_or_discriminating_test": "Can anti-tumor activation rise without the same change in tissue-self clones? Reject a single global immune strength parameter.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I03-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "self/foreign clones; Tregs; co-stimulation; suppressive signals"
+    },
+    {
+      "id": "BT-I03-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "birth-death-transition rates by clone/antigen; explicit suppressive interaction"
+    },
+    {
+      "id": "BT-I03-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "clone counts; healthy-cell killing cells/s"
+    },
+    {
+      "id": "BT-I03-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Can anti-tumor activation rise without the same change in tissue-self clones? Reject a single global immune strength parameter."
+    },
+    {
+      "id": "BT-I04-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "T-cell activation, exhaustion and memory",
+      "constituents": [
+        "naive",
+        "effector",
+        "progenitor exhausted",
+        "terminal exhausted",
+        "memory"
+      ],
+      "equation_proposal": "dN_i/dt=division_i-death_i+sum(transitions_ji-transitions_ij)",
+      "observable_and_units": "counts; killing per viable cell; recovery time",
+      "falsifier_or_discriminating_test": "Reuse existing T-cell code; separate proximal activation from functional killing and preserve native claim/code numerical mismatch.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I04-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "naive; effector; progenitor exhausted; terminal exhausted; memory"
+    },
+    {
+      "id": "BT-I04-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dN_i/dt=division_i-death_i+sum(transitions_ji-transitions_ij)"
+    },
+    {
+      "id": "BT-I04-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "counts; killing per viable cell; recovery time"
+    },
+    {
+      "id": "BT-I04-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Reuse existing T-cell code; separate proximal activation from functional killing and preserve native claim/code numerical mismatch."
+    },
+    {
+      "id": "BT-I05-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Tumor killing and escape",
+      "constituents": [
+        "cancer clones",
+        "antigen loss",
+        "MHC loss",
+        "cytotoxic cells",
+        "checkpoints"
+      ],
+      "equation_proposal": "dT_a/dt=growth_a-kill_a(E,contact)+mutation/selection fluxes",
+      "observable_and_units": "tumor cells; antigen fractions; viable burden",
+      "falsifier_or_discriminating_test": "Compare equal tumor burden with altered antigen distribution; simple bulk-volume model is baseline.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I05-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "cancer clones; antigen loss; MHC loss; cytotoxic cells; checkpoints"
+    },
+    {
+      "id": "BT-I05-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dT_a/dt=growth_a-kill_a(E,contact)+mutation/selection fluxes"
+    },
+    {
+      "id": "BT-I05-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "tumor cells; antigen fractions; viable burden"
+    },
+    {
+      "id": "BT-I05-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Compare equal tumor burden with altered antigen distribution; simple bulk-volume model is baseline."
+    },
+    {
+      "id": "BT-I06-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Myeloid suppression and plasticity",
+      "constituents": [
+        "macrophage state",
+        "MDSC",
+        "arginine",
+        "itaconate",
+        "oxygen",
+        "cytokines"
+      ],
+      "equation_proposal": "continuous state dynamics plus shared substrate balances; avoid fixed M1/M2 labels",
+      "observable_and_units": "arginine flux; secreted cytokines; killing suppression",
+      "falsifier_or_discriminating_test": "Test whether continuum state or resource competition adds predictive value beyond existing polarization model.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I06-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "macrophage state; MDSC; arginine; itaconate; oxygen; cytokines"
+    },
+    {
+      "id": "BT-I06-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "continuous state dynamics plus shared substrate balances; avoid fixed M1/M2 labels"
+    },
+    {
+      "id": "BT-I06-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "arginine flux; secreted cytokines; killing suppression"
+    },
+    {
+      "id": "BT-I06-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Test whether continuum state or resource competition adds predictive value beyond existing polarization model."
+    },
+    {
+      "id": "BT-I07-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Complement, amplification and host protection",
+      "constituents": [
+        "C3",
+        "C3b",
+        "convertases",
+        "C5",
+        "regulators",
+        "terminal complex"
+      ],
+      "equation_proposal": "mass-action cascade with catalytic amplification, depletion and receptor/target binding",
+      "observable_and_units": "C3/C5 turnover mol/s; lysis fraction",
+      "falsifier_or_discriminating_test": "Reuse complement and bistability code; compare target injury reduction with lost pathogen clearance, including dose-blind gate failure.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I07-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "C3; C3b; convertases; C5; regulators; terminal complex"
+    },
+    {
+      "id": "BT-I07-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "mass-action cascade with catalytic amplification, depletion and receptor/target binding"
+    },
+    {
+      "id": "BT-I07-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "C3/C5 turnover mol/s; lysis fraction"
+    },
+    {
+      "id": "BT-I07-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Reuse complement and bistability code; compare target injury reduction with lost pathogen clearance, including dose-blind gate failure."
+    },
+    {
+      "id": "BT-I08-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Innate sensing and inflammasomes",
+      "constituents": [
+        "PAMP",
+        "DAMP",
+        "mtDNA",
+        "cGAS-STING",
+        "NLRP3",
+        "IL-1 processing"
+      ],
+      "equation_proposal": "separate priming and activation events with compartment-specific sensor access",
+      "observable_and_units": "mature IL-1 mol/s; death events/s",
+      "falsifier_or_discriminating_test": "Challenge redundant-pathway assumptions with cell-type-specific ablations; inherited AIM2/cGAS/NLRP3 node remains open.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I08-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "PAMP; DAMP; mtDNA; cGAS-STING; NLRP3; IL-1 processing"
+    },
+    {
+      "id": "BT-I08-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "separate priming and activation events with compartment-specific sensor access"
+    },
+    {
+      "id": "BT-I08-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "mature IL-1 mol/s; death events/s"
+    },
+    {
+      "id": "BT-I08-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Challenge redundant-pathway assumptions with cell-type-specific ablations; inherited AIM2/cGAS/NLRP3 node remains open."
+    },
+    {
+      "id": "BT-I09-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Neutrophils, NETs and vascular injury",
+      "constituents": [
+        "neutrophils",
+        "adhesion",
+        "ROS",
+        "NET DNA",
+        "platelets",
+        "endothelium"
+      ],
+      "equation_proposal": "reaction-transport plus adhesion/detachment and NET release/clearance",
+      "observable_and_units": "NET density; permeability; thrombotic occupancy",
+      "falsifier_or_discriminating_test": "Distinguish antimicrobial benefit from endothelial injury at equal neutrophil count; define missing native-code coverage.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I09-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "neutrophils; adhesion; ROS; NET DNA; platelets; endothelium"
+    },
+    {
+      "id": "BT-I09-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "reaction-transport plus adhesion/detachment and NET release/clearance"
+    },
+    {
+      "id": "BT-I09-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "NET density; permeability; thrombotic occupancy"
+    },
+    {
+      "id": "BT-I09-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Distinguish antimicrobial benefit from endothelial injury at equal neutrophil count; define missing native-code coverage."
+    },
+    {
+      "id": "BT-I10-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "B-cell immunity and immunoglobulin deficits",
+      "constituents": [
+        "B cells",
+        "plasma cells",
+        "antibody",
+        "antigen",
+        "memory",
+        "marrow supply"
+      ],
+      "equation_proposal": "dN_B/dt=production-expansion-depletion; dN_Ig/dt=secretion-clearance",
+      "observable_and_units": "B-cell count; Ig concentration; neutralization",
+      "falsifier_or_discriminating_test": "For cell-depleting immunotherapy compare target-cell removal with infection-control loss and delayed antibody recovery.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I10-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "B cells; plasma cells; antibody; antigen; memory; marrow supply"
+    },
+    {
+      "id": "BT-I10-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dN_B/dt=production-expansion-depletion; dN_Ig/dt=secretion-clearance"
+    },
+    {
+      "id": "BT-I10-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "B-cell count; Ig concentration; neutralization"
+    },
+    {
+      "id": "BT-I10-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "For cell-depleting immunotherapy compare target-cell removal with infection-control loss and delayed antibody recovery."
+    },
+    {
+      "id": "BT-I11-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Marrow, thymus and underactivity",
+      "constituents": [
+        "progenitors",
+        "neutrophils",
+        "lymphocytes",
+        "trafficking",
+        "exhaustion"
+      ],
+      "equation_proposal": "age-structured or transit-compartment birth/maturation/death model",
+      "observable_and_units": "cell counts; functional response; recovery time",
+      "falsifier_or_discriminating_test": "Distinguish too few cells, wrong location and exhausted cells despite similar blood count; evaluate infection and vaccine response as separate outputs.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I11-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "progenitors; neutrophils; lymphocytes; trafficking; exhaustion"
+    },
+    {
+      "id": "BT-I11-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "age-structured or transit-compartment birth/maturation/death model"
+    },
+    {
+      "id": "BT-I11-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "cell counts; functional response; recovery time"
+    },
+    {
+      "id": "BT-I11-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Distinguish too few cells, wrong location and exhausted cells despite similar blood count; evaluate infection and vaccine response as separate outputs."
+    },
+    {
+      "id": "BT-I12-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Immune trafficking in real geometry",
+      "constituents": [
+        "blood",
+        "endothelium",
+        "chemokines",
+        "ECM",
+        "lymph",
+        "tissue-resident cells"
+      ],
+      "equation_proposal": "partial_t n=div(D grad n-chi*n*grad c)-div(u*n)+sources-sinks",
+      "observable_and_units": "cells/m3; influx cells/s; intercell distance m",
+      "falsifier_or_discriminating_test": "Compare spatial model to well-mixed compartment at identical cell totals and exposure; use synthetic geometry first.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I12-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "blood; endothelium; chemokines; ECM; lymph; tissue-resident cells"
+    },
+    {
+      "id": "BT-I12-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "partial_t n=div(D grad n-chi*n*grad c)-div(u*n)+sources-sinks"
+    },
+    {
+      "id": "BT-I12-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "cells/m3; influx cells/s; intercell distance m"
+    },
+    {
+      "id": "BT-I12-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Compare spatial model to well-mixed compartment at identical cell totals and exposure; use synthetic geometry first."
+    },
+    {
+      "id": "BT-I13-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "CAR-T cytokine release",
+      "constituents": [
+        "CAR-T",
+        "leukemia",
+        "monocytes",
+        "macrophages",
+        "IL-1",
+        "IL-6",
+        "NO"
+      ],
+      "equation_proposal": "tumor-contact activation -> cell-specific secretion -> receptor dynamics and clearance",
+      "observable_and_units": "cytokine time course; killing; endothelial response",
+      "falsifier_or_discriminating_test": "Reproduce a conditional IL-1/IL-6 distinction against a single cytokine pool; Norelli/Giavridis are animal mechanisms.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I13-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "CAR-T; leukemia; monocytes; macrophages; IL-1; IL-6; NO"
+    },
+    {
+      "id": "BT-I13-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "tumor-contact activation -> cell-specific secretion -> receptor dynamics and clearance"
+    },
+    {
+      "id": "BT-I13-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "cytokine time course; killing; endothelial response"
+    },
+    {
+      "id": "BT-I13-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Reproduce a conditional IL-1/IL-6 distinction against a single cytokine pool; Norelli/Giavridis are animal mechanisms."
+    },
+    {
+      "id": "BT-I14-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Neurotoxicity and blood-brain interfaces",
+      "constituents": [
+        "endothelium",
+        "tight junctions",
+        "pericytes",
+        "cytokines",
+        "brain/meningeal compartment"
+      ],
+      "equation_proposal": "dN_brain/dt=PS(C_blood-C_brain/K)-clearance; permeability has explicit injury/repair law",
+      "observable_and_units": "transport mol/s; permeability m/s; neural proxy",
+      "falsifier_or_discriminating_test": "A lower systemic IL-6 signal must not automatically imply lower CNS injury; distinguish BBB, blood-CSF and meningeal routes.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I14-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "endothelium; tight junctions; pericytes; cytokines; brain/meningeal compartment"
+    },
+    {
+      "id": "BT-I14-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dN_brain/dt=PS(C_blood-C_brain/K)-clearance; permeability has explicit injury/repair law"
+    },
+    {
+      "id": "BT-I14-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "transport mol/s; permeability m/s; neural proxy"
+    },
+    {
+      "id": "BT-I14-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "A lower systemic IL-6 signal must not automatically imply lower CNS injury; distinguish BBB, blood-CSF and meningeal routes."
+    },
+    {
+      "id": "BT-I15-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Checkpoint colitis and gut barrier",
+      "constituents": [
+        "resident T cells",
+        "epithelium",
+        "IFN-gamma",
+        "renewal",
+        "microbial products"
+      ],
+      "equation_proposal": "epithelial birth-loss with immune contact; barrier mass transport coupled to cytokine exposure",
+      "observable_and_units": "barrier flux mol/s; viable epithelial fraction",
+      "falsifier_or_discriminating_test": "Compare systemic cytokine suppression with gut trafficking blockade; preserve regeneration, spatial and microbiome confounding.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I15-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "resident T cells; epithelium; IFN-gamma; renewal; microbial products"
+    },
+    {
+      "id": "BT-I15-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "epithelial birth-loss with immune contact; barrier mass transport coupled to cytokine exposure"
+    },
+    {
+      "id": "BT-I15-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "barrier flux mol/s; viable epithelial fraction"
+    },
+    {
+      "id": "BT-I15-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Compare systemic cytokine suppression with gut trafficking blockade; preserve regeneration, spatial and microbiome confounding."
+    },
+    {
+      "id": "BT-I16-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Myocarditis, myositis and electrical function",
+      "constituents": [
+        "heart clones",
+        "muscle clones",
+        "self-antigen",
+        "injury",
+        "conduction",
+        "respiratory muscle"
+      ],
+      "equation_proposal": "antigen-specific tissue kill -> damage/repair -> stated organ-function closure",
+      "observable_and_units": "injury marker; contractility; conduction time; muscle force",
+      "falsifier_or_discriminating_test": "Test shared-antigen versus distinct tissue-clone models; human 2024 non-recognition prevents universal myosin assumption.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I16-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "heart clones; muscle clones; self-antigen; injury; conduction; respiratory muscle"
+    },
+    {
+      "id": "BT-I16-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "antigen-specific tissue kill -> damage/repair -> stated organ-function closure"
+    },
+    {
+      "id": "BT-I16-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "injury marker; contractility; conduction time; muscle force"
+    },
+    {
+      "id": "BT-I16-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Test shared-antigen versus distinct tissue-clone models; human 2024 non-recognition prevents universal myosin assumption."
+    },
+    {
+      "id": "BT-I17-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Endocrine, hepatic, pulmonary, renal and skin injury",
+      "constituents": [
+        "organ-specific immune cells",
+        "parenchyma",
+        "ducts/barriers",
+        "repair capacity"
+      ],
+      "equation_proposal": "one organ-specific injury/repair port per compartment with exposure and function mapping",
+      "observable_and_units": "hormone output; clearance; gas exchange; filtration; barrier",
+      "falsifier_or_discriminating_test": "Build an organ matrix and implement one discriminating mechanism; never use a common damage scalar as all organ endpoints.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I17-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "organ-specific immune cells; parenchyma; ducts/barriers; repair capacity"
+    },
+    {
+      "id": "BT-I17-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "one organ-specific injury/repair port per compartment with exposure and function mapping"
+    },
+    {
+      "id": "BT-I17-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "hormone output; clearance; gas exchange; filtration; barrier"
+    },
+    {
+      "id": "BT-I17-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Build an organ matrix and implement one discriminating mechanism; never use a common damage scalar as all organ endpoints."
+    },
+    {
+      "id": "BT-I18-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Target-mediated drug distribution",
+      "constituents": [
+        "free drug",
+        "receptor",
+        "complex",
+        "internalization",
+        "tissue transport"
+      ],
+      "equation_proposal": "dB/dt=kon*C*R-koff*B-kint*B; drug amount balance includes bound pools",
+      "observable_and_units": "free drug mol/m3; occupancy; clearance m3/s",
+      "falsifier_or_discriminating_test": "Compare explicit binding/turnover with Hill exposure response; detect dose-axis arbitrariness in inherited checkpoint model.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I18-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "free drug; receptor; complex; internalization; tissue transport"
+    },
+    {
+      "id": "BT-I18-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dB/dt=kon*C*R-koff*B-kint*B; drug amount balance includes bound pools"
+    },
+    {
+      "id": "BT-I18-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "free drug mol/m3; occupancy; clearance m3/s"
+    },
+    {
+      "id": "BT-I18-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Compare explicit binding/turnover with Hill exposure response; detect dose-axis arbitrariness in inherited checkpoint model."
+    },
+    {
+      "id": "BT-I19-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Selective versus systemic immunomodulation",
+      "constituents": [
+        "IL-6R",
+        "IL-1R",
+        "TNF",
+        "alpha4beta7",
+        "CD80/86",
+        "JAK",
+        "glucocorticoid receptor"
+      ],
+      "equation_proposal": "distinct target engagements feeding cell-specific signaling and trafficking ports",
+      "observable_and_units": "tumor kill; tissue injury; pathogen clearance",
+      "falsifier_or_discriminating_test": "Specify one matched-exposure comparison with uncertainty; effects of combined interventions cannot be assigned to one drug from observational outcome alone.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I19-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "IL-6R; IL-1R; TNF; alpha4beta7; CD80/86; JAK; glucocorticoid receptor"
+    },
+    {
+      "id": "BT-I19-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "distinct target engagements feeding cell-specific signaling and trafficking ports"
+    },
+    {
+      "id": "BT-I19-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "tumor kill; tissue injury; pathogen clearance"
+    },
+    {
+      "id": "BT-I19-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Specify one matched-exposure comparison with uncertainty; effects of combined interventions cannot be assigned to one drug from observational outcome alone."
+    },
+    {
+      "id": "BT-I20-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Infection and reactivation during inflammation control",
+      "constituents": [
+        "pathogen",
+        "effector cells",
+        "barrier leakage",
+        "latent reservoir",
+        "treatment"
+      ],
+      "equation_proposal": "dP/dt=replication-clearance(E,Ab)-drug_effect; activation/reactivation transitions",
+      "observable_and_units": "pathogen burden; tissue injury; clearance time",
+      "falsifier_or_discriminating_test": "Construct high inflammation plus weak clearance as a counterexample to one-axis immune activity; preserve species/pathogen-specific closures.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I20-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "pathogen; effector cells; barrier leakage; latent reservoir; treatment"
+    },
+    {
+      "id": "BT-I20-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "dP/dt=replication-clearance(E,Ab)-drug_effect; activation/reactivation transitions"
+    },
+    {
+      "id": "BT-I20-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "pathogen burden; tissue injury; clearance time"
+    },
+    {
+      "id": "BT-I20-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Construct high inflammation plus weak clearance as a counterexample to one-axis immune activity; preserve species/pathogen-specific closures."
+    },
+    {
+      "id": "BT-I21-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Allergy, mast cells and hypersensitivity",
+      "constituents": [
+        "IgE",
+        "Fc receptors",
+        "antigen cross-linking",
+        "mast cells",
+        "histamine",
+        "complement"
+      ],
+      "equation_proposal": "binding/cross-linking -> degranulation -> mediator transport and clearance",
+      "observable_and_units": "mediator release mol/s; vascular/airway response",
+      "falsifier_or_discriminating_test": "Separate immediate hypersensitivity from T-cell-mediated irAEs under the same gross symptom proxy.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I21-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "IgE; Fc receptors; antigen cross-linking; mast cells; histamine; complement"
+    },
+    {
+      "id": "BT-I21-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "binding/cross-linking -> degranulation -> mediator transport and clearance"
+    },
+    {
+      "id": "BT-I21-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "mediator release mol/s; vascular/airway response"
+    },
+    {
+      "id": "BT-I21-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Separate immediate hypersensitivity from T-cell-mediated irAEs under the same gross symptom proxy."
+    },
+    {
+      "id": "BT-I22-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Resolution, fibrosis and persistent effects",
+      "constituents": [
+        "apoptotic cells",
+        "efferocytosis",
+        "macrophages",
+        "fibroblasts",
+        "ECM",
+        "memory"
+      ],
+      "equation_proposal": "injury/recovery and matrix deposition/degradation with persistent cell states",
+      "observable_and_units": "collagen mass; tissue stiffness Pa; functional recovery",
+      "falsifier_or_discriminating_test": "Test whether acute inflammation normalization can coexist with lasting function loss; maintain separate active disease and accumulated damage.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I22-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "apoptotic cells; efferocytosis; macrophages; fibroblasts; ECM; memory"
+    },
+    {
+      "id": "BT-I22-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "injury/recovery and matrix deposition/degradation with persistent cell states"
+    },
+    {
+      "id": "BT-I22-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "collagen mass; tissue stiffness Pa; functional recovery"
+    },
+    {
+      "id": "BT-I22-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Test whether acute inflammation normalization can coexist with lasting function loss; maintain separate active disease and accumulated damage."
+    },
+    {
+      "id": "BT-I23-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Microbiome, metabolism and immune response",
+      "constituents": [
+        "microbial strains",
+        "metabolites",
+        "barrier",
+        "dendritic cells",
+        "tumor immunity"
+      ],
+      "equation_proposal": "metabolite production/transport + host receptor response with explicit causal alternatives",
+      "observable_and_units": "metabolite mol/s; barrier flux; tumor response",
+      "falsifier_or_discriminating_test": "Reuse Q168; distinguish microbial abundance from metabolic function and permeability; mouse commensal result is not human efficacy.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I23-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "microbial strains; metabolites; barrier; dendritic cells; tumor immunity"
+    },
+    {
+      "id": "BT-I23-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "metabolite production/transport + host receptor response with explicit causal alternatives"
+    },
+    {
+      "id": "BT-I23-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "metabolite mol/s; barrier flux; tumor response"
+    },
+    {
+      "id": "BT-I23-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Reuse Q168; distinguish microbial abundance from metabolic function and permeability; mouse commensal result is not human efficacy."
+    },
+    {
+      "id": "BT-I24-IMMUNITY",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Experimental methods and causal observability",
+      "constituents": [
+        "flow cytometry",
+        "TCR sequence",
+        "spatial omics",
+        "cytokines",
+        "organ-on-chip",
+        "functional assay"
+      ],
+      "equation_proposal": "y=H(x,sampling,assay)+noise; represent shared cohort and batch dependence",
+      "observable_and_units": "identifiable parameters; prospective prediction error",
+      "falsifier_or_discriminating_test": "Choose a minimal measurement panel distinguishing tumor efficacy, tissue toxicity and infection protection; hold out study/perturbation rather than rows.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-I24-IMMUNITY-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "flow cytometry; TCR sequence; spatial omics; cytokines; organ-on-chip; functional assay"
+    },
+    {
+      "id": "BT-I24-IMMUNITY-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "y=H(x,sampling,assay)+noise; represent shared cohort and batch dependence"
+    },
+    {
+      "id": "BT-I24-IMMUNITY-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "identifiable parameters; prospective prediction error"
+    },
+    {
+      "id": "BT-I24-IMMUNITY-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Choose a minimal measurement panel distinguishing tumor efficacy, tissue toxicity and infection protection; hold out study/perturbation rather than rows."
+    },
+    {
+      "id": "BT-X01-CROSS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Stress and immunotherapy joint budget",
+      "constituents": [
+        "glucocorticoid exposure",
+        "immune ATP demand",
+        "tumor/tissue targets"
+      ],
+      "equation_proposal": "HPA receptor occupancy -> immune signaling; ATP demand -> mitochondrial flux",
+      "observable_and_units": "tumor killing and tissue injury at matched energy/exposure",
+      "falsifier_or_discriminating_test": "Compare endocrine-only with energy-constrained coupling; determine which independent measurement can distinguish them.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-X01-CROSS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "glucocorticoid exposure; immune ATP demand; tumor/tissue targets"
+    },
+    {
+      "id": "BT-X01-CROSS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "HPA receptor occupancy -> immune signaling; ATP demand -> mitochondrial flux"
+    },
+    {
+      "id": "BT-X01-CROSS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "tumor killing and tissue injury at matched energy/exposure"
+    },
+    {
+      "id": "BT-X01-CROSS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Compare endocrine-only with energy-constrained coupling; determine which independent measurement can distinguish them."
+    },
+    {
+      "id": "BT-X02-CROSS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Mitochondrial injury, innate sensing and barriers",
+      "constituents": [
+        "mtDNA",
+        "nucleases",
+        "cytosolic sensors",
+        "barrier damage",
+        "clearance"
+      ],
+      "equation_proposal": "separate mtDNA release/clearance and sensor activation; damage alters transport",
+      "observable_and_units": "DNA copies/volume; IL-1 flux; barrier permeability",
+      "falsifier_or_discriminating_test": "Find observationally identical plasma mtDNA trajectories with different release rates; propose a measurement that resolves them.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-X02-CROSS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "mtDNA; nucleases; cytosolic sensors; barrier damage; clearance"
+    },
+    {
+      "id": "BT-X02-CROSS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "separate mtDNA release/clearance and sensor activation; damage alters transport"
+    },
+    {
+      "id": "BT-X02-CROSS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "DNA copies/volume; IL-1 flux; barrier permeability"
+    },
+    {
+      "id": "BT-X02-CROSS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Find observationally identical plasma mtDNA trajectories with different release rates; propose a measurement that resolves them."
+    },
+    {
+      "id": "BT-X03-CROSS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Adaptive spatial resolution for immune energetics",
+      "constituents": [
+        "oxygen fields",
+        "immune-cell contact",
+        "cytokine gradients",
+        "receptor boundary layers"
+      ],
+      "equation_proposal": "conservative reaction-diffusion coupled to discrete or continuous cell motion",
+      "observable_and_units": "mass residual; endpoint error; work at matched tolerance",
+      "falsifier_or_discriminating_test": "Derive refinement trigger from output sensitivity and local reaction/transport scale; compare with uniform mesh on held-out geometry.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-X03-CROSS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "oxygen fields; immune-cell contact; cytokine gradients; receptor boundary layers"
+    },
+    {
+      "id": "BT-X03-CROSS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "conservative reaction-diffusion coupled to discrete or continuous cell motion"
+    },
+    {
+      "id": "BT-X03-CROSS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "mass residual; endpoint error; work at matched tolerance"
+    },
+    {
+      "id": "BT-X03-CROSS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Derive refinement trigger from output sensitivity and local reaction/transport scale; compare with uniform mesh on held-out geometry."
+    },
+    {
+      "id": "BT-X04-CROSS",
+      "kind": "mechanism_question",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "title": "Independent cluster and first-principles audit",
+      "constituents": [
+        "claims",
+        "existing code",
+        "equations",
+        "units",
+        "provenance",
+        "missing closures"
+      ],
+      "equation_proposal": "reconstruct one causal chain and its observation map independently",
+      "observable_and_units": "unsupported claims; conservation error; missing identifiable inputs",
+      "falsifier_or_discriminating_test": "Challenge a consequential proposed chain and inherited CERTIFIED labels; return exact surviving scope and next disproof test.",
+      "leaf_status": "CONSTITUTIVE_CLOSURE_OR_UNKNOWN",
+      "refinement_rule": "Recursively decompose every constituent; give physical basis, rate law, evidence and stopping argument. No automatic physiological calibration."
+    },
+    {
+      "id": "BT-X04-CROSS-STATE",
+      "kind": "state",
+      "status": "SPECIFICATION_PENDING",
+      "content": "claims; existing code; equations; units; provenance; missing closures"
+    },
+    {
+      "id": "BT-X04-CROSS-RELATION",
+      "kind": "relation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "reconstruct one causal chain and its observation map independently"
+    },
+    {
+      "id": "BT-X04-CROSS-OBSERVATION",
+      "kind": "observation",
+      "status": "SPECIFICATION_PENDING",
+      "content": "unsupported claims; conservation error; missing identifiable inputs"
+    },
+    {
+      "id": "BT-X04-CROSS-TEST",
+      "kind": "test",
+      "status": "SPECIFICATION_PENDING",
+      "content": "Challenge a consequential proposed chain and inherited CERTIFIED labels; return exact surviving scope and next disproof test."
+    }
+  ],
+  "edges": [
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M01-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M01-MITOSTRESS",
+      "target": "BT-M01-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M01-MITOSTRESS",
+      "target": "BT-M01-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M01-MITOSTRESS",
+      "target": "BT-M01-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M01-MITOSTRESS",
+      "target": "BT-M01-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M02-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M02-MITOSTRESS",
+      "target": "BT-M02-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M02-MITOSTRESS",
+      "target": "BT-M02-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M02-MITOSTRESS",
+      "target": "BT-M02-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M02-MITOSTRESS",
+      "target": "BT-M02-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M03-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M03-MITOSTRESS",
+      "target": "BT-M03-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M03-MITOSTRESS",
+      "target": "BT-M03-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M03-MITOSTRESS",
+      "target": "BT-M03-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M03-MITOSTRESS",
+      "target": "BT-M03-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M04-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M04-MITOSTRESS",
+      "target": "BT-M04-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M04-MITOSTRESS",
+      "target": "BT-M04-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M04-MITOSTRESS",
+      "target": "BT-M04-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M04-MITOSTRESS",
+      "target": "BT-M04-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M05-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M05-MITOSTRESS",
+      "target": "BT-M05-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M05-MITOSTRESS",
+      "target": "BT-M05-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M05-MITOSTRESS",
+      "target": "BT-M05-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M05-MITOSTRESS",
+      "target": "BT-M05-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M06-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M06-MITOSTRESS",
+      "target": "BT-M06-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M06-MITOSTRESS",
+      "target": "BT-M06-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M06-MITOSTRESS",
+      "target": "BT-M06-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M06-MITOSTRESS",
+      "target": "BT-M06-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M07-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M07-MITOSTRESS",
+      "target": "BT-M07-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M07-MITOSTRESS",
+      "target": "BT-M07-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M07-MITOSTRESS",
+      "target": "BT-M07-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M07-MITOSTRESS",
+      "target": "BT-M07-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M08-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M08-MITOSTRESS",
+      "target": "BT-M08-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M08-MITOSTRESS",
+      "target": "BT-M08-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M08-MITOSTRESS",
+      "target": "BT-M08-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M08-MITOSTRESS",
+      "target": "BT-M08-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M09-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M09-MITOSTRESS",
+      "target": "BT-M09-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M09-MITOSTRESS",
+      "target": "BT-M09-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M09-MITOSTRESS",
+      "target": "BT-M09-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M09-MITOSTRESS",
+      "target": "BT-M09-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M10-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M10-MITOSTRESS",
+      "target": "BT-M10-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M10-MITOSTRESS",
+      "target": "BT-M10-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M10-MITOSTRESS",
+      "target": "BT-M10-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M10-MITOSTRESS",
+      "target": "BT-M10-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M11-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M11-MITOSTRESS",
+      "target": "BT-M11-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M11-MITOSTRESS",
+      "target": "BT-M11-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M11-MITOSTRESS",
+      "target": "BT-M11-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M11-MITOSTRESS",
+      "target": "BT-M11-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M12-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M12-MITOSTRESS",
+      "target": "BT-M12-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M12-MITOSTRESS",
+      "target": "BT-M12-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M12-MITOSTRESS",
+      "target": "BT-M12-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M12-MITOSTRESS",
+      "target": "BT-M12-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M13-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M13-MITOSTRESS",
+      "target": "BT-M13-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M13-MITOSTRESS",
+      "target": "BT-M13-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M13-MITOSTRESS",
+      "target": "BT-M13-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M13-MITOSTRESS",
+      "target": "BT-M13-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M14-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M14-MITOSTRESS",
+      "target": "BT-M14-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M14-MITOSTRESS",
+      "target": "BT-M14-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M14-MITOSTRESS",
+      "target": "BT-M14-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M14-MITOSTRESS",
+      "target": "BT-M14-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M15-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M15-MITOSTRESS",
+      "target": "BT-M15-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M15-MITOSTRESS",
+      "target": "BT-M15-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M15-MITOSTRESS",
+      "target": "BT-M15-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M15-MITOSTRESS",
+      "target": "BT-M15-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-MITOSTRESS",
+      "target": "BT-M16-MITOSTRESS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M16-MITOSTRESS",
+      "target": "BT-M16-MITOSTRESS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M16-MITOSTRESS",
+      "target": "BT-M16-MITOSTRESS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M16-MITOSTRESS",
+      "target": "BT-M16-MITOSTRESS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M16-MITOSTRESS",
+      "target": "BT-M16-MITOSTRESS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I01-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I01-IMMUNITY",
+      "target": "BT-I01-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I01-IMMUNITY",
+      "target": "BT-I01-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I01-IMMUNITY",
+      "target": "BT-I01-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I01-IMMUNITY",
+      "target": "BT-I01-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I02-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I02-IMMUNITY",
+      "target": "BT-I02-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I02-IMMUNITY",
+      "target": "BT-I02-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I02-IMMUNITY",
+      "target": "BT-I02-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I02-IMMUNITY",
+      "target": "BT-I02-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I03-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I03-IMMUNITY",
+      "target": "BT-I03-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I03-IMMUNITY",
+      "target": "BT-I03-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I03-IMMUNITY",
+      "target": "BT-I03-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I03-IMMUNITY",
+      "target": "BT-I03-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I04-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I04-IMMUNITY",
+      "target": "BT-I04-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I04-IMMUNITY",
+      "target": "BT-I04-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I04-IMMUNITY",
+      "target": "BT-I04-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I04-IMMUNITY",
+      "target": "BT-I04-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I05-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I05-IMMUNITY",
+      "target": "BT-I05-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I05-IMMUNITY",
+      "target": "BT-I05-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I05-IMMUNITY",
+      "target": "BT-I05-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I05-IMMUNITY",
+      "target": "BT-I05-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I06-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I06-IMMUNITY",
+      "target": "BT-I06-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I06-IMMUNITY",
+      "target": "BT-I06-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I06-IMMUNITY",
+      "target": "BT-I06-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I06-IMMUNITY",
+      "target": "BT-I06-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I07-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I07-IMMUNITY",
+      "target": "BT-I07-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I07-IMMUNITY",
+      "target": "BT-I07-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I07-IMMUNITY",
+      "target": "BT-I07-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I07-IMMUNITY",
+      "target": "BT-I07-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I08-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I08-IMMUNITY",
+      "target": "BT-I08-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I08-IMMUNITY",
+      "target": "BT-I08-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I08-IMMUNITY",
+      "target": "BT-I08-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I08-IMMUNITY",
+      "target": "BT-I08-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I09-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I09-IMMUNITY",
+      "target": "BT-I09-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I09-IMMUNITY",
+      "target": "BT-I09-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I09-IMMUNITY",
+      "target": "BT-I09-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I09-IMMUNITY",
+      "target": "BT-I09-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I10-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I10-IMMUNITY",
+      "target": "BT-I10-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I10-IMMUNITY",
+      "target": "BT-I10-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I10-IMMUNITY",
+      "target": "BT-I10-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I10-IMMUNITY",
+      "target": "BT-I10-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I11-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I11-IMMUNITY",
+      "target": "BT-I11-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I11-IMMUNITY",
+      "target": "BT-I11-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I11-IMMUNITY",
+      "target": "BT-I11-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I11-IMMUNITY",
+      "target": "BT-I11-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I12-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I12-IMMUNITY",
+      "target": "BT-I12-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I12-IMMUNITY",
+      "target": "BT-I12-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I12-IMMUNITY",
+      "target": "BT-I12-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I12-IMMUNITY",
+      "target": "BT-I12-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I13-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I13-IMMUNITY",
+      "target": "BT-I13-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I13-IMMUNITY",
+      "target": "BT-I13-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I13-IMMUNITY",
+      "target": "BT-I13-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I13-IMMUNITY",
+      "target": "BT-I13-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I14-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I14-IMMUNITY",
+      "target": "BT-I14-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I14-IMMUNITY",
+      "target": "BT-I14-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I14-IMMUNITY",
+      "target": "BT-I14-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I14-IMMUNITY",
+      "target": "BT-I14-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I15-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I15-IMMUNITY",
+      "target": "BT-I15-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I15-IMMUNITY",
+      "target": "BT-I15-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I15-IMMUNITY",
+      "target": "BT-I15-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I15-IMMUNITY",
+      "target": "BT-I15-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I16-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I16-IMMUNITY",
+      "target": "BT-I16-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I16-IMMUNITY",
+      "target": "BT-I16-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I16-IMMUNITY",
+      "target": "BT-I16-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I16-IMMUNITY",
+      "target": "BT-I16-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I17-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I17-IMMUNITY",
+      "target": "BT-I17-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I17-IMMUNITY",
+      "target": "BT-I17-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I17-IMMUNITY",
+      "target": "BT-I17-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I17-IMMUNITY",
+      "target": "BT-I17-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I18-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I18-IMMUNITY",
+      "target": "BT-I18-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I18-IMMUNITY",
+      "target": "BT-I18-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I18-IMMUNITY",
+      "target": "BT-I18-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I18-IMMUNITY",
+      "target": "BT-I18-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I19-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I19-IMMUNITY",
+      "target": "BT-I19-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I19-IMMUNITY",
+      "target": "BT-I19-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I19-IMMUNITY",
+      "target": "BT-I19-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I19-IMMUNITY",
+      "target": "BT-I19-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I20-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I20-IMMUNITY",
+      "target": "BT-I20-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I20-IMMUNITY",
+      "target": "BT-I20-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I20-IMMUNITY",
+      "target": "BT-I20-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I20-IMMUNITY",
+      "target": "BT-I20-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I21-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I21-IMMUNITY",
+      "target": "BT-I21-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I21-IMMUNITY",
+      "target": "BT-I21-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I21-IMMUNITY",
+      "target": "BT-I21-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I21-IMMUNITY",
+      "target": "BT-I21-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I22-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I22-IMMUNITY",
+      "target": "BT-I22-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I22-IMMUNITY",
+      "target": "BT-I22-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I22-IMMUNITY",
+      "target": "BT-I22-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I22-IMMUNITY",
+      "target": "BT-I22-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I23-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I23-IMMUNITY",
+      "target": "BT-I23-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I23-IMMUNITY",
+      "target": "BT-I23-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I23-IMMUNITY",
+      "target": "BT-I23-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I23-IMMUNITY",
+      "target": "BT-I23-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-IMMUNITY",
+      "target": "BT-I24-IMMUNITY",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I24-IMMUNITY",
+      "target": "BT-I24-IMMUNITY-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I24-IMMUNITY",
+      "target": "BT-I24-IMMUNITY-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I24-IMMUNITY",
+      "target": "BT-I24-IMMUNITY-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-I24-IMMUNITY",
+      "target": "BT-I24-IMMUNITY-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-CROSS",
+      "target": "BT-X01-CROSS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X01-CROSS",
+      "target": "BT-X01-CROSS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X01-CROSS",
+      "target": "BT-X01-CROSS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X01-CROSS",
+      "target": "BT-X01-CROSS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X01-CROSS",
+      "target": "BT-X01-CROSS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-CROSS",
+      "target": "BT-X02-CROSS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X02-CROSS",
+      "target": "BT-X02-CROSS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X02-CROSS",
+      "target": "BT-X02-CROSS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X02-CROSS",
+      "target": "BT-X02-CROSS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X02-CROSS",
+      "target": "BT-X02-CROSS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-CROSS",
+      "target": "BT-X03-CROSS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X03-CROSS",
+      "target": "BT-X03-CROSS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X03-CROSS",
+      "target": "BT-X03-CROSS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X03-CROSS",
+      "target": "BT-X03-CROSS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X03-CROSS",
+      "target": "BT-X03-CROSS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-CLUSTER-CROSS",
+      "target": "BT-X04-CROSS",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X04-CROSS",
+      "target": "BT-X04-CROSS-STATE",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X04-CROSS",
+      "target": "BT-X04-CROSS-RELATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X04-CROSS",
+      "target": "BT-X04-CROSS-OBSERVATION",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-X04-CROSS",
+      "target": "BT-X04-CROSS-TEST",
+      "type": "research_decomposition"
+    },
+    {
+      "source": "BT-M11-MITOSTRESS",
+      "target": "BT-I08-IMMUNITY",
+      "type": "candidate_coupling",
+      "mechanism": "compartment-specific DNA release and innate sensing",
+      "causal_or_statistical_admission": false
+    },
+    {
+      "source": "BT-M12-MITOSTRESS",
+      "target": "BT-I05-IMMUNITY",
+      "type": "candidate_coupling",
+      "mechanism": "energy and substrate demand of tumor killing",
+      "causal_or_statistical_admission": false
+    },
+    {
+      "source": "BT-M04-MITOSTRESS",
+      "target": "BT-I19-IMMUNITY",
+      "type": "candidate_coupling",
+      "mechanism": "glucocorticoid exposure and immune target engagement",
+      "causal_or_statistical_admission": false
+    },
+    {
+      "source": "BT-M07-MITOSTRESS",
+      "target": "BT-I12-IMMUNITY",
+      "type": "candidate_coupling",
+      "mechanism": "geometry-dependent reaction and transport",
+      "causal_or_statistical_admission": false
+    },
+    {
+      "source": "BT-M13-MITOSTRESS",
+      "target": "BT-I23-IMMUNITY",
+      "type": "candidate_coupling",
+      "mechanism": "feeding/circadian confounding in microbial/immune response",
+      "causal_or_statistical_admission": false
+    },
+    {
+      "source": "BT-I15-IMMUNITY",
+      "target": "BT-I14-IMMUNITY",
+      "type": "candidate_coupling",
+      "mechanism": "distinct barrier transport contracts",
+      "causal_or_statistical_admission": false
+    },
+    {
+      "source": "BT-I07-IMMUNITY",
+      "target": "BT-I20-IMMUNITY",
+      "type": "candidate_coupling",
+      "mechanism": "complement protection/injury tradeoff",
+      "causal_or_statistical_admission": false
+    },
+    {
+      "source": "BT-I16-IMMUNITY",
+      "target": "BT-I05-IMMUNITY",
+      "type": "candidate_coupling",
+      "mechanism": "shared versus distinct antigens and tissue clones",
+      "causal_or_statistical_admission": false
+    }
+  ],
+  "native_related_ids": [
+    "bodytwin:GOAL-CANCER-IMMUNE-WARGAME-TWIN",
+    "bodytwin:IMMUNE-AIM2-CGAS-STING-NLRP3-REDUNDANCY-CELLTYPE-SPLIT",
+    "bodytwin:MODEL-COMPLEMENT-AMPLIFICATION",
+    "bodytwin:MODEL-HPA-CORTISOL-ULTRADIAN",
+    "bodytwin:MODEL-MITOCHONDRIAL-BIOENERGETICS",
+    "bodytwin:MODEL-PD1-TCELL-EXHAUSTION",
+    "bodytwin:MODEL-TUMOR-IMMUNE-CHECKPOINT",
+    "bodytwin:MODEL-MACROPHAGE-POLARIZATION",
+    "bodytwin:MODEL-TUMOR-IMMUNE-DYNAMICS",
+    "bodytwin:HOLE-HPA-CORTISOL-ULTRADIAN-LOOP-CONTRADICTION"
+  ]
+}
