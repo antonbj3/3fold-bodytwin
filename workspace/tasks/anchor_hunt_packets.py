@@ -76,6 +76,17 @@ def brief(item: dict, stress_note: str | None) -> str:
         body.append(f'**This is a stress point.** {stress_note} Spend the budget here rather than on '
                     f'breadth.')
     body.append(
+        '\n## Deliver a machine-readable table FIRST, then the prose\n'
+        'Measured on the first 44 of these searches: the reports carry hundreds of values but only 55 '
+        'were extractable, because the citation sits in one cell and the value in another, or in prose. '
+        'So begin `RESULTS.md` with one table in exactly these columns, one row per value, and put the '
+        'discussion after it:\n\n'
+        '| quantity | value | unit | locator | validity | n |\n'
+        '|---|---|---|---|---|---|\n'
+        '| what was measured | the number alone | the unit alone | DOI or PMID | species/tissue/temp/method | sample size |\n\n'
+        'One value per row, no ranges in the value cell (give low and high as two rows), and the locator '
+        'in the same row as its value. A row whose unit differs from the one requested above must show '
+        'the conversion in the quantity cell or be marked `NOT_COMPARABLE`.\n'
         '\n## What to deliver\n'
         '1. **A value with its unit**, or `VERIFIED_ABSENCE_OF_EVIDENCE` with the searches you ran. '
         'Absence, stated with what you searched, is a full result and is preferred over a guess.\n'
