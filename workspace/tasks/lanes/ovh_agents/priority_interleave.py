@@ -42,6 +42,9 @@ HANDOVER_PREFIX = 'BT-HANDOVER-'
 # Admitted seeds: the operator's own 500-seed program sat unadmitted since 2026-09-29. The first
 # thirteen with a consuming cell went in on 3/10 and must not queue behind thousands of rows.
 SEED_PREFIX = 'BT-SEED-ADMIT-'
+# Reference fetches: 131 of 135 DOIs our own lanes cited were in no consumable store. A fetch
+# against a given source is cheaper than an open search and shares the seed slot.
+FETCH_PREFIX = 'BT-FETCH-'
 
 
 def job_of(line: str) -> str:
@@ -80,7 +83,7 @@ def main() -> int:
                 anchor.append(ln)
             elif j.startswith(HANDOVER_PREFIX) and is_live(j):
                 handover.append(ln)
-            elif j.startswith(SEED_PREFIX) and is_live(j):
+            elif (j.startswith(SEED_PREFIX) or j.startswith(FETCH_PREFIX)) and is_live(j):
                 seed.append(ln)
             else:
                 other.append(ln)
