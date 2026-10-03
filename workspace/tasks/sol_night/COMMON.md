@@ -189,3 +189,39 @@ rejection, or average age that adds 2 to 83 exact-minimal cases.
 the strict nonlinear confinement is [−1,6565; 1,9175], so 27,4× wider and with zero inside.
 A more convenient calculation gives a number that looks decisive but is not. Never report an affine
 sensitivity as a result without specifying the rigorous containment or its absence.
+
+## A missing measure should leave the round as an ORDERABLE entry, not as a sentence
+Measured 2026-10-03: acquisition requirements are mentioned in files in all twelve lanes — **217 formulations, of which only 21 carries
+a unit**. A requirement without a unit cannot be searched for and cannot be ordered, so it is practically nothing
+claim. Five independent lanes have simultaneously shown that the binding thing with us are measurements we don't have, no
+resolution and not method, which makes the formulation discipline a bottleneck we ourselves own.
+
+**Therefore: every round that names a missing measure writes it as an entry in
+`results/<LANE>/ACQUISITION_TARGETS_V<n>.json`, a list of items with**
+
+```
+node_id, quantity, quantity_class, unit, resolution_level, timescale, orderable,
+decides (what changes if the measurement is made, with the numbers), search_terms
+```
+
+Laserlan's r17 is the template and it is already correct: `ACQ-LASER-LOCAL-FLUENCE-MASS-LOSS` in J/cm² and
+`ACQ-LASER-ECM-EJECTION-LAW` in Pa and J/m², both with level, time scale and what they determine.
+
+`decides` should carry the numbers that flip. "Needed for the model" is not an answer; "determines the sign of
+the breaking force change, today span 0,87 D between the extremes of the surface allocation" is an answer.
+
+And rather say there is no measurement than write a vague entry: `no_measurement_exists: true` plus what
+that would be required is a satisfactory and honest outcome.
+
+`python3 tasks/build_night/harvest_acquisitions.py` samlar posterna till
+`notes/ACQUISITION_HARVEST.json`.
+
+## Language: write new material in English
+From 2026-10-03, write new lane briefs, steers, RESULTS.md sections, port fields, cell docstrings and
+code comments in **English**. The reason is practical, not stylistic: the operator does not read this
+material, the agents read it, and an English corpus can be exported to a public repository without a
+translation pass. Existing Swedish files stay as they are — rewriting 561 tracked files would churn
+history for no gain, and NIGHT_LOG rows are never edited retroactively.
+
+One exception: NIGHT_LOG rows may stay in Swedish, because they are the operator-facing ledger and are
+appended by the coordinator, not by lanes.
