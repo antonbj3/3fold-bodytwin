@@ -58,3 +58,18 @@ distribution statistic at all: `IMMUNITY`, `MITOSTRESS`, `Q009`, `Q031`, `SOLBEN
 its prior versus structural classification, and the timestep table for each non-closure mass.
 
 Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+
+## ADDENDUM — extend to all 43 cells, and take the asymmetry seriously
+Eight cells was a sample, not an answer. **3 of 8 verdicts flipped**, and 21 of 43 cells accept on a
+scalar point-or-band test, so there are 13 cells we know nothing about. Extend to all 43 and report the
+three numbers per cell: passes the scalar gate, passes the distributional gate, verdict flips.
+
+And one thing the sample did not separate, which the field lane's inspection makes concrete. Their
+deflection decision reports **74 of 100 boxes fully decided against 13 falsely safe answers under corner
+testing**. Falsely safe is the dangerous direction and a symmetric error count hides it. So for every
+flip, say WHICH WAY it flips: did the scalar gate pass something the distribution rejects (falsely safe),
+or reject something the distribution accepts (falsely cautious)? Those are not the same finding and only
+the first one is a hazard.
+
+Report falsely-safe and falsely-cautious counts separately for all 43. A gate that is wrong in the
+cautious direction costs compute; one that is wrong in the safe direction costs a claim.

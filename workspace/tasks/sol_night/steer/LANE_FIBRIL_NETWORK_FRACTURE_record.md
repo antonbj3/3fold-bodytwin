@@ -178,3 +178,21 @@ mechanics only.
 Two files in `tissue_lit_refs` are not used at all, and the other eight are read with row filters. After the filter
 remaining 549 of 671 records. Your lane loses almost nothing: the thermal file has an affected entry of 25 and
 bend/stretch file zero of 62. Report how many records the filter removed.
+
+## ADDENDUM — stop deriving needle force; it exists and is validated against held data
+The field lane's inspection found that our needle force is being built twice: ROBOT_FLEET_FOUNDATION and
+NEEDLE r1 (F_work = J_eff·a, 0.72 N for 21G) duplicate their NALKRAFT lane, which is already tested
+against held-out porcine data at **26 per cent error against a control's 25 per cent**. Do not derive a
+third number without a facit.
+
+Consume theirs instead, read-only, no copies:
+`3fold-motion-engine/_private/romi_collab/build/SOL_FALT_NALFRIKTION_20261001/raw/anchor_curves/INDEX.json`
+— nine digitised published curves as CSV with sources and reading errors in the sibling
+`digitization.json` and `sources.json`.
+
+Two conditions they state and we must carry:
+1. **The tip-radius term is missing and the radius is not determined by diameter and bevel**, so hold it
+   as an interval, never a point value.
+2. **No series separates forward friction on first versus repeated passage in the same hole**, so the
+   equal-friction assumption is UNCERTAIN. That edge is already in the tissue constraint net as UNKNOWN;
+   do not quietly assume equality to make a chain close.
