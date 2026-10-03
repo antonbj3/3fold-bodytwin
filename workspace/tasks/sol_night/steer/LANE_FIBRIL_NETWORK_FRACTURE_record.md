@@ -149,3 +149,27 @@ another physical system without showing that it applies to fibers.
 
 # New round (the coordinator, 3/10 00:25)
 The collapse is saved: 95,25 % of the variation is within magnitude, and matched stress and magnitude yields 2,69 % versus 18,84 %. Rewrite the statement to be true — the collapse holds if conditions are matched, and the previous 18,84 % was an unsorted comparison. But the causal key yielded predicted_delta_m = 0,0, so no predicted shift, and the connectivity correlates weakly (−0,28), so the mechanism is not proven. Changed operation: select a button that ACTUALLY predicts a nonzero displacement — crosslink density is the candidate because it sits in the slip term. Predict the displacement before driving. Falsifiers: if no key within published ranges yields a predicted nonzero displacement, the exponent is not mechanism bearing and the three segment values should not be interpreted as regime.
+
+## ADDENDUM — 62 literature records on bending versus stretching, verified
+`source_repository/data/tissue_lit_refs/measurements.bending_vs_stretch_mode.jsonl`
+(readable, read-only) carries **62 records** of exactly your lane's magnitude, with `unit` = *ratio
+(bending/stretch at matched peak tensile strain)*. The verification distributes as **42
+VERIFIED_PRIMARY_ABSTRACT, 10 COMPUTED_FROM_VERIFIED_INPUTS, 3 DERIVED_FROM_VERIFIED_PRIMARY and 3
+VERIFIED_ABSENCE_OF_EVIDENCE** — the last class is rare and valuable: it says that someone has
+searched and not found.
+
+A floor is already calculated: `R_voidfloor_pointwise_linear_compression_inert` = **0,25** at e0 = 0,1 for
+pure bending moment with the neutral axis in the middle of the wall. The tissues are named (collagen membrane, constructed
+heart valve tissue, bovine late fibrocartilage, thoracic aorta), so the scope can be matched against
+ours.
+
+1. **Set the net's bending slope against these entries instead of against our own fixture.** The lane has one
+   convergence to published 1,0 which holds only at matched stress and magnitude (2,69 %) and not per
+   realization (18,84 %) — the 62 entries are the independent comparison it requires.
+2. **Count the three VERIFIED_ABSENCE_OF_EVIDENCE entries separately.** If our open question coincides with
+   one of them is the question unanswered in the literature and should be recorded as an acquisition item, not as our deficiency.
+3. **And specify the scope match explicitly** per consumed item: tissue, strain level,
+   geometry. A ratio measured on a heart valve must not be entered into a fibril model without the difference being noted.
+
+**Prohibited:** Entries naming a device, device, or private target tissue analog — tissue generic
+mechanics only.

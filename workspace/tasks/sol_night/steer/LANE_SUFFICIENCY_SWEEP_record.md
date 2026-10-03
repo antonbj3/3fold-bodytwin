@@ -1,65 +1,34 @@
-# LANE_SUFFICIENCY_SWEEP — ask the sufficiency question systematically, because it almost never gets asked
+# Styrning r5 — take a SLUMPOMY sample, for 88 % is not a prevalence
 
-Resultatmapp `results/LANE_SUFFICIENCY_SWEEP/`.
+## Vad r4 gave, and what it may not be used for
+Distribution: **45 fell, 6 held, 1 not tried by 52 deklarerade kontrakt**, that is 88,2 % av de
+trialable against 85,4 % i r3. The proportion is stable when the amount is expanded, and that is a strong sign.
 
-## The measurement that motivates the lane
-On the night of 2–3 October, sufficiency fell into **six independent subsystems** using six different mechanisms:
+But your own scope line says: *"Adversarial nonrandom selection, not biological prevalence or new
+physical families."* That line is more important than the speech, and I have corrected my own bookkeeping according to it:
+88 % betyder **"When we ask the question of a contract we suspect it falls five times out of six"**, not
+"five out of six summaries in the model are insufficient"There are two completely different statements and only the
+first is coated.
 
-| subsystem | the magnitude that was not enough | proof |
-|---|---|---|
-| hemostasis | scalar plug coverage θ(t) | 21 plugs with identical θ to 4,37e-16, 61,53 % downstream difference |
-| bleed optics | flow counting | flow-identical coatings provide oppositely directed sensor bias |
-| tissue history | physical number | order number required; 192 pair with identical current position, 192 counterexample |
-| laser dosage | delivered energy | 1 212 of 1 212 chronology tests fall, the energy equal to 6,01e-16 |
-| eye assay | measured signal | 6 pair with signal error **exact 0,0** and 69,6 % charge difference |
-| zero flow | average power | 63 180 of 100 000 violations against **analytical** 63,2121 % |
+## The operation this round
+1. **Draw a COMPLETE selection of summary quantities from the 43 source directories** — say thirty,
+   drawn with declared random seed and without you being allowed to choose — and run the same test.
+   report both numbers side by side: adversarial selection and random selection.
+2. **It's the night's highest expected yield**, because the difference determines whether the adequacy test
+   shall be a routine for all or a tool for suspicious cases. No other open question in the lane
+   changes the way the rest of the work is done in this way.
+3. **Keep them 320 cases that require a law we don't have** (`law_acquisition_required = 320`) som en egen
+   row, and indicate whether they are in the adversarial or random selection.
+4. **And keep the shape of the precipitates.** The pattern that the smallest sufficient enlargement is small —
+   two states, one functional, and on the bridge tonight **a single scalar** med rekonstruktionsfel 0,0 — is
+   report the size of the enlargement per precipitate.
 
-The last line is the most important: the proportion matches a closed expression to 0,00032, so it is
-structure and not sampling noise.
-
-**And then I measured the distribution before making it a system statement, which changed
-the conclusion.** Strict matching over **6 312 swarm reports** yields only **33 unambiguous
-sufficiency precipitations, thus 0,52 %** — but they span **18 distinct families**, with nine in one
-family and sex in every five others. Loose matching gave 279, thus 4,4 %, and was noise; factor 8,5 i
-overestimate.
-
-**The conclusion is therefore not that scalars are usually inadequate. It is that THE QUESTION ALMOST ALDRIG
-SET — 33 reports of 6 312 — and that it falls when set.** It makes a systematic
-review to the highest expected return per run identified by the night.
-
-## Do like this
-1. **Build the test as a routine, not as an argument.** For a quantity S summing a
-   state: construct two states with **identical S** and measure if a downstream quantity differs
-   one. Identical means to machine precision and not approximately — the six cases above have
-   identity mistake between 0,0 and 6e-16, and that is what makes them impossible to explain away as
-   tolerance gap.
-2. **Run it over the 43 cells in `tasks/free48/sources/`.** Each cell has state variables and
-   reported output. For each reported output: which summary is used, and there are two
-   state with the same summary but different output? Report per cell: tried, failed, held,
-   or could not be tested — and why in the last case.
-3. **Measure the distribution, not the number.** Three numbers: how many summaries that FALL, how many that
-   HELL, and how many could not be tested. An individual case is nothing. And specify the coverage: if
-   you only reach twenty summaries out of a hundred, say twenty and which ones.
-4. **For each precipitation: name the MINSTA extension that will suffice.** That's what makes the find
-   useful instead of just disturbing. Historielanen found that an ordinal number plus two local ones
-   mother suffices; the homework that (θ, ε) is enough, i.e. two scalars and not the whole path; the laser lane
-   that **a single functional** reproduces all 1 212 rejections. The pattern so far is that
-   the extension is small — two states or a functional — and if it holds generally it is
-   the most useful single result of the night.
-5. **And test if a fall is transferable.** If the same summary form falls in two cells with
-   
-   
-
-## Strongest control and falsifier
-- **Control:** not to ask the question, i.e. the current state, where it is asked in 0,52 % of the jobs. The profit is
-  
-  
-- **Falsifier:** if sufficiency HOLDS for most summaries when systematic
-  
-  
-  
-
-  
-  
-
-Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+## Control and falsifier
+- **Kontroll:** practice without the new history information. Note that your own control bar says that a
+  equivalently informed conventional method matches and that **ingen algoritmisk vinst** claimed — keep
+  that wording, it is correct and it protects the result.
+- **Falsifierare:** If the random sample results in a significantly lower proportion, say less than half, is
+  the problem of adequacy not consistently without concentration — and then the routine requirement in: COMMON.md
+  be rewritten as a directed requirement. That would be as valuable an outcome as the opposite.
+- **Forbidden:** to report the adversarial proportion as a prevalence; to select the random sample yourself;
+  to count repairs as extra hold.

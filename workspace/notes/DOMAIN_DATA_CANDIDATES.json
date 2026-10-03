@@ -1,0 +1,1344 @@
+{
+ "status": "PENDING_INDEPENDENT_REVIEW",
+ "summary": {
+  "dirs_reviewed": 164,
+  "top_level_files_present": 341,
+  "total_entries": 505,
+  "dirs_with_numeric_domain_data": 108,
+  "dirs_already_covered_by_a_cell": 13,
+  "dirs_excluded_as_bookkeeping_or_nondomain": 36,
+  "dirs_without_parseable_numeric_file": 15,
+  "dirs_empty": 2,
+  "top_level_files_not_opened": 337,
+  "status": "PENDING_INDEPENDENT_REVIEW"
+ },
+ "candidates": [
+  {
+   "rank": 1,
+   "path": "source_repository/data/tissue_lit_refs/measurements.nir_photobiomodulation_optics.jsonl",
+   "size_bytes": 250358,
+   "track": "a",
+   "numbers": [
+    {
+     "key": "mu_a (whole blood, HbO2 100%, 630 nm, Hct 0.45, C_Hb 150 g/L)",
+     "value": 3.2665,
+     "unit": "cm^-1"
+    },
+    {
+     "key": "si (samma post, SI)",
+     "value": 326.6458,
+     "unit": "1/m"
+    },
+    {
+     "key": "molar_extinction_HbO2",
+     "value": 610.0,
+     "unit": "cm^-1/M"
+    },
+    {
+     "key": "molar_extinction_Hb",
+     "value": 5148.8,
+     "unit": "cm^-1/M"
+    },
+    {
+     "key": "mu_s_reduced (whole blood)",
+     "value": 270.0,
+     "unit": "cm^-1"
+    },
+    {
+     "key": "mu_eff (dermis, in vivo)",
+     "value": 5.4748,
+     "unit": "cm^-1"
+    },
+    {
+     "key": "mu_s_reduced_powerlaw (skin)",
+     "value": 48.9,
+     "unit": "cm^-1"
+    },
+    {
+     "key": "blood_volume_fraction (dermis)",
+     "value": 0.2,
+     "unit": "%"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Monte-Carlo or diffusion calculation of light transport in tissue: penetration depth, fluence versus depth and wavelength, and which wavelength maximizes dose in a given layer. The entries carry prop/unit/si/mods (wavelength_nm, SO2, hematocrit) plus DOI or PMC key, so a cell can be directly parameterized per wavelength.",
+   "note": "Primary sources with verification field (VERIFIED_PRIMARY_TABLE); the omlc table is stated to have 376 rows over 250–1000 nm."
+  },
+  {
+   "rank": 2,
+   "path": "source_repository/data/corneal_transparency/corneal_transparency_results.json",
+   "size_bytes": 14467,
+   "track": "a",
+   "numbers": [
+    {
+     "key": "params.a_nm (fibrilradie)",
+     "value": 14.0,
+     "unit": "nm"
+    },
+    {
+     "key": "params.phi_areal",
+     "value": 0.28,
+     "unit": "dimensionslos"
+    },
+    {
+     "key": "params.d_hex_nm",
+     "value": 50.3916571460783,
+     "unit": "nm"
+    },
+    {
+     "key": "params.n_fibril",
+     "value": 1.411,
+     "unit": "brytningsindex"
+    },
+    {
+     "key": "params.n_matrix",
+     "value": 1.365,
+     "unit": "brytningsindex"
+    },
+    {
+     "key": "params.dn",
+     "value": 0.04600000000000004,
+     "unit": "brytningsindex"
+    },
+    {
+     "key": "params.L_nm (tjocklek)",
+     "value": 500000.0,
+     "unit": "nm"
+    },
+    {
+     "key": "C_PREF",
+     "value": 16.35109626093563,
+     "unit": "(enhet ej angiven i filen)"
+    },
+    {
+     "key": "validation.large_disorder_agreement.median_relerr_pct",
+     "value": 7.9271096618596975,
+     "unit": "%"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Transmission T(lambda) and attenuation tau_per_um for cornea at varying fibril order (sigma 0.00–0.06) over 400–700 nm. Can be converted to how much disorder is required for a given visible turbidity, and to edema sensitivity via phi_areal.",
+   "note": "The file has tau_per_um and T vectors per sigma level over 31 wavelengths."
+  },
+  {
+   "rank": 3,
+   "path": "source_repository/data/lens_accommodation/lens_accommodation_results.json",
+   "size_bytes": 3570,
+   "track": "a",
+   "numbers": [
+    {
+     "key": "calibration.n_eq",
+     "value": 1.4085022063402688,
+     "unit": "brytningsindex"
+    },
+    {
+     "key": "calibration.P_lens_relaxed",
+     "value": 19.10999999999997,
+     "unit": "D"
+    },
+    {
+     "key": "accommodated_fixed_index.P",
+     "value": 26.614173473168197,
+     "unit": "D"
+    },
+    {
+     "key": "accommodated_fixed_index.delta",
+     "value": 7.504173473168226,
+     "unit": "D"
+    },
+    {
+     "key": "index_rise_required[0].target_amplitude_D",
+     "value": 10.0,
+     "unit": "D"
+    },
+    {
+     "key": "index_rise_required[0].delta_n_relative_pct",
+     "value": 0.49407233146678925,
+     "unit": "%"
+    },
+    {
+     "key": "stiffness_gradient_toy.average.k_per_year",
+     "value": 0.09545699348069321,
+     "unit": "1/ar"
+    },
+    {
+     "key": "hofstetter_vs_measured[0].measured_D (age 9.24, n=5444)",
+     "value": 14.44,
+     "unit": "D"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Amplitude of accommodation in diopters from lens geometry (R1/R2) and refractive index; age-dependent loss via the E/E14 curve, and how large an index gradient is required for a desired amplitude.",
+   "note": "Also includes rigid_lens_falsifier.delta_D = 0.0 as null control."
+  },
+  {
+   "rank": 4,
+   "path": "source_repository/data/empir_photoled_spds.json",
+   "size_bytes": 9300900,
+   "track": "a",
+   "numbers": [
+    {
+     "key": "wavelength_grid.step_nm",
+     "value": 1,
+     "unit": "nm"
+    },
+    {
+     "key": "spds[0].meta.cct_min_duv_dataset",
+     "value": 1705.35231381655,
+     "unit": "K"
+    },
+    {
+     "key": "spds[0].cct_agreement.diff_K",
+     "value": 0.029950384083804238,
+     "unit": "K"
+    },
+    {
+     "key": "spds[1].meta.cct_min_duv_dataset",
+     "value": 1713.38753774762,
+     "unit": "K"
+    },
+    {
+     "key": "spds[1].cct_agreement.diff_K",
+     "value": 0.02993916675291075,
+     "unit": "K"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Illumination side of an optical cell: spectral power distribution on 1 nm grids as input to transmission and absorption in cornea, lens and skin, for example retinal dose per LED spectrum.",
+   "note": "Technical lighting and camera optics rather than ocular physiology; therefore ranks last in track (a). Only the first two spd records opened."
+  },
+  {
+   "rank": 5,
+   "path": "source_repository/data/ipf_anchors/lung_fibroblast_stiffness_rawdata_2.json",
+   "size_bytes": 244885,
+   "track": "b",
+   "numbers": [
+    {
+     "key": "fits.wi38_1|ACTA2|WT|excl_rigid|linear.E50",
+     "value": 61.1344,
+     "unit": "kPa"
+    },
+    {
+     "key": "... .n (Hill-exponent)",
+     "value": 1.782,
+     "unit": "dimensionslos"
+    },
+    {
+     "key": "... .r2",
+     "value": -0.3993,
+     "unit": "dimensionslos"
+    },
+    {
+     "key": "... .N",
+     "value": 61,
+     "unit": "datapunkter"
+    },
+    {
+     "key": "... .stiffness_levels_kPa",
+     "value": [
+      0.5,
+      32.0
+     ],
+     "unit": "kPa (forsta..sista av 4)"
+    },
+    {
+     "key": "... .leave_one_stiffness_out_E50_range_kPa",
+     "value": [
+      45.683,
+      61.134
+     ],
+     "unit": "kPa"
+    },
+    {
+     "key": "fits.wi38_1|ACTA2|WT|incl_rigid|linear.E50",
+     "value": 4415823.4096,
+     "unit": "kPa"
+    },
+    {
+     "key": "... incl_rigid stiffness_levels_kPa",
+     "value": [
+      0.5,
+      2300000.0
+     ],
+     "unit": "kPa (forsta..sista av 5)"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Dose-response curve for fibroblast mechanotransduction against substrate stiffness: E50, i.e. the stiffness where half the ACTA2 response is reached, and the Hill exponent, including how much E50 shifts when the stiff glass level is included or excluded. A cell can figure out what level of stiffness in a tissue model tips over to the fibrotic phenotype.",
+   "note": "The directory has 60 files, including collagen_mass_ratio.json, fvc_decline.json and focus_fibroblast_density.json. Only this file and the file list opened."
+  },
+  {
+   "rank": 6,
+   "path": "source_repository/data/tissue_lit_refs/measurements.bending_vs_stretch_mode.jsonl",
+   "size_bytes": 90042,
+   "track": "b",
+   "numbers": [
+    {
+     "key": "R_voidfloor_pointwise_linear_compression_inert",
+     "value": 0.25,
+     "unit": "ratio (bojning/strackning vid matchad topptojning)"
+    },
+    {
+     "key": "R_pointwise_linear_compression_symmetric",
+     "value": 0.5,
+     "unit": "ratio"
+    },
+    {
+     "key": "R_pointwise_threshold_at_half_peak",
+     "value": 0.125,
+     "unit": "ratio"
+    },
+    {
+     "key": "R_pointwise_quadratic_tension_only",
+     "value": 0.16666666666666666,
+     "unit": "ratio"
+    },
+    {
+     "key": "R_peak_driven_network_integrates",
+     "value": 1.0,
+     "unit": "ratio"
+    },
+    {
+     "key": "collagen_increase_cyclic_flexure_vs_STATIC (ovint SMC pa PGA/PLLA)",
+     "value": 63.0,
+     "unit": "%"
+    },
+    {
+     "key": "effective_stiffness_increase_flex_arm",
+     "value": 429.0,
+     "unit": "%"
+    },
+    {
+     "key": "effective_stiffness_increase_static_arm",
+     "value": 351.0,
+     "unit": "%"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Thickness-integrated growth law: how much collagen synthesis and effective stiffness bending provides compared to pure stretching at the same peak strain, i.e. which loading mode builds tissue. The entries carry both derived ratios and measured percentages with PMID.",
+   "note": ""
+  },
+  {
+   "rank": 7,
+   "path": "source_repository/data/tissuetwin_recovery/recovery_evidence.json",
+   "size_bytes": 34258,
+   "track": "b",
+   "numbers": [
+    {
+     "key": "gate_b.7.off",
+     "value": 0.00930209402892701,
+     "unit": "fraktionell forandring"
+    },
+    {
+     "key": "gate_b.90.off",
+     "value": 0.044920874571524605,
+     "unit": "fraktionell forandring"
+    },
+    {
+     "key": "gate_b.365.off",
+     "value": 0.051584989856551244,
+     "unit": "fraktionell forandring"
+    },
+    {
+     "key": "ceiling.k_basal_per_day",
+     "value": 0.0033333333333333335,
+     "unit": "1/dygn"
+    },
+    {
+     "key": "ceiling.ceiling_lo",
+     "value": 0.00155,
+     "unit": "1/dygn"
+    },
+    {
+     "key": "ceiling.ceiling_hi",
+     "value": 0.004766666666666667,
+     "unit": "1/dygn"
+    },
+    {
+     "key": "ceiling.basal_over_strict",
+     "value": 2.1505376344086025,
+     "unit": "kvot"
+    },
+    {
+     "key": "grid[0].tau_cat_h",
+     "value": 18.0,
+     "unit": "h"
+    },
+    {
+     "key": "grid[0].tau_ana_h",
+     "value": 36.0,
+     "unit": "h"
+    },
+    {
+     "key": "grid[0].gross_to_net",
+     "value": 38.26582426416812,
+     "unit": "kvot"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Healing and recovery over time: net tissue build-up as a function of session frequency (every_days, session_min, sets_per_wk) and of catabolic/anabolic time constant. Caps how fast tissue can be built and when higher frequency becomes counterproductive — hi_pct is negative at 25 sets per week.",
+   "note": "The directory also has cadence_evidence.json and cadence_noclip.json, not opened."
+  },
+  {
+   "rank": 8,
+   "path": "source_repository/data/erythrocyte_membrane/erythrocyte_membrane_results.json",
+   "size_bytes": 16467,
+   "track": "b",
+   "numbers": [
+    {
+     "key": "1_shear_modulus.parameters.Lmax_nm",
+     "value": 190.0,
+     "unit": "nm"
+    },
+    {
+     "key": "1_shear_modulus.parameters.ell0_native_nm",
+     "value": 46.0,
+     "unit": "nm"
+    },
+    {
+     "key": "1_shear_modulus.parameters.p_modeling_nm",
+     "value": 7.5,
+     "unit": "nm"
+    },
+    {
+     "key": "1_shear_modulus.parameters.p_measured_nm",
+     "value": 10.0,
+     "unit": "nm"
+    },
+    {
+     "key": "1_shear_modulus.parameters.mu_anchor_band_uN_m",
+     "value": [
+      6.6,
+      8.3
+     ],
+     "unit": "uN/m"
+    },
+    {
+     "key": "mu0_native_x0_uN_m.p_modeling_7.5nm",
+     "value": 2.795649939374008,
+     "unit": "uN/m"
+    },
+    {
+     "key": "mu0_native_x0_uN_m.p_measured_10nm",
+     "value": 2.0967374545305058,
+     "unit": "uN/m"
+    },
+    {
+     "key": "void_floor_grid.frac_in_tight_anchor_6to9",
+     "value": 0.05988455988455989,
+     "unit": "fraktion av 1386 punkter"
+    },
+    {
+     "key": "2_bilayer_adversary.mu_bilayer_uN_m",
+     "value": 0.0,
+     "unit": "uN/m"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Shear modulus of a spectrin network from WLC parameters (persistence length, contour length, prestretch) — a bottom-up elasticity cell that can be generalized to other network tissues, with built-in control that the attachment itself yields zero shear modulus.",
+   "note": ""
+  },
+  {
+   "rank": 9,
+   "path": "source_repository/data/calcium_pth_vitd/calcium_pth_vitd_results.json",
+   "size_bytes": 40448,
+   "track": "b",
+   "numbers": [
+    {
+     "key": "falsifier_1_setpoint.task_band_mmol_l",
+     "value": [
+      1.1,
+      1.2
+     ],
+     "unit": "mmol/L"
+    },
+    {
+     "key": "brown_setpoint_controls_mmol_l",
+     "value": 1.13,
+     "unit": "mmol/L"
+    },
+    {
+     "key": "parfitt_setpoint_controls_mmol_l",
+     "value": 1.25,
+     "unit": "mmol/L"
+    },
+    {
+     "key": "brown_vs_parfitt_correlation_controls_r",
+     "value": 0.85,
+     "unit": "korrelation"
+    },
+    {
+     "key": "brown_vs_parfitt_correlation_patients_r",
+     "value": 0.91,
+     "unit": "korrelation"
+    },
+    {
+     "key": "brown_setpoint_patients_1oHPT_mmol_l",
+     "value": 1.32,
+     "unit": "mmol/L"
+    },
+    {
+     "key": "parfitt_setpoint_patients_1oHPT_mmol_l",
+     "value": 1.42,
+     "unit": "mmol/L"
+    },
+    {
+     "key": "falsifier_2_clamp_perturbation.step_mmol_l",
+     "value": 0.05,
+     "unit": "mmol/L"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "PTH–calcium setpoint as a sigmoid regulator: the response to a calcium clamp step, and how a setpoint shift (healthy vs. primary HPT) alters bone resorption flux. The entrance to a bone remodeling cell with speech.",
+   "note": ""
+  },
+  {
+   "rank": 10,
+   "path": "source_repository/data/msk_smoketest/moment_arm_validation/moment_arm_validation_evidence.json",
+   "size_bytes": 283742,
+   "track": "b",
+   "numbers": [
+    {
+     "key": "_meta.sign_check_vasint_r_30deg_cm",
+     "value": -5.054691308100564,
+     "unit": "cm"
+    },
+    {
+     "key": "sweeps.knee_angle_r.range_deg",
+     "value": [
+      0.1,
+      139.89999999999992
+     ],
+     "unit": "grader"
+    },
+    {
+     "key": "sweeps.knee_angle_r.step_deg",
+     "value": 2.0,
+     "unit": "grader"
+    },
+    {
+     "key": "groups.vasti.mean_peak_cm",
+     "value": -5.256708453956803,
+     "unit": "cm"
+    },
+    {
+     "key": "groups.vasti.min_peak_cm",
+     "value": -5.403911030681704,
+     "unit": "cm"
+    },
+    {
+     "key": "groups.vasti.max_peak_cm",
+     "value": -5.131499657704872,
+     "unit": "cm"
+    },
+    {
+     "key": "groups.vasti.mean_angle_of_peak_deg",
+     "value": 12.100000000000001,
+     "unit": "grader"
+    },
+    {
+     "key": "groups.rectus_femoris.mean_peak_cm",
+     "value": -5.6368169073348735,
+     "unit": "cm"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Torque arm as a function of joint angle per muscle group — converts muscle force into joint torque over the entire range of motion. Base for a muscle-joint cell and for sanity checking external MSK models.",
+   "note": "msk_smoketest has 469 files; only this one opened."
+  },
+  {
+   "rank": 11,
+   "path": "source_repository/data/pulmonary_surfactant/pulmonary_surfactant_results.json",
+   "size_bytes": 15749,
+   "track": "b",
+   "numbers": [
+    {
+     "key": "schurch_1982_calibration.area_ratio_from_pct_TLC_via_A~V^2_3",
+     "value": 1.4521964333909259,
+     "unit": "kvot"
+    },
+    {
+     "key": "schurch_1982_calibration.gamma_ratio",
+     "value": 10.0,
+     "unit": "kvot"
+    },
+    {
+     "key": "schurch_1982_calibration.stability_threshold_n",
+     "value": 0.5,
+     "unit": "dimensionslos"
+    },
+    {
+     "key": "part1_laplace_table.r0_m",
+     "value": 0.0001,
+     "unit": "m"
+    },
+    {
+     "key": "bare_saline_rows[0].gamma_mN_m",
+     "value": 50.0,
+     "unit": "mN/m"
+    },
+    {
+     "key": "bare_saline_rows[0].P_Pa",
+     "value": 1000.0,
+     "unit": "Pa"
+    },
+    {
+     "key": "bare_saline_rows[0].P_cmH2O",
+     "value": 10.197162129779281,
+     "unit": "cmH2O"
+    },
+    {
+     "key": "bare_saline_rows[1].gamma_mN_m",
+     "value": 60.0,
+     "unit": "mN/m"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Laplace pressure in the alveolus as a function of surface tension and radius, plus the stability criterion dgamma/dA. Calculates when alveoli collapse without surfactant — mechanical interface between tissue and fluid.",
+   "note": ""
+  },
+  {
+   "rank": 12,
+   "path": "source_repository/data/bcell_affinity_maturation/bcell_affinity_maturation_results.json",
+   "size_bytes": 13568,
+   "track": "c",
+   "numbers": [
+    {
+     "key": "part1_shm_rate.mu_shm_per_bp_per_division",
+     "value": 0.001,
+     "unit": "mutationer/bp/delning"
+    },
+    {
+     "key": "part1_shm_rate.L_V_bp",
+     "value": 500.0,
+     "unit": "bp"
+    },
+    {
+     "key": "part1_shm_rate.N_gc_divisions",
+     "value": 10.0,
+     "unit": "delningar"
+    },
+    {
+     "key": "part1_shm_rate.E_mutations_per_lineage",
+     "value": 5.0,
+     "unit": "mutationer"
+    },
+    {
+     "key": "part1_shm_rate.baseline_replication_rate_per_bp_per_division",
+     "value": 1e-09,
+     "unit": "mutationer/bp/delning"
+    },
+    {
+     "key": "part1_shm_rate.fold_vs_baseline",
+     "value": 1000000.0,
+     "unit": "ggr"
+    },
+    {
+     "key": "part2...kd0_germline_M",
+     "value": 1e-06,
+     "unit": "M"
+    },
+    {
+     "key": "part2...kd_ceiling_anchor_M",
+     "value": 1e-10,
+     "unit": "M"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Affinity maturation: number of mutations per line in the germinal center and how far Kd can be driven (1e-6 to 1e-10 M) before the ceiling is reached. A cell can calculate how many rounds of GC are required for a desired antibody affinity and where selection saturates — directly relevant to underactivation, i.e. insufficient affinity.",
+   "note": ""
+  },
+  {
+   "rank": 13,
+   "path": "source_repository/data/complement_cascade/complement_cascade_results.json",
+   "size_bytes": 20592,
+   "track": "c",
+   "numbers": [
+    {
+     "key": "constants.T_HALF_UNSTABILIZED_MIN",
+     "value": 3.0,
+     "unit": "min"
+    },
+    {
+     "key": "constants.T_HALF_ACTIVATOR_MIN",
+     "value": 30.0,
+     "unit": "min"
+    },
+    {
+     "key": "constants.T_HALF_HOST_MIN",
+     "value": 1.05,
+     "unit": "min"
+    },
+    {
+     "key": "constants.FOLD_H",
+     "value": 4.761904761904762,
+     "unit": "ggr"
+    },
+    {
+     "key": "constants.KM_C5_NM",
+     "value": 1400.0,
+     "unit": "nM"
+    },
+    {
+     "key": "constants.KCAT_C5_PER_MIN",
+     "value": 0.288,
+     "unit": "1/min"
+    },
+    {
+     "key": "constants.C5_0_NM",
+     "value": 400.0,
+     "unit": "nM"
+    },
+    {
+     "key": "constants.K_TICK_per_min",
+     "value": 0.00016666666666666666,
+     "unit": "1/min"
+    }
+   ],
+   "already_covered_by_cell": "Yes. IMMUNITY/complement_cascade.py and IMMUNITY/complement_ap_bistability_eculizumab.py are in the workspace cell list, so the domain is covered by filename (this deviates from the background task). The data file itself is not yet linked to any cell.",
+   "what_a_cell_could_compute": "C3b amplification and flipping between quiescent and attack states: the half-life of C3b on host surface (1.05 min) versus activator surface (30 min) gives the overactivation limit, and Km/kcat for C5 gives the MAC flux. Calculates the threshold for complement-driven tissue damage and the effect of C5 blockade.",
+   "note": ""
+  },
+  {
+   "rank": 14,
+   "path": "source_repository/data/renal_c3g_joint_lesion_probability/results.json",
+   "size_bytes": 3985,
+   "track": "c",
+   "numbers": [
+    {
+     "key": "inputs_cited.c3nef_rate_pct.DDD",
+     "value": 80.0,
+     "unit": "%"
+    },
+    {
+     "key": "inputs_cited.c3nef_rate_pct.C3GN",
+     "value": 45.0,
+     "unit": "%"
+    },
+    {
+     "key": "inputs_cited.mutation_rate_blended_pct",
+     "value": 17.9,
+     "unit": "%"
+    },
+    {
+     "key": "inputs_cited.ic_mpgn_comparator_pct",
+     "value": 53.06,
+     "unit": "%"
+    },
+    {
+     "key": "sweep_by_substratum.DDD.frechet_lower_bound_pct",
+     "value": 80.0,
+     "unit": "%"
+    },
+    {
+     "key": "sweep_by_substratum.DDD.frechet_upper_bound_pct",
+     "value": 97.9,
+     "unit": "%"
+    },
+    {
+     "key": "sweep_by_substratum.DDD.rho_sweep[0].joint_pct",
+     "value": 83.58,
+     "unit": "%"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Probability of two independent complement defects (autoantibody plus mutation) given only the margins, with Fréchet bounds and correlation sweeps. A cell can calculate what proportion of a patient population carries dual overactivation cause — a pure overactivation question in track (c).",
+   "note": ""
+  },
+  {
+   "rank": 15,
+   "path": "source_repository/data/hematopoiesis/hematopoiesis_results.json",
+   "size_bytes": 35618,
+   "track": "c",
+   "numbers": [
+    {
+     "key": "part1_quiescence_falsifier.task_band_days",
+     "value": [
+      145.0,
+      193.0
+     ],
+     "unit": "dygn"
+    },
+    {
+     "key": "wilson2008.interval_days",
+     "value": 145.0,
+     "unit": "dygn"
+    },
+    {
+     "key": "wilson2008.divisions_per_lifetime",
+     "value": 5.0,
+     "unit": "delningar"
+    },
+    {
+     "key": "foudi2009.rate_range_per_day",
+     "value": [
+      0.008,
+      0.018
+     ],
+     "unit": "1/dygn"
+    },
+    {
+     "key": "foudi2009.implied_interval_days_range",
+     "value": [
+      55.6,
+      125.0
+     ],
+     "unit": "dygn"
+    },
+    {
+     "key": "forced_adversary_wilson_own_bulk_claim.adversary_days_range",
+     "value": [
+      21.0,
+      42.0
+     ],
+     "unit": "dygn"
+    },
+    {
+     "key": "measured_dormant_subset_days",
+     "value": 145.0,
+     "unit": "dygn"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Stem cell turnover: division interval and divisions per lifetime of HSCs, which sets how quickly the immune system can be replenished after depletion. The production ceiling behind underactivation.",
+   "note": ""
+  },
+  {
+   "rank": 16,
+   "path": "source_repository/data/iron_hepcidin/iron_hepcidin_results.json",
+   "size_bytes": 27924,
+   "track": "c",
+   "numbers": [
+    {
+     "key": "couples_to_siblings_readonly.rbc_lifespan_days",
+     "value": 115.0,
+     "unit": "dygn"
+    },
+    {
+     "key": "couples_to_siblings_readonly.blood_volume_l",
+     "value": 5.0,
+     "unit": "L"
+    },
+    {
+     "key": "step1_iron_pools.fe_mg_per_g_hb_derived",
+     "value": 3.4658,
+     "unit": "mg Fe/g Hb"
+    },
+    {
+     "key": "step1_iron_pools.hb_tetramer_mw_g_mol_derived",
+     "value": 64453.2,
+     "unit": "g/mol"
+    },
+    {
+     "key": "step1_iron_pools.lit_hb_fraction_of_total_band",
+     "value": [
+      0.667,
+      0.75
+     ],
+     "unit": "fraktion"
+    },
+    {
+     "key": "step2_mass_balance_falsifier_F1.recycling_mg_day_derived",
+     "value": 22.603,
+     "unit": "mg/dygn"
+    },
+    {
+     "key": "lit_recycling_mg_day_band",
+     "value": [
+      20.0,
+      25.0
+     ],
+     "unit": "mg/dygn"
+    },
+    {
+     "key": "absorption_mg_day_lit_mid",
+     "value": 1.5,
+     "unit": "mg/dygn"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Iron mass balance: feedback from the macrophages' RBC breakdown (22.603 ​​mg/day) towards intestinal absorption (1.5 mg/day). A cell can figure out how long a given blood loss takes to compensate and where the hepcidin brake binds — linking immune cells to systemic physiology.",
+   "note": ""
+  },
+  {
+   "rank": 17,
+   "path": "source_repository/data/erythropoiesis/erythropoiesis_results.json",
+   "size_bytes": 17664,
+   "track": "c",
+   "numbers": [
+    {
+     "key": "couples_to_siblings_readonly.hct_ref_pct",
+     "value": 45.0,
+     "unit": "%"
+    },
+    {
+     "key": "cao2_ref_ml_dl",
+     "value": 19.758710131993222,
+     "unit": "mL O2/dL"
+    },
+    {
+     "key": "rbf_l_min",
+     "value": 1.0768,
+     "unit": "L/min"
+    },
+    {
+     "key": "renal_o2_delivery_ml_min",
+     "value": 212.76,
+     "unit": "mL/min"
+    },
+    {
+     "key": "step1_rbc_lifespan.mpl_biotin_low_densities_days",
+     "value": [
+      115.0,
+      113.0
+     ],
+     "unit": "dygn"
+    },
+    {
+     "key": "t50_biotin_low_densities_days",
+     "value": [
+      58.0,
+      57.0
+     ],
+     "unit": "dygn"
+    },
+    {
+     "key": "mpl_biotin_single_density_1999_days",
+     "value": 103.0,
+     "unit": "dygn"
+    },
+    {
+     "key": "mpl_51cr_elution_corrected_days",
+     "value": 116.0,
+     "unit": "dygn"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "RBC lifespan from multiple independent measurement methods plus renal O2 delivery as EPO signal. A cell can figure out how hematocrit responds to a hypoxic stimulus and which measurement method is binding.",
+   "note": ""
+  },
+  {
+   "rank": 18,
+   "path": "source_repository/data/socket_contact_winkler/evidence.json",
+   "size_bytes": 47667,
+   "track": "d",
+   "numbers": [
+    {
+     "key": "inputs.F_bayonet_governing_N",
+     "value": 11.849592622820806,
+     "unit": "N"
+    },
+    {
+     "key": "inputs.M_bayonet_Nm",
+     "value": 1.9302986382575094,
+     "unit": "Nm"
+    },
+    {
+     "key": "sweeps.E_tissue_kPa_list_ENGINEERING_ASSUMPTION",
+     "value": [
+      50.0,
+      600.0
+     ],
+     "unit": "kPa"
+    },
+    {
+     "key": "sweeps.T_TISSUE_MM_ENGINEERING_ASSUMPTION",
+     "value": 8.0,
+     "unit": "mm"
+    },
+    {
+     "key": "sweeps.k_list_Pa_per_m",
+     "value": [
+      6250000.0,
+      75000000.0
+     ],
+     "unit": "Pa/m"
+    },
+    {
+     "key": "sweeps.worst_case.p_max_kPa",
+     "value": 113.35360117736319,
+     "unit": "kPa"
+    },
+    {
+     "key": "sweeps.worst_case.peak_to_mean",
+     "value": 3.3352531669326084,
+     "unit": "kvot"
+    },
+    {
+     "key": "sweeps.worst_case.contact_frac",
+     "value": 0.49250000000000005,
+     "unit": "fraktion"
+    },
+    {
+     "key": "sweeps.nominal_case.p_max_kPa",
+     "value": 5.600922791759508,
+     "unit": "kPa"
+    },
+    {
+     "key": "mesh_convergence_self_test.finest_vs_prev_relchange",
+     "value": 0.00025526541691094534,
+     "unit": "relativ"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Tool against tissue: a Winkler bed gives contact pressure p_max and contact proportion out of applied force and moment and the tissue stiffness E_tissue. A cell can calculate the grip force a robotic cuff must apply before the pressure ulcer limit is crossed, and how sensitive p_max is to tissue stiffness (k_invariance_relspread 2.7e-15).",
+   "note": "Mesh convergence and comparison against closed form are in the same file as self-tests."
+  },
+  {
+   "rank": 19,
+   "path": "source_repository/data/socket_contact_edge_singularity/evidence.json",
+   "size_bytes": 14095,
+   "track": "d",
+   "numbers": [
+    {
+     "key": "inputs.F_bayonet_governing_N",
+     "value": 11.036249999999997,
+     "unit": "N"
+    },
+    {
+     "key": "inputs.M_bayonet_Nm",
+     "value": 1.7978051249999996,
+     "unit": "Nm"
+    },
+    {
+     "key": "inputs.b_nominal_m",
+     "value": 0.12645,
+     "unit": "m"
+    },
+    {
+     "key": "self_test_0_naive_port.true_answer_p_centre_Pa",
+     "value": 1591549.4309189534,
+     "unit": "Pa"
+    },
+    {
+     "key": "self_test_0_naive_port.true_answer_p_near_edge_Pa",
+     "value": 5097037.441251784,
+     "unit": "Pa"
+    },
+    {
+     "key": "self_test_0_naive_port.naive_port_p_centre_Pa",
+     "value": -0.0,
+     "unit": "Pa"
+    },
+    {
+     "key": "self_test_2_winkler_limit_reduction.uniform_kernel_p_Pa",
+     "value": 1268.2685123035417,
+     "unit": "Pa"
+    },
+    {
+     "key": "self_test_1_kernel_quadrature_nominal.F_relerr",
+     "value": 1.6095656037152574e-16,
+     "unit": "relativ"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "The edge singularity in contact between hard and soft: the pressure at the edge is more than three times the center value (5.097 MPa vs. 1.592 MPa) — precisely the spike that determines whether a surgical tool or a sheath edge damages tissue. A cell can calculate the edge radius required to keep p below a tissue boundary.",
+   "note": ""
+  },
+  {
+   "rank": 20,
+   "path": "source_repository/data/prosth_real_task_grasp_sweep/evidence.json",
+   "size_bytes": 24911,
+   "track": "d",
+   "numbers": [
+    {
+     "key": "delivered_force.F0_frictionless_N_at_T_high",
+     "value": 11.849592622820806,
+     "unit": "N"
+    },
+    {
+     "key": "delivered_force.mu_cable_central",
+     "value": 0.35,
+     "unit": "friktionskoefficient"
+    },
+    {
+     "key": "delivered_force.wrist_retained_fraction_central",
+     "value": 0.9396468777237291,
+     "unit": "fraktion"
+    },
+    {
+     "key": "delivered_force.F_delivered_conservative_incl_pin_friction_N_at_T_high",
+     "value": 9.822621826975045,
+     "unit": "N"
+    },
+    {
+     "key": "delivered_force.MU_FINGERTIP",
+     "value": 0.4,
+     "unit": "friktionskoefficient"
+    },
+    {
+     "key": "geometric_envelope.hinge_wobble_slop_mm",
+     "value": 5.407451092865333,
+     "unit": "mm"
+    },
+    {
+     "key": "geometric_envelope.approach_error_deg_chest_robust",
+     "value": 17.1,
+     "unit": "grader"
+    },
+    {
+     "key": "tasks.door_key_turn_lock_cylinder.T_turn_Nm_bracket",
+     "value": [
+      0.05,
+      0.35
+     ],
+     "unit": "Nm"
+    },
+    {
+     "key": "tasks.door_key_turn_lock_cylinder.sweep.frac_force_closed",
+     "value": 0.6791979949874687,
+     "unit": "fraktion"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Force transmission through a cable-driven manipulator with frictional losses, and what proportion of an approach error sweep produces force slope on a real object. A cell can calculate the force delivered at the grip tip and the angular tolerance of a tool–object grip — the same math as a surgical instrument in a holder.",
+   "note": ""
+  },
+  {
+   "rank": 21,
+   "path": "source_repository/data/socket_two_patch_free_body_resolution/evidence.json",
+   "size_bytes": 11388,
+   "track": "d",
+   "numbers": [
+    {
+     "key": "inputs.F_bayonet_governing_N",
+     "value": 11.849592622820806,
+     "unit": "N"
+    },
+    {
+     "key": "inputs.M_bayonet_Nm",
+     "value": 1.9302986382575094,
+     "unit": "Nm"
+    },
+    {
+     "key": "inputs.cuff_length_mm",
+     "value": 252.9,
+     "unit": "mm"
+    },
+    {
+     "key": "inputs.ARC_GAP_DEG",
+     "value": 60.0,
+     "unit": "grader"
+    },
+    {
+     "key": "inputs.ceiling_kPa",
+     "value": 83.5,
+     "unit": "kPa"
+    },
+    {
+     "key": "q1_free_body_from_cad.contact_arc_deg",
+     "value": 300.0,
+     "unit": "grader"
+    },
+    {
+     "key": "gate_b_field_reconstruction.rows[0].reconstructed_p_max_Pa",
+     "value": 5600.919304805415,
+     "unit": "Pa"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Exposing two contact surfaces: how force and moment are distributed between two separate tissue patches, and whether the reconstructed pressure field is consistent with static equilibrium. A cell can calculate the load distribution when a tool has two support points against tissue, against a pressure ceiling of 83.5 kPa.",
+   "note": ""
+  },
+  {
+   "rank": 22,
+   "path": "source_repository/data/prosth_socket_wholebody_thermal_transient_v1/trajectories.json",
+   "size_bytes": 462826,
+   "track": "d",
+   "numbers": [
+    {
+     "key": "A_ordinary_indoor_22C.baseline.native.t_min",
+     "value": [
+      1.0,
+      836.0
+     ],
+     "unit": "min (168 punkter)"
+    },
+    {
+     "key": "B_hot_day_rest_32C.baseline.native.T_core_c",
+     "value": [
+      36.618250520833335,
+      36.782505208333305
+     ],
+     "unit": "degC (168 punkter)"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Thermal transient in tissue under a non-breathable interface: core temperature and skin temperature over 836 min for three interfaces (baseline, gel_liner, ventilated) in four environments. A cell can calculate how long a tool or interface can be attached before the tissue's temperature limit is reached.",
+   "note": "Only the t_min and T_core_c vectors for the first two scenarios opened; the file has more channels (native, grafted)."
+  },
+  {
+   "rank": 23,
+   "path": "source_repository/data/deglutition_swallowing/deglutition_swallowing_results.json",
+   "size_bytes": 34835,
+   "track": "e",
+   "numbers": [
+    {
+     "key": "margin_computation.apnea_duration_s",
+     "value": 1.0,
+     "unit": "s"
+    },
+    {
+     "key": "margin_computation.ues_relax_dry_s",
+     "value": 0.37,
+     "unit": "s"
+    },
+    {
+     "key": "margin_computation.ues_relax_20ml_s",
+     "value": 0.65,
+     "unit": "s"
+    },
+    {
+     "key": "margin_computation.margin_dry_swallow_s",
+     "value": 0.63,
+     "unit": "s"
+    },
+    {
+     "key": "margin_computation.margin_20ml_swallow_s",
+     "value": 0.35,
+     "unit": "s"
+    },
+    {
+     "key": "tau_close_sweep.critical_tau_close_s",
+     "value": 0.35,
+     "unit": "s"
+    },
+    {
+     "key": "random_onset_monte_carlo.tau_close_representative_s",
+     "value": 0.15,
+     "unit": "s"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Timing margin between airway closure and UES relaxation. A cell can calculate aspiration risk as a function of bolus volume and closure delay — a pure margin cell with seconds as a unit.",
+   "note": ""
+  },
+  {
+   "rank": 24,
+   "path": "source_repository/data/mucociliary_clearance/mucociliary_clearance_results.json",
+   "size_bytes": 12809,
+   "track": "e",
+   "numbers": [
+    {
+     "key": "healthy.f0_hz",
+     "value": 13.0,
+     "unit": "Hz"
+    },
+    {
+     "key": "healthy.x0_delta_over_L",
+     "value": 0.9285714285714286,
+     "unit": "dimensionslos"
+    },
+    {
+     "key": "healthy.U_um_s",
+     "value": 110.5,
+     "unit": "um/s"
+    },
+    {
+     "key": "healthy.U_mm_min",
+     "value": 6.63,
+     "unit": "mm/min"
+    },
+    {
+     "key": "healthy.measured_band_mm_min",
+     "value": [
+      4.0,
+      10.0
+     ],
+     "unit": "mm/min"
+    },
+    {
+     "key": "cbf_sweep_measured_values.cbf_hz",
+     "value": [
+      8.0,
+      16.8
+     ],
+     "unit": "Hz (13 punkter)"
+    },
+    {
+     "key": "cbf_sweep_measured_values.U_mm_min",
+     "value": [
+      4.08,
+      8.568
+     ],
+     "unit": "mm/min (13 punkter)"
+    },
+    {
+     "key": "slope_check.model_slope_um_s_per_hz",
+     "value": 8.5,
+     "unit": "(um/s)/Hz"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "Transport speed out of cilia beat frequency and mucus layer thickness. A cell can calculate the clearance time for a particle and how much frequency drop is needed to knock out the transport.",
+   "note": ""
+  },
+  {
+   "rank": 25,
+   "path": "source_repository/data/fluid_compartments/fluid_compartments_results.json",
+   "size_bytes": 25919,
+   "track": "e",
+   "numbers": [
+    {
+     "key": "man_73kg.skeletal_muscle (massa kg, ECF-vatten L)",
+     "value": [
+      28.5,
+      3.47
+     ],
+     "unit": "kg resp. L"
+    },
+    {
+     "key": "man_73kg.skin",
+     "value": [
+      4.3,
+      2.94
+     ],
+     "unit": "kg resp. L"
+    },
+    {
+     "key": "man_73kg.brain_viscera",
+     "value": [
+      6.0,
+      1.51
+     ],
+     "unit": "kg resp. L"
+    },
+    {
+     "key": "man_73kg.bone",
+     "value": [
+      5.75,
+      0.86
+     ],
+     "unit": "kg resp. L"
+    },
+    {
+     "key": "man_73kg.active_marrow",
+     "value": [
+      1.17,
+      0.19
+     ],
+     "unit": "kg resp. L"
+    },
+    {
+     "key": "man_73kg.connective_tissue",
+     "value": [
+      3.7,
+      2.96
+     ],
+     "unit": "kg resp. L"
+    },
+    {
+     "key": "man_73kg.transcellular",
+     "value": [
+      1.1,
+      1.05
+     ],
+     "unit": "kg resp. L"
+    }
+   ],
+   "already_covered_by_cell": null,
+   "what_a_cell_could_compute": "ICF/ECF partition per tissue for a 73 kg reference. A cell can calculate volume of distribution for a substance and osmotic volume shifts per organ—the basis of all transport cells.",
+   "note": ""
+  }
+ ]
+}
