@@ -1,0 +1,787 @@
+{
+ "_meta": {
+  "produced": "2026-10-03",
+  "produced_by": "bodytwin assembly side, proposals only",
+  "status": "PROPOSALS_NOT_APPLIED",
+  "writes_to_dental": "none; the dental workspace was read only and nothing was committed there",
+  "target_net": {
+   "file": "local_path/results/PROOF_LANE_CONSTRAINT_NET_R2/CONSTRAINT_NET_DENTAL_R2.json",
+   "sha256": "93e13d6d8da9107f3771156fd8a50f7126818ee73f8152b46dc4f0f9ffd8b052",
+   "open_edges": 73,
+   "edges_with_numeric_gap_value": 16,
+   "unidentified_residual_edges": 57
+  },
+  "searched": [
+   "local_path/results/PROOF_LANE_CONSTRAINT_NET_R2/ (net, GAP_ACQUISITION_LEDGER, stress map)",
+   "local_path/results/LANE_*/ and PROOF_LANE_*/ and DEMO48_PACKAGE/: every .json under 8 MB, 46109 files, indexed to numeric leaves with full key paths",
+   "local_path/results/LANE_XREVIEW_BATCH*/ and PROOF_LANE_XREVIEW_*/: 553 REVIEW_*.json, indexed separately to 35879 numeric leaves and searched first",
+   "no night_rounds/r*.json directory exists anywhere under dental/results; the per-round artefacts are the per-job results.json, which is what was searched"
+  ],
+  "method": "Every candidate was accepted only after reading the quantity's own definition in its source block and the job's own provenance strings. Units were taken from the quantity's meaning, not from the key suffix; see unit_basis on each proposal. Any candidate whose source calls it assumed, declared, illustrative, chosen or calibrated-to-a-target is marked measured:false with the source's own wording in source_self_description.",
+  "counts": {
+   "unidentified_edges": 57,
+   "edges_filled": 7,
+   "edges_unfilled": 50,
+   "proposals": 25,
+   "proposals_measured_false": 8,
+   "proposals_from_reviewed_xreview_job": 25,
+   "proposals_from_unreviewed_round": 0
+  },
+  "reviewed_vs_unreviewed_note": "No numeric value usable for any of the 57 edges was found inside a REVIEW_*.json itself; those files carry recount counts, verdicts and gate flags rather than the physical quantities. Every proposal therefore cites the job's own results.json or input file, and records in source_review_state the XREVIEW verdict that job received. All 7 filled edges draw on jobs whose XREVIEW verdict is HOLDS, HOLDS_WITH_CORRECTION or DEMO_READY; none draws on a job with no review.",
+  "commonest_unfilled_reason": "The required_measurement asks for an independent same-specimen physical observation that dental has never acquired (uCT, paired IOS+CBCT on one subject, histology, clinical time series, physical seated film). Dental's own output records the absence: measured_seated_film = 0, new_physical_measurements = 0, physical_certificates = 0, human_paired_complete_arms = 0.",
+  "unfilled_edges": [
+   {
+    "edge_id": "D-E-K01",
+    "unit": "1",
+    "required_measurement": "Closure to solid and gingival surface with validated mm unit; FDI/landmark result on the target scanner.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K03",
+    "unit": "mm",
+    "required_measurement": "Independent DEJ/pulp/apex labeling and held-out subvoxel walls; preserve X12's rejected original hashgate and the packet's fix.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K04",
+    "unit": "mm",
+    "required_measurement": "µCT or an independent local canal wall with scanner/metal error at each point; sinus/foramen needs its own reference.",
+    "reason": "sigma_w/tau for the segmented boundary error exist in X26 and GEOM_field.json, but this edge's own constraint says label/image spread is not truth error and its required_measurement asks for uCT or an independent local wall. Filling it from label spread would be the key-name-is-not-meaning error.",
+    "near_miss_rejected": true
+   },
+   {
+    "edge_id": "D-E-K05",
+    "unit": "SE3(mm,rad)",
+    "required_measurement": "Same sample IOS+CBCT, surface reference and correlated pose/surface uncertainty.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K07",
+    "unit": "mm",
+    "required_measurement": "Paired IOS+CBCT with independent gingival thickness and free soft tissue boundaries.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K08",
+    "unit": "mm",
+    "required_measurement": "Calibrated physical contact, independent dental landmarks/FDI and actual jaw movement; registered scan bite is not charged contact.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K09",
+    "unit": "mm",
+    "required_measurement": "DATA: OFJ jaw+teeth+PDL with preserved regions. CODE: a shared multi-region SDF/ownership field, complete collar↔bulk bone and region transfer. MEASUREMENT: ownership/interface/volume parity against source-tets and physical response refinement; then more cases.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K10",
+    "unit": "mm",
+    "required_measurement": "Full collar/bulk trim, material incidence and thin layer convergence on the same authoritative surfaces.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K11",
+    "unit": "mm",
+    "required_measurement": "EXIST applies to existing geometry operation, not clinical preparation or all field highways; The A143 precipitation remains.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K12",
+    "unit": "g/cm3",
+    "required_measurement": "Same bone exam: CBCT/µCT/density plus mechanical testing and scanner protocol; HU_ref is not E.",
+    "reason": "X24 supplies HU calibration error (max heldout 146.5 HU_ref) but no g/cm3 density and no mechanical test on the same bone specimen. The edge text itself says HU_ref is not E.",
+    "near_miss_rejected": true
+   },
+   {
+    "edge_id": "D-E-K13",
+    "unit": "1",
+    "required_measurement": "DATA: version locked region identities and source for each material layer. CODE: total region→law/parameter/validity mapping with error on missing owner/entity. MEASUREMENT: patch test and sample-matched response for laws used; registry definition first.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K14",
+    "unit": "1",
+    "required_measurement": "Synchronous EMG/jaw movement/regional bite force with the same individual and muscle geometry.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K15",
+    "unit": "cycles/year",
+    "required_measurement": "Timed load spectrum, para function and separate power/cycle axes; no new measured spectrum in the 48h demo.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K16",
+    "unit": "N",
+    "required_measurement": "DATA: IOS/CBCT/bites of both jaws with the same de-identified sample ID and force time series. CODE: region-bound observation model that gives load with common θ. MEASUREMENT: calibrated regional pressure/force image in the same recorded bite; total power alone is not enough.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K18",
+    "unit": "mm",
+    "required_measurement": "Linearity, new load cases and newly generated crowns need their own quality gates; original 10,28 M test is inherited.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K19",
+    "unit": "MPa",
+    "required_measurement": "Sample-matched bone–implant contact with slip/BIC, load and stiffness; end CONTACT_law with actual verdict.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K20",
+    "unit": "MPa",
+    "required_measurement": "Specimen ID linked screw preload/settling and contact lag in maxillary FE; no measured preload loss in X25.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K21",
+    "unit": "N",
+    "required_measurement": "DATA: same antagonist/preparation and materials/support. CODE: deformable contact/friction on these surfaces with force and moment balance. MEASUREMENT: calibrated loaded contact map + offset, same pose; show precipitous stick/grind and penetration faults.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K22",
+    "unit": "N",
+    "required_measurement": "Kondylbana/TMJ-geometri med oberoende reaktion eller kontaktfacit i samma ram.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K25",
+    "unit": "mm",
+    "required_measurement": "Signed components of the guide/pose and canal errors on the same block; X8's original INTE_REDO demo is retained as a version.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K26",
+    "unit": "N*cm",
+    "required_measurement": "Same sample's cortex/spongiosa, hole, moment/feed and crush/contact response.",
+    "reason": "X68 torque values exist, but /coverage/human_paired_complete_arms = 0 and /coverage/thread_pitch_depth_complete_families = 0, so no same-specimen torque plus cortex/cancellous plus hole geometry row exists.",
+    "near_miss_rejected": true
+   },
+   {
+    "edge_id": "D-E-K27",
+    "unit": "um",
+    "required_measurement": "K19 with sample-matched slip/stiffness and micromotion data; retry frozen magnitude gate.",
+    "reason": "Same as D-E-MICROMOTION-OBSERVATION; X56 has FE system displacement and population measured means, not local interface slip.",
+    "near_miss_rejected": true
+   },
+   {
+    "edge_id": "D-E-K28",
+    "unit": "1",
+    "required_measurement": "Two real step orders, same final geometry/work, measured heating/cooling; objective order search and consistent starting condition.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K29",
+    "unit": "1",
+    "required_measurement": "Load→section→new load on the same material regions with validated viscoelastic/plastic dental law.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K30",
+    "unit": "mm",
+    "required_measurement": "Independent MBL time series and mechanistic cause/load operator; BodyTwin BT-CTX-BIORESP, no surrogate transfer from cell viability.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K31",
+    "unit": "ISQ",
+    "required_measurement": "DATA: longitudinal implant ID linked RFA/ISQ and BIC where possible, protocol/contact/bone/surface treatment. CODE: temporal osseointegration layer with transfer of the end state of the drill. MEASUREMENT: independently maintained time series; cell culture days must not be used as healing days.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K32",
+    "unit": "N",
+    "required_measurement": "Clinical ceramic fracture by material/exposure, individual load spectrum and contact/SCG closure; overall survival is another endpoint.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K34",
+    "unit": "mm",
+    "required_measurement": "DATA: local antagonist material/pair, environment and a measured time series. CODE: a wear/aging/corrosion law with region and history state. MEASUREMENT: three-body wear or bounded LTD/corrosion on the same sample; one measured pair before generalization.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K35",
+    "unit": "MPa",
+    "required_measurement": "Paired toothless intaglio/thickness/stiffness field under load, time dependent support and retention/staple wear.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K36",
+    "unit": "1",
+    "required_measurement": "Independent actual preparation/finish line, contact load, batch/support and measured fit; X1→X1B versions are retained without overwriting the original REJECT.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K37",
+    "unit": "1",
+    "required_measurement": "Local anatomy, bone/contact calibration and actual primary stability; the mask-based need for augmentation remains uncertain.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K38",
+    "unit": "um",
+    "required_measurement": "Paired signed scan/process/insertion errors and physical bias/contact with common sample provenance.",
+    "reason": "LANE_NIGHT_C_TOLERANCE_STACK /attempts/3/finite_pose_geometric_remainder_bound_mm is a numerical remainder bound, not the paired signed scan/process/insertion errors with physical preload the edge asks for.",
+    "near_miss_rejected": true
+   },
+   {
+    "edge_id": "D-E-K39",
+    "unit": "1/mm",
+    "required_measurement": "Full shape/topology/contact gradients and an anatomical crown are missing; v3 consists of roof surfaces, not density topology optimization. Requires an FE/FD gradient reference, a changed contact branch and sample-matched preparation.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K40",
+    "unit": "mm",
+    "required_measurement": "V3's millidegree/shaft are expressly not scored; sintering/orientation/full CAM in joint physics search and measured process fact remains.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K41",
+    "unit": "MPa",
+    "required_measurement": "Converged local contact on identical fixed domain; sample bound Ti-XCT/static/low-Re transport/fatigue. PLA peaks from IL3 must not be transferred to Ti.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K42",
+    "unit": "1",
+    "required_measurement": "Common calibrated θ, local wall/load and blind holdout for certificate; denominator and disclaimer must follow the consumer.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K43",
+    "unit": "um",
+    "required_measurement": "Same design/preparation/process/scanned crown and regional signed seated gap. 89,4/56,9 µm in X14 are derived slits; X36 cement transfer falls.",
+    "reason": "The 89.4/56.9 um in X14 are reconstructed published calculated gaps, which this edge's required_measurement already rejects; PROOF_LANE_GENCAD_V5B review records /result/physical/measured_seated_film = 0.",
+    "near_miss_rejected": true
+   },
+   {
+    "edge_id": "D-E-K44",
+    "unit": "um",
+    "required_measurement": "Independent nominal CAD gap and actual regional measurement, without the same source on both sides; the origin of the patent cluster is preserved.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K45",
+    "unit": "um",
+    "required_measurement": "Printed/scanned crown at frozen angles/azimuth and layer height, same regions and process.",
+    "reason": "X64 /selection/all_candidates/5/reason states the orientation-specific accuracy data is absent and 'Existing staircase geometry cannot supply it'.",
+    "near_miss_rejected": true
+   },
+   {
+    "edge_id": "D-E-K46",
+    "unit": "1",
+    "required_measurement": "Same sample pretest XCT/surfaces/history, process and mechanics across building lots; unresolved EBSD provenance and dental transfer remain.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K47",
+    "unit": "mm",
+    "required_measurement": "4/15 rejects, synthetic regions, full schedule/self-slicing control and industrial CAM/STEP/slicer and physical fabrication UNKNOWN.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K48",
+    "unit": "um",
+    "required_measurement": "DATA: CAD and independent scan of same manufactured part, specimen ID, material/batch/process and date. CODE: reference-controlled registration, signed distance per region and trueness/precision over replicates. MEASUREMENT: start with a milled crown+die, separate reference metrology, then replicate/holdout batch.",
+    "reason": "X55 gives signed regional deviation and repeatability in um, but /r1/known_deformations/*/reference says 'our_own_fixture withheld vertex correspondence; not external physical facit' and /status is K48_CLI_IMPLEMENTED_PHYSICAL_VALIDATION_UNKNOWN. No physically manufactured part and no independent datum, which is the whole content of the edge.",
+    "near_miss_rejected": true
+   },
+   {
+    "edge_id": "D-E-K49",
+    "unit": "1",
+    "required_measurement": "Prospective sample-matched Q/fit/temperature and fracture origin, frozen predictions before retest. X25's four full runouts are not four independent model validations.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K51",
+    "unit": "1",
+    "required_measurement": "Clean OS installation and uniform receipt throughout the patient chain not proven; keep old REJECT versions and retrospective locks.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-K52",
+    "unit": "1",
+    "required_measurement": "Bite2Text/Pulpy and snapshot-specific Teeth3DS terms must be clarified before dissemination; no new license assessment or publication occurs here.",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-CULTURE-NOT-ISQ",
+    "unit": "ISQ",
+    "required_measurement": "Same-specimen/protocol Assay-specific viability proportion, Culture outgrowth cell count, not BIC, RFA/ISQ observation at declared follow-up",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-SINTER-FIT",
+    "unit": "um",
+    "required_measurement": "Matched specimen, region and protocol observations for sinter_factor, marginal_gap",
+    "reason": "Same as D-E-K43: X14 R4 same_angle_gap_range_um is a range over published calculated gaps, not matched-specimen seated fit.",
+    "near_miss_rejected": true
+   },
+   {
+    "edge_id": "D-E-DEFORMABLE-FORCES",
+    "unit": "N",
+    "required_measurement": "Matched specimen, region and protocol observations for contact_gap, tooth_force, patch_force",
+    "reason": "required_measurement asks for an independent same-specimen physical observation absent from dental's output; no number in the corpus measures this quantity.",
+    "near_miss_rejected": false
+   },
+   {
+    "edge_id": "D-E-MICROMOTION-OBSERVATION",
+    "unit": "um",
+    "required_measurement": "Matched specimen, region and protocol observations for tooth_force, micromotion",
+    "reason": "REVIEW_LANE_X56_MICROMOTION.json records /new_physical_measurements = 0; X56 /external_referent/compared_quantity says local interface slip is not measured in the included tables.",
+    "near_miss_rejected": true
+   },
+   {
+    "edge_id": "D-E-X71-PLAN",
+    "unit": "1",
+    "required_measurement": "Same specimen/protocol observation of Named measurement and specimen obligations",
+    "reason": "The edge's own quantity states 'no observed physical outcome'; X71 is a measurement plan, so there is nothing to fill until the pilot runs.",
+    "near_miss_rejected": true
+   }
+  ]
+ },
+ "proposals": [
+  {
+   "edge_id": "D-E-K06",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "error e(x)=b(x)+random field; Cov(e(x),e(y)) needs correlation length and source lineage",
+   "edge_required_measurement": "Correlation length ℓ is still incomplete; GEOM_UNC's full 173 case results are not revalidated here.",
+   "source_file": "local_path/results/LANE_X26_DECIDABILITY/inputs/GEOM_field.json",
+   "key_path": "/bone_outer/ell",
+   "value": 0.7825500268081621,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "0c7ef3963e2d8ed07a2272ec6e3c89b4287c62a1ed762c29115ab3c28fbdcfa5",
+   "same_quantity_justification": "The edge needs the correlation length in Cov(e(x),e(y)) for the signed boundary-error field e(x) of region bone_outer. This leaf is the fitted spatial correlation length of exactly that per-region signed boundary-error field; it sits beside bias and sigma_w of the same field in the same block, all in mm.",
+   "measured": true,
+   "source_self_description": "LANE_NIGHT_I_DECISION_CERT/CALIBRATION_ACQUISITION_SPEC.json restates the same five values as ell_mm with status 'producer component estimate conditional on label/image edge method, not anatomy truth or full margin sigma'. Support is label/image spread, not an independent anatomical datum.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS (LANE_XREVIEW_BATCH3/REVIEW_LANE_X26_DECIDABILITY.json)"
+  },
+  {
+   "edge_id": "D-E-K06",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "error e(x)=b(x)+random field; Cov(e(x),e(y)) needs correlation length and source lineage",
+   "edge_required_measurement": "Correlation length ℓ is still incomplete; GEOM_UNC's full 173 case results are not revalidated here.",
+   "source_file": "local_path/results/LANE_X26_DECIDABILITY/inputs/GEOM_field.json",
+   "key_path": "/sinus_floor/ell",
+   "value": 1.5152717661962027,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "0c7ef3963e2d8ed07a2272ec6e3c89b4287c62a1ed762c29115ab3c28fbdcfa5",
+   "same_quantity_justification": "The edge needs the correlation length in Cov(e(x),e(y)) for the signed boundary-error field e(x) of region sinus_floor. This leaf is the fitted spatial correlation length of exactly that per-region signed boundary-error field; it sits beside bias and sigma_w of the same field in the same block, all in mm.",
+   "measured": true,
+   "source_self_description": "LANE_NIGHT_I_DECISION_CERT/CALIBRATION_ACQUISITION_SPEC.json restates the same five values as ell_mm with status 'producer component estimate conditional on label/image edge method, not anatomy truth or full margin sigma'. Support is label/image spread, not an independent anatomical datum.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS (LANE_XREVIEW_BATCH3/REVIEW_LANE_X26_DECIDABILITY.json)"
+  },
+  {
+   "edge_id": "D-E-K06",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "error e(x)=b(x)+random field; Cov(e(x),e(y)) needs correlation length and source lineage",
+   "edge_required_measurement": "Correlation length ℓ is still incomplete; GEOM_UNC's full 173 case results are not revalidated here.",
+   "source_file": "local_path/results/LANE_X26_DECIDABILITY/inputs/GEOM_field.json",
+   "key_path": "/canal/ell",
+   "value": 1.1654668796046461,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "0c7ef3963e2d8ed07a2272ec6e3c89b4287c62a1ed762c29115ab3c28fbdcfa5",
+   "same_quantity_justification": "The edge needs the correlation length in Cov(e(x),e(y)) for the signed boundary-error field e(x) of region canal. This leaf is the fitted spatial correlation length of exactly that per-region signed boundary-error field; it sits beside bias and sigma_w of the same field in the same block, all in mm.",
+   "measured": true,
+   "source_self_description": "LANE_NIGHT_I_DECISION_CERT/CALIBRATION_ACQUISITION_SPEC.json restates the same five values as ell_mm with status 'producer component estimate conditional on label/image edge method, not anatomy truth or full margin sigma'. Support is label/image spread, not an independent anatomical datum.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS (LANE_XREVIEW_BATCH3/REVIEW_LANE_X26_DECIDABILITY.json)"
+  },
+  {
+   "edge_id": "D-E-K06",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "error e(x)=b(x)+random field; Cov(e(x),e(y)) needs correlation length and source lineage",
+   "edge_required_measurement": "Correlation length ℓ is still incomplete; GEOM_UNC's full 173 case results are not revalidated here.",
+   "source_file": "local_path/results/LANE_X26_DECIDABILITY/inputs/GEOM_field.json",
+   "key_path": "/root/ell",
+   "value": 2.1729562399437654,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "0c7ef3963e2d8ed07a2272ec6e3c89b4287c62a1ed762c29115ab3c28fbdcfa5",
+   "same_quantity_justification": "The edge needs the correlation length in Cov(e(x),e(y)) for the signed boundary-error field e(x) of region root. This leaf is the fitted spatial correlation length of exactly that per-region signed boundary-error field; it sits beside bias and sigma_w of the same field in the same block, all in mm.",
+   "measured": true,
+   "source_self_description": "LANE_NIGHT_I_DECISION_CERT/CALIBRATION_ACQUISITION_SPEC.json restates the same five values as ell_mm with status 'producer component estimate conditional on label/image edge method, not anatomy truth or full margin sigma'. Support is label/image spread, not an independent anatomical datum.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS (LANE_XREVIEW_BATCH3/REVIEW_LANE_X26_DECIDABILITY.json)"
+  },
+  {
+   "edge_id": "D-E-K06",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "error e(x)=b(x)+random field; Cov(e(x),e(y)) needs correlation length and source lineage",
+   "edge_required_measurement": "Correlation length ℓ is still incomplete; GEOM_UNC's full 173 case results are not revalidated here.",
+   "source_file": "local_path/results/LANE_X26_DECIDABILITY/inputs/GEOM_field.json",
+   "key_path": "/crown_air/ell",
+   "value": 1.3273584702110952,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "0c7ef3963e2d8ed07a2272ec6e3c89b4287c62a1ed762c29115ab3c28fbdcfa5",
+   "same_quantity_justification": "The edge needs the correlation length in Cov(e(x),e(y)) for the signed boundary-error field e(x) of region crown_air. This leaf is the fitted spatial correlation length of exactly that per-region signed boundary-error field; it sits beside bias and sigma_w of the same field in the same block, all in mm.",
+   "measured": true,
+   "source_self_description": "LANE_NIGHT_I_DECISION_CERT/CALIBRATION_ACQUISITION_SPEC.json restates the same five values as ell_mm with status 'producer component estimate conditional on label/image edge method, not anatomy truth or full margin sigma'. Support is label/image spread, not an independent anatomical datum.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS (LANE_XREVIEW_BATCH3/REVIEW_LANE_X26_DECIDABILITY.json)"
+  },
+  {
+   "edge_id": "D-E-CANAL-NUMERIC-BUDGET",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Strict finite resampling budget: numerical distance error <= sqrt(3)*h; physical floor remains conditional",
+   "edge_required_measurement": "Same-specimen/protocol Canal boundary spread, not anatomical truth error, Sampling/mesh length, Certified discretization error in target distance, Minimum implant/guide to canal distance",
+   "source_file": "local_path/results/LANE_X26_DECIDABILITY/results.json",
+   "key_path": "/canal_conditional/fixed_acquisition_mm",
+   "value": 0.3,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "a31577569d94f6516c9fcb14cceed31c8de145cda91b0d25e0a8304395c60757",
+   "same_quantity_justification": "required_measurement item 'Sampling/mesh length'. This is the h in the edge's own bound 'numerical distance error <= sqrt(3)*h': the fixed acquisition/resampling length of the two-query 1-Lipschitz operator, stated in the sibling key numerical_operator.",
+   "measured": false,
+   "source_self_description": "Sibling key /canal_conditional/numerical_operator calls it the fixed acquisition length of the resampling operator, 'not the archived solver mesh'. It is a declared protocol constant, not an observation.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS (LANE_XREVIEW_BATCH3/REVIEW_LANE_X26_DECIDABILITY.json)"
+  },
+  {
+   "edge_id": "D-E-CANAL-NUMERIC-BUDGET",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Strict finite resampling budget: numerical distance error <= sqrt(3)*h; physical floor remains conditional",
+   "edge_required_measurement": "Same-specimen/protocol Canal boundary spread, not anatomical truth error, Sampling/mesh length, Certified discretization error in target distance, Minimum implant/guide to canal distance",
+   "source_file": "local_path/results/LANE_X26_DECIDABILITY/results.json",
+   "key_path": "/canal_conditional/sigma_w_mm",
+   "value": 0.22127788108916732,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "a31577569d94f6516c9fcb14cceed31c8de145cda91b0d25e0a8304395c60757",
+   "same_quantity_justification": "required_measurement item 'Canal boundary spread, not anatomical truth error'. This is the within-case canal boundary spread sigma_w of the same error-field block, in mm, and the job labels it phenomenological rather than anatomical truth.",
+   "measured": true,
+   "source_self_description": "/canal_conditional/parameter_resolution_level = PHENOMENOLOGICAL; /canal_conditional/physical_surface_confidence = UNKNOWN; physical_certificates = 0. Estimated from label/image spread.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS (LANE_XREVIEW_BATCH3/REVIEW_LANE_X26_DECIDABILITY.json)"
+  },
+  {
+   "edge_id": "D-E-CANAL-NUMERIC-BUDGET",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Strict finite resampling budget: numerical distance error <= sqrt(3)*h; physical floor remains conditional",
+   "edge_required_measurement": "Same-specimen/protocol Canal boundary spread, not anatomical truth error, Sampling/mesh length, Certified discretization error in target distance, Minimum implant/guide to canal distance",
+   "source_file": "local_path/results/LANE_X26_DECIDABILITY/results.json",
+   "key_path": "/canal_conditional/tau_mm",
+   "value": 0.06028416702924221,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "a31577569d94f6516c9fcb14cceed31c8de145cda91b0d25e0a8304395c60757",
+   "same_quantity_justification": "Between-case component tau of the same canal boundary-error field; the edge's budget composes within-case spread and between-case spread, and this is the second of those two in mm.",
+   "measured": true,
+   "source_self_description": "Same block as sigma_w_mm; PHENOMENOLOGICAL, no physical certificate.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS (LANE_XREVIEW_BATCH3/REVIEW_LANE_X26_DECIDABILITY.json)"
+  },
+  {
+   "edge_id": "D-E-CANAL-NUMERIC-BUDGET",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Strict finite resampling budget: numerical distance error <= sqrt(3)*h; physical floor remains conditional",
+   "edge_required_measurement": "Same-specimen/protocol Canal boundary spread, not anatomical truth error, Sampling/mesh length, Certified discretization error in target distance, Minimum implant/guide to canal distance",
+   "source_file": "local_path/results/LANE_X26_DECIDABILITY/results.json",
+   "key_path": "/canal_conditional/floor_mm",
+   "value": 0.9040231717261582,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "a31577569d94f6516c9fcb14cceed31c8de145cda91b0d25e0a8304395c60757",
+   "same_quantity_justification": "The edge's 'physical floor remains conditional' clause. This is the conditional decision floor in mm against which signed canal margins are compared; the XREVIEW independent recount names the same quantity as conditional_floor_mm in the formula abs(signed_margin_mm)>conditional_floor_mm.",
+   "measured": false,
+   "source_self_description": "Composite derived from the declared numerical operator plus the phenomenological sigma_w/tau; /canal_conditional/physical_surface_confidence = UNKNOWN. Not itself an observation.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS (LANE_XREVIEW_BATCH3/REVIEW_LANE_X26_DECIDABILITY.json)"
+  },
+  {
+   "edge_id": "D-E-CANAL-RELEASE",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Same-image release revisions change local canal distances; not independently labelled anatomical truth",
+   "edge_required_measurement": "Matched specimen, region and protocol observations for anatomy_surface, wall_sigma, nerve_distance",
+   "source_file": "local_path/results/LANE_X58_CANAL_WALL_SPREAD/results.json",
+   "key_path": "/R3/max_located_old_minus_new_mm",
+   "value": 5.936235214522559,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "7df3fa908fcf4d219ac5d8522cf0858ea06b6e14012bc2ff16f573e494322367",
+   "same_quantity_justification": "The edge's quantity is the change in local canal distance produced by same-image release revisions. This is the maximum, over located sites, of (old release distance - new release distance) in mm on the same images: exactly that change.",
+   "measured": true,
+   "source_self_description": "Computed from two real dataset releases of the same images; the review ran a poisoned-cache and a devices-fixed replay of this round.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS_WITH_CORRECTION (LANE_XREVIEW_BATCH15/REVIEW_LANE_X58_CANAL_WALL_SPREAD.json)"
+  },
+  {
+   "edge_id": "D-E-CANAL-RELEASE",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Same-image release revisions change local canal distances; not independently labelled anatomical truth",
+   "edge_required_measurement": "Matched specimen, region and protocol observations for anatomy_surface, wall_sigma, nerve_distance",
+   "source_file": "local_path/results/LANE_X58_CANAL_WALL_SPREAD/results.json",
+   "key_path": "/R3/mean_located_abs_change_mm",
+   "value": 0.17057548353076715,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "7df3fa908fcf4d219ac5d8522cf0858ea06b6e14012bc2ff16f573e494322367",
+   "same_quantity_justification": "Same quantity as above, as the mean absolute change in located canal distance across sites between the two releases, in mm.",
+   "measured": true,
+   "source_self_description": "Observed difference between releases, not a model output.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS_WITH_CORRECTION (LANE_XREVIEW_BATCH15/REVIEW_LANE_X58_CANAL_WALL_SPREAD.json)"
+  },
+  {
+   "edge_id": "D-E-CANAL-RELEASE",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Same-image release revisions change local canal distances; not independently labelled anatomical truth",
+   "edge_required_measurement": "Matched specimen, region and protocol observations for anatomy_surface, wall_sigma, nerve_distance",
+   "source_file": "local_path/results/LANE_X58_CANAL_WALL_SPREAD/results.json",
+   "key_path": "/R4/median_shared_wall_patient_radial_p95_mm",
+   "value": 0.47186005759787886,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "7df3fa908fcf4d219ac5d8522cf0858ea06b6e14012bc2ff16f573e494322367",
+   "same_quantity_justification": "required_measurement item wall_sigma: the per-patient 95th percentile radial spread of the shared canal wall, median over patients, in mm. It is a spread of the canal wall position, which is the quantity wall_sigma names.",
+   "measured": true,
+   "source_self_description": "Measured over 549684 common valid rays on shared walls; the job states this is label/release spread, not anatomical truth error.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS_WITH_CORRECTION (LANE_XREVIEW_BATCH15/REVIEW_LANE_X58_CANAL_WALL_SPREAD.json)"
+  },
+  {
+   "edge_id": "D-E-GUIDE-CLEARANCE",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Finite pose/support bound for whole-body clearance under declared profile versus apex-only model",
+   "edge_required_measurement": "Same-specimen/protocol Guide sleeve clearance, Signed realised apex position error, Canal boundary spread, not anatomical truth error, Minimum implant/guide to canal distance",
+   "source_file": "local_path/results/LANE_X31_CLINICAL_ANSWERS/results.json",
+   "key_path": "/rounds/R1/orientation_counterexample/0/same_radial_mean_sd_mm/0",
+   "value": 1.62,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "4346740cdd9e896aa4c1c12ef206c43323a4a26654526f48f001ec9494be1363",
+   "same_quantity_justification": "required_measurement item 'Signed realised apex position error'. This is the mean realised apex radial deviation for the fully_guided protocol, in mm.",
+   "measured": true,
+   "source_self_description": "Radial (unsigned) apex deviation, so it supplies the magnitude of the realised apex error but not its signed component; the edge still needs the signed decomposition.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS (LANE_XREVIEW_BATCH3/REVIEW_LANE_X31_CLINICAL_ANSWERS.json)"
+  },
+  {
+   "edge_id": "D-E-GUIDE-CLEARANCE",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Finite pose/support bound for whole-body clearance under declared profile versus apex-only model",
+   "edge_required_measurement": "Same-specimen/protocol Guide sleeve clearance, Signed realised apex position error, Canal boundary spread, not anatomical truth error, Minimum implant/guide to canal distance",
+   "source_file": "local_path/results/LANE_X31_CLINICAL_ANSWERS/results.json",
+   "key_path": "/rounds/R1/orientation_counterexample/0/same_radial_mean_sd_mm/1",
+   "value": 0.61,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "4346740cdd9e896aa4c1c12ef206c43323a4a26654526f48f001ec9494be1363",
+   "same_quantity_justification": "Standard deviation of the same realised apex radial deviation for fully_guided, in mm; the second moment the edge's pose bound consumes.",
+   "measured": true,
+   "source_self_description": "Unsigned radial deviation, as above.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS (LANE_XREVIEW_BATCH3/REVIEW_LANE_X31_CLINICAL_ANSWERS.json)"
+  },
+  {
+   "edge_id": "D-E-GUIDE-CLEARANCE",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Finite pose/support bound for whole-body clearance under declared profile versus apex-only model",
+   "edge_required_measurement": "Same-specimen/protocol Guide sleeve clearance, Signed realised apex position error, Canal boundary spread, not anatomical truth error, Minimum implant/guide to canal distance",
+   "source_file": "local_path/results/LANE_X31_CLINICAL_ANSWERS/results.json",
+   "key_path": "/rounds/R1/orientation_counterexample/0/toward_plane_required_apex_gap_mm",
+   "value": 4.036099655761288,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "4346740cdd9e896aa4c1c12ef206c43323a4a26654526f48f001ec9494be1363",
+   "same_quantity_justification": "The edge's own quantity: the finite pose/support bound on apex-to-plane clearance for the fully_guided profile, in mm, in the worst (toward-plane) orientation.",
+   "measured": false,
+   "source_self_description": "Sibling key /conditions states 'Local planar apex only, gamma radial law; B=0.3 sensitivity; not whole-cylinder guarantee'. Derived under a declared radial law and a declared sensitivity, not measured.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS (LANE_XREVIEW_BATCH3/REVIEW_LANE_X31_CLINICAL_ANSWERS.json)"
+  },
+  {
+   "edge_id": "D-E-GUIDE-CLEARANCE",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Finite pose/support bound for whole-body clearance under declared profile versus apex-only model",
+   "edge_required_measurement": "Same-specimen/protocol Guide sleeve clearance, Signed realised apex position error, Canal boundary spread, not anatomical truth error, Minimum implant/guide to canal distance",
+   "source_file": "local_path/results/LANE_X31_CLINICAL_ANSWERS/results.json",
+   "key_path": "/rounds/R1/orientation_counterexample/0/away_plane_sufficient_apex_gap_mm",
+   "value": 1.3,
+   "unit": "mm",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "4346740cdd9e896aa4c1c12ef206c43323a4a26654526f48f001ec9494be1363",
+   "same_quantity_justification": "Same clearance bound as above in the favourable (away-plane) orientation, in mm; it is the pair that makes the edge's orientation dependence finite.",
+   "measured": false,
+   "source_self_description": "Declared sufficient gap under the same local-planar conditions; identical 1.3 mm across all four guide protocols in this block, which marks it as a set constant rather than an observation.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS (LANE_XREVIEW_BATCH3/REVIEW_LANE_X31_CLINICAL_ANSWERS.json)"
+  },
+  {
+   "edge_id": "D-E-PDL-CALIBRATION",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Match incisor force at 0.15 mm using archived FE force-versus-modulus curves",
+   "edge_required_measurement": "Same-specimen/protocol Effective PDL modulus conditional on rate/geometry/nu, Contact resultant on named tooth, Tooth displacement at specified load/site/time",
+   "source_file": "local_path/results/LANE_X44_MISSING_CHAINS/results.json",
+   "key_path": "/chains/K13/material_registry/pdl_upper_incisor_conditional/E/value",
+   "value": 0.9275787725716064,
+   "unit": "MPa",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "e94793c77e1f6dc2b2feb1b50853eda8ffaeeff4a5f21f0cc607e19ef5c89074",
+   "same_quantity_justification": "required_measurement item 'Effective PDL modulus conditional on rate/geometry/nu'. This is the effective PDL Young's modulus for the upper central incisor at nu=0.45 under the F1 static loading protocol. Note the unit is MPa, a pressure; the edge's declared unit mm belongs to the displacement component (0.15 mm), not to this component.",
+   "measured": false,
+   "source_self_description": "parameter_status = CONDITIONAL_POPULATION_CALIBRATION; /chains/K13/uncertainty says 'Conditional source-force interpolation of six old FE samples'. The value is back-solved so the archived FE curves reproduce the in-vivo incisor force at 0.15 mm, i.e. chosen to produce a target, not measured.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS_WITH_CORRECTION (LANE_XREVIEW_BATCH8/REVIEW_LANE_X44_MISSING_CHAINS.json)"
+  },
+  {
+   "edge_id": "D-E-PDL-CALIBRATION",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Match incisor force at 0.15 mm using archived FE force-versus-modulus curves",
+   "edge_required_measurement": "Same-specimen/protocol Effective PDL modulus conditional on rate/geometry/nu, Contact resultant on named tooth, Tooth displacement at specified load/site/time",
+   "source_file": "local_path/results/LANE_X44_MISSING_CHAINS/results.json",
+   "key_path": "/chains/K13/conditional_E_interval_MPa/0",
+   "value": 0.686330464759273,
+   "unit": "MPa",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "e94793c77e1f6dc2b2feb1b50853eda8ffaeeff4a5f21f0cc607e19ef5c89074",
+   "same_quantity_justification": "Lower end of the interval for the same effective PDL modulus, in MPa.",
+   "measured": false,
+   "source_self_description": "Same interpolation as above; /chains/K13/conditioned_on = 'nu=0.45; F1 geometry and loading; not patient posterior'.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS_WITH_CORRECTION (LANE_XREVIEW_BATCH8/REVIEW_LANE_X44_MISSING_CHAINS.json)"
+  },
+  {
+   "edge_id": "D-E-PDL-CALIBRATION",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Match incisor force at 0.15 mm using archived FE force-versus-modulus curves",
+   "edge_required_measurement": "Same-specimen/protocol Effective PDL modulus conditional on rate/geometry/nu, Contact resultant on named tooth, Tooth displacement at specified load/site/time",
+   "source_file": "local_path/results/LANE_X44_MISSING_CHAINS/results.json",
+   "key_path": "/chains/K13/conditional_E_interval_MPa/1",
+   "value": 1.2536269676259086,
+   "unit": "MPa",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "e94793c77e1f6dc2b2feb1b50853eda8ffaeeff4a5f21f0cc607e19ef5c89074",
+   "same_quantity_justification": "Upper end of the interval for the same effective PDL modulus, in MPa.",
+   "measured": false,
+   "source_self_description": "Same interpolation as above.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS_WITH_CORRECTION (LANE_XREVIEW_BATCH8/REVIEW_LANE_X44_MISSING_CHAINS.json)"
+  },
+  {
+   "edge_id": "D-E-PDL-CALIBRATION",
+   "edge_declared_unit": "mm",
+   "edge_quantity": "Match incisor force at 0.15 mm using archived FE force-versus-modulus curves",
+   "edge_required_measurement": "Same-specimen/protocol Effective PDL modulus conditional on rate/geometry/nu, Contact resultant on named tooth, Tooth displacement at specified load/site/time",
+   "source_file": "local_path/results/LANE_X44_MISSING_CHAINS/results.json",
+   "key_path": "/chains/K13/material_registry/pdl_upper_incisor_conditional/validity/force_N/1",
+   "value": 16,
+   "unit": "N",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "e94793c77e1f6dc2b2feb1b50853eda8ffaeeff4a5f21f0cc607e19ef5c89074",
+   "same_quantity_justification": "required_measurement item 'Contact resultant on named tooth'. This is the upper bound of the force window on the named tooth (upper central incisor) over which the calibration is declared valid, in newtons.",
+   "measured": false,
+   "source_self_description": "It is the declared validity window of the calibration, not a resultant measured on a specimen in this job; /chains/K13/external_referent reports the in-vivo range 7.0-16.2 N from doi 10.1016/j.aanat.2015.08.004 and is marked refutes_us = true.",
+   "source_review_state": "job-level XREVIEW verdict HOLDS_WITH_CORRECTION (LANE_XREVIEW_BATCH8/REVIEW_LANE_X44_MISSING_CHAINS.json)"
+  },
+  {
+   "edge_id": "D-E-K33",
+   "edge_declared_unit": "N",
+   "edge_quantity": "test fatigue capacity depends on local defects, root stress and joint load path at fixed protocol",
+   "edge_required_measurement": "Measured thread root/hole/defect/hardness/preload/load arm on same sample and matched held risk validation; normalize old PARTIAL/FOLDED to PARTIAL with folded part separately.",
+   "source_file": "local_path/results/LANE_X65_ISO14801_FATIGUE/results.json",
+   "key_path": "/constructions/R2/held_rows/0/observed_force_N",
+   "value": 460.0,
+   "unit": "N",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "056e645c2415a58f0346ae10add6ffef8ad52d23094211f4689a3b030fd0b39b",
+   "same_quantity_justification": "The edge's quantity is test fatigue capacity in N at a fixed protocol. This is the observed ISO 14801 fatigue limit of a held-out source row, in newtons, with its own table locator in the sibling key table_locator.",
+   "measured": true,
+   "source_self_description": "Observed in the cited publication's table, held out of the fit (/constructions/R2/strict_n = 3). The edge's remaining need is the same-specimen thread-root/defect/hardness/preload/load-arm covariates, which this value does not supply.",
+   "source_review_state": "job-level XREVIEW decision DEMO_READY_WITH_CORRECTION (LANE_XREVIEW_BATCH16/REVIEW_LANE_X65_ISO14801_FATIGUE.json)"
+  },
+  {
+   "edge_id": "D-E-K33",
+   "edge_declared_unit": "N",
+   "edge_quantity": "test fatigue capacity depends on local defects, root stress and joint load path at fixed protocol",
+   "edge_required_measurement": "Measured thread root/hole/defect/hardness/preload/load arm on same sample and matched held risk validation; normalize old PARTIAL/FOLDED to PARTIAL with folded part separately.",
+   "source_file": "local_path/results/LANE_X65_ISO14801_FATIGUE/results.json",
+   "key_path": "/constructions/R2/held_rows/1/observed_force_N",
+   "value": 100.0,
+   "unit": "N",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "056e645c2415a58f0346ae10add6ffef8ad52d23094211f4689a3b030fd0b39b",
+   "same_quantity_justification": "The edge's quantity is test fatigue capacity in N at a fixed protocol. This is the observed ISO 14801 fatigue limit of a held-out source row, in newtons, with its own table locator in the sibling key table_locator.",
+   "measured": true,
+   "source_self_description": "Observed in the cited publication's table, held out of the fit (/constructions/R2/strict_n = 3). The edge's remaining need is the same-specimen thread-root/defect/hardness/preload/load-arm covariates, which this value does not supply.",
+   "source_review_state": "job-level XREVIEW decision DEMO_READY_WITH_CORRECTION (LANE_XREVIEW_BATCH16/REVIEW_LANE_X65_ISO14801_FATIGUE.json)"
+  },
+  {
+   "edge_id": "D-E-K33",
+   "edge_declared_unit": "N",
+   "edge_quantity": "test fatigue capacity depends on local defects, root stress and joint load path at fixed protocol",
+   "edge_required_measurement": "Measured thread root/hole/defect/hardness/preload/load arm on same sample and matched held risk validation; normalize old PARTIAL/FOLDED to PARTIAL with folded part separately.",
+   "source_file": "local_path/results/LANE_X65_ISO14801_FATIGUE/results.json",
+   "key_path": "/constructions/R2/held_rows/2/observed_force_N",
+   "value": 285.0,
+   "unit": "N",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "056e645c2415a58f0346ae10add6ffef8ad52d23094211f4689a3b030fd0b39b",
+   "same_quantity_justification": "The edge's quantity is test fatigue capacity in N at a fixed protocol. This is the observed ISO 14801 fatigue limit of a held-out source row, in newtons, with its own table locator in the sibling key table_locator.",
+   "measured": true,
+   "source_self_description": "Observed in the cited publication's table, held out of the fit (/constructions/R2/strict_n = 3). The edge's remaining need is the same-specimen thread-root/defect/hardness/preload/load-arm covariates, which this value does not supply.",
+   "source_review_state": "job-level XREVIEW decision DEMO_READY_WITH_CORRECTION (LANE_XREVIEW_BATCH16/REVIEW_LANE_X65_ISO14801_FATIGUE.json)"
+  },
+  {
+   "edge_id": "D-E-K24",
+   "edge_declared_unit": "degC",
+   "edge_quantity": "thermal diffusion and time-integrated dose along evolving drilled geometry; heat partition unknown",
+   "edge_required_measurement": "Torque/feed, real local temperature and same sample histology; different species/group measurements do not provide human safety or ISQ.",
+   "source_file": "local_path/results/LANE_X67_DRILL_HEAT/results.json",
+   "key_path": "/rounds/R1/legacy_observed_rise_C/0",
+   "value": 4.03,
+   "unit": "degC",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "16676c9de923431e76ccad6bb1ec1894cd7108aa8d137f44d565c932408d37b8",
+   "same_quantity_justification": "The edge's quantity is the drilling temperature rise in degrees Celsius at the measurement site. This is the largest observed temperature rise in the legacy primary-source set, in degC, and the companion key legacy_predicted_rise_C holds the model value for the same row.",
+   "measured": true,
+   "source_self_description": "Observed in the legacy primary source tables (locators in /external_referent/locator). Group-level, different specimens and in part different species; /outcome states 'Temperature magnitude and bone-class dose/protocol selection remain UNKNOWN'. It does not supply the same-specimen histology or torque/feed the edge also requires.",
+   "source_review_state": "job-level XREVIEW decision DEMO_READY (LANE_XREVIEW_BATCH17/REVIEW_LANE_X67_DRILL_HEAT.json)"
+  },
+  {
+   "edge_id": "D-E-K24",
+   "edge_declared_unit": "degC",
+   "edge_quantity": "thermal diffusion and time-integrated dose along evolving drilled geometry; heat partition unknown",
+   "edge_required_measurement": "Torque/feed, real local temperature and same sample histology; different species/group measurements do not provide human safety or ISQ.",
+   "source_file": "local_path/results/LANE_X67_DRILL_HEAT/results.json",
+   "key_path": "/rounds/R1/legacy_observed_rise_C/5",
+   "value": 1.04,
+   "unit": "degC",
+   "unit_basis": "read from the meaning of the quantity, not from the key suffix",
+   "source_sha256": "16676c9de923431e76ccad6bb1ec1894cd7108aa8d137f44d565c932408d37b8",
+   "same_quantity_justification": "The edge's quantity is the drilling temperature rise in degrees Celsius at the measurement site. This is the smallest observed temperature rise in the legacy primary-source set, in degC, and the companion key legacy_predicted_rise_C holds the model value for the same row.",
+   "measured": true,
+   "source_self_description": "Observed in the legacy primary source tables (locators in /external_referent/locator). Group-level, different specimens and in part different species; /outcome states 'Temperature magnitude and bone-class dose/protocol selection remain UNKNOWN'. It does not supply the same-specimen histology or torque/feed the edge also requires.",
+   "source_review_state": "job-level XREVIEW decision DEMO_READY (LANE_XREVIEW_BATCH17/REVIEW_LANE_X67_DRILL_HEAT.json)"
+  }
+ ]
+}
