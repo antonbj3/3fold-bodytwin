@@ -52,6 +52,12 @@ NEED_PREFIX = 'BT-NEED-'
 # Brainstorm angles, on the operator's call that a free resource is worth a low hit rate as long
 # as the filter sits inside the task. Each job reports its own hit rate.
 IDEA_PREFIX = 'BT-IDEA-'
+# 3/10 19:40 (Anton: "I want creative ones first right now"): the reservation only matched the old
+# BT-IDEA- prefix, so the free-form briefs generated from the constraint net and the second-source
+# hunts fell to the back. Measured before this change: 42 creative jobs against 1052 computation
+# jobs, median creative position 912 of 1101. They are the ones that produced the external anchors
+# tonight, so they go first until told otherwise.
+CREATIVE_PREFIXES = (IDEA_PREFIX, 'BT-NET-', 'BT-2ND-')
 
 
 def job_of(line: str) -> str:
@@ -90,7 +96,7 @@ def main() -> int:
                 anchor.append(ln)
             elif j.startswith(HANDOVER_PREFIX) and is_live(j):
                 handover.append(ln)
-            elif j.startswith(IDEA_PREFIX) and is_live(j):
+            elif j.startswith(CREATIVE_PREFIXES) and is_live(j):
                 idea.append(ln)
             elif (j.startswith(SEED_PREFIX) or j.startswith(FETCH_PREFIX)
                   or j.startswith(EDGE_PREFIX) or j.startswith(NEED_PREFIX)) and is_live(j):
@@ -116,7 +122,11 @@ def main() -> int:
                or si < len(seed) or ii < len(idea) or oi < len(other)):
             pos += 1
             phase = pos % 5
-            if phase in (2, 4) and ii < len(idea):
+            if ii < len(idea):
+                # Creative first, in full, by operator instruction 3/10 19:40. Reverting to the
+                # shared reserved slot is a one-line change: delete these two lines.
+                out.append(idea[ii]); ii += 1
+            elif phase in (2, 4) and ii < len(idea):
                 out.append(idea[ii]); ii += 1
             elif phase == 4 and si < len(seed):
                 out.append(seed[si]); si += 1
