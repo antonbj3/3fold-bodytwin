@@ -53,7 +53,15 @@ def to_vector(sphere: float, cyl: float, axis_deg: float) -> tuple[float, float,
 
 def from_vector(M: float, J0: float, J45: float) -> tuple[float, float, float]:
     c = 2.0 * math.hypot(J0, J45)
-    axis = 0.5 * math.degrees(math.atan2(-J45, -J0)) % 180.0
+    # 3/10 22:30, found by a Sol connection hunt and verified here: atan2(-J45, -J0) negates both
+    # components, which rotates the double-angle vector by 180 degrees and therefore the AXIS by
+    # 90. The round trip was wrong in every case: 0 came back as 90, 45 as 135, 30 as 120. With
+    # J0 = -(C/2)cos(2A) and J45 = -(C/2)sin(2A) and C negative, (J0, J45) = |C/2|(cos 2A, sin 2A),
+    # so 2A = atan2(J45, J0) with no negation. The sphere and cylinder always round-tripped
+    # correctly, which is why the residual never showed it: the lens is aligned to this same
+    # returned axis, so a common 90-degree rotation cancels in the residual and only an ABSOLUTE
+    # axis reported out of here was wrong.
+    axis = 0.5 * math.degrees(math.atan2(J45, J0)) % 180.0
     return (M + c / 2.0, -c, axis)                           # minus-cylinder convention
 
 
