@@ -35,6 +35,30 @@ ts() { date '+%F %T'; }
   #    this only ever fires on an edge that is new, or whose answer has not come back yet.
   python3 tasks/assembly/queue_creative_from_net.py 2>&1 | sed "s/^/[$(ts)] /"
 
+  # 3. Prune the queue. Measured 2026-10-03: 12837 of 13919 entries already had a RESULTS.md, so the
+  #    queue was 92 % completed work that nothing removed, plus 35 malformed lines from a heredoc that
+  #    ran away. The dispatcher re-read and skipped all of it every cycle, and it made freshly queued
+  #    briefs look buried at position 915 when the real backlog was 1082 jobs.
+  python3 - <<'PRUNE' 2>&1 | sed "s/^/[$(ts)] /"
+import pathlib, re
+q = pathlib.Path('tasks/lanes/bt_queue.txt')
+if q.exists():
+    lines = q.read_text().splitlines()
+    keep, done, broken = [], 0, 0
+    for l in lines:
+        p = l.split()
+        if len(p) < 3 or ':' in p[-1] or not re.match(r'^[A-Z]$', p[0]):
+            broken += 1
+            continue
+        if (pathlib.Path('results') / p[-1] / 'RESULTS.md').exists():
+            done += 1
+            continue
+        keep.append(l)
+    if done or broken:
+        q.write_text('\n'.join(keep) + '\n')
+    print(f'queue {len(lines)} -> {len(keep)} ({done} complete, {broken} broken removed)')
+PRUNE
+
   # 3. Throughput, so a dead swarm is visible in the same log rather than needing a separate look.
   n=$(find results -name RESULTS.md -mmin -60 2>/dev/null | wc -l)
   echo "[$(ts)] swarm: $n reports in the last hour"
