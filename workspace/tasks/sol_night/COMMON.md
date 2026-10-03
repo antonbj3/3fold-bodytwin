@@ -225,3 +225,32 @@ history for no gain, and NIGHT_LOG rows are never edited retroactively.
 
 One exception: NIGHT_LOG rows may stay in Swedish, because they are the operator-facing ledger and are
 appended by the coordinator, not by lanes.
+
+## Raise resolution AT THE STRESS POINT, not across the board
+Operator directive, 2026-10-03: raise resolution, stop at the stress point, bring data anchors in bulk,
+take datasets where they exist.
+
+A **stress point** is a quantity whose value decides a verdict we already hold. It is not the same as a
+quantity we are uncertain about, and that distinction is what makes the rule cheap. Two measured
+examples from tonight:
+- the eye chain spans **0.87 D** between the extremes of its surface allocation, which is 3.5x the
+  0.25 D clinical threshold, **and the sign of the refractive change flips** between conditions;
+- complement discrimination between host and activator surface swings from **486x to 4.97x**, a factor
+  98, on the recycling fraction alone.
+
+Refining everywhere is measured waste: of 108 quantities, **3 require finer resolution and 51 are
+already adequate as run**. Refining at a stress point decides an open verdict. So:
+
+1. **Find the stress point before refining.** Vary each candidate quantity across its admissible range
+   and report which ones move a VERDICT, not which ones move a number. A quantity that moves the number
+   but not the verdict is not a stress point.
+2. **Stop there and go deep.** Finer discretisation, more conditions, the sufficiency test, and the
+   sign of the effect — at that one quantity. Report the span and whether the sign flips.
+3. **Then bring anchors in bulk.** Every stress point becomes an entry in
+   `results/<LANE>/ACQUISITION_TARGETS_V<n>.json` with quantity, unit and what it decides.
+   `python3 tasks/anchor_hunt_packets.py` turns each entry into a swarm search job with web access, so
+   a public dataset or published measurement is looked for. 48 such jobs were queued on first run.
+4. **A dataset beats a value.** If a whole dataset exists for the quantity, its access route and licence
+   are worth more than one number, because the next question can be asked of it too.
+5. **And absence counts.** `VERIFIED_ABSENCE_OF_EVIDENCE`, with the searches stated, closes a stress
+   point honestly and tells us to change the readout instead of waiting.
