@@ -37,9 +37,8 @@ A caution carried from the graph lane: min_units is 20, so the implant-power ver
 floor by construction and is borderline whatever it says. The toric case at 69 is not.
 
 WITHDRAWN, and why it is the result rather than a setback. The toric decomposition is certified
-DECORRELATED with rho_hat -0.7992 and a margin of 1.1847 that lies OUTSIDE the module's own bracket of
-0.4719 to 0.6613. A margin outside the endpoints it is bracketed by cannot be right, which is what sent
-me to the mechanism: the two toric stages are (measured - population) and (population - outcome), so the
+DECORRELATED with rho_hat -0.7992 and a margin of 1.1847 that lies outside the module's own bracket of
+0.4719 to 0.6613, which is what sent me to the mechanism: the two toric stages are (measured - population) and (population - outcome), so the
 population prediction appears in both with opposite signs. It carries 1.285 times the variance of stage
 one on its own, so the anticorrelation is INDUCED BY THE CONSTRUCTION and nothing about the errors was
 measured. The certification is withdrawn.
@@ -52,6 +51,21 @@ rather than from the outcome, so there is no shared term -- and its correlation 
 an honest near-zero looks like next to a constructed -0.80. That is also exactly the module's own stated
 precondition, real per-unit per-stage error SAMPLES, and it means the toric case needs a second
 independent measurement per eye before any margin can be certified for it.
+
+CORRECTION to my own reasoning, from the graph lane, 2026-10-03. I read the margin lying outside its
+bracket as proof that the input was incompatible with the model. That inference is wrong and the number
+was right: net-negative covariance shrinks 1'Sigma1 by cancellation, so a margin above the RSS endpoint
+is legitimate arithmetic. What the bracket excursion actually signals is that the function left its own
+documented regime, since RSS and SUM are documented as the rho=0 and rho=1 endpoints. The withdrawal
+stands, but on the identifiability ground alone -- the stages were not independently measured -- and not
+because the margin was impossible. The verifier now returns ANTICORRELATED-CHECK-CONSTRUCTION for this
+case, keeping RSS because it stays conservative while setting decorrelation_verified false because
+nothing about independence was shown.
+
+A bound that came out of their reproduction and that limits where this failure can occur at all: with K
+stages the minimum attainable equicorrelation is -1/(K-1), so at K=8 nothing below -0.143 exists and the
+anticorrelated branch is unreachable. My decomposition used K=2, which is the only reason -0.80 was
+available to me.
 """
 from __future__ import annotations
 
