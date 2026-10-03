@@ -58,7 +58,8 @@ Symmetric-QC / held open, not resolved here: TEWL is strongly site/ambient-humid
 (open- vs closed-chamber) dependent (Alexander et al. 2018, PMID 30348333; Pinnagoda et al. 1990,
 PMID 2335090; Rogiers 2001, PMID 11316970) -- reported as a spread, not collapsed to one number.
 
-Run: source_repository/.venv-msk/bin/python3 scripts/msk/skin_barrier_tewl.py
+Run: python3 skin_barrier_tewl.py  (from anywhere; results land in this cell's own directory
+unless CELL_OUT_DIR is set)
 (no args; all literature verification done live in-session via NCBI eutils efetch/esearch/
 esummary + Crossref + Wikipedia for two textbook physical constants, logged in CITATIONS below;
 WebSearch was session-quota-exhausted, same disclosed fallback as scripts/msk/hair_follicle.py;
@@ -67,6 +68,38 @@ writes data/msk_smoketest/skin_barrier_tewl/skin_barrier_tewl_results.json)
 
 import json
 import math
+import os
+from pathlib import Path
+
+# PENDING_INDEPENDENT_REVIEW -- path portability only; no model change.
+# This cell addressed its inputs and outputs by absolute path in ANOTHER checkout, so it could not
+# run off this machine and, worse, it wrote its results into a repo that is read-only here. Output
+# now defaults to the cell's own directory (override with CELL_OUT_DIR) and inputs are looked up
+# relative to this file first, with the old absolute location kept only as a last-resort read.
+_HERE = Path(__file__).resolve().parent
+_CANONICAL_REPO = "source_repository"  # last-resort INPUT location, never written to
+
+
+def _cell_out_dir():
+    d = Path(os.environ.get("CELL_OUT_DIR", _HERE))
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def _find_input(rel):
+    """Locate an input produced by a sibling cell: env override, beside this file, then the
+    canonical checkout. Returns the canonical path unchanged when nothing is found, so the
+    caller's own FileNotFoundError still names the place a reader would look."""
+    cands = []
+    env = os.environ.get("BODYTWIN_DATA_ROOT")
+    if env:
+        cands.append(Path(env) / rel)
+    cands += [_HERE / Path(rel).name, _HERE / rel, Path(_CANONICAL_REPO) / rel]
+    for c in cands:
+        if c.exists():
+            return str(c)
+    return str(cands[-1])
+
 
 # =====================================================================================
 # CITATIONS -- every PMID/DOI verified LIVE this session (NCBI eutils esearch/esummary/efetch,
@@ -1018,7 +1051,7 @@ def main():
         "ambient_rows_full_sweep": ambient_rows,
         "overall_pass": overall_pass,
     }
-    out_path = "source_repository/data/msk_smoketest/skin_barrier_tewl/skin_barrier_tewl_results.json"
+    out_path = str(_cell_out_dir() / "skin_barrier_tewl_results.json")
     with open(out_path, "w") as f:
         json.dump(out, f, indent=1)
     print(f"Wrote {out_path}")

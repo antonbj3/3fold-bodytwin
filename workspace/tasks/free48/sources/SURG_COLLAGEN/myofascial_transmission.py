@@ -198,6 +198,37 @@ script's own outputs under data/msk_smoketest/myofascial_transmission/; no git c
 import json
 import os
 import sys
+from pathlib import Path
+
+# PENDING_INDEPENDENT_REVIEW -- path portability only; no model change.
+# This cell addressed its inputs and outputs by absolute path in ANOTHER checkout, so it could not
+# run off this machine and, worse, it wrote its results into a repo that is read-only here. Output
+# now defaults to the cell's own directory (override with CELL_OUT_DIR) and inputs are looked up
+# relative to this file first, with the old absolute location kept only as a last-resort read.
+_HERE = Path(__file__).resolve().parent
+_CANONICAL_REPO = "source_repository"  # last-resort INPUT location, never written to
+
+
+def _cell_out_dir():
+    d = Path(os.environ.get("CELL_OUT_DIR", _HERE))
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def _find_input(rel):
+    """Locate an input produced by a sibling cell: env override, beside this file, then the
+    canonical checkout. Returns the canonical path unchanged when nothing is found, so the
+    caller's own FileNotFoundError still names the place a reader would look."""
+    cands = []
+    env = os.environ.get("BODYTWIN_DATA_ROOT")
+    if env:
+        cands.append(Path(env) / rel)
+    cands += [_HERE / Path(rel).name, _HERE / rel, Path(_CANONICAL_REPO) / rel]
+    for c in cands:
+        if c.exists():
+            return str(c)
+    return str(cands[-1])
+
 from datetime import datetime, timezone
 
 import numpy as np
@@ -207,11 +238,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import validate_joint_force as vjf  # noqa: E402  reuse proven parse_mot/paths
 
 # ------------------------------------------------------------------ paths --
-REPO_ROOT = "source_repository"
 MODEL_FILE = vjf.MODEL_FILE     # SAME model the sibling SO output below was computed on
 IK_MOT = vjf.IK_MOT              # walking1.mot, 158 frames, 100 Hz (same trial throughout this cert family)
 
-SIBLING_SO_DIR = f"{REPO_ROOT}/data/msk_smoketest/subject2_walking1/static_optimization/so"
+SIBLING_SO_DIR = _find_input("data/msk_smoketest/subject2_walking1/static_optimization/so")
 SO_FORCE_STO = f"{SIBLING_SO_DIR}/walking1_StaticOptimization_force.sto"
 
 OUT_DIR = f"{REPO_ROOT}/data/msk_smoketest/myofascial_transmission"

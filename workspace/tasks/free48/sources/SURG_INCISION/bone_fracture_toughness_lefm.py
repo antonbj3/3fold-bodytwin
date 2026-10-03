@@ -53,8 +53,39 @@ This must NOT reproduce sigma_f within 1.5x of the measured 150MPa at the same K
 import json
 import os
 import numpy as np
+from pathlib import Path
 
-RESULTS_PATH = "source_repository/data/msk_results/bone_fracture_toughness_lefm.json"
+# PENDING_INDEPENDENT_REVIEW -- path portability only; no model change.
+# This cell addressed its inputs and outputs by absolute path in ANOTHER checkout, so it could not
+# run off this machine and, worse, it wrote its results into a repo that is read-only here. Output
+# now defaults to the cell's own directory (override with CELL_OUT_DIR) and inputs are looked up
+# relative to this file first, with the old absolute location kept only as a last-resort read.
+_HERE = Path(__file__).resolve().parent
+_CANONICAL_REPO = "source_repository"  # last-resort INPUT location, never written to
+
+
+def _cell_out_dir():
+    d = Path(os.environ.get("CELL_OUT_DIR", _HERE))
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def _find_input(rel):
+    """Locate an input produced by a sibling cell: env override, beside this file, then the
+    canonical checkout. Returns the canonical path unchanged when nothing is found, so the
+    caller's own FileNotFoundError still names the place a reader would look."""
+    cands = []
+    env = os.environ.get("BODYTWIN_DATA_ROOT")
+    if env:
+        cands.append(Path(env) / rel)
+    cands += [_HERE / Path(rel).name, _HERE / rel, Path(_CANONICAL_REPO) / rel]
+    for c in cands:
+        if c.exists():
+            return str(c)
+    return str(cands[-1])
+
+
+RESULTS_PATH = str(_cell_out_dir() / "bone_fracture_toughness_lefm.json")
 OUT = {}
 
 Y_GEOM = 1.12  # standard edge-crack geometry factor
