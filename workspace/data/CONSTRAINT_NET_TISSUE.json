@@ -1048,18 +1048,26 @@
       "laser_forms"
      ],
      "constraint": "outcome.additional_release_gap_per_dye = 0.2969970751451323 in the lane's own latest round. Obstacle as the lane states it: Matched class-specific exchange/oxidation, chemical-electronic joint stock, active oxygen stoichiometry/recycling and calibrated release observation remain unacquired. The common-hazard factorization is not physically id",
-     "status": "OPEN",
+     "status": "UNKNOWN",
      "evidence": "results/LANE_LASER_FORMS/night_rounds/r7.json :: outcome.additional_release_gap_per_dye = 0.2969970751451323",
      "provenance": "auto_harvested_2026_10_03",
      "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
      "evidence_mtime_at_last_check": 1791046897.328,
      "last_checked_status": "OK",
-     "refuted_by_external_measurement": {
-      "what": "the quantity is named per_dye and carries a single dye-independent value to 16 digits; published per-fluorophore singlet-oxygen production factors span 2033x across six clinically used dyes (2.44 for IR700 down to 0.0012 for ICG, cm^2 J^-1 um^-1)",
-      "source": "DOI 10.1111/php.13638, PMID 35442536",
-      "verified_by_coordinator": "the constant was located in results/LANE_LASER_FORMS r7 and r8 under the key additional_release_gap_per_dye, and 2.44/0.0012 = 2033 was recomputed",
-      "consequence": "no constant can be attached to \"the dye\" and survive a second dye, so this edge cannot be promoted by more precision on the same quantity; it needs a dye index",
-      "found_by": "BT-NET-H-E19-LASER-FORMS, a free-form brief generated from this edge"
+     "withdrawn_refutation_2026_10_03": {
+      "what_I_claimed": "that the 2033-fold published spread in per-fluorophore singlet-oxygen production refutes our single per_dye value of 0.2969970751451323",
+      "why_it_does_not": "the quantities, denominators and observation operators differ. The 2033-fold assay spread is real and it does not touch the ligand-release witness: they are not the same observable",
+      "my_unit_error": "I wrote the published unit as cm^2 J^-1 um^-1. The primary table gives normalized fluorescence cm^2/(J uM) — micromolar, a concentration, which I read as a reciprocal length",
+      "what_survives": "the native hidden-stock witness in results/LANE_LASER_FORMS/r7, untouched",
+      "what_is_still_missing": "a separate dye-indexed assay operator, which is a different object",
+      "found_by": "LANE_READ_CREATIVE, READ-C-DYE-NONCOMPARABLE",
+      "the_original_annotation_kept_verbatim": {
+       "what": "the quantity is named per_dye and carries a single dye-independent value to 16 digits; published per-fluorophore singlet-oxygen production factors span 2033x across six clinically used dyes (2.44 for IR700 down to 0.0012 for ICG, cm^2 J^-1 um^-1)",
+       "source": "DOI 10.1111/php.13638, PMID 35442536",
+       "verified_by_coordinator": "the constant was located in results/LANE_LASER_FORMS r7 and r8 under the key additional_release_gap_per_dye, and 2.44/0.0012 = 2033 was recomputed",
+       "consequence": "no constant can be attached to \"the dye\" and survive a second dye, so this edge cannot be promoted by more precision on the same quantity; it needs a dye index",
+       "found_by": "BT-NET-H-E19-LASER-FORMS, a free-form brief generated from this edge"
+      }
      }
     },
     {
