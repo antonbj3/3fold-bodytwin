@@ -89,3 +89,31 @@ areas of validity, the statement of compliance against the eyelash spread tail, 
 for under- and over-activation.
 
 Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+
+## APPENDIX — build in the order that can be tested, not in the list order
+The proposal to continue building cells out of the nasty domains is the right direction, but wide-ranging it would
+Multiply a weakness I measured last night: **21 av 43 cells accept on a scalar number**; and
+**96,08 % of the irrevocable quantities has no nameable other quantity**, med 51 av 108 rader redan
+A new cell that counts a number no one can try adds an irreconcilable line, not an ability.
+
+I've measured what can actually be tried. `data/tissue_lit_refs/` contains **671 litteraturposter i
+tio filer, 588 with a value and 602 with one unit, over 264 Distinctive tissues**. The emphasis is on:
+**helblod 72, lagerstack hud/fascia 36, blodfyllda sinusoider 35, hud 28, dermis 28 + 11, tendons and
+kortikalt ben**. Thus: skin, blood, dermis, tendon and bone — exactly our surgical cells and
+fibrillane. Hornhine, complement and B-cells have their own domain data but **ingen** This is literature post.
+
+**Therefore build in three levels and report how many of the nasty domains fall into each:**
+1. **Literature entry with device available** → The cell can be certified against something external.
+   blood, dermis, tendon and bone, tissue behavior and surgery.
+2. **Own older numbers but no literature entry** → building, but cell output is an information link and
+   not a validated ability, and it should be in the gate. This includes the cornea, the complement and
+   B-cellsmognaden.
+3. **Neither literature entry nor trialable decision** → bygg NOT Tell me how many they are and what they are
+   would move them to level 1.
+
+The three numbers are the lan's most important delivery after the first two cells, because they determine how much of them
+Creepy domains worth building at all.
+
+**And a tightening up of the ban:** The literature collection contains: 18 records of a private target tissue.
+Do not consume or quote them, and never let them reach sex or swarm. Tissue-generic mechanics,
+It's just optics and thermals.
