@@ -35,8 +35,20 @@ while true; do
         echo "[$(date +%T)] fetch failed; remote preserved $J" >> "$LOG"
         continue
       fi
+      JMODEL=$([ -s "$f" ] && cat "$f" || echo swarm)
       rm -f $f $W/results/$J/.ovh_claim
       echo "[$(date +%T)] fetched $J exit=$(cat $W/results/$J/AGENT_EXIT 2>/dev/null || echo none-timeout) results=$([ -s $W/results/$J/RESULTS.md ] && echo yes || echo no)" >> $LOG
+      # exit 137 is SIGKILL, which for a unit with MemoryMax means the memory limit. Re-queue once.
+      EX=$(cat $W/results/$J/AGENT_EXIT 2>/dev/null || echo "")
+      if [ "$EX" = "137" ] && [ ! -s "$W/results/$J/RESULTS.md" ] && [ ! -f "$W/results/$J/.mem_retry_done" ]; then
+        PREV=$(cat "$W/results/$J/.mem_retry" 2>/dev/null); case "$PREV" in (*[!0-9]*|"") PREV="$AGENT_MIB";; esac
+        NEXT=$((PREV * 2)); [ "$NEXT" -gt "${RETRY_CAP_MIB:-8192}" ] && NEXT="${RETRY_CAP_MIB:-8192}"
+        echo "$NEXT" > "$W/results/$J/.mem_retry"
+        : > "$W/results/$J/.mem_retry_done"
+        rm -f "$W/results/$J/AGENT_EXIT"
+        echo "A $JMODEL $J" >> "$W/tasks/lanes/bt_queue.txt"
+        echo "[$(date +%T)] mem-kill $J: requeued with ${NEXT}MiB" >> $LOG
+      fi
       ssh -n "${SSHO[@]}" $H "sudo -u ubuntu rm -rf /opt/agents/jobs/$J"
     done
   else echo "[$(date +%T)] ssh fail at fetch" >> $LOG; fi
@@ -109,7 +121,18 @@ while true; do
         LAUNCHER=/opt/agents/jobs/$J/_run_dental.py
       fi
       if rsync -aL --rsync-path="sudo -u ubuntu rsync" -e "ssh ${SSHO[*]}" --exclude .ovh_claim $W/results/$J/ $H:/opt/agents/jobs/$J/ < /dev/null && \
-         ssh -n "${SSHO[@]}" $H "${GUARD/sudo -u ubuntu/sudo} -- systemd-run --quiet --collect --slice=research.slice --unit=agent-$J-\$(date +%s) --uid=ubuntu -p MemoryMax=${AGENT_MIB}M -p MemoryHigh=1250M -p CPUQuota=100% -p RuntimeMaxSec=5400 --working-directory=/opt/agents/jobs/$J /bin/bash -c 'python3 $LAUNCHER $P $M --dir /opt/agents/jobs/$J --title $J \"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\"$J\\\" when done.\" > agent.log 2>&1 < /dev/null; echo \$? > AGENT_EXIT'"; then
+      # A job killed for memory is retried once with a doubled booking. Measured 2026-10-03: zero
+      # exit=137 at the current booking, and dental's peak tables put the loss at about 2.5 % of one
+      # class if the booking drops to p95 -- so this path is what makes lowering the quantile safe.
+      # Bounded on purpose: one retry, never above RETRY_CAP_MIB, and the file is removed on success
+      # so a job cannot escalate forever.
+      JOB_MIB="$AGENT_MIB"
+      if [ -f "$W/results/$J/.mem_retry" ]; then
+        R=$(cat "$W/results/$J/.mem_retry" 2>/dev/null)
+        case "$R" in (*[!0-9]*|"") R=0;; esac
+        [ "$R" -gt "$JOB_MIB" ] && JOB_MIB="$R"
+      fi
+         ssh -n "${SSHO[@]}" $H "${GUARD/sudo -u ubuntu/sudo} -- systemd-run --quiet --collect --slice=research.slice --unit=agent-$J-\$(date +%s) --uid=ubuntu -p MemoryMax=${JOB_MIB}M -p MemoryHigh=$((JOB_MIB * 5 / 6))M -p CPUQuota=100% -p RuntimeMaxSec=5400 --working-directory=/opt/agents/jobs/$J /bin/bash -c 'python3 $LAUNCHER $P $M --dir /opt/agents/jobs/$J --title $J \"Read BRIEF.md and execute the bounded task. First check what already exists in this directory from an earlier interrupted session and build on it. Write RESULTS.md starting with the line \\\"$J\\\" when done.\" > agent.log 2>&1 < /dev/null; echo \$? > AGENT_EXIT'"; then
         echo $M > $RUN/$J; n=$((n+1)); SLOTS=$((SLOTS-1)); echo "[$(date +%T)] ovhstart $J ($P $M) n=$n" >> $LOG
         # The shared host guard can reject a stale capacity snapshot. Charge a
         # delayed retry only after a real unit start, never for failed admission.
