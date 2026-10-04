@@ -1,8 +1,9 @@
 {
  "checked": 175,
  "counts": {
-  "OK": 169,
-  "UNRESOLVED_DECLARED": 6
+  "OK": 168,
+  "UNRESOLVED_DECLARED": 6,
+  "STALE": 1
  },
  "evidence_moved_since_last_check": [],
  "rows": [
@@ -848,8 +849,8 @@
   },
   {
    "edge": "T-E33-summary_fibre_count-vs-minimum_extra_fields",
-   "status": "OK",
-   "detail": "minimum_extra_binary_fields_over_all_chains = 6 (path)"
+   "status": "STALE",
+   "detail": "the value 13 does not appear in the constraint text"
   },
   {
    "edge": "T-E34-inhibitor_exposure-vs-creatinine_clearance",
