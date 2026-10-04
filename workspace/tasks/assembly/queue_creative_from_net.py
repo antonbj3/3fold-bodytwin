@@ -113,11 +113,45 @@ def main() -> int:
                     body.append(f'Noted on the edge ({k}): {str(e[k])[:300]}')
         (d / 'BRIEF.md').write_text('\n'.join(body).rstrip() + ASK)
         (d / 'ALLOW_WEB').write_text('1\n')
+        # The shared queue orderer (research_value.assess) reads these fields and the ordering
+        # follows. Measured 2026-10-04: with category 'exploratory' and none of the value fields
+        # filled, every one of these jobs scored as role 'challenge' at base 45, which the 80/15/5
+        # portfolio rations to 15 percent of slots. With local capacity of 5 and the other
+        # workspace's jobs filling the constructive share, that share almost never landed: the last
+        # creative job started at 23:36 and none ran for the following ten hours. The jobs were not
+        # blocked and the dispatcher was not stuck -- they were correctly classified as low-value by
+        # metadata I had left empty.
+        #
+        # So the metadata is filled with what the job actually is. A net edge question IS integration
+        # work: it asks whether a stated relation between two named variables holds. The seven value
+        # fields are written per edge rather than boilerplate, because the orderer requires each to
+        # be a real string of some length and because a worker reads them.
+        between = ' and '.join(e['between'])
         json.dump({'id': jid, 'kind': 'creative_from_net', 'edge': e['id'],
                    'edge_status': e['status'], 'between': e['between'],
                    'brief_style': 'raw_material_no_interpretation_no_named_analogies_diverge_first',
-                   'required_output_form': None, 'category': 'exploratory',
+                   'required_output_form': None, 'category': 'integration',
                    'claim_type': 'information_link',
+                   # assess() reads these from job['research_value'], not from the top level.
+                   # At the top level they are ignored and `structured` stays False, which
+                   # costs the +12 and leaves the family as 'other'.
+                   'research_value': {
+                       'capability': f'Decide whether the stated relation between {between} holds, '
+                                     f'and say what it would take to decide it if it does not.',
+                       'obstacle': f'The edge stands at status {e["status"]} with its constraint carried '
+                                   f'as prose; nothing has tested whether the relation is load-bearing.',
+                       'changed_operation': 'Read the cited source, recompute the number it rests on, '
+                                            'and report whether the relation survives that recomputation.',
+                       'consumer': f'The constraint net edge {e["id"]}, and any assembly decision that '
+                                   f'reads {e["between"][0]}.',
+                       'metric': 'The number the edge states, recomputed from its own source, with the '
+                                 'difference from the stated value given in the source unit.',
+                       'strongest_control': 'The reading that uses the population or default value '
+                                            'instead of this relation, scored on the same source.',
+                       'falsifier': 'If the recomputed number differs from the stated one by more than '
+                                    'the source own dispersion, the edge does not hold as stated.',
+                       'mechanism_family': 'measurement-decision',
+                   },
                    'review_state': 'PENDING_INDEPENDENT_REVIEW'},
                   (d / 'JOB.json').open('w'), ensure_ascii=False, indent=1)
         made.append(jid)
