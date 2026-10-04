@@ -204,6 +204,26 @@ def main() -> int:
     def cyl_error(name):
         return [abs(r[name]['predicted_cyl_D'] - r['measured_cyl_D']) for r in results]
 
+    def vector_error(name):
+        """Length of the difference between predicted and measured cylinder as a double-angle vector.
+
+        Magnitude error alone scores |predicted cyl| against |measured cyl| and is blind to the axis,
+        so a prediction with the right amount of cylinder at the wrong meridian scores perfectly.
+        LANE_CORNEA_SHAPE r24 recomputed the same 69 eyes with both metrics and the ARM ORDERING
+        CHANGES between them, so reporting one without the other picks a winner by choice of metric.
+        The vector form is (J0, J45) = (-(C/2)cos2A, -(C/2)sin2A) and the difference is reported as a
+        cylinder, i.e. twice the vector length, which is the usual convention.
+        """
+        out = []
+        for r in results:
+            ax_m = r['measured_axis_deg']
+            if ax_m is None:
+                continue
+            _, j0p, j45p = to_vector(0.0, r[name]['predicted_cyl_D'], r[name]['predicted_axis_deg'])
+            _, j0m, j45m = to_vector(0.0, r['measured_cyl_D'], float(ax_m))
+            out.append(2.0 * math.hypot(j0p - j0m, j45p - j45m))
+        return out
+
     summary = dict(
         toric_patients=len(results),
         corneal_cyl_measured_vs_estimated_mean_abs_difference_D=round(statistics.mean(
@@ -225,6 +245,13 @@ def main() -> int:
         measured_advantage_alternative_axis_D=round(
             statistics.mean(cyl_error('population_estimate_alt'))
             - statistics.mean(cyl_error('measured_posterior')), 4),
+        eyes_with_measured_axis=len(vector_error('measured_posterior')),
+        residual_vector_mae_with_measured_posterior_D=round(
+            statistics.mean(vector_error('measured_posterior')), 4),
+        residual_vector_mae_with_population_estimate_D=round(
+            statistics.mean(vector_error('population_estimate')), 4),
+        residual_vector_mae_with_population_estimate_alternative_axis_D=round(
+            statistics.mean(vector_error('population_estimate_alt')), 4),
         control='current practice: the same chain with a population estimate of posterior astigmatism',
         claim_type='information_link',
         not_modelled=['surgically induced astigmatism of the incision',
