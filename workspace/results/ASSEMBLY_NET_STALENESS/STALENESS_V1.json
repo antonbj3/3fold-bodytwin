@@ -1,17 +1,10 @@
 {
- "checked": 156,
+ "checked": 157,
  "counts": {
-  "OK": 150,
-  "UNRESOLVED_DECLARED": 6,
-  "MOVED_SINCE_LAST_CHECK": 1
+  "OK": 151,
+  "UNRESOLVED_DECLARED": 6
  },
- "evidence_moved_since_last_check": [
-  {
-   "edge": "ASM-E0012",
-   "was": 1791082999.437,
-   "now": 1791083026.685
-  }
- ],
+ "evidence_moved_since_last_check": [],
  "rows": [
   {
    "edge": "T-E1-charge_inventory-vs-ionic_swelling_pressure",
@@ -792,6 +785,11 @@
    "edge": "ASM-E0012",
    "status": "OK",
    "detail": "implied_stages_three_stage_fixture = 3.0351684331766617 (path)"
+  },
+  {
+   "edge": "ASM-E0013",
+   "status": "OK",
+   "detail": "secretion_blocked_fraction = 0.556095804069872 (path)"
   }
  ],
  "why": "an edge is a snapshot of prose plus one evidence path; nothing links a new measurement back to the edges that cite it, so staleness is silent",

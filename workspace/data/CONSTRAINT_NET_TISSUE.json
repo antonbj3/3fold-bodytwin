@@ -1057,6 +1057,16 @@
           "level": "UNKNOWN",
           "domain": "detail_layer",
           "provenance": "harvested from ~/projects/bodytwin/docs 2026-10-03"
+        },
+        {
+          "id": "transport_route_stage_count",
+          "unit": "1",
+          "level": "tissue",
+          "domain": "transport",
+          "plausible_range": [
+            1,
+            6
+          ]
         }
       ],
       "edges": [
@@ -3413,6 +3423,23 @@
           "evidence_relocated": [
             "moved from MECHANISM_LIVER_REGENERATION_evidence.json pointer /citations_verified_live_this_session/fabrikant_1968_primary_kinetics/numbers to MECHANISM_LIVER_REGENERATION.md L57 on 2026-10-04; the claim is in the prose half of the document, not the evidence JSON"
           ]
+        },
+        {
+          "id": "ASM-E0012",
+          "between": [
+            "dopamine_clearance_flux",
+            "transport_route_stage_count"
+          ],
+          "constraint": "An early-time bolus ratio decides staged against shunted transport without any conductance being known: the ratio halves per stage, so the implied stage count is 2.014 for a two-stage fixture, 3.035 for three and 4.078 for four, while both parallel arms return 1.0. Cut at halving ratio 0.75. Applies to dopamine only below 0.02222 uM, where Michaelis-Menten uptake with Km 0.2 uM is linear to 10 percent, so HARVEST-E0094 diffusion-against-second-transporter attribution is decidable by measurement in that regime and not above it.",
+          "status": "OPEN",
+          "evidence": "results/ASSEMBLY_ROUTE_TOPOLOGY/decision.json :: implied_stages_three_stage_fixture = 3.0351684331766617",
+          "provenance": "tasks/assembly/route_topology_decision.py, built 2026-10-04 on the structure from swarm job BT-FW48-AUTO-384787ba1a13a6 after verifying its fixture numbers in closed form",
+          "quantity_identity_reason": "The stage count is the order at which the measured flux ratio vanishes in time; both names refer to the same route the clearance flux passes through.",
+          "executed_check": "five matched arms, three staged and two shunted, same grid, same estimator, same cut",
+          "review_state": "PENDING_INDEPENDENT_REVIEW",
+          "evidence_mtime_at_last_check": 1791083026.685,
+          "last_checked_status": "OK",
+          "evidence_note": "the first version of this edge carried a hand-typed value, 3.0348405976205284, which the staleness checker rejected against the file's 3.0351684331766617; the number is now read from the file"
         }
       ],
       "stress_points": [
