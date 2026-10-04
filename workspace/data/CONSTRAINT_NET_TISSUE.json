@@ -3868,6 +3868,22 @@
      "falsifier": "preregistered in the decision itself, not added here: both arms flipping at the same fraction means there is no window, and a plateau rather than a point means a range and no single flip. Neither occurred -- the activator has zero sign changes and the host exactly one -- so the one-sided reading survives its own stated conditions. What it has NOT survived is the other failure mode: every arm here asks whether the host is spared, and host DAMAGE at high recycling is not scored at all, which LANE_IMMUNE_OVERACTIVATION now owns",
      "review_state": "PENDING_INDEPENDENT_REVIEW",
      "qualified_2026_10_05": "the flip at 0.6901150139456149 stands as a NUMERICAL result and not as a decision-bearing one: LANE_IMMUNE_OVERACTIVATION r1 found rho_status = UNMEASURED_MODEL_CLOSURE, so the recycling fraction has no measured counterpart, and the lysis thresholds behind the window are synthetic. T-E14 and T-E15 were downgraded from TIGHT the same day for the same reason. The one-sided form and the preregistered falsifiers still held on their own terms; what fails is the claim that the axis is a measured quantity"
+    },
+    {
+     "id": "T-E31-nucleus_pressure_multiplier-vs-route_of_derivation",
+     "between": [
+      "disc_nucleus_pressure_multiplier",
+      "derivation_route"
+     ],
+     "constraint": "three independent routes give the nucleus pressure multiplier k and they are not reconcilable: the in-vivo facit implies 0.585959 to 0.718629, our empirical model uses 1.3 to 1.5, and the published fibre equation gives 4.877250096040077. Spread 8.324x",
+     "status": "OPEN",
+     "owner": "tasks/assembly/disc_load_decision.py",
+     "evidence": "results/ASSEMBLY_DISC_LOAD_DECISION/decision.json :: implied vs model multiplier",
+     "external_reference": "Ngwa & Agyingi fibre law; Wilke in-vivo nucleus pressure 0.53-0.65 MPa",
+     "review_state": "PENDING_INDEPENDENT_REVIEW",
+     "three_routes_resolved_2026_10_05": "PROOF_LANE_THREE_ROUTES settled whether the three values of k can be simultaneously true. They cannot. The fibre denominator is explicitly whole-disc force in the paper, so both mechanical prescriptions target the same pressure-to-mean-traction ratio on a common state and the 'different quantities' escape is closed. At the stipulated common geometry and load the empirical interval and the fibre value differ by at least 3.377250 in k, which exceeds their declared interval spreads. And there is a theorem: with x = 1/gamma^2 and z = (1-x)/ln(1/x), g = eta*x + (1-eta)*z - 2*z*tan^2(phi) is strictly below 1, because eta*x < eta, (1-eta)*z < (1-eta) and the third term is negative. Therefore k = 1/g > 1 for EVERY positive-compression solution and no admissible fibre angle can ever reach the facit-implied k of 0.585959 to 0.718629, which is below 1. This coordinator reproduced g = 0.20503357021037677 at eta = 0.16, gamma^2 = 2, phi = 30 degrees to eleven decimals and verified the inequality term by term",
+     "control_k_equals_one_wins": "neither forward multiplier beats k = 1 on the supplied comparison. Predicted nucleus pressures are 0.9045 MPa at k = 1, 1.17585 to 1.35675 MPa at our k, and 4.411473 MPa from the fibre law, against the in-vivo facit 0.53 to 0.65 MPa. Distance to the facit midpoint 0.59 MPa: 0.3145 for k = 1, 0.5859 and 0.7667 for ours, 3.8215 for the fibre law. The assumption-poorest choice is the closest, which means our empirical multiplier is not earning its place",
+     "angle_conditioning": "g crosses zero at 34.5874325119 degrees and it is g, not k, that vanishes, so k diverges there. Positive inversion exists below that angle only. At 30 +/- 1 degree the nonlinear coefficient enclosure is [4.121135, 6.058011], and a 10 percent error allowance with +/- 1 degree uncertainty requires centres no larger than 25.9580415158 degrees. 47089 geometry probes, zero counterexamples to the conditional bound"
     }
    ],
    "stress_points": [
