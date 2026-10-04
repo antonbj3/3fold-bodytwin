@@ -1,0 +1,41 @@
+"""Update stress and acquisition contracts while retaining inherited blockers."""
+import copy, argparse
+from common import *
+
+def build(net):
+    stress = copy.deepcopy(source('r3_stress'))
+    stress['schema'] = 'constraint-stress-map-r4'
+    stress['ranking'] = 'NO_PHYSICAL_TOTAL_ORDER'
+    by = {e['id']: e for e in net['edges']}
+    for row in stress['rows']:
+        k = row['variable']
+        r = net['variables'][k]['plausible_range']
+        row['plausible_range_status'] = r['status']
+        row['finite_source_contexts'] = [x['id'] for x in r['cases']]
+        row['audited_reference_facets'] = [e['id'] for e in net['edges'] if e.get('r4_reference_binding', {}).get('reference_port') == k]
+        row['range_debt'] = 'UNKNOWN_OUTSIDE_LISTED_CONTEXTS' if r['cases'] else 'EMPIRICAL_UNKNOWN' if r['status'] != 'NOT_SCALAR' else 'REQUIRES_COMPONENT_OPERATOR'
+    stress['rows'].append({'variable': 'precementation_internal_gap', 'resolution_level': 'PER_SURFACE_REGION', 'audited_reference_facets': ['D-E-REPLICA-CT'], 'plausible_range_status': 'SCOPED_SOURCE_ENVELOPE', 'finite_source_contexts': ['CUNALI_AMANN_MO'], 'range_debt': 'UNKNOWN_FOR_INDIVIDUAL_OR_CEMENTED_FILM', 'global_rank_identified': False})
+    stress['reference_frontier'] = [{'edge': e['id'], 'published_quantity': e['r4_reference_binding']['record']['quantity'], 'source_facet_status': e['r4_reference_binding']['evidence_status'], 'physical_edge_status': e['status'], 'reference_matches_entire_operator': False, 'next_lab_protocol': {'D-E-PRELOAD-HISTORY': 'R4P', 'D-E-REPLICA-CT': 'R4C', 'D-E-K33': 'R4F'}[e['id']]} for e in net['edges'] if 'r4_reference_binding' in e]
+    stress['summary_warning'] = 'No aggregate score decides priority. Counts/ranges/means are insufficient (SUFFICIENCY.json); source agreement does not close target transfer.'
+    stress['rigorous_enclosure'] = 'R3 partial normalized sums retained as diagnostics, not a complete physical ranking. R4 introduces no affine sensitivity or physical uncertainty bound.'
+    write('CONSTRAINT_STRESS_MAP_DENTAL_R4.json', stress)
+    inherited = source('r3_lab')
+    protocols = [{'id': 'R4P', 'source': 'SAGHEB_PRELOAD', 'edges': ['D-E-PRELOAD-HISTORY', 'D-E-K20', 'D-E-K38'], 'extends': ['M08'], 'measurement': 'Synchronized torque-angle-axial force trace for tightening history, fixture separation and post-release force; mapped interface opening for seated target.', 'specimen': 'Identified screw, coating, implant, abutment and batch. Separate source-rig replication (noncontact0.10mm) and target seated condition. Irreversible reuse forbids assuming two orders are interchangeable; use randomized matched-batch arms where needed.', 'resolution_level': 'PER_TOOTH', 'local_gap_resolution': 'PER_POINT', 'timescale': 'HANDOVER', 'reference_design': 'Source had25 units,10 tightenings,25Ncm,60s hold. Historical replication design, not a power calculation.', 'required_record_fields': ['specimen_id', 'batch_id', 'fixture_contact_state', 'coating', 'lubrication', 'tightening_index', 'torque_Ncm', 'angle_rad', 'time_s', 'axial_force_N', 'gap_coordinate', 'gap_um', 'force_calibration', 'protocol_id', 'prediction_hash'], 'would_decide': 'Target repeated-use force change and whether measured preload predicts local seated opening; source76.2N alone cannot decide the latter.', 'freeze_before_measurement': 'Hash target per-specimen/condition predictions, sensor calibration and acceptance criteria before any target outcome is read. No target physical prediction supplied in R4.', 'cost': 'UNKNOWN: instrument access, sample supply, operator time and precision/power require lab quote.'}, {'id': 'R4C', 'source': 'CUNALI_INTERNAL_GAP', 'edges': ['D-E-REPLICA-CT', 'D-E-K43'], 'extends': ['M01', 'M02'], 'measurement': 'Within-coping repeated dry microCT, PVS replica and final cemented film, with recorded seating force/time and region registration. Repeat dry reseating to separate seating variance from instrument repeatability.', 'specimen': 'The same identified pilot copings and master geometry for non-destructive steps; preserve destructive replica section IDs and final cementation order. Existing X71 pilot12 is a planning batch, not a new power claim.', 'resolution_level': 'PER_SURFACE_REGION', 'timescale': 'SIMULTANEOUS', 'required_record_fields': ['specimen_id', 'region_id', 'method', 'seating_repeat', 'seating_force_N', 'time_s', 'state', 'gap_um', 'calibration_reference', 'coordinate_frame', 'protocol_id', 'prediction_hash'], 'would_decide': 'Signed paired method/state differences and repeatability, separately for internal mid-occlusal and marginal regions. No60.82um default correction.', 'freeze_before_measurement': 'Freeze predicted signed regional differences and separately instrument/reseating acceptance tolerances; these tolerances remain UNKNOWN until reference calibration.', 'cost': 'UNKNOWN increment beyond M01/M02. No new operator-hour estimate inferred from number of table cells.'}, {'id': 'R4F', 'source': 'CHOI_FATIGUE', 'edges': ['D-E-K33'], 'extends': ['A10'], 'measurement': 'Non-destructive pretest defect/root geometry, joint preload and measured lever arm, then load waveform, cycles, failure/runout and failure location per specimen.', 'specimen': 'Same specimen for pretest geometry and fatigue. Destructive static specimens must be separately identified in a matched batch, never falsely paired with fatigue specimens.', 'resolution_level': 'PER_POINT', 'outcome_resolution': 'PER_TOOTH', 'timescale': 'HANDOVER', 'reference_design': 'Historical Choi3 static +12 fatigue per system,3 per peak level, R0.1 at15Hz to5e6 cycles; figure lever geometry unresolved here. No0.40 universal transfer.', 'required_record_fields': ['specimen_id', 'batch_id', 'pretest_defect_map', 'root_geometry', 'preload_N', 'lever_arm_mm', 'load_min_N', 'load_max_N', 'frequency_Hz', 'cycles', 'failure_event', 'failure_location', 'protocol_id', 'prediction_hash'], 'would_decide': 'Held target load-cycle/event prediction conditional on geometry and assembly. Runouts constrain survival only up to test exposure.', 'freeze_before_measurement': 'Freeze target survival/load predictions including censoring, full fixture geometry and holdout batch before testing.', 'cost': 'UNKNOWN sample, test-machine time, failure inspection and independent holdout cost.'}]
+    out = {'claim_type': 'capability', 'review_state': 'PENDING_INDEPENDENT_REVIEW', 'new_protocols': protocols, 'inherited_plan': inherited, 'inherited_edge_obligations': source('r3_contracts'), 'actual_physical_edges_closed': 0, 'feasibility_status': 'UNKNOWN_PENDING_LAB_ACCESS_AND_CALIBRATION', 'cost_resolution': 'PHENOMENOLOGICAL', 'scope': 'Additional observation specifications; no source data substitute for matched target measurements.'}
+    write('LAB_MEASUREMENT_COVERAGE_R4.json', out)
+    lines = ["R4 connects three verified source facets to concrete measurement requirements. No new physical measurement is performed and no physical edge is closed.", '', "| Protokoll | Source → that lab has to decide | Utvidgar |", '|---|---|---|']
+    for p in protocols:
+        lines.append(f"| {p['id']} | {p['would_decide']} | {', '.join(p['extends'])} |")
+    for p in protocols:
+        lines += ['', p['id'] + ': ' + p['measurement'], '', p['specimen'], '', p['freeze_before_measurement'], '', p['cost']]
+    lines += ['', "R3:s51 physical blockages and five other obstacles are preserved. X71:s M01+M02+M04 concern:12 the edges and covers all listed measurement type requirements for:2, conditional on prov/state-matchning and other model requirements; this is: PHENOMENOLOGICAL planeringsantal. Ingen kostnadsoptimal global ordning identifieras.", '', "Run `python3 plans.py --protocol R4C` for the full test contract."]
+    (H / 'LAB_MEASUREMENT_PLAN.md').write_text('\n'.join(lines) + '\n')
+    return (stress, out)
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--protocol')
+    a = ap.parse_args()
+    if a.protocol:
+        print(json.dumps(next((x for x in read('LAB_MEASUREMENT_COVERAGE_R4.json')['new_protocols'] if x['id'] == a.protocol)), ensure_ascii=False, indent=2))
+    else:
+        build(read('CONSTRAINT_NET_DENTAL_R4.json'))

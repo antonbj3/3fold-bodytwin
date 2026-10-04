@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "claim_type": "capability",
+  "scope": "Synthetic source-kernel replay and retrospective public aggregates; no reproduction of original anatomical cohort",
+  "profiles": {
+    "CAD": {
+      "coordinate_error_mm": 0,
+      "face_identity": true,
+      "role_identity": true,
+      "invalid_unit_rejected": true,
+      "summary_identity_error": 0,
+      "waist_rebound_difference_mm": 0.5
+    },
+    "CROWN_PREP": {
+      "valid_normals": true,
+      "flipped_normal_rejected": true,
+      "valid_lower_topology": true,
+      "isolated_component_rejected": true,
+      "complete_original_chain": 0,
+      "original_denominator": 18
+    },
+    "X87": {
+      "max_control_error_mm": 1e-10,
+      "zero_residual_equality": "UNKNOWN",
+      "positive_residual_equality": "ABOVE",
+      "physical_margin": "UNKNOWN"
+    },
+    "X88": {
+      "counts": [
+        [
+          5,
+          39
+        ],
+        [
+          10,
+          27
+        ],
+        [
+          9,
+          19
+        ]
+      ],
+      "pooled": [
+        25,
+        86
+      ],
+      "max_interval_control_error": 1e-10,
+      "summary_identity_error": 0,
+      "category_difference_exact": "53/513",
+      "panel_control_error_exact": "0",
+      "target_site_risk": "UNKNOWN"
+    },
+    "X89": {
+      "upper_rational": "141/40000",
+      "missing_curvature": "UNKNOWN_NO_NONLINEAR_ENCLOSURE",
+      "summary_identity_error": 0,
+      "midpoint_difference_rational": "1/512",
+      "max_quadrature_error_mm_N": 1e-12,
+      "published_RMS_um": [
+        44.8,
+        45.2,
+        50.5,
+        36.9
+      ],
+      "physical_qualification": "UNKNOWN"
+    },
+    "X96": {
+      "nominal_gap_mm": 2.5,
+      "full_radius_gap_mm": 1.5,
+      "minimal_tool_gap_mm": 2.5,
+      "summary_identity_error": 0,
+      "shape_gap_difference_mm": 1.0,
+      "nominal_label_is_actual": false
+    },
+    "X97": {
+      "contact_area_mm2": 1.0,
+      "force_classes": [
+        "MUST",
+        "CAN",
+        "NEVER"
+      ],
+      "missing_force_upper": true,
+      "summary_identity_error": 0,
+      "spatial_difference_mm2": 1.0,
+      "physical_validation": "NOT_RUN"
+    },
+    "X98": {
+      "nominal_distance_squared_mm2": 8.5,
+      "revision_union_gap_mm": 0.5,
+      "max_bracket_width_mm": 1e-06,
+      "physical_safety": "UNKNOWN",
+      "injury_probability": null,
+      "bad_pose_rejected": true,
+      "missing_protocol": "UNKNOWN"
+    },
+    "INSERTION": {
+      "safe_separators": 10,
+      "collision_witness_valid": true,
+      "wrong_weight_rejected": true,
+      "control_matches": true,
+      "summary_identity_error": 0,
+      "path_decisions_differ": true
+    },
+    "SUPPORT": {
+      "distance_enclosed_mm": 3.0,
+      "shape_function_partition_error": 1e-15,
+      "expanded_box_fault_rejected": true,
+      "rigorous_bound": "OUTWARD_ROUNDED_STRAIGHT_BOX_VERTEX"
+    },
+    "PULP_PORT": {
+      "required_low_mm": 1.5,
+      "decision": "LOCAL_CONDITION_ALL_ENCLOSURES",
+      "bad_distance_rejected": true,
+      "clinical_feasibility": "UNKNOWN"
+    },
+    "SEATING": {
+      "integral_exact": "3/2",
+      "nominal_control_tolerance": 1e-14,
+      "gap_without_history": "UNKNOWN",
+      "physical_status": "UNKNOWN"
+    },
+    "CONTACT_REPAIR": {
+      "floor_fault_rejected": true,
+      "summary_identity_error": 0,
+      "spatial_difference_mm2": 1.0,
+      "physical_force": "UNKNOWN"
+    },
+    "LAYER_NESTING": {
+      "caps_match": true,
+      "volume_mm3": 0.75,
+      "max_volume_error_mm3": 1e-12,
+      "rectangle_area": 6,
+      "summary_identity_error": 0,
+      "changed_area": true,
+      "physical_manufacture": "UNKNOWN"
+    }
+  }
+}

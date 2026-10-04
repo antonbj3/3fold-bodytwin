@@ -1,0 +1,153 @@
+{
+  "frozen_utc": "2026-10-04T15:32:47.020555+00:00",
+  "case": "6158-21",
+  "material_scenario": "KATANA_ML",
+  "claim_type": "capability",
+  "status": "PASS_DECLARED_GEOMETRY_SCENARIO_ONLY",
+  "complete_digital_crown": false,
+  "release_for_manufacturing": false,
+  "physical_coordinate_unit": "UNKNOWN",
+  "scenario_mm_per_source_unit": 1.0,
+  "source_preparation_modified": false,
+  "source_base_modified": true,
+  "base_modification": "Unchanged labelled preparation plus explicit constructed remote basal truncation; no claim that the omitted basal volume is measured or represented.",
+  "original_labelled_facet_identity": true,
+  "source_margin_identity_error": 0.0,
+  "cement_space": {
+    "interval_source_units": [
+      0.04,
+      0.06
+    ],
+    "physical_um": null,
+    "conditional_um": [
+      40,
+      60
+    ],
+    "coverage": "Continuous reciprocal cap/intaglio upper bounds; whole-solid lower bound; exact signed side membership"
+  },
+  "wall": {
+    "minimum_source_units": 0.5,
+    "physical_mm": null,
+    "region": "Intaglio/exterior separation; joining rim excluded"
+  },
+  "marginal_lip": {
+    "continuous_symmetric_upper_source_units": 0.06,
+    "rigorous_enclosure": {
+      "pass_check": true,
+      "maximum_displacement_squared_exact": "12676506002282719124754579329/5070602400912917605986812821504",
+      "limit_squared_exact": "9/2500",
+      "maximum_displacement_squared_float": 0.0025000000000000838,
+      "number_of_vertices": 176,
+      "witness_vertex": 431,
+      "rigorous": true
+    },
+    "physical_um": null
+  },
+  "insertion": {
+    "axis": [
+      0.11172378580168008,
+      0.3503527267366788,
+      0.9299305149065249
+    ],
+    "finite_path_source_units": 30,
+    "full_original_scan_checked": true,
+    "truncated_solid_checked": true,
+    "zero_clearance_Farkas": "NO_NONZERO_DIRECTION; valid only for original zero-clearance normal model"
+  },
+  "geometry_health": {
+    "closed": true,
+    "components": 1,
+    "zero_self_intersections": true
+  },
+  "milling": {
+    "case": "6158-21",
+    "material": "KATANA_ML",
+    "construction": "6158-21_KATANA_ML_R2",
+    "report": "6158-21_KATANA_ML_R2_MILLING.json",
+    "sha256": "14a107fb1b7d2a94662ec81713a0c6f81d8aeceb04e35c966ea313dd2a98bc39",
+    "status": "UNKNOWN",
+    "found": 15,
+    "points": 32,
+    "scenario_verdict": "NO_LIBRARY_WITNESS_AT_SOME_POINTS"
+  },
+  "professional_crown_deviation": null,
+  "unmet_requirements": [
+    "Physical source coordinate scale",
+    "Validated restoration morphology/professional reference",
+    "Opposing and neighbouring dentition",
+    "Complete cutter and holder CAM trajectory",
+    "Measured tool/process response and sinter/as-built validation"
+  ],
+  "files": {
+    "stl": {
+      "path": "6158-21_KATANA_ML_stl.stl",
+      "sha256": "797c33995a24e814a9759b31eceef764ed78d24734e82d209deb1d55f96413da",
+      "target": "6158-21_KATANA_ML_R2.stl"
+    },
+    "3mf": {
+      "path": "6158-21_KATANA_ML_3mf.3mf",
+      "sha256": "72fcfc343ba473f33405ad10f5411045f7ee949629c53b531740d399217c0a9b",
+      "target": "6158-21_KATANA_ML_R2.3mf"
+    },
+    "closed_truncated_die": {
+      "path": "6158-21_KATANA_ML_closed_truncated_die.mesh",
+      "sha256": "06e838132803b37b9a1f6ef272308e4b9a7346386a7066276b9ead434c8d95e3",
+      "target": "6158-21_R10_D0.25_closed.mesh"
+    }
+  },
+  "evidence": [
+    {
+      "path": "RESULTS_R1.json",
+      "sha256": "4bbae9afe71772ed48ff4eb0adf37bed03b4bb9118c09ce0be568398677723b0"
+    },
+    {
+      "path": "RESULTS_R2.json",
+      "sha256": "abc4966063a7d39dc0109873e97375bc055a7427e4e2b8f02ce163e49883af7a"
+    },
+    {
+      "path": "RESULTS_R5.json",
+      "sha256": "adf86f8004da492f4132361358d494552ec13b399f7331cfb2032d9939a4cf11"
+    },
+    {
+      "path": "RESULTS_R10.json",
+      "sha256": "58c654730311ebd10e91aa23db05dbabefe611e73db8d7b7ef4c14330c9f0cce"
+    },
+    {
+      "path": "RESULTS_R12.json",
+      "sha256": "6e0a811934e919dfbe7b2a208fd6596d8ef3b55ee172aa55142245ac8c8b10bf"
+    },
+    {
+      "path": "RESULTS_R13.json",
+      "sha256": "a2d4b0b21eddf02f9f3696dceac0ee151ec53bbdfad0b67a872f47454a7db149"
+    },
+    {
+      "path": "RESULTS_MILLING.json",
+      "sha256": "eb9a6c68a039340402b4bdbba90393793cda60f4962e5145cb2e36026a600bae"
+    },
+    {
+      "path": "CONTROL_RESULTS.json",
+      "sha256": "f555b3bdadfa99a8c47d55565d8046a398f96caaff8d95f5a2f6fef0324afaa9"
+    },
+    {
+      "path": "CONTROL_RESULTS_EXTRA.json",
+      "sha256": "4891afebb37e4256f1da3b44d72fcea0d0edf8f3004382bcfb1ea9f424c5234e"
+    },
+    {
+      "path": "FROZEN_PREDICTIONS_R2.json",
+      "sha256": "943f81c3066327da3d13c1f851e7be99b4e500a7e50af9a4f0f7efb791e7d5c1"
+    }
+  ],
+  "external_referent": {
+    "kind": "published_dataset",
+    "locator": "https://github.com/intellident-ai/teethPreparationData/tree/88862fe6452bd1b731aff3e937e8dc4eb09a9f95",
+    "compared_quantity": "Boundary of published binary labels on same die, not original crown curve or repeated physical metrology",
+    "refutes_us": true
+  },
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "resolution": [
+    "PER_POINT",
+    "PER_SURFACE_REGION",
+    "PER_TOOTH"
+  ],
+  "time_scale": "SIMULTANEOUS geometry; HANDOVER to manufacturing"
+}

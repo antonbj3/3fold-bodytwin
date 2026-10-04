@@ -1,0 +1,163 @@
+{
+  "physical_validation": "UNKNOWN",
+  "full_original_pipelines_replayed": 0,
+  "kernel_profiles": {
+    "X14": {
+      "lp_error_mm": 1.3877787807814457e-17,
+      "summary_identity_error": 0.0,
+      "downstream_difference_mm": 0.020869565217391296,
+      "minimum_extension": "two chord-relative slopes",
+      "max_gap_mm": 0.039999999999999994,
+      "status": "PASS",
+      "profile": "synthetic_planar_seating",
+      "claim_type": "capability",
+      "resolution": "PHENOMENOLOGICAL",
+      "injected_wrong_result_rejected": true
+    },
+    "X51": {
+      "n": 46,
+      "failures_allowed": 1,
+      "zero_failure_n": 29,
+      "four_group_n": 42,
+      "three_survivor_risk_upper": 0.6315968501359612,
+      "consumer_risk": 0.04800379962448248,
+      "power": 0.9224689547926133,
+      "status": "PASS",
+      "profile": "fixed_binomial_plan",
+      "claim_type": "capability",
+      "resolution": "POPULATION",
+      "injected_wrong_result_rejected": true
+    },
+    "X56": {
+      "matrix_error": 4.0657581468206416e-20,
+      "missing_reference_status": "UNKNOWN_MISSING_LOCAL_BONE_REFERENCE",
+      "missing_biology_status": "UNKNOWN_BIOLOGICAL_CLOSURE",
+      "region_bounds_mm": [
+        [
+          -1.7347234759768075e-18,
+          0.030000000000000006
+        ],
+        [
+          0.009999999999999998,
+          0.020000000000000004
+        ],
+        [
+          -1.7347234759768075e-18,
+          0.030000000000000006
+        ]
+      ],
+      "status": "PASS",
+      "profile": "synthetic_two_mode_metrology",
+      "claim_type": "capability",
+      "resolution": "PER_SURFACE_REGION",
+      "injected_wrong_result_rejected": true
+    },
+    "X59": {
+      "contrasts_um": [
+        9.17,
+        2.63,
+        51.82,
+        60.82,
+        3.0,
+        -1.3,
+        16.77,
+        58.17
+      ],
+      "summary_identity_error": 0.0,
+      "classification_difference": 4,
+      "paired_sd_difference_um": 73.9008344562721,
+      "minimum_extension": "Within-region sample cross-covariance, equivalently sample SD of the paired differences. Normality is still a closure.",
+      "regression_gate_Amann": "PASS",
+      "regression_gate_Dentsply_Sirona": "FAIL",
+      "source_locator": "https://doi.org/10.1590/0103-6440201601531#Table1",
+      "external_regression_errors": {
+        "slope": 3.353932628052947e-05,
+        "intercept": 0.005404406934609085,
+        "r2": 1.0802806956755617e-06
+      },
+      "individual_prediction": "UNKNOWN",
+      "status": "PASS",
+      "profile": "published_bench_table_and_exact_pairing_witness",
+      "claim_type": "capability",
+      "resolution": "PER_SURFACE_REGION",
+      "injected_wrong_result_rejected": true
+    },
+    "X63": {
+      "cantilever_compliance_fraction": "1/7040",
+      "closed_gap_identity_error": 0.0,
+      "event_difference_N": 15.708651412777499,
+      "first_event_N": 335.03608091314476,
+      "minimum_extension": "regional preload and distortion state",
+      "preload_comparator_relative_error_percent": 30.035474970437527,
+      "physical_enclosure": "MISSING",
+      "status": "PASS",
+      "profile": "synthetic_unilateral_rail_and_published_preload",
+      "claim_type": "capability",
+      "resolution": "PHENOMENOLOGICAL",
+      "injected_wrong_result_rejected": true
+    },
+    "X68": {
+      "tested_rational_points": 101,
+      "physical_remainder": "MISSING",
+      "derivative_interval": [
+        -20.533333333333335,
+        -17.599999999999998
+      ],
+      "proof": "Exact cubic Bernstein convex hull on unit interval",
+      "status": "PASS",
+      "profile": "exact_fitted_polynomial_derivative_enclosure",
+      "claim_type": "capability",
+      "resolution": "PHENOMENOLOGICAL",
+      "injected_wrong_result_rejected": true
+    },
+    "X74": {
+      "identity_deltaE": 0.0,
+      "symmetry_error": 0.0,
+      "deltaE": 5.571179290075601,
+      "interval": [
+        5.388785147446717,
+        5.757779182830033
+      ],
+      "physical_validation": "UNKNOWN",
+      "status": "PASS",
+      "profile": "positive_b_colour_formula_enclosure",
+      "claim_type": "capability",
+      "resolution": "PHENOMENOLOGICAL",
+      "injected_wrong_result_rejected": true
+    },
+    "X82": {
+      "force_N": [
+        25.499999999999996,
+        24.500000000000004,
+        24.500000000000004,
+        25.499999999999996
+      ],
+      "summary_identity_error": 0.0,
+      "downstream_difference_N": 0.5,
+      "missing_calibration_status": "UNKNOWN",
+      "joint_l2_error_radius_N": 1e-06,
+      "minimum_extension": "local force response on the balanced nullspace",
+      "mathematical_scope": "Conditional synthetic response; numerical roundoff is not formally enclosed",
+      "status": "PASS",
+      "profile": "synthetic_four_support_height_force",
+      "claim_type": "capability",
+      "resolution": "PER_TOOTH",
+      "injected_wrong_result_rejected": true
+    },
+    "X85": {
+      "heldout_status": "PASS_FROZEN_OBSERVATION_GATE",
+      "injected_status": "FAIL_FROZEN_OBSERVATION_GATE",
+      "invalid_identity": "REJECT",
+      "denominator_zero": "REJECT",
+      "measurement": "SYNTHETIC; no lab measurement performed",
+      "height_column_error_N_per_mm": 1.4142135623730927,
+      "status": "PASS",
+      "profile": "synthetic_frozen_lab_consumer_and_height_enclosure",
+      "claim_type": "capability",
+      "resolution": "PER_SURFACE_REGION",
+      "injected_wrong_result_rejected": true
+    }
+  },
+  "kind": "retrospective_replay_expectations",
+  "observed_utc": "2026-10-04T07:34:40.570887+00:00"
+}

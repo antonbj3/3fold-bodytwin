@@ -1,0 +1,56 @@
+{
+  "kind": "manufacturer_depth_conditions",
+  "license": "Manufacturer retains document rights; three quoted numerical conditions and locators",
+  "protocols": [
+    {
+      "id": "Straumann_BLX_2024_VeloDrill",
+      "extra_mm": 0.5,
+      "semantics": "manufacturer maximum beyond implant insertion depth",
+      "locator": "https://www.straumann.com/content/dam/media-center/straumann/en/documents/brochure/technical-information/702115-en_low.pdf#page=9",
+      "document": "702115, PDF page9 / printed8, 20-Nov-2024",
+      "sha256": "4532ac919ac2bd557c8d564a8d1b3b7dc2bd3aa971fe695624842c6c9bf3ef38",
+      "resolution": "PHENOMENOLOGICAL"
+    },
+    {
+      "id": "Astra_EV_Guided_2017",
+      "extra_mm": 1.0,
+      "semantics": "manufacturer maximum beyond implant; applies to guided assortment",
+      "locator": "https://www.dentsplysirona.com/content/dam/dentsply/pim/manufacturer/Implants/Implant_systems/Astra_Tech_Implant_System_EV/Surgical/Accessories/Surgical_accessories_EV___GS/32671186-USX-1712%20Guided%20surgery%20Astra%20Tech%20Implant%20System%20EV_LR.pdf#page=9",
+      "document": "32671186-USX-1712, printed9 and measurement table printed26",
+      "sha256": "165a88b726ba9c64fda615d45b8067f3834bdfe02b77f8286872c1f612b3698d",
+      "resolution": "PHENOMENOLOGICAL"
+    },
+    {
+      "id": "ZimVie_T3_parallel_ACT3p85_datum_aligned",
+      "extra_mm": 1.3,
+      "semantics": "ACT3.85 tip1.2 + drill-mark/reference-apex offset0.1; 13mm example; true implant12.6, drillmark13.7, intended platform depth1.0 => 13.7+1.2-(12.6+1.0)=1.3",
+      "locator": "https://www.zimvie.eu/content/dam/zimvie-corporate/en/dental/literature/zvinst0012/zvinst0012_surgical_manual_t3-t3_pro_osseotite_final_secured.pdf#page=51",
+      "document": "ZVINST0012-GLBL REV E04/26, Tables printed51 and53; crestal/subcrestal reference printed54",
+      "sha256": "d4b67b2f2737ac41fc339b7753541912e88d2da5b6ee14a7183a4a7440f7681b",
+      "resolution": "PHENOMENOLOGICAL"
+    }
+  ],
+  "exclusions": [
+    {
+      "name": "nobel_guided",
+      "url": "https://www.nobelbiocare.com/pt-br/system/files/gmt_import/Guided%20Surgery%20Manual_87724A.pdf",
+      "error": "AssertionError('not PDF or too large')"
+    },
+    {
+      "name": "nobel_n1",
+      "url": "https://store.nobelbiocare.com/hk/en/media/eifu/IFU1087_EN_GB_05.pdf",
+      "error": "AssertionError('not PDF or too large')"
+    }
+  ],
+  "scope": "Published depth conditions imposed on same 4mm generic X8 research cylinder; no commercial-implant or drill-shape fit",
+  "zimvie_ablation": {
+    "tip_only_mm": 1.2,
+    "datum_aligned_mm": 1.3,
+    "fixture_label_mm": 13.0,
+    "actual_implant_mm": 12.6,
+    "actual_mark_mm": 13.7,
+    "platform_depth_mm": 1.0,
+    "tip_mm": 1.2,
+    "locator": "https://www.zimvie.eu/content/dam/zimvie-corporate/en/dental/literature/zvinst0012/zvinst0012_surgical_manual_t3-t3_pro_osseotite_final_secured.pdf#page=51"
+  }
+}

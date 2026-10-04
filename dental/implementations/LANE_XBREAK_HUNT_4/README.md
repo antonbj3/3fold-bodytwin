@@ -1,0 +1,7 @@
+# Source-bound treatment pathway and time identifiability
+
+Source entry: `LANE_XBREAK_HUNT_4`. Source review status: `DEMO_READY_WITH_CORRECTION`. Source claim type: `['information_link', 'capability']`. Physical validation in this release: UNKNOWN.
+
+The export contains 20 source files. The full original pipeline is SOURCE_ONLY_EXTERNAL_INPUTS and has not been replayed from this repository.
+
+Named input families in the original reader: No anatomical family named; other source artefacts may be required. Input variables detected in code: none. See [data instructions](../../docs/DATA.md), [profile results and limits](../../README.md), and [source hashes](../../provenance/CODE_MANIFEST.json). Dataset-dependent source tests are provided for inspection; the default release tests use the separate repository `tests/` directory.

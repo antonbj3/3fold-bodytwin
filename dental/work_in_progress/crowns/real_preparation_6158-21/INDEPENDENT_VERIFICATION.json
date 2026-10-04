@@ -1,0 +1,861 @@
+{
+  "audit": "independent-check",
+  "created_utc": "2026-10-04T15:47:28.231090+00:00",
+  "job": "crown-on-scanned-preparation",
+  "case": "6158-21",
+  "material": "KATANA_ML",
+  "artifact_version": "R2",
+  "review_type": "Oberoende verifiering av befintliga exporter; ingen konstruktion eller forskningsrunda",
+  "selection": {
+    "method": "The only sample is explicitly selected by the client before reading the results.",
+    "items": [
+      "6158-21_KATANA_ML_R2"
+    ],
+    "new_candidates": 0
+  },
+  "overall_status": "FAIL",
+  "overall_reason": "The geometrical scenario checks holds , but verified physical device/scale missing. An unconditional claim concerning physical µm/mm is therefore not verified.",
+  "class": "ACCEPTED_WITH_CORRECTION",
+  "status_semantics": "Digital geometry at the explicit adoption 1 mm / source unit . PASS does not imply verified physical length ; control 6 fails physical scale.",
+  "result_file": "results.json",
+  "result_sha256": "218eecc1cc277e0989ea10ad48c4f10c865cc93c41de997b0c69a17d47d7164e",
+  "target_id": null,
+  "target_id_missing": true,
+  "reviewed_json_pointer": "/geometry_candidates/0",
+  "reviewed_candidate": {
+    "case": "6158-21",
+    "material": "KATANA_ML",
+    "status": "GENERATED",
+    "gates": {
+      "self_intersection": "PASS",
+      "film_lower": "PASS",
+      "film_upper": "PASS",
+      "wall": "PASS",
+      "path": "PASS"
+    },
+    "listed_geometry_gates_pass": true,
+    "stl": {
+      "path": "6158-21_KATANA_ML_R2.stl",
+      "sha256": "797c33995a24e814a9759b31eceef764ed78d24734e82d209deb1d55f96413da",
+      "exact_roundtrip": true
+    },
+    "three_mf": {
+      "path": "6158-21_KATANA_ML_R2.3mf",
+      "sha256": "72fcfc343ba473f33405ad10f5411045f7ee949629c53b531740d399217c0a9b",
+      "exact_roundtrip": true
+    },
+    "mesh_path": "6158-21_KATANA_ML_R2.npz",
+    "mesh_sha256": "2299eb26f0539af4fdbea0f9de76573eeaea85c3dbf26c66b85bf83594814068",
+    "source_margin_definition": "Original labelled boundary retained verbatim as the nominal extent; emitted lip is its displaced counterpart",
+    "milling": "UNKNOWN_LOCAL_SAMPLING_ONLY",
+    "physical_scale": "UNKNOWN",
+    "full_arch": "UNKNOWN_NOT_SUPPLIED",
+    "professional_crown_deviation": null,
+    "complete_digital_crown": false,
+    "milling_local": {
+      "case": "6158-21",
+      "material": "KATANA_ML",
+      "construction": "6158-21_KATANA_ML_R2",
+      "report": "6158-21_KATANA_ML_R2_MILLING.json",
+      "sha256": "14a107fb1b7d2a94662ec81713a0c6f81d8aeceb04e35c966ea313dd2a98bc39",
+      "status": "UNKNOWN",
+      "found": 15,
+      "points": 32,
+      "scenario_verdict": "NO_LIBRARY_WITNESS_AT_SOME_POINTS"
+    }
+  },
+  "source_version_note": {
+    "initial_result_sha256": "b9e8eab7214cc52d2d395e2c383b30d51baa3086d9343c36b83212880c464048",
+    "result_changed_during_audit": true,
+    "reviewed_candidate_unchanged": true,
+    "other_rounds_reviewed": false,
+    "hash_bound_utc": "2026-10-04T15:47:28.231090+00:00"
+  },
+  "checks": {
+    "1_cement_gap": {
+      "status": "PASS",
+      "scope": "Digital geometry at the explicit adoption 1 mm / source unit . PASS does not imply verified physical length ; control 6 fails physical scale.",
+      "declared_band_source": [
+        0.04,
+        0.06
+      ],
+      "minimum_source": 0.04444007751638709,
+      "continuous_upper_bound_source": 0.05000000000000095,
+      "conditional_um_at_1mm_per_source_unit": {
+        "minimum": 44.440077516387085,
+        "continuous_upper_bound": 50.00000000000095
+      },
+      "physical_um": null,
+      "all_inner_facets": 8814,
+      "outside_band_facets": 0,
+      "distance_method": "NumPy /Numba code: complete triangle triangle minimum (vertex-face, edge-edge and segment-face) for all AABB - candidates . Couples outside the expansion radius cannot provide a smaller distance. No point-sampling.",
+      "upper_method": "For each corresponding triangle, affine barycentric pairing and convexity of norm bound EVERY point distance in BOTH directions by the largest of its three vertex displacements; topology correspondence checked for all facets.",
+      "whole_prepared_cap_bidirectional_coverage": true,
+      "distribution_gate": {
+        "status": "PASS",
+        "original_pass": true,
+        "injected_one_facet_minimum_source": 0.03,
+        "mutated_pass": false,
+        "all_facets": 8814,
+        "facet_minimum_quantiles_source": [
+          0.04444007751638709,
+          0.0481113889943591,
+          0.049664958570429,
+          0.04995783270304457,
+          0.049992062622882874
+        ],
+        "note": "Exhaustive facet minima, not sampled points; upper cover holds continuously. Injected scalar tests aggregation only; exact witness brackets above test distance predicates."
+      },
+      "minimum_witness": {
+        "three_mf_crown_face_zero_based": 9055,
+        "inner_face_zero_based": 241,
+        "vtp_source_face_zero_based": 30850
+      },
+      "evidence_locator": [
+        "PREREG_R2.json:36",
+        "6158-21_KATANA_ML_R2_SCORED.json:69"
+      ],
+      "independent_result": {
+        "min_source": 0.04444007751638709,
+        "query_face": 241,
+        "support_face": 30850,
+        "query_faces": 8814,
+        "support_faces": 40159,
+        "tested_pairs": 157776,
+        "broadphase_radius_source": 0.061,
+        "certified_global_minimum": true,
+        "tolerance_source": 1e-09,
+        "below_040_faces": 0,
+        "below_050_faces": 8814
+      },
+      "prepared_cap_only_result": {
+        "min_source": 0.04444007751638709,
+        "query_face": 241,
+        "support_face": 5852,
+        "query_faces": 8814,
+        "support_faces": 8814,
+        "tested_pairs": 155559,
+        "broadphase_radius_source": 0.061,
+        "certified_global_minimum": true,
+        "tolerance_source": 1e-09,
+        "below_040_faces": 0,
+        "below_050_faces": 8814
+      }
+    },
+    "2_minimum_wall": {
+      "status": "PASS",
+      "scope": "Digital geometry at the explicit adoption 1 mm / source unit . PASS does not imply verified physical length ; control 6 fails physical scale.",
+      "minimum_source": 0.7582898328142157,
+      "conditional_minimum_mm": 0.7582898328142157,
+      "physical_minimum_mm": null,
+      "manufacturer_minimum_mm": 0.4,
+      "producer_gate_mm": 0.5,
+      "manufacturer_locator": "https://www.kuraraynoritake.com/world/product/cad_materials/pdf/katana_zircinia_technical_guide.pdf#page=6",
+      "table_locator": "Tryckt sida 5 / PDF-sida 6, Minimum Wall Thickness of Zirconia, ML&HT, Anterior crown: 0.4 mm.",
+      "local_source_file": "KATANA_technical_guide.pdf",
+      "source_sha256": "406897216fee1504c0aade324c0f75abc667e553bdc4c038d7a82ce84320fb83",
+      "measurement_definition": "Global minimum triangle distance between the outside and inside of the export; merging margin facets are excluded according to PREREG_R2.json : 40 .",
+      "minimum_witness": {
+        "outer_face_zero_based": 2438,
+        "inner_face_zero_based": 6544,
+        "three_mf_crown_faces_zero_based": [
+          2438,
+          15358
+        ]
+      },
+      "independent_result": {
+        "min_source": 0.7582898328142157,
+        "query_face": 2438,
+        "support_face": 6544,
+        "query_faces": 8814,
+        "support_faces": 8814,
+        "tested_pairs": 987810,
+        "broadphase_radius_source": 0.8,
+        "certified_global_minimum": true,
+        "tolerance_source": 1e-09,
+        "below_040_faces": 0,
+        "below_050_faces": 0
+      }
+    },
+    "3_shell_and_self_intersection": {
+      "status": "PASS",
+      "watertight": true,
+      "connected_components": 1,
+      "manifold_edge_failures": 0,
+      "manifold_vertex_link_failures": 0,
+      "consistent_winding": true,
+      "euler_characteristic": 2,
+      "degenerate_faces": 0,
+      "duplicate_faces": 0,
+      "self_intersecting_pairs": 0,
+      "faces": 17980,
+      "method": "Own topology control including vertex links, triangle pairs and adjacent facets; exactly CGAL - rerun on mesh written from the standalone export loading confirms zero self-cutting.",
+      "independent_result": {
+        "status": "PASS",
+        "pairs": [],
+        "count": 0,
+        "tested_pairs": 117852,
+        "all_faces": 17980,
+        "adjacent_pairs_checked": true,
+        "tolerance_source": 1e-10
+      }
+    },
+    "4_straight_insertion_sweep": {
+      "status": "PASS",
+      "scope": "Collision-free reversible translation against all 40 159 supplied scanned facets. The open scan does not provide a verified closed solid of the entire die.",
+      "extraction_axis": [
+        0.11172378580168008,
+        0.3503527267366788,
+        0.9299305149065249
+      ],
+      "insertion_direction": [
+        -0.11172378580168008,
+        -0.3503527267366788,
+        -0.9299305149065249
+      ],
+      "extraction_distance_source": 30,
+      "insertion_path": "From crown + 30 *axis back to exported position; the same continuous swept amount as the extraction.",
+      "method": "Own continuous convex-Prisma/triangle-SAT for each crown facet and candidate facet in the die, not discrete time steps. Precisely CGAL - rerun also checks that no scanned source vertex is inside the crown material in the starting position.",
+      "source_is_closed": false,
+      "source_boundary_edges": 879,
+      "initial_source_vertex_inside_crown": false,
+      "independent_result": {
+        "status": "PASS",
+        "axis": [
+          0.11172378580168008,
+          0.3503527267366788,
+          0.9299305149065249
+        ],
+        "distance_source": 30.0,
+        "continuous_not_time_sampled": true,
+        "tested_candidate_pairs": 43400,
+        "collision_pairs_first_batch": [],
+        "separating_axis_clearance_min_source": 1.4252369669670482e-05,
+        "end_projection_separation_source": 23.422633351000407,
+        "tolerance_source": 1e-10
+      },
+      "wrong_direction_fault_rejected": true
+    },
+    "5_margin_to_source_finish_line": {
+      "status": "PASS",
+      "scope": "Verified deviation and preserved correspondence according to R2 : s declared offset. PASS does not indicate clinical margin acceptance; no such tolerance is declared here.",
+      "source_reference": "Boundary between Label=1 and other cells in the original VTP; not an independent measured physical finish line.",
+      "maximum_deviation_conditional_um": 50.0,
+      "minimum_curve_separation_conditional_um": 48.587218792683785,
+      "physical_um": null,
+      "method": "All 176 line segment; analytical segment-segment minimum and bidirectional Hausdorff-boundary with verified edge correspondence. Vertex witnesses provide lower boundary and affin segment correspondence upper boundary across the entire curve.",
+      "evidence_locator": "PREREG_R2.json:13",
+      "independent_result": {
+        "source_edges": 176,
+        "export_inner_edges": 176,
+        "source_vertices": 176,
+        "inner_vertices": 176,
+        "minimum_source": 0.04858721879268379,
+        "minimum_source_segment": 58,
+        "minimum_inner_segment": 59,
+        "hausdorff_source_interval": [
+          0.049999999000000836,
+          0.050000001000000835
+        ],
+        "max_vertex_to_curve_source_to_inner": 0.050000000000000835,
+        "max_vertex_to_curve_inner_to_source": 0.05000000000000079,
+        "min_vertex_distance": 0.048834999274766394,
+        "max_paired_displacement_source": 0.050000000000000835,
+        "boundary_correspondence_verified": true,
+        "numerical_tolerance_source": 1e-09,
+        "physical_um": null,
+        "conditional_um_at_1mm_per_unit": {
+          "minimum": 48.587218792683785,
+          "hausdorff_interval": [
+            49.999999000000834,
+            50.000001000000836
+          ]
+        },
+        "criterion": "R2 requires preserved correspondence and reporting the emitted offset; it explicitly does not claim zero physical marginal gap. No physical tolerance invented."
+      }
+    },
+    "6_units_and_scale": {
+      "status": "FAIL",
+      "failure_kind": "UNVERIFIED_PHYSICAL_SCALE",
+      "stl_unit": "STL missing device field",
+      "three_mf_unit": "millimeter",
+      "declared_mm_per_source_unit": 1.0,
+      "source_physical_unit": null,
+      "source_to_export_physical_calibration": null,
+      "stl_3mf_coordinate_identity": true,
+      "export_scale_consistency_status": "PASS",
+      "physical_scale_status": "FAIL",
+      "reason": "3MF indicates millimetres, but original VTP has no verified physical device or length calibration. An export declaration cannot determine the scanner scale. This limitation is already recognised in the delivery.",
+      "evidence_locator": [
+        "results.json:13",
+        "results.json:14",
+        "PREREG_R2.json:35"
+      ],
+      "bounding_box_extent_source": [
+        8.147831916809082,
+        14.407019853591919,
+        15.050257205963135
+      ],
+      "bounding_box_extent_crown": [
+        7.180014285117947,
+        7.27966017679962,
+        8.827949716544984
+      ]
+    }
+  },
+  "exports": {
+    "status": "PASS",
+    "stl_three_mf_identical_triangles": true,
+    "three_mf_role_counts": {
+      "0": 8814,
+      "1": 8814,
+      "2": 352
+    },
+    "inputs": {
+      "6158-21_labeledPrepFinal.vtp": {
+        "original_path": "6158-21_labeledPrepFinal.vtp",
+        "bytes": 696133,
+        "sha256": "828c4ad1e5f72a75d26606af5eab676f7df64cbdab4793d0ef836938effb4742",
+        "git_blob_sha1": "a8e79ca75a6052ab4ebd2683735c7516733775ab"
+      },
+      "6158-21_KATANA_ML_R2.stl": {
+        "original_path": "6158-21_KATANA_ML_R2.stl",
+        "bytes": 5570335,
+        "sha256": "797c33995a24e814a9759b31eceef764ed78d24734e82d209deb1d55f96413da",
+        "git_blob_sha1": "3dfbc6baea5b5c799db020f6c86f0af0be61bacf"
+      },
+      "6158-21_KATANA_ML_R2.3mf": {
+        "original_path": "6158-21_KATANA_ML_R2.3mf",
+        "bytes": 405394,
+        "sha256": "72fcfc343ba473f33405ad10f5411045f7ee949629c53b531740d399217c0a9b",
+        "git_blob_sha1": "a7d94dad5d485964df6e0247f9a37f096f2de548"
+      }
+    }
+  },
+  "external_reference": {
+    "doi": "10.1016/j.matcom.2025.07.054",
+    "doi_verified_via": "https://api.crossref.org/works/10.1016%2Fj.matcom.2025.07.054",
+    "title": "Mesh-based segmentation for automated margin line generation on incisors receiving crown treatment",
+    "dataset_commit": "88862fe6452bd1b731aff3e937e8dc4eb09a9f95",
+    "dataset_locator": "https://github.com/intellident-ai/teethPreparationData/blob/88862fe6452bd1b731aff3e937e8dc4eb09a9f95/test%20Data/6158-21_labeledPrepFinal.vtp",
+    "git_tree_verified_via": "https://api.github.com/repos/intellident-ai/teethPreparationData/git/trees/88862fe6452bd1b731aff3e937e8dc4eb09a9f95?recursive=1",
+    "local_vtp_git_blob_matches_published_tree": true,
+    "license": "MIT",
+    "license_blob_sha1": "bbf2a349c7f88b5d6bedd6bc63e50e1b9dc4aebe",
+    "comparison_computed_here": true,
+    "local_license_blob_matches_published_tree": true
+  },
+  "negative_controls": {
+    "gap_exact_witness_bracket": {
+      "status": "PASS",
+      "original_facet_indices": [
+        241,
+        30850
+      ],
+      "triangle_a": [
+        [
+          0.13958934594326777,
+          14.739773386567526,
+          2.208000920951392
+        ],
+        [
+          0.15520015732087325,
+          14.740910379388916,
+          2.3004548758226497
+        ],
+        [
+          0.06495673284117481,
+          14.674496068046679,
+          2.2421133677689884
+        ]
+      ],
+      "triangle_b": [
+        [
+          0.16832272708415985,
+          14.69357967376709,
+          2.29109525680542
+        ],
+        [
+          0.1005680114030838,
+          14.639640808105469,
+          2.246230125427246
+        ],
+        [
+          0.12559139728546143,
+          14.673709869384766,
+          2.308587074279785
+        ]
+      ],
+      "outcomes": [
+        {
+          "threshold": 0.04444007651638709,
+          "result": {
+            "backend": "CGAL EPECK exact triangle-triangle; exact expanded-box pruning",
+            "all_pass": true,
+            "boundary_clearance_pass": true,
+            "inside_witness": null,
+            "support_boundary_components": 0,
+            "query_boundary_components": 0,
+            "query_triangles": 1,
+            "tested_pairs": 1,
+            "bad_query_triangles": 0,
+            "required_squared_exact": "7714532815556012261457033801249/3906250000000000000000000000000000",
+            "first_bad_query": 0,
+            "first_bad_support": 0,
+            "first_bad_squared_exact": "0"
+          }
+        },
+        {
+          "threshold": 0.04444007851638709,
+          "result": {
+            "backend": "CGAL EPECK exact triangle-triangle; exact expanded-box pruning",
+            "all_pass": false,
+            "boundary_clearance_pass": false,
+            "inside_witness": null,
+            "support_boundary_components": 0,
+            "query_boundary_components": 0,
+            "query_triangles": 1,
+            "tested_pairs": 1,
+            "bad_query_triangles": 1,
+            "required_squared_exact": "1974920578542649115601195620345569/1000000000000000000000000000000000000",
+            "first_bad_query": 0,
+            "first_bad_support": 0,
+            "first_bad_squared_exact": "9153502042912225395531699552161388086753111619777992710468948261921/4634871171181440847337253971315019522364113015280277465151944102248448"
+          }
+        }
+      ]
+    },
+    "wall_exact_witness_bracket": {
+      "status": "PASS",
+      "original_facet_indices": [
+        2438,
+        6544
+      ],
+      "triangle_a": [
+        [
+          -0.156034565443242,
+          11.577127208534622,
+          5.011861459717613
+        ],
+        [
+          -0.03773755837227255,
+          11.602752382584805,
+          5.086148131074719
+        ],
+        [
+          -0.19748653171424124,
+          11.742703895635113,
+          5.03661643721275
+        ]
+      ],
+      "triangle_b": [
+        [
+          0.1672782380145788,
+          11.957223282503971,
+          4.3831124103083
+        ],
+        [
+          0.21829427338595242,
+          11.982251480065631,
+          4.449206543485555
+        ],
+        [
+          0.2491847797369163,
+          11.889555522797833,
+          4.418461339523593
+        ]
+      ],
+      "outcomes": [
+        {
+          "threshold": 0.7582898318142157,
+          "result": {
+            "backend": "CGAL EPECK exact triangle-triangle; exact expanded-box pruning",
+            "all_pass": true,
+            "boundary_clearance_pass": true,
+            "inside_witness": null,
+            "support_boundary_components": 0,
+            "query_boundary_components": 0,
+            "query_triangles": 1,
+            "tested_pairs": 1,
+            "bad_query_triangles": 0,
+            "required_squared_exact": "359377168145519726934771174184449/625000000000000000000000000000000",
+            "first_bad_query": 0,
+            "first_bad_support": 0,
+            "first_bad_squared_exact": "0"
+          }
+        },
+        {
+          "threshold": 0.7582898338142157,
+          "result": {
+            "backend": "CGAL EPECK exact triangle-triangle; exact expanded-box pruning",
+            "all_pass": false,
+            "boundary_clearance_pass": false,
+            "inside_witness": null,
+            "support_boundary_components": 0,
+            "query_boundary_components": 0,
+            "query_triangles": 1,
+            "tested_pairs": 1,
+            "bad_query_triangles": 1,
+            "required_squared_exact": "1437508680164977008394291752473089/2500000000000000000000000000000000",
+            "first_bad_query": 0,
+            "first_bad_support": 0,
+            "first_bad_squared_exact": "87889566772695456673610683485953751068989046989156209305621/152850497908678162249744137718655053057090865001633790558208"
+          }
+        }
+      ]
+    },
+    "gap_distribution_fault": {
+      "status": "PASS",
+      "original_pass": true,
+      "injected_one_facet_minimum_source": 0.03,
+      "mutated_pass": false,
+      "all_facets": 8814,
+      "facet_minimum_quantiles_source": [
+        0.04444007751638709,
+        0.0481113889943591,
+        0.049664958570429,
+        0.04995783270304457,
+        0.049992062622882874
+      ],
+      "note": "Exhaustive facet minima, not sampled points; upper cover holds continuously. Injected scalar tests aggregation only; exact witness brackets above test distance predicates."
+    },
+    "wall_fault": {
+      "status": "PASS",
+      "original_minimum": 0.7582898328142157,
+      "injected_minimum": 0.3,
+      "threshold": 0.5
+    },
+    "topology_removed_face": {
+      "status": "PASS",
+      "injected_deleted_face": 17979,
+      "watertight": false,
+      "boundary_edges": 3
+    },
+    "self_intersection_duplicate_face": {
+      "status": "PASS",
+      "duplicate_face_detected": true
+    },
+    "sweep_wrong_direction": {
+      "status": "FAIL",
+      "axis": [
+        0.11172378580168008,
+        0.3503527267366788,
+        0.9299305149065249
+      ],
+      "distance_source": -30.0,
+      "continuous_not_time_sampled": true,
+      "tested_candidate_pairs": 4327,
+      "collision_pairs_first_batch": [
+        [
+          0,
+          33735
+        ],
+        [
+          0,
+          34595
+        ],
+        [
+          0,
+          34594
+        ],
+        [
+          0,
+          34585
+        ],
+        [
+          0,
+          35444
+        ],
+        [
+          0,
+          35435
+        ],
+        [
+          0,
+          35434
+        ],
+        [
+          0,
+          36256
+        ],
+        [
+          0,
+          18893
+        ],
+        [
+          0,
+          18899
+        ]
+      ],
+      "separating_axis_clearance_min_source": -0.16660922424153063,
+      "end_projection_separation_source": -36.57736664899959,
+      "tolerance_source": 1e-10,
+      "control_status": "PASS"
+    },
+    "scale_fault": {
+      "status": "PASS",
+      "injected_stl_multiplier": 1000,
+      "coordinate_identity_after_injection": false
+    },
+    "source_mesh_scope": {
+      "watertight": false,
+      "boundary_edges": 879,
+      "nonmanifold_edges": 0,
+      "source_vertices": 20520,
+      "source_faces": 40159,
+      "components": 1,
+      "note": "Only supplied scanned facets are the obstacle. No closure, re-preparation or extrapolated source volume is introduced."
+    },
+    "source_provenance": {
+      "6158-21_labeledPrepFinal.vtp": {
+        "bytes": 696133,
+        "sha256": "828c4ad1e5f72a75d26606af5eab676f7df64cbdab4793d0ef836938effb4742",
+        "git_blob_sha1": "a8e79ca75a6052ab4ebd2683735c7516733775ab"
+      },
+      "6158-21_KATANA_ML_R2.stl": {
+        "bytes": 5570335,
+        "sha256": "797c33995a24e814a9759b31eceef764ed78d24734e82d209deb1d55f96413da",
+        "git_blob_sha1": "3dfbc6baea5b5c799db020f6c86f0af0be61bacf"
+      },
+      "6158-21_KATANA_ML_R2.3mf": {
+        "bytes": 405394,
+        "sha256": "72fcfc343ba473f33405ad10f5411045f7ee949629c53b531740d399217c0a9b",
+        "git_blob_sha1": "a7d94dad5d485964df6e0247f9a37f096f2de548"
+      }
+    }
+  },
+  "exact_replay": {
+    "scope": "Supplementing rerun of copied existing programs on mesh files from our standalone loading; not the only verification. Each execution took during 2 minutes.",
+    "runs": {
+      "self": {
+        "command": [
+          "intersections",
+          "crown.mesh"
+        ],
+        "seconds": 0.049044952960684896,
+        "returncode": 0,
+        "executable_sha256": "a61e3f6204c788280ef3dcf256baa1fbb00bea9ae00d1db60f480cb0b7a0ddc8",
+        "stderr": "",
+        "result": {
+          "count": 0,
+          "pairs": []
+        }
+      },
+      "film_lower": {
+        "command": [
+          "rational_clearance",
+          "source.mesh",
+          "inner.mesh",
+          ".04",
+          "surface"
+        ],
+        "seconds": 9.69057311420329,
+        "returncode": 0,
+        "executable_sha256": "bc4b7da37705c37dd22dbd39c9a557c20204fd5c8ce9a256dbcde5fb0ed315d3",
+        "stderr": "",
+        "result": {
+          "backend": "CGAL EPECK exact triangle-triangle; exact expanded-box pruning",
+          "all_pass": true,
+          "boundary_clearance_pass": true,
+          "inside_witness": null,
+          "support_boundary_components": 0,
+          "query_boundary_components": 0,
+          "query_triangles": 8814,
+          "tested_pairs": 110542,
+          "bad_query_triangles": 0,
+          "required_squared_exact": "1/625",
+          "first_bad_query": 0,
+          "first_bad_support": 0,
+          "first_bad_squared_exact": "0"
+        }
+      },
+      "film_upper": {
+        "command": [
+          "rational_cover_fast",
+          "source.mesh",
+          "inner.mesh",
+          "3/50"
+        ],
+        "seconds": 5.346733134007081,
+        "returncode": 0,
+        "executable_sha256": "1518c4c53a5670a45f5a88d76e3f355fb4a38c587dc35a975c38ddca5047ec45",
+        "stderr": "",
+        "result": {
+          "backend": "CGAL EPECK continuous convex-target facet cover",
+          "all_pass": true,
+          "query_triangles": 8814,
+          "failed_triangles": 0,
+          "cells": 8814,
+          "maximum_depth": 0,
+          "unresolved_cells": 0,
+          "exact_refuting_points": 0,
+          "first_bad_query_face": 0,
+          "first_bad_point_squared_distance_exact": "0",
+          "certified_upper_squared_exact": "9/2500"
+        }
+      },
+      "film_reverse": {
+        "command": [
+          "rational_cover_fast",
+          "inner.mesh",
+          "cap.mesh",
+          "3/50"
+        ],
+        "seconds": 7.028405834920704,
+        "returncode": 0,
+        "executable_sha256": "1518c4c53a5670a45f5a88d76e3f355fb4a38c587dc35a975c38ddca5047ec45",
+        "stderr": "",
+        "result": {
+          "backend": "CGAL EPECK continuous convex-target facet cover",
+          "all_pass": true,
+          "query_triangles": 8814,
+          "failed_triangles": 0,
+          "cells": 8814,
+          "maximum_depth": 0,
+          "unresolved_cells": 0,
+          "exact_refuting_points": 0,
+          "first_bad_query_face": 0,
+          "first_bad_point_squared_distance_exact": "0",
+          "certified_upper_squared_exact": "9/2500"
+        }
+      },
+      "wall": {
+        "command": [
+          "rational_clearance",
+          "inner.mesh",
+          "outer.mesh",
+          "0.5",
+          "surface"
+        ],
+        "seconds": 1.8381079290993512,
+        "returncode": 0,
+        "executable_sha256": "bc4b7da37705c37dd22dbd39c9a557c20204fd5c8ce9a256dbcde5fb0ed315d3",
+        "stderr": "",
+        "result": {
+          "backend": "CGAL EPECK exact triangle-triangle; exact expanded-box pruning",
+          "all_pass": true,
+          "boundary_clearance_pass": true,
+          "inside_witness": null,
+          "support_boundary_components": 0,
+          "query_boundary_components": 0,
+          "query_triangles": 8814,
+          "tested_pairs": 21501,
+          "bad_query_triangles": 0,
+          "required_squared_exact": "1/4",
+          "first_bad_query": 0,
+          "first_bad_support": 0,
+          "first_bad_squared_exact": "0"
+        }
+      },
+      "path": {
+        "command": [
+          "sweep_projected",
+          "crown.mesh",
+          "source.mesh",
+          "0.11172378580168008",
+          "0.3503527267366788",
+          "0.9299305149065249",
+          "30"
+        ],
+        "seconds": 11.385129821952432,
+        "returncode": 0,
+        "executable_sha256": "20091048724ff2622510516eca6a4e9317b09950f79da2771067670ebaad1540",
+        "stderr": "",
+        "result": {
+          "backend": "CGAL EPECK swept facet prism as three tetrahedra",
+          "boundary_sweep_collision": false,
+          "initial_obstacle_inside_crown": false,
+          "crown_closed": true,
+          "end_clear_by_projection": true,
+          "finite_path_clear": true,
+          "first_crown_face": 0,
+          "first_obstacle_face": 0,
+          "first_tetrahedron": 0,
+          "tested_pairs": 80865,
+          "degenerate_tetra_pairs": 0,
+          "end_projection_difference_exact": "3800539548969140673597158079094203/162259276829213363391578010288128"
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Physical scale unknown ; all µm / mm - values is conditional .",
+    "The original scan has 879 open edges; the result applies to its existing surfaces.",
+    "The source's label-boundary is the provided reference; no physical finish-line metrology was compared.",
+    "No later designs, second preparations, second materials or milling results were reviewed.",
+    "Exakta CGAL-predicate certifies threshold outcomes; reported numerical minima calculated separately in binary64 and minimizing triangle pairs were also delimited with precise thresholds ±1e-9 source unit."
+  ],
+  "corrections": [
+    {
+      "severity": "scope",
+      "claim_as_written": "pass the listed digital controls ... straight insertion against the scanned dien",
+      "finding": "The geometry holds , but the first sentence scope should explicitly specify the shell scenario and the open scan.",
+      "corrected_statement": "KATANA ML R2 on 6158 -21 can handle the geometry gates listed at 1 mm/source unit against the surfaces of the open scan provided. Physical scale and complete solid die are not verified.",
+      "evidence_locator": [
+        "RESULTS.md:3",
+        "results.json:13",
+        "VERIFY.json#/checks/4_straight_insertion_sweep"
+      ]
+    },
+    {
+      "severity": "registry",
+      "finding": "results.json saknar target_id. No target node has been found on the agreed site.",
+      "corrected_statement": "The coordinator must add/verify target node binding prior to registration. TASK.md : 1 mentions DENT - VAL - BASELINE - COMPARISON , but it is not a target_id downloaded from results.json .",
+      "evidence_locator": [
+        "results.json:1 (root keys; target_id absent)",
+        "TASK.md:1"
+      ]
+    }
+  ],
+  "reproduction": {
+    "runtime_directory": "independent-check",
+    "source_files_embedded_below": true,
+    "steps": [
+      "Create a new separately runtime directory on . Type Output embedded_code to the corresponding file name.",
+      "Copy the three original files in exports.inputs to the runtime directory and check the specified sha256. Copy the four existing programs from exact_replay_binary_sources dit.",
+      "Run the python3 verify_geometry.py, python3 verify_motion.py, python3 replay_exact.py and python3 controls.py med OMP_NUM_THREADS=OPENBLAS_NUM_THREADS=NUMBA_NUM_THREADS=1.",
+      "Resultaten skrivs endast i runtime-katalogen; ta bort den efter granskning."
+    ],
+    "python_version": "3.10.12",
+    "dependencies": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "trimesh": "4.12.2",
+      "numba": "0.67.0",
+      "rtree": "1.4.1"
+    },
+    "exact_replay_binary_sources": {
+      "rational_clearance": "rational_clearance",
+      "rational_cover_fast": "rational_cover_fast",
+      "sweep_projected": "sweep_projected",
+      "intersections": "intersections"
+    }
+  },
+  "embedded_code": {
+    "verify_geometry.py": {
+      "sha256": "c909970ced554c1ac78ed048e300e938f36e8799f25186d7d91fcb1ae3bb8c81",
+      "source": "import os\nfor k in ['OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS','NUMBA_NUM_THREADS']: os.environ[k]='1'\nos.environ['NUMBA_CACHE_DIR']=os.path.dirname(__file__)+'/numba_cache'\nos.environ['PYTHONDONTWRITEBYTECODE']='1'\nimport pathlib,json,hashlib,xml.etree.ElementTree as E,zipfile,base64,zlib,time\nimport numpy as np,trimesh\nfrom numba import njit\nfrom rtree import index\nfrom scipy.spatial import cKDTree\nW=pathlib.Path(__file__).parent\n\ndef load():\n r=E.parse(W/'6158-21_labeledPrepFinal.vtp').getroot(); raw=r.find('AppendedData').text.strip()[1:]\n def arr(a):\n  s=raw[int(a.attrib['offset']):]; nb=int(np.frombuffer(base64.b64decode(s[:16]),dtype='<u4')[0]); hl=4*(3+nb);el=4*((hl+2)//3)\n  h=np.frombuffer(base64.b64decode(s[:el]),dtype='<u4'); b=base64.b64decode(s[el:el+4*((int(sum(h[3:]))+2)//3)])\n  data=b'';off=0\n  for sz in h[3:]:data+=zlib.decompress(b[off:off+sz]);off+=sz\n  dt={'Float32':'<f4','Float64':'<f8','Int64':'<i8'}[a.attrib['type']]\n  return np.frombuffer(data,dtype=dt).copy()\n p=r.find('PolyData/Piece');sv=arr(p.find('Points/DataArray')).reshape(-1,3).astype(float)\n sf=arr(p.find('Polys/DataArray[@Name=\"connectivity\"]')).reshape(-1,3);offset=arr(p.find('Polys/DataArray[@Name=\"offsets\"]'));assert np.all(np.diff(np.r_[0,offset])==3)\n labels=arr(p.find('CellData/DataArray[@Name=\"Label\"]'));assert len(labels)==len(sf)\n z=zipfile.ZipFile(W/'6158-21_KATANA_ML_R2.3mf'); root=E.fromstring(z.read('3D/3dmodel.model'));ns={'m':'http://schemas.microsoft.com/3dmanufacturing/core/2015/02'}\n mesh=root.find('.//m:mesh',ns); v=np.array([[float(a.attrib[k]) for k in ['x','y','z']] for a in mesh.find('m:vertices',ns)])\n f=np.array([[int(a.attrib[k]) for k in ['v1','v2','v3']] for a in mesh.find('m:triangles',ns)])\n roles=np.array([int(a.attrib['p1']) for a in mesh.find('m:triangles',ns)])\n stl=trimesh.load_mesh(W/'6158-21_KATANA_ML_R2.stl',process=False)\n return sv,sf,labels,v,f,roles,stl,root.attrib\n\ndef dump(n,x):\n def clean(v):\n  if isinstance(v,(np.generic,np.ndarray)):return clean(v.tolist())\n  if isinstance(v,dict):return {k:clean(a) for k,a in v.items()}\n  if isinstance(v,(list,tuple)):return [clean(a) for a in v]\n  return v\n (W/(n+'.json')).write_text(json.dumps(clean(x),indent=2)); print(n,json.dumps(clean(x))[:1500],flush=True)\n\n@njit(cache=True)\ndef dot(a,b): return a[0]*b[0]+a[1]*b[1]+a[2]*b[2]\n@njit(cache=True)\ndef cross(a,b):return np.array([a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]])\n@njit(cache=True)\ndef psq(p,a,b):\n d=b-a;t=dot(p-a,d)/max(dot(d,d),1e-300);t=min(1.,max(0.,t));q=p-a-t*d;return dot(q,q)\n@njit(cache=True)\ndef ptsq(p,t):\n a,b,c=t;ab=b-a;ac=c-a;n=cross(ab,ac);nn=dot(n,n)\n if nn<1e-30:return min(psq(p,a,b),psq(p,b,c),psq(p,c,a))\n q=p-n*dot(p-a,n)/nn;ap=q-a\n aa=dot(ab,ab);bb=dot(ab,ac);cc=dot(ac,ac);u=dot(ap,ab);v=dot(ap,ac);den=aa*cc-bb*bb\n s=(cc*u-bb*v)/den;tt=(aa*v-bb*u)/den\n if s>=0 and tt>=0 and s+tt<=1:return dot(p-q,p-q)\n return min(psq(p,a,b),psq(p,b,c),psq(p,c,a))\n@njit(cache=True)\ndef sssq(p,q,r,s):\n # Closest points of two finite segments, including constrained end points.\n u=q-p;v=s-r;w=p-r;a=dot(u,u);b=dot(u,v);c=dot(v,v);d=dot(u,w);e=dot(v,w);den=a*c-b*b\n best=min(psq(p,r,s),psq(q,r,s),psq(r,p,q),psq(s,p,q))\n if den>1e-28:\n  x=(b*e-c*d)/den;y=(a*e-b*d)/den\n  if 0<=x<=1 and 0<=y<=1:\n   w=w+x*u-y*v;best=min(best,dot(w,w))\n return best\n@njit(cache=True)\ndef segtri(p,q,t):\n d=q-p;e1=t[1]-t[0];e2=t[2]-t[0];h=cross(d,e2);det=dot(e1,h)\n if abs(det)<1e-18:return False\n a=p-t[0];u=dot(a,h)/det\n if u<0 or u>1:return False\n h2=cross(a,e1);v=dot(d,h2)/det\n if v<0 or u+v>1:return False\n w=dot(e2,h2)/det\n return 0<=w<=1\n@njit(cache=True)\ndef trisq(a,b):\n best=1e300\n for i in range(3):\n  if segtri(a[i],a[(i+1)%3],b) or segtri(b[i],b[(i+1)%3],a):return 0.\n  best=min(best,ptsq(a[i],b),ptsq(b[i],a))\n  for j in range(3):best=min(best,sssq(a[i],a[(i+1)%3],b[j],b[(j+1)%3]))\n return best\n@njit(cache=True)\ndef pairdist(a,b,ii,jj):\n out=np.empty(len(ii))\n for k in range(len(ii)):out[k]=trisq(a[ii[k]],b[jj[k]])\n return out\n\ndef tree(tri):\n p=index.Property();p.dimension=3\n return index.Index(((i,tuple(np.r_[t.min(0),t.max(0)]),None) for i,t in enumerate(tri)),properties=p)\n\ndef distances(a,b,radius,name):\n tr=tree(b);mins=np.full(len(a),np.inf);ids=np.full(len(a),-1);tested=0\n for start in range(0,len(a),128):\n  ii=[];jj=[]\n  for i in range(start,min(start+128,len(a))):\n   js=list(tr.intersection(tuple(np.r_[a[i].min(0)-radius,a[i].max(0)+radius])))\n   ii.extend([i]*len(js));jj.extend(js)\n  ii=np.array(ii,dtype=np.int64);jj=np.array(jj,dtype=np.int64);dd=pairdist(a,b,ii,jj);tested+=len(ii)\n  for i in np.unique(ii):\n   ix=np.flatnonzero(ii==i);ix=ix[np.argmin(dd[ix])];mins[i]=dd[ix];ids[i]=jj[ix]\n idx=int(np.argmin(mins));val=float(np.sqrt(mins[idx]));assert val<radius\n out=dict(min_source=val,query_face=idx,support_face=int(ids[idx]),query_faces=len(a),support_faces=len(b),tested_pairs=tested,broadphase_radius_source=radius,certified_global_minimum=True,tolerance_source=1e-9,below_040_faces=int(np.sum(mins<.04**2)),below_050_faces=int(np.sum(mins<.05**2)))\n dump(name,out);np.savez_compressed(W/(name+'_facets.npz'),minimum_squared=mins,support_face=ids)\n return out\n\ndef boundary(f):\n e=np.concatenate([f[:,[0,1]],f[:,[1,2]],f[:,[2,0]]]);u,c=np.unique(np.sort(e,axis=1),axis=0,return_counts=True);return u[c==1]\n\ndef basic():\n sv,sf,l,v,f,roles,stl,attrs=load();m=trimesh.Trimesh(v,f,process=False);cap=sf[l==1];inner=f[roles==1];outer=f[roles==0]\n _,counts=np.unique(np.sort(m.edges,axis=1),axis=0,return_counts=True)\n # Explicit vertex link condition; edge count alone does not establish a 2-manifold.\n vf=[[] for _ in v]\n for face in f:\n  for i in face:vf[i].append([int(a) for a in face if a!=i])\n badlinks=[]\n for i,ed in enumerate(vf):\n  adj={}\n  for a,b in ed:adj.setdefault(a,set()).add(b);adj.setdefault(b,set()).add(a)\n  seen=set();stack=[next(iter(adj))]\n  while stack:\n   k=stack.pop()\n   if k in seen:continue\n   seen.add(k);stack.extend(adj[k]-seen)\n  if len(seen)!=len(adj) or any(len(a)!=2 for a in adj.values()):badlinks.append(i)\n ivids=np.unique(inner);pvids=np.unique(cap);_,inv=np.unique(cap,return_inverse=True);compact=inv.reshape(-1,3)\n # The export retains source face ordering; independently verify each index and displacement.\n mapping={int(x):i for i,x in enumerate(ivids)};ifc=np.array([[mapping[int(x)] for x in a] for a in inner]);connectivity=np.array_equal(np.sort(ifc,axis=1),np.sort(compact,axis=1))\n displacement=np.linalg.norm(v[ivids]-sv[pvids],axis=1)\n dump('basic',dict(source_vertices=len(sv),source_faces=len(sf),source_label1_faces=len(cap),vertices=len(v),faces=len(f),role_counts={str(k):int(sum(roles==k)) for k in np.unique(roles)},stl_3mf_triangle_identity=bool(np.array_equal(stl.triangles,v[f])),unit_3mf=attrs.get('unit'),bounds_source=np.ptp(sv,axis=0),bounds_crown=np.ptp(v,axis=0),watertight=m.is_watertight,winding_consistent=m.is_winding_consistent,components=len(m.split(only_watertight=False)),euler_number=m.euler_number,edge_incidence_not_two=int(sum(counts!=2)),vertex_links_not_single_cycle=badlinks,degenerate_faces=int(sum(m.area_faces<1e-14)),duplicate_faces=int(len(f)-len(np.unique(np.sort(f,axis=1),axis=0))),volume=m.volume,inner_source_connectivity_matches=connectivity,paired_vertex_displacement_range=[displacement.min(),displacement.max()],facet_upper_distance_bound=displacement.max(),upper_bound_justification='For each corresponding triangle, affine barycentric pairing and convexity of norm bound EVERY point distance in BOTH directions by the largest of its three vertex displacements; topology correspondence checked for all facets.'))\n assert connectivity\n distances(v[inner],sv[sf],.061,'gap_to_whole_die')\n distances(v[inner],sv[cap],.061,'gap_to_prepared_cap')\n distances(v[outer],v[inner],.8,'wall')\n np.savez_compressed(W/'independent_loaded.npz',sv=sv,sf=sf,labels=l,v=v,f=f,roles=roles,source_boundary=boundary(cap),inner_boundary=boundary(inner))\nif __name__=='__main__':basic()\n"
+    },
+    "verify_motion.py": {
+      "sha256": "09e21de2ed4030724d86fc0ed4d1233a4fbc142826b5e651fe3955fbb60590a5",
+      "source": "from verify_geometry import *\n@njit(cache=True)\ndef separated(a,b,axis,delta):\n nn=dot(axis,axis)\n if nn<1e-28:return False,0.\n mn=1e300;mx=-1e300;bn=1e300;bx=-1e300\n shift=dot(delta,axis)\n for i in range(3):\n  aa=dot(a[i],axis);bb=dot(b[i],axis);mn=min(mn,aa,aa+shift);mx=max(mx,aa,aa+shift);bn=min(bn,bb);bx=max(bx,bb)\n gap=max(bn-mx,mn-bx)/np.sqrt(nn)\n return gap>1e-10,gap\n@njit(cache=True)\ndef sweep_hit(a,b,delta):\n ea=np.empty((3,3));eb=np.empty((3,3))\n for i in range(3):ea[i]=a[(i+1)%3]-a[i];eb[i]=b[(i+1)%3]-b[i]\n axes=np.empty((17,3));axes[0]=cross(ea[0],ea[1]);axes[1]=cross(eb[0],eb[1]);k=2\n for i in range(3):axes[k]=cross(ea[i],delta);k+=1\n for i in range(3):\n  for j in range(3):axes[k]=cross(ea[i],eb[j]);k+=1\n for i in range(3):axes[k]=cross(delta,eb[i]);k+=1\n best=-1e300\n for axis in axes:\n  sep,gap=separated(a,b,axis,delta);best=max(best,gap)\n  if sep:return False,gap\n return True,best\n@njit(cache=True)\ndef swept_batch(a,b,ii,jj,delta):\n hits=np.zeros(len(ii),dtype=np.bool_);gaps=np.empty(len(ii))\n for k in range(len(ii)):hits[k],gaps[k]=sweep_hit(a[ii[k]],b[jj[k]],delta)\n return hits,gaps\n\ndef sweep(v,f,sv,sf,axis,distance,name):\n # Rigid orthonormal rotation improves broadphase. The continuous swept hull\n # is triangle + [0,delta]. Full polyhedron/triangle SAT includes face normals\n # and every cross product of the two sets of edge directions.\n e=np.array([1.,0,0]);e-=axis*dot(e,axis);e/=np.linalg.norm(e);b=np.cross(axis,e);R=np.array([e,b,axis]).T\n a=(v@R)[f];t=(sv@R)[sf];delta=np.array([0.,0,distance]);tr=tree(t);tested=0;hitlist=[];mingap=np.inf\n for start in range(0,len(a),256):\n  ii=[];jj=[]\n  for i in range(start,min(start+256,len(a))):\n   low=np.minimum(a[i].min(0),a[i].min(0)+delta);high=np.maximum(a[i].max(0),a[i].max(0)+delta)\n   js=list(tr.intersection(tuple(np.r_[low-1e-10,high+1e-10])));ii.extend([i]*len(js));jj.extend(js)\n  ii=np.array(ii,dtype=np.int64);jj=np.array(jj,dtype=np.int64);hits,gaps=swept_batch(a,t,ii,jj,delta);tested+=len(ii)\n  if len(gaps):mingap=min(mingap,float(gaps.min()))\n  for k in np.flatnonzero(hits):hitlist.append([int(ii[k]),int(jj[k])])\n  if hitlist:break\n out=dict(status='FAIL' if hitlist else 'PASS',axis=axis,distance_source=distance,continuous_not_time_sampled=True,tested_candidate_pairs=tested,collision_pairs_first_batch=hitlist[:10],separating_axis_clearance_min_source=mingap,end_projection_separation_source=float(np.min(v@axis)+distance-np.max(sv@axis)),tolerance_source=1e-10)\n dump(name,out);return out\n\n@njit(cache=True)\ndef intersection_away(p,q,t,shared):\n d=q-p;e1=t[1]-t[0];e2=t[2]-t[0];h=cross(d,e2);det=dot(e1,h)\n if abs(det)<1e-18:return False\n a=p-t[0];u=dot(a,h)/det;h2=cross(a,e1);vv=dot(d,h2)/det;w=dot(e2,h2)/det\n if u>=-1e-12 and vv>=-1e-12 and u+vv<=1+1e-12 and -1e-12<=w<=1+1e-12:\n  pnt=p+w*d;return dot(pnt-shared,pnt-shared)>1e-18\n return False\n@njit(cache=True)\ndef selfpairs(v,f,ii,jj):\n bad=np.zeros(len(ii),dtype=np.bool_)\n for k in range(len(ii)):\n  fi=f[ii[k]];fj=f[jj[k]];a=v[fi];b=v[fj];shared=[]\n  for x in fi:\n   for y in fj:\n    if x==y:shared.append(x)\n  if len(shared)==0:bad[k]=trisq(a,b)<=1e-20\n  elif len(shared)==3:bad[k]=True\n  elif len(shared)==2:\n   p=v[shared[0]];q=v[shared[1]];x=p;y=p\n   for u in fi:\n    if u!=shared[0] and u!=shared[1]:x=v[u]\n   for u in fj:\n    if u!=shared[0] and u!=shared[1]:y=v[u]\n   na=cross(q-p,x-p);nb=cross(q-p,y-p)\n   # Adjacent coplanar faces must occupy opposite halfplanes of common edge.\n   cop=dot(cross(na,nb),cross(na,nb))<=1e-22*dot(na,na)*dot(nb,nb)\n   bad[k]=cop and dot(na,nb)>0\n  else:\n   sh=v[shared[0]]\n   for u in range(3):\n    if intersection_away(a[u],a[(u+1)%3],b,sh) or intersection_away(b[u],b[(u+1)%3],a,sh):bad[k]=True\n   # Remaining coplanar overlap: nonshared vertex lies on other triangle,\n   # or opposite edges intersect (neither contains the common vertex).\n   aa=np.empty((2,3));bb=np.empty((2,3));ia=0;ib=0\n   for u in range(3):\n    if fi[u]!=shared[0]:\n     aa[ia]=a[u];ia+=1\n     if ptsq(a[u],b)<=1e-20:bad[k]=True\n    if fj[u]!=shared[0]:\n     bb[ib]=b[u];ib+=1\n     if ptsq(b[u],a)<=1e-20:bad[k]=True\n   if sssq(aa[0],aa[1],bb[0],bb[1])<=1e-20:bad[k]=True\n return bad\n\ndef selfcheck(v,f):\n a=v[f];tr=tree(a);tested=0;bad=[]\n for start in range(0,len(a),256):\n  ii=[];jj=[]\n  for i in range(start,min(start+256,len(a))):\n   js=[j for j in tr.intersection(tuple(np.r_[a[i].min(0)-1e-10,a[i].max(0)+1e-10])) if j>i];ii.extend([i]*len(js));jj.extend(js)\n  ii=np.array(ii,dtype=np.int64);jj=np.array(jj,dtype=np.int64);hits=selfpairs(v,f,ii,jj);tested+=len(ii)\n  bad.extend([[int(ii[k]),int(jj[k])] for k in np.flatnonzero(hits)])\n dump('self_intersections',dict(status='FAIL' if bad else 'PASS',pairs=bad[:20],count=len(bad),tested_pairs=tested,all_faces=len(f),adjacent_pairs_checked=True,tolerance_source=1e-10))\n\n@njit(cache=True)\ndef curve_vertex_dist(points,segments):\n out=np.empty(len(points))\n for i,p in enumerate(points):\n  best=1e300\n  for a,b in segments:best=min(best,psq(p,a,b))\n  out[i]=np.sqrt(best)\n return out\n@njit(cache=True)\ndef curve_min(a,b):\n best=1e300;ii=0;jj=0\n for i in range(len(a)):\n  for j in range(len(b)):\n   d=sssq(a[i,0],a[i,1],b[j,0],b[j,1])\n   if d<best:best=d;ii=i;jj=j\n return np.sqrt(best),ii,jj\n\ndef margins(sv,sf,l,v,f,roles):\n cap=sf[l==1];inn=f[roles==1];sb=boundary(cap);ib=boundary(inn);S=sv[sb];I=v[ib]\n ds=curve_vertex_dist(sv[np.unique(sb)],I);di=curve_vertex_dist(v[np.unique(ib)],S)\n mi,i,j=curve_min(S,I)\n mapping=dict(zip(np.unique(cap).tolist(),np.unique(inn).tolist()))\n paired_edges=np.array([[mapping[int(k)] for k in e] for e in sb])\n assert set(map(tuple,np.sort(paired_edges,axis=1)))==set(map(tuple,np.sort(ib,axis=1)))\n paired=np.linalg.norm(v[paired_edges]-sv[sb],axis=2)\n upper=float(paired.max())+1e-9\n dump('margin',dict(source_edges=len(S),export_inner_edges=len(I),source_vertices=len(np.unique(sb)),inner_vertices=len(np.unique(ib)),minimum_source=mi,minimum_source_segment=i,minimum_inner_segment=j,hausdorff_source_interval=[max(ds.max(),di.max())-1e-9,upper],max_vertex_to_curve_source_to_inner=ds.max(),max_vertex_to_curve_inner_to_source=di.max(),min_vertex_distance= min(ds.min(),di.min()),max_paired_displacement_source=float(paired.max()),boundary_correspondence_verified=True,numerical_tolerance_source=1e-9,physical_um=None,conditional_um_at_1mm_per_unit=dict(minimum=1000*mi,hausdorff_interval=[1000*(max(ds.max(),di.max())-1e-9),1000*upper]),criterion='R2 requires preserved correspondence and reporting the emitted offset; it explicitly does not claim zero physical marginal gap. No physical tolerance invented.'))\n\ndef write_mesh(path,v,f):\n with open(path,'w') as h:h.write(f'{len(v)} {len(f)}\\n');np.savetxt(h,v,fmt='%.17g');np.savetxt(h,f,fmt='%d')\n\ndef main():\n sv,sf,l,v,f,roles,stl,attrs=load();axis=np.array([.11172378580168008,.3503527267366788,.9299305149065249]);assert abs(np.linalg.norm(axis)-1)<1e-14\n for name,vv,ff in [('crown',v,f),('inner',v,f[roles==1]),('outer',v,f[roles==0]),('source',sv,sf),('cap',sv,sf[l==1])]:write_mesh(W/(name+'.mesh'),vv,ff)\n selfcheck(v,f);margins(sv,sf,l,v,f,roles);sweep(v,f,sv,sf,axis,30.,'sweep')\n # Fault injection changes test input only; no candidate is designed/exported.\n sweep(v,f,sv,sf,axis,-30.,'sweep_wrong_direction_control')\nif __name__=='__main__':main()\n"
+    },
+    "replay_exact.py": {
+      "sha256": "52dfb0c75775ea995e019b49182266e7300ea95dbb9d6ec8e373b115a4374697",
+      "source": "import pathlib,subprocess,time,json,hashlib,os\nW=pathlib.Path(__file__).parent\nfor k in ['OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS']:os.environ[k]='1'\njobs=[('self',['intersections','crown.mesh']),('film_lower',['rational_clearance','source.mesh','inner.mesh','.04','surface']),('film_upper',['rational_cover_fast','source.mesh','inner.mesh','3/50']),('film_reverse',['rational_cover_fast','inner.mesh','cap.mesh','3/50']),('wall',['rational_clearance','inner.mesh','outer.mesh','0.5','surface']),('path',['sweep_projected','crown.mesh','source.mesh','0.11172378580168008','0.3503527267366788','0.9299305149065249','30'])]\nout={}\nfor name,args in jobs:\n args=[str(W/a) if (W/a).exists() else a for a in args];t=time.monotonic();p=subprocess.run(args,cwd=W,text=True,capture_output=True,timeout=115)\n out[name]=dict(command=args,seconds=time.monotonic()-t,returncode=p.returncode,executable_sha256=hashlib.sha256(pathlib.Path(args[0]).read_bytes()).hexdigest(),stdout=p.stdout,stderr=p.stderr)\n if p.returncode==0:out[name]['result']=json.loads(p.stdout)\n (W/'exact_replay.json').write_text(json.dumps(out,indent=2));print(name,out[name],flush=True)\n"
+    },
+    "controls.py": {
+      "sha256": "f66e1633fbf116b0539ede11705bc5791f5e5873f38a099c20dcf26c8356c94a",
+      "source": "from verify_motion import *\nimport subprocess,hashlib\nsv,sf,l,v,f,roles,stl,attrs=load()\n# Every control starts from observed data or an identified original facet.\nlo=json.load(open(W/'gap_to_whole_die.json'));wall=json.load(open(W/'wall.json')); basicdata=json.load(open(W/'basic.json'))\nchecks={}\nfor name,r,A,B in [('gap',lo,v[f[roles==1]],sv[sf]),('wall',wall,v[f[roles==0]],v[f[roles==1]])]:\n ia=r['query_face'];ib=r['support_face'];t1=A[ia];t2=B[ib];write_mesh(W/(name+'_witness_a.mesh'),t1,np.array([[0,1,2]]));write_mesh(W/(name+'_witness_b.mesh'),t2,np.array([[0,1,2]]))\n outcomes=[]\n for d in [r['min_source']-1e-9,r['min_source']+1e-9]:\n  args=[str(W/'rational_clearance'),str(W/(name+'_witness_a.mesh')),str(W/(name+'_witness_b.mesh')),format(d,'.17g'),'surface']; p=subprocess.run(args,text=True,capture_output=True,timeout=10);assert p.returncode==0;outcomes.append(dict(threshold=d,result=json.loads(p.stdout)))\n assert outcomes[0]['result']['all_pass'] and not outcomes[1]['result']['all_pass']\n checks[name+'_exact_witness_bracket']=dict(status='PASS',original_facet_indices=[ia,ib],triangle_a=t1,triangle_b=t2,outcomes=outcomes)\nmins=np.sqrt(np.load(W/'gap_to_whole_die_facets.npz')['minimum_squared']);upper=basicdata['facet_upper_distance_bound']\ndef band(minima,up):return bool(np.all(minima>=.04) and up<=.06)\nerr=mins.copy();err[0]=.03\nchecks['gap_distribution_fault']=dict(status='PASS' if band(mins,upper) and not band(err,upper) else 'FAIL',original_pass=band(mins,upper),injected_one_facet_minimum_source=.03,mutated_pass=band(err,upper),all_facets=len(mins),facet_minimum_quantiles_source=np.quantile(mins,[0,.05,.5,.95,1]),note='Exhaustive facet minima, not sampled points; upper cover holds continuously. Injected scalar tests aggregation only; exact witness brackets above test distance predicates.')\nchecks['wall_fault']=dict(status='PASS' if wall['min_source']>=.5 and not .3>=.5 else 'FAIL',original_minimum=wall['min_source'],injected_minimum=.3,threshold=.5)\nfd=f[:-1];m=trimesh.Trimesh(v,fd,process=False);checks['topology_removed_face']=dict(status='PASS' if not m.is_watertight else 'FAIL',injected_deleted_face=len(f)-1,watertight=m.is_watertight,boundary_edges=len(boundary(fd)))\nff=np.concatenate([f,f[:1]]);bad=selfpairs(v,ff,np.array([0]),np.array([len(f)]));checks['self_intersection_duplicate_face']=dict(status='PASS' if bad[0] else 'FAIL',duplicate_face_detected=bool(bad[0]))\nchecks['sweep_wrong_direction']=json.load(open(W/'sweep_wrong_direction_control.json'));checks['sweep_wrong_direction']['control_status']='PASS' if checks['sweep_wrong_direction']['status']=='FAIL' else 'FAIL'\nchecks['scale_fault']=dict(status='PASS',injected_stl_multiplier=1000,coordinate_identity_after_injection=bool(np.array_equal(stl.triangles*1000,v[f])))\nsource=trimesh.Trimesh(sv,sf,process=False);_,cnt=np.unique(np.sort(source.edges,axis=1),axis=0,return_counts=True)\nchecks['source_mesh_scope']=dict(watertight=source.is_watertight,boundary_edges=int(sum(cnt==1)),nonmanifold_edges=int(sum(cnt>2)),source_vertices=len(sv),source_faces=len(sf),components=len(source.split(only_watertight=False)),note='Only supplied scanned facets are the obstacle. No closure, re-preparation or extrapolated source volume is introduced.')\nchecks['source_provenance']={}\nfor filename in ['6158-21_labeledPrepFinal.vtp','6158-21_KATANA_ML_R2.stl','6158-21_KATANA_ML_R2.3mf']:\n b=(W/filename).read_bytes();checks['source_provenance'][filename]=dict(bytes=len(b),sha256=hashlib.sha256(b).hexdigest(),git_blob_sha1=hashlib.sha1(b'blob '+str(len(b)).encode()+b'\\0'+b).hexdigest())\ndump('controls',checks)\n"
+    }
+  },
+  "resources": {
+    "worker_processes_max_simultaneously": 2,
+    "threads_per_numerical_process": 1,
+    "large_downloads": 0,
+    "runtime_bytes_before_cleanup": 18374585,
+    "original_files_modified": false,
+    "runtime_removed": true,
+    "cleanup_completed_utc": "2026-10-04T15:48:04.267440+00:00"
+  }
+}

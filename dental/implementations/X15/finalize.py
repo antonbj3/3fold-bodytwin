@@ -1,0 +1,61 @@
+"""Assemble source-bounded results, costs, review feedback and next measurement port."""
+import json, hashlib, time, re
+from pathlib import Path
+from datetime import datetime, timezone
+from measure_r1 import HERE, DATA, dump, sha, state
+
+def main():
+    rounds = {f'R{n}': json.load(open(HERE / f'SUMMARY_R{n}.json')) for n in range(1, 6)}
+    source = json.load(open(HERE / 'SOURCES.json'))
+    verification = json.load(open(HERE / 'VERIFICATION.json'))
+    datafiles = [{'path': str(p), 'bytes': p.stat().st_size, 'sha256': sha(p)} for p in sorted(DATA.rglob('*')) if p.is_file()]
+    assert sum((x['bytes'] for x in datafiles)) < 3 * 1024 ** 3
+    dump(HERE / 'DATA_MANIFEST.json', {'dataset': source['dataset'], 'own_data_files': datafiles, 'bytes': sum((x['bytes'] for x in datafiles)), 'limit_bytes': 3 * 1024 ** 3, 'source_member_provenance': 'DATA_MANIFEST_R1.json', 'large_arrays_over_50MB': []})
+    initial = HERE / 'initial_run'
+    initial.mkdir(exist_ok=True)
+    initial_rounds = {f'R{n}': json.load(open(initial / f'SUMMARY_R{n}.json')) if (initial / f'SUMMARY_R{n}.json').exists() else rounds[f'R{n}'] for n in range(1, 6)}
+    failed_r2 = json.load(open(HERE / 'versions/R2_missing_outside_FOV/SUMMARY_R2.json'))
+    full_run_wall = None
+    resource = HERE / 'RUN_ALL_resource.log'
+    if resource.exists():
+        match = re.search('Elapsed \\(wall clock\\).*?:\\s+(\\d[\\d:.]+)', resource.read_text())
+        if match:
+            parts = [float(v) for v in match.group(1).split(':')]
+            full_run_wall = sum((v * 60 ** i for (i, v) in enumerate(reversed(parts))))
+    costs = {'initial_success_and_scientific_fail_round_wall_s': {k: v['runtime_wall_s'] for (k, v) in initial_rounds.items()}, 'initial_failed_R2_control_implementation_wall_s': failed_r2['runtime_wall_s'], 'current_replay_round_wall_s': {k: v['runtime_wall_s'] for (k, v) in rounds.items()}, 'initial_rounds_plus_failed_R2_total_wall_s': sum((v['runtime_wall_s'] for v in initial_rounds.values())) + failed_r2['runtime_wall_s'], 'current_replay_total_round_wall_s': sum((v['runtime_wall_s'] for v in rounds.values())), 'last_completed_full_one_command_wall_s': full_run_wall, 'max_initial_observed_RSS_kB': 1505516, 'threads_max': 4, 'gpu_used': False, 'fits': 0, 'preparation_notes_sources_and_codegen_wall_s': 'UNMEASURED; first-prereg timestamp through final completion recorded; no total speed claim', 'original_dataset_acquisition_cost': 'UNKNOWN_INHERITED; not free acquisition claim', 'validation': 'Included in each round; independent scientific/clinical review not executed', 'warm_interval_queries_s': rounds['R3']['candidate_interval_kernel_s'], 'same_information_matrix_queries_s': rounds['R3']['direct_matrix_control_kernel_s'], 'query_scope': 'These kernels differ in implementation; algebraic optimized vector control would TIE. No end-to-end 10x claim.', 'fallback': 'UNDETERMINED + same-specimen external edge truth, CEJ, complete surface and paired outcomes; acquisition cost UNKNOWN', 'own_data_bytes': sum((f['bytes'] for f in datafiles)), 'replay_overhead': 'Mesh export, figure, verification, hash assembly measured by RUN_ALL_resource.log after one-command run'}
+    dump(HERE / 'COST_LEDGER.json', costs)
+    result = {'lane': 'X15-bone-dehiscence', 'updated_utc': datetime.now(timezone.utc).isoformat(), 'review_state': 'PENDING_INDEPENDENT_REVIEW', 'parent_capability_status': 'OPEN; physical per-tooth movement/dehiscence boundary UNDETERMINED', 'delivered_capability': 'Actual TF2 annotation/image profiles, conditional coupled rigid motion sets, moved 3D sampled wall queries, inverse crown-target trajectory and voxel-mesh/SDF lab probe', 'rounds': rounds, 'external_referent': source['external_referents'][0], 'external_referents': source['external_referents'] + [rounds['R3']['external_referent'], rounds['R4']['external_referent']], 'external_reference_scope': 'Published dissection/image accuracy and post-treatment outcomes refute overclaim; TF2 annotations / published affine code validate only the specified computational quantities', 'population': 'Six deterministic F-series scans, 134 selected teeth / 402 attempted height sections. No patient demographics, disease labels or treatment outcomes.', 'literature_comparison': {'alveolar_thickness': 'UNDETERMINED_QUANTITY_MISMATCH: published CEJ total widths versus apex-relative root-to-external-jaw distance; cortex not isolated', 'dehiscence_prevalence': 'UNDETERMINED: no CEJ/crest classification; zero adjacent ray bone is not dehiscence', '5mm_handbook': 'Published historical crown advancement; R5 tests pure translation and inverse rigid crown realization on 15 lower-incisor profiles, no clinical validation'}, 'wall_quantity_semantics': 'First adjacent connected jaw-label run exit; later islands are retained. This is not guaranteed external cortex. Physical statuses remain UNKNOWN.', 'semantic_scope_note': 'SEMANTIC_LIMITATIONS.json; descriptive post-hoc count, no frozen gate changed', 'source_lineage': ['notes/chains_brainstorm/03_ortho_occlusion.md O22', 'results/GEOM_UNC/REPORT.md', 'results/LANE_X5_DECISION_SEG_ERROR/README_DEMO.md', 'results/LANE_NEXT_B_NATURAL_UNLOADING/HANDOFF.md'], 'costs': costs, 'verification': 'VERIFICATION.json', 'data_manifest_sha256': sha(HERE / 'DATA_MANIFEST.json'), 'figure': 'BONE_ENVELOPE_FIGURE.png', 'probe_export': 'PROBE_EXPORT.json', 'failures': ['R1 sampled ray control FAIL 0.670892mm vs 0.051mm', 'R2 first slab control omitted outside-FOV label; preserved implementation failure, repaired with same gate', 'R4 central-to-surface survival FAIL 71.91% vs 95%', 'R5 5mm crown target: 3/15 central candidates, 0/15 survive moved surface at epsilon0.608', 'Static geometric biological-equivalence gate fails external sensitivity0.53 vs0.90; our sensitivity UNKNOWN', 'Missing physical CEJ, local anatomy bounds, whole-root coverage and remodeling'], 'clinical_recommendation': False, 'independently_validated_10x_gain': False, 'code_sha256': {p.name: sha(p) for p in sorted(HERE.glob('*.py'))}, 'frozen_preregs': {f'R{n}': sha(HERE / f'PREREG_R{n}.json') for n in range(1, 6)}}
+    result['graph_binding_notes'] = 'Initial mutable result receipts were superseded after wall-quantity scope clarification; their hash drift is recorded, not admitted. Final feedback references an immutable result snapshot.'
+    dump(HERE / 'results.json', result)
+    result_hash = sha(HERE / 'results.json')
+    snapshot = HERE / 'snapshots' / result_hash / 'results.json'
+    snapshot.parent.mkdir(parents=True, exist_ok=True)
+    if not snapshot.exists():
+        snapshot.write_bytes((HERE / 'results.json').read_bytes())
+    feedback = {'target_id': 'DENT-GEOM-UNCERTAINTY', 'source_generation': json.load(open(HERE / 'GRAPH_PACKET.json'))['result_binding_template']['source_generation'], 'result_file': str(snapshot.relative_to(HERE.parents[1])), 'sha256': result_hash, 'measured_quantity': 'Local image-minus-annotation root/outer-jaw separation and survival of assigned planes under moved 3D sample queries', 'units': 'mm; fraction', 'uncertainty': 'No same-specimen anatomical truth; sigma0.22 is canal. Scenarios0.38/0.608/0.9mm uncalibrated, missing CEJ/cortex/outcomes. Central-ray sampling also failed numerically.', 'population_regime': '6 deterministic TF2 F-series scans, 0.3mm voxels; finite root-surrogate band, 32 boundary samples per 3D query', 'preregistered_gate': 'PREREG_R1-R5 JSON; R1 ray max<=0.051mm FAIL, R2 exact topology max<=1e-8 PASS, R2 edge p95<=0.3mm PASS, R4 survival>=0.95 FAIL', 'baseline': 'Independent scalar grid faces, voxel cube slabs, Rodrigues rotation, actually executed Shapely affine rotation; fixed 2mm research comparator and literal published 5mm crown bodily realization distinguished', 'outcome': 'MIXED: new raw-image information and reproducible geometry; central-plane and 5mm realization failures, physical bounds UNKNOWN', 'negative_result': True, 'review_state': 'PENDING_INDEPENDENT_REVIEW', 'review_scope': 'Image/annotation computational geometry only; no native scientific admission or clinical prediction', 'review_artifact': '', 'review_sha256': '', 'reviewer_decision': ''}
+    dump(HERE / 'GRAPH_FEEDBACK.json', feedback)
+    frozen = HERE / 'FROZEN_MEASUREMENT_TARGETS.json'
+    if not frozen.exists():
+        targets = []
+        for line in open(HERE / 'RAW_R4.jsonl'):
+            r = json.loads(line)
+            if r['R3_query']['conditional_geometric_status'] != 'WITHIN_SECTION_CONSTRAINTS' or r['R3_admission_survived']:
+                continue
+            valid = [(p, s, v) for p in r['surface_points'] for (s, v) in [(n, p[n]) for n in ('buccal', 'lingual')] if v.get('margin_mm') is not None]
+            if not valid:
+                continue
+            (p, s, v) = min(valid, key=lambda x: x[2]['margin_mm'])
+            targets.append({'case': r['case'], 'tooth': r['tooth'], 'motion': r['motion'], 'source_voxel_zyx': p['source_voxel_zyx'], 'moved_xyz_mm': p['moved_xyz_mm'], 'side': s, 'predicted_annotation_margin_mm': v['margin_mm'], 'critical_edge_budget_mm': v['margin_mm'], 'anatomical_model_error': 'UNKNOWN', 'missing_walls': r['missing_side_queries']})
+        pred = {'timestamp_utc': datetime.now(timezone.utc).isoformat(), 'source_raw_sha256': sha(HERE / 'RAW_R4.jsonl'), 'quantity': 'Directional moved root-point to outer jaw margin; prospective same-specimen CT/microCT observation required', 'targets': targets, 'physical_measurement_started': False}
+        dump(frozen, pred)
+        (HERE / 'FROZEN_MEASUREMENT_TARGETS.sha256').write_text(sha(frozen) + '  FROZEN_MEASUREMENT_TARGETS.json\n')
+    dump(HERE / 'NEXT_CONSTRUCTION.json', {'id': 'X15-R6-WHOLE-ROOT-EXTERNAL-EDGE', 'parent': 'O22', 'capability': 'Entire root containment with a calibrated directional edge bound and an outcome-validity test', 'obstacle': 'Sparse band and scanner-specific anatomy/cortex/CEJ truth missing', 'changed_operation': 'Complete material-labelled root surface + explicit crest connectivity; same-specimen external edge measurements consume frozen bottleneck predictions, then paired outcome test', 'consumer': 'O22 / aligner N1', 'prerequisite_status': 'MISSING_LOCAL_SAME_SPECIMEN_EDGE_AND_LONGITUDINAL_DATA', 'frozen_targets': 'FROZEN_MEASUREMENT_TARGETS.json', 'strongest_control': 'Full direct 3D distance/line query with identical geometry and uncertainty; frozen predictions compared with independently measured edge locations', 'falsifier': 'Directional total error exceeds the available margin or outcome sensitivity below0.90', 'cost': 'New physical acquisition and whole-surface validation UNKNOWN; do not replace with our own printed fixture', 'external_locator_candidates': ['PMID22051495 protocol basis; no same TF2 specimen', 'DOI10.2319/042220-342.1 post-treatment outcome basis; no matching local patients'], 'next_executable_operation': 'Whole-surface model with intervals from paired external CBCT/microCT; run compare_external_measurement.py when real independent measurement JSON is available'})
+    dump(HERE / 'GRAPH_COVERAGE_PROPOSAL.json', {'status': 'PROPOSAL_ONLY', 'missing_target': 'DENT-ORTHO-BONE-ENVELOPE', 'existing_geometry_target': 'DENT-GEOM-UNCERTAINTY', 'consumer': 'O22 / aligner N1', 'scope': 'Full root/crest/cortex state, coupled pose trajectory, anatomy uncertainty, outcome validation', 'not_admitted': True})
+    attempts = []
+    for n in range(1, 6):
+        attempts.append({'round': f'R{n}', 'prereg': f'PREREG_R{n}.json', 'evidence': f'SUMMARY_R{n}.json', 'decomposition': f'DECOMPOSITION_R{n}.json', 'strongest_comparator': json.load(open(HERE / f'PREREG_R{n}.json')).get('strongest_equally_informed_control'), 'outcome': rounds[f'R{n}'], 'next_operation': f'R{n + 1}' if n < 5 else 'X15-R6-WHOLE-ROOT-EXTERNAL-EDGE'})
+    dump(HERE / 'ATTEMPTS.json', attempts)
+    state('FIVE_ROUNDS_DELIVERED_PARENT_OPEN', {'R1': 'FAIL_SAMPLING', 'R2': 'NEW_IMAGE_INFO; CONTROL_TIE', 'R3': 'COUPLED_SET; CONTROL_TIE', 'R4': 'FAIL_3D_SURVIVAL', 'R5': '1mm10/15_sampled;5mm0/15;PHYSICAL_UNKNOWN'}, 'Independent review and R6 complete root + same-specimen external edge / paired outcome acquisition; see HANDOFF.md')
+    print('Five rounds assembled; physical boundary UNKNOWN; review pending.')
+if __name__ == '__main__':
+    main()

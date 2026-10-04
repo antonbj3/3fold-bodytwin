@@ -1,0 +1,18 @@
+{
+  "claim_type": "capability",
+  "physical_validation": "UNKNOWN",
+  "measurement": "NOT_RUN",
+  "profiles": {
+    "X14": {"profile":"synthetic_planar_seating","resolution":"PHENOMENOLOGICAL","lp_parity_tolerance_mm":1e-10,"summary_identity_error":0,"minimum_downstream_difference_mm":0.005},
+    "X51": {"profile":"fixed_binomial_plan","resolution":"POPULATION","n":46,"failures_allowed":1,"zero_failure_n":29,"four_group_n":42,"three_survivor_risk_upper":0.6315968501359612,"tolerance":1e-12},
+    "X56": {"profile":"synthetic_two_mode_metrology","resolution":"PER_SURFACE_REGION","matrix_error_tolerance":1e-15,"missing_reference_status":"UNKNOWN_MISSING_LOCAL_BONE_REFERENCE","missing_biology_status":"UNKNOWN_BIOLOGICAL_CLOSURE"},
+    "X59": {"profile":"published_bench_table_and_exact_pairing_witness","resolution":"PER_SURFACE_REGION","contrasts_um":[9.17,2.63,51.82,60.82,3.00,-1.30,16.77,58.17],"tolerance_um":1e-12,"summary_identity_error":0,"classification_difference":4,"regression_gate_Amann":"PASS","regression_gate_Dentsply_Sirona":"FAIL"},
+    "X63": {"profile":"synthetic_unilateral_rail_and_published_preload","resolution":"PHENOMENOLOGICAL","cantilever_compliance_fraction":"1/7040","closed_gap_identity_error":0,"minimum_event_difference_N":0.1,"preload_first_N":329.9,"preload_tenth_N":253.7,"preload_comparator_relative_error_percent":30.035475,"relative_error_tolerance_percent":0.000001},
+    "X68": {"profile":"exact_fitted_polynomial_derivative_enclosure","resolution":"PHENOMENOLOGICAL","tested_rational_points":101,"physical_remainder":"MISSING"},
+    "X74": {"profile":"positive_b_colour_formula_enclosure","resolution":"PHENOMENOLOGICAL","identity_deltaE":0,"symmetry_tolerance":1e-12,"physical_validation":"UNKNOWN"},
+    "X82": {"profile":"synthetic_four_support_height_force","resolution":"PER_TOOTH","force_N":[25.5,24.5,24.5,25.5],"force_tolerance_N":1e-10,"summary_identity_error":0,"minimum_downstream_difference_N":0.49,"missing_calibration_status":"UNKNOWN"},
+    "X85": {"profile":"synthetic_frozen_lab_consumer_and_height_enclosure","resolution":"PER_SURFACE_REGION","heldout_status":"PASS_FROZEN_OBSERVATION_GATE","injected_status":"FAIL_FROZEN_OBSERVATION_GATE","invalid_identity":"REJECT","denominator_zero":"REJECT"}
+  },
+  "cost": {"fit":"No patient fit; only stated synthetic calibration inputs","source_discovery":"Existing reviewed package reused","validation":"Selected kernels and independent scalar/table controls","fallback":"Source-only for other catalog entries"},
+  "falsifier":"Any mismatch against this frozen contract; every runnable profile also mutates a checked numeric output and must reject it"
+}

@@ -1,0 +1,15 @@
+import json, hashlib, datetime
+from pathlib import Path
+p = json.loads(Path('PREREG_R2.json').read_text())
+p.update(round='R3', frozen_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(), parent_artifact='raw/R2_RESULTS.json', capability='Reconstruct reference-status joint decisions from rounded published paired reference information while preserving missing-test allocation.', obstacle='Unlabeled denominators cannot identify reference-conditioned numerator.', changed_operation='Add Table2 rounded PPV80% for C1P1 n264 and82% for C1P0 n116, nearest-integer rounding half-width0.5 percentage points; enumerate all integer tables compatible with exact margins and these bands.', input='R1 counts + R2 joint totals + Table2 two PPV bands only. Remaining Table2 metrics reserved for source-faithfulness cross-check, not fitted.')
+p['strongest_equally_informed_control'] = 'Independent integer linear-fractional optimization by Dinkelbach plus scipy.milp on 18 cells and exact same rounded bands. Information comparison to R2 and conditional-product closure uses same primary source.'
+p['falsifier'] = 'Any integer-compatible table omitted, oracle endpoint mismatch>1e-8, any Table2 remaining statistic outside stated nearest-integer reporting band, any source result sold as population or treatment prediction.'
+p['full_cost']['validation'] = 'Four C/P patterns, two endpoints each; separate MILP and Table2 SN/SP/TA/NPV reporting cross-check. No new subject validation.'
+Path('PREREG_R3.json').write_text(json.dumps(p, indent=2) + '\n')
+Path('PREREG_R3.sha256').write_text(hashlib.sha256(Path('PREREG_R3.json').read_bytes()).hexdigest() + '\n')
+d = json.loads(Path('DECOMPOSITION_R2.json').read_text())
+d['round'] = 'R3'
+d['changed_operation'] = p['changed_operation']
+d['leaves'] += [{'leaf': 'rounded_pair_PPV', 'status': 'EXTERNALLY_MEASURED', 'basis': 'Table2:80%(n264) and82%(n116), reported to integer percentage.', 'stop_argument': 'Raw individual records unavailable; use reporting band, do not silently create point counts.'}, {'leaf': 'reporting_rounding', 'status': 'CONSTITUTIVE_CLOSURE', 'basis': 'Assume standard nearest-integer rounding for percentages: [r-0.5,r+0.5).', 'stop_argument': 'This can be checked against other reported metrics, but original software/data remain unavailable.'}, {'leaf': 'integer_joint_reconstruction', 'status': 'DERIVED_UNDER_ASSUMPTIONS', 'basis': 'Every 3x3 transportation matrix decomposes into fixed C1 row and residual two-row allocation. Enumerate residual missing row and derive C0 row.', 'stop_argument': 'Finite exact sum constraints exhausted; population sampling uncertainty deferred to R4.'}]
+Path('DECOMPOSITION_R3.json').write_text(json.dumps(d, indent=2) + '\n')
+Path('raw/R3_PAIRED_REPORTS.json').write_text(json.dumps({'source': 'PMC4884138 Table2', 'joint': [{'C': 1, 'P': 1, 'n': 264, 'PPV_percent': 80, 'SN_percent': 61, 'SP_percent': 85, 'TA_percent': 74, 'NPV_percent': 70}, {'C': 1, 'P': 0, 'n': 116, 'PPV_percent': 82, 'SN_percent': 28, 'SP_percent': 94, 'TA_percent': 61, 'NPV_percent': 57}], 'precision_percent': 1, 'not_independent_validation': True}, indent=2) + '\n')

@@ -1,0 +1,5 @@
+from common import *
+files = {str(p.relative_to(ROOT)): {'sha256': sha(p), 'bytes': p.stat().st_size} for p in [ROOT / 'PUBLIC_INPUT_LOCK.json', ROOT / 'code/participant_resume.py', ROOT / 'code/generate_resume.py', ROOT / 'code/public_byte_guard.py', ROOT / 'code/generate_full_kernel.py', ROOT / 'code/freeze_predictions.py']}
+dump(ROOT / 'FROZEN_EXECUTION_WRAPPERS.json', dict(frozen_utc=now(), original_candidate_sha256=sha(ROOT / 'FROZEN_GENERATOR.json'), strong_control_sha256=sha(ROOT / 'FROZEN_CONTROL.json'), files=files, scientific_algorithm_modified=False, reason='Preserved transient missing public-file failure; validated bounded input snapshots; direct conventional control addition before any test query', hidden_queries_at_freeze=0, case_snapshot_cache='None; one case per worker deleted after call'))
+(ROOT / 'FROZEN_EXECUTION_WRAPPERS.sha256').write_text(sha(ROOT / 'FROZEN_EXECUTION_WRAPPERS.json') + '  FROZEN_EXECUTION_WRAPPERS.json\n')
+print('execution wrapper freeze', sha(ROOT / 'FROZEN_EXECUTION_WRAPPERS.json'))

@@ -1,0 +1,11 @@
+from common import *
+p = read(P / 'PREREG_R6.json')
+p.pop('frozen_utc')
+p.update(round='R7', parent_prereg_sha256=sha(P / 'PREREG_R6.json'), diagnosis='R6 pilot3/3 failed both bounded contours. Decoded STL has530 zero-area faces in first crown, concentrated near the cut plane; almost-coincident cut vertices collapse at float32 serialization. The cause is near-plane clipping, not isocontour singularity.', changed_operation='Before analytic plane clipping, snap only vertices with |z-margin|<=1e-6mm to the exact plane. This bounds each changed coordinate by1e-6mm and prevents sliver triangles from numerical near-endpoint edge cuts. Retain R6 bounded contour levels, domain padding and every scientific/export gate.', parameters=dict(p['parameters'], preclip_snap_mm=1e-06), cohort='All189 complete-crown requests; R6 aborted remaining186 after pilot failed on all3 and diagnostic localized a general clipping defect. R7 retries all existing183 meshes;6 source failures preserved.', decision='Same R6 gates. The snap is a bounded finite-coordinate repair, not a claim of physical registration accuracy or a relaxed marginal tolerance.')
+freeze(P / 'PREREG_R7.json', p)
+freeze(P / 'DECOMPOSITION_R7.json', dict(parent='DECOMPOSITION_R6.json', leaf=dict(name='plane endpoint classification', equation="z'=zm if |z-zm|<=1e-6mm else z; hence ||x'-x||<=1e-6mm for each vertex", status='DERIVED_UNDER_ASSUMPTIONS', stop_argument='Finite coordinate displacement bounded analytically; no continuous surface/physical transfer enclosure. Reloaded export, minimum face area and manifold checks remain mandatory.')))
+pilot = read(P / 'raw/R6_PILOT.json')
+used = {r['uid'] for r in pilot['rows']}
+rest = [dict(uid=r['uid'], key=r['key'], participant=r['participant'], status='NOT_RUN_AFTER_PILOT_FAILURE', reason='Three pilot meshes failed STL metrology on both predefined contours; inspect next changed construction') for r in cohort() if r['uid'] not in used]
+dump(P / 'raw/R6_GEOMETRY.json', dict(rows=pilot['rows'] + rest, seconds=pilot['seconds'], executed=3, not_run=186, scope='Pilot failure, not a completed full panel'))
+state('R7_FINITE_CLIP_REPAIR_FROZEN', 'R6 source of export failure localized to near-plane slivers', 'Bounded preclip endpoint snapping and full decoded export validation')

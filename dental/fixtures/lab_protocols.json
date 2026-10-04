@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "source_demo": "NET_R4",
+  "source_sha256": "d3c5f18e992c016b60f769f13b107e05d3dbe7556bc371ffcf61b1773cc0873d",
+  "claim_type": "capability",
+  "physical_measurements": 0,
+  "protocols": [
+    {
+      "id": "R4P",
+      "source": "SAGHEB_PRELOAD",
+      "edges": [
+        "D-E-PRELOAD-HISTORY",
+        "D-E-K20",
+        "D-E-K38"
+      ],
+      "extends": [
+        "M08"
+      ],
+      "measurement": "Synchronized torque-angle-axial force trace for tightening history, fixture separation and post-release force; mapped interface opening for seated target.",
+      "specimen": "Identified screw, coating, implant, abutment and batch. Separate source-rig replication (noncontact0.10mm) and target seated condition. Irreversible reuse forbids assuming two orders are interchangeable; use randomized matched-batch arms where needed.",
+      "resolution_level": "PER_TOOTH",
+      "local_gap_resolution": "PER_POINT",
+      "timescale": "HANDOVER",
+      "reference_design": "Source had25 units,10 tightenings,25Ncm,60s hold. Historical replication design, not a power calculation.",
+      "required_record_fields": [
+        "specimen_id",
+        "batch_id",
+        "fixture_contact_state",
+        "coating",
+        "lubrication",
+        "tightening_index",
+        "torque_Ncm",
+        "angle_rad",
+        "time_s",
+        "axial_force_N",
+        "gap_coordinate",
+        "gap_um",
+        "force_calibration",
+        "protocol_id",
+        "prediction_hash"
+      ],
+      "would_decide": "Target repeated-use force change and whether measured preload predicts local seated opening; source76.2N alone cannot decide the latter.",
+      "freeze_before_measurement": "Hash target per-specimen/condition predictions, sensor calibration and acceptance criteria before any target outcome is read. No target physical prediction supplied in R4.",
+      "cost": "UNKNOWN: instrument access, sample supply, operator time and precision/power require lab quote."
+    },
+    {
+      "id": "R4C",
+      "source": "CUNALI_INTERNAL_GAP",
+      "edges": [
+        "D-E-REPLICA-CT",
+        "D-E-K43"
+      ],
+      "extends": [
+        "M01",
+        "M02"
+      ],
+      "measurement": "Within-coping repeated dry microCT, PVS replica and final cemented film, with recorded seating force/time and region registration. Repeat dry reseating to separate seating variance from instrument repeatability.",
+      "specimen": "The same identified pilot copings and master geometry for non-destructive steps; preserve destructive replica section IDs and final cementation order. Existing X71 pilot12 is a planning batch, not a new power claim.",
+      "resolution_level": "PER_SURFACE_REGION",
+      "timescale": "SIMULTANEOUS",
+      "required_record_fields": [
+        "specimen_id",
+        "region_id",
+        "method",
+        "seating_repeat",
+        "seating_force_N",
+        "time_s",
+        "state",
+        "gap_um",
+        "calibration_reference",
+        "coordinate_frame",
+        "protocol_id",
+        "prediction_hash"
+      ],
+      "would_decide": "Signed paired method/state differences and repeatability, separately for internal mid-occlusal and marginal regions. No60.82um default correction.",
+      "freeze_before_measurement": "Freeze predicted signed regional differences and separately instrument/reseating acceptance tolerances; these tolerances remain UNKNOWN until reference calibration.",
+      "cost": "UNKNOWN increment beyond M01/M02. No new operator-hour estimate inferred from number of table cells."
+    },
+    {
+      "id": "R4F",
+      "source": "CHOI_FATIGUE",
+      "edges": [
+        "D-E-K33"
+      ],
+      "extends": [
+        "A10"
+      ],
+      "measurement": "Non-destructive pretest defect/root geometry, joint preload and measured lever arm, then load waveform, cycles, failure/runout and failure location per specimen.",
+      "specimen": "Same specimen for pretest geometry and fatigue. Destructive static specimens must be separately identified in a matched batch, never falsely paired with fatigue specimens.",
+      "resolution_level": "PER_POINT",
+      "outcome_resolution": "PER_TOOTH",
+      "timescale": "HANDOVER",
+      "reference_design": "Historical Choi3 static +12 fatigue per system,3 per peak level, R0.1 at15Hz to5e6 cycles; figure lever geometry unresolved here. No0.40 universal transfer.",
+      "required_record_fields": [
+        "specimen_id",
+        "batch_id",
+        "pretest_defect_map",
+        "root_geometry",
+        "preload_N",
+        "lever_arm_mm",
+        "load_min_N",
+        "load_max_N",
+        "frequency_Hz",
+        "cycles",
+        "failure_event",
+        "failure_location",
+        "protocol_id",
+        "prediction_hash"
+      ],
+      "would_decide": "Held target load-cycle/event prediction conditional on geometry and assembly. Runouts constrain survival only up to test exposure.",
+      "freeze_before_measurement": "Freeze target survival/load predictions including censoring, full fixture geometry and holdout batch before testing.",
+      "cost": "UNKNOWN sample, test-machine time, failure inspection and independent holdout cost."
+    }
+  ]
+}

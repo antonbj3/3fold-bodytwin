@@ -1,0 +1,9 @@
+# X94
+
+Review: LANE_XREVIEW_BATCH30, ACCEPTED_WITH_CORRECTION. Reviewed result SHA256: `a6e4c8595cfb2114b918a5df315373d926617db8465743fab020519b17ab0125`.
+
+Scope: "993 geometries and 188 primary test cases; seven percentiles per axis, verified published Table 1 , W1 housing mechanism, DKW restriction, support -/flow adequacy and fault tests run. Full copy run_all gives unchanged results.json . No matched physical population testing."
+
+Corrections: [{"id": "C30-02", "job": "LANE_X94_FORCE_VALIDATION", "target_id": "DENT-VAL-OCCLUSAL-REGIONAL-FORCES", "claim_as_written": "The minimum possible Wasserstein distance between test proxy and any empirical distribution compatible with the source table is:0,109262 for the right-hand side, and0,054974 for rear part", "finding": "The code integrates point-by-point distances to a quantum housing, with rank and rounding coatings. It calculates a valid lower limit, but does not account for any attainment witness or optimization over empirical 178-Personships.", "evidence_locator": ["@DENTAL_IMPLEMENTATIONS@/X94/README_DEMO.md:32", "@DENTAL_IMPLEMENTATIONS@/X94/code/validate.py:8", "@DENTAL_IMPLEMENTATIONS@/X94/code/verify.py:14"], "corrected_statement": "Rigorous lower W1-limit values below the declared quantum housing are: 0,109261924 and 0,054974177. They should not be described as a proven minimum empirically achieved. 34,20 respektive 12,522275 procentenheter; DKW-the lower end of the population border is still 0.", "class": "HOLDS_WITH_CORRECTION", "severity": "bound_wording", "reproducer": "numeric_audit.py", "patch": "patches/LANE_X94_FORCE_VALIDATION/wording.patch", "verification": "NUMERIC_AUDIT.json"}]
+
+Physical validation: UNKNOWN. Code and source tests are retained for inspection. Full original replay requires externally supplied data and optional dependencies; see ../../docs/DATA.md. Portable profiles, where available, use declared synthetic or published aggregate inputs.

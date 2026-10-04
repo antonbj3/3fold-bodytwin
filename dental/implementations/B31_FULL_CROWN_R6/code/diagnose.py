@@ -1,0 +1,16 @@
+from local import *
+(a, b) = first()
+old = npz(a['mesh_path'])
+(pv, pf) = compact(old['vertices'], old['faces'][old['roles'] == 1])
+prep = trimesh.Trimesh(pv, pf, process=False)
+rim = pv[loops(prep)[0]]
+c = npz(D / 'C_IMPLICIT_CACHE' / (a['key'] + '.npz'))
+cap = trimesh.Trimesh(c['vertices'], c['faces'], process=False).slice_plane([0, 0, rim[0, 2]], [0, 0, 1], cap=False)
+cap.merge_vertices(digits_vertex=12)
+r = dict(key=a['key'], rim_z_range=np.ptp(rim[:, 2]), rim_z=rim[0, 2], prep_vertices=len(pv), prep_faces=len(pf), prep_extent=np.ptp(pv, axis=0), cached_faces=len(c['faces']), planar_trim_faces=len(cap.faces), boundary_loops=[len(x) for x in loops(cap)], components=len(cap.split(only_watertight=False)), igl_intersection_api=[x for x in dir(igl) if 'intersect' in x])
+(q, g, j) = fast_nearest(pv[pf], cap.triangles_center)
+err = abs(g - boundary_gap(q, rim))
+r['trim_gap_residual_max_mm'] = err.max()
+r['trim_gap_min_mm'] = g.min()
+save(R6 / 'raw/DIAG_A.json', r)
+print(clean(r))

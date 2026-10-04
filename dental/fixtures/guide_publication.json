@@ -1,0 +1,110 @@
+{
+  "kind": "published_group_summary",
+  "license": "Primary article terms; numerical measurements only",
+  "resolution": "POPULATION",
+  "profiles": [
+    {
+      "id": "freehand",
+      "n_implants": 37,
+      "entry_mean_sd_mm": [
+        1.84,
+        1.05
+      ],
+      "apex_mean_sd_mm": [
+        2.3,
+        1.02
+      ],
+      "angle_mean_sd_deg": [
+        6.98,
+        3.78
+      ],
+      "depth_mean_sd_mm": null,
+      "depth_status": "UNKNOWN: global apex distance is not signed depth",
+      "source": "doi:10.1111/clr.13578 published Table4 MANDIBLE; repository accepted manuscript Table3",
+      "population": "Mandibular subset of randomized clinical trial",
+      "sample_to_population_moments": "CONSTITUTIVE_CLOSURE; not confidence bounds",
+      "signed_direction": "UNKNOWN",
+      "joint_entry_apex_angle_law": "UNKNOWN"
+    },
+    {
+      "id": "pilot_guided",
+      "n_implants": 29,
+      "entry_mean_sd_mm": [
+        1.69,
+        1.06
+      ],
+      "apex_mean_sd_mm": [
+        1.95,
+        1.28
+      ],
+      "angle_mean_sd_deg": [
+        6.01,
+        3.44
+      ],
+      "depth_mean_sd_mm": null,
+      "depth_status": "UNKNOWN: global apex distance is not signed depth",
+      "source": "doi:10.1111/clr.13578 published Table4 MANDIBLE; repository accepted manuscript Table3",
+      "population": "Mandibular subset of randomized clinical trial",
+      "sample_to_population_moments": "CONSTITUTIVE_CLOSURE; not confidence bounds",
+      "signed_direction": "UNKNOWN",
+      "joint_entry_apex_angle_law": "UNKNOWN"
+    },
+    {
+      "id": "fully_guided",
+      "n_implants": 37,
+      "entry_mean_sd_mm": [
+        1.34,
+        0.58
+      ],
+      "apex_mean_sd_mm": [
+        1.62,
+        0.61
+      ],
+      "angle_mean_sd_deg": [
+        3.05,
+        1.42
+      ],
+      "depth_mean_sd_mm": null,
+      "depth_status": "UNKNOWN: global apex distance is not signed depth",
+      "source": "doi:10.1111/clr.13578 published Table4 MANDIBLE; repository accepted manuscript Table3",
+      "population": "Mandibular subset of randomized clinical trial",
+      "sample_to_population_moments": "CONSTITUTIVE_CLOSURE; not confidence bounds",
+      "signed_direction": "UNKNOWN",
+      "joint_entry_apex_angle_law": "UNKNOWN"
+    },
+    {
+      "id": "dynamic_navigation",
+      "n_implants": 38,
+      "entry_mean_sd_mm": [
+        1.36,
+        0.65
+      ],
+      "apex_mean_sd_mm": [
+        1.48,
+        0.65
+      ],
+      "angle_mean_sd_deg": [
+        3.71,
+        1.32
+      ],
+      "depth_mean_sd_mm": null,
+      "depth_status": "UNKNOWN: global apex distance is not signed depth",
+      "source": "doi:10.1186/s40729-020-00272-0 Results/Comparison of accuracy, Figure4",
+      "population": "Mixed-arch retrospective clinical cohort",
+      "sample_to_population_moments": "CONSTITUTIVE_CLOSURE; not confidence bounds",
+      "signed_direction": "UNKNOWN",
+      "joint_entry_apex_angle_law": "UNKNOWN"
+    }
+  ],
+  "meta_analysis_context": {
+    "source": "doi:10.1186/s12903-024-04033-y subgroup navigation Figures8-10",
+    "static_mean_apex_mm": 1.44,
+    "dynamic_mean_apex_mm": 1.36,
+    "robot_mean_apex_mm": 0.77,
+    "static_mean_angle_deg": 3.58,
+    "dynamic_mean_angle_deg": 3.51,
+    "robot_mean_angle_deg": 1.71,
+    "ci_semantics": "Confidence interval of pooled mean; NEVER a patient-level SD",
+    "robot_profile": "Excluded from probability computation: only two studies, no patient-level joint distribution here"
+  }
+}

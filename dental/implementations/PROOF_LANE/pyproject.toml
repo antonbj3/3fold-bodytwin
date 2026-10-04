@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dental-gencad-bench"
+version = "0.1.0"
+description = "Scoped geometric certificates and independent-reference benchmark instruments"
+requires-python = "==3.10.*"
+dependencies = ["numpy>=1.21", "scipy>=1.8", "trimesh>=4", "sympy>=1.10", "jsonschema>=4", "rtree>=1", "matplotlib>=3.5", "highspy==1.15.1", "scikit-image==0.25.2", "mpmath==1.3.0"]
+
+[tool.setuptools.packages.find]
+include = ["gencad_bench*"]

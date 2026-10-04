@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "software_licence": "Apache-2.0",
+  "copyright": "2026 Anton and 3FOLD contributors",
+  "authority": "Owner-selected software licence; copied 3FOLD modules follow their Apache-2.0 upstreams",
+  "manifest": "CODE_MANIFEST.json",
+  "notice": "../NOTICE",
+  "source_groups": [
+    {
+      "paths": [
+        "dental_release/**",
+        "tools/**",
+        "tests/**",
+        "implementations/**"
+      ],
+      "owner": "Anton and 3FOLD contributors",
+      "licence": "Apache-2.0",
+      "origin": "3FOLD dental research source deliveries identified per file by origin_demo, origin_relative_file and source_sha256 in CODE_MANIFEST.json",
+      "upstream_locator": "https://github.com/antonbj3/3fold-bodytwin",
+      "adaptations": "Path relocation and sanitisation recorded per file; release validation repairs explicitly recorded; not a claim that every internal research file appeared at the public locator"
+    },
+    {
+      "paths": [
+        "implementations/FALT_TANDLAST/engine_snapshot/**",
+        "implementations/X72/vendor/**"
+      ],
+      "owner": "Anton and 3FOLD contributors",
+      "licence": "Apache-2.0",
+      "upstream_locator": "https://github.com/antonbj3/3fold-motion-engine",
+      "licence_locator": "https://github.com/antonbj3/3fold-motion-engine/blob/main/LICENSE",
+      "field_engine_locator": "https://github.com/antonbj3/3fold-field-engine",
+      "notice": "Retain 3FOLD source attribution; snapshot origins and hashes in CODE_MANIFEST.json"
+    }
+  ],
+  "runtime_dependencies": [
+    {
+      "name": "NumPy",
+      "licence": "BSD-3-Clause",
+      "upstream": "https://numpy.org/doc/stable/license.html",
+      "bundled": false
+    },
+    {
+      "name": "SciPy",
+      "licence": "BSD-3-Clause",
+      "upstream": "https://scipy.org/about/",
+      "bundled": false
+    },
+    {
+      "name": "mpmath",
+      "licence": "BSD-3-Clause",
+      "upstream": "https://mpmath.org/",
+      "bundled": false
+    },
+    {
+      "name": "h5py",
+      "licence": "BSD-3-Clause",
+      "upstream": "https://github.com/h5py/h5py/blob/master/LICENSE",
+      "bundled": false
+    },
+    {
+      "name": "Shapely",
+      "licence": "BSD-3-Clause",
+      "upstream": "https://github.com/shapely/shapely/blob/main/LICENSE.txt",
+      "bundled": false
+    }
+  ],
+  "data_terms": "External dataset terms are distinct from Apache-2.0 software rights. Bundled fixtures contain synthetic scenarios, numerical published measurements and source locators; see docs/DATA.md for primary/comparator terms. No anatomical payloads or articles."
+}
