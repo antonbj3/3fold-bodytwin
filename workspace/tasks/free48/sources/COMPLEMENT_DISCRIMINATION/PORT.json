@@ -1,0 +1,1341 @@
+{
+  "cell_id": "COMPLEMENT_DISCRIMINATION",
+  "source_cell_ids": [
+    "bodytwin:MODEL-COMPLEMENT-AMPLIFICATION"
+  ],
+  "source_id_scope": "native ID contextual only: QSS bistability code distinct; consumed8state source exact paths given per row",
+  "source_status": "OPEN; retained not admitted",
+  "claim_type": [
+    "information_link",
+    "capability"
+  ],
+  "review": "PENDING_INDEPENDENT_REVIEW",
+  "input_rows": [
+    {
+      "quantity": "k_tick",
+      "value": 0.00016666666666666666,
+      "unit": "min^-1",
+      "resolution_level": "MOLECULE",
+      "leaf_status": "EXTERNALLY_MEASURED",
+      "applicability": {
+        "species": "purified human complement proteins / sheep-erythrocyte assays / synthetic bulk-equivalent surface",
+        "tissue": "surface complement reduced compartment",
+        "temperature": "37C for unstabilized half-life; other parameter temperatures not uniformly specified",
+        "method": "source reduced kinetic model; many constants tuned, not independent measurements"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/locked_params/k_tick",
+      "lower_level_debt": null,
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "rate",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "S_cl",
+      "value": 0.0,
+      "unit": "nM/min",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "purified human complement proteins / sheep-erythrocyte assays / synthetic bulk-equivalent surface",
+        "tissue": "surface complement reduced compartment",
+        "temperature": "37C for unstabilized half-life; other parameter temperatures not uniformly specified",
+        "method": "source reduced kinetic model; many constants tuned, not independent measurements"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/locked_params/S_cl",
+      "lower_level_debt": "replace with MOLECULE occupancy/on-off/catalytic kinetics, measured on matched surface; fitted Harboe output cannot validate these parameters",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "concentration",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "Km_cl",
+      "value": 10.0,
+      "unit": "nM",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "purified human complement proteins / sheep-erythrocyte assays / synthetic bulk-equivalent surface",
+        "tissue": "surface complement reduced compartment",
+        "temperature": "37C for unstabilized half-life; other parameter temperatures not uniformly specified",
+        "method": "source reduced kinetic model; many constants tuned, not independent measurements"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/locked_params/Km_cl",
+      "lower_level_debt": "replace with MOLECULE occupancy/on-off/catalytic kinetics, measured on matched surface; fitted Harboe output cannot validate these parameters",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "concentration",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "kappa_cl",
+      "value": 0.09,
+      "unit": "nM",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "purified human complement proteins / sheep-erythrocyte assays / synthetic bulk-equivalent surface",
+        "tissue": "surface complement reduced compartment",
+        "temperature": "37C for unstabilized half-life; other parameter temperatures not uniformly specified",
+        "method": "source reduced kinetic model; many constants tuned, not independent measurements"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/locked_params/kappa_cl",
+      "lower_level_debt": "replace with MOLECULE occupancy/on-off/catalytic kinetics, measured on matched surface; fitted Harboe output cannot validate these parameters",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "concentration",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "kcat_amp",
+      "value": 0.6,
+      "unit": "min^-1",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "purified human complement proteins / sheep-erythrocyte assays / synthetic bulk-equivalent surface",
+        "tissue": "surface complement reduced compartment",
+        "temperature": "37C for unstabilized half-life; other parameter temperatures not uniformly specified",
+        "method": "source reduced kinetic model; many constants tuned, not independent measurements"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/locked_params/kcat_amp",
+      "lower_level_debt": "replace with MOLECULE occupancy/on-off/catalytic kinetics, measured on matched surface; fitted Harboe output cannot validate these parameters",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "rate",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "Km_amp",
+      "value": 3000.0,
+      "unit": "nM",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "purified human complement proteins / sheep-erythrocyte assays / synthetic bulk-equivalent surface",
+        "tissue": "surface complement reduced compartment",
+        "temperature": "37C for unstabilized half-life; other parameter temperatures not uniformly specified",
+        "method": "source reduced kinetic model; many constants tuned, not independent measurements"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/locked_params/Km_amp",
+      "lower_level_debt": "replace with MOLECULE occupancy/on-off/catalytic kinetics, measured on matched surface; fitted Harboe output cannot validate these parameters",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "concentration",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "k_f",
+      "value": 0.3,
+      "unit": "min^-1",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "purified human complement proteins / sheep-erythrocyte assays / synthetic bulk-equivalent surface",
+        "tissue": "surface complement reduced compartment",
+        "temperature": "37C for unstabilized half-life; other parameter temperatures not uniformly specified",
+        "method": "source reduced kinetic model; many constants tuned, not independent measurements"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/locked_params/k_f",
+      "lower_level_debt": "replace with MOLECULE occupancy/on-off/catalytic kinetics, measured on matched surface; fitted Harboe output cannot validate these parameters",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "rate",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "kcat_C5",
+      "value": 0.288,
+      "unit": "min^-1",
+      "resolution_level": "MOLECULE",
+      "leaf_status": "EXTERNALLY_MEASURED",
+      "applicability": {
+        "species": "purified human complement proteins / sheep-erythrocyte assays / synthetic bulk-equivalent surface",
+        "tissue": "surface complement reduced compartment",
+        "temperature": "37C for unstabilized half-life; other parameter temperatures not uniformly specified",
+        "method": "source reduced kinetic model; many constants tuned, not independent measurements"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/locked_params/kcat_C5",
+      "lower_level_debt": null,
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "rate",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "Km_C5",
+      "value": 1400.0,
+      "unit": "nM",
+      "resolution_level": "MOLECULE",
+      "leaf_status": "EXTERNALLY_MEASURED",
+      "applicability": {
+        "species": "purified human complement proteins / sheep-erythrocyte assays / synthetic bulk-equivalent surface",
+        "tissue": "surface complement reduced compartment",
+        "temperature": "37C for unstabilized half-life; other parameter temperatures not uniformly specified",
+        "method": "source reduced kinetic model; many constants tuned, not independent measurements"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/locked_params/Km_C5",
+      "lower_level_debt": null,
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "concentration",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "K_C3b_for_C5conv",
+      "value": 500.0,
+      "unit": "nM",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "purified human complement proteins / sheep-erythrocyte assays / synthetic bulk-equivalent surface",
+        "tissue": "surface complement reduced compartment",
+        "temperature": "37C for unstabilized half-life; other parameter temperatures not uniformly specified",
+        "method": "source reduced kinetic model; many constants tuned, not independent measurements"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/locked_params/K_C3b_for_C5conv",
+      "lower_level_debt": "replace with MOLECULE occupancy/on-off/catalytic kinetics, measured on matched surface; fitted Harboe output cannot validate these parameters",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "concentration",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "k_decay",
+      "value": 0.023104906018664842,
+      "unit": "min^-1",
+      "resolution_level": "MOLECULE",
+      "leaf_status": "DERIVED_UNDER_ASSUMPTIONS",
+      "applicability": {
+        "species": "purified human complement proteins / sheep-erythrocyte assays / synthetic bulk-equivalent surface",
+        "tissue": "surface complement reduced compartment",
+        "temperature": "37C for unstabilized half-life; other parameter temperatures not uniformly specified",
+        "method": "source reduced kinetic model; many constants tuned, not independent measurements"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/locked_params/k_decay",
+      "lower_level_debt": null,
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "rate",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "k_I",
+      "value": 0.02,
+      "unit": "min^-1",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "purified human complement proteins / sheep-erythrocyte assays / synthetic bulk-equivalent surface",
+        "tissue": "surface complement reduced compartment",
+        "temperature": "37C for unstabilized half-life; other parameter temperatures not uniformly specified",
+        "method": "source reduced kinetic model; many constants tuned, not independent measurements"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/locked_params/k_I",
+      "lower_level_debt": "replace with MOLECULE occupancy/on-off/catalytic kinetics, measured on matched surface; fitted Harboe output cannot validate these parameters",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "rate",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "k_MAC",
+      "value": 0.3,
+      "unit": "min^-1",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "purified human complement proteins / sheep-erythrocyte assays / synthetic bulk-equivalent surface",
+        "tissue": "surface complement reduced compartment",
+        "temperature": "37C for unstabilized half-life; other parameter temperatures not uniformly specified",
+        "method": "source reduced kinetic model; many constants tuned, not independent measurements"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/locked_params/k_MAC",
+      "lower_level_debt": "replace with MOLECULE occupancy/on-off/catalytic kinetics, measured on matched surface; fitted Harboe output cannot validate these parameters",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "rate",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "C3_0_NM",
+      "value": 6684.491978609625,
+      "unit": "nM",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "human protein/synthetic surface; half-life measured on C3b-bearing sheep erythrocytes",
+        "tissue": "complement convertase or terminal assay",
+        "temperature": "37C at half-physiological ionic strength for half-life; other regimes mixed/unspecified",
+        "method": "inherited measured/constructed constants: affinity ratio is not decay rate; C9 stoichiometry ratio is not a MAC formation rate"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/constants/C3_0_NM",
+      "lower_level_debt": "MOLECULE matched surface kinetics/concentration measurement; CD55=6 explicitly ILLUSTRATIVE and host1.05min derived, not measured",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "concentration",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "C5_0_NM",
+      "value": 400.0,
+      "unit": "nM",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "human protein/synthetic surface; half-life measured on C3b-bearing sheep erythrocytes",
+        "tissue": "complement convertase or terminal assay",
+        "temperature": "37C at half-physiological ionic strength for half-life; other regimes mixed/unspecified",
+        "method": "inherited measured/constructed constants: affinity ratio is not decay rate; C9 stoichiometry ratio is not a MAC formation rate"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/constants/C5_0_NM",
+      "lower_level_debt": "MOLECULE matched surface kinetics/concentration measurement; CD55=6 explicitly ILLUSTRATIVE and host1.05min derived, not measured",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "concentration",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "T_HALF_UNSTABILIZED_MIN",
+      "value": 3.0,
+      "unit": "min",
+      "resolution_level": "MOLECULE",
+      "leaf_status": "EXTERNALLY_MEASURED",
+      "applicability": {
+        "species": "human protein/synthetic surface; half-life measured on C3b-bearing sheep erythrocytes",
+        "tissue": "complement convertase or terminal assay",
+        "temperature": "37C at half-physiological ionic strength for half-life; other regimes mixed/unspecified",
+        "method": "inherited measured/constructed constants: affinity ratio is not decay rate; C9 stoichiometry ratio is not a MAC formation rate"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/constants/T_HALF_UNSTABILIZED_MIN",
+      "lower_level_debt": null,
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "time",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "PROPERDIN_STABILIZATION_FOLD",
+      "value": 10.0,
+      "unit": "1",
+      "resolution_level": "MOLECULE",
+      "leaf_status": "EXTERNALLY_MEASURED",
+      "applicability": {
+        "species": "human protein/synthetic surface; half-life measured on C3b-bearing sheep erythrocytes",
+        "tissue": "complement convertase or terminal assay",
+        "temperature": "37C at half-physiological ionic strength for half-life; other regimes mixed/unspecified",
+        "method": "inherited measured/constructed constants: affinity ratio is not decay rate; C9 stoichiometry ratio is not a MAC formation rate"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/constants/PROPERDIN_STABILIZATION_FOLD",
+      "lower_level_debt": null,
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "kinetic_ratio",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "FOLD_H",
+      "value": 4.761904761904762,
+      "unit": "1",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "human protein/synthetic surface; half-life measured on C3b-bearing sheep erythrocytes",
+        "tissue": "complement convertase or terminal assay",
+        "temperature": "37C at half-physiological ionic strength for half-life; other regimes mixed/unspecified",
+        "method": "inherited measured/constructed constants: affinity ratio is not decay rate; C9 stoichiometry ratio is not a MAC formation rate"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/constants/FOLD_H",
+      "lower_level_debt": "MOLECULE matched surface kinetics/concentration measurement; CD55=6 explicitly ILLUSTRATIVE and host1.05min derived, not measured",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "kinetic_ratio",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "FOLD_CD55_ILLUSTRATIVE",
+      "value": 6.0,
+      "unit": "1",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "human protein/synthetic surface; half-life measured on C3b-bearing sheep erythrocytes",
+        "tissue": "complement convertase or terminal assay",
+        "temperature": "37C at half-physiological ionic strength for half-life; other regimes mixed/unspecified",
+        "method": "inherited measured/constructed constants: affinity ratio is not decay rate; C9 stoichiometry ratio is not a MAC formation rate"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/constants/FOLD_CD55_ILLUSTRATIVE",
+      "lower_level_debt": "MOLECULE matched surface kinetics/concentration measurement; CD55=6 explicitly ILLUSTRATIVE and host1.05min derived, not measured",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "kinetic_ratio",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "FOLD_MAC_CD59",
+      "value": 2.3333333333333335,
+      "unit": "1",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "human protein/synthetic surface; half-life measured on C3b-bearing sheep erythrocytes",
+        "tissue": "complement convertase or terminal assay",
+        "temperature": "37C at half-physiological ionic strength for half-life; other regimes mixed/unspecified",
+        "method": "inherited measured/constructed constants: affinity ratio is not decay rate; C9 stoichiometry ratio is not a MAC formation rate"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/constants/FOLD_MAC_CD59",
+      "lower_level_debt": "MOLECULE matched surface kinetics/concentration measurement; CD55=6 explicitly ILLUSTRATIVE and host1.05min derived, not measured",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "kinetic_ratio",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "K_DECAY_HOST",
+      "value": 0.6601401719618526,
+      "unit": "min^-1",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "human protein/synthetic surface; half-life measured on C3b-bearing sheep erythrocytes",
+        "tissue": "complement convertase or terminal assay",
+        "temperature": "37C at half-physiological ionic strength for half-life; other regimes mixed/unspecified",
+        "method": "inherited measured/constructed constants: affinity ratio is not decay rate; C9 stoichiometry ratio is not a MAC formation rate"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/constants/K_DECAY_HOST",
+      "lower_level_debt": "MOLECULE matched surface kinetics/concentration measurement; CD55=6 explicitly ILLUSTRATIVE and host1.05min derived, not measured",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "rate",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "K_I_HOST",
+      "value": 0.09523809523809523,
+      "unit": "min^-1",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "human protein/synthetic surface; half-life measured on C3b-bearing sheep erythrocytes",
+        "tissue": "complement convertase or terminal assay",
+        "temperature": "37C at half-physiological ionic strength for half-life; other regimes mixed/unspecified",
+        "method": "inherited measured/constructed constants: affinity ratio is not decay rate; C9 stoichiometry ratio is not a MAC formation rate"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/constants/K_I_HOST",
+      "lower_level_debt": "MOLECULE matched surface kinetics/concentration measurement; CD55=6 explicitly ILLUSTRATIVE and host1.05min derived, not measured",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "rate",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "K_MAC_HOST",
+      "value": 0.12857142857142856,
+      "unit": "min^-1",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "human protein/synthetic surface; half-life measured on C3b-bearing sheep erythrocytes",
+        "tissue": "complement convertase or terminal assay",
+        "temperature": "37C at half-physiological ionic strength for half-life; other regimes mixed/unspecified",
+        "method": "inherited measured/constructed constants: affinity ratio is not decay rate; C9 stoichiometry ratio is not a MAC formation rate"
+      },
+      "source": "source_repository/data/complement_cascade/complement_cascade_results.json#/constants/K_MAC_HOST",
+      "lower_level_debt": "MOLECULE matched surface kinetics/concentration measurement; CD55=6 explicitly ILLUSTRATIVE and host1.05min derived, not measured",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "rate",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "S_cl_query",
+      "value": 2.0,
+      "unit": "nM/min",
+      "resolution_level": "PHENOMENOLOGICAL",
+      "leaf_status": "CONSTITUTIVE_CLOSURE",
+      "applicability": {
+        "species": "synthetic",
+        "tissue": "reduced compartment",
+        "temperature": "unresolved",
+        "method": "chosen synthetic classical input"
+      },
+      "source": "PREREG_R1.md",
+      "lower_level_debt": "measure MOLECULE classical convertase source history",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "concentration",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    },
+    {
+      "quantity": "decay_recycle_fraction_rho",
+      "value": [
+        0.0,
+        1.0
+      ],
+      "unit": "1",
+      "resolution_level": "MOLECULE",
+      "leaf_status": "UNKNOWN",
+      "applicability": {
+        "species": "synthetic fate interpolation; dissociation supported by purified human convertase experiment",
+        "tissue": "surface bound convertase",
+        "temperature": "unresolved",
+        "method": "explicit fraction of decay C3b retained active"
+      },
+      "source": "https://doi.org/10.4049/jimmunol.132.3.1425",
+      "lower_level_debt": "measure surface retention, rapid FactorI inactivation, new factorB assembly jointly",
+      "source_review": "PENDING_INDEPENDENT_REVIEW",
+      "quantity_class": "kinetic_ratio",
+      "timescale": "INTRAOPERATIVE",
+      "temporal_edge": "SIMULTANEOUS"
+    }
+  ],
+  "defaults": {
+    "tmax_min": 60.0,
+    "S_cl_nM_min": 2.0,
+    "fate": "source_sink for reproduction only",
+    "CD55": "FOLD_CD55_ILLUSTRATIVE = 6"
+  },
+  "original_source_outcome": {
+    "activator": {
+      "MAC_nM": 399.79366315312075,
+      "C3_remaining_nM": 1.2353099716858712e-09,
+      "diagnostic_decay_reservoir_nM": 3112.652885031868,
+      "C3_ledger_max_error_nM": 4.547473508864641e-12,
+      "C5_ledger_max_error_nM": 1.7053025658242404e-13,
+      "growth": {
+        "lambda_per_min": 0.21090986562331854,
+        "decay_critical_per_min": 0.3882523467697404,
+        "decay_margin_per_min": 0.3651474407510756,
+        "half_life_critical_min": 1.7853006847915536,
+        "half_life_current_min": 30.0,
+        "J": [
+          [
+            -0.32,
+            0.4141358365543898
+          ],
+          [
+            0.3,
+            -0.023104906018664842
+          ]
+        ]
+      },
+      "minimum_state_nM": 0.0,
+      "relative_MAC_error_to_inherited": 7.975842208907125e-13
+    },
+    "host": {
+      "MAC_nM": 0.8224370187015335,
+      "C3_remaining_nM": 6354.6977716931515,
+      "diagnostic_decay_reservoir_nM": 232.60221015278145,
+      "C3_ledger_max_error_nM": 9.094947017729282e-12,
+      "C5_ledger_max_error_nM": 1.7053025658242404e-13,
+      "growth": {
+        "lambda_per_min": -0.15114693340262975,
+        "decay_critical_per_min": 0.3143440687099585,
+        "decay_margin_per_min": -0.3457961032518941,
+        "half_life_critical_min": 2.205058881513377,
+        "half_life_current_min": 1.05,
+        "J": [
+          [
+            -0.3952380952380952,
+            0.4141358365543898
+          ],
+          [
+            0.3,
+            -0.6601401719618526
+          ]
+        ]
+      },
+      "minimum_state_nM": 0.0,
+      "relative_MAC_error_to_inherited": 2.0149815149750339e-10
+    },
+    "activator_over_host_MAC": 486.10854577571956
+  },
+  "decay_dissociation_fork": {
+    "activator": {
+      "MAC_nM": 399.97095476383294,
+      "C3_remaining_nM": 1.6683461376538724e-13,
+      "diagnostic_decay_reservoir_nM": 0.0,
+      "C3_ledger_max_error_nM": 4.547473508864641e-12,
+      "C5_ledger_max_error_nM": 1.7053025658242404e-13,
+      "growth": {
+        "lambda_per_min": 0.21986662800162549,
+        "decay_critical_per_min": 6.2120375483158465,
+        "decay_margin_per_min": 6.188932642297182,
+        "half_life_critical_min": 0.1115812927994721,
+        "half_life_current_min": 30.0,
+        "J": [
+          [
+            -0.32,
+            0.4372407425730546
+          ],
+          [
+            0.3,
+            -0.023104906018664842
+          ]
+        ]
+      },
+      "minimum_state_nM": 0.0
+    },
+    "host": {
+      "MAC_nM": 80.49579626986954,
+      "C3_remaining_nM": 4377.915493969564,
+      "diagnostic_decay_reservoir_nM": 0.0,
+      "C3_ledger_max_error_nM": 4.547473508864641e-12,
+      "C5_ledger_max_error_nM": 2.2737367544323206e-13,
+      "growth": {
+        "lambda_per_min": 0.05525690173950126,
+        "decay_critical_per_min": 1.3045278851463278,
+        "decay_margin_per_min": 0.6443877131844752,
+        "half_life_critical_min": 0.5313394895212957,
+        "half_life_current_min": 1.05,
+        "J": [
+          [
+            -0.3952380952380952,
+            1.0742760085162424
+          ],
+          [
+            0.3,
+            -0.6601401719618526
+          ]
+        ]
+      },
+      "minimum_state_nM": 0.0
+    },
+    "activator_over_host_MAC": 4.968842763203355
+  },
+  "boundaries": {
+    "source_sink": {
+      "underactivation_activator": {
+        "parameter": "k_decay /min, increase",
+        "critical": 0.3882523467697404,
+        "margin": 0.3651474407510756,
+        "equivalent_half_life_min": 1.7853006847915536,
+        "half_life_reduction_min": 28.214699315208446
+      },
+      "overactivation_host": {
+        "parameter": "k_decay /min, decrease",
+        "critical": 0.3143440687099585,
+        "signed_current_protection_margin": 0.3457961032518941,
+        "equivalent_half_life_min": 2.205058881513377,
+        "illustrative_CD55_D_critical": 2.857066563082516,
+        "illustrative_D6_signed_margin": 3.142933436917484
+      },
+      "scope": "local unforced small-signal lambda sign at C3=C30, not terminal MAC threshold or patient boundary"
+    },
+    "recycle": {
+      "underactivation_activator": {
+        "parameter": "k_decay /min, increase",
+        "critical": 6.2120375483158465,
+        "margin": 6.188932642297182,
+        "equivalent_half_life_min": 0.1115812927994721,
+        "half_life_reduction_min": 29.88841870720053
+      },
+      "overactivation_host": {
+        "parameter": "k_decay /min, decrease",
+        "critical": 1.3045278851463278,
+        "signed_current_protection_margin": -0.6443877131844752,
+        "equivalent_half_life_min": 0.5313394895212957,
+        "illustrative_CD55_D_critical": 11.85682623679244,
+        "illustrative_D6_signed_margin": -5.85682623679244
+      },
+      "scope": "local unforced small-signal lambda sign at C3=C30, not terminal MAC threshold or patient boundary"
+    }
+  },
+  "finite_time_boundaries": {
+    "underactivation": {
+      "readout": "MAC60 equal to source host baseline",
+      "target_MAC_nM": 0.8224370187015335,
+      "parameter": "activator k_decay /min",
+      "critical": 0.9415779787082128,
+      "increase_from_baseline": 0.9184730726895479,
+      "growth_at_boundary": -0.16086288147110772
+    },
+    "overactivation": {
+      "readout": "MAC60 exceeds 10% of initial C5 (synthetic demonstration threshold)",
+      "target_MAC_nM": 40.0,
+      "parameter": "host k_decay /min",
+      "critical": 0.24808000435085856,
+      "decrease_from_source_baseline": 0.41206016761099407,
+      "growth_at_boundary": 0.03841681289936019
+    },
+    "root_evaluations": [
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.01,
+        "MAC60_nM": 399.88702339341
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 100.0,
+        "MAC60_nM": 0.3281426434878162
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 99.87630235001946,
+        "MAC60_nM": 0.32814494698650665
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 49.94315117500973,
+        "MAC60_nM": 0.3300202706811639
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 24.976575587504865,
+        "MAC60_nM": 0.3338519106546909
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 12.493287793752433,
+        "MAC60_nM": 0.34185107333583914
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 6.2516438968762165,
+        "MAC60_nM": 0.3592950412479811
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 3.130821948438108,
+        "MAC60_nM": 0.4009071266935666
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 1.570410974219054,
+        "MAC60_nM": 0.5212143321301159
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.790205487109527,
+        "MAC60_nM": 1.072914479317929
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 1.1444266889096506,
+        "MAC60_nM": 0.661525513800844
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 1.0058758977435673,
+        "MAC60_nM": 0.7580305101348583
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.9323217667270483,
+        "MAC60_nM": 0.8331818188101588
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.9428382094725873,
+        "MAC60_nM": 0.8210063994614667
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.941602521000761,
+        "MAC60_nM": 0.8224090856841598
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.941577977373064,
+        "MAC60_nM": 0.8224370202211444
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.9415779787082128,
+        "MAC60_nM": 0.8224370187014545
+      },
+      {
+        "surface": "activator",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.9415779786582124,
+        "MAC60_nM": 0.822437018758367
+      },
+      {
+        "surface": "host",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.001,
+        "MAC60_nM": 391.95446240728563
+      },
+      {
+        "surface": "host",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.6601401719618526,
+        "MAC60_nM": 0.8224370187015325
+      },
+      {
+        "surface": "host",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.5941176938104302,
+        "MAC60_nM": 0.9843982594678187
+      },
+      {
+        "surface": "host",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.2975588469052151,
+        "MAC60_nM": 13.066093497593728
+      },
+      {
+        "surface": "host",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.14927942345260756,
+        "MAC60_nM": 283.05014660786037
+      },
+      {
+        "surface": "host",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.2827663283045994,
+        "MAC60_nM": 17.78385457641373
+      },
+      {
+        "surface": "host",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.21894163874440103,
+        "MAC60_nM": 82.49541574264337
+      },
+      {
+        "surface": "host",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.26085465503740307,
+        "MAC60_nM": 29.32518621512031
+      },
+      {
+        "surface": "host",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.2446569503088516,
+        "MAC60_nM": 43.537242979565384
+      },
+      {
+        "surface": "host",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.2486884017930224,
+        "MAC60_nM": 39.40421980728493
+      },
+      {
+        "surface": "host",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.2481072632796287,
+        "MAC60_nM": 39.97309945998974
+      },
+      {
+        "surface": "host",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.24807999046469797,
+        "MAC60_nM": 40.00001370359127
+      },
+      {
+        "surface": "host",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.24808000435085856,
+        "MAC60_nM": 39.99999999503217
+      },
+      {
+        "surface": "host",
+        "fate": "source_sink",
+        "k_decay_per_min": 0.24808000430085844,
+        "MAC60_nM": 40.00000004439282
+      }
+    ],
+    "root_ODE_calls": 32,
+    "measured_patient_boundaries": false,
+    "source_host_baseline_depends_on_illustrative_CD55": true,
+    "closure": "source_sink only; fate changes invalidate these margins, no clinical interpretation"
+  },
+  "fate_fraction": {
+    "rho_critical": 0.6901150139263259,
+    "rows": [
+      {
+        "rho": 0.0,
+        "lambda_per_min": -0.15114693340262975,
+        "MAC60_nM": 0.8224370187015335
+      },
+      {
+        "rho": 0.25,
+        "lambda_per_min": -0.09031681917369971,
+        "MAC60_nM": 1.3673944265805595
+      },
+      {
+        "rho": 0.5,
+        "lambda_per_min": -0.03697021780017029,
+        "MAC60_nM": 3.2549161211210547
+      },
+      {
+        "rho": 0.6801150139263259,
+        "lambda_per_min": -0.0018798514418842949,
+        "MAC60_nM": 8.483881161191782
+      },
+      {
+        "rho": 0.6901150139263259,
+        "lambda_per_min": 0.0,
+        "MAC60_nM": 9.029419235445813
+      },
+      {
+        "rho": 0.7001150139263259,
+        "lambda_per_min": 0.0018731783477105024,
+        "MAC60_nM": 9.618823812259944
+      },
+      {
+        "rho": 0.75,
+        "lambda_per_min": 0.011120264258743462,
+        "MAC60_nM": 13.35748496066521
+      },
+      {
+        "rho": 1.0,
+        "lambda_per_min": 0.05525690173950126,
+        "MAC60_nM": 80.49579626986954
+      }
+    ],
+    "source_host_growth_range_per_min": [
+      -0.15114693340262975,
+      0.05525690173950126
+    ],
+    "interior_eigenvalue_checks": 10001,
+    "interval_misses": 0,
+    "identity_error_at_critical_per_min": 0.0,
+    "analytical_monotonicity": "lambda=-(A+D)/2 + sqrt((A-D)^2+4kf*(b+rhoD))/2, derivative kfD/sqrt(discriminant)>0",
+    "rigorous_floating_point_outward_rounding": false,
+    "physical_gate": "UNKNOWN: measured rho absent",
+    "abstention_axes": {
+      "smoothness": "GRADUAL: eigenvalue continuous and monotone",
+      "repayability": "STRUCTURAL at fixed aggregate rates; need C3b fate/occupancy measurement rather than higher ODE resolution"
+    }
+  },
+  "distribution": {
+    "source_sink": {
+      "ratio": {
+        "n": 48,
+        "quantiles": {
+          "0.01": 1.1927990050321111,
+          "0.05": 1.258048349697112,
+          "0.5": 61.40662964283305,
+          "0.95": 440.45029914273806,
+          "0.99": 516.0856019927942
+        },
+        "min": 1.1875363947681687,
+        "max": 551.9957693730236,
+        "threshold": 10,
+        "empirical_mass_below": 0.3125,
+        "empirical_mass_above": 0.6875
+      },
+      "MAC_host_nM": {
+        "n": 48,
+        "quantiles": {
+          "0.01": 0.7786544780825845,
+          "0.05": 0.9081048390844748,
+          "0.5": 6.571565921434212,
+          "0.95": 317.9033115999721,
+          "0.99": 335.1914569364944
+        },
+        "min": 0.7240922794031257,
+        "max": 336.7047940158836,
+        "threshold": 40,
+        "empirical_mass_below": 0.6875,
+        "empirical_mass_above": 0.3125
+      },
+      "host_growth_positive_fraction": 0.4583333333333333,
+      "activator_growth_negative_fraction": 0.0
+    },
+    "recycle": {
+      "ratio": {
+        "n": 24,
+        "quantiles": {
+          "0.01": 1.0439460794423132,
+          "0.05": 1.0498944356892352,
+          "0.5": 1.1957834628871542,
+          "0.95": 4.115462609180921,
+          "0.99": 6.636217469866305
+        },
+        "min": 1.0423538811252957,
+        "max": 7.338454006417921,
+        "threshold": 10,
+        "empirical_mass_below": 1.0,
+        "empirical_mass_above": 0.0
+      },
+      "MAC_host_nM": {
+        "n": 24,
+        "quantiles": {
+          "0.01": 63.4251552194395,
+          "0.05": 98.33158319271753,
+          "0.5": 334.4797223306083,
+          "0.95": 380.96742029941953,
+          "0.99": 383.13023798218927
+        },
+        "min": 54.498120224785445,
+        "max": 383.7099091890414,
+        "threshold": 40,
+        "empirical_mass_below": 0.0,
+        "empirical_mass_above": 1.0
+      },
+      "host_growth_positive_fraction": 1.0,
+      "activator_growth_negative_fraction": 0.0
+    }
+  },
+  "history_port": {
+    "queries": [
+      {
+        "k_MAC_per_min": 0.0003,
+        "lambda_per_min": 0.21090986562331854,
+        "full_MAC_nM": 3.9467456328337462,
+        "refinements": [
+          {
+            "nodes": 1201,
+            "MAC_nM": 3.9467456250628743,
+            "C5b_pending_nM": 395.88812414076307,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 0.0,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 7.770871945922408e-09
+          },
+          {
+            "nodes": 2401,
+            "MAC_nM": 3.946745630890973,
+            "C5b_pending_nM": 395.88812413493497,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 0.0,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 1.9427730535426235e-09
+          },
+          {
+            "nodes": 4801,
+            "MAC_nM": 3.946745632347927,
+            "C5b_pending_nM": 395.888124133478,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 0.0,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 4.858193847212533e-10
+          }
+        ],
+        "upstream_max_replay_difference_nM": 0.0
+      },
+      {
+        "k_MAC_per_min": 0.003,
+        "lambda_per_min": 0.21090986562331854,
+        "full_MAC_nM": 37.734036902934726,
+        "refinements": [
+          {
+            "nodes": 1201,
+            "MAC_nM": 37.73403622104473,
+            "C5b_pending_nM": 362.1008335447812,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 0.0,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 6.818899933591638e-07
+          },
+          {
+            "nodes": 2401,
+            "MAC_nM": 37.73403673246224,
+            "C5b_pending_nM": 362.1008330333637,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 0.0,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 1.704724823525794e-07
+          },
+          {
+            "nodes": 4801,
+            "MAC_nM": 37.73403686031668,
+            "C5b_pending_nM": 362.10083290550926,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 0.0,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 4.261804775751443e-08
+          }
+        ],
+        "upstream_max_replay_difference_nM": 0.0
+      },
+      {
+        "k_MAC_per_min": 0.03,
+        "lambda_per_min": 0.21090986562331854,
+        "full_MAC_nM": 250.42211357960588,
+        "refinements": [
+          {
+            "nodes": 1201,
+            "MAC_nM": 250.42208555932177,
+            "C5b_pending_nM": 149.41278420650417,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 0.0,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 2.8020284105423343e-05
+          },
+          {
+            "nodes": 2401,
+            "MAC_nM": 250.42210657453523,
+            "C5b_pending_nM": 149.4127631912907,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 0.0,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 7.0050706426627585e-06
+          },
+          {
+            "nodes": 4801,
+            "MAC_nM": 250.4221118283383,
+            "C5b_pending_nM": 149.41275793748764,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 0.0,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 1.7512675754005613e-06
+          }
+        ],
+        "upstream_max_replay_difference_nM": 0.0
+      },
+      {
+        "k_MAC_per_min": 0.12857142857142856,
+        "lambda_per_min": 0.21090986562331854,
+        "full_MAC_nM": 393.31752657194045,
+        "refinements": [
+          {
+            "nodes": 1201,
+            "MAC_nM": 393.3175041293107,
+            "C5b_pending_nM": 6.517365636515234,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 5.684341886080802e-14,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 2.244262975636957e-05
+          },
+          {
+            "nodes": 2401,
+            "MAC_nM": 393.3175209612888,
+            "C5b_pending_nM": 6.517348804537191,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 0.0,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 5.610651669485378e-06
+          },
+          {
+            "nodes": 4801,
+            "MAC_nM": 393.3175251692778,
+            "C5b_pending_nM": 6.517344596548115,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 5.684341886080802e-14,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 1.4026626331542502e-06
+          }
+        ],
+        "upstream_max_replay_difference_nM": 0.0
+      },
+      {
+        "k_MAC_per_min": 0.3,
+        "lambda_per_min": 0.21090986562331854,
+        "full_MAC_nM": 399.79366315312075,
+        "refinements": [
+          {
+            "nodes": 1201,
+            "MAC_nM": 399.79366238609583,
+            "C5b_pending_nM": 0.04120737973008712,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 5.684341886080802e-14,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 7.670249146940478e-07
+          },
+          {
+            "nodes": 2401,
+            "MAC_nM": 399.7936629613656,
+            "C5b_pending_nM": 0.04120680446031424,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 5.684341886080802e-14,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 1.9175513443769887e-07
+          },
+          {
+            "nodes": 4801,
+            "MAC_nM": 399.7936631051821,
+            "C5b_pending_nM": 0.041206660643874654,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 0.0,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 4.7938669922586996e-08
+          }
+        ],
+        "upstream_max_replay_difference_nM": 0.0
+      },
+      {
+        "k_MAC_per_min": 3.0,
+        "lambda_per_min": 0.21090986562331854,
+        "full_MAC_nM": 399.8348361414495,
+        "refinements": [
+          {
+            "nodes": 1201,
+            "MAC_nM": 399.834836134453,
+            "C5b_pending_nM": 3.363137294117798e-05,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 5.684341886080802e-14,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 6.996515367063694e-09
+          },
+          {
+            "nodes": 2401,
+            "MAC_nM": 399.83483613970014,
+            "C5b_pending_nM": 3.3626125777752816e-05,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 5.684341886080802e-14,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 1.7493562154413667e-09
+          },
+          {
+            "nodes": 4801,
+            "MAC_nM": 399.8348361410122,
+            "C5b_pending_nM": 3.362481373106578e-05,
+            "C5_nM": 0.16513023417403863,
+            "C5_conservation_error_nM": 0.0,
+            "full_ODE_calls": 0,
+            "history_rebuilds": 0,
+            "error_to_full_MAC_nM": 4.3729642129619606e-10
+          }
+        ],
+        "upstream_max_replay_difference_nM": 7.116796041373163e-11
+      }
+    ],
+    "history_nodes": 4801,
+    "summary_lambda_identity_error_per_min": 0.0,
+    "identical_growth_MAC_difference_nM": 395.88809050861573,
+    "integrated_hazard_nM": 11309.314381461521,
+    "integrated_MM_identity_error_nM": 1.4551915228366852e-11,
+    "reconstructed_C5_error_nM": 1.7486012637846216e-15,
+    "minimal_extension_for_one_terminal_output": "Natural two-inventory contract for joint C5 and MAC: H plus pendingC5b; no universal minimum-dimension theorem",
+    "extension_for_arbitrary_kMAC": "chronological C5 release ledger and query rate",
+    "query_full_ODE_calls": 0,
+    "full_control_ODE_calls": 6,
+    "query_cpu_s_total_18": 0.0018688280000036528,
+    "full_control_cpu_s_total_6": 0.22956070199999967,
+    "accuracy_gate": "PASS",
+    "rigorous_nonlinear_ODE_and_quadrature_enclosure": "UNKNOWN",
+    "strongest_same_information_control": "same linear reservoir convolution; no algorithm superiority",
+    "scope": "MAC-only changes; kdec/kI/source changes require new upstream acquisition"
+  },
+  "history_recycle": {
+    "queries": [
+      {
+        "k_MAC_per_min": 0.0003,
+        "MAC_nM": 4.040333964273032,
+        "C5b_pending_nM": 395.95966447669116,
+        "C5_nM": 1.5590357920417484e-06,
+        "C5_conservation_error_nM": 0.0,
+        "full_ODE_calls": 0,
+        "history_rebuilds": 0,
+        "full_MAC_nM": 4.040333964759092,
+        "error_nM": 4.86060081072992e-10
+      },
+      {
+        "k_MAC_per_min": 0.003,
+        "MAC_nM": 38.5921312049644,
+        "C5b_pending_nM": 361.4078672359998,
+        "C5_nM": 1.5590357920417484e-06,
+        "C5_conservation_error_nM": 0.0,
+        "full_ODE_calls": 0,
+        "history_rebuilds": 0,
+        "full_MAC_nM": 38.59213124750493,
+        "error_nM": 4.2540527545043005e-08
+      },
+      {
+        "k_MAC_per_min": 0.03,
+        "MAC_nM": 254.05784178877298,
+        "C5b_pending_nM": 145.94215665219122,
+        "C5_nM": 1.5590357920417484e-06,
+        "C5_conservation_error_nM": 0.0,
+        "full_ODE_calls": 0,
+        "history_rebuilds": 0,
+        "full_MAC_nM": 254.05784349940427,
+        "error_nM": 1.710631295281928e-06
+      },
+      {
+        "k_MAC_per_min": 0.12857142857142856,
+        "MAC_nM": 394.1759958905401,
+        "C5b_pending_nM": 5.82400255042408,
+        "C5_nM": 1.5590357920417484e-06,
+        "C5_conservation_error_nM": 5.684341886080802e-14,
+        "full_ODE_calls": 0,
+        "history_rebuilds": 0,
+        "full_MAC_nM": 394.17599714411523,
+        "error_nM": 1.2535751352515945e-06
+      },
+      {
+        "k_MAC_per_min": 0.3,
+        "MAC_nM": 399.97095472980055,
+        "C5b_pending_nM": 0.029043711163623143,
+        "C5_nM": 1.5590357920417484e-06,
+        "C5_conservation_error_nM": 5.684341886080802e-14,
+        "full_ODE_calls": 0,
+        "history_rebuilds": 0,
+        "full_MAC_nM": 399.97095476383294,
+        "error_nM": 3.40323822456412e-08
+      },
+      {
+        "k_MAC_per_min": 3.0,
+        "MAC_nM": 399.99999811350835,
+        "C5b_pending_nM": 3.2745585973030123e-07,
+        "C5_nM": 1.5590357920417484e-06,
+        "C5_conservation_error_nM": 0.0,
+        "full_ODE_calls": 0,
+        "history_rebuilds": 0,
+        "full_MAC_nM": 399.9999981135154,
+        "error_nM": 7.048583938740194e-12
+      }
+    ],
+    "acquisition_cpu_s": 0.039603859000000075,
+    "query_cpu_s_6": 0.0010161199999996207,
+    "full_control_cpu_s_6": 0.28212206800000006,
+    "accuracy_gate": "PASS",
+    "strongest_control": "same convolution; algorithm superiority not claimed",
+    "rigorous_enclosure": "UNKNOWN",
+    "cpu_s": 2.262466312
+  },
+  "sufficiency": {
+    "identical_lambda_error_per_min": 0.0,
+    "MAC_difference_nM": 395.88809050861573,
+    "minimal_natural_output_contract": "C5 and pendingC5b inventories jointly reconstruct MAC; for arbitrary kMAC use chronological release ledger. No universal minimum dimension theorem.",
+    "new_load_bearing_input": "explicit convertase decay C3b fate rho",
+    "leading_growth_eigenvalue_sufficient_for_MAC": false
+  },
+  "finest_edge": {
+    "quantity_class": "concentration",
+    "unit": "nM/min per chronological interval",
+    "producer_level": "MOLECULE",
+    "consumer_level": "CELL",
+    "edge_level": "MOLECULE",
+    "set_by": "C5-release species/time ledger",
+    "resolution_loss_levels": 0,
+    "temporal_edge": "SIMULTANEOUS",
+    "timescale": "INTRAOPERATIVE",
+    "simulation_window_min": 60,
+    "limitation": "no actual surface area/volume or C9 pore counts; bulk-equivalent nM does not predict cell lysis"
+  },
+  "empirical_GATE": "UNKNOWN",
+  "source_robust_discrimination_gate": "FAIL_UNSPECIFIED_DECAY_FATE",
+  "runnable": "python3 -B tasks/free48/sources/COMPLEMENT_DISCRIMINATION/cell.py --output <new.json> [--fate recycle]",
+  "runnable_history": "python3 -B tasks/free48/sources/COMPLEMENT_DISCRIMINATION/query.py --ledger <acquired.npz> --rate <positive/min> --output <new.json>",
+  "frozen_consumer_receipt": "results/LANE_DOMAIN_DATA_TO_CELLS/FROZEN_CONSUMER_R1.json",
+  "export_version": 2
+}

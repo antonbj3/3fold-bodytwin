@@ -1,0 +1,3878 @@
+{
+  "rows": [
+    {
+      "mu": 0.8,
+      "producer_cpu_s": 0.3187813530000002,
+      "cold_port_compression_cpu_s": 0.7006590519999998,
+      "port_blocks": 8,
+      "native_port_packed_bytes": 2048,
+      "event_log_packed_bytes": 720,
+      "checkpoint_packed_bytes": 392,
+      "total_common_packed_numeric_bytes": 3160,
+      "port_polynomial_error_max": [
+        2.595153424807415e-09,
+        9.752647667242515e-08,
+        1.1156326085200485e-07
+      ],
+      "source_reproducer_match_max": 0.0,
+      "queries": [
+        {
+          "endpoint_free_bound_gate": [
+            157.2705182789198,
+            7.1088538936680505,
+            0.7887673116962146
+          ],
+          "decoder_cpu_s": 1.3244523090000002,
+          "regional_state_dim": 75,
+          "original_local_state_values_read": 0,
+          "native_ports_are_past_outputs": true,
+          "future_native_feedback_frozen": false,
+          "source_caps": [
+            {
+              "node": 55,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 8.000089308035819e-13,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 73,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 8.000091141475691e-13,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 0,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.678769174734999,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 88,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 0.7554461286307497,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 152,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.2171076516828743,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 248,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.678769174734999,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 344,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 0.7554461286307497,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 55,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 9.90576432921638e-13,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 73,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 9.904509296253236e-13,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 0,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.6687856319946912,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 88,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.7509535343976111,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 93,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.7845804774484209,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 152,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.2098695831961512,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 184,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.980411558796881,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 248,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.6687856319946912,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 252,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 2.4300854316689833,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 344,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.7509535343976111,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 348,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.8804657361119504,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 55,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 5.919719438960212e-11,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 73,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.1574107518274469e-06,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 0,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.660545288725526,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 88,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7472453799264868,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 93,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.781077019191785,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 120,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.660545288725526,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 152,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.2038953343260064,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 184,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.9755703571262465,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 188,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.2620324107947452,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 248,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.660545288725526,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 252,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 2.418895454023261,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 280,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.2038953343260064,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 344,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7472453799264868,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 348,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.8764113963852396,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 376,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.660545288725526,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 55,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 4.7146569567477e-09,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 73,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.17634713961075651,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 0,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.654271501163144,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 88,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7444221755234148,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 93,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7789238421705869,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 120,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.654271501163144,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 124,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 2.4113774476737033,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 152,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.1993468383432793,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 184,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.971884506933347,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 188,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.2581099726993237,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 216,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.5169598441134825,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 248,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.654271501163144,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 252,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 2.4113774476737033,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 280,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.1993468383432793,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 312,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.971884506933347,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 344,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7444221755234148,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 348,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.873687481041197,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 376,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.654271501163144,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 408,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.4268091697532117,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 55,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.975698848499018e-08,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 73,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.1763471396107535,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 88,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7411804506712902,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 93,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7769711338836194,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 124,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.403670686216524,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 152,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.1941240594148563,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 188,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.2540890536781866,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 216,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.5147086462995071,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 252,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.403670686216524,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 280,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.1941240594148563,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 344,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7411804506712902,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 348,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.8708951761654073,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 408,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.4205958637866396,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 55,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.1986575284579233e-07,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 73,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.11631176473805771,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 93,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.7749383768289383,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 152,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.190077068945986,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 216,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.5129642538560285,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 280,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.190077068945986,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 348,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.8683338459555024,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 55,
+              "start_min": 133,
+              "end_min": 135,
+              "free_forcing_cap": 3.5904873792843403e-07,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 73,
+              "start_min": 133,
+              "end_min": 135,
+              "free_forcing_cap": 0.07856048197424198,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            }
+          ],
+          "certificate_status": "PENDING_PHYSICAL_ERROR_COMPOSITION_AND_NUMERICAL_REMAINDER",
+          "history_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c",
+          "query_endpoint": 64,
+          "clock_min": 135,
+          "observed_error_free_bound_gate": [
+            4.853121708947583e-07,
+            6.88889389977021e-09,
+            6.175155164989121e-09
+          ]
+        },
+        {
+          "endpoint_free_bound_gate": [
+            158.69847595201793,
+            7.116358797777335,
+            0.7884314680280368
+          ],
+          "decoder_cpu_s": 1.389056262,
+          "regional_state_dim": 75,
+          "original_local_state_values_read": 0,
+          "native_ports_are_past_outputs": true,
+          "future_native_feedback_frozen": false,
+          "source_caps": [
+            {
+              "node": 111,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 8.000089308035819e-13,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 129,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 8.000091141475691e-13,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 0,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.678769174734999,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 88,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 0.7554461286307497,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 152,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.2171076516828743,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 248,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.678769174734999,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 344,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 0.7554461286307497,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 111,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 8.000175679503701e-13,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 129,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 8.000167443654124e-13,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 0,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.6687856319946912,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 64,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.439327607595421,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 88,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.7509535343976111,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 93,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.7845804774484209,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 152,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.2098695831961512,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 184,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.980411558796881,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 248,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.6687856319946912,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 252,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 2.4300854316689833,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 344,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.7509535343976111,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 348,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.8804657361119504,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 111,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.0222573935300168e-12,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 129,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.022303902251899e-12,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 0,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.660545298736162,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 64,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.4322203201599397,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 68,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 2.0332744543892245,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 88,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7472453844312729,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 93,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7810770253681256,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 152,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.2038953415837175,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 184,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.9755703630074951,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 188,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.2620324199657258,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 248,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.660545298736162,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 252,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 2.418895471600974,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 280,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.2038953415837175,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 344,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7472453844312729,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 348,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.8764114027539761,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 376,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.660545298736162,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 111,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 4.05001493545037e-10,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 129,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 8.501383082374789e-06,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 0,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.6542715094716314,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 64,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.426809176919282,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 68,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 2.0269549673118386,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 72,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.9718845118145834,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 88,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7444221792622341,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 93,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7789238468074614,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 152,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.1993468443669326,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 184,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.9718845118145834,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 188,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.2581099797107964,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 216,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.5169598467098848,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 248,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.6542715094716314,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 252,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 2.4113774611123597,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 280,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.1993468443669326,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 312,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.9718845118145834,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 344,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7444221792622341,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 348,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.8736874859102753,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 376,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.6542715094716314,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 408,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.426809176919282,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 111,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 5.454843335324239e-09,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 129,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 7.280284442630122e-05,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 64,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.4205958693992218,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 68,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.020476816335898,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 88,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.741180453599594,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 93,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7769711369049375,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 152,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.1941240641326791,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 188,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.254089058415385,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 216,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.5147086483330513,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 252,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.4036706952961544,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 280,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.1941240641326791,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 344,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.741180453599594,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 348,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.8708951794551284,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 408,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.4205958693992218,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 111,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 3.438747836548195e-08,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 129,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.00026214304224164,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 68,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 2.0145345295620225,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 93,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.7749383794182242,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 152,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.190077073437172,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 216,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.5129642557918844,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 280,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.190077073437172,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 348,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.8683338489491477,
+              "kind": "omitted_edit",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 111,
+              "start_min": 133,
+              "end_min": 135,
+              "free_forcing_cap": 1.3709818796225425e-07,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            },
+            {
+              "node": 129,
+              "start_min": 133,
+              "end_min": 135,
+              "free_forcing_cap": 0.0005969731626374922,
+              "kind": "boundary",
+              "source_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c"
+            }
+          ],
+          "certificate_status": "PENDING_PHYSICAL_ERROR_COMPOSITION_AND_NUMERICAL_REMAINDER",
+          "history_hash": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c",
+          "query_endpoint": 120,
+          "clock_min": 135,
+          "observed_error_free_bound_gate": [
+            3.174309881615045e-08,
+            6.3093859026253085e-09,
+            7.319010175699248e-09
+          ]
+        }
+      ],
+      "control": "actual quantized state2444-2512B and~0.0002s lookup; decoder has no speed/memory superiority claim",
+      "scope": "Known local decoder dependency; source/port error and localized residual composition pending; no future response/domain guarantee"
+    },
+    {
+      "mu": 1.0,
+      "producer_cpu_s": 0.24499398999999755,
+      "cold_port_compression_cpu_s": 0.6202992169999995,
+      "port_blocks": 8,
+      "native_port_packed_bytes": 2048,
+      "event_log_packed_bytes": 720,
+      "checkpoint_packed_bytes": 392,
+      "total_common_packed_numeric_bytes": 3160,
+      "port_polynomial_error_max": [
+        2.6215571928688575e-09,
+        9.733545436334148e-08,
+        1.1133665456271395e-07
+      ],
+      "source_reproducer_match_max": 0.0,
+      "queries": [
+        {
+          "endpoint_free_bound_gate": [
+            157.61185335216157,
+            8.653699034896016,
+            0.7039581630078839
+          ],
+          "decoder_cpu_s": 1.292586332,
+          "regional_state_dim": 75,
+          "original_local_state_values_read": 0,
+          "native_ports_are_past_outputs": true,
+          "future_native_feedback_frozen": false,
+          "source_caps": [
+            {
+              "node": 55,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 8.00019440999091e-13,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 73,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 8.00013021471909e-13,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 0,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.669302350562504,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 88,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 0.7511860577531269,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 152,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.2102442041578154,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 248,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.669302350562504,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 344,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 0.7511860577531269,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 55,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 9.886800150729124e-13,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 73,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 9.908859103847658e-13,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 0,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.6594831439666156,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 88,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.746767414784977,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 93,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.7806716210526375,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 152,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.2031252793757963,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 184,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.9749463470803866,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 248,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.6594831439666156,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 252,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 2.4173482423589636,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 344,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.746767414784977,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 348,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.8758508124488998,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 55,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 5.87582412044234e-11,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 73,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.1501878566459806e-06,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 0,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.651407476737311,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 88,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7431333645317899,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 93,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7772443001144311,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 120,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.651407476737311,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 152,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.1972704206345504,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 184,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.9702018925831701,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 188,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.2555094834922111,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 248,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.651407476737311,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 252,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 2.4063931766934044,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 280,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.1972704206345504,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 344,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7431333645317899,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 348,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.8718815857584798,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 376,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.651407476737311,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 55,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 4.672504458686097e-09,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 73,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.17530102922744173,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 0,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.6452959475449789,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 88,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7403831763952404,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 93,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7751640846239727,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 120,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.6452959475449789,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 124,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 2.3991022165731244,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 152,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.1928395619701095,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 184,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.966611369182675,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 188,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.2517055042990217,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 216,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.5141549836078059,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 248,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.6452959475449789,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 252,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 2.3991022165731244,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 280,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.1928395619701095,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 312,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.966611369182675,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 344,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7403831763952404,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 348,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.8692399335409873,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 376,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.6452959475449789,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 408,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.419067754757544,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 55,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.9463303344213124e-08,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 73,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.17530102922743673,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 88,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7372488767695006,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 93,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7733155836605514,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 124,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.3917228159209567,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 152,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.1877898570175287,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 188,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.2478553822196299,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 216,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.5119783866454864,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 252,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.3917228159209567,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 280,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.1877898570175287,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 344,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7372488767695006,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 348,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.8665662376525207,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 408,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.4130603471415426,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 55,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.1857357692550336e-07,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 73,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.11552377458388248,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 93,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.7713551936352913,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 152,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.183862065035956,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 216,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.5102853728603258,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 280,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.183862065035956,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 348,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.8640870374402968,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 55,
+              "start_min": 133,
+              "end_min": 135,
+              "free_forcing_cap": 3.5485909540666427e-07,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 73,
+              "start_min": 133,
+              "end_min": 135,
+              "free_forcing_cap": 0.07796472084923321,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            }
+          ],
+          "certificate_status": "PENDING_PHYSICAL_ERROR_COMPOSITION_AND_NUMERICAL_REMAINDER",
+          "history_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a",
+          "query_endpoint": 64,
+          "clock_min": 135,
+          "observed_error_free_bound_gate": [
+            5.953921231593995e-07,
+            6.573111832608447e-09,
+            5.350129450576446e-09
+          ]
+        },
+        {
+          "endpoint_free_bound_gate": [
+            159.0282514490128,
+            8.663879121358942,
+            0.7035773608400203
+          ],
+          "decoder_cpu_s": 1.3937543420000003,
+          "regional_state_dim": 75,
+          "original_local_state_values_read": 0,
+          "native_ports_are_past_outputs": true,
+          "future_native_feedback_frozen": false,
+          "source_caps": [
+            {
+              "node": 111,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 8.00019440999091e-13,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 129,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 8.00013021471909e-13,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 0,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.669302350562504,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 88,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 0.7511860577531269,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 152,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.2102442041578154,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 248,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.669302350562504,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 344,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 0.7511860577531269,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 111,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 8.000077184426776e-13,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 129,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 8.000385975655771e-13,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 0,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.6594831439666156,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 64,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.431304211671206,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 88,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.746767414784977,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 93,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.7806716210526375,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 152,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.2031252793757963,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 184,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.9749463470803866,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 248,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.6594831439666156,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 252,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 2.4173482423589636,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 344,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.746767414784977,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 348,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.8758508124488998,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 111,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.0239949539130441e-12,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 129,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.0239613967339499e-12,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 0,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.651407485686859,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 64,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.4243389564049158,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 68,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 2.0227652917541374,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 88,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7431333685590866,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 93,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7772443054410088,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 152,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.1972704271229728,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 184,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.9702018978410296,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 188,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.2555094914336027,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 248,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.651407485686859,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 252,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 2.406393191914405,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 280,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.1972704271229728,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 344,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7431333685590866,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 348,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.8718815912733351,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 376,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.651407485686859,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 111,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 4.0178576992873833e-10,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 129,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 8.444450666015611e-06,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 0,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.6452959548901134,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 64,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.419067761092723,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 68,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 2.0166366555329938,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 72,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.9666113734979416,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 88,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.740383179700551,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 93,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7751640885812672,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 152,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.1928395672953322,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 184,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.9666113734979416,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 188,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.251705510330824,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 216,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.5141549859031604,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 248,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.6452959548901134,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 252,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 2.399102228134079,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 280,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.1928395672953322,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 312,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.9666113734979416,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 344,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.740383179700551,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 348,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.8692399377297387,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 376,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.6452959548901134,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 408,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.419067761092723,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 111,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 5.406309952521692e-09,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 129,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 7.224071334719281e-05,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 64,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.413060352080665,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 68,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.0104336778768097,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 88,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7372488793464339,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 93,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7733155862147584,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 152,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.1877898611692546,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 188,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.2478553862683648,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 216,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.5119783884350235,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 252,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.3917228236810324,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 280,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.1877898611692546,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 344,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7372488793464339,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 348,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.8665662404641422,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 408,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.413060352080665,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 111,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 3.4049052053882994e-08,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 129,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.00025985932131156707,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 68,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 2.0046819329183427,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 93,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.771355195858398,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 152,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.183862069038747,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 216,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.5102853745856668,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 280,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.183862069038747,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 348,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.8640870400510098,
+              "kind": "omitted_edit",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 111,
+              "start_min": 133,
+              "end_min": 135,
+              "free_forcing_cap": 1.356192571936248e-07,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            },
+            {
+              "node": 129,
+              "start_min": 133,
+              "end_min": 135,
+              "free_forcing_cap": 0.0005911585783842442,
+              "kind": "boundary",
+              "source_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a"
+            }
+          ],
+          "certificate_status": "PENDING_PHYSICAL_ERROR_COMPOSITION_AND_NUMERICAL_REMAINDER",
+          "history_hash": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a",
+          "query_endpoint": 120,
+          "clock_min": 135,
+          "observed_error_free_bound_gate": [
+            1.5397532138194947e-07,
+            6.307971034402726e-09,
+            6.523844131578471e-09
+          ]
+        }
+      ],
+      "control": "actual quantized state2444-2512B and~0.0002s lookup; decoder has no speed/memory superiority claim",
+      "scope": "Known local decoder dependency; source/port error and localized residual composition pending; no future response/domain guarantee"
+    },
+    {
+      "mu": 1.2,
+      "producer_cpu_s": 0.2722917599999999,
+      "cold_port_compression_cpu_s": 0.6196566039999984,
+      "port_blocks": 8,
+      "native_port_packed_bytes": 2048,
+      "event_log_packed_bytes": 720,
+      "checkpoint_packed_bytes": 392,
+      "total_common_packed_numeric_bytes": 3160,
+      "port_polynomial_error_max": [
+        2.639079804866497e-09,
+        9.714642157391797e-08,
+        1.1111120112901185e-07
+      ],
+      "source_reproducer_match_max": 0.0,
+      "queries": [
+        {
+          "endpoint_free_bound_gate": [
+            157.86974277679306,
+            10.121850395016443,
+            0.6224533636188075
+          ],
+          "decoder_cpu_s": 1.3435280939999998,
+          "regional_state_dim": 75,
+          "original_local_state_values_read": 0,
+          "native_ports_are_past_outputs": true,
+          "future_native_feedback_frozen": false,
+          "source_caps": [
+            {
+              "node": 55,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 8.000187605378197e-13,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 73,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 8.000188063241857e-13,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 0,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.6623894724404893,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 88,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 0.7480752625982202,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 152,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.2052323675193548,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 248,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.6623894724404893,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 344,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 0.7480752625982202,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 55,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 9.88118375865977e-13,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 73,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 9.881133389366605e-13,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 0,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.652724993261877,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 88,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.7437262469678446,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 93,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.7776657990808841,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 152,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.198225620114861,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 184,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.9709759335413527,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 248,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.652724993261877,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 252,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 2.4077592632695466,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 344,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.7437262469678446,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 348,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.8723765446628793,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 55,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 5.84262592734898e-11,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 73,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.1447210443850094e-06,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 0,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.6448048861981703,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 88,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7401621987891767,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 93,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7743075826401139,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 120,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.6448048861981703,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 152,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.1924835424936735,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 184,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.966322870641425,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 188,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.2506193203376168,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 248,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.6448048861981703,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 252,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 2.397020363980432,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 280,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.1924835424936735,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 344,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7401621987891767,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 348,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.8684856391233449,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 376,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.6448048861981703,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 55,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 4.64139636164895e-09,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 73,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.1745552305510483,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 0,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.6388478403169784,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 88,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7374815281426403,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 93,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7722945807635536,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 120,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.6388478403169784,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 124,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 2.3899409552168724,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 152,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.1881646842298093,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 184,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.9628231061862248,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 188,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.2469257157653248,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 216,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.5121399500990558,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 248,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.6388478403169784,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 252,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 2.3899409552168724,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 280,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.1881646842298093,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 312,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.9628231061862248,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 344,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7374815281426403,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 348,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.8659206359481423,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 376,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.6388478403169784,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 408,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.4135062622733938,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 55,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.9246309739668062e-08,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 73,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.17455523055104225,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 88,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7344505908850738,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 93,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7705437224269702,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 124,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.3828710288392942,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 152,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.1832815075370633,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 188,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.2432370585248493,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 216,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.5100351325590791,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 252,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.3828710288392942,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 280,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.1832815075370633,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 344,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7344505908850738,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 348,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.8633590684200342,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 408,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.407696965863058,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 55,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.176177916859543e-07,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 73,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.1149633281555645,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 93,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.7686505972686234,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 152,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.1794678697862364,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 216,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.5083913231837226,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 280,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.1794678697862364,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 348,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.8609569343434307,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 55,
+              "start_min": 133,
+              "end_min": 135,
+              "free_forcing_cap": 3.5175768258713606e-07,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 73,
+              "start_min": 133,
+              "end_min": 135,
+              "free_forcing_cap": 0.07754125140527522,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            }
+          ],
+          "certificate_status": "PENDING_PHYSICAL_ERROR_COMPOSITION_AND_NUMERICAL_REMAINDER",
+          "history_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112",
+          "query_endpoint": 64,
+          "clock_min": 135,
+          "observed_error_free_bound_gate": [
+            6.752773344942398e-07,
+            6.430656895872744e-09,
+            4.343049031518831e-09
+          ]
+        },
+        {
+          "endpoint_free_bound_gate": [
+            159.27796824149064,
+            10.13470894734124,
+            0.6220468413470276
+          ],
+          "decoder_cpu_s": 1.3376260569999996,
+          "regional_state_dim": 75,
+          "original_local_state_values_read": 0,
+          "native_ports_are_past_outputs": true,
+          "future_native_feedback_frozen": false,
+          "source_caps": [
+            {
+              "node": 111,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 8.000187605378197e-13,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 129,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 8.000188063241857e-13,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 0,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.6623894724404893,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 88,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 0.7480752625982202,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 152,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.2052323675193548,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 248,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 1.6623894724404893,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 344,
+              "start_min": 120,
+              "end_min": 122,
+              "free_forcing_cap": 0.7480752625982202,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 111,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 8.000634259308529e-13,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 129,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 8.000207164755968e-13,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 0,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.652724993261877,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 64,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.425475306688369,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 88,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.7437262469678446,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 93,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.7776657990808841,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 152,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.198225620114861,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 184,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.9709759335413527,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 248,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 1.652724993261877,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 252,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 2.4077592632695466,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 344,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.7437262469678446,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 348,
+              "start_min": 122,
+              "end_min": 124,
+              "free_forcing_cap": 0.8723765446628793,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 111,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.0243629496392222e-12,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 129,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.022129643335178e-12,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 0,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.6448048951907228,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 64,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.4186442221019984,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 68,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 2.014886695757645,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 88,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7401622028358252,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 93,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7743075880661824,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 152,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.192483549013274,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 184,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.9663228759245496,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 188,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.250619328401297,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 248,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.6448048951907228,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 252,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 2.3970203794358187,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 280,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.192483549013274,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 344,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.7401622028358252,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 348,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 0.8684856447231228,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 376,
+              "start_min": 124,
+              "end_min": 126,
+              "free_forcing_cap": 1.6448048951907228,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 111,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 3.9943320158438797e-10,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 129,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 8.401347760822077e-06,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 0,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.638847847683038,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 64,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.4135062686266202,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 68,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 2.008935885212645,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 72,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.9628231105137848,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 88,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7374815314573671,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 93,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7722945847755457,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 152,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.1881646895702025,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 184,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.9628231105137848,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 188,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.2469257218561245,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 216,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.5121399524009493,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 248,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.638847847683038,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 252,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 2.389940966890905,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 280,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.1881646895702025,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 312,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.9628231105137848,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 344,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.7374815314573671,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 348,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 0.8659206401778642,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 376,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.638847847683038,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 408,
+              "start_min": 126,
+              "end_min": 129,
+              "free_forcing_cap": 1.4135062686266202,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 111,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 5.370639432185576e-09,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 129,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 7.181272384040455e-05,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 64,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.407696970821576,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 68,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.0029930453239704,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 88,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7344505934721267,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 93,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7705437250182201,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 152,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.183281511705093,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 188,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.2432370626148783,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 216,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.5100351343556435,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 252,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 2.3828710366785164,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 280,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.183281511705093,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 344,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.7344505934721267,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 348,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 0.8633590712603322,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 408,
+              "start_min": 129,
+              "end_min": 131,
+              "free_forcing_cap": 1.407696970821576,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 111,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 3.379978914066802e-08,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 129,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.0002581135376574516,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 68,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.9974200937863058,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 93,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.7686505995193725,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 152,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.1794678738041615,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 216,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.5083913249155868,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 280,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 1.1794678738041615,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 348,
+              "start_min": 131,
+              "end_min": 133,
+              "free_forcing_cap": 0.8609569369768559,
+              "kind": "omitted_edit",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 111,
+              "start_min": 133,
+              "end_min": 135,
+              "free_forcing_cap": 1.3452815695670665e-07,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            },
+            {
+              "node": 129,
+              "start_min": 133,
+              "end_min": 135,
+              "free_forcing_cap": 0.0005866984947976497,
+              "kind": "boundary",
+              "source_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112"
+            }
+          ],
+          "certificate_status": "PENDING_PHYSICAL_ERROR_COMPOSITION_AND_NUMERICAL_REMAINDER",
+          "history_hash": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112",
+          "query_endpoint": 120,
+          "clock_min": 135,
+          "observed_error_free_bound_gate": [
+            2.3014973749013734e-07,
+            6.468271251947044e-09,
+            5.594097185479541e-09
+          ]
+        }
+      ],
+      "control": "actual quantized state2444-2512B and~0.0002s lookup; decoder has no speed/memory superiority claim",
+      "scope": "Known local decoder dependency; source/port error and localized residual composition pending; no future response/domain guarantee"
+    }
+  ],
+  "total_cpu_s": 11.206434127,
+  "peak_rss_bytes": 106082304,
+  "review": "PENDING_INDEPENDENT_REVIEW",
+  "innovation_claim": false
+}

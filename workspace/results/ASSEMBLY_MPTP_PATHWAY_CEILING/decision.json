@@ -1,0 +1,95 @@
+{
+  "decision": {
+    "control_pct_of_aar": 61.0,
+    "independent_action_prediction_pct_of_aar": 9.508196721311476,
+    "shared_ceiling_prediction_pct_of_aar": 20.0,
+    "gap_percentage_points": 10.491803278688524,
+    "pooled_sd_percentage_points": 4.0,
+    "separation_in_pooled_sd": 2.622950819672131,
+    "animals_per_group_80pct_power": 3,
+    "falsifier_midpoint_pct_of_aar": 14.754098360655739,
+    "verdict": "SHARED CEILING is the admissible reading; the independent prediction lies below the best infarct ever measured in this preparation"
+  },
+  "measured_inputs_pct_of_area_at_risk": {
+    "control": 61.0,
+    "control_sd": 6.0,
+    "postconditioning": 29.0,
+    "postconditioning_sd": 4.0,
+    "preconditioning_benchmark": 18.0,
+    "preconditioning_sd": 4.0,
+    "nim811": 20.0,
+    "nim811_sd": 4.0,
+    "nim811_dose_mg_per_kg": 5.0
+  },
+  "protected_fractions": {
+    "postconditioning": 0.5245901639344263,
+    "nim811": 0.6721311475409837,
+    "preconditioning": 0.7049180327868853
+  },
+  "independent_prediction_sd_below_best_measured_arm": 2.122950819672131,
+  "independent_prediction_sd_below_best_measured_arm_sem_reading": 0.8023999877818839,
+  "control_at_which_readings_coincide_pct": 29.0,
+  "control_sweep_repair_response": [
+    {
+      "control_pct": 45.0,
+      "independent_pct": 12.88888888888889,
+      "separation_sd": 1.7777777777777777,
+      "n_per_group": 5
+    },
+    {
+      "control_pct": 50.0,
+      "independent_pct": 11.6,
+      "separation_sd": 2.1,
+      "n_per_group": 4
+    },
+    {
+      "control_pct": 55.0,
+      "independent_pct": 10.545454545454545,
+      "separation_sd": 2.3636363636363638,
+      "n_per_group": 3
+    },
+    {
+      "control_pct": 61.0,
+      "independent_pct": 9.508196721311476,
+      "separation_sd": 2.622950819672131,
+      "n_per_group": 3
+    },
+    {
+      "control_pct": 67.0,
+      "independent_pct": 8.656716417910447,
+      "separation_sd": 2.8358208955223883,
+      "n_per_group": 2
+    },
+    {
+      "control_pct": 73.0,
+      "independent_pct": 7.945205479452055,
+      "separation_sd": 3.0136986301369864,
+      "n_per_group": 2
+    },
+    {
+      "control_pct": 80.0,
+      "independent_pct": 7.25,
+      "separation_sd": 3.1875,
+      "n_per_group": 2
+    }
+  ],
+  "animals_per_group_if_pm_is_sem_n7": 16,
+  "true_sd_if_pm_is_sem_n7_pp": 10.583005244258363,
+  "separation_in_sd_if_pm_is_sem_n7": 0.9913822242864975,
+  "dispersion_convention_unresolved": true,
+  "source": {
+    "pmid": [
+      "15642769",
+      "15698843"
+    ],
+    "doi": [
+      "10.1161/01.CIR.0000151290.04952.3B",
+      "10.1016/j.yjmcc.2004.12.001"
+    ],
+    "locator": "results/BT-CONN-MITOSTRESS--Q036/RESULTS.md section 1b",
+    "preparation": "open-chest NZW rabbit, 30 min occlusion, 4 h reperfusion, TTC",
+    "denominator": "anatomical area at risk"
+  },
+  "falsifier": "combination arm at or below the midpoint prediction kills the shared-ceiling reading; a combination above the postconditioning arm kills both readings; a separate NIM-811 control group below 29 % removes the separation",
+  "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

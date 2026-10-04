@@ -1,0 +1,10 @@
+{
+  "operation": "Center the exact cubic residual compiler on acquired nonlinear prestress. The uncentered coordinates put the prescribed top displacement into a one-element gradient and cancel it with the basis; absolute Gram contractions impose a 15-20 micrometre numerical allowance floor. Affine prestress coordinates remove this artificial cancellation without changing the physical trial subspace.",
+  "frozen_before_computation": true,
+  "reuse": "Same nx64/32 beta20 model, same training lengths tier2 and exact residual identity; no use of full heldout solutions in acquisition",
+  "discriminant": "Compare unchanged new-support cases 8/16/24/32mm with matched acquired-support cases 1/9/17/25mm. At each matched support also supply kappa multipliers .95 and1.05 as genuinely changed history ports. Separate arithmetic floor, spatial topology approximation and history transfer.",
+  "accuracy_contract_m": 1e-7,
+  "strong_control": "Same-information affine polynomial residual Gram / reduced-basis control; TIE if identical",
+  "no_claim": "Basis has 17 coordinates and cannot be assumed to represent unseen cut-tip cusps; frozen-history residual certificate does not certify nonlinear damage branch evolution",
+  "review": "PENDING_INDEPENDENT_REVIEW"
+}

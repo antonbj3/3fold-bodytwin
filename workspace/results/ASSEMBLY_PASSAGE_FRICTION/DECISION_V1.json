@@ -1,0 +1,132 @@
+{
+ "question": "how many passes in one hole fit inside a forward-friction budget",
+ "claim_type": "capability",
+ "source": "Kataoka et al., MICCAI 2002, LNCS 2488:216-223, Fig. 6 post-penetration segment",
+ "first_passage_N": [
+  0.349,
+  0.018
+ ],
+ "second_passage_N": [
+  0.241,
+  0.004
+ ],
+ "passage_friction_ratio": 1.4481327800829875,
+ "passage_friction_ratio_sd": 0.07846092496878353,
+ "sigma_from_unity": 5.7115408754266115,
+ "control": "the equal-friction assumption the edge used to carry: every pass at the second-passage force",
+ "rows": [
+  {
+   "budget_N": 0.3,
+   "planned_passes": 8,
+   "decision": "NO_PASS_COUNT_RETURNED",
+   "reason": "budget 0.3 N is below the first passage even at its lower dispersion bound 0.331 N; no pass count fits"
+  },
+  {
+   "budget_N": 0.35,
+   "planned_passes": 8,
+   "decision": "PASSES_WITHIN_BUDGET",
+   "decision_value_passes": 1,
+   "control_equal_friction_passes": 1,
+   "passes_the_control_would_have_allowed_in_excess": 0,
+   "total_force_at_decision_N": 0.349,
+   "total_force_control_N": 0.241,
+   "decision_changes_vs_control": false
+  },
+  {
+   "budget_N": 0.48,
+   "planned_passes": 8,
+   "decision": "PASSES_WITHIN_BUDGET",
+   "decision_value_passes": 1,
+   "control_equal_friction_passes": 1,
+   "passes_the_control_would_have_allowed_in_excess": 0,
+   "total_force_at_decision_N": 0.349,
+   "total_force_control_N": 0.241,
+   "decision_changes_vs_control": false
+  },
+  {
+   "budget_N": 0.6,
+   "planned_passes": 8,
+   "decision": "PASSES_WITHIN_BUDGET",
+   "decision_value_passes": 2,
+   "control_equal_friction_passes": 2,
+   "passes_the_control_would_have_allowed_in_excess": 0,
+   "total_force_at_decision_N": 0.59,
+   "total_force_control_N": 0.482,
+   "decision_changes_vs_control": false
+  },
+  {
+   "budget_N": 0.72,
+   "planned_passes": 8,
+   "decision": "PASSES_WITHIN_BUDGET",
+   "decision_value_passes": 2,
+   "control_equal_friction_passes": 2,
+   "passes_the_control_would_have_allowed_in_excess": 0,
+   "total_force_at_decision_N": 0.59,
+   "total_force_control_N": 0.482,
+   "decision_changes_vs_control": false
+  },
+  {
+   "budget_N": 0.85,
+   "planned_passes": 8,
+   "decision": "PASSES_WITHIN_BUDGET",
+   "decision_value_passes": 3,
+   "control_equal_friction_passes": 3,
+   "passes_the_control_would_have_allowed_in_excess": 0,
+   "total_force_at_decision_N": 0.831,
+   "total_force_control_N": 0.723,
+   "decision_changes_vs_control": false
+  },
+  {
+   "budget_N": 0.96,
+   "planned_passes": 8,
+   "decision": "PASSES_WITHIN_BUDGET",
+   "decision_value_passes": 3,
+   "control_equal_friction_passes": 3,
+   "passes_the_control_would_have_allowed_in_excess": 0,
+   "total_force_at_decision_N": 0.831,
+   "total_force_control_N": 0.723,
+   "decision_changes_vs_control": false
+  },
+  {
+   "budget_N": 1.1,
+   "planned_passes": 8,
+   "decision": "PASSES_WITHIN_BUDGET",
+   "decision_value_passes": 4,
+   "control_equal_friction_passes": 4,
+   "passes_the_control_would_have_allowed_in_excess": 0,
+   "total_force_at_decision_N": 1.072,
+   "total_force_control_N": 0.964,
+   "decision_changes_vs_control": false
+  },
+  {
+   "budget_N": 1.6,
+   "planned_passes": 8,
+   "decision": "PASSES_WITHIN_BUDGET",
+   "decision_value_passes": 6,
+   "control_equal_friction_passes": 6,
+   "passes_the_control_would_have_allowed_in_excess": 0,
+   "total_force_at_decision_N": 1.554,
+   "total_force_control_N": 1.446,
+   "decision_changes_vs_control": false
+  }
+ ],
+ "budgets_where_the_decision_changes": 0,
+ "budgets_tested": 9,
+ "budget_axis_scan": {
+  "range_N": [
+   0.201,
+   2.0
+  ],
+  "step_N": 0.001,
+  "budgets_with_a_decision": 1670,
+  "budgets_where_the_decision_differs_from_the_control": 739,
+  "fraction_of_the_budget_axis": 0.4425149700598802,
+  "why": "the two readings differ by the constant F_first - F_second = 0.108 N, so the control over-allows one pass whenever the budget falls in that window below a multiple of 0.241 N",
+  "closed_form_fraction": 0.4481327800829875,
+  "closed_form_note": "(F_first - F_second)/F_second is the fraction of each F_second-wide budget period in which the control over-allows, and it confirms the scan independently",
+  "reading": "the equal-friction assumption lets through one pass too many on this fraction of the budget axis; on the rest the two agree, which is why six hand-picked budgets showed no difference at all"
+ },
+ "falsifier": "the source fit F_2nd = 10.679/N * (P*S_t) - 0.01333 N is linear over depths 10, 15 and 20 mm, so friction is depth dependent and these two numbers are one depth; if the ratio moves with depth by more than its own 0.0785 dispersion, a single ratio cannot carry this decision",
+ "review_state": "PENDING_INDEPENDENT_REVIEW",
+ "no_claim_of_biological_validation": true
+}

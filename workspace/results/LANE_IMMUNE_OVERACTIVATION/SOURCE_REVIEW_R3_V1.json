@@ -1,0 +1,83 @@
+{
+  "round": 3,
+  "lane": "LANE_IMMUNE_OVERACTIVATION",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "updated_utc": "2026-10-04T14:50:03.110150+00:00",
+  "claim_type": "information_link",
+  "primary_correction": "Tang2001 measures C3 secretion in culture supernatants, not surface deposition. The measured values survive; the direct physical risk interpretation does not.",
+  "sources": [
+    {
+      "doi": "10.1038/s41467-019-10058-7",
+      "PMID": "31061395",
+      "citation": "Parsons et al., Nat Commun 10:2066 (2019); article number, no page range",
+      "data": "41467_2019_10058_MOESM8_ESM.xlsx",
+      "data_sha256": "8bec4c949681ac1535a6c1d160fad5e0ee0feb0aaa826e6a60151e862d7a242f",
+      "licence": "Article/source workbook CC BY4.0 as reviewed in R2; no separate exception found.",
+      "code_url": "https://github.com/geostanley/Particle-Tracking---AFM-Image-Sequences---MAC-Pore-Growth",
+      "code_commit": "dc81395a137d26984e5d4c3bbcfe78858e892706",
+      "code_files": 27,
+      "code_bytes": 158865,
+      "code_reuse_licence": "No whole-repository licence found; not exported.",
+      "raw_data_access": "Request-only in README; no public MAT/SPM dataset or release asset in inspected current tree. No contact made.",
+      "raw_data_absence_status": "PUBLIC_ACCESS_NOT_ACQUIRED; no global absence verdict",
+      "source_code_default_to_workbook_mapping": "UNKNOWN",
+      "provenance_locators": [
+        "AUTHOR_CODE_R3_V1/README.md:17",
+        "AUTHOR_CODE_R3_V1/MACanalysis_loadfiles_MATds_findtracks.m:168",
+        "AUTHOR_CODE_R3_V1/MACanalysis_loadfiles_MATds_findtracks.m:265",
+        "AUTHOR_CODE_R3_V1/createappearancetable.m:18",
+        "AUTHOR_CODE_R3_V1/MACanalysis_eliminateFalsetracks.m:21",
+        "AUTHOR_CODE_R3_V1/MACanalysis_TrackVideos_tau_fitting.m:104",
+        "AUTHOR_CODE_R3_V1/MACanalysis_TrackVideos_concatonate.m:86"
+      ],
+      "future_dependence": "Final-frame template and retrospective track filtering; terminal height normalization. Early workbook rows are not proven prospective labels.",
+      "physical_scope": "Supported lipid membrane image features, not calibrated births, seed competence, C9 occupancy or host-cell injury."
+    },
+    {
+      "doi": "10.1053/ajkd.2001.20593",
+      "PMID": "11136173",
+      "citation": "Tang et al., Am J Kidney Dis 37(1):94-103 (2001)",
+      "primary_record": "TANG_EUROPEPMC_R3_V1.json",
+      "source_level": "CELL culture output, bulk supernatant measurement",
+      "measured_quantity": "C3 secretion basolateral/apical ratio",
+      "reported_means": [
+        0.45,
+        0.93
+      ],
+      "reported_dispersions": [
+        0.16,
+        0.24
+      ],
+      "reported_contrast_p": "<0.02",
+      "dispersion_kind_n_pairing": "UNKNOWN_FROM_ABSTRACT; no independent hard interval or significance inference",
+      "full_text_and_individual_raw_data": "Not acquired; source abstract verifies the quantity identity",
+      "deposition_or_injury_measurement": false,
+      "reuse_licence": "Not verified; no raw numerical dataset distributed"
+    },
+    {
+      "doi": "10.1172/JCI24521",
+      "PMID": "16444293",
+      "citation": "Thurman et al., J Clin Invest 116(2):357-368 (2006)",
+      "primary_record": "THURMAN_JCI_R3_V1.html",
+      "species_scope": "Mouse expression/injury experiments; rat immunogold and membrane-fraction measurements.",
+      "transfer_to_human_Tang_system": "UNKNOWN; rodent regulator measurements do not calibrate human same-face C3 secretion-to-deposition."
+    },
+    {
+      "doi": "10.4049/jimmunol.1000111",
+      "PMID": "20675597",
+      "citation": "Renner et al., J Immunol 185(5):3086-3094 (2010)",
+      "locator": "https://pubmed.ncbi.nlm.nih.gov/20675597/",
+      "species_scope": "Murine tubular epithelial regulation.",
+      "full_text_retrieval": "EuropePMC XML returned500; no absence inference."
+    }
+  ],
+  "reused_cells": [
+    "COMPLEMENT_DISCRIMINATION",
+    "bodytwin:MODEL-COMPLEMENT-AMPLIFICATION"
+  ],
+  "older_pool_search": "LOCAL_SEARCH_R3_V1.json: data, reports, scripts/physics_exp, docs/inherited_memory and workspace results; English/Swedish. Index zeros were followed by fulltext.",
+  "replacement_axis_gate": "FAIL_SECRETION_DEPOSITION_QUANTITY_IDENTITY",
+  "physical_window": null,
+  "rho_status": "UNMEASURED_MODEL_CLOSURE"
+}

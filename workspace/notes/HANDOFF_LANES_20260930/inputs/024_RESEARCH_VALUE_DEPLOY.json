@@ -1,0 +1,276 @@
+{
+  "policy": "research-value-20260930-v1",
+  "verified_at": "2026-09-30T18:36:31.056Z",
+  "authorized_request": "Kan du f\u00f6rs\u00f6ka baka in den styrningen s\u00e5 de g\u00e5r \u00e5t highest value riktningar?",
+  "scope": "BodyTwin/Dental shared queue selectors, planner inputs, successor intake and common standing research instructions",
+  "scheduling_advice_only": true,
+  "scientific_admission": false,
+  "allocation_target": {
+    "constructive": 0.8,
+    "physical_mathematical_challenge_and_independent_review": 0.15,
+    "blocking_support": 0.05
+  },
+  "limitations": [
+    "Uncalibrated heuristic: scientific value or breakthroughs are not proven by this score.",
+    "Selection proportions apply when corresponding eligible pools have work; existing dispatcher retry/resource guards still apply.",
+    "Existing active briefs are immutable; subsequent jobs receive new directions.",
+    "Deferred proposals remain in original proposal files and intake receipts; require a revised/new intake to reconsider.",
+    "Independent Field planners were not individually modified."
+  ],
+  "planners": [
+    {
+      "job": "BT-FW48-PLAN-1790792853183505799",
+      "target": "BT-RESEARCH-MITOSTRESS",
+      "host": "local",
+      "brief_sha256": "ccaa82c5b65b308e1b0b98dd095ee69e208caf2ec230e00fb8f8f1bafaf3a687",
+      "directive_verified": true,
+      "backlog_count": 40,
+      "dispatch_receipt": true
+    },
+    {
+      "job": "BT-DW48-PLAN-1790792687804235150",
+      "target": "DENT-MAT-RESTORATIVE-PSP",
+      "host": "ovh",
+      "brief_sha256": "106d309a59c1038fb4163ee3f72dff86551230458da71573a56f9a290e60a516",
+      "directive_verified": true,
+      "backlog_count": 40,
+      "dispatch_receipt": true
+    }
+  ],
+  "runtime": {
+    "local": {
+      "time": 1790793390.2471907,
+      "models": {
+        "opencode/space-swarm-free": 10,
+        "sol-session": 3
+      },
+      "jobs": [
+        {
+          "job": "BT-FW48-AUTO-7192ebf3853368",
+          "model": "opencode/space-swarm-free"
+        },
+        {
+          "job": "BT-FW48-AUTO-33803dbf28d380",
+          "model": "opencode/space-swarm-free"
+        },
+        {
+          "job": "BT-FW48-PLAN-1790792853183505799",
+          "model": "opencode/space-swarm-free"
+        },
+        {
+          "job": "BT-FW48-AUTO-35c80fd3975e75",
+          "model": "opencode/space-swarm-free"
+        },
+        {
+          "job": "BT-FW48-AUTO-963c96daa0f417",
+          "model": "opencode/space-swarm-free"
+        },
+        {
+          "job": "BT-DW48-AUTO-02f8346a47a0b4",
+          "model": "opencode/space-swarm-free"
+        },
+        {
+          "job": "BT-FW48-AUTO-9f4d04be8d9f72",
+          "model": "opencode/space-swarm-free"
+        },
+        {
+          "job": "BT-FW48-AUTO-0680739e5bd410",
+          "model": "opencode/space-swarm-free"
+        },
+        {
+          "job": "BT-FW48-AUTO-c4eb222aaa5a40",
+          "model": "opencode/space-swarm-free"
+        },
+        {
+          "job": "BT-FW48-AUTO-030d7f6799f58c",
+          "model": "opencode/space-swarm-free"
+        }
+      ]
+    },
+    "ovh": {
+      "time": 1790793391.0561774,
+      "models": {
+        "swarm_worker": 8,
+        "swarm": 13
+      },
+      "jobs": [
+        {
+          "job": "BT-DW48-AUTO-295cc859f8dd02",
+          "model": "swarm",
+          "started": 1790792882.42519
+        },
+        {
+          "job": "BT-DW48-AUTO-569bc34c6cf24d",
+          "model": "swarm",
+          "started": 1790792127.8492084
+        },
+        {
+          "job": "BT-DW48-AUTO-79859900048403",
+          "model": "swarm_worker",
+          "started": 1790793242.9091663
+        },
+        {
+          "job": "BT-DW48-AUTO-ac2c41a22f4f07",
+          "model": "swarm",
+          "started": 1790792086.150199
+        },
+        {
+          "job": "BT-DW48-AUTO-bf963177629ac0",
+          "model": "swarm_worker",
+          "started": 1790793278.782459
+        },
+        {
+          "job": "BT-DW48-AUTO-eeefd528e06fec",
+          "model": "swarm_worker",
+          "started": 1790792035.0145104
+        },
+        {
+          "job": "BT-DW48-PLAN-1790792687804235150",
+          "model": "swarm",
+          "started": 1790792715.656811
+        },
+        {
+          "job": "BT-FW48-AUTO-1a3e1dcc3ad0aa",
+          "model": "swarm",
+          "started": 1790792636.423834
+        },
+        {
+          "job": "BT-FW48-AUTO-1ce4e963f62b1a",
+          "model": "swarm",
+          "started": 1790793086.8417938
+        },
+        {
+          "job": "BT-FW48-AUTO-25c4e5d6c7bcb4",
+          "model": "swarm_worker",
+          "started": 1790793023.415295
+        },
+        {
+          "job": "BT-FW48-AUTO-2a8cf79194259e",
+          "model": "swarm_worker",
+          "started": 1790793237.7488668
+        },
+        {
+          "job": "BT-FW48-AUTO-2e6ea25877d817",
+          "model": "swarm",
+          "started": 1790792583.6786091
+        },
+        {
+          "job": "BT-FW48-AUTO-54f6f78b791114",
+          "model": "swarm",
+          "started": 1790793380.5022178
+        },
+        {
+          "job": "BT-FW48-AUTO-6225eea0e91621",
+          "model": "swarm_worker",
+          "started": 1790793113.195212
+        },
+        {
+          "job": "BT-FW48-AUTO-7bbb8cecfb2650",
+          "model": "swarm",
+          "started": 1790793158.0158591
+        },
+        {
+          "job": "BT-FW48-AUTO-9f5a59ecfc8773",
+          "model": "swarm",
+          "started": 1790793028.7404113
+        },
+        {
+          "job": "BT-FW48-AUTO-b388159e806e7b",
+          "model": "swarm",
+          "started": 1790793335.092197
+        },
+        {
+          "job": "BT-FW48-AUTO-ce6f3a257c5fcc",
+          "model": "swarm_worker",
+          "started": 1790793210.1996605
+        },
+        {
+          "job": "BT-FW48-AUTO-f1cba290fb15ea",
+          "model": "swarm_worker",
+          "started": 1790793309.5133283
+        },
+        {
+          "job": "BT-FW48-AUTO-fa8f1538568d1c",
+          "model": "swarm",
+          "started": 1790793053.5433674
+        },
+        {
+          "job": "BT-FW48-REVIEW-50fa7f38a81a3b",
+          "model": "swarm",
+          "started": 1790792876.370625
+        }
+      ]
+    },
+    "upcloud": {
+      "time": 1790793387.375328,
+      "models": {
+        "swarm": 2,
+        "swarm_worker": 1
+      },
+      "jobs": [
+        {
+          "job": "BT-FW48-AUTO-1044f1d5a377ba",
+          "model": "swarm",
+          "started": 1790793086.2658486
+        },
+        {
+          "job": "BT-FW48-AUTO-6bbb2ccba87399",
+          "model": "swarm_worker",
+          "started": 1790793177.9001284
+        },
+        {
+          "job": "BT-FW48-PHYS-X01-20260926",
+          "model": "swarm",
+          "started": 1790793373.7716203
+        }
+      ]
+    }
+  },
+  "verified_promoted_examples": [
+    {
+      "job": "BT-DW48-AUTO-bf963177629ac0",
+      "model": "swarm_worker",
+      "host": "ovh",
+      "decision": "Identify layer-interface compliance separately from material moduli and test its effect on critical strength location."
+    },
+    {
+      "job": "BT-FW48-AUTO-6bbb2ccba87399",
+      "model": "swarm_worker",
+      "host": "upcloud",
+      "decision": "Test a collagen-contact-network closure for PDL storage rather than assume the crack-free constitutive law."
+    },
+    {
+      "job": "BT-FW48-AUTO-030d7f6799f58c",
+      "model": "opencode/space-swarm-free",
+      "host": "local",
+      "decision": "Test time-ordered measurement allocation against equal-count independent schedules."
+    }
+  ],
+  "verification": {
+    "meaningful_tests_passed": 6,
+    "python_syntax_passed": 4,
+    "bash_syntax_passed": true,
+    "queue_row_counter_preservation_test": true
+  },
+  "backups": [
+    "value_before/dental_controller.py",
+    "value_before/body_controller.py",
+    "value_before/seed_queue_order.py"
+  ],
+  "sources": [
+    "external_research_path",
+    "local_path",
+    "tasks/free_controller.py",
+    "tasks/lanes/seed_unblock_evidence/seed_queue_order.py",
+    "tasks/lanes/bt_queue.sh",
+    "external_research_path"
+  ],
+  "source_sha256": {
+    "external_research_path": "94b47c257ad94c18b72d933411daf79acd010c92a1992bfc768f305585186812",
+    "local_path": "030f4c622c8cf56862c2ba7838fa6325f3709b045f5e2de1fe2212f36a327f27",
+    "tasks/free_controller.py": "6fde251e0ab61b0d0b3805b4ec8a6d4d68164e2ffce36f35e7a36aa1b612fcfa",
+    "tasks/lanes/seed_unblock_evidence/seed_queue_order.py": "2505939803112d51398f6a8a6167934bcf949adaab53298fcf7af20a50a5d9ca",
+    "tasks/lanes/bt_queue.sh": "4c8037809ada9977a78c95193d295b6f0833b244e971fbf3f1eee89626f21865",
+    "external_research_path": "c8f5512ee17ca345996a131100befed0442cbaafd4509a966a98ccf0c5bc125b"
+  }
+}

@@ -1,0 +1,20 @@
+## Shared rules (apply to every BT lane)
+- Working directory . Write ONLY under results/<LANE>/. Read-only everywhere else (other results directories, references/, external_mount, ~/projects/...). No git commit/push, no emails, no publishing, no downloading unless the task says so.
+- Swedish in README/RESULTS. Every number in results/<LANE>/*.json.
+- Write PREREG.md BEFORE the first run and hash it: `sha256sum PREREG.md > PREREG.sha256`. Never change criteria afterward; deviations are logged at the end of PREREG and in RESULTS.
+- Load: `nice -n 19`, OMP_NUM_THREADS=2, OPENBLAS_NUM_THREADS=2, MKL_NUM_THREADS=2, at most 2 processes. Before a heavy run: `awk '{print $1/20}' /proc/loadavg` > 1,0 → wait (sleep 60, at most 15 min). Peak ≥ 4 GB RAM or GPU → `tasks/heavy_run.sh <ram_gb> <vram_gb> <kommando>`. Intermediate results > 50 MB → external_media<LANE>/. The system disk (/) is almost full.
+- NEVER import other agents' modules with `from X import *` and never write to their directories: set your own OUTDIR explicitly and check that no path variables are shadowed (incident H2b 2026-09-23 overwrote results/H2).
+- Never `pgrep -f`, never kill others' processes, never `nvidia-smi -q`.
+- Report honestly: failures are as valuable as gains. No claims without a number and source file.
+- Finish with results/<LANE>/RESULTS.md starting with the line `# <LANE>` and containing: what was done, outcome per criterion (holds/failed), deviations, files.
+
+# BT-MAT-OBS1
+
+User renewed swarm_worker authorization 2026-09-23 ~16:08; breakthrough hunt across domains.
+
+OVERRIDING RUN SCOPE: write only results/BT-MAT-OBS1/; source modules and other lanes read-only. Read applicable AGENTS and project START before work. Hash PREREG before first new numerical evaluation; exploratory changes separately documented. CPU2 (all BLAS/OMP/MKL/NUMEXPR), nice19, <=2GB unless the task explicitly authorizes one gated solve. Maximum new root-disk artifacts50MB; no bulk downloads, package/toolchain builds, GPU, cloud compute, source edits, public output or email. No child agents. No process killing. Never read credentials or billing settings. Do not wait on other lanes; snapshot completed referenced outputs and record missing dependencies. All numbers in machine-readable files. RESULTS must begin '# BT-MAT-OBS1' in first5lines; report negative or incomplete results honestly.
+
+Every innovation lane must deliver CONNECT.md: source observation -> mechanism -> equation -> operator -> representation -> assumptions -> discriminating test, and one concrete cross-domain mapping with units and failure condition. Separate audited theorem, empirical evidence, hypothesis and open obligation. Audits must remain independent; do not turn a new candidate into approval of its parent result.
+
+TASK:
+Highest-value continuation: turn BT-MAT-OBS0's counterfactual oracle gain into an ACTUAL observation-view test. Read BT-MAT-OBS0 report/observations/probe plus X3c originals. Its AUC gain uses log(A+B/A) of the same parameter instance, and its summary overstates this as a permitted observation. Freeze a small cohort-generating model with separate individuals/arms or an explicitly valid within-person sequence, baseline and measurement nuisance terms, known vs UNKNOWN correlations. Exclude simultaneous unobservable paired counterfactuals from learner features. Separate calibration/feature choice and held-out parameter families; same information/cost for best single marker, pair and full vector; fit single-marker direction on training only (AUC<0.5 is not a fair best baseline). At most64 new parameter cases after a timed pilot, CPU2 <=2GB. Report both simulator and observation-contract limits. No claiming population validation from synthetic data. Primary question: does the multivariate gain survive observational feasibility and shared error, or was it privileged information? Preserve failures; explicitly map resulting likelihood/branch state to DS_GRAPH_BRANCH_POLICY_20260923, without waiting on it.

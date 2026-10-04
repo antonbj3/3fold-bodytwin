@@ -1,0 +1,48 @@
+{
+  "sequence": [
+    {
+      "prereg": "PREREG_R3.json",
+      "operation": "Acquire primary edge sharpness/work data",
+      "outcome": "Real human skin normal-force/depth series acquired; work series absent",
+      "gate": "UNKNOWN_FOR_WORK"
+    },
+    {
+      "prereg": "PREREG_R3_GEOMETRY.json",
+      "operation": "A->B/E/F/G common contact-width pressure and B->K radius",
+      "gate": "FAIL",
+      "max_force_error": 0.9111911652376025
+    },
+    {
+      "prereg": "PREREG_R3_GEOMETRY.json",
+      "operation": "Execute new additive nose-pressure acquisition after first failure",
+      "gate": "FAIL_CONDITIONAL",
+      "K_error": 0.5999999999999425
+    },
+    {
+      "prereg": "PREREG_R3_METROLOGY.json",
+      "operation": "Replace assumed radius by joint contact product and resolve acquisition precision",
+      "gate": "UNKNOWN_EMPIRICAL",
+      "diagnostic_RF_um": 23.787301587301588,
+      "heldout_reuse": "Diagnostic inverse only; no refit pass"
+    },
+    {
+      "prereg": "PREREG_R3_VERIFICATION.json",
+      "operation": "Execute same-F load falsifier; validate analytical inverse/derivative/data integrity",
+      "gate": "FAIL_CONSTANT_OFFSET",
+      "verification": "PASS"
+    },
+    {
+      "prereg": "PREREG_R3_GEOMETRY.json",
+      "operation": "Expose missing force-work conjugate and consume BINDINGS r3",
+      "gate": "UNKNOWN_WORK_PORT",
+      "process_volume": "UNMEASURED"
+    }
+  ],
+  "auxiliary_needle_central_gate": "PASS_CONDITIONAL",
+  "auxiliary_digitization_gate": "FAIL",
+  "strongest_control": "TIE",
+  "innovation_gate": "FAIL",
+  "parent_goal": "OPEN",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

@@ -1,0 +1,1375 @@
+{
+ "_meta": {
+  "what": "Published values harvested from the anchor searches, in consumable form.",
+  "rule": "A row is kept only when number, unit and locator share one line. Everything else is counted as unextracted, never dropped silently.",
+  "reports": 46,
+  "records": 63,
+  "records_with_validity_range": 38,
+  "reports_declaring_absence": 41,
+  "status": "PENDING_INDEPENDENT_REVIEW",
+  "consumption_rule": "Same three requirements as the literature collection: the dimension must match, the validity range must overlap the cell, and the record must carry a measurement and not a threshold sentence."
+ },
+ "records": [
+  {
+   "job": "BT-ANCHOR-CS10-BMU-TURNOVER-KINETICS",
+   "quantity": null,
+   "from": "line",
+   "value": 10.5,
+   "unit": "um",
+   "locator": "PMID 27004741",
+   "validity": [
+    "in vivo"
+   ],
+   "line": "PMID 27004741, PMCID PMC4804282, CC BY 4.0. In vivo microCT 10.5 um",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-CALCIUM-PTH-VITD",
+   "quantity": "Brown EM, Gardner DG, Windeck R, Aurbach GA, *Endocrinology* 1978;103(6):2323–2333, **PMID 85548**, DOI 10.1210/endo-103",
+   "value": 15.0,
+   "unit": "min",
+   "locator": "10.1210/endo-103-6-2323",
+   "locators_in_block": [
+    "10.1210/endo-103-6-2323",
+    "10.1210/endo-113-1-277",
+    "PMID 6407823",
+    "PMID 85548"
+   ],
+   "validity": [
+    "37 °c",
+    "bovine"
+   ],
+   "from": "table",
+   "line": "| Brown EM, Gardner DG, Windeck R, Aurbach GA, *Endocrinology* 1978;103(6):2323–2333, **PMID 85548**, DOI 10.1210/endo-103-6-2323 | \"Maximal PTH release was **8.5 ng/10⁵ cells-15 min**\" | **8.5 × 4 = 34 ng/10⁵ cells·h → 6.02 × 10⁻¹⁹** | bovine dispersed cells, 600 000/ml, 15 min, 37 °C |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-CALCIUM-PTH-VITD",
+   "quantity": "λ2 = 0.5595 /min` (implied `t½` 1.24 min)",
+   "value": 1.24,
+   "unit": "min",
+   "locator": "PMC3085713",
+   "locators_in_block": [
+    "PMC3085713"
+   ],
+   "validity": [
+    "human"
+   ],
+   "from": "table",
+   "line": "| `λ2 = 0.5595 /min` (implied `t½` 1.24 min) | Shrestha 2010, Physiome CellML | model-**fitted**; not a measurement. Also outside the measured human range. |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-CALCIUM-PTH-VITD",
+   "quantity": "k5 = 8.316 /h` (= 0.1386 /min); `k4 = 0.4174 /h`; `KR,Max = 0.922 /h`; `KS,Max = 72 pM",
+   "value": 72.0,
+   "unit": "pM",
+   "locator": "PMC3085713",
+   "locators_in_block": [
+    "PMC3085713"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| `k5 = 8.316 /h` (= 0.1386 /min); `k4 = 0.4174 /h`; `KR,Max = 0.922 /h`; `KS,Max = 72 pM` | Cabal A et al., *J Bone Miner Res* 2013;28:1830–1836 (JTT-305/MK-5442, semimechanistic fit) | model-fitted |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-CALCIUM-PTH-VITD",
+   "quantity": "k_out_PTH`, PTH `t½` 1.09 min; `k_in_PP` 208–499 pg/mL/min",
+   "value": 1.09,
+   "unit": "min",
+   "locator": "PMC3085713",
+   "locators_in_block": [
+    "PMC3085713"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| `k_out_PTH`, PTH `t½` 1.09 min; `k_in_PP` 208–499 pg/mL/min | Abraham AK et al., mechanism-based PK/PD (PMID via PMC3085713) | model-fitted |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-CARDIAC-CICR-ODE-MODEL",
+   "quantity": "4a",
+   "value": 23.0,
+   "unit": "°C",
+   "locator": "10.1016/S0006-3495(01",
+   "locators_in_block": [
+    "10.1016/S0006-3495(01",
+    "PMID 17351009",
+    "PMID 19295127"
+   ],
+   "validity": [
+    "23 °c"
+   ],
+   "from": "table",
+   "line": "| 4a | RyR transitions | `1/s` | **MEASURED, out-of-range system** (bilayer, sheep, 23 °C) | Laver 2007, PMID 17351009 |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-CARDIAC-CICR-ODE-MODEL",
+   "quantity": null,
+   "from": "line",
+   "value": 5.0,
+   "unit": "mM",
+   "locator": "10.1016/S0006-3495(02",
+   "validity": null,
+   "line": "- Related measured single-channel work, same group, for the gating side (not converted here): Josephson IR, Guia A, Lakatta EG, Stern MD. Biophys J. 2002;83(5):2575–2586, DOI `10.1016/S0006-3495(02)75268-5`; and Biophys J. 2002;83(5):2587–2594, DOI `10.1016/S0006-3495(02)75269-7` (mode-2 conductance",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-CARDIAC-CICR-ODE-MODEL",
+   "quantity": null,
+   "from": "line",
+   "value": 37.0,
+   "unit": "°C",
+   "locator": "PMC1422767",
+   "validity": [
+    "37 °c"
+   ],
+   "line": "- **Molecular turnover** (ATP hydrolysis rate ÷ phosphorylation capacity, s⁻¹ per pump) — SERCA2 isoform work in PMC1422767, where the rate of ATP hydrolysis was measured at **37 °C, pH 7.0**, and where **SERCA2c is reported for the first time in cardiac tissue**. That paper reports activity per mg ",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-CARDIAC-CICR-ODE-MODEL",
+   "quantity": null,
+   "from": "line",
+   "value": 37.0,
+   "unit": "°C",
+   "locator": "PMC1422767",
+   "validity": [
+    "37 °c"
+   ],
+   "line": "16. SERCA isoform turnover study, PMCID PMC1422767 (37 °C, pH 7.0; SERCA2c in cardiac tissue). *(§5)*",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-CORONARY-BLOOD-FLOW",
+   "quantity": "Sun Y, Gewirtz H.** *Am J Physiol* 1988;255(3 Pt 2):H664–H672. PMID **3414828**, DOI **10.1152/ajpheart.1988.255.3.H664",
+   "value": 15.0,
+   "unit": "mmHg",
+   "locator": "10.1016/0002-9149(75",
+   "locators_in_block": [
+    "10.1016/0002-9149(75",
+    "10.1111/j.1469-7793.1998.619bn.x**",
+    "10.1152/ajpheart.1988.255.3.H664**",
+    "10.1161/01.res.36.6.753**"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| **Sun Y, Gewirtz H.** *Am J Physiol* 1988;255(3 Pt 2):H664–H672. PMID **3414828**, DOI **10.1152/ajpheart.1988.255.3.H664** | IMPendo = 1.1 × LVP and IMPepi = 0.1 × LVP + 15 mmHg, fitted **retrospectively** to distal-pressure and endo/epi flow data from 28 anaesthetised swine. **Fitted, not measur",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-CORONARY-BLOOD-FLOW",
+   "quantity": "Goto M, VanBavel E, Giezeman MJ, Spaan JA.** *Circ Res* 1996;79(5):1039–1045. PMID **8888697**, DOI **10.1161/01.res.79.",
+   "value": 150.0,
+   "unit": "µm",
+   "locator": "10.1016/0002-9149(75",
+   "locators_in_block": [
+    "10.1016/0002-9149(75",
+    "10.1111/j.1469-7793.1998.619bn.x**",
+    "10.1152/ajpheart.1988.255.3.H664**",
+    "10.1161/01.res.36.6.753**"
+   ],
+   "validity": [
+    "porcine"
+   ],
+   "from": "table",
+   "line": "| **Goto M, VanBavel E, Giezeman MJ, Spaan JA.** *Circ Res* 1996;79(5):1039–1045. PMID **8888697**, DOI **10.1161/01.res.79.5.1039** | Isolated porcine coronary arterioles (100–150 µm); outcome is luminal cross-sectional area (µm²) under cyclically changed transmural pressure, **not** flow in mL/min",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-COUNTERCURRENT-MULTIPLIER",
+   "quantity": null,
+   "from": "line",
+   "value": 37.0,
+   "unit": "°C",
+   "locator": "PMID 10021457",
+   "validity": [
+    "37 °c",
+    "n = 9"
+   ],
+   "line": "± 2,0e-4 m/s`, n = 9 tubules, 37 °C (Chou 1999, PMID 10021457). The values are **segment bins, not",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-COUNTERCURRENT-MULTIPLIER",
+   "quantity": null,
+   "from": "line",
+   "value": 1.27e-07,
+   "unit": "mol",
+   "locator": "PMID 16894053",
+   "validity": [
+    "n = 5"
+   ],
+   "line": "`1,27e-9 mol/(m·s)` net Cl⁻-absorption, n = 5, isolated mTAL, mouse/rat (Silva 2006, PMID 16894053).",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-HEPATIC-CLEARANCE",
+   "quantity": null,
+   "from": "line",
+   "value": 20.7,
+   "unit": "mL/min",
+   "locator": "PMC7325626",
+   "validity": [
+    "human",
+    "in vitro",
+    "in vivo"
+   ],
+   "line": "**QH and its conversion.** Human liver blood flow is the field-standard **20.7 mL/min/kg** (Brown et al. 1997; stated as such in *In vitro-in vivo extrapolation and hepatic clearance dependent underprediction*, PMCID `PMC7325626`, Methods). At the standard 70 kg reference body weight:",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-HEPATIC-CLEARANCE",
+   "quantity": null,
+   "from": "line",
+   "value": 100.0,
+   "unit": "mL/min",
+   "locator": "PMC7325626",
+   "validity": [
+    "in vitro",
+    "in vivo"
+   ],
+   "line": "- *In vitro-in vivo extrapolation and hepatic clearance dependent underprediction*, PMC7325626 — source of the 20.7 / 100 mL/min/kg LBF convention.",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-HPG-MALE-AXIS",
+   "quantity": null,
+   "from": "line",
+   "value": 480.0,
+   "unit": "min",
+   "locator": "10.1371/journal.pcbi.1011928",
+   "validity": [
+    "n = 10"
+   ],
+   "line": "- HormoneBayes: `https://git.exeter.ac.uk/mv286/hormonebayes` (Voliotis et al., *PLoS Comput Biol* 2024;20(2):e1011928, DOI `10.1371/journal.pcbi.1011928`, CC BY). Analyses **healthy men (n = 10)** LH profiles, 10-min sampling 0–480 min, IU/L, Abbott chemiluminescence, ref range 4–14 IU/L, intra/int",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-MELANIN-PHOTOPROTECTION",
+   "quantity": "Peles DN, Simon JD. *J Phys Chem B* 2011;115(43):12624–12631",
+   "value": 310.0,
+   "unit": "nm",
+   "locator": "10.1021/jp2060624",
+   "locators_in_block": [
+    "10.1021/jp2060624",
+    "10.1021/jz100720h",
+    "10.1039/D3AN00654A",
+    "10.1063/1.3265861"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| Peles DN, Simon JD. *J Phys Chem B* 2011;115(43):12624–12631 | `10.1021/jp2060624`, PMID `21923179` | Absorption spectra of **intact melanosomes**, 245–310 nm, by photoemission electron microscopy (PEEM) | Reported as \"absorption coefficients, `eps_c`\" — a **concentration-normalised bulk coefficie",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-MELANIN-PHOTOPROTECTION",
+   "quantity": "Peles DN et al. *J Phys Chem Lett* 2010;1(15):2391–2395",
+   "value": 244.0,
+   "unit": "nm",
+   "locator": "10.1021/jp2060624",
+   "locators_in_block": [
+    "10.1021/jp2060624",
+    "10.1021/jz100720h",
+    "10.1039/D3AN00654A",
+    "10.1063/1.3265861"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| Peles DN et al. *J Phys Chem Lett* 2010;1(15):2391–2395 | `10.1021/jz100720h` | Melanosome absorption coefficient at 244 nm vs DHICA/DHI ratio | Same |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-MELANIN-PHOTOPROTECTION",
+   "quantity": "Regan D, Mavridi-Printezi A, Payne L, Montalti M, Borri P, Langbein W. *Analyst* 2023;148:3531–3542",
+   "value": 405455530660.0,
+   "unit": "nm",
+   "locator": "10.1021/jp2060624",
+   "locators_in_block": [
+    "10.1021/jp2060624",
+    "10.1021/jz100720h",
+    "10.1039/D3AN00654A",
+    "10.1063/1.3265861"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| Regan D, Mavridi-Printezi A, Payne L, Montalti M, Borri P, Langbein W. *Analyst* 2023;148:3531–3542 | `10.1039/D3AN00654A`, PMID `37382583` | **Absorption cross-section in nm^2 of single melanin nanoparticles** — sepia (cuttlefish ink), polydopamine, L-DOPA — at 405, 455, 530, 660 nm; **Table 2** ",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-MELANIN-PHOTOPROTECTION",
+   "quantity": "Piletic IR, Matthews TE, Warren WS. *J Chem Phys* 2009;131(18):181106",
+   "value": 1500.0,
+   "unit": "M^-1 cm^-1",
+   "locator": "10.1021/jp2060624",
+   "locators_in_block": [
+    "10.1021/jp2060624",
+    "10.1021/jz100720h",
+    "10.1039/D3AN00654A",
+    "10.1063/1.3265861"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| Piletic IR, Matthews TE, Warren WS. *J Chem Phys* 2009;131(18):181106 | `10.1063/1.3265861`, PMC4108625 | **Table I**: molar absorptivity 1500 M^-1 cm^-1 (sepia eumelanin) and 3200 M^-1 cm^-1 (synthetic pheomelanin) at 750 nm | Three disqualifiers: (a) 750 nm, not UVB; (b) `eps` is itself obtained",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-MELANIN-PHOTOPROTECTION",
+   "quantity": "Melanin volume fraction, in vivo, large FOV",
+   "value": 0.25,
+   "unit": "mm",
+   "locator": "10.1038/s41598-022-12317-y",
+   "locators_in_block": [
+    "10.1038/s41598-022-12317-y",
+    "10.1111/j.1751-1097.2008.00398.x",
+    "10.1117/1.JBO.20.6.066005"
+   ],
+   "validity": [
+    "in vivo"
+   ],
+   "from": "table",
+   "line": "| Melanin volume fraction, in vivo, large FOV | ~7x across types I→V; 0.003–0.52 within type I, 0.52–0.78 within type V, over 0.25 mm^2 ROIs | `1` | Vicente 2022, `10.1038/s41598-022-12317-y` | Fig. 1(c), Fig. 2 | 10 | No — authors disclaim absolute concentration; FOV-dependent by 2–3x |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-MELANIN-PHOTOPROTECTION",
+   "quantity": "Effective skin `mu_a`, UVB, in vivo",
+   "value": 247.0,
+   "unit": "cm",
+   "locator": "10.1038/s41598-022-12317-y",
+   "locators_in_block": [
+    "10.1038/s41598-022-12317-y",
+    "10.1111/j.1751-1097.2008.00398.x",
+    "10.1117/1.JBO.20.6.066005"
+   ],
+   "validity": [
+    "in vivo"
+   ],
+   "from": "table",
+   "line": "| Effective skin `mu_a`, UVB, in vivo | 247 cm^-1 @341 nm → 583 cm^-1 @290 nm → **2.47e4 → 5.83e4 m^-1** | `1/m` | Meinhardt 2009, `10.1111/j.1751-1097.2008.00398.x` | Discussion, para. beginning \"According to Jacques (7)\" | 20 | Partly — **not depth-resolved, by the authors' own statement** |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-MELANIN-PHOTOPROTECTION",
+   "quantity": "Epidermal `mu_a`, 532 nm, in vivo",
+   "value": 532.0,
+   "unit": "nm",
+   "locator": "10.1038/s41598-022-12317-y",
+   "locators_in_block": [
+    "10.1038/s41598-022-12317-y",
+    "10.1111/j.1751-1097.2008.00398.x",
+    "10.1117/1.JBO.20.6.066005"
+   ],
+   "validity": [
+    "in vivo"
+   ],
+   "from": "table",
+   "line": "| Epidermal `mu_a`, 532 nm, in vivo | 180 / 185 cm^-1 → 1.80e4 / 1.85e4 m^-1 | `1/m` | Viator 2004, *J Invest Dermatol* 122:1432–1439 | body text at Eq. (1) | 10 | No — visible band, fitted parameter |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-MELANIN-PHOTOPROTECTION",
+   "quantity": "mu_s'` epidermis, 405 nm, ex vivo",
+   "value": 405.0,
+   "unit": "nm",
+   "locator": "10.1038/s41598-022-12317-y",
+   "locators_in_block": [
+    "10.1038/s41598-022-12317-y",
+    "10.1111/j.1751-1097.2008.00398.x",
+    "10.1117/1.JBO.20.6.066005"
+   ],
+   "validity": [
+    "ex vivo"
+   ],
+   "from": "table",
+   "line": "| `mu_s'` epidermis, 405 nm, ex vivo | 9.95 mm^-1 → 9.95e3 m^-1 | `1/m` (reduced) | Shimojo 2020 | printed table | 15 samples | No — 400 nm floor; reduced, not `mu_s` |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-MELANIN-PHOTOPROTECTION",
+   "quantity": "Epidermal thickness, in vivo",
+   "value": 65.0,
+   "unit": "um",
+   "locator": "10.1038/s41598-022-12317-y",
+   "locators_in_block": [
+    "10.1038/s41598-022-12317-y",
+    "10.1111/j.1751-1097.2008.00398.x",
+    "10.1117/1.JBO.20.6.066005"
+   ],
+   "validity": [
+    "in vivo"
+   ],
+   "from": "table",
+   "line": "| Epidermal thickness, in vivo | 30–65 um; volar 40 um, dorsal 50 um → **3.0e-5 – 6.5e-5 m** | `m` | Saager 2015 | Fig. 7(a), §3.2.1 | 12 | Yes, as a thickness |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-MELANIN-PHOTOPROTECTION",
+   "quantity": "Epidermal thickness by ethnicity, in vivo",
+   "value": 66.6,
+   "unit": "um",
+   "locator": "10.1038/s41598-022-12317-y",
+   "locators_in_block": [
+    "10.1038/s41598-022-12317-y",
+    "10.1111/j.1751-1097.2008.00398.x",
+    "10.1117/1.JBO.20.6.066005"
+   ],
+   "validity": [
+    "in vivo"
+   ],
+   "from": "table",
+   "line": "| Epidermal thickness by ethnicity, in vivo | 60.5 / 65.1 / 66.6 um → 6.05e-5 / 6.51e-5 / 6.66e-5 m | `m` | *Sci Rep* 2022;12:4120 | Discussion | unverified | Corroborating only |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-MELANIN-PHOTOPROTECTION",
+   "quantity": null,
+   "from": "line",
+   "value": 760.0,
+   "unit": "nm",
+   "locator": "10.1038/s41598-021-03114-0",
+   "validity": [
+    "in vivo"
+   ],
+   "line": "DOI `10.1038/s41598-021-03114-0`; in vivo volar forearm, 760 nm excitation, DermaInspect,",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-MELANIN-PHOTOPROTECTION",
+   "quantity": null,
+   "from": "line",
+   "value": 390.0,
+   "unit": "nm",
+   "locator": "10.1159/000051543",
+   "validity": null,
+   "line": "DOI `10.1159/000051543`. UV spectrophotometer with integrating sphere, 280–390 nm;",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-SARCOMERE-FORCE-RICE2008",
+   "quantity": "Milani-Nejad N, et al. \"Insights into length-dependent regulation of cardiac cross-bridge cycling kinetics in human myoc",
+   "value": 37.0,
+   "unit": "°C",
+   "locator": "10.1016/j.abb.2016.02.005",
+   "locators_in_block": [
+    "10.1016/j.abb.2016.02.005",
+    "10.1152/ajpheart.00163.2019",
+    "10.1152/ajpheart.00685.2015",
+    "10.1152/ajpregu.00537.2006"
+   ],
+   "validity": [
+    "37 °c",
+    "human",
+    "n = 8",
+    "n = 9"
+   ],
+   "from": "table",
+   "line": "| Milani-Nejad N, et al. \"Insights into length-dependent regulation of cardiac cross-bridge cycling kinetics in human myocardium.\" *Arch Biochem Biophys* 2016;619:151–157. DOI `10.1016/j.abb.2016.02.005` · PMID `26854725` · PMCID `PMC4899103` (**full text retrieved**) | `k_tr` at `L_opt` vs `L90`, 3",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-SARCOMERE-FORCE-RICE2008",
+   "quantity": "Edés I, Czuriga D, Csányi G, Chlopicki S, Recchia FA, Borbély A, et al. \"Rate of tension redevelopment is not modulated ",
+   "value": 0.11,
+   "unit": "s",
+   "locator": "10.1016/j.abb.2016.02.005",
+   "locators_in_block": [
+    "10.1016/j.abb.2016.02.005",
+    "10.1152/ajpheart.00163.2019",
+    "10.1152/ajpheart.00685.2015",
+    "10.1152/ajpregu.00537.2006"
+   ],
+   "validity": [
+    "37 °c",
+    "human",
+    "murine",
+    "porcine"
+   ],
+   "from": "table",
+   "line": "| Edés I, Czuriga D, Csányi G, Chlopicki S, Recchia FA, Borbély A, et al. \"Rate of tension redevelopment is not modulated by sarcomere length in permeabilized human, murine, and porcine cardiomyocytes.\" *Am J Physiol Regul Integr Comp Physiol* 2007;292:R630–R637. DOI `10.1152/ajpregu.00537.2006` · P",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-SARCOMERE-FORCE-RICE2008",
+   "quantity": "Optimal muscle length `L0` expressed as sarcomere length",
+   "value": 2.2,
+   "unit": "µm",
+   "locator": "10.1111/bph.15271",
+   "locators_in_block": [
+    "10.1111/bph.15271",
+    "10.1186/s12933-025-02820-7",
+    "PMC7707091",
+    "PMID 40611280"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| Optimal muscle length `L0` expressed as sarcomere length | **2.2 µm** | Musgrave et al. 2025, `10.1186/s12933-025-02820-7`, PMID 40611280 | Methods → \"Mechanical measurements\": *\"zero at 85 % of the optimal muscle length\"*; Results Fig. 2 caption defines `L/L0` where *\"`L/L_o` … represents fractio",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-SARCOMERE-FORCE-RICE2008",
+   "quantity": "Sarcomere length at 85 % of `L0` (force zero)",
+   "value": 1.87,
+   "unit": "µm",
+   "locator": "10.1111/bph.15271",
+   "locators_in_block": [
+    "10.1111/bph.15271",
+    "10.1186/s12933-025-02820-7",
+    "PMC7707091",
+    "PMID 40611280"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| Sarcomere length at 85 % of `L0` (force zero) | **1.87 µm** | same | Methods → \"Mechanical measurements\" |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-CS10-SARCOMERE-FORCE-RICE2008",
+   "quantity": "Sarcomere lengths used, human LV",
+   "value": 1.9,
+   "unit": "µm",
+   "locator": "10.1111/bph.15271",
+   "locators_in_block": [
+    "10.1111/bph.15271",
+    "10.1186/s12933-025-02820-7",
+    "PMC7707091",
+    "PMID 40611280"
+   ],
+   "validity": [
+    "37 °c",
+    "human"
+   ],
+   "from": "table",
+   "line": "| Sarcomere lengths used, human LV | **1.9 µm and 2.3 µm**, at **37 °C**, permeabilised, ±0.5 µM mavacamten | Macoveanu/Gupta et al. \"Effects of mavacamten on Ca²⁺ sensitivity of contraction as sarcomere length varied in human myocardium.\" *Br J Pharmacol* 2020. DOI `10.1111/bph.15271` · PMID `32960",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-DEJ-MICROSCOPY-AFTER-INCISION",
+   "quantity": "Dunkin et al. 2007, graduated dermal scratch",
+   "value": 30.0,
+   "unit": "µm",
+   "locator": "10.1016/j.jid.2022.10.012",
+   "locators_in_block": [
+    "10.1016/j.jid.2022.10.012",
+    "10.1097/01.prs.0000258829.07399.f0",
+    "10.1097/scs.0000000000009955",
+    "10.1111/wrr.12888"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| Dunkin et al. 2007, graduated dermal scratch | PMID `17440346`, DOI `10.1097/01.prs.0000258829.07399.f0` | Yes — `0.331 [1]`, `560 ± 30 µm` | No DEJ statistic; not histology; graded scratch not sharp cut; abstract only, not primary table. Detail in Section 2. |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-DEJ-MICROSCOPY-AFTER-INCISION",
+   "quantity": "Kurugol S et al. 2011, semiautomated DEJ localisation in RCM",
+   "value": 8.5,
+   "unit": "µm",
+   "locator": "10.1016/j.jid.2022.10.012",
+   "locators_in_block": [
+    "10.1016/j.jid.2022.10.012",
+    "10.1097/01.prs.0000258829.07399.f0",
+    "10.1097/scs.0000000000009955",
+    "10.1111/wrr.12888"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| Kurugol S et al. 2011, semiautomated DEJ localisation in RCM | PMID `21456869`, PMC3077965 | Yes — `<10%` misclassification, `≈8.5 µm` boundary distance | Units match exactly but the quantity is wrong: algorithm accuracy for segmenting the DEJ in reflectance confocal images of **intact** skin. No ",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-DEJ-MODE-RESOLVED-SEPARATION-WORK",
+   "quantity": "Baban NS, Orozaliev A, Stubbs CJ, Song YA. \"Understanding interfacial fracture behavior between microinterlocked soft la",
+   "value": 50.0,
+   "unit": "µm",
+   "locator": "10.1016/j.biomaterials.2005.06.019",
+   "locators_in_block": [
+    "10.1016/j.biomaterials.2005.06.019",
+    "10.1016/j.ijbiomac.2023",
+    "10.1016/j.jmbbm.2020.103848",
+    "10.1038/ncomms7649"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| Baban NS, Orozaliev A, Stubbs CJ, Song YA. \"Understanding interfacial fracture behavior between microinterlocked soft layers using physics-based cohesive zone modeling.\" Phys Rev E 102:012801 (2020) | DOI 10.1103/PhysRevE.102.012801, PMID 32794903 | Abstract (locator). Explicitly uses **PDMS** lay",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-DEJ-MODE-RESOLVED-SEPARATION-WORK",
+   "quantity": "Medical-adhesive peel-to-skin studies (ASTM D903, 180°)",
+   "value": 0.5,
+   "unit": "N/m",
+   "locator": "10.1016/j.biomaterials.2005.06.019",
+   "locators_in_block": [
+    "10.1016/j.biomaterials.2005.06.019",
+    "10.1016/j.ijbiomac.2023",
+    "10.1016/j.jmbbm.2020.103848",
+    "10.1038/ncomms7649"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| Medical-adhesive peel-to-skin studies (ASTM D903, 180°) | e.g. DOI 10.1016/j.ijbiomac.2023 (Peel strength testing, Mbithi 2023); PAES EES ~0.5 N/m, OSTI 1342721 | Failure occurs at the stratum corneum / adhesive interface. Not DEJ. |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-INTRAOPERATIVE-REGISTRATION-CADENCE",
+   "quantity": null,
+   "from": "line",
+   "value": 4.8,
+   "unit": "s",
+   "locator": "10.4193/rhino12.165",
+   "validity": [
+    "n = 40"
+   ],
+   "line": "doi:10.4193/rhino12.165 · PMID 24260767. → **39 ± 4.8 s**, n = 40. Full text paywalled;",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-INTRAOPERATIVE-REGISTRATION-CADENCE",
+   "quantity": null,
+   "from": "line",
+   "value": 30.0,
+   "unit": "s",
+   "locator": "PMID 16298917",
+   "validity": null,
+   "line": "PMID 16298917. ~30 s, \"approximately\" (section 4.2).",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-LASER-LOCAL-FLUENCE-MASS-LOSS",
+   "quantity": "Tissue",
+   "value": 4.0,
+   "unit": "mm",
+   "locator": "10.1109/10.88452",
+   "locators_in_block": [
+    "10.1109/10.88452"
+   ],
+   "validity": [
+    "porcine"
+   ],
+   "from": "table",
+   "line": "| **Tissue** | **Porcine reticular dermis**, sections ~4 mm thick, excised **immediately postmortem** | thesis / LSM Methods |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-LASER-LOCAL-FLUENCE-MASS-LOSS",
+   "quantity": "Method (fluence map)",
+   "value": 300.0,
+   "unit": "um",
+   "locator": "10.1109/10.88452",
+   "locators_in_block": [
+    "10.1109/10.88452"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| **Method (fluence map)** | Aperture-step scan, 300 um aperture, pyroelectric detector J3-09, ablation plane registered by HeNe + beamsplitter, 1/e^2 diameters by **Gaussian** least-mean-squares fit | LSM Methods / thesis Fig. 3–4 |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-MATCHED-TMAO-INPUT-DISPOSITION-HELD-OUTPUT",
+   "quantity": "Value",
+   "value": 108.0,
+   "unit": "µmol",
+   "locator": "10.3945/ajcn.114.087692",
+   "locators_in_block": [
+    "10.3945/ajcn.114.087692",
+    "PMC4135488",
+    "PMID 24944063"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| **Value** | **944 ± 108 µmol/24 h  =  39.33 ± 4.50 µmol/h** |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-MATCHED-TMAO-INPUT-DISPOSITION-HELD-OUTPUT",
+   "quantity": "Same-individual dose that produced it",
+   "value": 4.56,
+   "unit": "mmol",
+   "locator": "10.3945/ajcn.114.087692",
+   "locators_in_block": [
+    "10.3945/ajcn.114.087692",
+    "PMC4135488",
+    "PMID 24944063"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| Same-individual dose that produced it | 4 egg yolks = **4.56 mmol (4560 µmol) total choline** |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-MATCHED-TMAO-INPUT-DISPOSITION-HELD-OUTPUT",
+   "quantity": "Locator",
+   "value": 24.0,
+   "unit": "h",
+   "locator": "10.3945/ajcn.114.087692",
+   "locators_in_block": [
+    "10.3945/ajcn.114.087692",
+    "PMC4135488",
+    "PMID 24944063"
+   ],
+   "validity": [
+    "n = 6"
+   ],
+   "from": "table",
+   "line": "| **Locator** | Results section, paragraph beginning *\"Subjects excreted TMAO into urine (Figure 3)…\"*, verbatim series `236 ± 44, 433 ± 61, 634 ± 145, 944 ± 108, and 900 ± 149 μmol TMAO/24 h` for 0, 1, 2, 4, 6 egg yolks. Same numbers plotted in **Figure 3B** (\"Mean (±SE) amount of TMAO excreted int",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-MATCHED-TMAO-INPUT-DISPOSITION-HELD-OUTPUT",
+   "quantity": "Conversion shown",
+   "value": 944.0,
+   "unit": "µmol",
+   "locator": "10.3945/ajcn.114.087692",
+   "locators_in_block": [
+    "10.3945/ajcn.114.087692",
+    "PMC4135488",
+    "PMID 24944063"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| Conversion shown | 944 µmol/24 h ÷ 24 h = **39.33 µmol/h**; 108 ÷ 24 = 4.50 µmol/h. Full table in §2. |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-MATCHED-TMAO-INPUT-DISPOSITION-HELD-OUTPUT",
+   "quantity": "Method",
+   "value": 3.0,
+   "unit": "µm",
+   "locator": "10.3945/ajcn.114.087692",
+   "locators_in_block": [
+    "10.3945/ajcn.114.087692",
+    "PMC4135488",
+    "PMID 24944063"
+   ],
+   "validity": [
+    "130 °c",
+    "350 °c",
+    "40 °c"
+   ],
+   "from": "table",
+   "line": "| Method | LC–stable-isotope-dilution–MRM mass spectrometry; internal standards TMAO-d₉ and creatinine-d₃; Atlantis Silica HILIC 3 µm, 4.6 × 50 mm, **column 40 °C**, flow 1 mL/min; source 130 °C, desolvation 350 °C; MRM 76→58 (TMAO), 85→66 (TMAO-d₉), 114→86 / 117→89 (creatinine / d₃). |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-MATCHED-TMAO-INPUT-DISPOSITION-HELD-OUTPUT",
+   "quantity": "Sample handling",
+   "value": 80.0,
+   "unit": "°C",
+   "locator": "10.3945/ajcn.114.087692",
+   "locators_in_block": [
+    "10.3945/ajcn.114.087692",
+    "PMC4135488",
+    "PMID 24944063"
+   ],
+   "validity": [
+    "80 °c"
+   ],
+   "from": "table",
+   "line": "| Sample handling | 24-h urine into a 3-L jug pre-charged with 20 mL 99% formic acid, kept on wet ice, total volume noted, aliquots −80 °C. Plasma acidified to 1% formic acid, −80 °C. |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-LANE-GATES-HEALING",
+   "quantity": "day 180",
+   "value": 0.09,
+   "unit": "mol",
+   "locator": "PMID 12880417",
+   "locators_in_block": [
+    "PMID 12880417",
+    "PMID 7712384"
+   ],
+   "validity": [
+    "human"
+   ],
+   "from": "table",
+   "line": "| **day 180** | **yes — HHNL 0.27 ± 0.09 mol/mol collagen, human, PMID 12880417**; also pyridinoline 0.063 ± 0.014 | qualitative only — \"close to normal skin\" (Doillon 1985); ~70–80 % of normal in treated pig wounds at d105–112 | **no** |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-LANE-GATES-HEMOSTASIS",
+   "quantity": "10",
+   "value": 300.0,
+   "unit": "s",
+   "locator": "PMC4070603",
+   "locators_in_block": [
+    "PMC4070603"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| 10 | Europe PMC | `\"closure time\" AND \"platelet count\" AND (\"non-closure\" OR nonclosure OR \">300\" OR \"300 s\")` | 306 | clinical PFA literature; yielded §3.1 |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-LANE-GATES-HEMOSTASIS",
+   "quantity": null,
+   "from": "line",
+   "value": 6000.0,
+   "unit": "s",
+   "locator": "PMC9830607",
+   "validity": null,
+   "line": "5000–6000 s^-1 per Hayward 2006 (§3.3). Do not attribute that number to PMC9830607.",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-LANE-GATES-Q009",
+   "quantity": "Gotfried et al. 2017, *CID*, doi 10.1093/cid/ciz398 — omadacycline 100 mg IV; ELF AUC0–24 17.2 mg·h/L, alveolar cells 30",
+   "value": 100.0,
+   "unit": "mg",
+   "locator": "10.1093/cid/ciz398",
+   "locators_in_block": [
+    "10.1093/cid/ciz398",
+    "10.1128/aac.00532-07",
+    "10.1128/aac.01468-05",
+    "10.1128/aac.02164-17"
+   ],
+   "validity": null,
+   "from": "table",
+   "line": "| Gotfried et al. 2017, *CID*, doi 10.1093/cid/ciz398 — omadacycline 100 mg IV; ELF AUC0–24 17.2 mg·h/L, alveolar cells 302.5 mg·h/L, ratios 1.47 and 25.8 vs **total** plasma | Denominator is total plasma, not free; no free plasma fraction measured in-protocol. |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-LANE-GATES-Q009",
+   "quantity": "Cefuroxime brain microdialysis, *AAC* 2018, doi 10.1128/aac.02164-17 — free plasma AUC0–24 389.0 ± 210.3, brain 131.4 ± ",
+   "value": 72.8,
+   "unit": "mg",
+   "locator": "10.1093/cid/ciz398",
+   "locators_in_block": [
+    "10.1093/cid/ciz398",
+    "10.1128/aac.00532-07",
+    "10.1128/aac.01468-05",
+    "10.1128/aac.02164-17"
+   ],
+   "validity": [
+    "n=6"
+   ],
+   "from": "table",
+   "line": "| Cefuroxime brain microdialysis, *AAC* 2018, doi 10.1128/aac.02164-17 — free plasma AUC0–24 389.0 ± 210.3, brain 131.4 ± 72.8 mg/L·h, ratio 0.33 ± 0.1, n=6 | Closest structural match on units and pairing, but the 0.315 free fraction is a **literature citation**, not measured in-protocol. Would sati",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 50.0,
+   "unit": "mg",
+   "locator": "10.7298/X48050VV**",
+   "validity": [
+    "human"
+   ],
+   "line": "- **Secondary source with the same numbers (free, but also summary-level):** Taesuwan S, PhD dissertation, Cornell University, 2018-05-30, **DOI 10.7298/X48050VV**, hdl 1813/59272, Chapter 2 (\"metabolic fate of dietary TMAO\", 50 mg d9-TMAO in the fruit-control arm). The eCommons item page is readabl",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 4.2,
+   "unit": "µmol",
+   "locator": "PMID 956930",
+   "validity": [
+    "adult",
+    "human"
+   ],
+   "line": "- **19.6 ± 4.2 µmol/h** — from **0.47 ± 0.10 mmol/24 h**. Provenance: *Effects of carnitine administration, fasting, and exercise on urinary carnitine excretion in man.* J Nutr Sci Vitaminol (Tokyo) 1976. **PMID 956930** (no DOI in PubMed). Locator: *Abstract, item 2/3*. Validity: adult human males;",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 2.4,
+   "unit": "µmol",
+   "locator": "10.1152/japplphysiol.01011.2006**;",
+   "validity": [
+    "n=14"
+   ],
+   "line": "- **13.9 ± 2.4 µmol/h** — from **53.8 ± 9.2 mg/24 h** (basal, day 3 of a 2-wk L-carnitine + carbohydrate trial). Provenance: Wall BT, Stephens FB, et al. *Carbohydrate ingestion augments L-carnitine retention in humans.* J Appl Physiol 2007. **DOI 10.1152/japplphysiol.01011.2006**; **PMID 17138832**",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 10.0,
+   "unit": "µmol",
+   "locator": "PMID 956930",
+   "validity": null,
+   "line": "- **90.4 ± 10.0 µmol/h** — five-day fasting, from **2.17 ± 0.24 mmol/24 h** (**PMID 956930**, abstract item 3), 4.6× the usual level. Same `n`-unstated defect. Relevant if you need a mobilisation-state upper bound rather than a basal one.",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 6.0,
+   "unit": "min",
+   "locator": "10.1016/j.cca.2025.120294**;",
+   "validity": [
+    "human",
+    "n=10"
+   ],
+   "line": "- **γBB + TMA + TMAO + carnitine + choline simultaneous in human plasma:** *Quantification of TMAO and its main related trimethylammonium-containing compounds in human plasma by LC-MS/MS.* Clin Chim Acta 2025. **DOI 10.1016/j.cca.2025.120294**; **PMID 40222542**. **n=10 healthy male volunteers**, HI",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 19.6,
+   "unit": "µmol",
+   "locator": "PMID 956930",
+   "validity": [
+    "human"
+   ],
+   "line": "Definition: `body pool (µmol) = 24-h urinary total carnitine loss (µmol/h) × human whole-body L-carnitine turnover time (h)`. Inputs: loss 19.6 µmol/h (§2.4, PMID 956930) or 13.9 µmol/h (§2.4, PMID 17138832); turnover time **38–119 h** — from Rebouche CJ. *Kinetics, pharmacokinetics, and regulation ",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 5.3,
+   "unit": "h",
+   "locator": "PMID 28433924",
+   "validity": [
+    "human",
+    "in vivo",
+    "mouse"
+   ],
+   "line": "**4.4 No human TMA/TMAO turnover-time or pool-size measurement other than §2.1's 5.3 h.** `trimethylamine[Title/Abstract] AND (elimination OR clearance OR turnover)[Title/Abstract] AND TMAO[Title/Abstract] AND human*[Title/Abstract]` → count 17, all reviews or non-human/other-analyte studies except ",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 119.0,
+   "unit": "h",
+   "locator": "PMID 15591001",
+   "validity": [
+    "human"
+   ],
+   "line": "**Known search weaknesses, stated honestly:** (a) `human*[Title/Abstract]` under-recalls papers tagged only by MeSH; (b) the review-level \"turnover time 38–119 h\" (PMID 15591001) is the load-bearing input for §3 and I did not chase its primary sources to a tracer study; (c) no non-PubMed bibliograph",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-JOINT-VOLUME-SPECIES-CAPACITY",
+   "quantity": "Wall BT et al. Physiol Rep 2023;11:e15615, DOI `10.14814/phy2.15615`, PMCID `PMC9938004",
+   "value": 400.0,
+   "unit": "umol",
+   "locator": "10.1007/s11306-026-02443-3",
+   "locators_in_block": [
+    "10.1007/s11306-026-02443-3",
+    "10.1016/j.heliyon.2023.e15281",
+    "10.1038/s41564-021-01010-x",
+    "10.1161/jaha.121.021934"
+   ],
+   "validity": [
+    "n = 6"
+   ],
+   "from": "table",
+   "line": "| Wall BT et al. Physiol Rep 2023;11:e15615, DOI `10.14814/phy2.15615`, PMCID `PMC9938004` | n = 6, IV L-carnitine to steady state ~400 umol/L, caffeine lowers plasma carnitine 10–15%. Figure-based, no tables, no pool in umol, no TMA/TMAO. |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-JOINT-VOLUME-SPECIES-CAPACITY",
+   "quantity": "Heliyon 2023;9:e15281, DOI `10.1016/j.heliyon.2023.e15281`, PMID `37096007",
+   "value": 60.0,
+   "unit": "min",
+   "locator": "10.1007/s11306-026-02443-3",
+   "locators_in_block": [
+    "10.1007/s11306-026-02443-3",
+    "10.1016/j.heliyon.2023.e15281",
+    "10.1038/s41564-021-01010-x",
+    "10.1161/jaha.121.021934"
+   ],
+   "validity": [
+    "mouse"
+   ],
+   "from": "table",
+   "line": "| Heliyon 2023;9:e15281, DOI `10.1016/j.heliyon.2023.e15281`, PMID `37096007` | d3-carnitine IV + MALDI-MS imaging in mouse muscle (30/60 min, unilateral contraction). Flux/distribution imaging, no inventory, no V0, mouse only. |",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-MATCHED-FORWARD-PANEL",
+   "quantity": null,
+   "from": "line",
+   "value": 48.0,
+   "unit": "h",
+   "locator": "PMC12700042",
+   "validity": null,
+   "line": "PMC12700042, CC BY-NC-ND — carnitine vs acetylcarnitine, plasma+urine 1–48 h. **Rejected for this",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  }
+ ],
+ "absence_reports": [
+  "BT-ANCHOR-ABSOLUTE-MEMBRANE-FLUX-WITH-FREE-SPECIES",
+  "BT-ANCHOR-CS10-APOPTOSIS-INTRINSIC-EXTRINSIC",
+  "BT-ANCHOR-CS10-AUTOPHAGY-MITOPHAGY",
+  "BT-ANCHOR-CS10-BMU-TURNOVER-KINETICS",
+  "BT-ANCHOR-CS10-CALCIUM-PTH-VITD",
+  "BT-ANCHOR-CS10-CARDIAC-CICR-ODE-MODEL",
+  "BT-ANCHOR-CS10-CELLULAR-SENESCENCE",
+  "BT-ANCHOR-CS10-CORONARY-BLOOD-FLOW",
+  "BT-ANCHOR-CS10-COUGH-REFLEX",
+  "BT-ANCHOR-CS10-COUNTERCURRENT-MULTIPLIER",
+  "BT-ANCHOR-CS10-GI-ABSORPTION-TRANSIT",
+  "BT-ANCHOR-CS10-HPG-MALE-AXIS",
+  "BT-ANCHOR-CS10-LIVER-REGENERATION",
+  "BT-ANCHOR-CS10-MELANIN-PHOTOPROTECTION",
+  "BT-ANCHOR-CS10-PANCREATIC-EXOCRINE",
+  "BT-ANCHOR-CS10-SARCOMERE-FORCE-RICE2008",
+  "BT-ANCHOR-CS10-VITAMIN-D-ACTIVATION",
+  "BT-ANCHOR-DEJ-MICROSCOPY-AFTER-INCISION",
+  "BT-ANCHOR-DEJ-MODE-RESOLVED-SEPARATION-WORK",
+  "BT-ANCHOR-FIBRIL-RUPTURE-AND-NODE-WORK",
+  "BT-ANCHOR-INTRAOPERATIVE-REGISTRATION-CADENCE",
+  "BT-ANCHOR-JOINT-TMAO-CREATININE-AUC-RATIO-AND-BOTH-COL",
+  "BT-ANCHOR-LASER-LOCAL-FLUENCE-MASS-LOSS",
+  "BT-ANCHOR-MATCHED-TMAO-INPUT-DISPOSITION-HELD-OUTPUT",
+  "BT-ANCHOR-NEEDLE-CONTACT-READ-RATIO",
+  "BT-ANCHOR-RAW-DEGREES-OF-FREEDOM-ENZYME",
+  "BT-ANCHOR-LANE-GATES-HEALING",
+  "BT-ANCHOR-LANE-GATES-HEMOSTASIS",
+  "BT-ANCHOR-LANE-GATES-IMMUNITY",
+  "BT-ANCHOR-LANE-GATES-INCISION",
+  "BT-ANCHOR-LANE-GATES-MITOSTRESS",
+  "BT-ANCHOR-LANE-GATES-Q031",
+  "BT-ANCHOR-LANE-GATES-SOLBENCH",
+  "BT-ANCHOR-SPECIES-H0-EMPTY-CAPACITY-K-OBSERVER-V-AND-E",
+  "BT-ANCHOR-TMAO-ACTUAL-SAMPLE-METROLOGY",
+  "BT-ANCHOR-TMAO-INDEPENDENT-FORWARD-PANEL",
+  "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+  "BT-ANCHOR-TMAO-JOINT-VOLUME-SPECIES-CAPACITY",
+  "BT-ANCHOR-TMAO-MATCHED-FORWARD-PANEL",
+  "BT-ANCHOR-TMAO-OBSERVER-VOLUME",
+  "BT-ANCHOR-TMAO-TAGGED-QUERY-EXCHANGE"
+ ],
+ "per_report": [
+  {
+   "job": "BT-ANCHOR-ABSOLUTE-MEMBRANE-FLUX-WITH-FREE-SPECIES",
+   "kept": 0,
+   "unextracted_locator_lines": 13,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-ACTIVE-CARRIER-ABUNDANCE-SIDED-PRODUCTIVE-KI",
+   "kept": 0,
+   "unextracted_locator_lines": 10,
+   "declares_absence": false,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-ACTUAL-URINE-CALCULATION-VOLUME-SAMPLE-COLLE",
+   "kept": 0,
+   "unextracted_locator_lines": 4,
+   "declares_absence": false,
+   "self_computation_markers": 1
+  },
+  {
+   "job": "BT-ANCHOR-CS10-APOPTOSIS-INTRINSIC-EXTRINSIC",
+   "kept": 0,
+   "unextracted_locator_lines": 11,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-AUTOPHAGY-MITOPHAGY",
+   "kept": 0,
+   "unextracted_locator_lines": 9,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-BMU-TURNOVER-KINETICS",
+   "kept": 1,
+   "unextracted_locator_lines": 18,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-CALCIUM-PTH-VITD",
+   "kept": 4,
+   "unextracted_locator_lines": 14,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-CARDIAC-CICR-ODE-MODEL",
+   "kept": 4,
+   "unextracted_locator_lines": 21,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-CELLULAR-SENESCENCE",
+   "kept": 0,
+   "unextracted_locator_lines": 18,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-CORONARY-BLOOD-FLOW",
+   "kept": 2,
+   "unextracted_locator_lines": 8,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-COUGH-REFLEX",
+   "kept": 0,
+   "unextracted_locator_lines": 12,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-COUNTERCURRENT-MULTIPLIER",
+   "kept": 2,
+   "unextracted_locator_lines": 36,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-GI-ABSORPTION-TRANSIT",
+   "kept": 0,
+   "unextracted_locator_lines": 9,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-HEPATIC-CLEARANCE",
+   "kept": 2,
+   "unextracted_locator_lines": 15,
+   "declares_absence": false,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-HPG-MALE-AXIS",
+   "kept": 1,
+   "unextracted_locator_lines": 10,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-LIVER-REGENERATION",
+   "kept": 0,
+   "unextracted_locator_lines": 18,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-MELANIN-PHOTOPROTECTION",
+   "kept": 12,
+   "unextracted_locator_lines": 15,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-PANCREATIC-EXOCRINE",
+   "kept": 0,
+   "unextracted_locator_lines": 14,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-SARCOMERE-FORCE-RICE2008",
+   "kept": 5,
+   "unextracted_locator_lines": 16,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-CS10-VITAMIN-D-ACTIVATION",
+   "kept": 0,
+   "unextracted_locator_lines": 20,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-DEJ-MICROSCOPY-AFTER-INCISION",
+   "kept": 2,
+   "unextracted_locator_lines": 11,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-DEJ-MODE-RESOLVED-SEPARATION-WORK",
+   "kept": 2,
+   "unextracted_locator_lines": 7,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-FIBRIL-RUPTURE-AND-NODE-WORK",
+   "kept": 0,
+   "unextracted_locator_lines": 22,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-INTRAOPERATIVE-REGISTRATION-CADENCE",
+   "kept": 2,
+   "unextracted_locator_lines": 22,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-JOINT-TMAO-CREATININE-AUC-RATIO-AND-BOTH-COL",
+   "kept": 0,
+   "unextracted_locator_lines": 20,
+   "declares_absence": true,
+   "self_computation_markers": 1
+  },
+  {
+   "job": "BT-ANCHOR-LASER-LOCAL-FLUENCE-MASS-LOSS",
+   "kept": 2,
+   "unextracted_locator_lines": 4,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-MATCHED-TMAO-INPUT-DISPOSITION-HELD-OUTPUT",
+   "kept": 6,
+   "unextracted_locator_lines": 9,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-NEEDLE-CONTACT-READ-RATIO",
+   "kept": 0,
+   "unextracted_locator_lines": 6,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-RAW-DEGREES-OF-FREEDOM-ENZYME",
+   "kept": 0,
+   "unextracted_locator_lines": 10,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-RETE-RIDGE-GEOMETRY-DISTRIBUTION",
+   "kept": 0,
+   "unextracted_locator_lines": 8,
+   "declares_absence": false,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-LANE-GATES-HEALING",
+   "kept": 1,
+   "unextracted_locator_lines": 35,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-LANE-GATES-HEMOSTASIS",
+   "kept": 2,
+   "unextracted_locator_lines": 9,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-LANE-GATES-IMMUNITY",
+   "kept": 0,
+   "unextracted_locator_lines": 11,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-LANE-GATES-INCISION",
+   "kept": 0,
+   "unextracted_locator_lines": 1,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-LANE-GATES-MITOSTRESS",
+   "kept": 0,
+   "unextracted_locator_lines": 15,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-LANE-GATES-Q009",
+   "kept": 2,
+   "unextracted_locator_lines": 10,
+   "declares_absence": false,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-LANE-GATES-Q031",
+   "kept": 0,
+   "unextracted_locator_lines": 14,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-LANE-GATES-SOLBENCH",
+   "kept": 0,
+   "unextracted_locator_lines": 15,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-SPECIES-H0-EMPTY-CAPACITY-K-OBSERVER-V-AND-E",
+   "kept": 0,
+   "unextracted_locator_lines": 9,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-ACTUAL-SAMPLE-METROLOGY",
+   "kept": 0,
+   "unextracted_locator_lines": 11,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INDEPENDENT-FORWARD-PANEL",
+   "kept": 0,
+   "unextracted_locator_lines": 15,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "kept": 8,
+   "unextracted_locator_lines": 18,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-JOINT-VOLUME-SPECIES-CAPACITY",
+   "kept": 2,
+   "unextracted_locator_lines": 21,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-MATCHED-FORWARD-PANEL",
+   "kept": 1,
+   "unextracted_locator_lines": 28,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-OBSERVER-VOLUME",
+   "kept": 0,
+   "unextracted_locator_lines": 6,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-TAGGED-QUERY-EXCHANGE",
+   "kept": 0,
+   "unextracted_locator_lines": 10,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  }
+ ]
+}

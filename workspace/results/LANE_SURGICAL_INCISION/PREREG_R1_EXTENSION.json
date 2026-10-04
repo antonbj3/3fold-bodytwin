@@ -1,0 +1,16 @@
+{
+  "round": 1,
+  "operation": "After exact-Schur TIE, replace globally linear exterior with a convex strain-hardening exterior and execute a prestressed tangent plus moving nonlinear patch with a monotonicity residual certificate and full nonlinear fallback",
+  "frozen_before_extension_computation": true,
+  "numerical_regime": {"mesh_nx_ny": [64,32], "hardening_beta": 20, "strain": 0.10, "cut_lengths_m": [0.008,0.020,0.032], "tip_patch_radii_m": [0.002,0.004,0.008], "wake_patch": "all opened seam x positions plus 2mm horizontal collar, y <= 4mm"},
+  "constitutive_law": "Phi_bulk = sum_e Eh A_e (ax gx^2+gy^2)/2 + beta Eh A_e |grad u|^4/4; beta is synthetic. Nonlinear intact prestress tangent acquired once. Candidate retains exact nonlinear remainder only on selected elements; elsewhere uses acquired tangent.",
+  "history_scope": "Cohesive kappa is shared frozen history acquired from the linear exterior experiment's initial four preload steps. This isolates nonlinear exterior influence. It does not certify evolutionary cohesive history for a nonlinear exterior.",
+  "control": "Uniform fine nonlinear P1 FE Newton solve with same beta, prescribed boundary, cohesive kappa and cuts; equally informed conventional nonlinear substructuring/adaptive residual patch is eligible",
+  "certificate": "For fixed kappa, convex beta>=0 gives strong monotonicity in original bulk stiffness A0. Full residual dual norm sqrt(r^T A0^-1 r) and acquired max seam compliance bound max gap error by 2 max_i sqrt((A0^-1)_ii) sqrt(r^T A0^-1 r). Global residual formation, global solve, full reconstruction and acquisition are explicitly charged. This certificate is algebraic for the discrete scalar model, with floating point tolerance, not a skin or continuum theorem.",
+  "gate": {"gap_error_m": 1e-7, "candidate_accept_if_certificate_m": 1e-7, "full_residual_relative": 1e-8, "claimed_gain_vs_best_equal_information_control": 10},
+  "fallback": "If the residual certificate exceeds the gap budget, run and charge the full nonlinear solve. Record patch+certificate+fallback total; no cost-free rejected queries.",
+  "strain_zone_refinement": "Original five-row observation strip shrinks in physical depth with grid refinement and censored the width at nx64/96. Acquire a fixed 8mm observation depth before a new execution; retain original censored results.",
+  "identifiability_execution": "Execute full cohesive histories at fixed G=200 J/m2 and E=200000 Pa, strengths 50000/100000/200000 Pa. Cutting-energy and bulk-strain scales stay fixed; observe gaps, irreversible damage and strain widths without fitting.",
+  "new_information": "Independent strength or failure-strain observations are needed for damage width; this extension changes the unresolved operator (nonlinear exterior), not just network size or heldout samples",
+  "review": "PENDING_INDEPENDENT_REVIEW"
+}

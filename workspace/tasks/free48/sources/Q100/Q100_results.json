@@ -1,0 +1,472 @@
+{
+  "approval": {
+    "broad_benchmark_pass": true,
+    "criterion_status": "PASS",
+    "f0_interval_Hz": [
+      60.0,
+      240.0
+    ],
+    "minimum_peak_to_peak_displacement_um": 5.0,
+    "reference_f0_Hz": 120.0,
+    "reference_status": "OVERIFIERAD, UR MINNET"
+  },
+  "data_status": {
+    "external_data_used": false,
+    "geometry_measured": false,
+    "measured_inputs_used": false,
+    "mucosal_wave_empirical_validation": "UNKNOWN",
+    "reference_matching": "UNKNOWN because the remembered benchmark is not matched to this geometry and pressure"
+  },
+  "dimensional_checks": [
+    {
+      "equation": "F_tissue = k_tissue*x",
+      "expected_unit": "N",
+      "numerical_value": 0.04285714285714286,
+      "status": "PASS",
+      "unit_product": "(N/m)*m = N"
+    },
+    {
+      "equation": "F_viscous = c_tissue*v",
+      "expected_unit": "N",
+      "numerical_value": 9.42857142857143e-05,
+      "status": "PASS",
+      "unit_product": "(N*s/m)*(m/s) = N"
+    },
+    {
+      "equation": "dp_flow = R*Q + 0.5*rho*(Q/A)^2",
+      "expected_unit": "Pa",
+      "numerical_value": 61.75555555555556,
+      "status": "PASS",
+      "unit_product": "(Pa*s/m^3)*(m^3/s) + (kg/m^3)*(m/s)^2 = Pa"
+    },
+    {
+      "equation": "c_m = sqrt(T_sheet/(rho_m*h_m))",
+      "expected_unit": "m/s",
+      "numerical_value": 0.9486832980505138,
+      "status": "PASS",
+      "unit_product": "sqrt((N/m)/(kg/m^2)) = m/s"
+    }
+  ],
+  "equations": {
+    "air_pressure": "F_air,i = -a_s*projection*(Psub-min(0.5*rho_air*(Q/A_eff)^2,abs(Psub))) + c_air*(abs(Q)/Q_ref)*tanh(u_i'/v_air)",
+    "contact": "q_c=regularized_positive((A_contact-A_raw)/a_s); F_contact,i=-0.5*activation*(k_contact*q_c+c_contact*max(0,-u1'-u2'))",
+    "flow": "Q* = sign(Psub)*2*|Psub|/(R+sqrt(R^2+4*(rho_air/2)*|Psub|/A_eff^2)) and dQ/dt=(Q*-Q)/tau_air",
+    "geometry": "A_raw = A0 - a_s*(u1+u2)",
+    "layer_series_tissue": "k_series=k_body*k_surface/(k_body+k_surface); c_series=(c_body*k_surface+c_surface*k_body)/(k_body+k_surface)",
+    "mechanics": "m_i*u_i'' = -k_i*u_i-c_i*u_i'*(1+(u_i'/v_tissue_scale)^2) - k_c*(u_i-u_j)-c_c*(u_i'-u_j') + F_air,i + F_contact,i + F_meniscus,i",
+    "mucus_proxy": "c_m=sqrt(T_sheet/(rho_mucus*h_m))"
+  },
+  "id": "BT-HX-Q100",
+  "improvement": {
+    "baseline_absolute_error_Hz": 182.14805801354015,
+    "contact_fraction_change_percentage_points": -16.570857285678585,
+    "layered_absolute_error_Hz": 18.909999225372786,
+    "layered_error_lower": true,
+    "mucus_proxy_present_only_in_layered": true,
+    "reference_f0_Hz": 120.0
+  },
+  "model": "two-mass layered-tissue vocal-fold oscillator with one-sided contact, mucus film, and reduced air flow",
+  "parameter_table": [
+    {
+      "name": "m1",
+      "source_or_assumption": "assumption: lumped lateral mass 1",
+      "unit": "kg",
+      "value": 0.0008
+    },
+    {
+      "name": "m2",
+      "source_or_assumption": "assumption: lumped lateral mass 2",
+      "unit": "kg",
+      "value": 0.0006
+    },
+    {
+      "name": "area0",
+      "source_or_assumption": "assumption: open rest area",
+      "unit": "m^2",
+      "value": 1.5e-05
+    },
+    {
+      "name": "area_slope",
+      "source_or_assumption": "assumption: projected area derivative per inward displacement",
+      "unit": "m",
+      "value": 0.003
+    },
+    {
+      "name": "area_contact",
+      "source_or_assumption": "assumption: contact threshold area",
+      "unit": "m^2",
+      "value": 1.64e-05
+    },
+    {
+      "name": "area_floor",
+      "source_or_assumption": "numerical regularization: positive flow area",
+      "unit": "m^2",
+      "value": 2e-06
+    },
+    {
+      "name": "flow_gate_width",
+      "source_or_assumption": "numerical regularization: contact-to-open flow transition",
+      "unit": "m^2",
+      "value": 2e-06
+    },
+    {
+      "name": "p_sub",
+      "source_or_assumption": "fixed protocol input",
+      "unit": "Pa",
+      "value": 800.0
+    },
+    {
+      "name": "rho_air",
+      "source_or_assumption": "assumption: standard air density at room conditions",
+      "unit": "kg/m^3",
+      "value": 1.204
+    },
+    {
+      "name": "flow_resistance",
+      "source_or_assumption": "first-order lumped viscous/turbulent resistance",
+      "unit": "Pa*s/m^3",
+      "value": 350000.0
+    },
+    {
+      "name": "air_tau",
+      "source_or_assumption": "first-order hydrodynamic response time",
+      "unit": "s",
+      "value": 0.0035
+    },
+    {
+      "name": "air_projection",
+      "source_or_assumption": "assumption: oblique vocal-wall pressure projection",
+      "unit": "1",
+      "value": 0.05
+    },
+    {
+      "name": "air_damping",
+      "source_or_assumption": "assumption: pressure-flow aerodynamic negative-damping coefficient",
+      "unit": "N*s/m",
+      "value": 0.04
+    },
+    {
+      "name": "air_velocity_scale",
+      "source_or_assumption": "assumption: saturation velocity for aerodynamic shear",
+      "unit": "m/s",
+      "value": 0.1
+    },
+    {
+      "name": "flow_reference",
+      "source_or_assumption": "normalization for aerodynamic damping",
+      "unit": "m^3/s",
+      "value": 0.0002
+    },
+    {
+      "name": "k_tissue_base",
+      "source_or_assumption": "homogeneous two-mass reference stiffness",
+      "unit": "N/m",
+      "value": 600.0
+    },
+    {
+      "name": "c_tissue_base",
+      "source_or_assumption": "homogeneous two-mass reference damping",
+      "unit": "N*s/m",
+      "value": 0.12
+    },
+    {
+      "name": "k_body",
+      "source_or_assumption": "layered body spring stiffness",
+      "unit": "N/m",
+      "value": 600.0
+    },
+    {
+      "name": "k_surface",
+      "source_or_assumption": "layered thin-surface spring stiffness",
+      "unit": "N/m",
+      "value": 1500.0
+    },
+    {
+      "name": "c_body",
+      "source_or_assumption": "layered body dashpot coefficient",
+      "unit": "N*s/m",
+      "value": 0.1
+    },
+    {
+      "name": "c_surface",
+      "source_or_assumption": "layered thin-surface dashpot coefficient",
+      "unit": "N*s/m",
+      "value": 0.08
+    },
+    {
+      "name": "k_coupling",
+      "source_or_assumption": "inter-mass tissue coupling",
+      "unit": "N/m",
+      "value": 160.0
+    },
+    {
+      "name": "c_coupling",
+      "source_or_assumption": "inter-mass tissue coupling damping",
+      "unit": "N*s/m",
+      "value": 0.035
+    },
+    {
+      "name": "k_contact_base",
+      "source_or_assumption": "homogeneous unilateral contact stiffness",
+      "unit": "N/m",
+      "value": 6000.0
+    },
+    {
+      "name": "c_contact_base",
+      "source_or_assumption": "homogeneous unilateral contact damping",
+      "unit": "N*s/m",
+      "value": 1.2
+    },
+    {
+      "name": "k_contact_surface",
+      "source_or_assumption": "surface-layer contact indentation stiffness",
+      "unit": "N/m",
+      "value": 2200.0
+    },
+    {
+      "name": "c_contact_surface",
+      "source_or_assumption": "surface-layer contact indentation damping",
+      "unit": "N*s/m",
+      "value": 0.6
+    },
+    {
+      "name": "contact_regularization",
+      "source_or_assumption": "numerical regularization: contact activation length",
+      "unit": "m",
+      "value": 2e-05
+    },
+    {
+      "name": "contact_rate_regularization",
+      "source_or_assumption": "numerical regularization: contact-rate smoothing",
+      "unit": "s",
+      "value": 0.0001
+    },
+    {
+      "name": "tissue_velocity_scale",
+      "source_or_assumption": "assumption: nonlinear tissue damping velocity scale",
+      "unit": "m/s",
+      "value": 0.05
+    },
+    {
+      "name": "meniscus_force",
+      "source_or_assumption": "capillary-force amplitude at contact",
+      "unit": "N",
+      "value": 0.002
+    },
+    {
+      "name": "meniscus_length",
+      "source_or_assumption": "capillary/lubricant decay length",
+      "unit": "m",
+      "value": 0.00012
+    },
+    {
+      "name": "mucus_damping",
+      "source_or_assumption": "mucus-film wall-shear coefficient",
+      "unit": "N*s/m",
+      "value": 0.012
+    },
+    {
+      "name": "mucus_height",
+      "source_or_assumption": "mucus-film thickness used for wave-speed proxy",
+      "unit": "m",
+      "value": 0.0002
+    },
+    {
+      "name": "rho_mucus",
+      "source_or_assumption": "assumption: mucus density",
+      "unit": "kg/m^3",
+      "value": 1000.0
+    },
+    {
+      "name": "sheet_tension",
+      "source_or_assumption": "assumption: effective mucus-sheet tension",
+      "unit": "N/m",
+      "value": 0.18
+    },
+    {
+      "name": "initial_x1",
+      "source_or_assumption": "fixed initial condition, mass 1",
+      "unit": "m",
+      "value": -0.0009
+    },
+    {
+      "name": "initial_x2",
+      "source_or_assumption": "fixed initial condition, mass 2",
+      "unit": "m",
+      "value": -0.0009
+    },
+    {
+      "name": "duration",
+      "source_or_assumption": "fixed integration protocol",
+      "unit": "s",
+      "value": 0.24
+    },
+    {
+      "name": "measurement_window",
+      "source_or_assumption": "fixed final-window protocol",
+      "unit": "s",
+      "value": 0.08
+    },
+    {
+      "name": "max_step",
+      "source_or_assumption": "numerical integration limit",
+      "unit": "s",
+      "value": 2e-05
+    }
+  ],
+  "placebo_check": {
+    "amplitude_difference_um": 0.0,
+    "f0_difference_Hz": 0.0,
+    "status": "PASS",
+    "tolerance_Hz": 1e-06,
+    "tolerance_um": 1e-06
+  },
+  "protocol": {
+    "duration_s": 0.24,
+    "max_step_s": 2e-05,
+    "measurement_window_s": 0.08,
+    "p_sub_Pa": 800.0,
+    "reference_f0_Hz": 120.0,
+    "reference_source": "N. Ishizaka and J. L. Flanagan, Two-mass model of the vocal folds, Journal of the Acoustical Society of America (1972), approximately 120 Hz",
+    "reference_status": "OVERIFIERAD, UR MINNET"
+  },
+  "sensitivity": [
+    {
+      "base_value": 1500.0,
+      "contact_percent": 15.346163459135218,
+      "f0_Hz": 127.87511027393595,
+      "factor": 0.5,
+      "mucus_wave_speed_proxy_m_per_s": 0.9486832980505138,
+      "parameter": "k_surface",
+      "peak_to_peak_mean_wall_displacement_um": 232.97360248794473,
+      "perturbed_value": 750.0
+    },
+    {
+      "base_value": 1500.0,
+      "contact_percent": 0.0,
+      "f0_Hz": 131.08973817877686,
+      "factor": 1.5,
+      "mucus_wave_speed_proxy_m_per_s": 0.9486832980505138,
+      "parameter": "k_surface",
+      "peak_to_peak_mean_wall_displacement_um": 2.6354713227372044,
+      "perturbed_value": 2250.0
+    },
+    {
+      "base_value": 2200.0,
+      "contact_percent": 17.87053236690827,
+      "f0_Hz": 137.33083803232847,
+      "factor": 0.5,
+      "mucus_wave_speed_proxy_m_per_s": 0.9486832980505138,
+      "parameter": "k_contact_surface",
+      "peak_to_peak_mean_wall_displacement_um": 106.33199968368903,
+      "perturbed_value": 1100.0
+    },
+    {
+      "base_value": 2200.0,
+      "contact_percent": 11.022244438890278,
+      "f0_Hz": 139.8508058754345,
+      "factor": 1.5,
+      "mucus_wave_speed_proxy_m_per_s": 0.9486832980505138,
+      "parameter": "k_contact_surface",
+      "peak_to_peak_mean_wall_displacement_um": 95.41985129051167,
+      "perturbed_value": 3300.0
+    },
+    {
+      "base_value": 800.0,
+      "contact_percent": 55.71107223194202,
+      "f0_Hz": 273.56289199537895,
+      "factor": 0.5,
+      "mucus_wave_speed_proxy_m_per_s": 0.9486832980505138,
+      "parameter": "p_sub",
+      "peak_to_peak_mean_wall_displacement_um": 62.208077104071215,
+      "perturbed_value": 400.0
+    },
+    {
+      "base_value": 800.0,
+      "contact_percent": 12.77180704823794,
+      "f0_Hz": 137.2460251765672,
+      "factor": 1.5,
+      "mucus_wave_speed_proxy_m_per_s": 0.9486832980505138,
+      "parameter": "p_sub",
+      "peak_to_peak_mean_wall_displacement_um": 292.4675730382754,
+      "perturbed_value": 1200.0
+    }
+  ],
+  "variants": {
+    "baseline": {
+      "air_power_mW": -0.04140770222510484,
+      "contact_percent": 30.792301924518874,
+      "contact_power_mJ": 0.1347063563632147,
+      "coupling_dissipation_mJ": 0.0022202959633064435,
+      "f0_Hz": 302.14805801354015,
+      "final_kinetic_energy_uJ": 0.23745275808927996,
+      "finite_solution": true,
+      "maximum_abs_flow_m3_per_s": 3.08407408636763e-05,
+      "maximum_contact_indentation_um": 31.657678553849486,
+      "maximum_glottal_area_m2": 1.6618105529080038e-05,
+      "maximum_wall_pressure_Pa": 800.0,
+      "mean_signed_flow_m3_per_s": 2.6057726384698567e-05,
+      "mean_wall_pressure_Pa": 798.9185261608072,
+      "meniscus_power_mJ": 0.0,
+      "minimum_glottal_area_m2": 1.630502696433845e-05,
+      "minimum_wall_pressure_Pa": 797.9003202671428,
+      "mucus_wave_speed_proxy_m_per_s": null,
+      "peak_to_peak_mean_wall_displacement_um": 52.17976079026446,
+      "subglottal_pressure_Pa": 800.0,
+      "tissue_damping_N_s_per_m": 0.12,
+      "tissue_dissipation_mJ": 0.5481469234846487,
+      "tissue_stiffness_N_per_m": 600.0,
+      "variant": "baseline"
+    },
+    "layered": {
+      "air_power_mW": 0.024448155294582375,
+      "contact_percent": 14.221444638840289,
+      "contact_power_mJ": 0.015764015885248638,
+      "coupling_dissipation_mJ": 0.005022717256072049,
+      "f0_Hz": 138.9099992253728,
+      "final_kinetic_energy_uJ": 0.10091329678418978,
+      "finite_solution": true,
+      "maximum_abs_flow_m3_per_s": 9.948188456487613e-05,
+      "maximum_contact_indentation_um": 14.339361262082688,
+      "maximum_glottal_area_m2": 1.6952677179391554e-05,
+      "maximum_wall_pressure_Pa": 800.0,
+      "mean_signed_flow_m3_per_s": 7.600338867388759e-05,
+      "mean_wall_pressure_Pa": 788.429401600469,
+      "meniscus_power_mJ": -0.003949598270993767,
+      "minimum_glottal_area_m2": 1.635698191621375e-05,
+      "minimum_wall_pressure_Pa": 778.7979504330413,
+      "mucus_wave_speed_proxy_m_per_s": 0.9486832980505138,
+      "peak_to_peak_mean_wall_displacement_um": 99.28254386296753,
+      "subglottal_pressure_Pa": 800.0,
+      "tissue_damping_N_s_per_m": 0.09428571428571429,
+      "tissue_dissipation_mJ": 0.35622859222569564,
+      "tissue_stiffness_N_per_m": 428.57142857142856,
+      "variant": "layered"
+    },
+    "placebo": {
+      "air_power_mW": -0.04140770222510484,
+      "contact_percent": 30.792301924518874,
+      "contact_power_mJ": 0.1347063563632147,
+      "coupling_dissipation_mJ": 0.0022202959633064435,
+      "f0_Hz": 302.14805801354015,
+      "final_kinetic_energy_uJ": 0.23745275808927996,
+      "finite_solution": true,
+      "maximum_abs_flow_m3_per_s": 3.08407408636763e-05,
+      "maximum_contact_indentation_um": 31.657678553849486,
+      "maximum_glottal_area_m2": 1.6618105529080038e-05,
+      "maximum_wall_pressure_Pa": 800.0,
+      "mean_signed_flow_m3_per_s": 2.6057726384698567e-05,
+      "mean_wall_pressure_Pa": 798.9185261608072,
+      "meniscus_power_mJ": 0.0,
+      "minimum_glottal_area_m2": 1.630502696433845e-05,
+      "minimum_wall_pressure_Pa": 797.9003202671428,
+      "mucus_wave_speed_proxy_m_per_s": null,
+      "peak_to_peak_mean_wall_displacement_um": 52.17976079026446,
+      "subglottal_pressure_Pa": 800.0,
+      "tissue_damping_N_s_per_m": 0.12,
+      "tissue_dissipation_mJ": 0.5481469234846487,
+      "tissue_stiffness_N_per_m": 600.0,
+      "variant": "placebo"
+    }
+  }
+}

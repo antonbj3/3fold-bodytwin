@@ -1,0 +1,70 @@
+{
+  "created_utc": "2026-10-01T00:40:00.987601+00:00",
+  "parent": "PREREG_R3.json",
+  "operation": "Externally observed HP profile + unchanged collagen history -> heldout strength; load-projection ambiguity and selective-turnover source-correction branch",
+  "sources": [
+    "WORLD_TARGETS_R3_v2.json",
+    "r3/sources/wietecha_sup_pdf.raw",
+    "r3/sources/wietecha_sup_page15.png"
+  ],
+  "crosslink_times": [
+    0,
+    3,
+    5,
+    10,
+    42
+  ],
+  "HP_WT_mol_per_mol_collagen_digitized": [
+    0.003,
+    0.0215,
+    0.02,
+    0.018,
+    0.043
+  ],
+  "HP_Act_digitized": [
+    0.002,
+    0.0185,
+    0.019,
+    0.014,
+    0.031
+  ],
+  "digitization_absolute_allowance": 0.002,
+  "SEM_not_digitization": true,
+  "profile_interpolation": "piecewise-linear and constant after42; not independently validated kinetics at61/90",
+  "candidate_observation_law": "75*C(t)*((HP(t)-HP0)/(HP42-HP0)); substitute measured external HP to test the maturation-limited observation bottleneck; day42 normalizer is crosslink data not strengthfit; explicitsynthetic wound-reference closure",
+  "quantity_histories": [
+    "R1 native",
+    "R2 sutured250",
+    "Madden labelcontrast interpolant normalizedbyday21 and heldconstantafter42"
+  ],
+  "comparators": [
+    "R1 frozenHill",
+    "amount-only75C",
+    "same external curves conventional observation operator TIE"
+  ],
+  "orientation_discriminant": {
+    "source_eccentricity": "WORLD_TARGETS_R3_v2.alignment2015",
+    "mapping": "Gaussian real-spacecovariance inferred inversely from Fourierellipse; qmajor=1/(2-e^2),qminor=(1-e^2)/(2-e^2); closure not measured Q",
+    "alternative_rotation_degrees": [
+      0,
+      90
+    ],
+    "observed_eccentricity_identical": true,
+    "traction": "Q projected on fixed test load; not anisotropy strength equivalence"
+  },
+  "bindings_discriminant": {
+    "base": "BINDINGS_R4.nominal_unfitted_fiber",
+    "derived_relation": "sigma_transfer=min(sigma_f,2*tau*L/r); nominalpeak=phi*sigma_transfer",
+    "tau_crosslink_laws": [
+      "tau0",
+      "tau0*(1+4*x)",
+      "tau0/(1+4*x)"
+    ],
+    "synthetic": true,
+    "point": "same chemicalprofile and angular spectrum does not determine friction/embedment or strengthresponse"
+  },
+  "next_actual_construction": "assay-aware pathwayselective repairports plus nonlinear collagen-age renewal or birth-timearchitecture, same fullcollagen quantity can yield differentloadprojection; computeprofileenvelope before deciding which independent measurement needed",
+  "falsifier": "Candidate missesheldout5pp or chemical+orientation-compatible traction range>10pp; distinguish physicalclosureFAIL from empiricalUNKNOWN",
+  "strength_fit_for_candidate": false,
+  "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

@@ -1,0 +1,5 @@
+# Steering LANE_ANCHOR_PREDICTION — round 2 (the coordinator, 1/10 11:30)
+
+Round 1: good catch — correction PMC6093231 replaces the anchor 41,7 with **48,2 pmol ATP/min/µg** (the coordinator has opened the correction and seen the sentence; the error was equation 2, the hyperpolarisation factor as multiplier rather than divisor). Conditional prediction 46,5 ± 1,0 (ratio 0,97), but "absolute_de_novo_prediction" is missing: the absolute enzyme/demand scale did not come from mechanism.
+
+Round 2 (the last before the quota limit): build the **absolute scale** from lower levels — mitochondrial content per µg protein (volume fraction/cristae area from published C2C12 morphometry), complex/ATP-synthase content or maximum OXPHOS capacity per mitochondrion, glycolytic capacity (hexokinase/PFK), and ATP demand (Na/K-ATPase, protein synthesis, actomyosin) that determines where the flux ends up. The anchor 48,2 must not appear among the inputs. Report the de novo prediction with uncertainty and which lower-level quantity dominates the uncertainty.

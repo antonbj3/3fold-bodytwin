@@ -1,0 +1,539 @@
+{
+  "criterion": {
+    "lower_ml_min": 357.0,
+    "rule": "0.70 * 510 <= predicted initial renal clearance <= 1.30 * 510",
+    "type": "reference_interval",
+    "upper_ml_min": 663.0
+  },
+  "dimensional_analysis": {
+    "all_pass": true,
+    "checks": [
+      {
+        "expression": "mL/min * mg/mL",
+        "pass": true,
+        "quantity": "filtration mass rate",
+        "result": "mg/min"
+      },
+      {
+        "expression": "mL/min - mL/min",
+        "pass": true,
+        "quantity": "water volume rate",
+        "result": "mL/min"
+      },
+      {
+        "expression": "mg/min * (mg/mL)/(mg/mL)",
+        "pass": true,
+        "quantity": "Michaelis-Menten flux",
+        "result": "mg/min"
+      },
+      {
+        "expression": "cm/s * cm2 / mL * 60 s/min",
+        "pass": true,
+        "quantity": "membrane mass-transfer coefficient",
+        "result": "1/min"
+      },
+      {
+        "expression": "mg/min / (mg/mL)",
+        "pass": true,
+        "quantity": "clearance",
+        "result": "mL/min"
+      },
+      {
+        "expression": "mg/min * min",
+        "pass": true,
+        "quantity": "urine mass",
+        "result": "mg"
+      }
+    ]
+  },
+  "equations": [
+    {
+      "equation": "J_filter = fu,p * GFR * C_p",
+      "name": "filtration",
+      "unit": "mg/min"
+    },
+    {
+      "equation": "dA_p/dt = -J_filter - sum(J_OCT2) + sum(J_back)",
+      "name": "plasma_balance",
+      "unit": "mg/min"
+    },
+    {
+      "equation": "k_OCT2 = P_OCT2 * A / V_cell * 60 * regional_perfusion * (Qp/Qp_ref); J_OCT2 = k_OCT2 * Kp * C_p * V_cell",
+      "name": "OCT2_transfer",
+      "unit": "1/min; mg/min"
+    },
+    {
+      "equation": "J_MATE = Vmax_MATE * C_cell/(Km_MATE + C_cell) * hH(pH)",
+      "name": "MATE_kinetics",
+      "unit": "mg/min"
+    },
+    {
+      "equation": "f_ion = 1/(1 + 10^(pH - pKa)); hH = 10^(pH_ref - pH)",
+      "name": "ionization",
+      "unit": "dimensionless"
+    },
+    {
+      "equation": "J_reabs = Vmax_reabs * C_lumen/(Km_reabs + C_lumen) * f_ion",
+      "name": "reabsorption",
+      "unit": "mg/min"
+    },
+    {
+      "equation": "dA_lumen/dt = Q_in*C_in - Q_out*C_lumen + J_MATE - J_reabs",
+      "name": "lumen_balance",
+      "unit": "mg/min"
+    },
+    {
+      "equation": "dV/dt = Q_in - Q_out - Q_water,reabs",
+      "name": "water_balance",
+      "unit": "mL/min"
+    },
+    {
+      "equation": "dM_urine/dt = Q_out,collecting*C_collecting",
+      "name": "urine_outflow",
+      "unit": "mg/min"
+    },
+    {
+      "equation": "d(A_p + sum(A_lumen) + sum(A_cell) + M_urine)/dt = 0",
+      "name": "mass_conservation",
+      "unit": "mg/min"
+    }
+  ],
+  "filtration_only_null": {
+    "clearance_ratio_full_to_null": 5.18642086958191,
+    "initial_clearance_ml_min": 100.0,
+    "urine_mass_24h_mg": 252.56588768857534,
+    "urine_mass_ratio_full_to_null": 1.9390612162860277
+  },
+  "model": "metformin_segmented_renal_first_principles",
+  "node": "BT-HX-Q140",
+  "parameter_table": [
+    {
+      "basis": "scenario assumption",
+      "name": "dose_mg",
+      "unit": "mg",
+      "value": 500.0
+    },
+    {
+      "basis": "scenario assumption",
+      "name": "duration_h",
+      "unit": "h",
+      "value": 24.0
+    },
+    {
+      "basis": "numerical integration assumption",
+      "name": "time_step_min",
+      "unit": "min",
+      "value": 0.25
+    },
+    {
+      "basis": "representative adult assumption; not measured patient data",
+      "name": "gfr_ml_min",
+      "unit": "mL/min",
+      "value": 100.0
+    },
+    {
+      "basis": "effective unbound fraction; metformin protein binding is assumed negligible",
+      "name": "fu_plasma",
+      "unit": "fraction",
+      "value": 1.0
+    },
+    {
+      "basis": "representative perfusion assumption",
+      "name": "renal_plasma_flow_ml_min",
+      "unit": "mL/min",
+      "value": 600.0
+    },
+    {
+      "basis": "normalization reference for regional perfusion",
+      "name": "reference_perfusion_ml_min",
+      "unit": "mL/min",
+      "value": 600.0
+    },
+    {
+      "basis": "effective central distribution-volume assumption",
+      "name": "plasma_volume_l",
+      "unit": "L",
+      "value": 200.0
+    },
+    {
+      "basis": "segmental water-balance assumption",
+      "name": "segment_water_reabsorption",
+      "unit": "fraction of segment inflow",
+      "value": [
+        0.65,
+        0.2,
+        0.15,
+        0.94
+      ]
+    },
+    {
+      "basis": "effective compartment geometry assumption",
+      "name": "segment_residence_min",
+      "unit": "min",
+      "value": [
+        10.0,
+        8.0,
+        5.0,
+        10.0
+      ]
+    },
+    {
+      "basis": "segmental lumen pH assumption",
+      "name": "segment_ph",
+      "unit": "dimensionless",
+      "value": [
+        7.4,
+        7.2,
+        7.0,
+        6.8
+      ]
+    },
+    {
+      "basis": "regional perfusion assumption",
+      "name": "segment_perfusion",
+      "unit": "fraction",
+      "value": [
+        1.0,
+        0.15,
+        0.05,
+        0.02
+      ]
+    },
+    {
+      "basis": "effective geometry assumption",
+      "name": "cell_volume_ml",
+      "unit": "mL epithelial compartment",
+      "value": [
+        1000.0,
+        200.0,
+        100.0,
+        50.0
+      ]
+    },
+    {
+      "basis": "OCT2-mediated basolateral permeability assumption",
+      "name": "oct2_permeability_cm_s",
+      "unit": "cm/s",
+      "value": [
+        1e-05,
+        1e-05,
+        1e-05,
+        1e-05
+      ]
+    },
+    {
+      "basis": "apparent membrane area assumption",
+      "name": "oct2_area_cm2",
+      "unit": "cm2",
+      "value": [
+        800000.0,
+        100000.0,
+        50000.0,
+        30000.0
+      ]
+    },
+    {
+      "basis": "plasma-to-cell equilibrium partition assumption",
+      "name": "cell_partition",
+      "unit": "dimensionless",
+      "value": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "basis": "MATE1/MATE2-K apical efflux capacity assumption",
+      "name": "mate_vmax_mg_min",
+      "unit": "mg/min",
+      "value": [
+        1.6,
+        0.15,
+        0.05,
+        0.02
+      ]
+    },
+    {
+      "basis": "MATE Michaelis-Menten affinity assumption",
+      "name": "mate_km_mg_ml",
+      "unit": "mg/mL",
+      "value": [
+        0.001,
+        0.0015,
+        0.002,
+        0.002
+      ]
+    },
+    {
+      "basis": "cell-to-plasma return-rate assumption",
+      "name": "basolateral_return_rate_min",
+      "unit": "1/min",
+      "value": [
+        0.1,
+        0.12,
+        0.15,
+        0.2
+      ]
+    },
+    {
+      "basis": "unidentified apical reabsorption capacity assumption",
+      "name": "reabsorption_vmax_mg_min",
+      "unit": "mg/min",
+      "value": [
+        0.005,
+        0.002,
+        0.001,
+        0.0005
+      ]
+    },
+    {
+      "basis": "reabsorption Michaelis-Menten affinity assumption",
+      "name": "reabsorption_km_mg_ml",
+      "unit": "mg/mL",
+      "value": [
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ]
+    },
+    {
+      "basis": "effective ionized reabsorption weighting assumption",
+      "name": "reabsorption_ionized_floor",
+      "unit": "fraction",
+      "value": 0.0
+    },
+    {
+      "basis": "FDA/DailyMed physicochemical label value 12.4",
+      "name": "metformin_pka",
+      "unit": "pKa",
+      "value": 12.4
+    },
+    {
+      "basis": "normalization pH assumption",
+      "name": "reference_ph",
+      "unit": "pH",
+      "value": 7.4
+    }
+  ],
+  "parameters": {
+    "basolateral_return_rate_min": [
+      0.1,
+      0.12,
+      0.15,
+      0.2
+    ],
+    "cell_partition": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "cell_volume_ml": [
+      1000.0,
+      200.0,
+      100.0,
+      50.0
+    ],
+    "dose_mg": 500.0,
+    "duration_h": 24.0,
+    "fu_plasma": 1.0,
+    "gfr_ml_min": 100.0,
+    "mate_km_mg_ml": [
+      0.001,
+      0.0015,
+      0.002,
+      0.002
+    ],
+    "mate_vmax_mg_min": [
+      1.6,
+      0.15,
+      0.05,
+      0.02
+    ],
+    "metformin_pka": 12.4,
+    "oct2_area_cm2": [
+      800000.0,
+      100000.0,
+      50000.0,
+      30000.0
+    ],
+    "oct2_permeability_cm_s": [
+      1e-05,
+      1e-05,
+      1e-05,
+      1e-05
+    ],
+    "plasma_volume_l": 200.0,
+    "reabsorption_ionized_floor": 0.0,
+    "reabsorption_km_mg_ml": [
+      0.01,
+      0.01,
+      0.01,
+      0.01
+    ],
+    "reabsorption_vmax_mg_min": [
+      0.005,
+      0.002,
+      0.001,
+      0.0005
+    ],
+    "reference_perfusion_ml_min": 600.0,
+    "reference_ph": 7.4,
+    "renal_plasma_flow_ml_min": 600.0,
+    "segment_perfusion": [
+      1.0,
+      0.15,
+      0.05,
+      0.02
+    ],
+    "segment_ph": [
+      7.4,
+      7.2,
+      7.0,
+      6.8
+    ],
+    "segment_residence_min": [
+      10.0,
+      8.0,
+      5.0,
+      10.0
+    ],
+    "segment_water_reabsorption": [
+      0.65,
+      0.2,
+      0.15,
+      0.94
+    ],
+    "time_step_min": 0.25
+  },
+  "prediction": {
+    "auc_based_renal_clearance_ml_min": 544.3008561107832,
+    "auc_plasma_mg_min_per_ml": 0.89976106389605,
+    "cumulative_filtered_mass_mg": 89.97610309292035,
+    "cumulative_net_tubular_addition_mg": 400.6745465993247,
+    "cumulative_reabsorption_mass_mg": 5.341291518243337,
+    "cumulative_secretion_mass_mg": 406.015838117568,
+    "initial_clearance_ml_min": 518.6420869581909,
+    "initial_filtration_clearance_ml_min": 100.0,
+    "initial_plasma_concentration_mg_l": 0.002491048290757205,
+    "initial_reabsorption_clearance_ml_min": 0.0,
+    "initial_secretion_clearance_ml_min": 418.642086958191,
+    "ionized_fraction_by_segment": [
+      0.9999900000999989,
+      0.9999936904663657,
+      0.9999960189441433,
+      0.999997488119878
+    ],
+    "lumen_volume_ml": [
+      350.0,
+      224.0,
+      119.0,
+      14.280000000000008
+    ],
+    "mass_balance_error_mg": 2.2737367544323206e-13,
+    "mass_balance_mg": 500.0000000000002,
+    "mate_h_factor_by_segment": [
+      1.0,
+      1.584893192461114,
+      2.5118864315095824,
+      3.9810717055349776
+    ],
+    "neutral_fraction_by_segment": [
+      9.999900001056439e-06,
+      6.309533634341058e-06,
+      3.981055856749904e-06,
+      2.5118801220136433e-06
+    ],
+    "plasma_concentration_0_mg_l": 0.002491048290757205,
+    "plasma_concentration_1440_mg_l": 4.667266747247911e-05,
+    "plasma_concentration_300_mg_l": 0.0011130362779716786,
+    "plasma_concentration_720_mg_l": 0.0003477707897619879,
+    "terminal_cell_mass_mg": 0.014816813260218466,
+    "terminal_clearance_ml_min": 558.7128313450534,
+    "terminal_lumen_mass_mg": 0.9099323184750305,
+    "terminal_plasma_concentration_mg_l": 4.667266747247911e-05,
+    "terminal_plasma_mass_mg": 9.334533494495822,
+    "urine_mass_0_mg": 0.0,
+    "urine_mass_1440_mg": 489.74071737376914,
+    "urine_mass_24h_mg": 489.74071737376914,
+    "urine_mass_300_mg": 255.6640501319072,
+    "urine_mass_720_mg": 423.57405205639543,
+    "urine_volume_24h_ml": 2056.3199999998938,
+    "water_in_ml_min": [
+      100.0,
+      35.0,
+      28.0,
+      23.8
+    ],
+    "water_out_ml_min": [
+      35.0,
+      28.0,
+      23.8,
+      1.4280000000000008
+    ],
+    "water_reabsorbed_total_ml": 141943.68
+  },
+  "reabsorption_perturbation": {
+    "double_capacity_initial_clearance_ml_min": 518.6420869581909,
+    "double_capacity_urine_mass_24h_mg": 489.63873693859705,
+    "identifiability": "UNKNOWN without timed urine and free-plasma concentration data",
+    "zero_capacity_initial_clearance_ml_min": 518.6420869581909,
+    "zero_capacity_urine_mass_24h_mg": 489.84182595896135
+  },
+  "reference": {
+    "authors": "Graham GG, Punt J, Arora M, Day RO, Doogue MP, Duong JK, et al.",
+    "doi": "10.2165/11534750-000000000-00000",
+    "journal": "Clinical Pharmacokinetics",
+    "reported_sd_ml_min": 130.0,
+    "source_page": "https://pubmed.ncbi.nlm.nih.gov/21241070/",
+    "transporter_source_doi": "10.1097/FPC.0b013e3283559b22",
+    "transporter_source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3651676/",
+    "value_ml_min": 510.0,
+    "volume_pages": "50:81-98",
+    "year": 2011
+  },
+  "sensitivity": [
+    {
+      "clearance_sensitivity_rank": 1,
+      "clearance_span_fraction_of_base": 0.8980612800040519,
+      "clearance_span_ml_min": 465.77237647764576,
+      "high_initial_clearance_ml_min": 755.0214191127424,
+      "high_urine_mass_24h_mg": 498.1798942284715,
+      "high_value": 1.5,
+      "low_initial_clearance_ml_min": 289.2490426350966,
+      "low_urine_mass_24h_mg": 442.3587204273534,
+      "low_value": 0.5,
+      "parameter": "secretory_capacity_OCT2_MATE",
+      "urine_span_fraction_of_base": 0.11398107574240247
+    },
+    {
+      "clearance_sensitivity_rank": 2,
+      "clearance_span_fraction_of_base": 0.19281119391311796,
+      "clearance_span_ml_min": 99.99999999999994,
+      "high_initial_clearance_ml_min": 568.6420869581909,
+      "high_urine_mass_24h_mg": 492.816131463409,
+      "high_value": 1.5,
+      "low_initial_clearance_ml_min": 468.642086958191,
+      "low_urine_mass_24h_mg": 485.3210621852406,
+      "low_value": 0.5,
+      "parameter": "gfr_ml_min",
+      "urine_span_fraction_of_base": 0.015304157919236725
+    },
+    {
+      "clearance_sensitivity_rank": 3,
+      "clearance_span_fraction_of_base": 0.0,
+      "clearance_span_ml_min": 0.0,
+      "high_initial_clearance_ml_min": 518.6420869581909,
+      "high_urine_mass_24h_mg": 489.58216020947646,
+      "high_value": 1.5,
+      "low_initial_clearance_ml_min": 518.6420869581909,
+      "low_urine_mass_24h_mg": 489.77028582355615,
+      "low_value": 0.5,
+      "parameter": "proximal_water_reabsorption_fraction",
+      "urine_span_fraction_of_base": 0.0003841330879909621
+    }
+  ],
+  "status": "PASS"
+}

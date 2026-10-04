@@ -1,0 +1,56 @@
+{
+ "question": "is there a host-side recycle fraction where the host is spared while the activator is still lysed, and is the flip a point",
+ "arms": {
+  "activator": {
+   "flip_recycle_fraction": null,
+   "growth_at_zero_recycle_per_min": 0.21090987,
+   "growth_at_full_recycle_per_min": 0.21986663
+  },
+  "host": {
+   "flip_recycle_fraction": 0.6901150139456149,
+   "growth_at_zero_recycle_per_min": -0.15114693,
+   "growth_at_full_recycle_per_min": 0.0552569
+  }
+ },
+ "window": {
+  "form": "one-sided",
+  "host_flip": 0.6901150139456149,
+  "activator_never_flips": true,
+  "host_spared_activator_lysed_below_the_flip": true,
+  "host_growth_just_below_flip_per_min": -0.00018768,
+  "activator_growth_just_below_flip_per_min": 0.21710422,
+  "reading": "the host is spared for every recycle fraction below the flip while the activator is lysed throughout, so the window is the whole range below it"
+ },
+ "sign_changes_over_2001_points": {
+  "host": 1,
+  "activator": 0
+ },
+ "the_fork_the_cell_cannot_see": "the recycle branch requires a partner, C3b or C3(H2O) or CVF, and nothing in this cell records which. The flip fraction is therefore conditional on a branch label the model does not carry, the same way the posterior corneal axis was conditional on a meridian convention and the keratometric offset on an assumed index",
+ "external_anchors_named_by_the_brief": [
+  {
+   "claim": "decayed Bb retains C3- and C5-cleaving activity, ~100x below factor B, suppressed by factor H, enhanced by properdin, and requires a partner",
+   "locator": "PMID 6229580"
+  },
+  {
+   "claim": "a soluble convertase retains about 25 percent activity after conditions that totally inactivated C3bBb",
+   "locator": "doi 10.1016/j.molimm.2007.11.003"
+  },
+  {
+   "claim": "dose-dependent protection of erythrocytes by membrane-targeted soluble CD59, i.e. host protection is achievable at the surface",
+   "locator": "doi 10.1182/blood-2005-02-0782"
+  },
+  {
+   "claim": "the fraction of C3-bound red cells correlated with reticulocyte count and with haematologic response, restricted to the CD59-negative population",
+   "locator": "doi 10.1182/blood-2008-11-189944"
+  }
+ ],
+ "falsification_conditions_preregistered_by_the_brief": [
+  "both arms flipping at the same fraction means there is no window",
+  "a plateau rather than a point means a range and no decision",
+  "a MAC difference at identical growth below solver error means no discriminating power"
+ ],
+ "claim_type": "capability",
+ "control": "the activator arm under the same sweep, which is the equally informed comparison: same model, same parameters, only the surface changes",
+ "scope": "algebraic behaviour of one supplied model under a swept parameter; no biological or clinical validity is claimed and the branch label is unresolved",
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

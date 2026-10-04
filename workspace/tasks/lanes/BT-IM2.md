@@ -1,0 +1,11 @@
+# BT-IM2 — the movement determines the geometry, steps 3–4 (real data, held-out movements/persons)
+Read first tasks/lanes/_PREAMBLE.md (binding). You have the mandate to drive without asking.
+ANTON’S HYPOTHESIS: the interplay between form and function contains information that landmarks alone lack.
+DATA: OpenCap LabValidation local external_media (10 people; mocap markers, force plates, OpenSim models and results; movements: walk, squat, drop jump, sit-to-stand, static, etc.). Read data in place. Code to reuse (import, read-only): results/M2/adapter (osim → pinocchio, ID with floating base + GRF; python in ../.venv-motion/bin/python), results/C2/C3 (error budget, filter), results/E2 (reader), results/X1b (torque arm, movable knee).
+ASSIGNMENT:
+1. PREREG (hashed) first, with exact breakdown: adapt on a set of movements (eg static + walking + squat) and TEST on held-out movements (eg drop jump, sit-to-stand) and held-out people (LOSO).
+2. Joint alignment: estimate hip center (3D per side), position/direction of knee axis and possibly a scale factor per segment by minimizing a combined loss over motions: marker residual in IK + dynamic consistency (pelvic residual in ID, M2: residual forces/moments should be close to zero when GRF and kinematics are consistent) — "form and function simultaneously". Baseline with SAME information: (i) OpenSim's own scaling + regression-HJC, (ii) SCoRE-HJC from the same motions without dynamic term, (iii) static marker fit.
+3. Measures of held-out movements/persons: marker residual (mm), pelvic residuals in ID (N, N·m), and — if possible — predicted GRF from kinematics vs. force plate. Hypothesis: the joint adaptation reduces held-out pelvic residuals ≥ 20 % against best baseline without increasing the marker residual > 10 %; fold otherwise.
+4. Counter test: time-shifted dynamic term GRF (wrong coupling) should not give improvement; adaptation to the wrong person will give worse.
+5. About time: try the field engine (references/field_engine; field session prototype romi_collab/build/U318 with capsule-SDF, audited A225 — read-only) as a representation of a muscle path around caput/trochanter and compare torque arm vs straight line/cylinder; only if steps 1–4 are completed.
+Output only results/BT-IM2/ (intermediate result > 50 MB on external_media). Finish with RESULTS.md.

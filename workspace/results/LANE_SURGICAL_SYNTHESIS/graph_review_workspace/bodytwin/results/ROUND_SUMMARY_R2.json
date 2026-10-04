@@ -1,0 +1,942 @@
+{
+  "round": 2,
+  "updated_utc": "2026-10-01T02:48:51.181757+00:00",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "attribution": {
+    "baseline_RMSE_pp": 43.703695914540624,
+    "abundance_only_RMSE_pp": 13.000632079497544,
+    "maturity_only_RMSE_pp": 39.456781485333345,
+    "both_RMSE_pp": 8.306367094671637,
+    "shapley_pp": {
+      "abundance": 30.9267391128524,
+      "maturity": 4.470589707016597
+    },
+    "gate": "PASS",
+    "root_obstacle": "Independent FV and UIM reference inventories; FV saturation gates observerbirth; externalHP not coupled chemistry"
+  },
+  "measurement_planning": {
+    "sample_count": 256,
+    "rank": [
+      "M2",
+      "M1",
+      "M5",
+      "M3",
+      "M4",
+      "M6"
+    ],
+    "prior_SD": [
+      2.841764088017424,
+      6.729516253237431,
+      0.0,
+      0.0,
+      196.67966500124,
+      55.96282562852265
+    ],
+    "censored_samples": 256,
+    "native_prediction_uncertainty": {
+      "strength28_uncertainty": null,
+      "strength90_uncertainty": null,
+      "uncensored_hemostasis_uncertainty": null,
+      "edge_necrosis_uncertainty": null
+    },
+    "scope": "Synthetic prior and linear-MSE design; assay maps, fullhemostasis, native necrosis and laboratorycost UNKNOWN"
+  },
+  "tests": {
+    "passed": 70,
+    "count": 70
+  },
+  "numerical_refinement_gate": "PASS",
+  "integrated_strength_proxy_gate": "FAIL",
+  "integrated_strength_proxy_RMSE_pp": 43.703695914540624,
+  "strongest_control_gate": "TIE",
+  "empirical_joint_gate": "UNKNOWN",
+  "new_biology_added": false,
+  "R1_global_context_import": "Verified four coordinator receipts under tasks/graph_runs, pending independent review",
+  "solver_costs": {
+    "solver_wall_s": 851.7528172701132,
+    "solver_CPU_s": 847.7044768190002,
+    "max_RSS_KiB": 336792,
+    "batch_end_to_end": [
+      {
+        "samples": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "wall_s": 123.10854728915729,
+        "CPU_s": 122.73258003900001,
+        "max_RSS_KiB": 336792
+      },
+      {
+        "samples": [
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95
+        ],
+        "wall_s": 190.48314488097094,
+        "CPU_s": 189.971553486,
+        "max_RSS_KiB": 336792
+      },
+      {
+        "samples": [
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159
+        ],
+        "wall_s": 196.77160590491258,
+        "CPU_s": 195.879598722,
+        "max_RSS_KiB": 336792
+      },
+      {
+        "samples": [
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          172,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          180,
+          181,
+          182,
+          183,
+          184,
+          185,
+          186,
+          187,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          220,
+          221,
+          222,
+          223
+        ],
+        "wall_s": 213.8072465711739,
+        "CPU_s": 211.93772158500002,
+        "max_RSS_KiB": 336792
+      },
+      {
+        "samples": [
+          224,
+          225,
+          226,
+          227,
+          228,
+          229,
+          230,
+          231,
+          232,
+          233,
+          234,
+          235,
+          236,
+          237,
+          238,
+          239,
+          240,
+          241,
+          242,
+          243,
+          244,
+          245,
+          246,
+          247,
+          248,
+          249,
+          250,
+          251,
+          252,
+          253,
+          254,
+          255
+        ],
+        "wall_s": 134.51531172310933,
+        "CPU_s": 133.183791592,
+        "max_RSS_KiB": 336792
+      }
+    ],
+    "laboratory_cost": null,
+    "development_wall_s": null
+  },
+  "attribution_wall_s": 36.633486666949466,
+  "attribution_CPU_s": 36.553796707000004,
+  "nonlinear_information_pivot": {
+    "review_state": "PENDING_INDEPENDENT_REVIEW",
+    "scientific_admission": false,
+    "gate": "FAIL",
+    "new_validation_samples": 64,
+    "training_samples": 256,
+    "noise_draws_per_sample": 32,
+    "rows": [
+      {
+        "id": "M1",
+        "baseline_RMS_prediction_error": [
+          2.6807401413830725,
+          5.236773311484929,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_RMS_prediction_error": [
+          2.709195826719066,
+          5.438605923018428,
+          4.968046454301973e-14,
+          0.0,
+          121.98371288983516,
+          50.75196066816507
+        ],
+        "linear_RMS_prediction_error": [
+          2.5745623049540147,
+          5.212585163207981,
+          0.0,
+          0.0,
+          92.29239098112377,
+          55.56078726691889
+        ],
+        "kernel_MSE_reduction_fraction": [
+          -0.02134239829802588,
+          -0.07856825404117294,
+          0.0,
+          0.0,
+          0.6136576005005366,
+          0.19424856737817528
+        ],
+        "linear_MSE_reduction_fraction": [
+          0.07764654779574316,
+          0.009216471856044454,
+          0.0,
+          0.0,
+          0.7788431115427836,
+          0.03432226437184116
+        ],
+        "workload_units": 8.0,
+        "kernel_value_per_cost": 0.016054592130041807,
+        "kernel_vs_prior_hypoxia_gate": "PASS",
+        "strength_injury_vs_linear_gate": "FAIL"
+      },
+      {
+        "id": "M2",
+        "baseline_RMS_prediction_error": [
+          2.6807401413830725,
+          5.236773311484929,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_RMS_prediction_error": [
+          2.6686219349999227,
+          5.445607895046991,
+          4.9493538224070695e-14,
+          0.0,
+          132.33909174410311,
+          44.01799796715981
+        ],
+        "linear_RMS_prediction_error": [
+          2.6339934253884882,
+          5.391230609517704,
+          0.0,
+          0.0,
+          117.48758355108589,
+          51.66455557401429
+        ],
+        "kernel_MSE_reduction_fraction": [
+          0.009020506090870394,
+          -0.08134726261735858,
+          0.0,
+          0.0,
+          0.5452790369540087,
+          0.3938836365014059
+        ],
+        "linear_MSE_reduction_fraction": [
+          0.03457189373128969,
+          -0.059859431786410906,
+          0.0,
+          0.0,
+          0.64161269327799,
+          0.16501084917139056
+        ],
+        "workload_units": 3.0,
+        "kernel_value_per_cost": 0.03941269003562671,
+        "kernel_vs_prior_hypoxia_gate": "PASS",
+        "strength_injury_vs_linear_gate": "PASS"
+      },
+      {
+        "id": "M3",
+        "baseline_RMS_prediction_error": [
+          2.6807401413830725,
+          5.236773311484929,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_RMS_prediction_error": [
+          2.683124541442167,
+          5.25209196481153,
+          4.990819880776449e-14,
+          0.0,
+          193.68728866614413,
+          56.688593247825736
+        ],
+        "linear_RMS_prediction_error": [
+          2.6740311019996326,
+          5.34010959082873,
+          0.0,
+          0.0,
+          195.0047461311324,
+          57.75951270963683
+        ],
+        "kernel_MSE_reduction_fraction": [
+          -0.001779702875027824,
+          -0.005858973662166719,
+          0.0,
+          0.0,
+          0.025973178583886366,
+          -0.00527943140443349
+        ],
+        "linear_MSE_reduction_fraction": [
+          0.004999100050649905,
+          -0.03985501414022861,
+          0.0,
+          0.0,
+          0.012677487370899902,
+          -0.04362020380115131
+        ],
+        "workload_units": 5.0,
+        "kernel_value_per_cost": 0.0009167251023345912,
+        "kernel_vs_prior_hypoxia_gate": "FAIL",
+        "strength_injury_vs_linear_gate": "PASS"
+      },
+      {
+        "id": "M4",
+        "baseline_RMS_prediction_error": [
+          2.6807401413830725,
+          5.236773311484929,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_RMS_prediction_error": [
+          2.680740141383061,
+          5.236773311484919,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "linear_RMS_prediction_error": [
+          2.680740141383061,
+          5.236773311484919,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_MSE_reduction_fraction": [
+          8.527856278681714e-15,
+          3.886457416569519e-15,
+          0.0,
+          0.0,
+          0.0,
+          1.4225436935781478e-16
+        ],
+        "linear_MSE_reduction_fraction": [
+          8.527856278681714e-15,
+          3.886457416569519e-15,
+          0.0,
+          0.0,
+          0.0,
+          1.4225436935781478e-16
+        ],
+        "workload_units": 12.0,
+        "kernel_value_per_cost": 2.5863153531773404e-16,
+        "kernel_vs_prior_hypoxia_gate": "PASS",
+        "strength_injury_vs_linear_gate": "PASS"
+      },
+      {
+        "id": "M5",
+        "baseline_RMS_prediction_error": [
+          2.6807401413830725,
+          5.236773311484929,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_RMS_prediction_error": [
+          1.3256392026576282,
+          3.991392978323857,
+          5.054332234771567e-14,
+          0.0,
+          185.90139174882967,
+          55.57307291405975
+        ],
+        "linear_RMS_prediction_error": [
+          1.243571128646009,
+          3.833983652937176,
+          0.0,
+          0.0,
+          181.7727097872525,
+          55.020723365587806
+        ],
+        "kernel_MSE_reduction_fraction": [
+          0.7554648791144037,
+          0.41907317814819445,
+          0.0,
+          0.0,
+          0.10270766294738996,
+          0.03389515423962554
+        ],
+        "linear_MSE_reduction_fraction": [
+          0.7848051734408235,
+          0.4639899108318074,
+          0.0,
+          0.0,
+          0.14212099445951487,
+          0.05300425305729604
+        ],
+        "workload_units": 16.0,
+        "kernel_value_per_cost": 0.019956964378281067,
+        "kernel_vs_prior_hypoxia_gate": "PASS",
+        "strength_injury_vs_linear_gate": "PASS"
+      },
+      {
+        "id": "M6",
+        "baseline_RMS_prediction_error": [
+          2.6807401413830725,
+          5.236773311484929,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_RMS_prediction_error": [
+          2.680740141383061,
+          5.236773311484919,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "linear_RMS_prediction_error": [
+          2.680740141383061,
+          5.236773311484919,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_MSE_reduction_fraction": [
+          8.527856278681714e-15,
+          3.886457416569519e-15,
+          0.0,
+          0.0,
+          0.0,
+          1.4225436935781478e-16
+        ],
+        "linear_MSE_reduction_fraction": [
+          8.527856278681714e-15,
+          3.886457416569519e-15,
+          0.0,
+          0.0,
+          0.0,
+          1.4225436935781478e-16
+        ],
+        "workload_units": 20.0,
+        "kernel_value_per_cost": 1.5517892119064042e-16,
+        "kernel_vs_prior_hypoxia_gate": "PASS",
+        "strength_injury_vs_linear_gate": "PASS"
+      }
+    ],
+    "rank": [
+      {
+        "id": "M2",
+        "baseline_RMS_prediction_error": [
+          2.6807401413830725,
+          5.236773311484929,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_RMS_prediction_error": [
+          2.6686219349999227,
+          5.445607895046991,
+          4.9493538224070695e-14,
+          0.0,
+          132.33909174410311,
+          44.01799796715981
+        ],
+        "linear_RMS_prediction_error": [
+          2.6339934253884882,
+          5.391230609517704,
+          0.0,
+          0.0,
+          117.48758355108589,
+          51.66455557401429
+        ],
+        "kernel_MSE_reduction_fraction": [
+          0.009020506090870394,
+          -0.08134726261735858,
+          0.0,
+          0.0,
+          0.5452790369540087,
+          0.3938836365014059
+        ],
+        "linear_MSE_reduction_fraction": [
+          0.03457189373128969,
+          -0.059859431786410906,
+          0.0,
+          0.0,
+          0.64161269327799,
+          0.16501084917139056
+        ],
+        "workload_units": 3.0,
+        "kernel_value_per_cost": 0.03941269003562671,
+        "kernel_vs_prior_hypoxia_gate": "PASS",
+        "strength_injury_vs_linear_gate": "PASS"
+      },
+      {
+        "id": "M5",
+        "baseline_RMS_prediction_error": [
+          2.6807401413830725,
+          5.236773311484929,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_RMS_prediction_error": [
+          1.3256392026576282,
+          3.991392978323857,
+          5.054332234771567e-14,
+          0.0,
+          185.90139174882967,
+          55.57307291405975
+        ],
+        "linear_RMS_prediction_error": [
+          1.243571128646009,
+          3.833983652937176,
+          0.0,
+          0.0,
+          181.7727097872525,
+          55.020723365587806
+        ],
+        "kernel_MSE_reduction_fraction": [
+          0.7554648791144037,
+          0.41907317814819445,
+          0.0,
+          0.0,
+          0.10270766294738996,
+          0.03389515423962554
+        ],
+        "linear_MSE_reduction_fraction": [
+          0.7848051734408235,
+          0.4639899108318074,
+          0.0,
+          0.0,
+          0.14212099445951487,
+          0.05300425305729604
+        ],
+        "workload_units": 16.0,
+        "kernel_value_per_cost": 0.019956964378281067,
+        "kernel_vs_prior_hypoxia_gate": "PASS",
+        "strength_injury_vs_linear_gate": "PASS"
+      },
+      {
+        "id": "M1",
+        "baseline_RMS_prediction_error": [
+          2.6807401413830725,
+          5.236773311484929,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_RMS_prediction_error": [
+          2.709195826719066,
+          5.438605923018428,
+          4.968046454301973e-14,
+          0.0,
+          121.98371288983516,
+          50.75196066816507
+        ],
+        "linear_RMS_prediction_error": [
+          2.5745623049540147,
+          5.212585163207981,
+          0.0,
+          0.0,
+          92.29239098112377,
+          55.56078726691889
+        ],
+        "kernel_MSE_reduction_fraction": [
+          -0.02134239829802588,
+          -0.07856825404117294,
+          0.0,
+          0.0,
+          0.6136576005005366,
+          0.19424856737817528
+        ],
+        "linear_MSE_reduction_fraction": [
+          0.07764654779574316,
+          0.009216471856044454,
+          0.0,
+          0.0,
+          0.7788431115427836,
+          0.03432226437184116
+        ],
+        "workload_units": 8.0,
+        "kernel_value_per_cost": 0.016054592130041807,
+        "kernel_vs_prior_hypoxia_gate": "PASS",
+        "strength_injury_vs_linear_gate": "FAIL"
+      },
+      {
+        "id": "M3",
+        "baseline_RMS_prediction_error": [
+          2.6807401413830725,
+          5.236773311484929,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_RMS_prediction_error": [
+          2.683124541442167,
+          5.25209196481153,
+          4.990819880776449e-14,
+          0.0,
+          193.68728866614413,
+          56.688593247825736
+        ],
+        "linear_RMS_prediction_error": [
+          2.6740311019996326,
+          5.34010959082873,
+          0.0,
+          0.0,
+          195.0047461311324,
+          57.75951270963683
+        ],
+        "kernel_MSE_reduction_fraction": [
+          -0.001779702875027824,
+          -0.005858973662166719,
+          0.0,
+          0.0,
+          0.025973178583886366,
+          -0.00527943140443349
+        ],
+        "linear_MSE_reduction_fraction": [
+          0.004999100050649905,
+          -0.03985501414022861,
+          0.0,
+          0.0,
+          0.012677487370899902,
+          -0.04362020380115131
+        ],
+        "workload_units": 5.0,
+        "kernel_value_per_cost": 0.0009167251023345912,
+        "kernel_vs_prior_hypoxia_gate": "FAIL",
+        "strength_injury_vs_linear_gate": "PASS"
+      },
+      {
+        "id": "M4",
+        "baseline_RMS_prediction_error": [
+          2.6807401413830725,
+          5.236773311484929,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_RMS_prediction_error": [
+          2.680740141383061,
+          5.236773311484919,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "linear_RMS_prediction_error": [
+          2.680740141383061,
+          5.236773311484919,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_MSE_reduction_fraction": [
+          8.527856278681714e-15,
+          3.886457416569519e-15,
+          0.0,
+          0.0,
+          0.0,
+          1.4225436935781478e-16
+        ],
+        "linear_MSE_reduction_fraction": [
+          8.527856278681714e-15,
+          3.886457416569519e-15,
+          0.0,
+          0.0,
+          0.0,
+          1.4225436935781478e-16
+        ],
+        "workload_units": 12.0,
+        "kernel_value_per_cost": 2.5863153531773404e-16,
+        "kernel_vs_prior_hypoxia_gate": "PASS",
+        "strength_injury_vs_linear_gate": "PASS"
+      },
+      {
+        "id": "M6",
+        "baseline_RMS_prediction_error": [
+          2.6807401413830725,
+          5.236773311484929,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_RMS_prediction_error": [
+          2.680740141383061,
+          5.236773311484919,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "linear_RMS_prediction_error": [
+          2.680740141383061,
+          5.236773311484919,
+          0.0,
+          0.0,
+          196.25270963122435,
+          56.53954140087528
+        ],
+        "kernel_MSE_reduction_fraction": [
+          8.527856278681714e-15,
+          3.886457416569519e-15,
+          0.0,
+          0.0,
+          0.0,
+          1.4225436935781478e-16
+        ],
+        "linear_MSE_reduction_fraction": [
+          8.527856278681714e-15,
+          3.886457416569519e-15,
+          0.0,
+          0.0,
+          0.0,
+          1.4225436935781478e-16
+        ],
+        "workload_units": 20.0,
+        "kernel_value_per_cost": 1.5517892119064042e-16,
+        "kernel_vs_prior_hypoxia_gate": "PASS",
+        "strength_injury_vs_linear_gate": "PASS"
+      }
+    ],
+    "native_uncertainty": null,
+    "uncertainty_interpretation": "Out-of-sample RMSpredictionrisk with noisy observations, not a native posterior SD",
+    "strongest_control_gate": "TIE: conventional identical Gaussian positive-kernel regression receives same inputs",
+    "new64_solver_wall_s": 253.88787195575424,
+    "new64_solver_CPU_s": 252.36119016400005,
+    "evaluation_wall_s": 0.14473433094099164,
+    "evaluation_CPU_s": 0.273577607
+  },
+  "all_nonlinear_scenario_solves": 320
+}

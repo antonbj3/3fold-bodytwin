@@ -1,0 +1,15 @@
+{
+  "operation": "After nonlinear patch failure, compile the full cubic bulk residual into polynomial coefficients and its A0 inverse Gram matrix. Split arbitrary changed cohesive-seam topology as a supported residual, keeping its cross term with bulk. Query Newton and residual energy certificate require neither global state reconstruction nor global solve.",
+  "frozen_before_compiler_computation": true,
+  "model": "Exactly the extension's nx64 ny32 beta20 convex bulk, strain .1 and supplied frozen cohesive preload history. Nonlinear biological and evolving cohesive branch certification remain UNKNOWN.",
+  "training_tiers_cut_lengths_mm": [[0,4,12,20,28],[0,1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31]],
+  "executed_tier_policy": "Execute tier1; if any residual acceptance fails, execute independently preregistered tier2 acquisitions in the same round. Do not use heldout full solutions to choose or update basis.",
+  "heldout_cut_lengths_mm": [8,16,24,32],
+  "query": "Full-rank basis from training full states via SVD. Reduced nonlinear Newton. r=C v(z)+B s(z,cut); residual norm squared v^T H v+2 s^T D v+s^T G s, H=C^T A0^-1 C, D=B^T A0^-1 C, G=B^T A0^-1 B. Preserve the signed cross term. Seam kappa / cut support changes require no cubic coefficient rebuild.",
+  "acceptance": {"max_gap_bound_m":1e-7, "full_comparison_gap_m":1e-7, "residual_polynomial_relative_check":1e-9, "no_query_global_reconstruction_or_solve":true},
+  "arithmetic": "Add a disclosed binary64 evaluation allowance based on absolute contractions to norm squared. This is an engineering bound, not verified outward interval arithmetic. Exact-arithmetic discrete monotonicity theorem is separate.",
+  "control": "Same-information polynomial intrusive Galerkin / reduced-basis residual Gram certifier is mathematically identical: TIE. Uniform full nonlinear FE remains a measured cost comparator, with its reusable sparse control eligible.",
+  "costs": "Charge basis acquisitions, polynomial coefficient construction, all global RHS solves for Gram, fitting, validation and fallback. Warm accepted queries only are reported separately, and all queries include fallbacks in end-to-end accounting.",
+  "falsifier": "Certificate exceeds budget, polynomial identity differs, omitted seam/bulk cross term falsely accepts, or the equally informed conventional certifier matches",
+  "admission": "PENDING_INDEPENDENT_REVIEW"
+}

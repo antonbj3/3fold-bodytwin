@@ -1,0 +1,178 @@
+{
+  "task": "Postural balance / quiet-standing control: verify the passive-stiffness-insufficiency falsifier geometrically, build the ankle-hip-step strategy hierarchy, and the function-vs-dysfunction fall-risk axis, coupled to this twin's existing MECHANISM_VESTIBULAR_BALANCE.md Part 2 model (not rebuilt here).",
+  "confidence_tier": "literature-anchored (9 new live-verified PMIDs/PMC-ID) + 2 spot-rechecked existing citations + 1 internal already-measured real-data anchor (ORG-POSTURAL-BALANCE, unedited) + 1 new dependency-free geometric/arithmetic derivation computed this session",
+  "companion_to_not_rebuild_of": {
+    "doc": "docs/MECHANISM_VESTIBULAR_BALANCE.md (Part 2)",
+    "script": "scripts/msk/postural_sway_pendulum.py",
+    "raw_results": "reports/probes/postural_sway_pendulum_results.json",
+    "what_that_doc_already_established": "single-link inverted pendulum + delayed PD feedback model; Loram & Lakie insufficiency number as the model's Kp_passive_frac; Peterka delay-not-damping mechanism; a machine-crosschecked (exact freq-domain vs Monte Carlo, z<1.5sigma) stability-margin-governs-sway-amplitude structure (27.6x variance growth 50ms->200ms delay); the internal ORG-POSTURAL-BALANCE HBEDB anchor; an honest negative on quantitatively reproducing the Romberg velocity/RMS metric-specific dissociation.",
+    "what_this_doc_adds": "a new geometric passive-only instability derivation forced against 2 independent stiffness measurements; the ankle-hip-step strategy hierarchy (not previously covered); the function-dysfunction fall-risk axis with real prospective cohorts (not previously covered); a cross-decade convergence check (Prieto 1996) on the internal cell's own metric-specificity finding."
+  },
+  "citations_spot_rechecked_live_this_session_matching_existing_doc": {
+    "loram_lakie_2002": {
+      "pmid": "12482906",
+      "doi": "10.1113/jphysiol.2002.025049",
+      "pmcid": "PMC2290720",
+      "cite": "Loram ID, Lakie M (2002). Direct measurement of human ankle stiffness during quiet standing: the intrinsic mechanical stiffness is insufficient for stability. J Physiol 545(3):1041-53.",
+      "verified_via": "NCBI esummary, live this session (independent of the existing doc's citation)",
+      "numbers": "intrinsic (passive) ankle stiffness = 91 +/- 23% of critical (mgh) -- below critical, insufficient alone.",
+      "drift_check": "bibliographic match exact vs existing MECHANISM_VESTIBULAR_BALANCE_evidence.json citation -- zero drift found"
+    },
+    "peterka_2002": {
+      "pmid": "12205132",
+      "doi": "10.1152/jn.2002.88.3.1097",
+      "cite": "Peterka RJ (2002). Sensorimotor integration in human postural control. J Neurophysiol 88(3):1097-118.",
+      "verified_via": "NCBI esummary, live this session",
+      "drift_check": "bibliographic match exact vs existing MECHANISM_VESTIBULAR_BALANCE_evidence.json citation -- zero drift found"
+    }
+  },
+  "citations_new_verified_live_this_session": {
+    "casadio_morasso_sanguineti_2005": {
+      "pmid": "15886131",
+      "doi": "10.1016/j.gaitpost.2004.05.005",
+      "cite": "Casadio M, Morasso PG, Sanguineti V (2005). Direct measurement of ankle stiffness during quiet standing: implications for control modelling and clinical application. Gait Posture 21(4):410-24.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session",
+      "numbers": "intrinsic ankle stiffness = 64 +/- 8% of critical, via motorised footplate + 1-degree step disturbances (EMG-checked to exclude reflex contamination), independent lab/method/decade from Loram & Lakie. Framed by the authors as the lower bound of a real range (91% = upper bound, smaller test disturbance); both bounds are sub-critical.",
+      "role": "forced adversary for the passive-insufficiency claim -- an independent measurement that COULD have pushed stiffness toward/above criticality instead reinforces insufficiency at an even lower value"
+    },
+    "horak_nashner_1986": {
+      "pmid": "3734861",
+      "doi": "10.1152/jn.1986.55.6.1369",
+      "cite": "Horak FB, Nashner LM (1986). Central programming of postural movements: adaptation to altered support-surface configurations. J Neurophysiol 55(6):1369-81.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session",
+      "numbers": "Ankle strategy (normal support surface): 73-110ms EMG latency, distal-to-proximal muscle activation, produces ankle torque. Hip strategy (support surface short relative to foot length): same latencies, proximal-to-distal (opposite) activation, little/no ankle torque, produces horizontal shear force. Intermediate surface lengths -> complex combined patterns.",
+      "independent_variable": "support-surface length/geometry"
+    },
+    "runge_shupert_horak_zajac_1999": {
+      "pmid": "10502650",
+      "doi": "10.1016/s0966-6362(99)00032-6",
+      "cite": "Runge CF, Shupert CL, Horak FB, Zajac FE (1999). Ankle and hip postural strategies defined by joint torques. Gait Posture 10(2):161-70.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session",
+      "numbers": "Backward flat-surface translations swept 5-55 cm/s: hip flexor torque ADDS to ankle plantarflexor torque as velocity increases (a continuum). 'Hip torque without accompanying ankle torque (pure hip strategy) was not observed.'",
+      "independent_variable": "translation velocity on a FIXED flat surface",
+      "role": "forced adversary of the naive 'three discrete strategy boxes' reading -- partially falls (real continuum, not discrete), refining rather than simply confirming the brief's hierarchy framing"
+    },
+    "mcilroy_maki_1996": {
+      "pmid": "8914501",
+      "doi": "10.1093/gerona/51a.6.m289",
+      "cite": "McIlroy WE, Maki BE (1996). Age-related changes in compensatory stepping in response to unpredictable perturbations. J Gerontol A Biol Sci Med Sci 51(6):M289-96.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session",
+      "numbers": "n=14 (5 young 22-28y, 9 elderly 65-81y), 600ms platform translations. 98% of all trials required stepping at all. Elderly needed multiple/additional steps in 63% of trials vs young, described as 'twice as likely' (implies young ~31%, derived from the stated ratio -- not printed verbatim in the abstract, flagged honest).",
+      "role": "third (stepping) strategy tier + age-linked deficit exactly where ankle+hip torque is exhausted"
+    },
+    "prieto_1996": {
+      "pmid": "9214811",
+      "doi": "10.1109/10.532130",
+      "cite": "Prieto TE, Myklebust JB, Hoffmann RG, Lovett EG, Myklebust BM (1996). Measures of postural steadiness: differences between healthy young and elderly adults. IEEE Trans Biomed Eng 43(9):956-66.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session",
+      "numbers": "n=20 healthy young (21-35y) vs n=20 healthy elderly (66-70y), EO/EC quiet stance. Mean COP velocity was the ONLY measure identifying age-related changes in both eye conditions AND EO/EC differences in both groups.",
+      "role": "independent, cross-decade convergence with the internal ORG-POSTURAL-BALANCE cell's own metric-specificity finding (velocity carries the signal, RMS/area do not)",
+      "honest_gap": "exact mm/cm-per-second values are in tables, not the (paywalled) abstract -- not extracted live"
+    },
+    "maki_holliday_topper_1994": {
+      "pmid": "8126355",
+      "doi": "10.1093/geronj/49.2.m72",
+      "cite": "Maki BE, Holliday PJ, Topper AK (1994). A prospective study of postural balance and risk of falling in an ambulatory and independent elderly population. J Gerontol 49(2):M72-84.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session",
+      "numbers": "n=100 (age 62-96), 1-year prospective fall monitoring. Lateral spontaneous-sway amplitude (eyes-closed) = single best predictor of future falling, moderate accuracy, predictive even in subjects with no recent fall history.",
+      "cohort": "ambulatory, independent elderly -- the 'clean' instance-space"
+    },
+    "fernie_1982": {
+      "pmid": "7072557",
+      "doi": "10.1093/ageing/11.1.11",
+      "cite": "Fernie GR, Gryfe CI, Holliday PJ, Llewellyn A (1982). The relationship of postural sway in standing to the incidence of falls in geriatric subjects. Age Ageing 11(1):11-6.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session",
+      "numbers": "n=205 institutionalized geriatric subjects (mean age 81.8y), 1-year prospective fall monitoring. Mean sway speed significantly greater in fallers (p<0.05) -- direction confirmed -- but 'less than might have been expected,' and NO dose-response trend between sway magnitude and fall frequency was found.",
+      "cohort": "institutionalized, frail geriatric -- the forced, harder/more-diverse instance-space",
+      "role": "adversary for the fall-risk claim: partially falls (direction replicates, dose-response cleanliness does not) -- reported as a partial confirmation, not smoothed into a clean PASS"
+    },
+    "feng_et_al_2025_markerless_cop": {
+      "pmcid": "PMC12189434",
+      "cite": "Feng R, Ugbolue UC, Yang C, Liu H (2025). Estimation of Three-Dimensional Ground Reaction Force and Center of Pressure During Walking Using a Machine-Learning-Based Markerless Motion Capture System. Bioengineering (Basel) 12(6).",
+      "verified_via": "NCBI esummary (db=pmc), live this session -- independently confirmed real, not taken on the existing SNS-VESTIBULAR-BALANCE node's word",
+      "role": "confirms markerless-video COP/GRF estimation is methodologically real (for walking); this repo has not run it on quiet standing (SNS-VESTIBULAR-BALANCE remains SEED-DESIGN, correctly)"
+    }
+  },
+  "internal_anchors_reused_not_relitigated": {
+    "org_postural_balance": {
+      "node_id": "ORG-POSTURAL-BALANCE",
+      "graph_path": "data/MECHANISM_ANCHOR_GRAPH.json",
+      "status": "ASSUMED, mechanism_grade=MEASURED-B (PASS), EXECUTED 2026-07-18",
+      "measured_numbers": {
+        "age_sway_COP_velocity_ratio_old_over_young": 1.409,
+        "young_cop_velocity_cm_s": 0.905,
+        "old_cop_velocity_cm_s": 1.274,
+        "cross_check_direct_division": 1.4077,
+        "age_sway_p_value": 1.9e-6,
+        "romberg_ratio_EC_over_EO_firm": 1.155,
+        "romberg_ratio_EC_over_EO_firm_p": 1.2e-4,
+        "romberg_ratio_EC_over_EO_foam": 1.304,
+        "romberg_ratio_EC_over_EO_foam_p": 4e-21,
+        "foam_over_firm_sway_ratio": 3.109,
+        "rms_area_romberg_effect": "NULL (p=0.58/0.22) -- metric-specific, honest",
+        "n_subjects": 163,
+        "n_trials": 644,
+        "dataset": "PhysioNet HBEDB, SHA256-verified vs the dataset's own manifest"
+      },
+      "note": "This project's own prior, already-measured, byte-verified real-data result -- reused verbatim as an internal decorrelated anchor, not re-run."
+    },
+    "existing_pendulum_model_params_reused": {
+      "source": "reports/probes/postural_sway_pendulum_results.json",
+      "mass_kg": 78.2,
+      "height_m_disclosed_estimate": 1.73,
+      "h_com_above_ankle_m": 0.969,
+      "mgh_Nm": 743.2071696000002,
+      "kp_passive_frac_loram_lakie": 0.91,
+      "kp_passive_Nm_per_rad": 676.3185243360001,
+      "sway_frequency_plausibility_PASS": {
+        "peak_psd_frequency_hz": 0.2034,
+        "fraction_of_power_below_1hz": 0.9987
+      },
+      "absolute_mm_calibration": "OPEN -- disclosed by the existing doc as arbitrary noise units, not newly closed here"
+    }
+  },
+  "new_computation_this_session": {
+    "description": "Passive-only (no delay, no active gain) inverted-pendulum stability check: I*theta''=(mgh-Kp_passive)*theta, characteristic roots +/-omega, omega=sqrt((mgh-Kp_passive)/I). Real positive omega = unconditional exponential instability. Uses ONLY numbers already verified in this repo's own JSON (mass, height, mgh) plus the two independently live-verified stiffness fractions above -- no new simulation, six lines of stdlib Python, shown in the doc's Repro section.",
+    "I_kg_m2": 73.4267502,
+    "loram_lakie_2002_frac_0.91": {
+      "Kp_Nm_per_rad": 676.2271416537,
+      "net_destabilizing_Nm_per_rad": 66.87960741630002,
+      "omega_1_s": 0.9543764274776896,
+      "doubling_time_s": 0.7262827963928824,
+      "time_to_fail_s_0.005rad_to_0.2rad": 3.8652248189566385
+    },
+    "casadio_morasso_sanguineti_2005_frac_0.64": {
+      "Kp_Nm_per_rad": 475.5883194048,
+      "net_destabilizing_Nm_per_rad": 267.51842966519996,
+      "omega_1_s": 1.9087528549553787,
+      "doubling_time_s": 0.36314139819644126,
+      "time_to_fail_s_0.005rad_to_0.2rad": 1.9326124094783197
+    },
+    "pre_registered_threshold": "Kp_passive/mgh < 1.0 required for a real (unstable) root",
+    "PASS": true,
+    "verdict": "Both independent measurements give Kp_passive/mgh<1.0 (0.91, 0.64), both give a real positive omega, both predict collapse within 2-4 seconds under passive stiffness alone with zero active correction -- far short of real quiet standing's minutes-long duration. The forced adversary (an independent, differently-parametrized measurement that could have rescued passive-sufficiency) instead reinforces insufficiency at an even lower stiffness fraction."
+  },
+  "strategy_hierarchy_verdict": {
+    "claim": "ankle -> hip -> step strategy transition as perturbation/task magnitude increases",
+    "evidence": "Horak & Nashner 1986 (surface-geometry variable) + Runge et al 1999 (translation-velocity variable, forced adversary test of discreteness) + McIlroy & Maki 1996 (third/stepping tier, age-linked)",
+    "PASS_qualitative_structure": true,
+    "refinement": "the brief's 'hierarchy' framing is refined, not simply confirmed: Runge et al 1999's own explicit test found hip torque always ADDS to (never replaces) ankle torque on a flat surface across a 5-55cm/s velocity sweep -- a continuum, not 3 discrete boxes. Surface geometry (Horak & Nashner) is a separate, additional constraint that CAN force a sharp ankle-torque cutoff. Discreteness is constraint-dependent, not perturbation-size-dependent alone."
+  },
+  "fall_risk_axis_verdict": {
+    "claim": "elevated sway prospectively predicts future falls in older adults",
+    "clean_cohort": "Maki, Holliday, Topper 1994 (ambulatory/independent elderly, n=100): lateral EC sway = best single predictor, moderate accuracy, holds even with no fall history",
+    "forced_adversary_cohort": "Fernie et al 1982 (institutionalized frail geriatric, n=205): direction confirmed (p<0.05) but no dose-response trend -- partial, not clean",
+    "convergent_internal_anchor": "ORG-POSTURAL-BALANCE age-sway ratio 1.409 (p=1.9e-6), real HBEDB data",
+    "convergent_cross_decade_anchor": "Prieto 1996 -- independent confirmation that velocity, specifically, is the metric that carries the age/sensory signal (same texture as the internal cell's own RMS/area-null, velocity-significant finding)",
+    "PASS_direction_across_3_decorrelated_real_datasets": true,
+    "PASS_universal_clean_dose_response_law": false,
+    "honest_gap": "statistical/prospective association, not demonstrated mechanistic causation via the specific delayed-feedback loop of Part 1/2 -- MSK-SARCOPENIA-COMPOSITE (dynapenia dissociation, real NHANES data, already MEASURED-B in this graph) is a plausible, untested, actuator-gain-capping coupling"
+  },
+  "overall_verdict": {
+    "passive_insufficiency_geometric_falsifier": "PASS -- new geometric/eigenvalue derivation, machine-computed, forced against 2 independent real measurements (91%, 64% of critical), both give unconditional instability collapsing within 2-4s",
+    "sway_magnitude_frequency_reproduction": "PARTIAL / inherited from existing model -- frequency-domain shape PASS (unfitted), absolute mm-RMS calibration remains OPEN (not newly attempted)",
+    "ankle_hip_step_strategy_hierarchy": "PASS on qualitative structure, REFINED (continuum with constraint-dependent discreteness, not 3 discrete boxes) -- 3 independent real sources, 2 independent perturbation-defining variables",
+    "fall_risk_axis": "PASS on direction across 3 decorrelated real datasets/cohorts spanning 4 decades; explicitly NOT a universal clean dose-response law (Fernie 1982 forced adversary partially falls, honestly reported); mechanistic (vs statistical) causation left OPEN with a named, untested, concrete coupling candidate",
+    "video_markerless_coupling": "literature anchor for the general method (markerless COP/GRF, walking) independently confirmed real; not yet run on quiet standing in this repo -- correctly SEED-DESIGN, not claimed further"
+  }
+}

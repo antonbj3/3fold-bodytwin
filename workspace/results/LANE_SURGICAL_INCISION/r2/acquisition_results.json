@@ -1,0 +1,337 @@
+{
+  "scope": "SYNTHETIC_ACQUISITION_IDENTIFIABILITY_NOT_EMPIRICAL_DATA",
+  "parameter_columns": [
+    "Gamma0",
+    "constant_process_work",
+    "contact_amplitude",
+    "bridge_work_amplitude"
+  ],
+  "radius_series_only": {
+    "Gamma0_min_J_m2": 0.0,
+    "Gamma0_max_J_m2": 1060.6088205128208,
+    "halfwidth_J_m2": 530.3044102564104,
+    "rank": 3,
+    "min_witness": [
+      0.0,
+      1039.975801572898,
+      0.0,
+      18781.004234724587
+    ],
+    "max_witness": [
+      1060.6088205128208,
+      0.0,
+      287.77558974358953,
+      0.0
+    ],
+    "LP_solves": 2,
+    "gate": "FAIL"
+  },
+  "radius_series_plus_contact": {
+    "Gamma0_min_J_m2": 0.0,
+    "Gamma0_max_J_m2": 1060.5179652638822,
+    "halfwidth_J_m2": 530.2589826319411,
+    "rank": 3,
+    "min_witness": [
+      0.0,
+      1039.998991732204,
+      57.5,
+      15157.541843113679
+    ],
+    "max_witness": [
+      1060.5179652638822,
+      0.0,
+      62.5,
+      14196.13264667682
+    ],
+    "LP_solves": 2,
+    "gate": "FAIL"
+  },
+  "radius_null_direction": [
+    1.0,
+    -1.0,
+    0.0,
+    0.0
+  ],
+  "null_direction_max_effect": 0.0,
+  "independent_bridge_work_20J": {
+    "Gamma0_min_J_m2": 119.87500000000011,
+    "Gamma0_max_J_m2": 180.12500000000023,
+    "halfwidth_J_m2": 30.125000000000057,
+    "rank": 4,
+    "min_witness": [
+      119.87500000000011,
+      920.1251251501802,
+      62.5,
+      14843.562274729644
+    ],
+    "max_witness": [
+      180.12500000000023,
+      880.3909487282899,
+      57.5,
+      14511.216332904163
+    ],
+    "LP_solves": 2,
+    "gate": "FAIL",
+    "radius_m": 1e-06,
+    "work_error_bound_J_m2": 20.0
+  },
+  "refined_independent_bridge_work_5J": {
+    "Gamma0_min_J_m2": 134.8750000000001,
+    "Gamma0_max_J_m2": 165.12500000000023,
+    "halfwidth_J_m2": 15.125000000000057,
+    "rank": 4,
+    "min_witness": [
+      134.8750000000001,
+      905.1251251501802,
+      62.5,
+      14843.562274729644
+    ],
+    "max_witness": [
+      165.12500000000023,
+      895.3909487282899,
+      57.5,
+      14511.216332904163
+    ],
+    "LP_solves": 2,
+    "gate": "PASS_SYNTHETIC",
+    "radius_m": 1e-06,
+    "work_error_bound_J_m2": 5.0
+  },
+  "all_candidate_designs": {
+    "20": [
+      {
+        "Gamma0_min_J_m2": 119.87500000000011,
+        "Gamma0_max_J_m2": 180.12500000000023,
+        "halfwidth_J_m2": 30.125000000000057,
+        "rank": 4,
+        "min_witness": [
+          119.87500000000011,
+          920.1251251501802,
+          62.5,
+          14843.562274729644
+        ],
+        "max_witness": [
+          180.12500000000023,
+          880.3909487282899,
+          57.5,
+          14511.216332904163
+        ],
+        "LP_solves": 2,
+        "gate": "FAIL",
+        "radius_m": 1e-06,
+        "work_error_bound_J_m2": 20.0
+      },
+      {
+        "Gamma0_min_J_m2": 119.375,
+        "Gamma0_max_J_m2": 180.6249999999999,
+        "halfwidth_J_m2": 30.624999999999943,
+        "rank": 4,
+        "min_witness": [
+          119.375,
+          920.6251251501803,
+          62.5,
+          14843.562274729644
+        ],
+        "max_witness": [
+          180.6249999999999,
+          879.37487484982,
+          57.5,
+          15156.437725270293
+        ],
+        "LP_solves": 2,
+        "gate": "FAIL",
+        "radius_m": 5e-06,
+        "work_error_bound_J_m2": 20.0
+      },
+      {
+        "Gamma0_min_J_m2": 118.75000000000011,
+        "Gamma0_max_J_m2": 181.25,
+        "halfwidth_J_m2": 31.249999999999943,
+        "rank": 4,
+        "min_witness": [
+          118.75000000000011,
+          921.2512537612839,
+          62.5,
+          14843.279839518542
+        ],
+        "max_witness": [
+          181.25,
+          878.7449698189134,
+          57.5,
+          15157.193158953722
+        ],
+        "LP_solves": 2,
+        "gate": "FAIL",
+        "radius_m": 1e-05,
+        "work_error_bound_J_m2": 20.0
+      },
+      {
+        "Gamma0_min_J_m2": 117.5,
+        "Gamma0_max_J_m2": 182.5,
+        "halfwidth_J_m2": 32.5,
+        "rank": 4,
+        "min_witness": [
+          117.5,
+          922.5050301810866,
+          62.5,
+          14842.806841046277
+        ],
+        "max_witness": [
+          182.5,
+          877.4797570850203,
+          57.5,
+          15158.147773279343
+        ],
+        "LP_solves": 2,
+        "gate": "FAIL",
+        "radius_m": 2e-05,
+        "work_error_bound_J_m2": 20.0
+      },
+      {
+        "Gamma0_min_J_m2": 115.0,
+        "Gamma0_max_J_m2": 184.9999999999999,
+        "halfwidth_J_m2": 34.99999999999994,
+        "rank": 4,
+        "min_witness": [
+          115.0,
+          925.0202429149799,
+          62.5,
+          14841.852226720639
+        ],
+        "max_witness": [
+          184.9999999999999,
+          854.4820347361184,
+          57.5,
+          15803.867353322878
+        ],
+        "LP_solves": 2,
+        "gate": "FAIL",
+        "radius_m": 4e-05,
+        "work_error_bound_J_m2": 20.0
+      }
+    ],
+    "5": [
+      {
+        "Gamma0_min_J_m2": 134.8750000000001,
+        "Gamma0_max_J_m2": 165.12500000000023,
+        "halfwidth_J_m2": 15.125000000000057,
+        "rank": 4,
+        "min_witness": [
+          134.8750000000001,
+          905.1251251501802,
+          62.5,
+          14843.562274729644
+        ],
+        "max_witness": [
+          165.12500000000023,
+          895.3909487282899,
+          57.5,
+          14511.216332904163
+        ],
+        "LP_solves": 2,
+        "gate": "PASS_SYNTHETIC",
+        "radius_m": 1e-06,
+        "work_error_bound_J_m2": 5.0
+      },
+      {
+        "Gamma0_min_J_m2": 134.375,
+        "Gamma0_max_J_m2": 165.6249999999999,
+        "halfwidth_J_m2": 15.624999999999943,
+        "rank": 4,
+        "min_witness": [
+          134.375,
+          905.6251251501803,
+          62.5,
+          14843.562274729644
+        ],
+        "max_witness": [
+          165.6249999999999,
+          894.37487484982,
+          57.5,
+          15156.437725270293
+        ],
+        "LP_solves": 2,
+        "gate": "PASS_SYNTHETIC",
+        "radius_m": 5e-06,
+        "work_error_bound_J_m2": 5.0
+      },
+      {
+        "Gamma0_min_J_m2": 133.7500000000001,
+        "Gamma0_max_J_m2": 166.25,
+        "halfwidth_J_m2": 16.249999999999943,
+        "rank": 4,
+        "min_witness": [
+          133.7500000000001,
+          906.2512537612839,
+          62.5,
+          14843.279839518542
+        ],
+        "max_witness": [
+          166.25,
+          893.7449698189134,
+          57.5,
+          15157.193158953722
+        ],
+        "LP_solves": 2,
+        "gate": "PASS_SYNTHETIC",
+        "radius_m": 1e-05,
+        "work_error_bound_J_m2": 5.0
+      },
+      {
+        "Gamma0_min_J_m2": 132.5,
+        "Gamma0_max_J_m2": 167.5,
+        "halfwidth_J_m2": 17.5,
+        "rank": 4,
+        "min_witness": [
+          132.5,
+          907.5050301810866,
+          62.5,
+          14842.806841046277
+        ],
+        "max_witness": [
+          167.5,
+          892.4797570850203,
+          57.5,
+          15158.147773279343
+        ],
+        "LP_solves": 2,
+        "gate": "PASS_SYNTHETIC",
+        "radius_m": 2e-05,
+        "work_error_bound_J_m2": 5.0
+      },
+      {
+        "Gamma0_min_J_m2": 130.0,
+        "Gamma0_max_J_m2": 169.9999999999999,
+        "halfwidth_J_m2": 19.999999999999943,
+        "rank": 4,
+        "min_witness": [
+          130.0,
+          910.0202429149799,
+          62.5,
+          14841.852226720639
+        ],
+        "max_witness": [
+          169.9999999999999,
+          869.4820347361184,
+          57.5,
+          15803.867353322878
+        ],
+        "LP_solves": 2,
+        "gate": "PASS_SYNTHETIC",
+        "radius_m": 4e-05,
+        "work_error_bound_J_m2": 5.0
+      }
+    ]
+  },
+  "LP_solves": 24,
+  "same_information_control": "Identical positive LP inverse: TIE, cost/gain 1x by construction; no separate speedup claimed",
+  "required_measurement": "Integrate independently observed bridge traction against measured local opening before cleavage, on same skin/sample and loading path; bound viscoelastic loss and prestress-release mismatch. Recut alone is insufficient.",
+  "worst_case_energy_error_budget_J_m2": {
+    "cutting": 10,
+    "contact_at_best_radius": 0.24999999999999994,
+    "bridge_work": 5,
+    "additional_release_or_model_error_remaining": null
+  },
+  "total_CPU_s": 0.11891486800000006,
+  "empirical_feasibility_of_acquisition_precision": "UNKNOWN"
+}

@@ -1,0 +1,328 @@
+{
+  "task": "Adjudicate units (N vs lbf) of DM eTibia raw knee-force CSVs; true peak %BW in level walking",
+  "confidence_tier": "in-vivo-anchored (published instrumented-knee force + on-disk unambiguous-Newton GRF cross-check)",
+  "data_sources": {
+    "knee_force_csv_dir": "source_repository/data/external/simtk_kneeloads_DM_measured_force",
+    "grf_sto_dir": "source_repository/data/external/opensim_jam_grand_challenge_DM/experimental_data/motion_analysis",
+    "osim_model": "source_repository/data/external/opensim_jam_grand_challenge_DM/DM.osim",
+    "csv_columns": "Time(sec),Fx,Fy,Fz,Tx,Ty,Tz,GON,GRFz (gait trials) -- NOTE: GON/GRFz differ per activity-type file (e.g. 1legstand uses GON/FP,EMG instead) -- Fx,Fy,Fz,Tx,Ty,Tz are the only columns common+consistent across all 47 files"
+  },
+  "body_mass": {
+    "DM_osim_body_masses_kg": {
+      "pelvis": 7.72424911,
+      "torso": 22.32909612,
+      "neckhead": 4.7991306,
+      "humerus_r": 1.87401209,
+      "ulna_r": 0.56012908,
+      "radius_r": 0.56012908,
+      "hand_r": 0.4218256,
+      "humerus_l": 1.87401209,
+      "ulna_l": 0.56012908,
+      "radius_l": 0.56012908,
+      "hand_l": 0.4218256,
+      "femur_r": 9.34239977,
+      "patella_r": 0.4494863,
+      "tibia_r": 2.99427025,
+      "talus_r": 0.04149104,
+      "calcn_r": 1.13869862,
+      "toes_r": 0.18209958,
+      "femur_l": 9.34239977,
+      "tibia_l": 2.99427025,
+      "patella_l": 0.4494863,
+      "talus_l": 0.04149104,
+      "calcn_l": 1.13869862,
+      "toes_l": 0.18209958
+    },
+    "DM_osim_total_body_mass_kg": 69.98155865,
+    "n_bodies": 23,
+    "task_stated_prior_range_kg": [
+      66,
+      68
+    ],
+    "note": "DM.osim scaled-model total (23 bodies, bilateral-symmetric leg masses) is ~70.0kg, ~3-4kg above the 66-68kg prior; qualitative conclusion is robust across this whole range (checked below)."
+  },
+  "check1_raw_peak_resultant_force": {
+    "og_set_8_trials": {
+      "DM_ngait_og1_knee_forces.csv": {
+        "n_rows": 381,
+        "peak_resultant_raw": 437.9118301667586,
+        "peak_row": {
+          "t": "1.675000",
+          "Fx": 4.14,
+          "Fy": 13.95,
+          "Fz": 437.67
+        }
+      },
+      "DM_ngait_og2_knee_forces.csv": {
+        "n_rows": 260,
+        "peak_resultant_raw": 479.1516204710154,
+        "peak_row": {
+          "t": "2.725033",
+          "Fx": 16.45,
+          "Fy": 35.52,
+          "Fz": 477.55
+        }
+      },
+      "DM_ngait_og3_knee_forces.csv": {
+        "n_rows": 302,
+        "peak_resultant_raw": 386.7915584652799,
+        "peak_row": {
+          "t": "2.916700",
+          "Fx": 10.4,
+          "Fy": -3.01,
+          "Fz": 386.64
+        }
+      },
+      "DM_ngait_og4_knee_forces.csv": {
+        "n_rows": 374,
+        "peak_resultant_raw": 482.17427648102506,
+        "peak_row": {
+          "t": "2.391700",
+          "Fx": 1.88,
+          "Fy": 32.56,
+          "Fz": 481.07
+        }
+      },
+      "DM_ngait_og5_knee_forces.csv": {
+        "n_rows": 342,
+        "peak_resultant_raw": 456.9408970534373,
+        "peak_row": {
+          "t": "3.766667",
+          "Fx": -6.03,
+          "Fy": 24.57,
+          "Fz": 456.24
+        }
+      },
+      "DM_ngait_og6_knee_forces.csv": {
+        "n_rows": 342,
+        "peak_resultant_raw": 450.16854388106685,
+        "peak_row": {
+          "t": "4.774933",
+          "Fx": 0.09,
+          "Fy": 31.43,
+          "Fz": 449.07
+        }
+      },
+      "DM_ngait_og7_knee_forces.csv": {
+        "n_rows": 314,
+        "peak_resultant_raw": 415.6304306712876,
+        "peak_row": {
+          "t": "2.958333",
+          "Fx": -3.19,
+          "Fy": 19.08,
+          "Fz": 415.18
+        }
+      },
+      "DM_ngait_og9_knee_forces.csv": {
+        "n_rows": 369,
+        "peak_resultant_raw": 442.4424834936175,
+        "peak_row": {
+          "t": "3.433300",
+          "Fx": -2.82,
+          "Fy": 6.88,
+          "Fz": 442.38
+        }
+      }
+    },
+    "og_set_global_peak_raw": 482.17427648102506,
+    "og_set_global_peak_file": "DM_ngait_og4_knee_forces.csv",
+    "broader_ngait_15_trials_global_peak_raw": 572.5265518733607,
+    "broader_ngait_global_peak_file": "DM_ngait_tm_ss1_knee_forces.csv",
+    "pctBW_by_mass_and_unit_hypothesis": {
+      "task_hint_low": {
+        "mass_kg": 66.0,
+        "BW_N": 647.2389,
+        "BW_lbf_equivalent": 145.50509354120305,
+        "og_set_peak_pctBW_if_raw_N": {
+          "mean": 68.58386525986558,
+          "min": 59.760245940916086,
+          "max": 74.49711018312173
+        },
+        "og_set_peak_pctBW_if_raw_lbf": {
+          "mean": 305.07623086042366,
+          "min": 265.8268168156952,
+          "max": 331.37965465414203
+        }
+      },
+      "task_hint_high": {
+        "mass_kg": 68.0,
+        "BW_N": 666.8521999999999,
+        "BW_lbf_equivalent": 149.9143388000274,
+        "og_set_peak_pctBW_if_raw_N": {
+          "mean": 66.56669275222247,
+          "min": 58.0025916485362,
+          "max": 72.30601870714757
+        },
+        "og_set_peak_pctBW_if_raw_lbf": {
+          "mean": 296.1034005409994,
+          "min": 258.00838102699834,
+          "max": 321.6331942231379
+        }
+      },
+      "DM_osim_scaled_total_body_mass": {
+        "mass_kg": 69.9816,
+        "BW_N": 686.28505764,
+        "BW_lbf_equivalent": 154.28301900247055,
+        "og_set_peak_pctBW_if_raw_N": {
+          "mean": 64.68178931535043,
+          "min": 56.360189422654834,
+          "max": 70.25860043334296
+        },
+        "og_set_peak_pctBW_if_raw_lbf": {
+          "mean": 287.718932359191,
+          "min": 250.70261196994474,
+          "max": 312.52582403336555
+        }
+      }
+    }
+  },
+  "check2_external_literature_anchor": {
+    "primary_source_DLima_review": {
+      "citation": "D'Lima DD, Fregly BJ, Patil S, Steklov N, Colwell CW Jr. 'Knee joint forces: prediction, measurement, and significance.' Proc Inst Mech Eng H. 2012;226(2):95-102.",
+      "doi": "10.1177/0954411911433372",
+      "pmcid": "PMC3324308",
+      "verified_live_this_session": true,
+      "quoted_finding": "'forces transmitted across the knee joint during normal walking range between 2 and 3 times body weight'; Table 1: Walking(Laboratory Floor)=2.5-2.8xBW, Treadmill 1-3mph=2.1+/-0.2xBW, Power walking 4mph=2.8+/-0.4xBW.",
+      "is_this_the_DM_eTibia_lineage": "Yes - D'Lima/Colwell/Scripps e-knee, same lab/device lineage as the Grand Challenge/eTibia dataset DM belongs to (Sixth Competition).",
+      "DM_subject_specific_figure_found": false
+    },
+    "decorrelated_cross_lab_anchor_Kutzner_Bergmann": {
+      "citation": "Kutzner I, Heinlein B, Graichen F, Bender A, Rohlmann A, Halder A, Beier A, Bergmann G. \"Loading of the knee joint during activities of daily living measured in vivo in five subjects.\" J Biomech. 2010;43(11):2164-2173.",
+      "doi": "10.1016/j.jbiomech.2010.07.036",
+      "verified_live_this_session": "INDIRECT ONLY - primary text blocked (Elsevier JS-gated, wrong PMC guess); figure obtained via a live-verified tertiary review",
+      "tertiary_citing_source": {
+        "citation": "Wu XD, Zhao Z, Lu D, Shao H, Yang D, Zhou Y. \"Sensor-integrated hip and knee prostheses: advances, challenges, and future perspectives.\" Front Bioeng Biotechnol. 2025;13:1721499.",
+        "doi": "10.3389/fbioe.2025.1721499",
+        "pmcid": "PMC12907417",
+        "verified_live_this_session": true
+      },
+      "quoted_finding": "'peak contact forces of 3.3 times the body weight during level walking' (Kutzner et al. 2010) -- independent lab (Berlin/OrthoLoad), independent instrumented-implant device, independent subject cohort from the D'Lima/Scripps e-knee lineage."
+    },
+    "literature_consensus_bucket": "~2.1-3.3xBW (210-330%BW) peak tibiofemoral contact force in level walking, NOT ~0.6xBW"
+  },
+  "check3_physical_consistency": {
+    "reasoning": "During single-limb stance, the (near-)full GRF is transmitted axially up the limb to the knee; muscle forces crossing the joint (needed to balance the GRF's moment arm about the knee center) can only ADD compression, never subtract. Hence peak JCF must be >= peak GRF during that same stance phase -- a peak JCF <1xBW is impossible if GRF alone already reaches ~1-1.2xBW, which is the well-established textbook value for walking.",
+    "direct_onsite_GRF_confirmation": {
+      "source": "DM_ngait_og{1,3,4,5,6,7,9}_grf.sto (OpenSim-JAM mirror, unambiguous Newton convention per OpenSim .sto standard)",
+      "peak_vertical_GRF_N_per_trial": {
+        "og1": 758.728,
+        "og3": 757.507,
+        "og4": 759.111,
+        "og5": 745.3,
+        "og6": 762.162,
+        "og7": 736.084,
+        "og9": 744.08
+      },
+      "mean_peak_GRF_N": 751.8531428571429,
+      "pctBW_at_68kg": 112.74659405144692,
+      "note": "Confirms peak vertical GRF for DM in level gait really is ~110-118%BW, i.e. the textbook ~1.0-1.2xBW figure is directly measured for this subject, not just assumed from generic literature."
+    },
+    "decisive_mass_independent_literature_independent_check": {
+      "method": "Per-trial ratio of peak resultant knee-force (raw, CSV) to peak vertical GRF (N, unambiguous, .sto) for the 7 trials with BOTH an independently-sourced CSV and .sto file. This ratio needs NO body-mass assumption and NO literature citation -- only within-subject, within-dataset internal consistency (does peak JCF exceed peak GRF, as mechanics requires?).",
+      "per_trial_ratios": {
+        "og1": {
+          "peak_GRF_N": 758.728,
+          "peak_GRF_time_s": 2.5925,
+          "peak_JCF_raw": 437.9118301667586,
+          "peak_JCF_time_s": "1.675000",
+          "JCF_over_GRF_ratio_if_raw_is_N": 0.5771657697709306,
+          "JCF_over_GRF_ratio_if_raw_is_lbf": 2.5673612438756805
+        },
+        "og3": {
+          "peak_GRF_N": 757.507,
+          "peak_GRF_time_s": 3.310833,
+          "peak_JCF_raw": 386.7915584652799,
+          "peak_JCF_time_s": "2.916700",
+          "JCF_over_GRF_ratio_if_raw_is_N": 0.5106112002467038,
+          "JCF_over_GRF_ratio_if_raw_is_lbf": 2.2713117701393135
+        },
+        "og4": {
+          "peak_GRF_N": 759.111,
+          "peak_GRF_time_s": 4.5075,
+          "peak_JCF_raw": 482.17427648102506,
+          "peak_JCF_time_s": "2.391700",
+          "JCF_over_GRF_ratio_if_raw_is_N": 0.6351828342377137,
+          "JCF_over_GRF_ratio_if_raw_is_lbf": 2.8254340032054173
+        },
+        "og5": {
+          "peak_GRF_N": 745.3,
+          "peak_GRF_time_s": 2.979167,
+          "peak_JCF_raw": 456.9408970534373,
+          "peak_JCF_time_s": "3.766667",
+          "JCF_over_GRF_ratio_if_raw_is_N": 0.6130966014402756,
+          "JCF_over_GRF_ratio_if_raw_is_lbf": 2.7271895454132244
+        },
+        "og6": {
+          "peak_GRF_N": 762.162,
+          "peak_GRF_time_s": 4.368333,
+          "peak_JCF_raw": 450.16854388106685,
+          "peak_JCF_time_s": "4.774933",
+          "JCF_over_GRF_ratio_if_raw_is_N": 0.5906467967191579,
+          "JCF_over_GRF_ratio_if_raw_is_lbf": 2.627327839136967
+        },
+        "og7": {
+          "peak_GRF_N": 736.084,
+          "peak_GRF_time_s": 1.318333,
+          "peak_JCF_raw": 415.6304306712876,
+          "peak_JCF_time_s": "2.958333",
+          "JCF_over_GRF_ratio_if_raw_is_N": 0.564650815221208,
+          "JCF_over_GRF_ratio_if_raw_is_lbf": 2.5116919527245862
+        },
+        "og9": {
+          "peak_GRF_N": 744.08,
+          "peak_GRF_time_s": 4.035833,
+          "peak_JCF_raw": 442.4424834936175,
+          "peak_JCF_time_s": "3.433300",
+          "JCF_over_GRF_ratio_if_raw_is_N": 0.5946168200914115,
+          "JCF_over_GRF_ratio_if_raw_is_lbf": 2.6449873828539308
+        }
+      },
+      "ratio_if_raw_is_N": {
+        "mean": 0.583710119675343,
+        "min": 0.5106112002467038,
+        "max": 0.6351828342377137,
+        "verdict": "ALL 7 trials give ratio <1 (JCF < GRF) -- MECHANICALLY IMPOSSIBLE, falsifies raw=Newtons"
+      },
+      "ratio_if_raw_is_lbf": {
+        "mean": 2.5964719624784456,
+        "min": 2.2713117701393135,
+        "max": 2.8254340032054173,
+        "verdict": "ALL 7 trials give ratio in [2.27,2.83], matching textbook/literature 2-3x expectation -- supports raw=lbf"
+      },
+      "caveat": "CSV (SimTK archive telemetry clock) and .sto (OpenSim-JAM motion-capture/force-plate clock) are two INDEPENDENTLY-sourced files for the \"same\" named trial; same-timestamp alignment between them is NOT verified/established (spot-check found GRF=0 at the CSV peak-force timestamp, i.e. the clocks are offset). The ratio argument used here compares TRIAL-LEVEL peaks (not same-instant samples), which sidesteps the clock-offset issue: since GRF genuinely reaches ~750N at some point in every trial (mechanically necessitating a comparably-large JCF at that same real-world instant), the CSV's own reported trial-peak must be able to reach that magnitude too -- and under raw=N it never does (falls short by ~2x), which is the decisive contradiction, independent of exact timestamp pairing."
+    }
+  },
+  "check4_secondary_oneleg_stand_supporting_signal_MIXED_not_decisive": {
+    "method": "DM_1legstand{1,2}_knee_forces.csv near-static balance trials; isolated the genuine low-variance plateau (Fz>70% of trial max, near-constant knee angle) rather than crude whole-trial stats.",
+    "plateau_1legstand1": {
+      "Fz_raw_mean": 615.9,
+      "Fz_raw_median": 598.3,
+      "Fz_raw_std": 58.1,
+      "knee_angle_deg_mean": 6.01,
+      "knee_angle_deg_std": 0.04,
+      "duration_s": 6.06
+    },
+    "plateau_1legstand2": {
+      "Fz_raw_mean": 546.6,
+      "Fz_raw_median": 540.7,
+      "Fz_raw_std": 39.3,
+      "knee_angle_deg_mean": 5.84,
+      "knee_angle_deg_std": 0.11,
+      "duration_s": 6.63
+    },
+    "if_raw_is_N_at_68kg": "~81-92%BW sustained -- plausible for single-limb stance (slightly <1xBW, explainable by handrail/support, contralateral-limb mass redistribution, sensor offset)",
+    "if_raw_is_lbf_at_68kg": "~364-410%BW sustained for 6+ seconds at a passively-stable near-full-knee-extension (~6deg) angle -- NOT independently corroborated by any activity-matched literature value (D'Lima's review has no \"one-leg stance\" row); flagged as an HONEST, UNRESOLVED TENSION with the primary verdict, not swept under the rug. Does not override checks 1-3 because it lacks an external/literature-anchored expected value (unlike gait, where D'Lima's OWN review states the expected number directly) and the actual test protocol/dynamics of \"1legstand\" (quiet balance vs a deliberately challenging clinical balance test) is not independently confirmed."
+  },
+  "adjudication": {
+    "units_verdict": "raw columns Fx,Fy,Fz (and by extension Tx,Ty,Tz) in the DM eTibia CSVs are POUNDS-FORCE (lbf), NOT Newtons",
+    "true_peak_pctBW_verdict": "~250-330%BW bucket (mean ~287-305%BW depending on mass 66-70kg), i.e. close to the ~296%BW figure named in the task -- NOT the 58-68%BW bucket",
+    "falsifier": "This verdict is falsified if a primary-source document (original SimTK kneeloads codebook/README, or a Grand-Challenge/D'Lima methods paper) explicitly states the eTibia telemetry columns are calibrated in Newtons. No such explicit unit-label statement was found on-disk (PROVENANCE.md, DM.osim) or on the live SimTK project page (checked this session: \"the page does not specify units for force data files\") -- this is an acknowledged gap. Absent that direct label, the verdict rests on 3 independent, mutually-reinforcing indirect checks (magnitude-vs-literature, statics-impossibility, and the mass-and-literature-independent JCF/GRF cross-file ratio), all of which agree.",
+    "residual_uncertainties": [
+      "Exact DM body mass: 66-68kg (task prior) vs 69.98kg (DM.osim scaled total) -- does not change the qualitative verdict (checked across full range).",
+      "CSV-to-.sto clock alignment not established (see check3 caveat) -- argument was constructed to be robust to this.",
+      "DM-subject-specific published %BW figure not found live this session; anchor is the D'Lima e-knee cohort-level figure (same lab/device lineage) plus an independent cross-lab (Kutzner/Bergmann) figure.",
+      "Check4 (1-leg-stand) gives a MIXED signal and is reported honestly as unresolved, not cherry-picked away; it does not carry enough independent weight (no activity-matched literature anchor exists) to overturn checks 1-3.",
+      "Kutzner et al. 2010 primary text verified only indirectly (via a live-fetched tertiary review), not fetched directly this session (paywall/JS-blocked)."
+    ]
+  }
+}

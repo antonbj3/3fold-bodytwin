@@ -1,0 +1,155 @@
+{
+  "job_id": "BT-FW48-AUTO-ab449fce1f6f56",
+  "decision": "Make molecular crowding the rate-limiting term of the epithelial renewal front: the front velocity is computed from Q084's free-pool fraction phi_f through phi_f -> v_g -> areal newborn flux -> front velocity, and the LAST_CUTOFF_OUTFLOW leak is repaired in the same construction with a declared operating window. The specified chain is dimensionally void; the repaired chain is unique but its absolute scale is not computable from the supplied inputs, and the held-out Ara-C anchor refutes both admissible closures of the front-velocity law.",
+  "claim_type": "capability",
+  "secondary_claim_type": "information_link (admissibility of the supplied Q115 migration closure, judged against data Q115 does not have)",
+  "outcome": {
+    "status": "INCOMPLETE",
+    "statement": "The crowding port is closed dimensionally and uniquely but yields only dimensionless contrasts, and the Ara-C anchor refutes the flux-divergence closure of the front velocity at 8.70 sigma with a parameter-free prediction, so the capability (an absolute computed front velocity) is not delivered.",
+    "evidence_locator": "m2_results.json:M2b_parameter_free_arac_test.flux_divergence_closure_deviation_sigma",
+    "quantifier": "for_all_in_declared_domain",
+    "declared_domain": "shedding_hazard_h in [0.001, 0.30] /h, age_bin_h = 1 h, max_age_h in {120, 240, 480} h, path_factor = 1.0, Q115 delivered Parameters() except the swept hazard; crowding field phi_n(x) = 0.18 + 0.08 cos(2 pi x / 10 um) on 161 nodes as delivered by Q084."
+  },
+  "baseline": {
+    "name": "Q115 as delivered (BT-HX-Q115)",
+    "front_velocity": "not an output; v = (F_crypt + F_active)/eta = 0.030 mm/h = 30.0 um/h with eta documented as 'chosen to give 0.03 mm/h'",
+    "intracellular_state_variables": 0,
+    "leak": "LAST_CUTOFF_OUTFLOW exposed and repaired upstream; reproduced here"
+  },
+  "matched_accuracy": "not applicable: no algorithm claim. The comparison made is current practice WITHOUT intracellular-state information (Q115's shedding-hazard age grid and force/drag closure) against the held-out anchor, with identical information on both sides.",
+  "actual_gain": {
+    "what_became_possible": "a preregistered, parameter-free decision that two admissible closures of the renewal-front velocity are inadmissible, and a unique dimensionally closed port chain that exposes exactly one missing length",
+    "what_did_not": "no absolute front velocity in um/h; no villus-scale non-uniform front; no time course",
+    "largest_number": 8.698678377451047,
+    "largest_number_meaning": "sigma separation between the parameter-free flux-divergence prediction (retreat/control = -1) and the held-out measurement (-0.0887 +/- 0.1048)"
+  },
+  "validity": {
+    "PENDING_INDEPENDENT_REVIEW": true,
+    "physical_validation_claimed": false,
+    "anchor_values_are_model_inputs": false,
+    "anchor_absence_check": {
+      "9.00": {
+        "Q084_model.py": false,
+        "Q115_model.py": false
+      },
+      "-0.798": {
+        "Q084_model.py": false,
+        "Q115_model.py": false
+      },
+      "8.68": {
+        "Q084_model.py": false,
+        "Q115_model.py": false
+      },
+      "0.465": {
+        "Q084_model.py": false,
+        "Q115_model.py": false
+      },
+      "0.942": {
+        "Q084_model.py": false,
+        "Q115_model.py": false
+      },
+      "0.655": {
+        "Q084_model.py": false,
+        "Q115_model.py": false
+      },
+      "k_g": {
+        "Q084_model.py": false,
+        "Q115_model.py": false
+      },
+      "cell_height": {
+        "Q084_model.py": false,
+        "Q115_model.py": false
+      },
+      "v_front": {
+        "Q084_model.py": false,
+        "Q115_model.py": false
+      }
+    },
+    "synthetic_fixture": "P2 identity run at arbitrary probe values k_g=3.7e-12 m^3/cell/s, v_cell=1.7e-9 m^3, L_prolif=h_cell=1.5e-4 m, phi_cell=0.85; they cancel in the identity",
+    "units_on_every_port": true,
+    "dimensions_checked_before_sum_or_inversion": true,
+    "fitted_vs_heldout": "nothing was fitted; every model parameter is a delivered Q084/Q115 input, every anchor numeral is held out"
+  },
+  "missing_prerequisite": [
+    {
+      "quantity": "k_g",
+      "unit": "m^3 (cell s)^-1",
+      "role": "free-pool-limited per-cell volume growth coefficient in v_g = phi_f*k_g",
+      "status": "absent from both sources",
+      "specified_once": true
+    },
+    {
+      "quantity": "cell height",
+      "unit": "m",
+      "role": "third dimension needed to form v_cell; Q115 supplies apical area 0.0030 mm^2/cell only",
+      "status": "absent from both sources",
+      "specified_once": true
+    },
+    {
+      "quantity": "J_extrusion_leading",
+      "unit": "cells m^-2 s^-1",
+      "role": "extrusion flux of the leading labelled layer; the smallest extension that makes a small negative retreat possible",
+      "status": "not supplied",
+      "specified_once": true
+    }
+  ],
+  "next_test": "Invert the envelope closure v_front = u_labelled - J_extrusion_leading/(n_areal*ell_cell) on a second, independent Ara-C dose: the ratio of the two doses' retreat velocities must equal the ratio of the two directly measured leading-layer extrusion fluxes. Falsifier: the ratios disagree by more than the combined dispersion, which would reopen a third closure.",
+  "external_referent": {
+    "kind": "independent_measurement",
+    "locator": "10.1096/fj.201601002",
+    "compared_quantity": "mouse duodenal thymidine-analogue front fitted velocity 9.00+/-0.465 um/h control; -0.798+/-0.942 um/h during 0-10 h after Ara-C; 8.68+/-0.655 um/h beyond 10 h",
+    "refutes_us": true,
+    "our_value": {
+      "retreat_over_control": -0.08866666666666667,
+      "retreat_over_control_sd": 0.10476687305691364,
+      "flux_closure_prediction": -1.0,
+      "sigma_separation": 8.698678377451047,
+      "inferred_division_permissivity_g": 1.0886666666666667,
+      "q115_migration_um_per_h": 30.0,
+      "q115_over_anchor_ratio": 3.3333333333333335
+    },
+    "command": "python3 m2_sufficiency_and_window.py",
+    "excerpt": "control 9.00+/-0.465 um/h; -0.798+/-0.942 um/h during 0-10 h after Ara-C; 8.68+/-0.655 um/h beyond 10 h",
+    "computed_from_lower_level_quantities": "phi_f = 1 - phi_n from Q084's crowding operator; newborn flux and shedding hazard from Q115's delivered age grid; the ratio is formed from Q115 fluxes only, so k_g, v_cell, L_prolif and u cancel",
+    "referent_value_present_among_model_inputs": false
+  },
+  "external_referent_second": {
+    "kind": "independent_measurement",
+    "locator": "10.1073/pnas.2519599123",
+    "compared_quantity": "LOW-POROSITY regions are about 20 % slower than HIGH-POROSITY regions within cells (Fig. 3D)",
+    "refutes_us": false,
+    "our_value": {
+      "front_velocity_LP_percent_slower": 17.777777777777782,
+      "same_crowding_fields_Q084_Dx_HP_slower_than_LP_percent": -82.51826992205584,
+      "note": "the front-velocity contrast is near 20 % but the same frozen field gives an 82.5 % diffusivity contrast; agreement is a coincidence of a weak operator and is not validation"
+    },
+    "command": "python3 m1_front_velocity.py",
+    "referent_value_present_among_model_inputs": false
+  },
+  "operating_window": "leak = LAST_CUTOFF_OUTFLOW/newborn < 1 % for shedding_hazard_h >= 0.025826 /h with max_age_h = 240 h; the leak exceeds 1 % of the outflow below that hazard",
+  "operating_window_edge_h_per_h": 0.02582638300841609,
+  "artifacts": [
+    "PREREG.md",
+    "WORK_STATUS.md",
+    "RESULTS.md",
+    "m1_front_velocity.py",
+    "m1_results.json",
+    "m2_sufficiency_and_window.py",
+    "m2_results.json",
+    "DECOMPOSITION.json",
+    "ATTEMPTS.json",
+    "FOLLOWUPS.json",
+    "GOAL_TO_STRESS_POINT.md",
+    "COMMANDS.md"
+  ],
+  "scope": {
+    "graph_binding": "BT-CTX-Q115 and BT-CTX-Q084 (source-family target context only; not complete native-graph coverage, not biological validation)",
+    "sources_read": [
+      "inputs/Q084/Q084_model.py",
+      "inputs/Q115/Q115_model.py"
+    ],
+    "source_read_cap_respected": true,
+    "subagents_used": 0,
+    "native_graphs_edited": 0
+  }
+}

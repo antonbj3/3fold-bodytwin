@@ -1,0 +1,271 @@
+{
+ "id": "BT-DAT-Q121",
+ "generated_utc": "2026-09-26T08:32:08Z",
+ "prereg_sha256": "2adf08d89e75e21ce428ca36295e66902c960c12f3140daf47808c772a1d02d9",
+ "license_note": "every dataset below carries its own license; nothing here changes or supersedes them. Only the two files in samples/ were downloaded, and both are byte-identical to the originals (sha256 recorded in results.json).",
+ "sources": [
+  {
+   "id": "DS1-mre-bowel-segments",
+   "name": "A comprehensive dataset of magnetic resonance enterography images with bowel segment annotations",
+   "url": "https://zenodo.org/records/13839321",
+   "file_url": "https://zenodo.org/api/records/13839321/files/A%20comprehensive%20dataset.zip/content",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "size_bytes": 441465943,
+   "size_human": "441.5 MB (single .zip)",
+   "format": "NIfTI (.nii.gz) image+label pairs, 114 cases = 228 members",
+   "n_subjects": 114,
+   "cohort": "patients with inflammatory bowel disease, 2019-2023, single centre; 1600-2000 mL of 2.5% mannitol per MRE",
+   "modality": "coronal T2 HASTE (fast spin echo) 0.35-1.5 T abdominal MRI",
+   "access": "anonymous HTTPS, supports HTTP Range (verified, 206)",
+   "anonymous_download": true,
+   "metadata_source": "Zenodo REST API https://zenodo.org/api/records/13839321 fetched this run; cohort/label/modality details from Sci Data 10.1038/s41597-025-04760-z",
+   "constrains": {
+    "direct": [
+     "v0_proximal_ml",
+     "v0_distal_ml",
+     "v0_rectal_ml",
+     "initial_liquid_proximal_ml",
+     "initial_liquid_distal_ml",
+     "initial_liquid_rectal_ml"
+    ],
+    "mechanism": "per-segment luminal content volume of cecum/ascending/transverse, descending/sigmoid and rectum gives the volumetric scale of the three model compartments; a gas/liquid split inside the segment is not available"
+   },
+   "caveats": "label volumes are distended luminal CONTENT (fluid + gas), the model's v0 is a residual GAS volume; mannitol distension and an IBD population both differ from the model's healthy reference case. Scale bracket only.",
+   "verification": "downloaded and parsed this run; see sample section"
+  },
+  {
+   "id": "DS2-totalsegmentator-v2",
+   "name": "Dataset with segmentations of 117 important anatomical structures in 1228 CT images (TotalSegmentator dataset v2)",
+   "url": "https://zenodo.org/records/10047292",
+   "file_url": "https://zenodo.org/records/10047292",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "size_bytes": 23581218285,
+   "size_human": "23.6 GB (single .zip); a 102-subject subset is offered separately by the depositor",
+   "format": "CT volumes + NIfTI multi-label segmentations, 117 classes, class 20 = colon",
+   "n_subjects": 1228,
+   "cohort": "random sample of routine clinical CT at University Hospital Basel, mixed scanners, contrast and pathology",
+   "modality": "CT",
+   "access": "anonymous HTTPS for the record; per-case extraction is constrained by the 23.6 GB single-zip layout",
+   "anonymous_download": true,
+   "metadata_source": "Zenodo REST API https://zenodo.org/api/records/10047292 fetched this run; class list from github.com/wasserth/TotalSegmentator",
+   "constrains": {
+    "direct": [
+     "v0_proximal_ml",
+     "v0_distal_ml",
+     "v0_rectal_ml",
+     "compliance_proximal_ml_mmhg",
+     "compliance_distal_ml_mmhg",
+     "compliance_rectal_ml_mmhg"
+    ],
+    "mechanism": "whole-colon lumen label in a large general population gives colon volume and calibre distribution, i.e. the geometric scale and population spread that the assumed v0 and compliance values should be compatible with"
+   },
+   "caveats": "the colon class is a single lumen label; it does not measure wall stiffness, so compliance can only be bounded by the geometry, not identified",
+   "verification": "metadata read from the repository this run; no case downloaded (23.6 GB exceeds the run's transfer budget)"
+  },
+  {
+   "id": "DS3-msd-task10-colon",
+   "name": "Medical Segmentation Decathlon Task10_Colon (colon cancer primaries)",
+   "url": "http://medicaldecathlon.com/",
+   "file_url": "https://msd-for-monai.s3-us-west-2.amazonaws.com/Task10_Colon.tar",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "size_bytes": 6242760704,
+   "size_human": "6.24 GB image tar (126 labelled training volumes + 64 unlabelled test volumes)",
+   "format": "NIfTI (.nii.gz) portal-venous CT with tumour label; oriented to RAS with fslreorient2std, radiological NIfTI standard",
+   "n_subjects": 190,
+   "cohort": "patients undergoing resection of primary colon cancer, Memorial Sloan Kettering Cancer Center, heterogeneous scanner protocols",
+   "modality": "CT, slice thickness 1-7.5 mm, 100-140 kVp",
+   "access": "anonymous HTTPS from the AWS Open Data mirror; Accept-Ranges: bytes verified this run",
+   "anonymous_download": true,
+   "metadata_source": "HTTP HEAD on the image tar this run; counts, license and framing from Antonelli et al., doi:10.48550/arxiv.2106.05735 and medicaldecathlon.com",
+   "constrains": {
+    "direct": [],
+    "indirect": [
+     "v0_proximal_ml",
+     "v0_distal_ml",
+     "v0_rectal_ml"
+    ],
+    "mechanism": "supplies a third, tumour-bearing CT cohort in an explicit RAS frame, usable to check that any colon geometry model reports its coordinate frame and scale consistently"
+   },
+   "caveats": "the label is the tumour, not the lumen or the wall, so it constrains nothing directly; label archive URL Task10_Colon_labels.tar returned HTTP 404 on this mirror this run, so the label path is UNKNOWN",
+   "verification": "URL and byte count verified by HEAD this run; no volume downloaded"
+  },
+  {
+   "id": "DS4-sparc-colonic-hrm",
+   "name": "Colonic high resolution manometry (ex vivo human distal colon)",
+   "url": "https://discover.pennsieve.io/datasets/33/version/2",
+   "file_url": "https://doi.org/10.26275/zdxd-84xz",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "size_bytes": null,
+   "size_bytes_basis": "UNKNOWN exactly; the page prints '400.83 MB'. The decimal reading 400830000 B is not asserted as an exact byte count.",
+   "size_human": "400.83 MB (98 files), as printed on the dataset page",
+   "format": "plain .txt pressure traces (PlotHRM layout) + a subject demographics manifest in the primary folder",
+   "n_subjects": 95,
+   "cohort": "entire sections of surgically excised human distal colon; organ-bath motility recordings; demographics in a manifest file",
+   "modality": "high-resolution manometry, pressure in mmHg vs time",
+   "access": "anonymous download, isAccessibleForFree=true (page JSON this run)",
+   "anonymous_download": true,
+   "metadata_source": "dataset page HTML fetched this run (license creativecommons.org/licenses/by/4.0/, isAccessibleForFree true, DOI 10.26275/zdxd-84xz, size string 400.83 MB)",
+   "constrains": {
+    "direct": [
+     "k_forward_pressure_mmol_h_mmhg",
+     "k_backward_pressure_mmol_h_mmhg",
+     "rectal_pressure_threshold_mmhg",
+     "motility_gain"
+    ],
+    "mechanism": "measured intraluminal pressure amplitudes, contraction durations and propagation directions give the pressure scale over which the model's gas-conductance terms and valve threshold can switch on, and the amplitude/frequency that motility_gain is meant to scale"
+   },
+   "caveats": "ex vivo tissue on a bath, so it constrains wall/pressure conduction and contractile pattern, not in vivo gas flow; no gas species, no subject-level compliance curve",
+   "verification": "license, free-access flag, DOI and size read from the page this run; 98 files / 95 records are as listed on the page"
+  },
+  {
+   "id": "DS5-h2ch4-breath-cipо",
+   "name": "Hydrogen and Methane Breath Test Data in CIPO and Healthy Controls (Japan)",
+   "url": "https://zenodo.org/records/16910802",
+   "file_url": "https://zenodo.org/api/records/16910802/files/Supplementary_Table1%20final%20ver.xlsx/content",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "size_bytes": 18991,
+   "size_human": "19.0 kB xlsx (plus citation.txt 708 B, README.txt 6.6 kB)",
+   "format": "xlsx, one row per subject per time point; H2 and CH4 in ppm, age/min in minutes",
+   "n_subjects": "UNKNOWN from the deposit; cohort is CIPO plus healthy controls, study period April 2019 - March 2022",
+   "cohort": "congenital portosystemic shunt / CIPO patients and healthy controls in Japan",
+   "modality": "breath H2/CH4, device BGA2000D, 50 g oral glucose load, sampling every 15 min from 0 to 120 min",
+   "access": "anonymous HTTPS",
+   "anonymous_download": true,
+   "metadata_source": "Zenodo REST API https://zenodo.org/api/records/16910802 fetched this run; protocol and device from the record README",
+   "constrains": {
+    "direct": [
+     "k_fermentation_h",
+     "k_michaelis_g",
+     "yield_h2_mmol_g"
+    ],
+    "indirect": [
+     "k_microbial_h",
+     "k_blood_transfer_h",
+     "k_breath_clearance_h"
+    ],
+    "mechanism": "a serial breath time course after a fixed substrate dose gives the production time constant and the shape of the dose response; the concurrent CH4 column separates H2 production from methanogenesis, which is the split the model's microbial sink has to reproduce; the breath arm bounds the blood-to-breath leg"
+   },
+   "caveats": "a 2 h horizon after a 50 g glucose load is a small-intestinal test; it does not measure colonic content transit, dissolved gas, or rectal outflow, and the substrate differs from the model's 15 g lactulose",
+   "verification": "record metadata read this run; file not downloaded (it is the same schema as DS6)"
+  },
+  {
+   "id": "DS6-h2ch4-breath-lactulose-bloating",
+   "name": "Lactulose Hydrogen-Methane Breath Testing for Clinical Characterization of Small Intestinal Bacterial Overgrowth in Adults with Functional Bloating",
+   "url": "https://zenodo.org/records/20578413",
+   "file_url": "https://zenodo.org/api/records/20578413/files/data.xlsx/content",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "size_bytes": 26145,
+   "size_human": "26.1 kB xlsx",
+   "format": "xlsx, serial breath measurements with symptom scores",
+   "n_subjects": 90,
+   "cohort": "adults with functional bloating, cross-sectional; 42 of 90 breath-test positive (24 H2-positive, 12 CH4-positive, 6 mixed)",
+   "modality": "breath H2/CH4 after a lactulose load, serial sampling over 120 min",
+   "access": "anonymous HTTPS",
+   "anonymous_download": true,
+   "metadata_source": "Zenodo REST API (record 20578412 redirects to 20578413) fetched this run",
+   "constrains": {
+    "direct": [
+     "k_fermentation_h",
+     "k_michaelis_g",
+     "yield_h2_mmol_g"
+    ],
+    "indirect": [
+     "k_microbial_h"
+    ],
+    "mechanism": "same mechanism as DS5 on a lactulose substrate, which is the model's own substrate, so the dose axis is directly comparable with lactulose_g = 15 g"
+   },
+   "caveats": "90 min horizon, small-intestinal end point, single centre; no colonic sampling, no rectal gas, no dissolved gas",
+   "verification": "record metadata read this run; file not downloaded"
+  },
+  {
+   "id": "DS7-wmc-transit-table",
+   "name": "Transit time (supporting Table 1) - wireless motility capsule, healthy controls vs FGDS",
+   "url": "https://plos.figshare.com/articles/dataset/Transit_time_/5453194",
+   "file_url": "https://ndownloader.figshare.com/files/9429106",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "size_bytes": 5632,
+   "size_human": "5.6 kB xls",
+   "format": "xls, one sheet 'Table 1', 7 x 6 cells, one row per GI segment",
+   "n_subjects": "UNKNOWN - group sizes are not in the deposited table",
+   "cohort": "healthy controls and familial glucocorticoid deficiency syndrome (GUCY2C) patients",
+   "modality": "wireless motility capsule transit times, hours",
+   "access": "anonymous HTTPS",
+   "anonymous_download": true,
+   "metadata_source": "figshare API https://api.figshare.com/v2/articles/5453194 fetched this run; file downloaded and parsed this run",
+   "constrains": {
+    "direct": [
+     "tau_proximal_h",
+     "tau_distal_h",
+     "tau_rectal_h"
+    ],
+    "mechanism": "measured gastric, small-bowel, colonic and whole-gut transit times bracket the total residence time the three assumed compartment time constants must sum to"
+   },
+   "caveats": "median-of-transit-time, not the mean residence time of a serial compartment chain; no per-colonic-segment breakdown in the deposit, so the three taus cannot be separated by this file alone; the FGDS group is a monogenic constipation cohort, not a healthy reference",
+   "verification": "downloaded and parsed this run; see transit_evidence"
+  },
+  {
+   "id": "DS8-uw-madison-serial-mri",
+   "name": "UW-Madison Serial Abdominal MRI Collection (GI Tract Image Segmentation)",
+   "url": "https://www.kaggle.com/ds/3577354",
+   "file_url": "https://doi.org/10.34740/kaggle/ds/3577354",
+   "license": "CC BY-NC 4.0 (dataset manuscript); Kaggle dataset usage policies apply to the files",
+   "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+   "size_bytes": null,
+   "size_human": "UNKNOWN - repository landing page reports counts, not bytes; not fetched this run (authentication required)",
+   "format": "16-bit PNG per axial slice + CSV contour annotations; DICOM-RT segmentations converted to CSV",
+   "n_subjects": 107,
+   "cohort": "107 radiotherapy patients on a 0.35 T MR-Linac, 2015-2019, 1-5 serial volumetric abdominal MRIs each (467 scans)",
+   "modality": "MRI, mostly 144 axial slices at 1.5 x 1.5 x 3 mm",
+   "access": "Kaggle account required - NOT anonymously downloadable",
+   "anonymous_download": false,
+   "metadata_source": "Data in Brief doi:10.1016/j.dib.2024.111159, retrieved via web search this run; repository not fetched directly",
+   "constrains": {
+    "direct": [
+     "v0_proximal_ml",
+     "v0_distal_ml",
+     "v0_rectal_ml"
+    ],
+    "mechanism": "the only listed source with repeated same-patient imaging on separate days, so it is the natural dataset for the between-day variability of luminal content volume that the assumed v0 values currently hide inside a single constant"
+   },
+   "caveats": "large-intestine label only (no sub-segments, no rectum label stated), 16-bit PNG in a non-DICOM frame requiring the provided loader, requires an account, byte size UNKNOWN",
+   "verification": "described from the dataset manuscript; bytes and license file NOT verified at the repository this run"
+  }
+ ],
+ "not_machine_readable": [
+  {
+   "source": "Azpiroz et al., Neurogastroenterol Motil, doi:10.1111/nmo.12618",
+   "measured": "intestinal gas volume and distribution by abdominal CT in 37 healthy subjects (median 95 mL, IQR 71-141 mL) plus 88 basal, 82 bloating-episode and 24 challenge-diet patients",
+   "would_constrain": [
+    "v0_proximal_ml",
+    "v0_distal_ml",
+    "v0_rectal_ml"
+   ],
+   "deposit": "none located; values read from the article abstract",
+   "status": "not counted for H1 (control N1)"
+  },
+  {
+   "source": "McWilliams et al., J Nucl Med Technol, doi:10.5056/jnm.2012.18.4.419",
+   "measured": "CT intestinal gas volume in 207 patients / 312 CTAP studies; median IGV 155.0-220.6 mL by diagnostic group",
+   "would_constrain": [
+    "v0_proximal_ml",
+    "v0_distal_ml",
+    "v0_rectal_ml"
+   ],
+   "deposit": "none located; values read from the article abstract",
+   "status": "not counted for H1 (control N1)"
+  }
+ ],
+ "counts": {
+  "sources": 8,
+  "anonymously_retrievable": 7,
+  "requires_registration": 1,
+  "gaps": 2
+ }
+}

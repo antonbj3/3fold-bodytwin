@@ -1,0 +1,65 @@
+{
+  "updated_utc": "2026-10-01T02:00:31.819620+00:00",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "local_dispatch_feedback_pairs": 4,
+  "local_receipts": [
+    {
+      "target": "BT-CTX-SURG-INCISION",
+      "receipts": [
+        {
+          "file": "graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R1_INCISION/FEEDBACK_950eedebca59750c.json",
+          "sha256": "05dd7fc42644cc22a4646e4e285ca50e3ba601ffddd92c1f0cb31498e30d31b5"
+        },
+        {
+          "file": "graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R1_INCISION/DISPATCH.json",
+          "sha256": "05e8f731603efbb2fc321fa502b1602608391aff8432f5b137cd38ed4040a362"
+        }
+      ]
+    },
+    {
+      "target": "BT-CTX-SURG-COLLAGEN",
+      "receipts": [
+        {
+          "file": "graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R1_COLLAGEN/FEEDBACK_5ee91e8ab18a2ac9.json",
+          "sha256": "ed0bb67fd149e03beb227b2074baba7ddfc9d4debb4de14b48e00a0d11a45f9b"
+        },
+        {
+          "file": "graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R1_COLLAGEN/DISPATCH.json",
+          "sha256": "78f5b6ea44cd7f19e89e6a3f9d073e3c164fedded783fbd13fe03b639eb68b26"
+        }
+      ]
+    },
+    {
+      "target": "BT-CTX-SURG-HEMOSTASIS",
+      "receipts": [
+        {
+          "file": "graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R1_HEMOSTASIS/FEEDBACK_058d8d8d2df42a26.json",
+          "sha256": "7e1bc273c3d274fc9ebef290d9172270b0967e62166052b94b1168d0d80847bc"
+        },
+        {
+          "file": "graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R1_HEMOSTASIS/DISPATCH.json",
+          "sha256": "883a4a55bea25d8bb87d995f69f35e37e4824ab4db1ca3afdec3bbbed844af48"
+        }
+      ]
+    },
+    {
+      "target": "BT-CTX-SURG-HEALING",
+      "receipts": [
+        {
+          "file": "graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R1_HEALING/FEEDBACK_510842a3c67df764.json",
+          "sha256": "79ded5ac7985bd7ae033a89d6d97bb8dc3c4d9552bb97ba54b4e5fe0e1d46d8d"
+        },
+        {
+          "file": "graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R1_HEALING/DISPATCH.json",
+          "sha256": "35e80a55e79c61f9c00dbba0aa56cd7e78e9c4cd66c768a0f5d2ae2f6d7a7534"
+        }
+      ]
+    }
+  ],
+  "original_context_imported": false,
+  "source_graph_changed": false,
+  "scientific_admission": false,
+  "status": "LOCAL_RECEIPTS_COMPLETE_PENDING_COORDINATOR_CONTEXT_IMPORT",
+  "reason": "COMMON/user restrict writes to own results; original ./graph dispatch writes tasks/graph_runs outside lane. Existing receipt-code used in isolated lane-local root; source target packets read-only.",
+  "coordinator_handoff": "GRAPH_COORDINATOR_IMPORT_R1.md"
+}

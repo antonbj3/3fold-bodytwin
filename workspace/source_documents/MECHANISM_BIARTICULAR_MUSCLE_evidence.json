@@ -1,0 +1,156 @@
+{
+  "task": "Biarticular (two-joint) muscle mechanics: inter-joint energy transfer + Lombard's paradox. Build/verify a quantitative model on THIS twin's own OpenSim geometry (hamstrings hip-extensor/knee-flexor + rectus femoris hip-flexor/knee-extensor co-contraction producing net extension at BOTH joints), falsified against a naive equal-moment-arm counter-model, plus a gastrocnemius knee-to-ankle energy-transfer geometric check anchored to the jumping literature.",
+  "status": "HYPOTHESIS -- built by a watertight-researcher subagent, awaiting independent QC by the coordinator.",
+  "confidence_tier": "mixed: (a) this twin's own live OpenSim moment-arm geometry [high confidence, machine-computed, 4/4 regression-checked vs already-validated data to <0.11%], (b) the equal-arm counter-model falsification [proof-grade -- an algebraic identity (det=rank-1-forced-zero), numerically confirmed to machine epsilon, not a fitted/statistical result], (c) live-verified primary jumping/cycling literature with real quantitative content [high confidence, verbatim NCBI abstracts, PMID+DOI cross-checked], (d) the gastrocnemius energy-TRANSFER PERCENTAGE itself [NOT independently re-derived this session -- no jump trial exists in this repo; literature-sourced only, disclosed gap].",
+  "doc": "docs/MECHANISM_BIARTICULAR_MUSCLE.md",
+  "new_files_this_session": [
+    "scripts/msk/biarticular_lombard_paradox.py -- self-contained, re-runnable (imports only opensim/numpy/json); loads the SAME read-only external model docs/MECHANISM_MOMENT_ARM_VALIDATION.md already validated",
+    "data/msk_smoketest/biarticular_lombard/biarticular_lombard_results.json -- full raw output (13-pose grid, two fine sweeps run interactively, spot-checks, gastrocnemius geometry)"
+  ],
+  "model_used_read_only": "/media/anton/8838D60F38D5FBDE/mechanism_data/LabValidation_withVideos/subject2/OpenSimData/Mocap/Model/LaiArnoldModified2017_poly_withArms_weldHand_scaled.osim (same model docs/MECHANISM_MOMENT_ARM_VALIDATION.md validated; never modified)",
+  "sign_convention_reused_not_rederived": "docs/MECHANISM_MOMENT_ARM_VALIDATION.md Sec.2 (already validated on THIS model via vasint_r finite-difference): computeMomentArm(state,coord) is POSITIVE iff the muscle's tension increases coord; hip_flexion_r and knee_angle_r are both flexion-positive on this model.",
+  "regression_spotcheck_vs_already_validated_data": {
+    "purpose": "verify this NEW script's methodology (state handling, units, sign) reproduces the OLD already-validated numbers exactly before trusting any NEW number it produces",
+    "recfem_r_knee_24.1deg_cm": {"this_script": -5.636816907339973, "existing_validated_csv": -5.64, "reldiff_pct": 0.0564},
+    "semimem_r_hip_0deg_cm": {"this_script": -4.475560244713579, "existing_validated_json": -4.48, "reldiff_pct": 0.0991},
+    "gasmed_r_knee_86.1deg_cm": {"this_script": 3.35654828252778, "existing_validated_csv": 3.36, "reldiff_pct": 0.1027},
+    "gaslat_r_knee_88.1deg_cm": {"this_script": 3.5333843255794126, "existing_validated_csv": 3.53, "reldiff_pct": 0.0959},
+    "verdict": "PASS, 4/4, all <0.11% -- methodology confirmed before any new claim is built on it"
+  },
+  "new_measurement_recfem_r_hip_flexion_moment_arm": {
+    "why_new": "moment_arm_validation.py's own HIP_FLEXION_MUSCLES dict never included rectus_femoris (only hamstrings/glutes/iliopsoas/adductors) -- this is the first live measurement of recfem_r's hip moment arm in this repo",
+    "sweep_hip_flexion_deg_vs_moment_arm_cm": [[0,3.624],[10,4.205],[20,4.683],[30,5.040],[40,5.260],[50,5.330],[60,5.236],[70,4.973],[80,4.537],[90,3.934],[100,3.178]],
+    "sign": "positive throughout (0-100deg) -- consistent with recfem_r being a hip FLEXOR on a flexion-positive hip_flexion_r coordinate, confirming the expected direction with a live measurement rather than assuming it",
+    "shape": "peaked at hip~50deg (5.33cm), non-monotonic -- physiologically plausible (iliopsoas/rectus-femoris-type hip flexors typically peak mid-range)"
+  },
+  "geometric_model": {
+    "setup": "R = [[ma_H_hip, ma_R_hip],[ma_H_knee, ma_R_knee]] (signed OpenSim moment arms, m); hamstrings (H) lumped via Fmax-weighted resultant across semimem_r/semiten_r/bflh_r (same construction as MECHANISM_MOMENT_ARM_VALIDATION.md Sec.8's adductor-magnus resultant); rectus femoris (R) single muscle. Ext(F_H,F_R) = -R@[F_H,F_R] (both coords flexion-positive, so extension = negated generalized force). C: exists F_H,F_R>0 with Ext_hip>0 AND Ext_knee>0. Solved 2 independent ways per pose (closed-form ratio-interval algebra + a 20001-point angular numeric sweep) -- agreed at 13/13 poses.",
+    "geometric_governor": "sigma_min(R) (smallest singular value) -- R must be full-rank (sigma_min>0) for the 2 muscles to reach 2 independent torque directions at all; sigma_min=0 forces M_knee = -M_hip identically (pure torque-transfer, cannot produce dual extension by any nonneg force combination)."
+  },
+  "pose_feasibility_grid_13_poses": [
+    {"hip_deg":100,"knee_deg":100,"det":-0.000598,"sigma_min_m":0.00916,"feasible":false},
+    {"hip_deg":90,"knee_deg":90,"det":-0.000547,"sigma_min_m":0.00705,"feasible":false},
+    {"hip_deg":70,"knee_deg":70,"det":0.000009,"sigma_min_m":0.00009,"feasible":true,"ratio_band_FH_over_FR":[0.935,0.938],"note":"knife-edge -- barely feasible, near-singular"},
+    {"hip_deg":50,"knee_deg":50,"det":0.000674,"sigma_min_m":0.00633,"feasible":true,"ratio_band_FH_over_FR":[0.878,1.117]},
+    {"hip_deg":30,"knee_deg":30,"det":0.001239,"sigma_min_m":0.01175,"feasible":true,"ratio_band_FH_over_FR":[0.827,1.297]},
+    {"hip_deg":10,"knee_deg":10,"det":0.001282,"sigma_min_m":0.01340,"feasible":true,"ratio_band_FH_over_FR":[0.780,1.370]},
+    {"hip_deg":0,"knee_deg":0,"det":0.001028,"sigma_min_m":0.01167,"feasible":true,"ratio_band_FH_over_FR":[0.767,1.310]},
+    {"hip_deg":100,"knee_deg":40,"det":0.000358,"sigma_min_m":0.00426,"feasible":true,"ratio_band_FH_over_FR":[0.970,1.209]},
+    {"hip_deg":40,"knee_deg":100,"det":-0.000511,"sigma_min_m":0.00559,"feasible":false},
+    {"hip_deg":90,"knee_deg":20,"det":0.000668,"sigma_min_m":0.00745,"feasible":true,"ratio_band_FH_over_FR":[0.976,1.375]},
+    {"hip_deg":20,"knee_deg":90,"det":-0.000169,"sigma_min_m":0.00188,"feasible":false},
+    {"hip_deg":60,"knee_deg":100,"det":-0.000651,"sigma_min_m":0.00728,"feasible":false},
+    {"hip_deg":100,"knee_deg":60,"det":0.000089,"sigma_min_m":0.00108,"feasible":true,"ratio_band_FH_over_FR":[0.978,1.034],"note":"knife-edge -- barely feasible"}
+  ],
+  "summary_counts": {
+    "n_poses": 13,
+    "n_real_model_feasible_dual_extension": 8,
+    "n_equal_arm_counter_model_feasible_dual_extension": 0,
+    "n_poses_both_solution_methods_agree": 13,
+    "n_poses_equal_activation_ratio_FmaxH_over_FmaxR_inside_feasible_band": 0
+  },
+  "OODA_forced_orientation_knee_angle_gated_gap": {
+    "trigger": "initial 13-pose grid returned feasible=False at (90,90) and (100,100) -- an unexpected result given the task's own framing that co-contraction should generally produce dual extension; per this repo's own discipline this was ORIENTED (diagnosed), not shrugged off as a one-shot honest-negative",
+    "fine_sweep_1_fixed_hip90_vary_knee_5deg_steps": "feasible=True for knee in [10,65]deg, FLIPS to False at knee in [70,115]deg (det crosses zero between knee=65 [det=+0.000016] and knee=70 [det=-0.000107]), FLIPS BACK to True for knee>=120deg (det crosses zero between knee=115 [det=-0.000175] and knee=120 [det=+0.000081]). Non-monotonic, both crossings bracketed by direct measurement, not extrapolated.",
+    "fine_sweep_2_fixed_knee90_vary_hip_0to120_10deg_steps": "feasible=False at EVERY hip angle tested (det ranges -0.000098 to -0.000547, never crosses zero) -- confirms the gating variable is KNEE angle, not hip angle, at least across this hip range",
+    "mechanism": "ma_R_knee (rectus femoris knee-extensor arm magnitude) is itself NON-MONOTONIC in knee angle: 5.633cm at knee=20deg -> falls to 2.302cm at knee=100deg -> rises again to 3.089cm at knee=120deg (mirrors the independently well-documented quadriceps/patellofemoral moment-arm-vs-knee-flexion literature, e.g. this repo's own docs/MECHANISM_PATELLOFEMORAL_FORCE.md -- NOT re-checked against that doc's own numbers this session, an honest gap). The ratio rho_H=|ma_H_hip/ma_H_knee| vs rho_R=|ma_R_hip/ma_R_knee| crosses (rho_H>rho_R flips to rho_H<rho_R) exactly when det(R) changes sign.",
+    "literature_convergence_disclosed_as_suggestive_not_proven": "Gregor, Cavanagh & LaFortune 1985 (PMID 4008501) independently found (via real cycling EMG+pedal-reaction kinetics, a wholly different method/era/data type) that a genuine KNEE FLEXOR net moment appears 'approximately half way through the propulsive phase' of cycling -- i.e. dual-extension-via-co-contraction does NOT hold at every crank/joint-angle combination in real human cycling either. Cycling knee-flexion ROM plausibly overlaps this session's measured 70-115deg gap zone, but exact cycling joint-angle time series were NOT pulled this session to confirm the overlap numerically -- disclosed as a suggestive, not confirmed, convergence."
+  },
+  "equal_moment_arm_counter_model_falsifier": {
+    "construction": "for each muscle, magnitude = mean(|ma_hip|,|ma_knee|), applied at BOTH joints with that muscle's own real sign/direction preserved (operationalizes the naive intro-biomechanics 'single lever arm' simplification)",
+    "algebraic_identity": "forces ma_H_hip_equal/ma_H_knee_equal = +-1 exactly and ma_R_hip_equal/ma_R_knee_equal = +-1 exactly (equal magnitude by construction) -> det(R_equal) = 0 EXACTLY whenever the two muscles' own sign patterns are the textbook-opposite pattern (hamstring: hip-,knee+; RF: hip+,knee-) -- proven algebraically before running any code, then confirmed numerically",
+    "measured_det_all_13_poses": "between 2.89e-19 and (largest magnitude) ~1e-17 -- machine-epsilon zero at every single pose, matching the proof exactly",
+    "measured_sigma_min_all_13_poses": "between 5.29e-18 and ~1e-17 -- machine-epsilon zero at every single pose (rank-1, singular, by construction)",
+    "feasible_dual_extension_count": "0 / 13 poses -- the naive equal-arm model NEVER produces a feasible co-contraction ratio for dual extension, at ANY tested posture, confirming the falsifier",
+    "physical_reading": "with equal moment arms, M_knee = -M_hip IDENTICALLY for any (F_H,F_R) -- the naive model can only TRANSFER moment between joints (extend one exactly as much as it flexes the other), never ADD net extension at both; this is the exact 'locked/indeterminate' failure the task's own falsifier named"
+  },
+  "equal_activation_ratio_check": {
+    "purpose": "sharper test than 'a feasible ratio interval exists' -- does the SIMPLEST physiologically-naive co-contraction hypothesis (both muscles at the same fraction of their own Fmax) actually land inside that interval?",
+    "ratio_FmaxH_total_over_FmaxR_original_model_Fmax": 1.873152714886435,
+    "ratio_FmaxH_total_over_FmaxR_handsfield_pcsa_corrected_Fmax_sensitivity_check": 1.6352066249680042,
+    "note_on_correction": "this repo's own docs/MECHANISM_FMAX_PCSA_VALIDATION.md + docs/MECHANISM_SPECIFIC_TENSION.md already found the model's native Fmax is somewhat over-strong; re-read Fmax from data/msk_models/subject2_scaled_handsfield_fmax_corrected.osim (already-built sibling model, read-only) as a sensitivity check -- ratio shifts 1.873->1.635 but the qualitative conclusion below is UNCHANGED by this correction",
+    "finding": "0 / 8 feasible poses have the equal-activation ratio (1.873, or 1.635 corrected) falling inside that pose's own feasible band -- e.g. pose(0,0) band=[0.767,1.310], pose(70,70) band=[0.935,0.938]: both ratios sit ABOVE every tested band's upper bound",
+    "interpretation": "equal relative activation (same %Fmax in both muscles) is NOT the geometric solution nature needs -- real co-contraction achieving dual extension requires relatively MORE rectus-femoris force (lower F_H/F_R) than equal-%Fmax gives. Consistent with (not proof of) real EMG studies showing asymmetric, phase-varying hamstring-vs-quadriceps activation levels rather than matched %MVC (Andrews 1987 PMID 3611133; Gregor 1985 PMID 4008501) -- this repo's own docs/MECHANISM_EMG_CONSTRAINED_FORCE.md and docs/MECHANISM_EMG_TIMING.md already show real, non-equal, phase-specific hamstring/quadriceps EMG timing for this exact subject's gait trial (reused as a pointer, not re-derived here)."
+  },
+  "gastrocnemius_ankle_knee_energy_transfer": {
+    "push_off_representative_pose_deg": {"knee": 20.0, "ankle": -20.0},
+    "moment_arms_cm": {
+      "gasmed_r_knee": 2.654726790944893, "gasmed_r_ankle": -4.996840198280883,
+      "gaslat_r_knee": 2.8311804666359466, "gaslat_r_ankle": -5.148633966081268,
+      "gasmed_gear_ratio_ankle_over_knee": 1.8822427284513015,
+      "gaslat_gear_ratio_ankle_over_knee": 1.8185467252106877
+    },
+    "reading": "both gastrocnemius heads carry a SUBSTANTIAL, same-order-of-magnitude moment arm at BOTH the knee and ankle simultaneously near terminal-knee-extension push-off geometry (ankle arm ~1.8-1.9x the knee arm, neither near zero) -- the NECESSARY (not sufficient) structural/geometric prerequisite for the literature's proximal-to-distal power-transfer mechanism to operate at all. This is a NEW, THIS-TWIN-SPECIFIC geometric measurement -- it does NOT reproduce the literature's own dynamic power-transfer PERCENTAGE (no jump trial exists in this repo, disclosed honest gap below).",
+    "ankle_sweep_gasmed_r_representative_points_cm": [[-45,-4.045],[-30,-4.739],[-15,-5.063],[0,-5.030],[15,-4.672],[30,-4.040],[45,-3.186]],
+    "ankle_sweep_shape": "non-monotonic, peaks in magnitude near -15 to 0 deg (mid-range), decreases toward both dorsiflexion and plantarflexion extremes -- physiologically plausible Achilles/gastrocnemius moment-arm curve shape."
+  },
+  "citations_verified_live_this_session": {
+    "lombard_1903_original": {
+      "doi": "10.1080/23267224.1903.10649915",
+      "cite": "Lombard WP (1903). The Action of Two-Joint Muscles. American Physical Education Review 8(3):141-145.",
+      "verified_via": "Crossref REST API bibliographic search, live this session (NOT in PubMed -- pre-MEDLINE-index era, confirmed via a 0-result esearch first)",
+      "numbers": "historical/foundational -- the original description of the paradox; no PubMed abstract exists to quote"
+    },
+    "andrews_1987_lombard_paradox_revisited": {
+      "pmid": "3611133", "doi": "10.1016/0021-9290(87)90278-8",
+      "cite": "Andrews JG (1987). The functional roles of the hamstrings and quadriceps during cycling: Lombard's Paradox revisited. J Biomech 20(6):565-75.",
+      "verified_via": "NCBI eutils esearch->esummary(title/journal/author match)->efetch(abstract), live this session",
+      "numbers": "VERBATIM: 'Both classification methods led to the existence of considerable paradoxical muscle behavior' in hamstrings/quadriceps at both hip and knee during cycling -- empirical EMG/kinetics confirmation, decorrelated from any moment-arm geometry."
+    },
+    "gregor_1985_creative_solution": {
+      "pmid": "4008501", "doi": "10.1016/0021-9290(85)90286-6",
+      "cite": "Gregor RJ, Cavanagh PR, LaFortune M (1985). Knee flexor moments during propulsion in cycling--a creative solution to Lombard's Paradox. J Biomech 18(5):307-16.",
+      "verified_via": "NCBI eutils, live this session",
+      "numbers": "VERBATIM: 'A knee flexor moment was consistently observed in all subjects starting approximately half way through the propulsive phase' -- a symmetric-QC-relevant NUANCE: the paradox is not universally 'always dual-extension' even in real cycling, converges qualitatively with this session's own found knee-angle-gated gap (disclosed as suggestive only, see OODA section above)."
+    },
+    "visser_1990_moment_arms": {
+      "pmid": "2079066", "doi": "10.1007/BF00236067",
+      "cite": "Visser JJ, Hoogkamer JE, Bobbert MF, Huijing PA (1990). Length and moment arm of human leg muscles as a function of knee and hip-joint angles. Eur J Appl Physiol Occup Physiol 61(5-6):453-60.",
+      "verified_via": "NCBI eutils, live this session",
+      "numbers": "VERBATIM: 'The effect of changing the hip angle on the biceps femoris muscle length is much larger than that of changing the knee angle. For the rectus femoris muscle the reverse was found.' -- a DECORRELATED cadaveric (n=6 limbs) confirmation of exactly the moment-arm-ratio asymmetry (rho_H>1, rho_R<1) this session's OpenSim measurement also finds; Visser 1990 is NOT among the papers Rajagopal 2016 cited when validating this twin's own model geometry (docs/MECHANISM_MOMENT_ARM_VALIDATION.md Sec.3/9 -- that list is Buford1997/SpoorVanLeeuwen1992/NemethOhlsen1985/Dostal1986/Arnold2000), so this is a genuinely independent anchor, not a tuned-to one."
+    },
+    "bobbert_vaningenschenau_1988_coordination_jumping": {
+      "pmid": "3379084", "doi": "10.1016/0021-9290(88)90175-3",
+      "cite": "Bobbert MF, van Ingen Schenau GJ (1988). Coordination in vertical jumping. J Biomech 21(3):249-62.",
+      "verified_via": "NCBI eutils, live this session",
+      "numbers": "VERBATIM: EMG activation plateau sequence 'm. semitendinosus, long head of m. biceps femoris, m. gluteus maximus, m. vastus medialis, m. rectus femoris, m. soleus, m. gastrocnemius' (proximal-to-distal); '[the] requirement can be satisfied by transportation of energy via the biarticular m. rectus femoris and m. gastrocnemius.'"
+    },
+    "gregoire_1984_mono_biarticular_explosive": {
+      "pmid": "6511147", "doi": "10.1055/s-2008-1025921",
+      "cite": "Gregoire L, Veeger HE, Huijing PA, van Ingen Schenau GJ (1984). Role of mono- and biarticular muscles in explosive movements. Int J Sports Med 5(6):301-5.",
+      "verified_via": "NCBI eutils, live this session",
+      "numbers": "VERBATIM: 'a high power output of 3000-4000 W was delivered in the ankle joints during plantar flexion. This is attributed to a sequential energy flow from hip to knee and ankle joints' via glut max + rectus femoris + vasti + gastrocnemius; biarticular muscles reach the high-force/low-contraction-velocity regime during transfer, 'without losses due to eccentric contractions.'"
+    },
+    "prilutsky_zatsiorsky_1994_tendon_action_energy_transfer": {
+      "pmid": "8106533", "doi": "10.1016/0021-9290(94)90029-9",
+      "cite": "Prilutsky BI, Zatsiorsky VM (1994). Tendon action of two-joint muscles: transfer of mechanical energy between joints during jumping, landing, and running. J Biomech 27(1):25-34.",
+      "verified_via": "NCBI eutils, live this session",
+      "numbers": "VERBATIM (n=5 subjects, inverse-dynamics 4-link 8-muscle leg model): squat vertical jump, max proximal-to-distal energy transfer = '178.6 +/- 45.7 J (97.1 +/- 27.2% of the work done by the joint moment at the hip joint)' via rectus femoris + gastrocnemius; landing, max distal-to-proximal transfer = '18.6 +/- 4.2 J (38.5 +/- 36.4% of work done by the joint moment at the ankle joint)'. THE single quantitative anchor for the gastrocnemius/RF energy-transfer-percentage claim in this document."
+    }
+  },
+  "reused_citations_already_verified_this_repo_not_rechecked_this_session": {
+    "nemeth_ohlsen_1985": {"pmid": "3988782", "source_doc": "docs/MECHANISM_MOMENT_ARM_VALIDATION.md Sec.3-4", "role": "hip extensor (hamstrings incl.) cadaveric moment-arm anchor, already PASS at 3-29% vs this same model"},
+    "spoor_vanleeuwen_1992": {"pmid": "1733995", "source_doc": "docs/MECHANISM_MOMENT_ARM_VALIDATION.md Sec.3", "role": "knee moment-arm MRI-vs-tendon-travel inter-method spread (justifies +-30% tolerance convention)"},
+    "buford_1997": {"pmid": "9422462", "source_doc": "docs/MECHANISM_MOMENT_ARM_VALIDATION.md Sec.3", "role": "knee-crossing muscle cadaveric moment-arm anchor incl. hamstrings/rectus femoris/gastrocnemius"}
+  },
+  "couples_to": [
+    "docs/MECHANISM_MOMENT_ARM_VALIDATION.md -- this document's direct parent/sibling: reuses its model, its sign convention, its lumping-resultant construction, and 4 of its already-validated numbers as a regression gate; adds the NEW recfem_r hip moment arm it never measured plus the 2-joint coupled (not one-coordinate-at-a-time) analysis",
+    "docs/MECHANISM_SPECIFIC_TENSION.md, docs/MECHANISM_FMAX_PCSA_VALIDATION.md -- supplies the Fmax numbers (both original and Handsfield-PCSA-corrected) used in the equal-activation-ratio sensitivity check",
+    "docs/MECHANISM_FIBER_LENGTH_CROSS_SUBJECT.md -- fiber-length/PCSA cert family this document's Fmax inputs ultimately derive from",
+    "docs/MECHANISM_EMG_CONSTRAINED_FORCE.md, docs/MECHANISM_EMG_TIMING.md -- already-measured real, non-equal, phase-specific hamstring/quadriceps EMG timing for this exact subject's gait trial; the equal-activation-ratio check's finding (asymmetric recruitment required) is consistent with, not re-derived from, those docs",
+    "docs/MECHANISM_PATELLOFEMORAL_FORCE.md -- likely already documents the non-monotonic quadriceps/knee moment-arm-vs-flexion-angle curve this document's 'gap zone' mechanism depends on; NOT cross-checked against this session (honest gap)",
+    "docs/MECHANISM_ANKLE_FORCE.md -- the triceps-surae (incl. gastrocnemius) Achilles tendon-force numbers this document's ankle-transfer geometry sits alongside",
+    "docs/MECHANISM_HIP_FORCE.md, docs/MECHANISM_STATIC_OPT.md -- the knee/hip joint-force certs whose muscle-force solutions this document's 2-joint coupling geometry underlies (R(q) is literally the matrix those certs' static optimization solves against)"
+  ],
+  "honest_gaps": [
+    "The 2-muscle (hamstrings+RF) system tested is the STRONGEST/purest form of the paradox (can these TWO alone produce dual extension) -- real sit-to-stand/cycling also recruits vasti (knee) and glutes (hip) simultaneously, which do most of the actual extensor work; this document's 'gap zone' (knee 70-115deg where the 2-muscle-alone system fails) is NOT a claim that real dual-joint extension fails in that range (it empirically does not -- people rise from deep chairs routinely), only that the biarticular PAIR alone cannot supply it there.",
+    "Static/quasi-static geometry only -- no forward-dynamics, no force-length/velocity effects, no actual measured EMG-driven force magnitudes for hamstrings/recfem_r during a real sit-to-stand trial in this repo (recfem_r has NO right-side EMG channel in this subject's dataset at all, per docs/MECHANISM_EMG_CONSTRAINED_FORCE.md Sec.2 -- an already-disclosed-elsewhere gap, reused not rediscovered). A real STS EMG trial (STS1_EMG.sto) exists in this repo's data and could exploit the hamstring channels (semiten_r/bflh_r present) in a follow-up; not done this session.",
+    "The gastrocnemius energy-TRANSFER PERCENTAGE (Prilutsky's 97.1+-27.2%, Gregoire's 3000-4000W) is a LITERATURE-sourced number, not independently re-derived from this twin's own dynamics -- no jump kinematics/kinetics/GRF trial exists in this repo's corpus (only gait, checked implicitly via the existing MSK data catalog referenced throughout this doc family). This document's own contribution for gastrocnemius is the GEOMETRIC prerequisite check (real, substantial, simultaneous knee+ankle moment arms) only.",
+    "Single subject (subject2), right leg only, one model lineage (LaiArnold/Rajagopal) -- same scope caveat this entire doc family discloses every time.",
+    "The equal-arm counter-model's specific construction (mean of |hip|,|knee| magnitudes) is one reasonable operationalization of 'naive equal moment arm' but not the only possible one -- disclosed as a design choice, not a uniquely-forced definition (though the qualitating conclusion, det=0 exactly, holds for ANY equal-magnitude construction by the same algebraic identity, not just this specific mean).",
+    "The knee-angle-gated 'gap zone' (70-115deg) mechanism was linked qualitatively to the well-known non-monotonic quadriceps/patellar moment-arm-vs-flexion literature but NOT cross-checked against this repo's own docs/MECHANISM_PATELLOFEMORAL_FORCE.md numbers this session -- a natural, cheap follow-up.",
+    "Gregor 1985's cycling knee-flexor-moment finding was noted as a suggestive qualitative convergence with this session's own gap zone, NOT a confirmed numerical match (cycling joint-angle time series were not pulled this session).",
+    "12/13 poses used a coarse 10-20deg grid; only 2 axis-aligned slices (hip=90 fixed, knee=90 fixed) were finely swept (5-10deg steps) to locate the crossover angles -- the crossover location was not verified to be hip-angle-invariant outside the specific hip=0-120deg range tested at knee=90."
+  ],
+  "proposed_cell": "biarticular_coupling_cert: extend docs/MECHANISM_STATIC_OPT.md's knee/hip static optimization with an explicit 2-joint R(q) rank/sigma_min diagnostic at every solved frame of a real walking or (if ever acquired) sit-to-stand trial, flagging any frame where the biarticular hamstrings+RF (or gastrocnemius knee/ankle) submatrix is near-singular (sigma_min below a pre-registered floor) as a frame where inter-joint torque/energy transfer is geometrically constrained -- decorrelated from the force magnitudes themselves, purely a property of R(q)."
+}

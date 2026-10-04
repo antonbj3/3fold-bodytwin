@@ -1,0 +1,174 @@
+{
+  "task": "Vestibular/postural-balance layer: quantitative VOR canal-dynamics transfer-function model + inverted-pendulum-with-delayed-feedback postural-sway model, coupled to this twin's existing MSK postural work.",
+  "confidence_tier": "in-vivo-anchored (rotating-chair/vHIT VOR gain norms + force-plate posturography), with one internal already-measured real-data anchor (ORG-POSTURAL-BALANCE)",
+  "scripts": {
+    "vor_model": "scripts/msk/vestibular_vor.py",
+    "postural_model": "scripts/msk/postural_sway_pendulum.py"
+  },
+  "raw_results": {
+    "vor_model": "reports/probes/vestibular_vor_results.json",
+    "postural_model": "reports/probes/postural_sway_pendulum_results.json"
+  },
+  "citations_verified_live_this_session": {
+    "fernandez_goldberg_1971": {
+      "pmid": "5000363",
+      "cite": "Fernandez C, Goldberg JM (1971). Physiology of peripheral neurons innervating semicircular canals of the squirrel monkey. II. Response to sinusoidal stimulation and dynamics of peripheral vestibular system. J Neurophysiol 34(4):661-75.",
+      "verified_via": "NCBI eutils esearch+esummary, live this session",
+      "note": "Primary source, torsion-pendulum canal dynamics. No abstract available (pre-abstracting era) -- bibliographic match only (title/journal/vol/pages confirmed)."
+    },
+    "karmali_2019": {
+      "pmid": "31239137",
+      "doi": "10.1016/bs.pbr.2019.04.038",
+      "cite": "Karmali F (2019). The velocity storage time constant: Balancing between accuracy and precision. Prog Brain Res.",
+      "verified_via": "NCBI esummary + PubMed abstract fetch, live this session",
+      "numbers": "semicircular canal (peripheral) time constant = 5.7 s; velocity-storage (central) time constant range = 6-30 s"
+    },
+    "mcgarvie_2015_vhit": {
+      "doi": "10.3389/fneur.2015.00154",
+      "cite": "McGarvie LA, MacDougall HG, Halmagyi GM, Burgess AM, Weber KP, Curthoys IS (2015). The Video Head Impulse Test (vHIT) of Semicircular Canal Function - Age-Dependent Normative Values of VOR Gain in Healthy Subjects. Front Neurol.",
+      "verified_via": "Full open-access Frontiers article fetched live this session (redirect chain doi.org -> journal.frontiersin.org -> www.frontiersin.org)",
+      "numbers": "horizontal-canal VOR gain 95% CI 'include or are very close to 1.0' from 10-19y through 80-89y age decades; gain decreases at high head velocities (separate amplitude-nonlinearity axis)."
+    },
+    "bouveresse_1998": {
+      "pmid": "9810455",
+      "cite": "Bouveresse A, Kalfane K, Gentine A, Eichhorn JL, Kopp C (1998). Pseudorandom rotational stimuli of the vestibulo-ocular reflex in humans: normal values of the transfer function. Acta Otorhinolaryngol Belg 52(3):207-14.",
+      "verified_via": "PubMed abstract fetch, live this session",
+      "numbers": "n=52 healthy subjects, 0.01-0.64 Hz pseudorandom rotary-chair stimulation, confirms linear gain+phase transfer-function description of the human VOR over this band. Exact per-frequency numbers not extractable from the (paywalled) abstract -- honest gap disclosed."
+    },
+    "baloh_1988_disease": {
+      "pmid": "3422799",
+      "doi": "10.1002/ana.410230107",
+      "cite": "Baloh RW, Beykirch K, Tauchi P, Yee RD, Honrubia V (1988). Ultralow vestibulo-ocular reflex time constants. Ann Neurol 23(1):32-7.",
+      "verified_via": "PubMed abstract fetch, live this session",
+      "numbers": "n=3 CNS-lesion patients (Chiari I, brainstem-cerebellar atrophy): time constant <2s; one patient 'no response to caloric stimulation or to sinusoidal rotation below 0.2Hz but normal gain...above 0.4Hz' -- disease-population over-determination of the corner-frequency structure."
+    },
+    "winter_1998": {
+      "pmid": "9744933",
+      "cite": "Winter DA, Patla AE, Prince F, Ishac M, Gielo-Perczak K (1998). Stiffness control of balance in quiet standing. J Neurophysiol 80(3):1211-21.",
+      "verified_via": "NCBI esummary, live this session"
+    },
+    "winter_2001": {
+      "pmid": "11387407",
+      "doi": "10.1152/jn.2001.85.6.2630",
+      "cite": "Winter DA, Patla AE, Rietdyk S, Ishac MG (2001). Ankle muscle stiffness in the control of balance during quiet standing. J Neurophysiol 85(6):2630-3.",
+      "verified_via": "PubMed abstract fetch, live this session",
+      "numbers": "n=10, 10s quiet stance, ankle-moment-vs-sway-angle regression R^2=0.92, quasi-stiffness 'safely above' the gravitational/critical stiffness mgh (exact ratio not in abstract)."
+    },
+    "loram_lakie_2002": {
+      "pmid": "12482906",
+      "doi": "10.1113/jphysiol.2002.025049",
+      "cite": "Loram ID, Lakie M (2002). Direct measurement of human ankle stiffness during quiet standing: the intrinsic mechanical stiffness is insufficient for stability. J Physiol 545(3):1041-53.",
+      "verified_via": "PubMed abstract fetch, live this session",
+      "numbers": "intrinsic (passive) ankle stiffness = 91 +/- 23% of the value needed for minimal stabilization -- i.e. BELOW critical (mgh) alone; active neural modulation is required."
+    },
+    "peterka_2002": {
+      "pmid": "12205132",
+      "doi": "10.1152/jn.2002.88.3.1097",
+      "cite": "Peterka RJ (2002). Sensorimotor integration in human postural control. J Neurophysiol 88(3):1097-118.",
+      "verified_via": "PubMed abstract fetch, live this session",
+      "numbers": "feedback TIME DELAY (not the damping coefficient) is the primary mechanism producing increased effective damping; stiffness rose up to 60% with stimulus amplitude; vestibular-loss patients could not sensory-reweight (linear response) while normals could."
+    },
+    "hbedb_dataset": {
+      "url": "https://physionet.org/content/hbedb/",
+      "verified_via": "Direct WebFetch of the PhysioNet content page, live this session",
+      "numbers": "Human Balance Evaluation Database v1.0.0: 163 subjects, 1930 trials, force-plate stabilography (force/moment/COP, 8 channels), EO/EC x firm/foam conditions, 100Hz sampled, 10Hz low-pass filtered -- matches the internal ORG-POSTURAL-BALANCE claim's n=163 and condition structure exactly; confirms that claim was not fabricated."
+    }
+  },
+  "internal_anchor_not_a_literature_citation": {
+    "node_id": "ORG-POSTURAL-BALANCE",
+    "graph_path": "data/MECHANISM_ANCHOR_GRAPH.json",
+    "ledger_path": "bt_memory/LEDGER.jsonl",
+    "status_in_graph": "ASSUMED, mechanism_grade=MEASURED-B (PASS), EXECUTED 2026-07-18",
+    "measured_numbers": {
+      "age_sway_COP_velocity_ratio_old_over_young": 1.409,
+      "age_sway_p_value": 1.9e-6,
+      "romberg_ratio_EC_over_EO_firm_surface": 1.155,
+      "romberg_ratio_EC_over_EO_firm_p_value": 1.2e-4,
+      "romberg_ratio_EC_over_EO_foam_surface": 1.304,
+      "romberg_ratio_EC_over_EO_foam_p_value": 4e-21,
+      "foam_over_firm_sway_ratio": 3.109,
+      "rms_area_romberg_effect": "NULL (p=0.58 firm, p=0.22 foam) -- metric-specific, honest, not cherry-picked",
+      "n_subjects": 163,
+      "n_trials": 644
+    },
+    "note": "This is this twin's OWN prior, already-measured, byte-verified (SHA256 vs the HBEDB dataset's own manifest) result on REAL force-plate data -- used here as the external falsifier anchor for the mechanistic pendulum model, stronger than a fresh literature pull because it is real, adversarially-forced (filter-cutoff 2-20Hz sweep, window 20-60s sweep, height/sex multivariate + within-sex stratification, all survived) raw-data measurement already sitting in this repo's graph."
+  },
+  "vor_model_headline_falsifier": {
+    "pre_registered_threshold": "gain in [0.90, 1.00] at f in {0.1, 0.5, 1.0} Hz",
+    "peripheral_canal_tau5p7s_gain": [0.9632, 0.9984, 0.9996],
+    "central_velocity_storage_tau17p5s_gain": [0.9959, 0.9998, 1.0000],
+    "PASS": true,
+    "machine_crosscheck_closed_form_vs_scipy_LTI_max_error": 2.22e-16,
+    "void_floor_frequency_sweep_gain_range": [0.0110, 1.0000],
+    "void_floor_tau_sweep_monotonic": true,
+    "low_vs_high_frequency_split": "HELD OPEN by design -- low-frequency gain diverges strongly between peripheral-only (tau=5.7s) and central (tau=6-30s) regimes; mid/high-frequency gain converges near 1.0 regardless. Not collapsed to one PASS/FAIL.",
+    "disease_dissociation_check_baloh1988": {
+      "low_to_high_gain_drop_disease_tau1p5s": 0.3404,
+      "low_to_high_gain_drop_healthy_tau17p5s": 0.0072,
+      "structural_qualitative_match": true,
+      "caveat": "qualitative/structural corroboration only, not an exact quantitative refit of Baloh 1988's patient data"
+    }
+  },
+  "postural_model_headline_falsifier": {
+    "model": "single-link inverted pendulum + delayed PD feedback on a noisy position estimate; COP=T_A/(m*g)",
+    "params_used": {
+      "mass_kg": 78.2,
+      "mass_source": "read live from this twin's own metabolic_cost_results.json (subject2)",
+      "height_m_disclosed_estimate": 1.73,
+      "h_com_above_ankle_m": 0.969,
+      "mgh_Nm": 743.21,
+      "Kp_total_EO_Nm_per_rad": 854.69,
+      "Kp_total_EO_over_mgh": 1.15,
+      "Kd_EO_Nm_s_per_rad": 180.91,
+      "zeta_undelayed_equivalent": 1.0,
+      "delay_EO_ms": 150,
+      "noise_band_limit_hz": 10.0,
+      "noise_band_limit_source": "matched to HBEDB's own stated 10Hz low-pass filter (live-confirmed)"
+    },
+    "machine_crosscheck_exact_freq_domain_vs_monte_carlo": {
+      "z_score_theta": 0.21,
+      "z_score_thetadot": 1.40,
+      "PASS_both_within_4sigma": true,
+      "note": "A first attempt (zeta=0.35 at zero delay) FAILED this crosscheck (z=5.78/5.94) because that parameter combination has a right-half-plane characteristic root once the 150ms delay is added (max Re(root)=+0.44, numerically verified via grid+Nelder-Mead root search) -- i.e. it is genuinely UNSTABLE, not a simulation bug. Fixed by raising damping to zeta=1.0 (stability margin -0.45 at 150ms delay). This is now an explicit, machine-gated check on every reported variance, not an assumption."
+    },
+    "void_floor_stability_margin_sweep": {
+      "description": "delay swept 50-300ms at fixed EO gains; variance grows monotonically as the stability margin approaches zero, then the system becomes literally unstable",
+      "delay_ms_stability_margin_var_theta": [
+        [50, -1.0606, 2.409e-3],
+        [100, -0.8049, 3.528e-3],
+        [150, -0.4524, 6.670e-3],
+        [175, -0.2506, 1.210e-2],
+        [200, -0.0451, 6.645e-2],
+        [210, 0.0357, null],
+        [250, 0.3375, null],
+        [300, 0.6488, null]
+      ],
+      "growth_factor_50ms_to_200ms": 27.6,
+      "instability_onset_ms": "between 200 and 210",
+      "PASS_margin_monotonic": true,
+      "PASS_variance_grows_toward_boundary": true,
+      "PASS_boundary_actually_crossed": true,
+      "note": "Instability onset (~205ms) sits just above the disclosed 100-200ms physiological delay-range estimate -- i.e. real postural gains appear to operate close to, but on the stable side of, this margin, consistent with Peterka 2002 and Loram & Lakie 2002's emphasis on active, precisely-tuned control rather than a comfortably-overdamped passive system."
+    },
+    "forced_adversary_1_noise_only_mechanism": {
+      "result": "dissociation_ratio = 1.000 EXACTLY for k=1.5, 2.0, 3.0 (RMS_ratio == velocity_ratio in every case)",
+      "verdict": "ANALYTICALLY REFUTED as the EO-to-EC mechanism: a general LTI/spectral argument (any single noise source's variance-only rescaling multiplies every linear output's variance, position and velocity alike, by the identical factor) predicted this exactly, and the numerical result confirms it to displayed precision. Cannot reproduce the twin's own measured metric-specific dissociation (velocity ratio 1.155-1.304 significant, RMS/area null)."
+    },
+    "system_shape_mechanisms_tested": {
+      "delay_only_+10_20_30ms": "dissociation_ratio ~1.05-1.06 (little differentiation in this small, safely-stable delay range)",
+      "stiffness_only_frac_0.97_0.94_0.90": "dissociation_ratio NEGATIVE (-0.32 to -1.17): RMS ratio rises MORE than (or opposite to) velocity ratio -- real but WRONG-direction dissociation for this specific target",
+      "combined_delay_and_stiffness_and_noise": "dissociation_ratio 0.48-0.52 (RMS still rising relatively more than velocity)",
+      "verdict": "None of the tested system-shape mechanisms individually clear this script's own pre-registered dissociation_ratio>2.0 threshold. HONEST NEGATIVE on the SPECIFIC quantitative target, not swept under the rug."
+    },
+    "post_hoc_structural_clue_from_already_computed_data": {
+      "description": "Cheap, zero-additional-simulation analysis of the already-written stability-margin sweep: the velocity/position variance RATIO itself (var_thetadot/var_theta) grows monotonically as delay approaches the stability boundary",
+      "vel_over_pos_variance_ratio_by_delay_ms": {"50": 1.6475, "100": 1.8108, "150": 1.9408, "175": 1.9915, "200": 2.0318},
+      "interpretation": "Directionally consistent with (not a full quantitative reproduction of) the needed dissociation: operating closer to the stability margin shifts spectral content toward higher relative velocity content. A mechanism combining an EO-to-EC shift IN COMBINATION WITH operating nearer this margin is the natural next OODA iteration -- explicitly left OPEN, not claimed as closed."
+    }
+  },
+  "overall_verdict": {
+    "vor_falsifier": "PASS (gain 0.96-1.00 at 0.1-1Hz, matches measured ~0.9-1.0; machine-crosschecked to 1e-16; low/high-frequency split correctly held OPEN, not force-collapsed; disease-dissociation structural corroboration found)",
+    "postural_falsifier_mechanistic_geometry": "PASS (stability-margin-governs-sway-amplitude structure verified, machine-crosschecked exact-vs-Monte-Carlo after a real bug was caught and fixed; realistic <1Hz-dominated sway spectrum reproduced as an independent plausibility check)",
+    "postural_falsifier_metric_specific_romberg_dissociation": "OPEN / HONEST NEGATIVE on the precise quantitative target (velocity-significant, RMS/area-null pattern) -- the naive noise-only mechanism is analytically refuted, three system-shape mechanisms tested do not individually clear the pre-registered dissociation threshold, and a directionally-suggestive but unclosed structural clue (near-margin operation shifts variance toward velocity) is disclosed as the next OODA step, not claimed as resolved."
+  }
+}

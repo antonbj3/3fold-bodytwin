@@ -1,0 +1,56 @@
+{
+  "time": 1790759110.5319352,
+  "live": 3,
+  "seed": [
+    {
+      "marker": {
+        "pid": 1631382,
+        "account": "B",
+        "selected": "swarm",
+        "job": "BT-FW48-SEED-496",
+        "started": 1790759071.9663265,
+        "start_ticks": 32458708,
+        "boot_id": "5cf3a18b-e663-4752-bc3d-6e0bb9624dc2"
+      },
+      "route": {
+        "account": "B",
+        "requested": "swarm",
+        "selected": "swarm",
+        "model": "opencode/space-swarm-free",
+        "started": 1790759071.9664788
+      },
+      "tools_completed": 5,
+      "events": [
+        {
+          "tool": "read",
+          "timestamp": 1790759077439,
+          "status": "completed"
+        },
+        {
+          "tool": "bash",
+          "timestamp": 1790759077643,
+          "status": "completed"
+        },
+        {
+          "tool": "write",
+          "timestamp": 1790759087517,
+          "status": "completed"
+        },
+        {
+          "tool": "bash",
+          "timestamp": 1790759089416,
+          "status": "completed"
+        },
+        {
+          "tool": "read",
+          "timestamp": 1790759092571,
+          "status": "completed"
+        }
+      ],
+      "results_present": false
+    }
+  ],
+  "swarm_worker_processes": [
+    "1624628 1624627 /opt/agents/.opencode/bin/opencode run --pure --auto --agent build --model opencode-go/swarm_worker-v4.1-flash --dir /opt/agents/jobs/BT-FW48-AUTO-3ae2a020bc70ed --format json --title BT-FW48-AUTO-3ae2a020bc70ed Read BRIEF.md. Execute the bounded task in small steps. Job ID: BT-FW48-AUTO-3ae2a020bc70ed. First write WORK_STATUS.md with the next concrete calculation. Read at most two source files before writing runnable code or a precise missing-input report. Do one small matched calculation before attempting a general derivation. Write RESULTS.md after the first actual result, starting with the job ID; clearly state what remains incomplete. Reason briefly between tools: the previous jobs could lose an entire generation to internal reasoning without any files. "
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "round": 2,
+  "utc": "2026-10-01T00:56:31.588506+00:00",
+  "image_apertures_mm": [
+    1.1320754716981132,
+    4.577464788732394,
+    7.481481481481482
+  ],
+  "source_rotation_peak_initial_terminal_deg": [
+    25,
+    0
+  ],
+  "terminal_H": 0.76,
+  "rotation_only_orientation_ratio": 1.0,
+  "rotation_only_central_relative_error": 0.22801286810195495,
+  "crossing_reference0_ratio": 1.4050454515067041,
+  "crossing_reference0_I_relative_error": 0.08467700829505424,
+  "reference90_ratio": 0.7117207481990335,
+  "predicted_fixed_inventory_I_III_ratio": 1.0,
+  "observed_all_I_III_ratio": 1.474757281553398,
+  "inverse_terminal_work_diagnostics": [
+    {
+      "axis": "long",
+      "required_III_I_terminal_work_ratio_after_base": 0.7976528243487232,
+      "required_I_III_extra_kJ_m2": 5.23,
+      "diagnostic_not_input": true
+    },
+    {
+      "axis": "trans",
+      "required_III_I_terminal_work_ratio_after_base": 0.6046234153616704,
+      "required_I_III_extra_kJ_m2": 13.254999999999999,
+      "diagnostic_not_input": true
+    }
+  ],
+  "verification": {
+    "density_normalization": true,
+    "crossing_discrete_vs_quad": true,
+    "reference_swap_reverses_ratio": true,
+    "H_moment_bounds": true,
+    "vector_integral_energy_all": true,
+    "vector_convergence_all": true,
+    "common_mode_terminal_energy": true,
+    "mode_trans_source_SD_disjoint": true,
+    "all_image_boxes_positive": true
+  },
+  "numeric_gate": "PASS",
+  "numeric_checks_count": 9,
+  "innovation_gate": "FAIL",
+  "native_joint_gate": "UNKNOWN",
+  "strongest_control_gate": "TIE",
+  "native_bridge_length_m": null,
+  "native_rupture_opening_m": null,
+  "CPU_lower_bound_s": 0.338080834,
+  "wall_solver_s": 0.2511949520558119,
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

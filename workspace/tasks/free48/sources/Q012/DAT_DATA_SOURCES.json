@@ -1,0 +1,848 @@
+{
+  "task": "BT-DAT-Q012",
+  "question": "Which PUBLIC MEASURED datasets constrain the model in inputs/ (diet -> colonic microbial TMA -> hepatic FMO3 -> TMAO -> renal clearance)?",
+  "generated_by": "build_reports.py (reads probes/, samples/, sample_load_report.json)",
+  "prereg": "PREREG.md, sha256 6f1bef01badcf9dea1befd477ca61273c343bf1bd1aca0f7407425491155efc3",
+  "acceptance_criteria_stated": {
+    "public_unauthenticated_GET": "required (PREREG.md criterion b)",
+    "licence_stated_by_repository": "required (c)",
+    "n_subjects_recoverable": "required (d)"
+  },
+  "census": {
+    "human_blood_studies_with_measured_TMAO_feature": 98,
+    "human_urine_studies_with_measured_TMAO_feature": 16,
+    "blood_analysis_records": 101,
+    "source_query_blood": "GET /rest/metstat/;;;Human;Blood;;C01104 -> HTTP 200, 54077 bytes",
+    "source_query_urine": "GET /rest/metstat/;;;Human;Urine;;C01104 -> HTTP 200, 8506 bytes",
+    "note": "counts are analyses/studies returned by the repository, not human subjects"
+  },
+  "n_entries": 29,
+  "n_downloaded": 1,
+  "n_licence_confirmed": 23,
+  "sources": [
+    {
+      "id": "MW_ST000488_AN000754",
+      "title": "Sleep apnea and cardiovascular metabiltes carnitine, tma, tmao, betain, choline in plasma",
+      "repository": "Metabolomics Workbench (NIH), study ST000488 / analysis AN000754",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/analysis_id/AN000754/datatable/txt",
+      "url_study_summary": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000488/summary",
+      "url_units_record": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000488/analysis",
+      "url_mwtab": "https://www.metabolomicsworkbench.org/rest/study/analysis_id/AN000754/mwtab/txt",
+      "url_factors": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000488/factors",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: /rest/study/study_id/ST000488/summary field 'license'/'license_url'",
+      "bytes": 2311,
+      "bytes_mwtab": 13504,
+      "sha256": "4f878a73bdd264236f87066cf1f39b1e302388c32f648542b937c20f3ba8e554",
+      "sha256_mwtab": "6407d071a084532e26b35fff3bf569eb6d369ddf3f75d31eb9c0b3f2758e4b31",
+      "format": "tab-separated data table (REST 'datatable/txt'), 7 columns x 36 rows; companion mwtab text file declares units and subject metadata",
+      "measurement_type": "targeted LC-MS (HILIC, triple quadrupole, ESI positive) quantified concentrations",
+      "matrix": "plasma",
+      "n_subjects": 36,
+      "n_subjects_source": "measured: 36 SUBJECT_SAMPLE_FACTORS lines with distinct subject ids s_01..s_36 in the mwtab; MW summary number_of_samples=36; the /factors endpoint returned 35 rows -- repository inconsistency, reported not resolved",
+      "analytes": [
+        "betaine",
+        "carnitine",
+        "choline",
+        "tma",
+        "tmao"
+      ],
+      "units": "micromolar",
+      "units_source": "measured: mwtab line 'MS_METABOLITE_DATA:UNITS micromolar' and the /analysis record field 'units'='micromolar'; the datatable header itself carries no unit string",
+      "coordinate_frame": "N/A (scalar concentration data; no spatial reference in source)",
+      "species": "Homo sapiens",
+      "retrieval_status": {
+        "datatable": "HTTP 200, 2311 bytes",
+        "mwtab": "HTTP 200, 13504 bytes",
+        "summary": "HTTP 200, 524 bytes",
+        "analysis": "HTTP 200, 472 bytes",
+        "factors": "HTTP 200, 5739 bytes"
+      },
+      "downloaded": true,
+      "constrains": [
+        {
+          "target": "C_ss",
+          "type": "measured (level)",
+          "separability": true,
+          "note": "subject-level plasma TMAO, micromolar; directly comparable to the model's C_ss output"
+        },
+        {
+          "target": "f_fmo3",
+          "type": "bound only",
+          "separability": false,
+          "note": "plasma TMA/(TMA+TMAO) share is a cross-sectional steady-state ratio, not a hepatic flux split; bounds f_fmo3 only if TMA and TMAO share one steady state and TMAO has no other sink"
+        },
+        {
+          "target": "f_tma_to_hepatic",
+          "type": "bound only",
+          "separability": false,
+          "note": "no portal sampling in this study"
+        },
+        {
+          "target": "y_microbial_conversion",
+          "type": "bound on the product f_colonic_escape*y_microbial_conversion",
+          "separability": false,
+          "note": "observational cohort, no isotope tracer and no diet record, so the two factors of the product cannot be separated (the G3 non-identifiability in inputs/Q012_RESULTS.md is NOT resolved by this dataset)"
+        },
+        {
+          "target": "precursor_intake_g_day",
+          "type": "measured (plasma precursor only)",
+          "separability": false,
+          "note": "plasma carnitine/choline are endogenous pools, not the ingested dose; the food-level intake the parameter represents is not in this dataset"
+        },
+        {
+          "target": "r_host_umol_h",
+          "type": "not constrained",
+          "separability": false,
+          "note": "no antibiotic arm in this study"
+        }
+      ],
+      "not_constrained": [
+        "gfr_ml_min_per_kg",
+        "f_reabsorption",
+        "f_tubular_secretion",
+        "vd_l",
+        "fmo3_km_umol_l",
+        "fmo3_vmax_umol_h"
+      ]
+    },
+    {
+      "id": "MW_ST002820",
+      "title": "Evaluation of Novel Candidate Filtration Markers from a Global Metabolomics Discovery for Glomerular Filtration Rate Estimation (AASKG1)",
+      "repository": "Metabolomics Workbench, study ST002820",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST002820/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded in this session, no Content-Length observed (PREREG.md C4: no size invented)",
+      "format": "LC-MS",
+      "n_subjects": 1002,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Blood (plasma/serum) -- measured: MW metstat facet source='Blood'",
+      "units": "UNKNOWN -- data table not fetched, unit string not observed",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary, 609 bytes); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "renal anchor",
+          "type": "candidate",
+          "separability": false,
+          "note": "renal anchor: AASK plasma cohort, glomerular-filtration marker discovery"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST002027",
+      "title": "Metabolomics Analysis of Blood Plasma and Stool from Six Week Flaxseed Dietary Intervention in Postmenopausal Women (Serum/HILIC)",
+      "repository": "Metabolomics Workbench, study ST002027",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST002027/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded in this session, no Content-Length observed (PREREG.md C4: no size invented)",
+      "format": "LC-MS",
+      "n_subjects": 356,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Blood (plasma/serum) -- measured: MW metstat facet source='Blood'",
+      "units": "UNKNOWN -- data table not fetched, unit string not observed",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary, 613 bytes); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "diet block",
+          "type": "candidate",
+          "separability": false,
+          "note": "diet block: 6-week flaxseed dietary intervention, plasma + stool"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST003662",
+      "title": "Metabolome trajectory of exercise physiology- a comprehensive study of healthy male and female athletes",
+      "repository": "Metabolomics Workbench, study ST003662",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003662/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded in this session, no Content-Length observed (PREREG.md C4: no size invented)",
+      "format": "LC-MS",
+      "n_subjects": 352,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Blood (plasma/serum) -- measured: MW metstat facet source='Blood'",
+      "units": "UNKNOWN -- data table not fetched, unit string not observed",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary, 575 bytes); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "time block",
+          "type": "candidate",
+          "separability": false,
+          "note": "time block: multi-timepoint exercise metabolome trajectory"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST004611",
+      "title": "Targeted metabolomics of plasma samples from metastatic renal cell carcinoma (mRCC) patients treated with fecal microbiota transplantation (FMT).",
+      "repository": "Metabolomics Workbench, study ST004611",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST004611/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded in this session, no Content-Length observed (PREREG.md C4: no size invented)",
+      "format": "LC-MS",
+      "n_subjects": 198,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Blood (plasma/serum) -- measured: MW metstat facet source='Blood'",
+      "units": "UNKNOWN -- data table not fetched, unit string not observed",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary, 629 bytes); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "microbiome block",
+          "type": "candidate",
+          "separability": false,
+          "note": "microbiome block: faecal microbiota transplantation, targeted plasma"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST000974",
+      "title": "GC6-74 matabolomic of TB (Part 1: Plasma)",
+      "repository": "Metabolomics Workbench, study ST000974",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000974/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded in this session, no Content-Length observed (PREREG.md C4: no size invented)",
+      "format": "LC-MS",
+      "n_subjects": 366,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Blood (plasma/serum) -- measured: MW metstat facet source='Blood'",
+      "units": "UNKNOWN -- data table not fetched, unit string not observed",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary, 535 bytes); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "TB cohort plasma (G6-74 Part 1)",
+          "type": "candidate",
+          "separability": false,
+          "note": "TB cohort plasma (G6-74 Part 1)"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST003177",
+      "title": "A Longitudinal Study in Rheumatoid Arthritis Unveils Metabolomic Biomarkers Preceding Clinical Onset, Assessing Disease Severity, and Anticipating Treatment Response to csDMARDs",
+      "repository": "Metabolomics Workbench, study ST003177",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003177/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded in this session, no Content-Length observed (PREREG.md C4: no size invented)",
+      "format": "LC-MS",
+      "n_subjects": 2492,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Blood (plasma/serum) -- measured: MW metstat facet source='Blood'",
+      "units": "UNKNOWN -- data table not fetched, unit string not observed",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary, 671 bytes); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "largest human blood TMAO cohort in the census (N=2492)",
+          "type": "candidate",
+          "separability": false,
+          "note": "largest human blood TMAO cohort in the census (N=2492)"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST000020",
+      "title": "Biomarker Discovery in Knee Osteoarthritis (I)",
+      "repository": "Metabolomics Workbench, study ST000020",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000020/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "NMR",
+      "n_subjects": 88,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST000256",
+      "title": "Signal Intensities Derived from Different NMR Probes and Parameters Contribute to Variations in Quantification of Metabolites",
+      "repository": "Metabolomics Workbench, study ST000256",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000256/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "NMR",
+      "n_subjects": 19,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST000291",
+      "title": "LC-MS Based Approaches to Investigate Metabolomic Differences in the Urine of Young Women after Drinking Cranberry Juice or Apple Juice",
+      "repository": "Metabolomics Workbench, study ST000291",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000291/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "LC-MS",
+      "n_subjects": 45,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST000535",
+      "title": "CHEAR Urine Reference Material Proficiency Test NMR (Part I)",
+      "repository": "Metabolomics Workbench, study ST000535",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000535/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "NMR",
+      "n_subjects": 6,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST000538",
+      "title": "CHEAR Urine Reference Material Proficiency Test NMR (Part II)",
+      "repository": "Metabolomics Workbench, study ST000538",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000538/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "NMR",
+      "n_subjects": 6,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST001047",
+      "title": "1H-NMR urinary metabolomic profiling for diagnosis of gastric cancer.",
+      "repository": "Metabolomics Workbench, study ST001047",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST001047/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "NMR",
+      "n_subjects": 140,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST001122",
+      "title": "Identification of urine metabolites in patients with interstitial cystitis using untargeted metabolomics (part II)",
+      "repository": "Metabolomics Workbench, study ST001122",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST001122/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "LC-MS",
+      "n_subjects": 43,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST001873",
+      "title": "Metabolomics analysis of multiple samples on AB 5600-Part 1",
+      "repository": "Metabolomics Workbench, study ST001873",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST001873/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "LC-MS",
+      "n_subjects": 12,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST001874",
+      "title": "Metabolomics analysis of multiple samples on Agilent 6546-Part 1",
+      "repository": "Metabolomics Workbench, study ST001874",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST001874/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "LC-MS",
+      "n_subjects": 54,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST001928",
+      "title": "Metabolomics profiles of premenopausal women are different based on O-desmethylangolensin metabotype",
+      "repository": "Metabolomics Workbench, study ST001928",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST001928/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "LC-MS",
+      "n_subjects": 73,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST002020",
+      "title": "TIPs Metabolomics (urine)",
+      "repository": "Metabolomics Workbench, study ST002020",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST002020/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "LC-MS",
+      "n_subjects": 70,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST003032",
+      "title": "Effects of Preanalytical Sample Collection and Handling on Comprehensive Metabolite Measurements in Human Urine Biospecimens",
+      "repository": "Metabolomics Workbench, study ST003032",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003032/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "LC-MS",
+      "n_subjects": 416,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST003356",
+      "title": "Noninvasive multiomic measurement of cell type repertoires in human urine",
+      "repository": "Metabolomics Workbench, study ST003356",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003356/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "LC-MS",
+      "n_subjects": 52,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST004188",
+      "title": "Discovery and Validation of Metabolic Biomarkers for 'Liver Qi Stagnation' and 'Liver-Gallbladder Damp-Heat' Syndromes in Cholelithiasis: Urine targeted",
+      "repository": "Metabolomics Workbench, study ST004188",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST004188/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "LC-MS",
+      "n_subjects": 96,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST004189",
+      "title": "Discovery and Validation of Metabolic Biomarkers for 'Liver Qi Stagnation' and 'Liver-Gallbladder Damp-Heat' Syndromes in Cholelithiasis: Urine untargeted",
+      "repository": "Metabolomics Workbench, study ST004189",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST004189/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "LC-MS",
+      "n_subjects": 96,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "MW_ST004679",
+      "title": "Evaluation of FASP for mass spectrometry-based untargeted metabolomics analysis of urine samples",
+      "repository": "Metabolomics Workbench, study ST004679",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST004679/summary",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "licence_source": "measured: MW summary field 'license'",
+      "bytes": null,
+      "bytes_note": "UNKNOWN -- not downloaded (PREREG.md C4)",
+      "format": "LC-MS",
+      "n_subjects": 25,
+      "n_subjects_source": "measured: MW summary field 'number_of_samples'",
+      "matrix": "Urine -- measured: MW metstat facet source='Urine'",
+      "units": "UNKNOWN -- data table not fetched",
+      "coordinate_frame": "N/A (scalar concentration data)",
+      "retrieval_status": "HTTP 200 (summary); data table NOT fetched",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion / f_colonic_escape",
+          "type": "candidate (urinary TMA+TMAO load is the standard observable)",
+          "separability": false,
+          "note": "urinary excretion rate needs 24 h urine volume and creatinine, neither observed here"
+        }
+      ]
+    },
+    {
+      "id": "SABIO-DB_EC1.5.3.4_FMO3_kinetics",
+      "title": "SABIO-DB kinetic laws for EC 1.5.3.4 (trimethylamine N-oxidation, FMO3)",
+      "url": "https://sabiodb.h-its.org/sabioRestWebServices/searchKineticLaws/parameters?q=ECNumber:1.5.3.4",
+      "licence": "UNKNOWN -- not retrieved, so no licence observed",
+      "licence_url": null,
+      "bytes": 0,
+      "format": "UNKNOWN",
+      "n_subjects": "UNKNOWN",
+      "n_subjects_source": "not retrieved",
+      "retrieval_status": "curl exit 000, 0 bytes, no HTTP response (host unreachable from this machine in this session)",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "fmo3_km_umol_l / fmo3_vmax_umol_h",
+          "type": "would constrain directly if reachable",
+          "separability": true,
+          "note": "status UNKNOWN -- no value retrieved, none reported"
+        }
+      ]
+    },
+    {
+      "id": "BRENDA_download",
+      "title": "BRENDA enzyme data download (EC 1.5.3.4)",
+      "url": "https://www.brenda-enzymes.org/result_download.php",
+      "licence": "UNKNOWN -- page returned no content",
+      "licence_url": null,
+      "bytes": 0,
+      "format": "UNKNOWN",
+      "n_subjects": "UNKNOWN",
+      "n_subjects_source": "not retrieved",
+      "retrieval_status": "HTTP 200 with a 0-byte body (download requires a BRENDA account)",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "fmo3_km_umol_l / fmo3_vmax_umol_h",
+          "type": "not publicly retrievable unauthenticated",
+          "separability": true,
+          "note": "status: NOT AVAILABLE without registration"
+        }
+      ]
+    },
+    {
+      "id": "NHANES_SCR_serum_creatinine",
+      "title": "NHANES serum creatinine (renal anchor for gfr_ml_min_per_kg)",
+      "url": "https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/SCR_J.htm",
+      "url_attempt_2": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/SCR.htm",
+      "url_attempt_3": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/SCR.xpt",
+      "licence": "US federal work, public domain (not observed in this session: no data file retrieved, so no licence text was read)",
+      "licence_url": null,
+      "bytes": {
+        "attempt_1": 20905,
+        "attempt_2": 1245,
+        "attempt_3": 1245
+      },
+      "bytes_note": "measured: the 20905-byte body is a CDC 'Page Not Found' HTML page served with HTTP 200; the other two are 404 bodies of 1245 bytes. No data file.",
+      "format": "n/a (error pages)",
+      "n_subjects": "UNKNOWN",
+      "n_subjects_source": "not retrieved",
+      "retrieval_status": "attempt_1 HTTP 200 but body = 'Page Not Found'; attempt_2 HTTP 404; attempt_3 HTTP 404",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "gfr_ml_min_per_kg",
+          "type": "UNKNOWN -- retrieval failed",
+          "separability": true,
+          "note": "MW ST002820 (AASK) remains the only retrieved renal-context candidate and it carries no per-sample GFR in the MW record"
+        }
+      ]
+    },
+    {
+      "id": "USDA_FDC_carnitine",
+      "title": "USDA FoodData Central public API, L-carnitine content (diet block)",
+      "url": "https://api.nal.usda.gov/fdc/v1/foods/search?api_key=DEMO_KEY&query=carnitine&pageSize=2",
+      "url_detail_1": "https://api.nal.usda.gov/fdc/v1/food/174032?api_key=DEMO_KEY",
+      "url_detail_2": "https://api.nal.usda.gov/fdc/v1/food/1153117?api_key=DEMO_KEY",
+      "url_detail_3": "https://api.nal.usda.gov/fdc/v1/food/1999633?api_key=DEMO_KEY",
+      "url_licence_page": "https://fdc.nal.usda.gov/fdc-datasets.html",
+      "licence": "UNKNOWN -- the FDC licence page returned HTTP 403 in this session, so no licence text was observed (PREREG.md A5/criterion (c) not met)",
+      "licence_url": null,
+      "bytes": {
+        "search": 13938,
+        "food_174032": 42110,
+        "food_1153117": 6291,
+        "food_1999633": 151362,
+        "licence_page": 146
+      },
+      "format": "JSON (FDC v1 API); HTTP 200 for the API with the shared DEMO_KEY, HTTP 403 for the licence/datasets page",
+      "n_subjects": 461,
+      "n_subjects_source": "measured: API field totalHits=461 for the query 'carnitine' -- this counts FOOD items, not human subjects; n_subjects for this source is not applicable",
+      "retrieval_status": "API HTTP 200 (no personal key, shared DEMO_KEY); licence page HTTP 403",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "precursor_intake_g_day",
+          "type": "NOT CONFIRMED",
+          "separability": false,
+          "note": "3 food records fetched (beef 85% lean SR Legacy 114 nutrients, greenlemon pomelo drink 12, spinach mature Foundation 42) and NONE contains a carnitine amount. L-carnitine coverage in the public API records sampled here is empty -> diet block source remains UNKNOWN"
+        }
+      ]
+    },
+    {
+      "id": "Qiita_study_10317",
+      "title": "Qiita study 10317 (gut metagenome TMA-gene carriage)",
+      "url": "https://qiita.ucsd.edu/study/description/10317",
+      "licence": "UNKNOWN -- not retrieved",
+      "licence_url": null,
+      "bytes": 17519,
+      "format": "HTML browser-version shim, not a data table",
+      "n_subjects": "UNKNOWN",
+      "n_subjects_source": "not retrieved",
+      "retrieval_status": "HTTP 200, 17519 bytes, but the body is a browser-compatibility shim; no abundance table; Qiita data download requires an account",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion",
+          "type": "not publicly retrievable",
+          "separability": false,
+          "note": "no public cutC/cutD/cntA/cntB count table obtained in this session"
+        }
+      ]
+    },
+    {
+      "id": "redbiom_api",
+      "title": "redbiom public API (context tables incl. QIIME2 feature counts)",
+      "url": "https://redbiom.openmicrobiome.org/api/v1/context?biom_context_name=redbiom",
+      "licence": "UNKNOWN -- not retrieved",
+      "licence_url": null,
+      "bytes": 0,
+      "format": "UNKNOWN",
+      "n_subjects": "UNKNOWN",
+      "n_subjects_source": "not retrieved",
+      "retrieval_status": "curl exit 000, 0 bytes, no HTTP response (unreachable from this machine)",
+      "downloaded": false,
+      "constrains": [
+        {
+          "target": "y_microbial_conversion",
+          "type": "candidate, status UNKNOWN",
+          "separability": false,
+          "note": "not reached; would still not separate f_colonic_escape"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "round": 2,
+  "operation": "Physical size/form factorization at L3 across1228 screened CT -> higher-order dimensionless contour -> manual/transport/common-label-error falsifiers -> finite-radial acquisition ambiguity",
+  "control": "Same-information nested ridge/HGB; strongest area+age/gender control, waist controls, physical-unit label permutations; identical ambiguity bound for conventional point regression",
+  "outcome": {
+    "screened": 1228,
+    "eligible_L3_n": 322,
+    "complete_profile_n": 249,
+    "size_VAT_cm2": {
+      "R2": 0.6988457929780105,
+      "CI95": [
+        0.6458456939058262,
+        0.7438934020183078
+      ]
+    },
+    "size_Q3_VAT_cm2": {
+      "R2": 0.7252946541794446,
+      "CI95": [
+        0.6721320201541675,
+        0.76845590103491
+      ]
+    },
+    "Q3_VAT_fraction": {
+      "R2": 0.18946227875800026,
+      "CI95": [
+        0.100184539098907,
+        0.26831601098390395
+      ]
+    },
+    "Qrich_VAT_fraction": {
+      "R2": 0.29142461911321743,
+      "CI95": [
+        0.20955225360484878,
+        0.35883321595970735
+      ]
+    },
+    "size_Qrich_VAT_cm2": {
+      "R2": 0.7587280833410207,
+      "CI95": [
+        0.7137186877971204,
+        0.7943054366419835
+      ]
+    },
+    "size_Qrich_VAT_hgb": {
+      "R2": 0.766906512799014,
+      "CI95": [
+        0.7209722775971721,
+        0.8027322702376073
+      ]
+    },
+    "size_VAT_fraction": {
+      "R2": 0.418481338442312,
+      "CI95": [
+        0.32889084756752734,
+        0.4948628597932099
+      ]
+    },
+    "size_Q3_VAT_fraction": {
+      "R2": 0.46309461102801547,
+      "CI95": [
+        0.3683659033296401,
+        0.5404078812417015
+      ]
+    },
+    "metadata_size_VAT_cm2": {
+      "R2": 0.751965406818992,
+      "CI95": [
+        0.7079742969683518,
+        0.7899766328537036
+      ]
+    },
+    "metadata_size_Q3_VAT_cm2": {
+      "R2": 0.7667664896101375,
+      "CI95": [
+        0.722878432571563,
+        0.8027436691981558
+      ]
+    },
+    "paired_form_gain": {
+      "delta_R2": 0.026448861201434082,
+      "ci95": [
+        0.00491809882439629,
+        0.047711759621767144
+      ]
+    },
+    "paired_rich_form_gain_fraction": {
+      "delta_R2": 0.10196234035521717,
+      "ci95": [
+        0.043161719413093824,
+        0.16533522318428673
+      ]
+    },
+    "paired_metadata_form_gain": {
+      "delta_R2": 0.014801082791145448,
+      "ci95": [
+        0.0005118163749272762,
+        0.03044472119873589
+      ]
+    },
+    "manual_n": 300,
+    "manual_Q3_fraction": {
+      "R2": 0.05465343597315879,
+      "CI95": [
+        -0.0014160827825827698,
+        0.10122289340820308
+      ]
+    },
+    "manual_Qrich_fraction": {
+      "R2": 0.06870692648806107,
+      "CI95": [
+        -0.004532374709597384,
+        0.13231825984346493
+      ]
+    },
+    "manual_paired_rich_gain": {
+      "delta_R2": 0.014053490514902275,
+      "ci95": [
+        -0.041517711031697435,
+        0.06442657143704361
+      ]
+    },
+    "physical_shuffled_R2_mean": -0.010775487069675018,
+    "fraction_shuffled_R2_mean": -0.010666324999089078,
+    "confirmed_noncontrast_n": null,
+    "low_enhancement_proxy_n": 39,
+    "low_enhancement_Q3_fraction": {
+      "R2": -0.058477306440886626,
+      "CI95": [
+        -0.4038917648200408,
+        0.07620667253321252
+      ]
+    },
+    "label_error_paired_SSE": {
+      "gain_cm4": 92422.44653459961,
+      "boundary_sensitivity_pointwise_interval_cm4": [
+        75359.000302352,
+        109485.89276684723
+      ],
+      "external_RMS30p47_scenario_interval_cm4": [
+        -290219.5199381253,
+        475064.41300732445
+      ],
+      "external_sigma_cm2": 30.47448979591837,
+      "contract": "Common target error, no iid or independence assumption. Sensitivity envelope is NOT a true-error bound; external RMS ball is an uncalibrated scenario for another method."
+    },
+    "physical_label_status": "HU_THRESHOLD_WITH_DECLARED_UNCALIBRATED_WALL_ERROR",
+    "universal_identifiability_ceiling": "UNKNOWN",
+    "source_node_rewrite": "NODE_PROPOSALS_R2.json",
+    "finite_radial_collision_groups": {
+      "1.0": {
+        "pairs_n": 0,
+        "distinct_scan_IDs": 0,
+        "exact_age_pairs_n": 0,
+        "exact_age_maximum_nominal_lower_bound_cm2": null,
+        "exact_age_maximum_hypothetical60cm2_lower_bound_cm2": null,
+        "median_difference_cm2": null,
+        "maximum_nominal_lower_bound_cm2": null,
+        "maximum_hypothetical60cm2_lower_bound_cm2": null
+      },
+      "2.5": {
+        "pairs_n": 0,
+        "distinct_scan_IDs": 0,
+        "exact_age_pairs_n": 0,
+        "exact_age_maximum_nominal_lower_bound_cm2": null,
+        "exact_age_maximum_hypothetical60cm2_lower_bound_cm2": null,
+        "median_difference_cm2": null,
+        "maximum_nominal_lower_bound_cm2": null,
+        "maximum_hypothetical60cm2_lower_bound_cm2": null
+      },
+      "5.0": {
+        "pairs_n": 38,
+        "distinct_scan_IDs": 62,
+        "exact_age_pairs_n": 4,
+        "exact_age_maximum_nominal_lower_bound_cm2": 70.03125,
+        "exact_age_maximum_hypothetical60cm2_lower_bound_cm2": 10.03125,
+        "median_difference_cm2": 35.707499999999996,
+        "maximum_nominal_lower_bound_cm2": 70.03125,
+        "maximum_hypothetical60cm2_lower_bound_cm2": 10.03125
+      }
+    },
+    "strongest_context_collision_limit": 4.342500000000001,
+    "native_coupled_history_or_cost_gain_claimed": false,
+    "scientific_admission": false
+  },
+  "gate": "UNKNOWN",
+  "measurement_gate": "PASS",
+  "CT_representation_gate": "PASS_CONDITIONAL",
+  "manual_representation_gate": "TIE",
+  "obstacle": "Individual wall error, absent confirmed contrast/patient lineage, pathological/institute transport and full exterior acquisition contract prevent universal true-VAT ceiling or individual error guarantee",
+  "next": "Independent peripheral tissue observation + joint acquisition/label interval pullback; NEXT_ROUND.md",
+  "files": [
+    "RESULTS.md",
+    "WORK_STATUS.json",
+    "NEXT_ROUND.md",
+    "CHECKPOINT_NIGHT_R2.json",
+    "PRIMARY_STATISTICS_R2.json",
+    "PREREG_R2.json",
+    "PREREG_R2_MANUAL_HARMONIC.json",
+    "PREREG_R2_METADATA_CONTROL.json",
+    "PREREG_R2_AMBIGUITY.json",
+    "PREREG_R2_AMBIGUITY_METADATA.json",
+    "DECOMPOSITION_R2.json",
+    "GOAL_TO_STRESS_POINT_R2.md",
+    "BASELINE_AND_REUSE_R2.md",
+    "LABEL_UNCERTAINTY_R2.json",
+    "LABEL_UNCERTAINTY_R2.md",
+    "COHORT_DECISION_R2.json",
+    "OPERATOR_VERIFICATION_R2.json",
+    "ct_features_r2/ledger.jsonl",
+    "analysis_r2_primary/summary.json",
+    "analysis_r2_diagnostics/summary.json",
+    "manual_harmonics_r2/summary.json",
+    "EXTERIOR_AMBIGUITY_R2.json",
+    "AMBIGUITY_CONTEXT_R2.json",
+    "physical_skin_envelopes_r2.npz",
+    "NODE_PROPOSALS_R2.json",
+    "ATTEMPTS_R2.json",
+    "COST_ACCOUNTING_R2.json",
+    "SIZE_FORM_PHYSICAL_R2.pdf",
+    "FIXED_QA_R2.png",
+    "AMBIGUITY_WITNESS_R2.png"
+  ],
+  "review": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

@@ -1,0 +1,215 @@
+{
+  "id": "BT-DAT-Q009",
+  "created_for": "inventory of public measured datasets that bound BT-HX-Q009 (inputs/Q009_model.py), question Q009",
+  "status_checked_at_utc": "2026-09-26",
+  "access_rule": "no login, no payment, no data-use agreement required; every URL was requested from this session and its HTTP status recorded",
+  "qualifying_criteria_frozen_in": "PREREG.md (5 criteria: public URL, named licence, measured, documented units, traceable identity)",
+  "sources": [
+    {
+      "ref": "S1",
+      "name": "NCATS ADME@NCATS (compilation of public ADME endpoints on ChEMBL structures)",
+      "url": "https://doi.org/10.7910/DVN/21LKWG",
+      "api_url_used": "https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/21LKWG",
+      "identity": {
+        "doi": "10.7910/DVN/21LKWG",
+        "version": "105.0",
+        "version_state": "RELEASED",
+        "release_time": "2025-08-27T12:05:20Z",
+        "host": "Harvard Dataverse"
+      },
+      "license": {
+        "name": "CC0 1.0",
+        "uri": "http://creativecommons.org/publicdomain/zero/1.0",
+        "rights_identifier": "CC0-1.0",
+        "scheme": "SPDX",
+        "evidence": "license block returned by the Dataverse versions API for the released version"
+      },
+      "access": "open, no login (Dataverse API returned 200 and full file list)",
+      "size": {
+        "n_files_total": 676,
+        "total_bytes_all_files": 25296160000,
+        "downloaded_for_this_run_bytes": 1779550,
+        "downloaded_files": 10,
+        "largest_downloaded_file_bytes": 852658,
+        "limit_respected": "every downloaded file is far below the 50 MB task limit"
+      },
+      "format": "tab-separated values, one header row, quoted fields, one endpoint per file",
+      "measured": true,
+      "subjects_or_units": {
+        "ppbr_az.tab": "2828 rows, 1797 distinct drugs, 5 species (Homo sapiens 1614, Rattus norvegicus 717, Canis lupus familiaris 244, Mus musculus 162, Cavia porcellus 91)",
+        "half_life_obach.tab": "667 rows, 665 distinct drugs",
+        "vdss_lombardo.tab": "1130 rows, 1130 distinct drugs",
+        "clearance_hepatocyte_az.tab": "1213 rows, 1020 distinct drugs",
+        "caco2_wang.tab": "910 rows"
+      },
+      "units": {
+        "ppbr_az.tab": "percent bound in plasma (%), species column present; f_u,p = 100 - PPBR",
+        "half_life_obach.tab": "human intravenous elimination half-life, h",
+        "vdss_lombardo.tab": "human volume of distribution, L/kg",
+        "clearance_hepatocyte_az.tab": "in vitro hepatocyte intrinsic clearance, uL/min/10^6 cells",
+        "caco2_wang.tab": "log10 apparent permeability Papp, log cm/s"
+      },
+      "bounds_model_parameter": [
+        "f_u,p (plasma free fraction) - direct, measured",
+        "k_elimination - bracketed via measured human elimination half-life",
+        "V_t and tissue binding capacity P_t,total - bracketed only, via measured human Vss; Vss is a whole-body volume and is not a tissue binding capacity",
+        "k_on,t / k_off,t / K_d,t - not bounded by this source"
+      ],
+      "sample_downloaded": true,
+      "notes": "One Dataverse dataset counted once (PREREG N4). Its per-endpoint files are distinct measurements, not duplicates; they are registered as one source with several endpoints."
+    },
+    {
+      "ref": "S2",
+      "name": "Gill CM et al. Omadacycline pharmacokinetics and soft-tissue penetration in diabetic patients with wound infections and healthy volunteers using in vivo microdialysis. J Antimicrob Chemother 2022;77:1372-1378",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9047675/",
+      "efetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=9047675&retmode=xml",
+      "identity": {
+        "pmcid": "PMC9047675",
+        "pmid": "35194643",
+        "doi": "10.1093/jac/dkac055",
+        "journal": "Journal of Antimicrobial Chemotherapy",
+        "year": 2022
+      },
+      "license": {
+        "name": "CC BY-NC 4.0",
+        "uri": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "evidence": "license block in the PMC article XML"
+      },
+      "access": "open access, publisher-independent copy at PMC; publisher site returned HTTP 403 to this session and was not used",
+      "size": {
+        "downloaded_bytes": 62686,
+        "n_table_wraps": 3,
+        "limit_respected": "0.06 MB, far below the 50 MB task limit"
+      },
+      "format": "JATS XML full text with machine-readable table-wrap elements",
+      "measured": true,
+      "subjects_or_units": {
+        "cohorts": "infected patients with diabetic foot infection n = 6; healthy volunteers n = 6",
+        "matrix": "in vivo microdialysis of soft tissue, matched with plasma",
+        "time_frame": "AUC0-24 h after the third oral 300 mg dose"
+      },
+      "units": {
+        "concentration": "mg/L",
+        "auc": "mg*h/L",
+        "time": "h",
+        "clearance": "L/h",
+        "volume": "L"
+      },
+      "bounds_model_parameter": [
+        "f_u,p - direct measured plasma free fraction per cohort",
+        "matched plasma total + free and tissue AUC over a stated time frame - the only downloaded source that is a matched plasma/tissue pair",
+        "k_transport = PS/V_t - bounded only as an aggregate tissue-to-free-plasma AUC ratio, not as a transport rate constant",
+        "k_elimination - bracketed via measured plasma CL/F and t1/2"
+      ],
+      "sample_downloaded": true,
+      "notes": "This is the source that inputs/Q009_model.py already cites as REFERENCE_ANCHOR; it is registered here as data, not as model output. Values were re-read from the downloaded table, not from the model file."
+    },
+    {
+      "ref": "S3",
+      "name": "Dynamic distribution of systemically administered antibiotics in orthopaedically relevant target tissues and the effect of surgical prophylaxis timing (review with compiled measurement table)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11582342/",
+      "efetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=PMC11582342&retmode=xml",
+      "identity": {
+        "pmcid": "PMC11582342",
+        "note": "secondary compilation: measured values taken from cited primary studies, each with its own n, dose and sampling window"
+      },
+      "license": {
+        "name": "CC BY 4.0",
+        "uri": "https://creativecommons.org/licenses/by/4.0/",
+        "evidence": "license block in the PMC article XML"
+      },
+      "access": "open access at PMC",
+      "size": {
+        "downloaded_bytes": 384303,
+        "n_table_wraps": 2,
+        "limit_respected": "0.38 MB, far below the 50 MB task limit"
+      },
+      "format": "JATS XML; compiled table with per-study rows",
+      "measured": true,
+      "subjects_or_units": {
+        "per_row": "species/patient group with n (e.g. horses n=6, pigs n=8, healthy volunteers n=6), dose and setting, sampling window in h",
+        "units": "tissue and plasma Cmax in mg/L or ug/mL; tissue penetration as a unitless ratio"
+      },
+      "bounds_model_parameter": [
+        "k_transport = PS/V_t - bounded as a tissue-to-plasma Cmax ratio across antibiotics and species, i.e. the observable consequence of transport, not PS/V_t itself",
+        "P_t,total / tissue binding - bounded indirectly, since Cmax is a total-tissue concentration"
+      ],
+      "sample_downloaded": true,
+      "notes": "Secondary source. Every value is traceable to a primary study cited in the same table, but the compilation is not independent of those primaries and does not report free (unbound) concentrations."
+    }
+  ],
+  "excluded": [
+    {
+      "ref": "X1",
+      "name": "PAMPA (pampa_ncats.tab) and Caco-2 (caco2_wang.tab) permeability files inside S1",
+      "reason": "PREREG N1: in vitro permeability on an artificial membrane or a cell line, with no tissue and no free/bound plasma measurement. Registered as measured but not counted toward C1; caco2_wang.tab has 910 rows with Y spanning -7.76 to -3.51 log10 cm/s.",
+      "would_have_bounded_if_allowed": "k_transport = PS/V_t"
+    },
+    {
+      "ref": "X2",
+      "name": "bbb_martins.tab and hia_hou.tab inside S1",
+      "reason": "PREREG N1: binary class labels (BBB permeable yes/no, HIA high/low), not concentration measurements. Y takes only the values 0 and 1 in both files (2039 and 578 rows).",
+      "would_have_bounded_if_allowed": "nothing in the free/unbound parameterisation"
+    },
+    {
+      "ref": "X3",
+      "name": "solubility_aqsoldb.tab inside S1",
+      "reason": "measured physicochemical property (log mol/L solubility, 9982 rows); no parameter of BT-HX-Q009 is a solubility. Not a PK observation.",
+      "would_have_bounded_if_allowed": "nothing directly"
+    },
+    {
+      "ref": "X4",
+      "name": "clearance_hepatocyte_az.tab inside S1",
+      "reason": "in vitro hepatocyte intrinsic clearance, 1213 rows, Y from 3.0 to 150.0 uL/min/10^6 cells. Measured, but it constrains intrinsic metabolic capacity, not the in vivo k_elimination [h^-1] of the model. Used only as a bracketing remark, not as a bound.",
+      "would_have_bounded_if_allowed": "k_elimination, after an unbound-fraction and scaling step that is not in this repository"
+    },
+    {
+      "ref": "X5",
+      "name": "Buerger C et al. Pharmacokinetics of unbound linezolid in plasma and tissue interstitium, using microdialysis (PMC1489800)",
+      "reason": "the PMC record returned 8253 bytes with no <body> and zero tables: abstract-level metadata only, no open full text and no open machine-readable time course. Unbound plasma plus subcutaneous and intramuscular interstitial time series would have been the closest match to the model's free-tissue output.",
+      "would_have_bounded_if_allowed": "k_transport and matched free plasma/tissue time series"
+    },
+    {
+      "ref": "X6",
+      "name": "Extracellular fluid concentrations of cisplatin, carboplatin and oxaliplatin in brain, muscle and blood by microdialysis in non-human primates (PMC6936607)",
+      "reason": "the downloaded XML (86020 bytes, 6 tables) contains no named licence and no copyright statement, so PREREG criterion 2 (named licence) cannot be satisfied from the file itself. Measured ultrafiltered plasma and tissue ECF over 4 h in 3 animals.",
+      "would_have_bounded_if_allowed": "k_transport, with in vivo microdialysis recovery per tissue"
+    },
+    {
+      "ref": "X7",
+      "name": "BindingDB",
+      "reason": "unverified in this run. Every service endpoint tried returned HTTP 404 (getLigandsByUniprots, getLigandsByUniprot) and the landing page returned 286 bytes of script shell, so neither the licence text nor any measured Kd/kon/koff value could be confirmed or downloaded. This is the most promising route to measured K_d,p against human serum albumin and alpha-1-acid glycoprotein and to measured association/dissociation rates; it remains open work, not a result.",
+      "would_have_bounded_if_allowed": "K_d,p, P_p, k_on,t, k_off,t, K_d,t"
+    },
+    {
+      "ref": "X8",
+      "name": "DruMAP (drumap.nibiohn.go.jp)",
+      "reason": "unverified in this run: the host returned a transport error. Its published table of contents (J Med Chem 2023;66:9697, CC BY-NC-ND 4.0) reports 2319 curated public human fu,p values, 4408 Caco-2 Papp values, 102 human Vd values, rat tissue and plasma concentrations and 1141 curated public tissue-concentration values, and states that unbound brain-to-plasma Kp,uu values are predicted only. Access terms for the database itself could not be read, so it is not counted.",
+      "would_have_bounded_if_allowed": "f_u,p, k_transport, V_t, and possibly matched rat plasma/tissue curves"
+    },
+    {
+      "ref": "X9",
+      "name": "PK-DB (pkdb.com)",
+      "reason": "excluded by PREREG: requires registration and a data-use agreement before any download.",
+      "would_have_bounded_if_allowed": "k_transport, k_elimination, matched plasma and tissue time series"
+    },
+    {
+      "ref": "X10",
+      "name": "Therapeutics Data Commons mirrors of the same measurements (PyTDC / tdcommons.ai)",
+      "reason": "excluded by PREREG N4: PPBR_AZ, Half_Life_Obach, Vd_Lombardo and Clearance_Hepatocyte_AZ are re-packagings of the very measurements already counted in S1. Counting them again would inflate the number of independent sources.",
+      "would_have_bounded_if_allowed": "nothing new"
+    },
+    {
+      "ref": "X11",
+      "name": "Levofloxacin soft-tissue microdialysis, Br J Clin Pharmacol 2004 (n=6, free plasma and inflamed/healthy subcutaneous tissue AUC0-10h ratios)",
+      "reason": "excluded: only the publisher abstract was reachable from this session (Ovid); the tables and per-timepoint data are paywalled, so no number is quoted here.",
+      "would_have_bounded_if_allowed": "k_transport, matched free plasma and tissue AUC"
+    }
+  ],
+  "unresolved_gaps": [
+    "No qualifying public source was found for k_on,t, k_off,t, K_d,t or P_t,total measured on tissue.",
+    "No qualifying public source reports PS/V_t as a number; the available sources give aggregate penetration ratios only.",
+    "No qualifying public source reports P_p or K_d,p as a measured quantity; the model derives them from an assumed f_u,p.",
+    "No qualifying public source publishes per-timepoint free plasma and free target-tissue concentrations as a machine-readable series."
+  ]
+}

@@ -1,0 +1,571 @@
+{
+  "balance_definition": {
+    "charge": "F[(N_Na + N_K - N_Cl - N_X) + integral(J_Na + J_K - J_Cl) - (N_Na(0) + N_K(0) - N_Cl(0) - N_X(0))]",
+    "countercharge": "N_delta keeps Q_bulk = F(N_Na + N_K - N_Cl - N_X - N_delta) at bulk electroneutrality",
+    "species": "N_i(t) + integral(J_i dt) - N_i(0)",
+    "water": "N_water(t) - V(t)/v_water - [N_water(0) - V(0)/v_water]"
+  },
+  "balance_pass": true,
+  "balances": {
+    "max_bulk_electroneutrality_relative": 3.7836733941257515e-10,
+    "max_charge_closure_C": 9.618844181357779e-23,
+    "max_charge_closure_relative": 1.954750880011381e-15,
+    "max_countercharge_relative": 1.8480635613630629e-06,
+    "max_species_balance_relative": 1.1136859838414285e-14,
+    "max_water_balance_relative": 8.792443334607771e-15
+  },
+  "coupling_required_chi_gt_0_02": false,
+  "frozen_criteria": {
+    "chi_volume_threshold": 0.02,
+    "external_osmolarity_step_mOsm": [
+      300.0,
+      150.0
+    ],
+    "half_time_interval_s": [
+      3.0,
+      10.0
+    ],
+    "sensitivity_factors": [
+      0.5,
+      1.5
+    ],
+    "species_water_charge_relative_threshold": 1e-06,
+    "volume_ratio_interval": [
+      1.8,
+      2.2
+    ]
+  },
+  "geometry_area_exponent": 0.6666666666666666,
+  "metrics": {
+    "chi_volume": 0.008394857377384672,
+    "clamped_final_volume_ratio": 1.9292941913670008,
+    "final_volume_ratio": 1.920899333989616,
+    "half_time_s": 6.469760674212661,
+    "initial_voltage_mV": -80.37698512421673,
+    "max_volume_difference_ratio": 0.008394857377384672,
+    "peak_volume_ratio": 1.920899333989616
+  },
+  "parameter_table": [
+    {
+      "name": "F_C_mol",
+      "source_or_assumption": "CODATA 2018 Faraday constant",
+      "unit": "C mol^-1",
+      "value": 96485.33212
+    },
+    {
+      "name": "R_J_mol_K",
+      "source_or_assumption": "CODATA 2018 molar gas constant",
+      "unit": "J mol^-1 K^-1",
+      "value": 8.314462618
+    },
+    {
+      "name": "water_molar_volume_m3_mol",
+      "source_or_assumption": "Assumption: water molar volume at 24 degrees C",
+      "unit": "m^3 mol^-1",
+      "value": 1.807e-05
+    },
+    {
+      "name": "initial_volume_m3",
+      "source_or_assumption": "Farinas & Verkman 1996, Results p. 3516: 1.7 pL",
+      "unit": "m^3",
+      "value": 1.7e-15
+    },
+    {
+      "name": "area_to_volume_initial_m_inv",
+      "source_or_assumption": "Farinas & Verkman 1996, Results p. 3516: 6750 cm^-1",
+      "unit": "m^-1",
+      "value": 675000.0
+    },
+    {
+      "name": "hydraulic_permeability_m_s_Pa",
+      "source_or_assumption": "Derived from Farinas & Verkman 1996 Pf 6.1e-4 cm s^-1 over a 150 mM step; conversion assumes Pf is per osmolar concentration",
+      "unit": "m s^-1 Pa^-1",
+      "value": 1.65e-11
+    },
+    {
+      "name": "water_area_fraction",
+      "source_or_assumption": "Assumption: effective hydraulically exposed fraction of the cell-layer geometry",
+      "unit": "dimensionless",
+      "value": 0.025
+    },
+    {
+      "name": "temperature_K",
+      "source_or_assumption": "24 degrees C protocol temperature in Farinas & Verkman 1996",
+      "unit": "K",
+      "value": 297.15
+    },
+    {
+      "name": "membrane_capacitance_F_m2",
+      "source_or_assumption": "Assumption: 1 microF cm^-2 generic membrane value",
+      "unit": "F m^-2",
+      "value": 0.01
+    },
+    {
+      "name": "na_conductance_S_m2",
+      "source_or_assumption": "Assumption: generic open Na conductance density",
+      "unit": "S m^-2",
+      "value": 0.2
+    },
+    {
+      "name": "k_conductance_S_m2",
+      "source_or_assumption": "Assumption: generic open K conductance density",
+      "unit": "S m^-2",
+      "value": 1.0
+    },
+    {
+      "name": "cl_conductance_S_m2",
+      "source_or_assumption": "Assumption: generic open Cl conductance density",
+      "unit": "S m^-2",
+      "value": 0.5
+    },
+    {
+      "name": "pump_density_mol_m2_s",
+      "source_or_assumption": "Assumption: pump density chosen to balance the initial generic currents",
+      "unit": "mol m^-2 s^-1",
+      "value": 2e-07
+    },
+    {
+      "name": "pump_na_half_saturation_mM",
+      "source_or_assumption": "Assumption: simple pump activation scale",
+      "unit": "mM",
+      "value": 10.0
+    },
+    {
+      "name": "pump_k_half_saturation_mM",
+      "source_or_assumption": "Assumption: simple pump activation scale",
+      "unit": "mM",
+      "value": 4.0
+    },
+    {
+      "name": "pump_baseline_activation",
+      "source_or_assumption": "Normalization so the initial generic pump activation equals one",
+      "unit": "dimensionless",
+      "value": 0.25
+    },
+    {
+      "name": "initial_na_mM",
+      "source_or_assumption": "Assumption chosen for a 300 mM electroneutral starting solution",
+      "unit": "mM",
+      "value": 10.0
+    },
+    {
+      "name": "initial_k_mM",
+      "source_or_assumption": "Assumption chosen for a 300 mM electroneutral starting solution",
+      "unit": "mM",
+      "value": 140.0
+    },
+    {
+      "name": "initial_cl_mM",
+      "source_or_assumption": "Assumption chosen for a 300 mM electroneutral starting solution",
+      "unit": "mM",
+      "value": 10.0
+    },
+    {
+      "name": "initial_fixed_anion_mM",
+      "source_or_assumption": "Assumption chosen for electroneutrality and 300 mM osmolarity",
+      "unit": "mM",
+      "value": 140.0
+    },
+    {
+      "name": "external_na_mM",
+      "source_or_assumption": "Assumption: baseline external ionic composition summing to 300 mM",
+      "unit": "mM",
+      "value": 100.0
+    },
+    {
+      "name": "external_k_mM",
+      "source_or_assumption": "Assumption: baseline external ionic composition summing to 300 mM",
+      "unit": "mM",
+      "value": 4.0
+    },
+    {
+      "name": "external_cl_mM",
+      "source_or_assumption": "Assumption: baseline external ionic composition summing to 300 mM",
+      "unit": "mM",
+      "value": 196.0
+    },
+    {
+      "name": "post_shock_scale",
+      "source_or_assumption": "Protocol control: 300 mM to 150 mM external osmolarity",
+      "unit": "dimensionless",
+      "value": 0.5
+    },
+    {
+      "name": "shock_time_s",
+      "source_or_assumption": "Protocol definition: shock applied at integration start",
+      "unit": "s",
+      "value": 0.0
+    },
+    {
+      "name": "t_end_s",
+      "source_or_assumption": "Frozen local simulation horizon",
+      "unit": "s",
+      "value": 30.0
+    }
+  ],
+  "parameters": {
+    "F_C_mol": 96485.33212,
+    "R_J_mol_K": 8.314462618,
+    "area_to_volume_initial_m_inv": 675000.0,
+    "cl_conductance_S_m2": 0.5,
+    "external_cl_mM": 196.0,
+    "external_k_mM": 4.0,
+    "external_na_mM": 100.0,
+    "hydraulic_permeability_m_s_Pa": 1.65e-11,
+    "initial_cl_mM": 10.0,
+    "initial_fixed_anion_mM": 140.0,
+    "initial_k_mM": 140.0,
+    "initial_na_mM": 10.0,
+    "initial_volume_m3": 1.7e-15,
+    "k_conductance_S_m2": 1.0,
+    "membrane_capacitance_F_m2": 0.01,
+    "na_conductance_S_m2": 0.2,
+    "post_shock_scale": 0.5,
+    "pump_baseline_activation": 0.25,
+    "pump_density_mol_m2_s": 2e-07,
+    "pump_k_half_saturation_mM": 4.0,
+    "pump_na_half_saturation_mM": 10.0,
+    "shock_time_s": 0.0,
+    "t_end_s": 30.0,
+    "temperature_K": 297.15,
+    "water_area_fraction": 0.025,
+    "water_molar_volume_m3_mol": 1.807e-05
+  },
+  "placebo_osmotic_final_volume_ratio": 2.0000000000000004,
+  "prereg_sha256": "7a5dff7ef9b06a0a755ba942f4cf7016871566855bb1ea23c42075e8476c001c",
+  "pump_stoichiometry": {
+    "K_in": 2,
+    "Na_out": 3
+  },
+  "reference": {
+    "area_to_volume_cm_inv": 6750.0,
+    "citation": "Farinas J, Verkman AS, Biophysical Journal 71, 3511-3522 (1996)",
+    "doi": "10.1016/S0006-3495(96)79546-2",
+    "figure": "Figure 6 and Results pp. 3517-3518",
+    "half_time_s": 6.0,
+    "initial_volume_pL": 1.7,
+    "volume_ratio_dimensionless": 2.0,
+    "water_permeability_cm_s": 0.00061,
+    "water_permeability_uncertainty_cm_s": 0.0002
+  },
+  "reference_ideal_final_volume_ratio": 2.0000000000000004,
+  "reference_pass": true,
+  "sensitivity": {
+    "hydraulic_permeability_m_s_Pa": {
+      "minus50": {
+        "balance_pass": true,
+        "balances": {
+          "max_bulk_electroneutrality_relative": 4.385797880148249e-10,
+          "max_charge_closure_C": 1.118488012189422e-22,
+          "max_charge_closure_relative": 2.2730022286324525e-15,
+          "max_countercharge_relative": 1.330900961176545e-06,
+          "max_species_balance_relative": 9.837559523932618e-15,
+          "max_water_balance_relative": 1.5936303543976587e-14
+        },
+        "coupling_required_chi_gt_0_02": false,
+        "metrics": {
+          "chi_volume": 0.0019898331479526283,
+          "clamped_final_volume_ratio": 1.73943776165832,
+          "final_volume_ratio": 1.7374479285103674,
+          "half_time_s": 9.523520607920187,
+          "initial_voltage_mV": -80.37698512421673,
+          "max_volume_difference_ratio": 0.0019898331479526283,
+          "peak_volume_ratio": 1.7374479285103674
+        },
+        "reference_pass": false
+      },
+      "plus50": {
+        "balance_pass": true,
+        "balances": {
+          "max_bulk_electroneutrality_relative": 5.808162108086286e-10,
+          "max_charge_closure_C": 1.4788853645180106e-22,
+          "max_charge_closure_relative": 3.005405237076484e-15,
+          "max_countercharge_relative": 2.0046424766267033e-06,
+          "max_species_balance_relative": 6.576050571254149e-15,
+          "max_water_balance_relative": 9.341971043020758e-15
+        },
+        "coupling_required_chi_gt_0_02": false,
+        "metrics": {
+          "chi_volume": 0.013928959593351485,
+          "clamped_final_volume_ratio": 1.988287935359495,
+          "final_volume_ratio": 1.9743589757661435,
+          "half_time_s": 4.682842758532618,
+          "initial_voltage_mV": -80.37698512421673,
+          "max_volume_difference_ratio": 0.013928959593351485,
+          "peak_volume_ratio": 1.9743589757661435
+        },
+        "reference_pass": true
+      },
+      "sensitivity": {
+        "chi_volume": 1.4221952689228847,
+        "final_volume_ratio": 0.1233334006960808,
+        "half_time_s": -0.7482001234810731
+      }
+    },
+    "k_conductance_S_m2": {
+      "minus50": {
+        "balance_pass": true,
+        "balances": {
+          "max_bulk_electroneutrality_relative": 4.359969129487756e-10,
+          "max_charge_closure_C": 1.1099252741620462e-22,
+          "max_charge_closure_relative": 2.2556009490413352e-15,
+          "max_countercharge_relative": 2.765278547526255e-06,
+          "max_species_balance_relative": 7.981416217530238e-15,
+          "max_water_balance_relative": 1.044102645984673e-14
+        },
+        "coupling_required_chi_gt_0_02": false,
+        "metrics": {
+          "chi_volume": 0.011859088355651921,
+          "clamped_final_volume_ratio": 1.9418260634198248,
+          "final_volume_ratio": 1.929966975064173,
+          "half_time_s": 6.547058556890562,
+          "initial_voltage_mV": -75.93419343298471,
+          "max_volume_difference_ratio": 0.011859088355651921,
+          "peak_volume_ratio": 1.929966975064173
+        },
+        "reference_pass": true
+      },
+      "plus50": {
+        "balance_pass": true,
+        "balances": {
+          "max_bulk_electroneutrality_relative": 5.567951131588513e-10,
+          "max_charge_closure_C": 1.4109542169411498e-22,
+          "max_charge_closure_relative": 2.867354897552939e-15,
+          "max_countercharge_relative": 1.561591963139161e-06,
+          "max_species_balance_relative": 6.151789244076462e-15,
+          "max_water_balance_relative": 9.067207188814265e-15
+        },
+        "coupling_required_chi_gt_0_02": false,
+        "metrics": {
+          "chi_volume": 0.0039051532796241747,
+          "clamped_final_volume_ratio": 1.920081341483347,
+          "final_volume_ratio": 1.916176188203723,
+          "half_time_s": 6.429798222651876,
+          "initial_voltage_mV": -82.80032604670693,
+          "max_volume_difference_ratio": 0.0039051532796241747,
+          "peak_volume_ratio": 1.916176188203723
+        },
+        "reference_pass": true
+      },
+      "sensitivity": {
+        "chi_volume": -0.9474770944239329,
+        "final_volume_ratio": -0.00717933866519038,
+        "half_time_s": -0.01812436177051451
+      }
+    },
+    "pump_density_mol_m2_s": {
+      "minus50": {
+        "balance_pass": true,
+        "balances": {
+          "max_bulk_electroneutrality_relative": 2.2261709136695822e-10,
+          "max_charge_closure_C": 5.721832813153806e-23,
+          "max_charge_closure_relative": 1.1627964354041109e-15,
+          "max_countercharge_relative": 1.250825519131015e-06,
+          "max_species_balance_relative": 8.723873540091189e-15,
+          "max_water_balance_relative": 5.220513229923365e-15
+        },
+        "coupling_required_chi_gt_0_02": false,
+        "metrics": {
+          "chi_volume": 0.0006206409377950125,
+          "clamped_final_volume_ratio": 1.9238303458536494,
+          "final_volume_ratio": 1.923359458712592,
+          "half_time_s": 6.48958433664902,
+          "initial_voltage_mV": -74.701377352452,
+          "max_volume_difference_ratio": 0.0006206409377950125,
+          "peak_volume_ratio": 1.923359458712592
+        },
+        "reference_pass": true
+      },
+      "plus50": {
+        "balance_pass": true,
+        "balances": {
+          "max_bulk_electroneutrality_relative": 9.987205157815816e-10,
+          "max_charge_closure_C": 2.5319158444938553e-22,
+          "max_charge_closure_relative": 5.145384031411239e-15,
+          "max_countercharge_relative": 3.2599829006479763e-06,
+          "max_species_balance_relative": 1.1030794506619862e-14,
+          "max_water_balance_relative": 1.0990554168259715e-14
+        },
+        "coupling_required_chi_gt_0_02": false,
+        "metrics": {
+          "chi_volume": 0.018841727044769274,
+          "clamped_final_volume_ratio": 1.937859441412285,
+          "final_volume_ratio": 1.9190177143675158,
+          "half_time_s": 6.455673556846742,
+          "initial_voltage_mV": -86.05259289598143,
+          "max_volume_difference_ratio": 0.018841727044769274,
+          "peak_volume_ratio": 1.9190177143675158
+        },
+        "reference_pass": true
+      },
+      "sensitivity": {
+        "chi_volume": 2.1705057379605948,
+        "final_volume_ratio": -0.0022602664638643895,
+        "half_time_s": -0.005241424946015265
+      }
+    }
+  },
+  "species": [
+    "Na",
+    "K",
+    "Cl"
+  ],
+  "structural_source": {
+    "citation": "Jakobsson E, American Journal of Physiology-Cell Physiology 238, C196-C206 (1980)",
+    "doi": "10.1152/ajpcell.1980.238.5.c196"
+  },
+  "trajectory_summary": {
+    "max_abs_Vm_change_mV": 5.6318307747699885,
+    "samples": [
+      {
+        "C_Cl_mM": 10.0,
+        "C_K_mM": 140.0,
+        "C_Na_mM": 10.0,
+        "C_countercharge_mM": 0.0,
+        "C_fixed_anion_mM": 140.0,
+        "N_Cl_mol": 1.7e-14,
+        "N_K_mol": 2.38e-13,
+        "N_Na_mol": 1.7e-14,
+        "N_countercharge_mol": 0.0,
+        "N_water_mol": 9.407858328721637e-11,
+        "Vm_mV": -80.37698512421673,
+        "net_bulk_charge_mM": 0.0,
+        "time_s": 0.0,
+        "total_osmolarity_mM": 300.0,
+        "volume_m3": 1.7e-15,
+        "volume_ratio": 1.0
+      },
+      {
+        "C_Cl_mM": 9.983295567561967,
+        "C_K_mM": 139.7838197847269,
+        "C_Na_mM": 9.983114406045532,
+        "C_countercharge_mM": -0.0002260590411582116,
+        "C_fixed_anion_mM": 139.7838646822516,
+        "N_Cl_mol": 1.6997844139456194e-14,
+        "N_K_mol": 2.3799992355619224e-13,
+        "N_Na_mol": 1.6997535688684644e-14,
+        "N_countercharge_mol": -3.848945793418575e-19,
+        "N_water_mol": 9.422404860639557e-11,
+        "Vm_mV": -83.61227585456862,
+        "net_bulk_charge_mM": 4.408338928271749e-15,
+        "time_s": 0.015,
+        "total_osmolarity_mM": 299.53432049962714,
+        "volume_m3": 1.7026285583175676e-15,
+        "volume_ratio": 1.0015462107750397
+      },
+      {
+        "C_Cl_mM": 9.884447879175736,
+        "C_K_mM": 138.51059283749385,
+        "C_Na_mM": 9.883747988781531,
+        "C_countercharge_mM": -0.00023401284383088401,
+        "C_fixed_anion_mM": 138.51012695994342,
+        "N_Cl_mol": 1.6984307551202798e-14,
+        "N_K_mol": 2.380008005108322e-13,
+        "N_Na_mol": 1.6983104939397604e-14,
+        "N_countercharge_mol": -4.021009730779987e-19,
+        "N_water_mol": 9.509053200145647e-11,
+        "Vm_mV": -83.75709313657786,
+        "net_bulk_charge_mM": 5.4329723228954685e-14,
+        "time_s": 0.105,
+        "total_osmolarity_mM": 296.78914967823835,
+        "volume_m3": 1.7182859132663177e-15,
+        "volume_ratio": 1.0107564195684222
+      },
+      {
+        "C_Cl_mM": 9.038589992853462,
+        "C_K_mM": 127.62897821446253,
+        "C_Na_mM": 9.03385298278395,
+        "C_countercharge_mM": -0.00013831962826839123,
+        "C_fixed_anion_mM": 127.62437952402112,
+        "N_Cl_mol": 1.6855591590901593e-14,
+        "N_K_mol": 2.380085758561894e-13,
+        "N_Na_mol": 1.6846757789705077e-14,
+        "N_countercharge_mol": -2.579450074558912e-19,
+        "N_water_mol": 1.0320129828902556e-10,
+        "Vm_mV": -82.58612932197366,
+        "net_bulk_charge_mM": 1.6154905104620587e-13,
+        "time_s": 1.005,
+        "total_osmolarity_mM": 273.32593903374936,
+        "volume_m3": 1.8648474600826896e-15,
+        "volume_ratio": 1.096969094166288
+      },
+      {
+        "C_Cl_mM": 6.982794386969296,
+        "C_K_mM": 101.23767180406418,
+        "C_Na_mM": 6.974142322171817,
+        "C_countercharge_mM": 8.189609607633854e-05,
+        "C_fixed_anion_mM": 101.22893784317053,
+        "N_Cl_mol": 1.6417292322808007e-14,
+        "N_K_mol": 2.3802053447104134e-13,
+        "N_Na_mol": 1.639695039819955e-14,
+        "N_countercharge_mol": 1.9254643268474799e-19,
+        "N_water_mol": 1.3011103288088982e-10,
+        "Vm_mV": -79.29232253263675,
+        "net_bulk_charge_mM": 1.0025389806517238e-13,
+        "time_s": 4.995,
+        "total_osmolarity_mM": 216.4236282524719,
+        "volume_m3": 2.3511063641576755e-15,
+        "volume_ratio": 1.383003743622162
+      },
+      {
+        "C_Cl_mM": 5.901668741235707,
+        "C_K_mM": 87.22944058911337,
+        "C_Na_mM": 5.901262375611034,
+        "C_countercharge_mM": 0.00018903364895511576,
+        "C_fixed_anion_mM": 87.22884518983984,
+        "N_Cl_mol": 1.610243901953779e-14,
+        "N_K_mol": 2.380016245202695e-13,
+        "N_Na_mol": 1.610133026911857e-14,
+        "N_countercharge_mol": 5.157698505970574e-19,
+        "N_water_mol": 1.5099364930884607e-10,
+        "Vm_mV": -77.20944260922784,
+        "net_bulk_charge_mM": -1.0363809962131432e-13,
+        "time_s": 10.004999999999999,
+        "total_osmolarity_mM": 186.2614059294489,
+        "volume_m3": 2.7284552430108464e-15,
+        "volume_ratio": 1.6049736723593213
+      },
+      {
+        "C_Cl_mM": 4.910779800887424,
+        "C_K_mM": 72.8410138532177,
+        "C_Na_mM": 4.952582835472928,
+        "C_countercharge_mM": 0.00028862473873496374,
+        "C_fixed_anion_mM": 72.88252826306451,
+        "N_Cl_mol": 1.603629320312033e-14,
+        "N_K_mol": 2.3786443349621627e-13,
+        "N_Na_mol": 1.6172802219320197e-14,
+        "N_countercharge_mol": 9.42512416295162e-19,
+        "N_water_mol": 1.8071548797910002e-10,
+        "Vm_mV": -74.74515434944675,
+        "net_bulk_charge_mM": -4.8114724010561716e-14,
+        "time_s": 30.0,
+        "total_osmolarity_mM": 155.5871933773813,
+        "volume_m3": 3.2655288677823474e-15,
+        "volume_ratio": 1.920899333989616
+      }
+    ],
+    "terminal": {
+      "C_Cl_mM": 4.910779800887424,
+      "C_K_mM": 72.8410138532177,
+      "C_Na_mM": 4.952582835472928,
+      "C_countercharge_mM": 0.00028862473873496374,
+      "C_fixed_anion_mM": 72.88252826306451,
+      "N_Cl_mol": 1.603629320312033e-14,
+      "N_K_mol": 2.3786443349621627e-13,
+      "N_Na_mol": 1.6172802219320197e-14,
+      "N_countercharge_mol": 9.42512416295162e-19,
+      "N_water_mol": 1.8071548797910002e-10,
+      "Vm_mV": -74.74515434944675,
+      "net_bulk_charge_mM": -4.8114724010561716e-14,
+      "time_s": 30.0,
+      "total_osmolarity_mM": 155.5871933773813,
+      "volume_m3": 3.2655288677823474e-15,
+      "volume_ratio": 1.920899333989616
+    }
+  },
+  "valence": {
+    "Cl": -1,
+    "K": 1,
+    "Na": 1
+  }
+}

@@ -1,0 +1,133 @@
+{
+ "_meta": {
+  "doc": "docs/MECHANISM_MUSCLE_HYPERTROPHY.md",
+  "status": "HYPOTHESIS-awaiting-QC",
+  "isolation": "bodytwin only; read-only on every file not created this session; no git commit/push; no standalone script built (task scope = 2 files + MT-JSON summary line)",
+  "citation_verification_method": "NCBI eutils esearch (title/author-restricted) -> esummary (title/journal/year confirm) -> efetch (rettype=abstract, retmode=text, full abstract), raw curl --max-time 25, never WebFetch-summarized",
+  "recall_drift_caught_live": [
+   {"paper": "Bodine 2001 Nat Cell Biol", "recalled_pmid": "11715018", "verified_pmid": "11715023"},
+   {"paper": "West & Phillips 2012 EJAP", "recalled_pmid": "22105450", "verified_pmid": "22105707"},
+   {"paper": "West & Phillips 2010 Phys Sportsmed review", "recalled_pmid": "20959701", "verified_pmid": "20959702", "note": "20959701 is an unrelated patellar-mobility-test paper"},
+   {"paper": "Egner satellite-cell depletion paper", "recalled_year": "2013", "verified_year": "2016", "recalled_pmid_guess": "24004949", "verified_pmid": "27531949", "note": "24004949 is an unrelated plant-biology (zeitlupe/gigantea) paper"}
+  ]
+ },
+ "citations_verified_live_this_session": {
+  "phillips_1997": {"pmid": "9252485", "doi": "10.1152/ajpendo.1997.273.1.E99", "cite": "Phillips SM, Tipton KD, Aarsland A, Wolf SE, Wolfe RR (1997). Mixed muscle protein synthesis and breakdown after resistance exercise in humans. Am J Physiol 273(1 Pt1):E99-107.", "n": 8, "numbers": "FSR above rest: 3h=+112%, 24h=+65%, 48h=+34% (all P<0.01). FBR above rest: 3h=+31%(P<0.05), 24h=+18%(P<0.05), back to baseline by 48h. Net balance significant vs zero at all 4 timepoints (rest,3h,24h,48h), P<0.05. FSR-FBR correlation r=0.88,P<0.001. No difference concentric vs eccentric."},
+  "bodine_2001_ncb": {"pmid": "11715023", "doi": "10.1038/ncb1101-1014", "cite": "Bodine SC, Stitt TN, Gonzalez M, et al (2001). Akt/mTOR pathway is a crucial regulator of skeletal muscle hypertrophy and can prevent muscle atrophy in vivo. Nat Cell Biol 3(11):1014-9.", "n": "NR (rat, multiple in vivo hypertrophy+atrophy models)", "numbers": "Rapamycin blocked hypertrophy in ALL models tested, no atrophy in controls. Calcineurin pathway NOT activated during hypertrophy; cyclosporin A and FK506 did NOT blunt hypertrophy (forced adversary falls). Genetic Akt/mTOR activation sufficient for hypertrophy + atrophy-prevention; genetic blockade blocked hypertrophy."},
+  "drummond_2009": {"pmid": "19188252", "doi": "10.1113/jphysiol.2008.163816", "pmcid": "PMC2678224", "cite": "Drummond MJ, Fry CS, Glynn EL, et al (2009). Rapamycin administration in humans blocks the contraction-induced increase in skeletal muscle protein synthesis. J Physiol 587(Pt7):1535-46.", "n": "NR in abstract (human RCT)", "numbers": "Rapamycin blocked early(1-2h) ~40% contraction-induced MPS increase. S6K1(Thr421/Ser424) phospho +6-fold in control, unchanged with rapamycin. eEF2(Thr56) phospho -25% post-exercise in control, unaltered with rapamycin (elongation inhibited). Rapamycin also blocked ERK1/2(Thr202/Tyr204) phospho increase, blunted MNK1 increase; eIF4E(Ser209) phospho unaffected (P>0.05) -- authors read as indirect/crosstalk, not direct MAPK inhibition."},
+  "schoenfeld_2017": {"pmid": "27433992", "doi": "10.1080/02640414.2016.1210197", "cite": "Schoenfeld BJ, Ogborn D, Krieger JW (2017). Dose-response relationship between weekly resistance training volume and increases in muscle mass: a systematic review and meta-analysis. J Sports Sci 35(11):1073-82.", "n": "34 treatment groups from 15 studies", "numbers": "Continuous weekly-sets model: P=0.002, +0.023 ES/set = +0.37% muscle-size gain/set. 2-level categorical (lower vs higher volume): P=0.03, ES diff 0.241 = 3.9 percentage-point gain difference. 3-level categorical (<5, 5-9, 10+ sets/muscle/wk): TREND ONLY, P=0.074 (not significant at conventional threshold, disclosed)."},
+  "west_2009_acute": {"pmid": "19736298", "doi": "10.1113/jphysiol.2009.177220", "pmcid": "PMC2790261", "cite": "West DW, Kujbida GW, Moore DR, et al (2009). Resistance exercise-induced increases in putative anabolic hormones do not enhance muscle protein synthesis or intracellular signalling in young men. J Physiol 587(Pt21):5239-47.", "n": 8, "numbers": "T/GH P<0.001, IGF-1 P<0.05 elevated in HH only, unchanged in LH. MPS(%/h): rest=0.040+/-0.007, LH=0.071+/-0.008, HH=0.064+/-0.014; exercise effect P<0.05, hormone effect P=0.72 (HH numerically LOWER than LH). p70S6K phospho increased with exercise, no between-condition difference."},
+  "west_2010_causal": {"pmid": "19910330", "doi": "10.1152/japplphysiol.01147.2009", "pmcid": "PMC2885075", "cite": "West DW, Burd NA, Tang JE, et al (2010). Elevations in ostensibly anabolic hormones with resistance exercise enhance neither training-induced muscle hypertrophy nor strength of the elbow flexors. J Appl Physiol 108(1):60-7.", "n": 12, "numbers": "15wk training, LH vs HH (contralateral arms). Hormone elevation confirmed P<0.001 in HH only, maintained late vs early in training period. CSA +12%(LH) vs +10%(HH), training effect P<0.001, condition x training interaction P=0.25 (NS). Type I (P<0.01) and type II (P<0.001) fiber CSA both increased, no hormone effect on either. Strength increased both arms, no between-condition difference (exact % not given in abstract -- honest gap)."},
+  "west_phillips_2012": {"pmid": "22105707", "doi": "10.1007/s00421-011-2246-z", "pmcid": "PMC3371329", "cite": "West DW, Phillips SM (2012). Associations of exercise-induced hormone profiles and gains in strength and hypertrophy in a large cohort after weight training. Eur J Appl Physiol 112(7):2693-702.", "n": 56, "numbers": "No significant correlations: GH/fT/IGF-1 AUC vs LBM or leg-press-strength gain. Significant: cortisol AUC vs LBM change r=0.29(P<0.05); cortisol AUC vs typeII fiber CSA r=0.35(P<0.01); GH AUC vs typeI fiber CSA r=0.36(P=0.006); GH AUC vs typeII fiber CSA r=0.28(P=0.04), NOT lean mass. No hormone correlated with strength."},
+  "west_phillips_2010_review": {"pmid": "20959702", "doi": "10.3810/psm.2010.10.1814", "cite": "West DW, Phillips SM (2010). Anabolic processes in human skeletal muscle: restoring the identities of growth hormone and testosterone. Phys Sportsmed 38(3):97-104.", "n": "review, no primary data", "numbers": "Verbatim: 'GH...is not anabolic toward the contractile (ie, myofibrillar) muscle tissue in healthy individuals.' 'no evidence that transient exercise-induced changes in GH have the same effects' as clinical GH-deficiency replacement. 'exercise-induced increases in GH and testosterone availability are not necessary for and do not enhance strength and hypertrophy adaptations.' 'local mechanisms...are predominant in stimulating anabolism.'"},
+  "cuthbertson_2005": {"pmid": "15596483", "doi": "10.1096/fj.04-2640fje", "cite": "Cuthbertson D, Smith K, Babraj J, et al (2005). Anabolic signaling deficits underlie amino acid resistance of wasting, aging muscle. FASEB J 19(3):422-4.", "n": 44, "numbers": "Basal MPS indistinguishable young vs old. EAA-stimulated MPS sensitivity/responsiveness reduced in elderly, linked to decreased expression+activation(phosphorylation) of mTOR, p70S6k, eIF4BP-1, eIF2B after EAA. Effects independent of insulin (plasma insulin clamped at basal). Increased NFkB associated with the anabolic deficits."},
+  "mccarthy_2011": {"pmid": "21828094", "doi": "10.1242/dev.068858", "pmcid": "PMC3152923", "cite": "McCarthy JJ, Mula J, Miyazaki M, et al (2011). Effective fiber hypertrophy in satellite cell-depleted skeletal muscle. Development 138(17):3657-66.", "n": "mouse, Pax7-DTA, >90% satellite-cell ablation", "numbers": "2wk plantaris synergist-ablation overload: satellite-cell-depleted muscle showed SAME (~2-fold) mass+fiber-CSA hypertrophy as vehicle controls. Typical myonuclei increase ABSENT (myonuclear domain expanded instead), confirmed via reduced BrdU+ myonuclei (long-term labeling). Single-fiber specific force/Ca2+ sensitivity/cross-bridge cycling unchanged. Fiber hyperplasia + regeneration (small component) significantly blunted."},
+  "egner_2016": {"pmid": "27531949", "doi": "10.1242/dev.134411", "cite": "Egner IM, Bruusgaard JC, Gundersen K (2016). Satellite cell depletion prevents fiber hypertrophy in skeletal muscle. Development 143(16):2898-906.", "n": "mouse, same general Pax7-based genetic strategy as McCarthy 2011", "numbers": "Repeating McCarthy 2011's protocol with immunohistochemistry + in vivo/ex vivo imaging: overload hypertrophy PREVENTED in satellite-cell-deficient mice, both plantaris AND EDL. Attributes McCarthy's contrary finding to (a) reliance on muscle MASS as a fiber-hypertrophy proxy, (b) inclusion of a significant number of REGENERATING fibers in the analysis. Verbatim: 'there is currently no model in which functional, sustainable hypertrophy has been unequivocally demonstrated in the absence of satellite cells.'"},
+  "burd_2010": {"pmid": "20581041", "doi": "10.1113/jphysiol.2010.192856", "pmcid": "PMC2956949", "cite": "Burd NA, Holwerda AM, Selby KC, et al (2010). Resistance exercise volume affects myofibrillar protein synthesis and anabolic signalling molecule phosphorylation in young men. J Physiol 588(Pt16):3119-30.", "n": 8, "numbers": "1SET fed-state MPS: 2.3-fold above rest at 5h, returned to resting levels by 29h. 3SET: 3.1-fold above rest at 5h (bigger amplitude), 2.3-fold above rest at 29h (longer duration). p70S6K phosphorylation correlated with MPS response, r=0.338, P=0.033. 3SET showed greater eIF2B and rpS6 activation at 5h Fed vs 1SET; p90RSK/rpS6 similar at 24h Fast/29h Fed."},
+  "ahtiainen_2003": {"pmid": "12734759", "doi": "10.1007/s00421-003-0833-3", "cite": "Ahtiainen JP, Pakarinen A, Alen M, Kraemer WJ, Hakkinen K (2003). Muscle hypertrophy, hormonal adaptations and strength development during strength training in strength-trained and untrained men. Eur J Appl Physiol 89(6):555-63.", "n": "16 (8 strength-athletes SA + 8 non-athletes NA)", "numbers": "21wk training. NA gained MORE than SA: force +20.9%(NA) vs +3.9%(SA); CSA +5.6%(NA) vs -1.8%(SA). No significant change in basal hormones over 21wk in either group. Basal-T-mean(wk0,7,14,21) vs Disometric-force correlated r=0.84,P<0.01 in SA. Acute-DeltaT-response(wk0 vs wk21) vs Delta-CSA correlated r=0.76,P<0.05 in NA. FORCED ADVERSARY for the hormone-hypothesis refutation -- correlational, small n=8/subgroup, plausible ~12 hormone x outcome x subgroup comparisons with only 2 reported significant (multiple-comparisons concern disclosed not resolved), opposite-direction CSA/force response between subgroups on the identical protocol."},
+  "bodine_2001_science_atrogin": {"pmid": "11679633", "doi": "10.1126/science.1065874", "cite": "Bodine SC, Latres E, Baumhueter S, et al (2001). Identification of ubiquitin ligases required for skeletal muscle atrophy. Science 294(5547):1704-8.", "n": "rat (transcript profiling, multiple atrophy models) + mouse (KO)", "numbers": "Transcript profiling across multiple rat atrophy models found only a small universal subset of upregulated genes; 2 are ubiquitin ligases: MuRF1 and MAFbx(atrogin-1, SCF-family E3). MAFbx overexpression in myotubes produced atrophy (sufficiency). Mice deficient in either MAFbx or MuRF1 were resistant to atrophy (necessity)."}
+ },
+ "citations_read_only_sibling_verified_not_reverified_this_session": {
+  "damas_2016a_ejap": {"pmid": "26280652", "sibling_node": "MSK-MUSCLE-HYPERTROPHY-TIMECOURSE", "used_for": "apparent whole-muscle CSA(vastus lateralis,ultrasound) %change vs baseline: wk3=+2.7%, wk10=+10.4%, n=10, fetched_live=true per that node"},
+  "damas_2016b_jphysiol": {"pmid": "27219125", "sibling_node": "MSK-MUSCLE-HYPERTROPHY-TIMECOURSE", "used_for": "MVC(strength) NOT significant at wk3(T2) despite whole-muscle CSA already +2.7%; MVC significant ONLY at wk10(T3), coincident with significant biopsy fiber-CSA increase P=0.017"},
+  "damas_2018_review": {"pmid": "29282529", "sibling_node": "MSK-MUSCLE-HYPERTROPHY-TIMECOURSE", "used_for": "session-count reframing: swelling-dominant <=4 sessions, modest true hypertrophy ~10 sessions, true hypertrophy ~18+ sessions"},
+  "harrison_2009": {"pmid": "19587680", "sibling_node": "MOL-MTORC1-NUTRIENT-SIGNALING", "used_for": "rapamycin extends median/maximal lifespan in genetically heterogeneous mice, NIA-ITP, first published cohort"},
+  "miller_2011": {"pmid": "20974732", "sibling_node": "MOL-MTORC1-NUTRIENT-SIGNALING", "used_for": "rapamycin lifespan-extension independently replicated, NIA-ITP, second published cohort, 3 test sites total"}
+ },
+ "machine_computed_checks": {
+  "pcsa_fmax_coupling": {
+   "method": "Fmax = PCSA x specific_tension (continuum-mechanics area x stress identity); hypertrophy predominantly = radial/parallel sarcomere addition -> raises PCSA at ~constant Lopt (standard textbook premise, NOT independently re-verified live this session -- disclosed gap)",
+   "inputs": {
+    "Fmax_base_N": 4262.8,
+    "Fmax_base_source": "docs/MECHANISM_FMAX_PCSA_VALIDATION.md, vaslat_r row, specific_tension=60 N/cm^2 convention, read-only this session, unchanged",
+    "pct_HH": 0.10,
+    "pct_LH": 0.12,
+    "pct_source": "West et al 2010, PMID 19910330, live-verified this session: CSA +10%(HH)/+12%(LH), 15wk training"
+   },
+   "outputs": {
+    "Fmax_HH_10pct_N": 4689.08,
+    "Fmax_LH_12pct_N": 4774.336,
+    "delta_HH_N": 426.28,
+    "delta_LH_N": 511.536
+   },
+   "scope_disclosed": "first-order geometric PREDICTION, not a measured-vs-predicted Fmax validation -- West 2010's abstract reports CSA gain but not a matching dynamometry Fmax percentage, so the loop is not closed this session (see doc Sec.8.6)."
+  },
+  "cross_level_dose_response_convergence": {
+   "method": "sign/direction convergence check across 2 decorrelated measurement scales (single-bout mechanistic tracer kinetics [Burd 2010] vs 15-study population dose-response meta-regression [Schoenfeld 2017]) -- deliberately NOT an integrated AUC (too few abstract-level points to interpolate honestly, no independent anchor to check an integral against)",
+   "burd_1set_fold_above_rest": {"5h": 2.3, "29h": 1.0},
+   "burd_3set_fold_above_rest": {"5h": 3.1, "29h": 2.3},
+   "checks": {
+    "amplitude_3set_gt_1set_at_5h": true,
+    "duration_3set_gt_1set_at_29h": true,
+    "schoenfeld_continuous_slope_positive_and_p_lt_05": true,
+    "schoenfeld_continuous_p": 0.002,
+    "schoenfeld_2level_categorical_p_lt_05": true,
+    "schoenfeld_2level_categorical_p": 0.03,
+    "schoenfeld_3level_categorical_p_lt_05": false,
+    "schoenfeld_3level_categorical_p": 0.074,
+    "schoenfeld_3level_disclosed_as_trend_only_not_significant": true
+   },
+   "overall_cross_level_convergence_pass": true
+  }
+ },
+ "falsifier_verdicts": {
+  "falsifier_1_mtorc1_necessity": {
+   "pre_registered_threshold": "rapamycin BLOCKS (not merely attenuates) the load-induced MPS increase in >=1 human RCT AND blocks hypertrophy in >=1 animal causal (loss-of-function AND gain-of-function) study spanning multiple hypertrophy-induction models, with the strongest rival pathway (calcineurin/NFAT) directly tested and falling in the same experiments",
+   "forced_adversary": "calcineurin/NFAT pathway",
+   "adversary_outcome": "FALLS -- cyclosporin A and FK506 did not blunt hypertrophy in the same Bodine 2001 models where rapamycin blocked it; calcineurin pathway not even activated during hypertrophy in vivo",
+   "decorrelation_axes": ["species (rat vs human)", "modality (genetic gain/loss-of-function vs pharmacological)", "phenotype (hypertrophy/atrophy vs lifespan, via sibling node MOL-MTORC1-NUTRIENT-SIGNALING)"],
+   "verdict": "PASS",
+   "diverse_instance_space": "multiple hypertrophy models + multiple atrophy models (Bodine 2001 NCB) + human pharmacology (Drummond 2009) + decorrelated lifespan phenotype (Harrison 2009 / Miller 2011, read-only)"
+  },
+  "falsifier_2_hormone_hypothesis": {
+   "pre_registered_threshold_for_adversary_survival": "a genuine CAUSAL/manipulated experiment holding local mechanical stimulus constant while varying systemic hormone exposure must show significant, directionally-consistent enhancement of hypertrophy/strength/MPS/signalling in the high-hormone condition",
+   "forced_adversary_primary": "the systemic-hormone-surge-drives-hypertrophy hypothesis itself, tested at its strongest (causal, manipulated) form",
+   "adversary_outcome_primary": "FALLS -- West 2010 (PMID 19910330): CSA +12%(LH) vs +10%(HH), interaction P=0.25, point estimate reversed from predicted direction; West 2009 acute MPS/signalling also null, P=0.72",
+   "forced_adversary_secondary": "independent-lab (Ahtiainen 2003, Finland, fully decorrelated from the McMaster/Phillips group behind every other hormone citation) correlational T-outcome relationships",
+   "adversary_outcome_secondary": "SURVIVES PARTIALLY -- correlational trait-level signal in small subgroups (n=8 each), does not overturn the causal test (no local-stimulus control, small-n multiple-comparisons concern disclosed not resolved, opposite-direction CSA/force response between subgroups)",
+   "verdict": "ADVERSARY FALLS on its pre-registered CAUSAL threshold (PASS for the refutation); a weaker correlational/trait-level residual (Ahtiainen 2003 subgroup correlations; West & Phillips 2012's own weak GH/cortisol-vs-fiber-CSA correlations, r=0.28-0.36) is explicitly left OPEN, not force-closed",
+   "common_mode_risk_disclosed": "4 of 5 primary hormone-hypothesis citations (West 2009, West 2010, West-Phillips 2012, West-Phillips 2010 review) share one lab (McMaster/Phillips) -- Ahtiainen 2003 was specifically sought to decorrelate this and is the only non-McMaster hormone citation in this document"
+  }
+ },
+ "gates_summary": {
+  "overall_pass": true,
+  "n_falsifiers": 2,
+  "n_falsifiers_pass": 2,
+  "n_machine_computed_checks": 2,
+  "n_machine_computed_checks_pass": 2,
+  "gate_strength_disclosure_not_all_equal_weight": [
+   "DECISIVE, externally-anchored falsifier gates (Falsifier 1: Bodine 2001 + Drummond 2009; Falsifier 2: West 2009 + West 2010): built from real RCT/animal-experiment numbers used exactly as reported, never fit to this or any model. This is the part that matters for the claim.",
+   "Machine-computed arithmetic checks (PCSA/Fmax coupling; cross-level dose-response convergence): simple, deterministic, directly reproducible from the inline Python shown in the doc's Sec.1 -- these demonstrate the geometric coupling is a concrete number and that two decorrelated measurement scales agree in sign, not a second independent measurement of muscle physiology itself.",
+   "Forced-adversary-survives gates (Ahtiainen 2003 correlational signal; McCarthy-vs-Egner satellite-cell dispute) are DISCLOSED OPEN, not resolved -- symmetric QC requires reporting these as genuinely unresolved rather than force-closing either direction."
+  ]
+ },
+ "couples_to": [
+  "docs/MECHANISM_FMAX_PCSA_VALIDATION.md (Fmax=PCSA x specific_tension identity + vaslat_r 4262.8N baseline re-used directly in the coupling computation; read-only, not edited this session)",
+  "docs/MECHANISM_SPECIFIC_TENSION.md (specific_tension=61 N/cm^2 twin convention vs literature range context; read-only, not edited this session)",
+  "docs/MECHANISM_FORCE_VELOCITY_POWER_RFD.md (parallel-vs-series geometric argument predicts hypertrophy shifts that doc's F0/Fmax axis specifically, not Vmax; that doc's own Aagaard2002/Tillin2010/Klass2008 neural-vs-contractile RFD decomposition is why this doc does not claim a 1:1 CSA-to-strength mapping; read-only, not edited this session)",
+  "docs/MECHANISM_MUSCLE_DAMAGE.md (eccentric damage-repair-adaptation cycle; the task-named 'IN FLIGHT' damage doc was not found as a separate in-progress file this session, only this already-published doc exists; read-only, not edited this session)",
+  "data/MECHANISM_ANCHOR_GRAPH.json node MSK-MUSCLE-HYPERTROPHY-TIMECOURSE (status OPEN; apparent-CSA-vs-true-growth edema dissociation + session-count framework qualifies this doc's Sec.1 pulse-superposition picture; read-only, not edited this session)",
+  "data/MECHANISM_ANCHOR_GRAPH.json node MOL-MTORC1-NUTRIENT-SIGNALING (status OPEN; decorrelated lifespan-phenotype corroboration used in Sec.2; read-only, not edited this session)",
+  "data/MECHANISM_ANCHOR_GRAPH.json node MSK-SATELLITE-CELL-RESERVE (status OPEN; already tracks the McCarthy-vs-Egner dispute this doc's Sec.6 independently re-lands on, plus Sousa-Victor2014/Verdijk2007/Petrella2008 legs not re-derived here; read-only, not edited this session)",
+  "data/MECHANISM_ANCHOR_GRAPH.json node MSK-SARCOPENIA-COMPOSITE (status ASSUMED, EXECUTED cert, NHANES n=2810 dynapenia dissociation; this doc's Cuthbertson-2005 mechanism feeds that composite's already-measured outcome; read-only, not edited this session)",
+  "data/MECHANISM_ANCHOR_GRAPH.json node AUTO-SARCOPENIA-CELL-EWGSOP2-3-DOMAIN-GATE-ST (status SEED-DESIGN; case-definition layer, dysfunction pole; read-only, not edited this session)"
+ ],
+ "honest_gaps": [
+  "Abstract-only depth throughout -- no full-text PDF/PMC fetch performed this session; every number quoted is exactly what each paper's own PubMed abstract states.",
+  "No MPS-pulse AUC computed -- deliberately, to avoid manufacturing false precision from 2-4 abstract-level timepoints per paper with no independent anchor to check an integral against.",
+  "Ahtiainen 2003's multiple-comparisons concern (~12 plausible hormone x outcome x subgroup comparisons, 2 reported significant) is flagged, not resolved -- full correlation table not fetched this session.",
+  "The McCarthy-2011-vs-Egner-2016 satellite-cell depletion dispute is presented as genuinely open, not adjudicated.",
+  "The Lopt-unchanged assumption underlying the PCSA/Fmax coupling recompute is a standard textbook premise, not independently re-verified live this session.",
+  "The Sec.1 Fmax coupling recompute is one-sided -- West 2010 gives CSA%, not a matching measured dynamometry Fmax%, so the geometric prediction is not closed against a measured value this session.",
+  "No dedicated glucocorticoid-specific human RCT anchor was pulled for the 'glucocorticoid/cachexia atrophy' half of the dysfunction pole -- the MuRF1/MAFbx machinery (Bodine 2001 Science) is general-atrophy, not glucocorticoid-specific.",
+  "No standalone script/PREREG/data-pipeline built this session -- task scope is 2 files + a summary line; all arithmetic is nonetheless directly reproducible from the inline Python shown in the doc.",
+  "The fold into data/MECHANISM_ANCHOR_GRAPH.json is a natural next step, not performed here -- isolation rule (touch only files created this session); another instance may write concurrently."
+ ],
+ "proposed_cell": {
+  "id": "MSK-HYPERTROPHY-MTOR-VS-HORMONE-GATE",
+  "type": "EMPIRICAL",
+  "status": "OPEN",
+  "claim": "Standing machine-checkable template from this doc's two falsifiers: (a) any future signalling-pathway-necessity claim in this twin must show blockade BLOCKS the phenotype in the SAME experiment a rival pathway's blockade does NOT (Bodine 2001's mTOR-vs-calcineurin structure); (b) any future 'circulating factor X drives adaptation Y' claim must be tested with a local-stimulus-held-constant factorial manipulation (West 2010's design) before a correlational finding (Ahtiainen 2003's design) is accepted as causal.",
+  "next_measurement": "pull subject2/subject3/subject4's own longitudinal training-load history (if any exists in this twin's data) and test the Sec.1 Fmax-scales-with-delta-CSA / Vmax-does-not asymmetry prediction against real dynamometry, closing the one-sided coupling flagged in honest_gaps."
+ }
+}

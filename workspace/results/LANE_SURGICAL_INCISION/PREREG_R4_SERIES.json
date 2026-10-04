@@ -1,0 +1,13 @@
+{
+  "parent": "PREREG_R4.json",
+  "utc": "2026-10-01T00:16:09.633180+00:00",
+  "status": "FROZEN_BEFORE_NUMERIC_EXTRACTION_AND_TEST",
+  "Barnett_holdout": "Gauge16,D1.65mm at20mm/s is sole training point for constant effective J and one-anchor force scaling. Gauges18,21,25 at20 are primary new-tool heldouts; 16 at1,40,80 are speed heldouts. Gauge27 force series heldout for diameter force scaling only, J/crack length independently unavailable. Published paper trained all16/18/21/25 and validated27; published full model is contextual control, not our one-gauge training.",
+  "extraction": "Vector marker center coordinates from original PDF if available, otherwise figure digitization. Fig9 J mean and SD; Fig12 crack lengths and SD; Fig15 total force and SD; Fig16 gauge27 total force and SD. Bounds on reading independently declared \u00b150J/m2, \u00b10.03N, \u00b10.03mm; these are reading tolerances, not material confidence intervals. Published marker bars extracted separately as SD.",
+  "primary_errors": "Compare mean-to-mean for Barnett and median-to-median for Owen (correction of generic mean wording); unchanged20% relative threshold; intervals check identification but not prediction probability.",
+  "separation": "Measured effective J from first-minus-repeat integral under matched nonfracture work closure; do not compute Pt=P-P3 as if spreading absent. Gauge16 effective J -> heldout Pt=J16*a_obs; heldout Pt reference=J_obs*a_obs. This supplies area as independent port, not fitting force. Underestimates/overestimates per heldout also reported as equivalent missing work per crack area.",
+  "failure_extension": "Same-gauge speed contrasts isolate history/strain-rate effects; test whether a single J common to all four gauges can intersect reported mean\u00b1SD expanded by reading. Execute first-minus-repeat versus friction-only/full-peak identifiability comparison with the acquired J and crack area. Published eq12 and13 are evaluated as printed with SI and mm/s conventions only as source-reproduction diagnostics; no silent coefficient repair.",
+  "Owen": "21G first-use series and18G positive control; diameter unknown in paper. Any nominal dimensions borrowed from Barnett labelled assumption/sensitivity, not measured tool geometry. Report same-diameter reuse ratio separately, no \u0393 from peak.",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

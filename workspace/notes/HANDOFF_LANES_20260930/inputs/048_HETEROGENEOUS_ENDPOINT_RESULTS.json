@@ -1,0 +1,375 @@
+{
+  "rows": [
+    {
+      "mu": 0.8,
+      "checks": {
+        "max_endpoint_field_error": [
+          0.002725457342222626,
+          1.1590264207939072e-05,
+          1.1898305030122458e-07
+        ],
+        "preregistered_bounds_pass": true,
+        "joint_covariance_identity_max_error": 4.3298697960381105e-15
+      },
+      "late_endpoint_queries": [
+        {
+          "node": 65,
+          "prediction_T_bound_gate": [
+            161.71703358132507,
+            7.102446069204834,
+            0.7900254751307791
+          ],
+          "component_error": {
+            "free_mg_kg": 0.010100000002425585,
+            "bound_mg_kg": 0.00010000000010102488,
+            "gate": 5.000000112284752e-07,
+            "old_error_reset": false,
+            "scope": "cold-acquired numerical history; ODE acquisition remainder not enclosed"
+          }
+        },
+        {
+          "node": 93,
+          "prediction_T_bound_gate": [
+            195.44852277758287,
+            21.558628971705684,
+            0.7818633089082732
+          ],
+          "component_error": {
+            "free_mg_kg": 0.010100000003112774,
+            "bound_mg_kg": 0.00010000000030677414,
+            "gate": 5.000000111109459e-07,
+            "old_error_reset": false,
+            "scope": "cold-acquired numerical history; ODE acquisition remainder not enclosed"
+          }
+        },
+        {
+          "node": 188,
+          "prediction_T_bound_gate": [
+            192.22778551648395,
+            21.51357660874283,
+            0.7832685842251156
+          ],
+          "component_error": {
+            "free_mg_kg": 0.010100000003064118,
+            "bound_mg_kg": 0.00010000000030618863,
+            "gate": 5.000000111432513e-07,
+            "old_error_reset": false,
+            "scope": "cold-acquired numerical history; ODE acquisition remainder not enclosed"
+          }
+        }
+      ],
+      "old_dim": 1109,
+      "dropped_dim": 181,
+      "retained_spatial_joint_coefficients": 326,
+      "payload_JSON_bytes": 29365,
+      "payload_packed_numeric_bytes": 12888,
+      "old_state_float64_bytes": 8872,
+      "past_source_cost": [
+        {
+          "cpu_s": 0.04816503800000005,
+          "wall_s": 0.04818732896819711,
+          "peak_rss_bytes": 89669632,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.03566272799999998,
+          "wall_s": 0.035666816867887974,
+          "peak_rss_bytes": 94584832,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.03415459399999998,
+          "wall_s": 0.03415784100070596,
+          "peak_rss_bytes": 95076352,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.034496522999999946,
+          "wall_s": 0.03454576898366213,
+          "peak_rss_bytes": 95076352,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.03282756200000003,
+          "wall_s": 0.03284325613640249,
+          "peak_rss_bytes": 95076352,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.034080844,
+          "wall_s": 0.03408490517176688,
+          "peak_rss_bytes": 95076352,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.03235785000000002,
+          "wall_s": 0.03236165503039956,
+          "peak_rss_bytes": 95145984,
+          "state_dim": 2065,
+          "regions": 512
+        }
+      ],
+      "cold_extraction_cpu_s": 0.008524423999999975,
+      "retained_past_time_samples": 0,
+      "retained_original_local_state_samples": 0,
+      "full_state_sha": "0f259d53a7974571da0375e9282ce042066660c0431777a3342961febce66d2c",
+      "capsule_sha256": "4ae4462465b6367710b6e7598478a11ee2517e25b4a0260132b2dcbad3a8c593",
+      "scope": "Initial endpoint representation only; conventional joint wavelet control identical, no response/domain proof"
+    },
+    {
+      "mu": 1.0,
+      "checks": {
+        "max_endpoint_field_error": [
+          0.0027015715641596216,
+          1.4696156345195277e-05,
+          1.320772295976269e-07
+        ],
+        "preregistered_bounds_pass": true,
+        "joint_covariance_identity_max_error": 6.328271240363392e-15
+      },
+      "late_endpoint_queries": [
+        {
+          "node": 65,
+          "prediction_T_bound_gate": [
+            163.61810961116612,
+            8.64342413374989,
+            0.705559591156161
+          ],
+          "component_error": {
+            "free_mg_kg": 0.010100000002474328,
+            "bound_mg_kg": 0.00010000000012295319,
+            "gate": 5.000000100283565e-07,
+            "old_error_reset": false,
+            "scope": "cold-acquired numerical history; ODE acquisition remainder not enclosed"
+          }
+        },
+        {
+          "node": 93,
+          "prediction_T_bound_gate": [
+            200.42193338221762,
+            26.297305646374554,
+            0.6955660879734809
+          ],
+          "component_error": {
+            "free_mg_kg": 0.010100000003250873,
+            "bound_mg_kg": 0.00010000000037426733,
+            "gate": 5.000000098845886e-07,
+            "old_error_reset": false,
+            "scope": "cold-acquired numerical history; ODE acquisition remainder not enclosed"
+          }
+        },
+        {
+          "node": 188,
+          "prediction_T_bound_gate": [
+            197.2042596468562,
+            26.23159670258104,
+            0.6972728918242599
+          ],
+          "component_error": {
+            "free_mg_kg": 0.010100000003202003,
+            "bound_mg_kg": 0.00010000000037340922,
+            "gate": 5.000000099228192e-07,
+            "old_error_reset": false,
+            "scope": "cold-acquired numerical history; ODE acquisition remainder not enclosed"
+          }
+        }
+      ],
+      "old_dim": 1109,
+      "dropped_dim": 181,
+      "retained_spatial_joint_coefficients": 325,
+      "payload_JSON_bytes": 29217,
+      "payload_packed_numeric_bytes": 12852,
+      "old_state_float64_bytes": 8872,
+      "past_source_cost": [
+        {
+          "cpu_s": 0.042561512999999995,
+          "wall_s": 0.04257199494168162,
+          "peak_rss_bytes": 98586624,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.03528545099999991,
+          "wall_s": 0.03528958302922547,
+          "peak_rss_bytes": 98586624,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.035949458000000045,
+          "wall_s": 0.03595395293086767,
+          "peak_rss_bytes": 98586624,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.03289225000000007,
+          "wall_s": 0.032903432147577405,
+          "peak_rss_bytes": 98586624,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.030652749000000035,
+          "wall_s": 0.030656377086415887,
+          "peak_rss_bytes": 98586624,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.03678112499999997,
+          "wall_s": 0.03678520489484072,
+          "peak_rss_bytes": 98922496,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.03155910899999981,
+          "wall_s": 0.03158101509325206,
+          "peak_rss_bytes": 98922496,
+          "state_dim": 2065,
+          "regions": 512
+        }
+      ],
+      "cold_extraction_cpu_s": 0.007719760999999936,
+      "retained_past_time_samples": 0,
+      "retained_original_local_state_samples": 0,
+      "full_state_sha": "75bff68c43422509c5a406dd828be158ed0d467c3cb0c10aceba1c3aee72512a",
+      "capsule_sha256": "08f788e05a84a12f65a2e1712744daa1973c58ba91f6090fca205517942d18e9",
+      "scope": "Initial endpoint representation only; conventional joint wavelet control identical, no response/domain proof"
+    },
+    {
+      "mu": 1.2,
+      "checks": {
+        "max_endpoint_field_error": [
+          0.0026846806234175347,
+          1.7666843675101518e-05,
+          1.392358702778651e-07
+        ],
+        "preregistered_bounds_pass": true,
+        "joint_covariance_identity_max_error": 3.774758283725532e-15
+      },
+      "late_endpoint_queries": [
+        {
+          "node": 65,
+          "prediction_T_bound_gate": [
+            165.35007652054344,
+            10.106624242240617,
+            0.6242722923555637
+          ],
+          "component_error": {
+            "free_mg_kg": 0.010100000002519626,
+            "bound_mg_kg": 0.00010000000014377558,
+            "gate": 5.000000088733167e-07,
+            "old_error_reset": false,
+            "scope": "cold-acquired numerical history; ODE acquisition remainder not enclosed"
+          }
+        },
+        {
+          "node": 93,
+          "prediction_T_bound_gate": [
+            205.1326897358514,
+            30.817183890765705,
+            0.6131525459182412
+          ],
+          "component_error": {
+            "free_mg_kg": 0.01010000000338218,
+            "bound_mg_kg": 0.00010000000043865209,
+            "gate": 5.000000087134218e-07,
+            "old_error_reset": false,
+            "scope": "cold-acquired numerical history; ODE acquisition remainder not enclosed"
+          }
+        },
+        {
+          "node": 188,
+          "prediction_T_bound_gate": [
+            201.90688286953898,
+            30.728465953773686,
+            0.6150412875177944
+          ],
+          "component_error": {
+            "free_mg_kg": 0.010100000003332905,
+            "bound_mg_kg": 0.00010000000043748699,
+            "gate": 5.000000087551498e-07,
+            "old_error_reset": false,
+            "scope": "cold-acquired numerical history; ODE acquisition remainder not enclosed"
+          }
+        }
+      ],
+      "old_dim": 1109,
+      "dropped_dim": 181,
+      "retained_spatial_joint_coefficients": 327,
+      "payload_JSON_bytes": 29371,
+      "payload_packed_numeric_bytes": 12924,
+      "old_state_float64_bytes": 8872,
+      "past_source_cost": [
+        {
+          "cpu_s": 0.04018087299999995,
+          "wall_s": 0.04018553509376943,
+          "peak_rss_bytes": 100110336,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.03430813200000005,
+          "wall_s": 0.03431938006542623,
+          "peak_rss_bytes": 101584896,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.03358994500000012,
+          "wall_s": 0.03359345509670675,
+          "peak_rss_bytes": 102240256,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.03306737300000018,
+          "wall_s": 0.033076870953664184,
+          "peak_rss_bytes": 103059456,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.03156593900000004,
+          "wall_s": 0.031570496037602425,
+          "peak_rss_bytes": 103059456,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.03509749200000001,
+          "wall_s": 0.03510119300335646,
+          "peak_rss_bytes": 103059456,
+          "state_dim": 2065,
+          "regions": 512
+        },
+        {
+          "cpu_s": 0.03143880599999993,
+          "wall_s": 0.03147527505643666,
+          "peak_rss_bytes": 103059456,
+          "state_dim": 2065,
+          "regions": 512
+        }
+      ],
+      "cold_extraction_cpu_s": 0.008374696000000181,
+      "retained_past_time_samples": 0,
+      "retained_original_local_state_samples": 0,
+      "full_state_sha": "0f2fefd54ba2f0f141b577af00871031296a4558c9e10704461215b754683112",
+      "capsule_sha256": "70a343e6e7dec4bd5d18b4e2482cfe22c3101a2d805d3defa1629b14f274353b",
+      "scope": "Initial endpoint representation only; conventional joint wavelet control identical, no response/domain proof"
+    }
+  ],
+  "total_cpu_s": 1.1003817740000001,
+  "peak_rss_bytes": 103059456,
+  "gate_file": "FROZEN_HETEROGENEOUS_ENDPOINT_GATE.json",
+  "innovation_claim": false,
+  "review": "PENDING_INDEPENDENT_REVIEW"
+}

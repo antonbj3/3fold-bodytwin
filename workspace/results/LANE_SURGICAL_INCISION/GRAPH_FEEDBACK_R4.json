@@ -1,0 +1,22 @@
+{
+  "target_id": "BT-CTX-SURG-INCISION",
+  "kind": "review",
+  "lane": "LANE_SURGICAL_INCISION",
+  "round": 4,
+  "graph_mutation_executed": false,
+  "reason": "Lane-local writes only; coordinator binds after independent review",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "negative_result": true,
+  "parent_goals_open": [
+    "GRAPH_INVERSE",
+    "MULTIPHYSICS"
+  ],
+  "result_files": [
+    "RESULTS.md",
+    "PORTS_R4_FINAL.json",
+    "r4/fracture_transfer.json",
+    "MEASUREMENT_SPEC_R4.md"
+  ],
+  "claim_scope": "Primary effective-puncture assay tool/rate tests; no common chemicalGamma, biologicaldamage, localhistory speedup or fineFE advantage"
+}

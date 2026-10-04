@@ -1,0 +1,84 @@
+{
+ "question": "for an applied axial load, what displacement interval does the twin carry, and which of the two inputs governs its width",
+ "inputs_both_from_harvested_edges": {
+  "disc_axial_stiffness_N_per_mm": 1734.0,
+  "disc_axial_stiffness_sd": 446.0,
+  "relative_stiffness_uncertainty_percent": 25.7,
+  "facet_compressive_fraction": [
+   0.03,
+   0.25
+  ],
+  "facet_fraction_span_factor": 8.33,
+  "facet_fraction_arthritic": 0.47
+ },
+ "which_uncertainty_governs": "the facet fraction contributes a width of 0.0254 mm at 200 N against 0.0546 mm from the stiffness, a ratio of 0.464. The ratio is the same at every load because both terms are linear in it, so one measurement answers it for all loads: the load path is the thing to measure, not the disc stiffness",
+ "decision_rows": [
+  {
+   "load_N": 200.0,
+   "displacement_low_mm": 0.0688,
+   "displacement_mid_mm": 0.0992,
+   "displacement_high_mm": 0.1506,
+   "full_interval_width_mm": 0.0818,
+   "width_from_facet_fraction_alone_mm": 0.0254,
+   "width_from_stiffness_alone_mm": 0.0546,
+   "facet_over_stiffness": 0.464
+  },
+  {
+   "load_N": 500.0,
+   "displacement_low_mm": 0.172,
+   "displacement_mid_mm": 0.248,
+   "displacement_high_mm": 0.3766,
+   "full_interval_width_mm": 0.2045,
+   "width_from_facet_fraction_alone_mm": 0.0634,
+   "width_from_stiffness_alone_mm": 0.1366,
+   "facet_over_stiffness": 0.464
+  },
+  {
+   "load_N": 1000.0,
+   "displacement_low_mm": 0.344,
+   "displacement_mid_mm": 0.496,
+   "displacement_high_mm": 0.7531,
+   "full_interval_width_mm": 0.4091,
+   "width_from_facet_fraction_alone_mm": 0.1269,
+   "width_from_stiffness_alone_mm": 0.2732,
+   "facet_over_stiffness": 0.464
+  },
+  {
+   "load_N": 1628.0,
+   "displacement_low_mm": 0.5601,
+   "displacement_mid_mm": 0.8074,
+   "displacement_high_mm": 1.2261,
+   "full_interval_width_mm": 0.666,
+   "width_from_facet_fraction_alone_mm": 0.2066,
+   "width_from_stiffness_alone_mm": 0.4448,
+   "facet_over_stiffness": 0.464
+  }
+ ],
+ "arthritic_case": [
+  {
+   "load_N": 200.0,
+   "displacement_mm": 0.0611,
+   "reduction_vs_mid_percent": 38.4
+  },
+  {
+   "load_N": 500.0,
+   "displacement_mm": 0.1528,
+   "reduction_vs_mid_percent": 38.4
+  },
+  {
+   "load_N": 1000.0,
+   "displacement_mm": 0.3057,
+   "reduction_vs_mid_percent": 38.4
+  },
+  {
+   "load_N": 1628.0,
+   "displacement_mm": 0.4976,
+   "reduction_vs_mid_percent": 38.4
+  }
+ ],
+ "control": "each input alone at its central value, which is how both numbers were reported until they were put together",
+ "claim_type": "information_link",
+ "scope": "a one-dimensional load split using two published intervals; no geometry, no posture and no clinical use. The two sources are not stated to be the same specimen or level",
+ "falsifier": "if the stiffness and the fraction come from different spinal levels or different loading directions, the split is not theirs to make jointly and the interval is void. Neither source states the other, and this is NOT established",
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

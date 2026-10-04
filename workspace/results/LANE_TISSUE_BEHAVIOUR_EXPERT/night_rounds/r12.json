@@ -1,0 +1,434 @@
+{
+  "round": 12,
+  "claim_type": "capability",
+  "form": "B",
+  "secondary_claim_type": "information_link",
+  "secondary_form": "C",
+  "operation": "Pre-incision pressure transmission gauge -> pressure-anchored inverse -> branch-aware memory/wound forward -> finite-bandwidth ramp and interval obstruction",
+  "control": "Published independent LDF/microsphere mismatch for information link; mathematical counterexample search and independent state+flux ODE for declared circuit. No speed contest.",
+  "outcome": {
+    "round": 12,
+    "claim_type": "capability",
+    "form": "B",
+    "conditional_theorem_gate": "PASS",
+    "scientific_prediction_gate": "UNKNOWN",
+    "source_history_screen_gate": "FAIL",
+    "linear_extension_gate": "FAIL",
+    "native_predictive_bindings": 0,
+    "native_physiological_measurement_bindings_added": 0,
+    "equivalence_pairs": 2048,
+    "equivalence_step_segments": 8192,
+    "max_preincision_relative_difference": 6.688710065862806e-14,
+    "inverse_cases": 1024,
+    "max_inverse_relative_error": 6.750155989720952e-14,
+    "nonlinear_counterexamples": 1,
+    "nonlinear_relative_QA_difference": 0.6562122976218586,
+    "weak_step_rescue_cases": 64,
+    "max_weak_step_recovery_relative_error": 8.182343691487404e-13,
+    "independent_ODE_cases": 54,
+    "max_reference_absolute_difference": 1.616911049495684e-09,
+    "max_inventory_residual_mL": 3.191891195797325e-16,
+    "branch_crossings": 9,
+    "checkpoint_restart_difference_mL": 0,
+    "source_screen": [
+      {
+        "mode": "reversible",
+        "predicted_history_ratio": 1.1618521877831136,
+        "held_mean_ratio_net": 1.4444444444444444,
+        "held_mean_ratio_free": 2.611111111111111,
+        "relative_mean_errors": [
+          0.195640793073229,
+          0.555035332338382
+        ],
+        "gate": "FAIL",
+        "matched_physiology": false,
+        "blind_validation": false,
+        "covariance": null
+      },
+      {
+        "mode": "outflow_only",
+        "predicted_history_ratio": 1.2882758815647224,
+        "held_mean_ratio_net": 1.4444444444444444,
+        "held_mean_ratio_free": 2.611111111111111,
+        "relative_mean_errors": [
+          0.1081166973782691,
+          0.506617747485851
+        ],
+        "gate": "FAIL",
+        "matched_physiology": false,
+        "blind_validation": false,
+        "covariance": null
+      }
+    ],
+    "nominal_history": [
+      {
+        "venous_boundary": "reversible",
+        "prevacuum_s": 0,
+        "GW_from_synthetic_slit": 3.8092110689999986e-05,
+        "blood_volume_uL": 6.795544044549787,
+        "checkpoint": null,
+        "final_V": 0.20647100131336962,
+        "whole_history_inventory_residual": 3.382710778154774e-17
+      },
+      {
+        "venous_boundary": "reversible",
+        "prevacuum_s": 30,
+        "GW_from_synthetic_slit": 3.8092110689999986e-05,
+        "blood_volume_uL": 7.895417715336679,
+        "checkpoint": {
+          "P": 23.678078895468303,
+          "Pe": -193.93096951450954,
+          "V": 0.20880452420498893,
+          "model": {
+            "GA": 0.001,
+            "GV": 0.002,
+            "C": 0.0005,
+            "alpha": 0.5,
+            "Pa": 90.0,
+            "Pv": 5.0,
+            "V0": 0.1
+          },
+          "past_arterial_inflow_mL": 0.05904595251277408
+        },
+        "final_V": 0.21088682241304083,
+        "whole_history_inventory_residual": 1.5612511283791264e-17,
+        "restart_wound_volume_uL": 7.895417715336679
+      },
+      {
+        "venous_boundary": "outflow_only",
+        "prevacuum_s": 0,
+        "GW_from_synthetic_slit": 3.8092110689999986e-05,
+        "blood_volume_uL": 6.005645943510132,
+        "checkpoint": null,
+        "final_V": 0.1919308411250561,
+        "whole_history_inventory_residual": -1.734723475976807e-17
+      },
+      {
+        "venous_boundary": "outflow_only",
+        "prevacuum_s": 30,
+        "GW_from_synthetic_slit": 3.8092110689999986e-05,
+        "blood_volume_uL": 7.736928822241113,
+        "checkpoint": {
+          "P": -2.1897183572155114,
+          "Pe": -193.93096951450954,
+          "V": 0.195870625578647,
+          "model": {
+            "GA": 0.001,
+            "GV": 0.002,
+            "C": 0.0005,
+            "alpha": 0.5,
+            "Pa": 90.0,
+            "Pv": 5.0,
+            "V0": 0.1
+          },
+          "past_arterial_inflow_mL": 0.07920395891198034
+        },
+        "final_V": 0.2102486813130195,
+        "whole_history_inventory_residual": -1.474514954580286e-17,
+        "restart_wound_volume_uL": 7.736928822241113
+      }
+    ],
+    "wound_response_ratio_B_A_range": [
+      1.0032769728099644,
+      3.4028655439976268
+    ],
+    "consumer_adverse_passed": 7,
+    "consumer_adverse_total": 7,
+    "verdict_ignoring_consumer_rejected": true,
+    "innovation_claim": false,
+    "biological_targets_used_in_inverse": false,
+    "fit_to_wound_targets": false,
+    "full_global_cost_gain": null,
+    "decision_certificates": 0,
+    "actuations": 0,
+    "native_model_sha256": "572614a461c3df656f3f6171c6a7f976b853f29eab2d7955e88679f7cf7d3a78",
+    "prereg_sha256": "37b5c4cf055576ea000848d0c611aa1bb34990cfad8b1e591e185d1223a8c735",
+    "review_state": "PENDING_INDEPENDENT_REVIEW",
+    "scientific_admission": false,
+    "parent_goal_status": "OPEN",
+    "cost": {
+      "wall_s": 0.43300575600005686,
+      "cpu_s": 0.430706837,
+      "max_rss_KiB": 334268,
+      "scope": "randomized gauge/inverse tests, event dynamics, independent ODE, consumer checks; excludes acquisition/search/reading/finalization"
+    },
+    "forward_recovery": {
+      "round": 12,
+      "external_proxy_score": {
+        "predicted_bulk_flow_ratio_from_optical": 0.51,
+        "held_bulk_flow_ratio": 2.3899999999999997,
+        "direction_agreement": false,
+        "bulk_to_proxy_ratio": 4.686274509803921,
+        "relative_published_change_ratio_error": 0.7866108786610878,
+        "universal_proportional_proxy_gate": "FAIL",
+        "source_specific_information_link_gate": "PASS",
+        "clinical_human_skin_transfer_gate": "UNKNOWN",
+        "study_regime": "In-vivo anesthetized male Wistar rat biceps femoris, isoproterenol after ganglionic and beta1 blockade",
+        "not_inferred": "No human-skin numerical transfer, no source-wide LDF invalidity, no paired subject ratio distribution or covariance",
+        "target_used_as_parameter": false,
+        "prior_awareness": true,
+        "blind_validation": false,
+        "review_state": "PENDING_INDEPENDENT_REVIEW",
+        "source_consumer_result": {
+          "status": "ABSTAIN",
+          "reason": "OPTICAL_RELATIVE_FLUX_IS_NOT_ARTERIAL_INFLOW"
+        }
+      },
+      "conditional_inverse_future_cases": 512,
+      "conditional_inverse_future_passed": 512,
+      "max_future_pressure_error_mmHg": 5.826450433232822e-13,
+      "max_future_wound_volume_error_mL": 1.214306433183765e-17,
+      "max_future_relative_error": 1.199571012979989e-13,
+      "absolute_inventory_offset_unidentified": true,
+      "native_model_sha256": "572614a461c3df656f3f6171c6a7f976b853f29eab2d7955e88679f7cf7d3a78",
+      "native_predictive_bindings": 0,
+      "scientific_prediction_gate": "UNKNOWN",
+      "review_state": "PENDING_INDEPENDENT_REVIEW",
+      "scientific_admission": false,
+      "cost": {
+        "wall_s": 0.02129705180414021,
+        "cpu_s": 0.021152702999999995,
+        "max_rss_KiB": 334268,
+        "scope": "Source-score,512 inverse-fed future predictions and absolute-inventory offset counterexample"
+      }
+    },
+    "fixed_ramp": {
+      "round": 12,
+      "exact_ramp_inverse_gate": "PASS_ONLY_FOR_RESOLVED_SAMPLES",
+      "exact_resolved_cases": 7,
+      "exact_unresolved_cases": 1,
+      "fixed_schedule_cases": 8,
+      "error_box_corners": 64,
+      "cases_with_unidentifiable_corner": 8,
+      "max_exact_recovery_relative_error": 2.8525472317575407e-08,
+      "max_independent_ODE_flow_error_mL_min": 1.1574075031717257e-14,
+      "oracle_sample_schedule_used": false,
+      "empirical_instrument_noise_claim": false,
+      "rows_summary": [
+        {
+          "tau_s": 0.02,
+          "admissible_corners": 0,
+          "nonidentifiable_corners": 8,
+          "conditional_parameter_corner_span_factor": null,
+          "measurement_gate": "UNKNOWN"
+        },
+        {
+          "tau_s": 0.05,
+          "admissible_corners": 3,
+          "nonidentifiable_corners": 5,
+          "conditional_parameter_corner_span_factor": 20445.478429824438,
+          "measurement_gate": "UNKNOWN"
+        },
+        {
+          "tau_s": 0.1,
+          "admissible_corners": 3,
+          "nonidentifiable_corners": 5,
+          "conditional_parameter_corner_span_factor": 67.82528123446842,
+          "measurement_gate": "UNKNOWN"
+        },
+        {
+          "tau_s": 0.3,
+          "admissible_corners": 4,
+          "nonidentifiable_corners": 4,
+          "conditional_parameter_corner_span_factor": 5.0736840819271505,
+          "measurement_gate": "UNKNOWN"
+        },
+        {
+          "tau_s": 1,
+          "admissible_corners": 7,
+          "nonidentifiable_corners": 1,
+          "conditional_parameter_corner_span_factor": 89.1634143677555,
+          "measurement_gate": "UNKNOWN"
+        },
+        {
+          "tau_s": 3,
+          "admissible_corners": 6,
+          "nonidentifiable_corners": 2,
+          "conditional_parameter_corner_span_factor": 4.826368450316094,
+          "measurement_gate": "UNKNOWN"
+        },
+        {
+          "tau_s": 10,
+          "admissible_corners": 6,
+          "nonidentifiable_corners": 2,
+          "conditional_parameter_corner_span_factor": 11.172724975214974,
+          "measurement_gate": "UNKNOWN"
+        },
+        {
+          "tau_s": 30,
+          "admissible_corners": 6,
+          "nonidentifiable_corners": 2,
+          "conditional_parameter_corner_span_factor": 28.694618266056295,
+          "measurement_gate": "UNKNOWN"
+        }
+      ],
+      "error_box_corner_screen_is_complete_identified_set": false,
+      "scientific_gate": "UNKNOWN",
+      "wall_s": 0.0694203469902277,
+      "review_state": "PENDING_INDEPENDENT_REVIEW"
+    },
+    "interval_identification": {
+      "round": 12,
+      "interval_witness_gate": "PASS",
+      "fixed_schedule_cases": 8,
+      "cases_with_proved_unbounded_parameter_family": 7,
+      "fast_unbounded_cases": 4,
+      "slow_unbounded_cases": 3,
+      "remaining_case_boundedness": "UNKNOWN_NOT_PROVED_BY_GRID",
+      "diagnoses": [
+        {
+          "tau_s": 0.02,
+          "diagnosis": "FAST_GA_C_UNBOUNDED"
+        },
+        {
+          "tau_s": 0.05,
+          "diagnosis": "FAST_GA_C_UNBOUNDED"
+        },
+        {
+          "tau_s": 0.1,
+          "diagnosis": "FAST_GA_C_UNBOUNDED"
+        },
+        {
+          "tau_s": 0.3,
+          "diagnosis": "FAST_GA_C_UNBOUNDED"
+        },
+        {
+          "tau_s": 1,
+          "diagnosis": "NO_ASYMPTOTIC_WITNESS_BOUNDEDNESS_UNKNOWN"
+        },
+        {
+          "tau_s": 3,
+          "diagnosis": "SLOW_C_UNBOUNDED"
+        },
+        {
+          "tau_s": 10,
+          "diagnosis": "SLOW_C_UNBOUNDED"
+        },
+        {
+          "tau_s": 30,
+          "diagnosis": "SLOW_C_UNBOUNDED"
+        }
+      ],
+      "assumed_observation_error_fraction": 0.01,
+      "empirical_instrument_error_bound": null,
+      "correction": "r12_ramp_v2 inadmissible exact-inverse corners do not establish interval nonidentifiability; asymptotic feasible families are the controlling result.",
+      "scope": "Known local ramp and fixed sample schedule, constant positive GA/GV/C, no capacity or physiological prior; no claim about all sampling schedules or real instrument quality.",
+      "wall_s": 0.0621202050242573,
+      "review_state": "PENDING_INDEPENDENT_REVIEW"
+    },
+    "information_link_gate": "PASS_SOURCE_SPECIFIC_ASSAY_VERDICT_CONSUMPTION",
+    "round_gate": "UNKNOWN",
+    "scientific_gate": "UNKNOWN",
+    "absolute_inventory_identified": false,
+    "new_external_numeric_source_records": 1,
+    "new_source_physiological_inputs_consumed": 0,
+    "source_verdict_consumption_added": 1,
+    "retained_R10_physical_input_binding": 1,
+    "old_155_records_changed": 0,
+    "checks_passed": 23,
+    "checks_total": 23,
+    "missing_prerequisite": [
+      "Same-territory absolute QA(t), local Pe(t), Pa/Pv and measured instrument bandwidth/error are unbound; applied vacuum and normalized LDF are not substitutes.",
+      "Absolute baseline vascular blood inventory/capacity and venous branch/recruitment state are unbound; V0 is unidentifiable from pressure-flow traces.",
+      "Actual wound gap/width/path/depth and layer vessel crossings under matched stretch/history remain unbound.",
+      "Constant GA/GV/C and pressure transmission are synthetic; finite-waveform second-amplitude and distributed-network validation are unbound.",
+      "Cunningham Fig5 original image not visually acquired; indexed primary text describes separate relative assay, not matched absolute physiology.",
+      "Frozen sampling1%error is synthetic; tau1s case boundedness is UNKNOWN, not proved by finite grid or infeasible asymptotic limits."
+    ],
+    "all_previous_results_preserved": true
+  },
+  "gate": "UNKNOWN",
+  "gate_scope": "Parent externally matched physiological capability UNKNOWN; conditional theorem PASS and optical/history proxies FAIL. No innovation claim.",
+  "delivery_gate": "PASS",
+  "obstacle": [
+    "Same-territory absolute QA(t), local Pe(t), Pa/Pv and measured instrument bandwidth/error are unbound; applied vacuum and normalized LDF are not substitutes.",
+    "Absolute baseline vascular blood inventory/capacity and venous branch/recruitment state are unbound; V0 is unidentifiable from pressure-flow traces.",
+    "Actual wound gap/width/path/depth and layer vessel crossings under matched stretch/history remain unbound.",
+    "Constant GA/GV/C and pressure transmission are synthetic; finite-waveform second-amplitude and distributed-network validation are unbound.",
+    "Cunningham Fig5 original image not visually acquired; indexed primary text describes separate relative assay, not matched absolute physiology.",
+    "Frozen sampling1%error is synthetic; tau1s case boundedness is UNKNOWN, not proved by finite grid or infeasible asymptotic limits."
+  ],
+  "next": "Same-territory calibrated local pressure/arterial waveform plus adaptive time and measured capacity -> independent wound aperture -> held collection history",
+  "files": [
+    "ATTEMPTS_R12.json",
+    "BEFORE_R12_NEXT_ROUND.md",
+    "BEFORE_R12_RESULTS.md",
+    "BEFORE_R12_WORK_STATUS.json",
+    "CHECKPOINT_R12.json",
+    "COST_ACCOUNTING_R12.json",
+    "DECOMPOSITION_R12.json",
+    "DERIVATION_R12.md",
+    "GOAL_TO_STRESS_POINT_R12.md",
+    "GRAPH_FEEDBACK_PENDING_R12.json",
+    "NEXT_ROUND.md",
+    "NEXT_ROUND_R12_FINAL.md",
+    "OUTCOME_R12.json",
+    "PORT_R12.json",
+    "PREREG_R12.json",
+    "PREREG_R12.json.sha256",
+    "PREREG_R12_EXTERNAL_DISSOCIATION.json",
+    "PREREG_R12_EXTERNAL_DISSOCIATION.json.sha256",
+    "PREREG_R12_FINITE_RAMP.json",
+    "PREREG_R12_FINITE_RAMP.json.sha256",
+    "PREREG_R12_INTERVAL_IDENTIFICATION.json",
+    "PREREG_R12_INTERVAL_IDENTIFICATION.json.sha256",
+    "PRIOR_DISSOCIATION_SEARCH_R12.json",
+    "PRIOR_SEARCH_R12.json",
+    "RESULTS.md",
+    "RESULTS_FIGURE_R12.pdf",
+    "RESULTS_FIGURE_R12.png",
+    "RESULTS_R12_SECTION.md",
+    "SOURCE_STATISTIC_CORRECTION_R12.json",
+    "STRICT_ASYMPTOTIC_CERTIFICATES_R12.json",
+    "VERIFICATION_R12.json",
+    "WEB_DISSOCIATION_EXTRACT_R12.json",
+    "WEB_DISSOCIATION_NUMERIC_R12.json",
+    "WEB_DISSOCIATION_PRIMARY_R12.json",
+    "WEB_PRIMARY_R12.json",
+    "WORK_STATUS.json",
+    "WORK_STATUS_R12_FINAL.json",
+    "finalize_r12.py",
+    "finite_ramp_r12.py",
+    "finite_ramp_r12_v2.py",
+    "forward_recovery_r12.py",
+    "forward_recovery_r12_v2.py",
+    "interval_identification_r12.py",
+    "night_rounds/lane_runner_r12.log",
+    "night_rounds/r12.json",
+    "plot_r12.py",
+    "pressure_inventory_r12.py",
+    "r12_forward_v1/ABSOLUTE_INVENTORY_OFFSET_GAUGE.json",
+    "r12_forward_v1/EXTERNAL_PROXY_SCORE.json",
+    "r12_forward_v1/HELD_MICROSPHERE_FLOW.json",
+    "r12_forward_v1/LOWER_OPTICAL_OBSERVATION.json",
+    "r12_forward_v1/RECOVERED_SUPPLY_TO_HELD_FUTURE.json",
+    "r12_forward_v1/SUMMARY.json",
+    "r12_forward_v2/ABSOLUTE_INVENTORY_OFFSET_GAUGE.json",
+    "r12_forward_v2/EXTERNAL_PROXY_SCORE.json",
+    "r12_forward_v2/HELD_MICROSPHERE_FLOW.json",
+    "r12_forward_v2/LOWER_OPTICAL_OBSERVATION.json",
+    "r12_forward_v2/RECOVERED_SUPPLY_TO_HELD_FUTURE.json",
+    "r12_forward_v2/SUMMARY.json",
+    "r12_interval_v1/FEASIBLE_INTERVAL_WITNESSES.json",
+    "r12_interval_v1/SUMMARY.json",
+    "r12_ramp_v1/FAILED_FIXED_SAMPLING.json",
+    "r12_ramp_v2/RAMP_IDENTIFICATION_AND_ERROR_BOXES.json",
+    "r12_ramp_v2/SUMMARY.json",
+    "r12_run_v1/CONSUMER_CHECKS.json",
+    "r12_run_v1/DYNAMIC_HISTORY_FORWARD.json",
+    "r12_run_v1/EQUIVALENCE_SEARCH.json",
+    "r12_run_v1/FAILED_LINEAR_EXTENSION.json",
+    "r12_run_v1/HELD_SOURCE_HISTORY_SCREEN.json",
+    "r12_run_v1/INDEPENDENT_ODE_CHECKS.json",
+    "r12_run_v1/PRESSURE_ANCHORED_RECOVERY.json",
+    "r12_run_v1/SUMMARY.json",
+    "r12_run_v1/WEAK_STEP_BRANCH_RESCUE.json",
+    "r8_resolved/C_R12_exact.json",
+    "search_prior_r12.py",
+    "verify_experiment_r12.py"
+  ],
+  "checkpoint": "CHECKPOINT_R12.json",
+  "innovation_claim": false,
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

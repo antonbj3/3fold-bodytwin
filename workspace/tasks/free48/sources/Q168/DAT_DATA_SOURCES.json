@@ -1,0 +1,355 @@
+{
+  "id": "BT-DAT-Q168",
+  "generated_from": "results.json (derived, so licence/size/format/subject counts cannot drift)",
+  "preregistration_sha256": "88fbc086611b9f19f8f26ab32796ef60e772a49ff9e087fcd85a98087e82b5cf",
+  "samples_directory": "samples/",
+  "sha256_manifest": "samples/SHA256SUMS.txt",
+  "total_sample_bytes": 27650002,
+  "per_file_cap_bytes": 52428800,
+  "sources": [
+    {
+      "id": "MW-ST000488",
+      "name": "Sleep apnea and cardiovascular metabolites carnitine, TMA, TMAO, betaine, choline in plasma",
+      "url": "https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?Mode=Study&StudyID=ST000488",
+      "access_urls": [
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000488/summary",
+        "https://www.metabolomicsworkbench.org/rest/study/analysis_id/AN000754/mwtab"
+      ],
+      "repository": "Metabolomics Workbench (NIH)",
+      "accession": "ST000488 / AN000754",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "size_downloaded_bytes": 22731,
+      "format": "Metabolomics Workbench MWTab, JSON-encoded (12 section objects, MS_METABOLITE_DATA.Data = 5 metabolites x 36 samples)",
+      "subjects": {
+        "count": 36,
+        "declared_by_repository": 36,
+        "species": "Homo sapiens",
+        "matrix": "plasma (Blood per MW factors file)",
+        "factors": [
+          "Disease:cardiovascular disease",
+          "Disease:sleep apnea"
+        ]
+      },
+      "parameters_or_outputs": "plasma carnitine, TMA, TMAO, betaine, choline in micromolar; median plasma TMAO 2.646 uM, median TMA/TMAO 5.27, median TMA/carnitine 0.368 over 36 subjects (see results.json datasets[MW-ST000488].stats_uM)",
+      "constrains": [
+        "endogenous pool scale (C_ss, q_endogenous)",
+        "human between-subject spread (sigma_plasma)"
+      ],
+      "does_not_constrain": [
+        "any rate constant, tracer AUC, lumen or portal pool",
+        "no fasting or post-dose time frame is recorded"
+      ],
+      "files": {
+        "MW_ST000488_AN000754_mwtab.json": {
+          "bytes": 14894,
+          "sha256": "198ea080980f9af2a99440a624b0b7814fa0147428f38993b63a7dffb15ca1ac"
+        },
+        "MW_ST000488_analysis.json": {
+          "bytes": 472,
+          "sha256": "9faa8c7380127143c9ce714c9f2ff99ba13185e6b6853c19681c86e95873d23a"
+        },
+        "MW_ST000488_factors.json": {
+          "bytes": 5739,
+          "sha256": "9bb7c8abeb306ba50c9fff9e619cef22967f6c8607846f992adc93b414c7b07b"
+        },
+        "MW_ST000488_metabolites.json": {
+          "bytes": 770,
+          "sha256": "0de569cf6b14adb0fa06d812129f60a0e9a14589a8214d4e5ab01d51f78b23b9"
+        },
+        "MW_ST000488_named_metabolites.json": {
+          "bytes": 305,
+          "sha256": "3070b0c68fe4a002aa7ee7a3289024a454478f395b8b79382cb9a2916308eeaf"
+        },
+        "MW_ST000488_summary.json": {
+          "bytes": 551,
+          "sha256": "15944d788efaa32ab4f12ba1ad8bf6500c5dc0972b4816e3ac56e3368081b15e"
+        }
+      }
+    },
+    {
+      "id": "MW-ST005015",
+      "name": "β-cell FMO3-produced TMAO prevents NF-κB-mediated senescence and inflammation in ageing and diabetic conditions",
+      "url": "https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?Mode=Study&StudyID=ST005015",
+      "access_urls": [
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST005015/summary",
+        "https://www.metabolomicsworkbench.org/rest/study/analysis_id/AN008521/mwtab"
+      ],
+      "repository": "Metabolomics Workbench (NIH)",
+      "accession": "ST005015 / AN008521",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "size_downloaded_bytes": 128962,
+      "format": "Metabolomics Workbench MWTab, JSON-encoded; MS_METABOLITE_DATA with 4 analyte rows x 148 sample columns, unit field lists THREE units",
+      "subjects": {
+        "count": 148,
+        "declared_by_repository": 148,
+        "species": "Mus musculus",
+        "matrix": "tissue lysate (mouse organs)",
+        "sample_sources": [
+          "BAT",
+          "INS-1E_lysate",
+          "MIN6_lysate",
+          "blood",
+          "eWAT",
+          "gastrocnemius",
+          "hepatocyte",
+          "human_islet",
+          "human_liver",
+          "islet",
+          "kidney",
+          "liver",
+          "pancreas",
+          "sWAT"
+        ],
+        "human_derived_sample_sources": [
+          "hepatocyte",
+          "human_islet",
+          "human_liver"
+        ]
+      },
+      "parameters_or_outputs": "d9-TMAO (two MRM transitions), TMA, TMAO in mouse and human tissue/lysate; 30 and 120 min after in vivo d9-trimethylamine; treatments include AAV-FMO3, AAV-P153L, AAV-GFP, a 4-week antibiotic cocktail and d9-TMA 200 uM; non-empty cells 56/48/10/34 of 148 (see results.json datasets[MW-ST005015])",
+      "constrains": [
+        "host-conversion observability: a measured labelled TMAO product pool with tissue and time resolution",
+        "existence of an FMO3-manipulation arm and an antibiotic arm"
+      ],
+      "does_not_constrain": [
+        "Vmax_FMO3 or K_FMO3 as numbers: no labelled substrate d9-TMA, three units in one column, mostly mouse tissue, intraperitoneal rather than portal inflow"
+      ],
+      "files": {
+        "MW_ST005015_AN008521_mwtab.json": {
+          "bytes": 75844,
+          "sha256": "44c1bab62579b7931d6b121440dbfe2dc2566dcaada1a84c6db51b71ddcbefdc"
+        },
+        "MW_ST005015_analysis.json": {
+          "bytes": 523,
+          "sha256": "220e1b233fe0fcc4938d110da502cd1b574fc3d4ad6e0374b461f70acdf25ee1"
+        },
+        "MW_ST005015_factors.json": {
+          "bytes": 51005,
+          "sha256": "43b37f0caa0d7b36651b3156526ace5a02cc49ef317ff721be35ebe49c830475"
+        },
+        "MW_ST005015_metabolites.json": {
+          "bytes": 622,
+          "sha256": "dc665a26e76cc158c06b27d8dd4db77bb19bc10c849b5d325edf2085c5c83354"
+        },
+        "MW_ST005015_named_metabolites.json": {
+          "bytes": 379,
+          "sha256": "73d33d5758012800dadafd8b387de87f0fb0d1a7775b11a2a3bb8f3596caf17b"
+        },
+        "MW_ST005015_summary.json": {
+          "bytes": 589,
+          "sha256": "1ccc2e9e27f998fe1654b7968cacb5d40fcd5855e4f63b2979479f306e24965c"
+        }
+      }
+    },
+    {
+      "id": "MTBLS15673",
+      "name": "Helicobacter pylori infection promotes TMAO accumulation through Escherichia coli enrichment with gut-liver circadian disruption and hepatic metabolic injury",
+      "url": "https://www.ebi.ac.uk/metabolights/MTBLS15673",
+      "access_urls": [
+        "https://ftp.ebi.ac.uk/pub/databases/metabolights/studies/public/MTBLS15673/s_MTBLS15673.txt",
+        "https://ftp.ebi.ac.uk/pub/databases/metabolights/studies/public/MTBLS15673/i_Investigation.txt",
+        "https://ftp.ebi.ac.uk/pub/databases/metabolights/studies/public/MTBLS15673/m_MTBLS15673_LC-MS_positive_c18-reverse-phase-chromatography_v2_maf.tsv"
+      ],
+      "repository": "MetaboLights (EMBL-EBI)",
+      "accession": "MTBLS15673",
+      "license": "CC BY 4.0 (MetaboLights public-repository default, announced in the study MHD record)",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_verified_in_sample": false,
+      "size_downloaded_bytes": 27269675,
+      "format": "ISA-Tab (s_, i_) plus MetaboLights MSF/MAF TSV; 38096 MAF data rows, 58 columns; 166 samples in s_",
+      "subjects": {
+        "count": 166,
+        "species": [
+          "Mus musculus",
+          "Escherichia coli",
+          "reference compound"
+        ],
+        "organism_counts": {
+          "Mus musculus": 128,
+          "reference compound": 32,
+          "Escherichia coli": 6
+        },
+        "matrix": "cell-culture and mouse arms; no human subjects",
+        "study_group_counts": {
+          "SPF_NC": 11,
+          "SPF_HC": 11,
+          "SPF_SHC": 9,
+          "SPF_Hp": 11,
+          "SPF_HpHC": 9,
+          "SPF_HpSHC": 10,
+          "SPF_QC": 11,
+          "MD_N": 3,
+          "MD_H": 3,
+          "MD_HE": 3,
+          "MD_QC": 5,
+          "MD_CAL": 16,
+          "GNO_NC": 8,
+          "GNO_HC": 8,
+          "GNO_EC": 8,
+          "GNO_HEC": 8,
+          "GNO_UNTARGETED_QC": 5,
+          "GNO_TARGETED_QC": 5,
+          "GNO_TARGETED_CAL": 16,
+          "BAC_E": 3,
+          "BAC_HE": 3
+        }
+      },
+      "parameters_or_outputs": "relative MS abundance columns (smallmolecule_abundance_*) with no concentration calibration; TMAO/TMA appear only in the free-text study description; no analyte row is nameable in the retrieved MAF",
+      "constrains": [
+        "existence of a public two-species (E. coli + mouse) measured design for the microbial-to-host link, with a barrier-disruption readout"
+      ],
+      "does_not_constrain": [
+        "any flux, concentration or permeability value: relative intensity frame only"
+      ],
+      "files": {
+        "s_MTBLS15673.txt": {
+          "bytes": 45175,
+          "sha256": "d14f7aede4adfa75e12d49a10cc64ddc32747797123d40f9e84fff40a90499f9"
+        },
+        "i_Investigation.txt": {
+          "bytes": 22743,
+          "sha256": "9284f630f65511bd8d13e113cef4b6f5cbae74ef078d0dbab6f44de90707ff01"
+        },
+        "m_MTBLS15673_LC-MS_positive_c18-reverse-phase-chromatography_v2_maf.tsv": {
+          "bytes": 27201757,
+          "sha256": "f239b2440b956c11ba41cf998edd3af03e35c2b5edf8a081820b55de3591c0de"
+        }
+      }
+    },
+    {
+      "id": "doi:10.7910/DVN/GK8J5W",
+      "name": "PAMPA Permeability Data",
+      "url": "https://doi.org/10.7910/DVN/GK8J5W",
+      "access_urls": [
+        "https://dataverse.harvard.edu/api/access/datafile/6576972",
+        "https://dataverse.harvard.edu/api/access/datafile/6576980"
+      ],
+      "repository": "Harvard Dataverse",
+      "accession": "doi:10.7910/DVN/GK8J5W (files 6576972, 6576980)",
+      "license": "CC0 1.0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0",
+      "size_downloaded_bytes": 153920,
+      "format": "tab-separated values, header ID/SMILES/Y; 2035 + 142 rows",
+      "subjects": {
+        "count": "compounds, not subjects",
+        "detail": "ncatS PAMPA assay drugs; no human or animal subjects"
+      },
+      "parameters_or_outputs": "binary permeable/non-permeable class label per compound; class balance {'0': 1740, '1': 295} (file 6576972) and {'0': 50, '1': 92} (file 6576980)",
+      "constrains": [
+        "existence of a public passive-permeability assay with a documented donor/acceptor frame"
+      ],
+      "does_not_constrain": [
+        "P_epithelial magnitude: the file has NO Papp column, no cm/s and no exchange area, so no numeric permeability can be read from it (FRAME-GAP, preregistration criterion C3)"
+      ],
+      "files": {
+        "PAMPA_6576972.dat": {
+          "bytes": 143593,
+          "sha256": "ca0c61e104edd54413db4225bc33d58467222e4fd13781b46415dc4982da63d8"
+        },
+        "PAMPA_6576980.dat": {
+          "bytes": 10327,
+          "sha256": "9fd8bcf4e725fbebbfea0d52e6a4e1ee2beb536f1bd14e0bc7d18cc0fa254725"
+        },
+        "dataverse_PAMPA_doi_10.7910_DVN_GK8J5W.json": {
+          "bytes": 6117,
+          "sha256": "0fba18ceedeb023436095d9764733ad81c59f5bb6627ebde2ae4a565b6f77251"
+        }
+      }
+    },
+    {
+      "id": "CHEMBL4739856",
+      "name": "ChEMBL measured activities for Choline trimethylamine-lyase (Desulfovibrio alaskensis)",
+      "url": "https://www.ebi.ac.uk/chembl/explore/target/CHEMBL4739856",
+      "access_urls": [
+        "https://www.ebi.ac.uk/chembl/api/data/activity.json?target_chembl_id=CHEMBL4739856&limit=100",
+        "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL4739856.json"
+      ],
+      "repository": "ChEMBL (EMBL-EBI)",
+      "accession": "CHEMBL4739856 (ChEMBL ChEMBL_37)",
+      "license": "ChEMBL data CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "size_downloaded_bytes": 66332,
+      "format": "ChEMBL REST JSON; activity records with standard_type/standard_value/standard_units",
+      "subjects": {
+        "count": "recombinant enzyme assays, no human or animal subjects",
+        "activities_total": 35,
+        "activities_with_numeric_value": 33
+      },
+      "parameters_or_outputs": "IC50 in nM for inhibitors of bacterial choline trimethylamine-lyase: median 200 uM, range 2.4-10000 uM over 33 numeric values (conversion 1 uM = 1000 nM, factor 0.001)",
+      "constrains": [
+        "the concentration range in which the microbial TMA-production step can be pharmacologically modulated, i.e. the dynamic range available to a future perturbation"
+      ],
+      "does_not_constrain": [
+        "Vmax_microbe: these are inhibitor potencies on one bacterial enzyme in a recombinant assay, not a production flux (preregistration criterion C6)"
+      ],
+      "files": {
+        "chembl_CHEMBL4739856_activities.json": {
+          "bytes": 62713,
+          "sha256": "0f21c5e77e0ab890c281b495545dcb35be03839d733e246742c8620e7481c983"
+        },
+        "chembl_CHEMBL4739856_target.json": {
+          "bytes": 3407,
+          "sha256": "d54231162e945ba502e847d2dc1a53457069b6cc08ccc6dc44d53c34ad19981b"
+        },
+        "chembl_status.json": {
+          "bytes": 212,
+          "sha256": "29dc1fb09487a8d2962253a4d0d92c4ded0aa0d831effab42445d0c3483d4740"
+        }
+      }
+    }
+  ],
+  "rejected_candidates": [
+    {
+      "candidate": "SABIO-RK measured enzyme kinetics (FMO3, EC 1.14.13.127)",
+      "url": "https://sabiork.h-its.org/entry/exportAllKineticLawsTSV",
+      "observed": "HTTP 302 -> /ui/404; /sabioRestWebServices/... -> 302/404; /api/entries -> 404; /ui/search is a JS single-page app",
+      "decision": "REJECTED for this pass, reported as a coverage gap"
+    },
+    {
+      "candidate": "NHANES 2017-2018 serum creatinine (CDC)",
+      "url": "https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/GLC.htm",
+      "observed": "landing page 200 but no resolvable .xpt data link; direct .XPT paths returned 404 or an HTML page",
+      "decision": "REJECTED for this pass rather than repaired after the freeze"
+    },
+    {
+      "candidate": "MW ST000982 (plasma betaine/choline/TMA/TMAO)",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000982/summary",
+      "observed": "Megalobrama amblycephala (fish), 24 samples — wrong species for a human model anchor and not needed once ST000488 was accepted",
+      "decision": "REJECTED by criterion (d): no human parameter row it uniquely serves"
+    }
+  ],
+  "coverage_gaps": [
+    {
+      "parameter": "Vmax_FMO3, K_FMO3",
+      "status": "UNCONSTRAINED by measured kinetics",
+      "evidence": "SABIO-RK export and REST routes probed before the freeze returned HTTP 302 -> /ui/404 and HTTP 404; the current site is a JavaScript single-page application and no data API was identified. ChEMBL has no human FMO3 target record.",
+      "consequence": "the host-conversion parameters stay synthetic assumptions"
+    },
+    {
+      "parameter": "portal-compartment observation operator (C_portal)",
+      "status": "UNCONSTRAINED",
+      "evidence": "no public measured portal-vein or liver-accessible TMA/TMAO concentration dataset was found in the Metabolomics Workbench title search or the EBI MetaboLights search used in this pass",
+      "consequence": "the portal operator in BT-HX-Q168 has no public measured counterpart; ST005015 measures whole-tissue d9-TMAO, which is not portal blood"
+    },
+    {
+      "parameter": "A_epithelial, K_barrier",
+      "status": "UNCONSTRAINED",
+      "evidence": "no public measured human intestinal exchange area and no measured barrier saturation scale were located",
+      "consequence": "the permeability-versus-area non-identifiability reported in BT-HX-Q168 is not resolved by any dataset in this pass"
+    },
+    {
+      "parameter": "k_renal",
+      "status": "UNCONSTRAINED",
+      "evidence": "no public measured 24 h urinary TMAO recovery was found; the NHANES route for serum creatinine returned 404/HTML at the probed URLs and was dropped before the freeze rather than repaired after it",
+      "consequence": "the urinary loss rate stays a synthetic assumption"
+    },
+    {
+      "parameter": "sigma_lumen, sigma_portal, sigma_urine",
+      "status": "PARTIALLY CONSTRAINED for plasma only",
+      "evidence": "MW-ST000488 gives a measured between-subject CV for plasma TMA/TMAO; the other three sigma parameters have no public measured counterpart here",
+      "consequence": "the Fisher information gain in BT-HX-Q168 keeps assumed noise for three of four channels"
+    }
+  ]
+}

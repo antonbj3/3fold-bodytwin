@@ -1,0 +1,96 @@
+{
+  "schema": "graph-dispatch-v1",
+  "created_at": "2026-10-01T03:29:26.008642+00:00",
+  "workspace": "bodytwin",
+  "lane": "LANE_SURGICAL_SYNTHESIS_R3_HEALING",
+  "target_id": "BT-CTX-SURG-HEALING",
+  "task_kind": "review",
+  "selection_reason": "R3 shared collagen reference; preserve autonomous RMSE failure and chemistry capacity obstruction",
+  "packet": {
+    "schema": "bodytwin-research-action-packet-v1",
+    "id": "BT-CTX-SURG-HEALING",
+    "goal_path": "general_bodytwin",
+    "path_authority": "explicit local research definition; no native scientific admission",
+    "claim": "Target context for From incision to closure: inflammation, cell migration, matrix deposition and scar mechanics",
+    "source_status": null,
+    "source_status_origin": "new research action",
+    "admission_state": "PENDING_REVIEW",
+    "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/SURG_HEALING.md",
+    "source_line": 1,
+    "source_sha256": "0da3b41a4dfd38967b765debcad2da9dbd5e4179aaab7e1c5244f224fbb68b9a",
+    "scientific_depends_on": [],
+    "typed_relations": [
+      {
+        "type": "related_context_only",
+        "target": "bodytwin:WOUND-HEALING-CASCADE",
+        "target_source_status": "OPEN"
+      },
+      {
+        "type": "related_context_only",
+        "target": "bodytwin:MODEL-NLRP3-INFLAMMASOME",
+        "target_source_status": "OPEN"
+      }
+    ],
+    "design_role": "research_action",
+    "units": "task-specific SI quantities and documented conversions",
+    "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+    "validity": "DEFINITION_ONLY",
+    "numerical_dispatch_allowed": false,
+    "rank": {
+      "priority_class": "source_family_target_context",
+      "score": 8,
+      "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+      "blocked_prerequisites": [
+        "Independent calibration, observation map and task-specific native bindings"
+      ]
+    },
+    "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+    "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+    "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+    "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+    "result_bindings": [],
+    "result_binding_template": {
+      "result_file": "results/<lane>/RESULTS.md",
+      "sha256": "<sha256>",
+      "review_state": "PENDING_INDEPENDENT_REVIEW"
+    },
+    "topic": "from incision to closure: inflammation, cell migration, matrix deposition and scar mechanics"
+  },
+  "previous_feedback": [
+    {
+      "receipt": "results/LANE_SURGICAL_SYNTHESIS/graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R1_HEALING/FEEDBACK_510842a3c67df764.json",
+      "sha256": "79ded5ac7985bd7ae033a89d6d97bb8dc3c4d9552bb97ba54b4e5fe0e1d46d8d",
+      "reviewed_failure_for_task_choice": false,
+      "scientific_admission": false,
+      "review_authentication": "coordinator registry plus artifact binding; not cryptographic actor authentication",
+      "scope": null,
+      "outcome": "ENGINEERING_PASS; STRONGEST_CONTROL_TIE; NATIVE_UNKNOWN; STRENGTH_PROXY_FAIL"
+    },
+    {
+      "receipt": "results/LANE_SURGICAL_SYNTHESIS/graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R2_HEALING/FEEDBACK_72e74e5fb6235ac8.json",
+      "sha256": "96e287cd7a84296e0de620e1b7e56192b621c6154762485f91ad90ed8ed989c2",
+      "reviewed_failure_for_task_choice": false,
+      "scientific_admission": false,
+      "review_authentication": "coordinator registry plus artifact binding; not cryptographic actor authentication",
+      "scope": null,
+      "outcome": "DIAGNOSIS_PASS; PROXY_FAIL_RETAINED; NATIVE_UNKNOWN; CONTROL_TIE; NONLINEAR_INFO_PIVOT_FAIL"
+    }
+  ],
+  "next_action_advice": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+  "task_file": {
+    "file": "results/LANE_SURGICAL_SYNTHESIS/PREREG_R3.json",
+    "sha256": "c99693bdf133b05d5cd3c8a39b94904af38e62af36052c868b0220432a1508d4"
+  },
+  "launched": false,
+  "scientific_admission": false,
+  "measurement_fields": [
+    "wall_seconds",
+    "input_tokens_if_observed",
+    "context_bytes",
+    "source_citation_errors",
+    "repeated_refuted_branches",
+    "baseline_parity",
+    "falsifiable_next_test",
+    "scope_errors"
+  ]
+}

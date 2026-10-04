@@ -1,0 +1,8 @@
+# CLOUD-W6-STRENGTH-ID — individual strength identifiability from measured isokinetics
+
+
+The two raw Biodex CSVs are public Grand Challenge Competition archive observations for one implanted knee (source study DOI 10.1002/jor.22023, https://pmc.ncbi.nlm.nih.gov/articles/PMC4067494/). The 60 deg/s binned curve is a prior BodyTwin summary, provided for comparison; rederive from raw CSV before inference. The prior reported 60/90 deg/s qualified torque peaks 53.625/40.512 Nm. This is one subject; EMG, moment arm and force-length measurements are not in this bundle. Distinguish measured moment from muscle force and do not fit missing channels.
+
+Find the strongest *identifiable* parameterization of active capacity and curve shape using 60 deg/s as fit data and 90 deg/s as held-out data. Explicitly show any scale gauge between Fmax, activation and moment arm, and whether Lopt/slack can be uniquely inferred from these measurements. Compare a parsimonious mechanistic curve to a nonparametric angle-only and a speed-scaled baseline using matched angles and direction. A different method is welcome if it exposes the true identifiability limit. Give a concrete next measurement that would remove one null direction, with a predicted signal magnitude or a bound derived from the data.
+
+Falsifier: the method must beat the preregistered strongest baseline on held-out 90 deg/s torque *and* have full-rank sensitivity for every parameter it calls individual; otherwise report FAIL/UNKNOWN rather than an identifiable individual muscle model. Report units, uncertainty, repeated-stroke handling, sensitivity to angle-bin choices, source provenance, exact command and limitations.

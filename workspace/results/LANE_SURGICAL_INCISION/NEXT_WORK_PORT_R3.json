@@ -1,0 +1,31 @@
+{
+  "status": "UNACQUIRED_TEMPLATE_NOT_DATA",
+  "primary_source": null,
+  "species": null,
+  "specimen_id": null,
+  "training_geometry": {
+    "actual_contact_radius_m": null,
+    "radius_uncertainty_m": null,
+    "bevel_and_contact_map": null
+  },
+  "heldout_geometry": {
+    "actual_contact_radius_m": null,
+    "radius_uncertainty_m": null,
+    "bevel_and_contact_map": null
+  },
+  "observations": {
+    "synchronous_Ft_N": null,
+    "synchronous_Fn_N": null,
+    "blade_tangent_displacement_m": null,
+    "blade_normal_displacement_m": null,
+    "incremental_true_crack_area_m2": null,
+    "recoverable_energy_change_J": null,
+    "contact_dissipation_J": null,
+    "independent_precleavage_process_work_J": null,
+    "joint_uncertainty": null
+  },
+  "energy_convention": "Integral(Ft dx+Fn dz)=DeltaPsi+(Gamma0+B_before)*DeltaA+D_contact; crack area counts one projected interface, not arbitrarily doubled faces.",
+  "missing_port_rule": "Return UNKNOWN, not a fitted Gamma, if work/area and separation ports absent.",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

@@ -1,0 +1,214 @@
+{
+  "task": "Basal ganglia direct(D1/Go)/indirect(D2/NoGo)/hyperdirect push-pull gating circuit as a movement gain-control / winner-take-all gate on the cortically-selected action; dopamine (SNc) sets the D1/D2 balance. FALSIFIER (symmetric): reproduce the OPPOSITE-lesion double dissociation -- Parkinson's (SNc dopamine loss -> GPi/SNr output UP -> bradykinesia + beta 13-30Hz oscillations, L-DOPA/DBS rescue) vs Huntington's (striatal indirect-MSN loss -> GPi/SNr output DOWN -> chorea) -- while a collapsed single-channel ('ungated') null, forced to its strongest fair form (both sign branches), FAILS to reproduce both signs simultaneously. DECORRELATED ANCHOR: Kravitz 2010 optogenetic D1/D2 SNr bidirectional dissociation (8.6% vs 162% of baseline); PD beta-UPDRS correlation (Kuhn 2006, r=0.811/0.835); STN-GPe delay-loop Hopf-bifurcation spectral model (f*=27.68Hz, inside 13-30Hz, not tuned to hit it).",
+  "confidence_tier": "Mixed-tier per component: electrophysiology-anchored (in-vivo MPTP-primate + STN-lesion-primate single-unit recordings: Bergman 1994, Filion&Tremblay 1991, Hamada&DeLong 1992) for the firing-rate direction checks; optogenetic-causal-anchored (in-vivo transgenic mouse, Kravitz 2010 full text) for the bidirectional sign/order-of-magnitude check; human-electrophysiology-and-clinical-anchored (Brown 2001, Kuhn 2006/2008, Little 2013, Krack 2003, Limousin 1998) for the beta/DBS chain; illustrative-toy (disclosed) for the EC50 absolute scale, HD survival percentages, and STN-GPe tau/delay magnitudes -- NOT upgraded further given these disclosed free-parameter gaps.",
+  "script": "scripts/msk/basal_ganglia_gating.py",
+  "script_provenance": "Fresh build this session -- no pre-existing script found for this exact model (repo-wide grep confirmed no prior basal-ganglia/striatum/GPi/GPe/subthalamic/D1-D2/MSN script or doc existed before this session). A pre-existing SEED-DESIGN graph-node PAIR and one literature-scout JSON output on this exact topic WERE found and are treated as unverified hypotheses -- see distinct_from_existing_graph_node below.",
+  "raw_results": "data/basal_ganglia_gating/basal_ganglia_gating_results.json",
+  "doc": "docs/MECHANISM_BASAL_GANGLIA_GATING.md",
+  "raw_fetch_logs": "All esearch/esummary/efetch NCBI eutils calls this session (verbatim JSON/text responses) were made via curl --max-time 25 directly to eutils.ncbi.nlm.nih.gov; 2 PMC full-text XML pulls (Kravitz 2010 PMC3552484, ~30KB stripped text; Reiner 1988 PMC281835, confirmed a scanned pre-digital record, abstract-only). Not persisted to a separate raw_fetch/ directory this session (unlike the sibling dopamine_kinetics.py build) -- the verbatim quotes captured in citations_verified_live_this_session below and in the .md doc are the record.",
+  "gates_summary": {
+    "overall_pass": true,
+    "n_gates": 15,
+    "n_pass": 15,
+    "asterisked_gates_not_full_weight": [
+      "d_kravitz_ratio_order_of_magnitude: model ratio 7.10x undershoots the measured 18.84x by ~2.6x -- sign and qualitative bidirectional swing are decisive (D2-stim model=154.0% vs measured=162%, remarkably close; D1-stim model=21.7% vs measured=8.6%, same order of magnitude), the exact ratio is a coarse 2-channel abstraction, not a quantitative fit.",
+      "e_gpi_hd_direction_matches_hamada_delong1992: a same-node-different-lesion-site STRUCTURAL ANALOGY (STN lesion, a hemiballismus model) to the actual HD lesion site (striatal indirect-MSN loss), NOT a claim that HD and STN-lesion hemiballismus are the same disease -- DeLong 1990's own abstract textually groups both as the hyperkinetic pole, supporting the shared-mechanism-class reading."
+    ]
+  },
+  "couples_to": [
+    "docs/MECHANISM_DOPAMINE_KINETICS.md -- LIVE structural coupling (not a prose pointer): basal_ganglia_gating.py json.loads dopamine_kinetics_results.json at runtime and reuses its own verified [48,68]%/80% PD-severity numbers as this build's DA-loss axis; falls back to a disclosed literature band if that file is absent.",
+    "athlete-movement axis (motor-unit/weightlifting/sprint, scripts/msk/motor_unit_recruitment.py, scripts/msk/weightlifting_triple_extension_model.py) -- this build's OWN computed movement-gain multiplier (0.575-0.716x normal in PD, 1.194-1.479x normal in HD) is a new number directly usable as a scale factor on downstream force/recruitment outputs; NOT yet wired into those scripts this session (disclosed follow-on, no edit made to those files).",
+    "motor-cortex/corticospinal cert (in flight, data/body_twin/agent_outputs/motor-cortex-corticospinal__ac1205fe1a04450a1.json) -- that scout independently names 'basal ganglia (thalamocortical loops gating SMA/M1 action selection & initiation timing)' as one of its own couplings, mutually confirming the coupling direction; prose-level only until that cert is built.",
+    "function<->dysfunction axis -- this build's PD/HD falsifier IS the function/dysfunction pair: the gated model reproduces both dysfunction poles from the same functional circuit under two different lesions; the forced adversary cannot.",
+    "compute=mind substrate -- conceptual pointer only (action-selection as a canonical neural computation on the inherited compute boundary), no computed coupling attempted.",
+    "data/MECHANISM_ANCHOR_GRAPH.json node NEU-BASAL-GANGLIA-GATING / AUTO-BG-ACTION-GATING-CELL-IMPLEMENT-DIRECT-D (status OPEN, mechanism_grade SEED-DESIGN) -- this build advances 2 of its 3 named anchors ((b) Kravitz optogenetic, (c) Reiner HD pathway-loss) toward MEASURE/CERTIFY; does NOT execute anchor (a) (Frank et al Go/NoGo learning-bias, a decorrelated cognitive claim) nor the habit/procedural-memory coupling that node also names."
+  ],
+  "distinct_from_existing_graph_node": "data/MECHANISM_ANCHOR_GRAPH.json already carries TWO SEED-DESIGN nodes on this exact topic (NEU-BASAL-GANGLIA-GATING, cluster brain-basal-ganglia; and a near-duplicate AUTO-BG-ACTION-GATING-CELL-IMPLEMENT-DIRECT-D, cluster autonomous-expansion, carrying a spurious unrelated GOAL-CANCER-IMMUNE-WARGAME-TWIN couples_to entry -- apparent graph-building noise, flagged here, NOT edited). Both cite the same prior scout output (data/body_twin/agent_outputs/basal-ganglia-gating__a93bab9e997bceb06.json, re-read this session, treated as an unverified hypothesis) and are status:OPEN, mechanism_grade:SEED-DESIGN ('cited literature anchor, not yet executed against data') -- i.e. ACQUIRE+DESIGN complete, MEASURE/CERTIFY not done. This build is NOT a duplicate: it independently re-derives and MEASURES 2 of that node's 3 named anchors (Kravitz optogenetic magnitude with full-text numbers; Reiner HD pathway-loss re-verified + extended with Albin 1992's presymptomatic confirmation) and ADDS the beta-oscillation electrophysiological signature (Brown 2001, Kuhn 2006/2008, Little 2013, Nevado-Holgado 2010) this session's own task explicitly named, which the SEED-DESIGN node did not carry. It does NOT execute anchor (a) (Frank et al ON/OFF-medication Go/NoGo LEARNING bias -- a decorrelated cognitive/RL claim) or the habit/procedural-memory (DMS->DLS) coupling that node also names -- a disclosed PARTIAL contribution, not a resolution, same precedent as MECHANISM_CIRCADIAN_RHYTHM.md's disclosed partial coverage of its own 5 pre-existing nodes. No graph-edge write this session (isolation).",
+  "citations_verified_live_this_session": {
+    "albin_1989_functional_anatomy": {
+      "pmid": "2479133",
+      "doi": "10.1016/0166-2236(89)90074-x",
+      "cite": "Albin RL, Young AB, Penney JB (1989). The functional anatomy of basal ganglia disorders. Trends Neurosci 12(10):366-75.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Hyperkinetic disorders...are postulated to result from the selective impairment of striatal neurons projecting to the lateral globus pallidus. Hypokinetic disorders, such as Parkinson's disease, are hypothesized to result from a complex series of changes...resulting in an increase in basal ganglia output.' Founding double-dissociation theory anchor."
+    },
+    "delong_1990_primate_models": {
+      "pmid": "1695404",
+      "doi": "10.1016/0166-2236(90)90110-v",
+      "cite": "DeLong MR (1990). Primate models of movement disorders of basal ganglia origin. Trends Neurosci 13(7):281-5.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: movement disorders 'range from the hypokinetic disorders (of which Parkinson's disease is the best-known example) at one extreme to the hyperkinetic disorders (exemplified by Huntington's disease and hemiballismus) at the other.' Groups HD+hemiballismus as one hyperkinetic pole."
+    },
+    "mink_1996_focused_selection": {
+      "pmid": "9004351",
+      "doi": "10.1016/s0301-0082(96)00042-1",
+      "cite": "Mink JW (1996). The basal ganglia: focused selection and inhibition of competing motor programs. Prog Neurobiol 50(4):381-425.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'the basal ganglia act broadly to inhibit competing motor mechanisms...Simultaneously, inhibition is removed focally from the desired motor mechanisms to allow that movement to proceed.' Winner-take-all/surround-suppression framing."
+    },
+    "kravitz_2010_optogenetics": {
+      "pmid": "20613723",
+      "doi": "10.1038/nature09159",
+      "pmcid": "PMC3552484",
+      "cite": "Kravitz AV, Freeze BS, Parker PR, Kay K, Thwin MT, Deisseroth K, Kreitzer AC (2010). Regulation of parkinsonian motor behaviours by optogenetic control of basal ganglia circuitry. Nature 466(7306):622-6.",
+      "verified_via": "NCBI eutils esearch+efetch (abstract) + PMC full-text XML fetch, live this session",
+      "numbers": "FULL TEXT VERBATIM: 'All responsive SNr neurons displayed robust changes in firing rate (D1-ChR2 mice: 8.6+/-3.0% of baseline firing rate, n=8; D2-ChR2 mice: 162+/-19% of baseline firing rate, n=4).' Also: D1-stim decreased freezing/increased ambulation (n=9,p<0.05); D2-stim decreased ambulation/increased freezing (n=8,p<0.001-0.0005 across measures); YFP-only light control showed NO effect on any measure (n=5 each line, p>0.20-0.35) -- an empirical biological null-control mirroring this build's own computational forced-adversary null. 6-OHDA bilateral lesion: TH intensity 4+/-12% of control (n=4,p<0.005) -> full parkinsonian syndrome; direct-pathway activation fully rescued it."
+    },
+    "reiner_1988_hd_differential_loss": {
+      "pmid": "2456581",
+      "doi": "10.1073/pnas.85.15.5733",
+      "pmcid": "PMC281835",
+      "cite": "Reiner A, Albin RL, Anderson KD, D'Amato CJ, Penney JB, Young AB (1988). Differential loss of striatal projection neurons in Huntington disease. PNAS 85(15):5733-7.",
+      "verified_via": "NCBI eutils esearch+efetch (abstract) + PMC fetch attempt (scanned pre-digital record, no machine-readable full text), live this session",
+      "numbers": "VERBATIM: 'in early and middle stages of HD, enkephalin-containing neurons projecting to the external segment of the globus pallidus were much more affected than substance P-containing neurons projecting to the internal pallidal segment... At the most advanced stages of the disease, projections to all striatal target areas were depleted.' n=17 HD specimens. No exact grade-by-grade percentage extractable (scanned PMC record)."
+    },
+    "albin_1992_presymptomatic_hd": {
+      "pmid": "1375014",
+      "doi": "10.1002/ana.410310412",
+      "cite": "Albin RL, Reiner A, Anderson KD, Dure LS 4th, Handelin B, Balfour R, Whetsell WO Jr, Penney JB, Young AB (1992). Preferential loss of striato-external pallidal projection neurons in presymptomatic Huntington's disease. Ann Neurol 31(4):425-30.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Striatal neurons projecting to the external segment of the globus pallidus or the substantia nigra show evident loss, whereas those projecting to the internal segment of the globus pallidus appear relatively spared at presymptomatic and early stages.' Confirms indirect-pathway loss PRECEDES symptom onset."
+    },
+    "bergman_1990_stn_lesion_reversal": {
+      "pmid": "2402638",
+      "doi": "10.1126/science.2402638",
+      "cite": "Bergman H, Wichmann T, DeLong MR (1990). Reversal of experimental parkinsonism by lesions of the subthalamic nucleus. Science 249(4975):1436-8.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: STN lesions 'reduced all of the major motor disturbances in the contralateral limbs, including akinesia, rigidity, and tremor' in MPTP monkeys. Causal reversal experiment."
+    },
+    "bergman_1994_stn_firing_mptp": {
+      "pmid": "7983515",
+      "doi": "10.1152/jn.1994.72.2.507",
+      "cite": "Bergman H, Wichmann T, Karmon B, DeLong MR (1994). The primate subthalamic nucleus. II. Neuronal activity in the MPTP model of parkinsonism. J Neurophysiol 72(2):507-20.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'In STN the spontaneous firing rate was significantly increased from 19+/-10 (SD) spikes/s before to 26+/-15 spikes/s after MPTP treatment' (n=220 cells before, n=326 after). GPi 4-8Hz-oscillatory subpopulation: 53->76 spikes/s. Burst-cell fraction: STN 69%->79%, GPi 78%->89%. 4-8Hz periodic-activity cell fraction: STN 2%->16%, GPi 0.6%->25%."
+    },
+    "filion_tremblay_1991_gpi_gpe": {
+      "pmid": "1677607",
+      "cite": "Filion M, Tremblay L (1991). Abnormal spontaneous activity of globus pallidus neurons in monkeys with MPTP-induced parkinsonism. Brain Res 547(1):142-51.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'the mean spontaneous firing rate of the neurons of the internal segment of the globus pallidus (GPi) increased but that of the prevailing neuronal population in the external segment (GPe) inversely decreased.' Direction-only (no exact Hz in abstract); independent lab/species (cynomolgus) from Bergman 1994 (African green)."
+    },
+    "hamada_delong_1992_dyskinesia": {
+      "pmid": "1479448",
+      "doi": "10.1152/jn.1992.68.5.1850",
+      "cite": "Hamada I, DeLong MR (1992). Excitotoxic acid lesions of the primate subthalamic nucleus result in transient dyskinesias of the contralateral limbs. J Neurophysiol 68(5):1850-8.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: dyskinesias emerged '~20 min after' STN lesion, 'severe dyskinesias...developed...after 60-80 min and lasted <=4h.' 'These results suggest that reduction of STN activity plays a role in the production of dyskinesias.'"
+    },
+    "hamada_delong_1992_gpi_reduction": {
+      "pmid": "1479449",
+      "doi": "10.1152/jn.1992.68.5.1859",
+      "cite": "Hamada I, DeLong MR (1992). Excitotoxic acid lesions of the primate subthalamic nucleus result in reduced pallidal neuronal activity during active holding. J Neurophysiol 68(5):1859-66.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'The mean of discharge rates of GPi neurons decreased (P<0.001) from 69.8 (n=169, SD=21.6) to 47.4 spikes/s (n=180, SD=22.6) after lesioning. The mean of discharge rates of GPe neurons decreased from 63.6 spikes/s (n=218, SD=25.1)...to 41.0 spikes/s (n=208, SD=18.1).' Direct causal test: STN gives rise to major excitatory input to GP; dyskinesias result from DECREASED GPi output."
+    },
+    "brown_2001_dopamine_dependency": {
+      "pmid": "11157088",
+      "doi": "10.1523/JNEUROSCI.21-03-01033.2001",
+      "pmcid": "PMC6762327",
+      "cite": "Brown P, Oliviero A, Mazzone P, Insola A, Tonali P, Di Lazzaro V (2001). Dopamine dependency of oscillations between subthalamic nucleus and pallidum in Parkinson's disease. J Neurosci 21(3):1033-8.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Without medication, the power within and the coherence between the GPi and STN was dominated by activity with a frequency <30 Hz. Treatment with...levodopa reduced the low-frequency activity and resulted in a new peak at approximately 70 Hz.' n=4 patients, 6 ipsilateral GPi-STN recordings."
+    },
+    "kuhn_2006_beta_updrs_correlation": {
+      "pmid": "16623853",
+      "doi": "10.1111/j.1460-9568.2006.04717.x",
+      "cite": "Kuhn AA, Kupsch A, Schneider GH, Brown P (2006). Reduction in subthalamic 8-35 Hz oscillatory activity correlates with clinical improvement in Parkinson's disease. Eur J Neurosci 23(7):1956-60.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session (initial title-based PMID recall, 16630048, was WRONG -- corrected via esummary disambiguation of a multi-hit search)",
+      "numbers": "VERBATIM: 'The reduction in peak activity in the 8-35 Hz band with levodopa positively correlated with the improvement in the contralateral hemibody motor UPDRS score with levodopa (r=0.811, P<0.001) as well as with hemibody subscores of akinesia-rigidity (r=0.835, P<0.001), but not tremor.' n=9 patients, 17 sides."
+    },
+    "kuhn_2008_hfs_suppresses_beta": {
+      "pmid": "18550758",
+      "pmcid": "PMC6670522",
+      "cite": "Kuhn AA, Kempf F, Brucke C, Gaynor Doyle L, Martinez-Torres I, Pogosyan A, Trottenberg T, Kupsch A, Schneider GH, Hariz MI, Vandenberghe W, Nuttin B, Brown P (2008). High-frequency stimulation of the subthalamic nucleus suppresses oscillatory beta activity in patients with Parkinson's disease in parallel with improvement in motor performance. J Neurosci 28(24):6165-73.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Exaggerated oscillatory synchronization in the beta (13-30 Hz) frequency band has been associated with bradykinesia...STN HFS led to a significant reduction in STN LFP beta activity for 12 s after the end of stimulation...The reduction in LFP beta activity correlated with the movement amplitude.' n=11. Decorrelated (stimulation-based) confirmation of Kuhn 2006's (pharmacological) finding; exact beta-band definition (13-30 Hz) matches this build's own."
+    },
+    "krack_2003_5yr_dbs": {
+      "pmid": "14614167",
+      "doi": "10.1056/NEJMoa035275",
+      "cite": "Krack P, Batir A, Van Blercom N, Chabardes S, Fraix V, Ardouin C, Koudsie A, Limousin PD, Benazzouz A, LeBas JF, Benabid AL, Pollak P (2003). Five-year follow-up of bilateral stimulation of the subthalamic nucleus in advanced Parkinson's disease. NEJM 349(20):1925-34.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'the patients' scores at five years for motor function while off medication improved by 54 percent (P<0.001) and those for activities of daily living improved by 49 percent (P<0.001).' n=49 (42 completers)."
+    },
+    "limousin_1998_dbs_seminal": {
+      "pmid": "9770557",
+      "doi": "10.1056/NEJM199810153391603",
+      "cite": "Limousin P, Krack P, Pollak P, Benazzouz A, Ardouin C, Hoffmann D, Benabid AL (1998). Electrical stimulation of the subthalamic nucleus in advanced Parkinson's disease. NEJM 339(16):1105-11.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'After one year of electrical stimulation...scores for activities of daily living and motor examination scores...off medication improved by 60 percent (P<0.001)...on medication, the scores on part III improved by 10 percent (P<0.005). The mean dose of dopaminergic drugs was reduced by half.' n=24 (20 with >=12mo follow-up)."
+    },
+    "little_2013_adaptive_dbs": {
+      "pmid": "23852650",
+      "doi": "10.1002/ana.23951",
+      "pmcid": "PMC3886292",
+      "cite": "Little S, Pogosyan A, Neal S, Zavala B, Zrinzo L, Hariz M, Foltynie T, Limousin P, Ashkan K, FitzGerald J, Green AL, Aziz TZ, Brown P (2013). Adaptive deep brain stimulation in advanced Parkinson disease. Ann Neurol 74(3):449-57.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Motor scores improved by 66% (unblinded) and 50% (blinded) during aDBS, which were 29% (p=0.03) and 27% (p=0.005) better than cDBS, respectively. These improvements were achieved with a 56% reduction in stimulation time.' n=8. Closed-loop beta-triggered stimulation -- beta used as a CAUSAL control variable, not just correlated."
+    },
+    "nevado_holgado_2010_beta_conditions": {
+      "pmid": "20844130",
+      "doi": "10.1523/JNEUROSCI.0817-10.2010",
+      "pmcid": "PMC6633459",
+      "cite": "Holgado AJ [Nevado Holgado AJ], Terry JR, Bogacz R (2010). Conditions for the generation of beta oscillations in the subthalamic nucleus-globus pallidus network. J Neurosci 30(37):12340-52.",
+      "verified_via": "NCBI eutils esearch+efetch (abstract) + PMC full-text fetch attempt, live this session. Author-name search 'Nevado-Holgado AJ[Author]' initially returned ZERO hits -- PubMed indexes the first author as 'Holgado AJ' (drops the hyphenated 'Nevado-' prefix); resolved via title-only search plus co-author cross-check (Terry JR, Bogacz R).",
+      "numbers": "VERBATIM: beta band defined as '13-30 Hz'. Three necessary conditions: '(1) The excitatory connections from STN to GPe and the inhibitory connections from GPe to STN need to be sufficiently strong. (2) The time required by neurons to react to their inputs needs to be short relative to synaptic transmission delays. (3) The excitatory input from the cortex to STN needs to be high relative to the inhibition from striatum to GPe.' Full parameter table NOT machine-accessible this session (`pmc-prop-open-access:no` on direct efetch despite PMC id existing) -- this build's own Part F independently re-derives the SAME 3-condition structure from the delay-loop characteristic equation, not extracted from their table."
+    },
+    "richfield_1989_d1_d2_affinity": {
+      "pmid": "2528080",
+      "doi": "10.1016/0306-4522(89)90168-1",
+      "cite": "Richfield EK, Penney JB, Young AB (1989). Anatomical and affinity state comparisons between dopamine D1 and D2 receptors in the rat central nervous system. Neuroscience 30(3):767-77.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'the D1 receptor was primarily in a low affinity agonist state (RH=21+/-6%), whereas the D2 receptor was primarily in the high affinity agonist state (RH=77+/-3%).' This ~3.67x ratio sets this build's EC50_D1/EC50_D2 asymmetry directly."
+    },
+    "frank_2005_neurocomputational": {
+      "pmid": "15701239",
+      "doi": "10.1162/0898929052880093",
+      "cite": "Frank MJ (2005). Dynamic dopamine modulation in the basal ganglia: a neurocomputational account of cognitive deficits in medicated and nonmedicated Parkinsonism. J Cogn Neurosci 17(1):51-72.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Phasic changes in DA...dynamically modulate the BG threshold for facilitating/suppressing a cortical command in response to particular stimuli.' Prior-art computational precedent, independent architecture from this build's own."
+    },
+    "frank_2004_carrot_or_stick": {
+      "pmid": "15528409",
+      "doi": "10.1126/science.1102941",
+      "cite": "Frank MJ, Seeberger LC, O'Reilly RC (2004). By carrot or by stick: cognitive reinforcement learning in parkinsonism. Science 306(5703):1940-3.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Parkinson's patients off medication are better at learning to avoid choices that lead to negative outcomes than they are at learning from positive outcomes. Dopamine medication reverses this bias.' The SEED-DESIGN graph node's named anchor (a) -- verified as a citation, NOT executed as a falsifier this session (a learning-bias claim, decorrelated from this build's movement-gating claim)."
+    },
+    "schultz_1997_rpe": {
+      "pmid": "9054347",
+      "doi": "10.1126/science.275.5306.1593",
+      "cite": "Schultz W, Dayan P, Montague PR (1997). A neural substrate of prediction and reward. Science 275(5306):1593-9.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "Classic reward-prediction-error/dopamine teaching-signal paper; context citation only, not re-derived here."
+    },
+    "fearnley_lees_1991_readjudicated": {
+      "pmid": "1933245",
+      "doi": "10.1093/brain/114.5.2283",
+      "cite": "Fearnley JM, Lees AJ (1991). Ageing and Parkinson's disease: substantia nigra regional selectivity. Brain 114(Pt 5):2283-301.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session -- RE-FETCHED SPECIFICALLY to adjudicate a discrepancy between a pre-existing scout output (claiming a '~31% logistic-regression' figure) and the sibling dopamine_kinetics.py cert (citing 68%/48%)",
+      "numbers": "VERBATIM: '36 control cases there was a linear fallout of pigmented neurons with advancing age...at a rate of 4.7% per decade...In 20 Parkinson's disease (PD) cases...an exponential loss of pigmented neurons with a 45% loss in the first decade...It was calculated that at the onset of symptoms there was a 68% cell loss in the lateral ventral tier and a 48% loss in the caudal nigra as a whole.' NO '31%' figure and NO logistic regression appear anywhere in this abstract -- the scout's claim does not match the primary source; matches (does not contradict) the sibling cert's own figures."
+    }
+  },
+  "additional_convergence_found_this_session_not_in_pre_existing_script_docstring": [
+    "A CAUGHT CITATION-DRIFT instance: the pre-existing scout output claims Fearnley & Lees 1991 (PMID 1933245) gives a 'logistic-regression ~31%' SNc-neuron-loss estimate at symptom onset. This session's own live re-fetch of that abstract contains NO such number and NO logistic regression -- the paper's own words are '68% cell loss in the lateral ventral tier and a 48% loss in the caudal nigra as a whole', matching (not contradicting) the sibling dopamine_kinetics.py cert's own already-verified figures. A live, concrete instance of this repo's own measured ~62-67% citation-drift-from-memory rate, caught by direct primary-source verification.",
+    "Hamada & DeLong 1992's TWO companion papers (PMID 1479448 behavioral dyskinesia-timing, PMID 1479449 physiological GPi/GPe rate-reduction) were found as a matched behavioral+physiological pair via PMID disambiguation -- a cleaner, more precise anchor for the 'reduced excitatory drive to GPi -> hyperkinesia' side of the double dissociation than the single citation initially sought.",
+    "Kravitz 2010's PMC full text (not just its abstract) reveals an internal empirical null control (YFP-only light stimulation, no ChR2) showing NO behavioral effect on any measure (n=5 each line, p>0.20-0.35 for all conditions) -- a real, biological instantiation of this build's own computational forced-adversary-null logic, independently confirming that pathway IDENTITY (not just perturbation per se) drives the bidirectional effect.",
+    "PubMed indexes Nevado-Holgado AJ's surname as 'Holgado AJ' (dropping the hyphenated 'Nevado-' prefix) -- author-field searches for the exact name as typically written in citations return ZERO hits; this was diagnosed and resolved via title-only + co-author cross-check, not silently abandoned as 'paper does not exist'.",
+    "Richfield et al 1989's D1/D2 affinity-state asymmetry (RH=21% vs 77%, ~3.67x) provides a citation-anchored, non-arbitrary basis for this build's EC50 ratio -- a mechanistic grounding beyond what either the pre-existing scout or the SEED-DESIGN graph node had specified (neither named a receptor-affinity source for the D1/D2 dose-response asymmetry)."
+  ],
+  "honest_gaps": [
+    "The hyperdirect pathway (cortex->STN, fast global 'stop') is NOT separately modeled as a third channel in the steady-state Part A/B gate -- only implicit as a constant background drive in Part F's cortical-input condition. Disclosed scope limitation, not silently substituted; the classic Albin/DeLong rate model itself does not require a hyperdirect channel for the double dissociation either.",
+    "The absolute EC50 scale (not the ratio) is a disclosed free/illustrative choice -- tested directly at 5 different absolute scales spanning a 1.56x-24.4x PD:HD magnitude-ratio range; the SIGN result is robust to this choice across the whole tested range, the specific magnitudes reported are not.",
+    "HD survival bands ([10,50]% indirect, [85,100]% direct) are illustrative, not extracted from an exact published percentage -- Reiner 1988's PMC record is a pre-digital scanned article (no machine-readable full text this session); Albin 1992's abstract is qualitative-only.",
+    "STN-GPe tau/delay values (Part F) are illustrative, not extracted from Nevado-Holgado/Terry/Bogacz 2010's own parameter table -- confirmed structurally copyright-blocked this session (pmc-prop-open-access:no on direct efetch despite a PMC id existing). The geometry (Hopf-boundary derivation, root continuation) is exact; only the plugged-in tau/delay magnitudes are a disclosed free choice, restricted to a physiologically-motivated neighborhood FIXED before computing the sensitivity-grid outcome (81% in-band), not shopped after seeing results.",
+    "The DA-loss->loop-gain G(DA) linkage (Part F) is this build's own illustrative construction, reusing the same D2-drive function as Part A/B for internal consistency, but the specific functional form is not itself citation-sourced.",
+    "Kravitz 2010's exact ratio is undershot by ~2.6x (7.10x model vs 18.84x measured) -- sign and qualitative bidirectional swing are decisive, the magnitude is not.",
+    "Part G (late-HD flips back toward PD-like) is an internal structural prediction, NOT externally verified this session -- Albin et al 1990 Ann Neurol's 'rigid HD' paper (which would anchor this) was not fetched. In the specific illustrative parameters tested, GPi_norm moves from 0.754 toward 0.770 (attenuates the hyperkinetic deviation) but does not cross back above 1.0 with these EC50 parameters.",
+    "Frank et al 2004's ON/OFF-medication Go/NoGo learning-bias anchor (the SEED-DESIGN node's anchor (a)) is verified as a citation but NOT executed as a falsifier this session -- a decorrelated cognitive/RL claim, a genuine follow-on, not smuggled in as if already covered.",
+    "Filion & Tremblay 1991's exact Hz numbers are not extractable from its abstract (direction-only); used as a direction-only corroboration of Bergman 1994, not a second magnitude.",
+    "Population-level, not subject2-specific -- no subject2 EMG/kinematic panel exists to certify the movement-gain multiplier against; same disclosed scope as every sibling neuro-circuit layer in this repo.",
+    "No git operations, no graph-edge write this session (isolation: touch only files created this session)."
+  ]
+}

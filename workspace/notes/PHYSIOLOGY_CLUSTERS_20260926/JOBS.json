@@ -1,0 +1,625 @@
+[
+  {
+    "id": "BT-FW48-PHYS-M01-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "ATP supply and stress demand: Compare fixed ATP supply with demand feedback at matched total substrate; reject a benefit if compensation by glycolysis explains it.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: ATP supply and stress demand. Start at these constituents: ATP; ADP; Pi; oxygen; glycolysis; respiratory complexes. Proposed equation skeleton: dN_ATP/dt = J_oxphos + J_glycolysis - J_maintenance - J_response. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: ATP flux mol/s; oxygen uptake mol/s. Decisive test: Compare fixed ATP supply with demand feedback at matched total substrate; reject a benefit if compensation by glycolysis explains it.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M01-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 98,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-M02-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "Steroidogenesis across mitochondria and ER: Test transport-limited against enzyme-limited secretion; identify an intermediate measurement that separates them.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Steroidogenesis across mitochondria and ER. Start at these constituents: cholesterol; StAR; CYP11A1; ER intermediates; CYP11B1; NADPH. Proposed equation skeleton: dn/dt = S v(n,enzyme,NADPH) + transport; cortisol output is a boundary flux. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: intermediate amount mol; cortisol secretion mol/s. Decisive test: Test transport-limited against enzyme-limited secretion; identify an intermediate measurement that separates them.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M02-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-M03-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "Catecholamine turnover and local redox: Separate gland/vesicle synthesis from mitochondrial degradation and compare with lumped hormone clearance.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Catecholamine turnover and local redox. Start at these constituents: catecholamine pool; outer-membrane MAO; peroxide; clearance. Proposed equation skeleton: dN_CA/dt = synthesis_external - v_MAO - clearance; dN_H2O2/dt = yield*v_MAO - detox. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: catecholamine and peroxide mol/s. Decisive test: Separate gland/vesicle synthesis from mitochondrial degradation and compare with lumped hormone clearance.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M03-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-M04-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "HPA feedback with mitochondrial capacity: Preserve Q023 failed onset gate; determine whether added capacity is identifiable separately from feedback delay.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: HPA feedback with mitochondrial capacity. Start at these constituents: CRH; ACTH; free cortisol; bound cortisol; receptor; delay. Proposed equation skeleton: dx/dt = f(x(t),x(t-tau),u,capacity); secretion port from M02. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: cortisol concentration mol/m3; lag s. Decisive test: Preserve Q023 failed onset gate; determine whether added capacity is identifiable separately from feedback delay.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M04-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-M05-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "Tissue receptor occupancy: Compare kinetic occupancy with instantaneous Hill response during short pulses; expression is not affinity or gain.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Tissue receptor occupancy. Start at these constituents: free hormone; receptor; bound receptor; trafficking; tissue exposure. Proposed equation skeleton: dB/dt = kon*C*(Rtot-B) - koff*B - kint*B. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: bound receptor mol/m3; downstream response. Decisive test: Compare kinetic occupancy with instantaneous Hill response during short pulses; expression is not affinity or gain.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M05-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-M06-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "Adaptation, damage and recovery: Find regimes where repeated stress improves, exhausts or leaves capacity unchanged; do not hard-code acute good/chronic bad.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Adaptation, damage and recovery. Start at these constituents: mitochondrial capacity; damage; repair; mitophagy; repeated stress. Proposed equation skeleton: dQ/dt = biogenesis - loss(Q,D); dD/dt = injury(stress,Q)-repair(D). Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: capacity mol ATP/s; recovery time s. Decisive test: Find regimes where repeated stress improves, exhausts or leaves capacity unchanged; do not hard-code acute good/chronic bad.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M06-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-M07-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "Crista geometry and substrate limitation: Reuse Q077 failure of 10% flux gain and segmentation uncertainty; compare equal area/volume with equal enzyme count.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Crista geometry and substrate limitation. Start at these constituents: crista junction; ADP; ANT; ATP synthase; diffusion surface. Proposed equation skeleton: partial_t c = div(D grad c)-r; -D grad(c).n = membrane flux. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: ATP mol/s; transport time s. Decisive test: Reuse Q077 failure of 10% flux gain and segmentation uncertainty; compare equal area/volume with equal enzyme count.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M07-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-M08-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "Calcium and ER contact energetics: Compare transient calcium-driven gain with depolarization cost under conserved calcium and matched oxygen.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Calcium and ER contact energetics. Start at these constituents: ER calcium; mitochondrial calcium; MCU; NCLX; membrane potential. Proposed equation skeleton: dN_Ca,m/dt = J_MCU-J_NCLX; proton/charge balance coupled to ATP. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: calcium mol; voltage V; ATP mol/s. Decisive test: Compare transient calcium-driven gain with depolarization cost under conserved calcium and matched oxygen.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M08-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-M09-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "Redox buffering and ROS locality: Ask whether a redox observation separates ETC limitation from antioxidant limitation at equal ATP.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Redox buffering and ROS locality. Start at these constituents: NADH; NADPH; glutathione; ROS; detoxification enzymes. Proposed equation skeleton: dn/dt = S v; constrain reducing-equivalent and cofactor pools. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: redox ratios; peroxide mol/m3. Decisive test: Ask whether a redox observation separates ETC limitation from antioxidant limitation at equal ATP.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M09-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-M10-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "FGF21, GDF15 and circulating signals: Separate release from clearance before interpreting elevated signal as mitochondrial damage.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: FGF21, GDF15 and circulating signals. Start at these constituents: cell stress; secretion; blood; clearance; target receptor. Proposed equation skeleton: dN_blood/dt = sum(J_secretion)-CL*C; target-specific occupancy. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: plasma mol/m3; secretion mol/s. Decisive test: Separate release from clearance before interpreting elevated signal as mitochondrial damage.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M10-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-M11-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "mtDNA release and innate sensing: Distinguish vesicular/free and cytosolic/circulating DNA; test alternative clearance explanation.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: mtDNA release and innate sensing. Start at these constituents: damaged mitochondria; cytosolic DNA; extracellular DNA; cGAS-STING; nucleases. Proposed equation skeleton: dN_DNA,k/dt = release_k + transport_k - degradation_k; sensing as explicit closure. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: DNA copies/volume; signaling response. Decisive test: Distinguish vesicular/free and cytosolic/circulating DNA; test alternative clearance explanation.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M11-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-M12-20260926",
+    "source_keys": [
+      "MITOSTRESS",
+      "Q168"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "Immune metabolic reprogramming: At matched viable-cell number test metabolic limits on tumor killing versus inflammatory output.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Immune metabolic reprogramming. Start at these constituents: T cells; macrophages; glucose; lactate; oxygen; mitochondria. Proposed equation skeleton: population dynamics coupled to stoichiometric ATP/carbon budgets. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: cell count; uptake mol/s; killing cells/s. Decisive test: At matched viable-cell number test metabolic limits on tumor killing versus inflammatory output.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M12-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-M13-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "Circadian and lifestyle inputs: Separate time-of-day and feeding confounding from stress-induced mitochondrial response.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Circadian and lifestyle inputs. Start at these constituents: light/sleep timing; meal substrate; activity; HPA phase; tissue clocks. Proposed equation skeleton: phase oscillator or measured drive -> exposure -> compartment balances. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: phase rad; energy J; hormone time series. Decisive test: Separate time-of-day and feeding confounding from stress-induced mitochondrial response.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M13-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-M14-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "Sex, age and cell-type heterogeneity: Compare within-cell-type change with mixture shift; prohibit a universal female-better multiplier.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Sex, age and cell-type heterogeneity. Start at these constituents: receptor distribution; endocrine state; mitochondrial abundance; tissue composition. Proposed equation skeleton: hierarchical parameters by cell/tissue; observation mixture y=H(x,composition). Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: flux per cell and per tissue mass. Decisive test: Compare within-cell-type change with mixture shift; prohibit a universal female-better multiplier.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M14-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-M15-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "adversarial",
+    "decision": "Whole-body energy claim audit: Trace the mile-running comparison to direct measurements; return unsupported if only fibroblast or inferred expenditure exists.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Whole-body energy claim audit. Start at these constituents: basal expenditure; net stress increment; duration; activity; body mass. Proposed equation skeleton: E_increment = integral(P_stress-P_matched_rest) dt. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: J and J/kg over specified duration. Decisive test: Trace the mile-running comparison to direct measurements; return unsupported if only fibroblast or inferred expenditure exists.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M15-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 98,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-M16-20260926",
+    "source_keys": [
+      "MITOSTRESS"
+    ],
+    "target_id": "BT-RESEARCH-MITOSTRESS",
+    "category": "mechanism",
+    "decision": "Best experiment and bounded resolution: Find the cheapest independent measurement distinguishing a mitochondrial mechanism from endocrine-only baseline; preserve source covariance.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Best experiment and bounded resolution. Start at these constituents: state; observation; noise; correlated errors; candidate measurement. Proposed equation skeleton: y=h(x,theta)+noise; propagate discretization and parameter error separately. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: prediction interval; information gain at fixed cost. Decisive test: Find the cheapest independent measurement distinguishing a mitochondrial mechanism from endocrine-only baseline; preserve source covariance.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-M16-MITOSTRESS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-I01-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Receptor binding and antigen discrimination: Compare kinetic discrimination with existing two-signal gate at matched receptor and antigen numbers.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Receptor binding and antigen discrimination. Start at these constituents: peptide-MHC; TCR; CD28; PD-1; PD-L1; CTLA-4. Proposed equation skeleton: dB/dt=kon*C*(Rtot-B)-koff*B; proofreading chain with reverse/reset rates. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: occupancy; activation probability; dwell time s. Decisive test: Compare kinetic discrimination with existing two-signal gate at matched receptor and antigen numbers.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I01-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 98,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-I02-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Antigen processing and dendritic priming: Separate antigen abundance from presentation failure using perturbation of uptake versus MHC loading.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Antigen processing and dendritic priming. Start at these constituents: tumor debris; uptake; proteolysis; MHC; cDC1; lymph-node T cells. Proposed equation skeleton: dn/dt=S*v; antigen flux -> presentation -> priming with finite delay. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: presented complexes/cell; primed cells/s. Decisive test: Separate antigen abundance from presentation failure using perturbation of uptake versus MHC loading.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I02-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-I03-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Tolerance, regulatory cells and autoimmunity: Can anti-tumor activation rise without the same change in tissue-self clones? Reject a single global immune strength parameter.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Tolerance, regulatory cells and autoimmunity. Start at these constituents: self/foreign clones; Tregs; co-stimulation; suppressive signals. Proposed equation skeleton: birth-death-transition rates by clone/antigen; explicit suppressive interaction. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: clone counts; healthy-cell killing cells/s. Decisive test: Can anti-tumor activation rise without the same change in tissue-self clones? Reject a single global immune strength parameter.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I03-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-I04-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "T-cell activation, exhaustion and memory: Reuse existing T-cell code; separate proximal activation from functional killing and preserve native claim/code numerical mismatch.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: T-cell activation, exhaustion and memory. Start at these constituents: naive; effector; progenitor exhausted; terminal exhausted; memory. Proposed equation skeleton: dN_i/dt=division_i-death_i+sum(transitions_ji-transitions_ij). Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: counts; killing per viable cell; recovery time. Decisive test: Reuse existing T-cell code; separate proximal activation from functional killing and preserve native claim/code numerical mismatch.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I04-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-I05-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Tumor killing and escape: Compare equal tumor burden with altered antigen distribution; simple bulk-volume model is baseline.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Tumor killing and escape. Start at these constituents: cancer clones; antigen loss; MHC loss; cytotoxic cells; checkpoints. Proposed equation skeleton: dT_a/dt=growth_a-kill_a(E,contact)+mutation/selection fluxes. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: tumor cells; antigen fractions; viable burden. Decisive test: Compare equal tumor burden with altered antigen distribution; simple bulk-volume model is baseline.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I05-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-I06-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Myeloid suppression and plasticity: Test whether continuum state or resource competition adds predictive value beyond existing polarization model.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Myeloid suppression and plasticity. Start at these constituents: macrophage state; MDSC; arginine; itaconate; oxygen; cytokines. Proposed equation skeleton: continuous state dynamics plus shared substrate balances; avoid fixed M1/M2 labels. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: arginine flux; secreted cytokines; killing suppression. Decisive test: Test whether continuum state or resource competition adds predictive value beyond existing polarization model.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I06-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-I07-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Complement, amplification and host protection: Reuse complement and bistability code; compare target injury reduction with lost pathogen clearance, including dose-blind gate failure.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Complement, amplification and host protection. Start at these constituents: C3; C3b; convertases; C5; regulators; terminal complex. Proposed equation skeleton: mass-action cascade with catalytic amplification, depletion and receptor/target binding. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: C3/C5 turnover mol/s; lysis fraction. Decisive test: Reuse complement and bistability code; compare target injury reduction with lost pathogen clearance, including dose-blind gate failure.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I07-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-I08-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Innate sensing and inflammasomes: Challenge redundant-pathway assumptions with cell-type-specific ablations; inherited AIM2/cGAS/NLRP3 node remains open.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Innate sensing and inflammasomes. Start at these constituents: PAMP; DAMP; mtDNA; cGAS-STING; NLRP3; IL-1 processing. Proposed equation skeleton: separate priming and activation events with compartment-specific sensor access. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: mature IL-1 mol/s; death events/s. Decisive test: Challenge redundant-pathway assumptions with cell-type-specific ablations; inherited AIM2/cGAS/NLRP3 node remains open.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I08-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-I09-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Neutrophils, NETs and vascular injury: Distinguish antimicrobial benefit from endothelial injury at equal neutrophil count; define missing native-code coverage.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Neutrophils, NETs and vascular injury. Start at these constituents: neutrophils; adhesion; ROS; NET DNA; platelets; endothelium. Proposed equation skeleton: reaction-transport plus adhesion/detachment and NET release/clearance. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: NET density; permeability; thrombotic occupancy. Decisive test: Distinguish antimicrobial benefit from endothelial injury at equal neutrophil count; define missing native-code coverage.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I09-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-I10-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "B-cell immunity and immunoglobulin deficits: For cell-depleting immunotherapy compare target-cell removal with infection-control loss and delayed antibody recovery.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: B-cell immunity and immunoglobulin deficits. Start at these constituents: B cells; plasma cells; antibody; antigen; memory; marrow supply. Proposed equation skeleton: dN_B/dt=production-expansion-depletion; dN_Ig/dt=secretion-clearance. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: B-cell count; Ig concentration; neutralization. Decisive test: For cell-depleting immunotherapy compare target-cell removal with infection-control loss and delayed antibody recovery.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I10-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-I11-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Marrow, thymus and underactivity: Distinguish too few cells, wrong location and exhausted cells despite similar blood count; evaluate infection and vaccine response as separate outputs.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Marrow, thymus and underactivity. Start at these constituents: progenitors; neutrophils; lymphocytes; trafficking; exhaustion. Proposed equation skeleton: age-structured or transit-compartment birth/maturation/death model. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: cell counts; functional response; recovery time. Decisive test: Distinguish too few cells, wrong location and exhausted cells despite similar blood count; evaluate infection and vaccine response as separate outputs.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I11-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-I12-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Immune trafficking in real geometry: Compare spatial model to well-mixed compartment at identical cell totals and exposure; use synthetic geometry first.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Immune trafficking in real geometry. Start at these constituents: blood; endothelium; chemokines; ECM; lymph; tissue-resident cells. Proposed equation skeleton: partial_t n=div(D grad n-chi*n*grad c)-div(u*n)+sources-sinks. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: cells/m3; influx cells/s; intercell distance m. Decisive test: Compare spatial model to well-mixed compartment at identical cell totals and exposure; use synthetic geometry first.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I12-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-I13-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "CAR-T cytokine release: Reproduce a conditional IL-1/IL-6 distinction against a single cytokine pool; Norelli/Giavridis are animal mechanisms.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: CAR-T cytokine release. Start at these constituents: CAR-T; leukemia; monocytes; macrophages; IL-1; IL-6; NO. Proposed equation skeleton: tumor-contact activation -> cell-specific secretion -> receptor dynamics and clearance. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: cytokine time course; killing; endothelial response. Decisive test: Reproduce a conditional IL-1/IL-6 distinction against a single cytokine pool; Norelli/Giavridis are animal mechanisms.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I13-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-I14-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Neurotoxicity and blood-brain interfaces: A lower systemic IL-6 signal must not automatically imply lower CNS injury; distinguish BBB, blood-CSF and meningeal routes.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Neurotoxicity and blood-brain interfaces. Start at these constituents: endothelium; tight junctions; pericytes; cytokines; brain/meningeal compartment. Proposed equation skeleton: dN_brain/dt=PS(C_blood-C_brain/K)-clearance; permeability has explicit injury/repair law. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: transport mol/s; permeability m/s; neural proxy. Decisive test: A lower systemic IL-6 signal must not automatically imply lower CNS injury; distinguish BBB, blood-CSF and meningeal routes.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I14-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-I15-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Checkpoint colitis and gut barrier: Compare systemic cytokine suppression with gut trafficking blockade; preserve regeneration, spatial and microbiome confounding.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Checkpoint colitis and gut barrier. Start at these constituents: resident T cells; epithelium; IFN-gamma; renewal; microbial products. Proposed equation skeleton: epithelial birth-loss with immune contact; barrier mass transport coupled to cytokine exposure. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: barrier flux mol/s; viable epithelial fraction. Decisive test: Compare systemic cytokine suppression with gut trafficking blockade; preserve regeneration, spatial and microbiome confounding.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I15-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-I16-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Myocarditis, myositis and electrical function: Test shared-antigen versus distinct tissue-clone models; human 2024 non-recognition prevents universal myosin assumption.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Myocarditis, myositis and electrical function. Start at these constituents: heart clones; muscle clones; self-antigen; injury; conduction; respiratory muscle. Proposed equation skeleton: antigen-specific tissue kill -> damage/repair -> stated organ-function closure. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: injury marker; contractility; conduction time; muscle force. Decisive test: Test shared-antigen versus distinct tissue-clone models; human 2024 non-recognition prevents universal myosin assumption.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I16-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 98,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-I17-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Endocrine, hepatic, pulmonary, renal and skin injury: Build an organ matrix and implement one discriminating mechanism; never use a common damage scalar as all organ endpoints.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Endocrine, hepatic, pulmonary, renal and skin injury. Start at these constituents: organ-specific immune cells; parenchyma; ducts/barriers; repair capacity. Proposed equation skeleton: one organ-specific injury/repair port per compartment with exposure and function mapping. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: hormone output; clearance; gas exchange; filtration; barrier. Decisive test: Build an organ matrix and implement one discriminating mechanism; never use a common damage scalar as all organ endpoints.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I17-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-I18-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Target-mediated drug distribution: Compare explicit binding/turnover with Hill exposure response; detect dose-axis arbitrariness in inherited checkpoint model.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Target-mediated drug distribution. Start at these constituents: free drug; receptor; complex; internalization; tissue transport. Proposed equation skeleton: dB/dt=kon*C*R-koff*B-kint*B; drug amount balance includes bound pools. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: free drug mol/m3; occupancy; clearance m3/s. Decisive test: Compare explicit binding/turnover with Hill exposure response; detect dose-axis arbitrariness in inherited checkpoint model.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I18-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-I19-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Selective versus systemic immunomodulation: Specify one matched-exposure comparison with uncertainty; effects of combined interventions cannot be assigned to one drug from observational outcome alone.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Selective versus systemic immunomodulation. Start at these constituents: IL-6R; IL-1R; TNF; alpha4beta7; CD80/86; JAK; glucocorticoid receptor. Proposed equation skeleton: distinct target engagements feeding cell-specific signaling and trafficking ports. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: tumor kill; tissue injury; pathogen clearance. Decisive test: Specify one matched-exposure comparison with uncertainty; effects of combined interventions cannot be assigned to one drug from observational outcome alone.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I19-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-I20-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Infection and reactivation during inflammation control: Construct high inflammation plus weak clearance as a counterexample to one-axis immune activity; preserve species/pathogen-specific closures.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Infection and reactivation during inflammation control. Start at these constituents: pathogen; effector cells; barrier leakage; latent reservoir; treatment. Proposed equation skeleton: dP/dt=replication-clearance(E,Ab)-drug_effect; activation/reactivation transitions. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: pathogen burden; tissue injury; clearance time. Decisive test: Construct high inflammation plus weak clearance as a counterexample to one-axis immune activity; preserve species/pathogen-specific closures.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I20-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-I21-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Allergy, mast cells and hypersensitivity: Separate immediate hypersensitivity from T-cell-mediated irAEs under the same gross symptom proxy.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Allergy, mast cells and hypersensitivity. Start at these constituents: IgE; Fc receptors; antigen cross-linking; mast cells; histamine; complement. Proposed equation skeleton: binding/cross-linking -> degranulation -> mediator transport and clearance. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: mediator release mol/s; vascular/airway response. Decisive test: Separate immediate hypersensitivity from T-cell-mediated irAEs under the same gross symptom proxy.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I21-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-I22-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Resolution, fibrosis and persistent effects: Test whether acute inflammation normalization can coexist with lasting function loss; maintain separate active disease and accumulated damage.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Resolution, fibrosis and persistent effects. Start at these constituents: apoptotic cells; efferocytosis; macrophages; fibroblasts; ECM; memory. Proposed equation skeleton: injury/recovery and matrix deposition/degradation with persistent cell states. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: collagen mass; tissue stiffness Pa; functional recovery. Decisive test: Test whether acute inflammation normalization can coexist with lasting function loss; maintain separate active disease and accumulated damage.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I22-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-I23-20260926",
+    "source_keys": [
+      "IMMUNITY",
+      "Q168"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Microbiome, metabolism and immune response: Reuse Q168; distinguish microbial abundance from metabolic function and permeability; mouse commensal result is not human efficacy.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Microbiome, metabolism and immune response. Start at these constituents: microbial strains; metabolites; barrier; dendritic cells; tumor immunity. Proposed equation skeleton: metabolite production/transport + host receptor response with explicit causal alternatives. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: metabolite mol/s; barrier flux; tumor response. Decisive test: Reuse Q168; distinguish microbial abundance from metabolic function and permeability; mouse commensal result is not human efficacy.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I23-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-I24-20260926",
+    "source_keys": [
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "mechanism",
+    "decision": "Experimental methods and causal observability: Choose a minimal measurement panel distinguishing tumor efficacy, tissue toxicity and infection protection; hold out study/perturbation rather than rows.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Experimental methods and causal observability. Start at these constituents: flow cytometry; TCR sequence; spatial omics; cytokines; organ-on-chip; functional assay. Proposed equation skeleton: y=H(x,sampling,assay)+noise; represent shared cohort and batch dependence. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: identifiable parameters; prospective prediction error. Decisive test: Choose a minimal measurement panel distinguishing tumor efficacy, tissue toxicity and infection protection; hold out study/perturbation rather than rows.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-I24-IMMUNITY; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-X01-20260926",
+    "source_keys": [
+      "MITOSTRESS",
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "integration",
+    "decision": "Stress and immunotherapy joint budget: Compare endocrine-only with energy-constrained coupling; determine which independent measurement can distinguish them.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Stress and immunotherapy joint budget. Start at these constituents: glucocorticoid exposure; immune ATP demand; tumor/tissue targets. Proposed equation skeleton: HPA receptor occupancy -> immune signaling; ATP demand -> mitochondrial flux. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: tumor killing and tissue injury at matched energy/exposure. Decisive test: Compare endocrine-only with energy-constrained coupling; determine which independent measurement can distinguish them.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-X01-CROSS; all scientific statuses remain pending.",
+    "priority": 98,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-X02-20260926",
+    "source_keys": [
+      "MITOSTRESS",
+      "IMMUNITY",
+      "Q168"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "integration",
+    "decision": "Mitochondrial injury, innate sensing and barriers: Find observationally identical plasma mtDNA trajectories with different release rates; propose a measurement that resolves them.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Mitochondrial injury, innate sensing and barriers. Start at these constituents: mtDNA; nucleases; cytosolic sensors; barrier damage; clearance. Proposed equation skeleton: separate mtDNA release/clearance and sensor activation; damage alters transport. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: DNA copies/volume; IL-1 flux; barrier permeability. Decisive test: Find observationally identical plasma mtDNA trajectories with different release rates; propose a measurement that resolves them.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-X02-CROSS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm_worker"
+  },
+  {
+    "id": "BT-FW48-PHYS-X03-20260926",
+    "source_keys": [
+      "MITOSTRESS",
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "integration",
+    "decision": "Adaptive spatial resolution for immune energetics: Derive refinement trigger from output sensitivity and local reaction/transport scale; compare with uniform mesh on held-out geometry.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Adaptive spatial resolution for immune energetics. Start at these constituents: oxygen fields; immune-cell contact; cytokine gradients; receptor boundary layers. Proposed equation skeleton: conservative reaction-diffusion coupled to discrete or continuous cell motion. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: mass residual; endpoint error; work at matched tolerance. Decisive test: Derive refinement trigger from output sensitivity and local reaction/transport scale; compare with uniform mesh on held-out geometry.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-X03-CROSS; all scientific statuses remain pending.",
+    "priority": 91,
+    "preferred_model": "swarm"
+  },
+  {
+    "id": "BT-FW48-PHYS-X04-20260926",
+    "source_keys": [
+      "MITOSTRESS",
+      "IMMUNITY"
+    ],
+    "target_id": "BT-RESEARCH-IMMUNITY",
+    "category": "audit",
+    "decision": "Independent cluster and first-principles audit: Challenge a consequential proposed chain and inherited CERTIFIED labels; return exact surviving scope and next disproof test.",
+    "baseline": "Supplied native implementation and preserved negative results; strongest applicable primary-source model with matched observable, inputs and tolerance.",
+    "novelty_delta": "Resolve the specified missing mechanism or observation ambiguity through a first-principles decomposition and one discriminating test.",
+    "body": "Question: Independent cluster and first-principles audit. Start at these constituents: claims; existing code; equations; units; provenance; missing closures. Proposed equation skeleton: reconstruct one causal chain and its observation map independently. Recover dimensions, physical assumptions, timescales and measurable closures before implementing. Observable: unsupported claims; conservation error; missing identifiable inputs. Decisive test: Challenge a consequential proposed chain and inherited CERTIFIED labels; return exact surviving scope and next disproof test.\nRead the relevant supplied native code and EXISTING_WORK.md first. Check SOURCES.md and primary sources for the particular biological claim. Specify what is derived, measured, phenomenological or unknown. Choose one bounded discriminating calculation; a broad branch must select a specific output rather than pretend to solve every organ. Preserve prior failures, uncertainty and context differences. Compare the strongest applicable existing formulation at matched endpoint accuracy and input budget. Include a counterexample or alternative explanation. A synthetic test establishes conditional behavior only.\nDeliver DECOMPOSITION.json with recursive child nodes, dimensioned interaction edges, equations, assumptions, leaf evidence and stopping arguments. Add a minimal runnable probe when possible, PREREG.md, results.json and RESULTS.md. For an unidentifiable mechanism deliver a rank/structural witness and a measurement that separates it. Keep any molecule/compound mechanism distinct from clinical efficacy. Expand at most four genuinely new mechanism descendants through FOLLOWUPS.json using source_keys and valid target_id from SOURCE_CATALOG.json. Link proposed children to BT-X04-CROSS; all scientific statuses remain pending. Audit both source claims and scientific scope; use a different derivation. Do not count a source comment saying CERTIFIED as proof.",
+    "priority": 98,
+    "preferred_model": "swarm_worker"
+  }
+]

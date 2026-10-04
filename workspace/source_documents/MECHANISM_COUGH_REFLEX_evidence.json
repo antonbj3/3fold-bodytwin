@@ -1,0 +1,195 @@
+{
+  "task": "Cough reflex: airway vagal-afferent sensory triggering (RAR mechanical + bronchopulmonary C-fiber chemical -> NTS -> brainstem cough CPG) + two-phase motor sequence (glottis-closed compression -> sudden opening -> choke-limited expulsive flow), forced against a REAL non-strawman reduced-compression-phase adversary (voluntary throat-clearing), geometrically bracketing central-airway choke-point velocity, plus dose-response (capsaicin/citric acid) and perturbation adversaries (ACEI, TRPA1, airway anesthesia).",
+  "confidence_tier": "literature-anchored, multi-source over-determined (24 PMID/DOI citations, every one live-verified via NCBI eutils esearch->esummary->efetch or PMC full-text this session; an initial 11-PMID recall batch was esummary-checked first and 8/11 were wrong papers, confirming zero-recalled-and-trusted numbers used unchecked)",
+  "scripts": {
+    "model": "scripts/msk/cough_reflex.py"
+  },
+  "raw_results": {
+    "model": "data/cough_reflex/cough_reflex_results.json"
+  },
+  "narrative_doc": "docs/MECHANISM_COUGH_REFLEX.md",
+  "citations_verified_live_this_session": {
+    "man_kyroussis_2003_cough_gastric_pressure": {"pmid": "12857722", "doi": "10.1164/rccm.200303-334BC"},
+    "mootassim_billah_2025_throat_clear_vs_cough": {"pmid": "41246892", "doi": "10.1111/1460-6984.70160", "pmcid": "PMC12621289"},
+    "golac_2026_voluntary_pcf_dysphagia": {"pmid": "41699249", "doi": "10.1007/s00405-026-10037-x", "pmcid": "PMC13002765"},
+    "bach_saporito_1996_pcf_threshold": {"pmid": "8989078", "doi": "10.1378/chest.110.6.1566"},
+    "brennan_2022_cpf_review": {"pmid": "35123355", "doi": "10.1016/j.rmed.2022.106740"},
+    "dawson_elliott_1977_wave_speed_theory": {"pmid": "914721", "doi": "10.1152/jappl.1977.43.3.498"},
+    "elliott_dawson_1977_wave_speed_test": {"pmid": "914722", "doi": "10.1152/jappl.1977.43.3.516"},
+    "arya_2026_tracheal_morphometry_ct": {"pmid": "41784826", "doi": "10.1007/s00276-026-03850-w"},
+    "dicpinigaitis_2003_capsaicin_reproducibility": {"pmid": "12657501", "doi": "10.1016/S1094-5539(02)00149-9"},
+    "dicpinigaitis_alva_2005_capsaicin_safety": {"pmid": "16002935", "doi": "10.1378/chest.128.1.196"},
+    "pullerits_2014_capsaicin_hypersensitivity": {"pmid": "25129869", "doi": "10.1016/j.rmed.2014.07.012"},
+    "barber_2005_citric_acid_challenge": {"pmid": "15707851", "doi": "10.1016/j.pupt.2004.11.009"},
+    "israili_hall_1992_acei_cough": {"pmid": "1616218", "doi": "10.7326/0003-4819-117-3-234"},
+    "birrell_belvisi_2009_trpa1_cough": {"pmid": "19729665", "doi": "10.1164/rccm.200905-0665OC", "pmcid": "PMC2784411"},
+    "choudry_fuller_1990_local_anesthesia": {"pmid": "2376253"},
+    "young_1987_glottis_not_essential": {"pmid": "3664020"},
+    "lavietes_1998_pressure_flow_poor_correlation": {"pmid": "9543286", "doi": "10.1183/09031936.98.11010156"},
+    "canning_2004_tracheal_laryngeal_afferents": {"pmid": "15004208", "doi": "10.1113/jphysiol.2003.057885", "pmcid": "PMC1665106"},
+    "mazzone_canning_2005_afferent_synergy": {"pmid": "16051625", "doi": "10.1113/jphysiol.2005.093153", "pmcid": "PMC1464254"},
+    "canning_2006_accp_cough_anatomy_review": {"pmid": "16428690", "doi": "10.1378/chest.129.1_suppl.33S"},
+    "gross_2003_tracheostomy_subglottic_pressure": {"pmid": "12597287", "doi": "10.1177/000348940311200207"},
+    "fontana_2002_water_aerosols_cough": {"pmid": "12099765", "doi": "10.1006/pupt.2002.0359"},
+    "lavorini_2007_cchs_fog_cough": {"pmid": "17673690", "doi": "10.1164/rccm.200612-1870OC"},
+    "yanagihara_1966_cough_kinematics": {"pmid": "5963004", "doi": "10.3109/00016486609127088"}
+  },
+  "core_falsifier": {
+    "pre_registered_threshold": "compression-phase gastric pressure in [100,300] mmHg; a real (non-strawman) reduced-compression-phase adversary (throat-clearing) must fail to reach true cough's peak flow by >=50% margin AND fail an independent decorrelated real clinical-outcome threshold (Bach 1996, 160 L/min) that true cough clears; near-sonic central-airway velocity claim computed (not assumed) against a pre-registered >=50%-of-sound-speed bar.",
+    "compression_phase_pressure": {
+      "source_pmid": "12857722", "n": 99,
+      "P_male_cmH2O": 214.4, "P_male_mmHg": 157.7,
+      "P_female_cmH2O": 165.1, "P_female_mmHg": 121.4,
+      "P_male_plus2sd_mmHg": 219.8,
+      "task_band_mmHg": [100.0, 300.0],
+      "between_occasion_cv_pct": 6.9,
+      "honest_reading": "mean and mean+2SD both fall inside the task band but do not themselves reach its 300 mmHg ceiling"
+    },
+    "central_falsifier_flow": {
+      "source_pmid": "41246892", "n_subjects": 40,
+      "throat_clear_adversary_pefr_Ls": 1.59, "throat_clear_pefr_Lmin": 95.4, "throat_clear_n_trials": 185,
+      "voluntary_cough_forced_model_pefr_Ls": 3.775, "voluntary_cough_pefr_Lmin": 226.5, "voluntary_cough_n_trials": 200,
+      "reflexive_cough_pefr_Ls": 2.47, "reflexive_cough_pefr_Lmin": 148.2, "reflexive_cough_n_trials": 98,
+      "pct_excess_voluntary_cough_vs_throatclear": 137.4,
+      "pct_excess_reflexive_cough_vs_throatclear": 55.3,
+      "p_value": "<0.001",
+      "prereg_margin_pct": 50.0
+    },
+    "decorrelated_clinical_threshold": {
+      "source_pmid": "8989078", "n": 49, "n_attempts": 62,
+      "threshold_Lmin": 160.0,
+      "n_above_success": 43, "n_above_total": 43,
+      "n_below_success": 0, "n_below_total": 15,
+      "throatclear_clears_threshold": false,
+      "voluntary_cough_clears_threshold": true,
+      "reflexive_cough_clears_threshold": false
+    },
+    "PASS": true
+  },
+  "second_decorrelated_leg_mechanical": {
+    "source_pmid": "12597287",
+    "finding": "open tracheostomy tube (glottis bypassed) vs closed/occluded (flow forced through glottis): pharyngeal-swallow physiology measurably different in absence of subglottic air pressure",
+    "scope_limit": "measured outcome is swallow physiology, not cough peak flow -- analogy only, different modality+population than the flow leg"
+  },
+  "independent_cohort_replication": {
+    "source_pmid": "41699249", "n": 45, "pcf_Lmin_mean": 287.78, "pcf_Lmin_sd": 89.31,
+    "age_mean": 65.56, "note": "confirmatory-only (healthy-cohort mean trivially exceeds impairment threshold), not equal-strength to the same-subject contrast above"
+  },
+  "velocity_bracket_near_sonic_check": {
+    "c_sound_body_temp_ms": 353.0,
+    "cross_check_method": "independently recomputed via a second formula (331.3*sqrt(T/273.15)=353.03 m/s vs sqrt(gamma*R*T/M)=353.05 m/s, agree to 0.006%)",
+    "tracheal_areas_cm2_by_level_pmid_41784826": {"C7": 2.27, "aortic_arch": 2.659, "above_carina": 3.664},
+    "v_lower_bound_ms_by_level": {"C7": 16.63, "aortic_arch": 14.2, "above_carina": 10.3},
+    "v_lower_bound_basis": "measured voluntary-cough flow (3.775 L/s) / measured RESTING tracheal area",
+    "v_upper_ceiling_ms": 192.2,
+    "v_upper_basis": "frictionless Bernoulli ceiling from measured pressure (PMID 12857722) -- illustrative, not physically achieved",
+    "frac_of_sound_speed_lower_range": [0.0292, 0.0471],
+    "frac_of_sound_speed_upper": 0.5445,
+    "near_sonic_prereg_threshold_frac": 0.5,
+    "near_sonic_FAILS_at_realistic_lower_bound": true,
+    "near_sonic_marginally_crosses_at_illustrative_unachieved_ceiling": true,
+    "wave_speed_theory_pmids": ["914721", "914722"],
+    "honest_reading": "the literal acoustic-speed-of-sound reading of 'near-sonic' is likely an overstatement of realized velocity (4-5% of c_sound at realistic geometry); the validated mechanism is reaching a local compliant-tube WAVE speed (Dawson-Elliott), a physically distinct and generally much smaller quantity than acoustic sound speed"
+  },
+  "dose_response": {
+    "capsaicin_methodology_pmid_12657501": {
+      "method": "doubling uM concentrations to C2(>=2 coughs)/C5(>=5 coughs)",
+      "reproducibility_pct_within_2_doubling": [90, 100],
+      "c5_more_reproducible_than_c2_shortterm": true
+    },
+    "capsaicin_safety_pmid_16002935": {"n_studies": 122, "n_subjects": 4833, "n_adults": 4374, "n_serious_AE": 0, "years": 20},
+    "chronic_cough_hypersensitivity_pmid_25129869": {"n_patients": 46, "n_controls": 29, "patients_lower_than_controls": true, "best_discriminator": "C5"},
+    "citric_acid_pmid_15707851": {
+      "n": 25, "geometric_mean_D2_handheld_mM": 1380.0, "geometric_mean_D2_dosimeter_mM": 589.0,
+      "ratio": 2.34, "correlation_r": 0.95, "repeatability_coeff_logmM": 0.40
+    },
+    "capsaicin_c5_absolute_uM_honest_gap": "methodology/reproducibility/safety/hypersensitivity-direction confirmed live; absolute healthy-adult reference concentration NOT independently pinned this session"
+  },
+  "perturbation_adversaries": {
+    "ace_inhibitor_pmid_1616218": {
+      "incidence_pct_range": [5, 20], "task_stated_pct": 10.0, "within_range": true,
+      "mechanism": "bradykinin + substance P + prostaglandin accumulation (ACE=kininase II normally degrades bradykinin/substance P)",
+      "more_common_in": "women", "resolves_days_after_withdrawal": 4
+    },
+    "trpa1_tussigenicity_pmid_19729665": {"agonist": "acrolein", "species_both_positive": ["guinea pig", "human"]},
+    "airway_anesthesia_pmid_2376253": {
+      "n": 10, "active_drug": "lignocaine 40mg", "control_drug": "dyclonine 8/4mg",
+      "log_dose_shift_pct_3plus_coughs": 162.0, "prereg_min_shift_pct": 50.0,
+      "dyclonine_dissociation": "oral anesthesia present but NO cough-response reduction -- specific not general anesthesia effect",
+      "bronchoconstriction_unaffected_by_either_drug": true
+    }
+  },
+  "symmetric_qc_honest_complications": {
+    "young_1987_pmid_3664020": "productive cough (real expectoration) observed WITHOUT glottic closure / with low airflow in obstructive airways disease -- bounds the falsifier to peak-flow MAGNITUDE, refutes a blanket universal-necessity claim",
+    "lavietes_1998_pmid_9543286": "peak cough flow correlates POORLY with esophageal pressure in real human coughs -- pressure and flow reported as independent facts, not one fitted transfer function",
+    "canning_mazzone_pmid_15004208_16051625": "focal topical capsaicin/bradykinin does NOT itself evoke cough in guinea-pig trachea (only centrally sensitizes at nTS); cough-evoking fibers are a distinct capsaicin-INSENSITIVE A-delta population -- refines the task's stated C-fiber-triggers-cough framing; inhaled aerosolized capsaicin still reliably evokes human cough regardless (not fully reconciled this session)",
+    "canning_2006_review_pmid_16428690": "RAR/C-fiber mediation of cough is its own review's words 'suggestive but inconclusive'; a third unclassified afferent subtype is flagged as potentially important"
+  },
+  "gates": {
+    "compression_pressure_male_in_task_band_100_300mmHg": true,
+    "compression_pressure_female_in_task_band_100_300mmHg": true,
+    "compression_pressure_reproducible_cv_lt_15pct": true,
+    "compression_pressure_male_plus2sd_still_lt_300mmHg_ceiling": true,
+    "voluntary_cough_exceeds_throatclear_by_prereg_margin": true,
+    "reflexive_cough_exceeds_throatclear_by_prereg_margin": true,
+    "throatclear_adversary_FAILS_bach_clearance_threshold": true,
+    "voluntary_cough_forced_model_PASSES_bach_clearance_threshold": true,
+    "bach1996_threshold_is_clean_separator_real_clinical_data": true,
+    "golac2026_independent_cohort_pcf_also_exceeds_bach_threshold": true,
+    "ordering_holds_throatclear_lt_reflexive_lt_voluntary": true,
+    "velocity_lower_bound_positive_all_levels": true,
+    "velocity_upper_ceiling_exceeds_lower_bound_all_levels": true,
+    "near_sonic_literal_claim_FAILS_at_realistic_lower_bound": true,
+    "c_sound_computation_matches_textbook_range_340_360ms": true,
+    "capsaicin_reproducibility_in_90_100pct_band": true,
+    "capsaicin_zero_serious_adverse_events_n_gt_4000": true,
+    "hypersensitivity_patients_lower_threshold_confirmed": true,
+    "citric_acid_methods_correlate_r_gte_0_80": true,
+    "citric_acid_handheld_2to3x_dosimeter_as_reported": true,
+    "acei_task_incidence_within_measured_5_20pct_range": true,
+    "trpa1_agonist_evokes_cough_both_species_confirmed": true,
+    "lidocaine_suppression_exceeds_prereg_50pct_shift": true,
+    "dyclonine_dissociation_confirms_specific_not_general_anesthesia_effect": true,
+    "void_floor_zero_flow_fails_clearance_threshold": true
+  },
+  "overall_pass": true,
+  "n_gates": 25,
+  "n_gates_pass": 25,
+  "gate_weighting_note": "not all gates carry equal evidentiary weight: central_falsifier (throat-clear vs cough vs Bach threshold) and velocity_bracket (near-sonic computation) are the discriminating tests that could plausibly have failed; dose_response and perturbation_adversaries gates are largely data-fidelity checks confirming cited facts are correctly transcribed, disclosed as such rather than flattened into one undifferentiated pass count.",
+  "decorrelated_anchor": {
+    "description": "Multiple independent, non-tautological external anchors -- none is a re-statement of the model's own output.",
+    "anchor_1_clinical_outcome": "Bach & Saporito 1996 (PMID 8989078): the 160 L/min threshold was derived from REAL decannulation success/failure in n=49 neuromuscular patients -- a wholly different population and outcome variable than the healthy-volunteer flow measurements it is applied to here.",
+    "anchor_2_mechanical_different_modality": "Gross et al 2003 (PMID 12597287): direct subglottic-pressure measurement in tracheostomized patients (open vs closed tube) -- different instrument (pressure vs flow) and population than the central falsifier's flow comparison, converging on the same glottis-engagement mechanism.",
+    "anchor_3_independent_cohort": "Golac et al 2026 (PMID 41699249): different lab, different instrument (analog peak-flow meter vs pneumotachograph), different (older) population, same qualitative conclusion.",
+    "anchor_4_theory_independent_of_measurement": "Dawson & Elliott 1977 (PMID 914721/914722): pure fluid-mechanics choke-point theory, empirically tested independently of any cough-specific measurement, explaining WHY glottic closure is load-bearing for peak flow.",
+    "never_a_tautology_gate": "the compression-phase pressure (Man 2003) and the expulsion-phase flow (Mootassim-Billah 2025) are two independently-measured, different-population, different-instrument facts -- neither was fit to the other, and Lavietes 1998's own finding (poor Poes-flow correlation in real coughs) is disclosed rather than papered over."
+  },
+  "honest_gaps": [
+    "Capsaicin C5 absolute healthy-adult reference concentration (uM) not independently pinned this session.",
+    "Yanagihara et al 1966 (PMID 5963004) bibliographically confirmed only -- numeric findings not extracted (pre-abstract era, scanned full text).",
+    "Central-airway velocity during actual dynamic cough narrowing is bracketed (4-54% of c_sound), not pinned to one measured value -- no cough-specific tracheal %-narrowing citation found this session.",
+    "Gross et al 2003's own measured outcome is swallow physiology, not cough flow -- used as a scope-limited mechanical analogy.",
+    "Young et al 1987 refutes a blanket 'glottic closure necessary for ALL productive cough' claim -- falsifier correctly scoped to peak-flow magnitude only.",
+    "Lavietes et al 1998: pressure and flow correlate poorly in real coughs -- reported as two independent facts, not one fitted function.",
+    "Canning/Mazzone guinea-pig data complicate the task's stated RAR/C-fiber dual-afferent framing -- disclosed, not resolved.",
+    "Canning 2006 ACCP review itself grades RAR/C-fiber cough-mediation evidence as 'suggestive but inconclusive' and flags a third afferent subtype.",
+    "Brennan et al 2022's thresholds are a review-level corroboration of Bach & Saporito 1996, not a second independent measurement -- not double-counted.",
+    "Brainstem CPG circuitry (NTS -> CPG -> motor-neuron timing) described qualitatively only, not quantitatively modeled.",
+    "Not yet folded into data/MECHANISM_ANCHOR_GRAPH.json -- isolation constraints this session restrict writes to newly-created files."
+  ],
+  "proposed_cell": {
+    "id": "ORG-AIRWAY-COUGH-REFLEX",
+    "status": "OPEN",
+    "type": "THEORY",
+    "claim": "Compression-phase (glottis-closed) gastric pressure (157.7/121.4 mmHg M/F, Man 2003) falls inside the measured/task 100-300 mmHg band; a real non-strawman reduced-compression-phase adversary (voluntary throat-clearing, same-subject/instrument as cough) fails true cough's peak flow by a wide margin (137%, p<0.001) and fails an independent decorrelated clinical-adequacy threshold (Bach 1996, 160 L/min) that true cough clears, confirmed by a second decorrelated mechanical leg (tracheostomy glottis-bypass) and an independent-cohort replication; the task's 'near-sonic' central-airway velocity framing is computed (not assumed) and found to be an overstatement of realized velocity at realistic geometry (~4% of sound speed), though the underlying compliant-tube wave-speed choke-point mechanism (Dawson-Elliott 1977) is real and load-bearing for why glottic closure maximizes peak flow.",
+    "couples_to_prose": [
+      "ORG-AIRWAY-MUCOCILIARY-CLEARANCE (confirmed present in docs/MECHANISM_MUCOCILIARY_CLEARANCE.md, status OPEN -- cough is the high-velocity backup airway-clearance mechanism when mucociliary transport is overwhelmed)",
+      "pulmonary/airway defense nodes (shared airway-surface substrate)",
+      "nerve conduction / vagal afferent nodes (shared brainstem NTS/CPG substrate -- not independently located in the graph this session)",
+      "pulmonary mechanics / forced-expiration nodes (shared elastic-recoil and choke-point flow-limitation substrate)"
+    ],
+    "depends_on": [],
+    "cluster": "respiratory",
+    "not_performed_this_session": "actual fold via mechanism_fold -> fold_gate_v2 (isolation constraints restrict writes to newly-created files)"
+  }
+}

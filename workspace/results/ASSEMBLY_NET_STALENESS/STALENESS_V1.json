@@ -1,0 +1,904 @@
+{
+ "checked": 175,
+ "counts": {
+  "OK": 169,
+  "UNRESOLVED_DECLARED": 6,
+  "MOVED_SINCE_LAST_CHECK": 3
+ },
+ "evidence_moved_since_last_check": [
+  {
+   "edge": "T-E26-dwell_time-vs-collateral_damage_depth",
+   "was": 1791144980.32,
+   "now": 1791152720.314
+  },
+  {
+   "edge": "T-E27-shaft_sensing-vs-tip_tangential_load",
+   "was": 1791144980.343,
+   "now": 1791152720.34
+  },
+  {
+   "edge": "T-E28-pass_count-vs-forward_friction_budget",
+   "was": 1791144980.378,
+   "now": 1791152720.376
+  }
+ ],
+ "rows": [
+  {
+   "edge": "T-E1-charge_inventory-vs-ionic_swelling_pressure",
+   "status": "OK",
+   "detail": "chain_all05.Pi_change_Pa = -489.64879350600813 (leaf-search)"
+  },
+  {
+   "edge": "T-E2-ionic_swelling_pressure-vs-stromal_thickness",
+   "status": "OK",
+   "detail": "chain_all05.pupil_mean_thickness_after_um = 602.0390240447553 (leaf-search)"
+  },
+  {
+   "edge": "T-E3-stromal_thickness-vs-refractive_power",
+   "status": "OK",
+   "detail": "outcome.eta_sufficiency.powergap_D = 0.3056391116672543 (path)"
+  },
+  {
+   "edge": "T-E4-surface_allocation-vs-refractive_power",
+   "status": "OK",
+   "detail": "surface_sufficiency.downstream_power_difference_D = 0.8723871708712494 (leaf-search)"
+  },
+  {
+   "edge": "T-E5-surface_shape_field-vs-refractive_power",
+   "status": "OK",
+   "detail": "native_pupil_max_gap_D = 0.23961891826215265 (leaf-search)"
+  },
+  {
+   "edge": "T-E6-pupil_diameter-vs-refractive_power",
+   "status": "UNRESOLVED_DECLARED",
+   "detail": "searched every numeric key in results/LANE_CORNEA_SHAPE/night_rounds/r2.json for the 98 the text states: the count exist"
+  },
+  {
+   "edge": "T-E7-posterior_corneal_astigmatism-vs-residual_cylinder",
+   "status": "OK",
+   "detail": "residual_cylinder_mae_D.iolmaster_posterior = 0.2808 (path)"
+  },
+  {
+   "edge": "T-E8-implant_power-vs-refractive_power",
+   "status": "OK",
+   "detail": "scored_against_hindsight_correct_power.mean_miss_with_predicted_position_D = 0.5345 (path)"
+  },
+  {
+   "edge": "T-E9-lattice_order-vs-scatter_tail_fraction",
+   "status": "UNRESOLVED_DECLARED",
+   "detail": "searched results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json and every JSON in that lane for 20.2466, 59.4856 and -4."
+  },
+  {
+   "edge": "T-E10-delivered_energy-vs-removed_mass",
+   "status": "OK",
+   "detail": "outcome.sufficiency_energy.b.conditional_removed_mass_kg = 1.255019203345805e-09 (path)"
+  },
+  {
+   "edge": "T-E11-surface_temperature_history-vs-depth_temperature",
+   "status": "OK",
+   "detail": "separated_grating_target_gap_K = 35.0 (leaf-search)"
+  },
+  {
+   "edge": "T-E12-cem43_thermal_dose-vs-removed_mass",
+   "status": "OK",
+   "detail": "conditional_loss_difference_percentage_points = 5.038748758105517 (leaf-search)"
+  },
+  {
+   "edge": "T-E13-ablation_fluence_threshold-vs-removed_mass",
+   "status": "OK",
+   "detail": "primary_prediction.relative_error = 0.26508185342208535 (leaf-search)"
+  },
+  {
+   "edge": "T-E14-c3b_recycling_fraction-vs-self_surface_growth_rate",
+   "status": "OK",
+   "detail": "rho_critical = 0.6901150139263259 (leaf-search)"
+  },
+  {
+   "edge": "T-E15-c3b_recycling_fraction-vs-activator_host_discrimination",
+   "status": "OK",
+   "detail": "discrimination_change_factor = 97.83134000044933 (leaf-search)"
+  },
+  {
+   "edge": "T-E16-mac_concentration-vs-self_surface_growth_rate",
+   "status": "OK",
+   "detail": "occupancy_MAC_gap_nM = 0.16723269204490165 (leaf-search)"
+  },
+  {
+   "edge": "T-E17-boundary_condition_class-vs-hydraulic_conductance",
+   "status": "OK",
+   "detail": "boundary_census.baseline_regimes.UNKNOWN = 0 (leaf-search)"
+  },
+  {
+   "edge": "T-E18-passage_number-vs-needle_forward_friction",
+   "status": "UNRESOLVED_DECLARED",
+   "detail": "the named INDEX.json is not under this workspace at all (it resolves only under the public staging tree/3fold"
+  },
+  {
+   "edge": "T-E19-epithelial_front_velocity-vs-epithelial_front_velocity",
+   "status": "OK",
+   "detail": "external_facit.q115_over_anchor_ratio = 3.3333333333333335 (leaf-search)"
+  },
+  {
+   "edge": "T-E20-lens_position-vs-refractive_power",
+   "status": "OK",
+   "detail": "lens_position_prediction.mean_abs_error_mm = 0.114 (path)"
+  },
+  {
+   "edge": "T-E21-axial_length-vs-refractive_power",
+   "status": "OK",
+   "detail": "length_quantities_both_devices[0].mean_difference = 9.89721 (path)"
+  },
+  {
+   "edge": "T-E22-iol_label_power-vs-implant_power",
+   "status": "OK",
+   "detail": "power_recommendation_shift_D.eyes_where_the_grid_choice_changes = 44 (path)"
+  },
+  {
+   "edge": "H-E1-ambitious_history_inverse",
+   "status": "OK",
+   "detail": "outcome.normalization_probe_exposure_difference = 23.309567730474555 (path)"
+  },
+  {
+   "edge": "H-E2-ambitious_query_graph",
+   "status": "OK",
+   "detail": "outcome.measurements.composition_additive_max_early_error_mg_kg = 0.3598975439846015 (path)"
+  },
+  {
+   "edge": "H-E3-anchor_cells",
+   "status": "OK",
+   "detail": "outcome.max_float_C_absolute_error_J = 1.9539925233402755e-14 (path)"
+  },
+  {
+   "edge": "H-E4-anchor_prediction",
+   "status": "OK",
+   "detail": "outcome.conditional_ratio = 0.49345297970847457 (path)"
+  },
+  {
+   "edge": "H-E5-capacity_from_tmao",
+   "status": "OK",
+   "detail": "outcome.mass_port.naive_asynchronous_ratio_counterexamples = 1296 (path)"
+  },
+  {
+   "edge": "H-E6-cells_from_domain_data",
+   "status": "OK",
+   "detail": "outcome.sufficiency.synthase_gap_J_mol = -41166.93333333333 (path)"
+  },
+  {
+   "edge": "H-E7-coarsest_sufficient",
+   "status": "OK",
+   "detail": "outcome.critical_common_endpoint_detector_error = 513.5 (path)"
+  },
+  {
+   "edge": "H-E8-couple_end_to_end",
+   "status": "OK",
+   "detail": "outcome.minimum_mean_reading_separation_pmol_per_cm2 = 574.9910511872091 (path)"
+  },
+  {
+   "edge": "H-E9-ct_exterior_interior",
+   "status": "OK",
+   "detail": "outcome.label_error_paired_SSE.gain_cm4 = 92422.44653459961 (path)"
+  },
+  {
+   "edge": "H-E10-ct_organ_depth",
+   "status": "OK",
+   "detail": "outcome.right_kidney_anterior_depth.common_fixed_prediction_target_error_capacity_mm = 4.19979366567591 (path)"
+  },
+  {
+   "edge": "H-E11-dej_bond_inventory",
+   "status": "OK",
+   "detail": "outcome.conditional_ratio_cases = 4096 (path)"
+  },
+  {
+   "edge": "H-E12-distributional_gates",
+   "status": "OK",
+   "detail": "outcome.external_concentration_measurements = 220 (path)"
+  },
+  {
+   "edge": "H-E13-external_model_run",
+   "status": "OK",
+   "detail": "outcome.new_intervention.mean_bias_N_DERIVED = 385.11975893154647 (path)"
+  },
+  {
+   "edge": "H-E14-external_solver",
+   "status": "OK",
+   "detail": "outcome.finite_witness_ratio_gap = 0.2000732278178923 (path)"
+  },
+  {
+   "edge": "H-E15-fibril_network_fracture",
+   "status": "OK",
+   "detail": "outcome.external_held.EDC_slow_time_ratio = 3.4285714285714284 (path)"
+  },
+  {
+   "edge": "H-E16-function_graph_densify",
+   "status": "OK",
+   "detail": "outcome.independent_gain_max_error = 0.3067479707849784 (path)"
+  },
+  {
+   "edge": "H-E17-history_representation",
+   "status": "OK",
+   "detail": "outcome.source_max_abs_error = 2.220446049250313e-16 (path)"
+  },
+  {
+   "edge": "H-E18-immune_setpoint",
+   "status": "OK",
+   "detail": "outcome.constant_no_colony_errors = 335 (path)"
+  },
+  {
+   "edge": "H-E19-laser_forms",
+   "status": "OK",
+   "detail": "outcome.additional_release_gap_per_dye = 0.2969970751451323 (path)"
+  },
+  {
+   "edge": "H-E20-lens_resolution",
+   "status": "OK",
+   "detail": "outcome.clinical.hypothetical_GRIN_D.max_absolute_error_D = 1.4391933688259477 (path)"
+  },
+  {
+   "edge": "H-E21-phenomenological_units",
+   "status": "OK",
+   "detail": "outcome.collagen_max_fraction_partition_error = 0.5760000000000001 (path)"
+  },
+  {
+   "edge": "H-E22-quantity_key_bridge",
+   "status": "OK",
+   "detail": "outcome.printed_QM_relative_error = 0.0367112711456008 (path)"
+  },
+  {
+   "edge": "H-E23-registration_scope",
+   "status": "OK",
+   "detail": "outcome.candidate_query_difference_files = 39 (path)"
+  },
+  {
+   "edge": "H-E24-robot_fleet_foundation",
+   "status": "OK",
+   "detail": "outcome.rational_basis_entries_checked = 8748 (path)"
+  },
+  {
+   "edge": "H-E25-skin_toughness_gap",
+   "status": "OK",
+   "detail": "outcome.metrics.observed_I_III_ratio = 1.474757281553398 (path)"
+  },
+  {
+   "edge": "H-E26-summary_repair",
+   "status": "OK",
+   "detail": "outcome.fibre_results.eight_H.maximum_gap = 0.0028077006096823842 (path)"
+  },
+  {
+   "edge": "H-E27-surgical_bindings",
+   "status": "OK",
+   "detail": "outcome.metrics.single_DEJ_SASS_nominal_required_area_ratio_cut150.I = 5322.183098591549 (path)"
+  },
+  {
+   "edge": "H-E28-surgical_incision",
+   "status": "OK",
+   "detail": "outcome.Owen100_to_new_ratio = 1.8285714285714287 (path)"
+  },
+  {
+   "edge": "H-E29-surgical_response",
+   "status": "OK",
+   "detail": "outcome.HP_inventory_ratio42_10 = 2.220261437908497 (path)"
+  },
+  {
+   "edge": "H-E30-surgical_synthesis",
+   "status": "OK",
+   "detail": "outcome.restart.max_strength_error_pp = 6.750155989720952e-14 (path)"
+  },
+  {
+   "edge": "H-E31-swarm_ports_integration",
+   "status": "OK",
+   "detail": "outcome.metrics.old_heterogeneous_max_relative_error = 339.73182643677694 (path)"
+  },
+  {
+   "edge": "H-E32-tissue_behaviour_expert",
+   "status": "OK",
+   "detail": "outcome.fixed_ramp.error_box_corners = 64 (path)"
+  },
+  {
+   "edge": "H-E33-wound_crosslink_chemistry",
+   "status": "OK",
+   "detail": "outcome.reference_cap_target_ratio = 0.5623043083792691 (path)"
+  },
+  {
+   "edge": "H-E34-xseed_review",
+   "status": "OK",
+   "detail": "outcome.original_margin = 9.430535904834802 (path)"
+  },
+  {
+   "edge": "HARVEST-E0001",
+   "status": "OK",
+   "detail": "line 152 matches"
+  },
+  {
+   "edge": "HARVEST-E0002",
+   "status": "OK",
+   "detail": "line 145 matches"
+  },
+  {
+   "edge": "HARVEST-E0003",
+   "status": "OK",
+   "detail": "line 102 matches"
+  },
+  {
+   "edge": "HARVEST-E0004",
+   "status": "OK",
+   "detail": "line 148 matches"
+  },
+  {
+   "edge": "HARVEST-E0005",
+   "status": "OK",
+   "detail": "line 23 matches"
+  },
+  {
+   "edge": "HARVEST-E0006",
+   "status": "OK",
+   "detail": "line 188 matches"
+  },
+  {
+   "edge": "HARVEST-E0007",
+   "status": "OK",
+   "detail": "line 153 matches"
+  },
+  {
+   "edge": "HARVEST-E0008",
+   "status": "OK",
+   "detail": "line 153 matches"
+  },
+  {
+   "edge": "HARVEST-E0009",
+   "status": "OK",
+   "detail": "line 153 matches"
+  },
+  {
+   "edge": "HARVEST-E0010",
+   "status": "OK",
+   "detail": "line 153 matches"
+  },
+  {
+   "edge": "HARVEST-E0011",
+   "status": "OK",
+   "detail": "line 153 matches"
+  },
+  {
+   "edge": "HARVEST-E0012",
+   "status": "OK",
+   "detail": "line 154 matches"
+  },
+  {
+   "edge": "HARVEST-E0013",
+   "status": "OK",
+   "detail": "line 154 matches"
+  },
+  {
+   "edge": "HARVEST-E0014",
+   "status": "OK",
+   "detail": "line 154 matches"
+  },
+  {
+   "edge": "HARVEST-E0015",
+   "status": "OK",
+   "detail": "line 154 matches"
+  },
+  {
+   "edge": "HARVEST-E0016",
+   "status": "OK",
+   "detail": "line 154 matches"
+  },
+  {
+   "edge": "HARVEST-E0017",
+   "status": "OK",
+   "detail": "line 155 matches"
+  },
+  {
+   "edge": "HARVEST-E0018",
+   "status": "OK",
+   "detail": "line 155 matches"
+  },
+  {
+   "edge": "HARVEST-E0019",
+   "status": "OK",
+   "detail": "line 155 matches"
+  },
+  {
+   "edge": "HARVEST-E0020",
+   "status": "OK",
+   "detail": "line 155 matches"
+  },
+  {
+   "edge": "HARVEST-E0021",
+   "status": "OK",
+   "detail": "line 155 matches"
+  },
+  {
+   "edge": "HARVEST-E0022",
+   "status": "OK",
+   "detail": "line 156 matches"
+  },
+  {
+   "edge": "HARVEST-E0023",
+   "status": "OK",
+   "detail": "line 156 matches"
+  },
+  {
+   "edge": "HARVEST-E0024",
+   "status": "OK",
+   "detail": "line 156 matches"
+  },
+  {
+   "edge": "HARVEST-E0025",
+   "status": "OK",
+   "detail": "line 156 matches"
+  },
+  {
+   "edge": "HARVEST-E0026",
+   "status": "OK",
+   "detail": "line 156 matches"
+  },
+  {
+   "edge": "HARVEST-E0027",
+   "status": "OK",
+   "detail": "line 157 matches"
+  },
+  {
+   "edge": "HARVEST-E0028",
+   "status": "OK",
+   "detail": "line 157 matches"
+  },
+  {
+   "edge": "HARVEST-E0029",
+   "status": "OK",
+   "detail": "line 157 matches"
+  },
+  {
+   "edge": "HARVEST-E0030",
+   "status": "OK",
+   "detail": "line 157 matches"
+  },
+  {
+   "edge": "HARVEST-E0031",
+   "status": "OK",
+   "detail": "line 157 matches"
+  },
+  {
+   "edge": "HARVEST-E0032",
+   "status": "OK",
+   "detail": "line 158 matches"
+  },
+  {
+   "edge": "HARVEST-E0033",
+   "status": "OK",
+   "detail": "line 158 matches"
+  },
+  {
+   "edge": "HARVEST-E0034",
+   "status": "OK",
+   "detail": "line 158 matches"
+  },
+  {
+   "edge": "HARVEST-E0035",
+   "status": "OK",
+   "detail": "line 158 matches"
+  },
+  {
+   "edge": "HARVEST-E0036",
+   "status": "OK",
+   "detail": "line 158 matches"
+  },
+  {
+   "edge": "HARVEST-E0037",
+   "status": "OK",
+   "detail": "line 159 matches"
+  },
+  {
+   "edge": "HARVEST-E0038",
+   "status": "OK",
+   "detail": "line 159 matches"
+  },
+  {
+   "edge": "HARVEST-E0039",
+   "status": "OK",
+   "detail": "line 159 matches"
+  },
+  {
+   "edge": "HARVEST-E0040",
+   "status": "OK",
+   "detail": "line 159 matches"
+  },
+  {
+   "edge": "HARVEST-E0041",
+   "status": "OK",
+   "detail": "line 159 matches"
+  },
+  {
+   "edge": "HARVEST-E0042",
+   "status": "OK",
+   "detail": "line 160 matches"
+  },
+  {
+   "edge": "HARVEST-E0043",
+   "status": "OK",
+   "detail": "line 160 matches"
+  },
+  {
+   "edge": "HARVEST-E0044",
+   "status": "OK",
+   "detail": "line 160 matches"
+  },
+  {
+   "edge": "HARVEST-E0045",
+   "status": "OK",
+   "detail": "line 160 matches"
+  },
+  {
+   "edge": "HARVEST-E0046",
+   "status": "OK",
+   "detail": "line 160 matches"
+  },
+  {
+   "edge": "HARVEST-E0047",
+   "status": "OK",
+   "detail": "line 161 matches"
+  },
+  {
+   "edge": "HARVEST-E0048",
+   "status": "OK",
+   "detail": "line 161 matches"
+  },
+  {
+   "edge": "HARVEST-E0049",
+   "status": "OK",
+   "detail": "line 161 matches"
+  },
+  {
+   "edge": "HARVEST-E0050",
+   "status": "OK",
+   "detail": "line 161 matches"
+  },
+  {
+   "edge": "HARVEST-E0051",
+   "status": "OK",
+   "detail": "line 161 matches"
+  },
+  {
+   "edge": "HARVEST-E0052",
+   "status": "OK",
+   "detail": "line 162 matches"
+  },
+  {
+   "edge": "HARVEST-E0053",
+   "status": "OK",
+   "detail": "line 162 matches"
+  },
+  {
+   "edge": "HARVEST-E0054",
+   "status": "OK",
+   "detail": "line 162 matches"
+  },
+  {
+   "edge": "HARVEST-E0055",
+   "status": "OK",
+   "detail": "line 162 matches"
+  },
+  {
+   "edge": "HARVEST-E0056",
+   "status": "OK",
+   "detail": "line 162 matches"
+  },
+  {
+   "edge": "HARVEST-E0057",
+   "status": "OK",
+   "detail": "line 238 matches"
+  },
+  {
+   "edge": "HARVEST-E0058",
+   "status": "OK",
+   "detail": "line 238 matches"
+  },
+  {
+   "edge": "HARVEST-E0059",
+   "status": "OK",
+   "detail": "line 238 matches"
+  },
+  {
+   "edge": "HARVEST-E0060",
+   "status": "OK",
+   "detail": "line 238 matches"
+  },
+  {
+   "edge": "HARVEST-E0061",
+   "status": "OK",
+   "detail": "line 238 matches"
+  },
+  {
+   "edge": "HARVEST-E0062",
+   "status": "OK",
+   "detail": "line 128 matches"
+  },
+  {
+   "edge": "HARVEST-E0063",
+   "status": "OK",
+   "detail": "line 38 matches"
+  },
+  {
+   "edge": "HARVEST-E0064",
+   "status": "OK",
+   "detail": "line 123 matches"
+  },
+  {
+   "edge": "HARVEST-E0065",
+   "status": "OK",
+   "detail": "line 147 matches"
+  },
+  {
+   "edge": "HARVEST-E0066",
+   "status": "OK",
+   "detail": "line 87 matches"
+  },
+  {
+   "edge": "HARVEST-E0067",
+   "status": "OK",
+   "detail": "line 57 matches"
+  },
+  {
+   "edge": "HARVEST-E0068",
+   "status": "OK",
+   "detail": "line 129 matches"
+  },
+  {
+   "edge": "HARVEST-E0069",
+   "status": "OK",
+   "detail": "line 115 matches"
+  },
+  {
+   "edge": "HARVEST-E0070",
+   "status": "OK",
+   "detail": "line 104 matches"
+  },
+  {
+   "edge": "HARVEST-E0071",
+   "status": "OK",
+   "detail": "line 103 matches"
+  },
+  {
+   "edge": "HARVEST-E0072",
+   "status": "OK",
+   "detail": "pointer: numbers present"
+  },
+  {
+   "edge": "HARVEST-E0073",
+   "status": "OK",
+   "detail": "pointer: numbers present"
+  },
+  {
+   "edge": "HARVEST-E0074",
+   "status": "OK",
+   "detail": "line 359 matches"
+  },
+  {
+   "edge": "HARVEST-E0075",
+   "status": "OK",
+   "detail": "line 355 matches"
+  },
+  {
+   "edge": "HARVEST-E0076",
+   "status": "UNRESOLVED_DECLARED",
+   "detail": "cited text not found anywhere in source_documents/MECHANISM_DECODE_CHANNEL_CEILING.md on 2026-10-04 (se"
+  },
+  {
+   "edge": "HARVEST-E0077",
+   "status": "OK",
+   "detail": "line 129 matches"
+  },
+  {
+   "edge": "HARVEST-E0078",
+   "status": "OK",
+   "detail": "line 115 matches"
+  },
+  {
+   "edge": "HARVEST-E0079",
+   "status": "OK",
+   "detail": "line 115 matches"
+  },
+  {
+   "edge": "HARVEST-E0080",
+   "status": "OK",
+   "detail": "line 116 matches"
+  },
+  {
+   "edge": "HARVEST-E0081",
+   "status": "OK",
+   "detail": "line 116 matches"
+  },
+  {
+   "edge": "HARVEST-E0082",
+   "status": "OK",
+   "detail": "line 120 matches"
+  },
+  {
+   "edge": "HARVEST-E0083",
+   "status": "OK",
+   "detail": "line 120 matches"
+  },
+  {
+   "edge": "HARVEST-E0084",
+   "status": "UNRESOLVED_DECLARED",
+   "detail": "the claim is in neither the cited JSON nor its companion markdown; searched every subtree of MECHANISM_MENISCUS_LOAD_DIST"
+  },
+  {
+   "edge": "HARVEST-E0085",
+   "status": "UNRESOLVED_DECLARED",
+   "detail": "the claim is in neither the cited JSON nor its companion markdown; searched every subtree of MECHANISM_MENISCUS_LOAD_DIST"
+  },
+  {
+   "edge": "HARVEST-E0086",
+   "status": "OK",
+   "detail": "line 120 matches"
+  },
+  {
+   "edge": "HARVEST-E0087",
+   "status": "OK",
+   "detail": "line 120 matches"
+  },
+  {
+   "edge": "HARVEST-E0088",
+   "status": "OK",
+   "detail": "line 121 matches"
+  },
+  {
+   "edge": "HARVEST-E0089",
+   "status": "OK",
+   "detail": "line 121 matches"
+  },
+  {
+   "edge": "HARVEST-E0090",
+   "status": "OK",
+   "detail": "pointer: numbers present"
+  },
+  {
+   "edge": "HARVEST-E0091",
+   "status": "OK",
+   "detail": "pointer: numbers present"
+  },
+  {
+   "edge": "HARVEST-E0092",
+   "status": "OK",
+   "detail": "line 108 matches"
+  },
+  {
+   "edge": "HARVEST-E0093",
+   "status": "OK",
+   "detail": "pointer: numbers present"
+  },
+  {
+   "edge": "HARVEST-E0094",
+   "status": "OK",
+   "detail": "line 31 matches"
+  },
+  {
+   "edge": "HARVEST-E0095",
+   "status": "OK",
+   "detail": "pointer: numbers present"
+  },
+  {
+   "edge": "HARVEST-E0096",
+   "status": "OK",
+   "detail": "line 360 matches"
+  },
+  {
+   "edge": "HARVEST-E0097",
+   "status": "OK",
+   "detail": "line 116 matches"
+  },
+  {
+   "edge": "HARVEST-E0098",
+   "status": "OK",
+   "detail": "pointer: numbers present"
+  },
+  {
+   "edge": "HARVEST-E0099",
+   "status": "OK",
+   "detail": "line 57 matches"
+  },
+  {
+   "edge": "ASM-E0012",
+   "status": "OK",
+   "detail": "implied_stages_three_stage_fixture = 3.0351684331766617 (path)"
+  },
+  {
+   "edge": "ASM-E0013",
+   "status": "OK",
+   "detail": "secretion_blocked_fraction = 0.556095804069872 (path)"
+  },
+  {
+   "edge": "ASM-E0014",
+   "status": "OK",
+   "detail": "critical_deposition_efficiency_saturating = 0.004326761426716262 (path)"
+  },
+  {
+   "edge": "T-E23-meniscus_patch_share-vs-stated_axial_load",
+   "status": "OK",
+   "detail": "edges_with_a_product_below_its_stated_load = 8 (path)"
+  },
+  {
+   "edge": "T-E24-reference_precision-vs-absolute_margin_goals",
+   "status": "OK",
+   "detail": "outcome.minimum_source_sufficient_geometry_reference_cap_relative = 4.3153259969981663e-10 (path)"
+  },
+  {
+   "edge": "T-E25-publication_format-vs-decidable_detail_edges",
+   "status": "OK",
+   "detail": "pointer: numbers present"
+  },
+  {
+   "edge": "T-E26-dwell_time-vs-collateral_damage_depth",
+   "status": "OK",
+   "detail": "d_eff_spread_factor = 3.0718537414965983 (path)"
+  },
+  {
+   "edge": "T-E27-shaft_sensing-vs-tip_tangential_load",
+   "status": "OK",
+   "detail": "geometry_swing_at_identical_shaft_reading.swing_N = 0.8047619047619047 (path)"
+  },
+  {
+   "edge": "T-E28-pass_count-vs-forward_friction_budget",
+   "status": "OK",
+   "detail": "budget_axis_scan.fraction_of_the_budget_axis = 0.4425149700598802 (path)"
+  },
+  {
+   "edge": "T-E29-shared_mPTP_target-vs-combination_ceiling",
+   "status": "OK",
+   "detail": "decision.gap_percentage_points = 10.491803278688524 (path)"
+  },
+  {
+   "edge": "T-E30-c3b_recycling_fraction-vs-host_activator_window",
+   "status": "OK",
+   "detail": "window.host_flip = 0.6901150139456149 (path)"
+  },
+  {
+   "edge": "T-E31-nucleus_pressure_multiplier-vs-route_of_derivation",
+   "status": "OK",
+   "detail": "the_multiplier_the_facit_pins.k_implied_low = 0.586 (path)"
+  },
+  {
+   "edge": "T-E32-membrane_face_polarity-vs-complement_risk",
+   "status": "OK",
+   "detail": "separation_sigma = 1.6641005886756877 (path)"
+  },
+  {
+   "edge": "T-E33-summary_fibre_count-vs-minimum_extra_fields",
+   "status": "OK",
+   "detail": "minimum_extra_binary_fields_over_all_chains = 13 (path)"
+  },
+  {
+   "edge": "T-E34-inhibitor_exposure-vs-creatinine_clearance",
+   "status": "OK",
+   "detail": "total_clearance_ratio = 0.5866666666666667 (path)"
+  },
+  {
+   "edge": "T-E35-cohesive_strength_band-vs-detachment_route",
+   "status": "OK",
+   "detail": "headline.strength_factor = 8.5 (path)"
+  },
+  {
+   "edge": "T-E36-hop_scale-vs-macroscopic_diffusivity",
+   "status": "OK",
+   "detail": "agreement_ratio_between_the_two_scales = 1.3976355789078625 (path)"
+  },
+  {
+   "edge": "T-E37-ligament_slack-vs-work_sign",
+   "status": "OK",
+   "detail": "outcome.direct_work_J_at_common_offset_minus_0_02 = 9.991910446631359e-05 (path)"
+  },
+  {
+   "edge": "T-E38-two_flow_protocol-vs-reflection_coefficient",
+   "status": "OK",
+   "detail": "fixture_roundtrip_max_abs_error = 1e-09 (path)"
+  },
+  {
+   "edge": "T-E39-published_identity-vs-source_self_consistency",
+   "status": "OK",
+   "detail": "relative_residual.max = 0.05315400871861084 (path)"
+  }
+ ],
+ "why": "an edge is a snapshot of prose plus one evidence path; nothing links a new measurement back to the edges that cite it, so staleness is silent",
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

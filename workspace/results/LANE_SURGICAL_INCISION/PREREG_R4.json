@@ -1,0 +1,38 @@
+{
+  "round": 4,
+  "utc": "2026-10-01T00:13:34.029931+00:00",
+  "status": "FROZEN_BEFORE_NEW_COMPUTATION",
+  "parent": "CHECKPOINT_R3.json",
+  "operation": "Independent skin needle series -> unrefitted geometry transfer -> first-pass versus repeat-pass work separation -> final response ports",
+  "data_plan": [
+    "Reuse Shergold2005 human Fig20, friction-corrected 0.3mm train ->0.6mm heldout",
+    "Acquire Barnett2016 primary original/table with diameter, crack length, spreading and repeat/precut friction if accessible",
+    "Acquire independent porcine skin gauge/reuse series Owen2022 or tension/diameter series2021; no phantom curves labelled skin"
+  ],
+  "primary_model": "F=cD; c fixed from Shergold0.3mm friction-corrected pressure7.8MPa; a/R and negligible bulk are explicit closures; do not equate shank radius and cutting edge radius",
+  "within_series": "One unused/sharp gauge anchor predicts other sharp gauges by diameter ratio without refit. Reuse/blunt points are adverse geometry/history tests, not same sharpness heldouts. If full cutting force+spreading+friction+crack length available, train Gamma on one gauge, predict others with measured geometry and independently measured spreading/friction; never per-case fit heldouts.",
+  "step_on_failure": "Change observation from peak force/diameter to first-pass minus precut/repeat force integrated along insertion plus measured crack increment. Execute diagnostic work/geometry separation if primary ports acquired; otherwise execute identified versus unidentified force port contrast on independent source and preserve missing work fields.",
+  "control": [
+    "Same-information F=cD conventional scaling: algorithm TIE",
+    "Constant-force and F=cD^2 one-anchor ablations",
+    "Published cohesive/fracture spreading+friction law with identical data is strongest comparator; no full FE claim when not executed"
+  ],
+  "metrics": "Absolute and relative error per heldout; mean-to-mean central tolerance20%; worst-case extraction uncertainty evaluated separately; reported SD/range never labelled confidence interval",
+  "falsifiers": [
+    "Any prespecified sharp heldout central relative error>20% rejects common-c scaling over that scope",
+    "Peak minus friction does not identify propagation Gamma without recoverable bulk and crack-area data",
+    "No common posterior across species/site/age or blunting, unless independently measured"
+  ],
+  "Gamma_cut_comparison": "150\u2013380J/m2 is synthetic BINDINGS scenario, not measured cut estimate; effective force/diameter c and Gamma inferred with measured crack ratio are different quantities; chemical Gamma0 null unless independent precleavage work",
+  "ports": "Tool-specific mechanical versus biological damage widths; missing values null; pierce/cut uncertainty and evidence scope; synchronized scalpel Ft/Fn/edge-radius/crack-area measurement specification",
+  "defaults": {
+    "threads": 2,
+    "precision": "binary64",
+    "gauge_diameter": "primary paper values preferred; manufacturer standard diameter only if marked nominal and separately sourced",
+    "uncertainty": "source scatter and digitalization bounds separately; no invented statistical covariance",
+    "work_area": "single projected crack plane convention; both surfaces counted only when stated",
+    "no_new_FE_LP": true
+  },
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

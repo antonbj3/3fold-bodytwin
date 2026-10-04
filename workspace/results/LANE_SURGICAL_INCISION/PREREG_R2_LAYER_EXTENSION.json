@@ -1,0 +1,13 @@
+{
+  "status":"FROZEN_BEFORE_PARTIAL_DERMIS_TRAJECTORY", "review_state":"PENDING_INDEPENDENT_REVIEW",
+  "new_operation":"Advance dermal cut under already cut epidermis and intact subcutis; only dermal projected fracture area changes, but all layers exchange energy through slip",
+  "trajectory_m":[[0.020,0,0],[0.020,0.008,0],[0.020,0.012,0],[0.020,0.016,0],[0.020,0.020,0]],
+  "formula":"F_blade=h_dermis*(Gamma0+W_bridge+W_other)+dU_all_layers/da+F_contact. dU includes reversible energy and slip in all layers.",
+  "Gamma0_scenario_J_m2":150,"empirical_Gamma0":"UNKNOWN",
+  "blade_arrival_closure_scenario":"delta_b=2R, R=5um; monotone bridge work from PREREG_R2_ACQUISITION. W_other and friction remain explicit unknown ports in empirical output.",
+  "interventions":["interlayer coupling k=0 versus 20MPa/m","no prestretch versus 1.21","dermal fiber angles 0/45/90"],
+  "meshes":"v2 64x32 and 96x48, refine epidermis-only case to128x64 if 64->96 >2%",
+  "noise_coupling":"Add unresolved elastic-release error in J/m2 to Gamma0 interval; remaining 30-15.125=14.875J/m2 from synthetic acquisition budget is available. Require actual release error estimate before claiming precision.",
+  "control":"Same-information conventional layered hyperelastic FE with independently fitted modal cohesive energies; no speedup over same FE claimed",
+  "falsifier":"No empirical gap/force PASS without matched skin data; no treating numerical residual or two-mesh change as biological certification; fully cut postcut gap does not identify Gamma0"
+}

@@ -1,0 +1,39 @@
+{
+  "utc": "2026-09-30T23:40:47.143018+00:00",
+  "status": "FROZEN_BEFORE_COMPUTATION",
+  "parent": "PREREG_R3.json",
+  "source_targets": "SOURCE_TARGETS_R3.json",
+  "step1": {
+    "construction": "normal-force contact-width pullback from A only: F_j(d)=F_A(d)*x_j(d)/x_A(d), common mean normal pressure at fixed depth; x=rounded wedge halfwidth; nominal radii; no Gamma fitting",
+    "relation": "x=sqrt(2Rd-d^2) if d<R(1-sin(theta)), otherwise d*tan(theta)+R*cos(theta)/(1+sin(theta)); theta=angle/2",
+    "evaluate": "B,E,F,G at tabulated true-cut points for which d is between23 and96% of measured thickness; inversion via A piecewise linear; exclude grooves from fracture error; 100% full-through endpoints are censored; retain nonmonotonic data",
+    "metric": "relative force prediction error at independently observed heldout depth, tolerance20%; tabular rounding0.5pp propagated separately, no invented repeatability CI",
+    "main_sharpness_test": "B versus K is same-specimen, same-angle nominalradius0/50.8um at20lbf; predicted reference curve beyond fullcut reported censored; K40\u00b12pp is actual true-cut observation"
+  },
+  "step2_on_failure": {
+    "changed_operation": "independent tip contact pressure gives additive normalforce kR rather than width scaling: F(d,R)=F_B(d)+kR. Acquire one F-edge anchor at12lbf,d65%; assume effectiveR_F=25.4um ONLY scenario, estimate k, predict K-edge at50.8um,F20lbf and F-edge16/20lbf without refit",
+    "important_scope": "new additional acquisition using B fullcurve+one F datum, not advertised as one-geometry training; F radius is heterogeneous and unmeasured at cut location. Closure investigation, not verified empirical radius law",
+    "falsifier": "K relative depth error>20% or2pp reading does not encompassprediction; invalidtrue/groove endpoint breaks force-work claim"
+  },
+  "needle_auxiliary": {
+    "construction": "calibrate friction-corrected force F=cD on0.3mm needle; predict0.6mm; inferno Gamma since area2a peradvance and openingenergy unknown",
+    "metric": "central relative pressure/force error and extreme digitization range; original20%gate on central, robust digitizationgate separate; no clinicalorindependent prospectivevalidation"
+  },
+  "power_port_change": {
+    "construction": "derive P=Ft*vt+Fn*vn; Fn at steadydepth has zero power sincevn=0; return unknown Ft/dU/processwork explicitly, not Fn/h",
+    "two_different_energy_witnesses_J_m2": [
+      150,
+      2500
+    ],
+    "meaning": "candidate effectivecutworks, not observations; positive work can vary with unobserved tangentforce while observed normalforce unchanged"
+  },
+  "strongest_control": "same-information fullcontactcohesive model can use exact same pressure/offsetlaws; TIE if algebra matches; full uniform fine FE was NOT executed in this data round",
+  "defaults": [
+    "linear interpolation within observed support only",
+    "lbf=4.4482216152605N",
+    "ignore no mechanism costs: computational timings recorded; acquisition/research cost UNKNOWN",
+    "no further FE/LP"
+  ],
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

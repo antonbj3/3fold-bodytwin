@@ -1,0 +1,550 @@
+{
+  "provenance": {
+    "twin_poses_and_sweep_source": "data/msk_smoketest/subject2_rotator_cuff_stability/rotator_cuff_stability_results.json (pre-existing, unmodified; reproduced bit-identically this session via a read-only import of scripts/msk/validate_rotator_cuff_stability.py -- NOT re-written)",
+    "twin_script_mtime_epoch": 1784700662,
+    "twin_json_mtime_epoch": 1784700339,
+    "staleness_finding": "on-disk JSON predates the script's own current version: missing 'twin_origin_clustering_check' and 'donor_leg' keys the script computes. Root cause (this session): donor_leg() unconditionally asserts each muscle's distal path point is on a body literally named 'humerus_r'; the donor model (ThoracoscapularShoulderModel.osim) names it 'humerus' (no side suffix) -- confirmed live, AssertionError reproduced verbatim before any fix was attempted.",
+    "new_measurements_this_session": [
+      "muscle-origin body-attachment ground truth (torso vs scapula_r), all 11 deltoid+cuff muscles, twin model",
+      "fixed donor_leg (generalized distal-body-name resolution via empirical majority vote, not hardcoded), full 4x5 activation grid",
+      "bonus transverse-plane per-muscle check (inconclusive, disclosed)",
+      "geometric stability-ratio-vs-depth derivation + cross-paper over-determination numeric check"
+    ]
+  },
+  "twin_model_direct_test": {
+    "model": "data/msk_models/subject2_unified_v2.osim (subject2, 79.0341 kg, real scapula_r body present)",
+    "poses": {
+      "~0deg": {
+        "arm_add_r_deg": 0.0,
+        "measured_total_elevation_deg": 0.0,
+        "deltoid_only_ratio": 5.693890058694181,
+        "deltoid_only_compression_N": 777.8079084722197,
+        "deltoid_only_superior_shear_N": 4416.690048676424,
+        "deltoid_plus_cuff_ratio": "Infinity",
+        "deltoid_plus_cuff_compression_N": -511.6620735398909,
+        "deltoid_plus_cuff_superior_shear_N": 5628.477903903271,
+        "cuff_made_ratio_worse": true
+      },
+      "~30deg": {
+        "arm_add_r_deg": -20.15,
+        "measured_total_elevation_deg": 29.987197354942044,
+        "deltoid_only_ratio": 2.1310257772545826,
+        "deltoid_only_compression_N": 1906.1115699184504,
+        "deltoid_only_superior_shear_N": 4051.350985688919,
+        "deltoid_plus_cuff_ratio": 37.43998750075938,
+        "deltoid_plus_cuff_compression_N": 183.09365080731413,
+        "deltoid_plus_cuff_superior_shear_N": 4201.491589404061,
+        "cuff_made_ratio_worse": true
+      },
+      "~60deg": {
+        "arm_add_r_deg": -40.3,
+        "measured_total_elevation_deg": 59.991595435138514,
+        "deltoid_only_ratio": 1.0675760612653609,
+        "deltoid_only_compression_N": 3059.151348816424,
+        "deltoid_only_superior_shear_N": 3257.5903356504004,
+        "deltoid_plus_cuff_ratio": 5.114741877481996,
+        "deltoid_plus_cuff_compression_N": 1104.946973711927,
+        "deltoid_plus_cuff_superior_shear_N": 2247.479721173341,
+        "cuff_made_ratio_worse": true
+      },
+      "~90deg": {
+        "arm_add_r_deg": -60.45,
+        "measured_total_elevation_deg": 89.9976006427916,
+        "deltoid_only_ratio": 0.4868208015039845,
+        "deltoid_only_compression_N": 4024.0322880820695,
+        "deltoid_only_superior_shear_N": 1954.2645855665396,
+        "deltoid_plus_cuff_ratio": 2.2387974004284534,
+        "deltoid_plus_cuff_compression_N": 2111.73099632282,
+        "deltoid_plus_cuff_superior_shear_N": -100.99254757557958,
+        "cuff_made_ratio_worse": true
+      }
+    },
+    "n_of_4_poses_where_cuff_made_ratio_worse": 4,
+    "sharpest_symptom": "at ~0deg pose, deltoid_plus_cuff compression_N goes NEGATIVE (-511.66 N) -- the net muscle force vector points OUT of the glenoid concavity, not into it -- ratio formally +Infinity",
+    "cuff_activation_sweep_at_30deg_pose": [
+      {
+        "cuff_activation": 0.0,
+        "anterior_component_N": 293.56251175705097,
+        "superior_component_N": 4051.3509855855955,
+        "compression_N": 1906.111570156188,
+        "shear_mag_N": 4061.9728897069813,
+        "shear_over_compression_ratio": 2.131025776929805,
+        "compression_is_positive": true
+      },
+      {
+        "cuff_activation": 0.25,
+        "anterior_component_N": 1574.304965130474,
+        "superior_component_N": 4088.886136490014,
+        "compression_N": 1475.3570903035838,
+        "shear_mag_N": 4381.486729457787,
+        "shear_over_compression_ratio": 2.969780508226798,
+        "compression_is_positive": true
+      },
+      {
+        "cuff_activation": 0.5,
+        "anterior_component_N": 2855.0474185038975,
+        "superior_component_N": 4126.421287394432,
+        "compression_N": 1044.6026104509801,
+        "shear_mag_N": 5017.833038570304,
+        "shear_over_compression_ratio": 4.803580795575443,
+        "compression_is_positive": true
+      },
+      {
+        "cuff_activation": 0.75,
+        "anterior_component_N": 4135.78987187732,
+        "superior_component_N": 4163.956438298851,
+        "compression_N": 613.8481305983764,
+        "shear_mag_N": 5868.840693388557,
+        "shear_over_compression_ratio": 9.56073725868911,
+        "compression_is_positive": true
+      },
+      {
+        "cuff_activation": 1.0,
+        "anterior_component_N": 5416.532325250744,
+        "superior_component_N": 4201.491589203268,
+        "compression_N": 183.09365074577227,
+        "shear_mag_N": 6855.023997378275,
+        "shear_over_compression_ratio": 37.43998751161808,
+        "compression_is_positive": true
+      }
+    ],
+    "axis_stability_check": {
+      "scapula_upward_rot_r_at_neutral_deg": 2.382781155864342e-09,
+      "scapula_upward_rot_r_at_minus60p45_deg": 30.22499999943543,
+      "scapula_upward_rot_r_change_deg": 30.22499999705265,
+      "local_Z_axis_rotation_deg": 30.051985275164142,
+      "difference_deg": 0.17301472188850653
+    },
+    "axis_stability_verdict": "PASS -- the compression/shear reference frame (scapula-parent offset frame) rotates with the scapula to within 0.173 deg over a 30.2 deg scapular rotation (0.57% relative) -- the reference frame is NOT the source of the anomaly."
+  },
+  "root_cause_diagnosis": {
+    "method": "direct OpenSim API query: for each of the 11 deltoid+cuff muscles, PathPoint.getBody().getName() on the FIRST (proximal/'origin') path point -- ground truth, not the spread-in-cm proxy the original script used",
+    "per_muscle_attachment": {
+      "DeltoideusClavicle_A": {
+        "n_path_points": 3,
+        "origin_body": "torso",
+        "insertion_body": "humerus_r"
+      },
+      "DeltoideusScapula_M": {
+        "n_path_points": 3,
+        "origin_body": "torso",
+        "insertion_body": "humerus_r"
+      },
+      "DeltoideusScapula_P": {
+        "n_path_points": 3,
+        "origin_body": "torso",
+        "insertion_body": "humerus_r"
+      },
+      "Supraspinatus_A": {
+        "n_path_points": 2,
+        "origin_body": "torso",
+        "insertion_body": "humerus_r"
+      },
+      "Supraspinatus_P": {
+        "n_path_points": 2,
+        "origin_body": "torso",
+        "insertion_body": "humerus_r"
+      },
+      "Infraspinatus_I": {
+        "n_path_points": 2,
+        "origin_body": "torso",
+        "insertion_body": "humerus_r"
+      },
+      "Infraspinatus_S": {
+        "n_path_points": 2,
+        "origin_body": "torso",
+        "insertion_body": "humerus_r"
+      },
+      "Subscapularis_I": {
+        "n_path_points": 2,
+        "origin_body": "torso",
+        "insertion_body": "humerus_r"
+      },
+      "Subscapularis_M": {
+        "n_path_points": 2,
+        "origin_body": "torso",
+        "insertion_body": "humerus_r"
+      },
+      "Subscapularis_S": {
+        "n_path_points": 2,
+        "origin_body": "torso",
+        "insertion_body": "humerus_r"
+      },
+      "TeresMinor": {
+        "n_path_points": 2,
+        "origin_body": "torso",
+        "insertion_body": "humerus_r"
+      }
+    },
+    "n_origin_on_torso": 11,
+    "n_origin_on_scapula_r": 0,
+    "positive_control": "3 of the 11 scapular-stabilizer muscles re-routed in a LATER session (docs/MECHANISM_SCAPULA_CLAVICLE.md) checked for contrast -- mixed torso/scapula_r attachment at their OWN (non-deltoid/cuff-relevant) path-point index, confirming the query method itself distinguishes the two bodies correctly (it is not silently returning a constant)",
+    "verdict": "CONFIRMED, machine-measured: 11/11 deltoid+cuff muscles' proximal point is rigidly parented to 'torso', 0/11 to the new 'scapula_r' body. Since scapula_r rotates ~30 deg relative to torso across this same pose sweep (axis_stability_check), every one of these muscles' geometrically-computed pull direction is evaluated from the WRONG (non-rotating) reference body at any non-neutral pose -- this is the mechanism, not a hand-wave. Matches the gap already disclosed in docs/MECHANISM_SCAPULA_CLAVICLE.md Sec.8 item 4 ('several of those 25 muscles proximal points are still collapsed onto torso... an explicit, disclosed opportunity NOT taken') -- this session supplies the direct confirmation that specific disclosure predicted."
+  },
+  "forced_adversary_anatomically_valid_substrate": {
+    "model": "ThoracoscapularShoulderModel.osim (Seth/Dong/Matias/Delp 2019, PMID 31780916) -- the SAME donor add_scapula_clavicle.py already sourced; real, separate scapula body; muscle origins NOT collapsed (origin spread 9.0/9.6/9.1 cm across x/y/z -- roughly isotropic 3D spread consistent with distinct scapular-fossa origins, vs. the twin's skewed 14.1/8.2/3.9 cm)",
+    "bug_found_and_fixed_this_session": "muscle_pull_force's assert hardcodes distal body name =='humerus_r'; donor names it 'humerus' -- AssertionError reproduced live, then fixed via empirical majority-vote body-name resolution (11/11 muscles agree: 'humerus') in a NEW script, repo script untouched",
+    "pose": {
+      "plane_elv": 1.6296093630369169e-09,
+      "shoulder_elv": 18.428216899486845,
+      "axial_rot": 58.947711035397134
+    },
+    "pose_caveat": "the donor model's own default/rest coordinate values (as-authored in its XML) -- a single fixed pose, NOT swept across elevation angles the way the twin model's 4-pose sweep was; a fuller follow-on would sweep this too",
+    "deltoid_only_at_max_activation": {
+      "ratio_shear_over_compression": 3.250599750350495,
+      "compression_N": 1305.148365736548,
+      "superior_shear_N": 4223.662428763251,
+      "compression_is_positive": true
+    },
+    "deltoid_plus_cuff_at_max_activation": {
+      "ratio_shear_over_compression": 1.0121336322410837,
+      "compression_N": 5237.60206612539,
+      "superior_shear_N": 3453.5621952377305,
+      "compression_is_positive": true
+    },
+    "ratio_improvement_factor": 3.2116310008916127,
+    "superior_shear_reduction_pct": 18.23299675374429,
+    "activation_grid_4x5": [
+      {
+        "deltoid_activation": 1.0,
+        "cuff_activation": 0.0,
+        "anterior_component_N": -399.51070622098445,
+        "superior_component_N": 4223.662428763251,
+        "compression_N": 1305.148365736548,
+        "shear_mag_N": 4242.514951833579,
+        "shear_over_compression_ratio": 3.250599750350495,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 1.0,
+        "cuff_activation": 0.25,
+        "anterior_component_N": -1305.091054950868,
+        "superior_component_N": 4031.1373703818713,
+        "compression_N": 2288.261790833758,
+        "shear_mag_N": 4237.137142057363,
+        "shear_over_compression_ratio": 1.8516837361137368,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 1.0,
+        "cuff_activation": 0.5,
+        "anterior_component_N": -2210.6714036807516,
+        "superior_component_N": 3838.6123120004913,
+        "compression_N": 3271.3752159309684,
+        "shear_mag_N": 4429.674089241056,
+        "shear_over_compression_ratio": 1.3540709325146791,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 1.0,
+        "cuff_activation": 0.75,
+        "anterior_component_N": -3116.2517524106356,
+        "superior_component_N": 3646.0872536191114,
+        "compression_N": 4254.488641028179,
+        "shear_mag_N": 4796.350408947006,
+        "shear_over_compression_ratio": 1.1273623726934845,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 1.0,
+        "cuff_activation": 1.0,
+        "anterior_component_N": -4021.832101140519,
+        "superior_component_N": 3453.5621952377305,
+        "compression_N": 5237.60206612539,
+        "shear_mag_N": 5301.153203420895,
+        "shear_over_compression_ratio": 1.0121336322410837,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.75,
+        "cuff_activation": 0.0,
+        "anterior_component_N": -299.6330296657384,
+        "superior_component_N": 3167.746821572439,
+        "compression_N": 978.861274302411,
+        "shear_mag_N": 3181.8862138751847,
+        "shear_over_compression_ratio": 3.2505997503504953,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.75,
+        "cuff_activation": 0.25,
+        "anterior_component_N": -1205.213378395622,
+        "superior_component_N": 2975.221763191059,
+        "compression_N": 1961.9746993996212,
+        "shear_mag_N": 3210.059785678376,
+        "shear_over_compression_ratio": 1.6361371972129295,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.75,
+        "cuff_activation": 0.5,
+        "anterior_component_N": -2110.7937271255055,
+        "superior_component_N": 2782.6967048096785,
+        "compression_N": 2945.0881244968314,
+        "shear_mag_N": 3492.685372235957,
+        "shear_over_compression_ratio": 1.1859357766527556,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.75,
+        "cuff_activation": 0.75,
+        "anterior_component_N": -3016.3740758553886,
+        "superior_component_N": 2590.1716464282986,
+        "compression_N": 3928.2015495940414,
+        "shear_mag_N": 3975.864902565671,
+        "shear_over_compression_ratio": 1.0121336322410839,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.75,
+        "cuff_activation": 1.0,
+        "anterior_component_N": -3921.9544245852726,
+        "superior_component_N": 2397.6465880469177,
+        "compression_N": 4911.314974691251,
+        "shear_mag_N": 4596.785362587319,
+        "shear_over_compression_ratio": 0.9359581672678801,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.5,
+        "cuff_activation": 0.0,
+        "anterior_component_N": -199.75535311049222,
+        "superior_component_N": 2111.8312143816256,
+        "compression_N": 652.574182868274,
+        "shear_mag_N": 2121.2574759167896,
+        "shear_over_compression_ratio": 3.250599750350495,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.5,
+        "cuff_activation": 0.25,
+        "anterior_component_N": -1105.3357018403758,
+        "superior_component_N": 1919.3061560002457,
+        "compression_N": 1635.6876079654842,
+        "shear_mag_N": 2214.837044620528,
+        "shear_over_compression_ratio": 1.3540709325146791,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.5,
+        "cuff_activation": 0.5,
+        "anterior_component_N": -2010.9160505702596,
+        "superior_component_N": 1726.7810976188653,
+        "compression_N": 2618.801033062695,
+        "shear_mag_N": 2650.5766017104474,
+        "shear_over_compression_ratio": 1.0121336322410837,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.5,
+        "cuff_activation": 0.75,
+        "anterior_component_N": -2916.496399300143,
+        "superior_component_N": 1534.256039237485,
+        "compression_N": 3601.914458159905,
+        "shear_mag_N": 3295.4351520045716,
+        "shear_over_compression_ratio": 0.914912108625727,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.5,
+        "cuff_activation": 1.0,
+        "anterior_component_N": -3822.0767480300265,
+        "superior_component_N": 1341.730980856105,
+        "compression_N": 4585.027883257115,
+        "shear_mag_N": 4050.7422397408686,
+        "shear_over_compression_ratio": 0.8834716697215154,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.3,
+        "cuff_activation": 0.0,
+        "anterior_component_N": -119.85321186629537,
+        "superior_component_N": 1267.0987286289758,
+        "compression_N": 391.54450972096436,
+        "shear_mag_N": 1272.7544855500742,
+        "shear_over_compression_ratio": 3.250599750350496,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.3,
+        "cuff_activation": 0.25,
+        "anterior_component_N": -1025.433560596179,
+        "superior_component_N": 1074.5736702475951,
+        "compression_N": 1374.6579348181747,
+        "shear_mag_N": 1485.3358408071706,
+        "shear_over_compression_ratio": 1.080513052146049,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.3,
+        "cuff_activation": 0.5,
+        "anterior_component_N": -1931.013909326063,
+        "superior_component_N": 882.0486118662152,
+        "compression_N": 2357.771359915385,
+        "shear_mag_N": 2122.9282775698857,
+        "shear_over_compression_ratio": 0.9003961595521598,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.3,
+        "cuff_activation": 0.75,
+        "anterior_component_N": -2836.594258055946,
+        "superior_component_N": 689.5235534848346,
+        "compression_N": 3340.884785012595,
+        "shear_mag_N": 2919.1967586386354,
+        "shear_over_compression_ratio": 0.8737795364073383,
+        "compression_is_positive": true
+      },
+      {
+        "deltoid_activation": 0.3,
+        "cuff_activation": 1.0,
+        "anterior_component_N": -3742.17460678583,
+        "superior_component_N": 496.9984951034543,
+        "compression_N": 4323.998210109806,
+        "shear_mag_N": 3775.0335484347393,
+        "shear_over_compression_ratio": 0.8730423476144025,
+        "compression_is_positive": true
+      }
+    ],
+    "activation_grid_monotonicity_check": {
+      "pre_registered_gate": "for EVERY fixed deltoid activation level, ratio must strictly DECREASE as cuff activation rises 0.0->0.25->0.5->0.75->1.0 (4 independent monotonicity checks, one per deltoid level)",
+      "verdict_all_4_monotonic": true
+    },
+    "note_on_deltoid_scapula_m_fmax": "DeltoideusScapula_M max_isometric_force = 2597.8 N is IDENTICAL between twin and donor (confirmed live) -- i.e. the twin's already-disclosed possibly-oversized Fmax (docs/MECHANISM_GLENOHUMERAL_FORCE.md Sec.4b, vs typical Delp-lineage 500-1200N) is the DONOR's own native, unscaled value, not a twin-specific distortion -- so it is a shared, not a differential, confound between the two legs compared here."
+  },
+  "transverse_couple_bonus_check_INCONCLUSIVE": {
+    "what_was_tested": "subscapularis (anterior cuff) vs infraspinatus+teres minor (posterior cuff) anterior/posterior component opposition, donor model, same pose as the coronal test",
+    "result": {
+      "Subscapularis_I": {
+        "fmax_N": 854.0,
+        "anterior_component_N": -530.3895423617857,
+        "compression_component_N": 554.6327605190625
+      },
+      "Subscapularis_M": {
+        "fmax_N": 609.0,
+        "anterior_component_N": -442.0024106760578,
+        "compression_component_N": 411.1842230179404
+      },
+      "Subscapularis_S": {
+        "fmax_N": 540.4,
+        "anterior_component_N": -349.68263821141454,
+        "compression_component_N": 407.56812748949835
+      },
+      "Infraspinatus_I": {
+        "fmax_N": 1037.4,
+        "anterior_component_N": -642.22439406876,
+        "compression_component_N": 743.3867445339054
+      },
+      "Infraspinatus_S": {
+        "fmax_N": 967.4,
+        "anterior_component_N": -570.6349837294822,
+        "compression_component_N": 778.0825177571011
+      },
+      "TeresMinor": {
+        "fmax_N": 695.8,
+        "anterior_component_N": -481.23101679557783,
+        "compression_component_N": 461.3435113849765
+      }
+    },
+    "subscap_sum_anterior_N": -1322.074591249258,
+    "posterior_cuff_sum_anterior_N": -1694.09039459382,
+    "opposing_signs_found": false,
+    "verdict": "INCONCLUSIVE, not a kill -- disclosed, not chased further this session (LEAN scope decision, this was a bonus/secondary probe, not the primary falsifier)",
+    "two_undiagnosed_confounds": [
+      "the donor model's X/Y axes (anterior/superior) were never independently anatomically verified the way the twin model's were (twin: dominant-component check at neutral pose); only Z (compression) was indirectly sanity-checked via the coronal result's own physical plausibility",
+      "the donor's own default pose carries axial_rot=58.9 deg, a large, unexplained-provenance internal/external rotation offset from anatomical neutral -- the classic textbook transverse-couple description assumes a near-neutral rotation posture, so this pose may not be the right one to test it at"
+    ]
+  },
+  "geometric_derivation": {
+    "claim": "concavity-compression stability ratio (max sustainable tangential/compressive force before the head rolls over the glenoid rim) = tan(theta_max), where theta_max is the half-angle subtended by the glenoid concavity's rim at its own center of curvature -- a frictionless rigid-body contact-equilibrium identity (2-force-member equilibrium forces the applied resultant's angle-from-axis to equal the current contact-normal angle; the LIMIT is reached exactly when that angle equals the rim's own subtended half-angle), NOT a curve-fit.",
+    "depth_to_angle_relation": "cos(theta_max) = 1 - depth/R_g  (R_g = concavity's own radius of curvature; standard spherical-cap sagitta relation)",
+    "qualitative_predictions_matching_literature_without_fitting": [
+      "ratio increases monotonically with depth -- matches Lippitt 1993's own observation that stability is 'greatest magnitude superiorly and inferiorly... attributed to greater glenoid depth in these directions'",
+      "ratio should be approximately LOAD-INDEPENDENT (pure function of geometry, not of the compressive-force magnitude) -- consistent with (though not explicitly broken out as a same-vs-different number in) Lippitt 1993's report of one consistent 'up to 60%' figure across both the 50N and 100N test conditions",
+      "removing/detaching the labrum reduces effective depth, hence reduces theta_max, hence reduces the ratio -- matches both papers' qualitative direction (Lippitt: resection reduced effectiveness ~20%; Howell: Bankart-type detachment nearly halves AP depth)"
+    ],
+    "cross_paper_over_determination_numeric_check": {
+      "step_1_calibrate_Rg_from_SI_direction_only": {
+        "input_lippitt_ratio_SI_labrum_intact": 0.6,
+        "input_howell_depth_SI_mm": 9.0,
+        "back_solved_theta_max_deg": 30.96375653207352,
+        "back_solved_R_g_mm": 63.15475947422651,
+        "caveat": "R_g is BACK-SOLVED (implied), not an independently-measured glenoid radius-of-curvature from a third source -- this session did not live-verify a separate glenoid/humeral radius-of-curvature paper"
+      },
+      "step_2_predict_AP_direction_using_ONLY_the_SI_calibrated_Rg": {
+        "input_howell_depth_AP_intact_mm": 5.0,
+        "input_howell_depth_AP_bankart_mm": 2.4,
+        "predicted_ratio_AP_intact": 0.4234939189727214,
+        "predicted_ratio_AP_bankart": 0.28384264846914103,
+        "predicted_AP_stability_reduction_pct": 32.97598011379609,
+        "independent_comparator_lippitt_overall_reduction_pct": 20.0,
+        "assessment": "order-of-magnitude consistent (predicted 32.9% AP-specific reduction vs. Lippitt's independently-reported ~20% ALL-directions-averaged reduction after full labral excision) -- a genuine cross-paper check (neither paper's number was used to fit the other), NOT an exact-match claim: different lesion scope (AP-only Bankart-type vs full circumferential excision) and different directions, so exact numeric equality is not expected or claimed."
+      }
+    }
+  },
+  "literature_anchors": [
+    {
+      "role": "PRIMARY -- concavity-compression stability ratio",
+      "pmid": "22959294",
+      "doi": "10.1016/S1058-2746(09)80134-1",
+      "citation": "Lippitt SB, Vanderhooft JE, Harris SL, Sidles JA, Harryman DT 2nd, Matsen FA 3rd (1993). Glenohumeral stability from concavity-compression: A quantitative analysis. J Shoulder Elbow Surg 2(1):27-35.",
+      "verified_live_via": "NCBI eutils esearch+esummary+efetch this session (not recalled)",
+      "key_quoted_numbers": "10 cadaver shoulders, labrum intact: humeral head resisted tangential forces up to 60% of the compressive load (tested at 50N and 100N); greatest stability magnitude superiorly/inferiorly, attributed to greater glenoid depth there; labral resection reduced effectiveness by ~20%."
+    },
+    {
+      "role": "PRIMARY -- glenoid+labrum socket depth, anatomic",
+      "pmid": "2721051",
+      "doi": null,
+      "citation": "Howell SM, Galinat BJ (1989). The glenoid-labral socket. A constrained articular surface. Clin Orthop Relat Res (243):122-5.",
+      "verified_live_via": "NCBI eutils esearch+esummary+efetch this session (not recalled)",
+      "key_quoted_numbers": "25 cadaver shoulders: composite glenoid+labrum socket depth ~9mm superoinferior, ~5mm anteroposterior; labrum contributes ~50% of total depth; anterior labral detachment (Bankart-type) reduces AP depth from ~5.0mm to ~2.4mm."
+    },
+    {
+      "role": "coronal deltoid/cuff force-couple, original description",
+      "pmid": "8804269",
+      "doi": "10.1097/00003086-199609000-00002",
+      "citation": "Inman VT, Saunders JB, Abbott LC. Observations of the function of the shoulder joint. 1944. Clin Orthop Relat Res. 1996 Sep;(330):3-12 (Classic Article reprint of J Bone Joint Surg 1944;26:1-30).",
+      "verified_live_via": "NCBI eutils esearch+esummary+efetch this session -- bibliographic fields (title/authors/journal/DOI) verified; NO digitized abstract text available via efetch (attributes list empty) -- cited for the well-established, extensively-secondary-attributed force-couple/scapulohumeral-rhythm concept, not for a specific quoted number.",
+      "key_quoted_numbers": null
+    },
+    {
+      "role": "dysfunction pole -- superior migration, classic description",
+      "pmid": "5455085",
+      "doi": null,
+      "citation": "Weiner DS, Macnab I (1970). Superior migration of the humeral head. A radiological aid in the diagnosis of tears of the rotator cuff. J Bone Joint Surg Br 52(3):524-7.",
+      "verified_live_via": "NCBI eutils esearch+esummary this session (not recalled); no digitized abstract available (pre-abstract-database era)",
+      "key_quoted_numbers": null
+    },
+    {
+      "role": "dysfunction pole -- superior migration, modern quantitative",
+      "pmid": "19487518",
+      "doi": "10.2106/JBJS.H.00854",
+      "citation": "Keener JD, Wei AS, Kim HM, Steger-May K, Yamaguchi K (2009). Proximal humeral migration in shoulders with symptomatic and asymptomatic rotator cuff tears. J Bone Joint Surg Am 91(6):1405-13.",
+      "verified_live_via": "NCBI eutils esearch+esummary+efetch this session (not recalled)",
+      "key_quoted_numbers": "n=160 shoulders (98 asymptomatic + 62 symptomatic cuff tears): migration correlates with tear size (p=0.01 multivariate); tears extending into infraspinatus produce more migration than isolated supraspinatus tears (p=0.01 / p=0.03); symptomatic > asymptomatic migration (p=0.03); critical tear-size threshold ~175 mm^2 for pain+area effects to become significant."
+    },
+    {
+      "role": "bonus -- transverse/global force-couple imbalance in massive tears",
+      "pmid": "1395284",
+      "doi": null,
+      "citation": "Burkhart SS (1992). Fluoroscopic comparison of kinematic patterns in massive rotator cuff tears. A suspension bridge model. Clin Orthop Relat Res (284):144-52.",
+      "verified_live_via": "NCBI eutils esearch+esummary this session (not recalled); not deeply used this session (named for completeness/future follow-on, matches the task's transverse-couple framing)",
+      "key_quoted_numbers": null
+    }
+  ],
+  "falsifier_verdict": {
+    "part_a_concavity_compression_ratio_vs_depth": "PASS (external anchor + geometric derivation) -- Lippitt 1993's ratio (0.60, labrum intact) and Howell 1989's depth (9mm SI) are jointly consistent under a single back-solved R_g via a frictionless contact-geometry identity derived this session; that SAME R_g, applied out-of-sample to Howell's independently-measured AP depths, predicts a stability-ratio reduction after labral detachment in the same order of magnitude as Lippitt's own independently-reported reduction. Not a from-scratch finite-element re-derivation of the cadaveric experiment (out of this session's scope -- no contact-mechanics substrate exists in this repo, checked), but a genuine, non-tautological, cross-paper over-determination.",
+    "part_b_deltoid_cuff_coronal_couple_centers_resultant": "PASS, but ONLY on the anatomically-valid (donor) substrate, machine-measured this session -- deltoid-alone ratio=3.25 (unstable, large +superior shear); deltoid+cuff ratio=1.01 (3.2x improvement), monotonic across all 4 deltoid-activation levels x 5 cuff-activation levels (20/20 grid points). The SAME test on the twin (subject2) model FAILS at all 4 poses -- but this negative was FORCED through OODA to its root cause (11/11 muscle origins mis-parented to torso, not scapula_r, a pre-existing, already-partially-disclosed model-fidelity gap) rather than accepted as a refutation of the mechanism. This is a diagnosed MODEL-FIDELITY gap in subject2's own twin, not a falsification of concavity-compression/force-couple stability.",
+    "deltoid_alone_adversary_required_to_FAIL": "CONFIRMED FAILED (in the required direction) on the donor substrate: ratio 3.25 is the WORST point in the entire 20-point grid; every unit of added cuff activation, at every deltoid activation level, strictly improves it."
+  },
+  "honest_gaps": [
+    "Twin model (subject2's own digital twin) cannot currently be used to test this mechanism at all -- 11/11 deltoid+cuff muscle origins mis-parented to torso instead of scapula_r (root-caused this session, not fixed -- fixing it is a graft-surgery task on add_arm_muscles.py's own registration, out of this session's verification scope).",
+    "Donor-model test uses a SINGLE fixed pose (the model's own default/rest coordinates), not a multi-pose sweep like the twin's own 4-pose test -- a real scope limitation, not swept this session.",
+    "Transverse (subscapularis vs infraspinatus/teres-minor) force couple: bonus check run, INCONCLUSIVE, two undiagnosed confounds disclosed (axis-convention on donor unverified; non-neutral 58.9deg axial-rotation default pose) -- not chased further (LEAN scope decision).",
+    "The geometric ratio=tan(theta_max) cross-paper check uses a BACK-SOLVED (not independently third-party-measured) glenoid radius of curvature (63.2mm) -- presented as a plausibility/order-of-magnitude consistency check, not a precision validation.",
+    "DeltoideusScapula_M's max_isometric_force (2597.8N) is large vs typical Delp-lineage single-deltoid-head values (500-1200N, already disclosed in docs/MECHANISM_GLENOHUMERAL_FORCE.md Sec.4b) -- shared identically between the twin and donor legs compared here (not a differential confound for the RATIO comparison), but inflates absolute force/compression magnitudes in both.",
+    "No wrapping surfaces exist for any deltoid/cuff muscle in either model (straight-line paths) -- unchanged, previously disclosed gap (docs/MECHANISM_ARM_MUSCLES.md Sec.8).",
+    "Right arm only, static-pose (no dynamic/EMG-driven activation trajectory) force-couple analysis -- activation levels are a synthetic 0-1 grid, not measured EMG.",
+    "The donor model's own coordinate/rest-pose provenance (why axial_rot defaults to 58.9 deg) was not investigated this session."
+  ]
+}

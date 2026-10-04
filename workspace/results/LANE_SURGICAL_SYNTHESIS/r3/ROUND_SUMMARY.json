@@ -1,0 +1,66 @@
+{
+  "round": 3,
+  "updated_utc": "2026-10-01T03:27:59.255780+00:00",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "parent_goal_status": "OPEN",
+  "operation": "Shared-reference collagen formation/removal with synchronized FV/UIM tensors; autonomous D/H/A site-mark pivot",
+  "gate": "FAIL",
+  "engineering_gate": "PASS",
+  "integrated_strength_proxy_RMSE_pp": 21.811181366256044,
+  "component_reproduction_gate": "FAIL",
+  "nominal_shared_RMSE_pp": 30.950029883984936,
+  "old_nominal_RMSE_pp": 43.703695914540624,
+  "old_all_R3_RMSE_pp": 60.00765081179816,
+  "reference_RMSE_pp": 8.306367094671637,
+  "external_HP_with_actual_C_RMSE_pp": 8.402970216319796,
+  "external_HP_fed_into_candidate": false,
+  "late_strength_fit": false,
+  "chemical_pivot_RMSE_pp": 44.34045698668247,
+  "chemical_pivot_gate": "FAIL",
+  "chemical_site_bound": {
+    "sites": 0.102,
+    "eta": 0.2833333333333334,
+    "HP_per_collagen_upper": 0.014450000000000001,
+    "maturity_upper": 0.28625000000000006,
+    "strength_upper_pct": 21.468750000000004,
+    "minimum_sites_for_HP043": 0.3035294117647058,
+    "reference_site_factor": 2.9757785467128026,
+    "scope": "Conditional to all-precursor birth, fixed eta, proportional removal, R3 HP diagnostic scale; no native tissue bound"
+  },
+  "max_trace_error": 5.662137425588298e-15,
+  "max_collagen_ledger_error": 8.659739592076221e-15,
+  "max_site_ledger_error": 6.800116025829084e-16,
+  "min_mark_eigenvalue": 0.0,
+  "cohort_control_error": 0.0,
+  "tests": {
+    "count": 90,
+    "passed": 90
+  },
+  "refinement": {
+    "half_dt": 0.005263729860249811,
+    "half_dx": 0.00045296097820468617
+  },
+  "restart": {
+    "max_strength_error_pp": 6.750155989720952e-14,
+    "max_tensor_error": 9.43689570931383e-16,
+    "wall_s": 1.527942764107138,
+    "prefix_replayed": false,
+    "global_suffix_recomputed": true
+  },
+  "source_audit_SURG_coverage": {
+    "SURG_COLLAGEN": "UNKNOWN_UNEXECUTED",
+    "SURG_HEALING": "UNKNOWN_UNEXECUTED",
+    "SURG_HEMOSTASIS": "UNKNOWN_UNEXECUTED",
+    "SURG_INCISION": "UNKNOWN_UNEXECUTED"
+  },
+  "strongest_control_gate": "TIE",
+  "empirical_joint_gate": "UNKNOWN",
+  "native_rupture_law": null,
+  "native_chemistry_rate": null,
+  "native_kinetic_posterior": null,
+  "new_global_coupled_gain_demonstrated": false,
+  "costs": "COST_ACCOUNTING_R3.json",
+  "physical_state_checkpoint": "r3/experiment_v2/all_R3/checkpoint21.npz",
+  "next": "Matched absolute fixed-reference collagen, newborn precursor/yield, early oxygen and age-direction-connected traction; replace independent UIM and chemical clocks with measured shared mark generator and observation law"
+}

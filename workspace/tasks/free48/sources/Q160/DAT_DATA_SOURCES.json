@@ -1,0 +1,313 @@
+{
+  "job": "BT-DAT-Q160",
+  "compiled_utc": "2026-09-26T10:05:00Z",
+  "prereg_sha256": "6f70a4999e3aa6ea98429d3d4454deddd0262ca8b20afa1102c11d8842c7bf44",
+  "searched": [
+    "Zenodo REST API (type=dataset)",
+    "figshare REST API",
+    "Europe PMC REST API",
+    "Dryad REST API",
+    "Crossref/web search"
+  ],
+  "usable": [
+    {
+      "id": "S1",
+      "name": "Analyzing marine biofilms developed on carbon nanotube-modified surfaces by 3D OCT approach (data for Polymers 2022, 14, 4410)",
+      "url": "https://zenodo.org/records/10367138  (DOI 10.5281/zenodo.10367138)",
+      "license": "CC-BY-4.0",
+      "size": "14731 + 5557 bytes (xlsx + txt)",
+      "format": "xlsx (2 sheets) + text",
+      "subjects": [
+        "Nodosilinea cf. nodulosa LEGE 10377 (cyanobacterium)",
+        "substrates: glass, epoxy resin, CNT composite",
+        "7 weeks, controlled hydrodynamics, 6 timepoints (7/14/21/28/42/49 d) x 3 surfaces, n=21 measurement rows",
+        "method: Optical Coherence Tomography (wet weight + OCT structure)"
+      ],
+      "constrains": [
+        "T1 porosity/eps",
+        "T2 pore size",
+        "T8 biofilm thickness L"
+      ],
+      "files_examined": [
+        "S1_zenodo10367138_Polymers14204410.xlsx",
+        "S1_zenodo10367138_Polymers14204410.txt"
+      ],
+      "status": "usable",
+      "reason": "all of I1-I5 hold; CC-BY-4.0 stated in the record",
+      "spatial_frame": {
+        "V7a_unit_and_datum": "lengths in µm; the datum is the solid coupon surface (glass / epoxy / CNT composite). The deposit declares NO origin offset and NO axial direction: it is a scalar mean±SD per coupon, not a profile.",
+        "V7b_geometry": "the reported 'Biofilm thickness' is a FULL thickness of a laterally extended film, NOT a cluster radius and NOT a half-depth. Any use as a spherical cluster radius R would overstate the diffusion length by ~2x.",
+        "V7c_volumetric": "OCT-derived; the deposit does not publish voxel size, stack axis order or segmentation threshold -> those are UNKNOWN, so the porosity figure cannot be traced to a segmentation rule from the deposit alone."
+      }
+    },
+    {
+      "id": "S3",
+      "name": "Supplemental Material for 'The EPS-I exopolysaccharide transforms Ralstonia wilt pathogen biofilms into viscoelastic fluids' (Rheometry data)",
+      "url": "https://zenodo.org/records/14767251  (DOI 10.5281/zenodo.14767251)",
+      "license": "MIT License",
+      "size": "144167 bytes",
+      "format": "zip of 83 CSV files (UTF-16LE) + 1 metadata xlsx",
+      "subjects": [
+        "Ralstonia solanacearum: WT GMI1000 and epsB mutant, plus IBSBF1503, lecF, lecFX, lecX, nucAB, PSI07, XCC8004",
+        "scraped colony biofilms, parallel-plate oscillatory rheometry: flow curve / amplitude sweep / frequency sweep"
+      ],
+      "constrains": [
+        "T6 tau_y (G'/G'' crossover; NOT extracted)"
+      ],
+      "files_examined": [
+        "S3_zenodo14767251_Rheometry_data.zip"
+      ],
+      "status": "usable-with-caveat",
+      "reason": "I1-I5 hold and license is explicit (MIT), but the deposit publishes no tau_y column and the crossover extraction was NOT DONE in the time budget -> tau_y from S3 = UNKNOWN",
+      "spatial_frame": {
+        "V7a_unit_and_datum": "rheometer sample = a scraped colony biofilm, not an in-situ film; no spatial datum applies (rheology is a bulk measurement).",
+        "V7b_geometry": "N/A for a bulk modulus, but this is exactly why it does NOT transfer directly to Q160's tau_y: a G'/G'' crossover from a ~1 Hz-10 rad/s oscillatory sweep is strain-rate dependent and frequency dependent, whereas Q160's tau_y is a static yield stress of a porous matrix under bulk flow shear. Different measured quantity, same symbol.",
+        "V7c_volumetric": "N/A"
+      }
+    },
+    {
+      "id": "S3b",
+      "name": "same record, Moisture content measurement repeat",
+      "url": "https://zenodo.org/records/14767251  (DOI 10.5281/zenodo.14767251)",
+      "license": "MIT License",
+      "size": "8734 bytes",
+      "format": "zip of 1 xlsx",
+      "subjects": [
+        "Ralstonia WT GMI1000 n=8 and epsB mutant n=8",
+        "gravimetric wet/dry mass of scraped colony biofilm"
+      ],
+      "constrains": [
+        "T1 porosity (mass-fraction proxy only)"
+      ],
+      "files_examined": [
+        "S3b_zenodo14767251_Moisture_content.zip"
+      ],
+      "status": "usable-with-caveat",
+      "reason": "gives moisture 90.07-90.64 %w/w, but a MASS fraction; no dry-matrix density is given, so it cannot be converted to a porosity without an assumption -> conversion UNKNOWN",
+      "spatial_frame": {
+        "V7a_unit_and_datum": "gravimetric bulk sample; no spatial datum. This is a MASS fraction, not a volume fraction -> converting to a porosity requires an assumed bulk density of the dry matrix, which the deposit does not give. UNKNOWN.",
+        "V7b_geometry": "N/A (bulk mass)",
+        "V7c_volumetric": "N/A"
+      }
+    },
+    {
+      "id": "S5",
+      "name": "Radial profiles of growing microbial colonies through interferometry",
+      "url": "https://zenodo.org/records/7627305  (DOI 10.5281/zenodo.7627305)",
+      "license": "CC0-1.0",
+      "size": "11693 + 372136 + 8181 + 4750525 + 3020 + 791 bytes = 5210246 bytes total",
+      "format": "md + 4 csv + zip of 4 csv",
+      "subjects": [
+        "9 strains (bgt127, bh1514, cc117, ea387, gob33, jt305, sw519, sw520, y55)",
+        "colonies from a 1.5 µL OD600=1 droplet on LB agar (bacteria) or YPD (fungi), 23.8 °C",
+        "Zygo ZeGage Pro optical profilometer, 2729 measurement rows, t = 0.21-336.8 h, replicates per strain"
+      ],
+      "constrains": [
+        "T5 cluster/colony geometry (with the caveat below)",
+        "T8 biofilm thickness L"
+      ],
+      "files_examined": [
+        "S5_zenodo7627305_README.md",
+        "S5_zenodo7627305_database.csv",
+        "S5_zenodo7627305_longtime_data.csv",
+        "S5_zenodo7627305_longtime_profiles.zip",
+        "S5_zenodo7627305_params_interface.csv",
+        "S5_zenodo7627305_params_logisticnd.csv"
+      ],
+      "status": "usable",
+      "reason": "CC0, all files small, geometry is measured with an explicit datum",
+      "spatial_frame": {
+        "V7a_unit_and_datum": "heights in µm, and the README states the media background was SUBTRACTED, so z = 0 is the AGAR SURFACE. Heights are therefore FULL colony heights above the substrate, not depths into a slab and not radii.",
+        "V7b_geometry": "the deposit is a RADIAL PROFILE of a hemispherical-ish colony grown from a 1.5 µL droplet. mid_height is a height (vertical), NOT a cluster radius. Using mid_height as Q160's spherical cluster radius R would be a CATEGORY ERROR: Q160's t90_cluster() assumes isotropic radial diffusion into a sphere of radius R.",
+        "V7c_volumetric": "Zygo ZeGage Pro optical profilometer, 1000x200@800Hz mode; profiles stitched in x then averaged over ~32 µm in y. xy pixel size is not stated in the deposit -> UNKNOWN."
+      }
+    },
+    {
+      "id": "S6",
+      "name": "PIV vector fields from: Boundary layer hydrodynamics of patchy biofilms",
+      "url": "https://zenodo.org/records/5644626  (DOI 10.5281/zenodo.5644626)",
+      "license": "CC-BY-4.0",
+      "size": "9018 bytes downloaded; the 4 PIV zips are 6.0-6.2 GB each",
+      "format": "xlsx (metadata only)",
+      "subjects": [
+        "4 non-uniform diatomaceous biofilms (PB-1, PB-2, SB-1, SB-2) on large acrylic plates",
+        "water 23.3-23.7 °C, 4000 instantaneous velocity fields per biofilm"
+      ],
+      "constrains": [
+        "T7 tau_b (CALIBRATION ONLY - no shear values deposited at the reachable size)"
+      ],
+      "files_examined": [
+        "S6_zenodo5644626_experiment_metadata.xlsx"
+      ],
+      "status": "usable-weak",
+      "reason": "the 9 kB metadata file passes I1-I5 but contains only temperature and px/inch calibration; it does NOT numerically constrain tau_b = 0.5 Pa",
+      "spatial_frame": {
+        "V7a_unit_and_datum": "calibration is px/inch -> 11.9-13.1 µm per pixel at these magnifications.",
+        "V7b_geometry": "PIV over a flat plate; the velocity field is a boundary-layer field ABOVE the biofilm, not a field inside it. Cannot be used as an internal pore velocity.",
+        "V7c_volumetric": "N/A (2D PIV slices)"
+      }
+    }
+  ],
+  "metadata_only_over_50MB": [
+    {
+      "id": "M1",
+      "url": "https://zenodo.org/records/11917890 (DOI 10.6084/m9.figshare.11917890)",
+      "name": "Nonlinear rheological characteristics of single species bacterial biofilms (Jana et al. 2020)",
+      "license": "CC-BY-4.0",
+      "would_constrain": "T6 - the article reports yield stresses BS 248 / CD 822 / PF 57 / PA 100 Pa",
+      "files": [
+        "Figure 2_raw data.zip 7833688 B",
+        "Fig1_confocal.zip 58809130 B",
+        "Figure 3_4_5 raw data.zip 13409447030 B",
+        "Figure 6 raw data.zip 2011829000 B"
+      ],
+      "status": "unreachable-from-this-sandbox",
+      "reason": "http 403 from ndownloader.figshare.com, figshare.com/ndownloader, api.figshare.com/v2/file/download and ndownloader.figstatic.com, with and without Referer/UA headers. The 3 small files would have passed I4 (7.8 MB) but could not be fetched, so per PREREG I1 they are NOT counted as verified. The 58.8 MB confocal zip and the 13.4 GB / 2.0 GB files would have failed I4 anyway."
+    },
+    {
+      "id": "M2",
+      "url": "https://eprints.soton.ac.uk/477676 (DOI 10.5258/SOTON/D2439)",
+      "name": "Surface properties influence marine biofilm rheology, with implications for ship drag (Snowdon et al., Soft Matter 2023)",
+      "license": "CC-BY (stated in the record's README)",
+      "would_constrain": "T6 + T8 - yield stress 15±4 / 13 / 11 Pa; OCT mean+max thickness in mm; creep at 0.25-20 Pa brackets Q160's tau_b = 0.5 Pa",
+      "files": [
+        "README.txt",
+        "MarineBiofilm_AmplitudeSweeps.xlsx",
+        "MarineBiofilm_FrequencySweeps.xlsx",
+        "MarineBiofilm_StructuralData.xlsx",
+        "MarineBiofilm_CreepData.xlsx"
+      ],
+      "status": "unreachable-from-this-sandbox",
+      "reason": "http 401 on the landing page and http 403 on all four direct file endpoints (/477676/1/<file>). Not counted as verified."
+    },
+    {
+      "id": "M3",
+      "url": "https://zenodo.org/records/5644626",
+      "name": "PIV zips PB1/PB2/SB1/SB2",
+      "license": "CC-BY-4.0",
+      "would_constrain": "T7 - measured boundary-layer velocity/shear over biofilm",
+      "files": [
+        "PB1.zip 6171927697 B",
+        "PB2.zip 6059520364 B",
+        "SB1.zip 6148693341 B",
+        "SB2.zip 6002576950 B"
+      ],
+      "status": "metadata-only",
+      "reason": "6.0-6.2 GB each -> fails PREREG I4 (>50 MB), not downloaded"
+    },
+    {
+      "id": "M4",
+      "url": "https://zenodo.org/records/14767251",
+      "name": "other members of the same EPS-I record",
+      "license": "MIT",
+      "would_constrain": "T6 (Rheology Sample Examples), T7 (mobility/tilt assay), T1 (growth curve)",
+      "files": [
+        "Microfluidics Images.zip 380815636 B",
+        "NonRSSC Biofilm Mobility.zip 1088062484 B",
+        "Rheology Sample Examples.zip 87950378 B",
+        "Individual Colony Mobility.zip 17320891 B",
+        "Colony Size and Population Density.zip 13242954 B",
+        "RSSC Biofilm Mobility.zip 10399737 B",
+        "Growth curve.zip 154752 B",
+        "cblaster output - RSSC eps cluster.zip 3640215 B"
+      ],
+      "status": "partly-available",
+      "reason": "Growth curve.zip (154752 B) and cblaster (3640215 B) are <=50 MB and were NOT downloaded because the T4/T5 gap search consumed the remaining budget; the rest fail I4. Listed as unfinished work, deliberately, rather than silently dropped."
+    },
+    {
+      "id": "M5",
+      "url": "https://zenodo.org/records/7627305",
+      "name": "remaining interferometry members",
+      "license": "CC0",
+      "would_constrain": "T8",
+      "files": [
+        "bootstrap_trajectories.csv 38998707 B (passes I4, not downloaded)",
+        "column_profiles.zip 3401852 B (passes I4, not downloaded)",
+        "monod_diffusion.csv 461916 B (passes I4, not downloaded)",
+        "all_bootstrap.csv 740555 B (passes I4, not downloaded)",
+        "model_predictions.csv 73402 B (passes I4, not downloaded)",
+        "interferometry_sample.datx 177138472 B",
+        "gob33/jt305/sw519/sw520/ea387/bh1514/bgt127 .zip 50-90 MB each"
+      ],
+      "status": "partly-available",
+      "reason": "five <=50 MB files left undownloaded on time budget; the .datx and per-strain zips fail I4"
+    },
+    {
+      "id": "M6",
+      "url": "https://zenodo.org/records/4642554 (DOI 10.5061/dryad.p8cz8w9q2)",
+      "name": "Supplemental movies for the analysis of biofilm detachment using a novel rotating-disc rheometry method",
+      "license": "CC0",
+      "would_constrain": "T7 - S. gordonii biofilm detachment",
+      "files": [
+        "Movie_S1.avi 10268018 B",
+        "Movie_S2.avi 11696420 B"
+      ],
+      "status": "excluded",
+      "reason": "both files pass I4 (10-12 MB) but are AVI video with no machine-readable numeric payload -> fails PREREG I3. The torque-angular-velocity numbers live only in the article figures. Would be the best T7 candidate if the article deposited its data."
+    },
+    {
+      "id": "M7",
+      "url": "https://zenodo.org/records/4462972",
+      "name": "Quantitative comparison of Magnum-PSI detachment experiments",
+      "license": "CC-BY-4.0",
+      "would_constrain": "T7",
+      "files": [
+        "182473482 B"
+      ],
+      "status": "metadata-only",
+      "reason": "182 MB -> fails I4"
+    },
+    {
+      "id": "M8",
+      "url": "https://zenodo.org/records/18154035",
+      "name": "Dynamics of bacterial biofilm development imaged using light sheet fluorescence microscopy",
+      "license": "CC-BY-4.0",
+      "would_constrain": "T1/T2/T8",
+      "files": [
+        "647851242 B"
+      ],
+      "status": "metadata-only",
+      "reason": "648 MB -> fails I4"
+    },
+    {
+      "id": "M9",
+      "url": "https://zenodo.org/records/17639746",
+      "name": "Biofilm Growth in Porous Media: A Radial-Flow Microfluidic Study",
+      "license": "CC-BY-4.0",
+      "would_constrain": "T1/T7",
+      "files": [
+        "983110673 B"
+      ],
+      "status": "metadata-only",
+      "reason": "983 MB -> fails I4"
+    }
+  ],
+  "excluded": [
+    {
+      "id": "X1",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC2655469/supplementaryFiles",
+      "name": "Q160's OWN primary reference: Takenaka S et al. 2009, Appl Environ Microbiol 75(6):1750-1753, DOI 10.1128/AEM.02279-08, PMCID PMC2655469",
+      "status": "excluded",
+      "reason": "Europe PMC reports isOpenAccess=N, inEPMC=Y, hasSuppl=N and the supplementaryFiles endpoint returns errCode 0 / 'Article with id PMC2655469 is not open access one' (296-byte XML). There is NO machine-readable deposit of the Table 1 t90-per-cluster and Table 2 D_e/D_aq values that Q160_model.py hard-codes as REFERENCE. This is the single most important audit finding: Q160's primary reference is not open data and cannot be independently re-verified from a deposit."
+    },
+    {
+      "id": "X2",
+      "url": "n/a",
+      "name": "secondary compilations and non-biofilm porosity/tortuosity sets",
+      "status": "excluded",
+      "reason": "PREREG U2. Zenodo hits 7516228 (3D pore-space morphology), 3752765 (permeability from microstructural statistics), 6558496 (non-Darcian porous media) are porous-media/rock datasets, not biofilm/EPS systems -> fail I5."
+    }
+  ],
+  "target_coverage": {
+    "T1_porosity_eps": "CONSTRAINED (S1: measured OCT porosity 2.69-21.54 %, median 11.50 %; S3b: moisture 90.25 %w/w in WT vs 64.64 %w/w in the epsB mutant) - but see the definition discordance in RESULTS.md",
+    "T2_pore_radius": "CONSTRAINED WITH A CAVEAT (S1: non-connected pore VOLUME 1911.68-2270.03 µm^3 -> volume-equivalent diameter 15.4-16.3 µm; this is NOT the nanoscale water-channel radius that Q160's r_m = 27.1 nm represents)",
+    "T3_size_dependent_sorption": "NOT CONSTRAINED - no open deposit found",
+    "T4_Deff_vs_size": "NOT CONSTRAINED - no open deposit found; Q160's own source (X1) has no supplementary data",
+    "T5_t90_per_cluster_with_geometry": "PARTIAL (S5 gives colony radial profiles with an explicit datum, but no solute penetration times, and its heights are NOT spherical cluster radii)",
+    "T6_tau_y": "PARTIAL (S3 deposits the raw sweeps but tau_y was NOT extracted; M1/M2 would carry the published values but are unreachable from this sandbox)",
+    "T7_tau_b_k_er_J_det": "NOT CONSTRAINED numerically (S6 gives calibration only; M6 is video-only; M4's mobility/tilt data left undownloaded)",
+    "T8_thickness_L": "CONSTRAINED (S1: 33.35-84.27 µm at 14-21 d; S5: max_height median 145.5 µm, max 1651 µm)",
+    "T9_Y_EPS": "NOT CONSTRAINED (S3b gives moisture only, not EPS per biomass)",
+    "T10_K_o": "NOT CONSTRAINED"
+  }
+}

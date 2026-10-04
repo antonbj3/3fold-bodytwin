@@ -1,0 +1,256 @@
+{
+  "status": "FROZEN_BEFORE_GEOMETRY_PREDICTION",
+  "utc": "2026-09-30T23:40:47.142729+00:00",
+  "NBS_1973": {
+    "url": "https://www.govinfo.gov/content/pkg/GOVPUB-C13-7440d7745c063aa551900802884c8d51/pdf/GOVPUB-C13-7440d7745c063aa551900802884c8d51.pdf",
+    "report": "NBSIR 73-262, Sorrells/Berger, interim primary experimental report",
+    "species": "human autopsy abdominal epidermis+dermis; subdermal tissue removed",
+    "motion": "rotating hardwood mandrel, edge loaded normally by calibrated spring; fixed 1 inch/s =0.0254m/s in final tests",
+    "measured_force": "normal force, NOT tangential cutting-force/work",
+    "specimen": {
+      "id": 18,
+      "age_years": 69,
+      "sex": "F",
+      "average_skin_thickness_mm": 1.2,
+      "postmortem_test_delay_days": 8,
+      "orientation_and_prestress": null
+    },
+    "geometry_source": "Figure5 PDF page42 (zero-based); visual check",
+    "table_source": "Appendix Table A/B PDF pages70/71; tabulated D* values are measured data, a/gamma are published empirical fitted coefficients and excluded from fitting",
+    "edges": {
+      "A": {
+        "angle_deg": 60,
+        "nominal_radius_m": 0,
+        "actual_radius_m": null
+      },
+      "B": {
+        "angle_deg": 90,
+        "nominal_radius_m": 0,
+        "actual_radius_m": null
+      },
+      "E": {
+        "angle_deg": 105,
+        "nominal_radius_m": 0,
+        "actual_radius_m": null
+      },
+      "F": {
+        "angle_deg": 90,
+        "nominal_radius_m": 0,
+        "actual_radius_m": null,
+        "observed_local_radius_some_spots_m": 2.54e-05,
+        "warning": "page16: some spots about .001inch, neither uniform radius nor global upper bound"
+      },
+      "G": {
+        "angle_deg": 15,
+        "nominal_radius_m": 5.08e-05,
+        "actual_radius_m": null
+      },
+      "K": {
+        "angle_deg": 90,
+        "nominal_radius_m": 5.08e-05,
+        "actual_radius_m": null
+      }
+    },
+    "curves_specimen18": {
+      "A": {
+        "force_lbf": [
+          1,
+          2,
+          4,
+          8,
+          12
+        ],
+        "depth_pct": [
+          23,
+          43,
+          69,
+          96,
+          100
+        ],
+        "endpoint": [
+          "true_cut",
+          "true_cut",
+          "true_cut",
+          "true_cut",
+          "true_cut"
+        ],
+        "use": "TRAIN reference normal contact pressure; 100% right-censored full-thickness depth"
+      },
+      "B": {
+        "force_lbf": [
+          1,
+          2,
+          4,
+          8,
+          12
+        ],
+        "depth_pct": [
+          7,
+          22,
+          66,
+          87,
+          100
+        ],
+        "endpoint": [
+          "true_cut",
+          "true_cut",
+          "true_cut",
+          "true_cut",
+          "true_cut"
+        ],
+        "use": "HELDOUT 90degree sharp; Fig8 visually checked"
+      },
+      "E": {
+        "force_lbf": [
+          4,
+          8,
+          12,
+          16,
+          20
+        ],
+        "depth_pct": [
+          20,
+          66,
+          85,
+          90,
+          100
+        ],
+        "endpoint": [
+          "true_cut",
+          "true_cut",
+          "true_cut",
+          "true_cut",
+          "true_cut"
+        ],
+        "use": "HELDOUT 105degree sharp"
+      },
+      "F": {
+        "force_lbf": [
+          4,
+          8,
+          12,
+          16,
+          20
+        ],
+        "depth_pct": [
+          14,
+          32,
+          65,
+          80,
+          71
+        ],
+        "endpoint": [
+          "groove",
+          "true_cut",
+          "true_cut",
+          "true_cut",
+          "true_cut"
+        ],
+        "use": "HELDOUT duplicate nominal90degree edge; preserve nonmonotonic20lb value; true/groove from Fig12"
+      },
+      "G": {
+        "force_lbf": [
+          1,
+          2,
+          4,
+          8,
+          12,
+          16,
+          20
+        ],
+        "depth_pct": [
+          13,
+          5,
+          35,
+          51,
+          60,
+          77,
+          81
+        ],
+        "endpoint": [
+          "groove",
+          "groove",
+          "true_cut",
+          "true_cut",
+          "true_cut",
+          "true_cut",
+          "true_cut"
+        ],
+        "use": "HELDOUT known rounded15degree; Fig13 visually checked"
+      },
+      "K": {
+        "force_lbf": [
+          12,
+          16,
+          20
+        ],
+        "depth_pct": [
+          37,
+          29,
+          40
+        ],
+        "endpoint": [
+          "groove",
+          "groove",
+          "true_cut"
+        ],
+        "depth_reading_uncertainty_pp": 2,
+        "use": "HELDOUT rounded90degree same specimen; Fig17 digitization; low-force grooves are not fracture observations"
+      }
+    },
+    "rounding_allowance_pp": 0.5,
+    "unknown_empirical_repeatability_band": true,
+    "cut_work_J": null,
+    "tangential_force_N": null,
+    "same_specimen_cut_tear_work": null
+  },
+  "SHERGOLD_2005": {
+    "url": "https://www.fleckmech.org/papers/190.pdf",
+    "doi": "10.1115/1.1992528",
+    "figure": 20,
+    "cohort": "human in vivo sharp hypodermic needles lower arm; flat punch abdomen excluded from matched-site heldout",
+    "shank_diameter_m": [
+      0.0003,
+      0.0006
+    ],
+    "pressure_MPa": [
+      7.8,
+      3.5
+    ],
+    "digitization_bound_MPa": [
+      0.5,
+      0.5
+    ],
+    "status": "coarse visual digitization from saved PDF page8; approximate NOT table values",
+    "train_index": 0,
+    "heldout_index": 1,
+    "edge_radius_m": null,
+    "chamfer_deg": [
+      12,
+      14
+    ],
+    "chamfer_length_m": [
+      0.0014,
+      0.0025
+    ],
+    "unknowns": [
+      "number of subjects/replicates per point",
+      "true edge radii",
+      "common statistical covariance",
+      "constant a/R or bulk opening-energy correction"
+    ]
+  },
+  "BINDINGS_R3": {
+    "path": "results/LANE_SURGICAL_BINDINGS/PORTS_R3.json",
+    "sha256": "eee36c9cda5325c013498d3d144cb197f284135d17d04d5087ff018a9ea5590b",
+    "input_scope": "synthetic/failed conditional port; no human-h_pz posterior",
+    "micro_cut_J_m2": 150,
+    "cell_h_m": 1.4700978102718317e-05,
+    "partial_loop_w_J_m3": 460944.1424060317,
+    "h_pz_measured": null,
+    "skin_cut_effective_empirical": null,
+    "radius_suppression_theorem": false
+  },
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

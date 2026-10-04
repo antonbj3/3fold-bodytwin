@@ -1,0 +1,38 @@
+{
+  "scope": "DERIVED_UNDER_QUASISTATIC_STEADY_DEPTH_AND_PROJECTED_AREA_dA=d*dx",
+  "observed_normal_force_N": 88.96443230521,
+  "observed_cut_depth_m": 0.00047999999999999996,
+  "tangential_velocity_m_s": 0.0254,
+  "steady_normal_velocity_m_s": 0,
+  "normal_force_power_W": 0,
+  "unmeasured_tangential_force_N": null,
+  "work_relation": "Ft dx + Fn dz = dPsi + (Gamma0+B_before)dA + dD_contact",
+  "nonidentifiability_witnesses": [
+    {
+      "effective_work_J_m2": 150.0,
+      "surface_work_force_N": 0.072,
+      "surface_power_W": 0.0018287999999999998,
+      "is_measurement": false,
+      "normal_observables_changed": false
+    },
+    {
+      "effective_work_J_m2": 2500.0,
+      "surface_work_force_N": 1.2,
+      "surface_power_W": 0.030479999999999997,
+      "is_measurement": false,
+      "normal_observables_changed": false
+    }
+  ],
+  "invalid_normal_force_divided_by_depth_J_m2": 185342.56730252085,
+  "energy_observation_jacobian_rank_without_Ft": 0,
+  "effective_skin_sharp_cut_intercept_J_m2": null,
+  "chemical_Gamma0_J_m2": null,
+  "required_observations": [
+    "synchronous tangential force and cut-normal displacement at blade",
+    "incremental true crack area, separate crush endpoint",
+    "actual edge curvature along the contacting line and bevel",
+    "recoverable prestress/bulk work and first-pass/contact work",
+    "independent pre-cleavage full interface work if chemical Gamma0 required"
+  ],
+  "strongest_control": "same virtual-work identity: TIE"
+}

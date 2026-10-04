@@ -1,0 +1,17 @@
+{
+  "operation": "Persist formed per-bin seal as its own history state instead of repeatedly testing current thrombin",
+  "trigger": "Nominal initial chain forgets platelet+thrombin closure when thrombin later falls; observed bin firstclosure4.49min but finalseal0",
+  "closure": "ds/dmin=k_seal*(1-s) when coverage>=threshold and IIa>=threshold, zero otherwise; no erosion in this explicit scenario",
+  "default_k_seal_per_min": 20.0,
+  "status": "SYNTETISKT",
+  "strongest_control": "Same 15-species coagulation plus two platelet states and irreversible seal-state per radius bin: TIE",
+  "falsifiers": [
+    "Seal declines without explicit erosion",
+    "Seal restores cut perfusion",
+    "No-vessel flow nonzero",
+    "No-aggregation case spuriously closes"
+  ],
+  "acceptance": "0<=s<=1, nondecreasing seal; finite retained late seal when trigger occurred; conserve all other inventories",
+  "empirical_joint_gate": "UNKNOWN",
+  "failure_preserved": "r1/scenario_nominal; initial code snapshots retained"
+}

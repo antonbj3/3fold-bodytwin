@@ -1,0 +1,51 @@
+{
+  "round": 1,
+  "operation": "exact incision Schur/history -> completed-wake elimination -> nonlinear exterior patch -> cubic residual Gram -> affine prestress recentering and topology/history discriminant",
+  "control": "same-law uniform fine P1 FE plus eligible identical same-information substructuring / polynomial residual Gram certifier; vector layered skin FE not yet implemented",
+  "outcome": {
+    "numerical_linear": "PASS in same discrete model",
+    "frozen_wake_max_gap_error_m": 0.0016945857371686805,
+    "nonlinear_patch_accepts": 0,
+    "nonlinear_patch_cases": 12,
+    "centered_accepted": {
+      "new_history_matched_topology": 0,
+      "matched_topology": 4,
+      "unseen_topology": 0
+    },
+    "centered_cases": 16,
+    "all_centered_bounds_contain_errors": true,
+    "single_toughness_transfer_relative_error": 0.625,
+    "separate_failure_work_slope_relative_error": 0.10025806451612904,
+    "empirical_skin": "UNKNOWN",
+    "strongest_control": "TIE",
+    "global_compiled_query_solves": 0,
+    "instrumented_experiment_CPU_lower_bound_s": 29.330280803
+  },
+  "gate": "FAIL",
+  "obstacle": "new tip topology and changed cohesive history outside global trial subspace; capsule arithmetic/branch/continuum certification and empirical layered skin ports incomplete; strongest equal-information methods match",
+  "next": "local new-tip Green support enrichment with shared historical nonlinear residual sector and full charged control; see NEXT_ROUND.md",
+  "files": [
+    "RESULTS.md",
+    "WORK_STATUS.json",
+    "NEXT_ROUND.md",
+    "CHECKPOINT_R1.json",
+    "DECOMPOSITION_R1.json",
+    "ATTEMPTS_R1.json",
+    "COST_ACCOUNTING_R1.json",
+    "VERIFICATION_R1.json",
+    "SOURCE_REVIEW_R1.md",
+    "SOURCE_MANIFEST_R1.json",
+    "WORLD_REFERENCES_R1.json",
+    "GRAPH_FEEDBACK.json",
+    "COMMANDS_R1.md",
+    "compiled_query_r1.py",
+    "r1/physical_patch/summary.json",
+    "r1/nonlinear/summary.json",
+    "r1/residual_compiler/summary.json",
+    "r1/centered_residual/summary.json",
+    "r1/centered_residual/operator_tier2.npz",
+    "r1/HX_CHAIN_BOUND_REFINEMENT.json"
+  ],
+  "review": "PENDING_INDEPENDENT_REVIEW",
+  "updated_utc": "2026-09-30T22:31:44.323780+00:00"
+}

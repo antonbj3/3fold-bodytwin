@@ -1,0 +1,310 @@
+{
+  "job_id": "BT-DAT-Q013",
+  "purpose": "Public measured datasets that constrain the BT-HX-Q013 PK/PD separation model (inputs/Q013_model.py).",
+  "prereg": {
+    "file": "PREREG.md",
+    "sha256": "40228d8fcd24f861a20885fad6681aac85898d91368d3cd5f8ffa3c69c5d1674",
+    "sha256_file": "PREREG.sha256",
+    "frozen_before": "data collection, download and analysis"
+  },
+  "model_blocks": {
+    "B1_absorption_clearance": [
+      "bioavailability (F)",
+      "ka",
+      "clearance (CL)",
+      "volume (V)"
+    ],
+    "B2_local_exposure": [
+      "k_in",
+      "k_out"
+    ],
+    "B3_cell_sensitivity": [
+      "ec50",
+      "emax",
+      "hill",
+      "baseline"
+    ],
+    "B4_sensitivity_factor": [
+      "sensitivity_multiplier (gamma)"
+    ]
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "title": "DS-3201b in Participants With Lymphomas (phase 1, NCT02732275) - registry record of the study that the model anchors on",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT02732275",
+      "landing_url": "https://clinicaltrials.gov/study/NCT02732275",
+      "verification": {
+        "http_status": 200,
+        "content_length_bytes": 17880,
+        "checked_on": "2026-09-25",
+        "checked_by": "curl GET via ClinicalTrials.gov API v2",
+        "record_metadata_bytes": 17880
+      },
+      "license": {
+        "value": "US Government work; no machine-readable license field in the API record",
+        "machine_verified_in_this_job": false,
+        "note": "https://clinicaltrials.gov/policy/terms-conditions returned 200 but is client-rendered; the string 'public domain' was not found in the served HTML. Under PREREG F4(a) this source is therefore NOT usable as a redistributable dataset and is used only for cohort/design identification."
+      },
+      "size": {
+        "bytes": 17880,
+        "unit": "JSON record as served"
+      },
+      "format": "JSON (ClinicalTrials.gov API v2 schema)",
+      "n": {
+        "study_enrollment_estimated": 100,
+        "ddi_substudy_enrolled": 24,
+        "pk_evaluable_midazolam": 15,
+        "pk_evaluable_digoxin": 16,
+        "provenance_of_the_last_three": "Tachibana 2025 abstract (PMID 41150706), not from the registry record"
+      },
+      "has_posted_results": false,
+      "constrains": {
+        "blocks": [
+          "B1"
+        ],
+        "parameters_or_outputs": [
+          "cohort",
+          "design (single doses of midazolam and digoxin alone and with valemetostat 200 mg QD, 28-day cycle)",
+          "n"
+        ],
+        "measured_quantities": "none posted",
+        "status": "CONSTRAINS_COHORT_ONLY"
+      },
+      "key_finding": "hasResults = false: the numbers the model is anchored on (digoxin AUClast GMR 1.27, 90% CI 1.06-1.52, n=16) are NOT available as machine-readable public data anywhere in the registry. R_plasma = 1.27 stays literature-only.",
+      "status": "accepted_registry_record_no_results"
+    },
+    {
+      "id": "S2",
+      "title": "Differential impact of nevirapine on artemether-lumefantrine pharmacokinetics in individuals stratified by CYP2B6 c.516G>T genotypes",
+      "url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.z612jm683",
+      "landing_url": "https://datadryad.org/dataset/doi:10.5061/dryad.z612jm683",
+      "doi": "10.5061/dryad.z612jm683",
+      "mirror": {
+        "url": "https://zenodo.org/records/4950452",
+        "note": "Dryad mirror, same files, checked under this job"
+      },
+      "verification": {
+        "http_status": 200,
+        "metadata_bytes": 6676,
+        "checked_on": "2026-09-25",
+        "checked_by": "curl GET against Dryad API v2",
+        "record_metadata_bytes": 6676
+      },
+      "license": {
+        "value": "CC0-1.0",
+        "url": "https://spdx.org/licenses/CC0-1.0.html",
+        "machine_verified_in_this_job": true,
+        "field": "Dryad API 'license'"
+      },
+      "size": {
+        "bytes": 375026,
+        "storage_size_reported_by_api": true,
+        "files": [
+          {
+            "name": "Copy_of_AR_ARM_LF20141015P_(for_ARM).xlsx",
+            "bytes": 95766
+          },
+          {
+            "name": "Genotypes_Patients_Volunteers.xlsx",
+            "bytes": 18626
+          },
+          {
+            "name": "Copy_of_AR_ARMLF20141015P_(for_LF).xlsx",
+            "bytes": 260634
+          }
+        ]
+      },
+      "format": "Microsoft Excel workbooks (XLSX), per-subject tables",
+      "n": {
+        "total_subjects": 60,
+        "hiv_positive_on_nevirapine": 30,
+        "hiv_negative_controls": 30,
+        "stratification": "CYP2B6 c.516G>T (GG and TT)"
+      },
+      "constrains": {
+        "blocks": [
+          "B1"
+        ],
+        "parameters_or_outputs": [
+          "ka",
+          "clearance (CL)",
+          "volume (V)",
+          "R_plasma = F_mult/CL_mult",
+          "auc_plasma",
+          "cmax_plasma"
+        ],
+        "how": "measured plasma concentration-time data of a victim drug (lumefantrine) with and without a perpetrator drug (nevirapine) in the same subjects, i.e. a signed DDI ratio that can discriminate the F branch from the CL branch; a CYP inducer gives the opposite sign to the valemetostat/digoxin case, so a dataset that reproduces the frozen F_mult-only branch must be tested against this sign pattern",
+        "status": "CONSTRAINED"
+      },
+      "status": "accepted",
+      "downloaded": false
+    },
+    {
+      "id": "S3",
+      "title": "Plasma and breast milk lumefantrine data in breastfeeding mothers with uncomplicated plasmodium falciparum malaria (interim analysis)",
+      "url": "https://zenodo.org/api/records/18363164",
+      "landing_url": "https://zenodo.org/records/18363164",
+      "doi": "10.5281/zenodo.18363164",
+      "verification": {
+        "http_status": 200,
+        "content_length_bytes": 8506,
+        "checked_on": "2026-09-25",
+        "checked_by": "curl GET of the file content endpoint; byte count re-checked with stat on the saved copy",
+        "record_metadata_bytes": 6636,
+        "note": "8506 is the content-length of the CSV file endpoint (also re-checked with stat on the saved copy); 6636 is the record metadata"
+      },
+      "license": {
+        "value": "CC-BY-4.0",
+        "machine_verified_in_this_job": true,
+        "field": "Zenodo record 'license.id'"
+      },
+      "size": {
+        "bytes": 8506,
+        "n_files": 1
+      },
+      "format": "CSV, long format, 11 columns, 195 data rows, 6 subjects",
+      "n": {
+        "subjects": 6,
+        "rows_plasma_CMT2": 78,
+        "rows_breast_milk_CMT3": 81,
+        "rows_dosing_CMT1": 36,
+        "one_row_missing_subject_id": 1
+      },
+      "constrains": {
+        "blocks": [
+          "B2"
+        ],
+        "parameters_or_outputs": [
+          "k_in",
+          "k_out",
+          "R_local",
+          "auc_local",
+          "cmax_local"
+        ],
+        "how": "the same subject and the same time base are measured in plasma and in a non-plasma compartment, which is exactly the paired structure the model lacks; it constrains the FORM of C_local (a driven compartment that lags and is scaled relative to plasma) and the plausible magnitude of a transfer ratio, not the numeric k_in/k_out of this model (drug and tissue differ, and PREREG M3 forbids fitting)",
+        "status": "CONSTRAINED"
+      },
+      "status": "accepted",
+      "downloaded": true,
+      "local_path": "samples/Ojara_et_al_Lumefantrine_plasma_and_breast_milk_data.csv",
+      "sha256": "6fccfd6d1dd720b743561f90db64ec13b9232fb71eb6bc58a1a2156397b2a5d3"
+    },
+    {
+      "id": "S4",
+      "title": "qHTS assay to identify aromatase inhibitors: Summary (Tox21/NCATS, PubChem AID 743139), concise bioactivity",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/assay/aid/743139/concise/JSON",
+      "landing_url": "https://pubchem.ncbi.nlm.nih.gov/bioassay/743139",
+      "verification": {
+        "http_status": 200,
+        "content_length_bytes": 3272962,
+        "csv_variant_status": 200,
+        "csv_variant_content_type": "text/csv",
+        "checked_on": "2026-09-25",
+        "checked_by": "curl GET; the JSON and the CSV variants of the same assay were both requested"
+      },
+      "license": {
+        "value": "US Government work, public domain (NCBI/PubChem)",
+        "machine_verified_in_this_job": true,
+        "quote": "Information that is created by or for the US government on this site is within the public domain.",
+        "quote_source": "https://www.ncbi.nlm.nih.gov/home/about/policies/ (fetched under this job, http 200)"
+      },
+      "size": {
+        "bytes": 3272962,
+        "unit": "concise JSON as served"
+      },
+      "format": "JSON table (also served as CSV) with columns AID, SID, CID, Activity Outcome, Target Accession, Target GeneID, Activity Value [uM], Activity Name, Assay Name, Assay Type, PubMed ID, RNAi",
+      "n": {
+        "tested_substance_records": 10486,
+        "unit_of_activity_value": "uM",
+        "target": "EAW77416 / GeneID 1588 (CYP19A1 aromatase)"
+      },
+      "constrains": {
+        "blocks": [
+          "B3"
+        ],
+        "parameters_or_outputs": [
+          "ec50",
+          "emax",
+          "hill"
+        ],
+        "how": "cell-based dose-response endpoints with an absolute potency unit (uM) exist publicly at scale, and the Active/Inactive outcome is the operational form of a threshold such as Emax; this constrains the FORM and the scale of the B3 block, not its numeric values for this model",
+        "explicit_limit": "the assay target is aromatase/CYP19A1, not P-glycoprotein or a digoxin-like target, and the model's EC50/Emax are dimensionless; no numeric transfer is claimed",
+        "status": "PARTIAL"
+      },
+      "status": "accepted",
+      "downloaded": false
+    },
+    {
+      "id": "S5",
+      "title": "MedPelvis3D: a 3D pelvic anatomy dataset for anatomical landmark detection",
+      "url": "https://zenodo.org/api/records/21757686",
+      "landing_url": "https://zenodo.org/records/21757686",
+      "doi": "10.5281/zenodo.21757686",
+      "verification": {
+        "http_status": 200,
+        "record_metadata_bytes": 31610,
+        "checked_on": "2026-09-25",
+        "checked_by": "curl GET against the Zenodo records API"
+      },
+      "license": {
+        "value": "CC-BY-4.0",
+        "machine_verified_in_this_job": true,
+        "field": "Zenodo record 'license.id'"
+      },
+      "size": {
+        "bytes": 31351310903,
+        "n_files": 100
+      },
+      "format": "NIfTI CT volumes (.nii.gz) + segmentation masks + STL surface meshes + 57 expert landmarks (CSV) + 50,000-point reference clouds (.npy) + per-case metadata.csv",
+      "n": {
+        "cases": 99,
+        "male": 59,
+        "female": 40
+      },
+      "coordinate_frame": "all explicit XYZ coordinates in millimetres, patient-level LPS convention; NIfTI volumes and masks keep their affine matrices",
+      "constrains": {
+        "blocks": [],
+        "parameters_or_outputs": [],
+        "how": "the model has no geometric, anatomical or shape parameter; no output of B1-B4 is a function of a pelvic landmark, mesh or atlas",
+        "status": "NO_CONSTRAINT_EXPECTED",
+        "role": "negative control (PREREG H4/M1)"
+      },
+      "status": "accepted_as_negative_control",
+      "downloaded": false
+    }
+  ],
+  "rejected_or_unverified": [
+    {
+      "candidate": "UCSF-FDA TransPortal (transporter substrate/inhibition measurements, would have constrained the P-gp vs CYP3A branch of B1)",
+      "reason": "host did not resolve under this job (curl exit 6, 'Could not resolve host: transportal.medicine.ucsf.edu'); license, size and format could not be verified",
+      "prereg_rule": "F2/F4"
+    },
+    {
+      "candidate": "NLM Visible Human Project anatomy archive (data.lhncbc.nlm.nih.nih.gov)",
+      "reason": "HTTP 403 on the file path tried; not used as the geometry negative control (S5 used instead)",
+      "prereg_rule": "F2"
+    },
+    {
+      "candidate": "BodyParts3D (lifesciencedb.jp/bp3d), CC BY-SA 2.1 JP",
+      "reason": "HTTP 404 on the file path tried",
+      "prereg_rule": "F2"
+    },
+    {
+      "candidate": "TDC curated human ADME tables (half_life_obach, clearance_hepatocyte_az, vdss_lombardo, hia_hou, pgp_broccatelli)",
+      "reason": "dataset names were confirmed present in the fetched tdc/metadata.py name list, but the fetched file carries no per-dataset license/size fields, so F2 cannot be satisfied in this job; the tables are also literature-curated compilations without per-subject raw records, which PREREG F4(c) rejects",
+      "prereg_rule": "F2/F4(c)"
+    }
+  ],
+  "sample_download": {
+    "source_id": "S3",
+    "path": "samples/Ojara_et_al_Lumefantrine_plasma_and_breast_milk_data.csv",
+    "bytes": 8506,
+    "limit_bytes": 50000000,
+    "within_limit": true,
+    "sha256": "6fccfd6d1dd720b743561f90db64ec13b9232fb71eb6bc58a1a2156397b2a5d3",
+    "loader": "dat_probe.py (csv module, standard library only)",
+    "loader_sha256": "d34338adc81047d5a954ca11d8ea34a0c83e6b2d5176172c7bf68ee68bf06574",
+    "report": "sample_report.json"
+  }
+}

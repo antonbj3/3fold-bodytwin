@@ -1,0 +1,123 @@
+{
+  "node_id": "MODEL-COLLAGEN-TRIPLE-HELIX-THERMAL-STABILITY",
+  "route_A": {
+    "Tm_0Hyp": 24.0,
+    "Tm_fullHyp": 39.0,
+    "dTm": 15.0
+  },
+  "route_B": {
+    "fit_intercept": -37.21685231794829,
+    "fit_slope": 0.3450137750416648,
+    "R2": 0.9220136944158313,
+    "mammal_ImAc_range": [
+      215.0,
+      225.0
+    ],
+    "predicted_mammal_Tm_range": [
+      36.96110931600965,
+      40.41124706642629
+    ]
+  },
+  "anchor_band": [
+    37.0,
+    40.0
+  ],
+  "void_floor_scrambled_pairings": [
+    {
+      "perm": [
+        0,
+        2,
+        1
+      ],
+      "r2": 0.0007864244644300022,
+      "mammal_Tm_range": [
+        21.153534743716232,
+        21.254296622563885
+      ],
+      "overlaps_anchor": false
+    },
+    {
+      "perm": [
+        1,
+        0,
+        2
+      ],
+      "r2": 0.7738834123425515,
+      "mammal_Tm_range": [
+        35.6815456957246,
+        38.842407571171016
+      ],
+      "overlaps_anchor": true
+    },
+    {
+      "perm": [
+        1,
+        2,
+        0
+      ],
+      "r2": 0.5212178958625122,
+      "mammal_Tm_range": [
+        7.631632427468489,
+        10.225676847726298
+      ],
+      "overlaps_anchor": false
+    },
+    {
+      "perm": [
+        2,
+        0,
+        1
+      ],
+      "r2": 0.056768409721656976,
+      "mammal_Tm_range": [
+        17.057120506105225,
+        17.913213836264063
+      ],
+      "overlaps_anchor": false
+    },
+    {
+      "perm": [
+        2,
+        1,
+        0
+      ],
+      "r2": 0.7253301631930184,
+      "mammal_Tm_range": [
+        5.104057685112764,
+        8.164157681711515
+      ],
+      "overlaps_anchor": false
+    }
+  ],
+  "adversary_2species": {
+    "fit_intercept": -97.85153846153834,
+    "fit_slope": 0.7423076923076919,
+    "R2": 1.0,
+    "predicted_mammal_Tm_range": [
+      61.744615384615415,
+      69.16769230769235
+    ],
+    "overshoot_above_anchor_C": 21.744615384615415
+  },
+  "gates": {
+    "G1_routeA_dTm_15C": true,
+    "G2_routeB_R2_ge_0.85": true,
+    "G3_routeB_extrapolation_overlaps_anchor": true,
+    "G4_monotonic_rank_order": true,
+    "G5_void_floor_scrambled_pairing_fails_at_least_once": true,
+    "G6_adversary_overshoots_by_gt_20C": true
+  },
+  "claimed_by_narrative": {
+    "route_A_dTm": 15.0,
+    "route_B_R2": 0.92,
+    "route_B_Tm_range": [
+      37.0,
+      40.4
+    ],
+    "adversary_Tm_range": [
+      61.7,
+      69.2
+    ]
+  },
+  "verdict": "CONFIRMED"
+}

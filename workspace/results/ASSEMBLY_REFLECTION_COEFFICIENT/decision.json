@@ -1,0 +1,132 @@
+{
+  "relation": "r = (1-sigma) + sigma/(1+Pe), Pe = Q/PS, r dimensionless, Q and PS same volume/time unit",
+  "control_is": "single-observation reading sigma = 1 - r",
+  "control_exact_relative_bias": "-1/(1+Pe), always an underestimate of sigma",
+  "one_sided_result": "a single steady observation can exclude a permeability lesion, never establish one",
+  "inversion_closed_form": {
+    "PS": "(r1-r2)/((1-r1)/Q1-(1-r2)/Q2)",
+    "sigma": "(1-r1)*(PS+Q1)/Q1"
+  },
+  "fixture_roundtrip_max_abs_error": 1e-09,
+  "control_scored_rows": [
+    {
+      "Q_same_unit_as_PS": 0.005,
+      "Pe": 0.09999999999999999,
+      "r": 0.9181818181818181,
+      "naive_sigma": 0.0818181818181819,
+      "relative_bias": -0.9090909090909091
+    },
+    {
+      "Q_same_unit_as_PS": 0.02,
+      "Pe": 0.39999999999999997,
+      "r": 0.7428571428571429,
+      "naive_sigma": 0.2571428571428571,
+      "relative_bias": -0.7142857142857143
+    },
+    {
+      "Q_same_unit_as_PS": 0.05,
+      "Pe": 1.0,
+      "r": 0.55,
+      "naive_sigma": 0.44999999999999996,
+      "relative_bias": -0.5
+    },
+    {
+      "Q_same_unit_as_PS": 0.15,
+      "Pe": 2.9999999999999996,
+      "r": 0.325,
+      "naive_sigma": 0.675,
+      "relative_bias": -0.25000000000000006
+    },
+    {
+      "Q_same_unit_as_PS": 0.5,
+      "Pe": 10.0,
+      "r": 0.1818181818181818,
+      "naive_sigma": 0.8181818181818182,
+      "relative_bias": -0.09090909090909091
+    },
+    {
+      "Q_same_unit_as_PS": 2.0,
+      "Pe": 40.0,
+      "r": 0.1219512195121951,
+      "naive_sigma": 0.8780487804878049,
+      "relative_bias": -0.024390243902439025
+    }
+  ],
+  "conditioning_sweep": [
+    {
+      "flow_ratio": 1.1,
+      "sigma_shift_per_0.01_in_r": null,
+      "note": "a 0.01 error in r drives the implied sigma outside [0,1]; the inversion is inadmissible at this flow separation"
+    },
+    {
+      "flow_ratio": 1.5,
+      "sigma_shift_per_0.01_in_r": null,
+      "note": "a 0.01 error in r drives the implied sigma outside [0,1]; the inversion is inadmissible at this flow separation"
+    },
+    {
+      "flow_ratio": 2.0,
+      "sigma_shift_per_0.01_in_r": null,
+      "note": "a 0.01 error in r drives the implied sigma outside [0,1]; the inversion is inadmissible at this flow separation"
+    },
+    {
+      "flow_ratio": 3.0,
+      "sigma_shift_per_0.01_in_r": 0.06858475894245741
+    },
+    {
+      "flow_ratio": 5.0,
+      "sigma_shift_per_0.01_in_r": 0.03303370786516868
+    },
+    {
+      "flow_ratio": 10.0,
+      "sigma_shift_per_0.01_in_r": 0.01726784343821941
+    },
+    {
+      "flow_ratio": 20.0,
+      "sigma_shift_per_0.01_in_r": 0.01329176238923524
+    }
+  ],
+  "required_flow_ratio_for_sigma_error_below_0.05": 3.814697265625,
+  "measured_anchors": [
+    {
+      "value": 33.0,
+      "unit": "% reduction in plasma protein",
+      "pmid": "6881362",
+      "doi": "10.1152/ajpheart.1983.245.2.h284",
+      "locator": "abstract, protein reduction arm",
+      "identifies": "the product K_f*sigma, not sigma"
+    },
+    {
+      "value": 68.0,
+      "unit": "% reduction in plasma protein",
+      "pmid": "6881362",
+      "doi": "10.1152/ajpheart.1983.245.2.h284",
+      "locator": "abstract, protein reduction arm",
+      "identifies": "the product K_f*sigma, not sigma"
+    }
+  ],
+  "structural_anchors": [
+    {
+      "pmid": "10390517",
+      "doi": "10.1152/physrev.1999.79.3.703",
+      "locator": "fibre-matrix model section",
+      "carries": "sigma as a property of a structure; simultaneous water and solute flux method"
+    },
+    {
+      "pmid": "14289154",
+      "doi": "10.1161/01.RES.16.5.452",
+      "locator": "Circ Res 1965;16(5):452-460",
+      "carries": "interstitial pressure-volume curve is nonlinear",
+      "convention_trap": "16.5.452 is volume/issue/page, not a year"
+    },
+    {
+      "pmid": "386049",
+      "doi": "10.1016/0026-2862(79)90029-3",
+      "locator": "Microvasc Res 1979;18(3):209-216",
+      "carries": "lymphatic pump sets Q, which is what makes the second flow available"
+    }
+  ],
+  "source_report": "results/BT-CAP-Q020/RESULTS.md section 4",
+  "verdict_on_real_tissue": "CANNOT DECIDE; no measured two-flow protein ratio with a locator",
+  "falsifier": "r independent of lymph flow over a three-fold range kills the file; a negative implied PS or a sigma outside [0,1] rejects the one-barrier model itself",
+  "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

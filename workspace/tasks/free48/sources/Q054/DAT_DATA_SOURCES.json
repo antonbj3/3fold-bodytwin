@@ -1,0 +1,240 @@
+{
+  "task": "BT-DAT-Q054",
+  "prereg": "PREREG.md",
+  "prereg_sha256": "78b8acc8c4b773bd911988ae2d5261c1b0d501a19fd3782a63914664e0b200a7",
+  "generated_from": {
+    "zenodo_api": "api_cache/zenodo_<id>.json",
+    "physionet": "api_cache/physionet_gaitndd.html",
+    "checksums": "api_cache/samples_sha256.txt",
+    "load_demonstration": "samples/load_report.json (by verify_samples.py)"
+  },
+  "constraint_keys": {
+    "P1": "head_radius_m",
+    "P2": "socket_radius_m",
+    "P3": "reduced_radius_m",
+    "P4": "clearance_m",
+    "P5": "form_error_amplitude_m",
+    "P6": "form_error_wavelength_m",
+    "P7": "cartilage_shear_modulus_pa",
+    "P8": "poisson_ratio",
+    "P9": "layer_thickness_m",
+    "P10": "load_n",
+    "O1": "contact_area_mm2",
+    "O2": "mean_pressure_mpa",
+    "O3": "peak_pressure_mpa",
+    "O4": "travel_mm"
+  },
+  "accepted": [
+    {
+      "id": "S1_TS_HIPBONE_CT",
+      "name": "Corrected hip bone segmentation for the TotalSegmentator small subset",
+      "url": "https://zenodo.org/records/18853791",
+      "api_url": "https://zenodo.org/api/records/18853791",
+      "doi": "10.5281/zenodo.18853791",
+      "license": "cc-by-4.0",
+      "access": "free",
+      "access_evidence": "api metadata.access_right='open'",
+      "size_bytes": 1751873,
+      "size_evidence": "api files[0].size=1751873 for key 'totalsegmentator_small_hip_bone_corrected_gt.zip'",
+      "format": "ZIP -> 104 NIfTI-1 .nii.gz binary segmentation masks (one per hip)",
+      "n_subjects": 104,
+      "n_subjects_evidence": "record description: 'revised ground truth hip bone segmentation masks for eligible hips (N = 104)'; confirmed by 104 .nii.gz in the archive",
+      "measurement_type": "human in-vivo CT, manually corrected segmentation",
+      "measurement_type_evidence": "record description: 'Masks were manually corrected by the authors ... most substantial changes in the acetabulum'",
+      "constrains": [
+        "P2"
+      ],
+      "coupling": {
+        "P2": {
+          "hx_quantity": "socket_radius_m (nominal 50.0 mm, synthetic)",
+          "measured_quantity": "acetabular bone surface (mask -> surface) per hip",
+          "chain": "NIfTI mask (1.5 mm isotropic, xyzt_units space=2 => mm, sform_code=1) -> isosurface -> acetabular pelvic passage/cup -> mean radii; gives the bone socket, i.e. the outer edge of the cartilage layer",
+          "direction": "the bone socket’s innermost bone surface corresponds to the acfyte + layer P9, not P2 directly",
+          "limit": "BONE surface, not cartilage surface. P2 cannot be set to this number; it gives a measurement interval for the surface that P2 + P9 jointly delimit."
+        }
+      },
+      "evidence": "GET https://zenodo.org/api/records/18853791/files/totalsegmentator_small_hip_bone_corrected_gt.zip/content -> api files[0] = {'key': 'totalsegmentator_small_hip_bone_corrected_gt.zip', 'size': 1751873, 'checksum': 'md5:217df5deb2c6fcd19d6c77fa325d1b98'}; api id=18853791, doi=10.5281/zenodo.18853791, license.id=cc-by-4.0",
+      "samples": [
+        {
+          "local_path": "samples/ts_hipbone_corrected_gt.zip",
+          "local_size_bytes": 1751873,
+          "sha256": "bde9676d4551b216afaab427798b7e7526252e322edd53273a37b8022d23eea1"
+        }
+      ],
+      "sample_total_bytes": 1751873
+    },
+    {
+      "id": "S2_MEDPELVIS3D",
+      "name": "MedPelvis3D: a 3D pelvic anatomy dataset for anatomical landmark detection",
+      "url": "https://zenodo.org/records/21757686",
+      "api_url": "https://zenodo.org/api/records/21757686",
+      "doi": "10.5281/zenodo.21757686",
+      "license": "cc-by-4.0",
+      "access": "free",
+      "access_evidence": "api metadata.access_right='open'",
+      "size_bytes": 202240,
+      "size_evidence": "api files[key=annotations.zip].size=202240",
+      "format": "ZIP -> 99 CSV files, 57 landmarks per case (XYZ in mm)",
+      "n_subjects": 99,
+      "n_subjects_evidence": "99 CSV files in samples/; record: '99 landmark CSV files'; 57 'expert-annotated 3D landmarks' per file",
+      "measurement_type": "human CT-based 3D pelvis, expert-annotated landmarks",
+      "measurement_type_evidence": "record: 'All explicit XYZ coordinates ... expressed in millimetres in the patient-level LPS convention'",
+      "units": "mm ( declared in the record, NOT in the file)",
+      "frame": "patient-level LPS (+x left, +y posterior, +z superior) — declared in the record, not in the file; therefore not verified from the file itself",
+      "constrains": [
+        "P2"
+      ],
+      "coupling": {
+        "P2": {
+          "hx_quantity": "socket_radius_m (nominal 50.0 mm, synthetic)",
+          "measured_quantity": "acetabular landmarks: Acetabulum_L/R, AcetAntWall_L/R, AcetPostWall_L/R (6 of 57)",
+          "chain": "landmark CSV (XYZ, LPS, mm) -> acetabular reference geometry per patient -> measurement interval for the cup’s shape and position",
+          "direction": "landmarks in cheek segment, no noise in mapper",
+          "limit": "6 landmarks per side give shape, not a continuous surface; enough to say that 50 mm is of the right order of magnitude, not to determine P2."
+        }
+      },
+      "evidence": "GET https://zenodo.org/api/records/21757686/files/annotations.zip/content -> api files[key=annotations.zip] = {'size': 202240, 'checksum': 'md5:b11e00c992a3db4ba87a9e308076ba9d'}; api id=21757686, doi=10.5281/zenodo.21757686, license.id=cc-by-4.0",
+      "samples": [
+        {
+          "local_path": "samples/medpelvis3d_annotations.zip",
+          "local_size_bytes": 202240,
+          "sha256": "28cad32687666d8d632e07fc66733eead840c30db00878d1eafd9ca2c2c3a0be"
+        }
+      ],
+      "sample_total_bytes": 202240
+    },
+    {
+      "id": "S3_FHN_TAPER",
+      "name": "Wear of femoral head taper connections of contemporary total hip prostheses—An experimental study",
+      "url": "https://zenodo.org/records/14981124",
+      "api_url": "https://zenodo.org/api/records/14981124",
+      "doi": "10.5281/zenodo.14981124",
+      "license": "cc-by-4.0",
+      "access": "free",
+      "access_evidence": "api metadata.access_right='open'",
+      "size_bytes": 30063,
+      "size_evidence": "api sizes: 'Data files Figures 10 and 11.zip'=18806, 'data dictionary for SEM and EDX.xlsx'=11257",
+      "format": "2 XLSX (Figure 10 = disassembly force per group, Figure 11 = 22column matrix) + 1 XLSX data dictionary",
+      "n_subjects": 24,
+      "n_subjects_evidence": "data dictionary + paper: 24 stems, 8 groups of n=3 (2 taper x 2 headmaterial x 2 testtype); Fig 10 has 24 force rows",
+      "measurement_type": "explanted commercial hip implants, measured in vitro (load frame LF + hip simulator HJS)",
+      "measurement_type_evidence": "data dictionary: 'hut4 = hip joint simulator test', 'jj = \"12/14\" taper, Summit, DePuy', 'zb = \"Type 1\" taper, Taperloc Complete, Zimmer Biomet'",
+      "units": "kN (declared in the column heading 'Force (kN)')",
+      "frame": "not applicable — table data without spatial reference",
+      "constrains": [
+        "P10"
+      ],
+      "coupling": {
+        "P10": {
+          "hx_quantity": "load_n (1800 N, synthetic fixed-load scenario)",
+          "measured_quantity": "disassembly force for femoral head against stem, 1.76-3.44 kN, 24 measurements",
+          "chain": "XLSX 'Force (kN)' -> kN->N -> order of magnitude for the force holding a loaded hip joint construction together",
+          "direction": "quantitative order of magnitude (1.76-3.44 kN is above HX 1.8 kN)",
+          "limit": "DECISIVE LIMITATION: this is the TAPER/TRUNNION joint (neck-head), NOT the articulation surface (head-socket). The number is a disassembly force, not an in-vivo joint load. It may be used as an order of magnitude for P10, never as the value of P10."
+        }
+      },
+      "does_not_constrain": {
+        "P4": "TAPER GEOMETRY (d1, d2, contact length, cone angle) is in the paper’s table, NOT in the downloaded data files. Thus no diametral clearance is measured in this sample -> P4 (clearance_m) remains UNCONSTRAINED by S3.",
+        "P5/P6": "No as-built-against-CAD surface and no error profile in the files."
+      },
+      "evidence": "GET https://zenodo.org/api/records/14981124/files/Data%20files%20Figures%2010%20and%2011.zip/content -> api files[key='Data files Figures 10 and 11.zip'] = {'size': 18806, 'checksum': 'md5:5eed48c6592713447a4ac91f64b948e9'}; GET https://zenodo.org/api/records/14981124/files/data%20dictionary%20for%20SEM%20and%20EDX.xlsx/content -> {'size': 11257, 'checksum': 'md5:8997abcfe1465bf23e682ea3f986b34d'}; api id=14981124, doi=10.5281/zenodo.14981124, license.id=cc-by-4.0",
+      "samples": [
+        {
+          "local_path": "samples/fhn_taper_data_fig10_11.zip",
+          "local_size_bytes": 18806,
+          "sha256": "abf55e612ea6f0b1cec1e99e86ce15602f7b0f9234776180886f29a6a91b1156"
+        },
+        {
+          "local_path": "samples/fhn_taper_data_dictionary.xlsx",
+          "local_size_bytes": 11257,
+          "sha256": "8c89c4dd211ac8cf0dc677fea85a21dbfc389294ba144a92a5091eb65fa60380"
+        }
+      ],
+      "sample_total_bytes": 30063
+    },
+    {
+      "id": "S4_GAITNDD",
+      "name": "Gait in Neurodegenerative Disease Database (GaitNDD) v1.0.0",
+      "url": "https://physionet.org/content/gaitndd/1.0.0/",
+      "api_url": "https://physionet.org/files/gaitndd/1.0.0/RECORDS",
+      "doi": "https://doi.org/10.13026/C27G6C",
+      "license": "Open Data Commons Attribution License v1.0",
+      "access": "free",
+      "access_evidence": "landing page: Open Access=True, 'License (for files): Open Data Commons Attribution License v1.0'",
+      "size_bytes": 270125,
+      "size_evidence": "HTTP content-length from HEAD: control1.hea=125 (== local 125 B); .rit/.let = 2 x 135000 B locally",
+      "format": "WFDB: .hea-header + 12-bit binary .rit/.let, 2 channels (left/right foot)",
+      "n_subjects": 64,
+      "n_subjects_evidence": "RECORDS list counted by machine: 64 records (16 control, 20 hunt, 15 park, 13 ALS); 64 rows in subject-description",
+      "measurement_type": "gait measurement on a walking human, force-sensitive resistors in the shoes",
+      "measurement_type_evidence": "landing page: 'force-sensitive resistor output, roughly proportional to the force under the foot'",
+      "units": "UNKNOWN in absolute terms — the channel is unobstructed unobstructed; gain is stated without a unit (3000 /mV) and is NOT convertible to newtons",
+      "frame": "per-shoe force channel; no spatial coordinate frame applies",
+      "constrains": [
+        "P10"
+      ],
+      "coupling": {
+        "P10": {
+          "hx_quantity": "load_n (1800 N, synthetic fixed-load scenario)",
+          "measured_quantity": "vertical gait force as a time series, 300 s @ 300 Hz per person",
+          "chain": "WFDB channel -> relative gait cycle shape (not newtons) -> shape of the loading progression over a step, qualitative comparison against HX load profile",
+          "direction": "qualitative: the load’s TIME SHAPE and the cycle’s periodicity",
+          "limit": "UNIT UNKNOWN -> cannot give any newton value. Gives only time shape. Body mass (kg) is in subject-description, but without load cell scaling no GRF in N can be calculated. Thus constrains P10’s time profile, not its amplitude."
+        }
+      },
+      "evidence": "GET https://physionet.org/files/gaitndd/1.0.0/control1.hea -> HTTP/2 200, content-length: 125, last-modified: Sat, 17 Nov 2012; landing page -> 'License (for files): Open Data Commons Attribution License v1.0', Discovery DOI: https://doi.org/10.13026/C27G6C, 'Open Access'=True; RECORDS -> 64 records",
+      "samples": [
+        {
+          "local_path": "samples/gaitndd_control1.hea",
+          "local_size_bytes": 125,
+          "sha256": "3034a3629f40a59191eea10603529be6294f180e4bdcc6db1fd07096f07afdc4"
+        },
+        {
+          "local_path": "samples/gaitndd_control1.rit",
+          "local_size_bytes": 135000,
+          "sha256": "07d1fbf79d7efba02697993c6c3dd19dbcc72beb21d1022d44473106ac8caae3"
+        },
+        {
+          "local_path": "samples/gaitndd_control1.let",
+          "local_size_bytes": 135000,
+          "sha256": "0573148a9383b1e8e91be2ea93b90ddf7f1e916da28beb53b4fe5b906702fb29"
+        },
+        {
+          "local_path": "samples/gaitndd_subject-description.txt",
+          "local_size_bytes": 2362,
+          "sha256": "4d145da3ef7d61ecf601cf6462cf65b5faa86487d5cfa241306421bd2b05d014"
+        }
+      ],
+      "sample_total_bytes": 270125
+    }
+  ],
+  "rejected": [
+    {
+      "id": "R1_ZENODO_4767469",
+      "url": "https://zenodo.org/records/4767469",
+      "api_url": "https://zenodo.org/api/records/4767469",
+      "license": "cc-by-4.0",
+      "reason": "U1/E: the records contain ONLY 'GD Poster.pdf' (3 549 710 B). No data, no measurement -> cannot bind any P/O parameter.",
+      "would_have_constrained": "P9 (cartilage thickness, MRI cartilage segmentation)",
+      "verified": "api files=[{key:'GD Poster.pdf', size:3549710}]"
+    },
+    {
+      "id": "R2_ZENODO_20807109",
+      "url": "https://zenodo.org/records/20807109",
+      "api_url": "https://zenodo.org/api/records/20807109",
+      "license": "cc-by-nc-nd-4.0",
+      "reason": "U6: access_right='restricted', files=[]. Gated -> may be listed but NEVER counts as verified (A6). Not downloaded.",
+      "would_have_constrained": "P9, O1-O3 (hip cartilage forces)",
+      "verified": "api metadata.access_right='restricted', files=[]"
+    },
+    {
+      "id": "R3_ZENODO_4983030",
+      "url": "https://zenodo.org/records/4983030",
+      "api_url": "https://zenodo.org/api/records/4983030",
+      "license": "cc-zero",
+      "reason": "FALSE LEAD from an earlier interrupted session: the title 'hip joints of saurischian dinosaurs' matched the search for 'taper', but the record’s 8 files are phylogenetic trees (*.phy, *_characters.txt) — NO taper data. Dinosaur geometry is not measurement data on a human or human component (U4).",
+      "would_have_constrained": "nothing (dinosaur geometry does not apply to HX)",
+      "verified": "api files=[Discrete_characters.txt, SilesaurAltTreeMS.phy, ...] — no xlsx"
+    }
+  ]
+}

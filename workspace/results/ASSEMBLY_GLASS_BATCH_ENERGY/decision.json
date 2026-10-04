@@ -1,0 +1,59 @@
+{
+  "node": "MAKE-GLASS-CHAIN",
+  "control_sensible_heat_MJ_per_kg": 1.3644712286060199,
+  "carbonate_endotherm_MJ_per_kg": 1.0371907196868295,
+  "share_of_control": 0.7601411432811604,
+  "corrected_total_MJ_per_kg": 2.4016619482928494,
+  "factor_on_control": 1.7601411432811604,
+  "process_co2_g_per_kg_glass": 179.80113552151622,
+  "batch_kg_per_kg_glass": 1.179801135521516,
+  "furnace_isokom_target_C": 1322.0258827053422,
+  "per_oxide": [
+    {
+      "oxide": "CaO",
+      "mol_per_kg_glass": 1.86716102596161,
+      "dH_kJ_per_mol": 178.3,
+      "MJ_per_kg_glass": 0.3329148109289551,
+      "basis": "CaCO3 -> CaO + CO2, standard formation enthalpies; probe uses 178.80, JANAF 178.8"
+    },
+    {
+      "oxide": "Na2O",
+      "mol_per_kg_glass": 2.137211822085605,
+      "dH_kJ_per_mol": 321.0,
+      "MJ_per_kg_glass": 0.6860449948894792,
+      "basis": "Na2CO3 -> Na2O + CO2, standard formation enthalpies; probe uses 319.28"
+    },
+    {
+      "oxide": "MgO",
+      "mol_per_kg_glass": 0.04970260051361873,
+      "dH_kJ_per_mol": 117.9,
+      "MJ_per_kg_glass": 0.005859936600555649,
+      "basis": "MgCO3 -> MgO + CO2 via the DOLOMITE named in the raw materials; reading of the spec"
+    },
+    {
+      "oxide": "K2O",
+      "mol_per_kg_glass": 0.0314783136586252,
+      "dH_kJ_per_mol": 393.0,
+      "MJ_per_kg_glass": 0.012370977267839702,
+      "basis": "K2CO3 -> K2O + CO2; ASSUMES a potash source that no raw-material line declares"
+    }
+  ],
+  "evidence_status_per_oxide": {
+    "Na2O": "declared",
+    "CaO": "declared",
+    "MgO": "reading_of_the_spec",
+    "K2O": "assumption_undeclared_source"
+  },
+  "defensible_range_MJ_per_kg": [
+    1.018232,
+    1.0242
+  ],
+  "process_co2_g_per_kg_glass_this_file": null,
+  "process_co2_g_per_kg_glass_probe": 176.582,
+  "verdict": "CHANGES THE DECISION: the open branch is not bookkeeping, and it holds across the whole defensible range, not only on the potash assumption",
+  "still_open": [
+    "furnace radiative and flue losses",
+    "heat of mixing into the melt"
+  ],
+  "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

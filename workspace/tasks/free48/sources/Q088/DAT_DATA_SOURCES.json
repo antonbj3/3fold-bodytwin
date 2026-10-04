@@ -1,0 +1,284 @@
+{
+  "task_id": "BT-DAT-Q088",
+  "question": "Q088 - which combination of oxygen deficit, energy demand and geometry changes cellular recovery? (ATP recovery, ion balance, preregistered functional outcome)",
+  "purpose": "Enumerate PUBLIC MEASURED datasets that constrain inputs/Q088_model.py, and verify one download.",
+  "target_model": {
+    "file": "inputs/Q088_model.py",
+    "parameter_table_lines": "94-233",
+    "reference_anchors_lines": "236-292",
+    "frozen_outputs_named_by_the_model": ["T90_F", "T90_PCr", "T90_ion", "V_PCr0", "PCr_tau_s", "F = 0.50*PCr/PCr_rest + 0.30*ATP/ATP_rest + 0.20*(1-I)"]
+  },
+  "provenance_rule": "Every url, license, size and count below was read from the repository API response on 2026-09-26, not from memory. 'source' is what the repository states, 'derivation' is what we computed, 'hypothesis' is what it could mean for the model. UNKNOWN means not established.",
+  "admission_criteria": "PREREG.md C1-C6; exactly one sample downloaded (PREREG.md 'Download criterion')",
+  "admitted": [
+    {
+      "rank": 1,
+      "id": "dryad_9p8cz8wwr",
+      "title": "Capillary differences with age and fiber type are attenuated by accounting for fiber shape",
+      "url": "https://datadryad.org/dataset/doi:10.5061/dryad.9p8cz8wwr",
+      "download_url": "https://datadryad.org/api/v2/versions/417431/download",
+      "doi": "10.5061/dryad.9p8cz8wwr",
+      "repository": "Dryad",
+      "license": "CC0-1.0 (SPDX, https://spdx.org/licenses/CC0-1.0.html)",
+      "access": "open, no registration",
+      "size_bytes": 37741,
+      "size_source": "Dryad API storageSize=37741; file digests 33508 + 4233 B",
+      "http_body_bytes": 38103,
+      "format": "XLSX (one workbook, 2 sheets) + README.md, delivered as a ZIP version package",
+      "n_subjects": 23,
+      "n_subjects_source": "derived: 23 distinct participant keys (A-Y) in the Sample ID column, both sheets; 46 biopsy samples in sheet CD+CF, paired contralateral legs",
+      "design": "human muscle biopsy; Young and Old women; Rested vs Exercised leg; single bout of heavy resistance exercise 5 days before sampling; ~25 fibres averaged per fibre type per sample",
+      "data_modality": "measured (immunohistochemistry: MyHC I, laminin, CD31 on cryosections)",
+      "variables": [
+        "muscle fibre cross-sectional area (CSA)",
+        "fibre perimeter",
+        "Shape Factor Index (SFI) = perimeter^2/(4*pi*CSA)",
+        "capillaries around fibre (CAF)",
+        "individual capillary-to-fibre ratio (C:Fi)",
+        "capillary density (caps/mm^2)",
+        "capillary-to-fibre ratio (C:F)"
+      ],
+      "constrains": {
+        "model_parameters": ["radius_m", "oxygen_boundary_transfer_m_s"],
+        "model_outputs": [],
+        "relation": "Measured human fibre CSA gives an equivalent-circle radius that bounds the model's assumed radius_m; capillary density and capillary-to-fibre ratio bound the Robin mass-transfer coefficient oxygen_boundary_transfer_m_s and the Piiper & Scheid 1986 capillary:fibre ~2 topology prior.",
+        "constraint_direction": "bound, not fit"
+      },
+      "load_demo": {
+        "performed": true,
+        "script": "load_sample.py",
+        "report": "sample_load_report.json",
+        "local_file": "samples/dryad_9p8cz8wwr_v4.zip",
+        "sha256": "6dbf86922a34dce4043012b5aaddb88b23e6a1539fe625ced8f398eaa95a2f85",
+        "member_sha256_match_repository_digest": true
+      },
+      "known_limitations": [
+        "Cross-sectional; the only time-like axis is Rested vs Exercised sampled 5 days post-bout, so it does NOT resolve a seconds-scale recovery time course.",
+        "The two sheets use non-overlapping sample-ID sets for most participants; see RESULTS.md. A naive join on Sample silently drops data.",
+        "Fibre morphology, not a per-territory oxygen diffusion radius."
+      ]
+    },
+    {
+      "rank": 2,
+      "id": "zenodo_7920956_desanlis",
+      "title": "Dataset DESANLIS - occlusion pressure on muscle oxygenation measured by near-infrared spectroscopy",
+      "url": "https://zenodo.org/records/7920956",
+      "doi": "10.5281/zenodo.7920956",
+      "repository": "Zenodo",
+      "license": "CC-BY-4.0",
+      "access": "open",
+      "size_bytes": 168264,
+      "size_source": "Zenodo API file sizes: Dataset_DESANLIS.xlsx 117817 + README 50447",
+      "format": "XLSX + DOCX readme",
+      "n_subjects": "UNKNOWN",
+      "n_subjects_source": "not stated in the Zenodo record metadata; the deposited README (DOCX) was not read because the prereg freezes exactly one download",
+      "design": "repeated cuff occlusion on muscle, NIRS measured; tissue oxygen saturation index, HHb, Hb-diff and O2Hb",
+      "data_modality": "measured (NIRS)",
+      "variables": ["TSI%", "HHb", "HBdiff", "O2Hb", "occlusion pressure protocol"],
+      "constrains": {
+        "model_parameters": ["oxygen_boundary_kpa"],
+        "model_outputs": ["oxygen reoxygenation timing that T90_F is built on"],
+        "relation": "Repeated-occlusion muscle oxygenation gives the blood-volume/oxygen-supply side of the boundary condition the model holds fixed at 13.3 kPa (control) and 2 kPa (stress), and the oxygen-recovery time scale that the model's T90_F threshold is compared against.",
+        "constraint_direction": "bound and time-scale check on the oxygen boundary, not a fit"
+      },
+      "load_demo": {"performed": false, "reason": "prereg freezes exactly one download; this is a HEAD/metadata-level verification only"},
+      "known_limitations": [
+        "NIRS measures bulk tissue oxygenation, not the dissolved-O2 field in mol/m^3 the model integrates.",
+        "Not a PCr/ATP measurement; cannot constrain pcr_rest_mM or atp_capacity_mM_s.",
+        "Subject count UNKNOWN from repository metadata."
+      ]
+    },
+    {
+      "rank": 3,
+      "id": "zenodo_5005079_boel2019",
+      "title": "Data from: Allometry of mitochondrial efficiency is set by metabolic intensity",
+      "url": "https://zenodo.org/records/5005079",
+      "doi": "10.5061/dryad.fh4vb2c",
+      "related_article_doi": "10.5061/dryad.fh4vb2c",
+      "repository": "Zenodo (Dryad deposit)",
+      "license": "CC0-1.0 (Zenodo license id cc-zero)",
+      "access": "open",
+      "size_bytes": 587594,
+      "size_source": "Zenodo API file size 587594 B (md5 22f679981abe8e7f3603d1d2d10ad562)",
+      "format": "PDF ('Mean data set (Boel et al 2019).pdf')",
+      "n_subjects": 0,
+      "n_subjects_source": "not human subjects: isolated skeletal muscle mitochondria from 12 mammal species, 6 g to 550 kg",
+      "design": "ATP/O coupling efficiency measured at different steady states of phosphorylation; efficiency rises sharply at higher metabolic rate",
+      "data_modality": "measured (isolated mitochondria, respirometry)",
+      "variables": ["ATP/O coupling efficiency", "phosphorylation rate / metabolic intensity", "species body mass"],
+      "constrains": {
+        "model_parameters": ["oxygen_cost_mol_o2_mol_atp"],
+        "model_outputs": [],
+        "relation": "The model sets oxygen_cost_mol_o2_mol_atp = 0.20 as an 'assumption consistent with an order-of-magnitude P/O near five; not a direct measurement here'. This deposit is a direct measurement of exactly that efficiency, and shows it is rate-dependent, i.e. a constant value is a modelling choice that the data qualify.",
+        "constraint_direction": "direct measurement of an assumed parameter; qualifies the assumption"
+      },
+      "load_demo": {"performed": false, "reason": "prereg freezes exactly one download; also PDF, not machine-readable"},
+      "known_limitations": [
+        "Isolated mitochondria, not intact fibre; does not include diffusion geometry.",
+        "PDF only, so values are not machine-readable without manual transcription."
+      ]
+    },
+    {
+      "rank": 4,
+      "id": "zenodo_5047412_dryad_sqv9s4n49",
+      "title": "The role of action potential changes in depolarization-induced failure of excitation contraction coupling in mouse skeletal muscle",
+      "url": "https://zenodo.org/records/5047412",
+      "doi": "10.5061/dryad.sqv9s4n49",
+      "related_article_doi": "10.7554/eLife.71588",
+      "repository": "Zenodo (Dryad deposit)",
+      "license": "CC0-1.0 (Zenodo license id cc-zero)",
+      "access": "open",
+      "size_bytes": 259851,
+      "size_source": "Zenodo API: 9 XLSX files, 11454+26250+24896+32416+76315+18148+24787+20919+24666 B",
+      "format": "9 XLSX files",
+      "n_subjects": 0,
+      "n_subjects_source": "not human subjects: mouse skeletal muscle fibres, single-fibre intracellular recordings",
+      "design": "extracellular K+ raised to depolarise the resting potential; intracellular action potentials and force recorded simultaneously until excitation-contraction coupling fails",
+      "data_modality": "measured (single-fibre electrophysiology + force)",
+      "variables": ["resting potential", "action potential amplitude", "force", "extracellular K+"],
+      "constrains": {
+        "model_parameters": ["ion_leak_rate_s", "ion_pump_rate_s"],
+        "model_outputs": ["t90_ion"],
+        "relation": "The model's ion term I is a normalised gradient disturbance that a raised-extraK+ experiment manipulates directly: it supplies the measured resting-potential/force relation against which the sign and the steepness of the model's ion disturbance can be checked, and a timescale for restoration after the disturbance is removed.",
+        "constraint_direction": "sign and ordering check; NOT a rate constant for the model's lumped ion term"
+      },
+      "load_demo": {"performed": false, "reason": "prereg freezes exactly one download"},
+      "known_limitations": [
+        "Mouse fibres, and the measured variable is membrane potential, not the model's lumped normalised gradient I.",
+        "Does not provide a Na/K-ATPase turnover rate, so it cannot set ion_pump_rate_s numerically."
+      ]
+    },
+    {
+      "rank": 5,
+      "id": "zenodo_4936109_qspace",
+      "title": "Data from: Noninvasive technique to evaluate the muscle fiber characteristics using q-space imaging",
+      "url": "https://zenodo.org/records/4936109",
+      "doi": "10.5061/dryad.pp56ck7",
+      "related_article_doi": "10.1371/journal.pone.0214805",
+      "repository": "Zenodo (Dryad deposit)",
+      "license": "CC0-1.0 (Zenodo license id cc-zero)",
+      "access": "open",
+      "size_bytes": 154635,
+      "size_source": "Zenodo API file size 154635 B (md5 915464b2a7eeaec8eff245d1c599f46e)",
+      "format": "XLSX ('data upload.xlsx')",
+      "n_subjects": "UNKNOWN",
+      "n_subjects_source": "animal study (in vivo mice); count not stated in the Zenodo record metadata",
+      "design": "in vivo q-space MRI of tibialis anterior (fast-twitch) and soleus (slow-twitch) to distinguish fibre characteristics non-invasively",
+      "data_modality": "measured (q-space MRI)",
+      "variables": ["fibre characteristics from q-space imaging", "muscle identity TA vs SOL"],
+      "constrains": {
+        "model_parameters": ["radius_m"],
+        "model_outputs": [],
+        "relation": "A second, non-invasive route to a fibre-scale length parameter, covering the fast- and slow-twitch range that a single-fibre-type biopsy cannot.",
+        "constraint_direction": "bound"
+      },
+      "load_demo": {"performed": false, "reason": "prereg freezes exactly one download"},
+      "known_limitations": [
+        "Mice, not human.",
+        "q-space fibre characteristics are a model-based reconstruction, not a direct diameter measurement."
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "id": "mendeley_nzv32s3v35",
+      "title": "Emg signals and leg hemodynamic parameters",
+      "url": "https://data.mendeley.com/datasets/nzv32s3v35/1",
+      "doi": "10.17632/nzv32s3v35.1",
+      "repository": "Mendeley Data (via Zenodo record 3596302)",
+      "license": "CC-BY-4.0",
+      "size_bytes": 426939133,
+      "format": "ZIP",
+      "would_have_constrained": ["ion_leak_rate_s (sEMG as a membrane-excitability proxy)", "oxygen_boundary_kpa (NIRS haemodynamics)"],
+      "failed_criterion": "C6",
+      "reason": "407 MB single file, 8.5x over the 50 MB sample budget. Public, licensed and parameter-relevant, so it is the closest miss: it would need range-request or partial extraction to be usable here."
+    },
+    {
+      "id": "zenodo_22329660_mcmito",
+      "title": "MCMITO: Near-infrared spectroscopy analysis of skeletal-muscle mitochondrial oxidative capacity",
+      "url": "https://zenodo.org/records/22329660",
+      "doi": "10.5281/zenodo.22329660",
+      "license": "CC-BY-4.0",
+      "size_bytes": 4903,
+      "format": "Markdown software description only",
+      "failed_criterion": "C2",
+      "reason": "Repository type is 'software' and the single deposited file is a description document; it contains no measured observations to load."
+    },
+    {
+      "id": "zenodo_19472107_31pmrs_reproducibility",
+      "title": "31P-MRS reproducibility - datasets and code.",
+      "url": "https://zenodo.org/records/19472107",
+      "doi": "10.5281/zenodo.19472107",
+      "license": "CC-BY-4.0",
+      "size_bytes": 33015,
+      "format": "8 MATLAB .m scripts, no data files",
+      "failed_criterion": "C2",
+      "reason": "The most on-topic title found in the screen (31P-MRS reproducibility) but the deposit is analysis code only - Dice_CSI.m, normality_assessment.m, PowerCurves.m, BlandAltmanPlots.m etc. No 31P time series is deposited."
+    },
+    {
+      "id": "zenodo_4061844_sarcolab",
+      "title": "Recovery from 6-month spaceflight at the International Space Station: muscle-related stress into a proinflammatory setting",
+      "url": "https://zenodo.org/records/4061844",
+      "doi": "10.5281/zenodo.4061844",
+      "license": "CC-BY-4.0",
+      "size_bytes": 12440,
+      "format": "XLSX supplementary table",
+      "n_subjects": 2,
+      "failed_criterion": "C4",
+      "reason": "Measured and licensed, but the variables are circulating miRNAs, proteasome, mtDNA and cytokines at R+1 and R+15. None maps to a PARAMETER_TABLE row or a named model output, so it is not parameter-addressable for this model."
+    },
+    {
+      "id": "zenodo_4726374_crossbridge",
+      "title": "Myosin cross-bridge kinetics slow at longer muscle lengths during isometric contractions in intact soleus from mice",
+      "url": "https://zenodo.org/records/4726374",
+      "doi": "10.5061/dryad.tb2rbnzx8",
+      "license": "CC0-1.0",
+      "size_bytes": 6664,
+      "format": "2 CSV",
+      "failed_criterion": "C4",
+      "reason": "Cross-bridge cycling kinetics bound contractile ATP turnover, but atp_capacity_mM_s in the model is a resynthesis capacity, not a turnover rate. Mapping one to the other would be a reinterpretation, not a constraint, so it is excluded rather than stretched."
+    },
+    {
+      "id": "layec_2013_anchors",
+      "title": "Layec et al. 2013 / Heskamp et al. 2021 PCr recovery tables (already used as REFERENCE_ANCHORS in the model)",
+      "url": "https://doi.org/10.1152/japplphysiol.00257.2013",
+      "license": "UNKNOWN",
+      "failed_criterion": "C1/C3",
+      "reason": "The values the model already cites as external anchors were not found to be deposited as a licensed machine-readable dataset. The numbers remain literature anchors only; no public file was located to back them."
+    }
+  ],
+  "documented_gaps": [
+    {
+      "facet": "Matched longitudinal time course",
+      "status": "NOT FOUND in the screened repositories",
+      "detail": "No public dataset was found that provides, in one cohort, time-resolved PCr or ATP together with an oxygen/perfusion measure, an ion-balance proxy, a measured fibre radius, and a repeated functional outcome, crossed over low/normal oxygen and low/high work. Zenodo (type=dataset), Dryad and Metabolomics Workbench were screened. The closest title match, Zenodo 19472107 '31P-MRS reproducibility', deposits code only. Metabolomics Workbench muscle studies are LC-MS/lipidomics snapshots, not seconds-scale 31P time courses.",
+      "consequence": "Every recovery quantity the model reports (T90_F, V_PCr0, PCr_tau_s, t90_ion) remains a model prediction, not a measured contrast. This is the same gap the model's own prereg names as the required next resolution step."
+    },
+    {
+      "facet": "Ion balance",
+      "status": "PARTIAL",
+      "detail": "Only directional/qualitative public constraints were found (zenodo_5047412_dryad_sqv9s4n49). No public dataset providing a Na/K-ATPase rate constant or a time-resolved ion gradient restoration rate for human muscle was found."
+    },
+    {
+      "facet": "Geometry at the model's actual scale",
+      "status": "PARTIAL",
+      "detail": "Human fibre CSA (whole-fibre morphology) and mouse q-space estimates were found. No public dataset measuring a per-territory or perifibre diffusion radius with a stated coordinate frame was found, so the model's radius_m remains an assumption with an order-of-magnitude corroboration only."
+    }
+  ],
+  "checks": {
+    "N1_provenance_null": "PASS - Dryad publishes a sha256 per file; the sha256 of both zip members recomputed locally (28cc4cc1f96084f0954be902eef7c0a6943979c238fd6d4c02885e93e3b55dcb for the XLSX, 19669374e179dec57a00d7b83c81c72dfc6e1995aa18f8a697913e5e6a8f4d93 for README.md) match the repository digests exactly.",
+    "N2_magnitude_placebo": "PASS with a documented mismatch - the measured median equivalent human fibre radius is 31.80 um versus the model's assumed 25 um (ratio 1.272, inside the frozen 20-40 um sweep), so the assumption survives at order-of-magnitude level. The measured median capillary-to-fibre ratio is 1.276 against the Piiper & Scheid 1986 anchor of about 2, i.e. the anchor is roughly 1.6x above this cohort; reported, not rescaled.",
+    "N3_no_model_change": "PASS - no file under inputs/ was modified; no model output number changed. This task changed no parameter and fitted nothing.",
+    "integrity_findings_on_the_sample": [
+      "README states mm^2 for total tissue area; the deposited column header is um^2. Magnitudes match um^2. README unit reported as wrong; value left unscaled.",
+      "SFI recomputed from the deposited CSA and Perimeter columns gives a median 1.374 against a reported median 1.409 (median relative difference -2.03%, range -14.9% to -0.22%), so the three columns are not mutually exact.",
+      "The two sheets share almost no sample IDs: 17 IDs appear only in the morphology sheet, 16 only in CD+CF, despite both claiming participant x leg. Per-sample fibre-type counts are 3 for 45 samples, 2 for one and 1 for one. A join on Sample therefore silently loses data; Age/Leg must be used for linkage."
+    ]
+  },
+  "reproduction": {
+    "sample_load": "python3 load_sample.py  (writes sample_load_report.json)",
+    "prereg": "PREREG.md, sha256 in PREREG.sha256",
+    "threads": 1,
+    "no_cloud_used": true
+  }
+}

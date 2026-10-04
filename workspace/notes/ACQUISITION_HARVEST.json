@@ -1,0 +1,3745 @@
+{
+ "_meta": {
+  "what": "Acquisition requirements harvested from the lane gates into a list.",
+  "rule": "An entry without a unit cannot be searched for and ends up in incomplete, never silently.",
+  "lanes_scanned": 13,
+  "wellformed_orderable": 44,
+  "with_unit": 21,
+  "without_unit": 201,
+  "status": "PENDING_INDEPENDENT_REVIEW"
+ },
+ "wellformed_orderable": [
+  {
+   "node_id": "bodytwin:ACQ-LASER-LOCAL-FLUENCE-MASS-LOSS",
+   "quantity": "Registered per-pulse local incident fluence map and measured nominal-to-local source convention in the mass-loss run",
+   "quantity_class": "dose",
+   "unit": "J/cm^2",
+   "resolution_level": "TISSUE",
+   "timescale": "INTRAOPERATIVE",
+   "orderable": true,
+   "decides": "Whether apparent1.136 versus1.15 agreement is a real prediction or a first-crossing/regression mismatch; supplies spatial dose before aggregation.",
+   "locator": "https://hdl.handle.net/1721.1/43315 Fig3 p32 and p45; Payne1998 Methods",
+   "recording_state": "Aperture-scanned profile plotted; original numeric2D grid UNKNOWN",
+   "retention_state": "Published profile retained; original numeric grid retention UNKNOWN",
+   "access_state": "Thesis PDF accessible, MD5 verified; numeric source grid not acquired",
+   "required_fields": [
+    "2D aperture-scanned energy values and coordinates",
+    "300um aperture response",
+    "incident/reflected pulseJ",
+    "nominal area and exact fluence formula",
+    "actual28 forcing levels",
+    "12 pulse-resolved evolving surface coordinates",
+    "mass-loss timing/evaporation correction/calibration"
+   ],
+   "search_terms": [
+    "Payne chromophore ablation laser spatial profile fluence mass loss porcine reticular dermis",
+    "laser local fluence ablation threshold mass loss"
+   ],
+   "_lane": "LANE_LASER_SURGERY",
+   "_file": "results/LANE_LASER_SURGERY/r17/ACQUISITION_TARGETS_V1.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-LASER-ECM-EJECTION-LAW",
+   "quantity": "Same-specimen phase-transition and ECM rupture/ejection work at the delivered nanosecond dose",
+   "quantity_class": "pressure",
+   "unit": "Pa and J/m^2",
+   "resolution_level": "FIBRIL",
+   "timescale": "INTRAOPERATIVE",
+   "orderable": true,
+   "decides": "Discriminates complete vaporization from liquid/fragment expulsion; replaces the failed enthalpy-to-removal closure rather than fitting fluence.",
+   "required_fields": [
+    "independent hydration/rho/cp/k",
+    "time-resolved ejected fraction and recoil pressure",
+    "fibril/matrix rupture work versus loading time and deposited dose",
+    "independent static/dynamic10.6um absorption",
+    "same specimen IDs and source profile"
+   ],
+   "source_lower_level": "FIBRIL matrix and MOLECULE water nucleation/EOS",
+   "recording_state": "Published fragment ejection observations; paired rupture/nucleation record UNKNOWN",
+   "retention_state": "UNKNOWN for paired raw record",
+   "access_state": "Paired record not acquired; no claim it was never recorded",
+   "locators": [
+    "doi:10.1021/cr010379n",
+    "doi:10.1117/12.519895",
+    "PMID:9694144 discussion"
+   ],
+   "search_terms": [
+    "pulsed CO2 porcine dermis phase explosion recoil fracture ejection work",
+    "collagen fibril fracture work nanosecond laser vapour pressure"
+   ],
+   "_lane": "LANE_LASER_SURGERY",
+   "_file": "results/LANE_LASER_SURGERY/r17/ACQUISITION_TARGETS_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "ionised calcium Ca(t)",
+     "unit": "mmol/L",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "PTH(t) in independent kinetic experiments",
+     "unit": "ng/L",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "calibrated PTH secretion per cell",
+     "unit": "mol/(cell*min)",
+     "resolution_level": "CELL",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "PTH elimination constant",
+     "unit": "1/min",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether a dynamic CaSR/secretion gate can predict the difference between fast and slow Ca-clamp; a static level sigmoid is insufficient.",
+   "search_terms": [
+    "ionised calcium PTH fast slow clamp time series mmol/L ng/L",
+    "ionized calcium PTH clamp secretion clearance kinetics ng/L minutes"
+   ],
+   "matching_requirements": "Same cell type/individual and temperature; timestamped clamp, baseline and separate secretion/clearance perturbation. Keep the rapid-peak reference outside the calibration experiment.",
+   "reconstruction": "Ca(t) -> cell secretion -> quantity balance with elimination -> PTH(t); cell count and distribution volume are required for the organ response.",
+   "physical_time_window": "minutes",
+   "node_id": "bodytwin:ACQ-CS10-CALCIUM-PTH-VITD",
+   "node_name": "calcium_pth_vitd",
+   "source_node_id": "MSK:calcium_pth_vitd",
+   "source_cell_id": "calcium_pth_vitd",
+   "quantity": "ionised calcium Ca(t); PTH(t) in independent kinetic experiments; calibrated PTH secretion per cell; PTH elimination constant",
+   "unit": "mmol/L; ng/L; mol/(cell*min); 1/min",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/data/calcium_pth_vitd/calcium_pth_vitd_results.json",
+    "sha256": "8ac0b24d29d4ad1247457d1c6f7175499820e174b9d5f7068e9499abca7e7dff",
+    "output_pointer": "/falsifier_2_clamp_perturbation/measured_grant1990_rapid_ng_l/0",
+    "script": "source_repository/scripts/msk/calcium_pth_vitd.py",
+    "script_sha256": "673a13b2657f6fa2d0ad8552120607386a59aaedcea576aac873a9c1e04c8c32",
+    "original_evidence_reason": "Level-only calibrated sigmoid cannot predict rate-dependent held peak; time-stamped drive and independently measured secretion law required."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "MODEL_STEADY_OR_SOURCE_DECLARED_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "MODEL_STEADY_OR_SOURCE_DECLARED_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "CELL",
+     "MOLECULE"
+    ],
+    "consumer_level": "CELL",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "CELL",
+    "MOLECULE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "free unbound fraction fu",
+     "unit": "1",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "intrinsic uptake clearance CLint",
+     "unit": "L/min",
+     "resolution_level": "CELL",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "liver flow QH",
+     "unit": "L/min",
+     "resolution_level": "ORGAN",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether CLH can be calculated independently of the extraction ratio ER now used to back-solve fu*CLint.",
+   "search_terms": [
+    "liver clearance free fraction intrinsic uptake L/min same preparation",
+    "hepatic intrinsic uptake clearance unbound fraction matched hepatic blood flow L/min"
+   ],
+   "matching_requirements": "Same substance, free plasma concentration, preparation and flow regime; specify cell count/protein normalisation and scaling factor to the liver. The ER reference is validation only.",
+   "reconstruction": "CLH=QH*fu*CLint/(QH+fu*CLint) under the source's well-stirred assumption; per-cell uptake is aggregated only after the CELL gate.",
+   "physical_time_window": "steady exposure, minutes",
+   "node_id": "bodytwin:ACQ-CS10-HEPATIC-CLEARANCE",
+   "node_name": "hepatic_clearance",
+   "source_node_id": "MSK:hepatic_clearance",
+   "source_cell_id": "hepatic_clearance",
+   "quantity": "free unbound fraction fu; intrinsic uptake clearance CLint; liver flow QH",
+   "unit": "1; L/min; L/min",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/data/msk_smoketest/subject2_walking1/hepatic_clearance/hepatic_clearance_results.json",
+    "sha256": "72e891fa7ce94c24449acac54ebc09c11efaed09bd125f101d344f163d4fa504",
+    "output_pointer": "/icg/primary_0.9/clh_l_min",
+    "script": "source_repository/scripts/msk/hepatic_clearance.py",
+    "script_sha256": "30420afce9166c1be9f8c3eb01a571edf5e8a6b352ffa16cae1608784d398342",
+    "original_evidence_reason": "ER used to infer fu*CLint and then reproduced; target calibration cannot supply independent uptake kinetics."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "MODEL_STEADY_OR_SOURCE_DECLARED_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "MODEL_STEADY_OR_SOURCE_DECLARED_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "CELL",
+     "MOLECULE",
+     "ORGAN"
+    ],
+    "consumer_level": "MOLECULE",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "CELL",
+    "MOLECULE",
+    "ORGAN"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "replaced cavity volume per BMU event",
+     "unit": "mm^3/event",
+     "resolution_level": "CELL",
+     "quantity_class": "clearance",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "activation events per reference volume and year",
+     "unit": "events/(mm^3*yr)",
+     "resolution_level": "CELL",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "matched reference bone volume BV",
+     "unit": "mm^3",
+     "resolution_level": "TISSUE",
+     "quantity_class": "clearance",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "MS/BS and OS/BS, separate active/adjusted surfaces",
+     "unit": "1",
+     "resolution_level": "TISSUE",
+     "quantity_class": "clearance",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether active sites actually produce annual volume renewal; occupancy and volume turnover are different quantities.",
+   "search_terms": [
+    "BMU cavity volume activation frequency bone volume histomorphometry mm3 year",
+    "bone remodeling cavity volume activation density reference bone volume MS BS OS BS histomorphometry"
+   ],
+   "matching_requirements": "Same region, individual and observation period; pair event volume and activation density, preserve their joint variation and referents for active/adjusted surfaces.",
+   "reconstruction": "R6 volume gate: sum of replaced volume per time unit / matched BV; regional products are calculated before aggregation, not the product of unpaired means.",
+   "physical_time_window": "BMU cycle and years",
+   "node_id": "bodytwin:ACQ-CS10-BMU-TURNOVER-KINETICS",
+   "node_name": "bmu_turnover_kinetics",
+   "source_node_id": "MSK:bmu_turnover_kinetics",
+   "source_cell_id": null,
+   "quantity": "replaced cavity volume per BMU event; activation events per reference volume and year; matched reference bone volume BV; MS/BS and OS/BS, separate active/adjusted surfaces",
+   "unit": "mm^3/event; events/(mm^3*yr); mm^3; 1",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/data/msk_smoketest/subject2_walking1/bone_remodeling/bmu_turnover_kinetics_results.json",
+    "sha256": "7b5de320857551e551f85824f91498089734ec0569d0873aeecf1f153f902779",
+    "output_pointer": "/falsifier_1_turnover_rate_vs_histomorphometry/trabecular_occupancy_derivation/derived_pct_yr",
+    "script": "source_repository/scripts/msk/bmu_turnover_kinetics.py",
+    "script_sha256": "035cd82eb0f6671102d8d0f9bbbb436c139302a862b27335ff43e76e715ff27f",
+    "original_evidence_reason": "Active-site occupancy is not a volume renewal rate; R6 already derived the dimensioned joint inventory port."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_STEADY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_STEADY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "CELL",
+     "TISSUE"
+    ],
+    "consumer_level": "CELL",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "CELL",
+    "TISSUE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "NKCC2-mediated Na/K/Cl fluxes per membrane area",
+     "unit": "mol/(m^2*s)",
+     "resolution_level": "CELL",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "osmotic water permeability Pf",
+     "unit": "m/s",
+     "resolution_level": "CELL",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "osmotic driving concentration, segmentwise",
+     "unit": "mol/m^3",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "loop length and segment geometry",
+     "unit": "m",
+     "resolution_level": "TISSUE",
+     "quantity_class": "clearance",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "axial tubular and vascular volume flow",
+     "unit": "m^3/s",
+     "resolution_level": "CELL",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "vasa recta exchange of each species per length",
+     "unit": "mol/(m*s)",
+     "resolution_level": "CELL",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether a conservative fixed-length model can predict papillary concentrations without choosing N and washout based on the osmolality reference.",
+   "search_terms": [
+    "NKCC2 salt flux water permeability vasa recta exchange loop length",
+    "NKCC2 flux mol m2 s osmotic water permeability m s vasa recta exchange per length"
+   ],
+   "matching_requirements": "Same axial position, geometry and driving concentration; separate Na/K/Cl, water and vascular exchange. Measure transporter density/ATPase energy drive separately for active NKCC2.",
+   "reconstruction": "Segmentwise Q and Q*C with internal flux cancellation; Pf is linked to driving force and water molar volume. The source's dimensionless washout per iteration is no measured 1/m coefficient and is not converted as such.",
+   "physical_time_window": "seconds to steady gradient",
+   "node_id": "bodytwin:ACQ-CS10-COUNTERCURRENT-MULTIPLIER",
+   "node_name": "countercurrent_multiplier",
+   "source_node_id": "MSK:countercurrent_multiplier",
+   "source_cell_id": null,
+   "quantity": "NKCC2-mediated Na/K/Cl fluxes per membrane area; osmotic water permeability Pf; osmotic driving concentration, segmentwise; loop length and segment geometry; axial tubular and vascular volume flow; vasa recta exchange of each species per length",
+   "unit": "mol/(m^2*s); m/s; mol/m^3; m; m^3/s; mol/(m*s)",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_documents/COUNTERCURRENT_MULTIPLIER_evidence.json",
+    "sha256": "4f35f33438e9eb801454208de9cb57783b4712f4f0efa4abeb17ce680f9c63c3",
+    "output_pointer": "/simulation_results/tests/T1_coupled_builds_gradient/papilla_mOsm",
+    "script": "source_repository/scripts/msk/countercurrent_multiplier.py",
+    "script_sha256": "fe121ae93c0f8db50810724db212c385faabe70764409e46d32a41c2279b40f7",
+    "original_evidence_reason": "Source N and washout fitted to papillary osmolality; per-segment forcing is not fixed-length mesh refinement."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_STEADY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_STEADY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "CELL",
+     "MOLECULE",
+     "TISSUE"
+    ],
+    "consumer_level": "TISSUE",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "CELL",
+    "MOLECULE",
+    "TISSUE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "wavelength-dependent absorption/reaction cross-section",
+     "unit": "m^2/molecule",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "clearance",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "spectral photon flux density",
+     "unit": "photons/(m^2*s*nm)",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "formation and photolysis quantum yield per absorbed photon",
+     "unit": "1",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "independent thermal conversion/elimination constant",
+     "unit": "1/s",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether the pre-vitamin-D peak can be predicted from photochemistry instead of solving k2/k1 from the same held peak.",
+   "search_terms": [
+    "vitamin D photochemistry absorption cross-section quantum yield wavelength skin",
+    "7 dehydrocholesterol previtamin D action spectrum absorption cross section quantum yield photolysis"
+   ],
+   "matching_requirements": "Same wavelengths, temperature, chemical species and sample depth; absolute spectral exposure and independent reaction measurement. The peak reference is kept outside.",
+   "reconstruction": "Spectral integral of cross-section*photon flux*quantum yield -> separate formation/photolysis rates -> molecular inventory.",
+   "physical_time_window": "seconds to hours",
+   "node_id": "bodytwin:ACQ-CS10-VITAMIN-D-ACTIVATION",
+   "node_name": "vitamin_d_activation",
+   "source_node_id": "MSK:vitamin_d_activation",
+   "source_cell_id": null,
+   "quantity": "wavelength-dependent absorption/reaction cross-section; spectral photon flux density; formation and photolysis quantum yield per absorbed photon; independent thermal conversion/elimination constant",
+   "unit": "m^2/molecule; photons/(m^2*s*nm); 1; 1/s",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/data/vitamin_d_activation/vitamin_d_activation_results.json",
+    "sha256": "0bd20425a12cfe800212158e388796abb142a505a5e27910a528334011ccf178",
+    "output_pointer": "/cutaneous_synthesis/measured_ceilings/narrowband_295nm_pct",
+    "script": "source_repository/scripts/msk/vitamin_d_activation.py",
+    "script_sha256": "7e13aa0b4141c9ef37fb36f929737843b9e89ddc844cfe833af415e4f4368076",
+    "original_evidence_reason": "k2/k1 inferred from held 65percent peak, so analytical resolution alone cannot give independent peak."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_STEADY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_STEADY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "MOLECULE"
+    ],
+    "consumer_level": "MOLECULE",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "MOLECULE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "individual-paired gastric emptying and segment transit, full distribution",
+     "unit": "min",
+     "resolution_level": "ORGAN",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "segmentwise free glucose",
+     "unit": "mol/m^3",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "SGLT1/GLUT2 glucose flux per epithelial area",
+     "unit": "mol/(m^2*s)",
+     "resolution_level": "CELL",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "segment length and epithelial area",
+     "unit": "m; m^2",
+     "resolution_level": "TISSUE",
+     "quantity_class": "clearance",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether the glucose-Ra peak/tail can be calculated without fitting gastric half-time/rho to the same Ra reference.",
+   "search_terms": [
+    "gastric emptying small intestine transit glucose absorption flux same individual",
+    "paired gastric emptying small intestinal transit SGLT1 GLUT2 glucose flux kinetics mol m2 s"
+   ],
+   "matching_requirements": "Same meal, individual, dose, segment and time; keep the systemic Ra curve as a separate reference and preserve transit/transport correlation.",
+   "reconstruction": "Timestamped gastric delivery -> segmentwise transport/inventory -> absorbed flux and separate first-pass gate.",
+   "physical_time_window": "minutes to hours",
+   "node_id": "bodytwin:ACQ-CS10-GI-ABSORPTION-TRANSIT",
+   "node_name": "gi_absorption_transit",
+   "source_node_id": "MSK:gi_absorption_transit",
+   "source_cell_id": null,
+   "quantity": "individual-paired gastric emptying and segment transit, full distribution; segmentwise free glucose; SGLT1/GLUT2 glucose flux per epithelial area; segment length and epithelial area",
+   "unit": "min; mol/m^3; mol/(m^2*s); m; m^2",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/reports/probes/gi_absorption_transit.json",
+    "sha256": "b5588384e330e9ed88d1d2a0409b4bc6ad677515ffe95b2239a57d81bbc16d86",
+    "output_pointer": "/reference_coupled_run/systemic_Ra_ferrannini_splanchnic/peak_time_min",
+    "script": "source_repository/scripts/msk/gi_absorption_transit.py",
+    "script_sha256": "4d941407d5245d66399f8120a36362d966dc0f48baad09e2e2d33add48fde88b",
+    "original_evidence_reason": "Joint gastric half-time/rho tuned to peak/tail; no independently measured lower predictive kinetics in consumed record."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_STEADY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_STEADY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "CELL",
+     "MOLECULE",
+     "ORGAN",
+     "TISSUE"
+    ],
+    "consumer_level": "CELL",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "CELL",
+    "MOLECULE",
+    "ORGAN",
+    "TISSUE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "dyadwise L-type Ca trigger flux",
+     "unit": "mol/s",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "dyad/cleft volume",
+     "unit": "m^3",
+     "resolution_level": "CELL",
+     "quantity_class": "clearance",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "local free Ca concentration",
+     "unit": "mol/m^3",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "RyR transitions and SERCA recovery rates",
+     "unit": "1/s",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "SERCA transport flux at matched ATP/Ca drive",
+     "unit": "mol/(m^2*s)",
+     "resolution_level": "CELL",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether Ca-release/beat response carries local dyad couplings rather than a fitted pooled trigger.",
+   "search_terms": [
+    "heart dyad calcium trigger flux RyR SERCA cleft volume",
+    "cardiac dyadic calcium L type trigger flux RyR SERCA kinetics cleft volume"
+   ],
+   "matching_requirements": "Same species, 37C for a human question, dyad and paced protocol; distinguish current from molar flux via valence/Faraday and specify membrane area. Released fraction is holdout validation.",
+   "reconstruction": "Local Ca inventories with trigger/RyR/SERCA -> dyadwise response; sum only when the CELL consumer has received each dyad.",
+   "physical_time_window": "milliseconds and heartbeats",
+   "node_id": "bodytwin:ACQ-CS10-CARDIAC-CICR-ODE-MODEL",
+   "node_name": "cardiac_cicr_ode_model",
+   "source_node_id": "MSK:cardiac_cicr_ode_model",
+   "source_cell_id": null,
+   "quantity": "dyadwise L-type Ca trigger flux; dyad/cleft volume; local free Ca concentration; RyR transitions and SERCA recovery rates; SERCA transport flux at matched ATP/Ca drive",
+   "unit": "mol/s; m^3; mol/m^3; 1/s; mol/(m^2*s)",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/data/msk_smoketest/cardiac_cicr_ode_model/cardiac_cicr_ode_model_results.json",
+    "sha256": "47fafe7fd041df9a335098b301234fdb2caa214dd85691cc3e16f97b54bf7700",
+    "output_pointer": "/baseline/frac_release_net",
+    "script": "source_repository/scripts/msk/cardiac_cicr_ode_model.py",
+    "script_sha256": "489bb72d7b9bf6f571093cf09bbcfc3cc711b3dcd91948927f3619eaf5dcc420",
+    "original_evidence_reason": "Pooled junction and fitted trigger omit physical microdomains; beat settling does not identify dyad coupling."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_STEADY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_STEADY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "CELL",
+     "MOLECULE"
+    ],
+    "consumer_level": "CELL",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "CELL",
+    "MOLECULE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "aortic pressure waveform Pa(t)",
+     "unit": "mmHg",
+     "resolution_level": "ORGAN",
+     "quantity_class": "pressure",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "intramyocardial regional pressure Pim(t)",
+     "unit": "mmHg",
+     "resolution_level": "TISSUE",
+     "quantity_class": "pressure",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "shared timestamps",
+     "unit": "s",
+     "resolution_level": "TISSUE",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "regional coronary flow and pressure-flow response",
+     "unit": "mL/min",
+     "resolution_level": "TISSUE",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether phasic coronary drive can be calculated without the artificial 1-mmHg flow flooring; two unpaired pressure extrema are insufficient.",
+   "search_terms": [
+    "aortic pressure intramyocardial pressure simultaneous coronary flow waveform",
+    "simultaneous aortic intramyocardial pressure waveforms coronary phasic flow mmHg seconds"
+   ],
+   "matching_requirements": "Same heartbeat, LV/RV region, species and load; synchronised clock and venous backpressure. Regional pressures are preserved before organ aggregation.",
+   "reconstruction": "DeltaP(t)=Pa(t)-Pim(t) with dynamic compression and measured conductance/impedance; no invented positive pressure floor.",
+   "physical_time_window": "heartbeats, seconds",
+   "node_id": "bodytwin:ACQ-CS10-CORONARY-BLOOD-FLOW",
+   "node_name": "coronary_blood_flow",
+   "source_node_id": "MSK:coronary_blood_flow",
+   "source_cell_id": null,
+   "quantity": "aortic pressure waveform Pa(t); intramyocardial regional pressure Pim(t); shared timestamps; regional coronary flow and pressure-flow response",
+   "unit": "mmHg; mmHg; s; mL/min",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/data/coronary_blood_flow/coronary_blood_flow_results.json",
+    "sha256": "de9428a0faab5dfe17ceb595bab07c26d013156a9528dca14354759698eee06b",
+    "output_pointer": "/claim_A_phasic_flow/derived_lv_diastole_systole_ratio (idealized, floored)",
+    "script": "source_repository/scripts/msk/coronary_blood_flow.py",
+    "script_sha256": "3fd5984270e8f96fb1f6bc251eb227396e110d79c24727944882937df813c802",
+    "original_evidence_reason": "Artificial 1mmHg driving floor replaces actual phasic gradient; no measured waveform in pinned two-pressure construction."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_STATIONARY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_STATIONARY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "ORGAN",
+     "TISSUE"
+    ],
+    "consumer_level": "TISSUE",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "ORGAN",
+    "TISSUE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "LH/GnRH in a separate impulse experiment",
+     "unit": "ng/L",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "secretion response to the impulse",
+     "unit": "ng/(L*min)",
+     "resolution_level": "CELL",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "elimination and response rates",
+     "unit": "1/min",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "impulse onset and sampling times",
+     "unit": "min",
+     "resolution_level": "CELL",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether the LH impulse response peak/FWHM can be predicted when gamma parameters are not solved from the same held width.",
+   "search_terms": [
+    "LH GnRH impulse secretion kinetics clearance minutes ng/L",
+    "pituitary LH GnRH impulse response independent secretion clearance kinetics ng L min"
+   ],
+   "matching_requirements": "Same male endocrine regime and assay; independent impulse series from the peak/FWHM reference, with gain and baseline. Specify analyte identity per ng/L channel.",
+   "reconstruction": "Separate secretion/elimination rates -> impulse kernel -> LH curve; peak time/width are derived after, not before, rates.",
+   "physical_time_window": "minutes to hours",
+   "node_id": "bodytwin:ACQ-CS10-HPG-MALE-AXIS",
+   "node_name": "hpg_male_axis",
+   "source_node_id": "MSK:hpg_male_axis",
+   "source_cell_id": null,
+   "quantity": "LH/GnRH in a separate impulse experiment; secretion response to the impulse; elimination and response rates; impulse onset and sampling times",
+   "unit": "ng/L; ng/(L*min); 1/min; min",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/data/msk_smoketest/subject2_walking1/hpg_male_axis/hpg_male_axis_results.json",
+    "sha256": "a929ad8af84d72c815a5cf7a661c83314023ec5ba36697f4ee4daedc41c24f8a",
+    "output_pointer": "/step1_kernel_solution/fwhm_check_min",
+    "script": "source_repository/scripts/msk/hpg_male_axis.py",
+    "script_sha256": "4b2bed632355e3eeb7ecc9e438bee4412e879f0d5242cf17b6c3180050a3ec25",
+    "original_evidence_reason": "Gamma parameters solved against peak60/FWHM90min; a held width cannot calibrate its own forward prediction."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_STATIONARY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_STATIONARY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "CELL",
+     "MOLECULE"
+    ],
+    "consumer_level": "CELL",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "CELL",
+    "MOLECULE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "luminal lipase activity at actual substrate/pH",
+     "unit": "mol/min",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "supplied lipid substrate per time",
+     "unit": "mol/min",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "segmentwise transit/residence time",
+     "unit": "min",
+     "resolution_level": "ORGAN",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "luminal pH",
+     "unit": "1",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether actual digestion capacity crosses demand without entering the held reserve threshold as f_th.",
+   "search_terms": [
+    "luminal lipas katalytisk kapacitet substratbelastning transit pH",
+    "luminal lipase catalytic capacity substrate demand transit pH paired digestion mol min"
+   ],
+   "matching_requirements": "Same meal, substrate, pH and segment; specify how the enzyme activity assay unit converts to mol/min and preserve substrate specificity.",
+   "reconstruction": "Capacity with local activity and pH/inactivation against time-dependent substrate delivery; held undigested fraction is validation.",
+   "physical_time_window": "minutes to hours",
+   "node_id": "bodytwin:ACQ-CS10-PANCREATIC-EXOCRINE",
+   "node_name": "pancreatic_exocrine",
+   "source_node_id": "MSK:pancreatic_exocrine",
+   "source_cell_id": null,
+   "quantity": "luminal lipase activity at actual substrate/pH; supplied lipid substrate per time; segmentwise transit/residence time; luminal pH",
+   "unit": "mol/min; mol/min; min; 1",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/reports/probes/pancreatic_exocrine.json",
+    "sha256": "ec633c03eec41df6b942b17125f1c1efa8a695a47fce45b9a444c921e21e4c8f",
+    "output_pointer": "/C_capacity_demand_threshold_model/data_points/mixedmeal_lipase/threshold_model_undigested_max",
+    "script": "source_repository/scripts/msk/pancreatic_exocrine.py",
+    "script_sha256": "964fe54ba47d380b1e5146d9b5fac6b1eb49a4537e6bb50ea6736a3fce42c277",
+    "original_evidence_reason": "Held reserve threshold is supplied as f_th; actual capacity cannot be inferred from finer evaluation of that fit."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_STATIONARY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_STATIONARY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "MOLECULE",
+     "ORGAN"
+    ],
+    "consumer_level": "MOLECULE",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "MOLECULE",
+    "ORGAN"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "human 37C free Ca waveform",
+     "unit": "mol/L",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "Ca binding/crossbridge recovery and transitions",
+     "unit": "1/s",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "sarcomere length",
+     "unit": "um",
+     "resolution_level": "FIBRIL",
+     "quantity_class": "clearance",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "paced frequency and timestamps",
+     "unit": "Hz; s",
+     "resolution_level": "CELL",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether the model's reversed force-frequency direction disappears with actual human/temp-matched kinetics; finer time steps cannot change species.",
+   "search_terms": [
+    "human cardiac muscle 37C calcium transient crossbridge binding kinetics frequency",
+    "human myocardium 37 C calcium transient crossbridge recovery kinetics force frequency"
+   ],
+   "matching_requirements": "Human cardiac muscle, same temperature, paced frequencies, length and pH. The force ratio being tested is not included in the rate fit.",
+   "reconstruction": "Ca(t) -> binding -> crossbridge population -> length-dependent force; a continuous peak certificate is still required after acquisition.",
+   "physical_time_window": "milliseconds and paced cycles",
+   "node_id": "bodytwin:ACQ-CS10-SARCOMERE-FORCE-RICE2008",
+   "node_name": "sarcomere_force_rice2008",
+   "source_node_id": "MSK:sarcomere_force_rice2008",
+   "source_cell_id": "MODEL-CARDIAC-CA-FORCE-ORGAN-CHAIN",
+   "quantity": "human 37C free Ca waveform; Ca binding/crossbridge recovery and transitions; sarcomere length; paced frequency and timestamps",
+   "unit": "mol/L; 1/s; um; Hz; s",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/data/MECHANISM_ANCHOR_GRAPH.json",
+    "sha256": "2c0c4b17c6cf97c6c283e0bde4745382121937895169103a69b04eefe6b57cd3",
+    "output_pointer": "/nodes/2459/cert_design/datapoints/6/value",
+    "script": "source_repository/scripts/msk/sarcomere_force_rice2008.py",
+    "script_sha256": "ddfb324a9967d5d9b1b9065cf4b1ac06631093dbec70889432d6873425f899de",
+    "original_evidence_reason": "Source direction is wrong vs held force-frequency ratio; temperature/species kinetic evidence required, alongside later numerical peak bound."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_STATIONARY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_STATIONARY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "CELL",
+     "FIBRIL",
+     "MOLECULE"
+    ],
+    "consumer_level": "FIBRIL",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "CELL",
+    "FIBRIL",
+    "MOLECULE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "BAX/BAK pore-opening transition rate",
+     "unit": "1/min",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "cytochrome c release history",
+     "unit": "mol/L",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "independent timestamps after stimulus",
+     "unit": "min",
+     "resolution_level": "CELL",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether absolute execution time can be predicted without setting model-time tau from the same 5-minute reference.",
+   "search_terms": [
+    "BAX BAK pore opening cytochrome c release time kinetics minutes",
+    "BAX BAK pore opening kinetics cytochrome c release time course independent apoptosis minutes"
+   ],
+   "matching_requirements": "Same cell type, stimulus and temperature; absolute gain and separate MOMP onset. Held execution time must not scale the clock.",
+   "reconstruction": "Molecular pore/release rates -> cell inventory and caspase interactions -> execution event; downstream event definition must be measured.",
+   "physical_time_window": "minutes",
+   "node_id": "bodytwin:ACQ-CS10-APOPTOSIS-INTRINSIC-EXTRINSIC",
+   "node_name": "apoptosis_intrinsic_extrinsic",
+   "source_node_id": "MSK:apoptosis_intrinsic_extrinsic",
+   "source_cell_id": null,
+   "quantity": "BAX/BAK pore-opening transition rate; cytochrome c release history; independent timestamps after stimulus",
+   "unit": "1/min; mol/L; min",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/data/msk_smoketest/apoptosis_intrinsic_extrinsic/apoptosis_intrinsic_extrinsic_results.json",
+    "sha256": "445737aebdf1a6b93d09bc42084f4f3f40172429d74d7196fb24f036d41132ab",
+    "output_pointer": "/F2_timing/t_execute_minutes/10",
+    "script": "source_repository/scripts/msk/apoptosis_intrinsic_extrinsic.py",
+    "script_sha256": "c7dd5de5d188de10bf824fb570b402453ebb64e80a78032d45135adf04ded927",
+    "original_evidence_reason": "Clock scale tau chosen to reproduce5min; absolute time cannot be a forward prediction from calibrated clock."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_STATIONARY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_STATIONARY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "CELL",
+     "MOLECULE"
+    ],
+    "consumer_level": "MOLECULE",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "CELL",
+    "MOLECULE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "airway/glottis dynamic geometry",
+     "unit": "m",
+     "resolution_level": "TISSUE",
+     "quantity_class": "clearance",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "regional volume compliance",
+     "unit": "m^3/Pa",
+     "resolution_level": "TISSUE",
+     "quantity_class": "pressure",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "driving pressure during cough",
+     "unit": "Pa",
+     "resolution_level": "TISSUE",
+     "quantity_class": "pressure",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "synchronised timestamps",
+     "unit": "s",
+     "resolution_level": "TISSUE",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether peak cough flow can be produced from pressure/geometry without using the peak flow itself as input; a pressure ceiling is no dynamic flow reference.",
+   "search_terms": [
+    "hosta glottisgeometri compliance drivtryck samtidiga kurvor",
+    "cough glottic area airway geometry compliance driving pressure dynamic compression paired waveforms"
+   ],
+   "matching_requirements": "Same cough, individual and lung volume; pair pressure/geometry/compliance, retain regional compression. Keep peak flow separate.",
+   "reconstruction": "Pressure work and stored volume -> time-dependent glottis/airway resistance and compression -> Q(t); turbulence/friction needs its own closure.",
+   "physical_time_window": "seconds",
+   "node_id": "bodytwin:ACQ-CS10-COUGH-REFLEX",
+   "node_name": "cough_reflex",
+   "source_node_id": "MSK:cough_reflex",
+   "source_cell_id": null,
+   "quantity": "airway/glottis dynamic geometry; regional volume compliance; driving pressure during cough; synchronised timestamps",
+   "unit": "m; m^3/Pa; Pa; s",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/data/cough_reflex/cough_reflex_results.json",
+    "sha256": "c30fc04d32f4e022f53d7a2101a48427befb6d2d95ad4c73dfa8873bec1f6c00",
+    "output_pointer": "/central_falsifier/voluntary_cough_pefr_Ls",
+    "script": "source_repository/scripts/msk/cough_reflex.py",
+    "script_sha256": "d83803d899f880a64a59420965cc709246ef9b23e43db7f04a74227b2733cd0a",
+    "original_evidence_reason": "Measured peak flow is an input; a pressure ceiling is not a dynamic forward law for peak flow."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_STATIONARY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_STATIONARY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "TISSUE"
+    ],
+    "consumer_level": "TISSUE",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "TISSUE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "pigment volume fraction and spatial distribution",
+     "unit": "1",
+     "resolution_level": "TISSUE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "pigment-specific absorption cross-section",
+     "unit": "m^2/molecule",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "clearance",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "local absorption coefficient",
+     "unit": "1/m",
+     "resolution_level": "TISSUE",
+     "quantity_class": "clearance",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "scattering coefficient and anisotropy",
+     "unit": "1/m; 1",
+     "resolution_level": "TISSUE",
+     "quantity_class": "clearance",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "skin layer thickness",
+     "unit": "m",
+     "resolution_level": "TISSUE",
+     "quantity_class": "clearance",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether the UVB transmission ratio can be calculated from pigment/optics instead of dividing two held transmission values.",
+   "search_terms": [
+    "melanin pigment distribution absorption coefficient scattering skin layers UVB",
+    "melanin spatial distribution absorption scattering coefficient layer thickness UVB radiative transfer"
+   ],
+   "matching_requirements": "Same skin site, wavelengths, sample thickness and age regime; local optical data before aggregation and independent pigment measurement from held transmission.",
+   "reconstruction": "MOLECULE cross-section/density -> CELL/TISSUE optics -> spatial radiative transport -> held transmission. Effective optical coefficients are PHENOMENOLOGICAL until this link is measured.",
+   "physical_time_window": "seconds of exposure, given sample geometry",
+   "node_id": "bodytwin:ACQ-CS10-MELANIN-PHOTOPROTECTION",
+   "node_name": "melanin_photoprotection",
+   "source_node_id": "MSK:melanin_photoprotection",
+   "source_cell_id": null,
+   "quantity": "pigment volume fraction and spatial distribution; pigment-specific absorption cross-section; local absorption coefficient; scattering coefficient and anisotropy; skin layer thickness",
+   "unit": "1; m^2/molecule; 1/m; 1/m; 1; m",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/data/msk_smoketest/melanin_photoprotection/melanin_photoprotection_results.json",
+    "sha256": "66a66ce8a7d2bec71c4bb55a2007a8240b8538998153bfb8ee49f2da6add91e6",
+    "output_pointer": "/f1_natural_spf_transmission_ratio/trans_ratio_uvb_light_over_dark",
+    "script": "source_repository/scripts/msk/melanin_photoprotection.py",
+    "script_sha256": "5b838a2abf265048e8d4e8122a41ab2210a3195abae7278c16f85a8a6e85a1bb",
+    "original_evidence_reason": "Source ratio is29.4/7.4 held transmission, no lower pigment-optics forward calculation."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_STATIONARY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_STATIONARY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "MOLECULE",
+     "TISSUE"
+    ],
+    "consumer_level": "TISSUE",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "MOLECULE",
+    "TISSUE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "priming/growth conversion and loss",
+     "unit": "1/h",
+     "resolution_level": "CELL",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "local proliferation events",
+     "unit": "events/(cell*h)",
+     "resolution_level": "CELL",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "matched mediator levels in independent experiments",
+     "unit": "mol/L",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether priming peak and regrowth time can be predicted from lower-level kinetics without clock/restoration fit to the same timing.",
+   "search_terms": [
+    "liver regeneration priming proliferation kinetics resection time series",
+    "liver regeneration independent priming growth activation kinetics resection proliferation hour"
+   ],
+   "matching_requirements": "Same species, resection fraction, cell population and time; target timing/mass recovery is kept separate from kinetics acquisition.",
+   "reconstruction": "Mediator/state -> cell activation/proliferation -> newly added cell volume -> change in organ mass; cell volume and tissue loss are separate debts.",
+   "physical_time_window": "hours to days",
+   "node_id": "bodytwin:ACQ-CS10-LIVER-REGENERATION",
+   "node_name": "liver_regeneration",
+   "source_node_id": "MSK:liver_regeneration",
+   "source_cell_id": null,
+   "quantity": "priming/growth conversion and loss; local proliferation events; matched mediator levels in independent experiments",
+   "unit": "1/h; events/(cell*h); mol/L",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/data/msk_smoketest/liver_regeneration/liver_regeneration_results.json",
+    "sha256": "0c1c58e529b6927121162157191a18017b9476a731d7e421259ae178e0303fd7",
+    "output_pointer": "/rat_regime/dmdt_peak_h",
+    "script": "source_repository/scripts/msk/liver_regeneration.py",
+    "script_sha256": "cbe8b7e0b96fb66cefbb46ac446e5c60c81f8080942c53bb8529ead336b4a011",
+    "original_evidence_reason": "Clock and restoration rates calibrated to held timing; sampled peak not an independent kinetic prediction."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_EVENT_STATIONARY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_EVENT_STATIONARY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "CELL",
+     "MOLECULE"
+    ],
+    "consumer_level": "CELL",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "CELL",
+    "MOLECULE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "LC3-II baseline L0 and postinhibitor L1,L2",
+     "unit": "mol/cell",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "equal postinhibitor time intervals dt and onset",
+     "unit": "min",
+     "resolution_level": "CELL",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "calibrated assay gain and zero level",
+     "unit": "signal_unit/(mol/cell); signal_unit",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "independent formation flux under intervention",
+     "unit": "mol/(cell*min)",
+     "resolution_level": "CELL",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "inhibitor's time-dependent residual effect",
+     "unit": "1",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether LC3 formation flux and residual degradation can be identified in a calibrated constant-kinetic family; two equilibrium observations remain rank1 even with known rho.",
+   "search_terms": [
+    "autophagy LC3 II calibrated quantity time series bafilomycin residual effect",
+    "calibrated LC3 II baseline two post inhibitor timepoints formation flux incomplete inhibition kinetic assay"
+   ],
+   "matching_requirements": "Same cell population, medium, temperature and inhibitor dose; baseline equilibrium, t=dt,2dt, gain/zero, onset and separate perturbation that can falsify constant formation. LC3 is not bulk cargo clearance.",
+   "reconstruction": "R9 transient_port: ratio of successive increments -> degradation -> formation flux with full nonlinear observation enclosure; uncalibrated gain or changed law leads to abstention.",
+   "physical_time_window": "minutes in a validated inhibitor window",
+   "node_id": "bodytwin:ACQ-CS10-AUTOPHAGY-MITOPHAGY",
+   "node_name": "autophagy_mitophagy",
+   "source_node_id": "MSK:autophagy_mitophagy",
+   "source_cell_id": null,
+   "quantity": "LC3-II baseline L0 and postinhibitor L1,L2; equal postinhibitor time intervals dt and onset; calibrated assay gain and zero level; independent formation flux under intervention; inhibitor's time-dependent residual effect",
+   "unit": "mol/cell; min; signal_unit/(mol/cell); signal_unit; mol/(cell*min); 1",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/data/autophagy_mitophagy/autophagy_mitophagy_results.json",
+    "sha256": "3044e0018d7e4f711ef622901b69d213a445ad4ad7ecefe2757687d8f5de08cf",
+    "output_pointer": "/flux_scenarios/flux_induction_clamped",
+    "script": "source_repository/scripts/msk/autophagy_mitophagy.py",
+    "script_sha256": "b5b07de0c3a3edb69ab08e806d0b7aac22000b02dc691e70f81cf02e2f6a577e",
+    "original_evidence_reason": "Source residual-clamp efficacy None; two steady ratios stay rank1 even if residual is measured. R9 executes transient acquisition; same-cell mass calibration remains necessary."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_EVENT_STATIONARY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_EVENT_STATIONARY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "CELL",
+     "MOLECULE"
+    ],
+    "consumer_level": "CELL",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "CELL",
+    "MOLECULE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "quantities": [
+    {
+     "quantity": "p16 transcription rate",
+     "unit": "copies/(cell*day)",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "flow",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "p16 transcript degradation rate",
+     "unit": "1/day",
+     "resolution_level": "MOLECULE",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "T-cell subset fraction per clone",
+     "unit": "1",
+     "resolution_level": "CELL",
+     "quantity_class": "concentration",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    },
+    {
+     "quantity": "clonal turnover rate",
+     "unit": "1/day",
+     "resolution_level": "CELL",
+     "quantity_class": "time",
+     "leaf_status": "UNKNOWN",
+     "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
+    }
+   ],
+   "decides": "Whether human p16 foldrise can be produced from the same cohort's transcription/decay and cell mix; copied human foldrise and rodent data yield no such prediction.",
+   "search_terms": [
+    "human p16 transcription degradation T cell clone cohort age",
+    "human p16 transcription decay T cell subset clonal composition paired cohort aging"
+   ],
+   "matching_requirements": "Same human cohort, cell subset and age regime; calibrated copy counts and clone identity before mixing. Keep target foldrise outside the rate fit.",
+   "reconstruction": "MOLECULE transcript balance per CELL/clone -> composite expression after cell mixing; clone weights must not be replaced with a single population mean.",
+   "physical_time_window": "days and longitudinal years",
+   "node_id": "bodytwin:ACQ-CS10-CELLULAR-SENESCENCE",
+   "node_name": "cellular_senescence",
+   "source_node_id": "MSK:cellular_senescence",
+   "source_cell_id": null,
+   "quantity": "p16 transcription rate; p16 transcript degradation rate; T-cell subset fraction per clone; clonal turnover rate",
+   "unit": "copies/(cell*day); 1/day; 1; 1/day",
+   "orderable": true,
+   "orderable_scope": "SPECIFIABLE_DATA_REQUEST; availability and laboratory feasibility unverified",
+   "data_acquired": false,
+   "biological_question_resolved": false,
+   "proposal_id_is_registered_graph_node": false,
+   "source": {
+    "path": "source_repository/data/cellular_senescence/cellular_senescence_results.json",
+    "sha256": "93205f6c1af773f799bb659a87ac6082d31b4df2b98753c75a4b70368fcafbf9",
+    "output_pointer": "/falsifier_1_p16_foldrise/human_pbtl_foldrise_six_decades",
+    "script": "source_repository/scripts/msk/cellular_senescence.py",
+    "script_sha256": "41738535f842b7f84506258c98e8f209bc99068ee751226f8691d91ac826a632",
+    "original_evidence_reason": "Human10fold copied measurement cannot predict itself; rodent9.7fold is a different species and compartment."
+   },
+   "target_values_are_inputs": false,
+   "holdout_rule": "No held output, same target constant or target fit as input; acquire separate lower-level experiments and validate on a frozen target.",
+   "timescale": "SOURCE_DECLARED_EVENT_STATIONARY_OR_TRANSIENT",
+   "timescale_scope": "routing label inherited from source port; these are nonoperative physiological research measurements",
+   "source_timescale": "SOURCE_DECLARED_EVENT_STATIONARY_OR_TRANSIENT",
+   "edge_timescale": "SIMULTANEOUS",
+   "acquisition_to_model_handoff": "HANDOVER with raw timestamps and joint channel uncertainty retained",
+   "edge": {
+    "producer_levels": [
+     "CELL",
+     "MOLECULE"
+    ],
+    "consumer_level": "CELL",
+    "sets_edge": "Each measured primitive sets its finest native channel; consumer aggregates after transfer.",
+    "levels_discarded_before_transfer": 0,
+    "upstream_aggregation_recoverable": false,
+    "caveat": "Proposed acquisition contract; no actual fine measurement edge has been instantiated."
+   },
+   "current_closure_level": "PHENOMENOLOGICAL",
+   "lower_replacement_levels": [
+    "CELL",
+    "MOLECULE"
+   ],
+   "stopping_argument": "Specify the lowest required independently observable channels; molecular kinetics or finer native geometry still need measurements. Naming them derives no values.",
+   "requested_uncertainty": "Raw per-channel calibration bounds, timestamps and matched joint variation; no invented sigma, independence, precision or replicate count.",
+   "physical_acquisition_cost": "UNKNOWN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COARSEST_SUFFICIENT",
+   "_file": "results/LANE_COARSEST_SUFFICIENT/r10/ACQUISITION_TARGETS_R10_V1.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-MATCHED-TMAO-INPUT-DISPOSITION-HELD-OUTPUT",
+   "quantity": "Individual-paired TMAO dose/source history, independent disposition and separately held plasma/urine observation with a shared time ledger",
+   "unit": "umol; umol/h; uM; mL/min; L; h",
+   "quantity_class": [
+    "dose",
+    "flow",
+    "concentration",
+    "clearance",
+    "volume",
+    "time"
+   ],
+   "resolution_level": "WHOLE_BODY",
+   "timescale": "SERIAL_0_TO_24_H_PLUS_DOCUMENTED_PRIOR_HISTORY",
+   "orderable": null,
+   "orderability_status": "UNKNOWN_PUBLIC_RAW_DATA_OR_NEW_STUDY_NOT_ASSESSED",
+   "same_subject_required": true,
+   "raw_records_required": true,
+   "replicates_required": null,
+   "replicate_design": "Do not invent sample size; independent study design required",
+   "decides": "Whether the source gap is real in the same individual or created by cohort/mixed normalisation; whether a direct dietary route with independent disposition predicts the held TMAO response. Under a documented dose/plasma species basis, the requirement for reprocessable label outside plasma6h is also tested. A consistent forward interval can replace UNKNOWN; an error outside the preregistered joint error budget falsifies the specified chain. R18 further identifies a lower-cost temporal discriminant: effective observation-volume ratios and late labelled TMAO appearance after16h distinguish a concentration/volume artefact from continuing influx or re-entry. The required same-profile lower is4.6151535µmol/L median under the specified ±10% sensitivity and fixed volume, not a measured production flux.",
+   "typed_observations": [
+    {
+     "quantity": "species-resolved actual administered/food inventory and ingestion times",
+     "unit": "umol; h",
+     "level": "MOLECULE",
+     "required": "TMAO/precursor identity, isotopologue, free/total basis, product purity/hydration, measured food chemistry, prior intake ledger"
+    },
+    {
+     "quantity": "independent productive input/arrival where observable",
+     "unit": "umol/h",
+     "level": "ORGAN",
+     "required": "Do not identify ingested amount with systemic influx or calibrate arrival from held endpoints"
+    },
+    {
+     "quantity": "independent disposition calibration in same individual, separate observation window",
+     "unit": "mL/min; L; h",
+     "level": "ORGAN",
+     "required": "Absolute versus1.73m2 indexed clearance with actual BSA, volume compartment definition, renal/history uncertainty; urine/plasma CL from held samples cannot validate those same samples"
+    },
+    {
+     "quantity": "held serial labelled/unlabelled plasma species",
+     "unit": "uM; h",
+     "level": "WHOLE_BODY",
+     "required": "Sample-ID, actual timestamps, volume basis, LOD/calibration/recovery and joint errors"
+    },
+    {
+     "quantity": "interval urine species amount and separate6h/24h cumulative recovery",
+     "unit": "umol; dose fraction; h",
+     "level": "WHOLE_BODY",
+     "required": "Complete collection/time ledger; TMAO versus total methylamines retained, urine concentration multiplied by actual collected volume"
+    }
+   ],
+   "held_firewall": "Freeze lower-input forward model and joint support before accessing held output; prohibit source/CL/history fitting against that output. Existing prior targets are exploratory, not retrospectively blind.",
+   "finest_edge_rule": "Keep each subject/sample/time/species row. Producers MOLECULE meal identity, ORGAN renal and WHOLE_BODY observation retain finest available levels; no population pooling before pairing. No inferred CELL law from this panel.",
+   "caveat": "One requested panel is not one scalar measurement and does not by itself close molecular carrier physics, CELL isotope protocol, native capacity or every parent prerequisite. No author contact, new experiment or queue submission executed.",
+   "separate_CELL_prerequisite": "PORT_R14: actual same-background isotope continuation/chase + separate held pulse, source/clock/sided inventories/common readout; human pairing cannot satisfy it by substitution",
+   "observed_bound_pair_count": 0,
+   "count_scope": "Frozen lane contracts; not a global absence claim",
+   "search_terms": [
+    "TMAO stable isotope same individual plasma urine timed dose raw data",
+    "trimethylamine N oxide measured renal clearance individual dietary history",
+    "trimethylamine oxide paired individual data dose plasma urine time series"
+   ],
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "public_partial_support": "10.5281/zenodo.18457092 / DOI10.3389/fnut.2026.1822840, PhaseI32 paired rows and PhaseII34 profiles; serum/urine-methylamine/actual-volume/timestamp/independent-disposition raw inputs not bound",
+   "observed_partial_baseline_response_pairs": 32,
+   "observed_stored_serial_profiles": 34,
+   "next_binding": "Recover already-collected urine methylamine concentrations plus same-subject weighed/specific-gravity volumes; original phase/arm/subject-ID crosswalk; actual sample times; independently supported TMAO disposition. No contact executed.",
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/ACQUISITION_TARGETS_R18.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-TMAO-JOINT-VOLUME-SPECIES-CAPACITY",
+   "quantity": "Joint same-system initial carnitine/TMA/TMAO inventory, connected species-specific empty storage capacity, effective observer volume and assay budgets",
+   "unit": "umol, L, dimensionless joint recovery",
+   "level": "MOLECULE species / ORGAN-CELL stocks / WHOLE_BODY volume",
+   "timescale": "HOURS_16_48",
+   "orderable": true,
+   "measured": false,
+   "decides": "Initialstock0 alone no longer excludes label9like profiles. With independently matched H0=0, totalK<0.4531979umol/V0(L) excludes declared pool; TMAOonlyK<0.7031979 also excludes. Thresholds are conditional inverse targets, not measured inventories.",
+   "search_terms": [
+    "TMAO tissue tracer distribution volume uptake return carnitine same subject",
+    "trimethylamine oxide species-specific inventory storage return flow plasma volume Hb Hct blood sampling"
+   ],
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/ACQUISITION_TARGETS_R21.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-TMAO-TAGGED-QUERY-EXCHANGE",
+   "quantity": "Species-resolved labelled cumulative observer uptake and return through query time, with independently bounded reaction and irreversible loss contributions",
+   "unit": "umol per molecular species, h",
+   "level": "MOLECULE identity / CELL-ORGAN transport",
+   "timescale": "HOURS_16_48",
+   "orderable": true,
+   "measured": false,
+   "decides": "Identical initial/finalstocks,flux totals,capacity and AUC leave plasma pointTMAO different. A signed cumulative TMAO exchange suffices only for scoped no-reaction/no-loss pointquery; general forward needs reaction/loss goalfunctional and independent kinetics.",
+   "search_terms": [
+    "trimethylamine N-oxide labelled tissue uptake efflux time course paired plasma urine",
+    "TMAO isotope-labelled reuptake time curve excretion same preparation"
+   ],
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/ACQUISITION_TARGETS_R21.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-TMAO-INDEPENDENT-FORWARD-PANEL",
+   "quantity": "Same-person lower systemic sourcehistory, urine amounts and independent TMAO disposition with separate held response",
+   "unit": "umol/h,umol,L/h,umol/L",
+   "level": "ORGAN/WHOLE_BODY with retained MOLECULE species",
+   "timescale": "HOURS_0_48",
+   "orderable": true,
+   "measured": false,
+   "decides": "Actual independent lower-input forward interval; actual_matched_TMAO_pairs=0 means this fullpanel contract, not absence of true plasma pairs",
+   "search_terms": [
+    "TMAO same subject independent tracer disposition source history plasma urine amount volume"
+   ],
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/ACQUISITION_TARGETS_R21.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-MATCHED-TMAO-INPUT-DISPOSITION-HELD-OUTPUT",
+   "quantity": "Individual-paired TMAO dose/source history, independent disposition and separately held plasma/urine observation with a shared time ledger",
+   "unit": "umol; umol/h; uM; mL/min; L; h",
+   "quantity_class": [
+    "dose",
+    "flow",
+    "concentration",
+    "clearance",
+    "volume",
+    "time"
+   ],
+   "resolution_level": "WHOLE_BODY",
+   "timescale": "SERIAL_0_TO_24_H_PLUS_DOCUMENTED_PRIOR_HISTORY",
+   "orderable": null,
+   "orderability_status": "UNKNOWN_PUBLIC_RAW_DATA_OR_NEW_STUDY_NOT_ASSESSED",
+   "same_subject_required": true,
+   "raw_records_required": true,
+   "replicates_required": null,
+   "replicate_design": "Do not invent sample size; independent study design required",
+   "decides": "Whether the source gap is real in the same individual or created by cohort/mixed normalisation; whether a direct dietary route with independent disposition predicts the held TMAO response. Under a documented dose/plasma species basis, the requirement for reprocessable label outside plasma6h is also tested. A consistent forward interval can replace UNKNOWN; an error outside the preregistered joint error budget falsifies the specified chain. R18 further identifies a lower-cost temporal discriminant: effective observation-volume ratios and late labelled TMAO appearance after16h distinguish a concentration/volume artefact from continuing influx or re-entry. The required same-profile lower is4.6151535µmol/L median under the specified ±10% sensitivity and fixed volume, not a measured production flux. R19: actual observer volume and joint same-sample metrology can distinguish constant-volume closed species-pool failures from arbitrary volume+loss. Hidden intermediate inventory must be separately bound before any whole-body interpretation.",
+   "typed_observations": [
+    {
+     "quantity": "species-resolved actual administered/food inventory and ingestion times",
+     "unit": "umol; h",
+     "level": "MOLECULE",
+     "required": "TMAO/precursor identity, isotopologue, free/total basis, product purity/hydration, measured food chemistry, prior intake ledger"
+    },
+    {
+     "quantity": "independent productive input/arrival where observable",
+     "unit": "umol/h",
+     "level": "ORGAN",
+     "required": "Do not identify ingested amount with systemic influx or calibrate arrival from held endpoints"
+    },
+    {
+     "quantity": "independent disposition calibration in same individual, separate observation window",
+     "unit": "mL/min; L; h",
+     "level": "ORGAN",
+     "required": "Absolute versus1.73m2 indexed clearance with actual BSA, volume compartment definition, renal/history uncertainty; urine/plasma CL from held samples cannot validate those same samples"
+    },
+    {
+     "quantity": "held serial labelled/unlabelled plasma species",
+     "unit": "uM; h",
+     "level": "WHOLE_BODY",
+     "required": "Sample-ID, actual timestamps, volume basis, LOD/calibration/recovery and joint errors"
+    },
+    {
+     "quantity": "interval urine species amount and separate6h/24h cumulative recovery",
+     "unit": "umol; dose fraction; h",
+     "level": "WHOLE_BODY",
+     "required": "Complete collection/time ledger; TMAO versus total methylamines retained, urine concentration multiplied by actual collected volume"
+    },
+    {
+     "quantity": "same-sample TMA/TMAO/L-carnitine identity, actual clock and observer/plasma volume series at16,18,20,22,24,48h",
+     "unit": "uM; L; h; dimensionless",
+     "level": "WHOLE_BODY",
+     "required": "Instrument sample-ID to deposited explicit labels; original placeboTMA labelmap; matrixgain, recovery/LOD and joint errors; independently measured volume. No inferred normal-volume limit."
+    },
+    {
+     "quantity": "initial hepatic/intermediate/tissue trimethylamine-moiety inventory and labelled return",
+     "unit": "umol; umol/h; h",
+     "level": "ORGAN",
+     "required": "Distinguish observed-pool boundary appearance from whole-body synthesis and delayed release; do not localize from plasma alone"
+    }
+   ],
+   "held_firewall": "Freeze lower-input forward model and joint support before accessing held output; prohibit source/CL/history fitting against that output. Existing prior targets are exploratory, not retrospectively blind.",
+   "finest_edge_rule": "Keep each subject/sample/time/species row. Producers MOLECULE meal identity, ORGAN renal and WHOLE_BODY observation retain finest available levels; no population pooling before pairing. No inferred CELL law from this panel.",
+   "caveat": "One requested panel is not one scalar measurement and does not by itself close molecular carrier physics, CELL isotope protocol, native capacity or every parent prerequisite. No author contact, new experiment or queue submission executed.",
+   "separate_CELL_prerequisite": "PORT_R14: actual same-background isotope continuation/chase + separate held pulse, source/clock/sided inventories/common readout; human pairing cannot satisfy it by substitution",
+   "observed_bound_pair_count": 0,
+   "count_scope": "Frozen lane contracts; not a global absence claim",
+   "search_terms": [
+    "TMAO stable isotope same individual plasma urine timed dose raw data",
+    "trimethylamine N oxide measured renal clearance individual dietary history",
+    "trimethylamine oxide paired individual data dose plasma urine time series"
+   ],
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "public_partial_support": "10.5281/zenodo.18457092 / DOI10.3389/fnut.2026.1822840, PhaseI32 paired rows and PhaseII34 profiles; serum/urine-methylamine/actual-volume/timestamp/independent-disposition raw inputs not bound; R19 binds18 Pomegranate deposited TMA/TMAO/carnitine serial profiles and34 TMAO/carnitine profiles by explicit labels; no placeboTMA or actual instrument join",
+   "observed_partial_baseline_response_pairs": 32,
+   "observed_stored_serial_profiles": 34,
+   "next_binding": "Actual instrument sample/time/jointmetrology and independently observed plasma volume; then initial exterior inventories/labelled return, same-subject urine methylamine amounts and independent disposition",
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/ACQUISITION_TARGETS_R19.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-MATCHED-TMAO-INPUT-DISPOSITION-HELD-OUTPUT",
+   "quantity": "Individual-paired TMAO dose/source history, independent disposition and separately held plasma/urine observation with a shared time ledger",
+   "unit": "umol; umol/h; uM; mL/min; L; h",
+   "quantity_class": [
+    "dose",
+    "flow",
+    "concentration",
+    "clearance",
+    "volume",
+    "time"
+   ],
+   "resolution_level": "WHOLE_BODY",
+   "timescale": "SERIAL_0_TO_24_H_PLUS_DOCUMENTED_PRIOR_HISTORY",
+   "orderable": null,
+   "orderability_status": "UNKNOWN_PUBLIC_RAW_DATA_OR_NEW_STUDY_NOT_ASSESSED",
+   "same_subject_required": true,
+   "raw_records_required": true,
+   "replicates_required": null,
+   "replicate_design": "Do not invent sample size; independent study design required",
+   "decides": "Whether the source gap is real in the same individual or created by cohort/mixed normalisation; whether a direct dietary route with independent disposition predicts the held TMAO response. Under a documented dose/plasma species basis, the requirement for reprocessable label outside plasma6h is also tested. A consistent forward interval can replace UNKNOWN; an error outside the preregistered joint error budget falsifies the specified chain.",
+   "typed_observations": [
+    {
+     "quantity": "species-resolved actual administered/food inventory and ingestion times",
+     "unit": "umol; h",
+     "level": "MOLECULE",
+     "required": "TMAO/precursor identity, isotopologue, free/total basis, product purity/hydration, measured food chemistry, prior intake ledger"
+    },
+    {
+     "quantity": "independent productive input/arrival where observable",
+     "unit": "umol/h",
+     "level": "ORGAN",
+     "required": "Do not identify ingested amount with systemic influx or calibrate arrival from held endpoints"
+    },
+    {
+     "quantity": "independent disposition calibration in same individual, separate observation window",
+     "unit": "mL/min; L; h",
+     "level": "ORGAN",
+     "required": "Absolute versus1.73m2 indexed clearance with actual BSA, volume compartment definition, renal/history uncertainty; urine/plasma CL from held samples cannot validate those same samples"
+    },
+    {
+     "quantity": "held serial labelled/unlabelled plasma species",
+     "unit": "uM; h",
+     "level": "WHOLE_BODY",
+     "required": "Sample-ID, actual timestamps, volume basis, LOD/calibration/recovery and joint errors"
+    },
+    {
+     "quantity": "interval urine species amount and separate6h/24h cumulative recovery",
+     "unit": "umol; dose fraction; h",
+     "level": "WHOLE_BODY",
+     "required": "Complete collection/time ledger; TMAO versus total methylamines retained, urine concentration multiplied by actual collected volume"
+    }
+   ],
+   "held_firewall": "Freeze lower-input forward model and joint support before accessing held output; prohibit source/CL/history fitting against that output. Existing prior targets are exploratory, not retrospectively blind.",
+   "finest_edge_rule": "Keep each subject/sample/time/species row. Producers MOLECULE meal identity, ORGAN renal and WHOLE_BODY observation retain finest available levels; no population pooling before pairing. No inferred CELL law from this panel.",
+   "caveat": "One requested panel is not one scalar measurement and does not by itself close molecular carrier physics, CELL isotope protocol, native capacity or every parent prerequisite. No author contact, new experiment or queue submission executed.",
+   "separate_CELL_prerequisite": "PORT_R14: actual same-background isotope continuation/chase + separate held pulse, source/clock/sided inventories/common readout; human pairing cannot satisfy it by substitution",
+   "observed_bound_pair_count": 0,
+   "count_scope": "Frozen lane contracts; not a global absence claim",
+   "search_terms": [
+    "TMAO stable isotope same individual plasma urine timed dose raw data",
+    "trimethylamine N oxide measured renal clearance individual dietary history",
+    "trimethylamine oxide paired individual data dose plasma urine time series"
+   ],
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/ACQUISITION_TARGETS_R17.json"
+  },
+  {
+   "node_ID": "TMAO_COLLECTION_CALCULATION_LINEAGE",
+   "quantity": "actual urine calculation volume + sample/collection crosswalk",
+   "unit": "mL; explicit animal_ID; clock",
+   "level": "MOLECULE species / WHOLE_BODY collection",
+   "locator": "eLife57028 Table2 source-data1, SW5/SW6/SW8/ST8; ST7 missing TMAO",
+   "what_turns": "Permits or rejects use of amount and listed volume as the same excretion functional",
+   "minimum": "Original actual volume used in each amount calculation, concentration sample ID, collection clock and missing-row ordering",
+   "status": "UNKNOWN; arithmetic alternative IDs are not accepted",
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/ACQUISITION_TARGETS_R22.json"
+  },
+  {
+   "node_ID": "TMAO_CREATININE_JOINT_WINDOW",
+   "quantity": "joint TMAO/creatinine AUC ratio and both collected amounts",
+   "unit": "umol day/L; umol/window; dimensionless ratio",
+   "level": "MOLECULE solutes / ORGAN disposition",
+   "what_turns": "Identifies constant-CL relative ratio or weighted mean, removes two-solute chronology alias",
+   "minimum": "Same subject/system, synchronized urine and plasma intervals, raw solute concentrations, uncertainty/covariance",
+   "status": "UNKNOWN in acquired panels",
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/ACQUISITION_TARGETS_R22.json"
+  },
+  {
+   "node_ID": "TMAO_PRODUCTIVE_TRANSPORT",
+   "quantity": "active carrier abundance, sided productive kinetics and ORGAN filtration/flow",
+   "unit": "molecules; events/s; umol/h; mL/min",
+   "level": "CELL/MOLECULE to ORGAN",
+   "what_turns": "Replaces fitted clearance and specifies instant response, beyond amount/AUC",
+   "minimum": "Independent source and intracellular/extra-cellular state; distinguish net transport, productive cycle and catalytic counts",
+   "status": "UNKNOWN; source RT-PCR is not active abundance or productive turnover",
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/ACQUISITION_TARGETS_R22.json"
+  },
+  {
+   "node_ID": "TMAO_HUMAN_STORAGE_SOURCE_HELD",
+   "quantity": "species H0, empty capacity K, observer V and exchange chronology; source/urine/disposition/held response",
+   "unit": "umol; L; umol/h; umol/L",
+   "level": "MOLECULE inventory / CELL productive exchange / WHOLE_BODY observer",
+   "what_turns": "Binds R21 free-storage inverse and original independent human forward",
+   "minimum": "Actual same-person clocks, independent calibration and held response; archive-label profiles and population medians alone insufficient",
+   "status": "UNKNOWN; full panel count0, plasma pairs do exist",
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/ACQUISITION_TARGETS_R22.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-TMAO-ACTUAL-SAMPLE-METROLOGY",
+   "quantity": "Same-draw analyte sample-ID, actual clock and joint concentration readout bounds",
+   "unit": "ID, h, umol/L",
+   "level": "MOLECULE/WHOLE_BODY",
+   "timescale": "HOURS_16_48",
+   "orderable": true,
+   "decides": "Whether archive-label joins and the declared +/-10% box represent actual concurrent observations",
+   "search_terms": [
+    "TESSA instrument sample ID clock plasma TMA TMAO carnitine calibration recovery LOD"
+   ],
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/ACQUISITION_TARGETS_R20.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-TMAO-OBSERVER-VOLUME",
+   "quantity": "Participant-specific plasma/observer volume time ratios and absolute baseline volume",
+   "unit": "1 and L",
+   "level": "WHOLE_BODY",
+   "timescale": "HOURS_16_48",
+   "orderable": true,
+   "decides": "Volume-only no-hidden-stock cone falls if a independently measured lower ratio exceeds profile-specific rho*. Eight of18 require some contraction at declared10%; median0; maximum59.256%",
+   "caveat": "Volume alone cannot exclude finite old stock; Hb/Hct requires a valid Hb-mass/blood-draw ledger",
+   "search_terms": [
+    "TESSA paired haemoglobin hematocrit actual blood draw volume",
+    "TESSA plasmavolym hemoglobin hematokrit provtid"
+   ],
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/ACQUISITION_TARGETS_R20.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": "Initial exterior carnitine/TMA/TMAO and intermediate inventory upper bounds, with later labelled return into sampled plasma",
+   "unit": "umol and umol/h",
+   "level": "ORGAN/CELL",
+   "timescale": "HOURS_16_48",
+   "orderable": false,
+   "decides": "Together with volume bounds tests older-pool explanation. At constantV minimum normalized stock median0.32760855 and max52.6518035 umol/V0(L). Only upstream stock can explain label3 carnitine increase in the effective cone; neither total plasma TMA nor gamma-BB trace is a reservoir upper bound",
+   "search_terms": [
+    "human isotope labelled carnitine gamma butyrobetaine tissue liver inventory plasma TMAO return"
+   ],
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/ACQUISITION_TARGETS_R20.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-TMAO-MATCHED-FORWARD-PANEL",
+   "quantity": "Same-person lower systemic precursor/source history, urine amounts and independent TMAO disposition, plus separately held response",
+   "unit": "umol/h, umol, L/h, umol/L",
+   "level": "ORGAN/WHOLE_BODY",
+   "orderable": true,
+   "decides": "Actual independent forward interval; fullpanelcount0 has this scope and does not mean plasma pairs are absent",
+   "search_terms": [
+    "same subject TMAO independent isotope disposition plasma urine volume source input"
+   ],
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/ACQUISITION_TARGETS_R20.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-MATCHED-TMAO-INPUT-DISPOSITION-HELD-OUTPUT",
+   "quantity": "Individual-paired TMAO dose/source history, independent disposition and separately held plasma/urine observation with a shared time ledger",
+   "unit": "umol; umol/h; uM; mL/min; L; h",
+   "quantity_class": [
+    "dose",
+    "flow",
+    "concentration",
+    "clearance",
+    "volume",
+    "time"
+   ],
+   "resolution_level": "WHOLE_BODY",
+   "timescale": "SERIAL_0_TO_24_H_PLUS_DOCUMENTED_PRIOR_HISTORY",
+   "orderable": null,
+   "orderability_status": "UNKNOWN_PUBLIC_RAW_DATA_OR_NEW_STUDY_NOT_ASSESSED",
+   "same_subject_required": true,
+   "raw_records_required": true,
+   "replicates_required": null,
+   "replicate_design": "Do not invent sample size; independent study design required",
+   "decides": "Whether the source gap is real in the same individual or created by cohort/mixed normalisation; whether a direct dietary route with independent disposition predicts the held TMAO response. Under a documented dose/plasma species basis, the requirement for reprocessable label outside plasma6h is also tested. A consistent forward interval can replace UNKNOWN; an error outside the preregistered joint error budget falsifies the specified chain.",
+   "typed_observations": [
+    {
+     "quantity": "species-resolved actual administered/food inventory and ingestion times",
+     "unit": "umol; h",
+     "level": "MOLECULE",
+     "required": "TMAO/precursor identity, isotopologue, free/total basis, product purity/hydration, measured food chemistry, prior intake ledger"
+    },
+    {
+     "quantity": "independent productive input/arrival where observable",
+     "unit": "umol/h",
+     "level": "ORGAN",
+     "required": "Do not identify ingested amount with systemic influx or calibrate arrival from held endpoints"
+    },
+    {
+     "quantity": "independent disposition calibration in same individual, separate observation window",
+     "unit": "mL/min; L; h",
+     "level": "ORGAN",
+     "required": "Absolute versus1.73m2 indexed clearance with actual BSA, volume compartment definition, renal/history uncertainty; urine/plasma CL from held samples cannot validate those same samples"
+    },
+    {
+     "quantity": "held serial labelled/unlabelled plasma species",
+     "unit": "uM; h",
+     "level": "WHOLE_BODY",
+     "required": "Sample-ID, actual timestamps, volume basis, LOD/calibration/recovery and joint errors"
+    },
+    {
+     "quantity": "interval urine species amount and separate6h/24h cumulative recovery",
+     "unit": "umol; dose fraction; h",
+     "level": "WHOLE_BODY",
+     "required": "Complete collection/time ledger; TMAO versus total methylamines retained, urine concentration multiplied by actual collected volume"
+    }
+   ],
+   "held_firewall": "Freeze lower-input forward model and joint support before accessing held output; prohibit source/CL/history fitting against that output. Existing prior targets are exploratory, not retrospectively blind.",
+   "finest_edge_rule": "Keep each subject/sample/time/species row. Producers MOLECULE meal identity, ORGAN renal and WHOLE_BODY observation retain finest available levels; no population pooling before pairing. No inferred CELL law from this panel.",
+   "caveat": "One requested panel is not one scalar measurement and does not by itself close molecular carrier physics, CELL isotope protocol, native capacity or every parent prerequisite. No author contact, new experiment or queue submission executed.",
+   "separate_CELL_prerequisite": "PORT_R14: actual same-background isotope continuation/chase + separate held pulse, source/clock/sided inventories/common readout; human pairing cannot satisfy it by substitution",
+   "observed_bound_pair_count": 0,
+   "count_scope": "Frozen lane contracts; not a global absence claim",
+   "search_terms": [
+    "TMAO stable isotope same individual plasma urine timed dose raw data",
+    "trimethylamine N oxide measured renal clearance individual dietary history",
+    "trimethylamine oxide paired individual data dose plasma urine time series"
+   ],
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/r17/ACQUISITION_TARGETS_v1.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-MATCHED-TMAO-INPUT-DISPOSITION-HELD-OUTPUT",
+   "quantity": "Individual-paired TMAO dose/source history, independent disposition and separately held plasma/urine observation with a shared time ledger",
+   "unit": "umol; umol/h; uM; mL/min; L; h",
+   "quantity_class": [
+    "dose",
+    "flow",
+    "concentration",
+    "clearance",
+    "volume",
+    "time"
+   ],
+   "resolution_level": "WHOLE_BODY",
+   "timescale": "SERIAL_0_TO_24_H_PLUS_DOCUMENTED_PRIOR_HISTORY",
+   "orderable": null,
+   "orderability_status": "UNKNOWN_PUBLIC_RAW_DATA_OR_NEW_STUDY_NOT_ASSESSED",
+   "same_subject_required": true,
+   "raw_records_required": true,
+   "replicates_required": null,
+   "replicate_design": "Do not invent sample size; independent study design required",
+   "decides": "Whether the source gap is real in the same individual or created by cohort/mixed normalisation; whether a direct dietary route with independent disposition predicts the held TMAO response. Under a documented dose/plasma species basis, the requirement for reprocessable label outside plasma6h is also tested. A consistent forward interval can replace UNKNOWN; an error outside the preregistered joint error budget falsifies the specified chain.",
+   "typed_observations": [
+    {
+     "quantity": "species-resolved actual administered/food inventory and ingestion times",
+     "unit": "umol; h",
+     "level": "MOLECULE",
+     "required": "TMAO/precursor identity, isotopologue, free/total basis, product purity/hydration, measured food chemistry, prior intake ledger"
+    },
+    {
+     "quantity": "independent productive input/arrival where observable",
+     "unit": "umol/h",
+     "level": "ORGAN",
+     "required": "Do not identify ingested amount with systemic influx or calibrate arrival from held endpoints"
+    },
+    {
+     "quantity": "independent disposition calibration in same individual, separate observation window",
+     "unit": "mL/min; L; h",
+     "level": "ORGAN",
+     "required": "Absolute versus1.73m2 indexed clearance with actual BSA, volume compartment definition, renal/history uncertainty; urine/plasma CL from held samples cannot validate those same samples"
+    },
+    {
+     "quantity": "held serial labelled/unlabelled plasma species",
+     "unit": "uM; h",
+     "level": "WHOLE_BODY",
+     "required": "Sample-ID, actual timestamps, volume basis, LOD/calibration/recovery and joint errors"
+    },
+    {
+     "quantity": "interval urine species amount and separate6h/24h cumulative recovery",
+     "unit": "umol; dose fraction; h",
+     "level": "WHOLE_BODY",
+     "required": "Complete collection/time ledger; TMAO versus total methylamines retained, urine concentration multiplied by actual collected volume"
+    }
+   ],
+   "held_firewall": "Freeze lower-input forward model and joint support before accessing held output; prohibit source/CL/history fitting against that output. Existing prior targets are exploratory, not retrospectively blind.",
+   "finest_edge_rule": "Keep each subject/sample/time/species row. Producers MOLECULE meal identity, ORGAN renal and WHOLE_BODY observation retain finest available levels; no population pooling before pairing. No inferred CELL law from this panel.",
+   "caveat": "One requested panel is not one scalar measurement and does not by itself close molecular carrier physics, CELL isotope protocol, native capacity or every parent prerequisite. No author contact, new experiment or queue submission executed.",
+   "separate_CELL_prerequisite": "PORT_R14: actual same-background isotope continuation/chase + separate held pulse, source/clock/sided inventories/common readout; human pairing cannot satisfy it by substitution",
+   "observed_bound_pair_count": 0,
+   "count_scope": "Frozen lane contracts; not a global absence claim",
+   "search_terms": [
+    "TMAO stable isotope same individual plasma urine timed dose raw data",
+    "trimethylamine N oxide measured renal clearance individual dietary history",
+    "trimethylamine oxide paired individual data dose plasma urine time series"
+   ],
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/r17/ACQUISITION_TARGETS_v3.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-MATCHED-TMAO-INPUT-DISPOSITION-HELD-OUTPUT",
+   "quantity": "Individual-paired TMAO dose/source history, independent disposition and separately held plasma/urine observation with a shared time ledger",
+   "unit": "umol; umol/h; uM; mL/min; L; h",
+   "quantity_class": [
+    "dose",
+    "flow",
+    "concentration",
+    "clearance",
+    "volume",
+    "time"
+   ],
+   "resolution_level": "WHOLE_BODY",
+   "timescale": "SERIAL_0_TO_24_H_PLUS_DOCUMENTED_PRIOR_HISTORY",
+   "orderable": null,
+   "orderability_status": "UNKNOWN_PUBLIC_RAW_DATA_OR_NEW_STUDY_NOT_ASSESSED",
+   "same_subject_required": true,
+   "raw_records_required": true,
+   "replicates_required": null,
+   "replicate_design": "Do not invent sample size; independent study design required",
+   "decides": "Whether the source gap is real in the same individual or created by cohort/mixed normalisation; whether a direct dietary route with independent disposition predicts the held TMAO response. Under a documented dose/plasma species basis, the requirement for reprocessable label outside plasma6h is also tested. A consistent forward interval can replace UNKNOWN; an error outside the preregistered joint error budget falsifies the specified chain.",
+   "typed_observations": [
+    {
+     "quantity": "species-resolved actual administered/food inventory and ingestion times",
+     "unit": "umol; h",
+     "level": "MOLECULE",
+     "required": "TMAO/precursor identity, isotopologue, free/total basis, product purity/hydration, measured food chemistry, prior intake ledger"
+    },
+    {
+     "quantity": "independent productive input/arrival where observable",
+     "unit": "umol/h",
+     "level": "ORGAN",
+     "required": "Do not identify ingested amount with systemic influx or calibrate arrival from held endpoints"
+    },
+    {
+     "quantity": "independent disposition calibration in same individual, separate observation window",
+     "unit": "mL/min; L; h",
+     "level": "ORGAN",
+     "required": "Absolute versus1.73m2 indexed clearance with actual BSA, volume compartment definition, renal/history uncertainty; urine/plasma CL from held samples cannot validate those same samples"
+    },
+    {
+     "quantity": "held serial labelled/unlabelled plasma species",
+     "unit": "uM; h",
+     "level": "WHOLE_BODY",
+     "required": "Sample-ID, actual timestamps, volume basis, LOD/calibration/recovery and joint errors"
+    },
+    {
+     "quantity": "interval urine species amount and separate6h/24h cumulative recovery",
+     "unit": "umol; dose fraction; h",
+     "level": "WHOLE_BODY",
+     "required": "Complete collection/time ledger; TMAO versus total methylamines retained, urine concentration multiplied by actual collected volume"
+    }
+   ],
+   "held_firewall": "Freeze lower-input forward model and joint support before accessing held output; prohibit source/CL/history fitting against that output. Existing prior targets are exploratory, not retrospectively blind.",
+   "finest_edge_rule": "Keep each subject/sample/time/species row. Producers MOLECULE meal identity, ORGAN renal and WHOLE_BODY observation retain finest available levels; no population pooling before pairing. No inferred CELL law from this panel.",
+   "caveat": "One requested panel is not one scalar measurement and does not by itself close molecular carrier physics, CELL isotope protocol, native capacity or every parent prerequisite. No author contact, new experiment or queue submission executed.",
+   "separate_CELL_prerequisite": "PORT_R14: actual same-background isotope continuation/chase + separate held pulse, source/clock/sided inventories/common readout; human pairing cannot satisfy it by substitution",
+   "observed_bound_pair_count": 0,
+   "count_scope": "Frozen lane contracts; not a global absence claim",
+   "search_terms": [
+    "TMAO stable isotope same individual plasma urine timed dose raw data",
+    "trimethylamine N oxide measured renal clearance individual dietary history",
+    "trimethylamine oxide paired individual data dose plasma urine time series"
+   ],
+   "review_state": "PENDING_INDEPENDENT_REVIEW",
+   "scientific_admission": false,
+   "_lane": "LANE_COUPLE_END_TO_END",
+   "_file": "results/LANE_COUPLE_END_TO_END/r17/ACQUISITION_TARGETS_v2.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-LANE-GATES-HEMOSTASIS",
+   "cell_id": "SURG_HEMOSTASIS",
+   "quantity": "Primary plug detachment rate jointly with platelet count, shear and closuretime; explicit stopped-test observations",
+   "quantity_class": "time",
+   "unit": "min^-1 and min; shear s^-1, platelets/L",
+   "resolution": "CELL",
+   "timescale": "INTRAOPERATIVE",
+   "same_subject_required": true,
+   "replicates_required": null,
+   "orderable": true,
+   "decides": "Whether the declared wide K_OFF_P prior and7.64% unreachablemass are warranted",
+   "search_terms": [
+    "platelet plug detachment off rate shear flow closure time",
+    "Ivy template bleeding time individual censored data"
+   ],
+   "_lane": "LANE_DISTRIBUTIONAL_GATES",
+   "_file": "results/LANE_DISTRIBUTIONAL_GATES/r1/ACQUISITION_TARGETS_R1.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-LANE-GATES-HEALING",
+   "cell_id": "SURG_HEALING",
+   "quantity": "Matched day7/day21/day90/day180 tensile-strength trajectories with crosslink density and uncertainty",
+   "quantity_class": "force",
+   "unit": "N or stress Pa; normalized strength percent; crosslinks/mol collagen",
+   "resolution": "FIBRIL",
+   "timescale": "PERIOPERATIVE",
+   "same_subject_required": true,
+   "replicates_required": null,
+   "orderable": true,
+   "decides": "Jointprior maturationlogodds andslope; replace phenomenological plateau andendpoint fit",
+   "search_terms": [
+    "wound tensile strength crosslink day7 day21 day90 paired individual",
+    "collagen crosslink tensile strength wound healing longitudinal"
+   ],
+   "_lane": "LANE_DISTRIBUTIONAL_GATES",
+   "_file": "results/LANE_DISTRIBUTIONAL_GATES/r1/ACQUISITION_TARGETS_R1.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-LANE-GATES-Q031",
+   "cell_id": "BT-HX-Q031",
+   "quantity": "Cell swelling volume/time trajectories jointly with hydraulicpermeability and membrane area; report censorwindow",
+   "quantity_class": "time",
+   "unit": "V/V0[1], s, m s^-1 Pa^-1",
+   "resolution": "CELL",
+   "timescale": "PERIOPERATIVE",
+   "same_subject_required": true,
+   "replicates_required": null,
+   "orderable": true,
+   "decides": "Whether lowpermeability14.29% designmass represents real cells and whether30s is equilibrium",
+   "search_terms": [
+    "Farinas Verkman epithelial swelling single cell time permeability distribution",
+    "osmotic water permeability cell volume time individual traces"
+   ],
+   "_lane": "LANE_DISTRIBUTIONAL_GATES",
+   "_file": "results/LANE_DISTRIBUTIONAL_GATES/r1/ACQUISITION_TARGETS_R1.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-LANE-GATES-Q009",
+   "cell_id": "BT-HX-Q009",
+   "quantity": "Paired freeplasma fraction and free tissue/plasma AUC in same dosing protocol",
+   "quantity_class": "concentration",
+   "unit": "mg h L^-1; freefraction[1]",
+   "resolution": "TISSUE",
+   "timescale": "PERIOPERATIVE",
+   "same_subject_required": true,
+   "replicates_required": null,
+   "orderable": true,
+   "decides": "A measured joint tissue exposuredistribution, not unpaired synthetic ratio",
+   "search_terms": [
+    "omadacycline microdialysis free plasma tissue individual AUC dkac055"
+   ],
+   "_lane": "LANE_DISTRIBUTIONAL_GATES",
+   "_file": "results/LANE_DISTRIBUTIONAL_GATES/r1/ACQUISITION_TARGETS_R1.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-LANE-GATES-IMMUNITY",
+   "cell_id": "IMMUNITY",
+   "quantity": "Clinical stimulus-duration matched CRP trajectories and cell secretion/clearance rates",
+   "quantity_class": "concentration",
+   "unit": "mg/L and h; secretion mass/time/cell",
+   "resolution": "CELL",
+   "timescale": "PERIOPERATIVE",
+   "same_subject_required": true,
+   "replicates_required": null,
+   "orderable": true,
+   "decides": "Whether fixed adjustedrates anddeclared30% boxdescribe clinical variation; peakstatistic versus population tail",
+   "search_terms": [
+    "CRP time course surgery individual peak secretion clearance",
+    "acute phase hepatocyte cytokine secretion matched time course"
+   ],
+   "_lane": "LANE_DISTRIBUTIONAL_GATES",
+   "_file": "results/LANE_DISTRIBUTIONAL_GATES/r1/ACQUISITION_TARGETS_R1.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-LANE-GATES-MITOSTRESS",
+   "cell_id": "MITOSTRESS",
+   "quantity": "Matched complexI proton/electron flux with ATP/O and transport/leak conditions",
+   "quantity_class": "flow",
+   "unit": "H+/2e[1], ATP/O[1], mol/s",
+   "resolution": "MOLECULE",
+   "timescale": "PERIOPERATIVE",
+   "same_preparation_required": true,
+   "replicates_required": null,
+   "orderable": true,
+   "decides": "Replace unmeasured equal CI3/CI4 modelweights by matched assay evidence",
+   "search_terms": [
+    "complex I proton electron stoichiometry ATP oxygen same preparation"
+   ],
+   "_lane": "LANE_DISTRIBUTIONAL_GATES",
+   "_file": "results/LANE_DISTRIBUTIONAL_GATES/r1/ACQUISITION_TARGETS_R1.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-LANE-GATES-INCISION",
+   "cell_id": "SURG_INCISION",
+   "quantity": "Matched closureforce, prestress, modulus, layerthickness and woundopening distribution",
+   "quantity_class": "force",
+   "unit": "N, Pa, m",
+   "resolution": "TISSUE",
+   "timescale": "INTRAOPERATIVE",
+   "same_specimen_required": true,
+   "replicates_required": null,
+   "orderable": true,
+   "decides": "Whether thedeclared9designforces within[.5,6]N also hold under a measured joint law",
+   "search_terms": [
+    "skin incision wound closure force prestress modulus paired measurements"
+   ],
+   "_lane": "LANE_DISTRIBUTIONAL_GATES",
+   "_file": "results/LANE_DISTRIBUTIONAL_GATES/r1/ACQUISITION_TARGETS_R1.json"
+  },
+  {
+   "node_id": "bodytwin:ACQ-LANE-GATES-SOLBENCH",
+   "cell_id": "SOLBENCH",
+   "quantity": "Chronological conservative nonlinear and numerical residual bounds for eachjoint murow, plus matched lowertransport/binding data",
+   "quantity_class": "concentration",
+   "unit": "mg/kg, mg/dL, mg kg^-1 min",
+   "resolution": "CELL",
+   "timescale": "PERIOPERATIVE",
+   "same_model_required": true,
+   "replicates_required": null,
+   "orderable": false,
+   "computational_prerequisite": true,
+   "decides": "Whether sampled0miss may become a certifiedcontinuousfamilyanswer; biologicalprior stillseparate",
+   "search_terms": [
+    "validated nonlinear ODE residual enclosure conservative reaction diffusion"
+   ],
+   "_lane": "LANE_DISTRIBUTIONAL_GATES",
+   "_file": "results/LANE_DISTRIBUTIONAL_GATES/r1/ACQUISITION_TARGETS_R1.json"
+  }
+ ],
+ "with_unit": [
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/PORT_R5_V1.json/random_rows[17]/extension/factorization",
+   "requirement": "G=sum cells*area(age)*g(age)*mm2_to_cm2; acquire one fixed-goal weighted inventory. Joint instant output repair needs 2 exponential moments beyond N.",
+   "unit_found": "g"
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/PORT_R5_V1.json/random_rows[24]/extension/minimality",
+   "requirement": "One fixed-kernel functional necessary/sufficient at fixed T,kg; changing clearance/time requires new acquisition",
+   "unit_found": "kg"
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[10]/r9_abstention_reason/required_measurement_unit",
+   "requirement": "mmol/L; ng/L; 1/min",
+   "unit_found": "mmol"
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[26]/r5_acquisition_guard",
+   "requirement": "Cwithinsafeinterval[1.0301551088978158,1.7042923024764605]mL/mmHg forsourcewideR,fixedSV/HR,exactphase1/3; notreportedmeasurement",
+   "unit_found": "mL"
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[33]/r9_abstention_reason/required_measurement_unit",
+   "requirement": "mol/(m2*s); m/s; m; 1/m",
+   "unit_found": "mol"
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[37]/r9_abstention_reason/required_measurement_unit",
+   "requirement": "min; mol/(m2*s)",
+   "unit_found": "min"
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[46]/r9_abstention_reason/required_measurement_unit",
+   "requirement": "mol/s; m3; 1/s",
+   "unit_found": "mol"
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[63]/r9_abstention_reason/required_measurement_unit",
+   "requirement": "mol/min; min",
+   "unit_found": "mol"
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[71]/r9_abstention_reason/required_measurement_unit",
+   "requirement": "mol/L vs s; 1/s",
+   "unit_found": "mol"
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[75]/r9_abstention_reason/required_measurement_unit",
+   "requirement": "1/min; mol/L vs min",
+   "unit_found": "1/min"
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[78]/r9_abstention_reason/required_measurement_unit",
+   "requirement": "m; m3/Pa; Pa vs s",
+   "unit_found": "m"
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[104]/r9_abstention_reason/required_measurement_unit",
+   "requirement": "mol/cell vs min",
+   "unit_found": "mol"
+  },
+  {
+   "lane": "LANE_ZERO_FLUX_AUDIT",
+   "where": "results/LANE_ZERO_FLUX_AUDIT/PORT_R14_V1.json/rows[9]/notes",
+   "requirement": "Native exponent gives effective z=2alpha=1.4, ledger uses F*N (z=1). V is described as surface bias; mapping to a transmembrane voltage is NOT independently acquired. A counterexample is conditional on this mapping; no unconditional physical bug is admitted.",
+   "unit_found": "N"
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[6]/lower_level_debt",
+   "requirement": "Source uses dimensionless force/displacement. F_ref[N], u_ref[m], family labels and constitutive threshold mechanism unmeasured.",
+   "unit_found": "dimensionless"
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[11]/full_vector_acquisition",
+   "requirement": "[{\"expression\": \"V_ref\", \"unit\": \"L\"}, {\"expression\": \"D_ref\", \"unit\": \"mol\"}]",
+   "unit_found": "L"
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[13]/next_action",
+   "requirement": "Acquire independentK[uM]andprecursorinputq[uM/h], or directCELLcapacityV[uM/h]; preserve fixedhost/nuisance assumption. Source time/AUC predictions are not independent anchors.",
+   "unit_found": "uM"
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[60]/normalization_specification/unit",
+   "requirement": "1/s or 1/min after time port acquisition",
+   "unit_found": "s"
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[184]/classification_reason",
+   "requirement": "Source equation dL/dt=k_form-k_deg*L with R1 LC3 marker AU; molecular marker amount and time normalization are unacquired.",
+   "unit_found": "L"
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[472]/measurement_quantity_warning",
+   "requirement": "Volumetric flow [mL/s] cannot be supplied directly to pressure ratio; hydraulic law requires separate acquisition.",
+   "unit_found": "mL"
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[473]/classification_reason",
+   "requirement": "Source explicitly F/F0 or force normalized by F_max. Reference is a physical force, unit N derived from quantity identity; numeric reference remains unacquired.",
+   "unit_found": "N"
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[888]/classification_reason",
+   "requirement": "The comparison variable is explicitly sin(2*pi*slow_wave_rate_hz*time_s+pylorus_phase_rad), not an unspecified contraction-activity scale. Threshold maps to a physical opening phase/time on a named ascending/descending cycle through arcsin; uncertainty and actual gate observation remain unmeasured. Same classification criterion as other dimensionless physical gate coefficients.",
+   "unit_found": "dimensionless"
+  }
+ ],
+ "without_unit": [
+  {
+   "lane": "LANE_EYE_OPTICAL_TWIN",
+   "where": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r13.json/obstacle",
+   "requirement": "PBionicstress->total axialmechanics/hydration and unmeasured micro-to-macro/surface allocation",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_EYE_OPTICAL_TWIN",
+   "where": "results/LANE_EYE_OPTICAL_TWIN/PORT_R12_V2.json/old_optics/human450nmabsorption",
+   "requirement": "inherited acquisition item",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_LASER_SURGERY",
+   "where": "results/LANE_LASER_SURGERY/night_rounds/r17.json/outcome/cost/fallback",
+   "requirement": "Physical certificate rejected; new source/material/pulse needs actual acquisition/rebuild, not zero-cost answer",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_LASER_SURGERY",
+   "where": "results/LANE_LASER_SURGERY/night_rounds/r17.json/outcome/obstacle",
+   "requirement": "Measured local source and actual regression design not acquired; constant-property phase criterion lacks matrix/nucleation/evolving ejection law. Profile shape and fixed regression proxy cannot validate absolute tissue response.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_LASER_SURGERY",
+   "where": "results/LANE_LASER_SURGERY/night_rounds/r17.json/files[7]",
+   "requirement": "r17/ACQUISITION_TARGETS_V1.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_LASER_SURGERY",
+   "where": "results/LANE_LASER_SURGERY/night_rounds/r16.json/files[19]",
+   "requirement": "r16/EARLY_VERSION_ACQUISITION_V1.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/night_rounds/r5.json/operation",
+   "requirement": "Outcome-blind finite exported-summary frame and 30 fixed random draws; source fibre audits; analytic RMS contact-branch correction; native nonlinear Q154 trajectory acquisition.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/night_rounds/r5.json/next",
+   "requirement": "Acquire exact source-native fibres on the same sampled Q052/Q021/Q020 draws; freeze a quantity/unit/resolution/timescale/consumer frame before any separate future sample.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/PORT_R5_V1.json/rows[20]/extension/factorization",
+   "requirement": "One weighted resistance functional is sufficient for this MFPT query, but must be acquired from the spatial generator; it is not a future diffusion state",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/PORT_R5_V1.json/rows[27]/extension/minimality",
+   "requirement": "One area coordinate necessary and sufficient for density; retention and reacquisition not inferred",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/PORT_R5_V1.json/rows[45]/extension/future_sufficiency",
+   "requirement": "For every changed schedule/horizon0..24 instead encode83; minimum83 under joint all-schedule exact contract. Three functionals are query-specific and must be reacquired for another question.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/PORT_R5_V1.json/rows[46]/extension/future_sufficiency",
+   "requirement": "EXACT_UNDER_SOURCE_ASSUMPTIONS; outside horizon/domain requires acquisition",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/PORT_R5_V1.json/rows[51]/extension/coordinates[0]",
+   "requirement": "acquired H150receiverfunctional underfixedsuppliedlaw",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/PORT_R5_V1.json/exit_history_followup_R4/uniform_real_bound",
+   "requirement": "Taylor with acquired positiveweightedTV",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/PORT_R5_V1.json/random_rows[10]/extension/minimality",
+   "requirement": "Constructive primitive-state upper bound, NOT a minimum proof. One acquired joint flux functional can encode this single endpoint answer, with acquisition cost; no dynamic closure.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/PORT_R5_V1.json/random_rows[10]/native_trajectory_acquisition",
+   "requirement": "NATIVE_Q154_R5.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/PORT_R5_V1.json/random_rows[18]/extension/minimality",
+   "requirement": "One scalar necessary/sufficient for current endpoint flux; continuity-consistent history acquisition still required",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/PORT_R5_V1.json/random_rows[19]/required_acquisition",
+   "requirement": "Source-native exact admissible fibre/consumer construction, not a missing measured future law.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/PORT_R5_V1.json/random_rows[25]/locators[8]/path",
+   "requirement": "/stochastic/trained/acquired_MD/sd",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/night_rounds/r4.json/next",
+   "requirement": "Acquire temporal windows according to the receiver kernel, then test shared or saturable clearance coupling.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/night_rounds/r3.json/gate_scope",
+   "requirement": "Conditional source long-horizon terminal/exit-receiver sufficiency with explicit acquisition and costs; no novelty/physiological admission or full sweep completion.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_SUFFICIENCY_SWEEP",
+   "where": "results/LANE_SUFFICIENCY_SWEEP/night_rounds/r3.json/obstacle",
+   "requirement": "Terminal population erases pre-cutoff exit history; unknown future law and empirical closures remain; tree65.5xslower than acquired exactstate control",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_QUANTITY_KEY_BRIDGE",
+   "where": "results/LANE_QUANTITY_KEY_BRIDGE/night_rounds/r5.json/outcome/cost/scope",
+   "requirement": "Source/provenance verification, external contracts and new conditional queries. Acquisition/search/reporting excluded; fullcostUNKNOWN.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_QUANTITY_KEY_BRIDGE",
+   "where": "results/LANE_QUANTITY_KEY_BRIDGE/night_rounds/r5.json/files[76]",
+   "requirement": "r5_sources/ACQUISITION_R5_V1.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_QUANTITY_KEY_BRIDGE",
+   "where": "results/LANE_QUANTITY_KEY_BRIDGE/night_rounds/r4.json/outcome/cost/scope",
+   "requirement": "source-screen,consumer,512coupled futures,restarts,BDF/convolution checks; acquisition/search/reporting excluded",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_QUANTITY_KEY_BRIDGE",
+   "where": "results/LANE_QUANTITY_KEY_BRIDGE/night_rounds/r4.json/files[55]",
+   "requirement": "r4_sources/ACQUISITION_R4_V1.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_QUANTITY_KEY_BRIDGE",
+   "where": "results/LANE_QUANTITY_KEY_BRIDGE/night_rounds/r4.json/files[56]",
+   "requirement": "r4_sources/ACQUISITION_R4_V2.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_QUANTITY_KEY_BRIDGE",
+   "where": "results/LANE_QUANTITY_KEY_BRIDGE/night_rounds/r4.json/files[57]",
+   "requirement": "r4_sources/ACQUISITION_R4_V3.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_QUANTITY_KEY_BRIDGE",
+   "where": "results/LANE_QUANTITY_KEY_BRIDGE/PORT_R3.json/lower_component/case_table_status",
+   "requirement": "LEG18 Table1 image not acquired; do not reconstruct individual cases",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r10.json/operation",
+   "requirement": "17 dimensioned source-reviewed matched acquisition packages;32 UNKNOWN precision split; close atlas",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r10.json/gate_scope",
+   "requirement": "17 source-reviewed acquisition packages; atlas explanation remains FAIL; biological prediction UNKNOWN",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r10.json/obstacle",
+   "requirement": "No new lower measurements;31 fixed-law continuous/readout/certificate debts remain; availability and physical acquisition costs UNKNOWN.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r10.json/next",
+   "requirement": "ATLAS_CLOSED. Acquisition owner can start a separate matched lower-data acquisition using17 packages, beginning with calibrated LC3 transient. No new ranks or LP certificates here.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r10.json/files[5]",
+   "requirement": "r10/ACQUISITION_HANDOFF_R10_V1.md",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r10.json/files[6]",
+   "requirement": "r10/ACQUISITION_TARGETS_R10_V1.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r10.json/files[39]",
+   "requirement": "r10/build_acquisition_r10.py",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r9.json/operation",
+   "requirement": "Frozen51 cause port; actual warmkernel cost; stationaryknownrho falsifier and executed transient acquisition enclosure",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r9.json/outcome/nameability_semantic_sensitivity",
+   "requirement": "17 unmeasured primitive names exist; counting those gives19candidate names and32/51 unnameable, not>80percent",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r9.json/gate_scope",
+   "requirement": "dominant supported second-sigma atlas hypothesis; conditional acquisition port PASS, biologicalUNKNOWN",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r9.json/obstacle",
+   "requirement": "17 unmeasured lower data;32 unresolved continuous/readout certificates; assaygain/constantformation and inhibitorlaw unmeasured",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r9.json/files[6]",
+   "requirement": "r9/ACQUISITION_AND_CERTIFICATE_LIST_R9_V1.md",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[0]/cost_factor_contract",
+   "requirement": "No sampling ratio admitted as compute cost. measured_compute_cost_factor is actual warm kernel wall-time ratio; physical acquisition cost separately UNKNOWN except recorded Z24 duration.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[5]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire independently matched defect shape bracket; keep extreme-defect detection/volume debt. No molecular reconstruction supplied.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[10]/r9_abstention_reason/reason_class",
+   "requirement": "MISSING_MEASUREMENT",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[10]/r9_abstention_reason/required_measurement",
+   "requirement": "Ca(t), PTH(t), CaSR secretion and clearance dynamics",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[10]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test Ca(t), PTH(t), CaSR secretion and clearance dynamics",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[25]/r9_abstention_reason/required_measurement",
+   "requirement": "unbound fraction fu and intrinsic uptake clearance CLint at matched hepatic flow",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[25]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test unbound fraction fu and intrinsic uptake clearance CLint at matched hepatic flow",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[26]/source_family_axis",
+   "requirement": "CROSSING_REQUIRES_LOWER_ACQUISITION",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[27]/r5_acquisition_guard",
+   "requirement": "jointE=Pi+sigma*pic*(1−frac): NONEifE_upper<=15, ALLifE_lower>15; otherwisecrossing",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[28]/axes/paydown",
+   "requirement": "STRUCTURAL_OUTPUT_OR_ACQUISITION",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[28]/source_family_axis",
+   "requirement": "NOT_EVALUATED; explicit lower closure/acquisition debt retained",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[28]/r6_acquisition_guards_mm_inverse",
+   "requirement": "{\"at_or_below_requires_S_upper_max\": \"25/3\", \"above_requires_S_lower_strictly_greater_than\": \"25/2\"}",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[28]/r7_BMU_matched_native_acquisition",
+   "requirement": "NOT_IDENTIFIED_IN_READ_SOURCE_SUBSET; originalUNKNOWN preserved; no global absence inference",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[28]/r9_abstention_reason/required_measurement",
+   "requirement": "matched replaced cavity volume per event, activation density and reference bone volume",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[28]/r9_abstention_reason/required_measurement_unit",
+   "requirement": "mm3/event; events/(mm3*yr); mm3",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[28]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test matched replaced cavity volume per event, activation density and reference bone volume",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[33]/r9_abstention_reason/required_measurement",
+   "requirement": "NKCC2 kinetics, water permeability, loop length and vasa-recta washout per length",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[33]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test NKCC2 kinetics, water permeability, loop length and vasa-recta washout per length",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[36]/r9_abstention_reason/required_measurement",
+   "requirement": "wavelength-specific photochemical absorption and independent conversion/removal rates",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[36]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test wavelength-specific photochemical absorption and independent conversion/removal rates",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[37]/r9_abstention_reason/required_measurement",
+   "requirement": "matched gastric/transit distribution and segment transport kinetic rates",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[37]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test matched gastric/transit distribution and segment transport kinetic rates",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[46]/r9_abstention_reason/required_measurement",
+   "requirement": "dyad-specific trigger flux, volume and RyR/SERCA kinetic response",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[46]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test dyad-specific trigger flux, volume and RyR/SERCA kinetic response",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[51]/axes/paydown",
+   "requirement": "UNPROVED_NUMERICAL_REMAINDER_OR_STRUCTURAL_ACQUISITION",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[51]/r9_abstention_reason/required_measurement",
+   "requirement": "simultaneous aortic and intramyocardial pressure waveforms",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[51]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test simultaneous aortic and intramyocardial pressure waveforms",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[53]/r9_abstention_reason/required_measurement",
+   "requirement": "independent pituitary secretion/clearance impulse kinetics",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[53]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test independent pituitary secretion/clearance impulse kinetics",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[63]/r9_abstention_reason/required_measurement",
+   "requirement": "luminal enzyme catalytic capacity and matched substrate/transit demand",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[63]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test luminal enzyme catalytic capacity and matched substrate/transit demand",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[68]/axes/paydown",
+   "requirement": "NO_NUMERICAL_GRID_FOR_THIS_CONDITIONAL_QUESTION; PHYSICAL_ACQUISITION_SEPARATE",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[71]/r9_abstention_reason/required_measurement",
+   "requirement": "human37C calcium waveform and binding/crossbridge recovery rates",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[71]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test human37C calcium waveform and binding/crossbridge recovery rates",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[75]/r9_abstention_reason/required_measurement",
+   "requirement": "independent BAX/BAK pore-opening kinetics and cytochrome-c release history",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[75]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test independent BAX/BAK pore-opening kinetics and cytochrome-c release history",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[78]/r9_abstention_reason/required_measurement",
+   "requirement": "matched airway/glottic geometry, compliance and driving pressure history",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[78]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test matched airway/glottic geometry, compliance and driving pressure history",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[87]/r9_abstention_reason/required_measurement",
+   "requirement": "matched pigment distribution, absorption, scattering and layer thickness",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[87]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test matched pigment distribution, absorption, scattering and layer thickness",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[89]/axes/paydown",
+   "requirement": "NO_NUMERICAL_MESH_FOR_FIXED_QUESTION; PHYSICAL_ACQUISITION_SEPARATE",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[101]/r9_abstention_reason/required_measurement",
+   "requirement": "independent priming and growth activation kinetic response after resection",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[101]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test independent priming and growth activation kinetic response after resection",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[102]/output_pointer",
+   "requirement": "/part2_associative_learning_gate/acquisition_curve/trace_W_over_trials/20",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[102]/source_status_preserved/part2_associative_learning_gate/acquisition_curve/external_qualitative_anchor",
+   "requirement": "Quirk, Repa & LeDoux 1995 (PMID 7576647): conditioning 'significantly increased... often within the first several trials'; Quirk 2002 (PMID 12464700) uses 7 pairings as a standard near-complete-acquisition protocol. This is a QUALITATIVE shape match (rapid, saturating early rise), NOT a fitted numeric prediction -- eta is disclosed as free/uncalibrated.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[102]/source_status_preserved/part2_associative_learning_gate/nmda_block_dissociation/external_anchor_verbatim",
+   "requirement": "Miserendino et al 1990 (PMID 1972778): NMDA antagonists 'block the acquisition, but not the expression, of fear conditioning.'",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[104]/adequacy",
+   "requirement": "synthetic2 versus1clamped flux; identical LC3steady2 for induction and blockade exposes rankdeficiency. Actual clampresidual and dimensional assay calibration unmeasured in source, moretimegrid does not supply them",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[104]/r9_abstention_reason/required_measurement",
+   "requirement": "calibrated LC3 baseline and two post-inhibitor timepoint amounts with shared formation law",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[104]/r9_abstention_reason/evidence_reason",
+   "requirement": "Source residual-clamp efficacy None; two steady ratios stay rank1 even if residual is measured. R9 executes transient acquisition; same-cell mass calibration remains necessary.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[104]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test calibrated LC3 baseline and two post-inhibitor timepoint amounts with shared formation law",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[105]/r9_abstention_reason/required_measurement",
+   "requirement": "same-cohort p16 transcription/decay and T-cell mixture/clonal dynamics",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[105]/r9_abstention_reason/required_measurement_unit",
+   "requirement": "copies/(cell*day); 1/day; 1",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/PORT_R9_V1.json/rows[105]/r9_abstention_reason/next_operation",
+   "requirement": "Acquire/test same-cohort p16 transcription/decay and T-cell mixture/clonal dynamics",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r8.json/control",
+   "requirement": "native sourcepractice withoutnew entry/acquisition/branchlinks; validationquad/DOP853/70digitdiff; equallyinformed classicalintervalcontrolcanmatch",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COARSEST_SUFFICIENT",
+   "where": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r8.json/next",
+   "requirement": "native matched capillarybranch DL,Q,Cv,Hb/geometry acquisition with sharedflowconservation; expand frozen ranks101–120; nativeATPase/BMU lowerdata remain prerequisites",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_ZERO_FLUX_AUDIT",
+   "where": "results/LANE_ZERO_FLUX_AUDIT/night_rounds/r14.json/files[39]",
+   "requirement": "r14/ACQUISITION_PDF_V2.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_ZERO_FLUX_AUDIT",
+   "where": "results/LANE_ZERO_FLUX_AUDIT/night_rounds/r14.json/files[52]",
+   "requirement": "r14/ACQUISITION_V1.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_ZERO_FLUX_AUDIT",
+   "where": "results/LANE_ZERO_FLUX_AUDIT/night_rounds/r14.json/files[63]",
+   "requirement": "r14/ACQUISITION_PDF_V1.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_ZERO_FLUX_AUDIT",
+   "where": "results/LANE_ZERO_FLUX_AUDIT/PORT_R14_V1.json/rows[17]/R4_adjudication/evidence",
+   "requirement": "source PREREG explicitly calls separate active/hypothetical efflux; transporter/ATP/ionic donor identity not acquired",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_ZERO_FLUX_AUDIT",
+   "where": "results/LANE_ZERO_FLUX_AUDIT/PORT_R14_V1.json/round12_extension/cost/acquisition_wall_s",
+   "requirement": "1.0077497768215835",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_ZERO_FLUX_AUDIT",
+   "where": "results/LANE_ZERO_FLUX_AUDIT/PORT_R14_V1.json/round13_extension/cost/excluded",
+   "requirement": "complete reading/web/acquisition/search/coding/startup/finalization/rebuild/fallback/token cost",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_ZERO_FLUX_AUDIT",
+   "where": "results/LANE_ZERO_FLUX_AUDIT/night_rounds/r13.json/next",
+   "requirement": "Acquire same-batch work-matched early-load/unload-then-hold versus hold-then-load/unload; measure reserve, irrecoverable loss, solvent work and created surface, then compose tagged conditional capture",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_ZERO_FLUX_AUDIT",
+   "where": "results/LANE_ZERO_FLUX_AUDIT/night_rounds/r12.json/files[5]",
+   "requirement": "r12/ACQUISITION_V1.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/physical_acquisition_validation",
+   "requirement": "UNKNOWN_FOR_NATIVE_RENAL; external PCIS assayresponse measured but unmatched molecular/time ancestry",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[0]/next_action",
+   "requirement": "Validate proposed quantity, effective geometry/assay equivalence, nuisance parameters and practical noise before acquisition.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[5]/classification",
+   "requirement": "NOT_A_CURRENT_PARAMETER_ACQUISITION",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[5]/lower_level_debt",
+   "requirement": "Reconstruct declared state, flux, parameter units and observation design before selecting an acquisition.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[5]/next_action",
+   "requirement": "No acquisition inferred from this match. Preserve report domain and noise-model limitations.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[5]/reason",
+   "requirement": "Source says its actual unequal error marginals cannot produce the cited exact covariance collapse; match is a counterfactual noise-matrix argument, not a parameter acquisition deficit.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[8]/classification",
+   "requirement": "REVIEWED_MATCH_NOT_CURRENT_ACQUISITION_R2",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[8]/next_action",
+   "requirement": "No acquisition from harvested phrase. Preserve full source scope and other named baseline deficits.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[12]/operator_scope",
+   "requirement": "AUTO-1953e8b2219083: already full rank on positive rates; no new acquisition.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[29]/reason",
+   "requirement": "Source distinguishes channel-space left-null complement redundancy from parameter-space right null; do not turn this alone into a new parameter acquisition.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[41]/next_action",
+   "requirement": "Resolve physical membrane and transport law before acquisition; no Darcy-to-Fick transfer certified.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[44]/operator_scope",
+   "requirement": "AUTO-5b0c35752ece60: mathematical product gauge; physical unit absent, so no acquisition-ready port.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[44]/sign_disposition_R11/reason",
+   "requirement": "Response coefficient-times-amplitude product has no physical unit/assay. Local sign-equivalence holds away from zero, but no acquisition or interval benefit certified.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[65]/finite_collection_contract_R7/minimum_acquired_rows_for_shape",
+   "requirement": "two collected amounts plus their finite concentration histories and regularity premise; not two free scalars",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[124]/reason",
+   "requirement": "Source separates flat normalized metric/regime from transport-operator rank. No new parameter acquisition inferred.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[130]/reason",
+   "requirement": "Source falsifies its own rank-deficiency expectation using fullrank stiffness Jacobian; not an acquisition kernel.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/rows[179]/next_action",
+   "requirement": "Measure intracellular/transient efflux and source affinity/uptake; validate assay equivalence. Clearance target needs no full-vector acquisition.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/scope_R7",
+   "requirement": "Alternate finite collection acquisition, exact conditional noisy-history exclusion; population dimensions unchanged, no new full16/biological admission",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/scope_R11/acquisition_signs",
+   "requirement": "ACQUISITION_SIGN_PORTS_R11_v2.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/PORT_R18_FINAL.json/scope_R16/source_age_rank_scope",
+   "requirement": "new fixed-three-age acquisition extension, not native181",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/night_rounds/r17.json/operation",
+   "requirement": "Two simultaneous molecular reference readouts -> held retention-law failure -> exact continuous-age fibers -> global moment dual -> positive source-time bin acquisition -> shared nonlinear feedback ->32bin refinement",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_NULLSPACE_NAMES_IT",
+   "where": "results/LANE_NULLSPACE_NAMES_IT/night_rounds/r16.json/control",
+   "requirement": "current acquisition without new paired empirical data and area-only normalization; public prepared labeled concentrations are independent held inputs; equally informed conventional PCI and classical moments match algebra, no speed/novelty claim",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_FIBRIL_NETWORK_FRACTURE",
+   "where": "results/LANE_FIBRIL_NETWORK_FRACTURE/PORT_R16_FINAL.json/historical_r15_gamma_probe/producer",
+   "requirement": "r15/reacquire_r11dense_v1",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_FIBRIL_NETWORK_FRACTURE",
+   "where": "results/LANE_FIBRIL_NETWORK_FRACTURE/night_rounds/r15.json/operation",
+   "requirement": "older coindexed Newton source acquisition, zero-at-zero uniform tangent tube and finite-error goal adjoint with paid noncommuting ordered actions; R11 gamma-right-column probe after held-gamma failure",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_FIBRIL_NETWORK_FRACTURE",
+   "where": "results/LANE_FIBRIL_NETWORK_FRACTURE/night_rounds/r15.json/next",
+   "requirement": "NEXT_ROUND.md: full R11 gamma-aware residual/work from acquired433 polynomials, then actual earlier initial source generator",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_FIBRIL_NETWORK_FRACTURE",
+   "where": "results/LANE_FIBRIL_NETWORK_FRACTURE/night_rounds/r14.json/next",
+   "requirement": "NEXT_ROUND.md: older joint source acquisition from pinned chronological source-goal maps; exact/current physical P=.00045 and old family source separate",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COUPLE_END_TO_END",
+   "where": "results/LANE_COUPLE_END_TO_END/night_rounds/r22.json/files[11]",
+   "requirement": "ACQUISITION_TARGETS_R22.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COUPLE_END_TO_END",
+   "where": "results/LANE_COUPLE_END_TO_END/PORT_R22.json/field_interpretation/initial_stock_capacity_and_exchange",
+   "requirement": "UNMEASURED_IN_ACTUAL_HUMAN_SYSTEM",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COUPLE_END_TO_END",
+   "where": "results/LANE_COUPLE_END_TO_END/night_rounds/r21.json/files[6]",
+   "requirement": "ACQUISITION_TARGETS_R21.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_COUPLE_END_TO_END",
+   "where": "results/LANE_COUPLE_END_TO_END/night_rounds/r20.json/files[10]",
+   "requirement": "ACQUISITION_TARGETS_R20.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_CELLS_FROM_DOMAIN_DATA",
+   "where": "results/LANE_CELLS_FROM_DOMAIN_DATA/night_rounds/r14_BEFORE_DELIVERY_MANIFEST_V1.json/outcome/gate_scope",
+   "requirement": "parent full ATP/source acquisition/species/activecounts and empirical ATP; no capability admission",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_CELLS_FROM_DOMAIN_DATA",
+   "where": "results/LANE_CELLS_FROM_DOMAIN_DATA/night_rounds/r14_BEFORE_DELIVERY_MANIFEST_V1.json/outcome/new_goals_absolute_marginals",
+   "requirement": "NOT_CERTIFIED; only contrast, no shared-baseline acquisition cancellation for absolute quantities",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_CELLS_FROM_DOMAIN_DATA",
+   "where": "results/LANE_CELLS_FROM_DOMAIN_DATA/night_rounds/r14_BEFORE_DELIVERY_MANIFEST_V1.json/outcome/next_operation",
+   "requirement": "absolute netATP/work acquisition defect budgets plus separately directional synthase reward jets; held assay requires matched species/active counts/prep mass before comparison",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_CELLS_FROM_DOMAIN_DATA",
+   "where": "results/LANE_CELLS_FROM_DOMAIN_DATA/night_rounds/r14_BEFORE_DELIVERY_MANIFEST_V1.json/obstacle",
+   "requirement": "absolute reward/source acquisition budgets and matched species/activecount/preparation; ANT-only summary insufficient",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_CELLS_FROM_DOMAIN_DATA",
+   "where": "results/LANE_CELLS_FROM_DOMAIN_DATA/night_rounds/r14_BEFORE_DELIVERY_MANIFEST_V1.json/files[55]",
+   "requirement": "r14/acquire_goal_rounding.py",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_CELLS_FROM_DOMAIN_DATA",
+   "where": "results/LANE_CELLS_FROM_DOMAIN_DATA/PORT_R14.json/ports[1]/scope",
+   "requirement": "only registered1s source/forcing contrast; absolute ledger/acquisition not certified",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_CELLS_FROM_DOMAIN_DATA",
+   "where": "results/LANE_CELLS_FROM_DOMAIN_DATA/night_rounds/r13.json/outcome/source_initial_condition",
+   "requirement": "declared numerical R5state at2.94s bound8/reduced0; source acquisition uncertainty not identified",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_CELLS_FROM_DOMAIN_DATA",
+   "where": "results/LANE_CELLS_FROM_DOMAIN_DATA/night_rounds/r12.json/outcome/next_operation",
+   "requirement": "Mode-affine backward jet with propensity gradients retained, unconditional original RMS to bound quadratic generator residual, and a joint signed counterfactual ANT contrast; exploit common reference/physical-defect cancellation before source/species/activecount acquisition and full ATP ledgers.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/night_rounds/r16.json/outcome/residual_single_packet/locator",
+   "requirement": "CLASSIFICATION_R16_V2.json:unresolved_single_acquisition_packet",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/night_rounds/r16.json/obstacle",
+   "requirement": "50source-role/factor-reference records unresolved; physical clocks/normalizers unacquired and global nonlinear sensitivity enclosure absent",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/night_rounds/r16.json/next",
+   "requirement": "Resolve31role and19factor/reference records as one packet; acquire one independently calibrated physical port for a selected time/observable contract, preserving source normalization/history",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[4]/missing_normalization/level_set_by",
+   "requirement": "finest physical acquisition port, consumer must implement this level",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[4]/missing_normalization/edge_status",
+   "requirement": "SPECIFICATION_ONLY_UNACQUIRED",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[4]/missing_normalization/stopping_argument",
+   "requirement": "This specifies an observable and its physical reference; lower constitutive kinetics/assay and joint uncertainty remain unacquired.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[4]/missing_normalization/abstention_axes/repayability",
+   "requirement": "STRUCTURAL_WITH_CURRENT_OBSERVABLES; additional independent acquisition may change it",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[16]/classification_reason",
+   "requirement": "Dimensionless directly defined fraction/ratio/shape or response coefficient; unmeasured does not imply missing units.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[26]/r4_stratified_trial/recovery",
+   "requirement": "OBSERVATION_OR_MECHANISM_ACQUISITION_REQUIRED",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[37]/classification_reason",
+   "requirement": "A controlled observation duration on an explicitly physical source time axis. Horizon role does not remove its time dimension in the fixed roster; no biological rate is acquired.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[352]/r3_normalization_trial/edge_level_set_by",
+   "requirement": "finest physical observable proposed; not yet acquired or propagated",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[525]/missing_normalization/measurement",
+   "requirement": "Acquire absolute oxygen with control-volume definition in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[525]/r4_stratified_trial/reason",
+   "requirement": "R3 preserved regional availability vs dissolved oxygen vs boundary pressure mismatch. Consumer own P_REF does not acquire producer normalization or boundary transfer.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[526]/missing_normalization/measurement",
+   "requirement": "Acquire absolute ATP and pre-ischemic stock denominator in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[527]/missing_normalization/measurement",
+   "requirement": "Acquire species/stoichiometry-resolved substrate stock in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[528]/missing_normalization/measurement",
+   "requirement": "Acquire absolute lactate in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[529]/missing_normalization/measurement",
+   "requirement": "Acquire pH plus independently measured buffer capacity; pH is not linear acid amount in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[530]/missing_normalization/measurement",
+   "requirement": "Acquire absolute free calcium in same compartment in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[531]/missing_normalization/measurement",
+   "requirement": "Acquire species-specific ROS assay; total ROS label is not molecular identity in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[533]/missing_normalization/measurement",
+   "requirement": "Acquire independent viability assay and denominator in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[534]/missing_normalization/measurement",
+   "requirement": "Acquire fluid and dry/reference tissue volume in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[535]/missing_normalization/measurement",
+   "requirement": "Acquire force at declared preload, stimulation and reference preparation in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[539]/missing_normalization/measurement",
+   "requirement": "Acquire paired local flow/pressure and viability in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[540]/missing_normalization/measurement",
+   "requirement": "Acquire paired local flow/pressure and edema volume in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[542]/missing_normalization/measurement",
+   "requirement": "Acquire paired O2 and ATP turnover, explicit respiratory stoichiometry in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[544]/missing_normalization/measurement",
+   "requirement": "Acquire respiration versus absolute oxygen in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[549]/missing_normalization/measurement",
+   "requirement": "Acquire paired metabolic flux stoichiometry in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[551]/missing_normalization/measurement",
+   "requirement": "Acquire flux plus buffer titration in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[563]/missing_normalization/measurement",
+   "requirement": "Acquire channel-opening versus calcium in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[564]/missing_normalization/measurement",
+   "requirement": "Acquire channel-opening versus named ROS in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[565]/missing_normalization/measurement",
+   "requirement": "Acquire channel-opening versus independently measured ATP deficit in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[566]/missing_normalization/measurement",
+   "requirement": "Acquire ROS-conditioned channel-opening response in the same ischemia/reperfusion preparation; fixed independent reference before any CRP/contractility comparison.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[689]/r3_normalization_trial/missing[2]",
+   "requirement": "joint load/capacity protocol; consumer compensation gamma is separately unacquired",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[698]/r4_stratified_trial/reason",
+   "requirement": "R3 preserved fast/slow memory gauge. Existing physical three-compartment motor-unit fractions describe other states. Consumer only requires invariant capacity products; no independent mf force-loss scale acquired.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[748]/classification_reason",
+   "requirement": "Source explicitly cell volume after change relative to nominal volume; physical reference unit is volume, value unacquired.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[996]/missing_normalization/reference_port",
+   "requirement": "No imposed G-molecule or P-area conversion; acquire physical mediator and supported-capacity operator",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/rows[1026]/r4_stratified_trial/reason",
+   "requirement": "G is a bounded abstract mediator; physical nuclei/CSA and persistent substrate evidence do not identify this load-history mediator. Declaring G an epigenetic or hormone species would change mechanism before scale acquisition.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/normalization_acquisition_gate",
+   "requirement": "FAIL_NO_MATCHED_NORMALIZATIONS_FOR_5_SELECTED_SPECS",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/operational_fatigue_products/status",
+   "requirement": "ALGEBRAIC_ONLY_PHYSICAL_ACQUISITION_UNKNOWN",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/r5_cost_operation/representation_only_repayment",
+   "requirement": "SMALL_CONDITIONAL_CODE_CHANGE; eight core lines; empirical acquisition remains UNKNOWN",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R16_V2.json/r5_physical_state",
+   "requirement": "Q017_PHYSICAL_R5_V2.py; conditional, references required; no physical observation acquired",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/night_rounds/r15.json/outcome/all_concentration_gauge/absolute_scale_unacquired",
+   "requirement": "UNBOUNDED without scale bounds",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/night_rounds/r15.json/obstacle",
+   "requirement": "Unacquired same-sample absolute finalstock/site/affinity and channel-error identity; n3ratio lower/outer gap remains",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R15_V1.json/R11_outcome/static_endpoint_prediction",
+   "requirement": "UNKNOWN_UNACQUIRED_SEPARATE_SITES_TOTALS_AFFINITIES",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R15_V1.json/acquisition_plan",
+   "requirement": "ACQUISITION_PLAN_R11_V1.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/PORT_R15_V1.json/normalization_debt",
+   "requirement": "Joint affinity identity/correlation is required in calibration; physical lower inputs and finite marginal error support remain unacquired",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/night_rounds/r14.json/obstacle",
+   "requirement": "Unacquired independent same-sample physical lower stocks/sites/affinities/error supports; exact targettotal assumption remains",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/night_rounds/r14.json/next",
+   "requirement": "Independent same-matrix total-stock/site/affinity acquisition and shared targettotal/volume/recovery uncertainty",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/night_rounds/r14.json/files[2]",
+   "requirement": "ACQUIRE_RUN_R14_V1.log",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/night_rounds/r14.json/files[3]",
+   "requirement": "ACQUIRE_RUN_R14_V1.stderr",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/night_rounds/r14.json/files[15]",
+   "requirement": "COST_COUNT_ACQUISITION_R14_V1.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/night_rounds/r14.json/files[35]",
+   "requirement": "COUNT_ACQUISITION_R14_V1.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+   "where": "results/LANE_PHENOMENOLOGICAL_UNITS/night_rounds/r14.json/files[89]",
+   "requirement": "acquire_r14.py",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_DISTRIBUTIONAL_GATES",
+   "where": "results/LANE_DISTRIBUTIONAL_GATES/night_rounds/r1.json/obstacle",
+   "requirement": "Unmeasured jointpriors/assays and empiricalclosures; singlecausefix leaves otherdirections; finite horizondoes not identifynever; continuousSOLBENCHrestunknown.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_DISTRIBUTIONAL_GATES",
+   "where": "results/LANE_DISTRIBUTIONAL_GATES/night_rounds/r1.json/next",
+   "requirement": "Receiver-time and assaybound riskport: (z90,n,plateau) jointhealinginformation; rational robust riskbounds over declaredweightclasses; matched lower-level acquisition, retainingexplicitcensor/reachability.",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_DISTRIBUTIONAL_GATES",
+   "where": "results/LANE_DISTRIBUTIONAL_GATES/night_rounds/r1.json/files[15]",
+   "requirement": "r1/ACQUISITION_TARGETS_R1.json",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_DISTRIBUTIONAL_GATES",
+   "where": "results/LANE_DISTRIBUTIONAL_GATES/PORT_R1_V4.json/cells[7]/reference_locator",
+   "requirement": "sibling acquired replay code facit, synthetic physical laws",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_DISTRIBUTIONAL_GATES",
+   "where": "results/LANE_DISTRIBUTIONAL_GATES/PORT_R1_V4.json/limitations[4]",
+   "requirement": "Equal scenario weights and model-choice priors unmeasured; no biological prevalence",
+   "unit_found": null
+  },
+  {
+   "lane": "LANE_DISTRIBUTIONAL_GATES",
+   "where": "results/LANE_DISTRIBUTIONAL_GATES/PORT_R1_V4.json/limitations[7]",
+   "requirement": "Complete research cost UNKNOWN; knownresumeCPU28.1457s excludes interrupted/earlierstage and source acquisitions",
+   "unit_found": null
+  }
+ ]
+}

@@ -1,0 +1,879 @@
+{
+ "why_not_rag": "a word lookup returned 26261 hits on \"angle\" and the plausible ones were dimensionally wrong; unit agreement is a hard constraint that prose similarity is not",
+ "the_two_structures": "the net says which quantity a question needs and carries its gap as a number; the index says whether that quantity in that unit already exists in 13124 reports",
+ "output_is_a_suggestion": "a unit match is necessary and far from sufficient: the right dimension can still be the wrong tissue, which is not automatable",
+ "undetermined_variables_checked": 58,
+ "already_held": 19,
+ "review_state": "PENDING_INDEPENDENT_REVIEW",
+ "rows": [
+  {
+   "edge": "T-E3-stromal_thickness-vs-refractive_power",
+   "variable": "refractive_power",
+   "unit": "D",
+   "candidates_in_our_corpus": 49,
+   "with_external_locator": 0,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "families.Q115.operator_a.parameters.transport_birth_fraction.per_observable.uptake_proxy_m",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    },
+    {
+     "quantity": "families.Q115.operator_a.parameters.ta_division_probability.per_observable.uptake_proxy_mm",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    },
+    {
+     "quantity": "families.Q115.operator_a.parameters.transport_birth_fraction.per_observable.conductance_mS",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    }
+   ]
+  },
+  {
+   "edge": "T-E3-stromal_thickness-vs-refractive_power",
+   "variable": "stromal_thickness",
+   "unit": "um",
+   "candidates_in_our_corpus": 224,
+   "with_external_locator": 16,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "key_measured_numbers.S3_8kprr4z3s_surface_gel_layer_thickness_um.covalently-crosslinked, g",
+     "value": 10.0,
+     "unit": "um",
+     "job": "BT-DAT-Q055",
+     "locator": "10.1002/jbm.b.31568"
+    },
+    {
+     "quantity": "key_measured_numbers.S3_8kprr4z3s_surface_gel_layer_thickness_um.covalently-crosslinked, P",
+     "value": 26.0,
+     "unit": "um",
+     "job": "BT-DAT-Q055",
+     "locator": "10.1002/jbm.b.31568"
+    },
+    {
+     "quantity": "key_measured_numbers.S3_8kprr4z3s_surface_gel_layer_thickness_um.covalently-crosslinked, g",
+     "value": 1.0,
+     "unit": "um",
+     "job": "BT-DAT-Q055",
+     "locator": "10.1002/jbm.b.31568"
+    }
+   ]
+  },
+  {
+   "edge": "T-E3-stromal_thickness-vs-refractive_power",
+   "variable": "stromal_index",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "T-E4-surface_allocation-vs-refractive_power",
+   "variable": "refractive_power",
+   "unit": "D",
+   "candidates_in_our_corpus": 49,
+   "with_external_locator": 0,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "families.Q115.operator_a.parameters.transport_birth_fraction.per_observable.uptake_proxy_m",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    },
+    {
+     "quantity": "families.Q115.operator_a.parameters.ta_division_probability.per_observable.uptake_proxy_mm",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    },
+    {
+     "quantity": "families.Q115.operator_a.parameters.transport_birth_fraction.per_observable.conductance_mS",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    }
+   ]
+  },
+  {
+   "edge": "T-E4-surface_allocation-vs-refractive_power",
+   "variable": "surface_allocation",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "T-E6-pupil_diameter-vs-refractive_power",
+   "variable": "pupil_diameter",
+   "unit": "um",
+   "candidates_in_our_corpus": 56,
+   "with_external_locator": 54,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "sample_load_reports.4708376_snow_bunting_per_fibre.derivations.model_A0_equivalent_diamete",
+     "value": 71.62,
+     "unit": "um",
+     "job": "BT-DAT-Q127",
+     "locator": "10.5061/dryad.gxd2547kx"
+    },
+    {
+     "quantity": "key_numbers.infeasibility_routes.A_shrink_pore_diameter_keep_D0.declared_min_pore_diameter",
+     "value": 600.0,
+     "unit": "um",
+     "job": "BT-FW48-AUTO-722aea2ebb2e8a",
+     "locator": "10.1056/NEJMoa1109400"
+    },
+    {
+     "quantity": "key_numbers.infeasibility_routes.A_shrink_pore_diameter_keep_D0.required_pore_diameter_um",
+     "value": 1.6271833632537442,
+     "unit": "um",
+     "job": "BT-FW48-AUTO-722aea2ebb2e8a",
+     "locator": "10.1056/NEJMoa1109400"
+    }
+   ]
+  },
+  {
+   "edge": "T-E6-pupil_diameter-vs-refractive_power",
+   "variable": "refractive_power",
+   "unit": "D",
+   "candidates_in_our_corpus": 49,
+   "with_external_locator": 0,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "families.Q115.operator_a.parameters.transport_birth_fraction.per_observable.uptake_proxy_m",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    },
+    {
+     "quantity": "families.Q115.operator_a.parameters.ta_division_probability.per_observable.uptake_proxy_mm",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    },
+    {
+     "quantity": "families.Q115.operator_a.parameters.transport_birth_fraction.per_observable.conductance_mS",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    }
+   ]
+  },
+  {
+   "edge": "T-E9-lattice_order-vs-scatter_tail_fraction",
+   "variable": "lattice_order",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "T-E9-lattice_order-vs-scatter_tail_fraction",
+   "variable": "scatter_tail_fraction",
+   "unit": "1",
+   "candidates_in_our_corpus": 82775,
+   "with_external_locator": 11962,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "external_referent.fourth_direction_check_on_the_cohort_hypothesis.implied_compartmental_sh",
+     "value": 0.2997639716874528,
+     "unit": "1",
+     "job": "BT-FW48-AUTO-e8e7db02888809",
+     "locator": "10.1089/aivt.2017.0035"
+    },
+    {
+     "quantity": "external_referent.fourth_direction_check_on_the_cohort_hypothesis.implied_compartmental_sh",
+     "value": 0.1940386771761661,
+     "unit": "1",
+     "job": "BT-FW48-AUTO-e8e7db02888809",
+     "locator": "10.1089/aivt.2017.0035"
+    },
+    {
+     "quantity": "sensitivity_plus_minus_50_percent[0].variants.minus_50_percent.percent_change_from_baselin",
+     "value": -16.539281452940884,
+     "unit": "1",
+     "job": "BT-HX-Q113",
+     "locator": "10.1039/D5FO03083H"
+    }
+   ]
+  },
+  {
+   "edge": "T-E10-delivered_energy-vs-removed_mass",
+   "variable": "delivered_energy",
+   "unit": "J",
+   "candidates_in_our_corpus": 774,
+   "with_external_locator": 602,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "sensitivity.ranked_parameters[0].variations.minus_50_percent.changes.fracture_energy_j",
+     "value": -0.7499976796227592,
+     "unit": "J",
+     "job": "BT-HX-Q089-V",
+     "locator": "10.1111/j.1745-4603.2011.00316.x"
+    },
+    {
+     "quantity": "sensitivity.ranked_parameters[1].variations.minus_50_percent.changes.fracture_energy_j",
+     "value": -1.0,
+     "unit": "J",
+     "job": "BT-HX-Q089-V",
+     "locator": "10.1111/j.1745-4603.2011.00316.x"
+    },
+    {
+     "quantity": "sensitivity.ranked_parameters[2].variations.minus_50_percent.changes.fracture_energy_j",
+     "value": -1.0,
+     "unit": "J",
+     "job": "BT-HX-Q089-V",
+     "locator": "10.1111/j.1745-4603.2011.00316.x"
+    }
+   ]
+  },
+  {
+   "edge": "T-E10-delivered_energy-vs-removed_mass",
+   "variable": "removed_mass",
+   "unit": "kg",
+   "candidates_in_our_corpus": 18,
+   "with_external_locator": 5,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "outputs_default_sensory.mass_balance_residual.value",
+     "value": 0.0,
+     "unit": "kg",
+     "job": "BT-INT-Q093",
+     "locator": "10.5281/zenodo.20112380"
+    },
+    {
+     "quantity": "parameter_table.body_mass_kg.value",
+     "value": 70.0,
+     "unit": "kg",
+     "job": "BT-HX-Q012-V",
+     "locator": "10.1038/nm.3145"
+    },
+    {
+     "quantity": "parameter_table.body_mass_kg.value",
+     "value": 70.0,
+     "unit": "kg",
+     "job": "BT-HX-Q012",
+     "locator": "10.1038/nm.3145"
+    }
+   ]
+  },
+  {
+   "edge": "T-E11-surface_temperature_history-vs-depth_temperature",
+   "variable": "depth_temperature",
+   "unit": "K",
+   "candidates_in_our_corpus": 488,
+   "with_external_locator": 421,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "interface_quantities.supply_side_q077.topologies_at_310K.branched.temperature_K",
+     "value": 310.0,
+     "unit": "K",
+     "job": "BT-DATX-Q031-Q077",
+     "locator": "10.1016/S0006-3495(96"
+    },
+    {
+     "quantity": "interface_quantities.supply_side_q077.topologies_at_310K.one_cj.temperature_K",
+     "value": 310.0,
+     "unit": "K",
+     "job": "BT-DATX-Q031-Q077",
+     "locator": "10.1016/S0006-3495(96"
+    },
+    {
+     "quantity": "interface_quantities.supply_side_q077.topologies_at_310K.two_cj.temperature_K",
+     "value": 310.0,
+     "unit": "K",
+     "job": "BT-DATX-Q031-Q077",
+     "locator": "10.1016/S0006-3495(96"
+    }
+   ]
+  },
+  {
+   "edge": "T-E11-surface_temperature_history-vs-depth_temperature",
+   "variable": "surface_temperature_history",
+   "unit": "K",
+   "candidates_in_our_corpus": 488,
+   "with_external_locator": 419,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "interface_quantities.supply_side_q077.topologies_at_310K.branched.temperature_K",
+     "value": 310.0,
+     "unit": "K",
+     "job": "BT-DATX-Q031-Q077",
+     "locator": "10.1016/S0006-3495(96"
+    },
+    {
+     "quantity": "interface_quantities.supply_side_q077.topologies_at_310K.one_cj.temperature_K",
+     "value": 310.0,
+     "unit": "K",
+     "job": "BT-DATX-Q031-Q077",
+     "locator": "10.1016/S0006-3495(96"
+    },
+    {
+     "quantity": "interface_quantities.supply_side_q077.topologies_at_310K.two_cj.temperature_K",
+     "value": 310.0,
+     "unit": "K",
+     "job": "BT-DATX-Q031-Q077",
+     "locator": "10.1016/S0006-3495(96"
+    }
+   ]
+  },
+  {
+   "edge": "T-E12-cem43_thermal_dose-vs-removed_mass",
+   "variable": "cem43_thermal_dose",
+   "unit": "h",
+   "candidates_in_our_corpus": 144,
+   "with_external_locator": 28,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "S8_inversions.tracer_dose_requirement.rows[10].t12_fit_h",
+     "value": NaN,
+     "unit": "h",
+     "job": "BT-FW48-AUTO-af2f53c6769149",
+     "locator": "10.1172/JCI116336"
+    },
+    {
+     "quantity": "S8_inversions.tracer_dose_requirement.rows[11].t12_fit_h",
+     "value": NaN,
+     "unit": "h",
+     "job": "BT-FW48-AUTO-af2f53c6769149",
+     "locator": "10.1172/JCI116336"
+    },
+    {
+     "quantity": "S8_inversions.tracer_dose_requirement.rows[12].t12_fit_h",
+     "value": NaN,
+     "unit": "h",
+     "job": "BT-FW48-AUTO-af2f53c6769149",
+     "locator": "10.1172/JCI116336"
+    }
+   ]
+  },
+  {
+   "edge": "T-E12-cem43_thermal_dose-vs-removed_mass",
+   "variable": "removed_mass",
+   "unit": "kg",
+   "candidates_in_our_corpus": 18,
+   "with_external_locator": 5,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "outputs_default_sensory.mass_balance_residual.value",
+     "value": 0.0,
+     "unit": "kg",
+     "job": "BT-INT-Q093",
+     "locator": "10.5281/zenodo.20112380"
+    },
+    {
+     "quantity": "parameter_table.body_mass_kg.value",
+     "value": 70.0,
+     "unit": "kg",
+     "job": "BT-HX-Q012-V",
+     "locator": "10.1038/nm.3145"
+    },
+    {
+     "quantity": "parameter_table.body_mass_kg.value",
+     "value": 70.0,
+     "unit": "kg",
+     "job": "BT-HX-Q012",
+     "locator": "10.1038/nm.3145"
+    }
+   ]
+  },
+  {
+   "edge": "T-E16-mac_concentration-vs-self_surface_growth_rate",
+   "variable": "mac_concentration",
+   "unit": "nM",
+   "candidates_in_our_corpus": 0,
+   "with_external_locator": 0,
+   "verdict": "NOT_IN_CORPUS",
+   "top": []
+  },
+  {
+   "edge": "T-E16-mac_concentration-vs-self_surface_growth_rate",
+   "variable": "self_surface_growth_rate",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "T-E18-passage_number-vs-needle_forward_friction",
+   "variable": "needle_forward_friction",
+   "unit": "N",
+   "candidates_in_our_corpus": 0,
+   "with_external_locator": 0,
+   "verdict": "NOT_IN_CORPUS",
+   "top": []
+  },
+  {
+   "edge": "T-E18-passage_number-vs-needle_forward_friction",
+   "variable": "passage_number",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "T-E19-epithelial_front_velocity-vs-epithelial_front_velocity",
+   "variable": "epithelial_front_velocity",
+   "unit": "um/h",
+   "candidates_in_our_corpus": 22,
+   "with_external_locator": 22,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "front_velocity_external_check.sensitivity_of_the_magnitude[0].v_um_h",
+     "value": 30.0,
+     "unit": "um/h",
+     "job": "BT-FW48-AUTO-fe4847f966843b",
+     "locator": "10.1096/fj.201601002"
+    },
+    {
+     "quantity": "front_velocity_external_check.sensitivity_of_the_magnitude[1].v_um_h",
+     "value": 10.0,
+     "unit": "um/h",
+     "job": "BT-FW48-AUTO-fe4847f966843b",
+     "locator": "10.1096/fj.201601002"
+    },
+    {
+     "quantity": "front_velocity_external_check.sensitivity_of_the_magnitude[2].v_um_h",
+     "value": 9.00900900900901,
+     "unit": "um/h",
+     "job": "BT-FW48-AUTO-fe4847f966843b",
+     "locator": "10.1096/fj.201601002"
+    }
+   ]
+  },
+  {
+   "edge": "T-E21-axial_length-vs-refractive_power",
+   "variable": "axial_length",
+   "unit": "mm",
+   "candidates_in_our_corpus": 37557,
+   "with_external_locator": 922,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "voxel_length_established_before_metric_geometry.witness_3_publisher_own_distance_transform",
+     "value": 0.4719892286906557,
+     "unit": "mm",
+     "job": "BT-DATQ-Q052",
+     "locator": "10.5281/zenodo.11061947"
+    },
+    {
+     "quantity": "voxel_length_established_before_metric_geometry.witness_3_publisher_own_distance_transform",
+     "value": 0.03518,
+     "unit": "mm",
+     "job": "BT-DATQ-Q052",
+     "locator": "10.5281/zenodo.11061947"
+    },
+    {
+     "quantity": "voxel_length_established_before_metric_geometry.witness_3_publisher_own_distance_transform",
+     "value": 0.07036,
+     "unit": "mm",
+     "job": "BT-DATQ-Q052",
+     "locator": "10.5281/zenodo.11061947"
+    }
+   ]
+  },
+  {
+   "edge": "T-E21-axial_length-vs-refractive_power",
+   "variable": "refractive_power",
+   "unit": "D",
+   "candidates_in_our_corpus": 49,
+   "with_external_locator": 0,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "families.Q115.operator_a.parameters.transport_birth_fraction.per_observable.uptake_proxy_m",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    },
+    {
+     "quantity": "families.Q115.operator_a.parameters.ta_division_probability.per_observable.uptake_proxy_mm",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    },
+    {
+     "quantity": "families.Q115.operator_a.parameters.transport_birth_fraction.per_observable.conductance_mS",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    }
+   ]
+  },
+  {
+   "edge": "T-E22-iol_label_power-vs-implant_power",
+   "variable": "iol_label_power",
+   "unit": "D",
+   "candidates_in_our_corpus": 53,
+   "with_external_locator": 0,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "families.Q115.operator_a.parameters.transport_birth_fraction.per_observable.uptake_proxy_m",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    },
+    {
+     "quantity": "families.Q115.operator_a.parameters.ta_division_probability.per_observable.uptake_proxy_mm",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    },
+    {
+     "quantity": "families.Q115.operator_a.parameters.transport_birth_fraction.per_observable.conductance_mS",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    }
+   ]
+  },
+  {
+   "edge": "T-E22-iol_label_power-vs-implant_power",
+   "variable": "implant_power",
+   "unit": "D",
+   "candidates_in_our_corpus": 49,
+   "with_external_locator": 0,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "families.Q115.operator_a.parameters.transport_birth_fraction.per_observable.uptake_proxy_m",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    },
+    {
+     "quantity": "families.Q115.operator_a.parameters.ta_division_probability.per_observable.uptake_proxy_mm",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    },
+    {
+     "quantity": "families.Q115.operator_a.parameters.transport_birth_fraction.per_observable.conductance_mS",
+     "value": 0.010049414618355113,
+     "unit": "D",
+     "job": "BT-FW48-AUTO-14bfb7a83ae818",
+     "locator": null
+    }
+   ]
+  },
+  {
+   "edge": "H-E1-ambitious_history_inverse",
+   "variable": "ambitious_history_inverse",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E2-ambitious_query_graph",
+   "variable": "ambitious_query_graph",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E3-anchor_cells",
+   "variable": "anchor_cells",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E4-anchor_prediction",
+   "variable": "anchor_prediction",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E5-capacity_from_tmao",
+   "variable": "capacity_from_tmao",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E6-cells_from_domain_data",
+   "variable": "cells_from_domain_data",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E7-coarsest_sufficient",
+   "variable": "coarsest_sufficient",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E8-couple_end_to_end",
+   "variable": "couple_end_to_end",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E9-ct_exterior_interior",
+   "variable": "ct_exterior_interior",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E10-ct_organ_depth",
+   "variable": "ct_organ_depth",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E11-dej_bond_inventory",
+   "variable": "dej_bond_inventory",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E12-distributional_gates",
+   "variable": "distributional_gates",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E13-external_model_run",
+   "variable": "external_model_run",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E14-external_solver",
+   "variable": "external_solver",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E15-fibril_network_fracture",
+   "variable": "fibril_network_fracture",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E16-function_graph_densify",
+   "variable": "function_graph_densify",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E17-history_representation",
+   "variable": "history_representation",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E18-immune_setpoint",
+   "variable": "immune_setpoint",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E19-laser_forms",
+   "variable": "laser_forms",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E20-lens_resolution",
+   "variable": "lens_resolution",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E21-phenomenological_units",
+   "variable": "phenomenological_units",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E22-quantity_key_bridge",
+   "variable": "quantity_key_bridge",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E23-registration_scope",
+   "variable": "registration_scope",
+   "unit": "1",
+   "candidates_in_our_corpus": 127,
+   "with_external_locator": 7,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "the_decisive_negative.scoped_to_OCT2_bearing_apical_membrane.induced_CL_Met_width_ratio",
+     "value": 3.286130228161498,
+     "unit": "1",
+     "job": "BT-FW48-AUTO-bfe68c4ad3e232",
+     "locator": "10.1046/j.1523-1755.1998.06742.x"
+    },
+    {
+     "quantity": "q006_geometry_registration.measured_geometry_run.core_fraction",
+     "value": 0.6638721915830927,
+     "unit": "1",
+     "job": "BT-DATX-Q006-Q007",
+     "locator": "10.1016/j.bbamem.2011.07.022"
+    },
+    {
+     "quantity": "R5_scope_refutation.explicit_counterexample.transport_ratio",
+     "value": 0.555852284183711,
+     "unit": "1",
+     "job": "BT-FW48-REVIEW-783625b063418e",
+     "locator": "10.1096/fj.201601002"
+    }
+   ]
+  },
+  {
+   "edge": "H-E24-robot_fleet_foundation",
+   "variable": "robot_fleet_foundation",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E25-skin_toughness_gap",
+   "variable": "skin_toughness_gap",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E26-summary_repair",
+   "variable": "summary_repair",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E27-surgical_bindings",
+   "variable": "surgical_bindings",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E28-surgical_incision",
+   "variable": "surgical_incision",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E29-surgical_response",
+   "variable": "surgical_response",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E30-surgical_synthesis",
+   "variable": "surgical_synthesis",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E31-swarm_ports_integration",
+   "variable": "swarm_ports_integration",
+   "unit": "1",
+   "candidates_in_our_corpus": 13,
+   "with_external_locator": 0,
+   "verdict": "ALREADY_HELD_CHECK_BEFORE_SEARCHING",
+   "top": [
+    {
+     "quantity": "reject_rules.R3_ablation_gap_exceeds_delta_dec.abl_under_reports_covariance_ratio",
+     "value": 0.07270485086340966,
+     "unit": "1",
+     "job": "BT-FW48-SEED-417",
+     "locator": null
+    },
+    {
+     "quantity": "matched_accuracy.state_ports.S2_turnover_pool_Nstar.jaccard_vs_ratio",
+     "value": 1.0,
+     "unit": "1",
+     "job": "BT-FW48-AUTO-004c1d6d28dbb1",
+     "locator": null
+    },
+    {
+     "quantity": "details.q146_compartment_audit.ports.conchae.exact_null_fraction",
+     "value": 0.16999999999999993,
+     "unit": "1",
+     "job": "BT-FW48-AUTO-868f9c09cfb005",
+     "locator": null
+    }
+   ]
+  },
+  {
+   "edge": "H-E32-tissue_behaviour_expert",
+   "variable": "tissue_behaviour_expert",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E33-wound_crosslink_chemistry",
+   "variable": "wound_crosslink_chemistry",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  },
+  {
+   "edge": "H-E34-xseed_review",
+   "variable": "xseed_review",
+   "unit": null,
+   "verdict": "NO_UNIT_IN_NAME",
+   "note": "the variable name carries no dimension, so it cannot be matched dimensionally; that is a defect in the name"
+  }
+ ],
+ "verdict_on_this_version": "mostly noise. 19 of 58 got a dimensional hit but pupil_diameter matched a snow-bunting fibre report, refractive_power matched a transport parameter, scatter_tail_fraction matched 82775 dimensionless rows. Unit agreement is necessary and discriminates nothing for common units.",
+ "where_the_fix_belongs": "write time, not read time: 37 of 58 variables carry no dimension in the name, and an index reverse-engineered from key names cannot recover meaning the writer never recorded. A report should declare its quantities with unit, tissue and method.",
+ "answer_to_rag": "neither RAG nor a second graph. A word lookup returned 26261 hits on angle; semantic retrieval over prose optimises for plausible text, which is the failure mode that costs most here because a plausible wrong match gets consumed. The net is the question side and already works; the answer side needs declared quantities at the source."
+}

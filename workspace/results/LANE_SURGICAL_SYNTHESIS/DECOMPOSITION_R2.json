@@ -1,0 +1,41 @@
+{
+  "parent_goals": [
+    "GRAPH_INVERSE",
+    "MULTIPHYSICS"
+  ],
+  "decision": "Locate strength-loss port and next acquisition, without fitting new biology",
+  "leaves": [
+    {
+      "name": "Isotropic projection/factorial attribution",
+      "status": "DERIVED_UNDER_ASSUMPTIONS",
+      "stopping": "Existing tensors isotropic; no microscopic force law needed to diagnose algebra",
+      "test": "factorization residual and exact R3 reconstruction"
+    },
+    {
+      "name": "FV and UIM birth/removal ledgers",
+      "status": "CONSTITUTIVE_CLOSURE",
+      "stopping": "Read existing source and cancellation of U/I/M transitions; absolute tissue mass unknown",
+      "test": "k_deposit substitution saturates FV C and starves observer"
+    },
+    {
+      "name": "R3 HP/rat-strength curves",
+      "status": "EXTERNALLY_MEASURED",
+      "stopping": "Separate source assays and inherited modelfit, no cross-cohort common posterior",
+      "test": "Preserved seven independent-day row scores"
+    },
+    {
+      "name": "Noisy experimental design",
+      "status": "DERIVED_UNDER_ASSUMPTIONS",
+      "stopping": "Finite synthetic prior and Gaussian moment planning; native posterior unspecified",
+      "test": "Scalar analytic update, shared-calibration regression and heldout estimator"
+    },
+    {
+      "name": "Native chemical/traction/viability observation maps and labcost",
+      "status": "UNKNOWN",
+      "stopping": "No matched measurements or identified conversion; retain null",
+      "test": "Acquire fixed reference and registered assay map; do not infer from model SD"
+    }
+  ],
+  "source_context": "Read peer nightR1 NEXT_ROUND and receipts; matched conventional kernels are TIE, no certified coupledcostgain transferable",
+  "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

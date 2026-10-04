@@ -1,0 +1,487 @@
+{
+  "id": "BT-HX-Q146",
+  "model": "first-principles nasal route + GI leg + 1-compartment plasma",
+  "dimension_audit": {
+    "k_epi": "1L-1T == 1L-1T",
+    "v_clear": "1L-1T == 1L-1T",
+    "S": "2L == 2L",
+    "C": "-3L1N == -3L1N",
+    "J_epi = k_epi*a*S*C": "-1T1N == -1T1N",
+    "F_sw = chi*v*S*C": "-1T1N == -1T1N",
+    "R_met = f_met*J_epi": "-1T1N == -1T1N",
+    "N": "1N == 1N",
+    "k_gi": "-1T == -1T",
+    "k_e": "-1T == -1T",
+    "C_p = N/V": "-3L1N == -3L1N",
+    "Pe = k_epi*a/v": "1 ==",
+    "lambda = (k*a+v)/d": "-1T ==",
+    "flux = v*S*C": "-1T1N ==",
+    "f_abs = k*a/(k*a+v)": "1 =="
+  },
+  "params": {
+    "dose_mg": 1.0,
+    "MW": 162.23,
+    "V_liq_m3": 1e-07,
+    "T_dep_s": 1.0,
+    "k_epi": 1e-05,
+    "v_clear_mm_min": 6.6,
+    "v_vest_factor": 5.0,
+    "d_min_m": 1e-05,
+    "f_met": 0.1,
+    "deposition": "see DEPOSITION",
+    "k_gi_h": 1.55,
+    "F_oral": 0.4,
+    "Q_h_liver_L_h": 90.0,
+    "CL_systemic_L_h": 49.2,
+    "V_ss_L": 196.0,
+    "t_half_h": 2.0,
+    "dose_iv_mg": 0.7,
+    "t_max_h": 12.0,
+    "n_out": 2001
+  },
+  "deposition_patterns": {
+    "septum": {
+      "vestibulum": 0.02,
+      "olfactory": 0.03,
+      "turbinate_mid": 0.35,
+      "turbinate_low": 0.58,
+      "nasopharynx": 0.02
+    },
+    "conchae": {
+      "vestibulum": 0.02,
+      "olfactory": 0.01,
+      "turbinate_mid": 0.32,
+      "turbinate_low": 0.5,
+      "nasopharynx": 0.15
+    },
+    "spray": {
+      "vestibulum": 0.3,
+      "olfactory": 0.01,
+      "turbinate_mid": 0.19,
+      "turbinate_low": 0.49,
+      "nasopharynx": 0.01
+    }
+  },
+  "regions": [
+    {
+      "name": "vestibulum",
+      "S_cm2": 10.0,
+      "a_abs": 0.0,
+      "v_clear_mm_min": 33.0,
+      "chi_swallow": 0.15
+    },
+    {
+      "name": "olfactory",
+      "S_cm2": 15.0,
+      "a_abs": 1.0,
+      "v_clear_mm_min": 6.6,
+      "chi_swallow": 1.0
+    },
+    {
+      "name": "turbinate_mid",
+      "S_cm2": 50.0,
+      "a_abs": 1.0,
+      "v_clear_mm_min": 6.6,
+      "chi_swallow": 1.0
+    },
+    {
+      "name": "turbinate_low",
+      "S_cm2": 80.0,
+      "a_abs": 1.0,
+      "v_clear_mm_min": 6.6,
+      "chi_swallow": 1.0
+    },
+    {
+      "name": "nasopharynx",
+      "S_cm2": 10.0,
+      "a_abs": 0.0,
+      "v_clear_mm_min": 6.6,
+      "chi_swallow": 1.0
+    }
+  ],
+  "predicted": {
+    "septum": {
+      "mode": "septum",
+      "deposition": {
+        "vestibulum": 0.02,
+        "olfactory": 0.03,
+        "turbinate_mid": 0.35,
+        "turbinate_low": 0.58,
+        "nasopharynx": 0.02
+      },
+      "film_thickness_um": {
+        "vestibulum": 10.0,
+        "olfactory": 10.0,
+        "turbinate_mid": 10.0,
+        "turbinate_low": 10.0,
+        "nasopharynx": 10.0
+      },
+      "Pe_k_epi_a_over_v": {
+        "vestibulum": 0.0,
+        "olfactory": 0.09090909090909091,
+        "turbinate_mid": 0.09090909090909091,
+        "turbinate_low": 0.09090909090909091,
+        "nasopharynx": 0.0
+      },
+      "f_abs_region": {
+        "vestibulum": 0.0,
+        "olfactory": 0.08333333333333334,
+        "turbinate_mid": 0.08333333333333334,
+        "turbinate_low": 0.08333333333333334,
+        "nasopharynx": 0.0
+      },
+      "f_swallow_region": {
+        "vestibulum": 0.15000000000000002,
+        "olfactory": 0.9166666666666665,
+        "turbinate_mid": 0.9166666666666665,
+        "turbinate_low": 0.9166666666666665,
+        "nasopharynx": 1.0
+      },
+      "f_external_region": {
+        "vestibulum": 0.85,
+        "olfactory": 0.0,
+        "turbinate_mid": 0.0,
+        "turbinate_low": 0.0,
+        "nasopharynx": 0.0
+      },
+      "region_fraction_sum_max_dev": 1.1102230246251565e-16,
+      "molar_balance_residual": 1.58119254934711e-11,
+      "F_abs_total": 0.5835173496758869,
+      "F_swallow_only_ceiling": 0.36119999999999997,
+      "F_nasal_route_contribution": 0.2223173496758869,
+      "route": {
+        "nasal_absorbed_mol": 4.931283068081981e-07,
+        "nasal_metabolised_mol": 4.931283068081981e-08,
+        "nasal_to_blood_mol": 4.4381547612737836e-07,
+        "swallowed_mol": 5.566185763097533e-06,
+        "swallowed_fraction_of_dose": 0.9030023163473127,
+        "external_loss_mol": 1.0478976519673462e-07,
+        "gi_absorbed_mol": 5.5661848953604685e-06,
+        "gi_to_blood_mol": 4.072818216117416e-06,
+        "n_left_in_nose_mol": 0.0
+      },
+      "plasma": {
+        "AUC_mol_s_per_m3": 0.1842290205744272,
+        "AUC_mol_h_per_m3": 5.1174727937340887e-05,
+        "AUC_ng_h_per_mL": 8.302076113274811,
+        "AUC_iv_mol_h_per_m3": 8.770043935414389e-05,
+        "AUC_iv_ng_h_per_mL": 14.227642276422761,
+        "Cmax_ng_per_mL": 1.5587051877315723,
+        "tmax_min": 76.9428849441403,
+        "V_ss_L": 196.0,
+        "CL_L_h": 49.2,
+        "k_e_h": 0.2510204081632653,
+        "t_half_h_model": 2.7613180363770176,
+        "E_H_wellstirred": 0.45333333333333325,
+        "F_gi_absorption_implied": 0.7317073170731707
+      },
+      "local_free_conc": {
+        "C_free_max_mol_per_m3": 44.68963816803304,
+        "C_free_max_mg_per_mL": 7250.0,
+        "C_free_initial_uniform_mol_per_m3": 44.68963816803304,
+        "AUC_local_mol_s_per_m3": 13406.92584134788
+      }
+    },
+    "conchae": {
+      "mode": "conchae",
+      "deposition": {
+        "vestibulum": 0.02,
+        "olfactory": 0.01,
+        "turbinate_mid": 0.32,
+        "turbinate_low": 0.5,
+        "nasopharynx": 0.15
+      },
+      "film_thickness_um": {
+        "vestibulum": 10.0,
+        "olfactory": 10.0,
+        "turbinate_mid": 10.0,
+        "turbinate_low": 10.0,
+        "nasopharynx": 10.0
+      },
+      "Pe_k_epi_a_over_v": {
+        "vestibulum": 0.0,
+        "olfactory": 0.09090909090909091,
+        "turbinate_mid": 0.09090909090909091,
+        "turbinate_low": 0.09090909090909091,
+        "nasopharynx": 0.0
+      },
+      "f_abs_region": {
+        "vestibulum": 0.0,
+        "olfactory": 0.08333333333333334,
+        "turbinate_mid": 0.08333333333333334,
+        "turbinate_low": 0.08333333333333334,
+        "nasopharynx": 0.0
+      },
+      "f_swallow_region": {
+        "vestibulum": 0.15000000000000002,
+        "olfactory": 0.9166666666666665,
+        "turbinate_mid": 0.9166666666666665,
+        "turbinate_low": 0.9166666666666665,
+        "nasopharynx": 1.0
+      },
+      "f_external_region": {
+        "vestibulum": 0.85,
+        "olfactory": 0.0,
+        "turbinate_mid": 0.0,
+        "turbinate_low": 0.0,
+        "nasopharynx": 0.0
+      },
+      "region_fraction_sum_max_dev": 1.1102230246251565e-16,
+      "molar_balance_residual": 1.5811925566315934e-11,
+      "F_abs_total": 0.5761009780229794,
+      "F_swallow_only_ceiling": 0.36553333333333327,
+      "F_nasal_route_contribution": 0.21056764468964617,
+      "route": {
+        "nasal_absorbed_mol": 4.2635051526126013e-07,
+        "nasal_metabolised_mol": 4.2635051526126016e-08,
+        "nasal_to_blood_mol": 3.8371546373513413e-07,
+        "swallowed_mol": 5.6329635546445445e-06,
+        "swallowed_fraction_of_dose": 0.9138356774699843,
+        "external_loss_mol": 1.0478976519673379e-07,
+        "gi_absorbed_mol": 5.632962676496654e-06,
+        "gi_to_blood_mol": 4.121680007192674e-06,
+        "n_left_in_nose_mol": 0.0
+      },
+      "plasma": {
+        "AUC_mol_s_per_m3": 0.18188751198588224,
+        "AUC_mol_h_per_m3": 5.0524308884967286e-05,
+        "AUC_ng_h_per_mL": 8.196558630408243,
+        "AUC_iv_mol_h_per_m3": 8.770043935414389e-05,
+        "AUC_iv_ng_h_per_mL": 14.227642276422761,
+        "Cmax_ng_per_mL": 1.5382380631655388,
+        "tmax_min": 77.85380726493872,
+        "V_ss_L": 196.0,
+        "CL_L_h": 49.2,
+        "k_e_h": 0.2510204081632653,
+        "t_half_h_model": 2.7613180363770176,
+        "E_H_wellstirred": 0.45333333333333325,
+        "F_gi_absorption_implied": 0.7317073170731707
+      },
+      "local_free_conc": {
+        "C_free_max_mol_per_m3": 92.46132034765458,
+        "C_free_max_mg_per_mL": 15000.000000000002,
+        "C_free_initial_uniform_mol_per_m3": 92.46132034765458,
+        "AUC_local_mol_s_per_m3": 30260.146099594156
+      }
+    },
+    "spray": {
+      "mode": "spray",
+      "deposition": {
+        "vestibulum": 0.3,
+        "olfactory": 0.01,
+        "turbinate_mid": 0.19,
+        "turbinate_low": 0.49,
+        "nasopharynx": 0.01
+      },
+      "film_thickness_um": {
+        "vestibulum": 10.0,
+        "olfactory": 10.0,
+        "turbinate_mid": 10.0,
+        "turbinate_low": 10.0,
+        "nasopharynx": 10.0
+      },
+      "Pe_k_epi_a_over_v": {
+        "vestibulum": 0.0,
+        "olfactory": 0.09090909090909091,
+        "turbinate_mid": 0.09090909090909091,
+        "turbinate_low": 0.09090909090909091,
+        "nasopharynx": 0.0
+      },
+      "f_abs_region": {
+        "vestibulum": 0.0,
+        "olfactory": 0.08333333333333334,
+        "turbinate_mid": 0.08333333333333334,
+        "turbinate_low": 0.08333333333333334,
+        "nasopharynx": 0.0
+      },
+      "f_swallow_region": {
+        "vestibulum": 0.15000000000000002,
+        "olfactory": 0.9166666666666665,
+        "turbinate_mid": 0.9166666666666665,
+        "turbinate_low": 0.9166666666666665,
+        "nasopharynx": 1.0
+      },
+      "f_external_region": {
+        "vestibulum": 0.85,
+        "olfactory": 0.0,
+        "turbinate_mid": 0.0,
+        "turbinate_low": 0.0,
+        "nasopharynx": 0.0
+      },
+      "region_fraction_sum_max_dev": 1.1102230246251565e-16,
+      "molar_balance_residual": 1.58119254934711e-11,
+      "F_abs_total": 0.44009523300114217,
+      "F_swallow_only_ceiling": 0.27499999999999997,
+      "F_nasal_route_contribution": 0.1650952330011422,
+      "route": {
+        "nasal_absorbed_mol": 3.5443597051838944e-07,
+        "nasal_metabolised_mol": 3.544359705183894e-08,
+        "nasal_to_blood_mol": 3.189923734665505e-07,
+        "swallowed_mol": 4.2378213866329206e-06,
+        "swallowed_fraction_of_dose": 0.6875017635534586,
+        "external_loss_mol": 1.5718464779511556e-06,
+        "gi_absorbed_mol": 4.237820725982211e-06,
+        "gi_to_blood_mol": 3.10084443364552e-06,
+        "n_left_in_nose_mol": 0.0
+      },
+      "plasma": {
+        "AUC_mol_s_per_m3": 0.13894756305071218,
+        "AUC_mol_h_per_m3": 3.859654529186449e-05,
+        "AUC_ng_h_per_mL": 6.261517542699177,
+        "AUC_iv_mol_h_per_m3": 8.770043935414389e-05,
+        "AUC_iv_ng_h_per_mL": 14.227642276422761,
+        "Cmax_ng_per_mL": 1.1753885953974172,
+        "tmax_min": 77.24533527547231,
+        "V_ss_L": 196.0,
+        "CL_L_h": 49.2,
+        "k_e_h": 0.2510204081632653,
+        "t_half_h_model": 2.7613180363770176,
+        "E_H_wellstirred": 0.45333333333333325,
+        "F_gi_absorption_implied": 0.7317073170731707
+      },
+      "local_free_conc": {
+        "C_free_max_mol_per_m3": 184.92264069530916,
+        "C_free_max_mg_per_mL": 30000.000000000004,
+        "C_free_initial_uniform_mol_per_m3": 184.92264069530916,
+        "AUC_local_mol_s_per_m3": 11326.54079700071
+      }
+    }
+  },
+  "measured_R1": {
+    "septum": 0.76,
+    "conchae": 0.64,
+    "spray": 0.58
+  },
+  "measured_R1_range_n8": {
+    "septum": [
+      0.26,
+      0.97
+    ],
+    "conchae": [
+      0.21,
+      1.03
+    ],
+    "spray": [
+      0.17,
+      0.85
+    ]
+  },
+  "ceiling": {
+    "septum": 0.8732,
+    "conchae": 0.8082,
+    "spray": 0.643
+  },
+  "null_pooled": {
+    "septum": 0.66,
+    "conchae": 0.66,
+    "spray": 0.66
+  },
+  "sensitivity": [
+    {
+      "parameter": "k_epi x0.5",
+      "value": {
+        "k_epi": 5e-06
+      },
+      "F_abs": 0.42126905858020897,
+      "F_swallow_fraction": 0.7150018340956452,
+      "C_free_max_mol_per_m3": 184.92264069530916,
+      "AUC_plasma_mol_s_per_m3": 0.13300373348564726,
+      "dF_vs_base": -0.018826174420933206,
+      "rel_dF_pct": -4.277750134340661
+    },
+    {
+      "parameter": "k_epi x1.5",
+      "value": {
+        "k_epi": 1.5e-05
+      },
+      "F_abs": 0.4574153138328753,
+      "F_swallow_fraction": 0.6622016986546818,
+      "C_free_max_mol_per_m3": 184.92264069530916,
+      "AUC_plasma_mol_s_per_m3": 0.1444158863656444,
+      "dF_vs_base": 0.017320080831733142,
+      "rel_dF_pct": 3.9355302064106183
+    },
+    {
+      "parameter": "v_clear x0.5",
+      "value": {
+        "v_clear_mm_min": 3.3
+      },
+      "F_abs": 0.47340293753167945,
+      "F_swallow_fraction": 0.6388477925943034,
+      "C_free_max_mol_per_m3": 184.92264069530916,
+      "AUC_plasma_mol_s_per_m3": 0.14946352420705425,
+      "dF_vs_base": 0.033307704530537274,
+      "rel_dF_pct": 7.568294776428726
+    },
+    {
+      "parameter": "v_clear x1.5",
+      "value": {
+        "v_clear_mm_min": 9.9
+      },
+      "F_abs": 0.42772379617489836,
+      "F_swallow_fraction": 0.7055732384811716,
+      "C_free_max_mol_per_m3": 184.92264069530916,
+      "AUC_plasma_mol_s_per_m3": 0.13504163344833917,
+      "dF_vs_base": -0.012371436826243809,
+      "rel_dF_pct": -2.8110817610723133
+    },
+    {
+      "parameter": "p_vestibulum x0.5",
+      "value": {
+        "deposition": {
+          "vestibulum": 0.15,
+          "olfactory": 0.01,
+          "turbinate_mid": 0.19,
+          "turbinate_low": 0.64,
+          "nasopharynx": 0.01
+        }
+      },
+      "F_abs": 0.5172341261783552,
+      "F_swallow_fraction": 0.8025020585478526,
+      "C_free_max_mol_per_m3": 92.46132034765458,
+      "AUC_plasma_mol_s_per_m3": 0.1633019764132744,
+      "dF_vs_base": 0.07713889317721301,
+      "rel_dF_pct": 17.527772943864814
+    },
+    {
+      "parameter": "p_vestibulum x1.5",
+      "value": {
+        "deposition": {
+          "vestibulum": 0.45,
+          "olfactory": 0.01,
+          "turbinate_mid": 0.19,
+          "turbinate_low": 0.34,
+          "nasopharynx": 0.01
+        }
+      },
+      "F_abs": 0.3629563364509714,
+      "F_swallow_fraction": 0.5725014685590355,
+      "C_free_max_mol_per_m3": 255.50144856068545,
+      "AUC_plasma_mol_s_per_m3": 0.11459314862323439,
+      "dF_vs_base": -0.07713889655017075,
+      "rel_dF_pct": -17.527773710280236
+    }
+  ],
+  "required_Pe_for_measured_F": {
+    "septum": 3.2402826855123688,
+    "conchae": 1.4673008323424486,
+    "spray": 4.476190476190471
+  },
+  "required_k_epi_m_per_s_for_measured_F": {
+    "septum": 0.00035643109540636054,
+    "conchae": 0.00016140309155766934,
+    "spray": 0.0004923809523809518
+  },
+  "identifiability": {
+    "F_oral_reference": 0.4,
+    "F_measured_range_R1": [
+      0.58,
+      0.76
+    ],
+    "forced_nasal_contribution_min_pp": {
+      "septum": 36.0,
+      "conchae": 24.0,
+      "spray": 17.999999999999993
+    }
+  }
+}

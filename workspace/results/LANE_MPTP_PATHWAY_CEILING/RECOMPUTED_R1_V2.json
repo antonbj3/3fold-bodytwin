@@ -1,0 +1,195 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "claim_type": "information_link",
+  "source_sha256": "66e2f47392c8822a820db19790a3efba6c5c33ed30302ab1fbe680ffbcf1388b",
+  "baseline_point_decision_unchanged": {
+    "control_pct_of_aar": 61.0,
+    "independent_action_prediction_pct_of_aar": 9.508196721311476,
+    "shared_ceiling_prediction_pct_of_aar": 20.0,
+    "gap_percentage_points": 10.491803278688524,
+    "pooled_sd_percentage_points": 4.0,
+    "separation_in_pooled_sd": 2.622950819672131,
+    "animals_per_group_80pct_power": 3,
+    "falsifier_midpoint_pct_of_aar": 14.754098360655739,
+    "verdict": "SHARED CEILING is the admissible reading; the independent prediction lies below the best infarct ever measured in this preparation"
+  },
+  "verified_source": {
+    "pmid": "15642769",
+    "doi": "10.1161/01.CIR.0000151290.04952.3B",
+    "dispersion": "SEM",
+    "infarct_n_per_arm_count": 10,
+    "mitochondrial_cohort_n_range_count": [
+      7,
+      8
+    ],
+    "fulltext_locator": "Circulation 111:195 Statistical Analysis and infarct protocol; 196 Figure 2A",
+    "access": "indexed primary PDF text; direct PDF retrieval blocked/time out"
+  },
+  "dispersion_repair": {
+    "treated_arm_sd_percentage_points": 12.649110640673518,
+    "single_outcome_gap_over_pooled_sd_dimensionless": 0.8294498780769518,
+    "two_independent_outcomes_difference_sd_percentage_points": 17.88854381999832,
+    "gap_over_two_outcome_difference_sd_dimensionless": 0.5865096334425677,
+    "gap_over_two_source_arm_mean_SE_dimensionless": 1.8547063113089768,
+    "source_z_approx_n_per_arm_count": 23,
+    "prior_n7_z_approx_n_per_arm_count": 16,
+    "steer_n7_difference_sd_separation_dimensionless": 0.7010130935407852,
+    "historical_preconditioning_floor_argument": "INVALID: a lowest published mean is not a physical bound on a new intervention"
+  },
+  "nonlinear_reference_uncertainty": {
+    "box_confidence_dimensionless": 0.95,
+    "box_t_critical_dimensionless": 2.9333240883739906,
+    "normal_model_required": true,
+    "simultaneous_reference_box_pct_of_AAR": {
+      "A": [
+        17.26670364650403,
+        40.73329635349597
+      ],
+      "B": [
+        8.266703646504034,
+        31.73329635349597
+      ],
+      "C": [
+        43.40005546975605,
+        78.59994453024396
+      ]
+    },
+    "outward_independent_prediction_interval_pct_of_AAR": [
+      1.8160155563816693,
+      29.78341273183471
+    ],
+    "outward_ceiling_prediction_interval_pct_of_AAR": [
+      8.266703646504032,
+      31.733296353495973
+    ],
+    "outward_gap_interval_percentage_points": [
+      -21.516709085330678,
+      29.91728079711431
+    ],
+    "zero_in_gap_interval": true,
+    "dependency_preserving_gap_interval_percentage_points": [
+      0.5079557404275094,
+      18.92155579213562
+    ],
+    "zero_in_dependency_preserving_gap_interval": false,
+    "dependency_repair_probe_count": 80802,
+    "dependency_repair_probe_min_gap_percentage_points": 0.5079557404275112,
+    "dependency_repair_probe_max_gap_percentage_points": 18.90090213930369,
+    "dependency_repair_probe_violations_count": 0,
+    "rigor_scope": "Outward IEEE-754 basic interval arithmetic conditional on the given statistical t-box. Quantile not formally certified; normal sampling assumptions are unverified, so no unconditional physical or numerical certificate. Dependency overestimation retained.",
+    "linearized_independent_prediction_SE_percentage_points_diagnostic_only": 2.492159647515066,
+    "linearized_gap_SE_percentage_points_diagnostic_only": 2.645325113214642
+  },
+  "conditional_design": {
+    "alpha_two_sided_dimensionless": 0.05,
+    "power_target_dimensionless": 0.8,
+    "effect_percentage_points": 10.491803278688524,
+    "common_sd_percentage_points_assumption": 12.649110640673518,
+    "primary_contrast": "fresh combination mean minus fresh NIM811 mean; detect an improvement, not establish shared pathway",
+    "exact_noncentral_t_n_per_arm_count": 24,
+    "exact_noncentral_t_power_dimensionless": 0.8031371291308587,
+    "previous_n_power_dimensionless": 0.7855202511736954,
+    "n10_per_arm_superiority_power_dimensionless": 0.4191860738237186,
+    "n16_per_arm_superiority_power_dimensionless": 0.6219302072026054,
+    "matched_four_arm_total_count": 96,
+    "historical_reference_infinite_new_n_power_ceiling_dimensionless": 0.7463327998823401,
+    "pooled_sd_one_sided_95pct_upper_percentage_points": 17.512692580424442,
+    "n_per_arm_at_upper_sd_count": 45,
+    "matched_four_arm_total_at_upper_sd_count": 180,
+    "equivalence_margin_percentage_points_convention": 5.245901639344262,
+    "equivalence_true_contrast_percentage_points_assumption": 0.0,
+    "equivalence_TOST_n_per_arm_count": 101,
+    "equivalence_TOST_power_dimensionless": 0.8037568396547532,
+    "equivalence_previous_n_power_dimensionless": 0.7986278650322038,
+    "equivalence_quadrature_error_dimensionless": 4.286800478326791e-11,
+    "equivalence_two_arm_total_count": 202,
+    "equivalence_four_arm_balanced_total_count": 404,
+    "equivalence_caution": "No extra benefit within chosen margin does not prove common pathway or saturation. Margin is a declared convention, not a measured biological constant.",
+    "combination_variance_measured": false
+  },
+  "sufficiency": {
+    "total_AAR_parcels_count": 10000,
+    "control_doomed_parcels_count": 6100,
+    "tables": [
+      {
+        "construction": "complementary",
+        "both_residual_death_parcels_count": 0,
+        "A_only_residual_death_parcels_count": 2900,
+        "B_only_residual_death_parcels_count": 2000,
+        "neither_residual_death_parcels_count": 1200,
+        "single_arm_summary_pct_of_AAR": [
+          61.0,
+          29.0,
+          20.0,
+          18.0
+        ],
+        "combination_pct_of_AAR": 0.0
+      },
+      {
+        "construction": "intermediate_overlap",
+        "both_residual_death_parcels_count": 580,
+        "A_only_residual_death_parcels_count": 2320,
+        "B_only_residual_death_parcels_count": 1420,
+        "neither_residual_death_parcels_count": 1780,
+        "single_arm_summary_pct_of_AAR": [
+          61.0,
+          29.0,
+          20.0,
+          18.0
+        ],
+        "combination_pct_of_AAR": 5.8
+      },
+      {
+        "construction": "nested",
+        "both_residual_death_parcels_count": 2000,
+        "A_only_residual_death_parcels_count": 900,
+        "B_only_residual_death_parcels_count": 0,
+        "neither_residual_death_parcels_count": 3200,
+        "single_arm_summary_pct_of_AAR": [
+          61.0,
+          29.0,
+          20.0,
+          18.0
+        ],
+        "combination_pct_of_AAR": 20.0
+      }
+    ],
+    "exact_independent_table": {
+      "total_AAR_parcels_count": 610000,
+      "control_doomed_parcels_count": 372100,
+      "both_residual_death_parcels_count": 58000,
+      "A_only_residual_death_parcels_count": 118900,
+      "B_only_residual_death_parcels_count": 64000,
+      "neither_residual_death_parcels_count": 131200,
+      "single_arm_summary_pct_of_AAR": [
+        61.0,
+        29.0,
+        20.0,
+        18.0
+      ],
+      "combination_pct_of_AAR": 9.508196721311476
+    },
+    "summary_identity_error_percentage_points": 0.0,
+    "downstream_span_percentage_points": 20.0,
+    "tested_extreme_pair_count": 1,
+    "counterexample_pair_count": 1,
+    "conditional_bound_pct_of_AAR": [
+      0,
+      20
+    ],
+    "closure": "Noninterfering union of rescued control-doomed parcels; either treatment can avert the same pore-mediated terminal event. No negative treatment effects or novel combination effects.",
+    "minimal_extra_state": "One joint residual-death mass fraction (overlap), percentage_points_of_AAR; sufficient only under the stated closure. It is counterfactual and not directly measurable on one destructive TTC sample.",
+    "pathway_identity_from_marginals": "NOT_IDENTIFIED"
+  },
+  "facit_leakage": {
+    "combination_endpoint_used_as_input": false,
+    "bottom_up_prediction": false,
+    "input_resolution": "TISSUE measurements; PHENOMENOLOGICAL response closures",
+    "lower_unknowns": "dose-to-local-exposure, CypD occupancy, local pore opening history, cell-death map"
+  },
+  "gate": "FAIL",
+  "gate_target": "inherited claim that existing single arms already decide a shared ceiling",
+  "measured_combination_validation": "UNKNOWN_NO_EXACT_ANCHOR_LOCATED",
+  "strongest_same_information_arithmetic_gain": "NONE",
+  "cpu_seconds": 1.099240522
+}

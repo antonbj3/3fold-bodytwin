@@ -1,0 +1,873 @@
+{
+  "round": 1,
+  "operation": "Dimensioned organ inventories/directed skin rays -> fragment-failing face gate -> independent skeletal FOV support -> size/form/null/allometric controls -> additional exterior acquisition and pathology/site transport + common labelerror pullback",
+  "control": "Same-information conventional voxel/ray operators and nestedridge/HGB/allometric/age-sex controls; identical arithmetic TIE",
+  "outcome": {
+    "screened": 1228,
+    "requested_scan_organ_pairs": 7368,
+    "supported_counts": {
+      "liver": 183,
+      "spleen": 244,
+      "kidney_left": 182,
+      "kidney_right": 159,
+      "pancreas": 235,
+      "heart": 292
+    },
+    "primary_volume": {
+      "liver": {
+        "n": 143,
+        "units": "cm3",
+        "models": {
+          "size_ridge": {
+            "R2": 0.25779706561644666,
+            "CI95": [
+              0.10419091045076885,
+              0.38777202843017905
+            ],
+            "RMSE": 373.0228991219188
+          },
+          "size_Q3_ridge": {
+            "R2": 0.2406203663836295,
+            "CI95": [
+              0.08799238978268638,
+              0.37214713211153927
+            ],
+            "RMSE": 377.3146190014774
+          },
+          "size_Qrich_ridge": {
+            "R2": 0.16545143361601006,
+            "CI95": [
+              0.045151877407354345,
+              0.26500927548503644
+            ],
+            "RMSE": 395.54870525295456
+          },
+          "metadata_size_ridge": {
+            "R2": 0.35097256429858714,
+            "CI95": [
+              0.19979407886558703,
+              0.48328539815016713
+            ],
+            "RMSE": 348.82346148083985
+          },
+          "metadata_size_Q3_ridge": {
+            "R2": 0.3311438874390113,
+            "CI95": [
+              0.1784364215832251,
+              0.4635090969360337
+            ],
+            "RMSE": 354.1118903716598
+          },
+          "metadata_size_Qrich_ridge": {
+            "R2": 0.2552733971799648,
+            "CI95": [
+              0.12438381944823325,
+              0.36235688013418843
+            ],
+            "RMSE": 373.65654471657274
+          },
+          "metadata_allometric_size_ridge": {
+            "R2": 0.3478283119413858,
+            "CI95": [
+              0.19789587201389253,
+              0.4791195217545725
+            ],
+            "RMSE": 349.6673886969264
+          },
+          "size_hgb": {
+            "R2": 0.1563083046076259,
+            "CI95": [
+              -0.04006895332613378,
+              0.2990238306391962
+            ],
+            "RMSE": 397.70957481855487
+          },
+          "size_Q3_hgb": {
+            "R2": -0.011354334609093086,
+            "CI95": [
+              -0.2530691916027046,
+              0.16825719551945384
+            ],
+            "RMSE": 435.43750177205766
+          },
+          "metadata_size_hgb": {
+            "R2": 0.2600992347287457,
+            "CI95": [
+              0.06386483744508173,
+              0.41102185614187464
+            ],
+            "RMSE": 372.4439275768552
+          },
+          "metadata_size_Q3_hgb": {
+            "R2": 0.17741359694021763,
+            "CI95": [
+              -0.022694329807045083,
+              0.32917231537142716
+            ],
+            "RMSE": 392.70363642544663
+          }
+        },
+        "paired": {
+          "size_Q3_ridge__minus__size_ridge": {
+            "delta_R2": -0.017176699232817172,
+            "CI95": [
+              -0.06978707048000087,
+              0.025809281242528365
+            ]
+          },
+          "metadata_size_Q3_ridge__minus__metadata_size_ridge": {
+            "delta_R2": -0.019828676859575844,
+            "CI95": [
+              -0.05559726842084026,
+              0.007515096777615465
+            ]
+          },
+          "metadata_size_Qrich_ridge__minus__metadata_size_Q3_ridge": {
+            "delta_R2": -0.07587049025904652,
+            "CI95": [
+              -0.1562181437592379,
+              0.011500427128581533
+            ]
+          },
+          "size_Q3_hgb__minus__size_hgb": {
+            "delta_R2": -0.16766263921671898,
+            "CI95": [
+              -0.2862311220002737,
+              -0.07003424554904426
+            ]
+          },
+          "metadata_size_Q3_hgb__minus__metadata_size_hgb": {
+            "delta_R2": -0.08268563778852805,
+            "CI95": [
+              -0.15741967379492555,
+              -0.015935460089798837
+            ]
+          }
+        },
+        "status": "EXECUTED"
+      },
+      "spleen": {
+        "n": 183,
+        "units": "cm3",
+        "models": {
+          "size_ridge": {
+            "R2": 0.043602961852113056,
+            "CI95": [
+              -0.0232523765302564,
+              0.09612090050089028
+            ],
+            "RMSE": 145.9501941506532
+          },
+          "size_Q3_ridge": {
+            "R2": 0.025057796896429417,
+            "CI95": [
+              -0.04033441423302238,
+              0.07665125913696819
+            ],
+            "RMSE": 147.35843517499075
+          },
+          "size_Qrich_ridge": {
+            "R2": 0.0036998799003811087,
+            "CI95": [
+              -0.05845922747513725,
+              0.0366044479727124
+            ],
+            "RMSE": 148.96377074244387
+          },
+          "metadata_size_ridge": {
+            "R2": 0.0606200853672772,
+            "CI95": [
+              -0.028366351116353723,
+              0.1259216577612303
+            ],
+            "RMSE": 144.6459242445843
+          },
+          "metadata_size_Q3_ridge": {
+            "R2": 0.04918585496838673,
+            "CI95": [
+              -0.03557993163328367,
+              0.11177306505451982
+            ],
+            "RMSE": 145.5235842263874
+          },
+          "metadata_size_Qrich_ridge": {
+            "R2": 0.06445782466994561,
+            "CI95": [
+              -0.031220221585861973,
+              0.12388732420946534
+            ],
+            "RMSE": 144.35015388298328
+          },
+          "metadata_allometric_size_ridge": {
+            "R2": 0.05233804523516977,
+            "CI95": [
+              -0.0523572356429086,
+              0.12325223810780778
+            ],
+            "RMSE": 145.282160152405
+          },
+          "size_hgb": {
+            "R2": -0.019067310457778208,
+            "CI95": [
+              -0.23179318915682623,
+              0.10304414259363844
+            ],
+            "RMSE": 150.65619724309673
+          },
+          "size_Q3_hgb": {
+            "R2": -0.20178617059060242,
+            "CI95": [
+              -0.444498742768223,
+              -0.06278625576077619
+            ],
+            "RMSE": 163.60597745225212
+          },
+          "metadata_size_hgb": {
+            "R2": -0.03873338608821515,
+            "CI95": [
+              -0.2856725196158648,
+              0.11120460753628575
+            ],
+            "RMSE": 152.102940864932
+          },
+          "metadata_size_Q3_hgb": {
+            "R2": -0.22233239424538714,
+            "CI95": [
+              -0.4550354376895171,
+              -0.08721103821913015
+            ],
+            "RMSE": 164.99858758385673
+          }
+        },
+        "paired": {
+          "size_Q3_ridge__minus__size_ridge": {
+            "delta_R2": -0.01854516495568364,
+            "CI95": [
+              -0.03769693985159539,
+              -0.0009406053346075636
+            ]
+          },
+          "metadata_size_Q3_ridge__minus__metadata_size_ridge": {
+            "delta_R2": -0.011434230398890466,
+            "CI95": [
+              -0.027234493374966997,
+              0.004753239404784403
+            ]
+          },
+          "metadata_size_Qrich_ridge__minus__metadata_size_Q3_ridge": {
+            "delta_R2": 0.015271969701558877,
+            "CI95": [
+              -0.03752856530110993,
+              0.055381569547451166
+            ]
+          },
+          "size_Q3_hgb__minus__size_hgb": {
+            "delta_R2": -0.1827188601328242,
+            "CI95": [
+              -0.28695948465504334,
+              -0.09327434315662494
+            ]
+          },
+          "metadata_size_Q3_hgb__minus__metadata_size_hgb": {
+            "delta_R2": -0.183599008157172,
+            "CI95": [
+              -0.28110894437614914,
+              -0.08950677124931754
+            ]
+          }
+        },
+        "status": "EXECUTED"
+      },
+      "kidney_left": {
+        "n": 137,
+        "units": "cm3",
+        "models": {
+          "size_ridge": {
+            "R2": 0.10574266611874936,
+            "CI95": [
+              -0.019174326300856945,
+              0.19532301575879737
+            ],
+            "RMSE": 42.328245830536574
+          },
+          "size_Q3_ridge": {
+            "R2": 0.08873064529176239,
+            "CI95": [
+              -0.035310864831145705,
+              0.17219426446184355
+            ],
+            "RMSE": 42.728967462019504
+          },
+          "size_Qrich_ridge": {
+            "R2": -0.009125974768189304,
+            "CI95": [
+              -0.15536649115989468,
+              0.0825568955842417
+            ],
+            "RMSE": 44.964700811783835
+          },
+          "metadata_size_ridge": {
+            "R2": 0.27402635895078725,
+            "CI95": [
+              0.13756833979841956,
+              0.36883672130098477
+            ],
+            "RMSE": 38.138134125131934
+          },
+          "metadata_size_Q3_ridge": {
+            "R2": 0.25819223573202466,
+            "CI95": [
+              0.12457892582751261,
+              0.3530634951886002
+            ],
+            "RMSE": 38.551803781124335
+          },
+          "metadata_size_Qrich_ridge": {
+            "R2": 0.151772436197141,
+            "CI95": [
+              0.009516031316019871,
+              0.2546416490973099
+            ],
+            "RMSE": 41.22448188450857
+          },
+          "metadata_allometric_size_ridge": {
+            "R2": 0.2634967707669261,
+            "CI95": [
+              0.12604678193143082,
+              0.36268906769894066
+            ],
+            "RMSE": 38.41371794450696
+          },
+          "size_hgb": {
+            "R2": 0.0548174393840193,
+            "CI95": [
+              -0.12628234908541341,
+              0.19072379481414148
+            ],
+            "RMSE": 43.516791323261685
+          },
+          "size_Q3_hgb": {
+            "R2": -0.005519831875660297,
+            "CI95": [
+              -0.25745785656739373,
+              0.17083105392387396
+            ],
+            "RMSE": 44.884287532888806
+          },
+          "metadata_size_hgb": {
+            "R2": 0.16412925201986694,
+            "CI95": [
+              -0.04895501471530841,
+              0.3099009107351787
+            ],
+            "RMSE": 40.923105100833304
+          },
+          "metadata_size_Q3_hgb": {
+            "R2": 0.24543645971259892,
+            "CI95": [
+              0.03096089198388173,
+              0.3793515647762689
+            ],
+            "RMSE": 38.88185030407223
+          }
+        },
+        "paired": {
+          "size_Q3_ridge__minus__size_ridge": {
+            "delta_R2": -0.017012020826986968,
+            "CI95": [
+              -0.078273783988836,
+              0.0469101050422204
+            ]
+          },
+          "metadata_size_Q3_ridge__minus__metadata_size_ridge": {
+            "delta_R2": -0.015834123218762597,
+            "CI95": [
+              -0.06504460007741061,
+              0.031137102393068296
+            ]
+          },
+          "metadata_size_Qrich_ridge__minus__metadata_size_Q3_ridge": {
+            "delta_R2": -0.10641979953488365,
+            "CI95": [
+              -0.20402435399348523,
+              -0.027871206049057243
+            ]
+          },
+          "size_Q3_hgb__minus__size_hgb": {
+            "delta_R2": -0.060337271259679595,
+            "CI95": [
+              -0.24866440090362682,
+              0.09320910190565314
+            ]
+          },
+          "metadata_size_Q3_hgb__minus__metadata_size_hgb": {
+            "delta_R2": 0.08130720769273198,
+            "CI95": [
+              -0.03821537366747689,
+              0.20606621347602477
+            ]
+          }
+        },
+        "status": "EXECUTED"
+      },
+      "kidney_right": {
+        "n": 118,
+        "units": "cm3",
+        "models": {
+          "size_ridge": {
+            "R2": 0.12646286829170245,
+            "CI95": [
+              -0.012357975725200851,
+              0.2321917390330571
+            ],
+            "RMSE": 38.392108954048894
+          },
+          "size_Q3_ridge": {
+            "R2": 0.10243047692943583,
+            "CI95": [
+              -0.03412055039590014,
+              0.19926114669289832
+            ],
+            "RMSE": 38.916639655137594
+          },
+          "size_Qrich_ridge": {
+            "R2": 0.04627452675297785,
+            "CI95": [
+              -0.06338265033413337,
+              0.1303621478950164
+            ],
+            "RMSE": 40.115570738778004
+          },
+          "metadata_size_ridge": {
+            "R2": 0.27891959235914826,
+            "CI95": [
+              0.13648485412484126,
+              0.39175182449277335
+            ],
+            "RMSE": 34.881337718418244
+          },
+          "metadata_size_Q3_ridge": {
+            "R2": 0.26040966959700923,
+            "CI95": [
+              0.11604510836572211,
+              0.37284642371670357
+            ],
+            "RMSE": 35.32619780965398
+          },
+          "metadata_size_Qrich_ridge": {
+            "R2": 0.18528821960633732,
+            "CI95": [
+              0.05809276760968611,
+              0.28764394062149495
+            ],
+            "RMSE": 37.076888614350956
+          },
+          "metadata_allometric_size_ridge": {
+            "R2": 0.27518967700420277,
+            "CI95": [
+              0.13732385397136324,
+              0.387418293979881
+            ],
+            "RMSE": 34.97143628613382
+          },
+          "size_hgb": {
+            "R2": 0.09662413492787644,
+            "CI95": [
+              -0.06702809803159965,
+              0.2230417928672652
+            ],
+            "RMSE": 39.042311847581544
+          },
+          "size_Q3_hgb": {
+            "R2": -0.25965614734348824,
+            "CI95": [
+              -0.5614119182863517,
+              -0.032391293948907995
+            ],
+            "RMSE": 46.102798607521905
+          },
+          "metadata_size_hgb": {
+            "R2": 0.22407421009836476,
+            "CI95": [
+              0.03718605512373332,
+              0.34969102751123826
+            ],
+            "RMSE": 36.183567004656084
+          },
+          "metadata_size_Q3_hgb": {
+            "R2": 0.06847490426585914,
+            "CI95": [
+              -0.16590700023424387,
+              0.21914681158765362
+            ],
+            "RMSE": 39.645925813372415
+          }
+        },
+        "paired": {
+          "size_Q3_ridge__minus__size_ridge": {
+            "delta_R2": -0.02403239136226662,
+            "CI95": [
+              -0.06488183891499694,
+              0.015525142743726161
+            ]
+          },
+          "metadata_size_Q3_ridge__minus__metadata_size_ridge": {
+            "delta_R2": -0.01850992276213903,
+            "CI95": [
+              -0.051433552783431924,
+              0.007249214383981245
+            ]
+          },
+          "metadata_size_Qrich_ridge__minus__metadata_size_Q3_ridge": {
+            "delta_R2": -0.07512144999067191,
+            "CI95": [
+              -0.13489117188076574,
+              -0.007830555080863206
+            ]
+          },
+          "size_Q3_hgb__minus__size_hgb": {
+            "delta_R2": -0.35628028227136466,
+            "CI95": [
+              -0.5549412448011161,
+              -0.19792157176934064
+            ]
+          },
+          "metadata_size_Q3_hgb__minus__metadata_size_hgb": {
+            "delta_R2": -0.1555993058325056,
+            "CI95": [
+              -0.29257764303560113,
+              -0.05817963653844491
+            ]
+          }
+        },
+        "status": "EXECUTED"
+      },
+      "pancreas": {
+        "n": 175,
+        "units": "cm3",
+        "models": {
+          "size_ridge": {
+            "R2": 0.13173687973851603,
+            "CI95": [
+              0.0158023049754969,
+              0.21708733333611716
+            ],
+            "RMSE": 20.54094860369559
+          },
+          "size_Q3_ridge": {
+            "R2": 0.12311255111301392,
+            "CI95": [
+              0.012463666975061674,
+              0.20830566299246495
+            ],
+            "RMSE": 20.64271162480538
+          },
+          "size_Qrich_ridge": {
+            "R2": 0.0670001859301652,
+            "CI95": [
+              -0.0321591123353646,
+              0.13555129814938852
+            ],
+            "RMSE": 21.29293837637065
+          },
+          "metadata_size_ridge": {
+            "R2": 0.275448843411591,
+            "CI95": [
+              0.14475574623939347,
+              0.37459657181060413
+            ],
+            "RMSE": 18.76416942579755
+          },
+          "metadata_size_Q3_ridge": {
+            "R2": 0.2565693282192987,
+            "CI95": [
+              0.11182854483386107,
+              0.3630001397772698
+            ],
+            "RMSE": 19.007064830478047
+          },
+          "metadata_size_Qrich_ridge": {
+            "R2": 0.19916649469691128,
+            "CI95": [
+              0.07479401673202497,
+              0.29344969212783606
+            ],
+            "RMSE": 19.727222187120574
+          },
+          "metadata_allometric_size_ridge": {
+            "R2": 0.2554673022247168,
+            "CI95": [
+              0.12880665676635622,
+              0.35493327672383146
+            ],
+            "RMSE": 19.021147194595166
+          },
+          "size_hgb": {
+            "R2": -0.004147680058920555,
+            "CI95": [
+              -0.1603609081733225,
+              0.11726861213950479
+            ],
+            "RMSE": 22.089893050852922
+          },
+          "size_Q3_hgb": {
+            "R2": -0.18431085037396375,
+            "CI95": [
+              -0.3793826982757535,
+              -0.04574586676242735
+            ],
+            "RMSE": 23.98985774577273
+          },
+          "metadata_size_hgb": {
+            "R2": 0.12529152809748875,
+            "CI95": [
+              -0.03911184954615755,
+              0.25944994833147506
+            ],
+            "RMSE": 20.617048142539534
+          },
+          "metadata_size_Q3_hgb": {
+            "R2": 0.15186205257734592,
+            "CI95": [
+              -0.008423423616525432,
+              0.27430764877340813
+            ],
+            "RMSE": 20.30149712935596
+          }
+        },
+        "paired": {
+          "size_Q3_ridge__minus__size_ridge": {
+            "delta_R2": -0.008624328625502109,
+            "CI95": [
+              -0.04774287607401651,
+              0.03423341197949357
+            ]
+          },
+          "metadata_size_Q3_ridge__minus__metadata_size_ridge": {
+            "delta_R2": -0.018879515192292307,
+            "CI95": [
+              -0.054034423768363746,
+              0.012981924173457506
+            ]
+          },
+          "metadata_size_Qrich_ridge__minus__metadata_size_Q3_ridge": {
+            "delta_R2": -0.0574028335223874,
+            "CI95": [
+              -0.10823868351783936,
+              -0.0027175560374151737
+            ]
+          },
+          "size_Q3_hgb__minus__size_hgb": {
+            "delta_R2": -0.1801631703150432,
+            "CI95": [
+              -0.304860687129909,
+              -0.07638914814357631
+            ]
+          },
+          "metadata_size_Q3_hgb__minus__metadata_size_hgb": {
+            "delta_R2": 0.026570524479857166,
+            "CI95": [
+              -0.07358664107472168,
+              0.12820884099465646
+            ]
+          }
+        },
+        "status": "EXECUTED"
+      },
+      "heart": {
+        "n": 158,
+        "units": "cm3",
+        "models": {
+          "size_ridge": {
+            "R2": 0.26972540675633044,
+            "CI95": [
+              0.14620345917732724,
+              0.3675355559152475
+            ],
+            "RMSE": 122.61852489725409
+          },
+          "size_Q3_ridge": {
+            "R2": 0.2622175201282291,
+            "CI95": [
+              0.12411391504284355,
+              0.3543893986317961
+            ],
+            "RMSE": 123.24722806652878
+          },
+          "size_Qrich_ridge": {
+            "R2": 0.24430207960307543,
+            "CI95": [
+              0.07290048101556176,
+              0.3615364899299242
+            ],
+            "RMSE": 124.7346477820091
+          },
+          "metadata_size_ridge": {
+            "R2": 0.4416733822218485,
+            "CI95": [
+              0.3352620152284196,
+              0.5209199585874326
+            ],
+            "RMSE": 107.21539698877717
+          },
+          "metadata_size_Q3_ridge": {
+            "R2": 0.42663673231249283,
+            "CI95": [
+              0.30562504329323203,
+              0.5121909447227864
+            ],
+            "RMSE": 108.64954821768261
+          },
+          "metadata_size_Qrich_ridge": {
+            "R2": 0.3819616464239223,
+            "CI95": [
+              0.2576445958606783,
+              0.474219607108383
+            ],
+            "RMSE": 112.80301430711914
+          },
+          "metadata_allometric_size_ridge": {
+            "R2": 0.4397212094421378,
+            "CI95": [
+              0.33031482005917306,
+              0.5203638272283085
+            ],
+            "RMSE": 107.40267119048585
+          },
+          "size_hgb": {
+            "R2": 0.18282690185538047,
+            "CI95": [
+              0.02808072324848881,
+              0.30125261416521765
+            ],
+            "RMSE": 129.70897337459766
+          },
+          "size_Q3_hgb": {
+            "R2": 0.137600701397862,
+            "CI95": [
+              -0.08011211987819411,
+              0.2848004712279917
+            ],
+            "RMSE": 133.24999113848165
+          },
+          "metadata_size_hgb": {
+            "R2": 0.3706973055164865,
+            "CI95": [
+              0.2076471590856698,
+              0.4891470667225618
+            ],
+            "RMSE": 113.82634405571255
+          },
+          "metadata_size_Q3_hgb": {
+            "R2": 0.3501788968540399,
+            "CI95": [
+              0.18395282496500534,
+              0.46350473095530853
+            ],
+            "RMSE": 115.66711330060326
+          }
+        },
+        "paired": {
+          "size_Q3_ridge__minus__size_ridge": {
+            "delta_R2": -0.007507886628101368,
+            "CI95": [
+              -0.08454903390890632,
+              0.05644317216538359
+            ]
+          },
+          "metadata_size_Q3_ridge__minus__metadata_size_ridge": {
+            "delta_R2": -0.01503664990935566,
+            "CI95": [
+              -0.07763895626011755,
+              0.03587478645215065
+            ]
+          },
+          "metadata_size_Qrich_ridge__minus__metadata_size_Q3_ridge": {
+            "delta_R2": -0.044675085888570554,
+            "CI95": [
+              -0.0937461665876573,
+              0.006844826340030771
+            ]
+          },
+          "size_Q3_hgb__minus__size_hgb": {
+            "delta_R2": -0.04522620045751846,
+            "CI95": [
+              -0.1699015144255628,
+              0.054329787080855424
+            ]
+          },
+          "metadata_size_Q3_hgb__minus__metadata_size_hgb": {
+            "delta_R2": -0.020518408662446586,
+            "CI95": [
+              -0.0985231462163225,
+              0.05445684629805586
+            ]
+          }
+        },
+        "status": "EXECUTED"
+      }
+    },
+    "known_CPU_s_lower_bound": 5787.109036942,
+    "additional_profile_volume_gain": "ALL_SIX_UNADJUSTED_PAIRED_CI_INCLUDE_ZERO",
+    "right_kidney_anterior_depth": {
+      "n": 92,
+      "central_R2": 0.5711007719120371,
+      "extra_R2": 0.6569195216167703,
+      "delta_R2": 0.08581874970473313,
+      "CI95": [
+        0.03197361428359832,
+        0.1506159042497517
+      ],
+      "transport": "UNKNOWN_NO_ELIGIBLE_GROUP",
+      "label_accuracy": "UNKNOWN",
+      "common_fixed_prediction_target_error_capacity_mm": 4.19979366567591
+    },
+    "numerical_checks": "11/11 + initial8/8",
+    "scientific_admission": false
+  },
+  "gate": "UNKNOWN",
+  "measurement_gate": "PASS_CONDITIONAL",
+  "face_completeness_gate": "FAIL",
+  "innovation_gate": "TIE",
+  "obstacle": "Exact complete anatomy/skin-organlabel/unitcalibration, cohorttransport, patientlineage and independentclinicaloutcomes absent",
+  "next": "Independent anatomical coverage/boundary acquisition with joint error capacity; right-kidney anterior depth needs calibrated common target error below4.20mm and independent transport; orthogonal organ/composition observation; NEXT_ROUND.md",
+  "files": [
+    "RESULTS.md",
+    "WORK_STATUS.json",
+    "NEXT_ROUND.md",
+    "CHECKPOINT_NIGHT_R1.json",
+    "PRIMARY_STATISTICS_R1.json",
+    "NODE_PROPOSALS.json",
+    "ATTEMPTS.json",
+    "DECOMPOSITION.json",
+    "PREREG_R1.json",
+    "PREREG_R1_LANDMARK_COVERAGE.json",
+    "COHORT_COMPARISONS_R1.json",
+    "REFERENCE_COHORTS_R1.json",
+    "REFERENCE_COHORTS_R1_V2.json",
+    "SOURCE_REVIEW_R1.md",
+    "COST_ACCOUNTING_R1.json",
+    "ERROR_PULLBACK_PRIMARY_R1.json",
+    "ERROR_PULLBACK_PROFILE_R1.json",
+    "UNIT_AND_ORIENTATION_VERIFICATION_R1_V2.json",
+    "DERIVATION_R1.md",
+    "PROTOCOL_AUDIT_R1.json",
+    "COVERAGE_LIMITS_R1.json",
+    "SPLEEN_EXTREMES_REVIEW_R1.json",
+    "ORGAN_COHORT_VOLUMES_R1.png",
+    "ORGAN_COHORT_VOLUMES_R1.pdf",
+    "ORGAN_SIZE_FORM_R1.png",
+    "ORGAN_SIZE_FORM_R1.pdf",
+    "ORGAN_EXTRA_PROFILE_R1.png",
+    "ORGAN_EXTRA_PROFILE_R1.pdf",
+    "SCAN_ORGAN_FEATURES_R1.csv",
+    "r1/features_r1/ledger.jsonl",
+    "r1/features_r1_v2/ledger.jsonl",
+    "r1/coverage_r1/ledger.jsonl",
+    "r1/primary_supported",
+    "r1/null_supported",
+    "r1/profile_supported"
+  ],
+  "review": "PENDING_INDEPENDENT_REVIEW",
+  "updated_utc": "2026-10-01T07:51:34.400086+00:00"
+}

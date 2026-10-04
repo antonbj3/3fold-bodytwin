@@ -1,0 +1,89 @@
+{
+  "stages": [
+    {
+      "stage": "r1/first/summary.json",
+      "measured_instrumented_CPU_s": 5.356519467,
+      "includes": "Executed acquisition/queries/validation/failures/fallbacks within script timer; excludes imports, process launch and some final serialization"
+    },
+    {
+      "stage": "r1/physical_patch/summary.json",
+      "measured_instrumented_CPU_s": 4.645014594,
+      "includes": "Executed acquisition/queries/validation/failures/fallbacks within script timer; excludes imports, process launch and some final serialization"
+    },
+    {
+      "stage": "r1/nonlinear/summary.json",
+      "measured_instrumented_CPU_s": 3.489471029,
+      "includes": "Executed acquisition/queries/validation/failures/fallbacks within script timer; excludes imports, process launch and some final serialization"
+    },
+    {
+      "stage": "r1/residual_compiler/summary.json",
+      "measured_instrumented_CPU_s": 6.937461711,
+      "includes": "Executed acquisition/queries/validation/failures/fallbacks within script timer; excludes imports, process launch and some final serialization"
+    },
+    {
+      "stage": "r1/centered_residual/summary.json",
+      "measured_instrumented_CPU_s": 6.5962183659999996,
+      "includes": "Executed acquisition/queries/validation/failures/fallbacks within script timer; excludes imports, process launch and some final serialization"
+    },
+    {
+      "stage": "r1/HX_CHAIN_BOUND_REFINEMENT.json",
+      "measured_instrumented_CPU_s": 2.3055956359999996,
+      "includes": "refined Q036 RHS solves"
+    }
+  ],
+  "instrumented_experiment_CPU_lower_bound_s": 29.330280803,
+  "linear": [
+    {
+      "nx": 32,
+      "global_dofs": 528,
+      "port_dofs": 33,
+      "operator_bytes": 89760,
+      "setup_CPU_s": 0.00623062000000002,
+      "full22step_CPU_s": 0.33722997499999996,
+      "condensed22step_CPU_s": 0.014569618999999978,
+      "capsule22step_CPU_s": 0.05313214300000002,
+      "gain_vs_repeated_full": 23.14610800735424,
+      "same_information_best_control_gain": 1.0
+    },
+    {
+      "nx": 64,
+      "global_dofs": 2080,
+      "port_dofs": 65,
+      "operator_bytes": 617760,
+      "setup_CPU_s": 0.019839365999999914,
+      "full22step_CPU_s": 1.124858107,
+      "condensed22step_CPU_s": 0.018711835000000177,
+      "capsule22step_CPU_s": 0.05329282699999993,
+      "gain_vs_repeated_full": 60.11479403275999,
+      "same_information_best_control_gain": 1.0
+    },
+    {
+      "nx": 96,
+      "global_dofs": 4656,
+      "port_dofs": 97,
+      "operator_bytes": 1977248,
+      "setup_CPU_s": 0.08659017499999955,
+      "full22step_CPU_s": 2.2898639330000004,
+      "condensed22step_CPU_s": 0.02332377799999996,
+      "capsule22step_CPU_s": 0.08900919500000004,
+      "gain_vs_repeated_full": 98.17723067849488,
+      "same_information_best_control_gain": 1.0
+    }
+  ],
+  "nonlinear_patch_total_fallback_CPU_s": 1.385576982,
+  "nonlinear_patch_total_setup_CPU_s": 0.8274626279999996,
+  "nonlinear_patch_total_cert_CPU_s": 0.10325511199999993,
+  "centered_setup_CPU_s": 2.878892627,
+  "centered_validation_CPU_s": 1.485985755999999,
+  "centered_fallback_CPU_s": 0.5866821090000025,
+  "centered_query_benchmark_repetitions_per_case": 25,
+  "centered_operator_bytes": 22240280,
+  "centered_global_Gram_acquisition_RHS_solves": 1205,
+  "best_control_break_even": null,
+  "best_control_break_even_reason": "Identical eligible same-information conventional operator: no positive cost difference; no claimed finite break-even",
+  "complete_cold_cost_advantage": "NOT_SHOWN",
+  "unmeasured_costs": "Process launch/imports/some serialization, literature retrieval, human-equivalent code construction, all broader physical model calibration: UNKNOWN; never zero",
+  "max_observed_mechanical_run_RSS_MiB": 88.68359375,
+  "RSS_scope": "Measured by mechanical run; other process peaks not instrumented. Their largest compiler arrays were bounded by known dimensions, no heavy job used.",
+  "review": "PENDING_INDEPENDENT_REVIEW"
+}

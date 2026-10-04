@@ -1,0 +1,98 @@
+nominal_complete_v4 22.945180659759835
+refine_time_v1 22.94917081425198
+refine_space_v1 22.94689865164051
+no_seal_oxygen_v1 20.314015496224222
+joint_minus_v1 20.111493086560806
+joint_plus_v1 23.852193982280262
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "numerical_refinements": [
+    {
+      "case": "refine_time_v1",
+      "strength_pp": 0.01307765136162331,
+      "pressure_Torr": 0.0017463058530466924,
+      "gate": "PASS"
+    },
+    {
+      "case": "refine_space_v1",
+      "strength_pp": 0.0017179918806746741,
+      "pressure_Torr": 0.27460845380318233,
+      "gate": "PASS"
+    }
+  ],
+  "causal_preseal_max_error": 0.0,
+  "seal_oxygen_ablation_strength90_pp": 2.631165163535613,
+  "joint_scenario_strength90_values": {
+    "joint_minus_v1": 20.111493086560806,
+    "nominal_complete_v4": 22.945180659759835,
+    "joint_plus_v1": 23.852193982280262
+  },
+  "scenario_range_is_CI": false,
+  "stage_solver_wall_sum_s": 18.30690181395039,
+  "stage_solver_CPU_sum_s": 18.279327199999997,
+  "case_costs": {
+    "nominal_complete_v4": {
+      "blood_wall_s": 0.424676361028105,
+      "late_wall_s": 0.7713003889657557,
+      "full_wall_s": 2.2839359999634326,
+      "CPU_s": 2.282922063,
+      "max_RSS_KiB": 81124,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false,
+      "runner_wall_s": 2.29881289601326
+    },
+    "refine_time_v1": {
+      "blood_wall_s": 0.41750617302022874,
+      "late_wall_s": 1.5175627230200917,
+      "full_wall_s": 4.0485532730817795,
+      "CPU_s": 4.047755705,
+      "max_RSS_KiB": 81604,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false,
+      "runner_wall_s": 4.067889204015955
+    },
+    "refine_space_v1": {
+      "blood_wall_s": 0.42834068601951003,
+      "late_wall_s": 0.9916413398459554,
+      "full_wall_s": 2.572646465850994,
+      "CPU_s": 2.571682109,
+      "max_RSS_KiB": 81764,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false,
+      "runner_wall_s": 2.5949950590729713
+    },
+    "no_seal_oxygen_v1": {
+      "blood_wall_s": 0.6000475939363241,
+      "late_wall_s": 0.7839243628550321,
+      "full_wall_s": 2.9331217990256846,
+      "CPU_s": 2.926254739999999,
+      "max_RSS_KiB": 82244,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false,
+      "runner_wall_s": 2.948327981168404
+    },
+    "joint_minus_v1": {
+      "blood_wall_s": 0.4503148670773953,
+      "late_wall_s": 1.007687501842156,
+      "full_wall_s": 2.8042251251172274,
+      "CPU_s": 2.795897729,
+      "max_RSS_KiB": 82244,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false,
+      "runner_wall_s": 2.8192562588956207
+    },
+    "joint_plus_v1": {
+      "blood_wall_s": 0.5571438521146774,
+      "late_wall_s": 1.3003670668695122,
+      "full_wall_s": 3.6644191509112716,
+      "CPU_s": 3.654814853999998,
+      "max_RSS_KiB": 82404,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false,
+      "runner_wall_s": 3.6848679420072585
+    }
+  },
+  "gate": "PASS",
+  "empirical_joint_gate": "UNKNOWN",
+  "strongest_control_gate": "TIE"
+}

@@ -1,0 +1,461 @@
+{
+  "controls": {
+    "analytic_equilibrium": {
+      "dt_s": 0.001,
+      "duration_s": 20.0,
+      "kd_from_rates_nM": 33.0,
+      "ligand_nM": 50.0,
+      "max_absolute_error_receptor_um2": 1.0844658504538529e-11,
+      "max_relative_error": 3.617750315874366e-14,
+      "max_relative_receptor_mass_error": 6.573728711794125e-15,
+      "mean_occupancy": 0.602409638554217,
+      "minimum_bound_state": 0.0,
+      "minimum_free_state": 3.627304347418085e-06,
+      "n_steps": 20000.0,
+      "pattern": "patched",
+      "zero_diffusion_limit": true
+    },
+    "zero_pulse": {
+      "maximum_activation": 0.0,
+      "maximum_bound_state": 0.0,
+      "receptor_mass_error": 5.167583532800728e-16
+    }
+  },
+  "derived": {
+    "cell_area_um2": 0.03628117913832199,
+    "default_pulse_steps": 2000,
+    "default_steps": 24000,
+    "diffusion_cfl": 0.1378125,
+    "domain_area_um2": 16.0,
+    "kd_from_rates_nM": 33.0,
+    "source_integral_nM_um2": 1154.5352830631423,
+    "total_receptor_count": 880.0
+  },
+  "id": "BT-HX-Q080",
+  "interpretation": {
+    "deterministic_not_uncertainty_interval": true,
+    "no_measured_data": true,
+    "patch_width_and_pulse_are_assumptions": true,
+    "primary_result": "mechanistic_prediction_supported"
+  },
+  "limitations": [
+    "The ligand field is an effective 2D nM field, not a resolved extracellular concentration profile.",
+    "Receptor-receptor cooperativity, desensitization, endocytosis, and intracellular signaling are omitted.",
+    "The output is a deterministic mechanism test and does not estimate biological uncertainty."
+  ],
+  "model": "deterministic effective 2D no-flux reaction-diffusion model",
+  "next_resolution_step": "Fit measured same-cell receptor coordinates and a calibrated ligand dose to patch width, effective ligand diffusion, and kinetic rates using preregistered holdout cells.",
+  "parameters": [
+    {
+      "name": "domain_length_um",
+      "source_or_assumption": "assumption: square effective membrane domain",
+      "unit": "um",
+      "value": 4.0
+    },
+    {
+      "name": "grid_points",
+      "source_or_assumption": "assumption: finite-volume grid",
+      "unit": "cells per axis",
+      "value": 21
+    },
+    {
+      "name": "dx",
+      "source_or_assumption": "derived: domain_length_um / grid_points",
+      "unit": "um",
+      "value": 0.19047619047619047
+    },
+    {
+      "name": "mean_receptor_density",
+      "source_or_assumption": "Briddon et al. 2004, Fig. 6b and text: approximately 55 receptor um^-2",
+      "unit": "receptor um^-2",
+      "value": 55.0
+    },
+    {
+      "name": "patch_centers_um",
+      "source_or_assumption": "assumption: four fixed patch centers",
+      "unit": "um",
+      "value": [
+        [
+          1.2,
+          1.2
+        ],
+        [
+          2.8,
+          1.2
+        ],
+        [
+          1.2,
+          2.8
+        ],
+        [
+          2.8,
+          2.8
+        ]
+      ]
+    },
+    {
+      "name": "patch_sigma_um",
+      "source_or_assumption": "assumption; motivated by Suzuki et al. 2005 Fig. 4d 210 nm compartment scale",
+      "unit": "um",
+      "value": 0.3
+    },
+    {
+      "name": "ligand_center_um",
+      "source_or_assumption": "assumption: fixed pulse center",
+      "unit": "um",
+      "value": [
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "name": "ligand_sigma_um",
+      "source_or_assumption": "assumption: localized Gaussian ligand source",
+      "unit": "um",
+      "value": 0.35
+    },
+    {
+      "name": "pulse_duration_s",
+      "source_or_assumption": "assumption: controlled temporal pulse",
+      "unit": "s",
+      "value": 0.1
+    },
+    {
+      "name": "source_rate_nM_s",
+      "source_or_assumption": "assumption: pulse amplitude, not measured data",
+      "unit": "nM s^-1",
+      "value": 15000.0
+    },
+    {
+      "name": "ligand_diffusion_um2_s",
+      "source_or_assumption": "effective 2D assumption; Briddon et al. free-ligand 251 um^2 s^-1 is a 3D/FCS anchor",
+      "unit": "um^2 s^-1",
+      "value": 25.0
+    },
+    {
+      "name": "clearance_rate_s",
+      "source_or_assumption": "assumption: homogeneous post-pulse effective loss",
+      "unit": "s^-1",
+      "value": 0.5
+    },
+    {
+      "name": "kon_s1_nM1",
+      "source_or_assumption": "assumption; paired with koff to reproduce Briddon Kd anchor",
+      "unit": "s^-1 nM^-1",
+      "value": 0.02
+    },
+    {
+      "name": "koff_s1",
+      "source_or_assumption": "assumption; koff/kon equals 33 nM",
+      "unit": "s^-1",
+      "value": 0.66
+    },
+    {
+      "name": "receptor_diffusion_um2_s",
+      "source_or_assumption": "Calebiro et al. 2013 Fig. 2I beta2AR median 0.039 um^2 s^-1; rounded anchor",
+      "unit": "um^2 s^-1",
+      "value": 0.04
+    },
+    {
+      "name": "duration_s",
+      "source_or_assumption": "assumption: observation endpoint",
+      "unit": "s",
+      "value": 1.2
+    },
+    {
+      "name": "dt_s",
+      "source_or_assumption": "assumption: explicit finite-difference step",
+      "unit": "s",
+      "value": 5e-05
+    }
+  ],
+  "prereg_sha256": "6da63a31da2a47e4dbcc012d6e7bcab06c85a2c5810699ee6071082f3a70d6df",
+  "primary": {
+    "activation_integral_ratio": 1.0166618239963086,
+    "cv_increment": 1.0349418800221084,
+    "frozen_criteria": {
+      "cv_increment_threshold": 0.1,
+      "peak_ratio_threshold": 1.2
+    },
+    "patched": {
+      "activation_time_integral_receptor_s": 390.6666262434142,
+      "dt_s": 4.9999999999999996e-05,
+      "duration_s": 1.2,
+      "expected_total_receptors": 880.0,
+      "final": {
+        "mean_activation": 28.877191157731712,
+        "peak_activation": 101.07673124185597,
+        "peak_to_mean": 3.500227244739945,
+        "spatial_cv": 0.9225497221215161,
+        "total_bound_receptors": 462.03505852370733
+      },
+      "final_total_receptors": 880.0,
+      "initial_total_receptors": 879.9999999999998,
+      "max_relative_receptor_mass_error": 1.937843824800273e-15,
+      "minimum_bound_state": 0.0,
+      "minimum_free_state": 9.123220025324097e-06,
+      "minimum_ligand_nM": 0.0,
+      "n_steps": 24000,
+      "pattern": "patched",
+      "pulse_end": {
+        "mean_activation": 4.279621037446066,
+        "peak_activation": 28.46585695476791,
+        "peak_to_mean": 6.651490098234347,
+        "spatial_cv": 1.5376582903849147,
+        "total_bound_receptors": 68.47393659913705
+      },
+      "pulse_end_time_s": 0.09999999999999999,
+      "pulse_peak": {
+        "mean_activation": 4.279621037446066,
+        "peak_activation": 28.46585695476791,
+        "peak_to_mean": 6.651490098234347,
+        "spatial_cv": 1.5376582903849147,
+        "total_bound_receptors": 68.47393659913705
+      },
+      "pulse_peak_time_s": 0.09999999999999999,
+      "pulse_steps": 2000,
+      "source_integral_nM_um2": 1154.5352830631423
+    },
+    "peak_ratio": 2.77228036611145,
+    "primary_pass": true,
+    "total_response_ratio_at_pulse_end": 1.1722858746975522,
+    "uniform": {
+      "activation_time_integral_receptor_s": 384.26408567971635,
+      "dt_s": 4.9999999999999996e-05,
+      "duration_s": 1.2,
+      "expected_total_receptors": 880.0,
+      "final": {
+        "mean_activation": 28.75799211641143,
+        "peak_activation": 29.612740916877893,
+        "peak_to_mean": 1.0297221307039264,
+        "spatial_cv": 0.009662581125013968,
+        "total_bound_receptors": 460.1278738625828
+      },
+      "final_total_receptors": 880.0000000000006,
+      "initial_total_receptors": 879.9999999999999,
+      "max_relative_receptor_mass_error": 1.162706294880164e-15,
+      "minimum_bound_state": 0.0,
+      "minimum_free_state": 0.46158652878403555,
+      "minimum_ligand_nM": 0.0,
+      "n_steps": 24000,
+      "pattern": "uniform",
+      "pulse_end": {
+        "mean_activation": 3.650663314995757,
+        "peak_activation": 10.268029634641772,
+        "peak_to_mean": 2.812647661169956,
+        "spatial_cv": 0.5027164103628063,
+        "total_bound_receptors": 58.4106130399321
+      },
+      "pulse_end_time_s": 0.09999999999999999,
+      "pulse_peak": {
+        "mean_activation": 3.650663314995757,
+        "peak_activation": 10.268029634641772,
+        "peak_to_mean": 2.812647661169956,
+        "spatial_cv": 0.5027164103628063,
+        "total_bound_receptors": 58.4106130399321
+      },
+      "pulse_peak_time_s": 0.09999999999999999,
+      "pulse_steps": 2000,
+      "source_integral_nM_um2": 1154.5352830631423
+    }
+  },
+  "sensitivity": [
+    {
+      "activation_integral_ratio": 1.0327598607190431,
+      "cv_increment": 0.7409560983474022,
+      "factor": 0.5,
+      "max_relative_receptor_mass_error": 2.7129813547203826e-15,
+      "minimum_bound_state": 0.0,
+      "minimum_free_state": 9.123220025324097e-06,
+      "minimum_ligand_nM": 0.0,
+      "parameter": "ligand_diffusion_um2_s",
+      "patched_peak_time_s": 0.09999999999999999,
+      "peak_ratio": 2.058257567224824,
+      "total_response_ratio_at_pulse_end": 1.2668057859705446,
+      "uniform_peak_time_s": 0.09999999999999999,
+      "value": 12.5
+    },
+    {
+      "activation_integral_ratio": 1.0111796962833677,
+      "cv_increment": 1.1665366028302016,
+      "factor": 1.5,
+      "max_relative_receptor_mass_error": 1.162706294880164e-15,
+      "minimum_bound_state": 0.0,
+      "minimum_free_state": 9.123220025324097e-06,
+      "minimum_ligand_nM": 0.0,
+      "parameter": "ligand_diffusion_um2_s",
+      "patched_peak_time_s": 0.09999999999999999,
+      "peak_ratio": 3.2698154776430113,
+      "total_response_ratio_at_pulse_end": 1.1241970880910954,
+      "uniform_peak_time_s": 0.09999999999999999,
+      "value": 37.5
+    },
+    {
+      "activation_integral_ratio": 1.0172549596989788,
+      "cv_increment": 1.0334379738930854,
+      "factor": 0.5,
+      "max_relative_receptor_mass_error": 1.2918958832001822e-15,
+      "minimum_bound_state": 0.0,
+      "minimum_free_state": 9.123220025324097e-06,
+      "minimum_ligand_nM": 0.0,
+      "parameter": "koff_s1",
+      "patched_peak_time_s": 0.09999999999999999,
+      "peak_ratio": 2.766998466001532,
+      "total_response_ratio_at_pulse_end": 1.1727206620851118,
+      "uniform_peak_time_s": 0.09999999999999999,
+      "value": 0.33
+    },
+    {
+      "activation_integral_ratio": 1.016150615496178,
+      "cv_increment": 1.036433290309858,
+      "factor": 1.5,
+      "max_relative_receptor_mass_error": 4.392446002880619e-15,
+      "minimum_bound_state": 0.0,
+      "minimum_free_state": 9.123220025324097e-06,
+      "minimum_ligand_nM": 0.0,
+      "parameter": "koff_s1",
+      "patched_peak_time_s": 0.09999999999999999,
+      "peak_ratio": 2.777532020416859,
+      "total_response_ratio_at_pulse_end": 1.1718534336819795,
+      "uniform_peak_time_s": 0.09999999999999999,
+      "value": 0.99
+    },
+    {
+      "activation_integral_ratio": 1.0156554666930822,
+      "cv_increment": 2.6496391541700035,
+      "factor": 0.5,
+      "max_relative_receptor_mass_error": 2.1962230014403096e-15,
+      "minimum_bound_state": 0.0,
+      "minimum_free_state": 7.828057411142973e-23,
+      "minimum_ligand_nM": 0.0,
+      "parameter": "patch_sigma_um",
+      "patched_peak_time_s": 0.09999999999999999,
+      "peak_ratio": 9.138239312415639,
+      "total_response_ratio_at_pulse_end": 1.1564155471058333,
+      "uniform_peak_time_s": 0.09999999999999999,
+      "value": 0.15
+    },
+    {
+      "activation_integral_ratio": 1.0172017082570397,
+      "cv_increment": 0.46828470620295226,
+      "factor": 1.5,
+      "max_relative_receptor_mass_error": 1.162706294880164e-15,
+      "minimum_bound_state": 0.0,
+      "minimum_free_state": 0.007638975864526882,
+      "minimum_ligand_nM": 0.0,
+      "parameter": "patch_sigma_um",
+      "patched_peak_time_s": 0.09999999999999999,
+      "peak_ratio": 1.383949269198443,
+      "total_response_ratio_at_pulse_end": 1.1833625297149988,
+      "uniform_peak_time_s": 0.09999999999999999,
+      "value": 0.44999999999999996
+    }
+  ],
+  "source_catalog": [
+    {
+      "citation": "Briddon et al., PNAS 101, 4673-4678 (2004)",
+      "doi": "10.1073/pnas.0400420101",
+      "location": "Fig. 6b and accompanying text",
+      "unit": "nM; receptor um^-2",
+      "use": "density and affinity anchors",
+      "value": "Kd = 33 nM; Bmax = 75 nM, approximately 55 receptors/um^2"
+    },
+    {
+      "citation": "Suzuki et al., Biophysical Journal 88, 3659-3680 (2005)",
+      "doi": "10.1529/biophysj.104.048538",
+      "location": "Fig. 4d and Conclusions",
+      "unit": "nm; ms; um^2/s",
+      "use": "membrane patch and mobility context",
+      "value": "L = 210 nm; residency = 45 ms; D(25 us,100 ms) = 0.23 um^2/s"
+    },
+    {
+      "citation": "Calebiro et al., PNAS 110, 743-748 (2013)",
+      "doi": "10.1073/pnas.1205798110",
+      "location": "Fig. 2D/I",
+      "unit": "um^2/s",
+      "use": "receptor-state mobility anchor",
+      "value": "beta1AR median D = 0.052 um^2/s; beta2AR median D = 0.039 um^2/s"
+    }
+  ],
+  "status": "completed",
+  "unit_check": {
+    "consistent": true,
+    "equations": {
+      "activation_density": {
+        "dimensions": "receptor um^-2 * 1 = receptor um^-2",
+        "matches": "A = receptor um^-2",
+        "term": "Rbar c"
+      },
+      "association": {
+        "dimensions": "s^-1 nM^-1 * nM * 1 = s^-1",
+        "matches": "partial_t(c) reaction term = s^-1",
+        "term": "kon L r"
+      },
+      "dissociation": {
+        "dimensions": "s^-1 * 1 = s^-1",
+        "matches": "partial_t(c) reaction term = s^-1",
+        "term": "koff c"
+      },
+      "finite_volume_diffusion": {
+        "dimensions": "s * um^2 s^-1 / um^2 = 1",
+        "matches": "dimensionless finite-volume update",
+        "term": "dt D field / dx^2"
+      },
+      "grid_spacing": {
+        "dimensions": "um and s",
+        "matches": "spatial and temporal coordinates",
+        "term": "dx and dt"
+      },
+      "ligand_clearance": {
+        "dimensions": "s^-1 * nM = nM s^-1",
+        "matches": "partial_t(L) loss term = nM s^-1",
+        "term": "clearance_rate L"
+      },
+      "ligand_diffusion": {
+        "dimensions": "um^2 s^-1 * nM um^-2 = nM s^-1",
+        "matches": "partial_t(L) = nM s^-1",
+        "term": "D_L Laplacian(L)"
+      },
+      "ligand_source": {
+        "dimensions": "nM s^-1 * 1 = nM s^-1",
+        "matches": "partial_t(L) source term = nM s^-1",
+        "term": "source_rate Gaussian"
+      },
+      "receptor_count": {
+        "dimensions": "receptor um^-2 * um^2 = receptor",
+        "matches": "N_total = receptor",
+        "term": "Rbar (r+c) dA"
+      },
+      "receptor_density": {
+        "dimensions": "receptor um^-2 * 1 = receptor um^-2",
+        "matches": "R = receptor um^-2",
+        "term": "Rbar (r+c)"
+      },
+      "receptor_diffusion": {
+        "dimensions": "um^2 s^-1 * um^-2 = s^-1",
+        "matches": "partial_t(r) = s^-1",
+        "term": "D_R Laplacian(r)"
+      }
+    },
+    "grid_unit": "um",
+    "ligand_unit": "nM",
+    "receptor_density_unit": "receptor um^-2",
+    "time_unit": "s"
+  },
+  "validity": {
+    "all_checks_pass": true,
+    "checks": {
+      "analytic_limit_error_within_1e-10": true,
+      "ligand_nonnegative_within_1e-10_nM": true,
+      "normalized_states_nonnegative_within_1e-10": true,
+      "prereg_checksum_matches": true,
+      "primary_and_sensitivity_values_finite": true,
+      "receptor_mass_error_within_1e-10": true,
+      "unit_dimensions_consistent": true,
+      "zero_pulse_activation_zero": true
+    },
+    "maximum_receptor_mass_error": 4.392446002880619e-15,
+    "minimum_ligand_nM": 0.0,
+    "minimum_normalized_receptor_state": 0.0
+  }
+}

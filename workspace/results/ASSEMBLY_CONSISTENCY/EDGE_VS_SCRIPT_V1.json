@@ -1,0 +1,29 @@
+{
+ "cross_lane_allowed": {
+  "1273.2395447351628": "LANE_TISSUE_ADHESION_CONTACT r1, default patch pressure",
+  "0.7853981633974483": "LANE_TISSUE_ADHESION_CONTACT r1, default patch area",
+  "36.378273": "LANE_TISSUE_ADHESION_CONTACT r1, ratio to the 35 kPa gel"
+ },
+ "checked": [
+  {
+   "edge": "T-E26-dwell_time-vs-collateral_damage_depth",
+   "script": "tasks/assembly/incision_setting_decision.py",
+   "numbers_produced": 48,
+   "quoted_numbers_not_produced": []
+  },
+  {
+   "edge": "T-E27-shaft_sensing-vs-tip_tangential_load",
+   "script": "tasks/assembly/tip_load_decision.py",
+   "numbers_produced": 32,
+   "quoted_numbers_not_produced": []
+  },
+  {
+   "edge": "T-E28-pass_count-vs-forward_friction_budget",
+   "script": "tasks/assembly/passage_friction_decision.py",
+   "numbers_produced": 43,
+   "quoted_numbers_not_produced": []
+  }
+ ],
+ "stale": [],
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

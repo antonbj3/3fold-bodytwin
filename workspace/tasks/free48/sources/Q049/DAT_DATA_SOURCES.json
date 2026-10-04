@@ -1,0 +1,369 @@
+{
+  "id": "BT-DAT-Q049",
+  "purpose": "Public measured datasets that constrain the frozen BT-HX-Q049 1-D layered poroelastic model in inputs/ (question: which thin layers must be preserved for correct mechanics and transport).",
+  "frozen_preregistration": {
+    "file": "PREREG.md",
+    "sha256": "23ee6865e45101f06e93344ffc7690eb36761dbccf09099dcf8ec05caa61ca4a",
+    "frozen_before": "any download, byte count or derived number in this directory"
+  },
+  "session_date": "2026-09-25",
+  "verification_method": "Landing pages fetched over HTTPS from this machine; file sizes and licenses read from repository machine-readable metadata (Zenodo REST API /api/records/<id>, Mendeley public API /public-api/datasets/<id>/files, DataCite REST API api.datacite.org/dois); one sample downloaded to disk and byte-counted. No size, license or subject count is written from memory.",
+  "sources": [
+    {
+      "key": "oaizib_cm",
+      "name": "OAIZIB-CM: Dataset from the CartiMorph Project",
+      "category": "anatomy_geometry",
+      "landing_url": "https://zenodo.org/records/14934086",
+      "doi": "10.5281/zenodo.14934086",
+      "metadata_api": "https://zenodo.org/api/records/14934086",
+      "file_urls": [
+        "https://zenodo.org/api/records/14934086/files/imagesTs.zip/content",
+        "https://zenodo.org/api/records/14934086/files/imagesTr.zip/content",
+        "https://zenodo.org/api/records/14934086/files/labelsTr.zip/content",
+        "https://zenodo.org/api/records/14934086/files/labelsTs.zip/content",
+        "https://zenodo.org/api/records/14934086/files/info.zip/content",
+        "https://zenodo.org/api/records/14934086/files/template_atlas.zip/content"
+      ],
+      "alternate_host": "https://huggingface.co/datasets/YongchengYAO/OAIZIB-CM (cited in the Zenodo record description; not fetched this session)",
+      "license": "CC BY-NC 4.0",
+      "license_source": "Zenodo record metadata field metadata.license.id = cc-by-nc-4.0",
+      "size_bytes_total": 12652466616,
+      "size_bytes_per_file": {
+        "imagesTs.zip": 2544663978,
+        "imagesTr.zip": 10032464145,
+        "labelsTr.zip": 57538129,
+        "labelsTs.zip": 14122969,
+        "info.zip": 51680,
+        "template_atlas.zip": 3625715
+      },
+      "size_source": "Zenodo API file entries (per-file checksum md5 given by repository); labelsTs.zip byte count independently measured on disk this session (14,122,969 B, identical to the reported size)",
+      "format": "ZIP archives of NIfTI-1 volumes (.nii.gz): MR images plus 5-ROI segmentation masks for cartilages and bones and a 20-ROI articular-cartilage atlas (template 'CLAIR-Knee-103R')",
+      "subjects": "Test split measured this session: 103 NIfTI label volumes (one per subject) in labelsTs.zip. Record description states the template atlas was learned from 103 MR images of subjects without radiographic OA. Number of subjects in labelsTr/imagesTr (training split) NOT extracted this session = UNKNOWN.",
+      "verified": true,
+      "verification_evidence": [
+        "GET https://zenodo.org/api/records/14934086 -> HTTP 200",
+        "GET labelsTs.zip content -> HTTP 200, size_download = 14122969, md5 of downloaded file equals repository md5 f68973a29e0d57fdcab0f847556bf957",
+        "zipfile listing: 103 entries matching labelsTs/*.nii.gz"
+      ],
+      "constrains": [
+        {
+          "model_quantity": "superficial.thickness",
+          "current_value_in_model_m": 0.0002,
+          "current_provenance": "frozen mechanistic assumption (Krishnan 2003 Table 1 gives modulus/permeability, not thickness)",
+          "how_it_constrains": "A sub-voxel cartilage segmentation of a real knee bounds the depth range over which a 0.20 mm superficial zone and a 1.80 mm bulk zone can be placed; with 0.364583 mm in-plane and 0.7 mm slice spacing the sample can resolve a surface band only approximately, so it bounds layer thickness from one side and shows the resolution limit for depth-resolved properties.",
+          "test_it_could_fail": "If the measured cartilage thickness distribution were 0.6-0.8 mm, the model's 2.0 mm total tissue thickness would be falsified as a femoral cartilage column."
+        },
+        {
+          "model_quantity": "calcified_barrier.thickness",
+          "current_value_in_model_m": 0.0001,
+          "current_provenance": "frozen mechanistic assumption; no measured value claimed",
+          "how_it_constrains": "The tidemark is not labelled in this dataset (cartilage masks stop at the cartilage-bone interface), so the 0.10 mm barrier layer can be bounded only as 'at most the interface resolution', i.e. one to three voxels; a dedicated tidemark dataset is the missing piece.",
+          "test_it_could_fail": "Histological tidemark depths of 0.2-0.5 mm would falsify the 0.10 mm frozen barrier thickness."
+        },
+        {
+          "model_quantity": "normalization_strain / REFERENCE_STRESS_PA",
+          "current_value_in_model": "0.05 of the 0.73 MPa reference modulus = 36,500 Pa",
+          "current_provenance": "modeling choice within a small-strain regime",
+          "how_it_constrains": "Supplies the measured image grid (160 x 384 x 384, 0.7 x 0.364583 x 0.364583 mm) on which a later depth-resolved property assignment would be posed, so the stress normalization can be tied to a real femoral condyle rather than a generic 1-D slab.",
+          "test_it_could_fail": "If the knee geometry in the segmentation shows contact patches of the order of 1 cm^2 and a film-limited film conductance, the assumed single-column stress step is not representable."
+        }
+      ]
+    },
+    {
+      "key": "mendeley_3d_knee_cartilage_seg",
+      "name": "3D Knee MRI Cartilage Segmentation",
+      "category": "anatomy_geometry",
+      "landing_url": "https://data.mendeley.com/datasets/py8tp69jjh/1",
+      "doi": "10.17632/py8tp69jjh.1",
+      "metadata_api": "https://data.mendeley.com/public-api/datasets/py8tp69jjh/files?folder_id=root&version=1",
+      "doi_metadata_api": "https://api.datacite.org/dois/10.17632/py8tp69jjh.1",
+      "file_urls": ["https://data.mendeley.com/public-files/datasets/py8tp69jjh/files/7bf17f23-3a20-4c12-8b3c-f98d0fd06025/file_downloaded"],
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0) + openAccess",
+      "license_source": "DataCite rightsList for 10.17632/py8tp69jjh.1; rightsUri https://creativecommons.org/licenses/by/4.0/legalcode",
+      "size_bytes_total": 214300249,
+      "size_source": "Mendeley public API content_details.size for archive.zip (214,300,249 B), sha256_hash 6836e1812644333ca36f83e5093df8452ad62144b65aa5978dd02e8bd21910d3, content_type application/zip",
+      "format": "ZIP (single archive.zip); contents not inspected - 204 MB exceeds the 50 MB sample budget, so inner format and label set are UNKNOWN",
+      "subjects": "UNKNOWN (not stated in the metadata fetched this session; not estimated)",
+      "verified": true,
+      "verification_evidence": [
+        "GET Mendeley public-api files -> HTTP 200, one entry archive.zip",
+        "GET DataCite record -> CC BY 4.0 rights present, resourceTypeGeneral Dataset, publicationYear 2026"
+      ],
+      "constrains": [
+        {
+          "model_quantity": "superficial.thickness + bulk.thickness (total cartilage column)",
+          "current_value_in_model_m": 0.002,
+          "current_provenance": "frozen assumptions summed",
+          "how_it_constrains": "An independent CC BY 4.0 3-D knee MRI cartilage segmentation is a second, license-clean route to the same constraint and could be used as a leave-one-source-out check on any thickness distribution derived from oaizib_cm; the check would fail if the two sources disagree by more than the preregistered tolerance.",
+          "test_it_could_fail": "A femoral cartilage thickness distribution centred far from 2.0 mm would falsify the total tissue thickness of the column."
+        }
+      ]
+    },
+    {
+      "key": "zenodo_coronal_pd_knee",
+      "name": "Coronal-PD knee dataset (coronal proton-density MR knee slices, 20 patients)",
+      "category": "anatomy_geometry",
+      "landing_url": "https://zenodo.org/records/10673359",
+      "doi": "10.5281/zenodo.10673359",
+      "metadata_api": "https://zenodo.org/api/records/10673359",
+      "file_urls": ["https://zenodo.org/api/records/10673359/files/1.zip/content", "... /17.zip/content", "... /18.zip/content", "... /19.zip/content", "... /20.zip/content"],
+      "license": "CC BY 4.0",
+      "license_source": "Zenodo record metadata license.id = cc-by-4.0; a LICENSE file (1096 B) is listed among the record files",
+      "size_bytes_total": 8021423926,
+      "size_bytes_per_file_measured": {"1.zip": 404923684, "17.zip": 401145488, "18.zip": 401580944, "19.zip": 398062754, "20.zip": 400201248, "LICENSE": 1096},
+      "size_source": "Zenodo API file entries; 22 files in total, per-patient zips about 400 MB each (so no single file is usable as a <=50 MB sample)",
+      "format": "ZIP per patient containing coronal PD MR slices (slices 11-30); DICOM or image format inside the archives = UNKNOWN (not inspected)",
+      "subjects": "20 patients (record description: 3 validation, 3 test, 14 train)",
+      "verified": true,
+      "verification_evidence": [
+        "GET https://zenodo.org/api/records/10673359 -> HTTP 200",
+        "record description quotes patient split and slice range verbatim in work/z10673359.json"
+      ],
+      "constrains": [
+        {
+          "model_quantity": "lateral contact geometry neglected by the 1-D column (model scope, not a parameter)",
+          "current_value_in_model": "1-D column, no lateral contact geometry claimed",
+          "how_it_constrains": "Raw coronal PD signal with no cartilage labels: it can only bound the gross femoral condyle outline and field of view, i.e. it tests whether a 1-D column is an acceptable reduction for the lateral extent of a real knee. It cannot bound any layer property.",
+          "test_it_could_fail": "If the visible cartilage band in these coronal slices is much thinner than the 2.0 mm column, the 1-D reduction is wrong for this joint."
+        }
+      ]
+    },
+    {
+      "key": "zenodo_knee_adduction_moment",
+      "name": "Knee adduction moment decomposition (motion capture of one subject walking with and without a brace at three speeds)",
+      "category": "time_series_load",
+      "landing_url": "https://zenodo.org/records/7215806",
+      "doi": "10.5281/zenodo/7215806",
+      "metadata_api": "https://zenodo.org/api/records/7215806",
+      "file_urls": [
+        "https://zenodo.org/api/records/7215806/files/HN10_Q2-WI.mat/content",
+        "https://zenodo.org/api/records/7215806/files/HN10_Q2-WIB.mat/content",
+        "https://zenodo.org/api/records/7215806/files/GRV_V4_Frontiers.m/content",
+        "https://zenodo.org/api/records/7215806/files/dGRVMain_Frontiers.m/content"
+      ],
+      "license": "CC BY 4.0",
+      "license_source": "Zenodo record metadata license.id = cc-by-4.0",
+      "size_bytes_total": 27103679,
+      "size_bytes_per_file": {"HN10_Q2-WI.mat": 13417347, "HN10_Q2-WIB.mat": 13678080, "GRV_V4_Frontiers.m": 6543, "dGRVMain_Frontiers.m": 1709},
+      "size_source": "Zenodo API file entries",
+      "format": "MATLAB .mat motion-capture/GRF data plus two .m analysis scripts; internal variable layout = UNKNOWN (not opened; total size 27.1 MB is under the 50 MB sample budget but the prereg froze the single sample to a 3-D MRI volume, so this was not downloaded)",
+      "subjects": "1 subject (file prefix HN10) walking at three speeds, with and without a brace = 6 time series; number of trials/steps per condition = UNKNOWN",
+      "verified": true,
+      "verification_evidence": [
+        "GET https://zenodo.org/api/records/7215806 -> HTTP 200",
+        "record description states: 'The motion capture data from a subject walking with and without a brace at three different speeds is included in the data set.'"
+      ],
+      "constrains": [
+        {
+          "model_quantity": "normalization_strain (=0.05) and REFERENCE_STRESS_PA (=36,500 Pa), the prescribed total-stress step",
+          "current_value_in_model": "36,500 Pa = 5% of 0.73 MPa",
+          "how_it_constrains": "Gives a measured, public, time-resolved knee loading waveform (adduction moment components, with/without brace) against which the model's single frozen stress step can be compared in magnitude and duty cycle. It bounds the load side, not the tissue side.",
+          "test_it_could_fail": "If the measured tibiofemoral load converted to contact stress sits an order of magnitude above or below 36,500 Pa over the stance phase, the frozen normalization is not a representative small-strain operating point."
+        },
+        {
+          "model_quantity": "drainage_half_time_s (0.528 s in the delivered run)",
+          "current_value_in_model_s": 0.5281066307380372,
+          "current_provenance": "model output, not validated",
+          "how_it_constrains": "Gives the contact-duration scale (stance phase in seconds) against which a 0.53 s drainage half-time can be judged: if a real contact dwell is far shorter, the drainage regime the model is probing is not exercised in gait.",
+          "test_it_could_fail": "A stance contact dwell of ~0.05 s would make the model's 1 s/10 s/60 s observation times physiologically unreachable for a single step, and the layer conclusion would then be about a regime that gait never visits."
+        }
+      ]
+    },
+    {
+      "key": "nlm_visible_human",
+      "name": "NLM Visible Human Project (male and female whole-body anatomical datasets)",
+      "category": "anatomy_geometry",
+      "landing_url": "https://www.nlm.nih.gov/research/visible/visible_human.html",
+      "download_page": "https://www.nlm.nih.gov/research/visible/getting_data.html",
+      "data_host": "https://datadiscovery.nlm.nih.gov/Images/Visible-Human-Project/ux2j-9i9a/about_data (linked from the NLM pages; not opened this session)",
+      "license": "public domain (NLM Terms and Conditions; 'As of July 2019, the NLM Data License has been replaced by Terms and Conditions. No registration is required to access data available from NLM's FTP servers.')",
+      "license_source": "NLM 'Getting the Data' page, fetched this session (HTTP 200, 23,188 B)",
+      "size_bytes_total": "UNKNOWN (the pages fetched state ~3.5 MB per individual image download, not the dataset total; the FTP/host listing was not opened)",
+      "format": "cryosectional images at 0.33 mm XY in lossless 'Z' compression .raw, derived 0.17 mm .rgb, and lossless .png radiological/full-colour images, plus MRI/CT header text files; also available as 3-D volume sets. Units: millimetres at 0.33/0.17 mm XY resolution (per NLM page).",
+      "subjects": "2 (1 male, 1 female cadaver)",
+      "verified": true,
+      "verification_evidence": [
+        "GET https://www.nlm.nih.gov/research/visible/visible_human.html -> HTTP 200, 31,521 B; states datasets are public-domain and that as of 2019 a license is no longer required",
+        "GET https://www.nlm.nih.gov/research/visible/getting_data.html -> HTTP 200, 23,188 B; states formats, resolutions and terms"
+      ],
+      "constrains": [
+        {
+          "model_quantity": "coordinate-frame and unit discipline for any later 3-D assembly of the thin layers",
+          "current_value_in_model": "SI units in a 1-D column with no spatial reference",
+          "how_it_constrains": "Supplies a public-domain, explicitly millimetre-scaled whole-body volume with a documented anatomical coordinate reference, i.e. an independent check that a thickness entered in metres (superficial 0.20 mm, barrier 0.10 mm) is on the scale of the tissue actually imaged; the cartilage in VHP-style cryosection data is not segmented, so it bounds gross scale only.",
+          "test_it_could_fail": "If 0.10 mm and 0.20 mm layers are below the 0.17-0.33 mm native XY resolution of this reference, they cannot be represented from this data source at all, which would make a 'geometry-first' route to the thin layers impossible at that resolution."
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "key": "mrnet",
+      "name": "MRNet knee MRI (Stanford ML Group)",
+      "landing_url": "https://stanfordmlgroup.github.io/projects/mrnet/",
+      "http_status": "HTTP 200, page fetched",
+      "failing_rule": "inclusion rule 2 (no license string on the landing page) and rule 5 (subject/exam count not stated on the page fetched); download is gated behind a request form (/competitions/mrnet)",
+      "license": "UNKNOWN",
+      "size_bytes_total": "UNKNOWN",
+      "note": "Would otherwise be a strong candidate: 3-plane knee MRI. Not counted. The 1,370-exam figure appears in the PLOS Medicine paper, not on the page fetched, so it is not asserted here."
+    },
+    {
+      "key": "oai",
+      "name": "Osteoarthritis Initiative (longitudinal knee MRI cohort)",
+      "landing_url": "https://nda.nih.gov/oai/",
+      "http_status": "fetch returned a JavaScript shell with no data content; https://oai.ucsf.edu/ did not resolve from this machine (curl error 6)",
+      "failing_rule": "inclusion rule 1 (landing page with metadata not retrievable from this machine)",
+      "license": "OAI Data Use Agreement (not verified this session)",
+      "note": "This is the parent cohort of oaizib_cm and the natural source of longitudinal (time-series) cartilage measurements. Its registration gate is exactly why the cartilage time series in this audit come from OAIZIB-CM rather than from OAI directly."
+    },
+    {
+      "key": "opencap",
+      "name": "OpenCap public markerless motion-capture data (Stanford)",
+      "landing_url": "http://opencap.stanford.edu/",
+      "http_status": "DNS failure from this machine (curl error 6); no fetch possible",
+      "failing_rule": "inclusion rule 1",
+      "license": "UNKNOWN",
+      "note": "Would have supplied geometry + kinematics time series. Not asserted; nothing about it is used."
+    },
+    {
+      "key": "fastmri_knee",
+      "name": "fastMRI knee",
+      "landing_url": "https://fastmri.med.stanford.edu/",
+      "http_status": "transport error on the project page; https://registry.opendata.aws/fastmri/ -> HTTP 404",
+      "failing_rule": "inclusion rule 1",
+      "license": "UNKNOWN",
+      "note": "Not counted, not asserted."
+    },
+    {
+      "key": "addbiomechanics",
+      "name": "AddBiomechanics (SimTK project)",
+      "landing_url": "https://simtk.org/projects/addbiomechanics",
+      "http_status": "HTTP 200, 35,941 B, but the returned HTML is the SimTK project shell; the summary/license/size are rendered client-side and were not retrievable",
+      "failing_rule": "inclusion rules 2, 3, 4 (license, size, format not extractable from what was fetched)",
+      "license": "UNKNOWN",
+      "note": "The one clear CC BY 3.0 mention in that HTML is the SimTK icon set, not the dataset. Not counted."
+    },
+    {
+      "key": "bodyparts3d",
+      "name": "BodyParts3D (LifesciDB)",
+      "landing_url": "https://lifesciencedb.jp/bp3d/",
+      "http_status": "HTTP 200, 84,659 B, page body is a JavaScript-only application shell (no license/size/format text in the served HTML)",
+      "failing_rule": "inclusion rules 2, 3, 4",
+      "license": "UNKNOWN",
+      "note": "Would have been the MNI-frame mesh reference. Not counted."
+    },
+    {
+      "key": "cartigram_zenodo_14450825",
+      "name": "Assessment of Articular Cartilage in Traumatic Knee Injuries through T2 Mapping [Cartigram]",
+      "landing_url": "https://zenodo.org/records/14450825",
+      "http_status": "HTTP 200 (API)",
+      "failing_rule": "inclusion rule 6 / rule 1 (the record's single file is a journal article PDF, 282,911 B, not data)",
+      "license": "CC BY 4.0 (verified)",
+      "note": "Titled as a dataset but contains no measurement. Rejected after inspecting the file list."
+    },
+    {
+      "key": "mama_mia_knee",
+      "name": "MAMA-MIA knee MRI multi-centre dataset",
+      "landing_url": "not found",
+      "http_status": "DataCite title query for 'MAMA-MIA' returned 11 hits, all breast-MRI related (Zenodo 15052677/15052678, Synapse 10.7303/syn60868042, arXiv); no public knee-MRI record was located this session. Zenodo record id 10526453 was fetched and is an unrelated Uzbek tourism paper (DOI 10.5281/zenodo.10526454).",
+      "failing_rule": "inclusion rule 1 (no landing page located and verified)",
+      "license": "UNKNOWN",
+      "note": "Recorded because an earlier guess of a record id was checked and refuted rather than used. Nothing about this dataset is asserted."
+    },
+    {
+      "key": "z_record_10526453",
+      "name": "unverified guess of a Zenodo record id",
+      "landing_url": "https://zenodo.org/api/records/10526453",
+      "http_status": "HTTP 302 -> 200, DOI 10.5281/zenodo.10526454",
+      "failing_rule": "logged to show that a plausible-looking record id was fetched and found not to be a knee dataset",
+      "license": "CC BY 4.0 (verified for the record that is actually there)",
+      "note": "No numeric claim from this record is used anywhere in the deliverables."
+    }
+  ],
+  "model_parameters_with_no_public_measurement_found": [
+    {
+      "parameter": "film_conductance_m_per_Pa_s",
+      "value_in_model": 1.0e-08,
+      "provenance_in_model": "assumption",
+      "search_performed": "Zenodo REST search for 'synovial fluid' (31,688 hits, none a rheology dataset with a stated license and per-file sizes), 'cartilage permeability' (11,397 hits, none), DataCite for 'articular cartilage permeability depth material property dataset' (0 hits), 'synovial fluid rheology dataset' (0 hits)",
+      "status": "NO PUBLIC DATASET FOUND in this session",
+      "consequence": "The quantity that the delivered run's psi_s(1 s) = 0.0532 (against the frozen [0.90, 1.00] anchor) depends on most directly, through J_top = -G_top p_top, has no public measured value located here. This is a data gap, not a modelling statement."
+    },
+    {
+      "parameter": "film_thickness_m / film_modulus_Pa",
+      "value_in_model": "1.0e-06 / 1.0e6",
+      "provenance_in_model": "assumption",
+      "search_performed": "same three searches as above plus 'tidemark cartilage' (4,501 hits, none relevant)",
+      "status": "NO PUBLIC DATASET FOUND in this session"
+    },
+    {
+      "parameter": "viscosity_Pa_s",
+      "value_in_model": 1.0e-3,
+      "provenance_in_model": "assumption",
+      "status": "NO PUBLIC DATASET FOUND in this session (a human synovial-fluid viscosity-vs-shear-rate table would be a publication table, not a deposited dataset, and was not entered)"
+    },
+    {
+      "parameter": "superficial.permeability / bulk.permeability (depth-resolved k)",
+      "value_in_model": "3.9e-16 / 5.8e-16",
+      "provenance_in_model": "Krishnan et al. 2003 Table 1 proxy (bovine femur layers)",
+      "status": "NO PUBLIC DATASET FOUND in this session; the existing anchor is a journal table, not a dataset"
+    }
+  ],
+  "sample": {
+    "file": "samples/OAIZIB-CM_labelsTs.zip",
+    "source_key": "oaizib_cm",
+    "url": "https://zenodo.org/api/records/14934086/files/labelsTs.zip/content",
+    "http_status": 200,
+    "bytes_on_disk": 14122969,
+    "budget_bytes": 52428800,
+    "within_budget": true,
+    "sha256": "72a81672e6af56a1ecff4dbf3ef66c127497288ff8eefe7ac0124994d9623c6d",
+    "md5": "f68973a29e0d57fdcab0f847556bf957",
+    "checksum_match_with_repository": true,
+    "container": "ZIP (deflate), 104 entries, 103 NIfTI-1 label volumes + 1 directory entry",
+    "verified_volume": "labelsTs/oaizib_480.nii.gz",
+    "reader": "hand-written NIfTI-1 header parser (work/inspect_sample.py); nibabel not installed and no pip available in this environment",
+    "nifti1": {
+      "sizeof_hdr": 348,
+      "byte_order": "little-endian",
+      "dim": [3, 160, 384, 384, 1, 1, 1, 1],
+      "shape_xyz": [160, 384, 384],
+      "datatype_code": 2,
+      "dtype": "uint8",
+      "bitpix": 8,
+      "pixdim_xyz_mm": [0.7, 0.364583, 0.364583],
+      "pixdim_units_code": 1,
+      "pixdim_units_meaning": "code 1 = mm",
+      "vox_offset": 352.0,
+      "scl_slope": 1.0,
+      "scl_inter": 0.0,
+      "qform_code": 0,
+      "sform_code": 1,
+      "affine_rows_sform": [
+        [0.698288, -0.025432, 0.0, 2.080258],
+        [0.048829, 0.363695, 0.0, -72.379135],
+        [0.0, 0.0, 0.364583, -74.478035]
+      ],
+      "axis_orientation": "derived from the sform matrix: column 0 has a positive x component, column 2 is pure +z, so the NIfTI x/y axes are left-right and anterior-posterior consistent with a RAS-style frame; the file itself carries no orientation string and the third column has no y component, so this is an inference from the affine, not a declared field",
+      "descrip_field": "mask with corrected affine matrix and two TCs",
+      "n_voxels": 23592960,
+      "voxel_volume_mm3": 0.0930445347223,
+      "label_values_present": [0, 1, 2, 3, 4, 5],
+      "voxels_per_label": {"0": 20963777, "1": 1458497, "2": 136822, "3": 995713, "4": 19353, "5": 18798},
+      "label_to_anatomy_mapping": "UNKNOWN - the file header carries no ROI names and the Zenodo record describes only '5-ROI segmentation mask for cartilages and bones' and a '20-ROI atlas for articular cartilages'. Labels are therefore not attributed to cartilage, bone or specific compartments in this audit.",
+      "derived_volumes_cm3": {"1": 135.705, "2": 12.731, "3": 92.646, "4": 1.801, "5": 1.749},
+      "volume_bbox_extent_mm": {"1": [66.5, 140.0, 140.0], "2": [35.0, 140.0, 140.0], "3": [51.8, 140.0, 140.0], "4": [17.0, 140.0, 140.0], "5": [16.0, 140.0, 140.0]},
+      "fov_extent_mm": [112.0, 139.9999, 139.9999]
+    },
+    "preregistered_plausibility_check": {
+      "check": "if the sample carries a cartilage segmentation, implied femoral/tibial cartilage thickness must fall in 1.0-6.0 mm",
+      "result": "NOT RUNNABLE",
+      "why": "ROI identity is UNKNOWN, so no label can be declared cartilage. The bounding boxes of every label span the full 140 x 140 mm field of view in two axes, so a bounding box is not a thickness. The derived label volumes (12.7-135.7 cm3) are too large to be a single cartilage compartment and consistent with multi-structure or multi-compartment labels, which is exactly why the check was not forced through."
+    }
+  },
+  "unresolved": {
+    "anchor_ids_K01_K04_K05_K10": "UNKNOWN - the question cites these upstream anchors but the bounded directory contains no definition for them; this task delivers data sources only and does not claim the mapping",
+    "film_and_viscosity_measurements": "UNKNOWN - no public deposited dataset located (see model_parameters_with_no_public_measurement_found)",
+    "tidemark_depth_dataset": "UNKNOWN - no public tidemark/calcified-cartilage depth dataset located; this is the single most direct constraint on calcified_barrier.thickness and it is missing"
+  }
+}

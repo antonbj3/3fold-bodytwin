@@ -1,0 +1,203 @@
+{
+  "task": "Aβ42 aggregation kinetics: nucleation-elongation-secondary-nucleation master equation (Knowles/Cohen framework), the Aβ42-vs-Aβ40 aggregation-propensity difference, concentration-dependent lag time, and a decorrelated in-vivo check (CSF Aβ42 decrease + Aβ42/Aβ40 ratio vs amyloid-PET).",
+  "confidence_tier": "in-vitro-anchored (ThT kinetics: Cohen 2013 PNAS, Meisl 2014 PNAS) + in-vivo biomarker (CSF/PET: Olsson 2016 Lancet Neurol, Janelidze 2016 ACTN, Hansson 2018 Alz&Dem) -- reported as two DECORRELATED tiers, never fused into one score. In-vitro kinetics reproducibility across labs/seeds/agitation is explicitly NOT tested and held OPEN.",
+  "script": "scripts/msk/amyloid_beta_aggregation.py",
+  "raw_results": "reports/probes/amyloid_beta_aggregation_results.json",
+  "doc": "docs/MECHANISM_AMYLOID_BETA_AGGREGATION.md",
+  "citations_verified_live_this_session": {
+    "knowles2009": {
+      "pmid": "20007899", "doi": "10.1126/science.1178250",
+      "cite": "Knowles TP, Waudby CA, Devlin GL, et al. (2009). An analytical solution to the kinetics of breakable filament assembly. Science 326(5959):1533-1537.",
+      "verified_via": "NCBI esearch/esummary, live (title/journal/author/date confirmed).",
+      "note": "Foundational analytical-solution paper for the master equation; full text not fetched this session (not open access via PMC/EuropePMC for this record) -- the equivalent formulas were independently obtained and cross-verified via Cohen 2013 PNAS and Meisl 2014 PNAS, both of which cite and restate this framework and were fetched in full."
+    },
+    "cohen2013": {
+      "pmid": "23703910", "doi": "10.1073/pnas.1218402110", "pmcid": "PMC3683769",
+      "cite": "Cohen SIA, Linse S, Luheshi LM, et al. (2013). Proliferation of amyloid-β42 aggregates occurs through a secondary nucleation mechanism. PNAS 110(24):9758-9763.",
+      "verified_via": "NCBI esearch/esummary (PMID/DOI/title live-confirmed) + PMC full HTML fetched live (this article's PMC rendering serves in-line equation numbers as JPEG images of MathML, not text; each number below was read directly off the downloaded glyph image after 8-9x upscaling with ImageMagick, not OCR'd and not recalled).",
+      "numbers_extracted_from_images": {
+        "gamma_measured_Abeta42_quiescent": "-1.33 ± 0.03 (Fig. 1A, real ThT power-law fit -- the EXTERNAL, non-tautological anchor for Part 2's falsifier)",
+        "n2_secondary_nucleation_order": 2,
+        "nc_primary_nucleation_order_fitted": 2,
+        "gamma_pure_secondary_theory_formula": "gamma = -(n2+1)/2 = -1.5",
+        "gamma_pure_primary_theory_formula_at_fitted_nc": "gamma = -nc/2 = -1",
+        "gamma_rejected_rival_classical_model": "≈ -0.5 (a cited rival ref [12]-style classical nucleation model; explicitly rejected -- far from measured -1.33)",
+        "gamma_fragmentation_high_shear_asymptote": "-0.5 (paper's own high-agitation limit; algebraically = this doc's formula at n2->0, i.e. fragmentation is the n2=0 special case)",
+        "n2_at_fragmentation_limit": 0,
+        "critical_fibril_mass_M_star_kn_over_k2": "~10 nM (concentration above which secondary nucleation outproduces primary nucleation)",
+        "panel_B_primary_only_fit_no_secondary_elevated_order": {"sqrt_kplus_kn": "8e3 M^-3/2 s^-1", "k2": 0, "nc": 3},
+        "panel_C_primary_plus_fragmentation_fit_no_secondary": {"sqrt_kplus_kn": "10 M^-1 s^-1", "sqrt_kplus_kminus_fragmentation": "0.4 M^-1/2 s^-1", "nc": 2},
+        "panel_D_full_winning_model_with_secondary_nucleation": {"sqrt_kplus_kn": "30 M^-1 s^-1", "sqrt_kplus_k2": "2e5 M^-3/2 s^-1", "nc": 2, "n2": 2}
+      },
+      "numbers_extracted_from_plain_text": {
+        "representative_Abeta42_concentration_uM": 4,
+        "n_initial_monomer_concentrations_tested": 10,
+        "dimensional_consistency_check": "all four quoted rate-constant unit strings (M^-3/2s^-1 for panel B nc=3; M^-1s^-1 and M^-1/2s^-1 for panel C; M^-1s^-1 and M^-3/2s^-1 for panel D) independently reproduce from first-principles dimensional analysis of the stated ODE -- cross-checked, not merely copied"
+      }
+    },
+    "meisl2014": {
+      "pmid": "24938782", "doi": "10.1073/pnas.1401564111", "pmcid": "PMC4084462",
+      "cite": "Meisl G, Yang X, Hellstrand E, et al. (2014). Differences in nucleation behavior underlie the contrasting aggregation kinetics of the Aβ40 and Aβ42 peptides. PNAS 111(26):9384-9389.",
+      "verified_via": "NCBI esearch/esummary + PMC full HTML fetched live; text extracted directly (this article's PMC rendering keeps equations as parseable Unicode text, unlike Cohen 2013's image-rendered inline math).",
+      "numbers": {
+        "concentration_range_uM": [3.5, 70], "n_concentrations": 14, "replicate_design": "triplicate, 37C, quiescent",
+        "KM_saturation_uM2": 31, "half_saturation_conc_uM": "5-6",
+        "gamma_formula_verbatim": "gamma = -(1/2)*(n2/(1+[m]0^n2/KM) + 1) -> -(n2+1)/2 at [m]0<<KM^(1/n2), -> -1/2 at [m]0>>KM^(1/n2)",
+        "independent_confirmation_of_this_docs_own_derivation": "this Eq. 11 (Meisl 2014) is algebraically identical, in both limits, to the linearized-Jacobian eigenvalue formula this session derived from scratch BEFORE reading this paper's equation -- two independently authored, six-years-apart derivations converge on the same formula",
+        "gamma_observed_at_conc_above_30uM": -0.2,
+        "gamma_max_theoretical_at_high_conc": -0.5,
+        "gamma_shift_low_to_high_conc_observed": "1.0 ± 0.2",
+        "elongation_saturation_alone_insufficient": "a saturation-of-elongation-only exponent shift is <0.5, explicitly stated as insufficient to explain the observed 1.0±0.2 shift -- secondary-nucleation saturation is required",
+        "kplus_not_individually_resolvable_from_unseeded_data": "explicit statement: unseeded-reaction time evolution depends only on the COMBINED rate constants (k2*k+) and (k+*kn), not the individual rate constants -- the basis for this doc's P'=k+*P rescaling, which needed no assumed k+ value",
+        "Abeta40_vs_Abeta42_combined_rate_constants_order_of_magnitude_smaller": "both k+kn and k+k2 an order of magnitude smaller for Abeta40",
+        "Abeta40_vs_Abeta42_primary_relative_importance_shift": "primary nucleation's relative contribution decreased by OVER an order of magnitude in Abeta40 vs Abeta42, ON TOP OF the overall rate-constant slowdown",
+        "nc_n2_fixed_equal_to_Abeta42_for_direct_comparison": 2,
+        "Abeta42_no_saturation_observed_up_to_uM": 6,
+        "pH_asymmetry_disclosed_by_source": "Abeta42 rates measured at pH 8.0 vs Abeta40 at pH 7.4 (Abeta40 aggregates too slowly at pH 8.0 for reliable data) -- source paper itself states the true difference is likely even larger at matched pH"
+      },
+      "not_extracted_this_session": "Fig. 3B's exact fitted individual/combined rate-constant table is a rendered figure/table graphic in the PMC HTML, not machine-parseable text or a small inline-math image like Cohen 2013's -- honest gap, disclosed in the doc; this doc's Part 3 Abeta40 reconstruction uses the QUALITATIVE order-of-magnitude statements above, not this table's digits."
+    },
+    "jarrett1993": {
+      "pmid": "8490014", "doi": "10.1021/bi00069a001",
+      "cite": "Jarrett JT, Berger EP, Lansbury PT Jr (1993). The carboxy terminus of the beta amyloid protein is critical for the seeding of amyloid formation: implications for the pathogenesis of Alzheimer's disease. Biochemistry 32(18):4693-4697.",
+      "verified_via": "NCBI efetch abstract, live.",
+      "numbers": "Classic historical/qualitative anchor: amyloid formation is nucleation-dependent (crystallization-like); beta1-42/43 (and model peptides retaining the critical C-terminal residues) can SEED aggregation of the kinetically-soluble beta1-39/40; beta1-42/43, not beta1-40, proposed as the pathogenic species. No numeric fold-difference extracted from the abstract (pre-web era paper; full text not fetched)."
+    },
+    "bitan2003": {
+      "pmid": "12506200", "doi": "10.1073/pnas.222681699", "pmcid": "PMC140968",
+      "cite": "Bitan G, Kirkitadze MD, Lomakin A, Vollers SS, Benedek GB, Teplow DB (2003). Amyloid β-protein (Aβ) assembly: Aβ40 and Aβ42 oligomerize through distinct pathways. PNAS 100(1):330-335.",
+      "verified_via": "NCBI esearch/efetch abstract, live.",
+      "numbers": "DECORRELATED structural anchor (PICUP photo-crosslinking + size-exclusion chromatography + dynamic light scattering + circular dichroism + electron microscopy -- NOT ThT fluorescence kinetics): Abeta40 = monomer/dimer/trimer/tetramer rapid equilibrium; Abeta42 = distinct pentamer/hexamer 'paranuclei' pathway -> protofibril-like beaded superstructures. Ile-41 addition to Abeta40 sufficient to induce paranuclei; Ala-42 required for their further association. Independent technique, same Abeta42-more-aggregation-prone DIRECTION as the kinetic (ThT) findings."
+    },
+    "olsson2016": {
+      "pmid": "27068280", "doi": "10.1016/S1474-4422(16)00070-3",
+      "cite": "Olsson B, Lautner R, Andreasson U, et al. (2016). CSF and blood biomarkers for the diagnosis of Alzheimer's disease: a systematic review and meta-analysis. Lancet Neurology 15(7):673-684.",
+      "verified_via": "NCBI efetch abstract, live (full structured abstract, findings section, obtained directly).",
+      "numbers": {
+        "n_studies": 231, "n_AD_patients": 15699, "n_controls": 13018,
+        "CSF_Abeta42_AD_over_control_average_ratio": "0.56 (95% CI 0.55-0.58, p<0.0001)",
+        "CSF_Ttau_AD_over_control_average_ratio": "2.54 (95% CI 2.44-2.64, p<0.0001)",
+        "CSF_Ptau_AD_over_control_average_ratio": "1.88 (95% CI 1.79-1.97, p<0.0001)",
+        "CSF_NFL_AD_over_control_ratio": "2.35 (95% CI 1.90-2.91, p<0.0001)",
+        "MCI_due_to_AD_vs_stable_MCI_Abeta42_ratio": 0.67,
+        "MCI_due_to_AD_vs_stable_MCI_Ptau_ratio": 1.72,
+        "MCI_due_to_AD_vs_stable_MCI_Ttau_ratio": 1.76,
+        "plasma_Abeta42_Abeta40_finding": "did NOT differentiate AD from controls (per this same meta-analysis) -- an honest, disclosed negative for the BLOOD (not CSF) version of this marker"
+      }
+    },
+    "janelidze2016": {
+      "pmid": "27042676", "doi": "10.1002/acn3.274", "pmcid": "PMC4774260",
+      "cite": "Janelidze S, Zetterberg H, Mattsson N, et al. (2016). CSF Aβ42/Aβ40 and Aβ42/Aβ38 ratios: better diagnostic markers of Alzheimer disease. Annals of Clinical and Translational Neurology 3(3):154-165.",
+      "verified_via": "NCBI esearch + EuropePMC fullTextXML fetched live, Table 1 extracted directly from parsed article text (open access, PMC4774260).",
+      "numbers": {
+        "anchor": "amyloid PET (independent imaging modality, decorrelated from the CSF immunoassay technique) -- abnormal defined as PET SUVR >= 1.42",
+        "Abeta42_alone_Euroimmun_AUC": "0.894 (95% CI 0.850-0.937, p<0.001), cutoff <507.5 pg/mL, Youden J=0.665, sensitivity 0.832, specificity 0.833",
+        "Abeta40_alone_AUC": "0.556 (95% CI 0.480-0.633, p=0.153) -- near chance",
+        "Abeta42_Abeta40_ratio_AUC": "0.912 (95% CI 0.834-0.991, p<0.001), cutoff <0.16, Youden J=0.800, sensitivity 0.900, specificity 0.900",
+        "ratio_vs_Abeta42_alone_AUC_comparison_p_value": 0.002,
+        "ratio_vs_Abeta42_alone_AUC_comparison_p_value_Abeta42_Abeta38_variant": 0.008,
+        "mechanistic_interpretation_stated_by_source": "ratios may correct for interindividual variability in overall Abeta production, since Abeta38/Abeta40 and Abeta42 share the same precursor/secretase machinery"
+      }
+    },
+    "hansson2018": {
+      "pmid": "29499171", "doi": "10.1016/j.jalz.2018.01.010", "pmcid": "PMC6119541",
+      "cite": "Hansson O, Seibyl J, Stomrud E, et al. (2018). CSF biomarkers of Alzheimer's disease concord with amyloid-β PET and predict clinical progression: A study of fully automated immunoassays in BioFINDER and ADNI cohorts. Alzheimer's & Dementia 14(11):1470-1481.",
+      "verified_via": "EuropePMC fullTextXML fetched live (open access), Table 2 extracted directly from parsed article text.",
+      "numbers": {
+        "cohorts": "BioFINDER (n=277, cutoff derivation) + ADNI (n=646, validation); MCI clinical-progression subset n=619",
+        "Abeta42_alone_vs_PET_BioFINDER": "cutoff 1100 pg/mL, PPA 90.9% (83.9-95.6), NPA 72.5% (65.0-79.1), OPA 79.8% (74.6-84.4), AUC 86.5% (82.3-90.7)",
+        "pTau_Abeta42_ratio_vs_PET_BioFINDER": "cutoff 0.022, PPA 90.9%, NPA 89.2%, OPA 89.9%, AUC 94.4%",
+        "tTau_Abeta42_ratio_vs_PET_ADNI_region": "cutoff ~0.33, PPA 85.0%, NPA 94.0%, OPA 89.2%, AUC 96.3% (94.8-97.7)",
+        "independent_replication_of_the_ratio_beats_raw_concentration_finding": "a DIFFERENT ratio (tau/Abeta42, not Abeta42/Abeta40) in a DIFFERENT cohort pairing (BioFINDER/ADNI, not the Lund cohort used by Janelidze 2016) shows the same qualitative pattern: any Abeta-normalizing ratio outperforms Abeta42 concentration alone against amyloid-PET"
+      }
+    },
+    "jack2013": {
+      "pmid": "23332364", "doi": "10.1016/S1474-4422(12)70291-0", "pmcid": "PMC3622225",
+      "cite": "Jack CR Jr, Knopman DS, Jagust WJ, et al. (2013). Tracking pathophysiological processes in Alzheimer's disease: an updated hypothetical model of dynamic biomarkers. Lancet Neurology 12(2):207-216.",
+      "verified_via": "NCBI efetch full text (PMC public-access copy) fetched live -- 65KB of body text parsed directly.",
+      "numbers": "Cascade/couples_to anchor, quoted directly: 'CSF Abeta42 and amyloid PET are dynamic earliest followed by CSF tau and FDG PET, then structural MRI, followed by clinical symptoms' / 'the sequence of events...is Abeta pathophysiology first, then tau related neurodegeneration.' Symmetric-QC caveat, the paper's OWN disclosed complexity, not omitted here: autopsy evidence in some young individuals shows AD-like subcortical tauopathy CAN PRECEDE Abeta deposition -- a population-level tendency in the paper's model, not a universal per-individual law; the paper's own 'Model incorporating tau and Abeta as independent processes' section addresses this directly."
+    }
+  },
+  "geometric_derivation": {
+    "method": "Linearize the (P,M) master-equation system (P=fibril-end number concentration, M=fibril mass concentration) at early time around the unseeded fixed point; the 2x2 Jacobian's eigenvalue kappa=sqrt(2*(k+*k2)*m0^(n2+1)) governs exponential growth M(t)~exp(kappa*t), so the half-time inherits t_1/2 ~ kappa^-1 ~ m0^-(n2+1)/2. Derived from scratch (2x2 Jacobian eigenvalue), not copied from a paper, THEN cross-checked against both Cohen 2013 PNAS's own stated formula and Meisl 2014 PNAS's own Eq. 11 -- both independently confirm the identical exponent formula in both the unsaturated and saturated limits.",
+    "self_consistency_check": "Numerically-fit early-time P'(t) exponential growth rate vs the closed-form kappa, at m0=4uM, kn_comb=0 (pure-secondary limit): fit=0.00226274 s^-1, theory=0.00226274 s^-1, relative error 1.234e-7 -- PASS (two independent computational paths: numerical ODE integration + fitted log-slope, vs a closed-form eigenvalue)."
+  },
+  "falsifier_part2_Abeta42": {
+    "pre_registered_threshold": "Simulated log-log slope gamma (m0=1-8uM, using Cohen 2013's own untuned combined rate constants for the full/winning model) must fall in [-1.7,-1.1], bracketing both the measured -1.33+/-0.03 and the pure-theory -1.5.",
+    "computed_slope_gamma": -1.3200502122733941, "computed_r2": 0.999940320600241,
+    "PASS_true_model": true,
+    "forced_adversary": "Cohen 2013's OWN fitted no-secondary-nucleation alternative (Fig.1 panel B: primary-nucleation-only, elevated order nc=3, k2=0) run through the IDENTICAL ODE code.",
+    "adversary_computed_slope_gamma": -1.5000000045285282, "adversary_r2": 0.9999999999999993,
+    "adversary_r2_is_exact_by_scale_invariance": "A single-power-law-only ODE (kn_comb*m^nc term alone, no secondary term) has NO timescale other than the one set by m0, so it is exactly self-similar under (t,M)->(t/T(m0), M/m0) for any conversion-fraction threshold -- R2=1.0 is an algebraic consequence, not a fitting artifact, and was confirmed by this reasoning, not just observed.",
+    "slope_alone_gap": 0.17994978772660591,
+    "pre_registered_slope_tie_threshold": 0.05,
+    "slope_alone_degeneracy_did_NOT_materialize_here": true,
+    "honest_reframe": "This session pre-registered a concern that slope alone might be degenerate (an adversary could always choose nc to mimic any target). That did not concretely occur in this specific (non-reverse-fitted, each side using its own independently-reported order) comparison -- 0.18 gap vs 0.03 measured precision is resolvable. The CONCEPTUAL vulnerability remains real in the abstract (nothing stops a differently-chosen nc), which is why the shape metric below, not the slope alone, is treated as the decisive discriminator.",
+    "shape_metric_m0_uM": 4.0,
+    "shape_metric_true_model_normalized_rise_10_90_over_thalf": 0.8895703685371434,
+    "shape_metric_adversary_normalized_rise_10_90_over_thalf": 2.099738482973293,
+    "shape_metric_relative_gap": 0.5763423036960845,
+    "pre_registered_shape_gap_threshold": 0.20,
+    "PASS_shape_discriminates_forced_adversary": true,
+    "interpretation": "Matches Cohen 2013's own qualitative statement (verified live) that a no-secondary-pathway fit 'is not able to describe even qualitatively the full time courses' -- machine-computed here as a 2.4x more gradual normalized transition for the adversary."
+  },
+  "falsifier_part3_Abeta40_vs_Abeta42": {
+    "pre_registered_threshold": "Simulated t_half(Abeta40)/t_half(Abeta42) at matched 3.5uM concentration in [3,300] (deliberately wide -- Abeta40's exact fitted rate-constant table (Fig.3B) is a rendered graphic, not machine-extractable this session; reconstruction uses only Meisl 2014's qualitative order-of-magnitude statements).",
+    "t_half_Abeta42_s": 3227.9497458886294,
+    "t_half_Abeta40_s": 15823.867477740354,
+    "fold_difference": 4.902141831016693,
+    "PASS": true,
+    "curvature_threshold": "R2 gap (Abeta42 clean single-power-law fit R2 minus Abeta40 full-range single-power-law fit R2) >= 1e-4",
+    "Abeta42_r2_1_to_8uM": 0.999940320600241,
+    "Abeta40_r2_fullrange_3p5_to_70uM": 0.990862296495009,
+    "r2_gap": 0.009078024105231952,
+    "PASS_curvature_signature": true,
+    "Abeta40_slope_low_conc_3p5_to_10uM": -1.0096067826038042,
+    "Abeta40_slope_high_conc_20_to_70uM": -0.6801424157344762,
+    "interpretation": "Low-conc bucket (3.5-10uM) straddles the KM=31uM^2 crossover (sqrt(31)=5.6uM), so its slope (-1.01) sits between the -1.5/-0.5 asymptotes rather than cleanly at -1.5 -- an honest, disclosed feature of the real (not idealized) concentration grid, not a bug."
+  },
+  "decorrelated_in_vivo_anchor_part4": {
+    "C1_CSF_Abeta42_decrease": {
+      "source": "Olsson et al. 2016 Lancet Neurology, PMID 27068280",
+      "ratio_AD_over_control": 0.56, "ci95": [0.55, 0.58], "p": "<0.0001",
+      "n_AD": 15699, "n_control": 13018,
+      "PASS": true, "threshold": "ratio <1 with CI excluding 1, in a large-N meta-analysis"
+    },
+    "C2_Abeta42_Abeta40_ratio_vs_PET": {
+      "source": "Janelidze et al. 2016 Ann Clin Transl Neurol, PMID 27042676",
+      "Abeta42_alone_AUC": 0.894, "ratio_AUC": 0.912, "comparison_p": 0.002,
+      "independent_replication": "Hansson et al. 2018, PMID 29499171 -- different ratio (tau/Abeta42), different cohort pairing (BioFINDER/ADNI), same qualitative pattern (ratio beats raw Abeta42 concentration, AUC 94.4-96.3% vs 86.5%)",
+      "PASS": true, "threshold": "ratio-AUC significantly (p<0.05) exceeds Abeta42-alone AUC in a real PET-anchored cohort"
+    },
+    "symmetric_qc": "In-vitro kinetics (Parts 1-3, hours timescale) is explicitly NOT claimed to predict in-vivo deposition (years-to-decades timescale) -- decorrelated by technique, organism, and timescale; held as two separate confidence tiers, never fused."
+  },
+  "overall_verdict": {
+    "PASS_geometric_selfconsistency": true,
+    "PASS_claim1_true_model_reproduces_measured_gamma_signature": true,
+    "INFO_claim1_slope_alone_is_degenerate_adversary_ties_it": false,
+    "PASS_claim1_shape_metric_discriminates_the_forced_adversary": true,
+    "PASS_claim2_Abeta40_slower_than_Abeta42_in_preregistered_band": true,
+    "PASS_claim2_curvature_signature": true,
+    "PASS_C1_CSF_Abeta42_decrease": true,
+    "PASS_C2_ratio_beats_Abeta42_alone_vs_PET": true,
+    "note": "Every PASS above is machine-computed from either (a) this session's own from-scratch ODE simulation using untuned literature rate constants, or (b) numbers extracted directly from live-fetched primary-source text/images/tables -- none is a recalled or assumed number. No claim in this object should be read as resolving disease-CAUSALITY priority (amyloid vs tau vs neuroinflammation) -- that adjudication is out of scope, held in NEU-ALZHEIMERS-MULTIMODAL."
+  },
+  "symmetric_qc_open_items": [
+    "In-vitro ThT kinetics is highly prep/seed/agitation-sensitive (Cohen 2013's own shear-series shows gamma itself drifting from -1.33 toward -0.5 under agitation) -- cross-lab/cross-batch reproducibility of absolute rate constants is NOT tested here, held explicitly OPEN per the task brief.",
+    "In-vitro aggregation kinetics (hours) is NOT claimed to govern in-vivo plaque deposition timescale (years-to-decades) -- the two are decorrelated by design, not fused.",
+    "The elongation rate constant k+ is never individually assumed (removed via the P'=k+P rescaling) -- but this also means k+ itself is not independently verified, only the combined constants and reaction orders.",
+    "Abeta40's exact Fig.3B fitted rate-constant table was not machine-extractable this session (rendered graphic, not text or a small inline-math image) -- the Abeta40 reconstruction is order-of-magnitude, disclosed as such, not digit-exact.",
+    "The 4.90x Abeta40/Abeta42 matched-concentration fold-difference is this session's own simulated PREDICTION from the order-of-magnitude reconstruction, not an independently-cited literature fold-number -- no single citable 'Abeta40 is Nx slower' headline figure was found/verified to check it against directly.",
+    "Slope-alone is a conceptually gameable discriminator (an adversary could in principle choose a reaction order to mimic any target slope); this session's own forced comparison did not concretely exhibit that degeneracy, but the shape-metric check, not the slope, is treated as the decisive falsifier for that reason.",
+    "Amyloid-PET is treated as a real, independent, but imperfect anchor (tracer/threshold-dependent), not infallible ground truth.",
+    "No claim resolves amyloid-vs-tau-vs-neuroinflammation disease-causality priority -- explicitly out of scope, deferred to the existing NEU-ALZHEIMERS-MULTIMODAL node.",
+    "Knowles 2009 Science (the foundational analytical-solution paper) was PMID/DOI-verified live but its full text was not independently fetched this session (not available via the PMC/EuropePMC routes tried); its formulas were cross-verified instead via two later papers (Cohen 2013, Meisl 2014) that both restate and cite it, and whose full texts WERE fetched live.",
+    "Numerical half-time extraction carries a few-percent grid-discretization sensitivity (directly checked: changing the adaptive-integration stop fraction shifted one reported t_half by ~3%); every pre-registered threshold band in this doc has margin >=10x that noise floor."
+  ],
+  "couples_to": [
+    "NEU-ALZHEIMERS-MULTIMODAL (OPEN, cluster cancer-immune-wargame) -- disease-causality triangulation cell (RCTs, Braak/plaque-cognition, APOE4/TREM2); this doc supplies the quantitative aggregation-kinetics forward model that node's own couples_to/decorrelated_anchor prose gestures at but does not build. Confirmed by direct read: zero overlap in rate-constant/scaling-exponent content.",
+    "NEU-TAU-PROPAGATION (OPEN, cluster autonomous-expansion) -- explicit downstream partner; that node's own La Joie 2020 leg (PMID 31894103) found tau-PET, not amyloid-PET, predicted 15-month atrophy -- consistent with this doc's Jack 2013 Abeta-first-then-tau cascade framing (Part 4).",
+    "NEU-GLIA-NEUROINFLAMMATION (OPEN, cluster glial-support) -- its glymphatic-clearance sub-cell already gates amyloid/metabolite clearance rate by sleep-stage architecture; this doc's CSF-Abeta42-decrease finding (Part 4/C1) is the clearance/deposition-balance observable that sub-cell's rate parameter would feed into. Not built or edited here.",
+    "Aging (domain-level, not a single tight node this session) -- age is the dominant epidemiological risk factor for the whole cascade modeled here; MOL-CELLULAR-SENESCENCE-SASP (OPEN) is this repo's nearest existing aging/senescence axis, coupling held at the domain level only, disclosed as such rather than overstated as a verified mechanistic link."
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "single_energy_transfer": {
+    "prediction_J_m2": 2.6,
+    "observed_intercept_J_m2": 1.6,
+    "relative_error": 0.625,
+    "gate": "FAIL"
+  },
+  "changed_operation": "Two constitutive ports: cleavage surface energy Gamma0 [J/m2] and pristine failure work Wf [J/m3]",
+  "separate_assay_slope_prediction": {
+    "prediction_Pa": 27892,
+    "observed_Pa": 31000,
+    "relative_error": 0.10025806451612904,
+    "gate": "PASS"
+  },
+  "evaluations_of_published_fit_NOT_measurements": {
+    "radius_m": [
+      0.000125,
+      0.00021,
+      0.000275,
+      0.00039000000000000005,
+      0.00047
+    ],
+    "published_fit_force_per_thickness_N_m": [
+      5.475,
+      8.110000000000001,
+      10.125,
+      13.690000000000001,
+      16.17
+    ],
+    "two_port_prediction_N_m": [
+      5.0865,
+      7.457320000000001,
+      9.2703,
+      12.47788,
+      14.70924
+    ]
+  },
+  "unmeasured_FPZ_length_if_energy_closure_Wf_times_length": 0.0001434102968593145,
+  "skin_cross_prediction": "UNKNOWN: no matched skin cleavage/strength/gap/cell-injury dataset",
+  "novelty": "Published scaling relation, reused as a discriminating mechanism; no claim of discovering it",
+  "review": "PENDING_INDEPENDENT_REVIEW"
+}

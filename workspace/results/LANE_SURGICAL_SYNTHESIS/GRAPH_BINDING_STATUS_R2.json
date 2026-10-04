@@ -1,0 +1,73 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "local_receipts": [
+    {
+      "target": "BT-CTX-SURG-INCISION",
+      "lane": "LANE_SURGICAL_SYNTHESIS_R2_INCISION",
+      "dispatch": {
+        "receipt": "results/LANE_SURGICAL_SYNTHESIS/graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R2_INCISION/DISPATCH.json",
+        "sha256": "936b0ac03b01f560c623f50c91dc22fc992dfc0588b5029246d4b5980a0f9993",
+        "next_action_advice": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+        "launched": false
+      },
+      "feedback": {
+        "receipt": "results/LANE_SURGICAL_SYNTHESIS/graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R2_INCISION/FEEDBACK_2cb733b4cf00c80c.json",
+        "reviewed_failure_for_task_choice": false,
+        "scientific_admission": false,
+        "review_authentication": "coordinator registry plus artifact binding; not cryptographic actor authentication"
+      }
+    },
+    {
+      "target": "BT-CTX-SURG-COLLAGEN",
+      "lane": "LANE_SURGICAL_SYNTHESIS_R2_COLLAGEN",
+      "dispatch": {
+        "receipt": "results/LANE_SURGICAL_SYNTHESIS/graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R2_COLLAGEN/DISPATCH.json",
+        "sha256": "fe7d38b09df6f829a5e73c5d46141facd52e4ca16f12dab4bacaa280f2300d52",
+        "next_action_advice": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+        "launched": false
+      },
+      "feedback": {
+        "receipt": "results/LANE_SURGICAL_SYNTHESIS/graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R2_COLLAGEN/FEEDBACK_0e6c5ce87e28e12d.json",
+        "reviewed_failure_for_task_choice": false,
+        "scientific_admission": false,
+        "review_authentication": "coordinator registry plus artifact binding; not cryptographic actor authentication"
+      }
+    },
+    {
+      "target": "BT-CTX-SURG-HEMOSTASIS",
+      "lane": "LANE_SURGICAL_SYNTHESIS_R2_HEMOSTASIS",
+      "dispatch": {
+        "receipt": "results/LANE_SURGICAL_SYNTHESIS/graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R2_HEMOSTASIS/DISPATCH.json",
+        "sha256": "2760e33df61c2d8674cbc95f0a1907c12e1f6166ed50aed6840931455f556a3d",
+        "next_action_advice": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+        "launched": false
+      },
+      "feedback": {
+        "receipt": "results/LANE_SURGICAL_SYNTHESIS/graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R2_HEMOSTASIS/FEEDBACK_d9f2688f42264b93.json",
+        "reviewed_failure_for_task_choice": false,
+        "scientific_admission": false,
+        "review_authentication": "coordinator registry plus artifact binding; not cryptographic actor authentication"
+      }
+    },
+    {
+      "target": "BT-CTX-SURG-HEALING",
+      "lane": "LANE_SURGICAL_SYNTHESIS_R2_HEALING",
+      "dispatch": {
+        "receipt": "results/LANE_SURGICAL_SYNTHESIS/graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R2_HEALING/DISPATCH.json",
+        "sha256": "1bd766a8dc5ab90981b19963b934c71d0b1010258d79c6cdb24c94a1b9063160",
+        "next_action_advice": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+        "launched": false
+      },
+      "feedback": {
+        "receipt": "results/LANE_SURGICAL_SYNTHESIS/graph_review_workspace/bodytwin/tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R2_HEALING/FEEDBACK_72e74e5fb6235ac8.json",
+        "reviewed_failure_for_task_choice": false,
+        "scientific_admission": false,
+        "review_authentication": "coordinator registry plus artifact binding; not cryptographic actor authentication"
+      }
+    }
+  ],
+  "R2_global_import": "PENDING_COORDINATOR",
+  "R1_global_import": "Verified four existing coordinator IMPORT receipts",
+  "write_boundary": "lane-local review workspace; no sourcegraph mutation"
+}

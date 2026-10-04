@@ -1,0 +1,116 @@
+{
+ "task": "Quantitative bicondylar-jaw lever model of the TMJ: (1) a sagittal single-fulcrum static-equilibrium model deriving the molar/incisor maximal-bite-force ratio purely from bite-point-to-condyle moment-arm geometry (proven algebraically independent of muscle-force magnitude, PCSA, or specific tension), forcing the condylar reaction force (which a naive fixed-fulcrum model implicitly sets to zero) to be computed explicitly and shown large and non-zero; (2) a coronal two-condyle model of unilateral molar biting deriving the balancing-side>working-side condylar reaction asymmetry from a genuine 2-support statics solve, sweeping the working-side muscle-activation fraction as a forced adversary; (3) a kinematic rotate-then-translate model of interincisal opening ROM; (4) two perturbation adversaries (muscle weakness, disc-displacement delayed translation) plus the coronal model itself as the third (unilateral asymmetric loading).",
+ "confidence_tier": "geometrically-forced and multi-anchor-triangulated for the ORDINAL/ratio claims (molar>incisor bite force ratio and the balancing>working condylar-reaction asymmetry are proven numerically to be independent of the muscle-force-magnitude parameters, not fitted to hit the measured values) -- DOMAIN_CONSENSUS/estimated tier for absolute force and ROM magnitudes, since several geometric nuisance parameters (elevator moment arm, intercondylar width, transverse bite/muscle-attachment fractions, rotation angle) are anatomical-range estimates rather than literature-pinned this session, disclosed in full.",
+ "script": "scripts/msk/tmj_lever_model.py",
+ "raw_results": "data/msk_smoketest/tmj_lever_model/tmj_lever_model_results.json (+ sagittal_sweep_raw.csv n=4000, coronal_sweep_raw.csv n=1500, kinematic_sweep_raw.csv n=36)",
+ "doc": "docs/MECHANISM_TMJ_JOINT.md",
+ "citations_verified_live_this_session": [
+  {"cite": "Waltimo A, Kononen M. 1995. Acta Odontol Scand 53(4):254-8", "doi": "10.3109/00016359509005982", "pmid": "7484109", "n": 129, "measure": "molar/incisor max bite force: men 909+/-177N / 382+/-133N, women 777+/-168N / 325+/-116N"},
+  {"cite": "Waltimo A, Kononen M. 1993. Scand J Dent Res 101(3):171-5", "doi": "10.1111/j.1600-0722.1993.tb01658.x", "pmid": "8322012", "n": 30, "measure": "2nd independent device/cohort: molar bite force 847N(M)/597N(F); ~14mm molar-region jaw opening at max bite"},
+  {"cite": "Hylander WL. 1975. Am J Phys Anthropol 43(2):227-42", "doi": "10.1002/ajpa.1330430209", "pmid": "1101706", "n": null, "measure": "direct EMG-based conclusion: balancing-side condylar reaction force > working-side during unilateral molar biting; condylar neck strong enough to withstand reaction force"},
+  {"cite": "Gingerich PD. 1979. Am J Phys Anthropol 51(1):135-7", "doi": "10.1002/ajpa.1330510116", "pmid": "453343", "n": null, "measure": "mandible functions as both lever and link simultaneously during incisal biting (commentary on Hylander 1978)"},
+  {"cite": "Osborn JW, Baragar FA. 1992. J Biomech 25(9):967-74", "doi": "10.1016/0021-9290(92)90032-v", "pmid": "1517273", "n": null, "measure": "linear-programming static-equilibrium model, bite forces 100-1000N at incisor/premolar/1st/3rd molar, joint-force direction constrained compression-only (normal to condylar surface)"},
+  {"cite": "Pruim GJ, de Jongh HJ, ten Bosch JJ. 1980. J Biomech 13(9):755-63", "doi": "10.1016/0021-9290(80)90237-7", "pmid": "7440590", "n": null, "measure": "existence/citation-count verified via Europe PMC (162 citations); classic static bite-force+joint-reaction model; abstract text unavailable (pre-abstract-era record)"},
+  {"cite": "van Eijden TM, Korfage JA, Brugman P. 1997. Anat Rec 248(3):464-74", "doi": "10.1002/(sici)1097-0185(199707)248:3<464::aid-ar20>3.3.co;2-4", "pmid": "9214565", "n": 8, "measure": "jaw-closing muscles (masseter/temporalis/med.pterygoid) architecturally suited for force; jaw-opening muscles for velocity"},
+  {"cite": "van Eijden TM, Koolstra JH, Brugman P. 1996. Anat Rec 246(4):565-72", "doi": "10.1002/(SICI)1097-0185(199612)246:4<565::AID-AR17>3.0.CO;2-M", "pmid": "8955797", "n": 8, "measure": "temporalis PCSA per AP portion (6 portions) range 1.82-2.93 cm2"},
+  {"cite": "van Eijden TM, Koolstra JH, Brugman P. 1995. J Dent Res 74(8):1489-95", "doi": "10.1177/00220345950740080901", "pmid": "7560404", "n": 8, "measure": "medial pterygoid PCSA anterior 2.47+/-0.57 + posterior 3.53+/-0.97 = 6.00cm2 direct sum"},
+  {"cite": "Koolstra JH, van Eijden TM. 2001. J Biomech 34(9):1179-88", "doi": "10.1016/s0021-9290(01)00053-7", "pmid": "11506788", "n": null, "measure": "masticatory system is kinematically/mechanically indeterminate (more muscles than DOF); linear-programming method precedent"},
+  {"cite": "Koolstra JH, van Eijden TM. 1995. J Dent Res 74(9):1564-70", "doi": "10.1177/00220345950740091001", "pmid": "7560417", "n": null, "measure": "dynamic 6-DOF model: swing-slide condylar movement along articular eminence generated by masseter+medial pterygoid"},
+  {"cite": "van Spronsen PH et al. 1989. J Dent Res 68(12):1765-70", "doi": "10.1177/00220345890680120901", "pmid": "2600258", "n": 12, "measure": "masseter+medial-pterygoid CSA correlate significantly with max voluntary bite force; temporalis CSA did not"},
+  {"cite": "van Spronsen PH et al. 1992. J Dent Res 71(6):1279-85", "doi": "10.1177/00220345920710060301", "pmid": "1613176", "n": 48, "measure": "long-face (n=13) vs normal (n=35) adults: masseter/med-pterygoid/ant-temporalis CSA 30%/22%/15% smaller, correspondingly smaller max molar bite force (direction only, no inline %)"},
+  {"cite": "Weijs WA, Hillen B. 1985. Acta Morphol Neerl Scand 23(3):267-74", "doi": null, "pmid": "4096273", "n": null, "measure": "existence-verified classic jaw-muscle CSA/strength paper; abstract text unavailable"},
+  {"cite": "Daboul A et al. 2018. J Nutr Health Aging 22(7):829-836", "doi": "10.1007/s12603-018-1029-1", "pmid": "30080228", "n": 747, "measure": "masseter CSA (age 30-39): 5.10+/-0.93cm2(M) / 3.90+/-0.78cm2(F), SHIP population cohort MRI"},
+  {"cite": "Agrawal J et al. 2015. Indian J Dent Res 26(4):361-5", "doi": "10.4103/0970-9290.167638", "pmid": "26481881", "n": 500, "measure": "max mouth opening 50.3+/-6.26mm(M) / 49.9+/-6.74mm(F)"},
+  {"cite": "Kaboosaya B. 2026. Arch Oral Biol 185:106554", "doi": "10.1016/j.archoralbio.2026.106554", "pmid": "41740348", "n": 298, "measure": "independent recent MIO reference-range cross-check, ages 17-85"},
+  {"cite": "Lewis RP, Buschang PH, Throckmorton GS. 2001. Am J Orthod Dentofacial Orthop 120(3):294-303", "doi": "10.1067/mod.2001.115612", "pmid": "11552129", "n": 56, "measure": "incisor opening 52.1mm(M)/46.0mm(F); condylar translation 15.4-17.6mm(M)/12.4-12.7mm(F) straight-line, 20.5-20.7/16.2-17.9mm curvilinear; translation does not correlate with incisor opening"},
+  {"cite": "Chen X. 1998. Am J Phys Anthropol 106(1):35-46", "doi": "10.1002/(SICI)1096-8644(199805)106:1<35::AID-AJPA3>3.0.CO;2-C", "pmid": "9590523", "n": null, "measure": "real jaw opening is simultaneous rotation+translation, not a sharp two-phase switch; rotation somewhat more significant only in first 10 degrees"},
+  {"cite": "Kalaykova S, Lobbezoo F, Naeije M. 2010. J Orofac Pain 24(4):373-8", "doi": null, "pmid": "21197509", "n": 55, "measure": "moment-of-disc-reduction shifts to later mouth opening as intermittent locking develops"},
+  {"cite": "Marpaung CM, Kalaykova SI, Lobbezoo F, Naeije M. 2014. J Oral Rehabil 41(4):243-9", "doi": "10.1111/joor.12130", "pmid": "24533784", "n": 53, "measure": "ADDR: 27.6% clinical exam / 15.2% movement recording / 44.8% MRI (referred/clinical sample, NOT general population)"},
+  {"cite": "Naeije M et al. 2013. J Oral Rehabil 40(2):139-58", "doi": "10.1111/joor.12016", "pmid": "23199296", "n": null, "measure": "systematic review, general population disc-displacement prevalence 18-35%, mostly benign/pain-free/lifelong"},
+  {"cite": "Nickel JC, Iwasaki LR, Walker RD, McLachlan KR, McCall WD Jr. 2003. J Dent Res 82(3):212-7", "doi": "10.1177/154405910308200312", "pmid": "12598551", "n": 6, "measure": "EMG-validated: muscle-force recruitment during static biting consistent with minimization of joint load OR muscle effort depending on individual/location"},
+  {"cite": "Shi J, Curtis N, Fitton LC, O'Higgins P, Fagan MJ. 2012. J Theor Biol 310:21-30", "doi": "10.1016/j.jtbi.2012.06.006", "pmid": "22721994", "n": null, "measure": "macaque multibody-dynamics+optimization model: working:balancing muscle-force and TMJ-reaction ratios comparable to in-vivo observations -- cross-species, cross-method corroboration"},
+  {"cite": "Throckmorton GS, Finn RA, Bell WH. 1980. Am J Orthod 77(4):410-20", "doi": "10.1016/0002-9416(80)90106-2", "pmid": "6928742", "n": null, "measure": "direct precedent: 2D mechanical-advantage model of masseter+temporalis across facial-morphology groups"},
+  {"cite": "Finn RA, Throckmorton GS, Bell WH, Legan HL. 1980. J Oral Surg 38(4):257-64", "doi": null, "pmid": "6928454", "n": 10, "measure": "same 2D mechanical-advantage model; surgical correction of mandibular deficiency changes mechanical advantage 13-21%"},
+  {"cite": "Koc D, Dogan A, Bek B. 2010. Eur J Dent 4(2):223-32", "doi": null, "pmid": "20396457", "n": null, "measure": "review: bite-force measurement confounded by pain/TMD/sex/age/craniofacial morphology/occlusal factors/device"}
+ ],
+ "F1_molar_incisor_ratio_geometric": {
+  "claim": "molar/incisor max-bite-force ratio emerges from bite-point-to-condyle moment-arm geometry alone (d_incisor/d_molar), independent of muscle-force magnitude",
+  "central_predicted_ratio": 2.15,
+  "sweep_range": [1.597901413811603, 2.965875568595466],
+  "measured_ratio_men": 2.3795811518324608,
+  "measured_ratio_women": 2.390769230769231,
+  "identity_check_max_abs_diff": 4.440892098500626e-16,
+  "verdict": "PASS"
+ },
+ "F2_condylar_reaction_nonzero_and_ordered": {
+  "claim": "condylar reaction force R_condyle = F_muscle - F_bite is large and non-zero (falsifying a fixed-fulcrum-ignoring-joint-reaction adversary), and joint-load-per-unit-bite-force is higher at incisor than molar (molar is more joint-efficient)",
+  "central_R_condyle_molar_N": 1603.3875,
+  "central_R_condyle_incisor_N": 2305.0813953488373,
+  "sweep_min_R_molar_N": 201.18961072599654,
+  "sweep_min_R_incisor_N": 489.1809004750097,
+  "frac_incisor_less_efficient_than_molar": 1.0,
+  "verdict": "PASS"
+ },
+ "F3_balancing_working_asymmetry": {
+  "claim": "unilateral molar bite produces balancing-side condylar reaction > working-side condylar reaction, robust to a forced working-side-EMG-bias adversary",
+  "frac_balancing_gt_working_at_alpha_0.5": 1.0,
+  "n_swept": 1500,
+  "crossover_search_range_alpha": [0.5, 0.999],
+  "n_crossovers_found": 0,
+  "note_hand_algebra_error_caught": "an initial hand-derived estimate suggested a finite crossover near alpha=0.94; the machine-computed dense sweep found none in [0.5,0.999] -- the hand estimate had the alpha-dependence direction backwards",
+  "note_compression_only_constraint": "unconstrained solve gives working-side reaction R_R<0 (tensile) in 100% of sweep at alpha=0.5; a real compression-only TMJ would clamp this to 0 and push the remainder onto the balancing side, making the true asymmetry >= the reported one, corroborated by Osborn & Baragar 1992's own compression-only joint-force-direction constraint",
+  "verdict": "PASS"
+ },
+ "F4_kinematic_rom": {
+  "claim": "rotation-chord + measured-translation reproduces the real ~46-52mm interincisal opening band",
+  "sweep_range_mm": [40.46313132731109, 76.34609469704196],
+  "median_mm": 58.49082575331498,
+  "measured_band_mm": [46.0, 52.1],
+  "frac_grid_points_strictly_in_band": 0.19444444444444445,
+  "limitation": "Chen 1998 (PMID 9590523) shows real opening is simultaneous rotation+translation, not additively separable -- the idealized additive model runs high, disclosed not hidden",
+  "verdict": "PASS (weak pre-registered overlap criterion; stronger median-match criterion would not be met, disclosed)"
+ },
+ "F5_perturbation_adversaries": {
+  "muscle_weakness": {
+   "source": "van Spronsen 1992 PMID 1613176 CSA reductions (masseter -30%, medial pterygoid -22%, anterior temporalis -15%)",
+   "pct_pcsa_drop": 19.67455621301777,
+   "pct_bite_force_drop": 19.67455621301776,
+   "linear_identity_abs_diff": 1.0658141036401503e-14,
+   "verdict": "PASS"
+  },
+  "disc_displacement_delayed_translation": {
+   "source": "Kalaykova et al 2010 PMID 21197509 directional anchor (moment-of-disc-reduction shifts later in opening)",
+   "opening_deficit_mm_by_delay_frac": {"0.0": 0.0, "0.25": 4.0, "0.5": 8.0, "0.75": 12.0},
+   "monotonic": true,
+   "caveat": "simplified delayed-translation-fraction proxy, NOT a reproduction of the discrete reciprocal click event",
+   "verdict": "PASS"
+  },
+  "unilateral_asymmetric_loading": "= F3_balancing_working_asymmetry above (the coronal model IS this adversary)"
+ },
+ "gates_summary": {
+  "F1_ratio_band": "PASS", "F1b_identity": "PASS", "F2_absolute_regime": "PASS",
+  "F3_nonzero_reaction": "PASS", "F4_efficiency_order": "PASS", "F5_balancing_gt_working": "PASS",
+  "F6_crossover_margin": "PASS", "F7_rom": "PASS", "F8_weakness_linearity": "PASS", "F9_disc_monotonic": "PASS",
+  "overall": "10/10 PASS"
+ },
+ "decorrelated_anchor": "gnathodynamometry-measured molar/incisor max-bite-force ratio (Waltimo & Kononen, 2 independent device-generations/cohorts, PMID 7484109 + 8322012) tested against a geometry-ONLY predicted ratio that is numerically proven independent of muscle-force magnitude (identity diff 4.4e-16) -- a clean decorrelation between the force-calibration side of the model and the falsifier; triangulated by Hylander 1975's independent EMG-based balancing>working conclusion (PMID 1101706) and Shi et al 2012's cross-species multibody-dynamics-optimization confirmation of the same asymmetry in macaque (PMID 22721994) -- two different eras, methods, and species converging on the same qualitative result.",
+ "honest_gaps": [
+  "r_muscle (elevator moment arm about condyle), intercondylar width, transverse bite/muscle-attachment fractions, and rotation angle are anatomical-range estimates swept over a disclosed plausible band, not literature-pinned this session",
+  "central absolute bite-force estimate runs ~44-60% high vs measured (passes only the generous 0.3-3.0x regime band, not a tight match), driven mainly by reusing this repo's limb-muscle-sourced 15-100 N/cm2 specific-tension convention as a disclosed cross-domain proxy",
+  "temporalis total PCSA (14.25cm2) is mean-of-range x 6 portions, not a literature-reported sum",
+  "masseter PCSA uses an MRI anatomical CSA (Daboul 2018), not a fiber-corrected PCSA -- likely a conservative underestimate for this pennate muscle",
+  "kinematic model's additive rotation+translation decomposition runs high (median 58.5mm vs ~46-52mm measured) because real motion is simultaneous not sequential (Chen 1998) -- disclosed, not hidden, only 19.4% of the swept grid lands inside the tight measured band even though the full range overlaps it",
+  "the working-side-tensile finding's exact magnitude is sensitive to un-pinned transverse geometry; only the ordinal balancing>working claim is robust",
+  "Pruim 1980 and Weijs & Hillen 1985 are existence-verified only (abstract text unavailable, pre-abstract-era MEDLINE records) -- never quoted or used as a numeric source",
+  "single maximal-static-clench scenario throughout; no dynamic chewing-cycle timing or EMG-driven optimization over the indeterminate muscle set (Nickel et al 2003 shows the real system optimizes; this model uses one determinate resultant)",
+  "Marpaung/Kalaykova/Naeije 2014's 44.8% MRI disc-displacement prevalence is a referred/clinical sample (n=53), not general population -- must not be conflated with Naeije 2013's general-population 18-35% review figure",
+  "no disc/cartilage contact-PRESSURE mechanics modeled -- this is the lever/reaction-force layer only; contact pressure at the disc-condyle-fossa interface is an open next step"
+ ],
+ "proposed_cell": "TMJ_lever_cert follow-up: (1) replace the swept anatomical-range geometric nuisance parameters with coordinates digitized from a real CT/CBCT mandible or open craniofacial multibody model; (2) replace the coronal model's unconstrained linear solve with a proper compression-only (non-negative-reaction / linear-complementarity) contact formulation to resolve the working-side-tensile finding exactly; (3) replace the additive rotation+translation kinematic idealization with a genuinely simultaneous single-time-parameter rigid-body chain informed by Chen 1998's instantaneous-center-of-rotation data; (4) extend to disc/cartilage contact-pressure mechanics at the condyle-disc-fossa interface, following MECHANISM_CARTILAGE_CONTACT.md's existing tibiofemoral/patellofemoral pattern, to let a future cert test disc displacement as a pressure (not just translation-timing) failure mode.",
+ "couples_to": [
+  "MECHANISM_FMAX_PCSA_VALIDATION.md", "MECHANISM_SPECIFIC_TENSION.md",
+  "MECHANISM_MOMENT_ARM_VALIDATION.md", "MECHANISM_JOINT_FORCE_VALIDATION.md",
+  "MECHANISM_CARTILAGE_CONTACT.md",
+  "cervical/postural chain (mandible muscular sling + hyoid-suspended muscles -- open coupling, not modeled)"
+ ]
+}

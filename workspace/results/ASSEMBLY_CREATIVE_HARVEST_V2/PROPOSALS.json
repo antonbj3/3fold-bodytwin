@@ -1,0 +1,433 @@
+{
+ "generated": "2026-10-04",
+ "source_index": "results/ASSEMBLY_CREATIVE_HARVEST_V2/REPORTS.json (130 of 375 reports name a net variable or edge)",
+ "demand_side": "CONSTRAINT_NETS.json :: bodytwin.tissue_constraint_net - 91 OPEN and 43 UNKNOWN edges of 158",
+ "mapping_note": "every one of the 130 is a BT-NET-<edge-or-variable> job queued from this net, so demand and supply map 1:1 by job name; no cross-matching was needed",
+ "ranking": "contradicts (arithmetically self-verified first), then fills_gap against an OPEN edge, then confirms",
+ "no_write_to_net": "nothing here was written to CONSTRAINT_NETS.json; these are proposals only",
+ "verification_limits": "no network egress was available in this session (PubMed eutils returned nothing), so every \"the source bears the number\" check was impossible. Verification below is recomputation from the raw detail-layer files the edges point at, in source_repository/docs. Where a published number is used it is marked as quoted from the report and not independently confirmed.",
+ "plausible_range_note": "none of the 14 target variables here carries a plausible_range in the net (only 20 of 146 variables do), so the unit-and-range gate could not be run against the net. Each proposal states the range it was gated against and the basis for it.",
+ "counts": {
+  "contradicts": 11,
+  "fills_gap": 1,
+  "confirms": 3,
+  "total": 15
+ },
+ "proposals": [
+  {
+   "job": "BT-NET-HARVEST-E0082",
+   "target_edge": "HARVEST-E0082",
+   "target_variable": "knee_contact_area_mm2",
+   "relation": "contradicts",
+   "value": 9.0909,
+   "unit": "MPa",
+   "statement": "implied mean contact pressure F/A = 9.0909 MPa for intact, against the peak of 1.2 MPa stored on the same row: peak/mean = 0.1320, i.e. the stated peak is 7.58x BELOW the mean the row itself implies. A peak cannot be below the mean over the same patch.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md",
+    "where": "L120-L124, table \"Study (PMID) | ... | contact area | peak stress\"",
+    "raw_data": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json :: /computed_evidence/raw_data/rivarola_2026_FE/intact",
+    "source": "Rivarola et al. 2026, MRI-derived finite-element model, PMID 41539441"
+   },
+   "verification": "recomputed from the raw file in the source repo: 1000 N / 110 mm2 = 9.0909 MPa; peak/mean = 0.1320. Arithmetic only, no source fetch needed. The raw file labels the column \"peak stress\" (FE peak_stress_MPa), not contact pressure.",
+   "quantity_identity_warning": "the net variable is knee_peak_contact_pressure_MPa but the raw row carries FE peak_stress_MPa over an FE contact patch; if the 110/80/35/95 mm2 areas are not the patch carrying the whole 1000 N, the pair is not impossible, only mislabelled. Either way the edge as written compares two different quantities.",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 0.1,
+    "high": 12.06,
+    "unit": "MPa",
+    "basis": "published tibiofemoral peak-pressure span 0.1-12.06 MPa over loads 0-2700 N, quoted in BT-NET-HARVEST-E0085 from a systematic review (PMID 34926419); the four cadaveric rows in the same raw file sit at peak/mean 3.1-3.5"
+   },
+   "why_it_matters": "four of the six rows feeding meniscal_integrity_condition are internally impossible or mislabelled, so any area->pressure coupling fitted on this table is fitted on a unit error",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-NET-HARVEST-E0086",
+   "target_edge": "HARVEST-E0086",
+   "target_variable": "knee_contact_area_mm2",
+   "relation": "contradicts",
+   "value": 28.5714,
+   "unit": "MPa",
+   "statement": "implied mean contact pressure F/A = 28.5714 MPa for radial_tear_100pct, against the peak of 3.3 MPa stored on the same row: peak/mean = 0.1155, i.e. the stated peak is 8.66x BELOW the mean the row itself implies. A peak cannot be below the mean over the same patch.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md",
+    "where": "L120-L124, table \"Study (PMID) | ... | contact area | peak stress\"",
+    "raw_data": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json :: /computed_evidence/raw_data/rivarola_2026_FE/radial_tear_100pct",
+    "source": "Rivarola et al. 2026, MRI-derived finite-element model, PMID 41539441"
+   },
+   "verification": "recomputed from the raw file in the source repo: 1000 N / 35 mm2 = 28.5714 MPa; peak/mean = 0.1155. Arithmetic only, no source fetch needed. The raw file labels the column \"peak stress\" (FE peak_stress_MPa), not contact pressure.",
+   "quantity_identity_warning": "the net variable is knee_peak_contact_pressure_MPa but the raw row carries FE peak_stress_MPa over an FE contact patch; if the 110/80/35/95 mm2 areas are not the patch carrying the whole 1000 N, the pair is not impossible, only mislabelled. Either way the edge as written compares two different quantities.",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 0.1,
+    "high": 12.06,
+    "unit": "MPa",
+    "basis": "published tibiofemoral peak-pressure span 0.1-12.06 MPa over loads 0-2700 N, quoted in BT-NET-HARVEST-E0085 from a systematic review (PMID 34926419); the four cadaveric rows in the same raw file sit at peak/mean 3.1-3.5"
+   },
+   "why_it_matters": "four of the six rows feeding meniscal_integrity_condition are internally impossible or mislabelled, so any area->pressure coupling fitted on this table is fitted on a unit error",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-NET-HARVEST-E0088",
+   "target_edge": "HARVEST-E0088",
+   "target_variable": "knee_contact_area_mm2",
+   "relation": "contradicts",
+   "value": 10.5263,
+   "unit": "MPa",
+   "statement": "implied mean contact pressure F/A = 10.5263 MPa for repair, against the peak of 1.4 MPa stored on the same row: peak/mean = 0.1330, i.e. the stated peak is 7.52x BELOW the mean the row itself implies. A peak cannot be below the mean over the same patch.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md",
+    "where": "L120-L124, table \"Study (PMID) | ... | contact area | peak stress\"",
+    "raw_data": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json :: /computed_evidence/raw_data/rivarola_2026_FE/repair",
+    "source": "Rivarola et al. 2026, MRI-derived finite-element model, PMID 41539441"
+   },
+   "verification": "recomputed from the raw file in the source repo: 1000 N / 95 mm2 = 10.5263 MPa; peak/mean = 0.1330. Arithmetic only, no source fetch needed. The raw file labels the column \"peak stress\" (FE peak_stress_MPa), not contact pressure.",
+   "quantity_identity_warning": "the net variable is knee_peak_contact_pressure_MPa but the raw row carries FE peak_stress_MPa over an FE contact patch; if the 110/80/35/95 mm2 areas are not the patch carrying the whole 1000 N, the pair is not impossible, only mislabelled. Either way the edge as written compares two different quantities.",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 0.1,
+    "high": 12.06,
+    "unit": "MPa",
+    "basis": "published tibiofemoral peak-pressure span 0.1-12.06 MPa over loads 0-2700 N, quoted in BT-NET-HARVEST-E0085 from a systematic review (PMID 34926419); the four cadaveric rows in the same raw file sit at peak/mean 3.1-3.5"
+   },
+   "why_it_matters": "four of the six rows feeding meniscal_integrity_condition are internally impossible or mislabelled, so any area->pressure coupling fitted on this table is fitted on a unit error",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-NET-HARVEST-E0084",
+   "target_edge": "HARVEST-E0084",
+   "target_variable": "knee_contact_area_mm2",
+   "relation": "contradicts",
+   "value": 12.5,
+   "unit": "MPa",
+   "statement": "implied mean contact pressure F/A = 12.5000 MPa for radial_tear_50pct, against the peak of 2.1 MPa stored on the same row: peak/mean = 0.1680, i.e. the stated peak is 5.95x BELOW the mean the row itself implies. A peak cannot be below the mean over the same patch.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md",
+    "where": "L120-L124, table \"Study (PMID) | ... | contact area | peak stress\"",
+    "raw_data": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json :: /computed_evidence/raw_data/rivarola_2026_FE/radial_tear_50pct",
+    "source": "Rivarola et al. 2026, MRI-derived finite-element model, PMID 41539441"
+   },
+   "verification": "recomputed from the raw file in the source repo: 1000 N / 80 mm2 = 12.5000 MPa; peak/mean = 0.1680. Arithmetic only, no source fetch needed. The raw file labels the column \"peak stress\" (FE peak_stress_MPa), not contact pressure.",
+   "quantity_identity_warning": "the net variable is knee_peak_contact_pressure_MPa but the raw row carries FE peak_stress_MPa over an FE contact patch; if the 110/80/35/95 mm2 areas are not the patch carrying the whole 1000 N, the pair is not impossible, only mislabelled. Either way the edge as written compares two different quantities.",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 0.1,
+    "high": 12.06,
+    "unit": "MPa",
+    "basis": "published tibiofemoral peak-pressure span 0.1-12.06 MPa over loads 0-2700 N, quoted in BT-NET-HARVEST-E0085 from a systematic review (PMID 34926419); the four cadaveric rows in the same raw file sit at peak/mean 3.1-3.5"
+   },
+   "why_it_matters": "four of the six rows feeding meniscal_integrity_condition are internally impossible or mislabelled, so any area->pressure coupling fitted on this table is fitted on a unit error",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-NET-HARVEST-E0085",
+   "target_edge": "HARVEST-E0085 (pressure side of the same row as HARVEST-E0084)",
+   "target_variable": "knee_peak_contact_pressure_MPa",
+   "relation": "contradicts",
+   "value": 2.1,
+   "unit": "MPa",
+   "statement": "the radial_tear_50pct peak of 2.1 MPa is lower than the intact peak of 3.0 MPa stored two rows above it, so the row breaks the monotonic ordering the edge family asserts, on top of being 5.95x below the 12.50 MPa mean its own area and load imply. An independent cadaveric 1000 N series puts radial-tear peak at 4.5 +/- 1.4 MPa, i.e. 2.1x higher and above intact (2.7 +/- 0.3 MPa), which is the opposite direction.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md",
+    "where": "L122-L124 (Rivarola FE rows) against L118 (Fukubayashi intact row)",
+    "raw_data": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json :: /computed_evidence/raw_data/rivarola_2026_FE/radial_tear_50pct",
+    "source": "FE row: PMID 41539441. Cross-check 2.7 / 4.5 / 5.9 MPa triple: Zhang et al. 2015, The Knee 22(5):400-404, doi:10.1016/j.knee.2015.05.008, quoted in BT-NET-HARVEST-E0085"
+   },
+   "verification": "recomputed 1000 / 80 mm2 = 12.5000 MPa mean against the stated 2.1 MPa peak, ratio 0.1680; and the intact-vs-tear ordering 3.0 > 2.1 read directly off the raw table. The Zhang triple is quoted from the report and was not fetched (no network).",
+   "quantity_identity_warning": "three different quantities carry the same column header here: FE peak_stress_MPa, cadaveric peak intra-compartmental pressure, and the mean F/A I computed. Only the last two are commensurable, and only approximately.",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 0.1,
+    "high": 12.06,
+    "unit": "MPa",
+    "basis": "published tibiofemoral peak span over loads 0-2700 N (PMID 34926419, quoted in BT-NET-HARVEST-E0085)"
+   },
+   "why_it_matters": "the one row the net uses to say a tear raises pressure says it lowers it",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-NET-HARVEST-E0057",
+   "target_edge": "HARVEST-E0057",
+   "target_variable": "ALL_ligament_tension_N",
+   "relation": "contradicts",
+   "value": 0.4611,
+   "unit": "mm2 (cross-section implied by linear_stiffness=350 N read as E*A)",
+   "statement": "read as the net states it - force per unit strain, \"not N/mm\" - linear_stiffness = 350 N means E*A = 350 N, which at the measured ALL tensile modulus 759 MPa requires a cross-section of 0.4611 mm2 (a 0.77 mm circle). Read instead as N/mm it is coherent: E*A/L with A = 50 mm2 and L = 110 mm gives 345 N/mm. The coefficient is ~2 orders out in the unit the net keeps and right in the unit the net rejects.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_SPINE_LIGAMENTS.md",
+    "where": "L238 (edge text) and L260 (\"linear_stiffness: ALL 350N > PLL 250N > LF 200N > SSL 100N > ISL 60N\"); L238-L247 of the same file records that these numbers are NOT from Pintar et al. 1992 (PMID 1400536) and were not extracted from any table",
+    "source": "ALL overall tensile modulus 759 +/- 336 MPa, PMID 1400518 (quoted in BT-NET-HARVEST-E0057)"
+   },
+   "verification": "recomputed both directions: 350 / 759e6 Pa = 4.611e-7 m2 = 0.4611 mm2; and 759e6 * 50e-6 / 0.110 = 345 N/mm. The dimensional conclusion rests on the recomputation alone. The 759 MPa itself is quoted from the report, not fetched (no network in this session).",
+   "quantity_identity_warning": "N (force per unit strain, = E*A) and N/mm (axial stiffness, = E*A/L) are different quantities that both read as \"stiffness\"; the numeric coincidence is what makes this worth flagging rather than a value to adopt",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 190,
+    "high": 760,
+    "unit": "N/mm",
+    "basis": "E*A/L across E = 759 MPa, A = 50 mm2, L = 100-120 mm and the softer end of the published modulus range"
+   },
+   "why_it_matters": "the single UNKNOWN that carries every ALL tension in the sweep is most likely a unit label slip, not a missing measurement",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-NET-HARVEST-E0060",
+   "target_edge": "HARVEST-E0060",
+   "target_variable": "ISL_ligament_tension_N",
+   "relation": "contradicts",
+   "value": 4.0,
+   "unit": "N/mm",
+   "statement": "linear_stiffness = 60 N per unit strain over a real ISL reference length of 15 mm is 4.0 N/mm, against measured median linear-region stiffness 42 N/mm (scoliosis) and 51 N/mm (kyphosis) for the interspinous/supraspinous complex - 10.5x to 12.8x below measurement.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_SPINE_LIGAMENTS.md",
+    "where": "L239/L260 (ISL linear_stiffness = 60 N)",
+    "source": "PMID 26726784, DOI 10.1016/j.jbiomech.2015.12.012 (42 / 51 N/mm; also 175-191 N failure load), quoted in BT-NET-HARVEST-E0060"
+   },
+   "verification": "recomputed 60 N / 15 mm = 4.00 N/mm and 42 / 4.00 = 10.5, 51 / 4.00 = 12.75. The 42 and 51 N/mm are quoted from the report, not fetched.",
+   "quantity_identity_warning": "the net holds 60 in N while the literature quantity nearest to it, 60.6 +/- 36.7 N/mm (PMID 14588267, quoted in BT-NET-HARVEST-E0059), is in N/mm; 60 vs 60.6 is a coincidence across two different quantities and I cannot determine whether one was copied into the other",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 42,
+    "high": 51,
+    "unit": "N/mm",
+    "basis": "measured median linear-region stiffness, PMID 26726784"
+   },
+   "why_it_matters": "gives the ISL edge a measured stiffness in the right unit, which the net currently lacks entirely",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-NET-HARVEST-E0013",
+   "target_edge": "HARVEST-E0013",
+   "target_variable": "PLL_ligament_tension_N",
+   "relation": "contradicts",
+   "value": 60.0,
+   "unit": "N",
+   "statement": "Schendel et al. 1993 buckle transducers measured 60 N in the PLL at 7.1 Nm of flexion moment. The net holds PLL_ligament_tension_N = 0.000 N on this edge and 0.525 N as its maximum anywhere in the sweep, so the measured scale is 114.3x larger than anything the model produces.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_SPINE_LIGAMENTS.md",
+    "where": "L155 row -70 (PLL = 0.000 N); model maximum over the whole sweep is 0.525 N at -10 deg (L157)",
+    "source": "PMID 8478347, DOI 10.1016/0021-9290(93)90006-Z"
+   },
+   "verification": "recomputed the model side from the raw sweep table in the source repo: PLL maximum over -90..+90 deg = 0.525 N, and 60.0 / 0.525 = 114.3. The published 60 N is quoted from BT-NET-HARVEST-E0013, not fetched (no network in this session).",
+   "quantity_identity_warning": "the model value is a single-hinge total bundle tension at a joint angle; the published value is a buckle-transducer or in-vitro force at a stated moment in Nm. Angle and moment are not the same independent variable, so this bounds the force scale and does not pair point to point.",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 4,
+    "high": 162,
+    "unit": "N",
+    "basis": "4 N instrument detection floor (PMID 8478347) to 162 N lumbar ISL failure force at L1/2 (PMID 31903363)"
+   },
+   "why_it_matters": "the sweep that fills 50 OPEN edges spans 0.000-13.014 N, which sits at or below the detection floor of the only instrument ever applied to this tissue",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-NET-HARVEST-E0015",
+   "target_edge": "HARVEST-E0015",
+   "target_variable": "ISL_ligament_tension_N",
+   "relation": "contradicts",
+   "value": 4.0,
+   "unit": "N",
+   "statement": "the same study's buckle-transducer detection floor was about 4 N, with no ligament pre-load detectable above it. The net holds ISL_ligament_tension_N = 0.286 N on this edge and 0.869 N as its maximum anywhere in the sweep, so the measured scale is 4.6x larger than anything the model produces.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_SPINE_LIGAMENTS.md",
+    "where": "L154 row -70 (ISL = 0.286 N)",
+    "source": "PMID 8478347, DOI 10.1016/0021-9290(93)90006-Z"
+   },
+   "verification": "recomputed the model side from the raw sweep table in the source repo: ISL maximum over -90..+90 deg = 0.869 N, and 4.0 / 0.869 = 4.6. The published 4 N is quoted from BT-NET-HARVEST-E0015, not fetched (no network in this session).",
+   "quantity_identity_warning": "the model value is a single-hinge total bundle tension at a joint angle; the published value is a buckle-transducer or in-vitro force at a stated moment in Nm. Angle and moment are not the same independent variable, so this bounds the force scale and does not pair point to point.",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 4,
+    "high": 162,
+    "unit": "N",
+    "basis": "4 N instrument detection floor (PMID 8478347) to 162 N lumbar ISL failure force at L1/2 (PMID 31903363)"
+   },
+   "why_it_matters": "the sweep that fills 50 OPEN edges spans 0.000-13.014 N, which sits at or below the detection floor of the only instrument ever applied to this tissue",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-NET-HARVEST-E0042",
+   "target_edge": "HARVEST-E0042",
+   "target_variable": "ALL_ligament_tension_N",
+   "relation": "contradicts",
+   "value": 130.0,
+   "unit": "N",
+   "statement": "the same study measured up to 130 N in the ALL in extension. The net holds ALL_ligament_tension_N = 13.014 N on this edge and 13.014 N as its maximum anywhere in the sweep, so the measured scale is 10.0x larger than anything the model produces.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_SPINE_LIGAMENTS.md",
+    "where": "L160 row +50 (ALL = 13.014 N), which is the model maximum over the whole sweep",
+    "source": "PMID 8478347, DOI 10.1016/0021-9290(93)90006-Z"
+   },
+   "verification": "recomputed the model side from the raw sweep table in the source repo: ALL maximum over -90..+90 deg = 13.014 N, and 130.0 / 13.014 = 10.0. The published 130 N is quoted from BT-NET-HARVEST-E0042, not fetched (no network in this session).",
+   "quantity_identity_warning": "the model value is a single-hinge total bundle tension at a joint angle; the published value is a buckle-transducer or in-vitro force at a stated moment in Nm. Angle and moment are not the same independent variable, so this bounds the force scale and does not pair point to point.",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 4,
+    "high": 162,
+    "unit": "N",
+    "basis": "4 N instrument detection floor (PMID 8478347) to 162 N lumbar ISL failure force at L1/2 (PMID 31903363)"
+   },
+   "why_it_matters": "the sweep that fills 50 OPEN edges spans 0.000-13.014 N, which sits at or below the detection floor of the only instrument ever applied to this tissue",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-NET-HARVEST-E0016",
+   "target_edge": "HARVEST-E0016",
+   "target_variable": "SSL_ligament_tension_N",
+   "relation": "contradicts",
+   "value": 60.0,
+   "unit": "N",
+   "statement": "Goel et al. 1985 measured 60 N in the supraspinous ligament at an external flexion moment of 6.9 Nm. The net holds SSL_ligament_tension_N = 6.422 N on this edge and 6.513 N as its maximum anywhere in the sweep, so the measured scale is 9.2x larger than anything the model produces.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_SPINE_LIGAMENTS.md",
+    "where": "L154 row -70 (SSL = 6.422 N); model maximum 6.513 N at -50 deg (L155)",
+    "source": "PMID 4081866"
+   },
+   "verification": "recomputed the model side from the raw sweep table in the source repo: SSL maximum over -90..+90 deg = 6.513 N, and 60.0 / 6.513 = 9.2. The published 60 N is quoted from BT-NET-HARVEST-E0016, not fetched (no network in this session).",
+   "quantity_identity_warning": "the model value is a single-hinge total bundle tension at a joint angle; the published value is a buckle-transducer or in-vitro force at a stated moment in Nm. Angle and moment are not the same independent variable, so this bounds the force scale and does not pair point to point.",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 4,
+    "high": 162,
+    "unit": "N",
+    "basis": "4 N instrument detection floor (PMID 8478347) to 162 N lumbar ISL failure force at L1/2 (PMID 31903363)"
+   },
+   "why_it_matters": "the sweep that fills 50 OPEN edges spans 0.000-13.014 N, which sits at or below the detection floor of the only instrument ever applied to this tissue",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-NET-HARVEST-E0015 (applies to HARVEST-E0007..E0056)",
+   "target_edge": "HARVEST-E0007..HARVEST-E0056 (family, 50 OPEN edges)",
+   "target_variable": "ligament_tension_N",
+   "relation": "fills_gap",
+   "value": 4.0,
+   "unit": "N",
+   "statement": "the net has no force scale for lumbar ligament tension at all. Direct measurement puts the floor of detectability at ~4 N and the working range at O(10)-O(100) N (ALL 130 N in extension, PLL 60 N and SSL 60 N in flexion, ISL failure 162 N at L1/2). The entire synthetic sweep, maximum 13.014 N, lies inside or below the instrument floor band.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_SPINE_LIGAMENTS.md",
+    "where": "L144-L163 sweep table; L253-L262 states the coefficients are chosen, not extracted",
+    "source": "PMID 8478347 (4 N floor, ALL 130 N, PLL 60 N); PMID 4081866 (SSL 60 N); PMID 31903363 (ISL failure 162/86/79 N)"
+   },
+   "verification": "recomputed the model envelope from the raw sweep table: min 0.000 N, max 13.014 N over 5 ligaments x 10 printed angles; 4 / 0.286 = 13.99 and 130 / 13.014 = 9.99. Published values quoted from BT-NET-HARVEST-E0015, not fetched.",
+   "quantity_identity_warning": "a detection floor is a property of an instrument, not of the tissue; it bounds what can be claimed as measured, it is not itself a tension value to admit",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 4,
+    "high": 162,
+    "unit": "N",
+    "basis": "as above"
+   },
+   "why_it_matters": "gives the 50 ligament edges one shared, citable force scale instead of 50 separate synthetic numbers",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-NET-HARVEST-E0078",
+   "target_edge": "HARVEST-E0078",
+   "target_variable": "knee_contact_area_mm2",
+   "relation": "confirms",
+   "value": 0.8696,
+   "unit": "MPa",
+   "statement": "implied mean F/A = 0.8696 MPa against peak 3.0 MPa gives peak/mean = 3.45, which is what a real tibiofemoral pressure map looks like; this row is internally coherent, unlike the four FE rows.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md",
+    "where": "L118-L119 (Fukubayashi & Kurosawa 1980 row)",
+    "raw_data": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json :: /computed_evidence/raw_data/fukubayashi_kurosawa_1980",
+    "source": "PMID 6894212, human cadaver n=7, 1000 N, 0 deg flexion"
+   },
+   "verification": "recomputed from the raw file: 1000 / 1150 = 0.8696 MPa, peak/mean = 3.45.",
+   "quantity_identity_warning": "BT-NET-HARVEST-E0085 attributes this 1000 N triple to Zhang 2015 (doi:10.1016/j.knee.2015.05.008); the raw evidence file attributes it to Fukubayashi & Kurosawa 1980 (PMID 6894212). The raw file wins on provenance and the report is wrong here.",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 3.0,
+    "high": 3.5,
+    "unit": "1 (peak/mean ratio)",
+    "basis": "the three internally coherent rows in the same raw table"
+   },
+   "why_it_matters": "separates the two trustworthy rows from the four that cannot be used, inside one edge family",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-NET-HARVEST-E0080",
+   "target_edge": "HARVEST-E0080",
+   "target_variable": "knee_contact_area_mm2",
+   "relation": "confirms",
+   "value": 1.9231,
+   "unit": "MPa",
+   "statement": "implied mean F/A = 1.9231 MPa against peak 6.0 MPa gives peak/mean = 3.12, which is what a real tibiofemoral pressure map looks like; this row is internally coherent, unlike the four FE rows.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md",
+    "where": "L118-L119 (Fukubayashi & Kurosawa 1980 row)",
+    "raw_data": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json :: /computed_evidence/raw_data/fukubayashi_kurosawa_1980",
+    "source": "PMID 6894212, human cadaver n=7, 1000 N, 0 deg flexion"
+   },
+   "verification": "recomputed from the raw file: 1000 / 520 = 1.9231 MPa, peak/mean = 3.12.",
+   "quantity_identity_warning": "BT-NET-HARVEST-E0085 attributes this 1000 N triple to Zhang 2015 (doi:10.1016/j.knee.2015.05.008); the raw evidence file attributes it to Fukubayashi & Kurosawa 1980 (PMID 6894212). The raw file wins on provenance and the report is wrong here.",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 3.0,
+    "high": 3.5,
+    "unit": "1 (peak/mean ratio)",
+    "basis": "the three internally coherent rows in the same raw table"
+   },
+   "why_it_matters": "separates the two trustworthy rows from the four that cannot be used, inside one edge family",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-NET-HARVEST-E0059",
+   "target_edge": "HARVEST-E0059",
+   "target_variable": "LF_ligament_tension_N",
+   "relation": "confirms",
+   "value": 200.0,
+   "unit": "N (force per unit strain, E*A)",
+   "statement": "for the ligamentum flavum the coefficient is dimensionally coherent as force per unit strain: E = 1.6-3.3 MPa over a lumbar LF cross-section of 60-140 mm2 gives E*A = 96-462 N, and the net holds 200 N - mid-band. This is the opposite verdict from ALL (HARVEST-E0057) and ISL (HARVEST-E0060) and has to be recorded separately, not averaged with them.",
+   "locator": {
+    "raw_file": "source_documents/MECHANISM_SPINE_LIGAMENTS.md",
+    "where": "L260 (LF linear_stiffness = 200 N)",
+    "source": "E ~1.6 MPa porcine LF (PMID 21097084, DOI 10.1109/iembs.2010.5627685) and 3.3 +/- 2.1 MPa lumbar supra/interspinous (PMID 14588267); LF half-width ~17 mm, thickness 2-4 mm (PMID 11192384) - all quoted in BT-NET-HARVEST-E0059"
+   },
+   "verification": "recomputed the band: 1.6e6 Pa * 60e-6 m2 = 96 N and 3.3e6 Pa * 140e-6 m2 = 462 N; 200 N lies inside. Moduli and dimensions quoted from the report, not fetched.",
+   "quantity_identity_warning": "E*A in N and axial stiffness in N/mm again; this says only that 200 N is admissible as E*A, not that it was measured",
+   "plausible_range_in_net": null,
+   "range_used": {
+    "low": 96,
+    "high": 462,
+    "unit": "N",
+    "basis": "E*A over the published modulus and cross-section bands"
+   },
+   "why_it_matters": "shows the unit slip is per-ligament and not a single global bug, which changes what admission has to check",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  }
+ ],
+ "unverified_pile": [
+  {
+   "job": "BT-NET-HARVEST-E0096",
+   "target_edge": "HARVEST-E0096",
+   "why": "the finding is that 10 nm (in-situ inferred spectrin-anchor persistence length) and 7.5 nm (WLC model parameter for the spectrin tetramer) are different objects, so the edge compares non-comparables. Real and important, but the decisive numbers (6.6 uN/m at 25 C, PMID 7213927) live only in the sources and cannot be recomputed from any workspace file without network access."
+  },
+  {
+   "job": "BT-NET-HARVEST-E0092",
+   "target_edge": "HARVEST-E0092",
+   "why": "gain 0.46 +/- 0.11 vs -0.20 +/- 0.11 is measured over 60-100 mmHg (PMID 22466959) while two later series use 120-60 mmHg at 20 mmHg steps (PMID 30073416, 36988670); the windows differ so the gains are not comparable. Nothing recomputable locally."
+  },
+  {
+   "job": "BT-NET-HARVEST-E0055 and the other sweep reports that argued from the sign convention",
+   "target_edge": "HARVEST-E0051, HARVEST-E0055, HARVEST-E0056 and siblings",
+   "why": "these refute a zero by calling +90 deg flexion. The raw file states the opposite explicitly: MECHANISM_SPINE_LIGAMENTS.md L144, \"positive = extension, negative = flexion\". Their refutations are built on an inverted axis and cannot be carried forward as written."
+  },
+  {
+   "job": "BT-NET-HARVEST-E0071",
+   "target_edge": "HARVEST-E0071",
+   "why": "the claim is that any source assigning ~3% to a slow calcium-removal term is contradicted, but the three candidate sources measure three different observables (caffeine mono-exponential, fura-2 transient, SR leak fraction). I cannot determine which denominator the net inherited, so I cannot say whether 76.6/23.4 and 74/23/3 are even the same partition."
+  },
+  {
+   "job": "BT-NET-HARVEST-E0073",
+   "target_edge": "HARVEST-E0073",
+   "why": "the 59%/18% Cx43 dose-response is verbatim the abstract of Danik et al. 2004 (PMID 15499029) per the report, which is a provenance finding rather than a new number; no independent value to recompute."
+  },
+  {
+   "job": "32 of the 130 (BT-NET-H-E1..H-E34 family)",
+   "target_edge": "H-E1..H-E34 (UNKNOWN)",
+   "why": "these report on a lane outcome key such as outcome.finite_witness_ratio_gap, not on a tissue quantity. Several carry 0 numbers with units at all. Nothing in them is a candidate for net admission without first resolving what the lane key measures."
+  }
+ ],
+ "unverified_count": 6
+}

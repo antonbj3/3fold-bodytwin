@@ -1,0 +1,31 @@
+{
+  "time": 1790758570.7685966,
+  "uid": 1000,
+  "cleanup": {
+    "dead": 219,
+    "live": 15
+  },
+  "live_after": 15,
+  "policy_changes": {
+    "allocation": {
+      "before": "The swarm first; swarm_worker on cooldown; swarm_worker when both free models cooldown",
+      "after": "Available free model/egress first; swarm_worker reserve on unavailable free admission"
+    },
+    "swarm_worker_reserve_authorization": {
+      "before": "Anton LANE_RUNNER_reserve_worker_D: account D fallback only while both free models cooldown; high-value jobs; 24h reserve window pending exact quota tomorrow",
+      "after": "Anton LANE_RUNNER_SEED_UNBLOCK 2026-09-30: ordinary SEED and other queued jobs may use D reserve when no free admission (cooldown/cap/egress); 95% stop, cap 16 and existing window preserved"
+    },
+    "swarm_worker_value_only": {
+      "before": true,
+      "after": false
+    }
+  },
+  "egress_sha256": "dfbc67f0ac82fb96a24d731cbdfbc068b531970121f9d1fd38be64a11ddadac5",
+  "installed": [
+    "route_runtime.py",
+    "egress_pool.py",
+    "fallback_reserve.py",
+    "run_profile_ovh.py",
+    "slot_markers.py"
+  ]
+}

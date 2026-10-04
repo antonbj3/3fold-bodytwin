@@ -1,0 +1,166 @@
+{
+  "round": 8,
+  "operation": "Synthetic nested interval locking plus shared-slip memory, same-law normal history and finite event material query",
+  "control": "Capability/Form C: held Yang2012 Eq2/Fig5/Table2; original R5 q1 identity; independent scalar Radau checks. Conventional event kernel has same information; no gain claim.",
+  "outcome": {
+    "density": [
+      {
+        "seed": 301,
+        "predicted_delta_m": -0.05506773478044123,
+        "measured_delta_m": -0.05529908834150366,
+        "absolute_error": 0.00023135356106242927,
+        "gate": "PASS_CONDITIONAL_SYNTHETIC_LOCK_MAPPING",
+        "unchanged_pole_does_not_certify_native_clock": true
+      },
+      {
+        "seed": 304,
+        "predicted_delta_m": -0.046214075056879876,
+        "measured_delta_m": -0.046427263897697024,
+        "absolute_error": 0.00021318884081714812,
+        "gate": "PASS_CONDITIONAL_SYNTHETIC_LOCK_MAPPING",
+        "unchanged_pole_does_not_certify_native_clock": true
+      }
+    ],
+    "nano_completed": 40,
+    "refined_nano": 4,
+    "full_normal_histories_completed": 4,
+    "full_normal_slip_failed": 2,
+    "normal": {
+      "fixed_shear": 9.721932379805948e-06,
+      "mixed_shear": 1.2657849954427699e-06,
+      "mixed_fixed_ratio": 0.13019890963981742,
+      "normal_strain": 0.010510653955093083,
+      "normal_traction": 2.7498646979089483e-10,
+      "q1_R5_control_relative_shear_error": 2.6610722782071626e-09,
+      "nominal_fine_relative_shear_error": 2.1224601966702775e-05,
+      "fine_balance": 2.5567487880602795e-06,
+      "nominal_balance": 0.00017933119918808011
+    },
+    "read": {
+      "success": true,
+      "initial_clock_s": 0.03,
+      "final_clock_s": 0.038,
+      "gamma_final": 0.02,
+      "shear_final": 2.4831445856766186e-06,
+      "normal_traction_final": -3.830411346053696e-07,
+      "normal_strain_final": 0.010367790082375946,
+      "heat_positive": true,
+      "relative_continuation_work_residual": 0.00039220941762425064,
+      "restart_energy_error": 0.0,
+      "shear_relative_to_original_aged_state": 1.9617427877694331,
+      "scope": "Model-only; different current rate, geometry and history at same terminal gamma. No isolated rate exponent or native prediction."
+    },
+    "material": {
+      "attempts": 256,
+      "completed": 256,
+      "counterexamples_outside_allowance": 0,
+      "max_box_miss_before_allowance": 1.7176263666582314e-11,
+      "validation_allowance": 3e-10,
+      "max_affine_state_relative_error": 2.0496802845079492e-10,
+      "max_affine_state_absolute_error": 4.0416671745480137e-13,
+      "max_signed_work_defect": 1.728311171868296e-20,
+      "maximum_event_phases": 4,
+      "curvature_guard_range": [
+        1.6389804400993673e-09,
+        1.2212488480739695e-06
+      ],
+      "query_median_s": 0.0001823854399845004,
+      "query_max_s": 0.0011106319725513458,
+      "ODE_per_accepted_material_query": 0,
+      "old_history_replay_per_material_query": 0,
+      "correctness_scope": "Exact-arithmetic comparison under prescribed macrostate chord; numerically stress tested, not directed-rounding/validated-ODE certificate or full coupled query guarantee",
+      "floating_point_uniform_certificate": "UNKNOWN",
+      "full_macro_query_certificate": "UNKNOWN",
+      "strong_control_gain": "NOT_ESTABLISHED"
+    },
+    "external_held": {
+      "locator": "doi:10.1016/j.jmbbm.2011.11.008 Table2/Fig5",
+      "local_text": "r2/literature/yang2012.txt",
+      "native_tau_s": [
+        1.8,
+        63.0
+      ],
+      "EDC_tau_s": [
+        2.0,
+        216.0
+      ],
+      "GA_tau_s": [
+        3.7,
+        252.0
+      ],
+      "time_sd_s": [
+        [
+          0.2,
+          23.0
+        ],
+        [
+          0.6,
+          10.0
+        ],
+        [
+          0.6,
+          82.0
+        ]
+      ],
+      "n_per_treatment": 3,
+      "time_mismatch_factor": [
+        3974400000.0,
+        139104000000.0,
+        4416000000.0,
+        476928000000.0,
+        8169600000.0,
+        556416000000.0
+      ],
+      "EDC_slow_time_ratio": 3.4285714285714284,
+      "our_slip_pole_density_ratio": 1.0,
+      "rate_summary": "~30% modulus increase over 100fold extension speed, across reported treatments; no precise per-treatment Delta m reported",
+      "rate_exponent_from_summary_only": 0.05697167615341838,
+      "transfer_gate": "FAIL_CONDITIONAL_CONFORMATION_AS_SLIP_TIME",
+      "species_geometry_chemistry_match": "UNIDENTIFIED: bovine Achilles isolated fibrils vs idealized GPO; reagent concentration and lock fraction have no measured equivalence",
+      "what_not_refuted": "All possible nonlinear sliding kinetics, all network relaxation modes, or all possible density knobs",
+      "held_values_never_used_as_model_inputs": true
+    },
+    "CPU_lower_bound_s": 2807.6196621510003,
+    "peak_recorded_RSS_MiB": 323.09375
+  },
+  "gate": "UNKNOWN",
+  "obstacle": "Endogenous macro trajectory and floating point error budget; matched native slip/lock kinetics, contact pressure map, irreversible terminal work and crack area.",
+  "next": "NEXT_ROUND.md: local finite shared-slip kernel inside implicit coupled macro step with endogenous geometry/chronology budget",
+  "claim_type": "capability",
+  "form": "C",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "round_complete": true,
+  "research_complete": false,
+  "no_target_as_input": true,
+  "ambitions_gate": "NOT_PASSED_FULL_COUPLED_HISTORY_WITHOUT_REPLAY",
+  "files": [
+    "RESULTS.md",
+    "RESULTS_R8_SECTION.md",
+    "WORK_STATUS.json",
+    "WORK_STATUS_R8_FINAL.json",
+    "NEXT_ROUND.md",
+    "NEXT_ROUND_R8_FINAL.md",
+    "CHECKPOINT_R8_FINAL.json",
+    "PORT_R8_FINAL.json",
+    "METRICS_R8_FINAL.json",
+    "COST_ACCOUNTING_R8_FINAL.json",
+    "SOURCE_REVIEW_R8.md",
+    "DECOMPOSITION_R8_FINAL.json",
+    "GOAL_TO_STRESS_POINT_R8.md",
+    "FIGURE_R8.pdf",
+    "r8/FINITE_SLIP_QUERIES_FINAL.json",
+    "r8/FINITE_SLIP_PROBE_V3.json",
+    "r8/FINITE_HISTORY_DERIVATION_V1.md",
+    "r8/DELIVERY_VERIFICATION_FINAL.json",
+    "PORT_R8_FINAL_V2.json",
+    "WORK_STATUS_R8_FINAL_V2.json",
+    "NEXT_ROUND_R8_FINAL_V2.md",
+    "RESULTS_R8_ADDENDUM_V2.md",
+    "r8/material_query_v2.py",
+    "r8/MATERIAL_QUERY_LABEL_CHECK_V2.json",
+    "r8/DELIVERY_VERIFICATION_V2.json"
+  ],
+  "previous_reporting_version": "night_rounds/r8.json",
+  "port_output_correction": "Disabled affine ledger fields are omitted in force-only V2 query; physical results and accepted checkpoints unchanged."
+}

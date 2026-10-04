@@ -1,0 +1,152 @@
+{
+ "net_edges_with_an_owner": 14,
+ "decisions_already_wired": [
+  "tasks/assembly/biofilm_retention_route_decision.py",
+  "tasks/assembly/complement_window_decision.py",
+  "tasks/assembly/disc_load_decision.py",
+  "tasks/assembly/focal_delivery_decision.py",
+  "tasks/assembly/incision_setting_decision.py",
+  "tasks/assembly/mptp_pathway_ceiling_decision.py",
+  "tasks/assembly/passage_friction_decision.py",
+  "tasks/assembly/polarised_complement_decision.py",
+  "tasks/assembly/renal_secretion_decision.py",
+  "tasks/assembly/tip_load_decision.py"
+ ],
+ "decisions_without_a_result_json": [
+  {
+   "decision": "tasks/assembly/fibril_count_decision.py",
+   "problem": "no results/ASSEMBLY_* path in the file"
+  },
+  {
+   "decision": "tasks/assembly/iol_decision.py",
+   "problem": "no results/ASSEMBLY_* path in the file"
+  },
+  {
+   "decision": "tasks/assembly/toric_decision.py",
+   "problem": "no results/ASSEMBLY_* path in the file"
+  }
+ ],
+ "proposals": [
+  {
+   "proposed_owner": "tasks/assembly/abstaining_decision.py",
+   "evidence": "results/ASSEMBLY_ABSTAINING_DECISION/ABSTAIN_V1.json :: no single decision value emitted",
+   "claim": "can the chain say in advance which eyes its inputs cannot decide to 0.25 D",
+   "control": "the cohort: deciding every eye. An abstention is only worth anything if the eyes it declines carry a materially larger realised miss than the ones it keeps",
+   "falsifier": null,
+   "falsifier_missing": true,
+   "external_reference": null,
+   "external_reference_status": "UNKNOWN_NONE_IN_CODE",
+   "all_locators_in_code": [],
+   "status_if_admitted": "OPEN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "proposed_owner": "tasks/assembly/complement_amplification_decision.py",
+   "evidence": "results/ASSEMBLY_COMPLEMENT_AMPLIFICATION/decision.json :: no single decision value emitted",
+   "claim": null,
+   "control": null,
+   "falsifier": null,
+   "falsifier_missing": true,
+   "external_reference": null,
+   "external_reference_status": "UNKNOWN_NONE_IN_CODE",
+   "all_locators_in_code": [],
+   "status_if_admitted": "OPEN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "proposed_owner": "tasks/assembly/gas_regime_decision.py",
+   "evidence": "results/ASSEMBLY_GAS_REGIME_DECISION/GAS_REGIME_V1.json :: no single decision value emitted",
+   "claim": "does a measured gas output report production or only the overflow, and what production interval is consistent with it",
+   "control": "the regime-blind reading: one fixed absorption fraction at the midpoint of the measured range, which is what a single-coefficient model does",
+   "falsifier": null,
+   "falsifier_missing": true,
+   "external_reference": null,
+   "external_reference_status": "UNKNOWN_NONE_IN_CODE",
+   "all_locators_in_code": [],
+   "status_if_admitted": "OPEN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "proposed_owner": "tasks/assembly/immune_window_decision.py",
+   "evidence": "results/ASSEMBLY_IMMUNE_WINDOW/IMMUNE_WINDOW_V1.json :: no single decision value emitted",
+   "claim": "is there a recycle fraction that spares the host and still discriminates an activator from a host surface",
+   "control": "each constraint alone, which is how both numbers were reported until now: host sparing said recycling below the flip is safe, discrimination said recycling costs a factor of 97.83, and neither was put against the other",
+   "falsifier": null,
+   "falsifier_missing": true,
+   "external_reference": null,
+   "external_reference_status": "UNKNOWN_NONE_IN_CODE",
+   "all_locators_in_code": [],
+   "status_if_admitted": "OPEN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "proposed_owner": "tasks/assembly/laser_fluence_decision.py",
+   "evidence": "results/ASSEMBLY_LASER_FLUENCE_DECISION/LASER_DECISION_V1.json :: no single decision value emitted",
+   "claim": "what fluence removes the mass you want, and what does our calibration error cost",
+   "control": null,
+   "falsifier": null,
+   "falsifier_missing": true,
+   "external_reference": null,
+   "external_reference_status": "UNKNOWN_NONE_IN_CODE",
+   "all_locators_in_code": [],
+   "status_if_admitted": "OPEN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "proposed_owner": "tasks/assembly/ligament_rom_decision.py",
+   "evidence": "results/ASSEMBLY_LIGAMENT_ROM/LIGAMENT_ROM_V1.json :: no single decision value emitted",
+   "claim": "what angular range keeps every ligament under a tension limit, and which structure binds at each end",
+   "control": "the same question answered from ALL alone, which is the single-ligament reading",
+   "falsifier": null,
+   "falsifier_missing": true,
+   "external_reference": null,
+   "external_reference_status": "UNKNOWN_NONE_IN_CODE",
+   "all_locators_in_code": [],
+   "status_if_admitted": "OPEN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "proposed_owner": "tasks/assembly/load_path_decision.py",
+   "evidence": "results/ASSEMBLY_LOAD_PATH/LOAD_PATH_V1.json :: no single decision value emitted",
+   "claim": "for an applied axial load, what displacement interval does the twin carry, and which of the two inputs governs its width",
+   "control": "each input alone at its central value, which is how both numbers were reported until they were put together",
+   "falsifier": "if the stiffness and the fraction come from different spinal levels or different loading directions, the split is not theirs to make jointly and the interval is void. Neither source states the other, and this is NOT established",
+   "falsifier_missing": false,
+   "external_reference": null,
+   "external_reference_status": "UNKNOWN_NONE_IN_CODE",
+   "all_locators_in_code": [],
+   "status_if_admitted": "OPEN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "proposed_owner": "tasks/assembly/load_redistribution_decision.py",
+   "evidence": "results/ASSEMBLY_LOAD_REDISTRIBUTION/decision.json :: no single decision value emitted",
+   "claim": "SURROGATE INSUFFICIENT: the redistribution is structural, not a scaling",
+   "control": null,
+   "falsifier": null,
+   "falsifier_missing": true,
+   "external_reference": null,
+   "external_reference_status": "UNKNOWN_NONE_IN_CODE",
+   "all_locators_in_code": [],
+   "status_if_admitted": "OPEN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "proposed_owner": "tasks/assembly/route_topology_decision.py",
+   "evidence": "results/ASSEMBLY_ROUTE_TOPOLOGY/decision.json :: no single decision value emitted",
+   "claim": null,
+   "control": null,
+   "falsifier": null,
+   "falsifier_missing": true,
+   "external_reference": null,
+   "external_reference_status": "UNKNOWN_NONE_IN_CODE",
+   "all_locators_in_code": [],
+   "status_if_admitted": "OPEN",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  }
+ ],
+ "proposals_missing_a_falsifier": 8,
+ "proposals_without_any_locator": 9,
+ "admission_rule": "one at a time, by hand, never in bulk",
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

@@ -1,0 +1,303 @@
+{
+ "step1_numerical_selfcheck_eq2": {
+  "exp_model_ratio_numeric_findiff": 1.750672500296049,
+  "exp_model_ratio_exact_Pb_over_Pa": 1.7506725002961012,
+  "relative_error": 2.9805964364298164e-14,
+  "pass_matches_eq2_identity": true,
+  "linear_adversary_slope_ratio_findiff": 0.9999999999964473,
+  "pass_linear_adversary_ratio_is_exactly_one": true
+ },
+ "step2_human_anchor_pairs_slope_ratio": {
+  "statpearls_normal_vs_pathological_midpoints": {
+   "Pa_mmHg": 11.0,
+   "Pa_source": "midpoint of StatPearls[1] stated normal range 7-15 mmHg",
+   "Pb_mmHg": 22.5,
+   "Pb_source": "midpoint of StatPearls[1] stated pathological range 20-25 mmHg",
+   "predicted_slope_ratio": 2.0454545454545454,
+   "pass_exceeds_nonlinearity_threshold": true,
+   "linear_adversary_predicted_ratio": 1.0,
+   "linear_adversary_pass": false
+  },
+  "balestreri_survivor_vs_nonsurvivor_mean_icp": {
+   "Pa_mmHg": 16.0,
+   "Pa_source": "Balestreri[6] measured mean ICP, survivors (16+/-6 mmHg)",
+   "Pb_mmHg": 27.0,
+   "Pb_source": "Balestreri[6] measured mean ICP, non-survivors (27+/-19 mmHg)",
+   "predicted_slope_ratio": 1.6875,
+   "pass_exceeds_nonlinearity_threshold": true,
+   "linear_adversary_predicted_ratio": 1.0,
+   "linear_adversary_pass": false
+  }
+ },
+ "step3_small_dv_always_safe_adversary": {
+  "statpearls_normal_vs_pathological_midpoints": {
+   "E_solved_per_arbitrary_unit": 0.7156200364120039,
+   "illustrative_deltaP_at_Pa_arbitrary_units": 0.4007173016569312,
+   "illustrative_deltaP_at_Pb_arbitrary_units": 0.8196490261164502,
+   "deltaP_ratio_same_deltaV": 2.0454545454545454,
+   "pass_exceeds_small_dv_danger_threshold": true,
+   "note": "absolute deltaP values are illustrative only (volume axis uncalibrated, honest gap); the RATIO is the load-bearing, dimensionless, falsifiable number."
+  },
+  "balestreri_survivor_vs_nonsurvivor_mean_icp": {
+   "E_solved_per_arbitrary_unit": 0.5232481437645479,
+   "illustrative_deltaP_at_Pa_arbitrary_units": 0.4241223545153936,
+   "illustrative_deltaP_at_Pb_arbitrary_units": 0.7157064732447267,
+   "deltaP_ratio_same_deltaV": 1.6875,
+   "pass_exceeds_small_dv_danger_threshold": true,
+   "note": "absolute deltaP values are illustrative only (volume axis uncalibrated, honest gap); the RATIO is the load-bearing, dimensionless, falsifiable number."
+  }
+ },
+ "step4_void_floor_degenerate_null": {
+  "void_floor_predicted_deltaP_mmhg": 0.0,
+  "observed_deltaP_mmhg_balestreri": 11.0,
+  "observed_p_value_ceiling": 1e-07,
+  "pass_void_floor_falls": true
+ },
+ "step5_crosslayer_cpp_overdetermination": {
+  "classic_map_mmhg": 93.33333333333333,
+  "windkessel_map_mmhg": 91.88581586806058,
+  "cpp_table": {
+   "statpearls_normal_mid_11": {
+    "icp_mmhg": 11.0,
+    "cpp_from_classic_map": 82.33333333333333,
+    "cpp_from_windkessel_map": 80.88581586806058,
+    "both_above_LLA_plateau_edge": true,
+    "headroom_above_LLA_classic_mmhg": 22.33333333333333,
+    "headroom_above_LLA_windkessel_mmhg": 20.885815868060575
+   },
+   "statpearls_pathological_mid_22p5": {
+    "icp_mmhg": 22.5,
+    "cpp_from_classic_map": 70.83333333333333,
+    "cpp_from_windkessel_map": 69.38581586806058,
+    "both_above_LLA_plateau_edge": true,
+    "headroom_above_LLA_classic_mmhg": 10.833333333333329,
+    "headroom_above_LLA_windkessel_mmhg": 9.385815868060575
+   },
+   "balestreri_survivor_mean_16": {
+    "icp_mmhg": 16.0,
+    "cpp_from_classic_map": 77.33333333333333,
+    "cpp_from_windkessel_map": 75.88581586806058,
+    "both_above_LLA_plateau_edge": true,
+    "headroom_above_LLA_classic_mmhg": 17.33333333333333,
+    "headroom_above_LLA_windkessel_mmhg": 15.885815868060575
+   },
+   "balestreri_nonsurvivor_mean_27": {
+    "icp_mmhg": 27.0,
+    "cpp_from_classic_map": 66.33333333333333,
+    "cpp_from_windkessel_map": 64.88581586806058,
+    "both_above_LLA_plateau_edge": true,
+    "headroom_above_LLA_classic_mmhg": 6.333333333333329,
+    "headroom_above_LLA_windkessel_mmhg": 4.885815868060575
+   }
+  },
+  "recompute_vs_sibling_crosscheck": {
+   "recomputed_cpp_classic_at_icp11": 82.33333333333333,
+   "sibling_stored_cpp_classic_at_icp11": 82.33333333333333,
+   "recomputed_cpp_wk_at_icp11": 80.88581586806058,
+   "sibling_stored_cpp_wk_at_icp11": 80.88581586806058,
+   "pass_two_independent_scripts_agree": true
+  },
+  "crossover_icp_where_cpp_equals_LLA60_classic_mmhg": 33.33333333333333,
+  "crossover_icp_where_cpp_equals_LLA60_windkessel_mmhg": 31.885815868060575,
+  "crossover_icp_where_cpp_equals_balestreri_mortality_threshold55_classic_mmhg": 38.33333333333333,
+  "crossover_icp_where_cpp_equals_balestreri_mortality_threshold55_windkessel_mmhg": 36.885815868060575,
+  "gap_between_the_two_independently_sourced_crossover_icps_classic_mmhg": 5.0,
+  "gap_between_the_two_independently_sourced_crossover_icps_windkessel_mmhg": 5.0
+ },
+ "step6_balestreri_outcome_gates": [
+  {
+   "comparison": "mortality vs ICP>20mmHg",
+   "below_pct": 17.0,
+   "above_pct": 47.0,
+   "p_value_reported": 0.0001,
+   "direction": "higher ICP -> higher mortality",
+   "abs_pct_point_gap": 30.0,
+   "pass_significant_at_threshold": true
+  },
+  {
+   "comparison": "mortality vs CPP<55mmHg",
+   "below_pct": 81.0,
+   "above_pct": 23.0,
+   "p_value_reported": 0.0001,
+   "direction": "lower CPP -> higher mortality",
+   "abs_pct_point_gap": 58.0,
+   "pass_significant_at_threshold": true
+  },
+  {
+   "comparison": "favorable outcome vs CPP>95mmHg",
+   "below_pct": 50.0,
+   "above_pct": 28.0,
+   "p_value_reported": 0.033,
+   "direction": "excessive CPP -> LESS frequent favorable outcome (non-monotonic)",
+   "abs_pct_point_gap": 22.0,
+   "pass_significant_at_threshold": true
+  }
+ ],
+ "gates": {
+  "eq2_matches_finite_difference_numerically": true,
+  "linear_adversary_ratio_exactly_one_by_construction": true,
+  "statpearls_pair_nonlinearity_confirmed": true,
+  "balestreri_pair_nonlinearity_confirmed": true,
+  "linear_adversary_falls_both_pairs": true,
+  "small_dv_always_safe_adversary_falls_statpearls_pair": true,
+  "small_dv_always_safe_adversary_falls_balestreri_pair": true,
+  "void_floor_adversary_falls": true,
+  "crosslayer_two_scripts_agree_on_cpp": true,
+  "balestreri_icp20_mortality_split_significant": true,
+  "balestreri_cpp55_mortality_split_significant": true,
+  "balestreri_cpp95_nonmonotonic_split_significant": true
+ },
+ "overall_pass": true,
+ "citations_verified_live": [
+  {
+   "id": 1,
+   "authors": "Pinto VL, Adeyinka A",
+   "year": "2025 (StatPearls, 2026 ed.)",
+   "title": "Increased Intracranial Pressure",
+   "journal": "StatPearls [Internet]",
+   "pmid": "29489250",
+   "doi": null,
+   "doi_http_check": null,
+   "role": "PRIMARY textual anchor for the Monro-Kellie doctrine itself. Quoted verbatim (live efetch): 'Normal intracranial pressure (ICP) in adults typically ranges from 7 to 15 mm Hg in the supine position. Values above 20 to 25 mm Hg are generally considered pathological... According to the Monro-Kellie doctrine, the total volume within the cranium remains constant. A volume increase in one component necessitates a compensatory decrease in one or both of the others... Failure of compensation leads to increased ICP, which can reduce cerebral perfusion pressure (CPP) and ultimately cause ischemia or herniation.'"
+  },
+  {
+   "id": 2,
+   "authors": "Munakomi S, Das JM",
+   "year": "2026 (StatPearls ed.)",
+   "title": "Brain Herniation",
+   "journal": "StatPearls [Internet]",
+   "pmid": "31194403",
+   "doi": null,
+   "doi_http_check": null,
+   "role": "Independent (2nd) StatPearls article co-citing the Monro-Kellie doctrine by name as the mechanism preceding herniation. Quoted verbatim: 'any rise in intracranial pressure is limited to some extent by the compensatory displacement of cerebrospinal fluid (CSF) and changes in cerebral blood volume, as evident by the Monro-Kellie doctrine. When intracranial pressure increases despite these compensatory mechanisms, certain parts of the brain herniate...' Names 5 syndromes: subfalcine, uncal, central descending transtentorial, tonsillar, upward (ascending) transtentorial."
+  },
+  {
+   "id": 3,
+   "authors": "Avezaat CJ, van Eijndhoven JH, Wyper DJ",
+   "year": 1979,
+   "title": "Cerebrospinal fluid pulse pressure and intracranial volume-pressure relationships.",
+   "journal": "J Neurol Neurosurg Psychiatry 42(8):687-700",
+   "pmid": "490174",
+   "doi": "10.1136/jnnp.42.8.687",
+   "doi_http_check": "302 -> jnnp.bmj.com",
+   "role": "PRIMARY, DIRECT, MEASURED nonlinearity anchor. n=6 anesthetized/ventilated dogs, continuous extradural balloon inflation (a literal controlled Monro-Kellie volume-loading experiment). Quoted verbatim: 'Both pulse pressure and VPR increased linearly with the ventricular fluid pressure (VFP) up to a mean VFP of 60 mmHg. At this pressure a breakpoint occurred above which the CSF pulse pressure showed a STEEPER linear increase, while the VPR remained constant.' Direction of the nonlinearity (steeper above the breakpoint) is unambiguous and live-verified. Honest gap: this is a 1979 SCANNED-PDF-only article (PMC490301, publisher blocks XML download, confirmed from the raw EuropePMC response) -- the exact numeric slope values are in the paper's own tables/figures, NOT machine-extractable this session; only the qualitative breakpoint direction is used here, never a figure-read number."
+  },
+  {
+   "id": 4,
+   "authors": "Marmarou A, Shulman K, Rosende RM",
+   "year": 1978,
+   "title": "A nonlinear analysis of the cerebrospinal fluid system and intracranial pressure dynamics.",
+   "journal": "J Neurosurg 48(3):332-44",
+   "pmid": "632857",
+   "doi": "10.3171/jns.1978.48.3.0332",
+   "doi_http_check": "302 -> thejns.org",
+   "role": "Foundational model-CLASS validation anchor (adult cat). Quoted verbatim: 'A general equation predicting the time course of pressure was derived in terms of four parameters: the intracranial compliance, dural sinus pressure, resistance to absorption, and CSF formation... The theoretical and experimental results were in close agreement.' Establishes that a NONLINEAR (not linear-compliance) model class is what actually reproduces measured cat CSF dynamics -- provenance/model-class anchor; this document's own Eq. 1 is built IN THIS TRADITION, not a verbatim quote of Marmarou's own closed-form parameterization (that exact functional form/PVI numeric value was not independently re-verified live this session, disclosed as an honest gap, not asserted)."
+  },
+  {
+   "id": 5,
+   "authors": "Marmarou A, Maset AL, Ward JD, et al",
+   "year": 1987,
+   "title": "Contribution of CSF and vascular factors to elevation of ICP in severely head-injured patients.",
+   "journal": "J Neurosurg 66(6):883-90",
+   "pmid": "3572518",
+   "doi": "10.3171/jns.1987.66.6.0883",
+   "doi_http_check": null,
+   "role": "Human clinical validation of the BOLUS-INJECTION/WITHDRAWAL method (n=34 severe TBI, GCS<8) -- real patients, indwelling ventricular catheter. Quoted verbatim: 'CSF parameters accounted for approximately one-third of the ICP rise after severe head injury, and... a vascular mechanism may be the predominant factor.' Honest disclosed complexity: the compliance curve is NOT a pure-CSF-displacement phenomenon; the vascular compartment (Monro-Kellie's 3rd compartment) contributes the majority."
+  },
+  {
+   "id": 6,
+   "authors": "Balestreri M, Czosnyka M, Hutchinson P, Steiner LA, Hiler M, Smielewski P, Pickard JD",
+   "year": 2006,
+   "title": "Impact of intracranial pressure and cerebral perfusion pressure on severe disability and mortality after head injury.",
+   "journal": "Neurocrit Care 4(1):8-13",
+   "pmid": "16498188",
+   "doi": "10.1385/NCC:4:1:008",
+   "doi_http_check": "302 -> link.springer.com",
+   "role": "PRIMARY, real-patient, large-cohort DYSFUNCTION/outcome-threshold anchor. n=429 head injury patients, continuously recorded ICP/CPP/ABP, outcome at 6 months (GOS). Quoted verbatim: 'mortality rate was greater in those having mean ICP greater than 20 mmHg (17% below versus 47% above; p<0.0001). The mortality rate was dramatically increased for CPP below 55 mmHg (81% below versus 23% above; p<0.0001). For values of CPP greater than 95 mmHg, favorable outcome was less frequent (50% below versus 28% above; p<0.033)... ICP was greater in those who died... (27+/-19 mmHg versus 16+/-6 mmHg; p<0.10^-7), and CPP was lower (68+/-21 versus 76+/-10 mmHg; p<0.0002).'"
+  },
+  {
+   "id": 7,
+   "authors": "Carney N, Totten AM, O'Reilly C, et al",
+   "year": 2017,
+   "title": "Guidelines for the Management of Severe Traumatic Brain Injury, Fourth Edition.",
+   "journal": "Neurosurgery 80(1):6-15",
+   "pmid": "27654000",
+   "doi": "10.1227/NEU.0000000000001432",
+   "doi_http_check": "302 -> journals.lww.com",
+   "role": "PROVENANCE-ONLY anchor for the modern BTF consensus guideline's existence/scope. Honest gap: the widely-cited numeric ICP treatment-threshold (~22 mmHg) recommendation lives in the full guideline text/appendices hosted at braintrauma.org, NOT in this indexed PubMed abstract -- NOT independently verified live this session and NOT asserted as a specific number here (a disclosed 'headline-outside-the-fetched-text' gap); StatPearls' own independently-verified 20-25 mmHg pathological range [1] and Balestreri's own independently-MEASURED 20 mmHg mortality-doubling breakpoint [6] are used as the load-bearing numeric thresholds instead."
+  },
+  {
+   "id": 8,
+   "authors": "Dinallo S, Waseem M",
+   "year": "2023 (StatPearls, 2026 ed.)",
+   "title": "Cushing Reflex",
+   "journal": "StatPearls [Internet]",
+   "pmid": "31747208",
+   "doi": null,
+   "doi_http_check": null,
+   "role": "PRIMARY mechanism/triad anchor. Quoted verbatim: 'Cushing's triad of widened pulse pressure (increasing systolic, decreasing diastolic), bradycardia, and irregular respirations... In cases of increased ICP, cerebral perfusion pressure (CPP) drops as the systolic blood pressure cannot overcome the resistance present in the brain. CPP is... defined by the difference between mean arterial pressure (MAP) and ICP.'"
+  },
+  {
+   "id": 9,
+   "authors": "Fodstad H, Kelly PJ, Buchfelder M",
+   "year": 2006,
+   "title": "History of the Cushing reflex.",
+   "journal": "Neurosurgery 59(5):1132-7",
+   "pmid": "17143247",
+   "doi": "10.1227/01.NEU.0000245582.08532.7C",
+   "doi_http_check": null,
+   "role": "Historical/provenance anchor (Cushing's 1901-02 experiments; priority also credited to Cramer, von Bergmann, von Leyden, Duret, and others predating Cushing's own report)."
+  },
+  {
+   "id": 10,
+   "authors": "Zeiler FA, Ercole A, Cabeleira M, et al (CENTER-TBI HR-ICU sub-study)",
+   "year": 2019,
+   "title": "Compensatory-reserve-weighted intracranial pressure versus intracranial pressure for outcome association in adult traumatic brain injury: a CENTER-TBI validation study.",
+   "journal": "Acta Neurochir (Wien) 161(7):1275-84",
+   "pmid": "31053909",
+   "doi": "10.1007/s00701-019-03915-3",
+   "doi_http_check": "302 -> link.springer.com",
+   "role": "MODERN, MULTI-CENTER, DECORRELATED human confirmation of the same underlying physics via a totally different (real-time bedside monitoring) route. wICP = (1-RAP)*ICP, RAP = moving correlation between ICP pulse amplitude (AMP) and mean ICP -- i.e. RAP directly measures, breath-to-breath in real patients, whether local elastance (dP/dV) is tracking mean pressure, EXACTLY the Eq. 2 structural claim, measured in vivo rather than modeled. Quoted verbatim: wICP AUC=0.712 (95% CI 0.615-0.810, p=0.0002) vs ICP-alone AUC=0.642 (95% CI 0.538-0.746, p<0.0001) for mortality; for favorable/unfavorable outcome, wICP AUC=0.627 (p=0.015) vs ICP-alone AUC=0.495 (p=0.059, NOT distinguishable from chance) -- Delong's test p=0.002 for the difference. 'Lower wICP is associated with better global outcomes.'"
+  },
+  {
+   "id": 11,
+   "authors": "Zeiler FA, Kim DJ, Cabeleira M, Calviello L, Smielewski P, Czosnyka M",
+   "year": 2018,
+   "title": "Impaired cerebral compensatory reserve is associated with admission imaging characteristics of diffuse insult in traumatic brain injury.",
+   "journal": "Acta Neurochir (Wien) 160(12):2277-87",
+   "pmid": "30251196",
+   "doi": "10.1007/s00701-018-3681-y",
+   "doi_http_check": null,
+   "role": "Cross-MODALITY decorrelation (n=358 real ICU TBI patients): the RAP compensatory-reserve index (a PRESSURE-derived quantity) is independently associated with admission CT findings (an ANATOMICAL/structural modality) of diffuse injury and edema -- over-determination across pressure-domain and imaging-domain observables."
+  },
+  {
+   "id": 12,
+   "authors": "Czosnyka M, Pickard JD",
+   "year": 2004,
+   "title": "Monitoring and interpretation of intracranial pressure.",
+   "journal": "J Neurol Neurosurg Psychiatry 75(6):813-21",
+   "pmid": "15145991",
+   "doi": "10.1136/jnnp.2003.033126",
+   "doi_http_check": null,
+   "role": "General review/provenance anchor (also independently re-verified in this twin's own docs/MECHANISM_CEREBRAL_AUTOREGULATION.md, citation [11], same PMID -- reused, not re-fetched blind). Quoted verbatim: information derivable from ICP waveforms includes 'cerebral perfusion pressure (CPP), regulation of cerebral blood flow and volume, CSF absorption capacity, brain compensatory reserve... In hydrocephalus CSF dynamic tests aid diagnosis and subsequent monitoring of shunt function.'"
+  },
+  {
+   "id": 13,
+   "authors": "Brasil S, Patriota GC, Godoy DA, Paranhos JL, Rubiano AM, Paiva WS",
+   "year": 2025,
+   "title": "Monro-Kellie 4.0: moving from intracranial pressure to intracranial dynamics.",
+   "journal": "Crit Care 29(1):229",
+   "pmid": "40474297",
+   "doi": "10.1186/s13054-025-05476-7",
+   "doi_http_check": "302 -> ccforum.biomedcentral.com",
+   "role": "3rd independent modern review co-citing the doctrine (full text fetched, open access, PMC12142851 -- not scanned/blocked). Quoted verbatim (own Table 1, historical restatement of the 1783 original): 'The total volume within the rigid skull-comprising brain tissue, blood and CSF-is constant, so an [increase in one requires] a decrease in another to maintain normal ICP.' Also quoted verbatim, on the glymphatic-coupled interstitial space: 'the interstitial space (IS) has traditionally been considered a minor player. This is likely due to its small volume fraction (approximately 3.5%) within the cranial compartment.' Honest gap: this full text, searched specifically for the classic brain~80%/blood~10%/CSF~10% compartment-volume split, contains exactly ONE percent-sign in the entire article (the 3.5% IS figure above) -- the specific 80/10/10 numeric split is NOT independently re-verified live this session in any fetched source (disclosed honest gap, not asserted as StatPearls' or anyone's verified number here)."
+  }
+ ],
+ "pre_registered_thresholds": {
+  "NONLINEARITY_RATIO_THRESHOLD": 1.3,
+  "SMALL_DV_DANGER_RATIO_THRESHOLD": 1.5,
+  "FINITE_DIFF_RELERR_TOL": 0.0001,
+  "OUTCOME_P_THRESHOLD": 0.05,
+  "CPP_LLA_MMHG_source": "docs/MECHANISM_CEREBRAL_AUTOREGULATION.md section 6 (stated constant)"
+ }
+}

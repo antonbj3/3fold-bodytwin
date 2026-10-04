@@ -1,0 +1,25 @@
+{
+  "enabled": true,
+  "egress": {
+    "direct": {
+      "proxy": null,
+      "weight": 9,
+      "cap": 0
+    },
+    "home_via_ssh": {
+      "proxy": "http://127.0.0.1:18187",
+      "weight": 1,
+      "cap": 8
+    },
+    "warp": {
+      "proxy": "http://127.0.0.1:18188",
+      "weight": 2,
+      "cap": 2,
+      "health_file": "/opt/agents/WARP_HEALTH.json",
+      "model_catalog": "/opt/agents/WARP_MODEL_CATALOG.json"
+    }
+  },
+  "window_seconds": 3600,
+  "backoff_seconds": 900,
+  "note": "Per-IP free-model buckets. direct = the host's own public IP; home_via_ssh = the home IP via the owned tunnel. cap = max concurrent jobs (0 = unlimited). Add a VPN as another entry with its proxy, weight and cap."
+}

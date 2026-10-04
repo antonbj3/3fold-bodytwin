@@ -1,0 +1,31 @@
+{
+  "swarm_worker_verified_accounts": [
+    "A",
+    "B",
+    "C"
+  ],
+  "allocation": "The swarm first; swarm_worker on cooldown; swarm_worker when both free models cooldown",
+  "paid_fallback": false,
+  "swarm_worker_backoff_until": 1790759969.278636,
+  "backoff_reason": "swarm_worker provider rate errors; temporary free-model routing, no extra accounts or changed endpoints",
+  "swarm_worker_active_cap": 4,
+  "swarm_worker_fill_target": 4,
+  "swarm_active_cap": 17,
+  "swarm_backoff_until": 1790727003.8627264,
+  "desired_host_concurrency": 17,
+  "capacity_authorization": "Anton 2026-09-28: 60 actual free workers across existing hosts; preserve rate cooldowns",
+  "swarm_worker_reserve_until": 1790806605.307248,
+  "swarm_worker_reserve_cap": 16,
+  "swarm_worker_reserve_account": "D",
+  "swarm_worker_reserve_authorization": "Anton LANE_RUNNER_reserve_worker_D: account D fallback only while both free models cooldown; high-value jobs; 24h reserve window pending exact quota tomorrow",
+  "unattended_updated": 1790605179.691318,
+  "swarm_cap_authorization": "Anton 2026-09-28: increase The swarm concurrency where existing hosts have safe memory headroom; cooldowns, accounts, routes and lease expiry preserved",
+  "swarm_cap_updated": 1790609350.018291,
+  "swarm_worker_backoff_until": 0,
+  "swarm_worker_weekly_stop_pct": 95,
+  "swarm_worker_weekly_used_pct": 0.0,
+  "swarm_worker_weekly_updated": 1790720205.3072479,
+  "swarm_worker_weekly_note": "manual account D: initial 0% is UNKNOWN console usage, not a measurement; Anton will update exact usage tomorrow via swarm_worker-usage <pct>; stop at >=95%; estimator excluded for D",
+  "swarm_worker_weekly_budget_usd": 30.0,
+  "swarm_worker_value_only": true
+}

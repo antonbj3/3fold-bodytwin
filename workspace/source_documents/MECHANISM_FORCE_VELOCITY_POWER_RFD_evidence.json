@@ -1,0 +1,380 @@
+{
+ "_meta": {
+  "doc": "docs/MECHANISM_FORCE_VELOCITY_POWER_RFD.md",
+  "script": "scripts/msk/force_velocity_power_rfd.py",
+  "status": "HYPOTHESIS-awaiting-QC",
+  "isolation": "read-only repo scan + pure computation; no OpenSim, no git ops",
+  "overall_all_gates_pass": true
+ },
+ "part_a_hill_hyperbola_power_optimum": {
+  "hill_k_0p25": {
+   "k_a_over_F0": 0.25,
+   "v_star_closed_form": 0.30901699437494745,
+   "v_star_grid_search_n1e7": 0.309017,
+   "v_star_golden_section": 0.3090169977430214,
+   "max_abs_diff_across_3_methods": 5.625052534874442e-09,
+   "p_star_closed_form": 0.0954915028125263,
+   "p_star_grid_search": 0.09549150281252627,
+   "f_at_vstar": 0.30901699437494745,
+   "identity_f_vstar_equals_v_star_abs_diff": 0.0,
+   "pct_of_Vmax": 30.901699437494745,
+   "pct_of_F0": 30.901699437494745,
+   "pct_of_F0_x_Vmax_product": 9.549150281252631
+  },
+  "nonnormalized_equation_selfcheck": {
+   "F0": 100.0,
+   "Vmax": 10.0,
+   "a": 25.0,
+   "b": 2.5,
+   "F_at_Vmax_must_be_0": 0.0,
+   "per_point_checks": [
+    {
+     "v_frac": 0.0,
+     "F_nonnormalized": 100.0,
+     "F0_times_normalized_formula": 100.0,
+     "abs_diff": 0.0
+    },
+    {
+     "v_frac": 0.1,
+     "F_nonnormalized": 64.28571428571429,
+     "F0_times_normalized_formula": 64.28571428571429,
+     "abs_diff": 0.0
+    },
+    {
+     "v_frac": 0.309017,
+     "F_nonnormalized": 30.901698874989492,
+     "F0_times_normalized_formula": 30.901698874989492,
+     "abs_diff": 0.0
+    },
+    {
+     "v_frac": 0.5,
+     "F_nonnormalized": 16.666666666666664,
+     "F0_times_normalized_formula": 16.666666666666668,
+     "abs_diff": 3.552713678800501e-15
+    },
+    {
+     "v_frac": 0.75,
+     "F_nonnormalized": 6.25,
+     "F0_times_normalized_formula": 6.25,
+     "abs_diff": 0.0
+    },
+    {
+     "v_frac": 1.0,
+     "F_nonnormalized": 0.0,
+     "F0_times_normalized_formula": 0.0,
+     "abs_diff": 0.0
+    }
+   ],
+   "max_abs_diff": 3.552713678800501e-15
+  },
+  "linear_model_falsifier": {
+   "v_star_linear_closed_form": 0.5,
+   "v_star_linear_grid_search": 0.5,
+   "p_star_linear": 0.25,
+   "p_star_linear_closed_form": 0.25,
+   "gap_vs_hill_v_star_percentage_points": 19.098300562505255
+  },
+  "k_sweep": [
+   {
+    "k": 0.05,
+    "v_star": 0.17912878474779204,
+    "pct_Vmax": 17.912878474779205,
+    "gap_vs_linear_50pct_pp": 32.087121525220795,
+    "p_star": 0.032087121525220814
+   },
+   {
+    "k": 0.1,
+    "v_star": 0.23166247903554002,
+    "pct_Vmax": 23.166247903554,
+    "gap_vs_linear_50pct_pp": 26.833752096445995,
+    "p_star": 0.05366750419289202
+   },
+   {
+    "k": 0.15,
+    "v_star": 0.2653311931459037,
+    "pct_Vmax": 26.53311931459037,
+    "gap_vs_linear_50pct_pp": 23.46688068540963,
+    "p_star": 0.07040064205622885
+   },
+   {
+    "k": 0.2,
+    "v_star": 0.2898979485566356,
+    "pct_Vmax": 28.989794855663558,
+    "gap_vs_linear_50pct_pp": 21.010205144336442,
+    "p_star": 0.08404082057734573
+   },
+   {
+    "k": 0.215,
+    "v_star": 0.29610175112202475,
+    "pct_Vmax": 29.610175112202477,
+    "gap_vs_linear_50pct_pp": 20.389824887797523,
+    "p_star": 0.08767624701752949
+   },
+   {
+    "k": 0.25,
+    "v_star": 0.30901699437494745,
+    "pct_Vmax": 30.901699437494745,
+    "gap_vs_linear_50pct_pp": 19.098300562505255,
+    "p_star": 0.0954915028125263
+   },
+   {
+    "k": 0.3,
+    "v_star": 0.32449979983983984,
+    "pct_Vmax": 32.44997998398399,
+    "gap_vs_linear_50pct_pp": 17.550020016016017,
+    "p_star": 0.10530012009609613
+   },
+   {
+    "k": 0.35,
+    "v_star": 0.33738635424337604,
+    "pct_Vmax": 33.7386354243376,
+    "gap_vs_linear_50pct_pp": 16.261364575662395,
+    "p_star": 0.11382955202963682
+   },
+   {
+    "k": 0.4,
+    "v_star": 0.3483314773547882,
+    "pct_Vmax": 34.83314773547882,
+    "gap_vs_linear_50pct_pp": 15.16685226452118,
+    "p_star": 0.12133481811616932
+   },
+   {
+    "k": 0.5,
+    "v_star": 0.3660254037844386,
+    "pct_Vmax": 36.60254037844386,
+    "gap_vs_linear_50pct_pp": 13.397459621556141,
+    "p_star": 0.13397459621556132
+   },
+   {
+    "k": 1.0,
+    "v_star": 0.41421356237309515,
+    "pct_Vmax": 41.42135623730952,
+    "gap_vs_linear_50pct_pp": 8.578643762690486,
+    "p_star": 0.17157287525381
+   },
+   {
+    "k": 5.0,
+    "v_star": 0.4772255750516612,
+    "pct_Vmax": 47.72255750516612,
+    "gap_vs_linear_50pct_pp": 2.277442494833881,
+    "p_star": 0.2277442494833887
+   },
+   {
+    "k": 50.0,
+    "v_star": 0.4975246918103906,
+    "pct_Vmax": 49.75246918103906,
+    "gap_vs_linear_50pct_pp": 0.24753081896093931,
+    "p_star": 0.24753081896102416
+   },
+   {
+    "k": 500.0,
+    "v_star": 0.49975024968796333,
+    "pct_Vmax": 49.97502496879633,
+    "gap_vs_linear_50pct_pp": 0.02497503120366673,
+    "p_star": 0.24975031206318168
+   }
+  ],
+  "k_sweep_note": "k=0.215 is this repo's OWN emergent cross-bridge-model fit for soleus_r (docs/MECHANISM_CROSSBRIDGE_MODEL.md Sec.4.3, a/F0=0.215 measured from Huxley-1957 kinetics, NOT curve-fit to Hill) -- an internal, mechanistically-independent decorrelated cross-check landing at v*=0.2961 (29.61% Vmax), inside 2 percentage points of the k=0.25 textbook case.",
+  "forced_adversary_powerlaw_family": {
+   "family": "f(v)=(1-v)^n; v_star=1/(n+1) closed form",
+   "results_by_n": {
+    "1.0": {
+     "v_star_closed_form": 0.5,
+     "v_star_grid_search": 0.5,
+     "abs_diff_cf_vs_grid": 0.0,
+     "f_v_benchmark": {
+      "0.25": 0.75,
+      "0.5": 0.5,
+      "0.75": 0.25
+     }
+    },
+    "1.5": {
+     "v_star_closed_form": 0.4,
+     "v_star_grid_search": 0.39999999999999997,
+     "abs_diff_cf_vs_grid": 5.551115123125783e-17,
+     "f_v_benchmark": {
+      "0.25": 0.649519052838329,
+      "0.5": 0.3535533905932738,
+      "0.75": 0.125
+     }
+    },
+    "2.0": {
+     "v_star_closed_form": 0.3333333333333333,
+     "v_star_grid_search": 0.3333333,
+     "abs_diff_cf_vs_grid": 3.333333331578814e-08,
+     "f_v_benchmark": {
+      "0.25": 0.5625,
+      "0.5": 0.25,
+      "0.75": 0.0625
+     }
+    },
+    "3.0": {
+     "v_star_closed_form": 0.25,
+     "v_star_grid_search": 0.25,
+     "abs_diff_cf_vs_grid": 0.0,
+     "f_v_benchmark": {
+      "0.25": 0.421875,
+      "0.5": 0.125,
+      "0.75": 0.015625
+     }
+    }
+   },
+   "hill_k0p25_f_v_benchmark": {
+    "0.25": 0.375,
+    "0.5": 0.16666666666666669,
+    "0.75": 0.0625
+   },
+   "linear_f_v_benchmark": {
+    "0.25": 0.75,
+    "0.5": 0.5,
+    "0.75": 0.25
+   },
+   "reading": "n=2 gives v*=33.33% (only 2.4pp from Hill's 30.90%) -- the power-OPTIMUM LOCATION alone is a WEAK discriminator; the full-curve shape is decisive: at v=0.5, Hill(k=0.25) gives f=0.1667 vs power-law(n=2) f=0.25 vs linear f=0.5 -- three genuinely different curves despite two of them nearly agreeing on WHERE power peaks."
+  },
+  "limits": {
+   "k_to_0_rectangular_corner": {
+    "k": 1e-06,
+    "v_star": 0.000999000499999875
+   },
+   "k_to_inf_recovers_linear": {
+    "k": 100000000.0,
+    "v_star": 0.5,
+    "diff_from_0p5": 0.0
+   }
+  },
+  "gates": {
+   "gate_A1_three_methods_agree_lt_1e-6": true,
+   "gate_A2_identity_f_vstar_eq_vstar_lt_1e-9": true,
+   "gate_A3_nonnormalized_eq_selfcheck_lt_1e-9": true,
+   "gate_A4_F_at_Vmax_is_zero_lt_1e-9": true,
+   "gate_A5_v_star_in_25_to_35pct_for_k_0p15_to_0p40": true,
+   "gate_A6_linear_always_exactly_50pct_gap_gt_10pp_for_all_physio_k": true,
+   "gate_A7_k_to_inf_recovers_linear_lt_1e-4": true,
+   "gate_A8_powerlaw_n2_v_star_within_5pp_of_hill_LOCATION_weak_discriminator": true,
+   "gate_A9_powerlaw_n2_f_at_0p5_differs_from_hill_by_gt_0p05_SHAPE_discriminates": true
+  },
+  "all_gates_pass": true
+ },
+ "part_b_rfd_time_course": {
+  "aagaard_2002_pmid_12235031": {
+   "raw_numbers": {
+    "MVC_Nm": {
+     "pre": 291.1,
+     "post": 339.0
+    },
+    "RFD_Nm_per_s": {
+     "30ms": {
+      "pre": 1601,
+      "post": 2020
+     },
+     "50ms": {
+      "pre": 1802,
+      "post": 2201
+     },
+     "100ms": {
+      "pre": 1543,
+      "post": 1806
+     },
+     "200ms": {
+      "pre": 1141,
+      "post": 1363
+     }
+    }
+   },
+   "MVC_pct_change": 16.45482652009618,
+   "RFD_pct_change_by_window": {
+    "30ms": 26.17114303560275,
+    "50ms": 22.14206437291898,
+    "100ms": 17.044718081659106,
+    "200ms": 19.456617002629272
+   },
+   "excess_RFD_change_over_MVC_scaling_pp": {
+    "30ms": 9.71631651550657,
+    "50ms": 5.6872378528228005,
+    "100ms": 0.5898915615629257,
+    "200ms": 3.0017904825330923
+   },
+   "cumulative_pct_of_own_MVC_by_window": {
+    "30ms": {
+     "pre_pct_of_pre_MVC": 16.49948471315699,
+     "post_pct_of_post_MVC": 17.876106194690262
+    },
+    "50ms": {
+     "pre_pct_of_pre_MVC": 30.951563036757126,
+     "post_pct_of_post_MVC": 32.463126843657825
+    },
+    "100ms": {
+     "pre_pct_of_pre_MVC": 53.005839917554106,
+     "post_pct_of_post_MVC": 53.27433628318585
+    },
+    "200ms": {
+     "pre_pct_of_pre_MVC": 78.39230504981106,
+     "post_pct_of_post_MVC": 80.41297935103246
+    }
+   },
+   "instant_F0_model_falsifier": {
+    "prediction_if_instant_F0": "100% of MVC at t=30/50/100/200ms",
+    "measured_post_training_pct_MVC": {
+     "30ms": 17.876106194690262,
+     "50ms": 32.463126843657825,
+     "100ms": 53.27433628318585,
+     "200ms": 80.41297935103246
+    },
+    "measured_pre_training_pct_MVC": {
+     "30ms": 16.49948471315699,
+     "50ms": 30.951563036757126,
+     "100ms": 53.005839917554106,
+     "200ms": 78.39230504981106
+    },
+    "max_pct_MVC_reached_by_200ms": 80.41297935103246
+   },
+   "lower_bound_time_to_MVC_from_200ms_avg_rate_s": {
+    "pre": 0.2551270815074496,
+    "post": 0.2487160674981658,
+    "note": "naive linear extrapolation of the 0-200ms AVERAGE rate; genuine lower bound because the measured rate is front-loaded/decelerating (30ms-window rate > 200ms-window rate in both pre/post), so the TRUE time-to-MVC exceeds this."
+   }
+  },
+  "klass_2008_pmid_18174392": {
+   "voluntary_fast_RTD_decline_elderly_vs_young_pct": 48.0,
+   "iEMG_at_peak_RTD_decline_pct": 16.5,
+   "MU_discharge_freq_decline_pct_first_3_ISI": [
+    19,
+    28,
+    34
+   ],
+   "doublet_incidence_decline_pct": 45,
+   "voluntary_minus_twitch_RTD_decline_margin_pct_DIRECT_QUOTE": 10.0,
+   "implied_twitch_only_RTD_decline_pct_DERIVED_NOT_QUOTED": 38.0,
+   "neural_fraction_of_total_voluntary_RTD_decline_pct_DERIVED": 20.833333333333332
+  },
+  "tillin_2010_pmid_19952835": {
+   "MVC_pct_stronger_athletes": 28.0,
+   "absolute_RFD_0_50ms_ratio_athletes_over_controls": 2.0,
+   "normalized_RFD_0_50ms_MVCs": {
+    "athletes": 4.86,
+    "controls": 2.81
+   },
+   "neural_activation_0_50ms_Mmax": {
+    "athletes": 0.26,
+    "controls": 0.15
+   },
+   "normalized_RFD_50_100ms_MVCs": {
+    "athletes": 6.68,
+    "controls": 7.93
+   },
+   "normalized_RFD_0_50ms_ratio": 1.7295373665480427,
+   "neural_activation_0_50ms_ratio": 1.7333333333333334,
+   "normalized_RFD_50_100ms_ratio_athletes_over_controls": 0.8423707440100883,
+   "REVERSAL_flag_50_100ms_controls_exceed_athletes": true
+  },
+  "gates": {
+   "gate_B1_max_pct_MVC_by_200ms_lt_100_both_pre_post": true,
+   "gate_B2_early_window_pct_change_exceeds_MVC_pct_change": true,
+   "gate_B3_late_window_100ms_closer_to_proportional_than_30ms": true,
+   "gate_B4_pre_post_fractional_trajectory_consistent_lt_5pp": true,
+   "gate_B5_tillin_early_ratio_gt_mvc_ratio": true,
+   "gate_B6_tillin_reversal_is_real_and_reported": true
+  },
+  "all_gates_pass": true
+ }
+}

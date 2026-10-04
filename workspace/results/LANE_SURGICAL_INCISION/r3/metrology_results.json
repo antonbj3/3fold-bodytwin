@@ -1,0 +1,237 @@
+{
+  "scope": "EMPIRICAL_REFERENCE_FORCE_CURVE_WITH_UNKNOWN_CONTACT_CURVATURE; NO_REFIT_PREDICTION",
+  "shared_rounding_enclosures": [
+    {
+      "edge": "B",
+      "depth_pct": 66,
+      "shared_reference_and_target_rounding_band_N": [
+        28.447553874303814,
+        29.63286861906648
+      ],
+      "minimum_relative_error": 0.5988161300635788
+    },
+    {
+      "edge": "B",
+      "depth_pct": 87,
+      "shared_reference_and_target_rounding_band_N": [
+        50.22222474105488,
+        52.50505313837556
+      ],
+      "minimum_relative_error": 0.41130065801908494
+    },
+    {
+      "edge": "E",
+      "depth_pct": 66,
+      "shared_reference_and_target_rounding_band_N": [
+        37.07357400425988,
+        38.61830625443738
+      ],
+      "minimum_relative_error": 0.04180887360332078
+    },
+    {
+      "edge": "E",
+      "depth_pct": 85,
+      "shared_reference_and_target_rounding_band_N": [
+        62.47583767384537,
+        65.45087756307608
+      ],
+      "minimum_relative_error": 0.17042725306052117
+    },
+    {
+      "edge": "E",
+      "depth_pct": 90,
+      "shared_reference_and_target_rounding_band_N": [
+        69.91343739692219,
+        72.8884772861529
+      ],
+      "minimum_relative_error": 0.0
+    },
+    {
+      "edge": "F",
+      "depth_pct": 32,
+      "shared_reference_and_target_rounding_band_N": [
+        10.786364177340197,
+        11.556818761435927
+      ],
+      "minimum_relative_error": 0.6752404735808355
+    },
+    {
+      "edge": "F",
+      "depth_pct": 65,
+      "shared_reference_and_target_rounding_band_N": [
+        27.854896501922486,
+        29.040211246685143
+      ],
+      "minimum_relative_error": 0.45595840018669886
+    },
+    {
+      "edge": "F",
+      "depth_pct": 80,
+      "shared_reference_and_target_rounding_band_N": [
+        42.232325350432525,
+        44.5151537477532
+      ],
+      "minimum_relative_error": 0.37453720837790533
+    },
+    {
+      "edge": "F",
+      "depth_pct": 71,
+      "shared_reference_and_target_rounding_band_N": [
+        31.959597562489474,
+        34.24242595981015
+      ],
+      "minimum_relative_error": 0.6150998205402496
+    },
+    {
+      "edge": "G",
+      "depth_pct": 35,
+      "shared_reference_and_target_rounding_band_N": [
+        2.857279851300753,
+        3.003085612858689
+      ],
+      "minimum_relative_error": 0.8312198743338229
+    },
+    {
+      "edge": "G",
+      "depth_pct": 51,
+      "shared_reference_and_target_rounding_band_N": [
+        4.012613134783368,
+        4.226191460209923
+      ],
+      "minimum_relative_error": 0.8812392955616482
+    },
+    {
+      "edge": "G",
+      "depth_pct": 60,
+      "shared_reference_and_target_rounding_band_N": [
+        4.830167611186587,
+        5.033281652704424
+      ],
+      "minimum_relative_error": 0.9057061059443628
+    },
+    {
+      "edge": "G",
+      "depth_pct": 77,
+      "shared_reference_and_target_rounding_band_N": [
+        6.9925315414590505,
+        7.378126141154266
+      ],
+      "minimum_relative_error": 0.8963332037594227
+    },
+    {
+      "edge": "G",
+      "depth_pct": 81,
+      "shared_reference_and_target_rounding_band_N": [
+        7.7105899547841235,
+        8.090574782066065
+      ],
+      "minimum_relative_error": 0.9090583217087278
+    }
+  ],
+  "maximum_min_relative_force_error_with_joint_rounding": 0.9090583217087278,
+  "K_nominal_radius_ratio2_depth_band_pct": [
+    62.49999999999831,
+    65.49999999999687
+  ],
+  "DIAGNOSTIC_required_F_radius_um": 23.787301587301588,
+  "DIAGNOSTIC_F_radius_for_K_20pct_depth_budget_um": [
+    23.294300518134712,
+    24.301621621621617
+  ],
+  "DIAGNOSTIC_F_radius_for_K_digitization_band_um": [
+    23.662105263157894,
+    23.913829787234043
+  ],
+  "depth_sensitivity_pp_per_um_at_diagnostic_radius": 15.890831442679831,
+  "necessary_radius_error_um_if_other_errors_zero": 0.5034349542286052,
+  "unknown_radius_scenarios": [
+    {
+      "center_R_F_um": 25.4,
+      "radius_error_um": 0.1,
+      "predicted_K_depth_interval_pct": [
+        62.60079051383291,
+        65.38823529411287
+      ],
+      "center_fitted_from_K": false,
+      "status": "CONDITIONAL_SENSITIVITY"
+    },
+    {
+      "center_R_F_um": 25.4,
+      "radius_error_um": 0.5,
+      "predicted_K_depth_interval_pct": [
+        56.8915662650602,
+        67.15356265356266
+      ],
+      "center_fitted_from_K": false,
+      "status": "CONDITIONAL_SENSITIVITY"
+    },
+    {
+      "center_R_F_um": 25.4,
+      "radius_error_um": 1.0,
+      "predicted_K_depth_interval_pct": [
+        49.49180327868855,
+        68.72262396694215
+      ],
+      "center_fitted_from_K": false,
+      "status": "CONDITIONAL_SENSITIVITY"
+    },
+    {
+      "center_R_F_um": 25.4,
+      "radius_error_um": 2.0,
+      "predicted_K_depth_interval_pct": [
+        33.7435897435826,
+        71.68895155938952
+      ],
+      "center_fitted_from_K": false,
+      "status": "CONDITIONAL_SENSITIVITY"
+    },
+    {
+      "center_R_F_um": 23.787301587301588,
+      "radius_error_um": 0.1,
+      "predicted_K_depth_interval_pct": [
+        38.404208269114854,
+        41.58243072629425
+      ],
+      "center_fitted_from_K": true,
+      "status": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "center_R_F_um": 23.787301587301588,
+      "radius_error_um": 0.5,
+      "predicted_K_depth_interval_pct": [
+        31.883988821481708,
+        47.781844323900415
+      ],
+      "center_fitted_from_K": true,
+      "status": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "center_R_F_um": 23.787301587301588,
+      "radius_error_um": 1.0,
+      "predicted_K_depth_interval_pct": [
+        23.411813875731063,
+        55.249743852459034
+      ],
+      "center_fitted_from_K": true,
+      "status": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "center_R_F_um": 23.787301587301588,
+      "radius_error_um": 2.0,
+      "predicted_K_depth_interval_pct": [
+        10.61424238008828,
+        66.79149832686088
+      ],
+      "center_fitted_from_K": true,
+      "status": "DIAGNOSTIC_ONLY"
+    }
+  ],
+  "contact_gauge": "Only k*R_F is acquired from F. k->c*k,R_F->R_F/c preservesF. Another radiusquery needslocalmetrology.",
+  "normal_power_Jacobian_rank_Gamma": 0,
+  "empirical_radius_law_gate": "UNKNOWN; actual localR_Funmeasured and can explainK without contradictingapprox25.4um description",
+  "nominal_ratio2_conditional_gate": "FAIL_PRESERVED",
+  "control": "Same identified contactproduct and inverse geometry ray: TIE; acquisition precision not a measuredachievable guarantee",
+  "cost_CPU_s": 0.00486829900000002,
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

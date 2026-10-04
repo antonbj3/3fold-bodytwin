@@ -1,0 +1,188 @@
+{
+  "task": "BT-DAT-Q044",
+  "purpose": "public measured datasets that constrain inputs/Q044_model.py (Q044 EEG forward model), plus the sample files actually downloaded and loaded in samples/",
+  "prereg": "PREREG.md",
+  "prereg_sha256": "54366bed7c024d7f86c01374f38adba37381def4e2780c6c6c70e0480e9c49e6",
+  "generated_before": "any sample download or parse",
+  "model_under_constraint": {
+    "file": "inputs/Q044_model.py",
+    "question": "inputs/Q044_QUESTION.md",
+    "constrained_parameters": {
+      "geometry": "HeadGeometry r_wm 0.050 m, r_gm 0.080 m, csf_thickness 0.003 m, skull_thickness 0.007 m, scalp_thickness 0.005 m (all self-declared 'spherical first-run assumption')",
+      "conductivity": "Conductivity WM 0.140, GM 0.330, CSF 1.790, skull 0.010, scalp 0.430 S/m (attributed by the model to Vorwerk et al. 2024 Table 1)",
+      "electrodes": "Electrode.position(radius): 21 electrodes, all on one sphere of radius r_scalp; 10-10-style labels incl. M1/M2",
+      "reference": "SphericalHeadModel.forward(reference='average' | 'mastoid')",
+      "outputs": "ForwardResult.raw_potential_v, referenced_potential_v, topography_norm_v, relative_metrics RDM"
+    }
+  },
+  "sources": [
+    {
+      "id": "chbmit",
+      "name": "CHB-MIT Scalp EEG Database v1.0.0 (PhysioNet)",
+      "url": "https://physionet.org/content/chbmit/1.0.0",
+      "doi": "10.13026/C2K01R",
+      "license": "Open Data Commons Attribution License v1.0",
+      "size": "42.6 GB total uncompressed; 664 .edf files; sampled file chb01_03.edf = 42,399,744 bytes",
+      "format": "EDF, ASCII 256-byte header records, 16-bit samples, 256 Hz, 23 signals per file (24-26 in a few cases), International 10-20 electrode system, physical unit uV",
+      "subjects": "23 cases from 22 human subjects (5 male aged 3-22, 17 female aged 1.5-19), pediatric epilepsy, 182 seizures annotated in the original 23 cases",
+      "measured": true,
+      "constrains": [
+        "electrode_reference: the model implements average and linked-mastoid (M1/M2) references; this dataset's montage contains no M1/M2 electrodes at all (it uses FT9/FT10 bone-anchored pairs), so the model's mastoid branch is not realizable from it",
+        "electrode vector: the sampled file is 23 bipolar differential channels, i.e. a referential vector u must be reconstructed by an explicit montage-to-reference transform before it can be compared with ForwardResult.referenced_potential_v",
+        "potential scale and units: physical dimension uV against a model that reports V; measured AC RMS is about 30 uV per channel, roughly 5 orders of magnitude above the frozen synthetic source output",
+        "time series form: 256 Hz, 1 s data records, 3600 records in the sampled hour"
+      ],
+      "verification": "dataset page fetched in-session (license, subject counts, sampling rate, 42.6 GB, 10-20 system); file list and per-file Content-Length from HTTP HEAD; SUBJECT-INFO, RECORDS and RECORDS-WITH-SEIZURES downloaded to samples/",
+      "downloaded": true,
+      "sample_file": "samples/chb01_03.edf"
+    },
+    {
+      "id": "openneuro_ds007358",
+      "name": "A subset of large-scale EEG dataset (India + Tanzania), OpenNeuro ds007358 v1.0.0",
+      "url": "https://openneuro.org/datasets/ds007358/versions/1.0.0",
+      "doi": "10.18112/openneuro.ds007358.v1.0.0",
+      "license": "CC0",
+      "size": "26,005 files, 16.08 GB as reported on the OpenNeuro dataset page; not independently measured in-session",
+      "format": "BIDS-EEG 1.8.0: EDF recordings plus tab-separated sidecars (participants.tsv, and electrodes/coordsystem sidecars per recording)",
+      "subjects": "2000 human participants across two sites (India, Tanzania) with sex, income band, mental-health-quotient score, and an age column that is 'n/a' in every row of the downloaded file",
+      "measured": true,
+      "constrains": [
+        "electrode_reference and electrode position: a 2000-subject cohort with per-recording electrode metadata is the natural preregistered sample for testing how much a spherical 21-electrode montage costs against real montages",
+        "cohort variation: sex and site are recorded, so between-subject geometry spread can be estimated; age is not usable (all 'n/a' in the downloaded table), so age-dependent geometry cannot be constrained from this file",
+        "redistribution: CC0 permits reusing the derived forward-model inputs in a published preregistered comparison, which the model currently cannot do"
+      ],
+      "verification": "dataset_description.json fetched directly from the dataset's Git repository (Name, BIDSVersion 1.8.0, License CC0, Authors); participants.tsv downloaded and parsed (2000 rows, 7 columns); file count and total size as displayed by OpenNeuro",
+      "downloaded": true,
+      "sample_file": "samples/ds007358_participants.tsv"
+    },
+    {
+      "id": "totalsegmentator_v2",
+      "name": "TotalSegmentator dataset v2: 117 anatomical structures in 1228 CT images (Zenodo)",
+      "url": "https://zenodo.org/records/10047292",
+      "license": "CC BY 4.0",
+      "size": "1 file, 23,581,218,285 bytes (23.6 GB) as returned by the Zenodo API",
+      "format": "CT volumes with NIfTI segmentation masks for 117 classes; the class table includes brain (index 90) and skull (index 91), and separate task groups add 'head', 'skull' and 'oculomotor_muscles'",
+      "subjects": "1228 CT scans randomly sampled from clinical routine, real-world pathology mix",
+      "measured": true,
+      "constrains": [
+        "skull_thickness: the model's dominant sensitivity axis (its own preregistration makes skull conductivity and thickness the controlling parameters) and the only one a public dataset can constrain with the right modality, since bone is a CT contrast and not an MRI one",
+        "geometry realism: per-scan skull and brain masks give the non-sphericity and between-subject spread that a single frozen (r_wm, r_gm, skull_thickness) triple cannot represent",
+        "r_scalp / head outer boundary: derivable from the outermost soft-tissue mask, which bounds the phantom-free value of the model's electrode sphere radius"
+      ],
+      "verification": "Zenodo record API fetched in-session (title, CC BY 4.0, publication date 2023-10-27, 1228 scans, 117 structures, single 23,581,218,285-byte file); class names cross-checked in the TotalSegmentator README class table on GitHub",
+      "downloaded": false,
+      "download_blocker": "single 23.6 GB archive, so no per-scan sample fits the 50 MB cap; CT subject data also require a DICOM reader and a segmentation pipeline this session did not run"
+    },
+    {
+      "id": "ixi",
+      "name": "IXI - Information eXtraction from Images",
+      "url": "https://brain-development.org/ixi-dataset/",
+      "license": "Creative Commons CC BY-SA 3.0",
+      "size": "archive sizes 27.37 GB total (T1 4.51 GB, T2 3.59 GB, PD 3.79 GB, MRA 11.5 GB, DTI 3.98 GB) as reported in the FLamby dataset README, which is a secondary source; per-subject file size UNKNOWN; the download host answered HTTP 403 Forbidden to both HEAD and ranged GET from this network",
+      "format": "NIfTI, one file per subject per modality, T1/T2/PD/MRA/DTI, plus a demographic spreadsheet",
+      "subjects": "nearly 600 MR images from normal healthy human subjects, collected at three London hospitals on 1.5 T and 3 T scanners",
+      "measured": true,
+      "constrains": [
+        "HeadGeometry: real in-vivo head anatomy with the subject-to-subject spread of WM, GM, CSF, skull and scalp boundaries, which is the missing input for every geometry parameter in the model",
+        "multi-site spread: three hospitals and two field strengths, so it also constrains how much a single 'head' even means across sites",
+        "data volume per subject: with per-subject files of order 10-20 MB, a real-head sample fits the 50 MB cap once a host that serves single files is reachable"
+      ],
+      "verification": "official dataset page fetched in-session (subject count, modalities, three hospitals, the CC BY-SA 3.0 statement, and the download hrefs); the download host's 403 response was observed directly in-session",
+      "downloaded": false,
+      "download_blocker": "HTTP 403 Forbidden from this network; the site only links whole-modality tar archives, so single-subject extraction is not possible from here"
+    },
+    {
+      "id": "brainweb",
+      "name": "BrainWeb simulated brain database (McGill/MNI), normal phantom anatomical model",
+      "url": "https://brainweb.bic.mni.mcgill.ca/brainweb/anatomic_normal.html",
+      "license": "UNKNOWN: no license statement found on the dataset pages in-session. The download form asks for name, institution and e-mail and asks that the cited references be included, which is a citation request and not a license grant.",
+      "size": "crisp 1 mm phantom = 7,109,137 bytes raw (181 x 217 x 181 unsigned bytes, verified by download and by exact size match); fuzzy per-tissue volumes and a full tar are also offered",
+      "format": "headerless raw unsigned byte volume, 1 mm isotropic, 10 tissue classes (0 Background, 1 CSF, 2 Grey Matter, 3 White Matter, 4 Fat, 5 Muscle/Skin, 6 Skin, 7 Skull, 8 Glial Matter, 9 Connective); MINC and gzip/bzip2 variants offered",
+      "subjects": "one digital phantom of a normal brain, plus a multiple-sclerosis phantom and 20 normal brain anatomical models; no human subject",
+      "measured": false,
+      "simulated": true,
+      "constrains": [
+        "all five layer boundaries at once: it is the only source in this list that labels CSF, grey matter, white matter, skull and skin separately in one volume, which is exactly the model's five-shell structure",
+        "ground truth for a known head: any spherical approximation of this volume can be scored against labels, so it is the natural first test bed for the model's geometry parameterisation",
+        "scalp electrode radius: the outermost non-background surface bounds r_scalp, which the model fixes at 0.095 m"
+      ],
+      "verification": "dataset page and per-class voxel-count table fetched in-session; the discrete model was downloaded through the site's own POST form and its size matches 181*217*181 exactly; class list copied from the page text",
+      "downloaded": true,
+      "sample_file": "samples/brainweb_normal_crisp.raw",
+      "handling_rule": "every number derived from this file is reported in results.json under simulated_phantom_sample and is never described as measured"
+    },
+    {
+      "id": "camcan",
+      "name": "Cam-CAN data repository: structural and functional MRI, MEG and cognitive data (Cambridge Data Repository)",
+      "url": "https://www.repository.cam.ac.uk/handle/1810/271871",
+      "doi": "10.17863/CAM.18880 (repository), 10.1016/j.neuroimage.2015.09.018 (paper)",
+      "license": "Attribution 4.0 International (CC BY 4.0), as stated on the repository item page",
+      "size": "UNKNOWN: no dataset size is stated on the repository item page; access is per subject through a Data Access Portal",
+      "format": "raw and preprocessed structural MRI, functional MRI, MEG, cognitive-behavioural and demographic data",
+      "subjects": "approximately N=700 human participants, cross-sectional, ages 18-87",
+      "measured": true,
+      "constrains": [
+        "HeadGeometry over an adult lifespan: structural MRI per participant is the direct constraint on the model's frozen radii and thicknesses, with an age variable that ds007358 lacks",
+        "sensor geometry: MEG sensor positions together with the same participant's MRI are the closest public analogue to the electrode-vector-plus-geometry pairing the model needs",
+        "conductivity as a free parameter: repeated recordings per subject would let skull conductivity be treated as an unknown to be estimated rather than fixed at 0.010 S/m"
+      ],
+      "verification": "repository item page fetched in-session (title, DOI, 'approximately N=700', ages 18-87, modalities, CC BY 4.0 licensing statement); the dataset's own site points access to a Data Access Portal, i.e. registration",
+      "downloaded": false,
+      "download_blocker": "registration-gated Data Access Portal; no anonymous endpoint, so nothing was fetched"
+    }
+  ],
+  "gaps_found": [
+    {
+      "gap": "measured tissue conductivity, in particular skull conductivity",
+      "why_it_matters": "the model's own preregistration makes skull conductivity its dominant control, and Q044 is explicitly about sensitivity to tissue properties",
+      "status": "no public measured conductivity dataset was verified in this session",
+      "what_exists": "literature tables (Vorwerk et al. 2024 Table 1, already the model's stated source) and MR-EPT / electric-property-genomics programmes whose data endpoints are by request; I did not verify an anonymous public endpoint for either and therefore list none",
+      "consequence": "sigma_skull = 0.010 S/m and the other four conductivities in the model remain literature-anchored, not data-anchored, and no dataset in this list can change that"
+    },
+    {
+      "gap": "measured electrode-skin or gel impedance time series",
+      "status": "not found in this session",
+      "consequence": "the model's per-channel amplitude and the reference offset are unconstrained by data here; CHB-MIT supplies signal amplitudes but not impedances"
+    },
+    {
+      "gap": "public measured skull-thickness distribution in a cohort large enough for percentiles",
+      "status": "partially covered: TotalSegmentator v2 has 1228 CTs but is a single 23.6 GB archive that could not be sampled",
+      "consequence": "the skull-thickness constraint in this session rests on one simulated phantom and on the citation of a CT cohort that was not sampled"
+    }
+  ],
+  "sources_considered_and_rejected": [
+    {
+      "name": "IT'IS Foundation Tissue Properties Database v4.1 (DOI 10.13099/VIP21000-04-1)",
+      "reason": "surfaced in search but its terms and per-tissue values were not verified in-session, and it is a compilation of literature values rather than a measured cohort; listing it would have been a guess"
+    },
+    {
+      "name": "MNE sample dataset (figshare), CamBI average-reference corpus, ANSUR II anthropometry, Temple University Artifact Corpus, HBN-EEG releases",
+      "reason": "each either failed its URL/API probe in-session (figshare record id, CamBI repository, OpenNeuro electrode sidecar paths, ANSUR II page) or is simulation, so none is listed with unverified metadata"
+    }
+  ],
+  "counting": {
+    "sources": 6,
+    "measured_human": 5,
+    "simulated": 1,
+    "of_the_measured_ones": {
+      "anonymously_reachable_but_not_sampled": [
+        "chbmit",
+        "openneuro_ds007358"
+      ],
+      "too_large_for_the_50mb_cap": [
+        "totalsegmentator_v2"
+      ],
+      "network_403_from_this_host": [
+        "ixi"
+      ],
+      "registration_gated": [
+        "camcan"
+      ]
+    },
+    "largest_sample_bytes": 42399744,
+    "largest_sample_cap_bytes": 50000000,
+    "sources_with_a_downloaded_sample": 3,
+    "files_in_samples": 5,
+    "total_sample_bytes": 49601139
+  }
+}

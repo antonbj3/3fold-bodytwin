@@ -1,0 +1,208 @@
+{
+  "id": "BT-DAT-Q146",
+  "purpose": "PUBLIC measured datasets that constrain the model in inputs/Q146_model.py (Q146 nasal route with swallowed and systemic fractions)",
+  "compiled": "2026-09-26",
+  "scope_rule": "Only sources whose URL returned HTTP 200 (or whose metadata was checked against the provider's own API) in this run. No numbers are invented; every field marked UNKNOWN is deliberately unknown.",
+  "sources": [
+    {
+      "ref": "D1",
+      "title": "NHANES 2017-March 2020: Cotinine and Hydroxycotinine - Serum (P_COT)",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_COT.xpt",
+      "doc_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_COT.htm",
+      "publisher": "CDC / National Center for Health Statistics (USA)",
+      "license": "US public domain (federal government work, no copyright)",
+      "license_verified": "stated by CDC/NCHS as public domain; no paywall, no registration for download",
+      "size_bytes": 522560,
+      "size_verified": "yes - Content-Length from HTTP HEAD/GET 200, matches bytes on disk",
+      "format": "SAS transport V5 (.xpt), 1 record, 5 variables",
+      "form": "13027 x 5 table (row = participant, col = variable)",
+      "subjects": "13027 NHANES 2017-March 2020 examined participants with a serum result; 11395 with quantified cotinine; of these 3365 with cotinine >= 0.3 ng/mL (DHHS exposure cutpoint)",
+      "units": "LBXCOT = Cotinine, Serum (ng/mL); LBXHCOT = Hydroxycotinine, Serum (ng/mL); assay = ID-HPLC-APCI-MS/MS",
+      "coordinate_frame": "NONE spatial - cross-sectional bioanalytical cohort, no voxel array, no time axis. Index frame = participant (SEQN) x analyte; acquisition frame = NHANES MEC morning examination, fasting venous serum",
+      "variables": ["SEQN", "LBXCOT", "LBDCOTLC", "LBXHCOT", "LBDHCOLC"],
+      "constrains": {
+        "output_or_parameter": ["Params.f_met (mucosal fraction metabolised)", "E_H hepatic leg / CYP2A6 activity spread", "plasma AUC_plasma / Cmax population scale"],
+        "strength": "partial",
+        "why": "measures the NICOTINE METABOLITE RATIO NM = hydroxycotinine/cotinine, a CYP2A6 activity index, and the population spread of cotinine. It is a steady-state exposure snapshot, not a mass balance, so it cannot identify an extraction ratio or a mucosal metabolism fraction."
+      },
+      "sampled": true,
+      "sample_path": "samples/P_COT.xpt",
+      "sample_sha256": "2c98920928af839775220dc9eefb553a4d01309a54addd3992a9875313e2961f",
+      "http_status": 200
+    },
+    {
+      "ref": "D2",
+      "title": "Nicotrol NS (nicotine nasal spray) 10 mg/mL - FDA approved labelling, NDA 020385/S-011",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020385s011lbl.pdf",
+      "mirror": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=acb7d02d-249b-4645-ac1b-8ff9a56dd244",
+      "publisher": "US Food and Drug Administration (Center for Drug Evaluation and Research)",
+      "license": "US public domain (FDA labelling)",
+      "size_bytes": 970507,
+      "size_verified": "yes - HTTP 200, application/pdf, 970507 bytes on disk",
+      "format": "PDF (text layer is font-subset encoded; NOT machine-extractable locally)",
+      "subjects": "n = 30 (mean with 5th/95th percentile curves, 1 mg single nasal dose); n = 16 in the repeated-dose Tmax table of the S-010 label",
+      "units": "plasma nicotine ng/mL; times in minutes; doses in mg",
+      "measured_values_reported": {
+        "F_systemic_after_2_sprays_1mg": "53% +/- 16% (mean +/- SD)",
+        "Cmax_range": "2-12 ng/mL venous",
+        "tmax_range": "4-15 min",
+        "apparent_absorption_half_life": "approximately 3 min",
+        "V_iv": "2-3 L/kg",
+        "plasma_protein_binding": "<5%",
+        "rhinitis_effect": "Cmax reduced ~20% (1.5 ng/mL), tmax prolonged ~30% (7 min)"
+      },
+      "values_provenance": "read from the search-engine text extraction of the label URL above and independently from the DailyMed mirror of the same label; the PDF text layer itself is subset-encoded and could not be extracted locally",
+      "constrains": {
+        "output_or_parameter": ["output F_abs for a metered nasal spray", "output Cmax_ng_per_mL", "output t_max", "output AUC_plasma", "Params.V_ss_L"],
+        "strength": "strong for the spray site",
+        "why": "same route and same dose as the model (1 mg metered nasal spray): an independent public absolute-bioavailability measurement (0.53) alongside the R1 value (0.58) the model was fitted to, plus the measured time-to-peak that the model gets wrong by 5-19x"
+      },
+      "sampled": false,
+      "reason_not_sampled": "kept as the >1 numerical anchor; the prereg froze ONE sample (D1) for the machine-read proof of loading"
+    },
+    {
+      "ref": "D3",
+      "title": "MRTP study report SM WS 02 - open-label cross-over, four snus types vs Nicorette 2 mg gum, per-subject plasma nicotine AUC",
+      "url": "https://www.accessdata.fda.gov/Static/widgets/tobacco/MRTP/10%20appendix-2i-sm-ws-02/sm%20ws%2002%20final%20study%20report.pdf",
+      "publisher": "US Food and Drug Administration, Tobacco Products Office (MRTP public docket)",
+      "license": "US public domain",
+      "size_bytes": 373589,
+      "size_verified": "yes - HTTP 200, application/pdf, 373589 bytes on disk",
+      "format": "PDF clinical study report; contains a per-subject tabulation 'AUC (h*ng/mL)' with one column per product (Catch Lic 1g, Catch Mini, Dry Mini, Nicorette) - locally verified present by text extraction",
+      "subjects": "per-subject rows in the AUC table (sequence verified: subject 1 = 46.82 / 45.26 / 37.22 / 24.57 / 16.56 h*ng/mL); exact n not extracted (UNKNOWN)",
+      "units": "AUC h*ng/mL; Cmax ng/mL; dosing interval 10-12 h",
+      "constrains": {
+        "output_or_parameter": ["Params.k_gi_h and F_oral (the GI leg fed by the swallowed fraction)", "REGIONS[*].chi_swallow - buccal/gum formulations with a known swallowed share", "Params.CL_systemic_L_h"],
+        "strength": "strong for the GI leg, indirect for chi_swallow",
+        "why": "per-subject plasma exposure for an oral/buccal product in a real cohort, i.e. the only public route-resolved nicotine PK table found; the buccal gum arm is the closest public analogue to the model's swallowed leg, but the report does NOT resolve how much of the dose was swallowed vs buccally absorbed"
+      },
+      "sampled": false
+    },
+    {
+      "ref": "D4",
+      "title": "NasalSeg: a dataset for automatic segmentation of nasal cavity and paranasal sinuses from 3D CT images",
+      "url": "https://zenodo.org/records/13893419",
+      "doi": "10.5281/zenodo.13893419",
+      "publisher": "Zenodo (Zhang Y., Wang J., Pan T., Jiang Q., Ge J.)",
+      "license": "CC BY 4.0",
+      "license_verified": "yes - from the Zenodo records API (metadata.license.id = cc-by-4.0)",
+      "size_bytes": 224005800,
+      "size_verified": "yes - Zenodo API, single file NasalSeg.zip, checksum md5:ba83df47974d9077...",
+      "format": "zip of CT volumes + NIfTI-style label maps, 5 structures (right/left nasal cavity, nasal pharynx, right/left maxillary sinus)",
+      "subjects": "130 CT scans",
+      "units": "mm (DICOM voxel spacing)",
+      "coordinate_frame": "patient image frame (DICOM LPS; NIfTI affine in RAS) per scan",
+      "constrains": {
+        "output_or_parameter": ["REGIONS[*].S_cm2 (regional mucosal area)", "REGIONS[*].a_abs (respiratory vs vestibule share)", "nasopharyngeal volume"],
+        "strength": "strong in principle (n = 130 subjects, per-region masks)",
+        "why": "the only open, per-subject, region-resolved human nasal CT segmentation found; directly measurable surface area per region, which is exactly the model's assumed 10/15/50/80/10 cm2 block",
+        "caveats": "segmentation-based surface area is an upper bound on true mucosal area (cartilage, bone, and lining are lumped); sinonasal pathology is present in a clinical sample"
+      },
+      "sampled": false,
+      "reason_not_sampled": "224 MB > 50 MB cap frozen in PREREG C7 - not downloaded"
+    },
+    {
+      "ref": "D5",
+      "title": "Airflow in the human nasal passage and sinuses of chronic rhinosinusitis subjects (CT-derived nasal/sinus CFD meshes + pressure data)",
+      "url": "https://doi.org/10.5061/dryad.j32cb",
+      "mirror_url": "https://zenodo.org/records/5003928",
+      "publisher": "Dryad (Kumar H., Jain R., Douglas R.G., Tawhai M.H.); Zenodo mirror",
+      "license": "CC0 1.0",
+      "license_verified": "yes - Zenodo records API, metadata.license.id = cc-zero",
+      "size_bytes": 1813000000,
+      "size_verified": "yes - Zenodo API, 6 files: 4x .cfx5 meshes (337-532 MB each) + 2 small .dat pressure files",
+      "format": "ANSYS CFX meshes (.cfx5) from CT; ASCII pressure/flow tables (.dat)",
+      "subjects": "4 human subjects (normal + chronic rhinosinusitis, pre- and postoperative)",
+      "units": "mesh in mm (CT); .dat in Pa and L/s",
+      "coordinate_frame": "patient CT image frame per subject",
+      "constrains": {
+        "output_or_parameter": ["REGIONS[*].S_cm2", "nasal airway volume", "REGIONS[*].v_clear_mm_min (via measured pressure-flow, i.e. hydraulic resistance)"],
+        "strength": "medium",
+        "why": "measured pressure/flow per subject is a genuine measurement, not CFD output; but n = 4, sinonasal pathology, and no mucosal-surface segmentation",
+        "caveats": "meshes are CFD surface meshes of the AIRWAY, not the mucosa"
+      },
+      "sampled": false,
+      "reason_not_sampled": "every geometry file is 337-532 MB > 50 MB cap (PREREG C7)"
+    },
+    {
+      "ref": "D6",
+      "title": "Development, Fabrication and Application of a Sectioned 3D-Printed Human Nasal Cavity Model for In Vitro Nasal Spray Deposition Studies (the measured basis of the model's REGIONS and DEPOSITION blocks)",
+      "url": "https://doi.org/10.3390/biomedicines14020329",
+      "publisher": "Biomedicines (MDPI) 14(2):329, Ličen A., Grmaš J., Pelcar Š., Trontelj J., Gomboc T., Hriberšek M., Harih G.",
+      "license": "CC BY 4.0",
+      "license_verified": "yes - Crossref API, license URL creativecommons.org/licenses/by/4.0, published 2026-01-31",
+      "size_bytes": "UNKNOWN (article + supplementary not retrievable from this environment)",
+      "format": "UNKNOWN - journal article with supplementary material; no machine-readable dataset record found on Zenodo/figshare/figshare-search under this title",
+      "subjects": "one 3D-printed human nasal cast (sectioned), measured with two spray devices",
+      "units": "likely cm2 per region and mass fractions of dose - UNKNOWN, not verifiable here",
+      "constrains": {
+        "output_or_parameter": ["REGIONS[*].S_cm2", "DEPOSITION (mass fraction per region for a spray)", "REGIONS[*].a_abs (vestibule 'unsuitable for systemic absorption')"],
+        "strength": "high in principle, but NOT machine-verifiable from here",
+        "why": "the only public description of a measured regional deposition pattern and regional surface areas on a sectioned 3D-printed nasal model; the model already derives its REGIONS/DEPOSITON block from it"
+      },
+      "access_from_this_environment": "BLOCKED - mdpi.com returns HTTP 403 (Cloudflare) and mdpi-res.com supplementary paths return HTTP 404; the per-region numbers in inputs/Q146_PREREG.md (150 cm2 total, 130 cm2 respiratory, 15 cm2 olfactory, <1% olfactory/nasopharyngeal deposition) were therefore NOT re-verified in this run",
+      "sampled": false
+    },
+    {
+      "ref": "D7",
+      "title": "TotalSegmentator v2 - 117 anatomical structures segmented in 1228 CT images (Wasserthal J.)",
+      "url": "https://zenodo.org/records/10047292",
+      "doi": "10.5281/zenodo.10047292",
+      "publisher": "Zenodo / University Hospital Basel",
+      "license": "CC BY 4.0",
+      "size_bytes": "UNKNOWN (multi-GB; not enumerated here)",
+      "format": "CT volumes + segmentation label masks (NIfTI)",
+      "subjects": "1228 CT scans",
+      "units": "mm; coordinate frame DICOM LPS / NIfTI RAS per scan",
+      "nasal_cavity_class_present": "UNKNOWN - the v2 class list was not verified in this run; do not assume a nasal cavity label exists",
+      "constrains": {
+        "output_or_parameter": ["REGIONS[*].S_cm2 (if a nasal/airway class exists)", "nasal bone geometry for a CFD/mesh model"],
+        "strength": "UNKNOWN until the class list is checked"
+      },
+      "sampled": false,
+      "reason_not_sampled": "multi-GB > 50 MB cap"
+    }
+  ],
+  "rejected_or_unverified": [
+    {
+      "candidate": "BodyParts3D (Database Center for Life Science, Japan)",
+      "why_rejected": "licence is known to be CC BY-SA 2.1 JP, but no per-structure file endpoint could be verified from this environment (the download page is JS-driven; only 5 links exposed, no file URLs). Nothing about size or format is asserted here."
+    },
+    {
+      "candidate": "Z-Anatomy (www.z-anatomy.com)",
+      "why_rejected": "root page is a JS shell (2875 bytes, 1 link); no per-structure STL endpoint verified"
+    },
+    {
+      "candidate": "NasalSeg v1 (https://zenodo.org/records/12177181)",
+      "why_rejected": "FILES RESTRICTED - request-access form required (verified on the Zenodo record page). Superseded by the open v2 (D4)."
+    },
+    {
+      "candidate": "figshare 30869537 'Data Sheet 1 - Mechanics-guided parametric modeling of intranasal spray devices' (CC BY 4.0, 1.1 MB PDF)",
+      "why_rejected": "CFD MODELLING output of spray device parameters, not a measurement of a human nose or of plasma; excluded by PREREG C3 and the anti-literature clause"
+    },
+    {
+      "candidate": "figshare 27551169 (sinus deposition, 3D-printed post-FESS model) and 27524232 (CFD model for mucociliary clearance)",
+      "why_rejected": "both are RITM repository records with licence 'All rights reserved' and no exposed data files; not reusable data"
+    },
+    {
+      "candidate": "Zenodo 15425659 'Cilia dynamics ... human airway epithelia' (CC BY 4.0)",
+      "why_rejected": "195 GB; ciliary dynamics imaging, not human mucociliary transport velocity in vivo"
+    },
+    {
+      "candidate": "Mucociliary clearance reference values (saccharin test, n = 249, PMID 19006634) and Puchelle 1981 velocities",
+      "why_rejected": "measured, but published only as in-paper tables; no open data file exists, so it cannot be used as a downloadable dataset"
+    }
+  ],
+  "coverage_of_model_parameters": {
+    "REGIONS[*].S_cm2": ["D4 (open, n=130, >50MB)", "D5 (open, n=4, >50MB)", "D6 (blocked here)"],
+    "REGIONS[*].a_abs": ["D4", "D6 (blocked here)"],
+    "REGIONS[*].v_clear_mm_min": ["D5 (indirect, via pressure-flow)"],
+    "REGIONS[*].chi_swallow": ["D3 (indirect: buccal vs swallowed not resolved)"],
+    "DEPOSITION": ["D6 (blocked here) - NO open machine-readable measured deposition dataset found"],
+    "Params.k_epi": ["NONE FOUND - no public measured nicotine permeability on human nasal mucosa located; see RESULTS.md"],
+    "Params.f_met": ["D1 (partial: CYP2A6 activity index, not a mass balance)"],
+    "Params.k_gi_h / F_oral": ["D3"],
+    "Params.CL_systemic_L_h / V_ss_L / t_half_h": ["D2 (V 2-3 L/kg), D3 (CL), D1 (cotinine spread)"],
+    "outputs F_abs / Cmax / t_max / AUC_plasma": ["D2 (strong), D3 (AUC), D1 (population spread)"]
+  }
+}

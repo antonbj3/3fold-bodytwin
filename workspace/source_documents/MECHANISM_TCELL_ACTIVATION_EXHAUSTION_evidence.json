@@ -1,0 +1,211 @@
+{
+  "task": "Two-signal T-cell activation gate (TCR signal-1 kinetic-proofreading discrimination + CD28 signal-2 required AND-gate); acute clonal-expansion kinetics (naive T cell -> ~10^3-10^4-10^5 progeny over ~1 week, division rate); the Wherry hierarchical-exhaustion program under chronic antigen (graded loss IL-2 > TNF > IFN-gamma, TOX-driven); checkpoint-blockade (anti-PD-1) reinvigoration as the decorrelated check (progenitor-vs-terminal subset, partial recovery).",
+  "confidence_tier": "in-vivo-anchored (mouse LCMV tetramer-counting/adoptive-transfer/ATAC-seq/flow-cytometry kinetics for clonal-expansion and the exhaustion-hierarchy anchor -- a single, heavily-replicated animal model system) for Parts 2-3. The checkpoint-blockade decorrelated check (Part 4) is triangulated across mouse-LCMV + human-HIV + human-melanoma -- the strongest-anchored leg. The two-signal gate (Part 1) is citation-verified qualitatively; its numeric kp/koff/N parametrization is an illustrative first-principles mechanism demonstration, not calibrated to a measured TCR-pMHC off-rate constant -- same tier as this repo's MECHANISM_TAU_PATHOLOGY.md toy graph.",
+  "script": "scripts/msk/tcell_activation_exhaustion.py",
+  "raw_results": "data/tcell_activation_exhaustion/tcell_activation_exhaustion_results.json",
+  "doc": "docs/MECHANISM_TCELL_ACTIVATION_EXHAUSTION.md",
+  "recall_drift_caught_and_corrected": {
+    "claim": "Jenkins & Schwartz 1987 (J Exp Med, signal-1-alone unresponsiveness)",
+    "initially_recalled_pmid": "3805202",
+    "initially_recalled_pmid_actual_content": "an unrelated 1986 French surgical letter (J Chir Paris) -- NOT the anergy paper",
+    "corrected_pmid_via_esearch": "3029267",
+    "corrected_verified_via": "NCBI eutils efetch, raw abstract text, title/content confirmed to match the expected paper",
+    "note": "exactly the ~62%-recall-drift risk this session's own isolation instructions warned about -- caught by verifying LIVE rather than trusting memory"
+  },
+  "citations_verified_live_this_session": {
+    "bretscher_cohn_1970": {
+      "pmid": "4194660", "doi": "10.1126/science.169.3950.1042", "tier": "full-text",
+      "cite": "Bretscher P, Cohn M (1970). A theory of self-nonself discrimination. Science 169(3950):1042-9.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "Original two-signal/associative-recognition theory: induction requires obligatory recognition of TWO determinants (receptor antibody + carrier antibody); recognition of only ONE determinant induces paralysis (anergy). Framed in antibody/hapten-carrier terms (1970, pre-T-cell-receptor-era), generalized later to T cells by Jenkins/Schwartz and Harding et al."
+    },
+    "jenkins_schwartz_1987": {
+      "pmid": "3029267", "doi": "10.1084/jem.165.2.302", "tier": "full-text",
+      "cite": "Jenkins MK, Schwartz RH (1987). Antigen presentation by chemically modified splenocytes induces antigen-specific T cell unresponsiveness in vitro and in vivo. J Exp Med 165(2):302-19.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (PMID corrected after recall-drift, see above)",
+      "numbers": "ECDI-fixed (chemically modified) splenocytes presenting antigen WITHOUT normal costimulation rendered T cell clones unresponsive for 'at least 8 d' to subsequent re-stimulation, both in vitro AND in vivo (B10.A mice) -- signal-1-alone induces active unresponsiveness, not mere non-activation."
+    },
+    "harding_1992": {
+      "pmid": "1313950", "doi": "10.1038/356607a0", "tier": "full-text",
+      "cite": "Harding FA, McArthur JG, Gross JA, Raulet DH, Allison JP (1992). CD28-mediated signalling co-stimulates murine T cells and prevents induction of anergy in T-cell clones. Nature 356(6370):607-9.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "Direct experiment: anti-CD28 monoclonal antibody provides a costimulatory signal to naive CD4+ T cells and T-cell clones, and 'can block the induction of anergy' -- the CD28-signal-2 half of the AND-gate."
+    },
+    "mckeithan_1995": {
+      "pmid": "7761445", "doi": "10.1073/pnas.92.11.5042", "tier": "full-text",
+      "cite": "McKeithan TW (1995). Kinetic proofreading in T-cell receptor signal transduction. PNAS 92(11):5042-6.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "Proposes TCR signaling as a kinetic-proofreading cascade (N sequential modification steps after ligand binding, each requiring continued engagement) that 'greatly enhances the receptor's ability to discriminate between a foreign antigen and self-antigens with only moderately lower affinity.' This doc's Part 1 implements the closed-form P_N=(kp/(kp+koff))^N directly from this mechanism."
+    },
+    "zehn_2009": {
+      "pmid": "19182777", "doi": "10.1038/nature07657", "tier": "full-text",
+      "cite": "Zehn D, Lee SY, Bevan MJ (2009). Complete but curtailed T-cell response to very low-affinity antigen. Nature 458(7235):211-4.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "'Very weak interactions are sufficient for activation, but strong TCR ligation is required to sustain T-cell expansion' -- challenges the view that strong TCR ligation is a prerequisite for activation itself; affinity instead gates EXPANSION DURATION (when contraction begins), not the initial activation binary."
+    },
+    "muralikrishna_1998": {
+      "pmid": "9491999", "doi": "10.1016/s1074-7613(00)80470-7", "tier": "full-text",
+      "cite": "Murali-Krishna K, Altman JD, Suresh M, Sourdive DJ, Zajac AJ, Miller JD, Slansky J, Ahmed R (1998). Counting antigen-specific CD8 T cells: a reevaluation of bystander activation during viral infection. Immunity 8(2):177-87.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "MHC-tetramer direct visualization: 50-70% of activated CD8 T cells were LCMV-specific (2x10^7 virus-specific cells/spleen at peak); dropped to 10^6/spleen post-clearance, maintained for life; rapid re-expansion on LCMV rechallenge but not on heterologous vaccinia challenge (antigen-specificity confirmed)."
+    },
+    "blattman_2002": {
+      "pmid": "11877489", "doi": "10.1084/jem.20001021", "tier": "full-text",
+      "cite": "Blattman JN, Antia R, Sourdive DJ, Wang X, Kaech SM, Murali-Krishna K, Altman JD, Ahmed R (2002). Estimating the precursor frequency of naive antigen-specific CD8 T cells. J Exp Med 195(5):657-64.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "THE primary quantitative anchor. Precursor frequency 1 in 2x10^5 (100-200 D(b)GP33-specific naive CD8 T cells per mouse, ~2-4x10^7 total naive CD8 T cells). 'These 100-200 GP33-specific naive CD8 T cells divide >14 times in 1 wk to reach a total of approximately 10(7) cells.' ~5% of activated effectors survive to memory (~5x10^5 cells); >1000-fold precursor-frequency increase from naive to memory."
+    },
+    "yoon_2010": {
+      "pmid": "21079741", "doi": "10.1371/journal.pone.0015423", "tier": "full-text",
+      "cite": "Yoon H, Kim TS, Braciale TJ (2010). The cell cycle time of CD8+ T cells responding in vivo is controlled by the type of antigenic stimulus. PLoS ONE 5(11):e15423.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "Direct single-cell-level measurement (influenza/vaccinia infection, in vivo): 'CD8+ T cells could divide and proliferate with an initial cell division time of as short as 2 hours.' Explicitly NOT a fixed constant: 'controlled by the antigenic stimulus provided by the APC in vivo' (duration of G1 phase, tied to Rb phosphorylation state) -- division rate is itself signal-strength-dependent."
+    },
+    "deboer_2001": {
+      "pmid": "11602708", "doi": "10.1128/JVI.75.22.10663-10669.2001", "tier": "full-text",
+      "cite": "De Boer RJ, Oprea M, Antia R, Murali-Krishna K, Ahmed R, Perelson AS (2001). Recruitment times, proliferation, and apoptosis rates during the CD8+ T-cell response to lymphocytic choriomeningitis virus. J Virol 75(22):10663-9.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "THE rate-parameter source for this doc's Part 2 model (all 4 timing/rate parameters taken directly from this paper's own nonlinear-parameter-estimation fit, not independently re-fit here): proliferation 'begins 1 to 2 days after infection,' 'average rate of 3 day(-1),' 'maximum population size between days 5 and 6,' post-peak decline 'at a rate of 0.5 day(-1)' (average lifetime 2 days). Explicitly MODEL-INFERRED (nonlinear fit to population time-course), not a direct single-cell measurement -- disclosed."
+    },
+    "wherry_2003": {
+      "pmid": "12663797", "doi": "10.1128/jvi.77.8.4911-4927.2003", "tier": "full-text",
+      "cite": "Wherry EJ, Blattman JN, Murali-Krishna K, van der Most R, Ahmed R (2003). Viral persistence alters CD8 T-cell immunodominance and tissue distribution and results in distinct stages of functional impairment. J Virol 77(8):4911-27.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "THE hierarchy anchor, quoted verbatim: 'Production of interleukin 2 and the ability to lyse target cells in vitro were the first functions compromised, followed by the ability to make tumor necrosis factor alpha, while gamma interferon production was most resistant to functional exhaustion.' Also: 'epitopes presented at higher levels in vivo resulted in physical deletion, while those presented at lower levels induced functional exhaustion' -- antigen LOAD/level is the driving variable. This exact order directly licenses this doc's Part 3 threshold ordering."
+    },
+    "wherry_2011_review": {
+      "pmid": "21739672", "doi": "10.1038/ni.2035", "tier": "full-text",
+      "cite": "Wherry EJ (2011). T cell exhaustion. Nat Immunol 12(6):492-9.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "Synthesis review: exhaustion defined by poor effector function, sustained inhibitory-receptor expression, and a transcriptional state distinct from effector/memory T cells; prevents optimal control of infection and tumors."
+    },
+    "khan_2019_tox": {
+      "pmid": "31207603", "doi": "10.1038/s41586-019-1325-x", "tier": "full-text",
+      "cite": "Khan O, Giles JR, McDonald S, et al (2019). TOX transcriptionally and epigenetically programs CD8+ T cell exhaustion. Nature 571(7764):211-218.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (title/PMID independently cross-confirmed vs. this repo's own prior-session IMM-TCELL-EXHAUSTION graph node, which already used this exact PMID with a '4000 differentially accessible ATAC-seq regions' datapoint)",
+      "numbers": "'TOX is induced by calcineurin and NFAT2, and operates in a feed-forward loop in which it becomes calcineurin-independent and sustained in Tex cells... translating persistent stimulation into a distinct Tex cell transcriptional and epigenetic developmental program.' TOX is 'largely dispensable' for effector/memory formation but 'critical for exhaustion: in the absence of TOX, Tex cells do not form.' This mechanism (integrating PERSISTENT stimulation into a locked-in program) directly motivates this doc's cumulative-signal state variable S(t) and the fixation-sigmoid in Part 4."
+    },
+    "barber_2006": {
+      "pmid": "16382236", "doi": "10.1038/nature04444", "tier": "full-text",
+      "cite": "Barber DL, Wherry EJ, Masopust D, Zhu B, Allison JP, Sharpe AH, Freeman GJ, Ahmed R (2006). Restoring function in exhausted CD8 T cells during chronic viral infection. Nature 439(7077):682-7.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "PD-1 'selectively upregulated' by exhausted T cells; PD-1/PD-L1 blockade 'enhanced T-cell responses,' restoring 'proliferation, secrete cytokines, kill infected cells and decrease viral load' even in CD4-helpless mice. 'Blockade of the CTLA-4... pathway had no effect on either T-cell function or viral control' -- a clean, reported, PD-1-specific (not CTLA-4) result directly encoded in this doc's Part 4 CTLA-4-analog test."
+    },
+    "im_2016": {
+      "pmid": "27501248", "doi": "10.1038/nature19330", "tier": "full-text",
+      "cite": "Im SJ, Hashimoto M, Gerner MY, Lee J, Kissick HT, et al (2016). Defining CD8+ T cells that provide the proliferative burst after PD-1 therapy. Nature 537(7620):417-421.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "'The proliferative burst after PD-1 blockade came almost exclusively from' a TCF1+PD-1+ CD8+ T-cell subset with a stem-like/TFH-like gene signature, undergoing self-renewal and differentiating into terminally exhausted cells. TCF1 has a 'cell-intrinsic and essential role' in generating this subset. THE decisive mechanistic anchor for this doc's Part 4 progenitor-dominance falsifier."
+    },
+    "huang_2017": {
+      "pmid": "28397821", "doi": "10.1038/nature22079", "tier": "full-text",
+      "cite": "Huang AC, Postow MA, Orlowski RJ, Mick R, Bengsch B, et al (2017). T-cell invigoration to tumour burden ratio associated with anti-PD-1 response. Nature 545(7652):60-65.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "Human melanoma, pembrolizumab: 'Most of the patients demonstrated an immunological response.' 'Clinical failure in many patients was not solely due to an inability to induce immune reinvigoration, but rather resulted from an IMBALANCE between T-cell reinvigoration and tumour burden.' The human anchor for PARTIAL (not complete/binary) reinvigoration."
+    },
+    "liszewski_2013_complement_tcell": {
+      "pmid": "24315997", "doi": "10.1016/j.immuni.2013.10.018", "tier": "full-text",
+      "cite": "Liszewski MK, Kolev M, Le Friec G, Leung M, Bertram PG, et al (2013). Intracellular complement activation sustains T cell homeostasis and mediates effector differentiation. Immunity 39(6):1143-57.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "T-cell-expressed cathepsin L (CTSL) processes intracellular C3 into C3a/C3b; 'tonic' intracellular C3a generation required for homeostatic T cell survival; upon T cell stimulation, shuttling of this system to the cell surface 'induced autocrine proinflammatory cytokine production.' Autoimmune-arthritis T cells show hyperactive intracellular complement + excess IFN-gamma; CTSL inhibition corrects this. couples_to-complement bridge (prose-level, disclosed as distinct from the serum/extracellular C3 pool this repo's own MECHANISM_COMPLEMENT_CASCADE.md models)."
+    },
+    "trautmann_2006_hiv": {
+      "pmid": "16917489", "doi": "10.1038/nm1482", "tier": "full-text",
+      "cite": "Trautmann L, Janbazian L, Chomont N, Said EA, Gimmig S, et al (2006). Upregulation of PD-1 expression on HIV-specific CD8+ T cells leads to reversible immune dysfunction. Nat Med 12(10):1198-202.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "Human, non-tumor chronic infection anchor. PD-1 upregulated on HIV-specific CD8 T cells, correlated with viral load AND with reduced cytokine/proliferative capacity. 'Cytomegalovirus (CMV)-specific CD8+ T cells from the SAME donors did NOT upregulate PD-1 and maintained the production of high levels of cytokines' -- a built-in, same-patient negative control ruling out a generic donor-level artifact. PD-1/PD-L1 blockade 'enhanced the capacity of HIV-specific CD8+ T cells to survive and proliferate' and increased cytokine/cytotoxic-molecule production."
+    }
+  },
+  "esummary_title_doi_verified_not_full_text_this_session": {
+    "scott_2019_tox2": {"pmid": "31207604", "doi": "10.1038/s41586-019-1324-y", "cite": "Scott AC et al (2019). TOX is a critical regulator of tumour-specific T cell differentiation. Nature 571(7764):270-274."},
+    "alfei_2019_tox3": {"pmid": "31207605", "doi": "10.1038/s41586-019-1326-9", "cite": "Alfei F et al (2019). TOX reinforces the phenotype and longevity of exhausted T cells in chronic viral infection. Nature 571(7764):265-269."},
+    "yao_2019_tox4": {"pmid": "31209400", "doi": "10.1038/s41590-019-0403-4", "cite": "Yao C et al (2019). Single-cell RNA-seq reveals TOX as a key regulator of CD8+ T cell persistence in chronic infection. Nat Immunol 20(7):890-901."},
+    "blackburn_2009": {"pmid": "19043418", "doi": "10.1038/ni.1679", "cite": "Blackburn SD et al (2009). Coregulation of CD8+ T cell exhaustion by multiple inhibitory receptors during chronic viral infection. Nat Immunol 10(1):29-37.", "cross_confirmed": "this repo's own IMM-TCELL-EXHAUSTION graph node (prior session) already cites this exact PMID"},
+    "sakuishi_2010": {"pmid": "20819927", "doi": "10.1084/jem.20100643", "cite": "Sakuishi K et al (2010). Targeting Tim-3 and PD-1 pathways to reverse T cell exhaustion and restore anti-tumor immunity. J Exp Med 207(10):2187-2194."},
+    "miller_2019": {"pmid": "30778252", "doi": "10.1038/s41590-019-0312-6", "cite": "Miller BC et al (2019). Subsets of exhausted CD8+ T cells differentially mediate tumor control and respond to checkpoint blockade. Nat Immunol 20(3):326-336.", "cross_confirmed": "this repo's own IMMUNO-CD8-EXHAUSTION-STATE graph node (prior session) already cites this exact PMID with an HR=0.43 datapoint"},
+    "philip_2017": {"pmid": "28514453", "doi": "10.1038/nature22367", "cite": "Philip M et al (2017). Chromatin states define tumour-specific T cell dysfunction and reprogramming. Nature 545(7654):452-456.", "cross_confirmed": "this repo's own IMM-TCELL-EXHAUSTION graph node (prior session) already cites this exact PMID with the 'day 12' fixation datapoint, directly reused here as Part 4's S_fix"},
+    "siddiqui_2019": {"pmid": "30635237", "doi": "10.1016/j.immuni.2018.12.021", "cite": "Siddiqui I et al (2019). Intratumoral Tcf1+PD-1+CD8+ T cells with stem-like properties. Immunity 50(1):195-211."},
+    "kurtulus_2019": {"pmid": "30635236", "doi": "10.1016/j.immuni.2018.11.014", "cite": "Kurtulus S et al (2019). Checkpoint blockade immunotherapy induces dynamic changes in PD-1-CD8+ tumor-infiltrating T cells. Immunity 50(1):181-194."},
+    "guo_2018": {"pmid": "29942094", "doi": "10.1038/s41591-018-0045-3", "cite": "Guo X et al (2018). Global characterization of T cells in non-small-cell lung cancer by single-cell sequencing. Nat Med 24(7):978-985.", "note": "reused from this repo's own HOT-TUMOR-EXHAUSTION-PHASE-GATE graph node"},
+    "wu_2020": {"pmid": "32103181", "doi": "10.1038/s41586-020-2056-8", "cite": "Wu TD et al (2020). Peripheral T cell expansion predicts tumour infiltration and clinical response. Nature 579(7798):274-278.", "note": "reused from this repo's own HOT-TUMOR-EXHAUSTION-PHASE-GATE graph node"},
+    "pauken_wherry_2015": {"pmid": "25797516", "doi": "10.1016/j.it.2015.02.008", "cite": "Pauken KE, Wherry EJ (2015). Overcoming T cell exhaustion in infection and cancer. Trends Immunol 36(4):265-276."},
+    "deboer_2003": {"pmid": "14530309", "doi": "10.4049/jimmunol.171.8.3928", "cite": "De Boer RJ, Homann D, Perelson AS (2003). Different dynamics of CD4+ and CD8+ T cell responses during and after acute LCMV infection. J Immunol 171(8):3928-3935.", "note": "secondary/corroborating rate-modeling paper, not this doc's primary rate source (that is De Boer 2001, PMID 11602708)"}
+  },
+  "reused_from_own_graph_not_relitigated": {
+    "node_ids": ["IMM-TCELL-EXHAUSTION", "IMMUNO-CD8-EXHAUSTION-STATE", "HOT-TUMOR-EXHAUSTION-PHASE-GATE", "ONC-CHECKPOINT-TONE-EFFICACY-IRAE-RECONCILER", "AUTO-C-TCF7-PROGENITOR-FRACTION-QUANTITATIVE", "GOAL-CANCER-IMMUNE-WARGAME-TWIN"],
+    "graph_path": "data/MECHANISM_ANCHOR_GRAPH.json",
+    "mechanism_grade": "SEED-DESIGN / OPEN (designed hypotheses, cited literature, not yet executed as graph cells)",
+    "note": "These prior-session nodes cover the CLINICAL/progenitor-subset layer of exhaustion (hazard ratios, irAE coupling, cross-tumor-type phase-vs-density dissociation) -- none builds the base two-signal/clonal-expansion/hierarchical-exhaustion MECHANISM this doc supplies. 3 PMIDs (28514453 Philip, 30778252 Miller, 19043418 Blackburn) independently cross-confirmed byte-for-byte against this session's own live NCBI fetches -- a genuine re-check, not a rubber stamp (this repo's own memory explicitly warns a subagent's 'confirmed live' claim has been fabricated before). Not edited, not promoted, not merged -- a graph-maintenance action out of scope for this cert (IMMUNO-CD8-EXHAUSTION-STATE's own regime_note already recommends the coordinator reconcile/merge it with IMM-TCELL-EXHAUSTION; not performed here)."
+  },
+  "part1_two_signal_gate_falsifier": {
+    "pre_registered_thresholds": {"min_discrimination_ratio_at_N20": 100.0},
+    "measured": {"discrimination_ratio_at_N20": 3325.2567300796545, "ratio_grows_monotonically": true,
+                 "montecarlo_relerr_foreign": 4.8e-05, "montecarlo_relerr_self": 0.014283999999999793,
+                 "and_gate_matches_expected_truth_table": true, "forced_adversary_OR_gate_fails": true},
+    "all_5_gates_PASS": true
+  },
+  "part2_clonal_expansion_falsifier": {
+    "pre_registered_thresholds": {"divisions_min": 14.0, "fold_target_band": [50000.0, 100000.0],
+                                   "naive_adversary_overshoot_min_orders_of_magnitude": 2.0,
+                                   "implied_doubling_hours_band": [1.0, 10.0]},
+    "measured": {"N_day7": 11531987.964701664, "fold_day7": 76879.91976467776, "divisions_day7": 16.23031921000084,
+                 "implied_doubling_hours": 5.545177444479562, "ode_vs_closed_form_relerr": 1.671284816886915e-10,
+                 "naive_adversary_overshoot_6h": 3491.6, "naive_adversary_overshoot_8h": 27.3},
+    "all_6_gates_PASS": true
+  },
+  "part3_exhaustion_hierarchy_falsifier": {
+    "pre_registered_thresholds": {"random_order_preserved_min_fraction": 0.99},
+    "measured": {"chronic_order_matches_wherry": true, "acute_shows_zero_functions_lost": true,
+                 "fluctuating_trajectory_order_preserved_fraction": 1.0,
+                 "reversed_adversary_violates_order": true, "void_floor_collapses_to_simultaneous": true},
+    "all_5_gates_PASS": true
+  },
+  "part4_checkpoint_blockade_falsifier": {
+    "pre_registered_thresholds": {"min_fraction_burst_from_progenitor": 0.80,
+                                   "max_fraction_theoretical_max_recovered": 0.95,
+                                   "ctla4_analog_burst_max": 0.02, "sham_blockade_burst_max": 1e-09},
+    "measured": {"f_progenitor": 0.320821300824607, "fraction_burst_from_progenitor": 0.9869356202846655,
+                 "fraction_of_theoretical_max_recovered": 0.3553095906632523,
+                 "ctla4_analog_burst": 0.0, "sham_blockade_burst": 0.0,
+                 "forced_adversary_progenitor_share": 0.320821300824607, "forced_adversary_shows_dominance": false},
+    "all_5_gates_PASS": true
+  },
+  "robustness_sweep": {
+    "n_draws": 12, "perturbation_frac": 0.30, "rng_seed": 20260722,
+    "part2_relaxed_floor_divisions_ge_10": {"n_pass": 10, "n_total": 12, "fraction": 0.8333,
+      "diagnosed_mechanism": "draws 4 and 11: t_peak (expansion-window end) perturbed toward the SHORT end simultaneously with r_exp and/or t_lag moving unfavorably -- compounds multiplicatively since fold ~ exp(r_exp x window); a genuine joint-extreme sensitivity, not a bug, not loosened post-hoc"},
+    "part4_progenitor_dominance_ge_0.80": {"n_pass": 12, "n_total": 12, "fraction": 1.0}
+  },
+  "bugs_caught_and_fixed_disclosed": [
+    "Part1 AND-gate: an absolute P_N>=0.5 activation cutoff broke the truth table (P_N at N=8 is ~0.004 even for the 'foreign' reference ligand, generically tiny for any ligand at that N) -- fixed to a log-space-midpoint threshold between the foreign/weak reference ligands.",
+    "Part1 Monte Carlo cross-check: N=8 true probabilities (~1e-4) give too few expected hits at 200k trials for a tight tolerance (a sampling-noise artifact) -- fixed by using N=3 (probabilities ~0.04-0.13) with 500k trials.",
+    "Part3 random-trajectory order check: comparing a None (threshold never reached in-window) against a real crossing time was counted as an order VIOLATION, conflating 'incomplete' with 'inverted' -- fixed to only count real inversions among thresholds actually reached; upgraded from a redundant monotonic-ramp sweep to a genuine fluctuating/non-monotonic stress test."
+  ],
+  "determinism_check": "2 independent runs of scripts/msk/tcell_activation_exhaustion.py produce byte-identical JSON, md5sum 9113c84d82ec811ed68b59e868ec9e30, verified this session (not eyeballed).",
+  "overall_verdict": {
+    "foundational_two_signal_gate_pass": true,
+    "primary_falsifier_pass_clonal_expansion_AND_hierarchy": true,
+    "decorrelated_check_pass_checkpoint_blockade": true,
+    "n_individual_subgates_pass": 21,
+    "n_individual_subgates_total": 21,
+    "robustness_pass_strict_both_100pct": false,
+    "note": "All 21 individual falsifier sub-gates PASS at the literature's own nominal parameters. overall_pass=False in the raw results JSON reflects ONLY the disclosed, diagnosed Part-2 joint-parameter robustness result (10/12, not 12/12) -- not a failure of the falsifier itself. Reported exactly as measured, not loosened or hidden."
+  },
+  "symmetric_qc_open_items": [
+    "Exhaustion is a continuous spectrum, not 4 discrete boxes -- the ordered-threshold model (Part 3) demonstrates a simple 1-D geometry is SUFFICIENT to reproduce the reported staged pattern, not that exhaustion literally proceeds in discrete jumps.",
+    "Progenitor-vs-terminal (Part 4) is itself a 2-state simplification of a richer, >=4-subset continuum (Beltra et al 2020, named in this repo's own IMM-TCELL-EXHAUSTION graph node) -- not independently verified or extended here.",
+    "Mouse-LCMV vs human-tumor (and human chronic infection) genuinely differ in kinetics, antigen persistence, and tissue context -- Parts 2-3's precise numeric rate/threshold parameters are mouse-LCMV-specific; only Part 4's QUALITATIVE pattern (partial, progenitor-dominated recovery) is shown to generalize to humans (Huang 2017, Trautmann 2006), not the mouse rate constants themselves.",
+    "The '3/day' and '0.5/day' rates (De Boer 2001) are POPULATION-MODEL-INFERRED (a nonlinear parameter-estimation fit), not a direct single-cell stopwatch measurement -- only Yoon 2010's 'as short as 2h' figure is closer to a direct single-cell-level measurement, and even that is itself antigen-stimulus-dependent, not fixed.",
+    "The task's own literal '6-8h' division-rate figure does not trace to one single verbatim quote found this session -- the model's own implied 5.545h figure is bracketed by, and consistent with, but not identical to, both Yoon 2010's 2h (fastest-observed) and the commonly-cited 6-8h band; reported precisely, not rounded to force a match.",
+    "The robustness sweep is 83% (10/12), not 100%, for Part 2 under +/-30% JOINT parameter perturbation -- a genuine, diagnosed sensitivity to simultaneous extremes in t_peak/r_exp/t_lag, disclosed as such.",
+    "Part 1's kp/koff/N parametrization is illustrative, not calibrated to a measured TCR-pMHC dissociation-rate constant -- the qualitative structural claims (discrimination sharpens with chain length; CD28 is a required AND-gate) are the load-bearing result.",
+    "Part 3's threshold SPACING (15/30/50/80 S-units) is illustrative -- only the ORDER is directly licensed by Wherry 2003's own verbatim wording.",
+    "S_fix=12 (Part 4) is a disclosed cross-paper reuse of Philip 2017's 'day 12' fixation point, not an independent re-derivation.",
+    "No new graph-node write this session -- couples_to (doc Sec.10) is prose/JSON-evidence metadata; graph-node disambiguation (doc Sec.11) is read-only."
+  ],
+  "couples_to": [
+    "immune/complement-acute-phase: Liszewski et al 2013 (PMID 24315997) -- T-cell-intrinsic intracellular C3a as a costimulatory-like autocrine signal, mechanistically DISTINCT from (though same protein as) the serum-phase cascade this repo's own MECHANISM_COMPLEMENT_CASCADE.md models; prose-level coupling, no shared number computed (disclosed).",
+    "cancer/immunotherapy: IMM-TCELL-EXHAUSTION, IMMUNO-CD8-EXHAUSTION-STATE, HOT-TUMOR-EXHAUSTION-PHASE-GATE, ONC-CHECKPOINT-TONE-EFFICACY-IRAE-RECONCILER (data/MECHANISM_ANCHOR_GRAPH.json, all OPEN/SEED-DESIGN -- this doc supplies their assumed base mechanism layer, none edited) and GOAL-CANCER-IMMUNE-WARGAME-TWIN (umbrella goal).",
+    "infection: native to the core LCMV acute/chronic mechanism; extended via Trautmann et al 2006 (PMID 16917489, human HIV) as the non-tumor human decorrelated leg. INFECT-SEPSIS-ENDOTYPE (same graph) named, not modeled, per IMMUNO-CD8-EXHAUSTION-STATE's own regime_note (human sepsis PD-1-axis coupling is framework-level-corroborated, progenitor/terminal bifurcation not yet resolved at LCMV/cancer resolution)."
+  ]
+}

@@ -1,0 +1,385 @@
+{
+  "task": "Rank the real, demonstrated routes to restoring movement after spinal cord injury (SCI): (a) intracortical BCI + FES reanimation (Bouton 2016 NeuroLife, Ajiboye 2017), (b) epidural/transcutaneous spinal cord stimulation restoring standing/stepping (Harkema, Angeli, Gill/Calvert Mayo, Wagner/Courtine 2018), (c) the brain-spine 'digital bridge' (Lorach/Courtine 2023), (d) nerve/axon regeneration + regenerative adjuncts. Forced adversary held OPEN and honest: real functional independence in daily life, or small-n lab demonstrations with tethered equipment.",
+  "confidence_tier": "TIERED. (1) HIGHEST -- all 15 PMIDs live-verified this session via NCBI eutils esearch->esummary->efetch, direct abstract quotes used for every quantitative claim (n, injury level, functional outcome); the INSPIRE single-arm-vs-RCT contrast (#13 vs #14) is a machine-checkable, textbook forced-adversary kill with exact matched-endpoint numbers (44% vs 20%-vs-30%-control at the same 6-month timepoint). (2) STRONG -- the multi-group SCS convergence (4 independent groups/institutions -- Louisville, Mayo, Lausanne, Seattle -- across 2 countries, implanted AND non-invasive) on standing/stepping restoration in chronic motor-complete SCI, forced against the Fawcett 2007 spontaneous-recovery void-floor plus within-subject ON/OFF causal contrasts built into the original case reports. (3) WEAKEST, disclosed -- Wagner 2018's own abstract does not state its participant count; the digital-bridge and both BCI+FES results are n=1 case studies, real but not yet independently replicated; Inanici 2021's 'matched or exceeded implanted stimulation' is the source paper's own comparative claim, not an independently-run head-to-head trial.",
+  "doc": "docs/MECHANISM_SCI_NEURAL_BYPASS.md",
+  "citations_verified_live_this_session": {
+    "bouton_2016_neurolife": {
+      "pmid": "27074513",
+      "doi": "10.1038/nature17435",
+      "journal": "Nature",
+      "year": 2016,
+      "verified_via": "esearch (title exact match) + esummary (journal/year/author) + efetch (full abstract)",
+      "n": 1,
+      "injury": "C5-C6 quadriplegia (cervical SCI)",
+      "numbers": {
+        "wrist_hand_motions": 6,
+        "motor_level_shift": "C5-C6 to C7-T1 unilaterally, WHEN USING THE SYSTEM"
+      },
+      "role": "method (a) BCI+FES landmark #1",
+      "first_pass_search_error_disclosed": "first title/author search returned PMID 28268963 (a 2016 IEEE EMBS conference abstract by a co-author, wrong record) -- caught via esummary journal mismatch, re-searched on exact Nature title"
+    },
+    "ajiboye_2017_bci_fes": {
+      "pmid": "28363483",
+      "doi": "10.1016/S0140-6736(17)30601-3",
+      "journal": "Lancet",
+      "year": 2017,
+      "verified_via": "esearch (exact title) + esummary + efetch (full abstract, PMC5516547)",
+      "n": 1,
+      "injury": "C4, AIS A (motor AND sensory complete)",
+      "numbers": {
+        "point_to_point_accuracy_pct": "80-100",
+        "coffee_drink_success": "11/12 at 463 days post-implant",
+        "self_feed_day": 717,
+        "fes_electrodes": 36,
+        "intracortical_arrays": 2
+      },
+      "role": "method (a) BCI+FES landmark #2; BrainGate2 trial NCT00912041",
+      "first_pass_search_error_disclosed": "first search returned PMID 31996696 (a 2020 Sci Rep decoding paper, wrong record, wrong year) -- caught via esummary, re-searched on exact Lancet title"
+    },
+    "harkema_2011_epidural_first_case": {
+      "pmid": "21601270",
+      "doi": "10.1016/S0140-6736(11)60547-3",
+      "journal": "Lancet",
+      "year": 2011,
+      "verified_via": "esearch (1 hit, exact) + esummary + efetch (full abstract, PMC3154251)",
+      "n": 1,
+      "injury": "C7-T1 subluxation, motor-complete paraplegia",
+      "numbers": {
+        "pre_implant_locomotor_sessions": 170,
+        "pre_implant_months": 26,
+        "epidural_electrodes": 16,
+        "standing_duration_min": 4.25,
+        "months_to_leg_control": 7
+      },
+      "role": "method (b) first-in-human epidural stimulation case; built-in ON/OFF causal contrast ('only during epidural stimulation')"
+    },
+    "angeli_2014_brain_mechanism": {
+      "pmid": "24713270",
+      "doi": "10.1093/brain/awu038",
+      "journal": "Brain",
+      "year": 2014,
+      "verified_via": "esearch (exact title) + esummary + efetch (full abstract, PMC3999714)",
+      "n": 4,
+      "injury": "chronic complete paralysis, 2 diagnosed motor AND sensory complete",
+      "numbers": {
+        "immediate_voluntary_movement_post_implant": "4 of 4"
+      },
+      "role": "method (b) mechanistic anchor: sub-threshold spinal excitability neuromodulation, not signal-routing"
+    },
+    "angeli_2018_nejm_overground_walking": {
+      "pmid": "30247091",
+      "doi": "10.1056/NEJMoa1803588",
+      "journal": "N Engl J Med",
+      "year": 2018,
+      "verified_via": "esearch (exact title) + esummary + efetch (full abstract)",
+      "n": 4,
+      "injury": "chronic motor-complete, 2.5-3.3 yrs post-injury, after failing locomotor training alone",
+      "numbers": {
+        "patient_A_sessions": 278,
+        "patient_A_weeks": 85,
+        "patient_B_sessions": 81,
+        "patient_B_weeks": 15,
+        "overground_walkers_of_4": 2,
+        "independent_standing_of_4": 4,
+        "adverse_events": "1 hip fracture"
+      },
+      "role": "method (b) NEJM landmark; clinicaltrials NCT02339233"
+    },
+    "gill_2018_natmed_independent_stepping": {
+      "pmid": "30250140",
+      "doi": "10.1038/s41591-018-0175-7",
+      "journal": "Nat Med",
+      "year": 2018,
+      "note": "ORIGINAL article; PMID 30353100 is a Publisher Correction of the same paper, disclosed not confused",
+      "verified_via": "esearch with pdat filter after first pass returned only the Correction (30353100) -- caught via esummary title mismatch ('Publisher Correction:' prefix), re-resolved to the original",
+      "n": 1,
+      "injury": "complete sensorimotor paralysis, lower extremities",
+      "numbers": {
+        "mmr_rehab_weeks": 43,
+        "independence": "independent treadmill stepping (no trainer/BWS); overground stepping with front-wheeled walker, trainer assistance at hips for balance"
+      },
+      "role": "method (b) Mayo Clinic independent group"
+    },
+    "wagner_2018_nature_targeted_neurotech": {
+      "pmid": "30382197",
+      "doi": "10.1038/s41586-018-0649-2",
+      "journal": "Nature",
+      "year": 2018,
+      "verified_via": "esearch (exact title) + esummary + efetch (full abstract; rate-limited on first attempt, re-fetched after 2s delay)",
+      "n": "NOT STATED IN ABSTRACT (honest gap; commonly reported n=3, STIMO trial, not independently reconfirmed this session)",
+      "injury": ">4 years post-injury, permanent motor deficits or complete paralysis despite extensive rehab",
+      "numbers": {
+        "time_to_overground_walking_reestablished": "within 1 week",
+        "voluntary_control_without_stimulation": "regained after a few months",
+        "ecological_setting_use": "walk/cycle DURING spatiotemporal stimulation"
+      },
+      "role": "method (b) Lausanne/EPFL/CHUV group, precursor to Rowald 2022 and Lorach 2023"
+    },
+    "rowald_2022_natmed_activity_dependent": {
+      "pmid": "35132264",
+      "doi": "10.1038/s41591-021-01663-5",
+      "journal": "Nat Med",
+      "year": 2022,
+      "verified_via": "esearch (author+journal+pdat, first attempt with exact title phrase returned 0 hits) + esummary + efetch (full abstract)",
+      "n": 3,
+      "injury": "complete sensorimotor paralysis",
+      "numbers": {
+        "time_to_multi_activity_restoration": "within a single day",
+        "activities": "stand, walk, cycle, swim, control trunk movements",
+        "setting": "community settings"
+      },
+      "role": "method (b) strongest real-world-language SCS result; new paddle-lead electrode design"
+    },
+    "lorach_2023_nature_digital_bridge": {
+      "pmid": "37225984",
+      "doi": "10.1038/s41586-023-06094-5",
+      "journal": "Nature",
+      "year": 2023,
+      "verified_via": "esearch (exact title, 1 hit) + esummary + efetch (full abstract, PMC10232367)",
+      "n": 1,
+      "injury": "chronic tetraplegia (Gert-Jan Oskam)",
+      "numbers": {
+        "calibration_time": "a few minutes",
+        "stability_duration": ">1 year",
+        "home_use": "explicit: 'including during independent use at home'",
+        "activities": "stand, walk, climb stairs, traverse complex terrains",
+        "stim_off_carryover": "regained ability to walk with crutches overground even when BSI switched off"
+      },
+      "role": "method (c) the digital bridge; strongest single home-independence claim in this review"
+    },
+    "inanici_2021_transcutaneous": {
+      "pmid": "33400652",
+      "doi": "10.1109/TNSRE.2021.3049133",
+      "journal": "IEEE Trans Neural Syst Rehabil Eng",
+      "year": 2021,
+      "verified_via": "esearch (author+topic) + esummary + efetch (full abstract)",
+      "n": 6,
+      "injury": "complete paralysis, up to 12 years post-injury",
+      "numbers": {
+        "gains_maintained_after_stim_stopped_months": "3-6, all 6 participants",
+        "comparative_claim": "matched or exceeded previously reported implanted-stimulation results (source's own comparative text, not an independent head-to-head trial)",
+        "secondary_effects": "reduced spasticity; improved HR/thermoregulation/bladder function",
+        "functional_carryover": "resumed guitar playing and oil painting"
+      },
+      "role": "method (b) non-invasive/take-home-adjacent SCS citation (substituted after a suspected 'Powell SCI hand' paper resolved to an off-topic post-stroke paper, PMID 36807682, disclosed not hidden)"
+    },
+    "vanzyl_2019_lancet_nerve_transfer": {
+      "pmid": "31280969",
+      "doi": "10.1016/S0140-6736(19)31143-2",
+      "journal": "Lancet",
+      "year": 2019,
+      "verified_via": "esearch (exact title) + esummary + efetch (full abstract)",
+      "n": 16,
+      "n_limbs": 27,
+      "injury": "early (<18mo post-injury) cervical SCI, motor level C5 and below",
+      "numbers": {
+        "nerve_transfers": 59,
+        "arat_baseline": 16.5,
+        "arat_24mo": 34.0,
+        "arat_p": "<0.0001",
+        "grt_baseline": 35.0,
+        "grt_24mo": 125.2,
+        "grt_p": "<0.0001",
+        "grasp_strength_kg": {
+          "distal_nerve_transfer_n5": 3.2,
+          "proximal_nerve_transfer_n9": 2.8,
+          "tendon_transfer_n8": 3.9
+        },
+        "adverse_events": 6,
+        "adverse_events_with_lasting_consequences": 0
+      },
+      "role": "method (d1) nerve transfer surgery; strongest real-independence result in the whole review"
+    },
+    "curtis_2018_stem_cell_phase1": {
+      "pmid": "29859175",
+      "doi": "10.1016/j.stem.2018.05.014",
+      "journal": "Cell Stem Cell",
+      "year": 2018,
+      "verified_via": "esearch (exact title) + esummary + efetch (full abstract)",
+      "n": 4,
+      "injury": "T2-T12 chronic SCI",
+      "numbers": {
+        "stereotactic_injections": 6,
+        "followup_months": "18-27",
+        "serious_adverse_events": 0,
+        "improved_1_2_isncsci_levels": "2 of 4"
+      },
+      "role": "method (d2) neural stem cell transplant; authors' own disclosed limitation: 'lacks statistical power or a control group needed to evaluate functional changes'"
+    },
+    "kim_2022_inspire_singlearm_24mo": {
+      "pmid": "35442254",
+      "doi": "10.1227/neu.0000000000001932",
+      "journal": "Neurosurgery",
+      "year": 2022,
+      "verified_via": "esearch (author+keyword) + esummary + efetch (full abstract)",
+      "n": 19,
+      "n_evaluable": 16,
+      "injury": "AIS A, thoracic T2-T12, acute (<=96h) complete SCI",
+      "numbers": {
+        "improved_ge1_aisgrade_at_6mo": "7/16 (44%)",
+        "to_aisB": 5,
+        "to_aisC": 2,
+        "further_improvement_by_12_24mo": 3,
+        "early_deaths_unrelated_to_device": 3
+      },
+      "role": "method (d3) bioresorbable scaffold, SINGLE-ARM signal later killed by #14"
+    },
+    "harrop_2024_inspire2_rct": {
+      "pmid": "39471088",
+      "doi": "10.1227/neu.0000000000003180",
+      "journal": "Neurosurgery",
+      "year": "2024/2025",
+      "verified_via": "esearch (exact title) + esummary + efetch (full abstract)",
+      "n": 20,
+      "arms": "10 scaffold / 10 spine-surgery-alone control, randomized 1:1, blinded ISNCSCI assessors",
+      "injury": "AIS A, thoracic T2-T12, nonpenetrating, surgery <=7 days post-injury",
+      "numbers": {
+        "scaffold_converted_pct_at_6mo": 20,
+        "control_converted_pct_at_6mo": 30,
+        "pre_registered_success_bar_pct_points": 20,
+        "actual_delta_pct_points": -10,
+        "primary_endpoint_met": false
+      },
+      "role": "method (d3) THE FORCED-ADVERSARY KILL: randomized, correct control, same endpoint/timepoint as #13 -- 'did not produce probable clinical benefit'"
+    },
+    "fawcett_2007_spontaneous_recovery_void_floor": {
+      "pmid": "17179973",
+      "doi": "10.1038/sj.sc.3102007",
+      "journal": "Spinal Cord",
+      "year": 2007,
+      "verified_via": "esearch (author+title) + esummary + efetch (full abstract)",
+      "role": "the void-floor adversary anchor: 'spontaneous recovery of motor function in patients with motor-complete SCI is fairly limited and predictable'; 'vast majority of recovery occurs in the first 3 months, but a small amount can persist for up to 18 months' -- every trial above enrolled chronic (>2yr, several post-training-failure) patients, past this window"
+    },
+    "gorman_mortimer_1983_recruitment_order_mechanism": {
+      "pmid": "6604691",
+      "doi": "10.1109/tbme.1983.325041",
+      "journal": "IEEE Trans Biomed Eng",
+      "year": 1983,
+      "verified_via": "esearch (author match, 1 hit) + esummary (title/journal/DOI confirmed) -- NO abstract text exists (pre-abstract-era record), disclosed not hidden, same precedent as Lawrence & Kuypers 1968 in the sibling corticospinal doc",
+      "role": "classic citation for the FES reverse-recruitment-order mechanism (§1 of the doc); mechanism itself is established cable-theory electrophysiology, flagged as recalled-not-requoted"
+    }
+  },
+  "pathway_geometry": {
+    "graph": "M1(cortex) --CST(white matter)--> LSN(spinal interneurons+motoneuron pool) --peripheral nerve--> NMJ --> MUSCLE",
+    "sci_lesion": "cuts the CST EDGE at the injury level; M1 and LSN/muscle nodes are each typically anatomically intact but disconnected (matches the UMN-lesion mechanism already quantified in MECHANISM_CORTICOSPINAL_MOTOR_COMMAND.md via Doherty et al. 2002)",
+    "method_a_bci_fes": "new edge M1--[decode+wire]-->MUSCLE directly; full bypass of the LSN and peripheral pathway; needs NO spared tissue below the cut (works even at AIS A)",
+    "method_b_scs": "no new edge from M1; raises gain/excitability of the existing LSN node itself; needs SOME spared CST fraction or intact afferent-feedback loop (Angeli 2014 mechanistic finding)",
+    "method_c_digital_bridge": "new edge M1--[decode+wire]-->LSN (not muscle); reconstructs the missing CST edge itself into the still-intact LSN->NMJ->MUSCLE machinery; topologically closest to the original intact graph",
+    "method_d_nerve_transfer": "new edge at the peripheral-nerve tier only, downstream of the lesion entirely; reroutes an intact-but-spare donor nerve (fed by an uninjured UMN path at a different segment) into denervated MUSCLE; never touches the CST edge or the lesion itself",
+    "unresolved_edge": "true CNS axon regeneration THROUGH the lesion/glial scar itself (method d3, scaffold) -- the one edge nobody has yet rebuilt in a human at the function level; INSPIRE 2.0 RCT found no benefit"
+  },
+  "claim_a_bci_fes": {
+    "statement_C": "cortical decode + FES restores real voluntary control of the person's own paralyzed muscles for functional ADL tasks",
+    "pre_registered_threshold": ">=1 functional ADL-relevant task completed using the participant's OWN limb, above-chance accuracy, live-verified primary source",
+    "verdict_task_level": "TRUE -- Bouton 2016 (6 wrist/hand motions) and Ajiboye 2017 (80-100% point-to-point accuracy, self-feeding, coffee-drinking) both clear it",
+    "adversary_identified": "real independence vs. tethered lab demo",
+    "adversary_forced_result": "DOES NOT FALL -- both n=1, both require external mechanical/electrical infrastructure (36 percutaneous leads + motorized arm support in Ajiboye; benchtop NMES rig in Bouton, gain explicitly qualified 'when using the system'), zero home-use evidence found live this session for either landmark trial",
+    "verdict_independence_level": "FALSE -- ceiling today is in-lab, supervised task restoration"
+  },
+  "claim_b_spinal_stim": {
+    "statement_C": "epidural/transcutaneous SCS restores standing/stepping/walking in chronic motor-complete SCI beyond the natural-recovery void floor",
+    "pre_registered_threshold": "documented >18 months post-injury (past Fawcett 2007's own recovery window), motor-complete (AIS A/B) status by standard exam, causal (not merely correlational) link to stimulation",
+    "adversary_identified": "spontaneous natural recovery (the void floor), forced via Fawcett et al. 2007 (PMID 17179973)'s own quantitative statement",
+    "adversary_forced_result": "FALLS -- every cohort chronic (2.5-12+ yrs post-injury), several explicitly post-training-failure; 3 of 7 studies build an explicit ON/OFF or before/after causal contrast (e.g. Harkema 2011: leg control 'only during epidural stimulation') that spontaneous recovery cannot mimic; convergent across 4 independent groups/institutions (Louisville, Mayo, Lausanne, Seattle), 2 countries, implanted AND non-invasive methods",
+    "verdict": "TRUE and the best-replicated finding in this review; independence PARTIAL -- every row still needs an implanted or surface stimulator, most still need a walker or trainer-assisted balance; 'community settings' (Rowald 2022) is the strongest real-world language but still device-dependent"
+  },
+  "claim_c_digital_bridge": {
+    "statement_C": "a wireless cortex-to-spinal-stimulation link restores natural walking with real independent at-home use",
+    "pre_registered_threshold": "explicit 'home' or 'community' language in the primary source, >=3 months durability",
+    "verdict": "TRUE for n=1 -- Lorach 2023 states directly: stable >1 year 'including during independent use at home', natural gait on stairs/complex terrain, PLUS partial device-independent carryover (crutch-walking with BSI off)",
+    "adversary_identified": "generalizability beyond a single bespoke case",
+    "adversary_forced_result": "PARTIALLY FALLS -- the home-use claim is textually explicit and decisive for this one participant (strongest in the whole review); does NOT fall on scale -- n=1, two fully implanted bespoke systems, no independent replication found live this session"
+  },
+  "claim_d_regeneration_adjuncts": {
+    "statement_C": "nerve/axon regeneration and regenerative adjuncts restore real function after SCI",
+    "not_averaged_three_subroutes": {
+      "d1_nerve_transfer_peripheral": "STRONG, REAL -- van Zyl 2019, n=16/27 limbs, 24mo durable, ARAT/GRT p<0.0001, own-body zero-hardware; scope-limited to early cervical C5-and-below upper-limb candidates; does not touch the CNS lesion",
+      "d2_stem_cell": "HONEST WEAK SIGNAL -- Curtis 2018, n=4, Phase I safety only, authors' own words: 'lacks statistical power or a control group'",
+      "d3_scaffold_intralesion": "FORCED-ADVERSARY KILL -- Kim 2022 single-arm 44% AIS-conversion signal vs. Harrop 2024/2025 RCT (same device, same 6-month endpoint, correct randomized surgery-alone control): scaffold 20% vs control 30%, scaffold numerically worse, pre-registered bar missed, 'did not produce probable clinical benefit'"
+    },
+    "verdict": "do not report 'regenerative medicine' as one number -- the three sub-routes sit at three entirely different maturities; true CNS axon regeneration across the lesion itself remains unproven at the human function level"
+  },
+  "void_floor_adversary_forced": {
+    "adversary": "any observed functional gain in (b)/(c) is just spontaneous natural recovery, not the intervention",
+    "anchor": "Fawcett et al. 2007 (PMID 17179973), ICCP panel, live-verified direct quote: 'the spontaneous recovery of motor function in patients with motor-complete SCI is fairly limited and predictable... the vast majority of recovery occurs in the first 3 months, but a small amount can persist for up to 18 months'",
+    "forcing": "every SCS/bridge trial enrolled chronic patients (2.5-12+ years post-injury), all past the 18-month window, several explicitly after FAILING conventional locomotor training first (Angeli 2018 NEJM); several build a within-subject ON/OFF stimulation contrast directly into the case report",
+    "result": "adversary FALLS for (b) and (c); not even in contention for (a) or (d), which do not rely on spared/recovering tissue (full bypass or peripheral-only rewire respectively)"
+  },
+  "ranked_comparison": [
+    {
+      "rank": 1,
+      "method": "Nerve transfer surgery",
+      "pmid": "31280969",
+      "n": "16 (27 limbs)",
+      "injury": "cervical C5-and-below, early",
+      "durability": "24 months, durable",
+      "home_or_lab": "home (surgical, permanent)",
+      "returned": "grasp/pinch/elbow extension via own hand",
+      "hardware_dependence": "own body, zero hardware"
+    },
+    {
+      "rank": 2,
+      "method": "Epidural/transcutaneous SCS",
+      "pmid": "21601270,24713270,30247091,30250140,30382197,35132264,33400652",
+      "n": "1-6 per study, 4 groups",
+      "injury": "chronic motor-complete, thoracic/cervical",
+      "durability": "months to years",
+      "home_or_lab": "mostly lab/clinic; 'community settings' in Rowald 2022",
+      "returned": "standing, stepping, overground walking, hand/arm (transcutaneous)",
+      "hardware_dependence": "hardware-dependent (implant or surface electrodes, usually + walker)"
+    },
+    {
+      "rank": 3,
+      "method": "Digital bridge",
+      "pmid": "37225984",
+      "n": 1,
+      "injury": "chronic tetraplegia",
+      "durability": ">1 year, including explicit home use",
+      "home_or_lab": "home, uniquely explicit",
+      "returned": "natural gait, stairs, terrain; partial stim-off carryover",
+      "hardware_dependence": "hardware-dependent (2 implants), one own-body carryover result"
+    },
+    {
+      "rank": 4,
+      "method": "Intracortical BCI + FES",
+      "pmid": "27074513,28363483",
+      "n": "1, 1",
+      "injury": "cervical, including AIS A",
+      "durability": "session-based only",
+      "home_or_lab": "lab only, no home evidence found",
+      "returned": "6-motion grasp, drink, self-feed via own arm",
+      "hardware_dependence": "own limb driven by tethered/benchtop hardware"
+    },
+    {
+      "rank": 5,
+      "method": "Regenerative adjuncts",
+      "pmid": "29859175,35442254,39471088",
+      "n": "4 (stem cell), 19/20 (scaffold)",
+      "injury": "thoracic, chronic/acute",
+      "durability": "safety-tier only; scaffold RCT null",
+      "home_or_lab": "lab/surgical only",
+      "returned": "modest neuro-level gains (uncontrolled, stem cell); no benefit (scaffold RCT)",
+      "hardware_dependence": "intended own-body, unproven at function level"
+    }
+  ],
+  "overall_verdict": "No approach today gives a person with complete, chronic SCI unassisted, hardware-free, normal walking or hand function at population scale, on demand. Nerve-transfer surgery restores genuinely independent, permanent, hardware-free upper-limb function for appropriate cervical candidates only, never gait. Epidural/transcutaneous SCS is the best-replicated real effect (4 independent groups) restoring standing/stepping/walking well beyond the natural-recovery window, but remains implant-and-usually-walker-dependent. The digital bridge delivered the single most complete real-world independence demonstration (explicit >1-year home use) for one person, unreplicated. Intracortical BCI+FES restores real, richly dexterous, cortically-driven control of a person's own paralyzed limb for specific tasks, but has never been shown outside a monitored research session in either landmark trial. Regenerative medicine for the lesion itself is not yet a functional-restoration method -- the one rigorously randomized trial found no benefit over standard surgical care.",
+  "honest_gaps": [
+    "Wagner 2018 (PMID 30382197) participant count not confirmed via its own abstract text this session; commonly reported n=3 (STIMO trial) disclosed as recalled, not independently reconfirmed.",
+    "No take-home/community-use BCI+FES (method a) trial was found live this session for either landmark system -- absence is the finding (claim_a), search not exhaustive of all grey literature.",
+    "Curtis 2018 (PMID 29859175) is explicitly underpowered by its own authors' statement -- used only at the confidence tier its authors assign it.",
+    "INSPIRE 2.0 (PMID 39471088)'s null result is itself from a small trial (n=20, 10/arm) -- symmetric caveat: could in principle be under-powered, though the point estimate ran in the unfavorable direction for the scaffold (the conservative direction for this specific adversary).",
+    "Gorman & Mortimer 1983 (PMID 6604691) is a pre-abstract-era record -- title/journal/DOI confirmed live, no abstract text exists; the reverse-recruitment mechanism cited is classically-established electrophysiology, flagged as recalled-not-requoted.",
+    "Inanici 2021 (PMID 33400652)'s 'matched or exceeded implanted stimulation' is the source paper's own comparative textual claim, not an independently-run head-to-head trial.",
+    "No in-repo simulation or live-computed number was produced this session -- every figure is a literature citation, machine-cross-checked against source abstract text. Tier: literature-anchored HYPOTHESIS, not a MEASURED cell.",
+    "Global/national SCI prevalence and incidence were not fetched this session (deliberate scoping choice, task asked for method comparison not population burden) -- WAVE_PLAN.md Wave 20 already points to the NSCISC open SCI registry for that axis.",
+    "A suspected 'Powell et al., take-home cervical epidural stimulation for SCI hand function' paper could not be located; the only Powell et al. match found (PMID 36807682) is about post-stroke upper-limb paresis, a different population -- excluded rather than silently substituted."
+  ],
+  "proposed_cell": "scripts/mechanism/sci_bypass_pathway_channel_probe.py (not yet built): formalize the edge-insertion-point argument (pathway_geometry above) as an explicit information/gain-budget model per method -- cortical decode channel capacity at the BCI read-out (measurable against DANDI:000147, the paralyzed-human intracortical BCI finger-decoding dataset already catalogued in WAVE_PLAN.md Wave 20, not yet pulled into a cell this session), spinal-circuit excitability gain at the SCS insertion point, and peripheral axon count available at the nerve-transfer insertion point -- then predict which tier is the binding bottleneck for a GIVEN injury level, mirroring the three-tier channel-bottleneck logic MECHANISM_BIONIC_HAND_ARCHITECTURE.md sec.4 already used for prosthetic-hand control, checked against real post-intervention outcome scores rather than assessed post hoc.",
+  "couples_to": [
+    "docs/MECHANISM_CORTICOSPINAL_MOTOR_COMMAND.md -- pathway-geometry table built on its M1 population code, conduction-delay physics, and Doherty et al. 2002 UMN-vs-LMN table by SCI level",
+    "docs/MECHANISM_MOTOR_UNIT.md -- Henneman size-principle recruitment order (PMID 14328454, PMID 8120594) this doc's FES-reverse-recruitment mechanism directly contrasts against",
+    "docs/MECHANISM_CENTRAL_FATIGUE.md -- scopes voluntary central fatigue only; this doc's electrically-imposed peripheral/reverse-recruitment-order fatigue mechanism is distinct, not-yet-modeled, an open coupling not a duplicate",
+    "docs/MECHANISM_BIONIC_HAND_ARCHITECTURE.md -- decode-channel-vs-actuator-DOF bottleneck argument this doc's proposed cell directly mirrors for the BCI+FES pathway",
+    "WAVE_PLAN.md Wave 20 PARALYSIS-STROKE-STAGE-LOCALIZATION node (status ASSUMED) -- related but distinct scope; already points to DANDI:000147 and the NSCISC open SCI registry, data sources this doc's proposed cell would consume not duplicate"
+  ]
+}

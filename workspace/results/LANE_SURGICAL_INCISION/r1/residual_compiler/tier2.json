@@ -1,0 +1,301 @@
+{
+  "tier": 2,
+  "training": [
+    {
+      "cut_length_mm": 0,
+      "cpu_s": 0.0025068960000000917,
+      "newton_iterations": 1,
+      "residual_relative": 1.6388842791276567e-12,
+      "global_factorizations": 0
+    },
+    {
+      "cut_length_mm": 1,
+      "cpu_s": 0.053264917000000134,
+      "newton_iterations": 5,
+      "residual_relative": 1.1075266770527278e-15,
+      "global_factorizations": 4
+    },
+    {
+      "cut_length_mm": 3,
+      "cpu_s": 0.046538841999999914,
+      "newton_iterations": 5,
+      "residual_relative": 1.120588361484356e-15,
+      "global_factorizations": 4
+    },
+    {
+      "cut_length_mm": 5,
+      "cpu_s": 0.051346471000000005,
+      "newton_iterations": 5,
+      "residual_relative": 1.8755827624057065e-14,
+      "global_factorizations": 4
+    },
+    {
+      "cut_length_mm": 7,
+      "cpu_s": 0.04666375299999981,
+      "newton_iterations": 5,
+      "residual_relative": 5.14196766658414e-13,
+      "global_factorizations": 4
+    },
+    {
+      "cut_length_mm": 9,
+      "cpu_s": 0.04794014199999985,
+      "newton_iterations": 5,
+      "residual_relative": 5.230400348080827e-12,
+      "global_factorizations": 4
+    },
+    {
+      "cut_length_mm": 11,
+      "cpu_s": 0.06437657400000019,
+      "newton_iterations": 5,
+      "residual_relative": 2.93034861494558e-11,
+      "global_factorizations": 4
+    },
+    {
+      "cut_length_mm": 13,
+      "cpu_s": 0.08466179999999968,
+      "newton_iterations": 6,
+      "residual_relative": 1.0544461431421333e-15,
+      "global_factorizations": 5
+    },
+    {
+      "cut_length_mm": 15,
+      "cpu_s": 0.07884355500000018,
+      "newton_iterations": 6,
+      "residual_relative": 1.152200827275863e-15,
+      "global_factorizations": 5
+    },
+    {
+      "cut_length_mm": 17,
+      "cpu_s": 0.08007514300000018,
+      "newton_iterations": 6,
+      "residual_relative": 1.1066058319205838e-15,
+      "global_factorizations": 5
+    },
+    {
+      "cut_length_mm": 19,
+      "cpu_s": 0.08591369399999982,
+      "newton_iterations": 6,
+      "residual_relative": 1.1467634251434117e-15,
+      "global_factorizations": 5
+    },
+    {
+      "cut_length_mm": 21,
+      "cpu_s": 0.08490438699999991,
+      "newton_iterations": 6,
+      "residual_relative": 1.1546082479710235e-15,
+      "global_factorizations": 5
+    },
+    {
+      "cut_length_mm": 23,
+      "cpu_s": 0.07340114500000006,
+      "newton_iterations": 6,
+      "residual_relative": 1.1840529457030414e-15,
+      "global_factorizations": 5
+    },
+    {
+      "cut_length_mm": 25,
+      "cpu_s": 0.07307849399999977,
+      "newton_iterations": 6,
+      "residual_relative": 1.2490781639133245e-15,
+      "global_factorizations": 5
+    },
+    {
+      "cut_length_mm": 27,
+      "cpu_s": 0.08288713400000036,
+      "newton_iterations": 6,
+      "residual_relative": 1.385540008169525e-15,
+      "global_factorizations": 5
+    },
+    {
+      "cut_length_mm": 29,
+      "cpu_s": 0.08381576699999993,
+      "newton_iterations": 6,
+      "residual_relative": 1.6370487985651013e-15,
+      "global_factorizations": 5
+    },
+    {
+      "cut_length_mm": 31,
+      "cpu_s": 0.08274053799999992,
+      "newton_iterations": 6,
+      "residual_relative": 1.8231209852544673e-15,
+      "global_factorizations": 5
+    }
+  ],
+  "basis_dof": 17,
+  "residual_monomials": 1140,
+  "coefficient_compile_cpu_s": 1.8452558999999997,
+  "gram_cpu_s": 0.8157529949999995,
+  "gram_global_rhs_solves": 1205,
+  "total_acquisition_compile_cpu_s": 3.848049406,
+  "operator_bytes": 22239760,
+  "smallest_retained_basis_singular_value": 3.5075500883888306e-05,
+  "heldouts": [
+    {
+      "cpu_s": 0.004496247000000508,
+      "gap_bound_m": 0.0005209932047720852,
+      "norm2": 1.0705874858784117e-05,
+      "arithmetic_allowance_norm2": 9.240251422061414e-09,
+      "residual_bulk_norm2": 0.00536455293660967,
+      "signed_cross_norm2": -0.010725982832011099,
+      "seam_norm2": 0.005372135770260213,
+      "bound_if_cross_term_omitted_m": 0.016491835952091888,
+      "accepted": false,
+      "newton_iterations": 5,
+      "reduced_residual_relative": 2.2946445319469846e-13,
+      "global_state_reconstructions": 0,
+      "global_solves": 0,
+      "coefficient_rebuilds": 0,
+      "warm_median_cpu_s": 0.00580694000000026,
+      "cut_length_mm": 8,
+      "polynomial_residual_max_absolute_error_N": 2.0325074089055928e-12,
+      "polynomial_residual_relative_error": 4.989639664400888e-11,
+      "direct_residual_dual_norm2": 1.0705844292932943e-05,
+      "gram_contains_direct_norm2_with_allowance": true,
+      "actual_gap_error_m": 0.00011167606530259797,
+      "bound_contains_observed_error": true,
+      "full_control": {
+        "cpu_s": 0.11170343899999935,
+        "newton_iterations": 5,
+        "residual_relative": 1.8000905250134202e-12,
+        "global_factorizations": 4
+      },
+      "validation_cpu_s": 0.11975654600000052,
+      "fallback_cpu_s": 0.08041071899999963,
+      "fallback": {
+        "cpu_s": 0.08039850800000004,
+        "newton_iterations": 5,
+        "residual_relative": 2.1187611304130735e-14,
+        "global_factorizations": 4
+      },
+      "returned_gap_error_m": 3.717458198909673e-15,
+      "charged_warm_query_including_fallback_cpu_s": 0.08621765899999989,
+      "speedup_vs_full_query_including_fallback": 1.295598144227037
+    },
+    {
+      "cpu_s": 0.004128543000000207,
+      "gap_bound_m": 0.0007100912208343305,
+      "norm2": 1.989562662446393e-05,
+      "arithmetic_allowance_norm2": 9.319651448079876e-09,
+      "residual_bulk_norm2": 0.004994923401624479,
+      "signed_cross_norm2": -0.009987570872294384,
+      "seam_norm2": 0.005012543097294368,
+      "bound_if_cross_term_omitted_m": 0.015921937438396528,
+      "accepted": false,
+      "newton_iterations": 5,
+      "reduced_residual_relative": 9.35714223490211e-13,
+      "global_state_reconstructions": 0,
+      "global_solves": 0,
+      "coefficient_rebuilds": 0,
+      "warm_median_cpu_s": 0.005582959999999915,
+      "cut_length_mm": 16,
+      "polynomial_residual_max_absolute_error_N": 2.002427303832155e-12,
+      "polynomial_residual_relative_error": 3.734542174490084e-11,
+      "direct_residual_dual_norm2": 1.9895602764926773e-05,
+      "gram_contains_direct_norm2_with_allowance": true,
+      "actual_gap_error_m": 0.00012877552624981215,
+      "bound_contains_observed_error": true,
+      "full_control": {
+        "cpu_s": 0.1370091810000007,
+        "newton_iterations": 6,
+        "residual_relative": 1.1049514508108639e-15,
+        "global_factorizations": 5
+      },
+      "validation_cpu_s": 0.14448066699999984,
+      "fallback_cpu_s": 0.0547027240000002,
+      "fallback": {
+        "cpu_s": 0.054691095999999995,
+        "newton_iterations": 5,
+        "residual_relative": 6.105238698728421e-13,
+        "global_factorizations": 4
+      },
+      "returned_gap_error_m": 1.0842021724855044e-15,
+      "charged_warm_query_including_fallback_cpu_s": 0.06028568400000012,
+      "speedup_vs_full_query_including_fallback": 2.2726652815285373
+    },
+    {
+      "cpu_s": 0.009237406999999642,
+      "gap_bound_m": 0.0008767487581828389,
+      "norm2": 3.033315698344058e-05,
+      "arithmetic_allowance_norm2": 1.155655319834031e-08,
+      "residual_bulk_norm2": 0.004499601341322703,
+      "signed_cross_norm2": -0.008995577783873148,
+      "seam_norm2": 0.004526309599533885,
+      "bound_if_cross_term_omitted_m": 0.015120962573827805,
+      "accepted": false,
+      "newton_iterations": 5,
+      "reduced_residual_relative": 5.646618727014709e-13,
+      "global_state_reconstructions": 0,
+      "global_solves": 0,
+      "coefficient_rebuilds": 0,
+      "warm_median_cpu_s": 0.007435697000000019,
+      "cut_length_mm": 24,
+      "polynomial_residual_max_absolute_error_N": 2.124626863331258e-12,
+      "polynomial_residual_relative_error": 3.866519217215242e-11,
+      "direct_residual_dual_norm2": 3.0333140277044638e-05,
+      "gram_contains_direct_norm2_with_allowance": true,
+      "actual_gap_error_m": 0.0001455583560242537,
+      "bound_contains_observed_error": true,
+      "full_control": {
+        "cpu_s": 0.1220479430000001,
+        "newton_iterations": 6,
+        "residual_relative": 1.1842642884435124e-15,
+        "global_factorizations": 5
+      },
+      "validation_cpu_s": 0.1335507250000001,
+      "fallback_cpu_s": 0.06952640300000024,
+      "fallback": {
+        "cpu_s": 0.0695150179999997,
+        "newton_iterations": 5,
+        "residual_relative": 3.3342720437800643e-12,
+        "global_factorizations": 4
+      },
+      "returned_gap_error_m": 5.7419347054832315e-15,
+      "charged_warm_query_including_fallback_cpu_s": 0.07696210000000026,
+      "speedup_vs_full_query_including_fallback": 1.585818773136384
+    },
+    {
+      "cpu_s": 0.007213710999999456,
+      "gap_bound_m": 0.0016665000669449186,
+      "norm2": 0.00010961849589753454,
+      "arithmetic_allowance_norm2": 1.503313945197757e-08,
+      "residual_bulk_norm2": 0.00402442402944292,
+      "signed_cross_norm2": -0.007434703484970663,
+      "seam_norm2": 0.003519897951425278,
+      "bound_if_cross_term_omitted_m": 0.013824332751723912,
+      "accepted": false,
+      "newton_iterations": 5,
+      "reduced_residual_relative": 7.01269786110094e-13,
+      "global_state_reconstructions": 0,
+      "global_solves": 0,
+      "coefficient_rebuilds": 0,
+      "warm_median_cpu_s": 0.007937487999999604,
+      "cut_length_mm": 32,
+      "polynomial_residual_max_absolute_error_N": 3.0500671432953652e-12,
+      "polynomial_residual_relative_error": 3.992855474460979e-11,
+      "direct_residual_dual_norm2": 0.00010961846338777981,
+      "gram_contains_direct_norm2_with_allowance": true,
+      "actual_gap_error_m": 0.00039368687409016263,
+      "bound_contains_observed_error": true,
+      "full_control": {
+        "cpu_s": 0.1457544800000008,
+        "newton_iterations": 6,
+        "residual_relative": 1.924828403588031e-15,
+        "global_factorizations": 5
+      },
+      "validation_cpu_s": 0.15741960700000046,
+      "fallback_cpu_s": 0.07670169599999976,
+      "fallback": {
+        "cpu_s": 0.07668881199999955,
+        "newton_iterations": 6,
+        "residual_relative": 1.2005752504881776e-15,
+        "global_factorizations": 5
+      },
+      "returned_gap_error_m": 6.5052130349130266e-18,
+      "charged_warm_query_including_fallback_cpu_s": 0.08463918399999937,
+      "speedup_vs_full_query_including_fallback": 1.7220685870506725
+    }
+  ],
+  "accepted_count": 0,
+  "worst_gap_bound_m": 0.0016665000669449186,
+  "strongest_conventional_control": "TIE: identical intrusive polynomial residual Gram / reduced-basis certifier, same acquisitions"
+}

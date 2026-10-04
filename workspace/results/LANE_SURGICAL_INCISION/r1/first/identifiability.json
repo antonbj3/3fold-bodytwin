@@ -1,0 +1,55 @@
+{
+  "G_fixed_J_m2": 200.0,
+  "E_fixed_Pa": 200000.0,
+  "strength_Pa": [
+    50000.0,
+    100000.0,
+    200000.0
+  ],
+  "cohesive_delta0_m": [
+    0.0014715177646857694,
+    0.0007357588823428847,
+    0.00036787944117144236
+  ],
+  "dimensional_zone_scale_EG_over_strength_squared_m": [
+    0.016,
+    0.004,
+    0.001
+  ],
+  "largest_to_smallest_scale_ratio": 16.0,
+  "constant_toughness_does_not_identify_strength_or_zone": true,
+  "force_radius_observation_Jacobian_columns_G0_Wf_strength": [
+    [
+      1.0,
+      0.0005,
+      0.0
+    ],
+    [
+      1.0,
+      0.00084,
+      0.0
+    ],
+    [
+      1.0,
+      0.0011,
+      0.0
+    ],
+    [
+      1.0,
+      0.0015600000000000002,
+      0.0
+    ],
+    [
+      1.0,
+      0.00188,
+      0.0
+    ]
+  ],
+  "rank": 2,
+  "null_direction": [
+    0,
+    0,
+    1
+  ],
+  "required_new_acquisition": "Cohesive tensile peak/strain map plus perfused vascular geometry; cutting radii alone leave strength unobserved"
+}

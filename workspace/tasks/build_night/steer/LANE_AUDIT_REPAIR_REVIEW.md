@@ -1,0 +1,3 @@
+# Steering LANE_AUDIT_REPAIR_REVIEW — round 4 (the coordinator, 1/10 08:30)
+
+R1–R3 applied (15 families) and verified 943/943. Now review the **R4 findings** (results/LANE_SOURCE_CONSERVATION_AUDIT/AUDIT_TABLE_R4.json and the proposals from round 4): Q022 (calcium projection, mechanical unit metadata), Q031 (moving capacitance), Q036 (oxygen units), Q107 (mobile clipping, rate/mass-cap units), Q127 (stochastic resurrection, precursor-dt, precursor floor); also the new conservative Q160 construction (moving-volume ALE, finite donor — previously rejected) and the Q084 Fick convention. Same delivery as before: approved_patches_r4/ + PATCH_PLAN_R4.json with source/after hashes. Do not touch the sources.

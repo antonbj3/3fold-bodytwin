@@ -1,0 +1,120 @@
+{
+  "ordered_by": "field lane anton-6b 2026-10-04",
+  "report": {
+    "route_topology": {
+      "two_stage": {
+        "point_verdict": "SERIES",
+        "agreement_fraction": 1.0,
+        "outcome_counts": {
+          "SERIES": 4000
+        },
+        "survives": true,
+        "flipped": false
+      },
+      "three_stage": {
+        "point_verdict": "SERIES",
+        "agreement_fraction": 1.0,
+        "outcome_counts": {
+          "SERIES": 4000
+        },
+        "survives": true,
+        "flipped": false
+      },
+      "parallel": {
+        "point_verdict": "PARALLEL",
+        "agreement_fraction": 1.0,
+        "outcome_counts": {
+          "PARALLEL": 4000
+        },
+        "survives": true,
+        "flipped": false
+      },
+      "weak_parallel": {
+        "point_verdict": "PARALLEL",
+        "agreement_fraction": 1.0,
+        "outcome_counts": {
+          "PARALLEL": 4000
+        },
+        "survives": true,
+        "flipped": false
+      }
+    },
+    "load_redistribution": {
+      "solver_roundoff": {
+        "point_verdict": "SURROGATE INSUFFICIENT",
+        "agreement_fraction": 1.0,
+        "outcome_counts": {
+          "SURROGATE INSUFFICIENT": 4000
+        },
+        "survives": true,
+        "flipped": false
+      },
+      "muscle_spread_conservative": {
+        "point_verdict": "SURROGATE INSUFFICIENT",
+        "agreement_fraction": 0.99275,
+        "outcome_counts": {
+          "SURROGATE INSUFFICIENT": 3971,
+          "SURROGATE SUFFICIENT": 29
+        },
+        "survives": true,
+        "flipped": false
+      }
+    },
+    "glass_batch_energy": {
+      "enthalpy_3pct": {
+        "point_verdict": "CHANGES THE DECISION",
+        "agreement_fraction": 1.0,
+        "outcome_counts": {
+          "CHANGES THE DECISION": 4000
+        },
+        "survives": true,
+        "flipped": false
+      },
+      "enthalpy_20pct_pessimistic": {
+        "point_verdict": "CHANGES THE DECISION",
+        "agreement_fraction": 1.0,
+        "outcome_counts": {
+          "CHANGES THE DECISION": 4000
+        },
+        "survives": true,
+        "flipped": false
+      }
+    },
+    "mptp_pathway_ceiling": {
+      "pm_is_SD_n7_so_SE_1.512": {
+        "point_verdict": "SHARED CEILING",
+        "agreement_fraction": 1.0,
+        "outcome_counts": {
+          "SHARED CEILING": 4000
+        },
+        "survives": true,
+        "flipped": false
+      },
+      "pm_is_SEM_so_SE_4.0": {
+        "point_verdict": "SHARED CEILING",
+        "agreement_fraction": 0.904,
+        "outcome_counts": {
+          "SHARED CEILING": 3616,
+          "INDEPENDENT": 384
+        },
+        "survives": false,
+        "flipped": true
+      },
+      "per_animal_not_a_mean_WRONG_READING": {
+        "point_verdict": "SHARED CEILING",
+        "agreement_fraction": 0.904,
+        "outcome_counts": {
+          "SHARED CEILING": 3616,
+          "INDEPENDENT": 384
+        },
+        "survives": false,
+        "flipped": true
+      }
+    }
+  },
+  "flipped": [
+    "mptp_pathway_ceiling/pm_is_SEM_so_SE_4.0",
+    "mptp_pathway_ceiling/per_animal_not_a_mean_WRONG_READING"
+  ],
+  "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

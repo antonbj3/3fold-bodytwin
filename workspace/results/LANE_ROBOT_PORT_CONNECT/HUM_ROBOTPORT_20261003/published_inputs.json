@@ -1,0 +1,107 @@
+{
+  "scalpel": {
+    "doi": "10.1038/s41598-026-69640-x",
+    "source": "scalpel_glove_2026.html",
+    "regime": "dry flat316L scalpel handle; single glove; same-author finger;10N controlled preload",
+    "mu": {
+      "lower": "29/50",
+      "upper": "33/50",
+      "unit": "1",
+      "uncertainty_kind": "HULL_OF_PUBLISHED_MATERIAL_MEANS_NOT_POPULATION_BOUND"
+    },
+    "Ra": {
+      "lower": "37/50000000",
+      "upper": "41/50000000",
+      "unit": "m",
+      "uncertainty_kind": "REPORTED_PLUS_MINUS_DISPERSION_UNDEFINED"
+    },
+    "glove_thickness": {
+      "latex": {
+        "lower": "11/100000",
+        "upper": "13/100000",
+        "unit": "m",
+        "uncertainty_kind": "REPORTED_PLUS_MINUS_DISPERSION_UNDEFINED"
+      },
+      "nitrile": {
+        "lower": "3/25000",
+        "upper": "7/50000",
+        "unit": "m",
+        "uncertainty_kind": "REPORTED_PLUS_MINUS_DISPERSION_UNDEFINED"
+      },
+      "polyisoprene": {
+        "lower": "7/50000",
+        "upper": "1/6250",
+        "unit": "m",
+        "uncertainty_kind": "REPORTED_PLUS_MINUS_DISPERSION_UNDEFINED"
+      },
+      "neoprene": {
+        "lower": "19/100000",
+        "upper": "23/100000",
+        "unit": "m",
+        "uncertainty_kind": "REPORTED_PLUS_MINUS_DISPERSION_UNDEFINED"
+      }
+    },
+    "mu_by_material": {
+      "latex": "0.660",
+      "nitrile": "0.610",
+      "polyisoprene": "0.630",
+      "neoprene": "0.580"
+    },
+    "source_section": "Methods surface characterization/glove materials; Results dry flat surface",
+    "external_matched_two_finger_slip_force_N": null,
+    "missing_observable": "held-out two-finger axial slip onset force with measured per-finger normal loads for this handle/glove geometry",
+    "not_independent_facit": "published mu=Fpeak/N; multiplying back by the same10N is circular validation"
+  },
+  "needle_driver": {
+    "source": "needle_driver_2018.pdf",
+    "pages": [
+      3,
+      5,
+      6
+    ],
+    "mu": {
+      "lower": "3/10",
+      "upper": "2/5",
+      "unit": "1",
+      "uncertainty_kind": "AUTHOR_ASSUMED_FRICTION_RANGE_NOT_CALIBRATED"
+    },
+    "needle_diameter": {
+      "lower": "3/5000",
+      "upper": "3/5000",
+      "unit": "m",
+      "uncertainty_kind": "PUBLISHED_NOMINAL_GEOMETRY_TOLERANCE_UNKNOWN"
+    },
+    "grip_distance": {
+      "lower": "1/125",
+      "upper": "1/125",
+      "unit": "m",
+      "uncertainty_kind": "PUBLISHED_APPROXIMATE_GEOMETRY_TOLERANCE_UNKNOWN"
+    },
+    "small_angle_design_regime": {
+      "lower": "0",
+      "upper": "5",
+      "unit": "deg",
+      "uncertainty_kind": "PUBLISHED_DESIGN_REGIME"
+    },
+    "held_mean_pull_off_N": "20.11",
+    "trials": 5,
+    "SD_SEM_CI": null,
+    "table_mean_pull_off_N": [
+      "20.11",
+      "24.14",
+      "40.86",
+      "55.33",
+      "67.33"
+    ],
+    "actuator_forces_N": [
+      "10",
+      "20",
+      "30",
+      "40",
+      "50"
+    ],
+    "table_label_note": "page5 text refers to TableII; visible page6 table is labelled TableI",
+    "measured_total_contact_normal_force_N": null,
+    "source_grip40N_convention": "opening-jaw force in derivation; friction-only paragraph multiplies40N by mu once; total two-surface normal load unmeasured"
+  }
+}

@@ -1,0 +1,68 @@
+{
+ "question": "is there a recycle fraction that spares the host and still discriminates an activator from a host surface",
+ "the_two_sides_each_measured_separately_until_now": {
+  "host_sparing_flip": 0.6901150139456149,
+  "discrimination_without_recycling": 486.11,
+  "discrimination_with_recycling": 4.969,
+  "ratio": 97.83,
+  "reading": "the recycling that spares the host is the same recycling that destroys discrimination, so over- and under-activation are one knob with a different failure at each end rather than one failure in two directions"
+ },
+ "host_spared_range": {
+  "rho_low": 0.0,
+  "rho_high": 0.69,
+  "count_of_1001": 691
+ },
+ "discrimination_at_the_ends": {
+  "rho_0": -1.3954,
+  "rho_at_flip_minus": -1156.756,
+  "rho_1": 3.979
+ },
+ "verdicts": [
+  {
+   "required_discrimination": 2.0,
+   "admissible_rho_count_of_1001": 510,
+   "rho_low": 0.181,
+   "rho_high": 0.69,
+   "window_exists": true
+  },
+  {
+   "required_discrimination": 5.0,
+   "admissible_rho_count_of_1001": 220,
+   "rho_low": 0.471,
+   "rho_high": 0.69,
+   "window_exists": true
+  },
+  {
+   "required_discrimination": 10.0,
+   "admissible_rho_count_of_1001": 113,
+   "rho_low": 0.578,
+   "rho_high": 0.69,
+   "window_exists": true
+  },
+  {
+   "required_discrimination": 50.0,
+   "admissible_rho_count_of_1001": 23,
+   "rho_low": 0.668,
+   "rho_high": 0.69,
+   "window_exists": true
+  },
+  {
+   "required_discrimination": 100.0,
+   "admissible_rho_count_of_1001": 12,
+   "rho_low": 0.679,
+   "rho_high": 0.69,
+   "window_exists": true
+  },
+  {
+   "required_discrimination": 486.0,
+   "admissible_rho_count_of_1001": 3,
+   "rho_low": 0.688,
+   "rho_high": 0.69,
+   "window_exists": true
+  }
+ ],
+ "control": "each constraint alone, which is how both numbers were reported until now: host sparing said recycling below the flip is safe, discrimination said recycling costs a factor of 97.83, and neither was put against the other",
+ "claim_type": "capability",
+ "scope": "algebraic behaviour of one supplied model under a swept parameter; the branch label the cell does not carry still conditions every number here",
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

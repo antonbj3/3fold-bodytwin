@@ -1,0 +1,697 @@
+{
+ "job": "BT-DAT-Q043",
+ "generated_utc": "2026-09-25T19:59:17.494619+00:00",
+ "purpose": "Public measured datasets that constrain the Q043 motor-unit EMG/force model in inputs/Q043_model.py",
+ "preregistration": {
+  "file": "PREREG.md",
+  "sha256": "e2d399e3435ae28fd9854015c6800b05d742be243ce4e2017ad9351938cb6748"
+ },
+ "network_note": "Only zenodo.org was reachable from this sandbox; other repositories are reported as UNREACHABLE, not as nonexistent",
+ "admitted": [
+  {
+   "id": "DS1",
+   "role": "primary_sample",
+   "title": "Caillet et al. PLOS Comput Biol 2023 - motoneuron-driven muscle model with motor unit resolution + subject-specific musculoskeletal anatomy",
+   "repository": "Zenodo",
+   "doi": "10.5281/zenodo.10069266",
+   "record": "https://zenodo.org/records/10069266",
+   "license": "CC BY 4.0",
+   "license_source": "Zenodo record metadata",
+   "total_bytes": 80250770,
+   "container": "zip (21 members)",
+   "format": "OpenSim 4.00 .osim (XML), Wavefront .obj meshes, NIfTI-1 .nii.gz label map, ITK-SnAP label text, .docx readme",
+   "subjects": "1 subject for the anatomy (S15); 1 subject-specific model (published as a single-participant personalised model)",
+   "measured_vs_model": "MIXED: MRI-derived segmentation/meshes are measured anatomy; the .osim actuator is a published model, not a measurement",
+   "url": "https://zenodo.org/api/records/10069266/files/Caillet_et_al_PLOS_Comp_Biol_2023.zip/content",
+   "members_sampled": [
+    {
+     "member": "4 OpenSim models/2_ankle_tib_ant_(400fibres_plus_tendon).osim",
+     "compressed_bytes": 402670,
+     "uncompressed_bytes": 16402902,
+     "stored_bytes": 16402902,
+     "crc32_verified": true,
+     "sha256": "6a7ab9e3a9bfca849a544e7b73c8271253fa10950470cfc277aa7a0f91b25b6c"
+    },
+    {
+     "member": "4 OpenSim models/Geometry/tib_ant_tendon.obj",
+     "compressed_bytes": 190764,
+     "uncompressed_bytes": 680758,
+     "stored_bytes": 680758,
+     "crc32_verified": true,
+     "sha256": "0c5e860edf2ef267f88082a0fe5d058e47739ac86ee4de7ceb9c33b8b43db9a4"
+    },
+    {
+     "member": "1 MRI scans and segmentations/2_S15_Segmentation.nii.gz",
+     "compressed_bytes": 222274,
+     "uncompressed_bytes": 488997,
+     "stored_bytes": 488997,
+     "crc32_verified": true,
+     "sha256": "118d45255caa59b4ce930c9ccb9c252c1b2d8fc9d98109d084a7f30dab0e5660"
+    },
+    {
+     "member": "1 MRI scans and segmentations/S15_Segmentation_Labels.txt",
+     "compressed_bytes": 459,
+     "uncompressed_bytes": 1448,
+     "stored_bytes": 1448,
+     "crc32_verified": true,
+     "sha256": "5042bbbc8051e9ca2a6d42414aa193a60e84b5fe515a974f0d0c69f388802a2f"
+    },
+    {
+     "member": "README_2023.docx",
+     "compressed_bytes": 98298,
+     "uncompressed_bytes": 106160,
+     "stored_bytes": 106160,
+     "crc32_verified": true,
+     "sha256": "4f6db42d88a1214c3381e0f9533aa7c23384102fffdd80a429c8d26f82c3c8ab"
+    }
+   ],
+   "transferred_bytes": 914465,
+   "access_method": "HTTP Range (206) on the zip central directory + per-member byte ranges; no member fetched whole",
+   "constrains": [
+    {
+     "model_parameter": "n_mus",
+     "q043_value": 120,
+     "measured_in_dataset": 400,
+     "evidence": "401 <Thelen2003Muscle> elements: 400 children TibialisAnterior_0..399 plus tendon muscle tib_ant_r_tendon",
+     "type": "recorded value in a published MU-resolved model (not a direct count measurement)"
+    },
+    {
+     "model_parameter": "total_peak_force_n",
+     "q043_value": 100.0,
+     "measured_in_dataset": 905.0,
+     "unit": "N",
+     "evidence": "<max_isometric_force>905</max_isometric_force> on tib_ant_r_tendon (subject-specific tibialis anterior)"
+    },
+    {
+     "model_parameter": "force_tau_min_s / force_tau_max_s",
+     "q043_value": [
+      0.03,
+      0.09
+     ],
+     "measured_in_dataset": [
+      0.01,
+      0.04
+     ],
+     "unit": "s",
+     "evidence": "<activation_time_constant>0.01</activation_time_constant>, <deactivation_time_constant>0.04</deactivation_time_constant>"
+    },
+    {
+     "model_parameter": "muscle_half_width_mm / muscle_half_length_mm",
+     "q043_value": [
+      30.0,
+      35.0
+     ],
+     "measured_in_dataset": {
+      "bbox_extent_mm": [
+       67.177278,
+       54.904779,
+       180.807007
+      ],
+      "bbox_min_mm": [
+       9.69232,
+       -37.486179,
+       -316.381012
+      ]
+     },
+     "evidence": "tib_ant_tendon.obj vertex cloud (4952 vertices, 9904 triangles), right limb; mesh mm x scale_factors 0.001 -> OpenSim metres"
+    },
+    {
+     "model_parameter": "(no Q043 parameter) tendon/fibre architecture",
+     "measured_in_dataset": {
+      "optimal_fiber_length_m": 0.098,
+      "tendon_slack_length_m": 0.223,
+      "pennation_rad": 0.08726646,
+      "pennation_deg": 5.0
+     },
+     "evidence": "<optimal_fiber_length>, <tendon_slack_length>, <pennation_angle_at_optimal> in the same .osim"
+    }
+   ],
+   "sample_verification": {
+    "osim": {
+     "file": "2_ankle_tib_ant_(400fibres_plus_tendon).osim",
+     "bytes_on_disk": 16402902,
+     "format": "OpenSimDocument Version 40000, XML",
+     "units": "lengths m, force N, time s, angle rad (OpenSim SI)",
+     "frame": "subject-specific right ankle in OpenSim global frame; bodies tibia_r/talus_r/calcn_r",
+     "counts": {
+      "Thelen2003Muscle": 401,
+      "MovingPathPoint": 6400,
+      "Mesh": 4,
+      "FrameGeometry": 10,
+      "Body": 3,
+      "Coordinate": 8,
+      "Marker": 12
+     },
+     "mesh_scale_factors": "0.001 0.001 0.001 for tibia_r.obj, tib_ant_tendon.obj, talus_r.obj, calcn_r.obj (mm -> m)"
+    },
+    "obj": {
+     "file": "tib_ant_tendon.obj",
+     "vertices": 4952,
+     "xyz": 3,
+     "triangle_faces": 9904,
+     "units": "mm in the file (OpenSim scales by 0.001 to m)",
+     "extent_mm": [
+      67.177278,
+      54.904779,
+      180.807007
+     ],
+     "frame": "right limb ('_r' suffix), Netfabb/MeshLab processed, OpenSim global frame after 0.001 scaling"
+    },
+    "nifti": {
+     "file": "2_S15_Segmentation.nii.gz",
+     "magic": "n+1",
+     "dim": [
+      3,
+      512,
+      464,
+      528,
+      1,
+      1,
+      1,
+      1
+     ],
+     "pixdim_mm": [
+      1.0,
+      0.4492189884185791,
+      0.4492189884185791,
+      1.0000159740447998
+     ],
+     "datatype": "uint16 (NIfTI code 512), bitpix 16",
+     "spatial_units": "mm (xyzt_units=2)",
+     "frame": "scanner anatomical RAS (qform_code=1); quaternion (b,c,d)=(0.001081,0.002629,0.999996), qoffset=(187.368,57.149,-362.484) mm",
+     "labels_16": [
+      "Tibialis Anterior",
+      "Toes",
+      "EHL tendon",
+      "EDL tendon",
+      "top TA tendon",
+      "GML tendon",
+      "foot TA tendon",
+      "Tibia",
+      "talus",
+      "Calcaneus",
+      "SOLEUS muscle",
+      "SOL tendon",
+      "GM muscle",
+      "GL muscle",
+      "EHL muscle",
+      "EDL muscle"
+     ],
+     "field_of_view_mm_derived": [
+      230.0,
+      208.44,
+      528.01
+     ]
+    },
+    "labels_txt": {
+     "file": "S15_Segmentation_Labels.txt",
+     "bytes_on_disk": 1448,
+     "format": "ITK-SnAP label description",
+     "n_labels": 16
+    },
+    "readme": {
+     "file": "README_2023.docx",
+     "bytes_on_disk": 106160,
+     "note": "kept for unit/frame provenance; not parsed in this job"
+    }
+   }
+  },
+  {
+   "id": "DS2",
+   "role": "secondary_sample",
+   "title": "Raiteri et al. 2026 - stretch versus shortening contractions alter neural drive to human tibialis anterior (motor unit results)",
+   "repository": "Zenodo",
+   "doi": "10.5281/zenodo.18922801",
+   "record": "https://zenodo.org/records/18922801",
+   "license": "CC BY 4.0",
+   "license_source": "Zenodo record metadata",
+   "access": "open",
+   "total_bytes": 436533,
+   "files": 15,
+   "format": "CSV/XLSX results tables + R Markdown analysis notebooks (raw 15 GB .mat bundles referenced but not hosted in this record)",
+   "subjects": "17 participants (p01-p18, p07 absent), tibialis anterior, 20% and 40% MVT, DEMUSE and MUedit decomposition, 3 conditions (REF/STRhold/SHOhold)",
+   "url_base": "https://zenodo.org/api/records/18922801/files/",
+   "sampled_files": [
+    {
+     "file": "motorUnitResultsUpdate_Raiteri.csv",
+     "bytes": 69978,
+     "sha256": "2ab64d0fe8926aaf7985b5b1a0a8dc0597c3b97472f0d15867474785dde7c95a",
+     "shape": [
+      3840,
+      6
+     ],
+     "columns": [
+      "pid",
+      "decomp",
+      "intensity",
+      "condition",
+      "muid",
+      "outcome"
+     ],
+     "variable": "outcome = median discharge rate of each motor unit during a time-matched steady-state hold phase, unit Hz (record description)",
+     "index_frame": "row index = (participant pid, decomposition method decomp 1=DEMUSE/2=MUedit, intensity 1=20% MVT/2=40% MVT, condition 1=REF/2=STRhold/3=SHOhold, motor unit id muid); no spatial frame, time referenced to the hold phase"
+    },
+    {
+     "file": "EMGampAllChannels_Raiteri.csv",
+     "bytes": 106475,
+     "sha256": "b34caed201c31d32e7673aec969cacf7c287467f5c6ccdc397dcde46bee437d2",
+     "shape": [
+      6018,
+      5
+     ],
+     "columns": [
+      "pid",
+      "intensity",
+      "condition",
+      "channel",
+      "outcome"
+     ],
+     "variable": "outcome = per-channel EMG amplitude; UNIT NOT STATED IN THE RECORD -> UNKNOWN",
+     "index_frame": "row index = (participant, intensity, condition, grid channel 1..59); spatial grid geometry not stated in the record"
+    }
+   ],
+   "measured_stats_from_sample": {
+    "rows": 3840,
+    "cols": [
+     "pid",
+     "decomp",
+     "intensity",
+     "condition",
+     "muid",
+     "outcome"
+    ],
+    "participants": [
+     "p01",
+     "p02",
+     "p03",
+     "p04",
+     "p05",
+     "p06",
+     "p08",
+     "p09",
+     "p10",
+     "p11",
+     "p12",
+     "p13",
+     "p14",
+     "p15",
+     "p16",
+     "p17",
+     "p18"
+    ],
+    "n_participants": 17,
+    "mus_per_participant_intensity_median": 21.5,
+    "mus_per_participant_intensity_range": [
+     9,
+     37
+    ],
+    "rate_hz_all": {
+     "min": 0.1,
+     "p05": 9.2,
+     "median": 12.9,
+     "mean": 13.098,
+     "p95": 17.7,
+     "max": 23.5,
+     "sd": 2.631
+    },
+    "rate_hz_20pct_MVT": {
+     "n": 2094,
+     "median": 11.9,
+     "p05": 8.5,
+     "p95": 15.2,
+     "max": 17.8
+    },
+    "rate_hz_40pct_MVT": {
+     "n": 1746,
+     "median": 14.4,
+     "p05": 10.6,
+     "p95": 18.7,
+     "max": 23.5
+    }
+   },
+   "constrains": [
+    {
+     "model_parameter": "min_rate_hz",
+     "q043_value": 8.0,
+     "measured_in_dataset": {
+      "p05_hz": 9.2,
+      "min_hz": 0.1,
+      "median_hz": 12.9
+     },
+     "coverage": "steady-state 20-40% MVT only; min-rate plausible, high-intensity peak not covered"
+    },
+    {
+     "model_parameter": "first_peak_rate_hz / peak_rate_step_hz",
+     "q043_value": [
+      45.0,
+      10.0
+     ],
+     "measured_in_dataset": {
+      "max_hz_observed": 23.5,
+      "median_hz_40pct_MVT": 14.4,
+      "median_hz_20pct_MVT": 11.9
+     },
+     "coverage": "NOT CONSTRAINED above ~24 Hz; dataset does not reach MVC"
+    },
+    {
+     "model_parameter": "n_mus (resolvable count)",
+     "q043_value": 120,
+     "measured_in_dataset": {
+      "median_MUs_per_participant_intensity": 21.5,
+      "range": [
+       9,
+       37
+      ]
+     },
+     "coverage": "lower bound on detectable MUs, not a count"
+    },
+    {
+     "model_parameter": "recruitment_center / recruitment_spread",
+     "q043_value": [
+      0.6,
+      0.3
+     ],
+     "measured_in_dataset": "20% vs 40% MVT conditions only; no recruitment-threshold variable in this file",
+     "coverage": "partial"
+    },
+    {
+     "model_parameter": "emg_event_amplitude_mv / electrode-level amplitude scaling",
+     "q043_value": 0.035,
+     "measured_in_dataset": {
+      "amp_median": 23.145,
+      "amp_range": [
+       2.68,
+       118.05
+      ],
+      "amp_sd": 10.013,
+      "unit": "UNKNOWN"
+     },
+     "coverage": "magnitude only; unusable as a constraint until the unit is stated"
+    }
+   ]
+  },
+  {
+   "id": "DS3",
+   "role": "catalogue_only",
+   "title": "Caffeine enhances soleus motoneuron output and preserves torque during repetitive WPHF NMES",
+   "repository": "Zenodo",
+   "doi": "10.5281/zenodo.20510676",
+   "record": "https://zenodo.org/records/20510676",
+   "related_paper": "10.1152/jn.00611.2025",
+   "license": "CC BY 4.0",
+   "access": "open",
+   "total_bytes": 1109881,
+   "files": 6,
+   "format": "XLSX (4 sheets) + CSV exports + readme txt; metrics derived from high-density surface EMG motor unit decomposition",
+   "subjects": "participant total UNKNOWN in the record; the WPHF-trains sheet covers a subgroup of 16 participants; conditions caffeine/placebo x pre/mid/post",
+   "url_base": "https://zenodo.org/api/records/20510676/files/",
+   "constrains": [
+    {
+     "model_parameter": "min_rate_hz, first_peak_rate_hz, isi_cv",
+     "q043_value": [
+      8.0,
+      45.0,
+      0.2
+     ],
+     "measured_in_dataset": "motor unit discharge metrics from HDEMG (exact field names inside the workbook, not extracted in this job)",
+     "coverage": "direct measured firing-rate data for soleus, incl. torques preserved under NMES"
+    },
+    {
+     "model_parameter": "R_joint (observation budget)",
+     "q043_value": "held-out joint standardized residual",
+     "measured_in_dataset": "repeated WPHF stimulation train responses with torque and EMG",
+     "coverage": "time-locked force/EMG pairs"
+    }
+   ]
+  },
+  {
+   "id": "DS4",
+   "role": "catalogue_only",
+   "title": "Muscle cramp susceptibility is associated with muscle-specific modulation of human motoneuron discharge patterns",
+   "repository": "Zenodo",
+   "doi": "10.5281/zenodo.20629907",
+   "record": "https://zenodo.org/records/20629907",
+   "license": "CC BY 4.0",
+   "access": "open",
+   "total_bytes": 826599,
+   "files": 5,
+   "format": "XLSX (Data / MU_analysis / MUpair_analysis) + CSV exports + readme txt",
+   "subjects": "participant total UNKNOWN in the record; status Control vs Cramp; muscles GM (medial gastrocnemius) and SOL (soleus); pre/post time points",
+   "url_base": "https://zenodo.org/api/records/20629907/files/",
+   "constrains": [
+    {
+     "model_parameter": "recruitment_center, recruitment_spread",
+     "q043_value": [
+      0.6,
+      0.3
+     ],
+     "measured_in_dataset": "per-motor-unit recruitment and derecruitment thresholds (raw and normalized brace height)",
+     "coverage": "direct"
+    },
+    {
+     "model_parameter": "first_peak_rate_hz",
+     "q043_value": 45.0,
+     "measured_in_dataset": "per-motor-unit maximal discharge rate and acceleration/attenuation slopes",
+     "coverage": "direct"
+    },
+    {
+     "model_parameter": "force_noise_fraction, R_joint",
+     "q043_value": [
+      0.02,
+      "joint residual"
+     ],
+     "measured_in_dataset": "force-tracking error plus MVC, voluntary activation, Hmax/Mmax",
+     "coverage": "observer/quantification error floor"
+    }
+   ]
+  },
+  {
+   "id": "DS5",
+   "role": "catalogue_only",
+   "title": "Nature of the coupling between neural drive and force-generating capacity in the human quadriceps",
+   "repository": "Dryad (mirrored on Zenodo)",
+   "doi": "10.5061/dryad.h3b27",
+   "record": "https://zenodo.org/records/5024627",
+   "license": "CC0",
+   "access": "open",
+   "total_bytes": 263420,
+   "files": 10,
+   "format": "XLSX workbooks (Demographics, Neural_Drive, Muscle_Architecture, Torque_and_VA, Correlation) + rtf readmes",
+   "subjects": "21 participants, isometric knee extension at 20% and 50% MVC, vastus lateralis and vastus medialis",
+   "url_base": "https://zenodo.org/api/records/5024627/files/",
+   "constrains": [
+    {
+     "model_parameter": "muscle_half_width_mm, muscle_half_length_mm",
+     "q043_value": [
+      30.0,
+      35.0
+     ],
+     "measured_in_dataset": "PCSA from MRI muscle volume and 3D-ultrasound fascicle length (per muscle, per participant)",
+     "coverage": "direct imaging-based geometry"
+    },
+    {
+     "model_parameter": "recruitment_spread, reference_rate_hz, R_joint",
+     "q043_value": [
+      0.3,
+      20.0,
+      "joint residual"
+     ],
+     "measured_in_dataset": "EMG (neural drive) vs torque at 20% and 50% MVC, plus EMG-EMG correlations",
+     "coverage": "direct test of whether EMG and force share one latent factor - the Q043 question"
+    }
+   ]
+  },
+  {
+   "id": "DS6",
+   "role": "catalogue_only",
+   "title": "Neuromechanical coupling within the human triceps surae and its consequence on individual force sharing strategies",
+   "repository": "Dryad (mirrored on Zenodo)",
+   "doi": "10.5061/dryad.68jc53n",
+   "record": "https://zenodo.org/records/5003879",
+   "license": "CC0",
+   "access": "open",
+   "total_bytes": 113608,
+   "files": 9,
+   "format": "XLSX workbooks (Demographics, Dryad_Torque, Dryad_Muscle_Architecture, Dryad_Muscle_Activation, Dryad_EMG_Reliability) + rtf readmes",
+   "subjects": "20 volunteers, isometric plantarflexion, soleus / gastrocnemius medialis / gastrocnemius lateralis",
+   "url_base": "https://zenodo.org/api/records/5003879/files/",
+   "constrains": [
+    {
+     "model_parameter": "muscle_half_width_mm, muscle_half_length_mm",
+     "q043_value": [
+      30.0,
+      35.0
+     ],
+     "measured_in_dataset": "functional PCSA from imaging",
+     "coverage": "direct"
+    },
+    {
+     "model_parameter": "electrode_half_separation_mm, emg_noise_fraction",
+     "q043_value": [
+      5.0,
+      0.05
+     ],
+     "measured_in_dataset": "EMG reliability sheet across electrodes/subjects",
+     "coverage": "electrode-to-electrode amplitude variability, i.e. the geometry/visibility error term"
+    }
+   ]
+  },
+  {
+   "id": "DS7",
+   "role": "catalogue_only",
+   "title": "Fatiguing effects of indirect vibration stimulation in upper limb muscles (post and during isometric contractions)",
+   "repository": "Dryad (mirrored on Zenodo)",
+   "doi": "10.5061/dryad.jq8bg5c",
+   "record": "https://zenodo.org/records/5002235",
+   "license": "CC0",
+   "access": "open",
+   "total_bytes": 1045383,
+   "files": 3,
+   "format": "XLSX computed tables (MVCs RMS/MEF+MDF, 80% trial RMS calculations)",
+   "subjects": "13 healthy volunteers, fatiguing isometric contractions at 80% MVC, biceps brachii / triceps brachii / flexor carpi radialis, vibration vs control",
+   "url_base": "https://zenodo.org/api/records/5002235/files/",
+   "constrains": [
+    {
+     "model_parameter": "emg_lowpass_tau_s, emg_noise_fraction",
+     "q043_value": [
+      0.012,
+      0.05
+     ],
+     "measured_in_dataset": "EMGrms plus mean and median frequency per trial (frequency content of the accepted EMG band)",
+     "coverage": "bandwidth/emg filter justification"
+    },
+    {
+     "model_parameter": "force_noise_fraction",
+     "q043_value": 0.02,
+     "measured_in_dataset": "contractions held at 80% MVC with force records",
+     "coverage": "partial; force quantisation not reported"
+    }
+   ]
+  },
+  {
+   "id": "DS8",
+   "role": "catalogue_only",
+   "title": "Framingham Heart Study musculoskeletal models updated to OpenSim 4.x",
+   "repository": "Zenodo",
+   "doi": "10.5281/zenodo.18259702",
+   "record": "https://zenodo.org/records/18259702",
+   "license": "CC BY-NC 4.0",
+   "access": "open",
+   "total_bytes": 39673329,
+   "files": 1,
+   "format": "zip of subject-specific OpenSim 4.x models with geometry (Millard2012EquilibriumMuscle, Thelen2003Muscle)",
+   "subjects": "250 participants (125 women, 125 men), upper body incl. thoracolumbar spine, ribcage, head/neck, upper extremities",
+   "url_base": "https://zenodo.org/api/records/18259702/files/",
+   "constrains": [
+    {
+     "model_parameter": "muscle_half_width_mm, muscle_half_length_mm, total_peak_force_n",
+     "q043_value": [
+      30.0,
+      35.0,
+      100.0
+     ],
+     "measured_in_dataset": "per-subject muscle geometry, optimal fibre length, PCSA-derived max isometric force in OpenSim SI units",
+     "coverage": "large anatomy cohort; upper body, so not the muscle used in the sample"
+    },
+    {
+     "model_parameter": "force_tau_min_s, force_tau_max_s",
+     "q043_value": [
+      0.03,
+      0.09
+     ],
+     "measured_in_dataset": "Hill-type activation time constants per muscle",
+     "coverage": "direct"
+    }
+   ],
+   "note": "not downloaded in this job; listed as the geometry cohort to use next (39.7 MB, single file, would fit the 50 MB cap)"
+  },
+  {
+   "id": "DS9",
+   "role": "catalogue_only_animal",
+   "title": "Dual dimensionality reduction reveals independent encoding of motor features in a muscle synergy for insect flight control",
+   "repository": "Dryad (mirrored on Zenodo)",
+   "doi": "10.5061/dryad.q83d0",
+   "record": "https://zenodo.org/records/4967801",
+   "license": "CC0",
+   "access": "open",
+   "total_bytes": 21056804,
+   "files": [
+    {
+     "key": "README_for_Data_for_sponberg_et_al_dual_dimensionality.txt",
+     "bytes": 12900
+    },
+    {
+     "key": "Data_for_sponberg_et_al_dual_dimensionality.zip",
+     "bytes": 21043904
+    }
+   ],
+   "format": "zip + txt readme",
+   "subjects": "ANIMAL (insect, locust flight motor system) - flagged, not human",
+   "url_base": "https://zenodo.org/api/records/4967801/files/",
+   "constrains": [
+    {
+     "model_parameter": "recruitment_center, recruitment_spread (independent encoding of rate and recruitment)",
+     "q043_value": [
+      0.6,
+      0.3
+     ],
+     "measured_in_dataset": "single identified motor neuron signals analysed by partial least squares",
+     "coverage": "structural test of the Q043 one-factor assumption, but in an insect, no force channel of the Q043 kind"
+    }
+   ]
+  }
+ ],
+ "rejected_or_unreachable": [
+  {
+   "candidate": "Zenodo 10.5281/zenodo.10936952 - Biceps brachii HDEMG + DEMUSE decomposition",
+   "decision": "REJECTED (not measured)",
+   "reason": "record states synthetic/simulated surface EMG; fails inclusion criterion A2. Individual files of 36-60 MB would otherwise fit the cap"
+  },
+  {
+   "candidate": "Zenodo 10.5281/zenodo.5700435 'Data of AdHere'",
+   "decision": "REJECTED (title collision)",
+   "reason": "this is an advertising-compliance dataset, not the high-density EMG AdHere; recorded so it is not re-added by mistake"
+  },
+  {
+   "candidate": "Zenodo 10.5281/zenodo.6953924 DeepACSA_models",
+   "decision": "REJECTED (not measured)",
+   "reason": "trained VGG16 network weights, no measurements"
+  },
+  {
+   "candidate": "NinaPro DB 1-5 (sEMG + force, up to 130 subjects)",
+   "decision": "UNREACHABLE from this sandbox",
+   "reason": "DNS failure for ninaweb.liips.utc.fr; the database is public and would satisfy A1-A4, it is listed as the next fetch from a networked host"
+  },
+  {
+   "candidate": "OpenCap LabValidation dataset (sEMG 8 channels + kinematics)",
+   "decision": "UNREACHABLE from this sandbox",
+   "reason": "opencap.stanford.edu did not resolve (simtk.org resolved but file-level metadata was not verified in this job)"
+  },
+  {
+   "candidate": "Imperial College London 35 femur+tibia (zenodo/167808)",
+   "decision": "NOT EVALUATED",
+   "reason": "skeleton-only bone meshes; no direct constraint on the EMG/force parameters in the frozen target list"
+  }
+ ],
+ "coverage_gap": {
+  "constrained": [
+   "n_mus (recorded value, 400 in DS1)",
+   "total_peak_force_n (905 N)",
+   "force_tau_min_s/max_s (0.01/0.04 s)",
+   "muscle_half_width_mm, muscle_half_length_mm (67.18 x 54.90 x 180.81 mm bbox)",
+   "min_rate_hz (p05 9.2 Hz)",
+   "recruitment thresholds (DS4)",
+   "EMG amplitude magnitude (DS2, unit UNKNOWN)"
+  ],
+  "not_constrained_by_any_admitted_dataset": [
+   "geometry_length_mm = 12 (volume-conduction length)",
+   "action_potential_duration_ms = 5/20 (needs measured single-fibre or single-MU action potentials at a known electrode distance)",
+   "first_peak_rate_hz = 45 and peak_rate_step_hz = 10 (DS2 tops out at 23.5 Hz at 40% MVT)",
+   "isi_cv = 0.2",
+   "force_noise_fraction = 0.02 (no reported force quantisation)",
+   "emg_lowpass_tau_s = 0.012 (only indirectly via DS7 mean/median frequency)",
+   "emg_event_amplitude_mv = 0.035 (DS2 amplitude unit not stated)"
+  ],
+  "conclusion": "Public data close the geometry, force-capacity and rate-coding side of the model. The electrode-geometry side (volume-conduction length, action-potential duration, absolute EMG amplitude scale) is NOT closed by any admitted dataset and needs measured bipolar surface EMG with a documented electrode-to-muscle distance and a stated amplitude unit."
+ }
+}

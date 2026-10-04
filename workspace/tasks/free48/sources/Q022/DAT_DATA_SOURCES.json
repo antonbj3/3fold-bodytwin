@@ -1,0 +1,242 @@
+{
+  "id": "BT-DAT-Q022",
+  "generated_utc": "2026-09-25",
+  "prereg": "PREREG.md",
+  "prereg_sha256": "94db5ca126ca20870b4a5fd4a220d69ca8ef8eddbe40e17e52b8acf0d7e8d54f",
+  "question": "Q022: how is the heart's electrical activity coupled to force when perfusion changes? Paired electrical, mechanical and perfusion data are required.",
+  "model_constrained": {
+    "file": "inputs/Q022_model.py",
+    "sha256": "9d97bd4ba9de3a1521db79acf9a3016ca67390a3e7725d7f0f7d2611b3d76345",
+    "kind": "single lumped 0-D excitation-contraction-perfusion chain (q022-lumped-v1)",
+    "note": "0-D lumped: it has NO anatomical geometry, so 3-D anatomical imaging datasets constrain no parameter of this version. They are listed only for a future distributed successor."
+  },
+  "access_classes": {
+    "OPEN_NO_REQUEST": "downloads work anonymously, verified in this job",
+    "OPEN_WITH_REQUEST": "open licence but a data use agreement or a request form is required, not verified in this job",
+    "RESTRICTED": "credentialed access, not downloadable here"
+  },
+  "datasets": [
+    {
+      "rank": 1,
+      "name": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3",
+      "url": "https://physionet.org/content/ptb-xl/1.0.3/",
+      "doi": "10.13026/kfzx-aw45",
+      "license": "Creative Commons Attribution 4.0 International",
+      "license_verified": true,
+      "size_total": "3.0 GB uncompressed (records500 500 Hz + records100 100 Hz)",
+      "size_verified": true,
+      "format": "WFDB .dat/.hea, 12 leads, 16-bit, resolution 1 uV/LSB, 500 Hz (100 Hz mirror), 10 s per record; metadata in ptbxl_database.csv with SCP-ECG statements",
+      "subjects": "21869 records from 18869 patients (51% male); median age 62 y",
+      "subjects_verified": true,
+      "measured_modality": "surface 12-lead ECG, Einthoven/Goldberger frame, right-arm reference",
+      "constrains": [
+        "electrical_sigma (model drive FWHM 0.0589 s vs measured QRS duration)",
+        "electrical_center (R-peak placement of the drive relative to force)",
+        "k_on, k_off (rise/decay of the activation gate against measured QRS upstroke)",
+        "beat window: model integrates a fixed 1.0 s episode while the measured median RR is 0.652 s in record 00001"
+      ],
+      "access_class": "OPEN_NO_REQUEST",
+      "downloaded_in_this_job": "yes: samples/ptbxl_1.0.3/ (record 00001_hr .dat+.hea, scp_statements.csv, ptbxl_database.csv)",
+      "verdict": "USABLE_NOW"
+    },
+    {
+      "rank": 2,
+      "name": "MIMIC-IV Waveform Database version 0.1.0",
+      "url": "https://physionet.org/content/mimic4wdb/0.1.0/",
+      "doi": "10.13026/a2mw-f949",
+      "license": "Open Data Commons Open Database License v1.0",
+      "license_verified": true,
+      "size_total": "12.8 GB",
+      "size_verified": true,
+      "format": "WFDB per-signal-group .hea + FLAC-compressed .dat payloads (magic 'fLaC'), counter-based timing (e.g. 62.4725/999.56(5120) = 3200 samples at 624.725 Hz), ADC gain/zero/resolution per signal, groups suffixed e=ECG, p=pleth/pressure, r=impedance respiration",
+      "subjects": "UNKNOWN_NOT_FETCHED: subject-level count not parsed within the 45 min budget; the release is organised per ICU stay and per waveform segment",
+      "measured_modality": "ECG leads (II, V, aVR, I, III), Pleth, impedance Resp, and ABP/Art/CVP in other stays, all on one time base per segment",
+      "constrains": [
+        "k_on, k_off: measured R-peak to Pleth/ABP upstroke delay tests the model's electrical_to_activation_lag_s window [0, 0.080] s",
+        "afterload: ABP amplitude and dP/dt as the real load the model's 0.10 normalised afterload stands in for",
+        "passive_stiffness, damping, length_width: beat-to-beat strain amplitude from Pleth/ABP pulse amplitude",
+        "time base: counter-tick timestamps let a multi-beat electrical drive be aligned to pressure"
+      ],
+      "access_class": "OPEN_NO_REQUEST",
+      "downloaded_in_this_job": "yes: samples/mimic4wdb_p10014354/ record 81739927 segment 0002 (5.12 s, ECG II/V/aVR + Pleth + Resp)",
+      "verdict": "USABLE_NOW_BUT_DECODE_BLOCKED_IN_THIS_CONTAINER",
+      "blocker": "FLAC payloads need a decoder; this container has no wfdb, no soundfile and no pip. Header form verified at byte level, sample values UNKNOWN."
+    },
+    {
+      "rank": 3,
+      "name": "MIMIC-IV-ECG: Diagnostic Electrocardiogram Matched Subset version 1.0",
+      "url": "https://physionet.org/content/mimic-iv-ecg/",
+      "doi": "10.13026/4nqg-sb35",
+      "license": "Open Data Commons Open Database License v1.0",
+      "license_verified": true,
+      "size_total": "90.4 GB",
+      "size_verified": true,
+      "format": "WFDB 12-lead 10 s diagnostic ECG, machine-generated statements plus findings text, matched by stay to MIMIC-IV clinical and waveform tables",
+      "subjects": "UNKNOWN_NOT_FETCHED",
+      "measured_modality": "surface 12-lead ECG linked to invasive pressure, labs and diagnoses for the same ICU stay",
+      "constrains": [
+        "ca_ec50, hill_n, gregg_gain: the cohort link lets ECG morphology (ischaemia, LBBB, MI) be tested against the pressure and outcome columns for the same patient",
+        "electrical_sigma: QRS duration as a population statistic with SCP-QRS codes, not from one record",
+        "hypoxia_penalty: ischaemic diagnoses in the matched clinical table"
+      ],
+      "access_class": "OPEN_NO_REQUEST",
+      "downloaded_in_this_job": "no",
+      "verdict": "USABLE_BUT_TOO_LARGE_FOR_THE_50_MIB_SAMPLE_BOUND"
+    },
+    {
+      "rank": 4,
+      "name": "HeartCycle: synchronized impedance cardiography and echocardiography, version 1.0.0",
+      "url": "https://physionet.org/content/heartcycle/",
+      "doi": "10.13026/z865-eb23",
+      "license": "Open Data Commons Attribution License v1.0",
+      "license_verified": true,
+      "size_total": "2.3 GB",
+      "size_verified": true,
+      "format": "synchronized ICG (dZ/dt), echocardiography video, ECG and further modalities; the release states it is the first open dataset with simultaneous ICG, ECHO and ECG",
+      "subjects": "UNKNOWN_NOT_FETCHED",
+      "measured_modality": "electrical (ECG) + thoracic impedance mechanical (ICG) + echocardiographic wall motion, all time-synchronised",
+      "constrains": [
+        "length_width, velocity_half, compression_coef: measured LV wall excursion and thickening from echo vs strain",
+        "passive_stiffness, damping, afterload: ICG dZ/dt B and X points vs systolic time intervals",
+        "k_on, k_off: ECG-R to ICG-B lag, an independent check of the activation gate timing"
+      ],
+      "access_class": "OPEN_NO_REQUEST",
+      "downloaded_in_this_job": "no",
+      "verdict": "BEST_MECHANICAL_CONSTRAINT_AVAILABLE"
+    },
+    {
+      "rank": 5,
+      "name": "SCG-RHC: Wearable Seismocardiogram Signal and Right Heart Catheter Database, version 1.0.0",
+      "url": "https://physionet.org/content/scg-rhc-wearable-database/",
+      "doi": "10.13026/133d-pk11",
+      "license": "Open Data Commons Attribution License v1.0",
+      "license_verified": true,
+      "size_total": "11.6 GB",
+      "size_verified": true,
+      "format": "wearable seismocardiogram plus simultaneous right heart catheter haemodynamics; the release states the goal is to track PAP and pulmonary capillary wedge pressure from the SCG signal",
+      "subjects": "UNKNOWN_NOT_FETCHED",
+      "measured_modality": "chest-wall mechanical vibration + invasive right-sided pressures (ECG-synchronised in the release)",
+      "constrains": [
+        "p_ext, p_ref, flow_max: the only open dataset found with an invasive pressure target tied to a chest-wall mechanical signal",
+        "afterload, passive_stiffness: SCG peak timing and amplitude against catheter pressures",
+        "gregg_gain, hypoxia_penalty: the closest open proxy for the perfusion-to-force route, but right-sided, not coronary"
+      ],
+      "access_class": "OPEN_NO_REQUEST",
+      "downloaded_in_this_job": "no",
+      "verdict": "USABLE_WITH_CAVEAT_NOT_CORONARY"
+    },
+    {
+      "rank": 6,
+      "name": "SensSmartTech database of cardiovascular signals, version 1.0.0",
+      "url": "https://physionet.org/content/senssmarttech/",
+      "doi": "10.13026/fy9p-n277",
+      "license": "Creative Commons Attribution 4.0 International",
+      "license_verified": true,
+      "size_total": "775.0 MB",
+      "size_verified": true,
+      "format": "polycardiograph: PCG 1 kHz, ECG, PPG, accelerometer, bioimpedance, synchronised; heart rate deliberately spans 58-173 bpm",
+      "subjects": "UNKNOWN_NOT_FETCHED",
+      "measured_modality": "electrical (ECG) + mechanical (PCG chest vibration, accelerometer) + arterial pulse (PPG) on one clock",
+      "constrains": [
+        "electrical_center, k_on, k_off: S1 timing relative to R across a 58-173 bpm sweep, i.e. rate dependence the fixed model cannot express",
+        "tau_ca, tau_load, length_width, velocity_half: relaxation dynamics across heart rates",
+        "velocity_half: PPG upstroke time as a mechanical analogue of the model's force-velocity term"
+      ],
+      "access_class": "OPEN_NO_REQUEST",
+      "downloaded_in_this_job": "no",
+      "verdict": "USABLE_BEST_FOR_RATE_DEPENDENCE"
+    },
+    {
+      "rank": 7,
+      "name": "MIT-BIH Arrhythmia Database version 1.0.0",
+      "url": "https://physionet.org/content/mitdb/1.0.0/",
+      "doi": "10.13026/C2F305",
+      "license": "Open Data Commons Attribution License v1.0",
+      "license_verified": true,
+      "size_total": "104.3 MB",
+      "size_verified": true,
+      "format": "WFDB 2-lead (MLII, V5) 12-bit, 360 Hz, 30 min per record, with beat and rhythm annotations",
+      "subjects": "UNKNOWN_NOT_FETCHED (the classic 48 records / 22 subjects figure was NOT re-read in this job)",
+      "measured_modality": "surface 2-lead ECG with beat annotation files",
+      "constrains": [
+        "k_on, k_off, electrical_sigma: annotation-driven QRS onset/offset instead of a threshold estimator, at 360 Hz",
+        "beat window: annotated RR intervals, the distribution the model's single 1.0 s episode has to generalise over"
+      ],
+      "access_class": "OPEN_NO_REQUEST",
+      "downloaded_in_this_job": "no",
+      "verdict": "USABLE_NOW_SINGLE_RECORD_IS_29_MIB"
+    },
+    {
+      "rank": 8,
+      "name": "Myocardial Perfusion Scintigraphy image database, version 1.0.0",
+      "url": "https://physionet.org/content/myocardial-perfusion-spect/",
+      "doi": "10.13026/ce2z-dw74",
+      "license": "Open Data Commons Open Database License v1.0",
+      "license_verified": true,
+      "size_total": "50.4 MB",
+      "size_verified": true,
+      "format": "nuclear medicine images, rest and stress, LV wall delineation; the whole release is 50.4 MB so a study fits the 50 MiB bound",
+      "subjects": "UNKNOWN_NOT_FETCHED",
+      "measured_modality": "in-vivo myocardial perfusion, tracer uptake, not time-resolved and not pressure",
+      "constrains": [
+        "gregg_gain, perfusion_gamma, hypoxia_penalty: only as a binary rest-vs-stress ischaemia label, so it can test the SIGN of the perfusion-force route and nothing about its magnitude"
+      ],
+      "access_class": "OPEN_NO_REQUEST",
+      "downloaded_in_this_job": "no",
+      "verdict": "WEAK_FOR_THIS_MODEL: no time base, no pressure, no beat resolution"
+    },
+    {
+      "rank": 9,
+      "name": "Epicardially attached cardiac accelerometer data from canines and porcines, version 1.0.0",
+      "url": "https://physionet.org/content/cardiac-accel-canine-porcine/",
+      "doi": "10.13026/5xmr-zd88",
+      "license": "Open Data Commons Attribution License v1.0",
+      "license_verified": true,
+      "size_total": "358.0 MB",
+      "size_verified": true,
+      "format": "accelerometer on a temporary epicardial pacing lead, direct measurement of heart motion",
+      "subjects": "UNKNOWN_NOT_FETCHED; species are canines and porcines, not human",
+      "measured_modality": "in-vivo epicardial mechanics",
+      "constrains": [
+        "length_width, velocity_half, compression_coef, damping: direct myocardial motion is the cleanest available handle on the strain terms"
+      ],
+      "access_class": "OPEN_NO_REQUEST",
+      "downloaded_in_this_job": "no",
+      "verdict": "MECHANICALLY_STRONG_BUT_ANIMAL"
+    },
+    {
+      "rank": 10,
+      "name": "MIMIC-IV-Echo: Echocardiogram Matched Subset, version 1.0.1",
+      "url": "https://physionet.org/content/mimic-iv-echo/",
+      "doi": "10.13026/307c-mr50",
+      "license": "PhysioNet Credentialed Health Data License 1.5.0 (data use agreement, credentialing and training required)",
+      "license_verified": true,
+      "size_total": "UNKNOWN_NOT_FETCHED",
+      "size_verified": false,
+      "format": "echocardiogram video matched to MIMIC-IV stays",
+      "subjects": "UNKNOWN_NOT_FETCHED",
+      "measured_modality": "2-D/3-D wall motion and function",
+      "constrains": [
+        "length_width, velocity_half, compression_coef, passive_stiffness: measured strain and ejection fraction in ICU patients"
+      ],
+      "access_class": "RESTRICTED",
+      "downloaded_in_this_job": "no",
+      "verdict": "NOT_USABLE_HERE: credentialing required, not obtained in this job"
+    }
+  ],
+  "negative_result": {
+    "claim_H2": "No public beat-resolved dataset with simultaneously recorded coronary flow or coronary/coronary-sinus pressure together with ventricular force and an electrical trace was found.",
+    "search_performed": [
+      "full PhysioNet open-database index (437 projects) scanned for coronary, perfusion, FFR, iFR, pressure-flow, optical mapping, strain, impedance, synchronised",
+      "PhysioNet metadata pages fetched and licence/size/format parsed for the 10 entries above"
+    ],
+    "consequence_for_the_model": "gregg_gain, hypoxia_penalty, perfusion_gamma, flow_max, p_ext and compression_coef stay anchored on published single-study contrasts (Schouten 1992, Schulz 1991, Goto 1991) and cannot be identified from public data. Do not present them as data-constrained.",
+    "honest_labels": "A systemic arterial pressure waveform is NOT coronary flow. A Pleth waveform is NOT coronary flow. Right heart catheter pressures are NOT coronary perfusion. None of these was counted as a coronary measurement."
+  },
+  "recommended_order_of_use": [
+    "1. MIMIC-IV Waveform (rank 2) for the electrical-to-mechanical lag and afterload, with a FLAC-capable reader",
+    "2. HeartCycle (rank 4) for strain and systolic time intervals",
+    "3. SensSmartTech (rank 6) for heart-rate dependence of the drive and the force-velocity term",
+    "4. PTB-XL (rank 1) for population QRS and RR statistics at 3.0 GB scale, once the sample bound is lifted"
+  ]
+}

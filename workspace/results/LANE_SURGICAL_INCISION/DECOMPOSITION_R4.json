@@ -1,0 +1,62 @@
+{
+  "decision": "New needle/scalpel geometry -> predicted work and tool-specific injury inputs without refitting heldout or updating full history",
+  "observable_units": [
+    "Ft,Fn:N",
+    "W:J",
+    "Gamma:J/m2",
+    "DeltaA:m2",
+    "width:m",
+    "speed:m/s"
+  ],
+  "governing_relations": [
+    "Wext=integral Ft dx+Fn dz",
+    "Wext=DeltaPsi+Gamma_eff DeltaA+Dcontact",
+    "Wfirst-Wrepeat=Gamma_eff DeltaA+DeltaNuisance",
+    "Gamma_eff=Gamma0+B_before",
+    "P=J_eff*a+mu Rshank^2 f+Pfriction only with matched peak/steady conventions"
+  ],
+  "leaves": [
+    {
+      "name": "Published forces, crack traces and first-minus-repeat effective J",
+      "status": "EXTERNALLY_MEASURED",
+      "provenance": "three primary groups; approximate Barnett/Shergold extraction; site/assay lineage different",
+      "stop": "Raw synchronous shared-covariance curves unavailable; source acquisition rather than finer numerical mesh changes conclusion"
+    },
+    {
+      "name": "Equal spreading/friction on same-hole repeat",
+      "status": "CONSTITUTIVE_CLOSURE",
+      "test": "Compare2nd/3rd passes and precut, recoverable work with same contact and history",
+      "stop": "Cannot derive from bulk hyperelastic law or gauge geometry alone"
+    },
+    {
+      "name": "Crack-plane energy and paired difference",
+      "status": "DERIVED_UNDER_ASSUMPTIONS",
+      "dimensions": "J=(J/m2)*m2; independent inventories balanced",
+      "stop": "Damage/conditioning changes add noncancelled work"
+    },
+    {
+      "name": "Real cutting edge radius,3D new area, first-pass terminal bridge/interface work",
+      "status": "UNKNOWN",
+      "test": "Measured radius field and active-area/full-work acquisition",
+      "stop": "Shank radius is not edge radius; unloaded trace cannot close3D area"
+    },
+    {
+      "name": "Cell injury/perfusion width, vessels/flow/hemostasis",
+      "status": "UNKNOWN",
+      "consumer": "RESPONSE",
+      "test": "Independent spatial biological/vascular observation",
+      "stop": "No mechanism identifies these from Gamma or mechanical strain-zone width"
+    },
+    {
+      "name": "Microscopic cleavage plus bridging/pullout/delamination/fiber rupture",
+      "status": "UNKNOWN",
+      "provenance": "BINDINGS R4 mechanism handoff; scenario150..380 only",
+      "stop": "Without native interface work/activated area, deeper molecular constants cannot reconstruct observed full-skin work"
+    }
+  ],
+  "heldout_falsifier": "20% new-tool work/force error; all common-J closures already fail tool contrast while same-tool speed passes",
+  "strongest_control": "same paired-work/area algebra TIE; richer published Barnett heldout27 passes with larger training set",
+  "parent_goal_status": "OPEN",
+  "innovation_gate": "FAIL",
+  "next": "Matched local work/area/terminal-process and damage acquisition, MEASUREMENT_SPEC_R4.md"
+}

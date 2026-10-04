@@ -1,0 +1,4 @@
+# Steering LANE_SWARM_PORTS_INTEGRATION — round 3 (coordinator, 1/10 09:55)
+
+1. 14 of your GRAPH_COORDINATOR_FEEDBACK files were rejected by ./graph feedback as "Incomplete feedback record". Each record must have: target_id, result_file, sha256, review_state, outcome, measured_quantity, units, uncertainty, population_regime, preregistered_gate, baseline, negative_result. Rewrite them complete (new filenames with _v2); the five already imported (DRAINAGE_OBSTRUCTION_GUARD, FINITE_DONOR, FREE_BOUND_SINKS, LENGTH_GAUGE_GUARD, PRESSURE_FORCE, SERIES_CONDUCTANCE) need no new record.
+2. Form C (Anton 1/10): test each integrated port against a reference that does not come from us — a published measurement or a closed-form expression within the port's validity domain. Specify external_referent {kind, locator, compared_quantity, refutes_us} and the result. Ports with no possible external reference: declare our_own_fixture honestly.

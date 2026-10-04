@@ -1,0 +1,243 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "frozen_utc": "2026-10-01T00:34:22.582102+00:00",
+  "madden1971": {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1397578/?page=7",
+    "doi": "10.1097/00000658-197109000-00017",
+    "species": "female Sprague-Dawley rats initially200g",
+    "assay": "4cm incisions sutured, 1mm margin excision; groupI daily20uCi tritiated proline; groupII single1uCi/g20h pulse; averages8samples from4rats; no independent8animal assumption",
+    "days": [
+      2,
+      3,
+      7,
+      14,
+      21,
+      28,
+      35,
+      42
+    ],
+    "accumulation_wound_dpm_per_umol": [
+      89,
+      184,
+      412,
+      935,
+      1696,
+      1785,
+      1750,
+      2088
+    ],
+    "accumulation_wound_SE": [
+      8,
+      10,
+      40,
+      68,
+      100,
+      95,
+      55,
+      70
+    ],
+    "accumulation_skin_dpm_per_umol": [
+      93,
+      131,
+      164,
+      328,
+      459,
+      701,
+      761,
+      1013
+    ],
+    "accumulation_skin_SE": [
+      7,
+      10,
+      15,
+      16,
+      24,
+      52,
+      53,
+      58
+    ],
+    "pulse_wound_dpm_per_umol_20h": [
+      196,
+      353,
+      745,
+      792,
+      743,
+      586,
+      452,
+      405
+    ],
+    "pulse_wound_SE": [
+      20,
+      51,
+      69,
+      120,
+      121,
+      150,
+      31,
+      24
+    ],
+    "pulse_skin_dpm_per_umol_20h": [
+      189,
+      190,
+      190,
+      263,
+      161,
+      113,
+      245,
+      190
+    ],
+    "pulse_skin_SE": [
+      33,
+      39,
+      20,
+      52,
+      44,
+      21,
+      43,
+      21
+    ],
+    "total_HP_wound_ug_groupI": [
+      1301,
+      1270,
+      1154,
+      1478,
+      1299,
+      1144,
+      1741,
+      1873
+    ],
+    "total_HP_skin_ug_groupI": [
+      2050,
+      1796,
+      1437,
+      1285,
+      1623,
+      1238,
+      1336,
+      1740
+    ],
+    "raw_scar_mass_ug": null,
+    "precursor_specific_activity": null,
+    "pulse_to_daily_conversion": null,
+    "interpretation": "Reported scar-specific contrast of label activities plateaus; not absolute collagen mass or tracked individual molecule survival. Do not identify turnover without tracer observation assumptions.",
+    "visual_verified": [
+      "r3/sources/annsurg00392-0184.png",
+      "r3/sources/annsurg00392-0186.png",
+      "r3/sources/annsurg00392-0187.png",
+      "r3/sources/annsurg00392-0188.png"
+    ]
+  },
+  "ranzer2011": {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3005009/",
+    "doi": "10.1111/j.1530-0277.2010.01324.x",
+    "species": "female BALB/c mice6-8wk",
+    "assay_mismatch": "LOX and HP3mm punch excisions; breaking strength2cm clipped incisions. No same-wound joint measurement.",
+    "lox_days": [
+      0,
+      5,
+      7,
+      10,
+      14,
+      21
+    ],
+    "lox_control_OD570_digitized": [
+      0.5,
+      0.72,
+      1.07,
+      0.705,
+      0.665,
+      0.705
+    ],
+    "lox_digitization_absolute_allowance": 0.02,
+    "lox_conversion_perday_perOD": null,
+    "HP_control_ug_per_wound_days": [
+      5,
+      7,
+      10,
+      14,
+      21
+    ],
+    "HP_control_digitized": [
+      26.4,
+      32.2,
+      46.6,
+      43.3,
+      32.0
+    ],
+    "HP_digitization_ug_allowance": 0.7,
+    "text_exact_HP_day10": [
+      46.6,
+      2.2
+    ],
+    "no_kinetic_rate_measured": true,
+    "visual_verified": [
+      "r3/sources/ranzer_full_F3.jpg",
+      "r3/sources/ranzer_full_F4.jpg"
+    ]
+  },
+  "alignment2015": {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4646538/",
+    "doi": "10.1364/BOE.6.004277",
+    "species": "female C57BL6 mice",
+    "protocol": "1mm full-thickness punch excision,uncovered;placebo;five animals;five selected108x108um ROIs within500um woundmargin;SHG~80umdepth",
+    "days": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      7,
+      14,
+      21,
+      28
+    ],
+    "ellipse_eccentricity_placebo_digitized": [
+      0.744,
+      0.798,
+      0.73,
+      0.754,
+      0.775,
+      0.72,
+      0.861,
+      0.748,
+      0.73
+    ],
+    "digitization_absolute_allowance": 0.01,
+    "load_axis_angle": null,
+    "moment_Q": null,
+    "late90data": null,
+    "interpretation": "FT ellipse eccentricity is neither a2 nor monotone biological maturity; load-dependent transfer requires calibrated imaging operator and orientation angle.",
+    "visual_verified": "r3/sources/alignment2015_full_g004.jpg"
+  },
+  "wietecha2020": {
+    "url": "https://www.nature.com/articles/s41467-020-16409-z",
+    "data_doi": "10.3929/ethz-b-000409545",
+    "days": [
+      0,
+      3,
+      5,
+      10,
+      42
+    ],
+    "observed_crosslink_species": [
+      "HLNL",
+      "DHLNL",
+      "HHMD",
+      "HP"
+    ],
+    "maintext": "HP and HHMD have minimal changes;DHLNL/HLNL shows pathway shifts;mechanics is physiological deformability, not rupture force",
+    "original_source_tables_access": "HTTP429; do not invent raw values"
+  },
+  "eyre2019": {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6484114/",
+    "doi": "10.1074/jbc.RA118.007202",
+    "mechanism": "lysine-aldehyde aldol chemistry important in skin; HHL acid-hydrolysis artifact speciesdependent; rat/mouse lack relevant C-telopeptide histidine",
+    "constraint": "Do not treat HHL assay value or HP alone as universal in-vivo mature-crosslink inventory"
+  },
+  "levenson_targets": "WORLD_TARGETS_R2.json unchanged; day7/21 already strengthcalibration; heldout14,28,42,61,90",
+  "errata": {
+    "reason": "Citation DOI corrected from acquired article metadata before any calculation; numerical targets unchanged",
+    "original": "WORLD_TARGETS_R3.json",
+    "old_DOI": "10.1097/00000658-197109000-00014"
+  }
+}

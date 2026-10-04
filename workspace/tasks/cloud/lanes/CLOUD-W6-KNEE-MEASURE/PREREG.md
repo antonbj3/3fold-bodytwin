@@ -1,0 +1,3 @@
+# Frozen criterion — CLOUD-W6-KNEE-MEASURE
+
+Primary deliverable is an independently testable protocol, not an invented empirical PASS. PASS as a method only if (1) the estimand and force calibration are explicitly defined, (2) at least one added observable is shown mathematically to be informative after conditioning on N1g inputs under stated assumptions, (3) there is a concrete matched placebo that would disprove the information gain, and (4) the held-out-person plus early-stance gate is fully specified. Otherwise FAIL/UNKNOWN. Any numeric gain on public data is exploratory unless endpoint calibration and split provenance are verified. Do not revise the criterion after analysis.

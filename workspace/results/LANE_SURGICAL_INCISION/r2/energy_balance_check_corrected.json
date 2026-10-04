@@ -1,0 +1,79 @@
+{
+  "relation": "F da - deltaU - h Gamma da = 0",
+  "initial_error": "Reporting check used +deltaU; solver/forces unchanged. Initial failed values preserved.",
+  "checks": [
+    {
+      "scenario": "64",
+      "a_m": 0.008,
+      "correct_balance_error_J": 0.0,
+      "initial_mis_signed_check_J": 0.001297279914883602
+    },
+    {
+      "scenario": "64",
+      "a_m": 0.012,
+      "correct_balance_error_J": 1.0842021724855044e-19,
+      "initial_mis_signed_check_J": 0.001374758263963024
+    },
+    {
+      "scenario": "64",
+      "a_m": 0.016,
+      "correct_balance_error_J": 1.0842021724855044e-19,
+      "initial_mis_signed_check_J": 0.0016006296287736665
+    },
+    {
+      "scenario": "64",
+      "a_m": 0.02,
+      "correct_balance_error_J": 1.0842021724855044e-19,
+      "initial_mis_signed_check_J": 0.0017186413172578818
+    },
+    {
+      "scenario": "96",
+      "a_m": 0.008,
+      "correct_balance_error_J": 0.0,
+      "initial_mis_signed_check_J": 0.0013624507579605468
+    },
+    {
+      "scenario": "96",
+      "a_m": 0.012,
+      "correct_balance_error_J": 1.0842021724855044e-19,
+      "initial_mis_signed_check_J": 0.0013939737280516417
+    },
+    {
+      "scenario": "96",
+      "a_m": 0.016,
+      "correct_balance_error_J": 1.0842021724855044e-19,
+      "initial_mis_signed_check_J": 0.0016162170407891274
+    },
+    {
+      "scenario": "96",
+      "a_m": 0.02,
+      "correct_balance_error_J": 1.0842021724855044e-19,
+      "initial_mis_signed_check_J": 0.001731126319257067
+    },
+    {
+      "scenario": "decoupled64",
+      "a_m": 0.008,
+      "correct_balance_error_J": 2.168404344971009e-19,
+      "initial_mis_signed_check_J": 0.0015257826010917394
+    },
+    {
+      "scenario": "decoupled64",
+      "a_m": 0.012,
+      "correct_balance_error_J": 1.0842021724855044e-19,
+      "initial_mis_signed_check_J": 0.001972265776664819
+    },
+    {
+      "scenario": "decoupled64",
+      "a_m": 0.016,
+      "correct_balance_error_J": 1.0842021724855044e-19,
+      "initial_mis_signed_check_J": 0.0026067479573554397
+    },
+    {
+      "scenario": "decoupled64",
+      "a_m": 0.02,
+      "correct_balance_error_J": 0.0,
+      "initial_mis_signed_check_J": 0.0030895676489191303
+    }
+  ],
+  "max_absolute_error_J": 2.168404344971009e-19
+}

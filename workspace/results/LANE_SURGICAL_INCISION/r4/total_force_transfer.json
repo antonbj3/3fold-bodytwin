@@ -1,0 +1,175 @@
+{
+  "training": "One gauge16 peak at20mm/s; no other force anchors",
+  "heldout": [
+    {
+      "gauge": 18,
+      "speed_mm_s": 20,
+      "observed_peak_N": 2.8642857142857143,
+      "models": {
+        "constant": {
+          "prediction_N": 2.857142857142857,
+          "relative_error": 0.002493765586034904,
+          "central_gate": "PASS"
+        },
+        "linear_D": {
+          "prediction_N": 2.1991341991341993,
+          "relative_error": 0.23222247411773592,
+          "central_gate": "FAIL"
+        },
+        "quadratic_D": {
+          "prediction_N": 1.6926669290305656,
+          "relative_error": 0.4090439649269846,
+          "central_gate": "FAIL"
+        }
+      },
+      "linear_reading_error": {
+        "best_relative_error": 0.2159488025415445,
+        "worst_relative_error": 0.24815878428909022,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      }
+    },
+    {
+      "gauge": 21,
+      "speed_mm_s": 20,
+      "observed_peak_N": 1.5142857142857142,
+      "models": {
+        "constant": {
+          "prediction_N": 2.857142857142857,
+          "relative_error": 0.8867924528301888,
+          "central_gate": "FAIL"
+        },
+        "linear_D": {
+          "prediction_N": 1.4199134199134198,
+          "relative_error": 0.062321326472269914,
+          "central_gate": "PASS"
+        },
+        "quadratic_D": {
+          "prediction_N": 0.7056539420175784,
+          "relative_error": 0.5340021137619766,
+          "central_gate": "FAIL"
+        }
+      },
+      "linear_reading_error": {
+        "best_relative_error": 0.03332458366144601,
+        "worst_relative_error": 0.09019146132929663,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      }
+    },
+    {
+      "gauge": 25,
+      "speed_mm_s": 20,
+      "observed_peak_N": 1.1214285714285714,
+      "models": {
+        "constant": {
+          "prediction_N": 2.857142857142857,
+          "relative_error": 1.5477707006369428,
+          "central_gate": "FAIL"
+        },
+        "linear_D": {
+          "prediction_N": 0.8831168831168833,
+          "relative_error": 0.21250723798494484,
+          "central_gate": "FAIL"
+        },
+        "quadratic_D": {
+          "prediction_N": 0.27296340023612764,
+          "relative_error": 0.7565931462862556,
+          "central_gate": "FAIL"
+        }
+      },
+      "linear_reading_error": {
+        "best_relative_error": 0.18236554021894325,
+        "worst_relative_error": 0.24107827656214734,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      }
+    },
+    {
+      "gauge": 27,
+      "speed_mm_s": 20,
+      "observed_peak_N": 1.3145539906103287,
+      "models": {
+        "constant": {
+          "prediction_N": 2.857142857142857,
+          "relative_error": 1.173469387755102,
+          "central_gate": "FAIL"
+        },
+        "linear_D": {
+          "prediction_N": 0.7099567099567099,
+          "relative_error": 0.45992578849721716,
+          "central_gate": "FAIL"
+        },
+        "quadratic_D": {
+          "prediction_N": 0.1764134855043946,
+          "relative_error": 0.8657997413841569,
+          "central_gate": "FAIL"
+        }
+      },
+      "linear_reading_error": {
+        "best_relative_error": 0.44150945724718615,
+        "worst_relative_error": 0.47752030085212116,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      }
+    }
+  ],
+  "published_richer_control_heldout27": [
+    {
+      "gauge": 27,
+      "speed_mm_s": 1,
+      "observed_N": 1.1737089201877935,
+      "published_model_digitized_N": 1.3286384976525822,
+      "relative_error": 0.132,
+      "absolute_error_N": 0.15492957746478875,
+      "reading_error": {
+        "best_relative_error": 0.07886423027419162,
+        "worst_relative_error": 0.1879233200607529,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      },
+      "central_gate": "PASS"
+    },
+    {
+      "gauge": 27,
+      "speed_mm_s": 20,
+      "observed_N": 1.3145539906103287,
+      "published_model_digitized_N": 1.4929577464788732,
+      "relative_error": 0.13571428571428565,
+      "absolute_error_N": 0.1784037558685445,
+      "reading_error": {
+        "best_relative_error": 0.08806173399909203,
+        "worst_relative_error": 0.18559263184825112,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      },
+      "central_gate": "PASS"
+    },
+    {
+      "gauge": 27,
+      "speed_mm_s": 40,
+      "observed_N": 1.408450704225352,
+      "published_model_digitized_N": 1.5727699530516432,
+      "relative_error": 0.11666666666666678,
+      "absolute_error_N": 0.16431924882629123,
+      "reading_error": {
+        "best_relative_error": 0.0725219491497765,
+        "worst_relative_error": 0.16273287694560828,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      },
+      "central_gate": "PASS"
+    },
+    {
+      "gauge": 27,
+      "speed_mm_s": 80,
+      "observed_N": 1.5305164319248827,
+      "published_model_digitized_N": 1.7136150234741785,
+      "relative_error": 0.11963190184049077,
+      "absolute_error_N": 0.18309859154929575,
+      "reading_error": {
+        "best_relative_error": 0.07888323956797733,
+        "worst_relative_error": 0.16200994962610682,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      },
+      "central_gate": "PASS"
+    }
+  ],
+  "published_control_information": "All four gauge J/friction/crack/tension datasets AND contact-factor fit to force per gauge; cannot label fit over gauges16..25 our heldout success",
+  "same_information_control": "identical one-anchor power law/doublepass algebra:TIE",
+  "published_model_REIMPLEMENTED": false,
+  "published_model_read_from_figure": true
+}

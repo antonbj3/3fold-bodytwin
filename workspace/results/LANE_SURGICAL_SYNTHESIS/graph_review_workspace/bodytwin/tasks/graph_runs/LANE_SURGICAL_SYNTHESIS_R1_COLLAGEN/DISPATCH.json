@@ -1,0 +1,82 @@
+{
+  "schema": "graph-dispatch-v1",
+  "created_at": "2026-10-01T01:56:17.660295+00:00",
+  "workspace": "bodytwin",
+  "lane": "LANE_SURGICAL_SYNTHESIS_R1_COLLAGEN",
+  "target_id": "BT-CTX-SURG-COLLAGEN",
+  "task_kind": "review",
+  "selection_reason": "Lane-local review binding of executable synthesis; source workspace writes forbidden; pending independent review and coordinator import",
+  "packet": {
+    "schema": "bodytwin-research-action-packet-v1",
+    "id": "BT-CTX-SURG-COLLAGEN",
+    "goal_path": "general_bodytwin",
+    "path_authority": "explicit local research definition; no native scientific admission",
+    "claim": "Target context for Collagen bindings to fibres to tissue: crosslinks, fibril sliding, thermal denaturation and rupture under a blade",
+    "source_status": null,
+    "source_status_origin": "new research action",
+    "admission_state": "PENDING_REVIEW",
+    "source_file": "notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930/SURG_COLLAGEN.md",
+    "source_line": 1,
+    "source_sha256": "b66f45d153e671411c21d7b22df1e33e46dd993f6c1948dd423f7cedaf5104dd",
+    "scientific_depends_on": [],
+    "typed_relations": [
+      {
+        "type": "related_context_only",
+        "target": "bodytwin:MODEL-TENDON-COLLAGEN-MECHANICS",
+        "target_source_status": "OPEN"
+      },
+      {
+        "type": "related_context_only",
+        "target": "bodytwin:MODEL-COLLAGEN-TRIPLE-HELIX-THERMAL-STABILITY",
+        "target_source_status": "OPEN"
+      },
+      {
+        "type": "related_context_only",
+        "target": "bodytwin:MSK-FASCIA-NETWORK",
+        "target_source_status": "OPEN"
+      }
+    ],
+    "design_role": "research_action",
+    "units": "task-specific SI quantities and documented conversions",
+    "uncertainty": "Unknown biological parameters, source scope and model closures require explicit bounds.",
+    "validity": "DEFINITION_ONLY",
+    "numerical_dispatch_allowed": false,
+    "rank": {
+      "priority_class": "source_family_target_context",
+      "score": 8,
+      "action": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+      "blocked_prerequisites": [
+        "Independent calibration, observation map and task-specific native bindings"
+      ]
+    },
+    "best_baseline": "Existing source-family implementation and preserved previous reports with the same observable",
+    "expected_observation": "A discriminating calculation or measurement that changes a model decision for this capability",
+    "falsifier": "The strongest equally informed control matches the result or an unbound closure decides it",
+    "threshold": "Must be preregistered per specific observable; no invented clinical gate",
+    "result_bindings": [],
+    "result_binding_template": {
+      "result_file": "results/<lane>/RESULTS.md",
+      "sha256": "<sha256>",
+      "review_state": "PENDING_INDEPENDENT_REVIEW"
+    },
+    "topic": "collagen bindings to fibres to tissue: crosslinks, fibril sliding, thermal denaturation and rupture under a blade"
+  },
+  "previous_feedback": [],
+  "next_action_advice": "Build the named capability from its source family; bind outcomes to this context, not to the femur FE budget.",
+  "task_file": {
+    "file": "tasks/lanes/LANE_SURGICAL_SYNTHESIS.md",
+    "sha256": "883d09edc11c8aabc6b4af4d3ac63319b17c48178682f2df4344a7dd9518fe9b"
+  },
+  "launched": false,
+  "scientific_admission": false,
+  "measurement_fields": [
+    "wall_seconds",
+    "input_tokens_if_observed",
+    "context_bytes",
+    "source_citation_errors",
+    "repeated_refuted_branches",
+    "baseline_parity",
+    "falsifiable_next_test",
+    "scope_errors"
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "task": "Serotonin (5-HT) system CERT (couples nerve-conduction + dopamine/monoamine + gut/enteric + psychiatric): (1) synthesis, tryptophan -> TPH -> 5-HTP -> 5-HT, TPH1 (peripheral/gut) vs TPH2 (neural), two separate genes for one rate-limiting step; (2) reuptake by SERT (the SSRI target), Michaelis-Menten kinetics; (3) receptor diversity, 7 families (5-HT1-7), 5-HT1A somatodendritic autoreceptor vs 5-HT2A etc. FALSIFIER: does the model reproduce the SSRI PARADOX (SERT blockade ~80% occupancy at clinical dose by PET, Meyer 2004, but antidepressant effect takes 2-4 weeks -- explained by 5-HT1A autoreceptor desensitization) AND the ~90%-of-serotonin-is-gut/enteric fact (peripheral vs CNS pools separate, BBB-divided) -- refuting naive 'gut serotonin sets mood'? Decorrelated check: tryptophan depletion transiently lowers mood in REMITTED (SSRI-treated) but not healthy subjects (Ruhe 2007 meta), a causal-but-conditional link, honestly bounded. Symmetric-QC: the 'chemical imbalance/low-serotonin theory of depression' is NOT supported by direct evidence (Moncrieff 2022 umbrella review) -- held OPEN, not resolved; SERT-occupancy-vs-efficacy dissociated (different claims: drug-target engagement vs baseline etiology).",
+  "confidence_tier": "in-vivo-anchored (PET SERT-occupancy, Meyer 2001+2004; human tryptophan-depletion RCTs meta-analyzed, Ruhe 2007; a human pindolol-augmentation RCT, Perez 2001) for the SSRI-paradox/autoreceptor-desensitization falsifier (Parts 2-3). The peripheral/CNS pool-separation falsifier (Part 4) is mouse-genetic-anchored (Cote 2003 Tph1-KO, Alenina 2009 Tph2-KO, Savelieva 2008 double-KO -- three independently-generated genotypes from the same gene-targeting research program) plus a human/rodent PMC-full-text quantitative anchor (Yano 2015, >90%) -- NOT human-causal-manipulation-anchored (cannot ethically knock out human TPH1/TPH2), disclosed as a residual limitation. The symmetric-QC leg (Moncrieff 2022, Part 6) is systematic-umbrella-review-anchored at the largest available human sample sizes (n up to 115,257) but is itself CONTESTED (8 published comments, incl. a direct rebuttal) -- reported as open, not adjudicated.",
+  "script": "scripts/msk/serotonin_system.py",
+  "script_provenance": "Written fresh this session (no pre-existing script found by repo-wide search for serotonin/5-HT/SERT before this session started -- confirmed by grep across docs/, scripts/, data/). No collision with any concurrently-written file this session (own new script, own new data dir data/serotonin_system/, own new raw_fetch files prefixed serotonin_*).",
+  "raw_results": "data/serotonin_system/serotonin_system_results.json",
+  "doc": "docs/MECHANISM_SEROTONIN_SYSTEM.md",
+  "raw_fetch_logs": "data/raw_fetch/serotonin_*_esearch.json, data/raw_fetch/serotonin_*_esummary.json, data/raw_fetch/serotonin_abstracts_batch{A,B,C,D,E}.txt, data/raw_fetch/serotonin_abstracts_yano2015.txt, data/raw_fetch/serotonin_abstracts_savelieva2008.txt, data/raw_fetch/serotonin_yano2015_pmc.xml (PMC full text, all esearch/esummary/efetch calls this session, verbatim, via curl --max-time 25)",
+  "gates_summary": {
+    "overall_pass": true,
+    "n_gates": 22,
+    "n_pass": 22,
+    "determinism_check": "2 independent runs of scripts/msk/serotonin_system.py produce byte-identical JSON, md5sum d3171308f1f3164e3e00a963a62e97c0, verified this session.",
+    "bug_caught_and_fixed_this_session": "Part 2's MM-vs-single-exponential functional-form adversary initially FAILED (fold_degradation=0.92<1.5, non-monotonic) using one fixed absolute time window across a 100x range of C0/Km ratios -- diagnosed (not papered over): the fixed window under-sampled the slow, high-C0 clearance tail, silently hiding the true monotonic misfit growth. Fixed by making the fit window PER-RATIO adaptive (spanning each ratio's own closed-form time-to-99%-cleared). Re-ran: fold_degradation=3.00, monotonic=True, gate PASSES. Disclosed per this repo's own memory note (subagent-fabricated-live-check / re-check cheap assertions yourself) -- this was self-caught by running the code, not asserted from narrative.",
+    "gate_strength_disclosure_not_all_equal_weight": [
+      "GENUINELY COMPUTATIONAL / forced-adversary gates (could have failed, one did until fixed): part2_functional_form_adversary_falls, part2_occupancy_bounded_valid_form + part2_linear_occupancy_adversary_falsified, part1_tph_geometric_sensitivity_contrast, part3_desens_tau_sane + part3_desens_dmax_sane, part3_cross_timescale_windows_overlap, part2_sert_vmax/km_recovery (synthetic control).",
+      "DIRECT CITATION-DATA gates (raw reported contrasts, not simulated, but also not independently re-derived by this session -- e.g. Invernizzi's own reported presence/absence result, Perez's own reported RCT numbers, Savelieva's own reported genotype table, Ruhe's own reported group-wise conclusions, Moncrieff's own reported large-N null results): part3_invernizzi_brake_required/null_falsified, part3_pindolol_ratio_all/matched/significant, part4_genotype_pattern_complementary/shared_pool_null_falsified, part4_gut_fraction_floor, part5_monotonic_with_vulnerability/healthy_lt_remitted_on_drug, part6_both_large_studies_null, part3_seven_families_confirmed. These convert narrative claims into structured, falsifiable machine-checkable form (a wrong transcription would show up as FAIL) but are weaker than a fresh forced-adversary computation -- reported honestly, not oversold.",
+      "part6_scopes_logically_independent: a labeling/scope-distinctness assertion (occupancy claim vs etiology claim use different scope strings), not a numeric test -- the weakest gate in the set, included for explicit machine-auditability of the non-contradiction argument, not as strong evidence."
+    ]
+  },
+  "couples_to": [
+    "docs/MECHANISM_NERVE_CONDUCTION.md (a different neurotransmitter/transmission-kinetics layer of the same nerve-conduction substrate; grep-confirmed zero serotonin/5-HT content there, no collision)",
+    "docs/MECHANISM_DOPAMINE_KINETICS.md (parallel monoamine system; Part 1's TPH substrate-sensitivity geometry explicitly contrasts with that doc's TH/tyrosine near-saturation treatment -- SAME governing hyperbola (Michaelis-Menten), different physiological operating point on it; a direct, load-bearing cross-doc coupling, not just a topic label)",
+    "docs/MECHANISM_GUT_MICROBIOME.md (gut layer, but a DISJOINT mechanism -- that doc models bacterial census/SCFA/butyrate fermentation output; this doc models host enterochromaffin-cell TPH1/5-HT neurotransmitter synthesis; grep-confirmed zero serotonin content in that doc, no collision, genuinely complementary not duplicative)",
+    "data/MECHANISM_ANCHOR_GRAPH.json nodes PSYCH-DEPRESSION-MECHANISM, PSYCH-KYNURENINE-NEUROTOX-BRANCHPOINT, PSYCH-INFLAMMATORY-SUBTYPE-DIMENSION (all OPEN/autonomous-expansion, clinical-subtype/biomarker layer -- CRP-by-drug-class interactions, kynurenine-pathway branchpoints, symptom-dimension taxonomies; none builds the base synthesis/reuptake/receptor MECHANISM this doc supplies, checked read-only, none edited)",
+    "data/MECHANISM_ANCHOR_GRAPH.json nodes AUTO-TEST-WHETHER-A-LOW-DIMENSIONAL-BIOTYPE-E... (STAR*D/iSPOT-D SSRI-vs-ketamine biotype node) and AUTO-IF-A-PUBLIC-DATASET-EXISTS-PAIRING-RAW-L... (lactulose:mannitol/zonulin gut-permeability node) -- adjacent autonomous-expansion nodes, checked read-only, none edited"
+  ],
+  "distinct_from_existing_graph_node": {
+    "search_performed": "repo-wide grep for serotonin/5-HT/SERT across docs/, scripts/, data/ before starting -- zero pre-existing MECHANISM doc or script found on this topic; this is the FIRST serotonin-system doc in the repo.",
+    "graph_nodes_checked_read_only": ["PSYCH-DEPRESSION-MECHANISM", "PSYCH-KYNURENINE-NEUROTOX-BRANCHPOINT", "PSYCH-INFLAMMATORY-SUBTYPE-DIMENSION"],
+    "why_distinct": "Those nodes operate at the CLINICAL-SUBTYPE/BIOMARKER level (CRP x drug-class sign-flip, kynurenine branch-ratio vs ketamine response, symptom-dimension taxonomies) using patient cohort data. This doc supplies the LOWER, physical synthesis-reuptake-receptor mechanistic layer (TPH1/TPH2 gene duality, SERT MM kinetics + PET occupancy, 5-HT1A autoreceptor desensitization, peripheral/CNS pool separation) that any such clinical-subtype model implicitly assumes as its substrate -- the same relationship dopamine_kinetics.py has to NEU-REWARD-DOPAMINE."
+  },
+  "citations_verified_live_this_session": {
+    "walther_2003_tph2_discovery": {
+      "pmid": "12511643", "doi": "10.1126/science.1078197",
+      "cite": "Walther DJ, Peter JU, Bashammakh S, Hortnagl H, Voits M, Fink H, Bader M (2003). Synthesis of serotonin by a second tryptophan hydroxylase isoform. Science 299(5603):76.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "Title/DOI/PMID verified; PubMed carries NO abstract text for this Science 'Brevia' brief-report format (disclosed, not fabricated) -- the TPH2-discovery finding is corroborated by Cote et al 2003's own text below."
+    },
+    "cote_2003_tph1_ko": {
+      "pmid": "14597720", "doi": "10.1073/pnas.2233056100",
+      "cite": "Cote F, Thevenot E, Fligny C, Fromes Y, Darmon M, Ripoche MA, Bayard E, Hanoun N, Saurini F, Lechat P, Dandolo L, Hamon M, Mallet J, Vodjdani G (2003). Disruption of the nonneuronal tph1 gene demonstrates the importance of peripheral serotonin in cardiac function. Proc Natl Acad Sci U S A 100(23):13525-30.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: 'the neuronal tph2 is expressed in neurons of the raphe nuclei and of the myenteric plexus, whereas the nonneuronal tph1 ... is in the pineal gland and the enterochromaffin cells.' Tph1-/- mice: 'larger heart sizes ... abnormal cardiac activity, which ultimately leads to heart failure' -- a PERIPHERAL (cardiac) phenotype from peripheral 5-HT loss. PRIMARY anchor, genotype 1 of the 3-genotype pool-separation dissociation (Part 4)."
+    },
+    "alenina_2009_tph2_ko": {
+      "pmid": "19520831", "doi": "10.1073/pnas.0810793106",
+      "cite": "Alenina N, Kikic D, Todiras M, Mosienko V, Qadri F, Plehm R, Boye P, Vilianovitch L, Sohr R, Tenner K, Hortnagl H, Bader M (2009). Growth retardation and altered autonomic control in mice lacking brain serotonin. Proc Natl Acad Sci U S A 106(25):10332-7.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: 'By genetically ablating TPH2, we created mice (Tph2-/-) that lack serotonin in the central nervous system ... growth retardation and 50% lethality in the first 4 weeks ... more extended daytime sleep, suppressed respiration, altered body temperature control, and decreased blood pressure (BP) and heart rate (HR) during nighttime ... These data confirm that the majority of central serotonin is generated by TPH2.' A CNS/autonomic phenotype from central 5-HT loss -- PRIMARY anchor, genotype 2 of the pool-separation dissociation."
+    },
+    "savelieva_2008_double_ko": {
+      "pmid": "18923670", "doi": "10.1371/journal.pone.0003301", "pmcid": "PMC2565062",
+      "cite": "Savelieva KV, Zhao S, Pogorelov VM, Rajan I, Yang Q, Cullinan E, Lanthorn TH (2008). Genetic disruption of both tryptophan hydroxylase genes dramatically reduces serotonin and affects behavior in models sensitive to antidepressants. PLoS One 3(10):e3301.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, the DECISIVE 3-genotype dissociation in ONE paper: 'dramatically reduced central 5-HT levels in Tph2 knockout (TPH2KO) and Tph1/Tph2 double knockout (DKO) mice; and substantially reduced peripheral 5-HT levels in DKO, but NOT TPH2KO mice.' Also: behavioral changes 'subtle in the TPH2KO mice; ... enhanced in the DKO mice' with 'predictive validity for antidepressants.' THE primary anchor for Part 4's genotype x compartment matrix."
+    },
+    "fernstrom_wurtman_1971": {
+      "pmid": "5581909", "doi": "10.1126/science.173.3992.149",
+      "cite": "Fernstrom JD, Wurtman RJ (1971). Brain serotonin content: physiological dependence on plasma tryptophan levels. Science 173(3992):149-52.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: brain serotonin was 'significantly elevated 1 hour after rats received a dose of L-tryptophan (12.5 mg/kg ... smaller than one-twentieth of the normal daily dietary intake' ... levels 'never exceeded' normal nocturnal physiological variation. Confirms TPH operates substrate-sensitive (near-Km), unlike TH. RECALL-DRIFT CAUGHT: the task's own framing/common citation drift often lists this as '1972' -- live-verified date is 1971 Jul 9."
+    },
+    "lovenberg_1967_tph_assay": {
+      "pmid": "6015530", "doi": "10.1126/science.155.3759.217",
+      "cite": "Lovenberg W, Jequier E, Sjoerdsma A (1967). Tryptophan hydroxylation: measurement in pineal gland, brainstem, and carcinoid tumor. Science 155(3759):217-9.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "First direct radioassay demonstration of tryptophan hydroxylase activity ('beef and rat pineal gland contained the highest activity ... first direct demonstration of tryptophan hydroxylase'); establishes the enzyme/reaction is real and measurable. No Km number in this abstract (disclosed gap)."
+    },
+    "blakely_1991_sert_cloning": {
+      "pmid": "1944572", "doi": "10.1038/354066a0",
+      "cite": "Blakely RD, Berson HE, Fremeau RT Jr, Caron MG, Peek MM, Prince HK, Bradley CC (1991). Cloning and expression of a functional serotonin transporter from rat brain. Nature 354(6348):66-70.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: cloned SERT cDNA transport 'selectively and potently antagonized by 5HT uptake-specific antidepressants, including paroxetine, citalopram and fluoxetine' -- primary molecular identification of the SSRI target."
+    },
+    "meyer_2004_pet_occupancy_PRIMARY": {
+      "pmid": "15121647", "doi": "10.1176/appi.ajp.161.5.826",
+      "cite": "Meyer JH, Wilson AA, Sagrati S, Hussey D, Carella A, Potter WZ, Ginovart N, Spencer EP, Cheok A, Houle S (2004). Serotonin transporter occupancy of five selective serotonin reuptake inhibitors at different doses: an [11C]DASB positron emission tomography study. Am J Psychiatry 161(5):826-35.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "THE task's own named PET-occupancy falsifier anchor. VERBATIM: 'Minimum therapeutic doses of paroxetine and citalopram produce 80% occupancy ... Mean occupancy at this dose was 76%-85% ... Occupancy of 80% across five SSRIs occurs at minimum therapeutic doses ... 80% 5-HTT blockade is important for therapeutic effect.' n=77, striatal [11C]DASB PET, 5 SSRIs, measured after 4 weeks."
+    },
+    "meyer_2001_pet_occupancy_corroborating": {
+      "pmid": "11691690", "doi": "10.1176/appi.ajp.158.11.1843",
+      "cite": "Meyer JH, Wilson AA, Ginovart N, Goulding V, Hussey D, Hood K, Houle S (2001). Occupancy of serotonin transporters by paroxetine and citalopram during treatment of depression: a [11C]DASB PET imaging study. Am J Psychiatry 158(11):1843-9.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: 20mg/day paroxetine (N=7) 'mean proportion of 5-HTT sites occupied was 83%'; 20mg/day citalopram (N=4) 'mean 5-HTT occupancy was 77%'; 'approximately 80% of 5-HTT receptors are occupied.' An earlier (n=12), INDEPENDENT cohort converging on the same ~80% figure as Meyer 2004 (n=77) -- over-determination, not a single study's number. RECALL-DRIFT NOTE: this session's FIRST esearch attempt for 'Meyer 2004' returned THIS 2001 paper by mistake (title/topic match, wrong year) -- caught and corrected by esummary date-checking before use, then the correct 2004 paper was separately re-searched and found."
+    },
+    "hoyer_2002_seven_families_PRIMARY": {
+      "pmid": "11888546", "doi": "10.1016/s0091-3057(01)00746-8",
+      "cite": "Hoyer D, Hannon JP, Martin GR (2002). Molecular, pharmacological and functional diversity of 5-HT receptors. Pharmacol Biochem Behav 71(4):533-54.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, the task's own named '7 families' claim: 'These receptors are divided into seven distinct classes (5-HT1 to 5-HT7) ... as many as 13 distinct heptahelical, G-protein-coupled receptors ... and one (presumably a family of) ligand-gated ion channel(s)' [5-HT3]."
+    },
+    "hoyer_1994_iuphar_classification_history": {
+      "pmid": "7938165", "doi": null,
+      "cite": "Hoyer D, Clarke DE, Fozard JR, Hartig PR, Martin GR, Mylecharane EJ, Saxena PR, Humphrey PP (1994). International Union of Pharmacology classification of receptors for 5-hydroxytryptamine (Serotonin). Pharmacol Rev 46(2):157-203.",
+      "verified_via": "NCBI eutils efetch, live this session, abstract (truncated at 400 words by PubMed, disclosed)",
+      "numbers": "VERBATIM, symmetric-QC on the '7 families' claim's historical stability: in 1994 'there are at least three main groups ... 5-HT1, 5-HT2, and 5-HT3 ... The more recently identified 5-HT4 receptor almost undoubtedly represents a fourth ... cDNAs for the 5-ht1E, 5-ht1F, 5-ht5, 5-ht6, and 5-ht7 receptors have been cloned' but not yet confidently classified -- the '7 families' figure is a settled END-STATE of a progressive 1990s-2000s classification effort, not an eternal a-priori fact."
+    },
+    "blier_demontigny_1994_thin_context": {
+      "pmid": "7940983", "doi": "10.1016/0165-6147(94)90315-8",
+      "cite": "Blier P, de Montigny C (1994). Current advances and trends in the treatment of depression. Trends Pharmacol Sci 15(7):220-6.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "Abstract is a thin editorial-teaser ('these strategies are discussed in this article') for a Trends-journal leading article -- no independently extractable technical number; the SAME authors' mechanistic content is carried by Artigas et al 1996 below (shared co-authors de Montigny/Blier), disclosed rather than double-counted as a technical anchor."
+    },
+    "invernizzi_1992_raphe_cortex_dissociation": {
+      "pmid": "1515949", "doi": "10.1016/0006-8993(92)90914-u",
+      "cite": "Invernizzi R, Belli S, Samanin R (1992). Citalopram's ability to increase the extracellular concentrations of serotonin in the dorsal raphe prevents the drug's effect in the frontal cortex. Brain Res 584(1-2):322-4.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "THE forced-adversary microdialysis anchor. VERBATIM: citalopram 1 mg/kg i.p. 'significantly increased dialysate serotonin in the dorsal raphe, but not in the frontal cortex.' With 1 microM methiothepine (5-HT autoreceptor antagonist) infused in the raphe (a condition that 'by itself did not change cortical serotonin concentrations'), the SAME 1 mg/kg citalopram dose 'significantly increased the extracellular concentration of serotonin in the frontal cortex' -- pharmacologically removing the autoreceptor brake unlocks the terminal effect."
+    },
+    "artigas_1996_desensitization_mechanism_PRIMARY": {
+      "pmid": "8873352", "doi": "10.1016/S0166-2236(96)10037-0",
+      "cite": "Artigas F, Romero L, de Montigny C, Blier P (1996). Acceleration of the effect of selected antidepressant drugs in major depression by 5-HT1A antagonists. Trends Neurosci 19(9):378-83.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "THE full mechanism-chain review. VERBATIM: 'SSRIs ... increase the extracellular concentration of 5-HT in the midbrain raphe nuclei, thereby activating inhibitory somatodendritic 5-HT1A autoreceptors. Consequently, the firing activity of 5-HT neurons is reduced and the enhancement of extracellular 5-HT concentration in forebrain is dampened ... combined treatment with an SSRI and a 5-HT1A antagonist increases the extracellular concentration of 5-HT more so than the former drug alone ... markedly reduced the latency of the antidepressant response.'"
+    },
+    "perez_2001_pindolol_rct": {
+      "pmid": "11199945", "doi": "10.1097/00004714-200102000-00008",
+      "cite": "Perez V, Puigdemont D, Gilaberte I, Alvarez E, Artigas F (2001). Augmentation of fluoxetine's antidepressant action by pindolol: analysis of clinical, pharmacokinetic, and methodologic factors. J Clin Psychopharmacol 21(1):36-45.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, the human clinical-RCT decorrelated confirmation. 'Median times to sustained response were 19 days for fluoxetine plus pindolol (N=55) and 29 days for fluoxetine plus placebo (N=56) (p=0.01).' Matched-responder subset: '18 and 10 days, respectively; p=0.0002.' Placebo-controlled design (not untreated-control) isolates the mechanism-specific contribution from generic response-timing confounds."
+    },
+    "lepoul_1995_desensitization_timecourse_PRIMARY": {
+      "pmid": "7477436", "doi": "10.1007/BF00176767",
+      "cite": "Le Poul E, Laaris N, Doucet E, Laporte AM, Hamon M, Lanfumey L (1995). Early desensitization of somato-dendritic 5-HT1A autoreceptors in rats treated with fluoxetine or paroxetine. Naunyn Schmiedebergs Arch Pharmacol 352(2):141-8.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "THE quantitative desensitization time-course anchor. VERBATIM: 'the potency of the 5-HT1A receptor agonist, 8-OH-DPAT, to depress the firing of serotoninergic neurons ... was significantly reduced as early as after a 3-day treatment ... The proportion of recorded neurons showing desensitization ... increased along the treatment from approximately 40% on the 3rd day to 60-80% on the 21st day.' Also: specific receptor BINDING was unchanged at any timepoint -- functional/coupling desensitization, not a receptor-density change. RECALL-DRIFT CAUGHT: initially mis-recalled as 'le Poul 2000' -- live esearch found the correct paper is 1995."
+    },
+    "gershon_tack_2007_gut_mechanism": {
+      "pmid": "17241888", "doi": "10.1053/j.gastro.2006.11.002",
+      "cite": "Gershon MD, Tack J (2007). The serotonin signaling system: from basic understanding to drug development for functional GI disorders. Gastroenterology 132(1):397-414.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "The task's own named 'Gershon' anchor -- real, live-verified, mechanism-correct (TPH1 in EC cells, TPH2 in neurons, SERT-mediated inactivation) but its OWN ABSTRACT DOES NOT CONTAIN an explicit '90%' figure (checked directly, disclosed) -- no PMC full text available (paywalled, DOI/PII only, no PMCID) to check further. The numeric '>90%' anchor for this doc is Yano et al 2015 instead (below), an honest substitution."
+    },
+    "yano_2015_ninety_percent_PRIMARY": {
+      "pmid": "25860609", "doi": "10.1016/j.cell.2015.02.047", "pmcid": "PMC4393509",
+      "cite": "Yano JM, Yu K, Donaldson GP, Shastri GG, Ann P, Ma L, Nagler CR, Ismagilov RF, Mazmanian SK, Hsiao EY (2015). Indigenous bacteria from the gut microbiota regulate host serotonin biosynthesis. Cell 161(2):264-76.",
+      "verified_via": "NCBI eutils efetch (abstract) + efetch db=pmc (full text XML), both live this session",
+      "numbers": "THE quantitative '90%' anchor -- NOT in this paper's own abstract (checked, disclosed), found in PMC FULL TEXT (fetched live this session, PMC4393509): 'More than 90% of the body's 5-HT is synthesized in the gut.' Also (a corroborating number cited within, re Savelieva 2008): 'SPF Tph1 KO mice lack >90% of intestinal and blood 5-HT levels.'"
+    },
+    "omahony_2015_gut_brain_axis_review": {
+      "pmid": "25078296", "doi": "10.1016/j.bbr.2014.07.027",
+      "cite": "O'Mahony SM, Clarke G, Borre YE, Dinan TG, Cryan JF (2015). Serotonin, tryptophan metabolism and the brain-gut-microbiome axis. Behav Brain Res 277:32-48.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "General review context: gut microbiota regulates host tryptophan metabolism along the kynurenine pathway, 'simultaneously reducing the fraction available for serotonin synthesis' -- couples to PSYCH-KYNURENINE-NEUROTOX-BRANCHPOINT graph node (shared precursor-competition mechanism, not independently modeled quantitatively in this doc)."
+    },
+    "fernstrom_2013_bbb_lnaa_mechanism": {
+      "pmid": "22677921", "doi": "10.1007/s00726-012-1330-y",
+      "cite": "Fernstrom JD (2013). Large neutral amino acids: dietary effects on brain neurochemistry and function. Amino Acids 45(3):419-30.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, the BBB mechanism explaining WHY peripheral/CNS pools stay separate despite a shared tryptophan precursor: 'The particular effect reflects the competitive nature of the transporter for LNAA at the blood-brain barrier ... raising blood tryptophan ... levels raises ... uptake into brain ... serotonin ... synthesis in brain parallel the tryptophan ... changes.' Serotonin itself does not cross the BBB; only the amino-acid precursor does."
+    },
+    "rudnick_1977_sert_km_PRIMARY": {
+      "pmid": "849926", "doi": null,
+      "cite": "Rudnick G (1977). Active transport of 5-hydroxytryptamine by plasma membrane vesicles isolated from human blood platelets. J Biol Chem 252(7):2170-4.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "THE numeric SERT kinetics anchor. VERBATIM: 'Kinetic studies reveal a Km of 0.5 microM for the transport process.' Uses human PLATELET SERT (same gene product as neuronal SERT, disclosed as a peripheral-tissue-prep caveat, structurally analogous to this repo's own dopamine_kinetics.py 'apparent Km' caveat for DAT)."
+    },
+    "ruhe_2007_tryptophan_depletion_meta_PRIMARY": {
+      "pmid": "17389902", "doi": "10.1038/sj.mp.4001949",
+      "cite": "Ruhe HG, Mason NS, Schene AH (2007). Mood is indirectly related to serotonin, norepinephrine and dopamine levels in humans: a meta-analysis of monoamine depletion studies. Mol Psychiatry 12(4):331-59.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "THE decorrelated-check anchor, VERBATIM: '5-HT or NE/DA depletion did not decrease mood in healthy controls ... slightly lowered mood in healthy controls with a family history of MDD. In drug-free patients with MDD in remission, a moderate mood decrease was found for ATD ... ATD induced relapse in patients with MDD in remission who used serotonergic antidepressants ... they fail to demonstrate a causal relation.' 45 ATD + 8 APTD studies meta-analyzed (of 73/2/10/8 identified)."
+    },
+    "moncrieff_2022_umbrella_review_PRIMARY": {
+      "pmid": "35854107", "doi": "10.1038/s41380-022-01661-0", "pmcid": "PMC10618090",
+      "cite": "Moncrieff J, Cooper RE, Stockmann T, Amendola S, Hengartner MP, Horowitz MA (2022). The serotonin theory of depression: a systematic umbrella review of the evidence. Mol Psychiatry 28(8):3243-3256 (Epub 2022 Jul 20).",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "THE symmetric-QC anchor, VERBATIM headline: 'The main areas of serotonin research provide no consistent evidence of there being an association between serotonin and depression, and no support for the hypothesis that depression is caused by lowered serotonin activity or concentrations.' Large-N nulls: genetic association study n=115,257 and collaborative meta-analysis n=43,165, both 'revealed no evidence of an association.' Nuance (not flattened): 5-HT1A/SERT-binding imaging legs (largest n=561/1845) showed 'weak and inconsistent evidence,' with 'effects of prior antidepressant use ... not reliably excluded.' Carries 8 'Comment in' entries (counted directly), i.e. actively contested."
+    },
+    "bartova_2023_moncrieff_rebuttal": {
+      "pmid": "37322062", "doi": "10.1038/s41380-023-02093-0",
+      "cite": "Bartova L, Lanzenberger R, Rujescu D, Kasper S (2023). Reply to: \"The serotonin theory of depression: a systematic umbrella review of the evidence.\" Mol Psychiatry 28(8):3153-3154.",
+      "verified_via": "NCBI eutils efetch, live this session (title/authors/PMID/DOI; abstract not returned by PubMed for this brief-reply format, disclosed)",
+      "numbers": "Confirms Moncrieff 2022 is directly, publicly disputed by named authors -- evidence the causal-story debate is genuinely OPEN in the field, not this doc manufacturing controversy."
+    }
+  },
+  "n_pmids_total": 24,
+  "n_pmids_with_full_verbatim_abstract": 21,
+  "n_pmids_title_doi_only_no_abstract_text": 3,
+  "recall_drift_instances_caught_this_session": [
+    "Meyer 2004: first esearch attempt returned the 2001 paper (PMID 11691690) instead -- caught by esummary date-check, correct 2004 paper (PMID 15121647) separately re-searched and found.",
+    "Fernstrom & Wurtman: commonly mis-cited/mis-recalled as 1972 -- live-verified actual date is 1971 Jul 9.",
+    "le Poul: initially mis-recalled as 'le Poul 2000' -- live esearch found the correct paper is 1995 (PMID 7477436).",
+    "Gershon & Tack 2007's OWN abstract does not state the '90%' figure often attributed to it -- caught by reading the fetched abstract text directly rather than assuming the citation supports the number; Yano et al 2015 PMC full text substituted as the actual verbatim numeric source."
+  ]
+}

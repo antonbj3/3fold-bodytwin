@@ -1,0 +1,96 @@
+{
+ "finding": "the second independent measurement per eye exists in the surgical workbook: two instruments measured the same eyes on six shared quantities",
+ "corrects": "the decorrelation cell declared the instrument component unstackable because it had been measured on 300 eyes of a different cohort; that was true of that cohort and false of the data",
+ "why_admissible": "a between-device disagreement is measured per unit, shares no term with the outcome, and sits on the same eyes as the outcomes, so it is not constructed by subtraction from the total the way the withdrawn toric stages were",
+ "length_quantities_both_devices": [
+  {
+   "quantity": "CCT",
+   "unit": "um",
+   "eyes_with_both_devices": 89,
+   "mean_difference": 9.89721,
+   "sd_of_difference": 6.25897,
+   "max_abs_difference": 41.48746,
+   "reading": "a nonzero mean is a device bias, i.e. a shared systematic, not noise"
+  },
+  {
+   "quantity": "ACD",
+   "unit": "mm",
+   "eyes_with_both_devices": 89,
+   "mean_difference": -0.14414,
+   "sd_of_difference": 0.08125,
+   "max_abs_difference": 0.47629,
+   "reading": "a nonzero mean is a device bias, i.e. a shared systematic, not noise"
+  },
+  {
+   "quantity": "LT",
+   "unit": "mm",
+   "eyes_with_both_devices": 89,
+   "mean_difference": -0.03798,
+   "sd_of_difference": 0.07344,
+   "max_abs_difference": 0.68845,
+   "reading": "a nonzero mean is a device bias, i.e. a shared systematic, not noise"
+  },
+  {
+   "quantity": "WTW",
+   "unit": "mm",
+   "eyes_with_both_devices": 89,
+   "mean_difference": 0.08673,
+   "sd_of_difference": 0.19739,
+   "max_abs_difference": 0.76428,
+   "reading": "a nonzero mean is a device bias, i.e. a shared systematic, not noise"
+  }
+ ],
+ "cylinder_stage_matrix": {
+  "units_of_each_column": "D of cylinder",
+  "columns": [
+   "posterior_cylinder_disagreement_J0",
+   "posterior_cylinder_disagreement_J45"
+  ],
+  "convention": "power-vector components with CASIA rotated to the same meridian; the two devices print orthogonal posterior axes, 86 degrees apart in median",
+  "withdrawn_first_version": "a raw difference of the signed cylinders gave 0.4263 D and measured the convention, not the disagreement",
+  "eyes": 69,
+  "per_stage_mean_D": [
+   -0.34272,
+   0.028
+  ],
+  "per_stage_sd_D": [
+   0.23229,
+   0.14591
+  ],
+  "conversion": "IOLMaster radii converted with the stromal index and aqueous index the toric decision itself imports, not a second chain"
+ },
+ "decorrelation_verifier": {
+  "verdict": "DECORRELATED-CERTIFIED",
+  "composition": "RSS",
+  "decorrelation_verified": true,
+  "rho_hat": -0.1456,
+  "rho_ci": [
+   -0.3984,
+   0.1172
+  ],
+  "n_units": 69,
+  "n_stages": 2,
+  "reason": "stage-error mean off-diagonal correlation CI-UPPER +0.117 <= tol 0.15 (rho_hat=-0.146, M=69): stages are certified DECORRELATED -> the favorable RSS system margin is claimable."
+ },
+ "covariance_aware_margin": {
+  "verdict": "COVARIANCE-AWARE",
+  "margin": 1.6893,
+  "plugin_margin": 1.9555,
+  "rss_margin": 1.8227,
+  "sum_margin": 1.3221,
+  "sysvar_ci_upper": 0.0876,
+  "n_units": 69,
+  "n_stages": 2,
+  "reason": "covariance-aware system margin 1.689x from the CI-UPPER of 1'Sigma1 (RSS endpoint 1.823, SUM endpoint 1.322). The PLUG-IN point estimate 1.955 fails open (~50%); the CI-upper gate is conservative. Recovers margin vs pure SUM when the measured common-mode is moderate, without the plug-in fail-open."
+ },
+ "heavy_tail": {
+  "hill_xi": 0.3788,
+  "heavy_tail": true,
+  "n_raw": 138,
+  "hill_thresh": 0.35
+ },
+ "spec_D": 0.5,
+ "claim_type": "capability",
+ "control": "the module own endpoints, spec/sum(sd) at rho=1 and spec/sqrt(sum sd^2) at rho=0; and the realised residual cylinder of the toric decision as the external check",
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

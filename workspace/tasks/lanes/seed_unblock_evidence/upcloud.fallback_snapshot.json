@@ -1,0 +1,36 @@
+{
+  "time": 1790758839.3983188,
+  "marker_count": 2,
+  "rows": [
+    {
+      "pid": 1618253,
+      "account": "B",
+      "selected": "swarm",
+      "job": "BT-DW48-AUTO-182028fb732303",
+      "started": 1790758470.5636683
+    },
+    {
+      "pid": 1624627,
+      "account": "D",
+      "selected": "swarm_worker",
+      "job": "BT-FW48-AUTO-3ae2a020bc70ed",
+      "started": 1790758810.5095947,
+      "start_ticks": 32432562,
+      "boot_id": "5cf3a18b-e663-4752-bc3d-6e0bb9624dc2",
+      "reason": "free models unavailable: cooldown, capacity or egress backoff"
+    }
+  ],
+  "swarm_worker_runs": [
+    {
+      "route": {
+        "account": "D",
+        "requested": "swarm",
+        "selected": "swarm_worker",
+        "model": "opencode-go/swarm_worker-v4.1-flash",
+        "started": 1790758810.5097542
+      },
+      "job": "BT-FW48-AUTO-3ae2a020bc70ed",
+      "agent_tail": "ID\":\"ses_f0e750545ffe82R4uOk70C1p1t\",\"type\":\"text\",\"text\":\"I'll write the status file first, as instructed, then read source files.\",\"time\":{\"start\":1790758832321,\"end\":1790758838864}}}\n{\"type\":\"tool_use\",\"timestamp\":1790758838890,\"sessionID\":\"ses_f0e750545ffe82R4uOk70C1p1t\",\"part\":{\"type\":\"tool\",\"tool\":\"write\",\"callID\":\"call_00_flm2x6ori5l0t8mz7q3l6l0w\",\"state\":{\"status\":\"completed\",\"input\":{\"filePath\":\"/opt/agents/jobs/BT-FW48-AUTO-3ae2a020bc70ed/WORK_STATUS.md\",\"content\":\"# WORK_STATUS \u2014 BT-FW48-AUTO-3ae2a020bc70ed\\n\\n## Next concrete calculation (write-first, before reading sources)\\n\\nGoal: decide whether the filtration dilution `s` is a nuisance parameter or a\\nreported port. One exact, small, discriminating calculation:\\n\\n1. Recover the nominal budget from the frozen baseline:\\n   - `s0 = CLsec^A / (CLsec^A + f_u*GFR) = 0.807357`, at `f_u0 = 1.0`, `GFR0 = 94.99`.\\n   - Solve the only unknown scale `A = CLsec^A`:\\n     `A = s0 * (f_u0*GFR0) / (1 - s0)`.\\n   - Split the published `-26.0 %` into a capacity-free kinetic port and a\\n     filtration port: `dCL/CL = s * K`, so `K = -0.260 / s0` (K is the\\n     kinetic/capacity-free term, bit-fixed in the parent).\\n\\n2. Exact sensitivity of the reported magnitude to the filtration port:\\n   - `s(f_u,GFR) = A / (A + f_u*GFR)`.\\n   - `d ln s / d ln f_u = d ln s / d ln(U) = -(1 - s)`, with `U = f_u*GFR`.\\n   - Therefore `d ln|shift| / d ln s = +1` exactly while K is frozen, i.e. the\\n     `-26.0 %` scales linearly with `s`.\\n\\n3. Region map (the decisive output). Retained magnitude fraction `r` means\\n   `s = r*s0`, i.e. `U_r = (A + U0)/r - A` where `U0 = f_u0*GFR0`.\\n   Compute `U_r` for `r = 0.80` and `r = 0.50`, and express as the `(f_u,GFR)`\\n   hyperbola `f_u*GFR = U_r`. Nominal `U0 = 94.99` sits inside the 80 % region\\n   by construction.\\n   - Also report where `s = 0.5` (equal split) as the strong-filtration limit.\\n\\n4. Matched capacity control: hold `K`, `Jmax`, exposures frozen and vary ONLY\\n   `f_u` across its **reported prior** (to be read from the frozen file). Compare\\n   `delta ln|shift|` from the `f_u` sweep against the parent capacity sweep\\n   (`s` range 0.004173..0.999761). If the filtration term dominates, capacity\\n   searches are noise in that band.\\n\\n## Inputs needed (read next, max 2 files)\\n- Frozen model/parameters: parent `m7_presupposition.py` (formula + constants).\\n- Published shift value and `f_u` prior width: parent `RESULTS.md` or `results.json`.\\n\\n## Status\\n- [ ] read frozen model (1 file)\\n- [ ] read published-shift / f_u prior (1 file)\\n- [ ] run matched calculation, save results.json + COMMANDS.md\\n- [ ] write RESULTS.md with job ID on line 1\\n\"},\"output\":\"Wrote file successfully.\",\"metadata\":{\"diagnostics\":{},\"filepath\":\"/opt/agents/jobs/BT-FW48-AUTO-3ae2a020bc70ed/WORK_STATUS.md\",\"exists\":false,\"truncated\":false},\"title\":\"opt/agents/jobs/BT-FW48-AUTO-3ae2a020bc70ed/WORK_STATUS.md\",\"time\":{\"start\":1790758838862,\"end\":1790758838880}},\"id\":\"prt_0f18b60fd001XjNqnnZsO51zKh\",\"sessionID\":\"ses_f0e750545ffe82R4uOk70C1p1t\",\"messageID\":\"msg_0f18b1ecd001rnIhSSYQ96cOO8\"}}\n{\"type\":\"step_finish\",\"timestamp\":1790758838890,\"sessionID\":\"ses_f0e750545ffe82R4uOk70C1p1t\",\"part\":{\"id\":\"prt_0f18b6262001g0WDpC2miNv6ji\",\"reason\":\"tool-calls\",\"messageID\":\"msg_0f18b1ecd001rnIhSSYQ96cOO8\",\"sessionID\":\"ses_f0e750545ffe82R4uOk70C1p1t\",\"type\":\"step-finish\",\"tokens\":{\"total\":19334,\"input\":2107,\"output\":793,\"reasoning\":1202,\"cache\":{\"write\":0,\"read\":15232}},\"cost\":0.001558746}}\n"
+    }
+  ]
+}

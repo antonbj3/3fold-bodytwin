@@ -1,0 +1,31 @@
+{
+  "rows": [
+    10,
+    10
+  ],
+  "largest_muscle_force_spread_across_rows_N": 7.439999990310753e-06,
+  "effective_distinct_poses_per_arm": 1,
+  "per_frame_robustness": "vacuous: identical in all ten rows because the rows are one pose",
+  "shared_muscles": 187,
+  "total_force_N": [
+    15341.179142566,
+    17864.74595167
+  ],
+  "load_scale_ratio": 1.1644962740903047,
+  "surrogate_mae_N": 4.015890405799041,
+  "surrogate_max_error_N": 45.3419189654162,
+  "total_redistribution_N": 2523.867042864,
+  "fraction_of_redistribution_explained": 0.7024520336728026,
+  "worst_muscles": {
+    "semimem_l": 45.3419189654162,
+    "semimem_r": 44.50800396114073,
+    "tibant_l": 29.94082996108739,
+    "tibant_r": 29.47260248489306,
+    "glmax3_l": 13.963077378506284,
+    "IL_R11_l": 13.791985553492324
+  },
+  "verdict": "SURROGATE INSUFFICIENT: the redistribution is structural, not a scaling",
+  "reference_is": "static-optimisation solutions, not measurements of a person; valid only for the claim that a scaling surrogate reproduces the solver",
+  "source": "source_repository/data/msk_smoketest/subject2_spine_stoop_lift",
+  "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

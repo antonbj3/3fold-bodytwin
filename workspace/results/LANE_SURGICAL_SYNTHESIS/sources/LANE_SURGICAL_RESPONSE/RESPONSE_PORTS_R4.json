@@ -1,0 +1,73 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "round": 4,
+  "scientific_admission": false,
+  "source_species_scope": "mouseexcisionswholewoundchemistry; ratincisionstrength; cellculturetypeImaturationanalog; no jointspecimen posterior",
+  "observed_HP_inventory_ratio42_10": 2.220261437908497,
+  "conditional_checkpoint": "r4/glyco_reservoir/control_first_order_D_NS0.03_checkpoint21.json",
+  "independent_analog_rates": [
+    {
+      "group": "control",
+      "law": "first_order",
+      "rate": 0.06949679103768976,
+      "HP_yield": 0.2833333333333334,
+      "rate_units": "1/day",
+      "source_endpoint_reconstruction": [
+        0.2,
+        0.23,
+        0.8599999999999999
+      ]
+    },
+    {
+      "group": "control",
+      "law": "second_order",
+      "rate": 0.15306122448979592,
+      "HP_yield": 0.2833333333333334,
+      "rate_units": "1/(mol/molcollagen day)",
+      "source_endpoint_reconstruction": [
+        0.19999999999999998,
+        0.23,
+        0.8599999999999999
+      ]
+    },
+    {
+      "group": "LH3_knockdown",
+      "law": "first_order",
+      "rate": 0.04474153458912028,
+      "HP_yield": 0.9200000000000002,
+      "rate_units": "1/day",
+      "source_endpoint_reconstruction": [
+        0.2,
+        0.26,
+        0.03999999999999992
+      ]
+    },
+    {
+      "group": "LH3_knockdown",
+      "law": "second_order",
+      "rate": 0.12755102040816327,
+      "HP_yield": 0.9200000000000002,
+      "rate_units": "1/(mol/molcollagen day)",
+      "source_endpoint_reconstruction": [
+        0.19999999999999998,
+        0.26,
+        0.039999999999999925
+      ]
+    }
+  ],
+  "native": {
+    "D_NS_mol_mol": null,
+    "glyco_specific_eta": null,
+    "catalytic_LOX_rate": null,
+    "healing_traction_Pa": null,
+    "bridge_connected_length_m": null,
+    "anchor_survival": null,
+    "chemistry_angle_bridge_joint": null,
+    "vascular_damage_width_m": null
+  },
+  "gamma_to_strength_allowed": false,
+  "mechanical_strainzone_to_ischemia_allowed": false,
+  "same_information_control": "TIE",
+  "empirical_joint_gate": "UNKNOWN",
+  "consumption": "Localreviewhandoff only; do not fill nulls from syntheticprofiles."
+}

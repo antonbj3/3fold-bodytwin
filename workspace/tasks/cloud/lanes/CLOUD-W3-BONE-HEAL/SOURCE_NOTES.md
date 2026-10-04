@@ -1,0 +1,3 @@
+# Public primary source note (locally checked before launch)
+
+Carter DR, Caler WE, Spengler DM, Frankel VH, *Fatigue Behavior of Adult Cortical Bone: The Influence of Mean Strain and Strain Range*, Acta Orthopaedica 52(5):481–490 (1981), DOI 10.3109/17453678108992136, https://actaorthop.org/actao/article/view/28841 . The primary abstract reports devitalized human femoral cortical-bone specimens tested at strain ranges 0.005–0.010 and describes mean-strain and cycle-life results. It does not supply a directly transferable in-vivo person-level injury-risk function. Do not claim source-backed model-parameter intervals beyond what the accessible paper actually specifies.

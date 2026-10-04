@@ -1,0 +1,453 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "claim_type": "information_link",
+  "form": [
+    "B",
+    "C"
+  ],
+  "source_gate": {
+    "power_time_separate": true,
+    "source": "PMID30294056 Sec3.2/Figs6,8",
+    "damage_depth_observed": false,
+    "delivered_waveform_publicly_acquired": false
+  },
+  "parent_challenge": {
+    "source": "PMID12642261",
+    "held_rows": [
+      {
+        "device": "Mitek",
+        "time_s": 1,
+        "mean_depth_um": 564,
+        "level": "TISSUE",
+        "setting_stratum": "Not separately resolved in abstract",
+        "uncertainty_um": null,
+        "source": "PMID12642261",
+        "apparent_D_m2_s": 3.180959999999999e-07,
+        "apparent_D_level": "PHENOMENOLOGICAL",
+        "parent_predicted_depth_mm": [
+          0.56,
+          0.9814954576223638
+        ],
+        "parent_encloses_mean": true
+      },
+      {
+        "device": "Mitek",
+        "time_s": 3,
+        "mean_depth_um": 648,
+        "level": "TISSUE",
+        "setting_stratum": "Not separately resolved in abstract",
+        "uncertainty_um": null,
+        "source": "PMID12642261",
+        "apparent_D_m2_s": 1.3996799999999997e-07,
+        "apparent_D_level": "PHENOMENOLOGICAL",
+        "parent_predicted_depth_mm": [
+          0.9699484522385713,
+          1.7000000000000002
+        ],
+        "parent_encloses_mean": false
+      },
+      {
+        "device": "Arthrocare",
+        "time_s": 1,
+        "mean_depth_um": 1444,
+        "level": "TISSUE",
+        "setting_stratum": "Not separately resolved in abstract",
+        "uncertainty_um": null,
+        "source": "PMID12642261",
+        "apparent_D_m2_s": 2.085136e-06,
+        "apparent_D_level": "PHENOMENOLOGICAL",
+        "parent_predicted_depth_mm": [
+          0.56,
+          0.9814954576223638
+        ],
+        "parent_encloses_mean": false
+      },
+      {
+        "device": "Arthrocare",
+        "time_s": 3,
+        "mean_depth_um": 1697,
+        "level": "TISSUE",
+        "setting_stratum": "Not separately resolved in abstract",
+        "uncertainty_um": null,
+        "source": "PMID12642261",
+        "apparent_D_m2_s": 9.599363333333334e-07,
+        "apparent_D_level": "PHENOMENOLOGICAL",
+        "parent_predicted_depth_mm": [
+          0.9699484522385713,
+          1.7000000000000002
+        ],
+        "parent_encloses_mean": true
+      },
+      {
+        "device": "Oratec",
+        "time_s": 1,
+        "mean_depth_um": 895,
+        "level": "TISSUE",
+        "setting_stratum": "Not separately resolved in abstract",
+        "uncertainty_um": null,
+        "source": "PMID12642261",
+        "apparent_D_m2_s": 8.010249999999999e-07,
+        "apparent_D_level": "PHENOMENOLOGICAL",
+        "parent_predicted_depth_mm": [
+          0.56,
+          0.9814954576223638
+        ],
+        "parent_encloses_mean": true
+      },
+      {
+        "device": "Oratec",
+        "time_s": 3,
+        "mean_depth_um": 1057,
+        "level": "TISSUE",
+        "setting_stratum": "Not separately resolved in abstract",
+        "uncertainty_um": null,
+        "source": "PMID12642261",
+        "apparent_D_m2_s": 3.7241633333333333e-07,
+        "apparent_D_level": "PHENOMENOLOGICAL",
+        "parent_predicted_depth_mm": [
+          0.9699484522385713,
+          1.7000000000000002
+        ],
+        "parent_encloses_mean": true
+      }
+    ],
+    "constant_D_per_device": [
+      {
+        "device": "Mitek",
+        "depth_ratio_3s_over_1s": 1.148936170212766,
+        "apparent_D_1s_over_3s": 2.272633744855967,
+        "best_possible_time_constant_D_worst_relative_mean_error": 0.20240099724612734,
+        "interpretation": "Descriptive inconsistency; uncertainty not reported in abstract; no statistical model rejection."
+      },
+      {
+        "device": "Arthrocare",
+        "depth_ratio_3s_over_1s": 1.175207756232687,
+        "apparent_D_1s_over_3s": 2.1721607231590703,
+        "best_possible_time_constant_D_worst_relative_mean_error": 0.19153544107478898,
+        "interpretation": "Descriptive inconsistency; uncertainty not reported in abstract; no statistical model rejection."
+      },
+      {
+        "device": "Oratec",
+        "depth_ratio_3s_over_1s": 1.1810055865921787,
+        "apparent_D_1s_over_3s": 2.150885791797531,
+        "best_possible_time_constant_D_worst_relative_mean_error": 0.18916393863202105,
+        "interpretation": "Descriptive inconsistency; uncertainty not reported in abstract; no statistical model rejection."
+      }
+    ],
+    "parent_D_interval_m2_s": [
+      3.1360000000000006e-07,
+      9.633333333333334e-07
+    ],
+    "parent_missed_means": 2,
+    "source_descriptive_D_extrema_m2_s": [
+      1.3996799999999997e-07,
+      2.085136e-06
+    ],
+    "source_descriptive_D_spread": 14.897233653406495,
+    "descriptive_enclosure_width_over_conservative": 13.897233653406495,
+    "not_a_physical_confidence_interval": true,
+    "parent_hash": "158464d3a90ec89a8d1af3dac62ae6281dc3e533979d0208d27871763df8d1c8",
+    "native_dwell_s": null
+  },
+  "energy_sufficiency": {
+    "pairs": [
+      {
+        "flux_W_m2": 40000.0,
+        "time_s": 0.5,
+        "absorbed_energy_J": 2.0,
+        "temperatures_C": {
+          "0": 43.883285285767386,
+          "0.5": 22.52185787214998,
+          "1": 20.069389109465636
+        }
+      },
+      {
+        "flux_W_m2": 10000.0,
+        "time_s": 2.0,
+        "absorbed_energy_J": 2.0,
+        "temperatures_C": {
+          "0": 31.941642642883693,
+          "0.5": 24.512279725738043,
+          "1": 21.26092893607499
+        }
+      }
+    ],
+    "summary_identity_error_J": 0.0,
+    "surface_temperature_gap_K": 11.941642642883693,
+    "smallest_extension_in_rectangular_fixed_support_class": "Energy plus duration; this also determines flux. Fixed material and support are required."
+  },
+  "energy_duration_sufficiency": {
+    "pairs": [
+      {
+        "label": "early_hot",
+        "intervals": [
+          {
+            "start_s": 0.0,
+            "end_s": 2.0,
+            "flux_W_m2": 40000.0
+          },
+          {
+            "start_s": 2.0,
+            "end_s": 4.0,
+            "flux_W_m2": 10000.0
+          }
+        ],
+        "energy_J": 10.0,
+        "duration_s": 4.0,
+        "temperatures_C": {
+          "0": 51.72720400166496,
+          "0.5": 41.41742226389499,
+          "1": 31.868124127030843
+        }
+      },
+      {
+        "label": "late_hot",
+        "intervals": [
+          {
+            "start_s": 0.0,
+            "end_s": 2.0,
+            "flux_W_m2": 10000.0
+          },
+          {
+            "start_s": 2.0,
+            "end_s": 4.0,
+            "flux_W_m2": 40000.0
+          }
+        ],
+        "energy_J": 10.0,
+        "duration_s": 4.0,
+        "temperatures_C": {
+          "0": 72.71296091123008,
+          "0.5": 42.27540453749141,
+          "1": 27.69551454203892
+        }
+      }
+    ],
+    "energy_identity_error_J": 0.0,
+    "duration_identity_error_s": 0.0,
+    "surface_temperature_gap_K": 20.985756909565126,
+    "surface_60C_verdict_flips": true,
+    "smallest_fixed_endpoint_extension": "One target-weighted source functional. Different targets/times need different functionals; damage requires its own history-dependent readout."
+  },
+  "fixed_alpha_apparent_D_challenge": [
+    {
+      "flux_W_m2": 10000,
+      "time_s": 0.25,
+      "isotherm_depth_mm": 0.0,
+      "apparent_D_m2_s": null,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": false
+    },
+    {
+      "flux_W_m2": 10000,
+      "time_s": 0.5,
+      "isotherm_depth_mm": 0.0,
+      "apparent_D_m2_s": null,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": false
+    },
+    {
+      "flux_W_m2": 10000,
+      "time_s": 1,
+      "isotherm_depth_mm": 0.0,
+      "apparent_D_m2_s": null,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": false
+    },
+    {
+      "flux_W_m2": 10000,
+      "time_s": 2,
+      "isotherm_depth_mm": 0.0,
+      "apparent_D_m2_s": null,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": false
+    },
+    {
+      "flux_W_m2": 10000,
+      "time_s": 4,
+      "isotherm_depth_mm": 0.0,
+      "apparent_D_m2_s": null,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": false
+    },
+    {
+      "flux_W_m2": 20000,
+      "time_s": 0.25,
+      "isotherm_depth_mm": 0.0,
+      "apparent_D_m2_s": null,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": false
+    },
+    {
+      "flux_W_m2": 20000,
+      "time_s": 0.5,
+      "isotherm_depth_mm": 0.0,
+      "apparent_D_m2_s": null,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": false
+    },
+    {
+      "flux_W_m2": 20000,
+      "time_s": 1,
+      "isotherm_depth_mm": 0.0,
+      "apparent_D_m2_s": null,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": false
+    },
+    {
+      "flux_W_m2": 20000,
+      "time_s": 2,
+      "isotherm_depth_mm": 0.0,
+      "apparent_D_m2_s": null,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": false
+    },
+    {
+      "flux_W_m2": 20000,
+      "time_s": 4,
+      "isotherm_depth_mm": 0.0,
+      "apparent_D_m2_s": null,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": false
+    },
+    {
+      "flux_W_m2": 40000,
+      "time_s": 0.25,
+      "isotherm_depth_mm": 0.0,
+      "apparent_D_m2_s": null,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": false
+    },
+    {
+      "flux_W_m2": 40000,
+      "time_s": 0.5,
+      "isotherm_depth_mm": 0.0,
+      "apparent_D_m2_s": null,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": false
+    },
+    {
+      "flux_W_m2": 40000,
+      "time_s": 1,
+      "isotherm_depth_mm": 0.0,
+      "apparent_D_m2_s": null,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": false
+    },
+    {
+      "flux_W_m2": 40000,
+      "time_s": 2,
+      "isotherm_depth_mm": 0.1026957110049278,
+      "apparent_D_m2_s": 5.273204529403825e-09,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": true
+    },
+    {
+      "flux_W_m2": 40000,
+      "time_s": 4,
+      "isotherm_depth_mm": 0.40569778016971597,
+      "apparent_D_m2_s": 4.1147672208658805e-08,
+      "alpha_m2_s": 1.4e-07,
+      "threshold_reached": true
+    }
+  ],
+  "executed_pivot": {
+    "operation": "Exact local source-weighted thermal endpoint and scalar inverse; no spatial state or global history replay.",
+    "conditional_inverse_rows": [
+      {
+        "flux_W_m2": 10000,
+        "target_depth_mm": 0.5,
+        "threshold_C": 60,
+        "conditional_first_threshold_time_s": 34.16569224813588
+      },
+      {
+        "flux_W_m2": 20000,
+        "target_depth_mm": 0.5,
+        "threshold_C": 60,
+        "conditional_first_threshold_time_s": 11.718445936540125
+      },
+      {
+        "flux_W_m2": 40000,
+        "target_depth_mm": 0.5,
+        "threshold_C": 60,
+        "conditional_first_threshold_time_s": 4.68984694513486
+      }
+    ],
+    "native_refusal": {
+      "review_state": "PENDING_INDEPENDENT_REVIEW",
+      "scientific_admission": false,
+      "native_dwell_s": null,
+      "damage_depth_mm": null,
+      "physical_error_bound_K": null,
+      "status": "UNKNOWN",
+      "reason": "Matched deposition, tissue/device geometry, injury law and joint error contract are unacquired."
+    },
+    "classical_comparator": "Identical Duhamel heat response; no speed or method novelty claim."
+  },
+  "conditional_stress_sweep": [
+    {
+      "quantity": "flux_W_m2",
+      "illustrative_range": [
+        10000.0,
+        40000.0
+      ],
+      "temperature_C": [
+        28.738565360277278,
+        54.95426144110912
+      ],
+      "span_K": 26.21569608083184,
+      "threshold_C": 60,
+      "margin_sign_flips": false,
+      "empirically_admissible_range": false
+    },
+    {
+      "quantity": "alpha_m2_s",
+      "illustrative_range": [
+        1.1200000000000001e-07,
+        1.68e-07
+      ],
+      "temperature_C": [
+        48.65900161850702,
+        60.77732893846425
+      ],
+      "span_K": 12.118327319957231,
+      "threshold_C": 60,
+      "margin_sign_flips": true,
+      "empirically_admissible_range": false
+    },
+    {
+      "quantity": "k_W_m_K",
+      "illustrative_range": [
+        0.4,
+        0.6
+      ],
+      "temperature_C": [
+        63.692826801386396,
+        49.128551200924264
+      ],
+      "span_K": 14.564275600462132,
+      "threshold_C": 60,
+      "margin_sign_flips": true,
+      "empirically_admissible_range": false
+    }
+  ],
+  "verification": {
+    "comparisons": 30,
+    "max_independent_quadrature_gap_K": 7.105427357601002e-15,
+    "quadrature_is_not_rigorous_roundoff_certificate": true,
+    "physical_joint_error_bound_K": null
+  },
+  "cost": {
+    "cpu_s": 0.0016023099999999957,
+    "wall_s": 0.0020964231807738543,
+    "complete_round_cost": "UNKNOWN; source search/acquisition/writing not fully timed",
+    "python": "3.13.11",
+    "scipy": "1.17.0",
+    "seed": 6101,
+    "rng_used": false
+  },
+  "gate": "FAIL",
+  "gate_scope": "Setting-dependent native damage/dwell calibration is not identified by the acquired matching source contract; parent enclosure misses held means.",
+  "structural_absence_claim": false
+}

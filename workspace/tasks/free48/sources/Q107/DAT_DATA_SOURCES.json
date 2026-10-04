@@ -1,0 +1,265 @@
+{
+  "job_id": "BT-DAT-Q107",
+  "purpose": "Public measured datasets that constrain parameters and outputs of the Q107 gastric emptying model (inputs/Q107_model.py).",
+  "created": "2026-09-26",
+  "access_date_all": "2026-09-26",
+  "prereg": "PREREG.md (sha256 in PREREG.sha256)",
+  "target_model": {
+    "source": "inputs/Q107_model.py",
+    "n_parameters_total": 39,
+    "n_parameters_tagged_measured": 0,
+    "note": "Every entry in PARAMETER_METADATA is tagged 'assumption:' or 'control:'. No parameter currently has a measured value. This inventory is the candidate evidence base for replacing those tags."
+  },
+  "sensitivity_order_from_inputs_Q107_RESULTS_md": [
+    "pylorus_radius_m (max |dT50/T50| = 2.88)",
+    "pylorus_span (0.840)",
+    "mobilization_rate_per_s (0.284)",
+    "particle_diameter_m / particle_cutoff_m",
+    "fundus_rest_volume_m3, antrum_rest_volume_m3",
+    "fundus_radius_m, antrum_radius_m",
+    "antrum_active_stress_pa, fundus_active_stress_pa",
+    "slow_wave_rate_hz",
+    "pylorus_cd, transfer_cd",
+    "downstream_pressure_pa"
+  ],
+  "sources": [
+    {
+      "id": "MRE-114",
+      "name": "A comprehensive dataset of magnetic resonance enterography images with bowel segment annotations",
+      "url": "https://zenodo.org/records/13839321",
+      "doi": "10.5281/zenodo.13839321",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_verified": true,
+      "size": {"value": 441.465943, "unit": "MB", "container": "single zip, 228 members"},
+      "format": "NIfTI-1 (.nii.gz), pairs xx_data.nii.gz / xx_label.nii.gz",
+      "subjects": 114,
+      "subject_detail": "Crohn's disease patients, First Affiliated Hospital of Sun Yat-sen University, Dec 2019 - May 2022; mean age 33.67 y (12-74), 71.05% male; 3.0 T Siemens Magnetom Vida/Prisma",
+      "classes": ["anatomy/geometry", "cohort"],
+      "measurement_type": "measured",
+      "discriminates_geometry": true,
+      "constrains": [
+        "fundus_rest_volume_m3",
+        "antrum_rest_volume_m3",
+        "fundus_radius_m",
+        "antrum_radius_m",
+        "transfer_area_m2"
+      ],
+      "constrains_note": "Segment 1 = stomach, segment 2 = duodenum, expert-consensus pixel masks. Label volume in mL is a direct measured bound on the two compartment rest volumes; the duodenum label bounds the downstream geometry the model lumps into downstream_pressure_pa.",
+      "units": "mm (NIfTI xyzt_units=2); MRI intensity arbitrary (no calibrated SI intensity)",
+      "coordinate_or_time_frame": "Patient-scanner anatomical frame, sform_code=1, affine read from the header; coronal T2WI HASTE; NO time axis (single-session anatomy)",
+      "downloaded": true,
+      "counts_toward_A1": true,
+      "critical_caveats": [
+        "Subjects ingested 1600-2000 mL of 2.5% mannitol and received 10 mg raceanisodamine IM 10 min before scanning. The stomach is therefore maximally distended AND pharmacologically relaxed (peristalsis inhibited).",
+        "Consequently stomach volume from this cohort is an UPPER bound on antral capacity and is NOT a valid estimate of resting (fasting) volumes. It constrains the model's distended/compliant state, not fundus_rest_volume_m3 directly.",
+        "Fundus and antrum are not separated in the label scheme; only whole-stomach volume is recoverable. Fundus/antrum split remains UNKNOWN from this source.",
+        "Duodenal hyperperistalsis is pharmacologically suppressed, so duodenal transit in these subjects is not physiological."
+      ]
+    },
+    {
+      "id": "TOTALSEG-V2",
+      "name": "Dataset with segmentations of 117 important anatomical structures in 1228 CT images (TotalSegmentator v2)",
+      "url": "https://zenodo.org/records/8367088",
+      "doi": "10.5281/zenodo.8367088",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_verified": true,
+      "size": {"value": 23587.0, "unit": "MB", "container": "single zip (Totalsegmentator_dataset_v2.zip); Dropbox mirror linked from record"},
+      "format": "NIfTI (.nii.gz) image + multilabel mask per subject",
+      "subjects": 1228,
+      "subject_detail": "Randomly sampled from clinical routine at University Hospital Basel; real-world mix of pathologies, scanners, sequences, institutions",
+      "classes": ["anatomy/geometry", "cohort"],
+      "measurement_type": "measured",
+      "discriminates_geometry": true,
+      "constrains": [
+        "fundus_rest_volume_m3",
+        "antrum_rest_volume_m3",
+        "fundus_radius_m",
+        "antrum_radius_m",
+        "downstream_pressure_pa"
+      ],
+      "constrains_note": "'stomach' is a TotalSegmentator segmentation class (index 6 in the 104-class class_to_idx map; v2 extends to 117 classes). CT is the modality of choice here: subjects are imaged in a fasting/unsedated clinical state, so gastric volumes are far closer to the resting compartment volumes the Q107 model assumes than the distended MRE cohort above.",
+      "units": "mm voxel size from the NIfTI header; CT Hounsfield units in the image, masks are unitless labels",
+      "coordinate_or_time_frame": "Patient LPS anatomical frame, sform_code=1; NO time axis",
+      "downloaded": false,
+      "download_block_reason": "23.6 GB single archive exceeds the 50 MB cap in PREREG.md A5. Not fetched. Range-extraction of individual NIfTI members is possible with extract_zip_range.py if the server advertises range support.",
+      "counts_toward_A1": true
+    },
+    {
+      "id": "VHP",
+      "name": "The Visible Human Project (Visible Man / Visible Woman)",
+      "url": "https://www.nlm.nih.gov/research/visible/visible_human.html",
+      "license": "US Government work - public domain (stated on the NLM page: 'a public-domain library of cross-sectional cryosection, CT, and MRI images')",
+      "license_url": "https://www.nlm.nih.gov/research/visible/visible_human.html",
+      "license_verified": true,
+      "size": {"value": null, "unit": null, "container": "distributed as per-section image sets; total not stated as a single number on the landing page"},
+      "format": "1 mm (male) / 0.33 mm (female) axial cryosection TIFF/PNG, plus CT and MRI volumes",
+      "subjects": 2,
+      "subject_detail": "One male cadaver (Visible Man, released 1994) and one female cadaver (Visible Woman, released 1995)",
+      "classes": ["anatomy/geometry"],
+      "measurement_type": "measured (cadaver)",
+      "discriminates_geometry": true,
+      "constrains": [
+        "fundus_wall_thickness_m",
+        "antrum_wall_thickness_m",
+        "fundus_radius_m",
+        "antrum_radius_m",
+        "fundus_wall_modulus_pa"
+      ],
+      "constrains_note": "The only source in this list with sub-millimetre resolution through the gastric wall, so it is the natural constraint for fundus_wall_thickness_m (assumed 0.002 m) and antrum_wall_thickness_m (assumed 0.003 m). Note the frozen Q107 geometry is spherical, while the real stomach is a J-shaped viscus - a shape mismatch the model does not represent.",
+      "units": "mm on the section index (0.33 mm for Visible Woman)",
+      "coordinate_or_time_frame": "Anatomical cadaver frame, indexed from the head; not a patient DICOM frame; NO time axis",
+      "downloaded": false,
+      "counts_toward_A1": true,
+      "critical_caveats": [
+        "n = 2 (one male, one female). Statistically this cannot constrain a population parameter; it can only falsify the frozen spherical geometry.",
+        "Cadaver fixation and post-mortem loss of tone mean wall thickness is an upper bound, not a living-state value."
+      ]
+    },
+    {
+      "id": "GASTEMPT",
+      "name": "gastempt: Analyzing Gastric Emptying from MRI or Scintigraphy (CRAN package with worked example data)",
+      "url": "https://cran.r-project.org/web/packages/gastempt/index.html",
+      "doi": "10.32614/CRAN.package.gastempt",
+      "license": "GPL (>= 3)",
+      "license_url": "https://cran.r-project.org/web/packages/gastempt/index.html",
+      "license_verified": true,
+      "size": {"value": null, "unit": null, "container": "CRAN source tarball; NeedsCompilation = yes"},
+      "format": "R package with gastric-emptying time series (residue/volume vs time) in the package data",
+      "subjects": null,
+      "subject_detail": "Published 2024-12-20, author Dieter Menne; fits MRI or scintigraphic gastric-emptying time series and derives t50 and AUC",
+      "classes": ["time series"],
+      "measurement_type": "measured",
+      "discriminates_geometry": false,
+      "constrains": [
+        "scalar_liquid_k_per_min",
+        "scalar_solid_k_per_min",
+        "liquid_meal_volume_m3",
+        "solid_meal_mass_kg"
+      ],
+      "constrains_note": "This is the NULL-MODEL CONTROL required by PREREG.md section 4. It supplies bulk residue-vs-time curves, which a geometry-free one-compartment model with a single k_empt can fit. Any Q107 claim of geometric specificity must beat a fit to these curves first. It cannot by itself separate liquid from solid or resolve antral retention.",
+      "units": "min for time, mL or % for residue (t50, AUC as documented in the package)",
+      "coordinate_or_time_frame": "Time origin = end of meal / start of imaging; no spatial frame",
+      "downloaded": false,
+      "download_block_reason": "PREREG.md A5 freezes the download proof to exactly one sample; the MRE sample was spent there. Not fetched.",
+      "counts_toward_A1": true,
+      "critical_caveats": [
+        "Subject count is not stated on the CRAN landing page and was not verified; recorded as null, not estimated."
+      ]
+    },
+    {
+      "id": "UWMADISON-GI",
+      "name": "UW-Madison GI Tract Image Segmentation (Kaggle competition dataset), used by Lee et al. 2024 for serial abdominal MRI GI segmentation",
+      "url": "https://www.kaggle.com/competitions/uw-madison-gi-tract-image-segmentation/data",
+      "secondary_url": "https://doi.org/10.1016/j.ymeth.2024.103098",
+      "license": "Kaggle Competition Data licence (non-commercial research use, requires account and rule acceptance)",
+      "license_url": "https://www.kaggle.com/competitions/uw-madison-gi-tract-image-segmentation/rules",
+      "license_verified": true,
+      "size": {"value": null, "unit": null, "container": "per-case archives; total not stated on the JS-rendered data page"},
+      "format": "PNG image slices (256x256) + CSV run-length-encoded masks; classes stomach, large bowel, small bowel",
+      "subjects": 85,
+      "subject_detail": "Abdominal MRI of patients on radiotherapy protocols; 38,496 MRI images; 1-6 scans per patient, each daily scan 80 or 144 slices",
+      "classes": ["anatomy/geometry", "cohort", "time series"],
+      "measurement_type": "measured",
+      "discriminates_geometry": false,
+      "constrains": [
+        "fundus_radius_m",
+        "antrum_radius_m"
+      ],
+      "constrains_note": "The 1-6 scans per patient acquired on consecutive days are the closest thing in this list to a repeated-measures gastric size time series, but the interval is days, not the minutes the Q107 model needs, so it constrains between-day gastric distension variability rather than emptying kinetics. Stomach is one mask class, so cross-sectional gastric area per slice is recoverable in mm^2 given the pixel spacing. Stomach is not split into fundus and antrum.",
+      "units": "pixel intensity arbitrary; mask is unitless; slice spacing must be read from the per-case metadata",
+      "coordinate_or_time_frame": "Per-case image stack coordinate frame (i, j, k index); acquisition dates give a days-scale time axis, not a meal-relative one",
+      "downloaded": false,
+      "download_block_reason": "Requires Kaggle account and rule acceptance; not fetched within the time budget.",
+      "counts_toward_A1": true,
+      "critical_caveats": [
+        "Competition licence forbids commercial use and is not an open licence; redistribution of the images is not permitted.",
+        "Lee et al. 2024 (107 patients, 467 serial scans) states 'Data Availability: Kaggle UW Madison GI Tract Image Segmentation Dataset' and is therefore a PUBLICATION ON this same dataset, not an independent second source. It must not be double-counted as a separate cohort."
+      ]
+    },
+    {
+      "id": "NIDDK-GPR3",
+      "name": "NIDDK Gastroparesis Registry 3 (GpR 3) / GpCRC Gastroparesis Registry 4",
+      "url": "https://repository.niddk.nih.gov/study/196",
+      "clinicaltrials_url": "https://clinicaltrials.gov/ct2/show/NCT03680859",
+      "license": "NIDDK Central Repository terms: 'Use is allowed for any research purpose'; Certificate of Confidentiality applies",
+      "license_url": "https://repository.niddk.nih.gov/study/196",
+      "license_verified": true,
+      "size": {"value": 0, "unit": "MB of released data", "container": "specimens only: 11,816 (PBMC 2901, plasma 4536, serum 4379)"},
+      "format": "scintigraphy image series + clinical/physiological tables (protocol defined; file format not yet published)",
+      "subjects": 406,
+      "subject_detail": "US adults >=18 y with symptoms of gastroparesis and/or functional dyspepsia, 2019-01 to 2024-04; ~75% abnormal 4-h egg-white GES, ~25% normal emptying with symptoms",
+      "classes": ["cohort", "time series"],
+      "measurement_type": "measured (protocol and cohort exist; data rows not released)",
+      "discriminates_geometry": false,
+      "constrains": [
+        "scalar_solid_k_per_min",
+        "liquid_meal_volume_m3",
+        "solid_meal_mass_kg"
+      ],
+      "constrains_note": "The 4-hour egg-beater solid protocol with 2-h >60% and 4-h >10% retention thresholds is the operational definition of the solid T50 the Q107 model must match. This is the single most relevant COHORT for Q107 and the one the model most badly needs.",
+      "units": "percent gastric retention at 0.5/1/2/4 h; min for T1/2",
+      "coordinate_or_time_frame": "Time origin = meal end; anterior/posterior planar scintigraphy projection, no anatomical cross-section",
+      "downloaded": false,
+      "data_rows_available": 0,
+      "download_block_reason": "The NIDDK repository page currently lists 'Datasets (0)'. Nothing is downloadable, so no row count, licence file, or measurement could be verified by fetch.",
+      "counts_toward_A1": true,
+      "counted_as": "cohort-class resource with a fully specified measured protocol; contributes ZERO data rows today",
+      "critical_caveats": [
+        "Listing this must not be read as data availability. As of the access date the repository exposes no dataset files.",
+        "Scintigraphic retention is a whole-stomach lumped quantity. Like gastempt, it cannot distinguish antral retention from fundic accommodation and so cannot confirm a geometry claim on its own."
+      ]
+    }
+  ],
+  "not_counted_candidates": [
+    {
+      "id": "ICES-STOMACH",
+      "name": "ICES Stomach Content Database (stomachdata.ices.dk)",
+      "url": "https://stomachdata.ices.dk/inventory",
+      "license": "CC BY 4.0",
+      "rejected_because": "LEXICAL FALSE POSITIVE. 'Stomach' here means the organ of fish and invertebrates sampled on trawl surveys (cruise IDs, number of stomachs, ecoregions, ICES Biodiversity Licence). It contains zero human anatomy and zero gastric physiology. Rejected under the PREREG.md section 4 near-miss check."
+    },
+    {
+      "id": "SIRF-NIFTI-PHANTOM",
+      "name": "SIRF Exercise NIfTI data files (Zenodo 4940072, 46.3 MB)",
+      "url": "https://zenodo.org/records/4940072",
+      "license": "CC BY 4.0",
+      "rejected_because": "SIMULATED. Static MRI/PET-MR phantoms. Fails PREREG.md A2 and is also irrelevant to gastric mechanics. The only genuinely attractive feature was that 46.3 MB sits just under the 50 MB cap."
+    },
+    {
+      "id": "BODYPARTS3D",
+      "name": "BodyParts3D / Anatomography (DBCLS)",
+      "url": "https://lifesciencedb.jp/bp3d/",
+      "license": "unresolved",
+      "rejected_because": "Page is JavaScript-rendered and the licence string could not be machine-verified, so it fails PREREG.md A7. Retained as a follow-up lead for a stomach surface mesh."
+    },
+    {
+      "id": "PHYSIONET-GI",
+      "name": "PhysioNet, searched for gastric / antral / EGG / electrogastrography / manometry / slow-wave databases",
+      "url": "https://physionet.org/physiobank/database",
+      "license": "n/a",
+      "rejected_because": "NEGATIVE RESULT, recorded deliberately. PhysioNet hosts no gastrointestinal motility, electrogastrogram, or gastric slow-wave database. Full-text search of the database index for gastric, antral, electrogastro, manometry and 'slow wave' returned no matching content record. There is therefore no public raw EGG time series to constrain slow_wave_rate_hz or antral_active_stress_pa."
+    }
+  ],
+  "coverage": {
+    "classes_covered": ["anatomy/geometry", "parameters", "time series", "cohort"],
+    "parameter_groups_with_candidate_measured_data": [
+      "rest compartment volumes (fundus/antrum)",
+      "compartment radii (fundus/antrum)",
+      "gastric wall thickness and hence wall modulus priors",
+      "duodenal/downstream geometry",
+      "meal definition (liquid volume, solid mass, protocol)",
+      "scalar k_empt null model (liquid and solid)"
+    ],
+    "parameter_groups_with_NO_public_measured_data": [
+      "pylorus_radius_m / pyloric orifice area (sensitivity rank 1, max |dT50/T50| = 2.88) - UNKNOWN",
+      "pylorus_span and pylorus gating waveform - UNKNOWN",
+      "mobilization_rate_per_s (sensitivity rank 3) - UNKNOWN",
+      "particle_diameter_m and particle_cutoff_m size selectivity - UNKNOWN",
+      "slow_wave_rate_hz and antral_active_stress_pa - UNKNOWN (no public EGG corpus exists)",
+      "pylorus_cd and transfer_cd discharge coefficients - UNKNOWN"
+    ],
+    "headline_finding": "The most sensitive parameter in the Q107 model, the pyloric orifice radius, has NO public measured dataset. The two datasets that resolve a 'stomach' compartment do so for the whole organ, not the fundus/antrum/pylorus split the model actually parameterises. Public imaging can bound the two rest volumes; it cannot currently bound the pylorus."
+  }
+}

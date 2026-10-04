@@ -1,0 +1,65 @@
+{
+  "parent_goals": [
+    "GRAPH_INVERSE",
+    "MULTIPHYSICS"
+  ],
+  "decision": "Can a single forward collagen inventory attain external-HP component RMSE without supplied ports?",
+  "constituents": [
+    "registered FV control volumes",
+    "C normalized collagen reference mass",
+    "Q_U Q_I Q_M chemistry-direction second moments",
+    "D H A site inventories",
+    "shared reference births and removals",
+    "O2 permeability feedback"
+  ],
+  "governing_relations": [
+    "B=kdep F h(1-C); lambda=.008 macrophage; Cdot=B-lambda C",
+    "Q_Udot=B I/2-k1 h Q_U-lambda Q_U; Q_Idot=k1 h Q_U-k2 h Q_I-lambda Q_I; Q_Mdot=k2 h Q_I-lambda Q_M",
+    "trace(sum Q)=C because internal fluxes cancel and midpoint stages are synchronized",
+    "Ddot=s B-k D-lambda D; Hdot=eta k D/2-lambda H; Adot=(1-eta) k D-lambda A",
+    "D+2H+A=s C; H/C<=eta s/2 with all-precursor birth and proportional removal",
+    "S(e)=150 bridge e^T Q_M e; chemical diagnostic S=75 C clip((H/C-.003)/.040,0,1)"
+  ],
+  "leaves": [
+    {
+      "name": "Reference/flux cancellation and tensor/cohort equivalence",
+      "status": "DERIVED_UNDER_ASSUMPTIONS",
+      "stop": "Equal mark-independent linear rates close second moments; nonlinear connectivity requires richer joint state",
+      "test": "pointwise C equality, pure loss, no birth/loss conversion, conventional cohorts, restart"
+    },
+    {
+      "name": "Birth/loss and isotropic marks",
+      "status": "CONSTITUTIVE_CLOSURE",
+      "stop": "FV rates inherited; selective degradation, newborn orientation and absolute mol-to-reference conversion unmeasured",
+      "test": "fixed-reference absolute mass and precursor/turnover observations"
+    },
+    {
+      "name": "Collagen feedback on oxygen and UIM oxygen gate",
+      "status": "CONSTITUTIVE_CLOSURE",
+      "stop": "Existing synthetic permeability/(1+.3C) and saturating h; no measured skin coupling law",
+      "test": "matched O2/viability and collagen fields"
+    },
+    {
+      "name": "Autonomous precursor sites/yield",
+      "status": "CONSTITUTIVE_CLOSURE",
+      "stop": "s=.102 is synthetic transplant of frozen fixedC10 site total; rate/yield analog not native skin",
+      "test": "discriminating newborn precursor and HP inventory; bound cannot be repaired by rate alone"
+    },
+    {
+      "name": "HP/strength references",
+      "status": "EXTERNALLY_MEASURED",
+      "stop": "Separate mouse/rat assays and source digitization; seven score rows are diagnostic not matched donor prediction",
+      "test": "same reference scoring, preserve8.306 and early calibration lineage"
+    },
+    {
+      "name": "Native chemistry-age-angle-connected rupture law and uncertainty",
+      "status": "UNKNOWN",
+      "stop": "No matched acquisition; do not identify via late force fit or use Gamma as strength",
+      "test": "independent connected traction and rupture with held late day/donor"
+    }
+  ],
+  "reconstruction": "Same midpoint B/lambda stage updates FV C, Q and chemical sites; C feedback drives O2. No externally supplied dynamic abundance/HP; fixed parameters and early context supplied. Different collagen and chemical site units retained.",
+  "discriminating_test": "Noformation, noremove, pathway blockades, no-birth pure loss, equal-information cohorts, shared checkpoint, numerical refinement and autonomous RMSE8.306+0.1pp",
+  "outcome": "Reference engineering PASS, autonomous target FAIL, chemistry-capacity obstruction executed, control TIE; native UNKNOWN",
+  "stopping_argument": "Closure uncertainty now dominates numerical error by orders of magnitude; matched observation law needed before any biological8.3 claim. No more late-target rate tuning."
+}

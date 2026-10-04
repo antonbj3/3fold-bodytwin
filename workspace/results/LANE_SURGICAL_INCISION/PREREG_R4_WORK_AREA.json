@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-01T00:25:36.126266+00:00",
+  "parent": "PREREG_R4_SERIES.json",
+  "status": "FROZEN_BEFORE_AREA_NUISANCE_CALCULATION",
+  "changed_operation": "Use paired-work acquisition and measured crack trace to compute necessary nuisance/area precision, rather than another diameter force fit",
+  "minimax_constant_J": "For positive observed tool means lo,hi, best constant under max relative error is2lohi/(lo+hi), minimum worsterror(hi-lo)/(hi+lo). Diagnostic lower bound only, never reuse as heldout fitted predictor.",
+  "work_area": "Required actual crack-area ratio under commonJ16 is Jg/J16 if ALL difference is attributed to area reference. Additional effective work under syntheticcut150..380 is[Jg-epsJ-380,Jg+epsJ-150]; NOT inferred microscopic interface work.",
+  "empirical_link": "Unknown changes in repeat-contact/friction/recoverable work appear as DeltaW_nuisance; identical first/repeat is constitutive assumption not conservation identity",
+  "measurement_design": {
+    "Gamma0_absolute_target_J_m2": 30,
+    "effective_work_upper_for_design_J_m2": 3500,
+    "area_relative_bound": 0.002,
+    "external_work_bound_over_A_J_m2": 8,
+    "recoverable_work_bound_over_A_J_m2": 5,
+    "contact_work_bound_over_A_J_m2": 5,
+    "precleavage_work_bound_J_m2": 4,
+    "formula": "epsilon_Gamma0 <= (epsilon_W+epsilon_Psi+epsilon_contact+abs(Gammaeff_hat)*epsilon_A)/(Ahat-epsilon_A)+epsilon_B",
+    "nominal_example_not_executed": {
+      "cut_length_m": 0.005,
+      "depth_m": 0.0015
+    }
+  },
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

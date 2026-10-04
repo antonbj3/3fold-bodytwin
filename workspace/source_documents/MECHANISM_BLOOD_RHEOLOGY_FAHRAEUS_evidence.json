@@ -1,0 +1,183 @@
+{
+ "_meta": {
+  "name": "MECHANISM_BLOOD_RHEOLOGY_FAHRAEUS_evidence",
+  "status": "HYPOTHESIS-awaiting-QC",
+  "generated_by": "watertight-researcher subagent, session 2026-07-22",
+  "script": "two-phase model script executed this session; raw log preserved at /tmp scratchpad (fl_model.py, full_run_log.txt) -- reproducible from the formulas quoted below, not committed into bodytwin (deliverables are this .json + the paired .md only, per task scope)"
+ },
+ "claim": "Relative apparent blood viscosity eta_rel(D,Hct) in tubes is quantitatively reproduced (median 6.5% err, R2=0.84 in log10 space, D=10-300um, Hct=0.45) by a two-phase core+cell-free-layer geometric model built from INDEPENDENT inputs (CFL thickness from intravital microscopy, core viscosity-Hct law calibrated to independent bulk numbers) against Pries et al 1992's measured in-vitro curve -- NOT curve-fit to that curve. The model also reproduces the Fahraeus effect (tube Hct < discharge Hct) and the polycythemia/anemia overshoot, both in direction and rough magnitude. It does NOT reproduce the sub-7um upturn (honest, diagnosed negative, see t2_own_model_result).",
+ "geometric_derivation": {
+  "step1_force_balance": "Axisymmetric fully-developed pipe flow: force balance on a cylindrical fluid shell gives shear stress tau(r) = G*r/2 (G=-dp/dx) REGARDLESS of any radial viscosity distribution eta(r) -- pure equilibrium, no rheology assumed.",
+  "step2_integrate_two_layers": "du/dr = -tau(r)/eta(r), integrated piecewise: core 0<=r<=Rc at eta_core, annulus Rc<=r<=R at eta_plasma, with continuity of u and tau at r=Rc (forces the log-term coefficient to zero -- verified algebraically).",
+  "step3_flow_rate": "Q = integral(u*2*pi*r*dr) over both layers gives R^4/eta_app = (R^4-Rc^4)/eta_plasma + Rc^4/eta_core.",
+  "result_formula": "eta_rel = eta_app/eta_plasma = 1 / (1 - x^4*(1-nu)), where x=Rc/R=1-2*delta/D, nu=eta_plasma/eta_core(Hcore).",
+  "step4_mass_conservation": "RBCs confined to the uniform-Hct core (Q_RBC = Hcore*Q_core = HD*Q_total) gives a second geometric relation, solved self-consistently (fixed point iteration) with eta_core(Hcore): Hcore = HD*[(1-x^2)(1+x^2)+x^4*nu] / [2*x^2*(1-x^2)+x^4*nu].",
+  "bonus_fahraeus_relation": "Tube hematocrit (area-weighted, uniform-core assumption) = Hcore*x^2 -> Hct_tube/HD = x^2*Hcore/HD, falls out of the SAME derivation (not separately fit).",
+  "model_class_confirmation": "Same construction class as Sharan & Popel 2001 (PMID 12016324, verified abstract: 'solved numerically to estimate effective viscosity in CFL, thickness of CFL, core hematocrit' as a coupled nonlinear system) and a 2026 PLOS ONE paper (PMID 41481754/PMC12758828) -- not an ad hoc invention."
+ },
+ "ground_truth_formula_used_as_anchor": {
+  "source": "Pries, Neuhaus, Gaehtgens 1992 (PMID 1481902) empirical in-vitro fit, coefficients as restated in Secomb & Pries 2013 (PMC4117233)",
+  "formula": "eta_vitro(D,Hct) = 1 + (eta045(D)-1) * [(1-Hct)^C(D) - 1] / [(1-0.45)^C(D) - 1]",
+  "eta045_D": "220*exp(-1.3*D) + 3.2 - 2.44*exp(-0.06*D^0.645)  [D in micrometers]",
+  "C_D": "(0.8+exp(-0.075*D))*(-1+1/(1+1e-11*D^12)) + 1/(1+1e-11*D^12)",
+  "transcription_caveat": "coefficients extracted via a single AI-mediated full-text fetch (WebFetch on PMC4117233), NOT independently re-confirmed against a byte-verbatim second source this session (tried: 8 other PMC full texts, none quoted the coefficients) -- confidence instead built via 5 independent machine-computed self-consistency checks against RAW, directly-fetched PubMed abstract text (see self_consistency_checks), 5/5 passing",
+  "self_consistency_checks": {
+   "linear_at_D5": {"computed_C_at_D5": 0.9939, "expected": "~1 (paper states linear Hct-dependence for D<=6um)", "pass": true},
+   "overproportional_at_D9_vs_D5": {"mean_2nd_diff_eta_vs_Hct_D5": 0.0002, "mean_2nd_diff_eta_vs_Hct_D9": 0.0749, "expected": "D9 markedly more convex than D5 (paper: overproportional >=9um)", "pass": true, "note": "naive check via sign of C(D) alone is WRONG here -- C(9)=-0.705 yet the curve is MORE convex than at D5; corrected to a direct numeric 2nd-difference measurement"},
+   "minimum_location": {"computed_um": 6.84, "expected_um": "6-7 (Pries & Secomb 2005 raw abstract, PMID 16040719) / ~5-7 (Popel & Johnson 2005)", "pass": true},
+   "bulk_asymptote": {"computed": 3.199, "expected": "3.0-3.6 (bulk whole blood ~3-4 cP over plasma ~1.2 cP, Wikipedia/Elert secondary cross-check)", "pass": true},
+   "upturn_exists": {"eta_at_3.3um": 4.072, "eta_at_minimum": 1.247, "rise_pct": 226.5, "pass": true}
+  }
+ },
+ "independent_inputs": {
+  "plasma_viscosity_cP": 1.2,
+  "plasma_viscosity_source": "standard hemorheology consensus value (1.1-1.3 cP @ 37C), cross-checked vs Wikipedia/Elert Physics Hypertextbook secondary",
+  "core_viscosity_hct_law": {
+   "form": "Krieger-Dougherty-type suspension law: eta_core_rel(Hct) = (1-Hct/Hct_max)^(-n)",
+   "Hct_max_fixed_a_priori": 0.98,
+   "calibration_point": "Hct=0.45 -> eta_rel=3.5 (deliberately NOT Pries's own 3.199 constant, to keep decorrelated; independent literature ballpark 3-4 cP/1.2cP plasma)",
+   "solved_exponent_n": 2.0381,
+   "out_of_sample_checks_not_used_in_fit": {
+    "Hct_0.20": {"model_eta_rel": 1.592, "abs_cP": 1.91},
+    "Hct_0.65": {"model_eta_rel": 9.192, "abs_cP": 11.03, "vs_secondary_ballpark": "~10cP per Wikipedia '~10x water at Hct 60-70%' -- order-of-magnitude match"},
+    "Hct_0.70": {"model_eta_rel": 12.849, "abs_cP": 15.42}
+   },
+   "honest_gap": "no digitized primary Chien Hct-viscosity table was retrieved this session (Science 1970 / J Appl Physiol 1966 both paywalled, PMC full text unavailable); calibration anchor is a literature-consensus ballpark, not a single primary numeric table"
+  },
+  "cell_free_layer_thickness_delta_D": {
+   "primary_source": "Kim, Kong, Popel, Intaglietta, Johnson 2007 (PMID 17526647), intravital microscopy, rat cremaster arterioles, D=10-50um -- DIFFERENT instrument/modality than Pries's capillary viscometer (decorrelated)",
+   "measured_points": [{"D_um": 10, "delta_um": 0.8}, {"D_um": 50, "delta_um": 3.1}],
+   "cross_check_source": "Secomb & Pries 2013 (PMC4117233): ~1.8um at D=20-40um",
+   "cross_check_result": {"model_at_D20": 1.375, "model_at_D30": 1.950, "model_at_D40": 2.525, "lit_value": 1.8, "verdict": "same regime, bracketed but not exact -- disclosed"},
+   "functional_form": "linear interpolation D=[10,50]; SATURATES (constant at D=50 value) for D>50 (no literature support for unbounded CFL growth in large vessels); D<10 = 2 swept extrapolation variants, see t2"
+  }
+ },
+ "t1_main_quantitative_test": {
+  "preregistered_threshold": "median abs relative error <40% AND R2(log10)>0.7 AND correct monotonic direction, D=10-300um, Hct=0.45",
+  "D_um": [10,15,20,30,40,50,60,80,100,150,200,300],
+  "pries_truth_eta_rel": [1.328,1.470,1.588,1.775,1.923,2.045,2.148,2.314,2.443,2.666,2.808,2.973],
+  "two_phase_model_eta_rel": [1.649,1.715,1.751,1.789,1.809,1.821,1.948,2.150,2.304,2.567,2.734,2.935],
+  "pct_err": [24.2,16.6,10.3,0.7,6.0,11.0,9.3,7.1,5.7,3.7,2.7,1.3],
+  "median_pct_err": 6.5,
+  "max_pct_err": 24.2,
+  "r2_log10": 0.841,
+  "verdict": "PASS"
+ },
+ "t1_adversary_newtonian_constant": {
+  "construction": "constant eta_rel=3.5 across all D (SAME calibration point as the model, i.e. given full credit for the bulk value -- forced to its strongest fair form, it just structurally cannot vary with D)",
+  "median_pct_err": 67.0,
+  "max_pct_err": 163.5,
+  "r2_log10": -4.538,
+  "verdict": "CORRECTLY FAILS (required by falsifier design)"
+ },
+ "t2_inverse_arm_below_7um": {
+  "ground_truth": {
+   "D_um": [3.3,4.0,5.0,6.0,6.84,7.0,8.0],
+   "eta_rel": [4.072,2.307,1.471,1.274,1.247,1.248,1.267],
+   "minimum_D_um": 6.84,
+   "rise_pct_D3.3_vs_min": 226.5,
+   "preregistered_threshold": ">20% rise counts as a confirmed reversal",
+   "verdict": "CONFIRMED"
+  },
+  "monotonic_thinning_adversary": {
+   "construction": "power law fit to Pries truth at D=[15,20,30,40,50] (falling-as-D-shrinks regime, away from the transition -- strongest fair form), extrapolated down to D=3.3-8 predicting NO reversal",
+   "fitted_exponent": 0.2747,
+   "predicted_eta_at_3.3": 0.969,
+   "true_eta_at_3.3": 4.072,
+   "direction_verdict": "WRONG at 6/7 points -- predicts continued fall (0.969->1.236 as D 3.3->8), truth shows a valley then a 226.5% rise (opposite curvature)",
+   "median_pct_err_magnitude": 10.3,
+   "note": "%err magnitude alone understates the failure -- the DIRECTIONAL/sign error (adversary keeps falling as D shrinks; truth reverses) is the operative falsifier, not just the % gap"
+  },
+  "own_model_result_HONEST_NEGATIVE": {
+   "variants_swept": {
+    "naive_linear_no_floor": {"eta_at_3.3": 1.373, "rise_pct": 0.0},
+    "floor_0.20um": {"eta_at_3.3": 1.837, "rise_pct": 0.0},
+    "floor_0.30um": {"eta_at_3.3": 1.567, "rise_pct": 0.0},
+    "floor_0.50um": {"eta_at_3.3": 1.273, "rise_pct": 0.0},
+    "floor_0.80um": {"eta_at_3.3": 1.076, "rise_pct": 0.0, "note": "Hcore hit the 0.97 physical cap and saturated"}
+   },
+   "verdict": "FAIL to reproduce the upturn under ALL 5 tested delta(D) extrapolations -- forced/diagnosed, not a lazy one-shot negative (see ooda_diagnosis)"
+  },
+  "ooda_diagnosis": {
+   "orient_step": "eta_rel=1/(1-x^4(1-nu)) is analytically MONOTONICALLY INCREASING in x=Rc/R for any nu in (0,1) (d/dx[x^4(1-nu)]=4x^3(1-nu)>0), numerically verified over x in [0.05,0.999]. Therefore eta_rel(D) can rise as D shrinks IFF x(D) rises as D shrinks, which (x=1-2*delta/D) requires d(ln delta)/d(ln D) > 1 -- delta must shrink SUPER-linearly with D.",
+   "measured_criterion_value": {"kim_linear_trend_D4to5": 0.533, "floored_variant_D4to5": 0.0, "threshold_needed": ">1"},
+   "conclusion": "Neither independently-sourced delta(D) variant shrinks super-linearly in the D=3.3-8um test window (both <1) -- the concentric two-phase topology CANNOT geometrically produce the upturn from any delta(D) that merely plateaus or shrinks sub-linearly. This is a derived, falsifiable criterion, not an assumption.",
+   "convergent_literature_attribution": "Pries 1992 (PMID 1481902, raw abstract) attributes the small-D regime change to a 'hematocrit-dependent transition from single- to multifile arrangement of cells in flow' -- a TOPOLOGY change, not continuum-core shrinkage. Secomb & Pries 2013 (PMC4117233): single-file flow up to ~8um, multi-file at >=7-8um -- coincides almost exactly with the measured 6.84um minimum. Secomb's independent lubrication-theory literature (single-RBC-in-capillary mechanics, PMID 6678849, PMID 1726534) is the mechanistic class actually responsible -- NOT implemented from scratch this session (out of scope/budget), disclosed as an honest gap rather than papered over with an unjustified delta(D) choice."
+  }
+ },
+ "t3_overshoot_undershoot_hct_sweep": {
+  "D_um": 200,
+  "preregistered_threshold": "monotonic rise with Hct AND convex (super-linear) step 0.45->0.65 vs 0.20->0.45, in BOTH ground truth and model",
+  "Hct": [0.20,0.45,0.65,0.70],
+  "labels": ["anemia","normal","polycythemia","severe polycythemia"],
+  "pries_truth_eta_rel": [1.576,2.808,4.881,5.777],
+  "two_phase_model_eta_rel": [1.492,2.734,4.823,5.563],
+  "pct_err": [5.4,2.7,1.2,3.7],
+  "convexity_check": {"truth_step1_0.20to0.45": 1.232, "truth_step2_0.45to0.65": 2.072, "truth_convex": true, "model_step1": 1.242, "model_step2": 2.089, "model_convex": true},
+  "external_ballpark_cross_check": {"pries_truth_at_Hct0.65_abs_cP": 5.86, "secondary_ballpark": "~10cP at Hct 60-70% (Wikipedia/Elert, shear-rate and exact-Hct unspecified)", "verdict": "same order of magnitude, ~1.7x below the loose secondary ballpark -- disclosed, not papered over; Pries data is HIGH shear (>=50/s, verified abstract) which likely explains part of the gap vs an unspecified-shear secondary source"},
+  "verdict": "PASS"
+ },
+ "fahraeus_effect_own_derivation": {
+  "formula": "Hct_tube/Hct_discharge = x^2 * Hcore/HD  (falls out of the SAME mass-conservation solve as eta_rel, not separately fit)",
+  "D_um": [10,20,30,50,100,200,500],
+  "tube_over_discharge_ratio": [0.8233,0.8404,0.8464,0.8513,0.9101,0.9486,0.9772],
+  "sign_check": "tube Hct < discharge Hct at ALL tested D -- PASS",
+  "trend_check": "ratio -> 1 as D grows (effect strongest at small D) -- PASS",
+  "honest_gap": "Pries 1994 (PMID 7923637) is the primary empirical Fahraeus-ratio paper; its own specific numeric fitting coefficients were NOT independently retrieved/verified this session (full text paywalled, PMC full-text blocked by publisher for this article) -- the ratio reported here is THIS model's own geometric prediction, cross-checked only for correct SIGN and TREND, not point-by-point against Pries's specific published numbers"
+ },
+ "adversaries_forced": [
+  "Newtonian constant-viscosity (T1): FAILS as required, R2=-4.5, 67% median error",
+  "Monotonically-thinning power-law (T2): WRONG in direction at 6/7 points below 7um",
+  "Own 2-phase model at small D (T2): honest, OODA-diagnosed negative -- not swept under the rug"
+ ],
+ "couples_to": [
+  "venous return cert (total peripheral resistance depends on microvessel eta_app via Poiseuille R~eta/r^4)",
+  "capillary Starling cert (capillary hydrostatic pressure set by the up/downstream resistance split, which this rheology partly determines)",
+  "cardiac output cert (peripheral resistance/afterload -> stroke work; polycythemia/anemia viscosity shifts shown here are a DIRECT afterload-side input)",
+  "microcirculation cert (this IS the core rheology sub-model for that vertical)"
+ ],
+ "data_sources": [
+  {"cite": "Pries, Neuhaus, Gaehtgens 1992, Am J Physiol 263(6 Pt 2):H1770-8", "url": "https://doi.org/10.1152/ajpheart.1992.263.6.H1770", "pmid": "1481902", "n": "D=3.3-1978um, Hct up to 0.9, shear>=50/s, literature-compiled + new capillary-viscometer data", "measure": "in-vitro eta_rel(D,Hct) empirical fit -- ground truth anchor"},
+  {"cite": "Pries, Secomb, Gessner, Sperandio, Gross, Gaehtgens 1994, Circ Res 75(5):904-15", "url": "https://doi.org/10.1161/01.res.75.5.904", "pmid": "7923637", "n": "up to 913 vessel segments, rat mesentery, systemic Hct 0.08-0.68", "measure": "in vivo flow resistance vs in vitro glass-tube prediction (~4x higher at 10um)"},
+  {"cite": "Pries & Secomb 2005, Am J Physiol Heart Circ Physiol 289(6):H2657-64", "url": "https://doi.org/10.1152/ajpheart.00297.2005", "pmid": "16040719", "n": "3 rat mesentery networks, 392/546/383 segments", "measure": "minimum apparent viscosity at 6-7um (verified raw quote); ESL thickness ~0.8-1um for D=10-40um"},
+  {"cite": "Kim, Kong, Popel, Intaglietta, Johnson 2007, Am J Physiol Heart Circ Physiol 293(3):H1526-35", "url": "https://doi.org/10.1152/ajpheart.01090.2006", "pmid": "17526647", "n": "rat cremaster arterioles D=10-50um, intravital microscopy", "measure": "cell-free layer width 0.8um(D=10) to 3.1um(D=50) -- KEY independent delta(D) input"},
+  {"cite": "Chien 1970, Science 168(3934):977-9", "url": "https://doi.org/10.1126/science.168.3934.977", "pmid": "5441028", "n": "human erythrocyte suspensions, wide shear-rate range", "measure": "mechanism: rouleaux/effective-cell-volume determines shear-thinning"},
+  {"cite": "Chien, Usami, Taylor, Lundberg, Gregersen 1966, J Appl Physiol 21(1):81-7", "url": "https://doi.org/10.1152/jappl.1966.21.1.81", "pmid": "5903948", "n": "human blood, low shear rates", "measure": "hematocrit/plasma-protein effects on bulk viscosity"},
+  {"cite": "de Simone, Devereux, Chien, Alderman, Atlas, Laragh 1990, Circulation 81(1):107-17", "url": "https://doi.org/10.1161/01.cir.81.1.107", "pmid": "2297818", "n": "128 normotensive adults", "measure": "whole blood viscosity determinants; Hct explains 67-84% of WBV variance across shear 0.1-208/s -- real clinical measurement context"},
+  {"cite": "Sharan & Popel 2001, Biorheology 38(5-6):415-28", "url": "https://pubmed.ncbi.nlm.nih.gov/12016324/", "pmid": "12016324", "n": "model paper, calibrated to Pries in-vitro data", "measure": "confirms the 2-phase core+CFL model CLASS (core hematocrit, CFL viscosity, CFL thickness solved as a coupled system) is the field standard, not an invented construction"},
+  {"cite": "Bugliarello & Sevilla 1970, Biorheology 7:85-107", "url": "https://pubmed.ncbi.nlm.nih.gov/5484335/", "pmid": "5484335", "n": "fine glass tubes, steady + pulsatile flow", "measure": "classic velocity-profile/CFL characterization"},
+  {"cite": "Pries, Secomb, Gaehtgens 1996, Cardiovasc Res 32(4):654-67", "url": "https://pubmed.ncbi.nlm.nih.gov/8915184/", "pmid": "8915184", "n": "review", "measure": "biophysical synthesis of microvascular blood flow"},
+  {"cite": "Secomb & Pries 2013, C R Physique 14(6):470-478 (PMC4117233)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4117233/", "pmid": "25089124", "n": "review, Pries-coauthored", "measure": "source of the transcribed eta_045(D)/C(D) coefficients; single-file flow <=8um / multi-file >=7-8um; ESL ~1.8um at D=20-40um; critical RBC-passage diameter ~2.7um"},
+  {"cite": "Popel & Johnson 2005, Annu Rev Fluid Mech 37:43-69 (PMC3000688)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3000688/", "pmid": "21151769", "n": "review", "measure": "cross-confirms minimum apparent viscosity at ~5-7um diameter"},
+  {"cite": "Toksvang & Berg 2013, Adv Physiol Educ 37(2):129-33", "url": "https://pubmed.ncbi.nlm.nih.gov/23728130/", "pmid": "23728130", "n": "pedagogical review", "measure": "historical context for the original Fahraeus & Lindqvist 1931 Am J Physiol 96:562-568 paper (citation itself verified inline inside the Pries 1992 raw abstract)"},
+  {"cite": "Secomb & Gross 1983, Int J Microcirc Clin Exp 2:229-40", "url": "https://pubmed.ncbi.nlm.nih.gov/6678849/", "pmid": "6678849", "n": "theory", "measure": "single-file RBC lubrication mechanism (membrane tension) -- the mechanism NOT captured by the concentric 2-phase model, see t2 ooda_diagnosis"},
+  {"cite": "Secomb 1991, Cell Biophys 18:231-51", "url": "https://pubmed.ncbi.nlm.nih.gov/1726534/", "pmid": "1726534", "n": "review", "measure": "RBC mechanics and capillary blood rheology"},
+  {"cite": "2026 PLOS ONE, 'A two-phase core-plasma model for microvascular blood flow' (PMC12758828)", "url": "https://doi.org/10.1371/journal.pone.0327948", "pmid": "41481754", "n": "micro-PIV experiment + model", "measure": "contemporary (2026) confirmation the core-plasma/CFL model class is still the active standard; cites Pries 1992 directly"}
+ ],
+ "decorrelated_anchor": "Two genuinely different instruments/datasets never touched by the model-fitting: (1) Kim et al 2007's delta(D) came from INTRAVITAL MICROSCOPY on live rat cremaster arterioles -- a different animal, different vessel bed, and a fundamentally different measurement modality (direct optical imaging of the RBC-plasma boundary) than Pries's CAPILLARY VISCOMETER pressure-flow measurements used to build the eta_vitro(D,Hct) ground-truth curve being tested against; (2) the core-viscosity-Hct calibration point (3.5 @ Hct 0.45) is a literature-consensus bulk-rheology ballpark, not read off Pries's own fitted constant. Where the model and the Pries ground truth agree (T1: median 6.5% error; T3: convexity + rise both confirmed), that agreement is therefore not a tautology of one dataset re-predicting itself.",
+ "in_vitro_vs_in_vivo_disclosure": "ALL quantitative testing above (T1/T2/T3) is against Pries 1992's IN VITRO (glass-tube) curve. Pries et al 1994 (PMID 7923637, verified abstract) measured IN VIVO flow resistance in rat mesentery microvessels ~4x HIGHER than the in-vitro glass-tube prediction at D=10um, attributed to the endothelial surface layer (ESL/glycocalyx) -- a physiologically active macromolecular layer present on living endothelium and ABSENT in a glass tube. Pries & Secomb 2005 (PMID 16040719) modeled this with an ESL ~0.8-1um thick for D=10-40um vessels, declining for smaller diameters. This model (like the ground-truth curve it is tested against) is an IN VITRO / glass-tube-equivalent model; it does NOT include the ESL and will UNDERSTATE true in vivo microvascular resistance, especially below ~40um diameter. This is disclosed, not glossed over.",
+ "honest_gaps": [
+  "Ground-truth formula coefficients (eta045(D), C(D)) transcribed via a single AI-mediated WebFetch extraction, not independently re-confirmed against a second byte-verbatim source this session (8 other PMC full texts searched, none quoted the coefficients) -- mitigated by 5/5 independent machine-computed self-consistency checks against raw-fetched abstract text, but residual single-source risk should be flagged to the QC pass",
+  "No digitized primary Chien Hct-viscosity table was retrieved this session (Science 1970 and J Appl Physiol 1966 both paywalled; PMC full text unavailable) -- core-viscosity calibration uses a literature-consensus ballpark (3-4 cP @ Hct 0.45, secondary/Wikipedia-cross-checked) rather than a primary numeric table",
+  "The sub-7um upturn (T2) is an HONEST, OODA-diagnosed NEGATIVE for the pure concentric two-phase model -- it requires a single-file/lubrication topology change (Secomb's mechanics literature) not implemented from scratch this session; the model's own derived criterion (d(ln delta)/d(ln D)>1 needed) is stated but not checked against any actual sub-10um CFL measurement (none found this session)",
+  "Pries 1994's OWN specific Fahraeus tube/discharge-hematocrit empirical coefficients were not independently retrieved (paywalled, PMC full-text blocked for this article) -- the Fahraeus-ratio numbers reported here are this model's OWN geometric derivation, verified only for correct sign+trend, not point-matched to Pries's specific published curve",
+  "Every quantitative test (T1/T2/T3) is against the IN VITRO curve; the in vivo endothelial-surface-layer correction (Pries & Secomb 2005) is described qualitatively but not implemented/tested numerically this session",
+  "All CFL-thickness input data (Kim 2007) is from ARTERIOLES (D=10-50um) in ONE vascular bed (rat cremaster muscle) -- generalization to venules, other tissue beds, or capillaries (<10um) proper is not independently confirmed",
+  "Shear-rate dependence is not modeled explicitly -- both the ground-truth curve and this model use Pries's high-shear (>=50/s) regime; the low-shear rouleaux-driven extra thickening (Chien's own mechanism paper) is not quantified"
+ ],
+ "proposed_cell": {
+  "id": "MICROCIRC-FAHRAEUS-LINDQVIST-RHEOLOGY",
+  "claim": "Microvessel apparent viscosity is geometrically over-determined by CFL thickness + core hematocrit self-consistency; governs peripheral resistance handoff to venous-return/Starling/cardiac-output certs.",
+  "type": "EMPIRICAL",
+  "status": "OPEN",
+  "legs": [
+   ["in-vitro rheology anchor", ["pries-1992-ajp-h1770"]],
+   ["intravital CFL-thickness anchor (decorrelated instrument)", ["kim-2007-ajp-h1526"]],
+   ["in-vivo ESL correction (couples to endothelium/glycocalyx cell)", ["pries-secomb-2005-ajp-h2657"]]
+  ],
+  "anchor": "Pries et al measured eta_rel(D,Hct) in-vitro AND in-vivo curves (disclosed as distinct)",
+  "composition_mode": "SYNC",
+  "couples_to_inherited": "venous return / capillary Starling / cardiac output (peripheral resistance-afterload) certs",
+  "next_step": "second-source verify the eta045(D)/C(D) coefficients against the Pries 1992 primary full text (currently paywalled) or a byte-verbatim secondary; retrieve sub-10um intravital CFL data to test the derived d(ln delta)/d(ln D)>1 criterion directly rather than leaving it as an open necessary condition"
+ }
+}

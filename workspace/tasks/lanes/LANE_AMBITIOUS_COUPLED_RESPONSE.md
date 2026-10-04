@@ -1,0 +1,3 @@
+# Ambitious native coupled future-response construction
+
+Explicit user/coordinator priority: original500+Maps, MAXIMAL_GOALS GRAPH_INVERSE/MULTIPHYSICS. Build shared bidirectional nonlinear native organ plus32/128/512 finite-memory regions. Solve changed futureforcing/localcoupling without full network×history replay, with conservative inventory and goalerror. Strong sparse adaptive and conventional reduced controls get same information/structure/cache. Current native/capacity primitive alone insufficient. C4 is uncertainty context only, nativepacket missing, historical mismatch remains. New local computations explicitly authorized; no canonical/service/source/product/cloud edits. Freeze before code; PENDING_INDEPENDENT_REVIEW.

@@ -1,0 +1,421 @@
+{
+  "acceptance": {
+    "all_pass": true,
+    "finite_nonnegative_outputs": true,
+    "flow_ranking": true,
+    "na_ranking": true,
+    "null_perturbation": true,
+    "unit_check": true,
+    "water_mass_residual": true,
+    "zero_transport_limit": true
+  },
+  "baseline": {
+    "mass_balance": {
+      "excreted_water_ml_per_nephron": 0.0015235833464252028,
+      "filtered_water_ml_per_nephron": 0.005999999999999999,
+      "final_stored_water_ml_per_nephron": 0.00017987476986872558,
+      "initial_stored_water_ml_per_nephron": 0.0009939999999999999,
+      "reabsorbed_water_ml_per_nephron": 0.0052905418837060824,
+      "relative_total_water_balance_residual": -1.906388819953679e-15,
+      "terminal_flow_ml_min_per_nephron_at_end": 1.3234862002643146e-05
+    },
+    "solver": {
+      "atol": 1e-11,
+      "max_step_min": 0.5,
+      "message": "The solver successfully reached the end of the integration interval.",
+      "n_steps": 481,
+      "rtol": 1e-07,
+      "success": true
+    },
+    "terminal_output": {
+      "urinary_cl_equiv_umol_min_per_kidney": 2843.772718163543,
+      "urinary_na_equiv_umol_min_per_kidney": 3400.469579125694,
+      "urinary_urea_umol_min_per_kidney": 149.52092615391996,
+      "urine_flow_ml_min_per_kidney": 13.239098354243048,
+      "urine_osm_mM": 522.9455200827852
+    },
+    "time_course": [
+      {
+        "time_min": 0.0,
+        "urinary_na_equiv_umol_min_per_kidney": 13999.999999999998,
+        "urinary_urea_umol_min_per_kidney": 500.0,
+        "urine_flow_ml_min_per_kidney": 99.99999999999999,
+        "urine_osm_mM": 285.0
+      },
+      {
+        "time_min": 5.0,
+        "urinary_na_equiv_umol_min_per_kidney": 12100.70251874591,
+        "urinary_urea_umol_min_per_kidney": 429.27140039117126,
+        "urine_flow_ml_min_per_kidney": 76.5095861169885,
+        "urine_osm_mM": 317.8769568096864
+      },
+      {
+        "time_min": 10.0,
+        "urinary_na_equiv_umol_min_per_kidney": 7384.165168180149,
+        "urinary_urea_umol_min_per_kidney": 286.6354338466677,
+        "urine_flow_ml_min_per_kidney": 39.31785919058383,
+        "urine_osm_mM": 376.24748432604844
+      },
+      {
+        "time_min": 15.0,
+        "urinary_na_equiv_umol_min_per_kidney": 4930.991634946894,
+        "urinary_urea_umol_min_per_kidney": 206.76414143657698,
+        "urine_flow_ml_min_per_kidney": 22.175573908370833,
+        "urine_osm_mM": 446.8602414120807
+      },
+      {
+        "time_min": 20.0,
+        "urinary_na_equiv_umol_min_per_kidney": 3975.2172978338785,
+        "urinary_urea_umol_min_per_kidney": 172.6159487352952,
+        "urine_flow_ml_min_per_kidney": 16.16479923040275,
+        "urine_osm_mM": 496.71031847393687
+      },
+      {
+        "time_min": 25.0,
+        "urinary_na_equiv_umol_min_per_kidney": 3615.3064974514996,
+        "urinary_urea_umol_min_per_kidney": 158.55008732265185,
+        "urine_flow_ml_min_per_kidney": 14.20626663804008,
+        "urine_osm_mM": 516.1164200091642
+      },
+      {
+        "time_min": 30.0,
+        "urinary_na_equiv_umol_min_per_kidney": 3480.2107623003453,
+        "urinary_urea_umol_min_per_kidney": 152.94597750700723,
+        "urine_flow_ml_min_per_kidney": 13.567767447082362,
+        "urine_osm_mM": 521.3770483163053
+      },
+      {
+        "time_min": 35.0,
+        "urinary_na_equiv_umol_min_per_kidney": 3429.5198243358413,
+        "urinary_urea_umol_min_per_kidney": 150.77813241739997,
+        "urine_flow_ml_min_per_kidney": 13.352280626856615,
+        "urine_osm_mM": 522.6030064482669
+      },
+      {
+        "time_min": 40.0,
+        "urinary_na_equiv_umol_min_per_kidney": 3410.501449002798,
+        "urinary_urea_umol_min_per_kidney": 149.95511527596722,
+        "urine_flow_ml_min_per_kidney": 13.276883888755886,
+        "urine_osm_mM": 522.8739484445566
+      },
+      {
+        "time_min": 45.0,
+        "urinary_na_equiv_umol_min_per_kidney": 3403.3664745484475,
+        "urinary_urea_umol_min_per_kidney": 149.64587246004106,
+        "urine_flow_ml_min_per_kidney": 13.249790038054028,
+        "urine_osm_mM": 522.9328104557117
+      },
+      {
+        "time_min": 50.0,
+        "urinary_na_equiv_umol_min_per_kidney": 3400.6897878402397,
+        "urinary_urea_umol_min_per_kidney": 149.53028430448305,
+        "urine_flow_ml_min_per_kidney": 13.239883764688978,
+        "urine_osm_mM": 522.9455442061148
+      },
+      {
+        "time_min": 55.0,
+        "urinary_na_equiv_umol_min_per_kidney": 3399.68564695533,
+        "urinary_urea_umol_min_per_kidney": 149.48718251690408,
+        "urine_flow_ml_min_per_kidney": 13.236223190889644,
+        "urine_osm_mM": 522.9483019378816
+      },
+      {
+        "time_min": 60.0,
+        "urinary_na_equiv_umol_min_per_kidney": 3399.308954305272,
+        "urinary_urea_umol_min_per_kidney": 149.47112332109302,
+        "urine_flow_ml_min_per_kidney": 13.234862002643146,
+        "urine_osm_mM": 522.9489016756334
+      }
+    ]
+  },
+  "controls": {
+    "null_max_absolute_output_difference": 0.0,
+    "zero_transport_limit": {
+      "measured_flow_ml_min_per_kidney": 99.99999999999999,
+      "relative_error": 1.4210854715202004e-16,
+      "target_flow_ml_min_per_kidney": 100.0,
+      "water_mass_residual": 1.337182679398789e-15
+    }
+  },
+  "id": "BT-HX-Q019",
+  "model_scope": "one superficial nephron scaled to one kidney; dynamic well-mixed segment compartments",
+  "next_resolution_step": "Calibrate segment-specific water and NaCl conductances against time-resolved urine volume, sodium, and osmolality measurements; then replace the well-mixed compartments with an axial countercurrent model and add nephron-population heterogeneity.",
+  "observable_definition": {
+    "independent_measurements": [
+      "terminal urine flow",
+      "urinary NaCl-equivalent amount",
+      "urinary urea amount",
+      "terminal urine osmolality"
+    ],
+    "latent_states_not_used_as_measurements": [
+      "PCT",
+      "DL",
+      "TAL",
+      "DCT",
+      "CNT",
+      "CCD",
+      "IMCD"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "SNGFR",
+      "source_or_assumption": "Layton & Layton 2019, model-parameter text: 100 nL/min",
+      "unit": "mL/min/nephron",
+      "value": 0.0001
+    },
+    {
+      "name": "nephron_count",
+      "source_or_assumption": "Layton & Layton 2019, approximately 10^6 nephrons",
+      "unit": "nephrons/kidney",
+      "value": 1000000
+    },
+    {
+      "name": "Kf",
+      "source_or_assumption": "derived from 100 nL/min and the explicit net-pressure assumption",
+      "unit": "nL/(min mmHg)",
+      "value": 6.666666666666667
+    },
+    {
+      "name": "PCT length",
+      "source_or_assumption": "Layton & Layton 2019, Table 1",
+      "unit": "cm",
+      "value": 1.7
+    },
+    {
+      "name": "PCT diameter",
+      "source_or_assumption": "Layton & Layton 2019, Table 1",
+      "unit": "micrometre",
+      "value": 37.0
+    },
+    {
+      "name": "PCT Lp",
+      "source_or_assumption": "assumption selected for the reduced first-principles baseline",
+      "unit": "cm/s",
+      "value": 2.8e-06
+    },
+    {
+      "name": "TAL vmax",
+      "source_or_assumption": "assumption for segment-specific active NaCl reabsorption",
+      "unit": "micromol/min/nephron",
+      "value": 0.00151
+    },
+    {
+      "name": "CD Lp",
+      "source_or_assumption": "assumption for AVP-regulated collecting-system water permeability",
+      "unit": "cm/s",
+      "value": 5e-10
+    },
+    {
+      "name": "interstitial osmolality cortex",
+      "source_or_assumption": "Layton & Layton 2019, Table 2",
+      "unit": "mosm/(kg H2O)",
+      "value": 285.9
+    },
+    {
+      "name": "interstitial osmolality papillary tip",
+      "source_or_assumption": "Layton & Layton 2019, Table 2",
+      "unit": "mosm/(kg H2O)",
+      "value": 737.9
+    },
+    {
+      "name": "reference urine flow",
+      "source_or_assumption": "Layton & Layton 2019, Table 3, baseline; reporting anchor only",
+      "unit": "ml/min/kidney",
+      "value": 0.62
+    },
+    {
+      "name": "PCT residence time",
+      "source_or_assumption": "axial-transit assumption",
+      "unit": "min",
+      "value": 0.85
+    },
+    {
+      "name": "DL residence time",
+      "source_or_assumption": "axial-transit assumption",
+      "unit": "min",
+      "value": 0.21
+    },
+    {
+      "name": "TAL residence time",
+      "source_or_assumption": "axial-transit assumption",
+      "unit": "min",
+      "value": 1.25
+    },
+    {
+      "name": "DCT residence time",
+      "source_or_assumption": "axial-transit assumption",
+      "unit": "min",
+      "value": 0.4
+    },
+    {
+      "name": "CNT residence time",
+      "source_or_assumption": "axial-transit assumption",
+      "unit": "min",
+      "value": 0.8
+    },
+    {
+      "name": "CCD residence time",
+      "source_or_assumption": "axial-transit assumption",
+      "unit": "min",
+      "value": 1.33
+    },
+    {
+      "name": "IMCD residence time",
+      "source_or_assumption": "axial-transit assumption",
+      "unit": "min",
+      "value": 5.1
+    }
+  ],
+  "sensitivity": {
+    "baseline_terminal_output": {
+      "urinary_cl_equiv_umol_min_per_kidney": 2843.772718163543,
+      "urinary_na_equiv_umol_min_per_kidney": 3400.469579125694,
+      "urinary_urea_umol_min_per_kidney": 149.52092615391996,
+      "urine_flow_ml_min_per_kidney": 13.239098354243048,
+      "urine_osm_mM": 522.9455200827852
+    },
+    "flow_ranking": [
+      "CD_Lp",
+      "TAL_vmax",
+      "PCT_Lp"
+    ],
+    "na_ranking": [
+      "TAL_vmax",
+      "PCT_Lp",
+      "CD_Lp"
+    ],
+    "perturbations": [
+      {
+        "minus_50_percent": {
+          "urinary_cl_equiv_umol_min_per_kidney": 2848.967111220168,
+          "urinary_na_equiv_umol_min_per_kidney": 3407.9396615005203,
+          "urinary_urea_umol_min_per_kidney": 149.9316954219327,
+          "urine_flow_ml_min_per_kidney": 13.270399767156514,
+          "urine_osm_mM": 522.7916714879119
+        },
+        "parameter": "PCT_Lp",
+        "plus_50_percent": {
+          "urinary_cl_equiv_umol_min_per_kidney": 2842.0403803181125,
+          "urinary_na_equiv_umol_min_per_kidney": 3397.978225737137,
+          "urinary_urea_umol_min_per_kidney": 149.38386033713343,
+          "urine_flow_ml_min_per_kidney": 13.228662097498301,
+          "urine_osm_mM": 522.9968772312441
+        },
+        "quantity": "lp",
+        "segment": "PCT",
+        "sensitivity": {
+          "urinary_cl_equiv_umol_min_per_kidney": -0.0012178770226280219,
+          "urinary_na_equiv_umol_min_per_kidney": -0.0014647147300674273,
+          "urinary_urea_umol_min_per_kidney": -0.0018319679354958892,
+          "urine_flow_ml_min_per_kidney": -0.0015763033305374657,
+          "urine_osm_mM": 0.00019620183695203346
+        }
+      },
+      {
+        "minus_50_percent": {
+          "urinary_cl_equiv_umol_min_per_kidney": 3246.26485522868,
+          "urinary_na_equiv_umol_min_per_kidney": 4026.9074967651222,
+          "urinary_urea_umol_min_per_kidney": 151.99722328288547,
+          "urine_flow_ml_min_per_kidney": 14.523542863558143,
+          "urine_osm_mM": 551.2505716935958
+        },
+        "parameter": "TAL_vmax",
+        "plus_50_percent": {
+          "urinary_cl_equiv_umol_min_per_kidney": 2462.0816512328593,
+          "urinary_na_equiv_umol_min_per_kidney": 2811.0786715007794,
+          "urinary_urea_umol_min_per_kidney": 146.81463661098056,
+          "urine_flow_ml_min_per_kidney": 11.9427758813298,
+          "urine_osm_mM": 493.8287437762223
+        },
+        "quantity": "vmax",
+        "segment": "TAL",
+        "sensitivity": {
+          "urinary_cl_equiv_umol_min_per_kidney": -0.13787726406318299,
+          "urinary_na_equiv_umol_min_per_kidney": -0.17877366595600433,
+          "urinary_urea_umol_min_per_kidney": -0.01733063994858436,
+          "urine_flow_ml_min_per_kidney": -0.09746762631313273,
+          "urine_osm_mM": -0.05490230407584647
+        }
+      },
+      {
+        "minus_50_percent": {
+          "urinary_cl_equiv_umol_min_per_kidney": 2845.00593206021,
+          "urinary_na_equiv_umol_min_per_kidney": 3401.801820185441,
+          "urinary_urea_umol_min_per_kidney": 154.1335845541516,
+          "urine_flow_ml_min_per_kidney": 15.77392190713775,
+          "urine_osm_mM": 445.79264335908397
+        },
+        "parameter": "CD_Lp",
+        "plus_50_percent": {
+          "urinary_cl_equiv_umol_min_per_kidney": 2842.9322006560124,
+          "urinary_na_equiv_umol_min_per_kidney": 3399.5640047147162,
+          "urinary_urea_umol_min_per_kidney": 146.393333492653,
+          "urine_flow_ml_min_per_kidney": 11.808210443294639,
+          "urine_osm_mM": 581.0548508068728
+        },
+        "quantity": "lp",
+        "segment": "CD",
+        "sensitivity": {
+          "urinary_cl_equiv_umol_min_per_kidney": -0.0003646092022320205,
+          "urinary_na_equiv_umol_min_per_kidney": -0.0003290450654906647,
+          "urinary_urea_umol_min_per_kidney": -0.025883504271270483,
+          "urine_flow_ml_min_per_kidney": -0.14977271705864037,
+          "urine_osm_mM": 0.12932724562433964
+        }
+      }
+    ]
+  },
+  "source_anchor": {
+    "citation": "Layton AT, Layton HE (2019), PLOS Computational Biology 15:e1006108",
+    "doi": "10.1371/journal.pcbi.1006108",
+    "reference_flow_ml_min_per_kidney": 0.62,
+    "reference_urea_mM": 280.0,
+    "table_or_figure": "Tables 1-3 and model-parameter text"
+  },
+  "status": "PASS",
+  "unit_check": {
+    "area_cm2": [
+      0.0197606177910798,
+      0.0026138050877867083,
+      0.008168140899333463,
+      0.0012566370614359175,
+      0.003015928947446202,
+      0.005654866776461629,
+      0.026703537555513242
+    ],
+    "concentration_unit": "mM = micromol/mL",
+    "conversion_factor_ml_min_per_mM_per_Lp": [
+      22.965789996792946,
+      3.037764273025713,
+      9.49301335320535,
+      1.4604635928008234,
+      3.505112622721976,
+      6.572086167603706,
+      31.03485134701749
+    ],
+    "diameter_cm": [
+      0.0037,
+      0.0026000000000000003,
+      0.0026000000000000003,
+      0.002,
+      0.0024000000000000002,
+      0.0045000000000000005,
+      0.005
+    ],
+    "filtration_rate_ml_min_per_nephron": 9.999999999999999e-05,
+    "filtration_rate_target_ml_min_per_nephron": 0.0001,
+    "solute_flux_unit": "micromol/min",
+    "status": "PASS",
+    "water_conductance_ml_min_per_mM": [
+      6.430421199102024e-05,
+      3.0377642730257124e-06,
+      0.0,
+      0.0,
+      7.010225245443953e-09,
+      1.3144172335207413e-08,
+      1.5517425673508748e-08
+    ],
+    "water_flux_sign": "positive means lumen to interstitium"
+  }
+}

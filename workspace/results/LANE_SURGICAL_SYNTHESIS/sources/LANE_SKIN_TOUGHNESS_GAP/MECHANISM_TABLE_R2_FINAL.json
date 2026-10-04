@@ -1,0 +1,154 @@
+{
+  "units": "kJ/m2",
+  "table": [
+    {
+      "mechanism": "Single crimp straightening",
+      "predicted_extra_kJ_m2": [
+        0.011590885,
+        0.014838756
+      ],
+      "uncertainty": "Rectangular traction sensitivity; all marginal+SD endpoints allow at most0.14028; elastic recovery unmeasured",
+      "hits": "Published microscopic crimp/slack scale",
+      "misses": "20..30kJ/m2 by orders of magnitude; full contour upper scale0.225..0.288 still insufficient",
+      "native_contribution": null,
+      "gate": "FAIL_SINGLE_PERIOD"
+    },
+    {
+      "mechanism": "Connected millimetre bridge, L5mm eps0.5 p1 active1",
+      "predicted_extra_kJ_m2": {
+        "crack_long_opening_trans": 24.5,
+        "crack_trans_opening_long": 19.1375
+      },
+      "uncertainty": "Input-strength SD box16..33 for cracklong/openingtrans,14.425..23.85 for cracktrans/openinglong; L/eps/p/active unknown. Full162case envelope0.15169..294.15 not confidence interval.",
+      "hits": "Correct axis geometry and millimetre scale under explicit strength-as-traction proxy",
+      "misses": "Predicted trans/long0.781122 vs1.295358, relative error0.396984; nominal24.650/19.2875 total: cracktrans fails. ModeIII predictionUNKNOWN.",
+      "native_contribution": null,
+      "gate": "FAIL_DEFAULT; ABSOLUTE_UNKNOWN"
+    },
+    {
+      "mechanism": "Fixed affine initial fiber orientation",
+      "predicted_extra_kJ_m2": null,
+      "uncertainty": "No absolute work from orientation alone; common stiffness/rupture closure",
+      "hits": "Exact angular integral against independent quadrature",
+      "misses": "Correct crack-normal angular projection trans/long2.154956, correct sign but magnitudeerror0.663598. Earlier0.464 was wrong axis.",
+      "native_contribution": null,
+      "gate": "FAIL_AFFINE",
+      "R2_clarification": "2.155 and its sign assume preferred reference aligned with spine. Source33.8/25deg relative Langer; native registration UNKNOWN; reversed reference gives0.464. R1 arithmetic retained."
+    },
+    {
+      "mechanism": "Finite-volume hydraulic ramp plus complete drainage",
+      "predicted_extra_kJ_m2": {
+        "nominal": 0.00019556469118063027,
+        "generous_h1p5mm_range": [
+          0,
+          0.016569954249000624
+        ],
+        "generous_h10mm_range": [
+          0,
+          0.11046636166000416
+        ]
+      },
+      "uncertainty": "Borrowed small-strain M1.6..22.1kPa,k1.24..1.70e-13; volumetric strain0.1..1 and unknown V/A. M=E is closure;strain1 is generous extrapolation",
+      "hits": "Darcy mass/energy positivity; Pe~352 nominal; crack/crosshead distinction",
+      "misses": "Cannot alone supply20..30kJ in that volume/modulus regime; says nothing universal about crack-coupled toughening",
+      "native_contribution": null,
+      "gate": "FAIL_CONDITIONAL; NATIVE_UNKNOWN"
+    },
+    {
+      "mechanism": "Crack-coupled gel poroelasticity",
+      "predicted_extra_kJ_m2": {
+        "synthetic_tip150to380": [
+          0.01275,
+          0.2584000000000001
+        ],
+        "borrowed_tip7k": [
+          0.595,
+          4.760000000000002
+        ]
+      },
+      "uncertainty": "nu0.1..0.45,gamma3.4 gel calibrated; no skin transfer. Energy ratio1.085..1.68",
+      "hits": "Velocity-independent poroelastic crack contribution exists in primary theory",
+      "misses": "Low-base total≤0.6384kJ; native tensile/storage/cohesive parameters unavailable",
+      "native_contribution": null,
+      "gate": "UNKNOWN_NATIVE"
+    },
+    {
+      "mechanism": "Bulk partial-loop hysteresis",
+      "predicted_extra_kJ_m2": [
+        0.460944142,
+        0.691416214
+      ],
+      "uncertainty": "V/A1..1.5mm imposed; published8.67MPa partial longitudinal loop, no terminal transfer",
+      "hits": "Independent partial-cycle work density",
+      "misses": "Full rupture, modeIII, geometry-specific zone; required44.37/65.58mm remains diagnostic",
+      "native_contribution": null,
+      "gate": "FAIL_LOCAL_LOOP; TERMINAL_UNKNOWN"
+    },
+    {
+      "mechanism": "Tool severs before bridge opening",
+      "predicted_extra_kJ_m2": {
+        "zero_opening": 0,
+        "300um_long": 0.27558,
+        "600um_long": 1.10232
+      },
+      "uncertainty": "L5mm,eps0.5,linear loading and delta_tool=D are synthetic; stored-energy sink explicitly tracked",
+      "hits": "Explains why large opening work can be avoided by operation order",
+      "misses": "Simple low-base+positiveD^q model fails two needle bands; requires diameter-independent geometry-work product≥1.55509kJ",
+      "native_contribution": null,
+      "gate": "FAIL_SIMPLE_TOOL_LAW; TIP_WORK_UNKNOWN"
+    },
+    {
+      "mechanism": "Measured peak rotation + common final moment law",
+      "predicted_extra_kJ_m2": null,
+      "ratio": 1.0,
+      "hits": "Independent rabbit25->0peak and H=.76; dispersion kept distinct",
+      "misses": "Common final-law anisotropy disappears;22.80%central I ratio error passes coarse25% alone but equal-Iorientations have no common sourceSD band",
+      "native_contribution": null,
+      "gate": "UNKNOWN_NATIVE; FAIL_COMPLETE_ANISOTROPY_CONTRACT"
+    },
+    {
+      "mechanism": "Initial crack-crossing inventory + vector terminal spring",
+      "predicted_extra_kJ_m2": {
+        "I_long": 11.789295029044604,
+        "III_long": 11.789295029044604,
+        "I_trans": 16.564374362730316,
+        "III_trans": 16.564374362730316
+      },
+      "ratio": 1.4050454515067041,
+      "hits": "Conditionalreference0 I ratio8.47%error; energy residual7.14e-7",
+      "misses": "No nativeL/reference/traction; equalI/III work;IIItrans/long ratio1.405 vsobserved0.9833. Mode trans sourceSD disjoint under J=localwork identification.",
+      "native_contribution": null,
+      "gate": "FAIL_SPECIFIED_CLOSURE; NATIVE_UNKNOWN"
+    },
+    {
+      "mechanism": "Independent analogue pullout shape replacing triangle",
+      "predicted_extra_kJ_m2": {
+        "I_long": 38.58045977011494,
+        "I_trans": 30.136063218390806
+      },
+      "q": 0.32806513409961685,
+      "hits": "Pericardium6mm pullout/10mm ligament independently reported; work95.9kJ",
+      "misses": "Skinproxy prediction38.73/30.29kJ totals;49.0/10.1%Ierrors and wrongratio. Fixedcommon completepullout does not resolve modesplit.",
+      "native_contribution": null,
+      "gate": "FAIL_TRANSFER_DEFAULT; NATIVE_UNKNOWN"
+    },
+    {
+      "mechanism": "Global assay work separate from local bridge energy",
+      "predicted_extra_kJ_m2": null,
+      "hits": "Exact Fdu/area operator; source approximateworkscales27.47III/34.72I kJ/m2",
+      "misses": "Missing specimenresolveda(t),Psi,legwork/contact. Approximate scales not empirical corrections or intrinsic energies.",
+      "native_contribution": null,
+      "gate": "UNKNOWN_NATIVE_OBSERVATION"
+    }
+  ],
+  "no_additivity": "R1/R2 rows are overlapping alternative closures and observation diagnostics; do not sum bridge, slip, interface and same-volume bulk work.",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "controlling_axis_correction": "r1/axis_corrected_results.json",
+  "round": 2,
+  "updated_utc": "2026-10-01T01:09:47.874971+00:00",
+  "controlling_results": [
+    "r2/rotation_vector_v2/summary.json",
+    "r2/pullout_assay/summary.json"
+  ],
+  "absolute_native_bridge_contribution": null
+}

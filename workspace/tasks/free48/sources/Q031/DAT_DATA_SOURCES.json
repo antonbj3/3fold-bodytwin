@@ -1,0 +1,1115 @@
+{
+  "job_id": "BT-DAT-Q031",
+  "question": "Public measured datasets that constrain the Q031 model in inputs/ (coupled membrane potential / ion transport / cell volume ODE model)",
+  "model_under_study": "inputs/Q031_model.py",
+  "repository_api_endpoints_used": [
+    "https://datadryad.org/api/v2/search",
+    "https://datadryad.org/api/v2/datasets/{doi}",
+    "https://datadryad.org/api/v2/versions/{id}/files",
+    "https://zenodo.org/api/records/{id}"
+  ],
+  "verification_note": "identifier, title, license, total size, publication date and the full file list were fetched live from the repository records at build time. Subjects counts and parameter mappings are analyst statements; UNKNOWN is used wherever a count was not read from the source itself.",
+  "searched_repositories": [
+    "Dryad",
+    "Zenodo"
+  ],
+  "searched_but_not_used": {
+    "Cell Dimensions Database (Loeffler)": "site unreachable at check time, transport error; excluded rather than cited from memory",
+    "Allen Cell Types Database": "API reachable but not verified in the time budget; not listed, since listing an unverified source is defined as an error in PREREG.md",
+    "Figshare / OSF / EBI BioStudies": "searched; no candidate rose above the listed sources, Figshare search endpoint returned 404"
+  },
+  "n_sources": 9,
+  "n_downloaded": 1,
+  "coverage_note": "No public measured dataset was found that constrains pump_density_mol_m2_s, pump_na/k_half_saturation_mM, water_area_fraction, or the intracellular Na/K/Cl start values. No public dataset was found with membrane potential, ion amounts and cell volume measured simultaneously in the same cell, which is exactly the Q031 requirement. These are UNKNOWN, not estimated.",
+  "sources": [
+    {
+      "id": "S1",
+      "category": "parameters + cohort (single-cell, electrical)",
+      "primary_record": {
+        "repository": "Dryad",
+        "landing_page": "https://datadryad.org/dataset/doi:10.5061/dryad.3019k",
+        "doi": "10.5061/dryad.3019k",
+        "title": "Data from: Specific membrane capacitance, cytoplasm conductivity and instantaneous Young’s modulus of single tumour cells",
+        "license": "https://spdx.org/licenses/CC0-1.0.html",
+        "total_bytes": 67216758,
+        "publication_date": "2018-01-25",
+        "abstract": "As label-free biomarkers, biophysical properties of cells are widely used for cell type classification. However, intrinsic biophysical markers, e.g. specific membrane capacitance (Cspecific membrane), cytoplasm conductivity (σconductivity) and instantaneous Young’s modulus (Einstantaneous) measured for hundreds of single cells were not yet reported. In this study, single cells in suspension (adherent cells treated with trypsin) were aspirated through a microfluidic constriction channel at 25°C, and the entry processes and impedance profiles were recorded and translated to Cspecific membrane, σconductivity and Einstantaneous. Cspecific membrane, σconductivity and Einstantaneous of five cell types were quantified as 2.10±0.38 μF/cm2, 0.91±0.15 S/m and 5.52±0.95 kPa for H460 cells (ncell=437); 2.52±0.54 μF/cm2, 0.83±0.12 S/m and 5.54±1.04 kPa for H446 cells (ncell=410); 2.45±0.57 μF/cm2, 0.99±0.18 S/m and 5.16±1.68 kPa for A549 cells (ncell=442); 1.86±0.31 μF/cm2, 1.07±0.18 S/m and 3.86±0.81 kPa for 95D cells (ncell=415); 2.03±0.35 μF/cm2, 0.99±0.16 S/m and 3.49±0.70 kPa for 95C cells (ncell=290). The database of Cspecific membrane, σconductivity and Einstantaneous may serve as a refe",
+        "files": [
+          {
+            "path": "Data Source 20160830.xlsx",
+            "bytes": 257130,
+            "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "checksum": "e408dd94073a9b46b3f48caa3f1ac1f8"
+          },
+          {
+            "path": "Raw Data 20161109.xlsx",
+            "bytes": 66959628,
+            "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "checksum": "bd2861d5fef724aa2ddf146f270d8719"
+          }
+        ]
+      },
+      "constrains_model_expression": [
+        "membrane_capacitance_F_m2",
+        "na_conductance_S_m2 / k_conductance_S_m2 / cl_conductance_S_m2 (indirect, via measured impedance)"
+      ],
+      "coverage_tags": [
+        [
+          "membrane_capacitance_F_m2",
+          "direct"
+        ],
+        [
+          "na_conductance_S_m2",
+          "indirect"
+        ],
+        [
+          "k_conductance_S_m2",
+          "indirect"
+        ],
+        [
+          "cl_conductance_S_m2",
+          "indirect"
+        ]
+      ],
+      "unit_relation_to_model": "direct: file column 'Cspecific membrane' is in microF/cm^2; 1 microF/cm^2 = 1e-2 F/m^2, the model's own unit",
+      "subjects": "1994 individual cells, 5 human non-small-cell lung cancer lines (H460 n=437, H446 n=410, A549 n=442, 95D n=415, 95C n=290); counted directly in the file",
+      "measurement": "microfluidic constriction aspiration, 25 degC, 1 kHz / 100 kHz impedance; per-cell absolute capacitance divided by per-cell measured surface gives C_specific",
+      "why_it_constrains_q031": "largest per-cell sample found for a membrane parameter that the model flags as a bare assumption, and it is the only source here that is directly per-cell for an electrical quantity",
+      "caveat": "suspended trypsinised tumour lines, not an MDCK epithelial layer; bounds a generic membrane capacitance, does not validate Q031",
+      "downloaded_sample": true,
+      "mirror_record": {
+        "repository": "Zenodo",
+        "landing_page": "https://zenodo.org/records/5025108",
+        "concept_doi": "10.5281/zenodo.5025108",
+        "derives_from_doi": null,
+        "title": "Data from: Specific membrane capacitance, cytoplasm conductivity and instantaneous Young's modulus of single tumour cells",
+        "license": "cc-zero",
+        "total_bytes": 67216758,
+        "publication_date": "2018-01-25",
+        "creators": [
+          "Wang, Ke",
+          "Zhao, Yang",
+          "Chen, Deyong",
+          "Fan, Beiyuan",
+          "Lu, Yulan",
+          "Chen, Lianhong",
+          "Long, Rong",
+          "Wang, Junbo"
+        ],
+        "abstract": "As label-free biomarkers, biophysical properties of cells are widely used for cell type classification. However, intrinsic biophysical markers, e.g. specific membrane capacitance (Cspecific membrane), cytoplasm conductivity (σconductivity) and instantaneous Young's modulus (Einstantaneous) measured for hundreds of single cells were not yet reported. In this study, single cells in suspension (adherent cells treated with trypsin) were aspirated through a microfluidic constriction channel at 25°C, and the entry processes and impedance profiles were recorded and translated to Cspecific membrane, σconductivity and Einstantaneous. Cspecific membrane, σconductivity and Einstantaneous of five cell types were quantified as 2.10±0.38 μF/cm2, 0.91±0.15 S/m and 5.52±0.95 kPa for H460 cells (ncell=437); 2.52±0.54 μF/cm2, 0.83±0.12 S/m and 5.54±1.04 kPa for H446 cells (ncell=410); 2.45±0.57 μF/cm2, 0.99±0.18 S/m and 5.16±1.68 kPa for A549 cells (ncell=442); 1.86±0.31 μF/cm2, 1.07±0.18 S/m and 3.86±0.81 kPa for 95D cells (ncell=415); 2.03±0.35 μF/cm2, 0.99±0.16 S/m and 3.49±0.70 kPa for 95C cells (ncell=290). The database of Cspecific membrane, σconductivity and Einstantaneous may serve as a refe",
+        "files": [
+          {
+            "path": "Data Source 20160830.xlsx",
+            "bytes": 257130,
+            "checksum": "md5:e408dd94073a9b46b3f48caa3f1ac1f8"
+          },
+          {
+            "path": "Raw Data 20161109.xlsx",
+            "bytes": 66959628,
+            "checksum": "md5:bd2861d5fef724aa2ddf146f270d8719"
+          }
+        ]
+      }
+    },
+    {
+      "id": "S2",
+      "category": "parameters (single-cell, electrical)",
+      "primary_record": {
+        "repository": "Dryad",
+        "landing_page": "https://datadryad.org/dataset/doi:10.5061/dryad.vq83bk3rg",
+        "doi": "10.5061/dryad.vq83bk3rg",
+        "title": "Cellular electrical properties of specific membrane capacitance  and cytoplasmic conductivity",
+        "license": "https://spdx.org/licenses/CC0-1.0.html",
+        "total_bytes": 343095,
+        "publication_date": "2020-12-08",
+        "abstract": "<p>The submitted datasets contain the original data of the cell's electronic characteristic parameters of specific membrane capacitance and cytoplasmic conductivity.</p>\r\n\r\n<p>The cell types include H1299 cells treated with DMSO and 4-Mu,  95C cells treated with DMSO and 4-Mu, A549 control cells and A549 sg-RNA3 cells. The <span lang=\"EN-US\" style=\"background:white;\">scatter plots and bar graphs demonstrated the differences of electroninc properties  were according to these datasets.</span></p>\r\n",
+        "files": [
+          {
+            "path": "95C_4-Mu.xlsx",
+            "bytes": 83335,
+            "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "checksum": "a30b0ad332f5dbe06367f8a8fdd60dc7db2cd082e068bbc3f381dad24bc5bd93"
+          },
+          {
+            "path": "95C_DMSO.xlsx",
+            "bytes": 47969,
+            "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "checksum": "121f720c2af3bccbd3ca335a6ae438ce38d92506fc0c0348902bbc2217fc52bd"
+          },
+          {
+            "path": "A549_Control.xlsx",
+            "bytes": 57303,
+            "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "checksum": "1da04b07a8964252bc5f81c380efb67da803b9d3521934f420552c9e75f00253"
+          },
+          {
+            "path": "A549-sgRNA3.xlsx",
+            "bytes": 56378,
+            "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "checksum": "557434f04d6db1ede9c4c58cdf23095bff2a1da9e386b4e7258660ff6089bb53"
+          },
+          {
+            "path": "h1299_4-Mu.xlsx",
+            "bytes": 56919,
+            "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "checksum": "6baa5a0a468b93d3899ef339b887dcd4def1f9f0cc59a81652c27d5e7843413d"
+          },
+          {
+            "path": "h1299_DMSO.xlsx",
+            "bytes": 41191,
+            "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "checksum": "ccdd07da4d61823c7d3ac6e35f70e0f761b22bc55aadcb9985601c7a2c38568b"
+          }
+        ]
+      },
+      "constrains_model_expression": [
+        "membrane_capacitance_F_m2",
+        "cytoplasm conductivity (modelled channel leakage path)"
+      ],
+      "coverage_tags": [
+        [
+          "membrane_capacitance_F_m2",
+          "direct"
+        ]
+      ],
+      "unit_relation_to_model": "direct: same specific membrane capacitance quantity as S1",
+      "subjects": "UNKNOWN exact cell count (repository abstract names 4 cell lines x 2 treatments for H1299 and 95C plus A549 control and A549-sgRNA3; per-file counts not read because the frozen rule allows one download only)",
+      "measurement": "atomic force microscopy based electrical characterisation of single cells",
+      "why_it_constrains_q031": "second independent CC0 measurement of the same capacitance parameter, needed to see whether S1's ~2.2 microF/cm^2 is technique-specific",
+      "caveat": "AFM-based; technique bias against microfluidic aspiration is exactly what a second dataset would settle",
+      "downloaded_sample": false,
+      "mirror_record": {
+        "repository": "Zenodo",
+        "landing_page": "https://zenodo.org/records/4312130",
+        "concept_doi": "10.5281/zenodo.4312130",
+        "derives_from_doi": null,
+        "title": "Cellular electrical properties of specific membrane capacitance  and cytoplasmic conductivity",
+        "license": "cc-zero",
+        "total_bytes": 343095,
+        "publication_date": "2020-12-08",
+        "creators": [
+          "Jiang, Mei"
+        ],
+        "abstract": "<p>The submitted datasets contain the original data of the cell's electronic characteristic parameters of specific membrane capacitance and cytoplasmic conductivity.</p>\n\n<p>The cell types include H1299 cells treated with DMSO and 4-Mu,  95C cells treated with DMSO and 4-Mu, A549 control cells and A549 sg-RNA3 cells. The <span>scatter plots and bar graphs demonstrated the differences of electroninc properties  were according to these datasets.</span></p>",
+        "files": [
+          {
+            "path": "A549_Control.xlsx",
+            "bytes": 57303,
+            "checksum": "md5:0c16d6575e19fdf1dd190f5cb477458c"
+          },
+          {
+            "path": "95C_4-Mu.xlsx",
+            "bytes": 83335,
+            "checksum": "md5:aca41a2416854d2cebf7ca45573340a3"
+          },
+          {
+            "path": "95C_DMSO.xlsx",
+            "bytes": 47969,
+            "checksum": "md5:d2b72bf55dd87972deee1b6a0efb474e"
+          },
+          {
+            "path": "A549-sgRNA3.xlsx",
+            "bytes": 56378,
+            "checksum": "md5:988f1c9d0980490dc7b6f5fba4cfa020"
+          },
+          {
+            "path": "h1299_4-Mu.xlsx",
+            "bytes": 56919,
+            "checksum": "md5:959402fc83807a3e923a56b0183e2d2a"
+          },
+          {
+            "path": "h1299_DMSO.xlsx",
+            "bytes": 41191,
+            "checksum": "md5:0b180e825465dbb775d48cfbafa5002f"
+          }
+        ]
+      }
+    },
+    {
+      "id": "S3",
+      "category": "time series + cohort (volume growth)",
+      "primary_record": {
+        "repository": "Zenodo",
+        "landing_page": "https://zenodo.org/records/5829478",
+        "concept_doi": "10.5281/zenodo.5829478",
+        "derives_from_doi": "10.5281/zenodo.4902224",
+        "title": "High throughput measurement of single HeLa cell volume growth and cell cycle progression using FXm",
+        "license": "cc-zero",
+        "total_bytes": 6830865,
+        "publication_date": "2022-01-07",
+        "creators": [
+          "Cadart, Clotilde",
+          "Piel, Matthieu",
+          "Cosentino Lagomarsino, Marco"
+        ],
+        "abstract": "<p>The way proliferating animal cells coordinate the growth of their mass, volume, and other relevant size parameters is a long-standing question in biology. Studies focusing on cell mass have identified patterns of mass growth as a function of time and cell cycle phase, but little is known about volume growth.</p>\n\n<p>To address this question, we improved our fluorescence exclusion method of volume measurement (FXm) and obtained 1696 single cell volume growth trajectories of asynchronous HeLa cells expressing hgeminin-GFP. The data were obtained over four independent replicates. For each cell, depending on the phase of the cell cycle it was observed, the following information is indicated: time of birth (onset of cytokinesis), time of G1/S transition (onset of the expression of hgeminin-GFP), time of entry into mitosis (onset of mitotic cell rounding). All the FXm movies and single cell volume trajectories were visually assessed to check and correct any mistake in the automated segmentation and lineage tracking that would give false volume fluctuations measurements. We thus present a dataset of well curated, high-throughput measurement of single cell volume available for the inves",
+        "files": [
+          {
+            "path": "All4Exp_df.csv",
+            "bytes": 6727086,
+            "checksum": "md5:a72eeb189651ff4e406be25454fd937e"
+          },
+          {
+            "path": "All4Exp_table.csv",
+            "bytes": 102234,
+            "checksum": "md5:7eff7ada69b3335abdb9642b76fe96d9"
+          },
+          {
+            "path": "HeLaVolumeGRowthCellCycle_dataset_README.txt",
+            "bytes": 1545,
+            "checksum": "md5:6e679def0c557a528e1f1e660046f1f4"
+          }
+        ]
+      },
+      "constrains_model_expression": [
+        "initial_volume_m3",
+        "volume variability / area-scaling spread"
+      ],
+      "coverage_tags": [
+        [
+          "initial_volume_m3",
+          "direct"
+        ]
+      ],
+      "unit_relation_to_model": "direct after unit check: per-cell volume, reporter-excluded fluorescence method",
+      "subjects": "1696 single-cell volume growth trajectories, asynchronous HeLa cells, 4 independent replicates (stated in the repository record)",
+      "measurement": "improved fluorescence exclusion method (FXm) volume measurement, repeated over the cell cycle",
+      "why_it_constrains_q031": "the only public per-cell volume-versus-time series with a large cohort that the search surfaced; bounds the volume scale the model starts from",
+      "caveat": "growth-driven, not osmotic: it does NOT constrain the t50 of a 300->150 mOsm step, which stays anchored to Farinas & Verkman 1996 only",
+      "downloaded_sample": false
+    },
+    {
+      "id": "S4",
+      "category": "geometry (volume AND surface area, measured, with voxel volumes)",
+      "primary_record": {
+        "repository": "Zenodo",
+        "landing_page": "https://zenodo.org/records/10064853",
+        "concept_doi": "10.5281/zenodo.10064853",
+        "derives_from_doi": null,
+        "title": "Gigantic animal cells suggest organellar scaling mechanisms across a 50-fold range in cell volume",
+        "license": "cc-zero",
+        "total_bytes": 897255018,
+        "publication_date": "2023-10-30",
+        "creators": [
+          "Adams, Alexander",
+          "Smith, Bradford",
+          "Raad, Thomas",
+          "Mueller, Rachel"
+        ],
+        "abstract": "<p>Across the tree of life, cell size varies by orders of magnitude, and organelles scale to maintain cell function. Depending on their shape, organelles can scale by increasing volume, length, or number. Scaling may also reflect demands placed on organelles by increased cell size. The 8,653 species of amphibians exhibit diverse cell sizes, providing a powerful system to investigate organellar scaling. Using transmission electron microscopy and stereology, we analyzed three frog and salamander species whose enterocyte cell volumes range from 228 to 10,593 μm3. We show that the nucleus increases in radius while the mitochondria increase in total network length; the endoplasmic reticulum and Golgi apparatus, with their complex shapes, are intermediate. Notably, all four organelles increase in volume proportionate to cell volume. This pattern suggests that protein concentrations are the same across amphibian species that differ 50-fold in cell size, and that organellar building blocks are incorporated into more or larger organelles following the same \"rules\" across cell sizes, despite variation in metabolic and transport demands. This conclusion contradicts results from experimental c",
+        "files": [
+          {
+            "path": "Surface_Area_Measurements.xlsx",
+            "bytes": 17317,
+            "checksum": "md5:54051a2f8e2fc2d22fbb4234420232e1"
+          },
+          {
+            "path": "Nucleator_Measurements.xlsx",
+            "bytes": 14151,
+            "checksum": "md5:17c744b939859d95dd0fed77c0c10faa"
+          },
+          {
+            "path": "Silurana_tropicalis_golgi_Package.mrc",
+            "bytes": 59812864,
+            "checksum": "md5:7437792e40ecf24039a9ca205a13103e"
+          },
+          {
+            "path": "Necturus_sp_golgi_Package.mrc",
+            "bytes": 59812864,
+            "checksum": "md5:d394538b7c34e9a9a464610a218bf16d"
+          },
+          {
+            "path": "Silurana_tropicalis_Package.mrc",
+            "bytes": 239248384,
+            "checksum": "md5:79981da175dc1dfc38a068f5625346bf"
+          },
+          {
+            "path": "Volume_Measurements.xlsx",
+            "bytes": 19095,
+            "checksum": "md5:006d04668b7415649d08cc2472598d9d"
+          },
+          {
+            "path": "Plethodon_montanus_golgi_Package.mrc",
+            "bytes": 59812864,
+            "checksum": "md5:ed87a845e9850f2b0fc36575768c66b8"
+          },
+          {
+            "path": "Plethodon_montanus_Package.mrc",
+            "bytes": 239248384,
+            "checksum": "md5:7c9b0c93c9ac74911f8b00f7eff56a07"
+          },
+          {
+            "path": "Ratio_Measurements.xlsx",
+            "bytes": 20006,
+            "checksum": "md5:6c5133b6e2e9e7575eee9a27a338c018"
+          },
+          {
+            "path": "Necturus_sp_Package.mrc",
+            "bytes": 239248384,
+            "checksum": "md5:4ca0ade00d203511947b58b5fa768004"
+          },
+          {
+            "path": "README.md",
+            "bytes": 705,
+            "checksum": "md5:c73c70693e529cb1de9a12554974ecbe"
+          }
+        ]
+      },
+      "constrains_model_expression": [
+        "area_to_volume_initial_m_inv",
+        "initial_volume_m3",
+        "geometry_area_exponent"
+      ],
+      "coverage_tags": [
+        [
+          "initial_volume_m3",
+          "direct"
+        ],
+        [
+          "area_to_volume_initial_m_inv",
+          "direct"
+        ]
+      ],
+      "unit_relation_to_model": "direct: area and volume both measured, so SA/V needs no assumption; cell volumes given in um^3 and surface in um^2 in the spreadsheets",
+      "subjects": "3 amphibian species (frog/salamander enterocytes), transmission electron microscopy plus stereology; exact cell counts UNKNOWN without reading the sheets",
+      "measurement": "TEM stereology; the .mrc files are reconstructed EM volumes with a real voxel coordinate frame",
+      "why_it_constrains_q031": "the strongest public candidate for a measured surface-to-volume ratio, and the only candidate whose files carry an explicit spatial coordinate frame (voxel pitch)",
+      "caveat": "epithelial enterocytes in amphibians span cell volumes 228-10593 um^3, i.e. 10^3-10^5 times the 1.7 pL MDCK anchor; useful as a scaling constraint, not as a substitute value",
+      "downloaded_sample": false
+    },
+    {
+      "id": "S5",
+      "category": "geometry (protist cell shape, very large cohort)",
+      "primary_record": {
+        "repository": "Dryad",
+        "landing_page": "https://datadryad.org/dataset/doi:10.5061/dryad.r7sqv9sb6",
+        "doi": "10.5061/dryad.r7sqv9sb6",
+        "title": "Shape matters: The relationship between cell geometry and diversity in phytoplankton",
+        "license": "https://spdx.org/licenses/CC0-1.0.html",
+        "total_bytes": 2040054,
+        "publication_date": "2021-01-23",
+        "abstract": "<p>We compiled the most comprehensive data set of phytoplankton and other marine protists in terms of sizes, shapes, genus, and species names. Samples were obtained from seven globally distributed marine areas: Baltic Sea, North Atlantic (Scotland), Mediterranean Sea (Greece and Turkey), Indo-Pacific (the Maldives), South-western Pacific (Australia), Southern Atlantic (Brazil).</p>\r\n\r\n<p>See details in Ryabov et al Ecology Letters <em>'Shape matters: the relationship between cell geometry and diversity in phytoplankton</em>', <a href=\"https://doi.org/10.1111/ele.13680\">https://doi.org/10.1111/ele.13680</a></p>\r\n",
+        "files": [
+          {
+            "path": "6Regions_Original.xlsx",
+            "bytes": 531836,
+            "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "checksum": "5f867152ab0e987381b29245a1f532b7d2834a33fffd80046e32e59fcabeb10b"
+          },
+          {
+            "path": "Baltic+6Regions_genera_sizes.xlsx",
+            "bytes": 1024281,
+            "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "checksum": "eb9f4abc6235a65b98f363e204a8ad9104384a11ad5c8d099213bee44a3c7177"
+          },
+          {
+            "path": "BalticSea_Original.xlsx",
+            "bytes": 483937,
+            "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "checksum": "078ff20247e7aa9fd03efaa200993659619a9ba849a4bba5a78c071bf6c51f17"
+          }
+        ]
+      },
+      "constrains_model_expression": [
+        "area_to_volume_initial_m_inv",
+        "geometry_area_exponent"
+      ],
+      "coverage_tags": [
+        [
+          "area_to_volume_initial_m_inv",
+          "direct"
+        ]
+      ],
+      "unit_relation_to_model": "direct: per-species size and shape as measured",
+      "subjects": "UNKNOWN exact count; phytoplankton and other marine protists from 7 globally distributed marine areas, at genus and species level",
+      "measurement": "compiled measured cell sizes and shapes across regions",
+      "why_it_constrains_q031": "large measured shape/size cohort that constrains the area-scaling exponent the model applies to area and conductivity",
+      "caveat": "phytoplankton, not mammalian; constrains the exponent's plausible range only",
+      "downloaded_sample": false,
+      "mirror_record": {
+        "repository": "Zenodo",
+        "landing_page": "https://zenodo.org/records/4459501",
+        "concept_doi": "10.5281/zenodo.4459501",
+        "derives_from_doi": null,
+        "title": "Data from: Shape matters: The relationship between cell geometry and diversity in phytoplankton",
+        "license": "cc-zero",
+        "total_bytes": 2040054,
+        "publication_date": "2021-12-27",
+        "creators": [
+          "Ryabov, Alexey",
+          "Kerimoglu, Onur",
+          "Olenina, Irina",
+          "Roselli, Leonilde",
+          "Basset, Alberto",
+          "Stanca, Elena",
+          "Litchman, Elena",
+          "Blasius, Bernd"
+        ],
+        "abstract": "<p>We compiled the most comprehensive data set of phytoplankton and other marine protists in terms of sizes, shapes, genus, and species names. Samples were obtained from seven globally distributed marine areas: Baltic Sea, North Atlantic (Scotland), Mediterranean Sea (Greece and Turkey), Indo-Pacific (the Maldives), South-western Pacific (Australia), Southern Atlantic (Brazil).</p>\n\n<p>See details in Ryabov et al Ecology Letters <em>'Shape matters: the relationship between cell geometry and diversity in phytoplankton</em>'</p>",
+        "files": [
+          {
+            "path": "Baltic+6Regions_genera_sizes.xlsx",
+            "bytes": 1024281,
+            "checksum": "md5:9ecf6d5e3f26de8860b2074ef0dde38e"
+          },
+          {
+            "path": "6Regions_Original.xlsx",
+            "bytes": 531836,
+            "checksum": "md5:27d26d4baeaafaced717de10e989d8f8"
+          },
+          {
+            "path": "BalticSea_Original.xlsx",
+            "bytes": 483937,
+            "checksum": "md5:fbac52dd96b2427f442da23d679d0705"
+          }
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "category": "geometry (surface-area-to-volume scaling)",
+      "primary_record": {
+        "repository": "Dryad",
+        "landing_page": "https://datadryad.org/dataset/doi:10.5061/dryad.vt966",
+        "doi": "10.5061/dryad.vt966",
+        "title": "Data from: Static allometry of unicellular green algae: scaling of cellular surface area and volume in the genus Micrasterias (Desmidiales)",
+        "license": "https://spdx.org/licenses/CC0-1.0.html",
+        "total_bytes": 1831424,
+        "publication_date": "2015-10-16",
+        "abstract": "The surface area-to-volume ratio of cells is one of the key factors affecting fundamental biological processes and, thus, fitness of unicellular organisms. One of the general models for allometric increase in surface-to-volume scaling involves fractal-like elaboration of cellular surfaces. However, specific data illustrating this pattern in natural populations of the unicellular organisms have not previously been available. This study shows that unicellular green algae of the genus Micrasterias (Desmidiales) have positive allometric surface-to-volume scaling caused by changes in morphology of individual species, especially in the degree of cell lobulation. This allometric pattern was also detected within most of the cultured and natural populations analysed. Values of the allometric S:V scaling within individual populations were closely correlated to the phylogenetic structure of the clade. In addition, they were related to species-specific cellular morphology. Individual populations differed in their allometric patterns, and their position in the allometric space was strongly correlated with the degree of allometric S:V scaling. This result illustrates that allometric shape patter",
+        "files": [
+          {
+            "path": "S_V-LMs.xls",
+            "bytes": 1831424,
+            "mime": "application/vnd.ms-excel",
+            "checksum": "9014b3b7594652363619d47d71229375"
+          }
+        ]
+      },
+      "constrains_model_expression": [
+        "area_to_volume_initial_m_inv",
+        "geometry_area_exponent"
+      ],
+      "coverage_tags": [
+        [
+          "area_to_volume_initial_m_inv",
+          "direct"
+        ]
+      ],
+      "unit_relation_to_model": "direct: the dataset's own subject is the surface-area-to-volume ratio",
+      "subjects": "UNKNOWN exact count; unicellular green algae across natural populations",
+      "measurement": "measured static allometry of cellular surface area and volume",
+      "why_it_constrains_q031": "directly measures the exact ratio the model hard-codes as 6750 cm^-1 from a single epithelial layer",
+      "caveat": "algal cells; useful as an independent check that 6750 cm^-1 is not an order-of-magnitude outlier, not as a value to adopt",
+      "downloaded_sample": false
+    },
+    {
+      "id": "S7",
+      "category": "time series (osmosis-driven volume + intracellular ion)",
+      "primary_record": {
+        "repository": "Zenodo",
+        "landing_page": "https://zenodo.org/records/4941338",
+        "concept_doi": "10.5281/zenodo.4941338",
+        "derives_from_doi": null,
+        "title": "Data from:TRPC3 determines osmosensitive [Ca2+]i signaling in the collecting duct and contributes to urinary concentration",
+        "license": "cc-zero",
+        "total_bytes": 7817747,
+        "publication_date": "2019-12-10",
+        "creators": [
+          "Pochynyuk, Oleh"
+        ],
+        "abstract": "<p>It is well-established that the kidney collecting duct (CD) plays a central role in regulation of systemic water homeostasis.  Aquaporin 2 (AQP2)-dependent water reabsorption in the CD critically depends on the arginine vasopressin (AVP) antidiuretic input and the presence of a favorable osmotic gradient at the apical plasma membrane with tubular lumen being hypotonic compared to the cytosol.  This osmotic difference creates a mechanical force leading to an increase in [Ca<sup>2+</sup>]<sub>i</sub> in CD cells.  The significance of the osmosensitive [Ca<sup>2+</sup>]<sub>i</sub> signaling for renal water transport and urinary concentration remain unknown.  To examine molecular mechanism and physiological relevance of osmosensitivity in the CD, we implemented simultaneous direct measurements of [Ca<sup>2+</sup>]<sub>i</sub> dynamics and the rate of cell swelling as a readout of the AQP2-dependent water reabsorption in freshly isolated split-opened CDs of wild type and genetically manipulated animals and combined this with immunofluorescent detection of AVP-induced AQP2 trafficking and assessment of systemic water balance.  We identified the critical role of the Ca<sup>2+</sup>-pe",
+        "files": [
+          {
+            "path": "Volume_Ca_comparison.opj",
+            "bytes": 330244,
+            "checksum": "md5:dfd97ce93afaf23ce9e3428b1bc81ef3"
+          },
+          {
+            "path": "Ca_Volume_WT.opj",
+            "bytes": 1492236,
+            "checksum": "md5:c85d4f4fc0b3362df0677bf916c83fdb"
+          },
+          {
+            "path": "WT_water_deprivation_Ca_volume.opj",
+            "bytes": 2396526,
+            "checksum": "md5:2a8d454db2c1843f2c1a392f7c6442e4"
+          },
+          {
+            "path": "urine_volume_water_deprivation.opj",
+            "bytes": 122648,
+            "checksum": "md5:21962a55e2e77d9993325ef8fbd05cce"
+          },
+          {
+            "path": "plasma_osmolarity_and_weight.opj",
+            "bytes": 364882,
+            "checksum": "md5:7b60383726999013cb1869afd2c442e3"
+          },
+          {
+            "path": "Ca_Volume_TRPC3KO.opj",
+            "bytes": 3076758,
+            "checksum": "md5:a7db8ded333c63688683ffda26d03ae0"
+          },
+          {
+            "path": "AQP4_summary.opj",
+            "bytes": 34453,
+            "checksum": "md5:d40bd2eb7842f5f9767a95abccfa54d6"
+          }
+        ]
+      },
+      "constrains_model_expression": [
+        "output V(t) under an osmotic perturbation",
+        "output [Ca2+]i(t) under the same perturbation",
+        "the frozen assumption that channels stay constantly open"
+      ],
+      "coverage_tags": [],
+      "unit_relation_to_model": "source-declared, not converted here: Origin project files, units per trace",
+      "subjects": "UNKNOWN; mouse kidney collecting duct cells and TRPC3 knockouts, plus water-deprivation series in whole animals (plasma osmolarity and weight also included)",
+      "measurement": "fluorescence imaging of intracellular Ca2+ together with cell volume during osmotic and water-deprivation protocols",
+      "why_it_constrains_q031": "the closest public analogue found to the Q031 perturbation: an osmotic step with a simultaneously recorded ion signal and cell volume",
+      "caveat": "Ca2+ not a modelled species, and no membrane potential in the same cell; this is the gap the Q031 question is about, not a fill of it",
+      "downloaded_sample": false
+    },
+    {
+      "id": "S8",
+      "category": "cohort (in vivo whole-cell electrophysiology)",
+      "primary_record": {
+        "repository": "Dryad",
+        "landing_page": "https://datadryad.org/dataset/doi:10.5061/dryad.31dj3",
+        "doi": "10.5061/dryad.31dj3",
+        "title": "Data from: Whole-cell properties of cerebellar nuclei neurons in vivo",
+        "license": "https://spdx.org/licenses/CC0-1.0.html",
+        "total_bytes": 2792943838,
+        "publication_date": "2017-03-14",
+        "abstract": "Cerebellar nuclei neurons integrate sensorimotor information and form the final output of the cerebellum, projecting to premotor brainstem targets. This implies that, in contrast to specialized neurons and interneurons in cortical regions, neurons within the nuclei encode and integrate complex information that is most likely reflected in a large variation of intrinsic membrane properties and integrative capacities of individual neurons. Yet, whether this large variation in properties is reflected in a heterogeneous physiological cell population of cerebellar nuclei neurons with well or poorly defined cell types remains to be determined. Indeed, the cell electrophysiological properties of cerebellar nuclei neurons have been identified in vitro in young rodents, but whether these properties are similar to the in vivo adult situation has not been shown. In this comprehensive study we present and compare the in vivo properties of 144 cerebellar nuclei neurons in adult ketamine-xylazine anesthetized mice. We found regularly firing (N=88) and spontaneously bursting (N=56) neurons. Membrane-resistance, capacitance, spike half-width and firing frequency all widely varied as a continuum, ra",
+        "files": [
+          {
+            "path": "120626 C1.zip",
+            "bytes": 36781009,
+            "mime": "application/zip",
+            "checksum": "2f5663666f75e97e77e33cf0381d6df7"
+          },
+          {
+            "path": "120627 C1 and 2.zip",
+            "bytes": 146183212,
+            "mime": "application/zip",
+            "checksum": "a66875fce299908604bb1bf512de4796"
+          },
+          {
+            "path": "120628 C1.zip",
+            "bytes": 24990810,
+            "mime": "application/zip",
+            "checksum": "fa3ed245938edcd8f3ec386133821c56"
+          },
+          {
+            "path": "120823 C1, C2 and 4.zip",
+            "bytes": 142199839,
+            "mime": "application/zip",
+            "checksum": "182289bf0da20ef2ca10ac119e463f93"
+          },
+          {
+            "path": "120903 C1.zip",
+            "bytes": 45956526,
+            "mime": "application/zip",
+            "checksum": "9759ef8c40b9019ba0524fa5748144db"
+          },
+          {
+            "path": "120906 C1.zip",
+            "bytes": 334831653,
+            "mime": "application/zip",
+            "checksum": "599172100b992b18c069dd3ff96e083b"
+          },
+          {
+            "path": "120906 C2 2.zip",
+            "bytes": 88692210,
+            "mime": "application/zip",
+            "checksum": "3b320904d77511e76febcceb775c9ee1"
+          },
+          {
+            "path": "121015 C1 and 5.zip",
+            "bytes": 158,
+            "mime": "application/zip",
+            "checksum": "430d06ecc1c567d2ba3eedac133b3310"
+          },
+          {
+            "path": "121018 C2.zip",
+            "bytes": 43635420,
+            "mime": "application/zip",
+            "checksum": "081e6f35fffd5c369f4bccd0e3f081cf"
+          },
+          {
+            "path": "121019 C1 and 2.zip",
+            "bytes": 38746089,
+            "mime": "application/zip",
+            "checksum": "9d4c7d4f6948100eda4070d2d9e1ac73"
+          },
+          {
+            "path": "121025 C2.zip",
+            "bytes": 293916555,
+            "mime": "application/zip",
+            "checksum": "b39a2cfce79d6e95f3c52e7c95af35a8"
+          },
+          {
+            "path": "Archive 10.zip",
+            "bytes": 22359800,
+            "mime": "application/zip",
+            "checksum": "b5caa9d3f9f9ea1d6c92ad1d21376631"
+          },
+          {
+            "path": "Archive 11.zip",
+            "bytes": 24916305,
+            "mime": "application/zip",
+            "checksum": "a0fa7865675827f2d6b9aae66b7b40ff"
+          },
+          {
+            "path": "Archive 12.zip",
+            "bytes": 63372740,
+            "mime": "application/zip",
+            "checksum": "d55e1b8ff30d301287947f5e3db5f2d0"
+          },
+          {
+            "path": "Archive 13.zip",
+            "bytes": 63370304,
+            "mime": "application/zip",
+            "checksum": "9477e55042dd691e8e168cac9564d371"
+          },
+          {
+            "path": "Archive 14.zip",
+            "bytes": 49241785,
+            "mime": "application/zip",
+            "checksum": "d2d4ba6f300386c65b4f90ed5a60803d"
+          },
+          {
+            "path": "Archive 15.zip",
+            "bytes": 44069713,
+            "mime": "application/zip",
+            "checksum": "6f2fcd5e4e8e41eed1fff0c3e71458cf"
+          },
+          {
+            "path": "Archive 16.zip",
+            "bytes": 38890284,
+            "mime": "application/zip",
+            "checksum": "469bb7b726783b921a225c4e0d144e0f"
+          },
+          {
+            "path": "Archive 17.zip",
+            "bytes": 26713064,
+            "mime": "application/zip",
+            "checksum": "4f2c7b8a187e0c90d929b275374b13cb"
+          },
+          {
+            "path": "Archive 18.zip",
+            "bytes": 24887409,
+            "mime": "application/zip",
+            "checksum": "3c5dc4364c86c23b5e6b92d8fdee34fa"
+          },
+          {
+            "path": "Archive 19.zip",
+            "bytes": 25600508,
+            "mime": "application/zip",
+            "checksum": "e720be2ff0d3132d56806c696835f66d"
+          },
+          {
+            "path": "Archive 2.zip",
+            "bytes": 82812144,
+            "mime": "application/zip",
+            "checksum": "9fbbbd0c2475e46c5965694b377bd762"
+          },
+          {
+            "path": "Archive 20.zip",
+            "bytes": 28875624,
+            "mime": "application/zip",
+            "checksum": "492d4d6c88df0ca9e294e8dd4bc966b4"
+          },
+          {
+            "path": "Archive 21.zip",
+            "bytes": 76649595,
+            "mime": "application/zip",
+            "checksum": "a08c37757725eea3b24c6b3b71f95e90"
+          },
+          {
+            "path": "Archive 22.zip",
+            "bytes": 50553734,
+            "mime": "application/zip",
+            "checksum": "b0c8d4c21e4a09d44f3b94fc3b07fefc"
+          },
+          {
+            "path": "Archive 23.zip",
+            "bytes": 73274147,
+            "mime": "application/zip",
+            "checksum": "f09a26a6953bf7e6713628a083b8467f"
+          },
+          {
+            "path": "Archive 24.zip",
+            "bytes": 33474621,
+            "mime": "application/zip",
+            "checksum": "e847aae3e6a0e77630719f790d2e07cb"
+          },
+          {
+            "path": "Archive 25.zip",
+            "bytes": 44563751,
+            "mime": "application/zip",
+            "checksum": "718ee42cd3f0ff55fb79f4c6821e3cec"
+          },
+          {
+            "path": "Archive 26.zip",
+            "bytes": 89670122,
+            "mime": "application/zip",
+            "checksum": "786b3bbdedaaff34a69fef7d1002ad08"
+          },
+          {
+            "path": "Archive 27.zip",
+            "bytes": 135361799,
+            "mime": "application/zip",
+            "checksum": "f6b86af4eca3c46731cb19a4db49c65b"
+          },
+          {
+            "path": "Archive 28.zip",
+            "bytes": 25800603,
+            "mime": "application/zip",
+            "checksum": "aec3db46d2030364c96094251a4ba4f8"
+          },
+          {
+            "path": "Archive 4.zip",
+            "bytes": 25123992,
+            "mime": "application/zip",
+            "checksum": "1255cebc57edeb12d7d724809f7cfe22"
+          },
+          {
+            "path": "Archive 5.zip",
+            "bytes": 36853401,
+            "mime": "application/zip",
+            "checksum": "731124845abdf0cf04e95cfc3ba4aecc"
+          },
+          {
+            "path": "Archive 6.zip",
+            "bytes": 33337151,
+            "mime": "application/zip",
+            "checksum": "7f5f7c682ed896293b8805ab548afc74"
+          },
+          {
+            "path": "Archive 7.zip",
+            "bytes": 26928450,
+            "mime": "application/zip",
+            "checksum": "3da760eaa8e99eb5de3ccf47b332d97d"
+          },
+          {
+            "path": "Archive 8.zip",
+            "bytes": 28125850,
+            "mime": "application/zip",
+            "checksum": "67e3f2fd9fafdf0f8be6dc289c136cca"
+          },
+          {
+            "path": "Archive 9.zip",
+            "bytes": 54381557,
+            "mime": "application/zip",
+            "checksum": "140a93dded8712b3cf38223ee69a75a8"
+          },
+          {
+            "path": "Archive.zip",
+            "bytes": 239588737,
+            "mime": "application/zip",
+            "checksum": "d83148f4dd6c5d4960d5871aad4cf3e6"
+          },
+          {
+            "path": "rebounds set 1.zip",
+            "bytes": 128213167,
+            "mime": "application/zip",
+            "checksum": "2bdd9480b77635050563ff4f8ff31361"
+          }
+        ]
+      },
+      "constrains_model_expression": [
+        "membrane_capacitance_F_m2",
+        "resting membrane potential (the model's initial_voltage_mV = -80.4)",
+        "input resistance / total leak conductance"
+      ],
+      "coverage_tags": [
+        [
+          "membrane_capacitance_F_m2",
+          "direct"
+        ]
+      ],
+      "unit_relation_to_model": "direct: patch-clamp quantities in the model's own units once converted from pF and Mohm with the measured surface area",
+      "subjects": "UNKNOWN; cerebellar nuclei neurons recorded in vivo in mouse, 39 archive files",
+      "measurement": "in vivo whole-cell patch clamp",
+      "why_it_constrains_q031": "gives a measured resting potential to sit next to the model's -80.4 mV, which is currently a model output with no measured counterpart",
+      "caveat": "2.79 GB, neurons not epithelial cells; listed, not fetched",
+      "downloaded_sample": false,
+      "mirror_record": {
+        "repository": "Zenodo",
+        "landing_page": "https://zenodo.org/records/4970083",
+        "concept_doi": "10.5281/zenodo.4970083",
+        "derives_from_doi": null,
+        "title": "Data from: Whole-cell properties of cerebellar nuclei neurons in vivo",
+        "license": "cc-zero",
+        "total_bytes": 2792943838,
+        "publication_date": "2017-03-14",
+        "creators": [
+          "Canto, Cathrin B.",
+          "Witter, Laurens",
+          "De Zeeuw, Chris I."
+        ],
+        "abstract": "Cerebellar nuclei neurons integrate sensorimotor information and form the final output of the cerebellum, projecting to premotor brainstem targets. This implies that, in contrast to specialized neurons and interneurons in cortical regions, neurons within the nuclei encode and integrate complex information that is most likely reflected in a large variation of intrinsic membrane properties and integrative capacities of individual neurons. Yet, whether this large variation in properties is reflected in a heterogeneous physiological cell population of cerebellar nuclei neurons with well or poorly defined cell types remains to be determined. Indeed, the cell electrophysiological properties of cerebellar nuclei neurons have been identified in vitro in young rodents, but whether these properties are similar to the in vivo adult situation has not been shown. In this comprehensive study we present and compare the in vivo properties of 144 cerebellar nuclei neurons in adult ketamine-xylazine anesthetized mice. We found regularly firing (N=88) and spontaneously bursting (N=56) neurons. Membrane-resistance, capacitance, spike half-width and firing frequency all widely varied as a continuum, ra",
+        "files": [
+          {
+            "path": "120906 C2 2.zip",
+            "bytes": 88692210,
+            "checksum": "md5:3b320904d77511e76febcceb775c9ee1"
+          },
+          {
+            "path": "120627 C1 and 2.zip",
+            "bytes": 146183212,
+            "checksum": "md5:a66875fce299908604bb1bf512de4796"
+          },
+          {
+            "path": "120626 C1.zip",
+            "bytes": 36781009,
+            "checksum": "md5:2f5663666f75e97e77e33cf0381d6df7"
+          },
+          {
+            "path": "120628 C1.zip",
+            "bytes": 24990810,
+            "checksum": "md5:fa3ed245938edcd8f3ec386133821c56"
+          },
+          {
+            "path": "120906 C1.zip",
+            "bytes": 334831653,
+            "checksum": "md5:599172100b992b18c069dd3ff96e083b"
+          },
+          {
+            "path": "120823 C1, C2 and 4.zip",
+            "bytes": 142199839,
+            "checksum": "md5:182289bf0da20ef2ca10ac119e463f93"
+          },
+          {
+            "path": "120903 C1.zip",
+            "bytes": 45956526,
+            "checksum": "md5:9759ef8c40b9019ba0524fa5748144db"
+          },
+          {
+            "path": "121015 C1 and 5.zip",
+            "bytes": 158,
+            "checksum": "md5:430d06ecc1c567d2ba3eedac133b3310"
+          },
+          {
+            "path": "Archive 12.zip",
+            "bytes": 63372740,
+            "checksum": "md5:d55e1b8ff30d301287947f5e3db5f2d0"
+          },
+          {
+            "path": "Archive.zip",
+            "bytes": 239588737,
+            "checksum": "md5:d83148f4dd6c5d4960d5871aad4cf3e6"
+          },
+          {
+            "path": "Archive 18.zip",
+            "bytes": 24887409,
+            "checksum": "md5:3c5dc4364c86c23b5e6b92d8fdee34fa"
+          },
+          {
+            "path": "rebounds set 1.zip",
+            "bytes": 128213167,
+            "checksum": "md5:2bdd9480b77635050563ff4f8ff31361"
+          },
+          {
+            "path": "Archive 20.zip",
+            "bytes": 28875624,
+            "checksum": "md5:492d4d6c88df0ca9e294e8dd4bc966b4"
+          },
+          {
+            "path": "121018 C2.zip",
+            "bytes": 43635420,
+            "checksum": "md5:081e6f35fffd5c369f4bccd0e3f081cf"
+          },
+          {
+            "path": "Archive 21.zip",
+            "bytes": 76649595,
+            "checksum": "md5:a08c37757725eea3b24c6b3b71f95e90"
+          },
+          {
+            "path": "Archive 22.zip",
+            "bytes": 50553734,
+            "checksum": "md5:b0c8d4c21e4a09d44f3b94fc3b07fefc"
+          },
+          {
+            "path": "Archive 26.zip",
+            "bytes": 89670122,
+            "checksum": "md5:786b3bbdedaaff34a69fef7d1002ad08"
+          },
+          {
+            "path": "Archive 25.zip",
+            "bytes": 44563751,
+            "checksum": "md5:718ee42cd3f0ff55fb79f4c6821e3cec"
+          },
+          {
+            "path": "121025 C2.zip",
+            "bytes": 293916555,
+            "checksum": "md5:b39a2cfce79d6e95f3c52e7c95af35a8"
+          },
+          {
+            "path": "Archive 28.zip",
+            "bytes": 25800603,
+            "checksum": "md5:aec3db46d2030364c96094251a4ba4f8"
+          },
+          {
+            "path": "121019 C1 and 2.zip",
+            "bytes": 38746089,
+            "checksum": "md5:9d4c7d4f6948100eda4070d2d9e1ac73"
+          },
+          {
+            "path": "Archive 2.zip",
+            "bytes": 82812144,
+            "checksum": "md5:9fbbbd0c2475e46c5965694b377bd762"
+          },
+          {
+            "path": "Archive 11.zip",
+            "bytes": 24916305,
+            "checksum": "md5:a0fa7865675827f2d6b9aae66b7b40ff"
+          },
+          {
+            "path": "Archive 10.zip",
+            "bytes": 22359800,
+            "checksum": "md5:b5caa9d3f9f9ea1d6c92ad1d21376631"
+          },
+          {
+            "path": "Archive 4.zip",
+            "bytes": 25123992,
+            "checksum": "md5:1255cebc57edeb12d7d724809f7cfe22"
+          },
+          {
+            "path": "Archive 9.zip",
+            "bytes": 54381557,
+            "checksum": "md5:140a93dded8712b3cf38223ee69a75a8"
+          },
+          {
+            "path": "Archive 19.zip",
+            "bytes": 25600508,
+            "checksum": "md5:e720be2ff0d3132d56806c696835f66d"
+          },
+          {
+            "path": "Archive 23.zip",
+            "bytes": 73274147,
+            "checksum": "md5:f09a26a6953bf7e6713628a083b8467f"
+          },
+          {
+            "path": "Archive 13.zip",
+            "bytes": 63370304,
+            "checksum": "md5:9477e55042dd691e8e168cac9564d371"
+          },
+          {
+            "path": "Archive 8.zip",
+            "bytes": 28125850,
+            "checksum": "md5:67e3f2fd9fafdf0f8be6dc289c136cca"
+          },
+          {
+            "path": "Archive 14.zip",
+            "bytes": 49241785,
+            "checksum": "md5:d2d4ba6f300386c65b4f90ed5a60803d"
+          },
+          {
+            "path": "Archive 7.zip",
+            "bytes": 26928450,
+            "checksum": "md5:3da760eaa8e99eb5de3ccf47b332d97d"
+          },
+          {
+            "path": "Archive 6.zip",
+            "bytes": 33337151,
+            "checksum": "md5:7f5f7c682ed896293b8805ab548afc74"
+          },
+          {
+            "path": "Archive 15.zip",
+            "bytes": 44069713,
+            "checksum": "md5:6f2fcd5e4e8e41eed1fff0c3e71458cf"
+          },
+          {
+            "path": "Archive 24.zip",
+            "bytes": 33474621,
+            "checksum": "md5:e847aae3e6a0e77630719f790d2e07cb"
+          },
+          {
+            "path": "Archive 5.zip",
+            "bytes": 36853401,
+            "checksum": "md5:731124845abdf0cf04e95cfc3ba4aecc"
+          },
+          {
+            "path": "Archive 16.zip",
+            "bytes": 38890284,
+            "checksum": "md5:469bb7b726783b921a225c4e0d144e0f"
+          },
+          {
+            "path": "Archive 27.zip",
+            "bytes": 135361799,
+            "checksum": "md5:f6b86af4eca3c46731cb19a4db49c65b"
+          },
+          {
+            "path": "Archive 17.zip",
+            "bytes": 26713064,
+            "checksum": "md5:4f2c7b8a187e0c90d929b275374b13cb"
+          }
+        ]
+      }
+    },
+    {
+      "id": "S9",
+      "category": "geometry + time series (long-term cell size evolution)",
+      "primary_record": {
+        "repository": "Dryad",
+        "landing_page": "https://datadryad.org/dataset/doi:10.5061/dryad.7m0cfxpt2",
+        "doi": "10.5061/dryad.7m0cfxpt2",
+        "title": "Dataset from: Changes in cell size and shape during 50,000 generations of experimental evolution with Escherichia coli",
+        "license": "https://spdx.org/licenses/CC0-1.0.html",
+        "total_bytes": 58716061,
+        "publication_date": "2022-03-23",
+        "abstract": "<p>Bacteria adopt a wide variety of sizes and shapes, with many species exhibiting stereotypical morphologies. How morphology changes, and over what timescales, is less clear. Previous work examining cell morphology in an experiment with Escherichia coli showed that populations evolved larger cells and, in some cases, cells that were less rod-like. That experiment has now run for over two more decades. Meanwhile, genome sequence data are available for these populations, and new computational methods enable high-throughput microscopic analyses. In this study, we measured stationary-phase cell volumes for the ancestor and 12 populations at 2,000, 10,000, and 50,000 generations, including measurements during exponential growth at the last time point. We measured the distribution of cell volumes for each sample using a Coulter counter and microscopy, the latter of which also provided data on cell shape. Our data confirm the trend toward larger cells while also revealing substantial variation in size and shape across replicate populations. Most populations first evolved wider cells but later reverted to the ancestral length-to-width ratio. All but one population evolved mutations in rod",
+        "files": [
+          {
+            "path": "Cell-death-dataset-script.zip",
+            "bytes": 2962738,
+            "mime": "application/zip",
+            "checksum": "1a0bd82ad0b068c598a35cdf98fbf1c89818af42e83c75a08471359b70eb724a"
+          },
+          {
+            "path": "Cell-wall-mutations-datasets-script.zip",
+            "bytes": 1411950,
+            "mime": "application/zip",
+            "checksum": "9b56e44871687287ae494568d076576f0a9b1e13b453f01713f12ebfd25895d3"
+          },
+          {
+            "path": "Clones-mixed-populations-full-submission.zip",
+            "bytes": 47135559,
+            "mime": "application/zip",
+            "checksum": "3900b719347bd76c7bd5916f235f107e93ac3a7b744f7ed2048808b520fb3ef7"
+          },
+          {
+            "path": "Exponential-stationary-phase-datasets-script.zip",
+            "bytes": 7191319,
+            "mime": "application/zip",
+            "checksum": "00bdbf0a1975d4dd7b9c966ee3c3f752723888e3a8c63220472f539810bece4b"
+          },
+          {
+            "path": "README-cell-size-manuscript.docx",
+            "bytes": 14495,
+            "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "checksum": "894ff810df82b2b91f3e8564d766e3858b58669747aeded79a08ac7d7f87e9a6"
+          }
+        ]
+      },
+      "constrains_model_expression": [
+        "area_to_volume_initial_m_inv (lower bound, smallest cells)"
+      ],
+      "coverage_tags": [
+        [
+          "area_to_volume_initial_m_inv",
+          "indirect"
+        ]
+      ],
+      "unit_relation_to_model": "direct: measured cell size and shape per generation",
+      "subjects": "UNKNOWN; E. coli populations over 50000 generations, four parallel lines",
+      "measurement": "microscopy-based morphometry across a long-term evolution experiment",
+      "why_it_constrains_q031": "shows the measured range the model's 6750 cm^-1 area-to-volume has to be consistent with",
+      "caveat": "bacteria; deliberately included as a weak lower-bound reference, not a comparable cell",
+      "downloaded_sample": false
+    }
+  ]
+}

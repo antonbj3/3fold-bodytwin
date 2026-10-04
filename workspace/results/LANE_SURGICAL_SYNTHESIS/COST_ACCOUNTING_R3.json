@@ -1,0 +1,86 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "threads": 2,
+  "experiment": {
+    "wall_s": 29.62414681399241,
+    "CPU_s": 29.487406358999998,
+    "max_RSS_KiB": 82972,
+    "includes": "four whole chains, five global late suffixes incl conventional cohort comparison, day21 rebuild/restart and scoring; imports and process startup excluded"
+  },
+  "whole_chain_cases": [
+    {
+      "case": "nominal",
+      "blood_wall_s": 0.5459301660303026,
+      "late_wall_s": 1.585145811084658,
+      "full_wall_s": 3.712935841176659,
+      "CPU_s": 3.672606391,
+      "max_RSS_KiB": 80780,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    {
+      "case": "all_R3",
+      "blood_wall_s": 1.0635657422244549,
+      "late_wall_s": 1.243290701881051,
+      "full_wall_s": 4.264168870169669,
+      "CPU_s": 4.228849557,
+      "max_RSS_KiB": 80940,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    {
+      "case": "half_dt",
+      "blood_wall_s": 0.7150125610642135,
+      "late_wall_s": 3.24681045813486,
+      "full_wall_s": 7.076489150058478,
+      "CPU_s": 7.0362017340000005,
+      "max_RSS_KiB": 81740,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    },
+    {
+      "case": "half_dx",
+      "blood_wall_s": 1.0475139080081135,
+      "late_wall_s": 1.613532145973295,
+      "full_wall_s": 4.2610419450793415,
+      "CPU_s": 4.2475805740000006,
+      "max_RSS_KiB": 82172,
+      "acquisition_wall_s": null,
+      "setup_import_included_in_full_wall": false
+    }
+  ],
+  "suffix_cases": [
+    {
+      "case": "noformation",
+      "wall_s": 1.150922916131094
+    },
+    {
+      "case": "noremove",
+      "wall_s": 1.19163697399199
+    },
+    {
+      "case": "pathway_block_k1",
+      "wall_s": 1.8283581908326596
+    },
+    {
+      "case": "pathway_block_k2",
+      "wall_s": 2.2671139650046825
+    },
+    {
+      "case": "cohort_control",
+      "wall_s": 2.174218202009797
+    }
+  ],
+  "tests_wall_s": 9.645337984198704,
+  "failed_path_probe": {
+    "log": "r3/EXPERIMENT_v1.log",
+    "exec_reported_wall_s": 0.416041485,
+    "included_in_experiment": false
+  },
+  "compute_wall_lower_bound_s": 39.685526283191116,
+  "full_development_acquisition_and_session_cost_s": null,
+  "real_lab_cost": null,
+  "no_global_free_update": true,
+  "strongest_control_gain": null,
+  "scope": "No timing ratio claimed: cohort control was propagated alongside tensors. Restart avoids prefix but recomputes whole spatial suffix. Day0 rebuild paid; old checkpoint not reinterpreted."
+}

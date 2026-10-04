@@ -1,0 +1,59 @@
+"""Write the final report only after completed, clean >=15-minute verification."""
+from pathlib import Path
+from datetime import datetime,timezone
+import json,re,subprocess,time
+W=Path('');D=W/'tasks/lanes/oom_slots_runtime'
+rows=[json.loads(l) for l in (D/'verification.jsonl').read_text().splitlines()]
+first,last=rows[0],rows[-1]
+assert last['epoch']-first['epoch']>=900,'Verification still in progress'
+for row in rows:
+ for host in ('ovh','upcloud'):
+  assert 'error' not in row[host],(host,row[host])
+  assert not row[host]['kernel_oom_lines'],(host,row[host]['kernel_oom_lines'])
+  for event in ('oom','oom_kill','oom_group_kill'):
+   assert row[host]['memory_events'][event]==first[host]['memory_events'][event],(host,event)
+assert last['local']['services']==['active']*5
+baseline=json.loads((D/'baseline.json').read_text())
+seed=baseline['seed_ids'];done=[j for j in seed if (W/'results'/j/'RESULTS.md').is_file()]
+queued={line.split()[2] for line in (W/'tasks/lanes/bt_queue.txt').read_text().splitlines() if len(line.split())>=3}
+assert all((W/'results'/j).is_dir() and (j in queued or j in done) for j in seed)
+assert set(baseline['completed'])<=set(done)
+new=sorted(set(done)-set(baseline['completed']))
+mins=(last['epoch']-first['epoch'])/60
+fmt=lambda epoch:datetime.fromtimestamp(epoch,timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
+counts={h:(min(r[h]['total'] for r in rows),max(r[h]['total'] for r in rows)) for h in ('ovh','upcloud')}
+summary={'verification_start':fmt(first['epoch']),'verification_end':fmt(last['epoch']),'duration_minutes':mins,'samples':len(rows),'agent_ranges':counts,'new_seed_results':new,'seed_completed_before':len(baseline['completed']),'seed_completed_after':len(done),'seed_packets_preserved':len(seed),'kernel_oom_lines':0,'oom_kill':{h:[first[h]['memory_events']['oom_kill'],last[h]['memory_events']['oom_kill']] for h in counts}}
+(D/'verification_summary.json').write_text(json.dumps(summary,indent=2)+'\n')
+text=f'''# OOM/slots — completed 2026-09-29
+
+Verified **{mins:.1f} minutes without new OOM events** on OVH and UpCloud while queues ran: {fmt(first['epoch'])}–{fmt(last['epoch'])}, {len(rows)} samples. `journalctl -k` contained no new OOM rows; `research.slice/memory.events` was unchanged (`oom_kill`: OVH {first['ovh']['memory_events']['oom_kill']}→{last['ovh']['memory_events']['oom_kill']}, UpCloud {first['upcloud']['memory_events']['oom_kill']}→{last['upcloud']['memory_events']['oom_kill']}). `dmesg` was also checked. Historical OOM records remain and are not included in the new period.
+
+| Machine | Slice MemoryMax | Reserve slice / host | Hard global ceiling | Measured concurrency |
+|---|---:|---:|---:|---:|
+| OVH | 28 GiB | 2048 / 4096 MiB | 17 agents | {counts['ovh'][0]}–{counts['ovh'][1]} |
+| UpCloud | 7 GiB | 1536 / 1536 MiB | 3 agents | {counts['upcloud'][0]}–{counts['upcloud'][1]} |
+| Local | No research.slice | MemAvailable >12 GiB; full PSI avg10 <10 | bt_queue.max=12 | Existing BT runtimes and waiting local workers are counted together |
+
+The previous session's memory reservation was completed with a shared host check in `oom_slots_runtime/launch_reserved.py` (installed as ubuntu in `/opt/agents`). It reads `systemctl show research.slice` MemoryMax/MemoryCurrent and each direct child cgroup's actual `memory.max`. Reservation is the sum of their full limits, at least current usage, plus remaining memory directly in the slice. New slots are the nonnegative minimum of:
+
+- `(slice_max − reserverat − slice_reserv) / agent_bytes`
+- `(slice_max − slice_current − slice_reserv) / agent_bytes`
+- `(MemAvailable − host_reserv) / agent_bytes`
+- `host_cap − total number of agents`
+
+`BT_AGENT_MEMORY_MIB=1500` is also used at `systemd-run`. An ubuntu-owned `capacity_admission.lock` is held across the final check and registration of each systemd unit. This prevents BodyTwin and Field from reserving the same memory simultaneously. Broken measurement, unlimited cgroup or <2 GiB free disk stops new starts. Existing cached memory makes OVH's practical concurrency about 16, despite host ceiling 17. The OVH queue's cap file was set to 24; the separate memory check governs actual global concurrency.
+
+`bt-queue-ovh.service` and `bt-queue-upcloud.service` were restarted cleanly with different host parameters. Field services use the same check via a workspace-owned adapter and systemd drop-ins; the source project's dispatcher was not changed. Four older Field agents above the UpCloud budget were stopped with preserved packages, verified collection and interruption markers. No SEED agents were stopped.
+
+Local `bt_queue.sh` runs as a third queue via `bt-queue-local.service`, reads the ceiling file continuously and starts `nice 19` jobs outside research.slice. `.local_claim` also protects workers waiting for admission; local and cloud runs cannot take the same job. A separate dispatcher lock does not block the queue producer's lock, and local workers survive restart. The processes' nice=19 and cgroup were verified.
+
+An existing budget timer recreated the policy file as root on UpCloud. Its write command was changed to `sudo -u ubuntu` and the lock stays open during writing; budget parameters were not changed. The swarm ramp also writes as ubuntu and has host ceilings 17/3. Policy/ramp files were restored through ubuntu-written replacement, without changing contents. `/opt/agents` files and locks were checked to be ubuntu-owned. swarm_worker remains paused; quota and configuration were not changed.
+
+**SEED preserved:** all 500 packages remain; every unfinished SEED job is in the queue. One already missing entry, SEED-253, was restored. Earlier results remain. The number of SEED `RESULTS.md` increased from **{len(baseline['completed'])} to {len(done)}** since the first inventory: {', '.join(new)}. Result files are run outcomes, not automatically scientifically approved evidence. Provider rate limits/admission interruptions still occur.
+
+Checks: seven regression tests passed (idle reservation, UpCloud, different cgroup limits, host/disk, over budget, unlimited cgroup and locked systemd start), Bash syntax and Python compilation passed. All five queue services were active at the last measurement.
+
+Material: [verification_summary.json](oom_slots_runtime/verification_summary.json), [verification.jsonl](oom_slots_runtime/verification.jsonl), [test_capacity.py](oom_slots_runtime/test_capacity.py), [deployed_units](oom_slots_runtime/deployed_units/), plus dmesg/ownership logs and backups in the same directory.
+'''
+(W/'tasks/lanes/LANE_RUNNER_FIX_OOM_SLOTS_RESULT.md').write_text(text)
+print(json.dumps(summary,indent=2))

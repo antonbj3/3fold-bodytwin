@@ -1,0 +1,181 @@
+{
+ "edges_with_pressure_and_force": 12,
+ "edges_with_an_area_so_a_product_exists": 12,
+ "edges_with_a_product_below_its_stated_load": 8,
+ "edges_whose_products_spread_more_than_peak_over_mean": 0,
+ "peak_over_mean_flag_threshold": 3.5,
+ "reading": "a ratio below 1 is impossible for a peak pressure; a spread above the threshold means the rows cannot all be at the same load",
+ "review_state": "PENDING_INDEPENDENT_REVIEW",
+ "impossible": [
+  {
+   "net": "CONSTRAINT_NETS.json",
+   "id": "HARVEST-E0082",
+   "status": "UNKNOWN",
+   "pressures": [
+    "1.2 MPa"
+   ],
+   "areas": [
+    "110 mm2"
+   ],
+   "forces": [
+    "1000 N"
+   ],
+   "ratios": [
+    {
+     "ratio": 0.132,
+     "product": "110 mm2 x 1.2 MPa",
+     "against": "1000 N"
+    }
+   ]
+  },
+  {
+   "net": "CONSTRAINT_NETS.json",
+   "id": "HARVEST-E0083",
+   "status": "UNKNOWN",
+   "pressures": [
+    "1.2 MPa"
+   ],
+   "areas": [
+    "110 mm2"
+   ],
+   "forces": [
+    "1000 N"
+   ],
+   "ratios": [
+    {
+     "ratio": 0.132,
+     "product": "110 mm2 x 1.2 MPa",
+     "against": "1000 N"
+    }
+   ]
+  },
+  {
+   "net": "CONSTRAINT_NETS.json",
+   "id": "HARVEST-E0084",
+   "status": "UNKNOWN",
+   "pressures": [
+    "2.1 MPa"
+   ],
+   "areas": [
+    "80 mm2"
+   ],
+   "forces": [
+    "1000 N"
+   ],
+   "ratios": [
+    {
+     "ratio": 0.168,
+     "product": "80 mm2 x 2.1 MPa",
+     "against": "1000 N"
+    }
+   ]
+  },
+  {
+   "net": "CONSTRAINT_NETS.json",
+   "id": "HARVEST-E0085",
+   "status": "UNKNOWN",
+   "pressures": [
+    "2.1 MPa"
+   ],
+   "areas": [
+    "80 mm2"
+   ],
+   "forces": [
+    "1000 N"
+   ],
+   "ratios": [
+    {
+     "ratio": 0.168,
+     "product": "80 mm2 x 2.1 MPa",
+     "against": "1000 N"
+    }
+   ]
+  },
+  {
+   "net": "CONSTRAINT_NETS.json",
+   "id": "HARVEST-E0086",
+   "status": "UNKNOWN",
+   "pressures": [
+    "3.3 MPa"
+   ],
+   "areas": [
+    "35 mm2"
+   ],
+   "forces": [
+    "1000 N"
+   ],
+   "ratios": [
+    {
+     "ratio": 0.1155,
+     "product": "35 mm2 x 3.3 MPa",
+     "against": "1000 N"
+    }
+   ]
+  },
+  {
+   "net": "CONSTRAINT_NETS.json",
+   "id": "HARVEST-E0087",
+   "status": "UNKNOWN",
+   "pressures": [
+    "3.3 MPa"
+   ],
+   "areas": [
+    "35 mm2"
+   ],
+   "forces": [
+    "1000 N"
+   ],
+   "ratios": [
+    {
+     "ratio": 0.1155,
+     "product": "35 mm2 x 3.3 MPa",
+     "against": "1000 N"
+    }
+   ]
+  },
+  {
+   "net": "CONSTRAINT_NETS.json",
+   "id": "HARVEST-E0088",
+   "status": "UNKNOWN",
+   "pressures": [
+    "1.4 MPa"
+   ],
+   "areas": [
+    "95 mm2"
+   ],
+   "forces": [
+    "1000 N"
+   ],
+   "ratios": [
+    {
+     "ratio": 0.133,
+     "product": "95 mm2 x 1.4 MPa",
+     "against": "1000 N"
+    }
+   ]
+  },
+  {
+   "net": "CONSTRAINT_NETS.json",
+   "id": "HARVEST-E0089",
+   "status": "UNKNOWN",
+   "pressures": [
+    "1.4 MPa"
+   ],
+   "areas": [
+    "95 mm2"
+   ],
+   "forces": [
+    "1000 N"
+   ],
+   "ratios": [
+    {
+     "ratio": 0.133,
+     "product": "95 mm2 x 1.4 MPa",
+     "against": "1000 N"
+    }
+   ]
+  }
+ ],
+ "spread": [],
+ "no_area_stated": []
+}

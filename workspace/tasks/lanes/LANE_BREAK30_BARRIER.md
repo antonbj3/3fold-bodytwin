@@ -1,0 +1,3 @@
+# W07 — LANE_BREAK30_BARRIER
+
+User authorizes Sol innovation hunt using500+Sol additions. Conditional construction from BM7/M85/M294/O04/O05/O06/T45 and native MODEL-NFKB-OSCILLATION. Build second physical consumer of shared W01 port, own junction/permeability law with empirical closure UNKNOWN. Preserve measured/narrated status conflicts and prior negative results. Scope conditional code gates, no scientific status upgrades. See frozen results/LANE_BREAK30_BARRIER/PREREG.md. This is a new consumer experiment under definition-only immunity context packet; numerical biological inference remains blocked. No P06 cell-count/source substitution.

@@ -1,0 +1,132 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "rows": [
+    {
+      "case": "baseline",
+      "day": 7,
+      "FV_C": 0.17855364508170551,
+      "UIM_total": 0.17054249632416,
+      "UIM_mature": 0.0022928353989581946,
+      "strength_pct": 0.17196265492186458
+    },
+    {
+      "case": "baseline",
+      "day": 14,
+      "FV_C": 0.40140246055082324,
+      "UIM_total": 0.34194288009097307,
+      "UIM_mature": 0.027572576414402,
+      "strength_pct": 2.0679432310801498
+    },
+    {
+      "case": "baseline",
+      "day": 21,
+      "FV_C": 0.5139728188129992,
+      "UIM_total": 0.3877894221670264,
+      "UIM_mature": 0.07742921823397,
+      "strength_pct": 5.80719136754775
+    },
+    {
+      "case": "baseline",
+      "day": 28,
+      "FV_C": 0.5700657357430634,
+      "UIM_total": 0.384519364064545,
+      "UIM_mature": 0.1335894093611153,
+      "strength_pct": 10.019205702083648
+    },
+    {
+      "case": "baseline",
+      "day": 90,
+      "FV_C": 0.6401697135517553,
+      "UIM_total": 0.31301183248650055,
+      "UIM_mature": 0.30593574213013114,
+      "strength_pct": 22.945180659759835
+    },
+    {
+      "case": "k_deposit_R3",
+      "day": 7,
+      "FV_C": 0.9981226908227483,
+      "UIM_total": 0.017965960074668,
+      "UIM_mature": 0.0006287749071141537,
+      "strength_pct": 0.04715811803356153
+    },
+    {
+      "case": "k_deposit_R3",
+      "day": 14,
+      "FV_C": 0.9995583264747938,
+      "UIM_total": 0.015160523965588571,
+      "UIM_mature": 0.002925767126511641,
+      "strength_pct": 0.21943253448837308
+    },
+    {
+      "case": "k_deposit_R3",
+      "day": 21,
+      "FV_C": 0.9998596718517503,
+      "UIM_total": 0.013125121619557142,
+      "UIM_mature": 0.00522275310652703,
+      "strength_pct": 0.39170648298952726
+    },
+    {
+      "case": "k_deposit_R3",
+      "day": 28,
+      "FV_C": 0.9999522211893388,
+      "UIM_total": 0.011815908443640211,
+      "UIM_mature": 0.006938835051661345,
+      "strength_pct": 0.5204126288746009
+    },
+    {
+      "case": "k_deposit_R3",
+      "day": 90,
+      "FV_C": 0.9999994138103471,
+      "UIM_total": 0.009880690766270487,
+      "UIM_mature": 0.009840719430645826,
+      "strength_pct": 0.738053957298437
+    },
+    {
+      "case": "all_R3_upstream",
+      "day": 7,
+      "FV_C": 0.1693805096590316,
+      "UIM_total": 0.0032330970316793123,
+      "UIM_mature": 1.640959077585884e-05,
+      "strength_pct": 0.0012307193081894131
+    },
+    {
+      "case": "all_R3_upstream",
+      "day": 14,
+      "FV_C": 0.5268555788190648,
+      "UIM_total": 0.009183246590979648,
+      "UIM_mature": 0.00022643335098186912,
+      "strength_pct": 0.01698250132364018
+    },
+    {
+      "case": "all_R3_upstream",
+      "day": 21,
+      "FV_C": 0.856058085418764,
+      "UIM_total": 0.013410075685163995,
+      "UIM_mature": 0.0009329575704853764,
+      "strength_pct": 0.06997181778640323
+    },
+    {
+      "case": "all_R3_upstream",
+      "day": 28,
+      "FV_C": 0.966387516571094,
+      "UIM_total": 0.013100906495982528,
+      "UIM_mature": 0.0023550793247765654,
+      "strength_pct": 0.17663094935824242
+    },
+    {
+      "case": "all_R3_upstream",
+      "day": 90,
+      "FV_C": 0.9983202811882146,
+      "UIM_total": 0.008425153030587152,
+      "UIM_mature": 0.008271463100660252,
+      "strength_pct": 0.620359732549519
+    }
+  ],
+  "existing_FV_inventory": "dC/dt=k_deposit F gate (1-C)-.008 macrophage C",
+  "existing_UIM_inventory": "d(U+I+M)/dt=birth_scale F gate (1-C_FV)-turnover_UI (U+I)",
+  "incompatibility": "C_FV saturates independently and suppresses UIM birth; immature removal pays another loss. SumUIM is not constrained equal to C_FV, although both are called collagen-like. These are two different reference inventories.",
+  "derivation": "sum_UIM cancels U->I->M internal flux exactly; inspect existing JointInventory.step and chain.late_response, no new closure.",
+  "stop": "Absolute reference mass, native import/loss and assay-to-state map UNKNOWN; stop at existing symbolic ledger rather than inventing rates.",
+  "next": "Use a single explicitly referenced formation/removal port and independent measured abundance; preserve separate maturity observer until matched chemical law exists."
+}

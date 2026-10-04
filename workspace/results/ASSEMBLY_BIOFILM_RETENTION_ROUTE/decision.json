@@ -1,0 +1,246 @@
+{
+  "headline": {
+    "strength_band_pa": [
+      6.0,
+      51.0
+    ],
+    "strength_factor": 8.5,
+    "velocity_factor_bought_by_whole_band": 2.9154759474226504,
+    "thickness_factor_buying_the_same_factor_in_drainage_time": 2.9154759474226504,
+    "material_route_exponent": 0.5,
+    "operating_route_exponent": 2.0
+  },
+  "drag_coefficient_sweep_cancellation_screen": [
+    {
+      "c_f": 0.002,
+      "v_at_6Pa_m_s": 2.449489742783178,
+      "v_at_51Pa_m_s": 7.14142842854285,
+      "ratio": 2.915475947422651
+    },
+    {
+      "c_f": 0.005,
+      "v_at_6Pa_m_s": 1.5491933384829668,
+      "v_at_51Pa_m_s": 4.516635916254486,
+      "ratio": 2.91547594742265
+    },
+    {
+      "c_f": 0.01,
+      "v_at_6Pa_m_s": 1.0954451150103321,
+      "v_at_51Pa_m_s": 3.1937438845342623,
+      "ratio": 2.9154759474226504
+    },
+    {
+      "c_f": 0.02,
+      "v_at_6Pa_m_s": 0.7745966692414834,
+      "v_at_51Pa_m_s": 2.258317958127243,
+      "ratio": 2.91547594742265
+    }
+  ],
+  "control": "single-threshold acceptance criterion at the low end of the measured band",
+  "control_worst_case_overstatement_factor": 8.5,
+  "per_decade_slope_if_within_sweep": 2.2098388193609044,
+  "per_decade_slope_if_between_biofilm": null,
+  "within_biofilm_compliance_decades": 3.0,
+  "worked_verdicts": [
+    {
+      "inputs": {
+        "required_velocity_factor": 1.5,
+        "baseline_strength_pa": 6.0,
+        "baseline_thickness_um": 100.0,
+        "required_relative_tolerance": 0.1
+      },
+      "output": {
+        "required_velocity_factor": 1.5,
+        "material_route_needed_strength_pa": 13.5,
+        "material_route_ceiling_pa": 51.0,
+        "material_route_feasible": true,
+        "operating_route_drainage_time_factor": 2.25,
+        "operating_route_thickness_factor": 0.6666666666666666,
+        "operating_route_thickness_um": 66.66666666666667,
+        "thickness_floor_um": 10.0,
+        "operating_route_feasible": true,
+        "choice": "OPERATING",
+        "why": "both routes reach it; retiming needs a 1.50-fold thinner layer (66.7 um) against a 2.25-fold strength change, and thickness is the cheaper lever because its exponent is 2 against the strength route's 1/2"
+      }
+    },
+    {
+      "inputs": {
+        "required_velocity_factor": 2.5,
+        "baseline_strength_pa": 6.0,
+        "baseline_thickness_um": 100.0,
+        "required_relative_tolerance": 0.1
+      },
+      "output": {
+        "required_velocity_factor": 2.5,
+        "material_route_needed_strength_pa": 37.5,
+        "material_route_ceiling_pa": 51.0,
+        "material_route_feasible": true,
+        "operating_route_drainage_time_factor": 6.25,
+        "operating_route_thickness_factor": 0.4,
+        "operating_route_thickness_um": 40.0,
+        "thickness_floor_um": 10.0,
+        "operating_route_feasible": true,
+        "choice": "OPERATING",
+        "why": "both routes reach it; retiming needs a 2.50-fold thinner layer (40.0 um) against a 6.25-fold strength change, and thickness is the cheaper lever because its exponent is 2 against the strength route's 1/2"
+      }
+    },
+    {
+      "inputs": {
+        "required_velocity_factor": 3.5,
+        "baseline_strength_pa": 6.0,
+        "baseline_thickness_um": 100.0,
+        "required_relative_tolerance": 0.1
+      },
+      "output": {
+        "required_velocity_factor": 3.5,
+        "material_route_needed_strength_pa": 73.5,
+        "material_route_ceiling_pa": 51.0,
+        "material_route_feasible": false,
+        "operating_route_drainage_time_factor": 12.25,
+        "operating_route_thickness_factor": 0.2857142857142857,
+        "operating_route_thickness_um": 28.571428571428573,
+        "thickness_floor_um": 10.0,
+        "operating_route_feasible": true,
+        "choice": "OPERATING",
+        "why": "the material route needs 73.5 Pa, above the strongest multispecies biofilm on record (51 Pa, PMID 19783800); retiming reaches it at 28.6 um"
+      }
+    },
+    {
+      "inputs": {
+        "required_velocity_factor": 8.0,
+        "baseline_strength_pa": 6.0,
+        "baseline_thickness_um": 100.0,
+        "required_relative_tolerance": 0.1
+      },
+      "output": {
+        "required_velocity_factor": 8.0,
+        "material_route_needed_strength_pa": 384.0,
+        "material_route_ceiling_pa": 51.0,
+        "material_route_feasible": false,
+        "operating_route_drainage_time_factor": 64.0,
+        "operating_route_thickness_factor": 0.125,
+        "operating_route_thickness_um": 12.5,
+        "thickness_floor_um": 10.0,
+        "operating_route_feasible": true,
+        "choice": "OPERATING",
+        "why": "the material route needs 384.0 Pa, above the strongest multispecies biofilm on record (51 Pa, PMID 19783800); retiming reaches it at 12.5 um"
+      }
+    },
+    {
+      "inputs": {
+        "required_velocity_factor": 2.0,
+        "baseline_strength_pa": 6.0,
+        "baseline_thickness_um": 100.0,
+        "required_relative_tolerance": 0.0001
+      },
+      "output": {
+        "choice": "REQUIREMENT REFUSED",
+        "why": "a relative tolerance of 1.0e-04 is tighter than the 3-decade compliance spread measured inside a single biofilm (PMID 22995513); such a criterion selects noise"
+      }
+    },
+    {
+      "inputs": {
+        "required_velocity_factor": 2.5,
+        "baseline_strength_pa": 6.0,
+        "baseline_thickness_um": 20.0,
+        "required_relative_tolerance": 0.1
+      },
+      "output": {
+        "required_velocity_factor": 2.5,
+        "material_route_needed_strength_pa": 37.5,
+        "material_route_ceiling_pa": 51.0,
+        "material_route_feasible": true,
+        "operating_route_drainage_time_factor": 6.25,
+        "operating_route_thickness_factor": 0.4,
+        "operating_route_thickness_um": 8.0,
+        "thickness_floor_um": 10.0,
+        "operating_route_feasible": false,
+        "choice": "MATERIAL",
+        "why": "retiming would need 8.0 um, below the stated floor of 10.0 um; 37.5 Pa is inside the measured band up to 51 Pa (PMID 19783800)"
+      }
+    },
+    {
+      "inputs": {
+        "required_velocity_factor": 6.0,
+        "baseline_strength_pa": 6.0,
+        "baseline_thickness_um": 40.0,
+        "required_relative_tolerance": 0.1
+      },
+      "output": {
+        "required_velocity_factor": 6.0,
+        "material_route_needed_strength_pa": 216.0,
+        "material_route_ceiling_pa": 51.0,
+        "material_route_feasible": false,
+        "operating_route_drainage_time_factor": 36.0,
+        "operating_route_thickness_factor": 0.16666666666666666,
+        "operating_route_thickness_um": 6.666666666666667,
+        "thickness_floor_um": 10.0,
+        "operating_route_feasible": false,
+        "choice": "NOT ACHIEVABLE AS AN EPS LAYER",
+        "why": "needs 216.0 Pa against a ceiling of 51 Pa, and retiming would need 6.7 um against a floor of 10.0 um"
+      }
+    }
+  ],
+  "measured_anchors": [
+    {
+      "value": [
+        6.0,
+        51.0
+      ],
+      "unit": "Pa",
+      "quantity": "multispecies oral biofilm strength",
+      "pmid": "19783800",
+      "doi": "10.1177/0022034509344569",
+      "locator": "strength versus shear-rate result"
+    },
+    {
+      "value": [
+        5.0,
+        17.0
+      ],
+      "unit": "Pa",
+      "quantity": "single-species oral biofilm strength",
+      "pmid": "19783800",
+      "doi": "10.1177/0022034509344569",
+      "locator": "same result"
+    },
+    {
+      "value": [
+        0.1,
+        50.0
+      ],
+      "unit": "per second",
+      "quantity": "applied shear rate range",
+      "pmid": "19783800",
+      "doi": "10.1177/0022034509344569",
+      "locator": "same result"
+    },
+    {
+      "value": 3.0,
+      "unit": "orders of magnitude",
+      "quantity": "within-biofilm compliance spread",
+      "pmid": "22995513",
+      "doi": "10.1016/j.bpj.2012.07.001",
+      "locator": "magnetic microparticle actuation, per-point compliance field"
+    },
+    {
+      "value": null,
+      "unit": null,
+      "quantity": "genetic lever on modulus exists and is measurable",
+      "pmid": "28649395",
+      "doi": "10.1038/s41522-016-0001-2",
+      "locator": "AFM and QCM-D arms"
+    },
+    {
+      "value": null,
+      "unit": null,
+      "quantity": "externally published acceptance surface",
+      "doi": "10.1088/2051-672X/3/3/034004",
+      "locator": "rotating-disc assay"
+    }
+  ],
+  "source_report": "results/BT-CAP-Q160/RESULTS.md section 4.3",
+  "attackable_assumption": "drainage time scales as thickness squared; if the exponent were 1 the operating route would be no better than the material route",
+  "falsifier": "strength independent of shear rate over 0.1-50 per second removes the operating route mechanism; a multispecies strength above 51 Pa moves the ceiling; a tolerance tighter than 3 decades is refused rather than answered",
+  "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

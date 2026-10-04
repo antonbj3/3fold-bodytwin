@@ -1,0 +1,98 @@
+{
+  "round": 1,
+  "operation": "Independent assay-law review -> full parent reproduction -> corrected allele-intensity mixture/source-clock inversion -> conditional nuisance interval; actual Fisher differencing/zero-release attack test",
+  "control": "Conventional calibrated genotype GLS and exact source-nuisance corner propagation with identical information; unchanged parent source copies; TIE with strongest numerical control",
+  "outcome": {
+    "F1a": "PARTIAL: synthetic scalar reproduced; empirical precision UNKNOWN",
+    "F1b": "WRONG: rs genotype probes modeled as SNP-affected CpG methylation probes",
+    "original_sd": 0.00773020756568309,
+    "original_margin": 9.430535904834802,
+    "wrong_model_biases": [
+      0.09877111677549807,
+      0.17321030916788807
+    ],
+    "corrected_sd_mc": 0.00551616811885492,
+    "corrected_sd_analytic": 0.005490666752626087,
+    "corrected_direct_ASM_bias": 0,
+    "corrected_positive_direction_fpr": [
+      0.0252,
+      0.024
+    ],
+    "rs_count": 59,
+    "manifest_design_counts": [
+      21,
+      38
+    ],
+    "source_identifiability": "UNKNOWN unless nuisance/source information supplied",
+    "same_observation_gD_values": [
+      0.3,
+      0.2777777777777778
+    ],
+    "bulk_g03_interval_baseline_radius0": [
+      0.10058640675648212,
+      0.4058147420520828
+    ],
+    "bulk_g03_interval_baseline_radius4": [
+      -0.09941359324351788,
+      0.6058147420520827
+    ],
+    "federation_pooling_gap": 0,
+    "actual_Fisher_difference_relative_error": 8.057424190436659e-16,
+    "privacy_auc_real_and_zero_release": [
+      1,
+      1
+    ],
+    "infarct_coarse_primary_locations": [
+      0.2,
+      0.2
+    ],
+    "infarct_fine_primary_locations": [
+      0.2,
+      0
+    ],
+    "empirical_design_gate": "UNKNOWN",
+    "synthetic_measurement_gate": "CONDITIONAL_PASS",
+    "strongest_control_gate": "TIE",
+    "claim_counts": {
+      "CONFIRMED": 6,
+      "FEL": 6,
+      "DELVIS": 5,
+      "UNDETERMINED": 0
+    }
+  },
+  "gate": "FAIL",
+  "gate_scope": "F1(b) original direct ASM claim on explicit rs-probes; corrected empirical transplant design UNKNOWN",
+  "obstacle": "Empirical allele-intensity/FFPE calibration, donor/recipient references and joint covariance; SNP-DNA fraction vs cell fraction, source clocks and bulk-g vs donor-cell-g_D. 4B2 attack uses fabricated differences.",
+  "next": "Calibrated rs-intensity operator from a public known two-source DNA mixture, joint uncertainty propagated through the DNA-weighted source clock; g_D interval or UNKNOWN. Actual overlapping release streams in the privacy branch.",
+  "files": [
+    "RESULTS.md",
+    "REVIEW_TABLE.json",
+    "WORK_STATUS.json",
+    "NEXT_ROUND.md",
+    "CHECKPOINT_NIGHT_R1.json",
+    "r1/PREREG_R1.json",
+    "r1/PREREG_EXTENSION_R1.json",
+    "r1/PREREG_INTERVAL_PIVOT_R1.json",
+    "r1/INDEPENDENT_PROBE_FINDINGS_R1.json",
+    "r1/SOURCE_REVIEW_R1.md",
+    "r1/DECOMPOSITION_R1.json",
+    "r1/RECOMPUTED_R1.json",
+    "r1/INTERVAL_PIVOT_R1.json",
+    "r1/ORIGINAL_COMPARISONS_R1_v2.json",
+    "r1/SOURCE_IMMUTABILITY_CHECK_R1.json",
+    "r1/review_operator.py",
+    "r1/interval_pivot.py",
+    "r1/source_extracts/MANIFEST_RECEIPT_R1.json",
+    "r1/source_extracts/EPIC_v1_B5_rs_rows.csv",
+    "r1/parent_reruns/3B1-F1/outputs/step2.json",
+    "r1/parent_reruns/3B1-F1/rerun.log",
+    "r1/parent_reruns/3B1-F1/rerun_compat_v1.log",
+    "r1/parent_reruns/3B1-F1/tests_rerun.log",
+    "r1/parent_reruns/3B1/outputs/identifiability.json",
+    "r1/parent_reruns/3B4/out/budget_gate.json",
+    "r1/parent_reruns/3B5/out/decisive.json",
+    "r1/parent_reruns/2B3/out/results_final.json"
+  ],
+  "status": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

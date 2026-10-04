@@ -1,0 +1,100 @@
+{
+ "question": "does a measured gas output report production or only the overflow, and what production interval is consistent with it",
+ "why_a_decision_exists": "the measured absorption fraction spans 90 to 20 per cent, a 4.5-fold swing, and a measured threshold of 76 mL/6h separates the two regimes. That is two regimes, not scatter about a mean",
+ "measured_inputs": {
+  "total_flatus_mL_24h": 705.0,
+  "hydrogen_mL_24h": 361.0,
+  "carbon_dioxide_mL_24h": 68.0,
+  "unidentified_residual_mL_24h": 213.0,
+  "methane_in_three_of_ten_mL_24h": [
+   3.0,
+   26.0,
+   120.0
+  ],
+  "rate_day_mL_h": 34.0,
+  "rate_sleep_mL_h": 16.0,
+  "fibre_free_total_mL_24h": 214.0,
+  "absorption_fraction_percent_range": [
+   90.0,
+   20.0
+  ],
+  "threshold_mL_6h": 76.0,
+  "all_marked_measurement_in": "results/LANE_READ_CREATIVE/CONSUMABLE.json"
+ },
+ "mass_closure": {
+  "total_minus_named_components_mL_24h": 63.0,
+  "residual_as_fraction_of_total_percent": 30.2,
+  "reading": "the named components leave 63 mL/24h unaccounted beyond the residual already listed, and the residual is itself 30 per cent of the total. Nitrogen and oxygen are the expected remainder and are not in the harvested rows, so closure is stated as open rather than claimed"
+ },
+ "rate_consistency_check": {
+  "day_plus_sleep_over_24h_mL": 672.0,
+  "measured_total_mL_24h": 705.0,
+  "reading": "a 16-hour waking day at the day rate plus 8 hours at the sleep rate gives a figure to compare against the measured total; the two come from the same source, so agreement is a consistency check and not evidence"
+ },
+ "decision_rows": [
+  {
+   "measured_6h_mL": 20.0,
+   "regime": "ABSORBING",
+   "production_low_mL_6h": 25.0,
+   "production_high_mL_6h": null,
+   "interval_width_mL": null,
+   "regime_blind_single_fraction_mL": 44.4,
+   "blind_error_against_low_end_percent": 77.8,
+   "note": "lower bound only: the output does not report production in this regime"
+  },
+  {
+   "measured_6h_mL": 60.0,
+   "regime": "ABSORBING",
+   "production_low_mL_6h": 75.0,
+   "production_high_mL_6h": null,
+   "interval_width_mL": null,
+   "regime_blind_single_fraction_mL": 133.3,
+   "blind_error_against_low_end_percent": 77.8,
+   "note": "lower bound only: the output does not report production in this regime"
+  },
+  {
+   "measured_6h_mL": 76.0,
+   "regime": "OVERFLOW",
+   "production_low_mL_6h": 95.0,
+   "production_high_mL_6h": 760.0,
+   "interval_width_mL": 665.0,
+   "regime_blind_single_fraction_mL": 168.9,
+   "blind_error_against_low_end_percent": 77.8,
+   "note": "bracketed by the two measured absorption fractions"
+  },
+  {
+   "measured_6h_mL": 100.0,
+   "regime": "OVERFLOW",
+   "production_low_mL_6h": 125.0,
+   "production_high_mL_6h": 1000.0,
+   "interval_width_mL": 875.0,
+   "regime_blind_single_fraction_mL": 222.2,
+   "blind_error_against_low_end_percent": 77.8,
+   "note": "bracketed by the two measured absorption fractions"
+  },
+  {
+   "measured_6h_mL": 200.0,
+   "regime": "OVERFLOW",
+   "production_low_mL_6h": 250.0,
+   "production_high_mL_6h": 2000.0,
+   "interval_width_mL": 1750.0,
+   "regime_blind_single_fraction_mL": 444.4,
+   "blind_error_against_low_end_percent": 77.8,
+   "note": "bracketed by the two measured absorption fractions"
+  },
+  {
+   "measured_6h_mL": 400.0,
+   "regime": "OVERFLOW",
+   "production_low_mL_6h": 500.0,
+   "production_high_mL_6h": 4000.0,
+   "interval_width_mL": 3500.0,
+   "regime_blind_single_fraction_mL": 888.9,
+   "blind_error_against_low_end_percent": 77.8,
+   "note": "bracketed by the two measured absorption fractions"
+  }
+ ],
+ "control": "the regime-blind reading: one fixed absorption fraction at the midpoint of the measured range, which is what a single-coefficient model does",
+ "claim_type": "capability",
+ "scope": "arithmetic on published measured values; no biological or clinical validity is claimed and no subject is modelled",
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

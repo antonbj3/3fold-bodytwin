@@ -1,0 +1,146 @@
+{
+  "task": "Quantitative spring-mass (SLIP) model of sprint-running stance mechanics and the determinants of top speed; reproduce Weyand's force-limit finding (top speed set by mass-specific vertical GRF over a shrinking contact time, not swing-time/leg-repositioning speed) as a forced, quantified adversary test; cross-check against an independent, video-digitized elite-sprint dataset (Bolt); reproduce McMahon-Cheng/Farley-Gonzalez leg-stiffness regulation; supply a dysfunction/fatigue contrast pole.",
+  "confidence_tier": "abstract-level literature synthesis (all 16 citations verified live via NCBI eutils this session -- PMID/DOI/title/journal/date confirmed for every one; full text fetched for 1 of 16, Krzysztof & Mero 2013 via open-access PMC3661886) + first-party numerical simulation (exact planar SLIP ODE integration, this session, machine-checked against 13 pre-registered thresholds). No raw per-subject datasets were accessed -- every literature number is a published summary statistic (mean+/-SD/SE or a stated ratio), not a re-derived individual measurement.",
+  "script": "scripts/msk/sprint_spring_mass.py",
+  "raw_results": "reports/probes/sprint_spring_mass_results.json",
+  "doc": "docs/MECHANISM_SPRINT_SPRING_MASS.md",
+  "duplicate_check": "data/MECHANISM_ANCHOR_GRAPH.json (1031 nodes) grepped live for sprint/weyand/leg-stiffness. Three related-not-duplicate nodes found: MSK-SPRINT-FV-PROFILE (EXECUTED, macroscopic Samozino F0/V0/Pmax profile, different measurement level), MSK-REPEATED-SPRINT-FATIGUE (EXECUTED, metabolic/PPO-decline fatigue, different modality than this doc's Part 4 biomechanical/Morin2006 fatigue contrast), MSK-GAIT-LOCOMOTION (OPEN, SEED-DESIGN only -- explicitly names the SLIP-model low-dim latent parametrization this doc builds and validates for the first time, but this doc does not execute that node's full metabolic-cost-vs-OpenSim ambition). No existing doc covers the Weyand ground-force/contact-time mechanism itself -- genuinely new, non-duplicate node.",
+  "citations_verified_live_this_session": {
+    "weyand2000": {
+      "pmid": "11053354", "doi": "10.1152/jappl.2000.89.5.1991",
+      "cite": "Weyand PG, Sternlight DB, Bellizzi MJ, Wright S (2000). Faster top running speeds are achieved with greater ground forces not more rapid leg movements. J Appl Physiol 89(5):1991-1999.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "33 subjects, top speed range 6.2-11.1 m/s (1.8-fold); F_avg/Wb regression 1.26x greater at 11.1 vs 6.2 m/s; swing time t_sw did NOT vary (P=0.18); 5-subject incline(+9deg)/decline(-6deg) test: v=7.10+/-0.3 vs 9.96+/-0.3 m/s (1.4-fold), F_avg/Wb=1.76+/-0.04 vs 2.30+/-0.06 (1.3-fold), minimum t_sw similar (+8%)."
+    },
+    "weyand2010": {
+      "pmid": "20093666", "doi": "10.1152/japplphysiol.00947.2009",
+      "cite": "Weyand PG, Sandell RF, Prime DN, Bundle MW (2010). The biological limits to running speed are imposed from the ground up. J Appl Physiol 108(4):950-961.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "n=7 athletic subjects, high-speed force treadmill. Hopping: F_avg=2.71+/-0.15 Wb, F_peak=4.20+/-0.24 Wb, Tc=0.160+/-0.006s. Forward running: F_avg=2.08+/-0.07 Wb, F_peak=3.62+/-0.24 Wb, Tc=0.108+/-0.004s. Backward vs forward Tc nearly identical (0.116+/-0.004 vs 0.110+/-0.005s)."
+    },
+    "mcmahon_cheng1990": {
+      "pmid": "2081746", "doi": "10.1016/0021-9290(90)90042-2",
+      "cite": "McMahon TA, Cheng GC (1990). The mechanics of running: how does stiffness couple with speed? J Biomech 23(Suppl 1):65-78.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "dimensionless KLEG nearly linear function of both U (horizontal Froude number) and V (vertical Froude number) at high forward speed; worked example KLEG=15, V=0.18 matches literature stride-length/leg-angle data."
+    },
+    "farley_gonzalez1996": {
+      "pmid": "8849811", "doi": "10.1016/0021-9290(95)00029-1",
+      "cite": "Farley CT, Gonzalez O (1996). Leg stiffness and stride frequency in human running. J Biomech 29(2):181-186.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "humans, treadmill, fixed 2.5 m/s, stride frequency swept 26% below to 36% above preferred: leg stiffness increased 2.3-fold, 7.0 to 16.3 kN/m, between lowest and highest stride frequency."
+    },
+    "blickhan1989": {
+      "pmid": "2625422", "doi": "10.1016/0021-9290(89)90224-8",
+      "cite": "Blickhan R (1989). The spring-mass model for running and hopping. J Biomech 22(11-12):1217-1227.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "original theoretical derivation of the massless-spring + point-mass model; ground reaction force proportional to specific contact time, total displacement proportional to square of step duration."
+    },
+    "he_kram_mcmahon1991": {
+      "pmid": "1757322", "doi": "10.1152/jappl.1991.71.3.863",
+      "cite": "He JP, Kram R, McMahon TA (1991). Mechanics of running under simulated low gravity. J Appl Physiol 71(3):863-870.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "humans, 4 subjects at 5 normal-gravity speeds (2.0-6.0 m/s) plus simulated low-gravity (0.2-0.7G): leg stiffness (linear-spring) and CoM flight-phase vertical excursion did NOT change with forward speed or gravity; model correctly accounts for the accompanying rise in EFFECTIVE VERTICAL stiffness with speed. Primary human-specific source for 'leg stiffness ~constant across running speed' (distinct from the cross-species result below)."
+    },
+    "farley_glasheen_mcmahon1993": {
+      "pmid": "8294853", "doi": "10.1242/jeb.185.1.71",
+      "cite": "Farley CT, Glasheen J, McMahon TA (1993). Running springs: speed and animal size. J Exp Biol 185:71-86.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "dogs, goats, horses, red kangaroos (0.1-140 kg): k_leg nearly independent of speed WITHIN a species; k_leg ~ M^0.67 ACROSS species/body size; angle swept by leg spring nearly independent of body mass. This session applies the M^0.67 exponent (by analogy, not re-derived for humans) to scale k_leg across the 65-85 kg anthropometry robustness sweep in Part 1 -- disclosed as an extrapolation in honest_gaps."
+    },
+    "farley_blickhan_saito_taylor1991": {
+      "pmid": "1778902", "doi": "10.1152/jappl.1991.71.6.2127",
+      "cite": "Farley CT, Blickhan R, Saito J, Taylor CR (1991). Hopping frequency in humans: a test of how springs set stride frequency in bouncing gaits. J Appl Physiol 71(6):2127-2132.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "humans hop most spring-like at their preferred frequency (2.2 hops/s); minor supporting citation, not load-bearing for this doc's core claims."
+    },
+    "weyand_davis2005": {
+      "pmid": "16000532", "doi": "10.1242/jeb.01609",
+      "cite": "Weyand PG, Davis JA (2005). Running performance has a structural basis. J Exp Biol 208(Pt14):2625-2631.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "world's fastest 45 male/45 female specialists, 8 track distances, 1990-2003: body mass = mass-specific support force x stature^2 x constant, R2=0.97 across the entire sprint-to-endurance continuum. Contextual/coupling citation, not load-bearing for the core falsifier."
+    },
+    "clark_weyand2014": {
+      "pmid": "25080925", "doi": "10.1152/japplphysiol.00174.2014",
+      "cite": "Clark KP, Weyand PG (2014). Are running speeds maximized with simple-spring stance mechanics? J Appl Physiol 117(6):604-615.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "n=7 competitive sprinters + 7 athlete-nonsprinters, 797 footfalls, force treadmill. Sprinters faster (10.4+/-0.3 vs 8.7+/-0.3 m/s); force-vs-time pattern deviates from simple-spring MORE in sprinters (R2<0.85) than nonsprinters (R2>=0.91), worst at top speed (R2=0.78+/-0.02); sprinters apply greater FIRST-half-stance force (2.65+/-0.05 vs 2.21+/-0.05 BW) but equal second-half force (1.71+/-0.04 vs 1.73+/-0.04 BW)."
+    },
+    "krzysztof_mero2013": {
+      "pmid": "23717364", "doi": "10.2478/hukin-2013-0015", "pmcid": "PMC3661886",
+      "cite": "Krzysztof M, Mero A (2013). A kinematics analysis of three best 100 m performances ever. J Hum Kinet 36:149-160.",
+      "verified_via": "NCBI esearch/esummary + PMC full-text XML fetched live (efetch db=pmc), this session -- table data (Table 4, Berlin 2009 20m-section splits) extracted directly from the fetched XML, not recalled.",
+      "key_numbers": "Bolt's 3 WR-caliber 100m races (Beijing 2008, Berlin 2009 WR 9.58s, London 2012): peak 10m-section speed 12.05-12.34 m/s. Berlin 2009, 60-80m split: Bolt v=12.26 m/s, stride length=2.77m, stride frequency=4.49 Hz; rest-of-finalists v=11.80+/-0.23 m/s, stride length=2.48+/-0.08m, stride frequency=4.77+/-0.20 Hz -- i.e. Bolt wins on stride length at a LOWER stride frequency than the field. THE decorrelated external anchor for this doc (independent video-kinematics measurement modality vs. Weyand's treadmill force-plate data)."
+    },
+    "rabita2015": {
+      "pmid": "25640466", "doi": "10.1111/sms.12389",
+      "cite": "Rabita G, Dorel S, Slawinski J, et al. (2015). Sprint mechanics in world-class athletes: a new insight into the limits of human locomotion. Scand J Med Sci Sports 25(5):583-594.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "4 elite (100m 9.95-10.29s) + 5 sub-elite (10.40-10.60s) sprinters, overground force-platform+video. F-v-Power modeling of sprint acceleration; contextual coupling citation (macroscopic F-v-P family), not load-bearing for this doc's core claims."
+    },
+    "slawinski2017": {
+      "pmid": "26644061", "doi": "10.1111/sms.12627",
+      "cite": "Slawinski J, Termoz N, Rabita G, et al. (2017). How 100-m event analyses improve our understanding of world-class men's and women's sprint performance. Scand J Med Sci Sports 27(1):45-54.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "100 distance-time curves (50M/50F) from international 100m finals; Vmax and mean power strongly predict performance (r>-0.80). Contextual coupling citation only."
+    },
+    "morin2005": {
+      "pmid": "16082017", "doi": "10.1123/jab.21.2.167",
+      "cite": "Morin JB, Dalleau G, Kyrolainen H, Jeannin T, Belli A (2005). A simple method for measuring stiffness during running. J Appl Biomech 21(2):167-180.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "validates a 'sine-wave' method (body mass, forward velocity, leg length, flight time, contact time) against force-platform stiffness: within 0.67-6.93% across 3.33 m/s to maximal speed, recreational + highly trained runners. This doc's own half-sine derivation (Part 1) is structurally the same method, independently re-derived from the impulse-momentum theorem this session, not copied from this paywalled paper's exact formula text."
+    },
+    "morin2006": {
+      "pmid": "16475063", "doi": "10.1055/s-2005-837569",
+      "cite": "Morin JB, Jeannin T, Chevallier B, Belli A (2006). Spring-mass model characteristics during sprint running: correlation with performance and fatigue-induced changes. Int J Sports Med 27(2):158-165.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "n=8, actual 100m sprints (not treadmill): mean v=8.10+/-0.31 m/s, k_leg=19.5+/-4.3 kN/m, k_vert=93.9+/-12.4 kN/m, BOTH constant despite v varying within the sprint -- direct in-sprint confirmation of leg-stiffness regulation. Across repeated (fatigued) sprints: vertical stiffness -20.6+/-7.9%, step frequency -8.03+/-3.34%, contact time -14.7+/-7.2%, vmax -10.9+/-2.0%, all vs first-100m baseline, WHILE leg stiffness and max force remained constant -- this doc's Part 4 dysfunction/fatigue contrast anchor. The contact-time-decreases-with-fatigue direction is flagged in honest_gaps as not mechanistically resolved from the abstract alone."
+    },
+    "miller_umberger_caldwell2012": {
+      "pmid": "22405495", "doi": "10.1016/j.jbiomech.2012.02.024",
+      "cite": "Miller RH, Umberger BR, Caldwell GE (2012). Sensitivity of maximum sprinting speed to characteristic parameters of the muscle force-velocity relationship. J Biomech 45(8):1406-1413.",
+      "verified_via": "NCBI esearch/esummary/efetch (abstract text), live, this session.",
+      "key_numbers": "forward-dynamics simulation explicitly cross-cites and supports Weyand et al. 2000's 'time to generate support forces in stance' as a limiting factor on maximum sprint speed. Coupling citation to the force-velocity-power/RFD doc, not load-bearing for this doc's own falsifier."
+    }
+  },
+  "gates_summary": {
+    "CLAIM1_slip_geometry_reproduces_weyand2010_forward_top_speed": "PASS (1/18 primary grid points strictly <3% residual + plausible geometry; best: k=25kN/m, theta0=26.8deg, compression=10.2%, residual=1.26%; full k-sweep shows a genuine discrimination -- jogging-band k=7-10kN/m fails at 10-28% residual, sprint-band k=15-30kN/m bracketing Morin2006's direct 19.5+/-4.3kN/m measurement fits at 1.3-4.1%)",
+    "CLAIM1b_slip_geometry_reproduces_weyand2010_hopping": "FAIL on geometry-plausibility gate only (best numerical residual 0.86%, but requires touchdown angle >40deg and compression >35% -- past this doc's running-calibrated plausibility bound; explained, not hidden, in the doc and honest_gaps)",
+    "robustness_anthropometry_corners_forward_running": "PASS 3/4 corners (m in {65,85}kg x L0 in {0.90,1.00}m, k scaled ~M^0.67 per Farley/Glasheen/McMahon 1993) after an explicit OODA fix (first pass with FIXED absolute k failed 2/4; diagnosed as a k/m=omega^2 scaling omission, corrected via the established M^0.67 relation, re-run to 3/4)",
+    "robustness_anthropometry_corners_hopping": "FAIL 0/4 on the same geometry-plausibility gate as CLAIM1b (residuals themselves are excellent, 0.1-4.5%)",
+    "sine_ratio_hopping_vs_ideal_pi_over_2": "PASS (measured F_peak/F_avg=1.5498 vs ideal pi/2=1.5708, 1.34% deviation)",
+    "sine_ratio_forward_running_deviates_from_ideal": "PASS (measured 1.7404, 10.80% ABOVE ideal, directionally matching Clark&Weyand 2014's asymmetry finding)",
+    "impulse_balance_predicts_bolt_top_speed_step_frequency": "PASS (predicted 4.452 Hz from Weyand2010 alone, zero free parameters, vs Bolt's independently video-measured 4.49 Hz -- 0.86% error)",
+    "impulse_balance_internal_hopping_vs_running_ordering": "PASS (internal consistency of the identity itself)",
+    "adversary_swingtime_leverage_vs_force_leverage_incline_decline": "PASS (force leverage 1.31x vs swing-time-adversary's required 5.04x -- a 3.8x gap, pre-registered threshold >=3x)",
+    "adversary_crosssectional_tsw_nonsignificant": "PASS (P=0.18, adversary mechanism not detectable across the full 33-subject 1.8-fold speed range)",
+    "dose_response_ladder_monotonic_v_and_forcelike_metric": "PASS (3/3 independent higher-vs-lower-speed pairs show both higher speed AND higher force-like metric together)",
+    "stride_frequency_is_NOT_the_driver_bolt_vs_rest": "PASS (Bolt faster at a LOWER stride frequency than the field he beat, same race section, video-only measurement)",
+    "fatigue_dysfunction_contrast_morin2006": "descriptive, no gate (leg stiffness & max force preserved; vertical stiffness/step-frequency/contact-time/speed all decline together under fatigue -- one directionality flagged unresolved)"
+  },
+  "overall_verdict": "11/13 pre-registered machine checks PASS; 2 FAIL, both the SAME well-understood cause (a running-calibrated geometry-plausibility bound too strict for Weyand's deliberately-maximal one-legged-hop condition, whose underlying force/time numbers ARE reproduced to <1% residual). The core Weyand falsifier (force, not swing-time-driven leg-repositioning, governs top speed) is reproduced quantitatively and forced against its strongest adversary form, which fails by a measured 3.8x leverage gap. The core spring-mass claim (realistic, sprint-measured k_leg reproduces measured top-speed force/contact-time mechanics via the exact geometric SLIP equations) PASSES for forward running with a genuine, falsifiable k-band discrimination, and is cross-validated by an independent, decorrelated, zero-free-parameter prediction of Bolt's video-measured stride frequency (0.86% error).",
+  "symmetric_qc_open_items": [
+    "v0 (forward speed) was not reported alongside Tc/F in Weyand et al. 2010's abstract -- swept across a representative athletic range (7-10 m/s) rather than fitted to one paper-specific number; the primary Claim-1 match happens to land at the low end (v0=7 m/s) of that swept range, which is disclosed, not hidden.",
+    "The hopping geometry-plausibility bound (40deg, 35% compression) was picked with ordinary running in mind before seeing the hopping result; it was NOT loosened after the FAIL to force a PASS -- the FAIL is reported as-is, with the numerical (non-geometric) fit quality reported alongside it so a reader can judge whether the bound itself, not the mechanism, is the limiting factor.",
+    "Farley/Glasheen/McMahon 1993's M^0.67 k-scaling exponent is applied to humans by analogy across a 65-85kg range; it was measured in that paper for dogs/goats/horses/kangaroos (0.1-140kg), not re-derived for a human-only cohort this session.",
+    "Morin et al. 2006's fatigue-induced contact-time DECREASE (alongside a speed decrease) is quoted verbatim from a live-fetched abstract and is not mechanistically reconciled with this doc's own SLIP/impulse-balance framework -- flagged as unresolved rather than narrated past with an unverified explanation.",
+    "Krzysztof & Mero 2013 is a tertiary video-digitization re-analysis; its own table's stride-length x stride-frequency products do not exactly reproduce its own reported velocities (1.5% and 0.3% internal discrepancies) -- a known video-digitization-precision limitation of the source, not of this doc's arithmetic on top of it.",
+    "All 16 citations are abstract-level (only 1/16, Krzysztof & Mero 2013, had accessible full text via open-access PMC this session) -- absolute per-subject data, exact regression equations, and full methodological details beyond what each abstract states were not independently verified."
+  ],
+  "couples_to": [
+    "docs/MECHANISM_GAIT_KINEMATICS_FIDELITY.md",
+    "docs/MECHANISM_SPINE_GAIT_VBR.md",
+    "docs/MECHANISM_ANKLE_FORCE.md",
+    "docs/MECHANISM_ANKLE_WAVEFORM.md",
+    "docs/MECHANISM_HIP_FORCE.md",
+    "docs/MECHANISM_JOINT_FORCE_SCORECARD.md",
+    "docs/MECHANISM_JOINT_FORCE_VALIDATION.md",
+    "docs/MECHANISM_BIARTICULAR_MUSCLE.md",
+    "docs/MECHANISM_FORCE_VELOCITY_POWER_RFD.md",
+    "docs/MECHANISM_WEIGHTLIFTING_TRIPLE_EXTENSION.md",
+    "MSK-SPRINT-FV-PROFILE (anchor graph node, EXECUTED -- macroscopic F0/V0/Pmax sibling)",
+    "MSK-REPEATED-SPRINT-FATIGUE (anchor graph node, EXECUTED -- metabolic/PPO fatigue sibling to this doc's Morin-2006 biomechanical fatigue contrast)",
+    "MSK-GAIT-LOCOMOTION (anchor graph node, OPEN/SEED-DESIGN -- names the SLIP low-dim-latent parametrization this doc builds; not closed by this doc)",
+    "data/video_index_tables/body_twin_collection__youtube/ (already-indexed sprint video clips -- proposed_cell substrate)"
+  ]
+}

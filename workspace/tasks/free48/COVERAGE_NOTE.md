@@ -1,0 +1,1 @@
+The eight public task families are existing baselines, not a complete BodyTwin inventory. General system-error-budget graph binding is used at definition/review scope. Full private implementation lookup and biological validation remain explicit prerequisites before evidence admission. No raw subject records or licensed anatomy files are copied.

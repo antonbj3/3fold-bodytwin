@@ -1,0 +1,54 @@
+{
+  "round": 1,
+  "lane": "LANE_SURGICAL_INCISION",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "frozen_before_computation": true,
+  "capability": "Prescribed incision extension -> opening, irreversible cohesive process zone, elastic release and local ischemic initial state without query-time global mechanical state reconstruction",
+  "operation": "Fine scalar P1 membrane exterior condensed exactly into a seam Dirichlet-to-Neumann operator; nonlinear irreversible cohesive history retained on seam; finite local observation pullbacks",
+  "controls": [
+    "Uniform fine scalar P1 FE with identical cohesive law, mesh, loads, fixed-point convergence and irreversible history; repeated sparse factorization costs charged",
+    "Equally informed conventional static condensation / substructuring, identical Schur operator acquisition, outputs and histories: TIE whenever mathematically identical",
+    "Frozen traction-free wake behind three-cell moving front, retained as a falsifiable cheap approximation"
+  ],
+  "default_regime": {
+    "geometry_m": {"width": 0.064, "half_height": 0.016, "thickness": 0.002},
+    "synthetic_material": {"E_Pa": 200000, "anisotropy_x": 1.7, "cleavage_G_J_m2": 200, "cohesive_strength_Pa": 100000},
+    "meshes_nx_ny": [[32,16],[64,32],[96,48]],
+    "incision_start_m": 0.008,
+    "incision_final_length_m": 0.032,
+    "load_history_strain": [0.03,0.10,0.03,0.10],
+    "extension_steps": 16,
+    "scope": "Scalar opening proxy, anisotropic heterogeneous linear elastic exterior, nonlinear cohesive seam. Not incompressible vector skin FE or a layered anatomical model. All listed material numbers are closures, not measured skin inputs."
+  },
+  "numerical_gates": {
+    "max_gap_absolute_error_m": 1e-7,
+    "max_damage_fraction_error": 1e-6,
+    "relative_energy_error": 1e-5,
+    "residual_relative": 1e-8,
+    "irreversibility_violation": 1e-12,
+    "claimed_large_gain_vs_strongest_control": 10,
+    "discretization_gap_relative_error": 0.05,
+    "local_mechanical_strain_zone_threshold": 0.15
+  },
+  "world_gates": {
+    "single_toughness_transfer_relative_tolerance": 0.20,
+    "two_port_slope_prediction_relative_tolerance": 0.20,
+    "goda_2024_PAAm": {
+      "source": "https://arxiv.org/abs/2412.02021",
+      "public_pdf": "literature/goda_2024.pdf",
+      "locations": "main text section 4 and SI sections 1.2, 1.3",
+      "observations": {"cutting_intercept_J_m2": 1.6, "tear_toughness_J_m2": 2.6, "tear_reported_spread_J_m2": 0.2, "cutting_force_per_thickness_radius_slope_Pa": 31000, "uniaxial_failure_energy_density_J_m3": 6973, "uniaxial_reported_spread_J_m3": 500},
+      "first_test": "Using the measured macroscopic tear toughness as cleavage predicts the cutting intercept with no new fit",
+      "next_construction_if_fail": "Separate cleavage energy from distributed process-zone work. Use independently performed uniaxial assay W_f to predict held-out cutting slope 4 W_f; intercept remains an acquired cleavage port. Do not fit W_f to cutting slope.",
+      "limitations": "Same paper, separate assays; gel, not skin; comparison to published regression summary, not fabricated individual force-depth curves. Uncertainty spreads are not assigned a statistical type not specified by source."
+    },
+    "pissarenko_2020_skin": {"url": "https://doi.org/10.1016/j.jmbbm.2020.103848", "mode_I_J_m2": 30400, "mode_III_J_m2": 20400, "role": "Mode-specific juvenile porcine tear reference only; no measured cleavage port, strength or matched blade series: skin transfer UNKNOWN"},
+    "lackmann_2023": {"url": "https://doi.org/10.1055/a-2150-0587", "force_N": [4.2,6.0], "role": "Canine cadaver surgeon decision thresholds, not human gap measurements or material calibration"},
+    "skin_vascular": {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5632107/", "role": "OMAG projected area fraction by dermal layer, not vessel intersection counts; converting to incision bleeding is UNKNOWN"},
+    "bleeding_time": {"url": "https://www.sciencedirect.com/science/article/pii/S0006497120816978", "normal_mean_min": 5.0, "normal_two_sd_range_min": [2.5,10], "role": "Standardized Ivy assay; not surgical bleeding validation"}
+  },
+  "on_tie_or_failure": "Execute exact elimination of the growing traction-free wake into a front response capsule, retain damage histories explicitly, charge rebuild cost, and distinguish constant front solve size from growing capsule complexity. Also execute two-energy identifiability and acquisition test.",
+  "falsifiers": ["Same-information conventional condensation matches", "Frozen wake exceeds error", "One fracture energy does not transfer from tearing to cutting", "Same G and different cohesive strength change damage width", "Whole-field outputs or nonlinear exterior force global reconstruction/rebuild"],
+  "cost_accounting": "CPU and wall for build, Schur acquisition, output pullbacks, full solves, condensed solves, capsule rebuild, checks, physiological solves, fallbacks. Report empirical finite break-even only against a slower eligible control. No credit for accuracy failures.",
+  "physical_admission": false
+}

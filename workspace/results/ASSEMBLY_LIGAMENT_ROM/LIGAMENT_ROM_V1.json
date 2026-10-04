@@ -1,0 +1,155 @@
+{
+ "question": "what angular range keeps every ligament under a tension limit, and which structure binds at each end",
+ "source": {
+  "path": "source_documents/MECHANISM_SPINE_LIGAMENTS.md",
+  "used_as_printed": true,
+  "source_honesty_note": "the source states its bands are inside the model permissive coordinate limit and are NOT a measured range of motion, so every range here is a MODEL range"
+ },
+ "where_each_ligament_peaks_deg": {
+  "ALL": 50,
+  "PLL": -10,
+  "LF": -10,
+  "ISL": -50,
+  "SSL": -50
+ },
+ "peak_force_N": {
+  "ALL": 13.014,
+  "PLL": 0.525,
+  "LF": 2.998,
+  "ISL": 0.869,
+  "SSL": 6.513
+ },
+ "the_binding_structure_changes_side": "ALL carries load only in extension and peaks at 13.014 N, while SSL carries load only in flexion and peaks at 6.513 N. A limit set from the stiffest structure alone therefore governs one side of neutral and says nothing about the other",
+ "decision_rows": [
+  {
+   "tension_limit_N": 0.5,
+   "all_five_ligaments": {
+    "low_deg": null,
+    "high_deg": null,
+    "width_deg": null,
+    "binding_in_extension": null,
+    "binding_in_flexion": null
+   },
+   "using_ALL_alone": {
+    "low_deg": -90,
+    "high_deg": null,
+    "width_deg": null,
+    "binding_in_extension": null,
+    "binding_in_flexion": null
+   },
+   "flexion_side_lost_by_using_one_ligament_deg": null
+  },
+  {
+   "tension_limit_N": 1.0,
+   "all_five_ligaments": {
+    "low_deg": null,
+    "high_deg": null,
+    "width_deg": null,
+    "binding_in_extension": null,
+    "binding_in_flexion": null
+   },
+   "using_ALL_alone": {
+    "low_deg": -90,
+    "high_deg": null,
+    "width_deg": null,
+    "binding_in_extension": null,
+    "binding_in_flexion": null
+   },
+   "flexion_side_lost_by_using_one_ligament_deg": null
+  },
+  {
+   "tension_limit_N": 2.0,
+   "all_five_ligaments": {
+    "low_deg": null,
+    "high_deg": null,
+    "width_deg": null,
+    "binding_in_extension": null,
+    "binding_in_flexion": null
+   },
+   "using_ALL_alone": {
+    "low_deg": -90,
+    "high_deg": null,
+    "width_deg": null,
+    "binding_in_extension": null,
+    "binding_in_flexion": null
+   },
+   "flexion_side_lost_by_using_one_ligament_deg": null
+  },
+  {
+   "tension_limit_N": 3.0,
+   "all_five_ligaments": {
+    "low_deg": -10,
+    "high_deg": null,
+    "width_deg": null,
+    "binding_in_extension": null,
+    "binding_in_flexion": "SSL"
+   },
+   "using_ALL_alone": {
+    "low_deg": -90,
+    "high_deg": null,
+    "width_deg": null,
+    "binding_in_extension": null,
+    "binding_in_flexion": null
+   },
+   "flexion_side_lost_by_using_one_ligament_deg": 80
+  },
+  {
+   "tension_limit_N": 5.0,
+   "all_five_ligaments": {
+    "low_deg": -30,
+    "high_deg": 10,
+    "width_deg": 40,
+    "binding_in_extension": "ALL",
+    "binding_in_flexion": "SSL"
+   },
+   "using_ALL_alone": {
+    "low_deg": -90,
+    "high_deg": 10,
+    "width_deg": 100,
+    "binding_in_extension": "ALL",
+    "binding_in_flexion": null
+   },
+   "flexion_side_lost_by_using_one_ligament_deg": 60
+  },
+  {
+   "tension_limit_N": 7.0,
+   "all_five_ligaments": {
+    "low_deg": -90,
+    "high_deg": 10,
+    "width_deg": 100,
+    "binding_in_extension": "ALL",
+    "binding_in_flexion": null
+   },
+   "using_ALL_alone": {
+    "low_deg": -90,
+    "high_deg": 10,
+    "width_deg": 100,
+    "binding_in_extension": "ALL",
+    "binding_in_flexion": null
+   },
+   "flexion_side_lost_by_using_one_ligament_deg": 0
+  },
+  {
+   "tension_limit_N": 13.0,
+   "all_five_ligaments": {
+    "low_deg": -90,
+    "high_deg": 30,
+    "width_deg": 120,
+    "binding_in_extension": "ALL",
+    "binding_in_flexion": null
+   },
+   "using_ALL_alone": {
+    "low_deg": -90,
+    "high_deg": 30,
+    "width_deg": 120,
+    "binding_in_extension": "ALL",
+    "binding_in_flexion": null
+   },
+   "flexion_side_lost_by_using_one_ligament_deg": 0
+  }
+ ],
+ "control": "the same question answered from ALL alone, which is the single-ligament reading",
+ "claim_type": "information_link",
+ "scope": "arithmetic on a published table at 20-degree sampling; the interval endpoints are sampled angles, not interpolated, so a true boundary lies within 20 degrees of each",
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

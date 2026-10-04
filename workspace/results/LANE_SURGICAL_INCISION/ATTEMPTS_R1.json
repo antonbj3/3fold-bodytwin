@@ -1,0 +1,55 @@
+{
+  "parent_ids": [
+    "BT-HX-Q033",
+    "BT-HX-Q036",
+    "BT-HX-Q049",
+    "BT-CTX-SURG-INCISION",
+    "GRAPH_INVERSE",
+    "MULTIPHYSICS"
+  ],
+  "attempts": [
+    {
+      "operation": "exact fine exterior Schur with cohesive max-history",
+      "evidence": "r1/physical_patch/summary.json",
+      "outcome": "Numerical PASS/TIE",
+      "obstacle": "linear exterior and fixed seam; standard equally informed substructuring matches",
+      "next": "nonlinear exterior"
+    },
+    {
+      "operation": "freeze completed wake, then execute exact wake capsule",
+      "evidence": "r1/first/summary.json",
+      "outcome": "freeze FAIL, capsule same-model PASS/TIE",
+      "obstacle": "wake response grows and nonlinear remaining seam not constant size",
+      "next": "physical nonlinear patch with charged rebuild"
+    },
+    {
+      "operation": "same energy tear-to-cut then cleavage/failure-work ports",
+      "evidence": "r1/physical_patch/world_transfer.json",
+      "outcome": "single energy FAIL62.5%, separate-assay slope PASS10.03%",
+      "obstacle": "published gel relation; skin strength and FPZ length absent",
+      "next": "measured shared skin ports"
+    },
+    {
+      "operation": "distributed convex nonlinear exterior with tip and wake patch",
+      "evidence": "r1/nonlinear/summary.json",
+      "outcome": "12/12 cheap patches FAIL; charged full fallback",
+      "obstacle": "nonlocal nonlinear deformation plus global residual certification",
+      "next": "polynomial residual Gram compiler"
+    },
+    {
+      "operation": "cubic residual Gram with 5/17 global modes",
+      "evidence": "r1/residual_compiler/summary.json",
+      "outcome": "no query global solve;0/8 new supports accepted",
+      "obstacle": "new topology subspace error and artificial top-boundary cancellation",
+      "next": "affine physical prestress center"
+    },
+    {
+      "operation": "centered residual capsule, topology/history discriminant",
+      "evidence": "r1/centered_residual/summary.json",
+      "outcome": "4/4 acquired supports accepted;0/4 new supports;0/8 changed histories;all bounds contain errors",
+      "obstacle": "new tip cusp and branch/history sensitivity; no strong-control gain",
+      "next": "local Green support enrichment with shared historical residual sector"
+    }
+  ],
+  "review": "PENDING_INDEPENDENT_REVIEW"
+}

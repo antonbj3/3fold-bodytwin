@@ -1,0 +1,83 @@
+{
+  "operation": "Replace diameter/peak proxy with integral(P_first-P_repeat)dl divided by matched new crack area; no synthetic solve",
+  "effective_identified": "Published Barnett first-minus-repeat effective work, under equal nuisance histories",
+  "relation": "W_delta=Gamma_pierce_eff*DeltaA + DeltaPsi_difference + DeltaD_contact_difference + DeltaD_other_difference",
+  "intrinsic_nonidentifiability": "Gamma_pierce_eff=Gamma0+B_before. Independent pre-cleavage terminal work required. Work difference contains nuisance drift if second pass changes conditioning/contact.",
+  "peak_vs_steady_diagnostics": [
+    {
+      "gauge": 16,
+      "peak_total_N": 2.857142857142857,
+      "steady_J_times_unloaded_mean_a_N": 1.7363868791818529,
+      "naive_peak_remaining_N": 1.1207559779610043,
+      "cannot_claim_friction_force": true,
+      "reason": "Peak and steady interval not synchronous; unloaded a from different aggregate trials; no covariance. Negative center at25 is not a proved energy violation."
+    },
+    {
+      "gauge": 18,
+      "peak_total_N": 2.8642857142857143,
+      "steady_J_times_unloaded_mean_a_N": 1.9946689876516346,
+      "naive_peak_remaining_N": 0.8696167266340797,
+      "cannot_claim_friction_force": true,
+      "reason": "Peak and steady interval not synchronous; unloaded a from different aggregate trials; no covariance. Negative center at25 is not a proved energy violation."
+    },
+    {
+      "gauge": 21,
+      "peak_total_N": 1.5142857142857142,
+      "steady_J_times_unloaded_mean_a_N": 0.7209559556836932,
+      "naive_peak_remaining_N": 0.793329758602021,
+      "cannot_claim_friction_force": true,
+      "reason": "Peak and steady interval not synchronous; unloaded a from different aggregate trials; no covariance. Negative center at25 is not a proved energy violation."
+    },
+    {
+      "gauge": 25,
+      "peak_total_N": 1.1214285714285714,
+      "steady_J_times_unloaded_mean_a_N": 1.2168126348619197,
+      "naive_peak_remaining_N": -0.09538406343334827,
+      "cannot_claim_friction_force": true,
+      "reason": "Peak and steady interval not synchronous; unloaded a from different aggregate trials; no covariance. Negative center at25 is not a proved energy violation."
+    }
+  ],
+  "friction_port": {
+    "Barnett_studywide_model_fraction": 0.21,
+    "per_tool_phase3_measured_force_N": null,
+    "per_tool_spreading_force_N": null,
+    "reason": "3D figure and unreproducible printed regressions do not supply frozen matched per-case friction/spreading curves"
+  },
+  "printed_source_regression_reproduction": [
+    {
+      "gauge": 16,
+      "printed_eq12_SI_J_J_m2": 68748.67795,
+      "fig9_at20_J_J_m2": 1153.4569983136594,
+      "printed_eq12_relative_discrepancy": 58.60228950928362,
+      "printed_eq13_SI_friction_N": -0.9932308673225816,
+      "printed_eq13_v_mm_s_friction_N": 2.089700313687146
+    },
+    {
+      "gauge": 18,
+      "printed_eq12_SI_J_J_m2": 50687.269058,
+      "fig9_at20_J_J_m2": 1801.0118043844857,
+      "printed_eq12_relative_discrepancy": 27.143773924526215,
+      "printed_eq13_SI_friction_N": -1.1321968673225815,
+      "printed_eq13_v_mm_s_friction_N": 1.950734313687146
+    },
+    {
+      "gauge": 21,
+      "printed_eq12_SI_J_J_m2": 28005.671647999996,
+      "fig9_at20_J_J_m2": 944.3507588532883,
+      "printed_eq12_relative_discrepancy": 28.65600587011428,
+      "printed_eq13_SI_friction_N": -1.2967618673225816,
+      "printed_eq13_v_mm_s_friction_N": 1.786169313687146
+    },
+    {
+      "gauge": 25,
+      "printed_eq12_SI_J_J_m2": 14258.802682,
+      "fig9_at20_J_J_m2": 2543.001686340641,
+      "printed_eq12_relative_discrepancy": 4.6070755904681695,
+      "printed_eq13_SI_friction_N": -1.4101288673225816,
+      "printed_eq13_v_mm_s_friction_N": 1.672802313687146
+    }
+  ],
+  "source_regression_gate": "FAIL_AS_PRINTED_SI; no silent sign/coefficient/unit correction",
+  "measured_biological_damage_width_m": null,
+  "strongest_control": "Same-information paired work/area conventional fracture assay:identical:TIE"
+}

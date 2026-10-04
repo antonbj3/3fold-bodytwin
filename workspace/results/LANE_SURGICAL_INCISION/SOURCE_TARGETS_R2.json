@@ -1,0 +1,23 @@
+{
+  "status": "FROZEN_BEFORE_COMPUTATION", "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "source_location_correction": "PREREG_R2 names Table 2 provisionally: toughness is Table 1 in author PDF, pp6. No target values changed.",
+  "primary_world_targets": {
+    "PISSARENKO_2020": {"url": "https://meyersgroup.ucsd.edu/papers/journals/Meyers%20477.pdf", "DOI": "10.1016/j.jmbbm.2020.103848", "table": 1, "population": "one juvenile piglet for the two toughness modes; second pig for SENT; full skin with excess fat removed", "speed_m_s": 0.0003,
+      "mode_III_J_m2": 20600, "mode_III_SD_J_m2": 2150, "mode_I_J_m2": 30380, "mode_I_SD_J_m2": 4900,
+      "rows": [
+        ["III","long",1.31,13.09,20.03],["III","long",1.32,13.33,20.22],["III","long",1.44,15.88,22.05],
+        ["III","trans",2.20,24.16,21.95],["III","trans",1.53,17.27,22.56],["III","trans",1.20,10.00,16.75],
+        ["I","long",1.29,13.74,21.27],["I","long",1.39,18.57,26.72],["I","long",1.33,19.94,30.00],
+        ["I","trans",1.30,20.92,32.14],["I","trans",1.30,22.20,34.27],["I","trans",1.26,21.89,34.73],["I","trans",1.98,33.16,33.56]
+      ], "row_columns": ["mode","orientation","thickness_mm","plateau_force_N","reported_toughness_kJ_m2"],
+      "cutting_data_on_same_skin": null, "microscopy": "bridging, delamination and eventual fiber fracture in tear; not exclusively intact-fiber pullout"},
+    "BARNETT_2016": {"DOI": "10.1115/1.4030374", "primary_author_page": "https://pure.psu.edu/en/publications/fracture-mechanics-model-of-needle-cutting-tissue/", "primary_indexed_PDF": "https://citeseerx.ist.psu.edu/document?doi=0f2487feb9d45d67e4e258e3f900c0d761a28fbc&repid=rep1&type=pdf", "observed_mean_force_fractions": {"fracture": 0.61,"spreading": 0.18,"friction": 0.21}, "scope": "Porcine skin, hypodermic needles; geometry-specific apparent fracture work from double insertion. Not a radius-zero skin cleavage intercept.", "claimed_force_fit_accuracy_N": 0.2, "force_raw_curves": null, "numeric_G_data_verified_from_full_PDF": null, "use": "qualitative/identifiability context only; index OCR equations not used for calculation"},
+    "KÖHLER_2020": {"url": "https://pubmed.ncbi.nlm.nih.gov/32162009/", "mass_equivalent_thresholds_g": {"smooth_pocket_knife_grade3_at_least":1900,"serrated_paring_knife_grade2_or3":700}, "matched_damage_endpoint": false, "blade_radii_m": null,"cut_work_J":null,"crack_area_m2":null,"use":"force-unit conversion only; no ratio validation or Gamma inference"},
+    "PORCINE_PRESTRETCH_2015": {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC4520804/", "lambda_x":1.21,"lambda_y":1.21,"area_stretch":1.44,"scope":"R1 verified Table1 control patch in single animal; use marginal stretch as scenario, not patient calibration; mean product need not equal mean area"},
+    "SMITH_2013": {"url":"https://stars.library.ucf.edu/honorstheses1990-2015/1543/", "blade_radius_m":0.000012,"numerical_cut_work":null,"status":"abstract verified, PDF retrieval failed DNS/403/redirect404; no substitute values"},
+    "CHU_2019": {"url":"https://www.nature.com/articles/s41598-019-52054-3","primary_html_saved":true,"force_test_material":"pig muscle, not skin; oily-drop friction not tissue contact", "skin_endpoint":"in-vivo dermatome graft surface morphology/healing", "skin_force_radius_series":null,"use":"exclude reported 51%/80% force reductions from skin energy targets"}
+  },
+  "empirical_unknowns": ["same-specimen scalpel Γ0 radius intercept", "layer-specific cutting work", "fiber anchorage distribution and contact strength", "same-specimen gap and released-energy history", "cut/tear paired sample covariance"],
+  "scenario_defaults_not_measurements": {"domain_mm":[64,32],"cut_lengths_mm":[0,8,12,16,20,24],"layers":[{"name":"epidermis","h_m":0.0001,"E_Pa":100000,"fiber_k_Pa":20000},{"name":"dermis","h_m":0.0015,"E_Pa":200000,"fiber_k_Pa":100000},{"name":"subcutis","h_m":0.003,"E_Pa":20000,"fiber_k_Pa":0}],"poisson":0.3,"interface_k_N_m3":20000000,"angles_deg":[0,45,90],"prestretches":[1,1.10,1.21],"dermis_Gamma0_J_m2":150,"other_layers_Gamma0_J_m2":null,"cut_energy_comparison_dermis_only":true},
+  "planned_successor_before_computation": "Upon 15kJ tear failure or intrinsic-intercept UNKNOWN, execute finite-strain bonded-layer prestress release plus intrinsic/process nullspace and optimized radius/contact acquisition tests. No empirical fit to synthetic outputs."
+}

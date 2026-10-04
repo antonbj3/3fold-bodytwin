@@ -1,0 +1,93 @@
+{
+  "Q033_exudate_m3_s": 2.802050202934667e-11,
+  "Q033_area_input_m2": 5.4766169339078144e-05,
+  "Q033_evaporation_multiplier_analog": 5.9,
+  "Darcy_flow_is_not_bleeding": true,
+  "vascular_bleeding_m3_s": null,
+  "hemostasis_time_min": null,
+  "Q036_cases": [
+    {
+      "mechanical_damage_seed": 0.0,
+      "q_ext_during_first_10min": 1.0,
+      "snapshots": [
+        {
+          "time_min": 10,
+          "state": {
+            "q": 1.0,
+            "o": 0.9422564421468158,
+            "A": 1.0,
+            "Gly": 1.0,
+            "L": 0.0,
+            "H": 0.0,
+            "C": 1.0,
+            "R": 0.0,
+            "M": 0.0,
+            "D": 0.0,
+            "E": 0.0,
+            "F": 1.0
+          }
+        },
+        {
+          "time_min": 20,
+          "state": {
+            "q": 1.0,
+            "o": 0.9422564421468158,
+            "A": 1.0,
+            "Gly": 1.0,
+            "L": 0.0,
+            "H": 0.0,
+            "C": 1.0,
+            "R": 0.0,
+            "M": 0.0,
+            "D": 0.0,
+            "E": 0.0,
+            "F": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "mechanical_damage_seed": 0.5,
+      "q_ext_during_first_10min": 0.5,
+      "snapshots": [
+        {
+          "time_min": 10,
+          "state": {
+            "q": 0.4127092522510759,
+            "o": 0.38440911339417305,
+            "A": 0.8723708644644335,
+            "Gly": 1.0,
+            "L": 0.0,
+            "H": 0.0031377802635637916,
+            "C": 1.0988205604937769,
+            "R": 0.09673212037687803,
+            "M": 0.13007900838709763,
+            "D": 0.0482144951131441,
+            "E": 0.021021464091455753,
+            "F": 0.7337103733973235
+          }
+        },
+        {
+          "time_min": 20,
+          "state": {
+            "q": 0.7839439704274991,
+            "o": 0.7473319766146972,
+            "A": 0.752359388593188,
+            "Gly": 1.0,
+            "L": 0.0,
+            "H": 0.006760117969181185,
+            "C": 1.036930069575567,
+            "R": 0.23587642642558768,
+            "M": 0.1555765335543186,
+            "D": 0.04700821293997242,
+            "E": 0.019593832717206498,
+            "F": 0.6578198452145965
+          }
+        }
+      ]
+    }
+  ],
+  "coupling": "one-way mechanical initial state -> nonlinear Q036 internal no-reflow/edema feedback; no mechanics feedback claimed",
+  "biological_status": "SYNTHETIC_CONSTITUTIVE_CLOSURES",
+  "cpu_s": 0.5333590690000003
+}

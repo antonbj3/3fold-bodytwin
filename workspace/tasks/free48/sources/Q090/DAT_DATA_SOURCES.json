@@ -1,0 +1,218 @@
+{
+ "id": "BT-DAT-Q090",
+ "task": "Find PUBLIC measured datasets that constrain the BT-HX-Q090 model (inputs/Q090_model.py, inputs/Q090_QUESTION.md)",
+ "prereg_sha256": "71646a73299cc518506806186ff934ec28dcb322607a3fff3b94fc32010219df",
+ "query_date": "2026-09-25",
+ "repositories_queried": [
+  "zenodo.org REST /api/records (title-field and free-text search, records fetched by id)",
+  "api.figshare.com /v2/articles/search",
+  "huggingface.co /api/datasets",
+  "physionet.org content pages",
+  "data.kitware.com (Girder) file api, reached via a downloaded archive"
+ ],
+ "access_status_legend": {
+  "QUALIFY_METADATA_ONLY": "license-clear + human measured + retrievable, but no numeric array can be read from the public artifact",
+  "QUALIFY_NO_SAMPLE_FIT": "qualifies on license/provenance but the only downloadable object exceeds the 50 MB sample limit",
+  "QUALIFY_LICENSE_RESTRICTED": "measured and relevant, but terms are not an open license",
+  "EXCLUDED_ACCESS": "not retrievable without login / DUA / registration (plain unauthenticated GET refused or gated)",
+  "EXCLUDED_NO_DATA": "license-clear record whose only file is the article PDF, i.e. no data at all"
+ },
+ "sources": [
+  {
+   "rank": 1,
+   "name": "zmk-tooth-cohort (habi/zmk-tooth-cohort, University of Bern dental clinic cohort)",
+   "url": "https://zenodo.org/records/3999402",
+   "download_url": "https://zenodo.org/api/records/3999402/files/habi/zmk-tooth-cohort-0.8.zip/content",
+   "doi": "10.5281/zenodo.3999402",
+   "license": "other-open (Zenodo class, NOT a standard Creative Commons license; recorded verbatim per prereg I2)",
+   "size_bytes": 22005589,
+   "format": "ZIP (store) containing 1 Python/jupyter package: README.md, requirements.txt, ToothDisplay.ipynb, ToothPreview.ipynb, 2 JPEG renderings, 1 GH workflow",
+   "subjects": "UNKNOWN (not stated in repository metadata); README states teeth were scanned for the dental clinic of the University of Bern, count not given",
+   "measured_human": "yes_in_intent_no_data_delivered",
+   "access_status": "QUALIFY_METADATA_ONLY",
+   "constrains_parameters": [
+    "pdl_thickness_m",
+    "molar_support_area_m2",
+    "alveolar_bone_thickness_m",
+    "molar_lever_m"
+   ],
+   "constrains_outputs": [
+    "delta_tooth_um",
+    "p_PDL_kPa"
+   ],
+   "why_it_matters": "Only publicly retrievable record in this session whose stated subject is a scanned human tooth cohort relevant to the dominant sensitivity class (t_PDL, 94.856507 % in the target model's own frozen sensitivity table).",
+   "evidence": "Zenodo API record 3999402: 1 file, 22005589 bytes, published checksum md5:b1e6d338; downloaded copy md5 matches exactly. Archive inspected: 11 entries, no NRRD/NIfTI/NPZ/STL/PLY/CSV/Parquet of the cohort present; the only external file referenced by the notebooks is an unrelated example volume https://data.kitware.com/api/v1/file/5b7098d38d777f06857c3383/download (filename TCIA-Breast_Diagnosis-BreastDx-01-0035-STIR_Sense.nrrd, 22404179 bytes, breast MRI).",
+   "verdict": "The measured cohort itself is NOT in the public artifact. A loader package is published; the arrays are not. No model parameter can be numerically constrained from it."
+  },
+  {
+   "rank": 2,
+   "name": "Poseidon3D (3D surface tooth segmentation in intra-oral scans)",
+   "url": "https://zenodo.org/records/15608906",
+   "doi": "10.3390/bioengineering11101014",
+   "license": "cc-by-4.0",
+   "size_bytes": 1029192000,
+   "format": "single ZIP (poseidon3d.zip), 3D intra-oral scan surfaces",
+   "subjects": "UNKNOWN (not stated in repository metadata; no per-case count in the record)",
+   "measured_human": "yes",
+   "access_status": "QUALIFY_NO_SAMPLE_FIT",
+   "constrains_parameters": [
+    "molar_support_area_m2",
+    "molar_lever_m",
+    "condyle_lever_m",
+    "effective_condyle_radius_m"
+   ],
+   "constrains_outputs": [
+    "F_tooth_N",
+    "F_TMJ_N"
+   ],
+   "why_it_matters": "Cleanest license-clear human geometry source found; a per-tooth molar surface area would replace the assumed molar_support_area_m2 = 2.0e-4 m^2, and mesio-distal tooth positions would replace the assumed molar_lever_m = 3.0e-2 m.",
+   "evidence": "Zenodo API record 15608906: license cc-by-4.0, 1 file 1029.19 MB."
+  },
+  {
+   "rank": 3,
+   "name": "Teeth3DS+ (3DTeethSeg'22 / 3DTeethLand'24 benchmark, extended release)",
+   "url": "https://osf.io/xctdy/overview",
+   "license": "Other (challenge terms, not an open license)",
+   "size_bytes": "UNKNOWN (OSF components, not enumerated in this session)",
+   "format": "3D point clouds with per-tooth instance labels and dental landmarks (mesial/distal/cusps), upper and lower jaw per patient",
+   "subjects": "900 patients / 1800 scans / 23999 annotated teeth (counts from the peer-reviewed description, arXiv:2210.06094 Table 1: training 600 patients, 1200 scans, 16004 teeth; testing 300 patients, 600 scans, 7995 teeth) - not from a repository field",
+   "measured_human": "yes",
+   "access_status": "QUALIFY_LICENSE_RESTRICTED",
+   "constrains_parameters": [
+    "molar_support_area_m2",
+    "molar_lever_m",
+    "effective_condyle_radius_m"
+   ],
+   "constrains_outputs": [
+    "F_tooth_N",
+    "F_TMJ_N",
+    "theta_TMJ_deg"
+   ],
+   "why_it_matters": "Landmark-annotated lower-jaw scans are the best public route to a *measured* sagittal tooth layout, i.e. the lever ratio condyle_lever_m / molar_lever_m that sets the whole load split of the 2-DOF model.",
+   "evidence": "OSF record osf.io/xctdy (license field 'Other', components data_part_1..3); subject/label counts from arXiv:2210.06094."
+  },
+  {
+   "rank": 4,
+   "name": "STS-Tooth (multi-modal dental dataset: panoramic X-ray + CBCT)",
+   "url": "https://zenodo.org/records/10597292",
+   "doi": "10.5281/zenodo.10597292",
+   "license": "cc-by-4.0",
+   "size_bytes": 31823540000,
+   "format": "15-part split ZIP (SD-Tooth.zip.001 .. .015), PXI + CBCT volumes",
+   "subjects": "UNKNOWN (not stated in repository metadata)",
+   "measured_human": "yes",
+   "access_status": "QUALIFY_NO_SAMPLE_FIT",
+   "constrains_parameters": [
+    "alveolar_bone_thickness_m",
+    "molar_lever_m",
+    "molar_support_area_m2"
+   ],
+   "constrains_outputs": [
+    "F_tooth_N",
+    "p_PDL_kPa"
+   ],
+   "why_it_matters": "CBCT is the only modality in this list that can resolve alveolar crest geometry, i.e. alveolar_bone_thickness_m = 2.0e-3 m is currently pure assumption.",
+   "evidence": "Zenodo API record 10597292: 15 files, 31823.54 MB total, license cc-by-4.0."
+  },
+  {
+   "rank": 5,
+   "name": "PhysioNet multimodal dental dataset (CBCT + panoramic, version 1.1.0)",
+   "url": "https://physionet.org/content/multimodal-dental-dataset/1.1.0/",
+   "doi": "https://doi.org/10.13026/bxzm-dg78",
+   "license": "PhysioNet Contributor Review Health Data License 1.5.0",
+   "size_bytes": "UNKNOWN (files gated)",
+   "format": "CBCT cropped to 60 x 50 x 50 mm cubes, reoriented with face to +y and teeth to +z, ITK volumes; per-row attributes PatientID, PatientSex, PatientAge, Modality, SliceThickness in mm",
+   "subjects": "UNKNOWN (row count not retrievable without credentials)",
+   "measured_human": "yes",
+   "access_status": "EXCLUDED_ACCESS",
+   "constrains_parameters": [
+    "molar_support_area_m2",
+    "molar_lever_m",
+    "alveolar_bone_thickness_m"
+   ],
+   "constrains_outputs": [
+    "delta_tooth_um",
+    "p_PDL_kPa"
+   ],
+   "why_it_matters": "Best-documented units and coordinate frame of anything found (explicit mm SliceThickness, explicit reorientation), which is exactly what prereg S3 asks for - but it is not public.",
+   "evidence": "physionet.org content page: 'Only credentialed users who sign the DUA can access the files', individual studies must be reviewed, CITI Data or Specimens Only Research training required. RECORDS endpoint returned HTTP 403 Forbidden Access."
+  },
+  {
+   "rank": 6,
+   "name": "NLM Visible Human Project volumes",
+   "url": "https://data.lhncbc.nlm.nih.gov/public/Visible-Human/",
+   "license": "public domain (U.S. Government work)",
+   "size_bytes": "UNKNOWN (not retrievable)",
+   "format": "Analyze/NIfTI CT and MRI volume pairs, mm-scale, documented reference frame",
+   "subjects": "1 cadaver per sex (fixed reference anatomy)",
+   "measured_human": "yes",
+   "access_status": "EXCLUDED_ACCESS",
+   "constrains_parameters": [
+    "molar_lever_m",
+    "condyle_lever_m",
+    "effective_condyle_radius_m",
+    "alveolar_bone_thickness_m"
+   ],
+   "constrains_outputs": [
+    "theta_TMJ_deg",
+    "F_TMJ_N"
+   ],
+   "why_it_matters": "Would give a whole-head volume with a published frame in which both the molar row and the condyles can be located, i.e. the geometry the rigid-jaw 2-DOF kinematics assumes.",
+   "evidence": "Plain unauthenticated GET returned HTTP 403 for /public/Visible-Human/ and /public/Visible-Human/MR/; nlmpubs.nlm.nih.gov returned 302 then no listing; www.nlm.nih.gov/databases/visible/visible_human.html returned HTTP 404."
+  },
+  {
+   "rank": 7,
+   "name": "AlphaDent",
+   "url": "https://zenodo.org/records/16582489",
+   "license": "cc-by-4.0",
+   "size_bytes": 4900000000,
+   "format": "single ZIP (AlphaDent.zip), CBCT volumes, topic dental caries",
+   "subjects": "UNKNOWN (not stated in repository metadata)",
+   "measured_human": "yes",
+   "access_status": "QUALIFY_NO_SAMPLE_FIT",
+   "constrains_parameters": [
+    "molar_support_area_m2",
+    "molar_lever_m"
+   ],
+   "constrains_outputs": [
+    "F_tooth_N"
+   ],
+   "why_it_matters": "Caries-centred rather than periodontium-centred, so the scientific fit to the PDL/TMJ question is weak; listed for completeness only.",
+   "evidence": "Zenodo API record 16582489: 1 file 4.9 GB, license cc-by-4.0, keyword 'Dental Caries'."
+  },
+  {
+   "rank": 8,
+   "name": "Zenodo CC-BY dental records whose only file is the article PDF (mandibular condyle morphometrics in CBCT and teeth-segmentation papers)",
+   "url": "https://zenodo.org/records/6811382",
+   "license": "cc-by-4.0",
+   "size_bytes": 550000,
+   "format": "1720.pdf (article only)",
+   "subjects": "UNKNOWN",
+   "measured_human": "yes",
+   "access_status": "EXCLUDED_NO_DATA",
+   "constrains_parameters": [
+    "tmj_joint_area_m2",
+    "condyle_lever_m",
+    "effective_condyle_radius_m"
+   ],
+   "constrains_outputs": [
+    "F_TMJ_N",
+    "theta_TMJ_deg"
+   ],
+   "why_it_matters": "A trap worth recording: a condyle-morphometry study in CBCT with a CC-BY Zenodo record looks like a TMJ geometry dataset, but the deposit contains the PDF only. The measured condyle numbers therefore exist ONLY inside the PDF and must not be entered as dataset values in this job (prereg F4).",
+   "evidence": "Zenodo API records 6811382 (1720.pdf, 0.55 MB), 6818181 (0.30 MB), 15045005 (0.12 MB), 13234395 (0.10 MB) - all single PDF files, all cc-by-4.0, no data payload."
+  }
+ ],
+ "coverage_summary": {
+  "parameters_in_target_model": 39,
+  "parameters_tagged_assumed_Antagen": 32,
+  "parameters_tagged_frozen_scenario_not_measurement": 3,
+  "parameters_tagged_unverified_from_memory": 1,
+  "parameters_actually_constrained_by_a_downloaded_measured_value": 0,
+  "most_sensitive_parameter_pdl_thickness_m": "UNCONSTRAINED - prereg falsification F1 triggered",
+  "time_series_datasets_found": 0,
+  "cohort_datasets_found_usable_under_I1_I2": 0,
+  "parameters_tagged_numerical_control": 3,
+  "parameters_tagged_measured_from_public_data": 0
+ }
+}

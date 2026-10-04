@@ -1,0 +1,269 @@
+{
+  "schema": "bodytwin-surgical-incision-ports-v4-final",
+  "lane": "LANE_SURGICAL_INCISION",
+  "round": 4,
+  "generated_utc": "2026-10-01T00:31:04.551852+00:00",
+  "consumer": "LANE_SURGICAL_RESPONSE",
+  "target_id": "BT-CTX-SURG-INCISION",
+  "parent_goals": [
+    "GRAPH_INVERSE",
+    "MULTIPHYSICS"
+  ],
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "status": "LANE_SCOPE_CLOSED_DATA_ACQUISITION_REQUIRED",
+  "default_policy": "Unknown empirical fields stay null. No automatic selection of a needle full-skin assay for a scalpel/layer or mechanical width for biological injury. Synthetic scenarios require explicit consumer selection.",
+  "reference_area_convention": "Single geometric crack-plane area; not automatically sum of both free faces. Published Barnett uses a*dl with post-insertion planar crack trace a. True3D area and new delamination independently required.",
+  "joint_parameter_posterior": null,
+  "layer_specific_Gamma_cut_J_m2": {
+    "epidermis": null,
+    "dermis": null,
+    "subcutis": null,
+    "fascia": null,
+    "muscle": null
+  },
+  "Gamma_cut_empirical_J_m2": null,
+  "Gamma_cut_scenario": {
+    "range_J_m2": [
+      150,
+      380
+    ],
+    "status": "SYNTHETIC_NOT_CI",
+    "source": "LANE_SURGICAL_BINDINGS/PORTS_R4_FINAL.json",
+    "consumer_default": false
+  },
+  "Gamma0_intrinsic_J_m2": null,
+  "Gamma_pierce_effective": [
+    {
+      "tool": "hypodermic_16G",
+      "shank_diameter_m": 0.00165,
+      "edge_radius_m": null,
+      "bevel_angles_deg": [
+        9.9,
+        17.5,
+        53.0
+      ],
+      "speed_m_s": 0.02,
+      "tissue": "ex vivo porcine fullskin4mm, unspecified site/age/numeric prestress",
+      "effective_J_J_m2": 1153.4569983136594,
+      "reading_band_J_m2": [
+        1103.4569983136594,
+        1203.4569983136594
+      ],
+      "reported_plot_band_plus_reading_J_m2": [
+        907.8414839797639,
+        1399.0725126475547
+      ],
+      "uncertainty_kind": "approximate figure reading bound; reported plotbars unspecified statistic, not CI; no posterior",
+      "mechanism_scope": "first-pass minus same-hole repeat effective work; intrinsic cleavage and terminal-process components unseparated",
+      "transfer_to_other_tool_or_layer_allowed": false,
+      "source": "Barnett2016 Fig9; SOURCE_TARGETS_R4_v2.json",
+      "true_new_crack_area_m2": null
+    },
+    {
+      "tool": "hypodermic_18G",
+      "shank_diameter_m": 0.00127,
+      "edge_radius_m": null,
+      "bevel_angles_deg": [
+        10,
+        21.5,
+        48.5
+      ],
+      "speed_m_s": 0.02,
+      "tissue": "ex vivo porcine fullskin4mm, unspecified site/age/numeric prestress",
+      "effective_J_J_m2": 1801.0118043844857,
+      "reading_band_J_m2": [
+        1751.0118043844857,
+        1851.0118043844857
+      ],
+      "reported_plot_band_plus_reading_J_m2": [
+        1406.9983136593592,
+        2201.77065767285
+      ],
+      "uncertainty_kind": "approximate figure reading bound; reported plotbars unspecified statistic, not CI; no posterior",
+      "mechanism_scope": "first-pass minus same-hole repeat effective work; intrinsic cleavage and terminal-process components unseparated",
+      "transfer_to_other_tool_or_layer_allowed": false,
+      "source": "Barnett2016 Fig9; SOURCE_TARGETS_R4_v2.json",
+      "true_new_crack_area_m2": null
+    },
+    {
+      "tool": "hypodermic_21G",
+      "shank_diameter_m": 0.00082,
+      "edge_radius_m": null,
+      "bevel_angles_deg": [
+        9.4,
+        16,
+        46.5
+      ],
+      "speed_m_s": 0.02,
+      "tissue": "ex vivo porcine fullskin4mm, unspecified site/age/numeric prestress",
+      "effective_J_J_m2": 944.3507588532883,
+      "reading_band_J_m2": [
+        894.3507588532883,
+        994.3507588532883
+      ],
+      "reported_plot_band_plus_reading_J_m2": [
+        718.9713322091062,
+        1169.7301854974705
+      ],
+      "uncertainty_kind": "approximate figure reading bound; reported plotbars unspecified statistic, not CI; no posterior",
+      "mechanism_scope": "first-pass minus same-hole repeat effective work; intrinsic cleavage and terminal-process components unseparated",
+      "transfer_to_other_tool_or_layer_allowed": false,
+      "source": "Barnett2016 Fig9; SOURCE_TARGETS_R4_v2.json",
+      "true_new_crack_area_m2": null
+    },
+    {
+      "tool": "hypodermic_25G",
+      "shank_diameter_m": 0.00051,
+      "edge_radius_m": null,
+      "bevel_angles_deg": [
+        9.6,
+        18.5,
+        43
+      ],
+      "speed_m_s": 0.02,
+      "tissue": "ex vivo porcine fullskin4mm, unspecified site/age/numeric prestress",
+      "effective_J_J_m2": 2543.001686340641,
+      "reading_band_J_m2": [
+        2493.001686340641,
+        2593.001686340641
+      ],
+      "reported_plot_band_plus_reading_J_m2": [
+        1757.7571669477234,
+        3328.2462057335583
+      ],
+      "uncertainty_kind": "approximate figure reading bound; reported plotbars unspecified statistic, not CI; no posterior",
+      "mechanism_scope": "first-pass minus same-hole repeat effective work; intrinsic cleavage and terminal-process components unseparated",
+      "transfer_to_other_tool_or_layer_allowed": false,
+      "source": "Barnett2016 Fig9; SOURCE_TARGETS_R4_v2.json",
+      "true_new_crack_area_m2": null
+    }
+  ],
+  "damage_zone_width_by_tool": [
+    {
+      "tool": "hypodermic_16G",
+      "post_extraction_fracture_trace_length_m": 0.0015053763440860215,
+      "trace_reading_bound_m": 3e-05,
+      "trace_reported_SD_band_m": [
+        0.0012473118279569893,
+        0.0017634408602150537
+      ],
+      "mechanical_strain_zone_halfwidth_m": null,
+      "irreversible_matrix_zone_halfwidth_m": null,
+      "cell_viability_zone_halfwidth_m": null,
+      "perfusion_loss_zone_halfwidth_m": null,
+      "h_pz_V_over_A_m": null,
+      "interpretation": "Optical crack TRACE, not a damage width; no automatic RESPONSE avascular input",
+      "source": "Barnett2016 Fig12"
+    },
+    {
+      "tool": "hypodermic_18G",
+      "post_extraction_fracture_trace_length_m": 0.0011075268817204301,
+      "trace_reading_bound_m": 3e-05,
+      "trace_reported_SD_band_m": [
+        0.0009731182795698925,
+        0.0012419354838709678
+      ],
+      "mechanical_strain_zone_halfwidth_m": null,
+      "irreversible_matrix_zone_halfwidth_m": null,
+      "cell_viability_zone_halfwidth_m": null,
+      "perfusion_loss_zone_halfwidth_m": null,
+      "h_pz_V_over_A_m": null,
+      "interpretation": "Optical crack TRACE, not a damage width; no automatic RESPONSE avascular input",
+      "source": "Barnett2016 Fig12"
+    },
+    {
+      "tool": "hypodermic_21G",
+      "post_extraction_fracture_trace_length_m": 0.0007634408602150538,
+      "trace_reading_bound_m": 3e-05,
+      "trace_reported_SD_band_m": [
+        0.0007043010752688173,
+        0.0008172043010752689
+      ],
+      "mechanical_strain_zone_halfwidth_m": null,
+      "irreversible_matrix_zone_halfwidth_m": null,
+      "cell_viability_zone_halfwidth_m": null,
+      "perfusion_loss_zone_halfwidth_m": null,
+      "h_pz_V_over_A_m": null,
+      "interpretation": "Optical crack TRACE, not a damage width; no automatic RESPONSE avascular input",
+      "source": "Barnett2016 Fig12"
+    },
+    {
+      "tool": "hypodermic_25G",
+      "post_extraction_fracture_trace_length_m": 0.000478494623655914,
+      "trace_reading_bound_m": 3e-05,
+      "trace_reported_SD_band_m": [
+        0.0004032258064516129,
+        0.0005483870967741935
+      ],
+      "mechanical_strain_zone_halfwidth_m": null,
+      "irreversible_matrix_zone_halfwidth_m": null,
+      "cell_viability_zone_halfwidth_m": null,
+      "perfusion_loss_zone_halfwidth_m": null,
+      "h_pz_V_over_A_m": null,
+      "interpretation": "Optical crack TRACE, not a damage width; no automatic RESPONSE avascular input",
+      "source": "Barnett2016 Fig12"
+    },
+    {
+      "tool": "human_hypodermic_D0.3mm",
+      "cell_viability_zone_halfwidth_m": null,
+      "perfusion_loss_zone_halfwidth_m": null,
+      "h_pz_V_over_A_m": null,
+      "source": "Shergold2005 friction-correctedforce only"
+    },
+    {
+      "tool": "human_hypodermic_D0.6mm",
+      "cell_viability_zone_halfwidth_m": null,
+      "perfusion_loss_zone_halfwidth_m": null,
+      "h_pz_V_over_A_m": null,
+      "source": "Shergold2005 friction-correctedforce only"
+    },
+    {
+      "tool": "piglet_hypodermic21G_or18G",
+      "cell_viability_zone_halfwidth_m": null,
+      "perfusion_loss_zone_halfwidth_m": null,
+      "h_pz_V_over_A_m": null,
+      "source": "Owen2022 peak/reuse series; no biological imaging"
+    },
+    {
+      "tool": "scalpel_synthetic_R1_scalar_scenario",
+      "status": "SYNTHETIC_NOT_EMPIRICAL",
+      "mechanical_strain_zone_halfwidth_m": 0.0016666666666666666,
+      "length_m": 0.032,
+      "strain_parameter": 0.1,
+      "cell_viability_zone_halfwidth_m": null,
+      "perfusion_loss_zone_halfwidth_m": null,
+      "h_pz_V_over_A_m": null,
+      "source": "r1/physical_patch/mechanical_n96.json:methods.full.rows[-1]",
+      "transfer_to_RESPONSE_biological_damage_allowed": false,
+      "continuous_width_convergence_certified": false
+    }
+  ],
+  "friction_and_spreading": {
+    "per_tool_force_N": null,
+    "per_tool_work_J": null,
+    "published_Barnett_model_average_tear_spread_friction_fraction": [
+      0.61,
+      0.18,
+      0.21
+    ],
+    "status": "STUDY_MODEL_AVERAGE_NOT_INDEPENDENT_PER_TOOL_PORT",
+    "observation": "First-minus-same-hole-repeat work removes combined spreading/friction ONLY if repeat nuisance histories equal. Independent per-tool phase3 force curves and repeat drift not acquired.",
+    "printed_regression_status": "FAIL_AS_PRINTED; do not populate friction from Eq13"
+  },
+  "wound_gap_empirical_m": null,
+  "bleeding_flow_m3_s": null,
+  "vessel_map": null,
+  "hemostasis_time_s": null,
+  "healing_strength_law": null,
+  "measurement_spec": "MEASUREMENT_SPEC_R4.md",
+  "validation": "VERIFICATION_R4.json",
+  "source_targets": "SOURCE_TARGETS_R4_v2.json",
+  "peer_context": "PEER_CONTEXT_R4.json",
+  "human_force_geometry_product": {
+    "F_over_D_N_m": 1837.8317023500288,
+    "true_Gamma_pierce_J_m2": null,
+    "source": "R3 Shergold0.3mm anchor",
+    "reason": "includes unmeasured spreading and a/D; not standaloneGamma"
+  }
+}

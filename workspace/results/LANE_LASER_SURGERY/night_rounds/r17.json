@@ -1,0 +1,252 @@
+{
+  "round": 17,
+  "claim_type": "information_link",
+  "form": "C",
+  "operation": "Frozen dermal phase fluence -> original source profile convention -> local removal and beam-integrated mass-regression prediction -> independent integral correction -> exact-energy sufficiency witnesses",
+  "control": "FrozenR15 calibration without new source: physical tissue ablation prediction unavailable; no equally-informed algorithm contest.",
+  "outcome": {
+    "round": 17,
+    "claim_type": "information_link",
+    "form": "C",
+    "gate": "FAIL",
+    "physical_gate": "UNKNOWN",
+    "review": "PENDING_INDEPENDENT_REVIEW",
+    "scientific_admission": false,
+    "capability": "A published tissue ablation threshold is now connected to a runnable lower-input candidate and the correct mass-loss observation; source/observation mismatch exposes apparently close but invalid scalar matches.",
+    "operation": "Frozen dermal phase fluence -> original source profile convention -> local removal and beam-integrated mass-regression prediction -> independent integral correction -> exact-energy sufficiency witnesses",
+    "control": "FrozenR15 calibration without new source: physical tissue ablation prediction unavailable; no equally-informed algorithm contest.",
+    "external_facit": {
+      "primary_locator": "https://pubmed.ncbi.nlm.nih.gov/9694144/",
+      "doi": "10.1002/(SICI)1096-9101(1998)23:1<1::AID-LSM1>3.0.CO;2-T",
+      "compared_quantity": "Nominal fluence x-intercept of mass-loss regression, not first local phase crossing",
+      "threshold_J_cm2": 1.15,
+      "threshold_95CI_J_cm2": [
+        1.03,
+        1.27
+      ],
+      "slope_microgram_per_J": 267,
+      "slope_95CI_microgram_per_J": [
+        242,
+        292
+      ],
+      "heat_ablation_J_g": 3740,
+      "samples": 28,
+      "pulses_each": 12,
+      "pulse_frequency_Hz": 1,
+      "pulse_FWHM_ns": 180,
+      "nominal_diameter_um": 2680,
+      "tissue": "exposed porcine reticular dermis, approximately4mm thick; excised postmortem, irradiated within12h",
+      "optical_breakdown_observed_above_J_cm2": 3.7,
+      "forcing_range_J_cm2": [
+        1.5,
+        3.6
+      ],
+      "measurement_definition": "Mass corrected for evaporation; linear regression below visually observed optical breakdown; x-intercept and incremental slope.",
+      "source_archive": "sources/PAYNE_WEB_TEXT_V1.txt; thesis same experiment sources/payne1997_MIT_V1.pdf",
+      "beam_convention_source": "https://hdl.handle.net/1721.1/43315 p45: nominal average versus larger local maximum; not a calibrated factor2.",
+      "threshold_in_prediction_inputs": false,
+      "slope_in_prediction_inputs": false,
+      "raw_forcing_vector": "UNKNOWN; 28 uniformly spaced levels are an explicit protocol proxy",
+      "review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    "primary_prediction": {
+      "criterion": "complete_vaporization_primary",
+      "profile": "gaussian_proxy",
+      "predicted_intercept_J_cm2": 1.454844131435398,
+      "held_intercept_J_cm2": 1.15,
+      "signed_error_J_cm2": 0.304844131435398,
+      "relative_error": 0.26508185342208535,
+      "predicted_slope_microgram_per_J": 200.32959578418158,
+      "held_slope_microgram_per_J": 267,
+      "relative_slope_error": -0.24970188844875818,
+      "threshold_interval_overlap": false,
+      "slope_interval_overlap": false,
+      "joint_screen_PASS": false,
+      "engineering_20pct_threshold_screen": false,
+      "predicted_incremental_heat_J_g": 4991.7736622267075,
+      "regression_protocol_sensitivity": {
+        "endpoints": {
+          "slope_microgram_per_J": 195.58270418638256,
+          "intercept_J_cm2": 1.3704474794920745,
+          "max_model_line_residual_kg_m2": 1.951563910473908e-18
+        },
+        "continuous_uniform": {
+          "slope_microgram_per_J": 200.91088961216172,
+          "intercept_J_cm2": 1.4602030095025487
+        }
+      },
+      "actual_record_match": false,
+      "physical_gate": "UNKNOWN"
+    },
+    "joint_screens_PASS": 0,
+    "joint_screens_total": 6,
+    "new_primary_tissue_threshold_sources": 1,
+    "new_independent_target_experiments": 1,
+    "thesis_is_same_experiment": true,
+    "new_full_physical_validation_PASS": 0,
+    "new_absolute_temperature_validation_PASS": 0,
+    "raw_local_complete_vaporization_F_J_cm2": 2.271746528116411,
+    "thermal_pulse_ratio": 0.0001545024938345865,
+    "stress_ratio_waterlike_speed1500_assumed": 21.060000000000002,
+    "nominal_F_range_over_external_threshold": [
+      1.3043478260869565,
+      3.130434782608696
+    ],
+    "stress_ratio_scope": "Water-like speed assumption only; tissue acoustic receipt unknown. Neither plasma nor stress-confined regime claimed.",
+    "sufficiency_energy": {
+      "a": {
+        "energy_J": 0.04,
+        "energy_hex": "0x1.47ae147ae147bp-5",
+        "fluence_J_cm2": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_local_F_J_cm2": 1.0,
+        "conditional_threshold_crossed": false,
+        "conditional_removed_mass_kg": 0.0
+      },
+      "b": {
+        "energy_J": 0.04,
+        "energy_hex": "0x1.47ae147ae147bp-5",
+        "fluence_J_cm2": [
+          2.5000000000000004,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "max_local_F_J_cm2": 2.5000000000000004,
+        "conditional_threshold_crossed": true,
+        "conditional_removed_mass_kg": 1.255019203345805e-09
+      },
+      "identity_error_J": 0.0,
+      "downstream_peak_gap_J_cm2": 1.5000000000000004,
+      "downstream_mass_gap_kg": 1.255019203345805e-09,
+      "minimal_extension_boolean_only": "max local fluence for fixed homogeneous instantaneous criterion; no generic sufficiency theorem"
+    },
+    "sufficiency_energy_and_max": {
+      "a": {
+        "energy_J": 0.0625,
+        "energy_hex": "0x1.0000000000000p-4",
+        "fluence_J_cm2": [
+          3.125,
+          2.34375,
+          0.78125,
+          0.0
+        ],
+        "max_local_F_J_cm2": 3.125,
+        "conditional_threshold_crossed": true,
+        "conditional_removed_mass_kg": 4.589092251910021e-09
+      },
+      "b": {
+        "energy_J": 0.0625,
+        "energy_hex": "0x1.0000000000000p-4",
+        "fluence_J_cm2": [
+          3.125,
+          1.5625,
+          1.5625,
+          0.0
+        ],
+        "max_local_F_J_cm2": 3.125,
+        "conditional_threshold_crossed": true,
+        "conditional_removed_mass_kg": 4.180068036152832e-09
+      },
+      "identity_error_J": 0.0,
+      "identity_error_peak_J_cm2": 0.0,
+      "downstream_mass_gap_kg": 4.090242157571885e-10,
+      "extension_mass_only": "Integral max(log(F/Fcrit),0) over resolved area, only under this fixed Beer/removal law; keep map for changing goals"
+    },
+    "numeric_spatial_identity_error_kg_m2": 6.938893903907228e-18,
+    "nonlinear_physical_enclosure": null,
+    "normalized_shape_scope": "R11 actual1940nm30s normalized heating/cooling shape stays descriptive for its fixed source/material; no absolute threshold/T/safety/clinical margins. Gaussian CO2 proxy normalized spatial shape describes conditional relative deposition only.",
+    "laser_R_thermal": null,
+    "absolute_tissue_work": null,
+    "absorbed_power_W": null,
+    "robot_binding_term": null,
+    "optical_anchor_counts": [
+      6,
+      9,
+      0
+    ],
+    "dental": "X33CLASS2 retained",
+    "matched_collagen_TB_pairs": 0,
+    "new_rapid_TC_pairs": 0,
+    "cost": {
+      "tracked_numeric_CPU_lower_bound_s": 0.026330731999999926,
+      "tracked_peak_RSS_KiB": 77496,
+      "query100_including_port_load_CPU_s": 0.0042162730000000065,
+      "mean_query_CPU_ms": 0.042162730000000065,
+      "query_port_bytes": 867,
+      "failed_numeric_run_count": 1,
+      "global_PDE_solves": 0,
+      "global_history_replays": 0,
+      "full_research_cost": "UNKNOWN",
+      "untracked": [
+        "imports/process startup",
+        "search/source downloads",
+        "failed source accesses",
+        "source transcription",
+        "code construction",
+        "reports/final checks"
+      ],
+      "speedup_claim": false,
+      "fallback": "Physical certificate rejected; new source/material/pulse needs actual acquisition/rebuild, not zero-cost answer",
+      "review": "PENDING_INDEPENDENT_REVIEW"
+    },
+    "parent_goals": "GRAPH_INVERSE/MULTIPHYSICS OPEN",
+    "obstacle": "Measured local source and actual regression design not acquired; constant-property phase criterion lacks matrix/nucleation/evolving ejection law. Profile shape and fixed regression proxy cannot validate absolute tissue response.",
+    "next": "Obtain numeric beam/pulse source and actual28 forcing records, then couple independent molecular phase and fibril ejection receipts; compute held mass regression without tuning threshold.",
+    "standard_choices": "Skin/exposed dermis;10.6um180ns; unchangedR11w=.65; independentATR780cm^-1;T0=20C;R=0;L=2257000J/kg;300C rough water onset; Gaussianw1.34mm proxy,28uniformforcing samples; two threads; no optimized parameters.",
+    "source_scope": "r17/SOURCE_SCOPE_V2.json",
+    "source_provenance_correction": "V1 mistakenly named nonexistentout/results.json; actualout/predictions.json read and hashed here. V1 preserved; no model/anchor/gate change.",
+    "final_checks": "r17/FINAL_CHECKS_V2.json",
+    "verification": [
+      30,
+      30
+    ],
+    "previous_verification_failure": "r17/FINAL_CHECKS_V1.json; only live controller log changed, correction preserved"
+  },
+  "gate": "FAIL",
+  "physical_gate": "UNKNOWN",
+  "obstacle": "Measured local source and actual regression design not acquired; constant-property phase criterion lacks matrix/nucleation/evolving ejection law. Profile shape and fixed regression proxy cannot validate absolute tissue response.",
+  "next": "Obtain numeric beam/pulse source and actual28 forcing records, then couple independent molecular phase and fibril ejection receipts; compute held mass regression without tuning threshold.",
+  "files": [
+    "r17/PREREG_V1.json",
+    "r17/PREREG_MEASUREMENT_OPERATOR_V1.json",
+    "r17/PREREG_CORRECTION_V1.json",
+    "r17/INPUT_ONLY_PREDICTIONS_V1.json",
+    "r17/MEASUREMENT_PREDICTIONS_V1.json",
+    "r17/MEASUREMENT_PREDICTIONS_V2.json",
+    "r17/EXTERNAL_COMPARISON_V1.json",
+    "r17/ACQUISITION_TARGETS_V1.json",
+    "r17/OUTCOME_V1.json",
+    "PORT_R17_V1.json",
+    "CHECKPOINT_R17_FINAL_V1.json",
+    "RESULTS.md",
+    "WORK_STATUS.json",
+    "NEXT_ROUND.md",
+    "r17/OUTCOME_V2.json",
+    "r17/SOURCE_SCOPE_V2.json",
+    "PORT_R17_V2.json",
+    "CHECKPOINT_R17_FINAL_V2.json",
+    "NEXT_ROUND_R17_FINAL_V2.md",
+    "r17/FINAL_CHECKS_V1.json",
+    "r17/FINAL_CHECKS_V2.json",
+    "r17/VERIFY_CORRECTION_V1.json",
+    "CHECKPOINT_R17_FINAL_V3.json",
+    "PORT_R17_V3.json",
+    "NEXT_ROUND_R17_FINAL_V3.md",
+    "r17/OUTCOME_V3.json",
+    "PORT_R17_V4.json",
+    "CHECKPOINT_R17_FINAL_V4.json",
+    "NEXT_ROUND_R17_FINAL_V4.md"
+  ],
+  "review": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "final_checks": "r17/FINAL_CHECKS_V2.json",
+  "verification": [
+    30,
+    30
+  ]
+}

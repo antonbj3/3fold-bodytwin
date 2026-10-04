@@ -1,0 +1,389 @@
+{
+  "closure_switch": {
+    "diagnostics": {
+      "grid_points": 14001,
+      "high_capacity_at_switch": 0.98235548905587,
+      "high_state_at_switch": {
+        "activation": 0.6028493592302141,
+        "central_adaptation": 0.04716556610518528,
+        "fast_fatigue_memory": 0.019800987665366514,
+        "fast_filter": 0.6028583196688994,
+        "slow_fatigue_memory": 0.016925685370384497
+      },
+      "low_capacity_at_switch": 0.98235548905587,
+      "low_detail_kind": "closure",
+      "memory_projection_error": 0.0,
+      "state_bound_tolerance": 1e-08,
+      "state_bounds_ok": true,
+      "switch_time_s": 79.5
+    },
+    "metrics": {
+      "absolute_force_jump": 3.172857742345103e-06,
+      "immediate_jump_pass": true,
+      "pass": true,
+      "post_perturbation_error_pass": true,
+      "post_perturbation_max_error": 0.04908032843983079,
+      "post_perturbation_mean_error": 4.072206024160112e-05,
+      "signed_force_jump": -3.172857742345103e-06
+    }
+  },
+  "criteria": {
+    "jump_limit_fmax": 0.02,
+    "post_perturbation_error_limit_fmax": 0.05,
+    "source_reference_values_are_not_fitted": true
+  },
+  "equations": {
+    "activation": "da/dt=(clip(u-h,0,1)-a)/tau_a",
+    "capacity": "C=clip(1-w_f*m_f-w_s*m_s,0,1)",
+    "central_adaptation": "dh/dt=(gamma_h*clip(u-h,0,1)-h)/tau_h",
+    "contraction_time": "c=c0*(1+beta_ct*(1-C))",
+    "fast_filter": "dx/dt=(a-x)/tau_x",
+    "fatigue": "dm_i/dt=k_i*load-m_i/tau_i, i in {f,s}",
+    "force": "F/F_max=x*Phi(effective_drive*c/c0)*C",
+    "force_frequency": "Phi(n)=0.3*n for n<=0.4; 1-exp(-2*n^3) for n>0.4",
+    "load": "load=clip(x*Phi(effective_drive*c/c0),0,1)",
+    "switch_closure": "low state=(a,h,m_f,m_s); x is algebraic",
+    "switch_naive": "low state=(a,m_s); h, m_f and x are not transferred"
+  },
+  "id": "BT-HX-Q058",
+  "model": "two-timescale fatigue-memory state transfer for fine/coarse muscle-model switching",
+  "next_resolution_steps": [
+    "Measure activation, force, and perturbation responses before and after a documented switch on the same preparation.",
+    "Identify the two fatigue time constants and memory weights instead of treating them as assumptions.",
+    "Test state reconstruction or a closure observer when the fast state is not directly observed.",
+    "Repeat across motor-unit types and perturbation spectra before transferring the criterion to BodyTwin joint models."
+  ],
+  "parameter_table": [
+    {
+      "name": "tau_a",
+      "role": "activation-filter time constant",
+      "source_or_assumption": "assumption; fast excitation-contraction lumping",
+      "unit": "s",
+      "value": 0.025
+    },
+    {
+      "name": "tau_x",
+      "role": "cross-bridge-like filter time constant",
+      "source_or_assumption": "assumption; unresolved fast mechanical state",
+      "unit": "s",
+      "value": 0.015
+    },
+    {
+      "name": "tau_h",
+      "role": "central adaptation time constant",
+      "source_or_assumption": "Potvin & Fuglevand 2017, Methods Eq. (12), DOI 10.1371/journal.pcbi.1005581",
+      "unit": "s",
+      "value": 22.0
+    },
+    {
+      "name": "gamma_h",
+      "role": "normalized target adaptation current",
+      "source_or_assumption": "assumption; not a patient-specific measurement",
+      "unit": "1",
+      "value": 0.1
+    },
+    {
+      "name": "tau_f",
+      "role": "fast fatigue-memory time constant",
+      "source_or_assumption": "assumption; short-lived metabolic/activation history",
+      "unit": "s",
+      "value": 5.0
+    },
+    {
+      "name": "k_f",
+      "role": "fast fatigue-memory loading rate",
+      "source_or_assumption": "assumption; qualitative fatigue-rate scaling from Potvin & Fuglevand 2017",
+      "unit": "s^-1",
+      "value": 0.018
+    },
+    {
+      "name": "tau_s",
+      "role": "slow fatigue-memory time constant",
+      "source_or_assumption": "assumption; long-lived contractile history",
+      "unit": "s",
+      "value": 300.0
+    },
+    {
+      "name": "k_s",
+      "role": "slow fatigue-memory loading rate",
+      "source_or_assumption": "assumption; not fitted to measured data",
+      "unit": "s^-1",
+      "value": 0.0015
+    },
+    {
+      "name": "w_f",
+      "role": "fast-memory weight in force capacity",
+      "source_or_assumption": "assumption for a two-timescale lumping",
+      "unit": "1",
+      "value": 0.25
+    },
+    {
+      "name": "w_s",
+      "role": "slow-memory weight in force capacity",
+      "source_or_assumption": "assumption for a two-timescale lumping",
+      "unit": "1",
+      "value": 0.75
+    },
+    {
+      "name": "c0",
+      "role": "rested contraction time",
+      "source_or_assumption": "midpoint of 30-90 ms range in Potvin & Fuglevand 2017 Fig. 1B",
+      "unit": "s",
+      "value": 0.05
+    },
+    {
+      "name": "beta_ct",
+      "role": "relative contraction-time increase per fractional force loss",
+      "source_or_assumption": "Potvin & Fuglevand 2017 Methods Eq. (11), DOI 10.1371/journal.pcbi.1005581",
+      "unit": "1",
+      "value": 0.379
+    },
+    {
+      "name": "f_max",
+      "role": "maximum force scale",
+      "source_or_assumption": "normalization; no measured force is claimed",
+      "unit": "normalized force",
+      "value": 1.0
+    },
+    {
+      "name": "perturbation_amplitude",
+      "role": "post-switch perturbation amplitude",
+      "source_or_assumption": "frozen numerical perturbation for the model test",
+      "unit": "normalized drive",
+      "value": 0.25
+    },
+    {
+      "name": "perturbation_duration",
+      "role": "post-switch perturbation duration",
+      "source_or_assumption": "frozen numerical perturbation for the model test",
+      "unit": "s",
+      "value": 0.1
+    }
+  ],
+  "placebo_switch_at_zero": {
+    "diagnostics": {
+      "grid_points": 14001,
+      "high_capacity_at_switch": 1.0,
+      "high_state_at_switch": {
+        "activation": 0.0,
+        "central_adaptation": 0.0,
+        "fast_fatigue_memory": 0.0,
+        "fast_filter": 0.0,
+        "slow_fatigue_memory": 0.0
+      },
+      "low_capacity_at_switch": 1.0,
+      "low_detail_kind": "naive",
+      "memory_projection_error": 0.0,
+      "state_bound_tolerance": 1e-08,
+      "state_bounds_ok": true,
+      "switch_time_s": 0.0
+    },
+    "metrics": {
+      "absolute_force_jump": 0.0,
+      "immediate_jump_pass": true,
+      "pass": false,
+      "post_perturbation_error_pass": false,
+      "post_perturbation_max_error": 0.12267451473619517,
+      "post_perturbation_mean_error": 0.0001667006337078672,
+      "signed_force_jump": 0.0
+    }
+  },
+  "primary_naive_switch": {
+    "diagnostics": {
+      "grid_points": 14001,
+      "high_capacity_at_switch": 0.98235548905587,
+      "high_state_at_switch": {
+        "activation": 0.6028493592302141,
+        "central_adaptation": 0.04716556610518528,
+        "fast_fatigue_memory": 0.019800987665366514,
+        "fast_filter": 0.6028583196688994,
+        "slow_fatigue_memory": 0.016925685370384497
+      },
+      "low_capacity_at_switch": 0.9873057359722116,
+      "low_detail_kind": "naive",
+      "memory_projection_error": 0.004950246916341605,
+      "state_bound_tolerance": 1e-08,
+      "state_bounds_ok": true,
+      "switch_time_s": 79.5
+    },
+    "metrics": {
+      "absolute_force_jump": 0.03807053111652525,
+      "immediate_jump_pass": false,
+      "pass": false,
+      "post_perturbation_error_pass": false,
+      "post_perturbation_max_error": 0.12398380289766453,
+      "post_perturbation_mean_error": 0.0001689871598538589,
+      "signed_force_jump": 0.03807053111652525
+    }
+  },
+  "protocol": {
+    "active_drive": 0.65,
+    "active_intervals_s": [
+      [
+        5.0,
+        35.0
+      ],
+      [
+        55.0,
+        80.0
+      ]
+    ],
+    "end_s": 140.0,
+    "perturbation_drive": 0.9,
+    "perturbation_duration_s": 0.1,
+    "perturbation_time_s": 80.0,
+    "start_s": 0.0,
+    "switch_time_s": 79.5
+  },
+  "scope": "normalized isometric motor-unit surrogate; no measured data",
+  "sensitivity": [
+    {
+      "absolute_force_jump": 0.03801171251937632,
+      "factor": "minus50",
+      "parameter": "tau_f",
+      "post_perturbation_max_error": 0.12345843794484007,
+      "unit": "s",
+      "value": 2.5
+    },
+    {
+      "absolute_force_jump": 0.03812844668350904,
+      "factor": "plus50",
+      "parameter": "tau_f",
+      "post_perturbation_max_error": 0.12448550895896299,
+      "unit": "s",
+      "value": 7.5
+    },
+    {
+      "factor": "relative_sensitivity",
+      "parameter": "tau_f",
+      "post_perturbation_max_error": 0.12398380289766453,
+      "unit": "dimensionless",
+      "value": 0.004141956409300712
+    },
+    {
+      "absolute_force_jump": 0.03801251884298479,
+      "factor": "minus50",
+      "parameter": "k_f",
+      "post_perturbation_max_error": 0.12345926743084379,
+      "unit": "s^-1",
+      "value": 0.009
+    },
+    {
+      "absolute_force_jump": 0.03813096095442231,
+      "factor": "plus50",
+      "parameter": "k_f",
+      "post_perturbation_max_error": 0.12451524502691652,
+      "unit": "s^-1",
+      "value": 0.026999999999999996
+    },
+    {
+      "factor": "relative_sensitivity",
+      "parameter": "k_f",
+      "post_perturbation_max_error": 0.12398380289766453,
+      "unit": "dimensionless",
+      "value": 0.004258530434593661
+    },
+    {
+      "absolute_force_jump": 0.0384002430906831,
+      "factor": "minus50",
+      "parameter": "tau_s",
+      "post_perturbation_max_error": 0.12455017055471879,
+      "unit": "s",
+      "value": 150.0
+    },
+    {
+      "absolute_force_jump": 0.037947012286469656,
+      "factor": "plus50",
+      "parameter": "tau_s",
+      "post_perturbation_max_error": 0.12377157837705183,
+      "unit": "s",
+      "value": 450.0
+    },
+    {
+      "factor": "relative_sensitivity",
+      "parameter": "tau_s",
+      "post_perturbation_max_error": 0.12398380289766453,
+      "unit": "dimensionless",
+      "value": -0.003139894726045806
+    }
+  ],
+  "sources": [
+    {
+      "citation": "Potvin JR, Fuglevand AJ (2017), A motor unit-based model of muscle fatigue",
+      "doi": "10.1371/journal.pcbi.1005581",
+      "reference_values": {
+        "adaptation_time_constant_s": 22.0,
+        "contraction_time_change_coefficient": 0.379,
+        "maximal_force_loss_rate_first_20s_percent_mvc_per_s": 1.4,
+        "representative_contraction_time_s": 0.05,
+        "rested_contraction_time_range_s": [
+          0.03,
+          0.09
+        ],
+        "simulated_endurance_20_mvc_s": 511.5,
+        "simulated_endurance_50_mvc_s": 95.5,
+        "time_to_50_percent_initial_force_s": 70.0,
+        "twenty_percent_force_loss_contraction_time_fraction": 1.0758
+      },
+      "verified_values": [
+        "Fig. 1B: 30-90 ms contraction-time range",
+        "Methods Eq. (11): 0.379 contraction-time change per fractional force loss",
+        "Methods Eq. (12): 22 s adaptation time constant",
+        "Fig. 2: 511.5 s simulated 20% MVC endurance time",
+        "Fig. 3: 95.5 s simulated 50% MVC endurance time"
+      ]
+    },
+    {
+      "citation": "Liu JZ, Brown RW, Yue GH (2002), A dynamical model of muscle activation, fatigue, and recovery",
+      "doi": "10.1016/S0006-3495(02)75580-X",
+      "use": "conceptual support for separate fatigue and recovery dynamics; not used for calibration"
+    }
+  ],
+  "unit_check": {
+    "all_pass": true,
+    "checks": [
+      {
+        "lhs": "dimensionless s^-1",
+        "ok": true,
+        "rhs": "(dimensionless - dimensionless) / s",
+        "term": "activation derivative"
+      },
+      {
+        "lhs": "dimensionless s^-1",
+        "ok": true,
+        "rhs": "(dimensionless - dimensionless) / s",
+        "term": "adaptation derivative"
+      },
+      {
+        "lhs": "dimensionless s^-1",
+        "ok": true,
+        "rhs": "s^-1 * dimensionless - dimensionless / s",
+        "term": "fatigue derivative"
+      },
+      {
+        "lhs": "dimensionless",
+        "ok": true,
+        "rhs": "Hz * s / s",
+        "term": "normalized firing rate"
+      },
+      {
+        "lhs": "normalized force",
+        "ok": true,
+        "rhs": "normalized force * dimensionless * dimensionless * dimensionless",
+        "term": "force"
+      },
+      {
+        "lhs": "dimensionless",
+        "ok": true,
+        "rhs": "normalized force / normalized force",
+        "term": "post-switch error"
+      }
+    ],
+    "normalization": "F/F_max is dimensionless; n = r c / c0 is dimensionless."
+  },
+  "unknowns": [
+    "The fast and slow fatigue-rate constants and weights are assumptions, not measured values.",
+    "A universal switching threshold requires paired fine/coarse data with measured fatigue and recovery trajectories.",
+    "The source model is motor-unit based and does not establish a human joint-level tolerance."
+  ]
+}

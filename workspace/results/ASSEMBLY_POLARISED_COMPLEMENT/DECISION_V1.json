@@ -1,0 +1,58 @@
+{
+ "question": "which face of a tubular cell carries the complement risk, and in which state",
+ "claim_type": "information_link",
+ "measured_axis": {
+  "quantity": "basolateral over apical C3 deposition ratio",
+  "rest": [
+   0.45,
+   0.16
+  ],
+  "luminal_transferrin": [
+   0.93,
+   0.24
+  ],
+  "source": "Tang et al., Am J Kidney Dis 2001;37(1):94-103, doi 10.1053/ajkd.2001.20593, PMID 11136173",
+  "why_this_axis": "it replaces the C3b recycling fraction, which LANE_IMMUNE_OVERACTIVATION r1 found to be an unmeasured model closure with synthetic thresholds"
+ },
+ "shift": 0.48000000000000004,
+ "combined_dispersion": 0.2884441020371191,
+ "separation_sigma": 1.6641005886756877,
+ "asymmetric_mechanism": {
+  "basolateral": "Crry, membrane bound, immunogold labelling higher than brush border at P < 0.001, 53 kDa band absent from the brush border fraction; doi 10.1172/JCI24521, PMID 16444293",
+  "apical": "fluid-phase factor H; blocking it raises activation on both faces while Crry protects only basolaterally; doi 10.4049/jimmunol.1000111, PMID 20675597",
+  "not_expressed_in_tubule": [
+   "DAF",
+   "CD59"
+  ]
+ },
+ "control": "a single unpolarised regulator, which makes the ratio 1 by construction and no face ever at differential risk; that is what a twin without this measurement assumes",
+ "falsifier": "the separation is 1.6641 sigma. If an independent measurement of the same ratio under luminal protein load lands within one combined dispersion (0.2884) of the resting 0.45, the shift is not there and this decision has no axis",
+ "refusal": {
+  "min_sigma_from_symmetry": 2.0,
+  "states_refused": [
+   "luminal transferrin"
+  ]
+ },
+ "rows": [
+  {
+   "state": "rest",
+   "basolateral_over_apical": 0.45,
+   "dispersion": 0.16,
+   "sigma_from_symmetry": 3.4375,
+   "decision": "FACE_AT_RISK",
+   "decision_value_face": "APICAL",
+   "regulator_on_that_face": "fluid-phase factor H, not membrane bound",
+   "reading": "C3 deposition is 2.2222 times higher on the apical face"
+  },
+  {
+   "state": "luminal transferrin",
+   "basolateral_over_apical": 0.93,
+   "dispersion": 0.24,
+   "sigma_from_symmetry": 0.29166666666666646,
+   "decision": "NO_FACE_NAMED",
+   "reason": "the ratio sits 0.2917 dispersions from 1, below 2.0; the two faces are not separable in this state"
+  }
+ ],
+ "review_state": "PENDING_INDEPENDENT_REVIEW",
+ "no_claim_of_biological_validation": true
+}

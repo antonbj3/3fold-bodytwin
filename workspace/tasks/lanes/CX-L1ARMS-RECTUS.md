@@ -1,0 +1,5 @@
+# CX-L1ARMS-RECTUS — independent rectus/patella force-transmission check
+
+Source: results/CX-L1ARMS/RESULTS.md. Rectus is the largest local arm-only/projection-only sensitivity on the fixed 1,229-frame subset, while joint scaling cancels in the LP median and the full donor swap misses the 50% gate. Inventory independent patellar-tendon and quadriceps geometry/force-ratio evidence for the four Grand Challenge persons. Do not treat Rajagopal curves or the implant force as a measured patellar ratio.
+
+Freeze PREREG.md + SHA-256 before score. Measure or bound the rectus-to-patellar-tendon force ratio and effective knee moment arm by flexion angle using only independent geometry/strength data; if those data are unavailable, report UNKNOWN rather than fit a ratio to implant force. Rebuild matched A[3], cj and frontal contact moment for rectus, preserving L1's other rows, C0, F0 and 113-trial mask. Report below/above LP counts on paired feasible frames, per-person and angle strata, and a negative control perturbing a non-rectus group of matched magnitude. Exclude jw_lungef1. Work in own results package; follow cloud/bigmem rules.

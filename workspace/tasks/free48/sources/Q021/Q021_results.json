@@ -1,0 +1,1093 @@
+{
+  "id": "BT-HX-Q021",
+  "model": "nine-region pressure-resistance ventilation, perfusion, HPV, and O2 mass-balance model",
+  "implementation_history": [
+    "The first executable diagnostic exposed a non-zero homogeneous A-a offset when the independent alveolar-gas-equation PO2 was compared with the regional O2 mass-balance root.",
+    "The final comparator uses the ventilation-weighted regional mass-balance PO2; the independent alveolar gas equation remains in results.json as a consistency check. No model parameter or frozen criterion was changed."
+  ],
+  "equations": {
+    "oxygen_content": "C_O2 = Hb * 1.34 * P_O2^n/(P_O2^n + P50^n) + 0.003 P_O2",
+    "perfusion": "Q_i proportional to max(P_art_i - P_ven_i, 0) / R_v,i",
+    "ventilation": "V_i proportional to C_i * driving_pressure / R_aw,i",
+    "hpv": "R_v,i multiplied by 1 + gain * clip((P_AO2_ref - P_AO2_i)/P_AO2_ref, 0, 1)",
+    "regional_o2_balance": "Q_i(C_a,i - C_v) = 1000/760 * V_A,i(P_IO2 - P_AO2_i)",
+    "global_alveolar_o2": "P_AO2_global = sum(V_i P_AO2_i)/sum(V_i)",
+    "alveolar_gas_equation_check": "P_AO2_gas = P_IO2 - P_ACO2[F_IO2 + (1-F_IO2)/RQ]; reported as a consistency check, not used as the regional comparator"
+  },
+  "parameters": {
+    "n_regions": 9,
+    "pb_mmHg": 760.0,
+    "ph2o_mmHg": 47.0,
+    "fio2": 0.21,
+    "rest_rq": 0.8,
+    "heavy_rq": 0.9,
+    "rest_va_Lmin": 4.2,
+    "heavy_va_Lmin": 30.0,
+    "rest_q_Lmin": 5.0,
+    "heavy_q_Lmin": 25.0,
+    "rest_vco2_Lmin": 0.21,
+    "heavy_vco2_Lmin": 1.6,
+    "rest_pv_o2_ml_dl": 12.0,
+    "heavy_pv_o2_ml_dl": 7.5,
+    "hb_g_dl": 15.0,
+    "o2_binding_ml_g": 1.34,
+    "o2_dissolved_ml_dl_mmHg": 0.003,
+    "p50_mmHg": 26.6,
+    "hill_n": 2.7,
+    "oxygen_gas_coeff_ml_L_mmHg": 1.3157894736842106,
+    "co2_pressure_scale_mmHg": 760.0,
+    "lung_height_m": 0.3,
+    "rho_blood_kg_m3": 1060.0,
+    "gravity_m_s2": 9.81,
+    "rest_art_mean_mmHg": 15.0,
+    "heavy_art_mean_mmHg": 25.0,
+    "rest_ven_mean_mmHg": 7.0,
+    "heavy_ven_mean_mmHg": 15.0,
+    "art_hydro_fraction": 1.0,
+    "ven_hydro_fraction": 0.35,
+    "rv_top_relative": 1.0,
+    "rv_base_gradient": 0.35,
+    "exercise_recruitment": 0.25,
+    "hpv_gain": 0.8,
+    "hpv_reference_pao2_mmHg": 100.0,
+    "aw_resistance_top_relative": 1.25,
+    "aw_resistance_gradient": 0.35,
+    "compliance_base_gradient": 0.3,
+    "exercise_bronchodilation": 0.55,
+    "rest_driving_pressure_cm_h2o": 8.0,
+    "heavy_driving_pressure_cm_h2o": 14.0,
+    "max_fixed_point_iterations": 80,
+    "fixed_point_tolerance": 1e-09
+  },
+  "parameter_table": [
+    {
+      "name": "pb_mmHg",
+      "unit": "mmHg",
+      "source_or_assumption": "standard barometric pressure assumption"
+    },
+    {
+      "name": "ph2o_mmHg",
+      "unit": "mmHg",
+      "source_or_assumption": "standard 37 C water-vapor pressure assumption"
+    },
+    {
+      "name": "fio2",
+      "unit": "fraction",
+      "source_or_assumption": "room-air inspired fraction assumption"
+    },
+    {
+      "name": "rest_rq, heavy_rq",
+      "unit": "dimensionless",
+      "source_or_assumption": "standard respiratory-exchange-ratio range; load interpolation assumption"
+    },
+    {
+      "name": "rest_va_Lmin, heavy_va_Lmin",
+      "unit": "L/min",
+      "source_or_assumption": "alveolar ventilation state assumptions; heavy value chosen to illustrate compensatory hyperventilation"
+    },
+    {
+      "name": "rest_q_Lmin, heavy_q_Lmin",
+      "unit": "L/min",
+      "source_or_assumption": "pulmonary blood-flow state assumptions; not a subject measurement"
+    },
+    {
+      "name": "rest_vco2_Lmin, heavy_vco2_Lmin",
+      "unit": "L/min gas",
+      "source_or_assumption": "metabolic CO2-output state assumptions"
+    },
+    {
+      "name": "rest_pv_o2_ml_dl, heavy_pv_o2_ml_dl",
+      "unit": "mL O2/dL",
+      "source_or_assumption": "mixed-venous content assumptions for the bounded demonstration"
+    },
+    {
+      "name": "hb_g_dl",
+      "unit": "g/dL",
+      "source_or_assumption": "standard adult hemoglobin concentration assumption"
+    },
+    {
+      "name": "o2_binding_ml_g",
+      "unit": "mL O2/g Hb",
+      "source_or_assumption": "standard oxygen-binding capacity assumption"
+    },
+    {
+      "name": "o2_dissolved_ml_dl_mmHg",
+      "unit": "mL O2/dL/mmHg",
+      "source_or_assumption": "standard dissolved-oxygen solubility assumption"
+    },
+    {
+      "name": "p50_mmHg",
+      "unit": "mmHg",
+      "source_or_assumption": "standard Hill-curve midpoint assumption"
+    },
+    {
+      "name": "hill_n",
+      "unit": "dimensionless",
+      "source_or_assumption": "standard Hill-coefficient approximation"
+    },
+    {
+      "name": "oxygen_gas_coeff_ml_L_mmHg",
+      "unit": "mL gas/(L gas mmHg)",
+      "source_or_assumption": "derived from 1000/760 at standard pressure"
+    },
+    {
+      "name": "co2_pressure_scale_mmHg",
+      "unit": "mmHg",
+      "source_or_assumption": "ideal-gas conversion used for the reduced CO2 balance"
+    },
+    {
+      "name": "lung_height_m",
+      "unit": "m",
+      "source_or_assumption": "upright lung-column geometric assumption"
+    },
+    {
+      "name": "rho_blood_kg_m3",
+      "unit": "kg/m3",
+      "source_or_assumption": "blood-density assumption"
+    },
+    {
+      "name": "gravity_m_s2",
+      "unit": "m/s2",
+      "source_or_assumption": "standard gravitational acceleration"
+    },
+    {
+      "name": "rest_art_mean_mmHg, heavy_art_mean_mmHg",
+      "unit": "mmHg",
+      "source_or_assumption": "pulmonary arterial pressure assumptions"
+    },
+    {
+      "name": "rest_ven_mean_mmHg, heavy_ven_mean_mmHg",
+      "unit": "mmHg",
+      "source_or_assumption": "pulmonary venous pressure assumptions"
+    },
+    {
+      "name": "art_hydro_fraction, ven_hydro_fraction",
+      "unit": "dimensionless",
+      "source_or_assumption": "reduced hydrostatic pressure-distribution assumption"
+    },
+    {
+      "name": "rv_top_relative, rv_base_gradient",
+      "unit": "relative resistance",
+      "source_or_assumption": "reduced extra-alveolar vascular-resistance assumption"
+    },
+    {
+      "name": "exercise_recruitment",
+      "unit": "dimensionless",
+      "source_or_assumption": "exercise recruitment/dilation sensitivity assumption"
+    },
+    {
+      "name": "hpv_gain, hpv_reference_pao2_mmHg",
+      "unit": "dimensionless, mmHg",
+      "source_or_assumption": "reduced HPV law; qualitative mechanism anchored to West 1969, DOI 10.1016/0034-5687(69)90071-1"
+    },
+    {
+      "name": "aw_resistance_top_relative, aw_resistance_gradient",
+      "unit": "relative resistance",
+      "source_or_assumption": "reduced airway-resistance gradient assumption"
+    },
+    {
+      "name": "compliance_base_gradient",
+      "unit": "relative compliance",
+      "source_or_assumption": "reduced regional compliance assumption"
+    },
+    {
+      "name": "exercise_bronchodilation",
+      "unit": "dimensionless",
+      "source_or_assumption": "load-related airway-resistance flattening assumption"
+    },
+    {
+      "name": "rest_driving_pressure_cm_h2o, heavy_driving_pressure_cm_h2o",
+      "unit": "cmH2O",
+      "source_or_assumption": "driving-pressure state assumptions; normalized regional fractions are reported"
+    },
+    {
+      "name": "max_fixed_point_iterations, fixed_point_tolerance",
+      "unit": "iteration, dimensionless",
+      "source_or_assumption": "numerical solver settings frozen before the run"
+    }
+  ],
+  "sources": [
+    {
+      "citation": "Hall ET et al., J Appl Physiol 2014;116:451-461",
+      "doi": "10.1152/japplphysiol.00659.2013",
+      "location": "Table 4",
+      "anchor": "regional perfusion rest/exercise values in ml min^-1 ml^-1"
+    },
+    {
+      "citation": "Tedjasaputra V et al., J Appl Physiol 2013;115:126-135",
+      "doi": "10.1152/japplphysiol.00778.2012",
+      "location": "Table 3",
+      "anchor": "A-aDO2 rest/exercise values in Torr and arterial blood gases"
+    },
+    {
+      "citation": "Harf A, Pratt T, Hughes JM, J Appl Physiol 1978;44:115-123",
+      "doi": "10.1152/jappl.1978.44.1.115",
+      "location": "indexed abstract",
+      "anchor": "40-150% apical blood-flow increase at 50 W"
+    },
+    {
+      "citation": "West JB, Respir Physiol 1969;7:88-110",
+      "doi": "10.1016/0034-5687(69)90071-1",
+      "location": "mechanistic context",
+      "anchor": "ventilation-perfusion inequality and overall gas exchange"
+    }
+  ],
+  "reference_anchors": [
+    {
+      "source": "Hall ET et al., DOI 10.1152/japplphysiol.00659.2013",
+      "location": "Table 4",
+      "quantity": "regional perfusion",
+      "unit": "ml min^-1 ml^-1",
+      "rest": {
+        "nondependent": 2.9,
+        "middle": 4.5,
+        "dependent": 4.2,
+        "sd": {
+          "nondependent": 1.7,
+          "middle": 1.7,
+          "dependent": 1.7
+        }
+      },
+      "exercise": {
+        "nondependent": 4.0,
+        "middle": 5.7,
+        "dependent": 5.1,
+        "sd": {
+          "nondependent": 1.5,
+          "middle": 2.1,
+          "dependent": 1.6
+        }
+      },
+      "derived_nondependent_to_dependent_ratio": {
+        "rest": 0.69,
+        "exercise": 0.784
+      }
+    },
+    {
+      "source": "Tedjasaputra V et al., DOI 10.1152/japplphysiol.00778.2012",
+      "location": "Table 3",
+      "quantity": "A-aDO2",
+      "unit": "Torr",
+      "rest": 6.3,
+      "exercise": 23.3,
+      "sd": {
+        "rest": 3.7,
+        "exercise": 5.3
+      }
+    },
+    {
+      "source": "Harf A et al., DOI 10.1152/jappl.1978.44.1.115",
+      "location": "indexed abstract",
+      "quantity": "apical blood-flow increase",
+      "unit": "percent",
+      "value": "40-150",
+      "exercise": "50 W"
+    }
+  ],
+  "cases": {
+    "regional_rest": {
+      "regional": true,
+      "hpv_enabled": true,
+      "exercise_fraction": 0.0,
+      "n_regions": 9,
+      "iterations": 38,
+      "coordinates": [
+        0.05555555555555555,
+        0.16666666666666666,
+        0.2777777777777778,
+        0.3888888888888889,
+        0.5,
+        0.6111111111111112,
+        0.7222222222222222,
+        0.8333333333333334,
+        0.9444444444444444
+      ],
+      "ventilation_fraction": [
+        0.08303276247343645,
+        0.08915576509837014,
+        0.09563381223645447,
+        0.10248543392093393,
+        0.109730071487382,
+        0.117388120710245,
+        0.1254809769275043,
+        0.13403108224330176,
+        0.1430619749023721
+      ],
+      "perfusion_fraction": [
+        0.02426785605591655,
+        0.05522532208591807,
+        0.07903476396061336,
+        0.09853448533949402,
+        0.11648322638700898,
+        0.13332803116638145,
+        0.14930969057491217,
+        0.16457792971113,
+        0.1792386947186255
+      ],
+      "ventilation_Lmin": [
+        0.3487376023884331,
+        0.3744542134131546,
+        0.40166201139310875,
+        0.43043882246792253,
+        0.4608663002470044,
+        0.493030106983029,
+        0.527020103095518,
+        0.5629305454218674,
+        0.6008602945899628
+      ],
+      "perfusion_Lmin": [
+        0.12133928027958275,
+        0.27612661042959036,
+        0.3951738198030668,
+        0.49267242669747013,
+        0.5824161319350449,
+        0.6666401558319073,
+        0.7465484528745608,
+        0.82288964855565,
+        0.8961934735931275
+      ],
+      "vq": [
+        3.4215120726823707,
+        1.614400092762954,
+        1.2100221148773618,
+        1.0400971149118725,
+        0.9420246578920298,
+        0.8804459173611822,
+        0.8404074540931926,
+        0.8143928075809157,
+        0.7981645655641225
+      ],
+      "airway_resistance_relative": [
+        1.2259292242731281,
+        1.1791693123418652,
+        1.1341929367849113,
+        1.0909320692021454,
+        1.0493212759615091,
+        1.0092976192282646,
+        0.9708005617692345,
+        0.9337718753880407,
+        0.8981555528528442
+      ],
+      "compliance_relative": [
+        1.0166666666666666,
+        1.05,
+        1.0833333333333333,
+        1.1166666666666667,
+        1.15,
+        1.1833333333333333,
+        1.2166666666666666,
+        1.25,
+        1.2833333333333332
+      ],
+      "hypoxia_fraction": [
+        0.0,
+        0.0,
+        0.07834481022762702,
+        0.15537398126465007,
+        0.20731879789490507,
+        0.24274441270113442,
+        0.2668396160892172,
+        0.2828900988673496,
+        0.2930412651973631
+      ],
+      "alveolar_o2_mmHg": [
+        128.04774834764862,
+        105.24748767998608,
+        92.16551897723886,
+        84.46260187353661,
+        79.26812021051123,
+        75.72555872988829,
+        73.31603839108007,
+        71.7109901132668,
+        70.69587348026548
+      ],
+      "alveolar_o2_content_ml_dl": [
+        20.19951474537162,
+        19.937179012268174,
+        19.698632612887174,
+        19.503016222483797,
+        19.33638627508196,
+        19.201553009685103,
+        19.09787432416566,
+        19.022634371753355,
+        18.97224749697705
+      ],
+      "alveolar_co2_mmHg": [
+        9.329208642825453,
+        19.77205040007817,
+        26.379683154167115,
+        30.689441920723514,
+        33.884463355160406,
+        36.25435631034402,
+        37.981576489516,
+        39.194845169145886,
+        39.99175280030097
+      ],
+      "global_paco2_mmHg": 38.0,
+      "global_pao2_mmHg": 83.99844344157093,
+      "alveolar_gas_equation_pao2_mmHg": 104.225,
+      "gas_equation_consistency_gap_mmHg": 20.226556558429067,
+      "mixed_arterial_o2_mmHg": 77.33101032485519,
+      "mixed_arterial_o2_content_ml_dl": 19.265066777510587,
+      "a_a_do2_mmHg": 6.667433116715742,
+      "o2_uptake_ml_min": 363.25333887552927,
+      "gas_exchange_residual_ml_min": [
+        3.552713678800501e-15,
+        -1.0658141036401503e-14,
+        3.552713678800501e-15,
+        7.105427357601002e-15,
+        0.0,
+        0.0,
+        2.1316282072803006e-14,
+        2.1316282072803006e-14,
+        0.0
+      ],
+      "regional_means": {
+        "nondependent_vq_mean": 2.0819780934408953,
+        "middle_vq_mean": 0.9541892300550282,
+        "dependent_vq_mean": 0.8176549424127436,
+        "nondependent_perfusion_mean": 0.052842647367482655,
+        "middle_perfusion_mean": 0.11611524763096148,
+        "dependent_perfusion_mean": 0.1643754383348892,
+        "nondependent_alveolar_o2_mean_mmHg": 108.48691833495786,
+        "middle_alveolar_o2_mean_mmHg": 79.81876027131204,
+        "dependent_alveolar_o2_mean_mmHg": 71.90763399487078
+      }
+    },
+    "homogeneous_rest": {
+      "regional": false,
+      "hpv_enabled": false,
+      "exercise_fraction": 0.0,
+      "n_regions": 9,
+      "iterations": 0,
+      "coordinates": [
+        0.05555555555555555,
+        0.16666666666666666,
+        0.2777777777777778,
+        0.3888888888888889,
+        0.5,
+        0.6111111111111112,
+        0.7222222222222222,
+        0.8333333333333334,
+        0.9444444444444444
+      ],
+      "ventilation_fraction": [
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111
+      ],
+      "perfusion_fraction": [
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111
+      ],
+      "ventilation_Lmin": [
+        0.4666666666666667,
+        0.4666666666666667,
+        0.4666666666666667,
+        0.4666666666666667,
+        0.4666666666666667,
+        0.4666666666666667,
+        0.4666666666666667,
+        0.4666666666666667,
+        0.4666666666666667
+      ],
+      "perfusion_Lmin": [
+        0.5555555555555556,
+        0.5555555555555556,
+        0.5555555555555556,
+        0.5555555555555556,
+        0.5555555555555556,
+        0.5555555555555556,
+        0.5555555555555556,
+        0.5555555555555556,
+        0.5555555555555556
+      ],
+      "vq": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "airway_resistance_relative": [
+        1.2259292242731281,
+        1.1791693123418652,
+        1.1341929367849113,
+        1.0909320692021454,
+        1.0493212759615091,
+        1.0092976192282646,
+        0.9708005617692345,
+        0.9337718753880407,
+        0.8981555528528442
+      ],
+      "compliance_relative": [
+        1.0166666666666666,
+        1.05,
+        1.0833333333333333,
+        1.1166666666666667,
+        1.15,
+        1.1833333333333333,
+        1.2166666666666666,
+        1.25,
+        1.2833333333333332
+      ],
+      "hypoxia_fraction": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "alveolar_o2_mmHg": [
+        82.4067923750022,
+        82.4067923750022,
+        82.4067923750022,
+        82.4067923750022,
+        82.4067923750022,
+        82.4067923750022,
+        82.4067923750022,
+        82.4067923750022,
+        82.4067923750022
+      ],
+      "alveolar_o2_content_ml_dl": [
+        19.440986105920803,
+        19.440986105920803,
+        19.440986105920803,
+        19.440986105920803,
+        19.440986105920803,
+        19.440986105920803,
+        19.440986105920803,
+        19.440986105920803,
+        19.440986105920803
+      ],
+      "alveolar_co2_mmHg": [
+        31.92,
+        31.92,
+        31.92,
+        31.92,
+        31.92,
+        31.92,
+        31.92,
+        31.92,
+        31.92
+      ],
+      "global_paco2_mmHg": 38.0,
+      "global_pao2_mmHg": 82.4067923750022,
+      "alveolar_gas_equation_pao2_mmHg": 104.225,
+      "gas_equation_consistency_gap_mmHg": 21.818207624997797,
+      "mixed_arterial_o2_mmHg": 82.40679237500183,
+      "mixed_arterial_o2_content_ml_dl": 19.440986105920796,
+      "a_a_do2_mmHg": 3.694822225952521e-13,
+      "o2_uptake_ml_min": 372.0493052960402,
+      "gas_exchange_residual_ml_min": [
+        -2.842170943040401e-14,
+        -2.842170943040401e-14,
+        -2.842170943040401e-14,
+        -2.842170943040401e-14,
+        -2.842170943040401e-14,
+        -2.842170943040401e-14,
+        -2.842170943040401e-14,
+        -2.842170943040401e-14,
+        -2.842170943040401e-14
+      ],
+      "regional_means": {
+        "nondependent_vq_mean": 1.0,
+        "middle_vq_mean": 1.0,
+        "dependent_vq_mean": 1.0,
+        "nondependent_perfusion_mean": 0.1111111111111111,
+        "middle_perfusion_mean": 0.1111111111111111,
+        "dependent_perfusion_mean": 0.1111111111111111,
+        "nondependent_alveolar_o2_mean_mmHg": 82.4067923750022,
+        "middle_alveolar_o2_mean_mmHg": 82.4067923750022,
+        "dependent_alveolar_o2_mean_mmHg": 82.4067923750022
+      }
+    },
+    "regional_heavy": {
+      "regional": true,
+      "hpv_enabled": true,
+      "exercise_fraction": 1.0,
+      "n_regions": 9,
+      "iterations": 36,
+      "coordinates": [
+        0.05555555555555555,
+        0.16666666666666666,
+        0.2777777777777778,
+        0.3888888888888889,
+        0.5,
+        0.6111111111111112,
+        0.7222222222222222,
+        0.8333333333333334,
+        0.9444444444444444
+      ],
+      "ventilation_fraction": [
+        0.09118614015757238,
+        0.09583843220709293,
+        0.10062656810779572,
+        0.10555389428612977,
+        0.11062383298661166,
+        0.11583988390585108,
+        0.12120562586064035,
+        0.12672471849080244,
+        0.13240090399750382
+      ],
+      "perfusion_fraction": [
+        0.06003390293668742,
+        0.07764473819207905,
+        0.09207488482529615,
+        0.10443901098994453,
+        0.11531770989719027,
+        0.12506107315658535,
+        0.13390307552071662,
+        0.14201175088280513,
+        0.14951385359869554
+      ],
+      "ventilation_Lmin": [
+        2.7355842047271715,
+        2.875152966212788,
+        3.0187970432338713,
+        3.166616828583893,
+        3.31871498959835,
+        3.4751965171755326,
+        3.6361687758192103,
+        3.801741554724073,
+        3.9720271199251145
+      ],
+      "perfusion_Lmin": [
+        1.5008475734171856,
+        1.9411184548019762,
+        2.3018721206324035,
+        2.610975274748613,
+        2.8829427474297566,
+        3.126526828914634,
+        3.3475768880179153,
+        3.550293772070128,
+        3.7378463399673887
+      ],
+      "vq": [
+        1.5189107437132405,
+        1.2343197290459782,
+        1.0928774800937913,
+        1.0106749698758883,
+        0.9592961314028576,
+        0.9262665110894364,
+        0.9051743239600811,
+        0.8923537503271946,
+        0.8855427160139693
+      ],
+      "airway_resistance_relative": [
+        1.2391102123002122,
+        1.217614420352227,
+        1.196491532337148,
+        1.1757350792054275,
+        1.1553387041310654,
+        1.1352961605647798,
+        1.1156013103209548,
+        1.0962481216977713,
+        1.0772306676299521
+      ],
+      "compliance_relative": [
+        1.0166666666666666,
+        1.05,
+        1.0833333333333333,
+        1.1166666666666667,
+        1.15,
+        1.1833333333333333,
+        1.2166666666666666,
+        1.25,
+        1.2833333333333332
+      ],
+      "hypoxia_fraction": [
+        0.01652901986501206,
+        0.12311365742619984,
+        0.19173264010147079,
+        0.2373399961638586,
+        0.26803943648134604,
+        0.28862949916233077,
+        0.302106013081042,
+        0.3104148317994017,
+        0.31486331131903683
+      ],
+      "alveolar_o2_mmHg": [
+        98.3470980134988,
+        87.68863425738002,
+        80.82673598985292,
+        76.26600038361417,
+        73.1960563518654,
+        71.13705008376692,
+        69.7893986918958,
+        68.95851682005983,
+        68.51366886809632
+      ],
+      "alveolar_o2_content_ml_dl": [
+        19.823059242704385,
+        19.59140238206418,
+        19.389919822365275,
+        19.223404041987326,
+        19.092428851998918,
+        18.99442381817937,
+        18.925291538846142,
+        18.880537252912028,
+        18.855873229774083
+      ],
+      "alveolar_co2_mmHg": [
+        32.02294815631568,
+        39.40632143795877,
+        44.50636131309586,
+        48.12625369160278,
+        50.703842544293096,
+        52.511884449748315,
+        53.73550565067183,
+        54.507531326186985,
+        54.92676877174235
+      ],
+      "global_paco2_mmHg": 40.53333333333333,
+      "global_pao2_mmHg": 76.16194789832115,
+      "alveolar_gas_equation_pao2_mmHg": 105.63874074074073,
+      "gas_equation_consistency_gap_mmHg": 29.476792842419584,
+      "mixed_arterial_o2_mmHg": 73.72009971985443,
+      "mixed_arterial_o2_content_ml_dl": 19.116008226580874,
+      "a_a_do2_mmHg": 2.4418481784667136,
+      "o2_uptake_ml_min": 2904.002056645218,
+      "gas_exchange_residual_ml_min": [
+        8.526512829121202e-14,
+        2.842170943040401e-14,
+        0.0,
+        1.1368683772161603e-13,
+        -1.1368683772161603e-13,
+        0.0,
+        -1.1368683772161603e-13,
+        -5.684341886080802e-14,
+        5.684341886080802e-14
+      ],
+      "regional_means": {
+        "nondependent_vq_mean": 1.2820359842843365,
+        "middle_vq_mean": 0.9654125374560607,
+        "dependent_vq_mean": 0.894356930100415,
+        "nondependent_perfusion_mean": 0.0765845086513542,
+        "middle_perfusion_mean": 0.11493926468124005,
+        "dependent_perfusion_mean": 0.14180956000073908,
+        "nondependent_alveolar_o2_mean_mmHg": 88.95415608691057,
+        "middle_alveolar_o2_mean_mmHg": 73.5330356064155,
+        "dependent_alveolar_o2_mean_mmHg": 69.08719479335065
+      }
+    },
+    "homogeneous_heavy": {
+      "regional": false,
+      "hpv_enabled": false,
+      "exercise_fraction": 1.0,
+      "n_regions": 9,
+      "iterations": 0,
+      "coordinates": [
+        0.05555555555555555,
+        0.16666666666666666,
+        0.2777777777777778,
+        0.3888888888888889,
+        0.5,
+        0.6111111111111112,
+        0.7222222222222222,
+        0.8333333333333334,
+        0.9444444444444444
+      ],
+      "ventilation_fraction": [
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111
+      ],
+      "perfusion_fraction": [
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111,
+        0.1111111111111111
+      ],
+      "ventilation_Lmin": [
+        3.333333333333333,
+        3.333333333333333,
+        3.333333333333333,
+        3.333333333333333,
+        3.333333333333333,
+        3.333333333333333,
+        3.333333333333333,
+        3.333333333333333,
+        3.333333333333333
+      ],
+      "perfusion_Lmin": [
+        2.7777777777777777,
+        2.7777777777777777,
+        2.7777777777777777,
+        2.7777777777777777,
+        2.7777777777777777,
+        2.7777777777777777,
+        2.7777777777777777,
+        2.7777777777777777,
+        2.7777777777777777
+      ],
+      "vq": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "airway_resistance_relative": [
+        1.2391102123002122,
+        1.217614420352227,
+        1.196491532337148,
+        1.1757350792054275,
+        1.1553387041310654,
+        1.1352961605647798,
+        1.1156013103209548,
+        1.0962481216977713,
+        1.0772306676299521
+      ],
+      "compliance_relative": [
+        1.0166666666666666,
+        1.05,
+        1.0833333333333333,
+        1.1166666666666667,
+        1.15,
+        1.1833333333333333,
+        1.2166666666666666,
+        1.25,
+        1.2833333333333332
+      ],
+      "hypoxia_fraction": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "alveolar_o2_mmHg": [
+        75.64187247141635,
+        75.64187247141635,
+        75.64187247141635,
+        75.64187247141635,
+        75.64187247141635,
+        75.64187247141635,
+        75.64187247141635,
+        75.64187247141635,
+        75.64187247141635
+      ],
+      "alveolar_o2_content_ml_dl": [
+        19.19812539925005,
+        19.19812539925005,
+        19.19812539925005,
+        19.19812539925005,
+        19.19812539925005,
+        19.19812539925005,
+        19.19812539925005,
+        19.19812539925005,
+        19.19812539925005
+      ],
+      "alveolar_co2_mmHg": [
+        48.63999999999999,
+        48.63999999999999,
+        48.63999999999999,
+        48.63999999999999,
+        48.63999999999999,
+        48.63999999999999,
+        48.63999999999999,
+        48.63999999999999,
+        48.63999999999999
+      ],
+      "global_paco2_mmHg": 40.53333333333333,
+      "global_pao2_mmHg": 75.64187247141636,
+      "alveolar_gas_equation_pao2_mmHg": 105.63874074074073,
+      "gas_equation_consistency_gap_mmHg": 29.996868269324366,
+      "mixed_arterial_o2_mmHg": 75.64187247141606,
+      "mixed_arterial_o2_content_ml_dl": 19.198125399250042,
+      "a_a_do2_mmHg": 2.984279490192421e-13,
+      "o2_uptake_ml_min": 2924.531349812512,
+      "gas_exchange_residual_ml_min": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "regional_means": {
+        "nondependent_vq_mean": 1.0,
+        "middle_vq_mean": 1.0,
+        "dependent_vq_mean": 1.0,
+        "nondependent_perfusion_mean": 0.1111111111111111,
+        "middle_perfusion_mean": 0.1111111111111111,
+        "dependent_perfusion_mean": 0.1111111111111111,
+        "nondependent_alveolar_o2_mean_mmHg": 75.64187247141635,
+        "middle_alveolar_o2_mean_mmHg": 75.64187247141635,
+        "dependent_alveolar_o2_mean_mmHg": 75.64187247141635
+      }
+    }
+  },
+  "comparisons": {
+    "rest_regional_minus_homogeneous_a_a_do2_mmHg": 6.667433116715372,
+    "heavy_regional_minus_homogeneous_a_a_do2_mmHg": 2.441848178466415,
+    "rest_nondependent_to_dependent_perfusion": 0.3214753244327418,
+    "heavy_nondependent_to_dependent_perfusion": 0.5400518036368991,
+    "placebo_rest_max_gas_error": 2.2737367544323206e-13,
+    "placebo_heavy_max_gas_error": 0.0
+  },
+  "criteria": {
+    "heavy_a_a_increment_at_least_10_mmHg": false,
+    "heavy_a_a_in_10_to_40_mmHg": false,
+    "regional_need_at_least_5_mmHg": false,
+    "perfusion_ratio_tolerance_0_20": false,
+    "placebo_equivalent_within_1e_12": true
+  },
+  "unit_checks": {
+    "regional_rest": {
+      "ventilation_fractions_sum_to_one": true,
+      "perfusion_fractions_sum_to_one": true,
+      "ventilation_nonnegative_Lmin": true,
+      "perfusion_nonnegative_Lmin": true,
+      "gas_residual_below_tolerance_ml_min": true,
+      "all_pressures_finite_mmHg": true,
+      "o2_content_nonnegative_ml_dl": true,
+      "all_pass": true
+    },
+    "homogeneous_rest": {
+      "ventilation_fractions_sum_to_one": true,
+      "perfusion_fractions_sum_to_one": true,
+      "ventilation_nonnegative_Lmin": true,
+      "perfusion_nonnegative_Lmin": true,
+      "gas_residual_below_tolerance_ml_min": true,
+      "all_pressures_finite_mmHg": true,
+      "o2_content_nonnegative_ml_dl": true,
+      "all_pass": true
+    },
+    "regional_heavy": {
+      "ventilation_fractions_sum_to_one": true,
+      "perfusion_fractions_sum_to_one": true,
+      "ventilation_nonnegative_Lmin": true,
+      "perfusion_nonnegative_Lmin": true,
+      "gas_residual_below_tolerance_ml_min": true,
+      "all_pressures_finite_mmHg": true,
+      "o2_content_nonnegative_ml_dl": true,
+      "all_pass": true
+    },
+    "homogeneous_heavy": {
+      "ventilation_fractions_sum_to_one": true,
+      "perfusion_fractions_sum_to_one": true,
+      "ventilation_nonnegative_Lmin": true,
+      "perfusion_nonnegative_Lmin": true,
+      "gas_residual_below_tolerance_ml_min": true,
+      "all_pressures_finite_mmHg": true,
+      "o2_content_nonnegative_ml_dl": true,
+      "all_pass": true
+    }
+  },
+  "sensitivity": {
+    "hpv_gain": {
+      "0.5x": {
+        "value": 0.4,
+        "a_a_do2_mmHg": 3.100682400809802,
+        "o2_uptake_ml_min": 2898.2356345726516,
+        "nondependent_to_dependent_perfusion": 0.5132056400691911,
+        "regional_minus_homogeneous_a_a_do2_mmHg": 3.1006824008095037
+      },
+      "1.0x": {
+        "value": 0.8,
+        "a_a_do2_mmHg": 2.4418481784667136,
+        "o2_uptake_ml_min": 2904.002056645218,
+        "nondependent_to_dependent_perfusion": 0.5400518036368991,
+        "regional_minus_homogeneous_a_a_do2_mmHg": 2.441848178466415
+      },
+      "1.5x": {
+        "value": 1.2000000000000002,
+        "a_a_do2_mmHg": 2.033177367416343,
+        "o2_uptake_ml_min": 2907.5296373148717,
+        "nondependent_to_dependent_perfusion": 0.558634197237314,
+        "regional_minus_homogeneous_a_a_do2_mmHg": 2.0331773674160445
+      }
+    },
+    "rv_base_gradient": {
+      "0.5x": {
+        "value": 0.175,
+        "a_a_do2_mmHg": 3.2542404114007724,
+        "o2_uptake_ml_min": 2896.877403281436,
+        "nondependent_to_dependent_perfusion": 0.5059684380930737,
+        "regional_minus_homogeneous_a_a_do2_mmHg": 3.254240411400474
+      },
+      "1.0x": {
+        "value": 0.35,
+        "a_a_do2_mmHg": 2.4418481784667136,
+        "o2_uptake_ml_min": 2904.002056645218,
+        "nondependent_to_dependent_perfusion": 0.5400518036368991,
+        "regional_minus_homogeneous_a_a_do2_mmHg": 2.441848178466415
+      },
+      "1.5x": {
+        "value": 0.5249999999999999,
+        "a_a_do2_mmHg": 1.8528451134184536,
+        "o2_uptake_ml_min": 2909.074342807776,
+        "nondependent_to_dependent_perfusion": 0.5701150936769204,
+        "regional_minus_homogeneous_a_a_do2_mmHg": 1.8528451134181552
+      }
+    },
+    "aw_resistance_gradient": {
+      "0.5x": {
+        "value": 0.175,
+        "a_a_do2_mmHg": 2.953538648875096,
+        "o2_uptake_ml_min": 2899.5320690992075,
+        "nondependent_to_dependent_perfusion": 0.5477843591263589,
+        "regional_minus_homogeneous_a_a_do2_mmHg": 2.9535386488747974
+      },
+      "1.0x": {
+        "value": 0.35,
+        "a_a_do2_mmHg": 2.4418481784667136,
+        "o2_uptake_ml_min": 2904.002056645218,
+        "nondependent_to_dependent_perfusion": 0.5400518036368991,
+        "regional_minus_homogeneous_a_a_do2_mmHg": 2.441848178466415
+      },
+      "1.5x": {
+        "value": 0.5249999999999999,
+        "a_a_do2_mmHg": 1.990284633458387,
+        "o2_uptake_ml_min": 2907.897709497661,
+        "nondependent_to_dependent_perfusion": 0.5323773295987665,
+        "regional_minus_homogeneous_a_a_do2_mmHg": 1.9902846334580886
+      }
+    }
+  }
+}

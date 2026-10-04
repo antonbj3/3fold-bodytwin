@@ -1,0 +1,196 @@
+{
+  "model": "IOP = (F-U)/C + Pev (modern expanded Goldmann equation); F=C(IOP-Pev)+U",
+  "inputs_independently_measured": {
+    "F_uL_per_min": {
+      "mean": 2.75,
+      "sd": 0.63,
+      "range95": [
+        1.8,
+        4.3
+      ],
+      "young": [
+        2.8,
+        0.8,
+        51
+      ],
+      "old": [
+        2.4,
+        0.6,
+        53
+      ]
+    },
+    "C_uL_per_min_per_mmHg": {
+      "lo": 0.25,
+      "mid": 0.2857142857142857,
+      "hi": 0.3333333333333333
+    },
+    "U_uL_per_min": {
+      "young": [
+        1.52,
+        0.81,
+        51
+      ],
+      "old": [
+        1.1,
+        0.81,
+        53
+      ]
+    },
+    "Pev_mmHg": {
+      "mean": 9.0,
+      "sd": 1.6
+    }
+  },
+  "population_iop_anchor": {
+    "beaverdam_women": [
+      15.5,
+      2721
+    ],
+    "beaverdam_men": [
+      15.3,
+      2135
+    ],
+    "textbook_mean_sd": [
+      15.5,
+      2.6
+    ],
+    "band_used_mean_2sd": [
+      10.3,
+      20.7
+    ]
+  },
+  "gate1_nested_identity_exact_at_U0": true,
+  "gate2_central_estimate": {
+    "iop_central_mmHg": 14.04,
+    "in_band": true,
+    "band": [
+      10.3,
+      20.7
+    ]
+  },
+  "gate3_sweep": {
+    "n_total_combinations": 135,
+    "fraction_in_band": 0.9555555555555556,
+    "pass": true,
+    "sweep_raw_range": [
+      9.200000000000001,
+      19.72
+    ],
+    "sweep_mean_sd": [
+      13.83,
+      2.1508378212532278
+    ],
+    "fraction_in_tighter_1sd_band": 0.6148148148148148,
+    "band_1sd": [
+      12.9,
+      18.1
+    ]
+  },
+  "gate4_pev_forced_zero_adversary": {
+    "iop_with_pev0": 5.04,
+    "iop_central": 14.04,
+    "relative_error_pct": 64.1025641025641,
+    "falls_outside_band": true
+  },
+  "gate5_poag_backward_solve": {
+    "overall": {
+      "label": "overall-population F,U average",
+      "F_used": 2.75,
+      "U_used": 1.31,
+      "C_poag_implied": 0.08971962616822429,
+      "pct_of_C_LO": 35.88785046728972,
+      "below_normal_range": true
+    },
+    "age_matched_older": {
+      "label": "age-matched-older F,U (Toris 60y+ arm)",
+      "F_used": 2.4,
+      "U_used": 1.1,
+      "C_poag_implied": 0.08099688473520247,
+      "pct_of_C_LO": 32.39875389408099,
+      "below_normal_range": true
+    },
+    "pass_both_variants_below_normal": true
+  },
+  "gate6_overproduction_adversary": {
+    "poag_iop_used": 25.05,
+    "F_needed_uL_per_min": 5.685714285714285,
+    "F_95_hi_ceiling": 4.3,
+    "pct_above_ceiling": 32.22591362126245,
+    "fold_vs_measured_mean_F": 2.0675324675324673,
+    "larsson_1995_directly_measured_poag_F_elevated": false,
+    "rejected": true
+  },
+  "gate7_sensitivity_governor": {
+    "C_normal_mid": 0.2857142857142857,
+    "C_poag_implied": 0.08099688473520247,
+    "dIOP_dC_normal": -15.924999999999999,
+    "dIOP_dC_poag": -198.1557692307693,
+    "sensitivity_ratio": 12.443062432073425,
+    "matches_analytic_1_over_C2": true,
+    "blowup_confirmed": true
+  },
+  "gate8_cai_dIOP_dF": {
+    "acetazolamide": {
+      "dF": 0.9500000000000002,
+      "dIOP_measured": 2.4000000000000004,
+      "dIOP_predicted": 3.3250000000000006,
+      "predicted_over_measured_ratio": 1.3854166666666667,
+      "same_order_of_magnitude": true,
+      "frac_drop_measured": 0.19200000000000003
+    },
+    "dorzolamide": {
+      "dF": 0.5300000000000002,
+      "dIOP_measured": 1.6999999999999993,
+      "dIOP_predicted": 1.8550000000000009,
+      "predicted_over_measured_ratio": 1.0911764705882363,
+      "same_order_of_magnitude": true,
+      "frac_drop_measured": 0.13599999999999995
+    }
+  },
+  "gate8_pass": true,
+  "gate9_prostaglandin_dIOP_dU": {
+    "dU_vs_baseline": 0.48,
+    "dU_vs_contralateral": 0.73,
+    "dIOP_predicted_vs_baseline": -1.68,
+    "dIOP_predicted_vs_contralateral": -2.5549999999999997,
+    "dIOP_measured": -5.5,
+    "ratio_vs_baseline": 0.3054545454545454,
+    "ratio_vs_contralateral": 0.4645454545454545,
+    "direction_correct": true,
+    "mechanism_isolated_to_U": true,
+    "magnitude_note": "predicted undershoots measured -- open tension, disclosed, not laundered"
+  },
+  "gate10_turnover_time": {
+    "young_min": 88.21428571428572,
+    "old_min": 66.66666666666667,
+    "heuristic_1pct_min": 100.0,
+    "heuristic_1p5pct_min": 66.66666666666667,
+    "pass": true,
+    "note": "heuristic_* is algebraically 1/rate_pct (ACV cancels) -- NOT independent of the young/old direct measurement; both trace to the same Mayo/Nebraska fluorophotometry lineage, disclosed, not double-counted as two independent anchors."
+  },
+  "gate11_void_floor_necessity": {
+    "iop_central": 14.04,
+    "iop_if_U_ignored": 18.625,
+    "U_ignored_error_mmHg": 4.585000000000001,
+    "iop_if_C_to_infinity": 9.00000144,
+    "C_necessary_work_mmHg": 5.039998559999999,
+    "iop_if_C_near_zero": 1449.0,
+    "U_necessary": true,
+    "C_necessary": true,
+    "C_tiny_blows_up_unbounded": true
+  },
+  "gates_summary": {
+    "gate1_nested_identity_exact": true,
+    "gate2_central_estimate_in_band": true,
+    "gate3_sweep_majority_in_band": true,
+    "gate4_pev0_falls_outside_band": true,
+    "gate5_poag_facility_below_normal_both_variants": true,
+    "gate6_overproduction_rejected": true,
+    "gate7_governor_blowup_confirmed": true,
+    "gate8_cai_same_order_of_magnitude": true,
+    "gate9_pg_direction_and_mechanism_correct": true,
+    "gate10_turnover_order_of_magnitude": true,
+    "gate11_U_and_C_both_necessary_nondecorative": true
+  },
+  "overall": "11/11 PASS"
+}

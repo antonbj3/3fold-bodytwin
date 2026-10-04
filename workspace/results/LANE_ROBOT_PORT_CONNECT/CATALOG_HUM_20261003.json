@@ -1,0 +1,20 @@
+{
+  "schema": "LANE_ROBOT_PORT_CONNECT/catalog-index-v1",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "base": {
+    "file": "PORT.json",
+    "sha256": "7981f7ab17af1fbda8e891037cb1392b9f46468974d3aa3d24ba62ab59b9bdb0",
+    "count": 202
+  },
+  "extensions": [
+    {
+      "file": "HUM_ROBOTPORT_20261003/PORT_HUM_20261003.json",
+      "sha256": "92a26174b1068fbed11c953870e40b871b9127143c9ed5cdc5581949911a3dea",
+      "count": 2
+    }
+  ],
+  "validation_command": "python3 -B HUM_ROBOTPORT_20261003/hum_robotport_adapter.py HUM_ROBOTPORT_20261003/PORT_HUM_20261003.json --native-dir .",
+  "composed_view_command": "python3 -B HUM_ROBOTPORT_20261003/hum_robotport_adapter.py HUM_ROBOTPORT_20261003/PORT_HUM_20261003.json --native-dir . --compose",
+  "count_policy": "original202 unchanged;204 in composed view;2 new conditional model intervals;0 new empirical certificates"
+}

@@ -1,0 +1,289 @@
+{
+  "task_id": "BT-DAT-Q036",
+  "prereg_sha256": "9a1ae3a61668ac434c21e48f4171ca5da30139671696cc319e0f30a3cc6a1c7b",
+  "generated_from": "repository API responses fetched in this session; see results.json -> provenance",
+  "mapping_rule": "each entry names at least one state or parameter symbol of inputs/Q036_model.py per the frozen table in PREREG.md",
+  "admitted": [
+    {
+      "id": "DS01",
+      "title": "Data source file: Activation of skeletal muscle is controlled by a dual-filament mechano-sensing mechanism (Figures 1, 3, 4, 6)",
+      "url": "https://doi.org/10.5281/zenodo.7668420",
+      "api": "https://zenodo.org/api/records/7668420",
+      "license": "CC-BY-4.0 (SPDX cc-by-4.0, as returned by the record API)",
+      "size_bytes": 1824082,
+      "size_human": "1.82 MB, 1 file",
+      "format": "Office Open XML spreadsheet (.xlsx), 4 worksheets, embedded chart XML",
+      "subjects": "in-vitro skeletal muscle fibres, RLC (regulatory light chain) and TNC probes; steady-state pCa series plus UV-flash force transients. Per-fibre n and species are NOT stated in the fetched record -> UNKNOWN (record text only names the probe type and the figures).",
+      "constrains": [
+        "C",
+        "F",
+        "k_function_stroke",
+        "k_ca_clear",
+        "tau_function"
+      ],
+      "how": "pCa (calcium activity, -log10) is swept against T/T0 and force in kPa, and force/length transients are time-resolved against a UV-flash origin. This is the shape of the C -> F coupling in F_target, and the time scale of calcium-driven force change. It contains no ischemia, so it constrains the coupling function, NOT any ischemic rate constant.",
+      "verified_sample": true
+    },
+    {
+      "id": "DS02",
+      "title": "Data from: Anthrax toxin receptor 1 is essential for arteriogenesis in a mouse model of hindlimb ischemia",
+      "url": "https://doi.org/10.5061/dryad.b8d0g",
+      "cross_reference": "https://doi.org/10.5281/zenodo.4967455 (mirror record 4967455)",
+      "api": "https://zenodo.org/api/records/4967455",
+      "license": "CC0 1.0 (SPDX cc-zero)",
+      "size_bytes": 104301,
+      "size_human": "104 kB, 1 file",
+      "format": "Excel .xlsx, 1 worksheet, 333 rows x 34 columns, figure-block layout",
+      "subjects": "mouse hindlimb ischemia, wild-type and ANTXR1(-/-) mice, ligated vs contralateral leg, days -1, 0, 2, 4, 6, 7, 14, 21, 28; plus a human block labelled Non-ischemic / Bypass / Amputation. Per-group n is NOT stated in the record or in the file (the file stores 'Average' and 'st Dev' columns) -> UNKNOWN.",
+      "constrains": [
+        "D",
+        "q"
+      ],
+      "how": "The only admitted deposit that pairs a longitudinal hindlimb-ischemia time axis (-1 to +28 d) with a matched contralateral limb, i.e. a measured ischemia-vs-normalised-limb contrast on the same animal - the structural analogue of the model's normalised flow q. The human block is a cohort-scale limb-ischemia sample.",
+      "caveat": "The deposited sheet carries NO unit row and NO legend (unit scan = 0 hits), so the physical quantity behind each figure block is UNKNOWN from the deposit alone. DS02 is therefore admitted as a time-axis/cohort/contrast source, is NOT used as the verified sample (PREREG criterion 3 fails on 'units'), and no value from it is mapped onto q numerically."
+    },
+    {
+      "id": "DS03",
+      "title": "GSE47730 - TLR4/NF-kB-responsive microRNAs in a mouse model of skeletal muscle ischemia-reperfusion injury",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE47730",
+      "api": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=gds&id=200047730 + https://ftp.ncbi.nlm.nih.gov/geo/series/GSE47nnn/GSE47730/suppl/",
+      "license": "US public domain (NCBI GEO; no licence restriction stated for GEO deposits)",
+      "size_bytes": null,
+      "size_human": "GSE47730_RAW.tar 3.4 MB + filelist.txt 1.6 kB (from the GEO suppl/ directory listing; per-sample sizes are inside filelist.txt)",
+      "format": "Affymetrix miRNA microarray (GPL17252) raw CEL archive (.tar) + filelist.txt",
+      "subjects": "n_samples = 21 (NCBI esummary). Mouse (Mus musculus) isolated thigh skeletal muscle, 2 h ischemia then reperfusion for 0 h / 4 h / 1 d / 7 d. Per-group n not stated in the fetched record -> UNKNOWN.",
+      "constrains": [
+        "D",
+        "Gly"
+      ],
+      "how": "A measured post-reperfusion time course in the target tissue and species class. It bounds the SHAPE and the ORDERING of the injury-accumulation trajectory D over 0 h-7 d and of the hypoxia/glycolysis transcriptional response. It is bulk transcript abundance: it does NOT measure ROS, mPTP or calcium, and is not used to claim those (PREREG error clause)."
+    },
+    {
+      "id": "DS04",
+      "title": "GSE246962 - Combined anti-inflammatory and regenerative therapies rescue skeletal muscle after IRI (unilateral hind limb ischemia-reperfusion, RNA-seq)",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE246962",
+      "api": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=gds&id=200246962 + https://ftp.ncbi.nlm.nih.gov/geo/series/GSE246nnn/GSE246962/suppl/",
+      "license": "US public domain (NCBI GEO)",
+      "size_bytes": null,
+      "size_human": "GSE246962_gene_sample_FPKM_with_symbol.txt.gz 2.2 MB + GSE246962_gene_sample_count_with_symbol.txt.gz 1.2 MB (directory listing)",
+      "format": "processed gene-level tables: gzipped plain text, FPKM and integer counts (Illumina NovaSeq 6000, GPL24247)",
+      "subjects": "n_samples = 9 (NCBI esummary). 10-week-old C57BL/6J mice, unilateral hind limb I/R by postural suspension for 4 h, then treatment arms. Per-group n not stated in the fetched record -> UNKNOWN.",
+      "constrains": [
+        "D"
+      ],
+      "how": "Measured dose/time-resolved transcriptional state of the same injury the model represents, with a treatment-intervention contrast (aspirin / functionalised hydrogel) that mirrors the model's mPTP_blocked placebo arm. Constrains D and the intervention contrast only."
+    },
+    {
+      "id": "DS05",
+      "title": "Up-regulation of sarcoplasmic reticulum function protects skeletal muscle against cytoplasmic calcium overload (Dryad sbcc2fr2q / Zenodo 4985221)",
+      "url": "https://doi.org/10.5061/dryad.sbcc2fr2q",
+      "cross_reference": "https://doi.org/10.5281/zenodo.4985221",
+      "api": "https://zenodo.org/api/records/4985221",
+      "license": "CC0 1.0 (SPDX cc-zero)",
+      "size_bytes": 77705223,
+      "size_human": "77.7 MB, 1 file (Raw_data.zip) - EXCEEDS the 50 MB sample budget, so it cannot serve as the verified sample",
+      "format": "ZIP archive of instrument raw files (not expanded or parsed in this session)",
+      "subjects": "slow-twitch soleus, fast-twitch EDL and mixed gastrocnemius of the hibernating ground squirrel Spermophilus dauricus; torpor/arousal cycles, plus summer-active controls. n not stated in the fetched record -> UNKNOWN.",
+      "constrains": [
+        "C",
+        "k_ca_influx",
+        "k_ca_clear",
+        "k_ca_mito"
+      ],
+      "how": "Directly measures cytosolic and SR Ca2+ in skeletal muscle across a loading/unloading cycle, i.e. the calcium compartment of the model. The cycle it observes is torpor-arousal, NOT ischemia: it constrains the existence, direction and reversibility of Ca2+ handling, and cannot supply an ischemic rate constant."
+    },
+    {
+      "id": "DS06",
+      "title": "Data from: Noninvasive technique to evaluate the muscle fiber characteristics using q-space imaging (Dryad pp56ck7 / Zenodo 4936109)",
+      "url": "https://doi.org/10.5061/dryad.pp56ck7",
+      "cross_reference": "https://doi.org/10.5281/zenodo.4936109",
+      "api": "https://zenodo.org/api/records/4936109",
+      "license": "CC0 1.0 (SPDX cc-zero)",
+      "size_bytes": 154635,
+      "size_human": "155 kB, 1 file",
+      "format": "Excel .xlsx ('data upload.xlsx')",
+      "subjects": "human tibialis anterior (fast-twitch) and soleus (slow-twitch) muscle; cohort n not stated in the fetched record -> UNKNOWN.",
+      "constrains": [
+        "tau_flow",
+        "k_edema_clear"
+      ],
+      "how": "GEOMETRY class: fibre-level structural quantities (fibre CSA / fibre-type composition) for the two muscles that carry the model's compartment. It fixes the structural SCALE of the compartment (how much tissue a normalised fraction acts on); it says nothing about the ischemic time course. Admitted under the geometry/anatomy row of the PREREG mapping table, which is the only row that does not require an ischemia manipulation."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "RJ01",
+      "candidate": "Zenodo 18447885 'Functional MMP-10 ... experimental hind limb ischemia'",
+      "reason": "files = 0, total = 0 B. Correct topic (hind limb ischemia, small-animal PET functional recovery) but no machine-readable deposit at all. This is exactly the PREREG Placebo-2 case: nothing is transcribed from the record text."
+    },
+    {
+      "id": "RJ02",
+      "candidate": "Zenodo 18448175 and 18447847 (plasma-rich growth factors, hindlimb ischemia)",
+      "reason": "files = 0 B for both; citation-only records."
+    },
+    {
+      "id": "RJ03",
+      "candidate": "Zenodo 8122234 burosumab: human muscle function/strength AND rates of ATP synthesis by 31P-MRS",
+      "reason": "This would have been the single best human ATP+function anchor, but the deposit is 4 PDF files only (740,209 B total: 3 PDFs). No machine-readable measurements -> rejected by the PREREG 'no deposited measurements' exclusion. The 31P-MRS ATP synthesis rates therefore remain unavailable as data in this session."
+    },
+    {
+      "id": "RJ04",
+      "candidate": "Zenodo 21930313 (Nec-1s in bilateral hind limb I/R, rat) and 5930674 / 14474015 / 20101221",
+      "reason": "PDF (and one JATS XML) only; no machine-readable measurements."
+    },
+    {
+      "id": "RJ05",
+      "candidate": "Zenodo 19472107 '31P-MRS reproducibility - datasets and code'",
+      "reason": "All 8 deposited files are MATLAB .m scripts (33,015 B total); the description field is empty. Code without measurements, and the data it points to are not in the record."
+    },
+    {
+      "id": "RJ06",
+      "candidate": "Zenodo 5001822 'Early changes in transient adenosine during cerebral ischemia and reperfusion injury'",
+      "reason": "PREREG wrong-compartment control: brain tissue, not skeletal muscle; 6.4 GB, also far above the 50 MB sample budget."
+    },
+    {
+      "id": "RJ07",
+      "candidate": "MetaboLights MTBLS15452 'The dynamic changes and mechanism of no reflow injury after myocardial ischemia-reperfusion'",
+      "reason": "Wrong compartment: heart tissue, Mus musculus heart, 3.61 GiB (3,878,289,408 B), factor 'Group'. The no-reflow mechanism is the one the model encodes in k_no_reflow, so this is recorded as an adjacent-mechanism resource, NOT as a calibration source for a skeletal-muscle compartment."
+    },
+    {
+      "id": "RJ08",
+      "candidate": "GSE144270 (myeloid scRNA-seq in ischaemia-reperfusion + cardiotoxin muscle injury)",
+      "reason": "Confounded injury model: cardiotoxin is co-administered, so the transcript signal is not attributable to ischemia alone. Retained as a lead, not admitted."
+    },
+    {
+      "id": "RJ09",
+      "candidate": "Harvard Dataverse doi:10.7910/DVN/PSIOBE 'human iPSC-derived vascular cell injection into hindlimb ischemia'",
+      "reason": "PREREG Placebo-1-style control: right topic, CC0, 328,589 B - but the single file is 'AHA-Transformational Project Report' (application/pdf). No measurements."
+    },
+    {
+      "id": "RJ10",
+      "candidate": "Harvard Dataverse doi:10.7910/DVN/VKZNXV 'GC-MS data for skeletal muscle samples'",
+      "reason": "PREREG Placebo-1 (off-topic) control: 40 netCDF files, 5,055,139,220 B, CC0, genuine skeletal-muscle metabolomics - but the fetched metadata carries no ischemia / low-flow / reperfusion / geometry link, and each file is 126 MB (>50 MB sample budget). Screened through the same mapping table and REJECTED, which shows the filter is not simply 'muscle'."
+    }
+  ],
+  "gaps": [
+    {
+      "symbol": "M (mPTP open fraction), k_mptp_open, k_mptp_close",
+      "status": "NO public measured dataset found. GEO 'mPTP' search (25 records retrieved) returned brain/neuro (Parkinson microglia, 6-OHDA), cardiac and mitochondrial-dynamics sets - no skeletal-muscle mPTP opening series. mPTP in vivo in human skeletal muscle is not measurable with an open, deposited assay; the literature anchors E2-E4 in inputs/Q036_PREREG.md are article-level only."
+    },
+    {
+      "symbol": "C (intracellular calcium) DURING ischemia/reperfusion",
+      "status": "Only non-ischemic calcium deposits found (DS05 torpor, DS01 activation). No hindlimb-ischemia Ca2+ time series with deposited data."
+    },
+    {
+      "symbol": "R (ROS) DURING ischemia/reperfusion in skeletal muscle",
+      "status": "Zenodo ROS search returned cell-culture and organ-level oxidative-stress deposits, none a skeletal-muscle I/R ROS series. Transcriptomic ROS signatures were explicitly NOT counted (PREREG error clause)."
+    },
+    {
+      "symbol": "q (regional flow) as a quantitative time series",
+      "status": "No public laser-Doppler / laser-speckle / CEUS / MRI-perfusion time series for skeletal-muscle I/R was found. DS02 has the right time axis and the right limb-vs-limb contrast but no unit row, so it cannot yet serve as the flow anchor. This is the single largest hole relative to the model's primary state."
+    },
+    {
+      "symbol": "E (edema)",
+      "status": "Zenodo 'bioimpedance edema lower limb' returned case reports and a lipedema review; no usable measured edema series."
+    },
+    {
+      "symbol": "human acute lower-limb ischemia cohort with function + flow + outcome",
+      "status": "None found. Registry cohorts (VQI, TOPVAS/CASCADE) and UK Biobank are not public."
+    }
+  ],
+  "searched_but_empty": [
+    {
+      "repository": "MetaboLights (EBI Search + WS)",
+      "queries": [
+        "skeletal muscle ischemia reperfusion",
+        "hindlimb ischemia",
+        "limb ischemia metabolomics",
+        "ischemia reperfusion muscle metabolome",
+        "gastrocnemius ischemia",
+        "myocardial ischemia reperfusion metabolite"
+      ],
+      "outcome": "No skeletal-muscle I/R metabolomics study. Hits were kidney (MTBLS3003/3056/15607), heart (MTBLS15452/13370/12934) and a metabolite-assignment-ranking paper (MTBLS781, mouse urine). The A / L / H / Gly part of the model therefore has NO admissible metabolomics deposit found in this session."
+    },
+    {
+      "repository": "Metabolomics Workbench REST",
+      "queries": [
+        "skeletal muscle ischemia reperfusion",
+        "hindlimb ischemia",
+        "ischemia reperfusion muscle",
+        "muscle ischemia"
+      ],
+      "outcome": "0 studies returned for every query (the endpoint answered HTTP 200 with an empty array, not an error)."
+    },
+    {
+      "repository": "figshare API /articles/search",
+      "queries": [
+        "hindlimb ischemia perfusion dataset",
+        "skeletal muscle ischemia reperfusion metabolomics",
+        "lower limb ischemia dataset",
+        "gait analysis ischemia dataset",
+        "muscle edema bioimpedance",
+        "peripheral artery disease muscle biopsy dataset",
+        "31P MRS muscle dataset",
+        "forearm ischemia hyperemia dataset"
+      ],
+      "outcome": "0 hits for all 8 queries."
+    },
+    {
+      "repository": "OSF API (nodes, filter[title])",
+      "queries": [
+        "hindlimb ischemia",
+        "skeletal muscle ischemia reperfusion",
+        "ischemia reperfusion metabolome muscle"
+      ],
+      "outcome": "0 nodes for all 3 queries."
+    },
+    {
+      "repository": "Mendeley Data public API",
+      "queries": [
+        "hindlimb ischemia",
+        "limb ischemia gait",
+        "skeletal muscle ischemia reperfusion"
+      ],
+      "outcome": "0 hits."
+    },
+    {
+      "repository": "Zenodo",
+      "queries": [
+        "see scratch/repo_hits.json, 12 queries",
+        "'\"hindlimb ischemia\" AND \"laser doppler\"'",
+        "'\"31P\" AND \"muscle\" AND \"ATP synthesis\" AND \"dataset\"'"
+      ],
+      "outcome": "Zenodo is dominated by publisher PDF deposits (MDPI/Elsevier/Iranian journals). The ischemia-relevant hits that were pure PDFs were rejected (RJ01, RJ04). The measured hits that survived are DS01, DS02, DS05, DS06."
+    },
+    {
+      "repository": "PhysioNet database list",
+      "queries": [
+        "screened the full /about/database/ listing"
+      ],
+      "outcome": "No skeletal-muscle ischemia-reperfusion dataset. The nearest entries are cerebral perfusion / TCD / brain blood flow in type 2 diabetes, in-bed pressure maps and cardiorespiratory exercise recordings - wrong compartment or wrong phenomenon."
+    },
+    {
+      "repository": "DANDI",
+      "queries": [
+        "dandisets?search=ischemia"
+      ],
+      "outcome": "Neurophysiology archive; not searched further as out of scope for a muscle-compartment model."
+    }
+  ],
+  "verified_sample": {
+    "dataset_id": "DS01",
+    "path": "samples/dualfilament_7668420.xlsx",
+    "bytes": 1824082,
+    "sha256": "b16ec2f0883daca16c33d9d8667ce5adf054803e9a197e2b43dfa3366b667f3b",
+    "magic_hex": "504b030414000600",
+    "n_sheets": 4,
+    "units_examples": [
+      "pCa",
+      "T/T0",
+      "T/T0",
+      "pCa",
+      "T/T0",
+      "T/T0",
+      "time from UV(ms)",
+      "Force (kPa)"
+    ],
+    "coordinate_frame": null
+  }
+}

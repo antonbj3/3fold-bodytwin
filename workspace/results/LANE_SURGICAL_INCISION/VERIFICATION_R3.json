@@ -1,0 +1,82 @@
+{
+  "checks": {
+    "circle_flank_continuity": true,
+    "circle_flank_slope_continuity": true,
+    "independent_K_analytic_inverse": true,
+    "finite_difference_radius_derivative": true,
+    "sampled_shared_rounding_inside_corner_band": true,
+    "NBS_primary_PDF_hash_matches": true,
+    "source_freeze_hash_matches": true,
+    "F_nonmonotone_data_preserved": true,
+    "K_grooves_not_fracture_observations": true
+  },
+  "all_checks_pass": true,
+  "geometry_continuity": [
+    {
+      "angle_deg": 15,
+      "width_discontinuity_m": 6.776263578034403e-21,
+      "slope_discontinuity": 2.7755575615628914e-17
+    },
+    {
+      "angle_deg": 60,
+      "width_discontinuity_m": 0.0,
+      "slope_discontinuity": 0.0
+    },
+    {
+      "angle_deg": 90,
+      "width_discontinuity_m": 0.0,
+      "slope_discontinuity": 1.1102230246251565e-16
+    },
+    {
+      "angle_deg": 105,
+      "width_discontinuity_m": 0.0,
+      "slope_discontinuity": 2.220446049250313e-16
+    }
+  ],
+  "analytic_K_depth_pct": 64.00000000000003,
+  "finite_difference_radius_sensitivity_pp_per_um": 15.89083144274639,
+  "K_shared_rounding_interior_sample_range_pct": [
+    62.59913092069162,
+    65.39587057210821
+  ],
+  "F_constant_offset_identification": [
+    {
+      "load_lbf": 12,
+      "depth_pct": 65,
+      "identified_offset_lbf": 8.045454545454545,
+      "shared_reference_and_depth_rounding_interval_lbf": [
+        8.0,
+        8.09090909090909
+      ]
+    },
+    {
+      "load_lbf": 16,
+      "depth_pct": 80,
+      "identified_offset_lbf": 9.333333333333334,
+      "shared_reference_and_depth_rounding_interval_lbf": [
+        9.142857142857142,
+        9.523809523809524
+      ]
+    },
+    {
+      "load_lbf": 20,
+      "depth_pct": 71,
+      "identified_offset_lbf": 15.047619047619047,
+      "shared_reference_and_depth_rounding_interval_lbf": [
+        14.857142857142858,
+        15.238095238095237
+      ]
+    }
+  ],
+  "constant_F_offset_intersection_lbf": [
+    14.857142857142858,
+    8.09090909090909
+  ],
+  "constant_F_offset_gate": "FAIL_WITH_RESOLUTION_ALLOWANCES",
+  "failure_meaning": "No constant offset can explain these reported F loads/depths, irrespective of RF scenario. Force calibration, specimen variability and biological repeatability are unbounded; no statistical rejection.",
+  "source_visual_check": "Table B E/F/G specimen18 transcribed from PDF page71; Fig17 K specimen18 at20lb open circle40%, lower12/16lb filled grooves. Fig12 F4lb/14% open true-cut. Reviewed rendered primary pages.",
+  "cost_CPU_s": 0.03663156500000009,
+  "numerical_limits": "Binary64 and deterministic sampling; corner sensitivity bands are resolution scenarios, not verified outward-rounding or biological confidence intervals.",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

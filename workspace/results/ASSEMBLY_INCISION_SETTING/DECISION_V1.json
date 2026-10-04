@@ -1,0 +1,213 @@
+{
+ "question": "what dwell keeps thermal damage depth inside a stated tolerance, and at what setting",
+ "claim_type": "capability",
+ "facit": {
+  "source": "PMID 12642261, doi 10.1177/03635465030310021601",
+  "depth_mm_at_s": [
+   [
+    0.56,
+    1.0
+   ],
+   [
+    1.7,
+    3.0
+   ]
+  ],
+  "read_as": "delta = sqrt(D_eff * t)",
+  "d_eff_m2_s": [
+   3.1360000000000006e-07,
+   9.633333333333334e-07
+  ],
+  "exceeds_conduction_only_by": [
+   2.24,
+   6.8809523809523805
+  ]
+ },
+ "energy_balance_recomputed_by_coordinator": {
+  "kerf_mm2": 1.0,
+  "vaporisation_J_per_m": 2260.0,
+  "fracture_J_per_m": 4.0,
+  "fracture_fraction_of_vaporisation": 0.0017699115044247787,
+  "fracture_percent_of_vaporisation": 0.17699115044247787,
+  "water_latent_heat_MJ_per_kg": 2.26,
+  "soft_tissue_specific_heat_kJ_per_kg_K": 3.6,
+  "warming_37_to_100_surcharge": 0.10035398230088496,
+  "warming_percent_surcharge": 10.035398230088495
+ },
+ "conduction_only_m2_s": 1.4e-07,
+ "witness_thresholds": {
+  "log_depth_error_per_observation_eta": 0.02,
+  "four_corner_rejects_above": 0.08,
+  "endpoint_slope_witness_10_60": 0.02232442506204989,
+  "endpoint_slope_witness_10_120": 0.016097184175273786,
+  "reading": "the four-corner test rejects when |I| > 4*eta for I = log(d11 d22 / d12 d21); the endpoint-slope test needs |m - 0.5| > epsilon + 2*eta/L"
+ },
+ "refusal": {
+  "calibrated_setting_range": [
+   10.0,
+   60.0
+  ],
+  "reported_setting_range": [
+   10.0,
+   120.0
+  ],
+  "R_full_range_volume": 0.73,
+  "p_full_range": 0.008,
+  "R_restricted_depth_radius_volume": [
+   0.95,
+   0.98,
+   0.92
+  ],
+  "p_restricted": 0.001
+ },
+ "falsifier": "damage size against log setting must have slope about 0.5 while conduction limits and saturate towards 0 once evaporation takes over. A pure diffusion model gives 0.5 throughout and cannot produce the break, so measuring 0.5 across the whole range falsifies the two-timescale reading this decision rests on",
+ "two_limits_of_this_version": {
+  "xi_thermal_is_dependent": "at the returned dwell xi is exactly (tolerance / kerf halfwidth) squared: 1.0, 4.0, 9.0 for 0.5, 1.0, 1.5 mm. It restates the tolerance and adds no information",
+  "setting_only_gates": "the dwell limit is identical at setting 30 and 60 because nothing published ties the setting to D_eff; the setting enters only as the refusal above 60",
+  "next_acquisition": "a measured D_eff per generator setting, which is what would make the setting decide"
+ },
+ "d_eff_spread_factor": 3.0718537414965983,
+ "enclosure_over_conservative_dwell": 2.0718537414965983,
+ "rows": [
+  {
+   "tolerance_mm": 0.5,
+   "setting": 30.0,
+   "d_eff_bounds_m2_s": [
+    3.1360000000000006e-07,
+    9.633333333333334e-07
+   ],
+   "d_eff_over_conduction_only": [
+    2.24,
+    6.8809523809523805
+   ],
+   "max_dwell_s_conservative": 0.25951557093425603,
+   "max_dwell_s_optimistic": 0.7971938775510202,
+   "dwell_enclosure_width_s": 0.5376783066167642,
+   "xi_thermal_at_conservative_dwell": 1.0,
+   "decision": "DWELL_LIMIT_S",
+   "decision_value_s": 0.25951557093425603,
+   "control_hand_force": "the force ratio stays at or below 0.07 over 0.5-6 N and kerf areas 1.0 and 0.2 mm^2, so force cannot separate these dwells",
+   "control_cold_knife": "adds no damage beyond the cut depth, PMID 35974853"
+  },
+  {
+   "tolerance_mm": 0.5,
+   "setting": 60.0,
+   "d_eff_bounds_m2_s": [
+    3.1360000000000006e-07,
+    9.633333333333334e-07
+   ],
+   "d_eff_over_conduction_only": [
+    2.24,
+    6.8809523809523805
+   ],
+   "max_dwell_s_conservative": 0.25951557093425603,
+   "max_dwell_s_optimistic": 0.7971938775510202,
+   "dwell_enclosure_width_s": 0.5376783066167642,
+   "xi_thermal_at_conservative_dwell": 1.0,
+   "decision": "DWELL_LIMIT_S",
+   "decision_value_s": 0.25951557093425603,
+   "control_hand_force": "the force ratio stays at or below 0.07 over 0.5-6 N and kerf areas 1.0 and 0.2 mm^2, so force cannot separate these dwells",
+   "control_cold_knife": "adds no damage beyond the cut depth, PMID 35974853"
+  },
+  {
+   "tolerance_mm": 0.5,
+   "setting": 90.0,
+   "decision": "NO_SETTING_RETURNED",
+   "reason": "setting 90.0 is outside (10.0, 60.0), where the damage correlations are R 0.92-0.98; over the full (10.0, 120.0) the volume correlation is only R = 0.73"
+  },
+  {
+   "tolerance_mm": 1.0,
+   "setting": 30.0,
+   "d_eff_bounds_m2_s": [
+    3.1360000000000006e-07,
+    9.633333333333334e-07
+   ],
+   "d_eff_over_conduction_only": [
+    2.24,
+    6.8809523809523805
+   ],
+   "max_dwell_s_conservative": 1.0380622837370241,
+   "max_dwell_s_optimistic": 3.188775510204081,
+   "dwell_enclosure_width_s": 2.1507132264670568,
+   "xi_thermal_at_conservative_dwell": 4.0,
+   "decision": "DWELL_LIMIT_S",
+   "decision_value_s": 1.0380622837370241,
+   "control_hand_force": "the force ratio stays at or below 0.07 over 0.5-6 N and kerf areas 1.0 and 0.2 mm^2, so force cannot separate these dwells",
+   "control_cold_knife": "adds no damage beyond the cut depth, PMID 35974853"
+  },
+  {
+   "tolerance_mm": 1.0,
+   "setting": 60.0,
+   "d_eff_bounds_m2_s": [
+    3.1360000000000006e-07,
+    9.633333333333334e-07
+   ],
+   "d_eff_over_conduction_only": [
+    2.24,
+    6.8809523809523805
+   ],
+   "max_dwell_s_conservative": 1.0380622837370241,
+   "max_dwell_s_optimistic": 3.188775510204081,
+   "dwell_enclosure_width_s": 2.1507132264670568,
+   "xi_thermal_at_conservative_dwell": 4.0,
+   "decision": "DWELL_LIMIT_S",
+   "decision_value_s": 1.0380622837370241,
+   "control_hand_force": "the force ratio stays at or below 0.07 over 0.5-6 N and kerf areas 1.0 and 0.2 mm^2, so force cannot separate these dwells",
+   "control_cold_knife": "adds no damage beyond the cut depth, PMID 35974853"
+  },
+  {
+   "tolerance_mm": 1.0,
+   "setting": 90.0,
+   "decision": "NO_SETTING_RETURNED",
+   "reason": "setting 90.0 is outside (10.0, 60.0), where the damage correlations are R 0.92-0.98; over the full (10.0, 120.0) the volume correlation is only R = 0.73"
+  },
+  {
+   "tolerance_mm": 1.5,
+   "setting": 30.0,
+   "d_eff_bounds_m2_s": [
+    3.1360000000000006e-07,
+    9.633333333333334e-07
+   ],
+   "d_eff_over_conduction_only": [
+    2.24,
+    6.8809523809523805
+   ],
+   "max_dwell_s_conservative": 2.3356401384083045,
+   "max_dwell_s_optimistic": 7.174744897959183,
+   "dwell_enclosure_width_s": 4.839104759550878,
+   "xi_thermal_at_conservative_dwell": 9.0,
+   "decision": "DWELL_LIMIT_S",
+   "decision_value_s": 2.3356401384083045,
+   "control_hand_force": "the force ratio stays at or below 0.07 over 0.5-6 N and kerf areas 1.0 and 0.2 mm^2, so force cannot separate these dwells",
+   "control_cold_knife": "adds no damage beyond the cut depth, PMID 35974853"
+  },
+  {
+   "tolerance_mm": 1.5,
+   "setting": 60.0,
+   "d_eff_bounds_m2_s": [
+    3.1360000000000006e-07,
+    9.633333333333334e-07
+   ],
+   "d_eff_over_conduction_only": [
+    2.24,
+    6.8809523809523805
+   ],
+   "max_dwell_s_conservative": 2.3356401384083045,
+   "max_dwell_s_optimistic": 7.174744897959183,
+   "dwell_enclosure_width_s": 4.839104759550878,
+   "xi_thermal_at_conservative_dwell": 9.0,
+   "decision": "DWELL_LIMIT_S",
+   "decision_value_s": 2.3356401384083045,
+   "control_hand_force": "the force ratio stays at or below 0.07 over 0.5-6 N and kerf areas 1.0 and 0.2 mm^2, so force cannot separate these dwells",
+   "control_cold_knife": "adds no damage beyond the cut depth, PMID 35974853"
+  },
+  {
+   "tolerance_mm": 1.5,
+   "setting": 90.0,
+   "decision": "NO_SETTING_RETURNED",
+   "reason": "setting 90.0 is outside (10.0, 60.0), where the damage correlations are R 0.92-0.98; over the full (10.0, 120.0) the volume correlation is only R = 0.73"
+  }
+ ],
+ "review_state": "PENDING_INDEPENDENT_REVIEW",
+ "no_claim_of_biological_validation": true
+}

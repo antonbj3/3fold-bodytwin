@@ -1,0 +1,23 @@
+{
+  "round": 1,
+  "status": "ROUND_COMPLETE_PARENT_RESEARCH_OPEN",
+  "review": "PENDING_INDEPENDENT_REVIEW",
+  "gate": "FAIL",
+  "strongest_matched_control": "TIE",
+  "original_lane_was_new": true,
+  "current_operation": "affine prestress residual Gram with frozen cohesive-history support",
+  "current_operator": "r1/centered_residual/operator_tier2.npz",
+  "portable_consumer": "compiled_query_r1.py",
+  "actual_fallback": "centered_residual_r1.py",
+  "mechanical_chain": "incision_r1.py / r1/physical_patch/summary.json",
+  "physiology_refinement": "r1/HX_CHAIN_BOUND_REFINEMENT.json",
+  "next": "NEXT_ROUND.md",
+  "preserve": [
+    "r1/first/",
+    "r1/physical_patch/",
+    "r1/nonlinear/",
+    "r1/residual_compiler/",
+    "r1/centered_residual/"
+  ],
+  "updated_utc": "2026-09-30T22:31:44.323780+00:00"
+}

@@ -1,0 +1,55 @@
+{
+  "reused_human_heldout": [
+    {
+      "diameter_m": 0.0006,
+      "predicted_friction_corrected_force_N": 1.1026990214100172,
+      "observed_friction_corrected_force_N": 0.9896016858807846,
+      "relative_error": 0.1142857142857144,
+      "reading_error": {
+        "best_relative_error": 0,
+        "worst_relative_error": 0.38333333333333364,
+        "kind": "rectangular bounded reading; NOT probability/CI"
+      },
+      "central_gate": "PASS",
+      "robust_reading_gate": "FAIL"
+    }
+  ],
+  "human_F_over_D_N_m": 1837.8317023500288,
+  "human_c_is_Gamma_times_a_over_D_plus_bulk_over_D": true,
+  "human_Gamma_J_m2": null,
+  "cross_study_unmodified_c": [
+    {
+      "gauge": 16,
+      "predicted_force_N": 3.0324223088775475,
+      "observed_effective_J_times_a_N": 1.7363868791818529,
+      "relative_error": 0.7463978478726803,
+      "gate": "FAIL",
+      "scope": "Cross-study HUMAN friction-corrected includes spreading vs PORCINE first-minus-repeat removes spreading. Test of deliberately strong port-equivalence hypothesis; NOT species-invariant posterior."
+    },
+    {
+      "gauge": 18,
+      "predicted_force_N": 2.3340462619845366,
+      "observed_effective_J_times_a_N": 1.9946689876516346,
+      "relative_error": 0.1701421521234247,
+      "gate": "PASS",
+      "scope": "Cross-study HUMAN friction-corrected includes spreading vs PORCINE first-minus-repeat removes spreading. Test of deliberately strong port-equivalence hypothesis; NOT species-invariant posterior."
+    },
+    {
+      "gauge": 21,
+      "predicted_force_N": 1.5070219959270235,
+      "observed_effective_J_times_a_N": 0.7209559556836932,
+      "relative_error": 1.090310765930066,
+      "gate": "FAIL",
+      "scope": "Cross-study HUMAN friction-corrected includes spreading vs PORCINE first-minus-repeat removes spreading. Test of deliberately strong port-equivalence hypothesis; NOT species-invariant posterior."
+    },
+    {
+      "gauge": 25,
+      "predicted_force_N": 0.9372941681985147,
+      "observed_effective_J_times_a_N": 1.2168126348619197,
+      "relative_error": 0.22971364584418857,
+      "gate": "FAIL",
+      "scope": "Cross-study HUMAN friction-corrected includes spreading vs PORCINE first-minus-repeat removes spreading. Test of deliberately strong port-equivalence hypothesis; NOT species-invariant posterior."
+    }
+  ],
+  "conclusion": "R3~1.8kJ/m2 is effective force/diameter geometry product, not independently measured Gamma_pierce; crossstudy failures do not by themselves refute a species-specific physical model"
+}

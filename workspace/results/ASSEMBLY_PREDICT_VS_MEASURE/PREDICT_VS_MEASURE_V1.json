@@ -1,0 +1,58 @@
+{
+ "question": "for which quantities is the prediction from other quantities tighter than the quantity own measurement disagreement",
+ "why": "a predicted lens position beat the measured one in the decision, 0.5345 against 0.5690 D, and if that is noise smoothing then it generalises: measuring a quantity harder is the wrong investment wherever its regularity is tighter than its instrument",
+ "measurement_disagreement_is_observed": "two independent instruments on the same 89 eyes, not an assumed repeatability",
+ "control": "the cohort mean, leave-one-out. A prediction that cannot beat the average is not a prediction, and three of these quantities are tightly distributed enough that a model can look accurate by returning the middle",
+ "results": [
+  {
+   "quantity": "CCT",
+   "unit": "um",
+   "eyes": 89,
+   "measurement_disagrees_with_itself_mean": 9.91484,
+   "prediction_error_from_other_quantities_mean": 28.51378,
+   "cohort_mean_control_error": 30.70271,
+   "prediction_beats_the_cohort_mean": true,
+   "prediction_tighter_than_the_measurement": false,
+   "ratio_prediction_over_disagreement": 2.8759
+  },
+  {
+   "quantity": "ACD",
+   "unit": "mm",
+   "eyes": 89,
+   "measurement_disagrees_with_itself_mean": 0.15484,
+   "prediction_error_from_other_quantities_mean": 0.17782,
+   "cohort_mean_control_error": 0.32525,
+   "prediction_beats_the_cohort_mean": true,
+   "prediction_tighter_than_the_measurement": false,
+   "ratio_prediction_over_disagreement": 1.1484
+  },
+  {
+   "quantity": "LT",
+   "unit": "mm",
+   "eyes": 89,
+   "measurement_disagrees_with_itself_mean": 0.04084,
+   "prediction_error_from_other_quantities_mean": 0.28498,
+   "cohort_mean_control_error": 0.3877,
+   "prediction_beats_the_cohort_mean": true,
+   "prediction_tighter_than_the_measurement": false,
+   "ratio_prediction_over_disagreement": 6.9776
+  },
+  {
+   "quantity": "WTW",
+   "unit": "mm",
+   "eyes": 89,
+   "measurement_disagrees_with_itself_mean": 0.16164,
+   "prediction_error_from_other_quantities_mean": 0.24368,
+   "cohort_mean_control_error": 0.33375,
+   "prediction_beats_the_cohort_mean": true,
+   "prediction_tighter_than_the_measurement": false,
+   "ratio_prediction_over_disagreement": 1.5075
+  }
+ ],
+ "claim_type": "capability",
+ "review_state": "PENDING_INDEPENDENT_REVIEW",
+ "answer": "NO, the rule does not generalise, and the negative is what sharpens it",
+ "what_the_negative_shows": "for all four preoperative quantities the instruments disagree with each other LESS than any prediction from the other quantities misses by: lens thickness by a factor of 7 (0.041 against 0.285 mm), corneal thickness by nearly 3 (9.91 against 28.51 um). The predictions are real predictions, since all four beat the leave-one-out cohort mean, but none beats its instrument. These quantities carry information no regularity supplies.",
+ "the_sharper_principle": "a prediction can beat a measurement when the measurement is taken in a DIFFERENT STATE than the one the decision needs. The lens position is measured after surgery, so its single measurement carries surgical and healing variability, while the prediction targets the expected position of the state the decision is about. The four quantities above are measured on a stable preoperative eye, which is the same state the chain consumes, and there the instrument wins every time.",
+ "how_to_refute_it": "find a quantity measured in the SAME state as the decision where a prediction from other quantities still beats the instrument. That would mean the state argument is wrong and the real cause is something else, most likely that the chain is more sensitive to the quantity than its own noise"
+}

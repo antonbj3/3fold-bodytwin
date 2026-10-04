@@ -1,0 +1,260 @@
+{
+  "coarse_dx_um": 10.0,
+  "coarse_metrics": {
+    "L_at_0_um": 8.0,
+    "L_at_100um": 5.481006917932761,
+    "occupancy_at_100um": 0.7326563092455122,
+    "occupancy_at_source": 0.8,
+    "raw_source_L_before_C0_scaling_nM": 99.71075201688839,
+    "source_L_nM": 8.0,
+    "threshold_span_um": 139.3351106694842,
+    "x_0.4_um": 203.81283515152379,
+    "x_0.8_um": 64.47772448203956,
+    "x_KD_um": 459.5244146409557
+  },
+  "criteria": {
+    "grid_x_0.4_change_le_5_percent": true,
+    "grid_x_0.8_change_le_5_percent": true,
+    "threshold_span_at_least_4_grid_cells": true,
+    "x_0.4_in_70_140_um_diagnostic": false,
+    "x_0.8_in_40_70_um": true,
+    "zero_source_null_is_zero": true
+  },
+  "equations": {
+    "boundary": "dL/dx = 0 at both finite-domain boundaries",
+    "ligand": "dL/dt = D d2L/dx2 - k_clear L + s0 exp(-x^2/(2 sigma^2))",
+    "occupancy": "theta = L/(K_D + L)",
+    "steady": "0 = D d2L/dx2 - k_clear L + s0 exp(-x^2/(2 sigma^2))"
+  },
+  "fine_dx_um": 5.0,
+  "fine_metrics": {
+    "L_at_0_um": 7.999999999999999,
+    "L_at_100um": 5.410032314558196,
+    "occupancy_at_100um": 0.7300956439730122,
+    "occupancy_at_source": 0.7999999999999999,
+    "raw_source_L_before_C0_scaling_nM": 99.76721578966168,
+    "source_L_nM": 7.999999999999999,
+    "threshold_span_um": 139.3060297172417,
+    "x_0.4_um": 203.70888900969743,
+    "x_0.8_um": 64.40285929245572,
+    "x_KD_um": 458.8015879292861
+  },
+  "grid_convergence": {
+    "relative_change_x_0.4": 0.0005102680709304116,
+    "relative_change_x_0.8": 0.0011624513322286022,
+    "threshold_span_grid_cells": 13.933511066948421
+  },
+  "id": "BT-HX-Q026",
+  "model": "one-dimensional free-ligand reaction-diffusion with equilibrium receptor readout",
+  "next_resolution_step": "Resolve L(x,t) and receptor occupancy on a grid no coarser than 10 um in the first pass, then add the measured slow/HSPG-bound pool and time-resolved source/receptor data before interpreting cell fates.",
+  "parameter_table": [
+    {
+      "parameter": "D_um2_per_s",
+      "role": "fast extracellular diffusion coefficient",
+      "source_or_assumption": "VERIFIED: Harish et al. 2023, Fig. 3C",
+      "unit": "um^2 s^-1",
+      "value": 55.0
+    },
+    {
+      "parameter": "k_clear_per_s",
+      "role": "linear effective clearance in the first free-ligand model",
+      "source_or_assumption": "ASSUMPTION frozen in PREREG.md",
+      "unit": "s^-1",
+      "value": 0.0015
+    },
+    {
+      "parameter": "sigma_um",
+      "role": "Gaussian source width",
+      "source_or_assumption": "ASSUMPTION frozen in PREREG.md",
+      "unit": "um",
+      "value": 25.0
+    },
+    {
+      "parameter": "K_D_nM",
+      "role": "fast-equilibrium receptor half-occupancy concentration",
+      "source_or_assumption": "ASSUMPTION frozen in PREREG.md",
+      "unit": "nM",
+      "value": 2.0
+    },
+    {
+      "parameter": "s0_nM_per_s",
+      "role": "source amplitude; profile is normalized for threshold distances",
+      "source_or_assumption": "ASSUMPTION frozen in PREREG.md",
+      "unit": "nM s^-1",
+      "value": 1.0
+    },
+    {
+      "parameter": "half_width_um",
+      "role": "distance from source to each no-flux outer boundary",
+      "source_or_assumption": "ASSUMPTION frozen in PREREG.md",
+      "unit": "um",
+      "value": 500.0
+    },
+    {
+      "parameter": "candidate_dx_um",
+      "role": "candidate spatial reporting grid",
+      "source_or_assumption": "FROZEN criterion in PREREG.md",
+      "unit": "um",
+      "value": 10.0
+    },
+    {
+      "parameter": "D_slow_um2_per_s",
+      "role": "slow component reported by the anchor source, not used here",
+      "source_or_assumption": "VERIFIED: Harish et al. 2023, Fig. 3C; excluded first model",
+      "unit": "um^2 s^-1",
+      "value": 4.0
+    },
+    {
+      "parameter": "slow_fraction",
+      "role": "slow fraction reported by the anchor source, not used here",
+      "source_or_assumption": "VERIFIED: Harish et al. 2023, Fig. 3C; excluded first model",
+      "unit": "dimensionless",
+      "value": 0.07
+    },
+    {
+      "parameter": "C0_reference_nM",
+      "role": "source concentration reported by the anchor source, not imposed on model",
+      "source_or_assumption": "VERIFIED: Harish et al. 2023, Fig. 4C",
+      "unit": "nM",
+      "value": 8.0
+    }
+  ],
+  "parameters": {
+    "D_um2_per_s": 55.0,
+    "K_D_nM": 2.0,
+    "candidate_dx_um": 10.0,
+    "half_width_um": 500.0,
+    "k_clear_per_s": 0.0015,
+    "s0_nM_per_s": 1.0,
+    "sigma_um": 25.0
+  },
+  "reference": {
+    "C0_nM": 8.0,
+    "D_fast_um2_per_s": 55.0,
+    "D_slow_um2_per_s": 4.0,
+    "doi": "10.1242/dev.201559",
+    "fast_fraction": 0.93,
+    "figure": "Fig. 3C and Fig. 4C",
+    "slow_fraction": 0.07,
+    "source": "Harish et al., Development 150, dev201559 (2023)",
+    "x_0.4_window_um": [
+      70.0,
+      140.0
+    ],
+    "x_0.8_window_um": [
+      40.0,
+      70.0
+    ]
+  },
+  "sensitivity": [
+    {
+      "D_um2_per_s": 27.5,
+      "K_D_nM": 2.0,
+      "factor": 0.5,
+      "k_clear_per_s": 0.0015,
+      "parameter": "D_um2_per_s",
+      "threshold_span_um": 94.92773480931484,
+      "x_0.4_um": 146.25814189678525,
+      "x_0.8_um": 51.3304070874704,
+      "x_KD_um": 268.44325518889286
+    },
+    {
+      "D_um2_per_s": 55.0,
+      "K_D_nM": 2.0,
+      "factor": 1.0,
+      "k_clear_per_s": 0.0015,
+      "parameter": "D_um2_per_s",
+      "threshold_span_um": 139.3351106694842,
+      "x_0.4_um": 203.81283515152379,
+      "x_0.8_um": 64.47772448203956,
+      "x_KD_um": 459.5244146409557
+    },
+    {
+      "D_um2_per_s": 82.5,
+      "K_D_nM": 2.0,
+      "factor": 1.5,
+      "k_clear_per_s": 0.0015,
+      "parameter": "D_um2_per_s",
+      "threshold_span_um": 185.06287908839215,
+      "x_0.4_um": 260.6051277668404,
+      "x_0.8_um": 75.54224867844822,
+      "x_KD_um": null
+    },
+    {
+      "D_um2_per_s": 55.0,
+      "K_D_nM": 2.0,
+      "factor": 0.5,
+      "k_clear_per_s": 0.00075,
+      "parameter": "k_clear_per_s",
+      "threshold_span_um": 242.54414605729636,
+      "x_0.4_um": 328.4976824836552,
+      "x_0.8_um": 85.95353642635884,
+      "x_KD_um": null
+    },
+    {
+      "D_um2_per_s": 55.0,
+      "K_D_nM": 2.0,
+      "factor": 1.0,
+      "k_clear_per_s": 0.0015,
+      "parameter": "k_clear_per_s",
+      "threshold_span_um": 139.3351106694842,
+      "x_0.4_um": 203.81283515152379,
+      "x_0.8_um": 64.47772448203956,
+      "x_KD_um": 459.5244146409557
+    },
+    {
+      "D_um2_per_s": 55.0,
+      "K_D_nM": 2.0,
+      "factor": 1.5,
+      "k_clear_per_s": 0.0022500000000000003,
+      "parameter": "k_clear_per_s",
+      "threshold_span_um": 110.33091448193586,
+      "x_0.4_um": 166.48169647113576,
+      "x_0.8_um": 56.1507819891999,
+      "x_KD_um": 315.23115177697395
+    },
+    {
+      "D_um2_per_s": 55.0,
+      "K_D_nM": 1.0,
+      "factor": 0.5,
+      "k_clear_per_s": 0.0015,
+      "parameter": "K_D_nM",
+      "threshold_span_um": 139.3351106694842,
+      "x_0.4_um": 203.81283515152379,
+      "x_0.8_um": 64.47772448203956,
+      "x_KD_um": null
+    },
+    {
+      "D_um2_per_s": 55.0,
+      "K_D_nM": 2.0,
+      "factor": 1.0,
+      "k_clear_per_s": 0.0015,
+      "parameter": "K_D_nM",
+      "threshold_span_um": 139.3351106694842,
+      "x_0.4_um": 203.81283515152379,
+      "x_0.8_um": 64.47772448203956,
+      "x_KD_um": 459.5244146409557
+    },
+    {
+      "D_um2_per_s": 55.0,
+      "K_D_nM": 3.0,
+      "factor": 1.5,
+      "k_clear_per_s": 0.0015,
+      "parameter": "K_D_nM",
+      "threshold_span_um": 139.3351106694842,
+      "x_0.4_um": 203.81283515152379,
+      "x_0.8_um": 64.47772448203956,
+      "x_KD_um": 351.7950835893016
+    }
+  ],
+  "unit_check": {
+    "all_positive": true,
+    "clearance_rate_per_s": 0.0015,
+    "concentration_unit": "nM",
+    "coordinate_unit": "um",
+    "diffusion_rate_at_candidate_grid_per_s": 0.55,
+    "rate_terms_have_same_unit": "s^-1",
+    "source_term_unit": "nM s^-1",
+    "status": "OK"
+  }
+}

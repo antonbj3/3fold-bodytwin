@@ -1,0 +1,194 @@
+{
+  "task": "Epigenetic clock / DNA-methylation aging hallmark cert: CpG-methylation-vs-age relationship (Horvath 2013, Hannum 2013), clock accuracy, epigenetic age acceleration as a mortality predictor, 2nd-gen (GrimAge/PhenoAge) vs 1st-gen (Horvath/Hannum) mortality-prediction difference, tissue-independence of Horvath's clock.",
+  "confidence_tier": "in-vivo-anchored (large-cohort methylation-vs-age + mortality) -- as specified by the task; mechanism-style grade MEASURED-B (PASS) for accuracy/mortality-HR/decorrelated-check falsifiers, causal status held OPEN by design",
+  "isolation_note": "No files edited other than this pair (docs/MECHANISM_EPIGENETIC_CLOCK.md + this JSON). data/MECHANISM_ANCHOR_GRAPH.json and all data/body_twin/agent_outputs/*.json and reports/probes/*.json referenced below were read-only cross-references, never modified. No git operations performed.",
+  "citations_verified_live_this_session": {
+    "horvath_2013": {
+      "pmid": "24138928",
+      "doi": "10.1186/gb-2013-14-10-r115",
+      "cite": "Horvath S (2013). DNA methylation age of human tissues and cell types. Genome Biology 14(10):R115.",
+      "verified_via": "NCBI esearch (DOI->PMID) + efetch full-text XML (PMC4015143), live this session",
+      "numbers": "353 CpGs; 8,000 samples, 82 Illumina DNAm array datasets, 51 healthy tissues/cell types (training). Training-data accuracy: age correlation r=0.97, median absolute error=2.9y. Held-out TEST-data (unbiased): r=0.96, error=3.6y. Per-tissue breakdown: PBMC r=0.97(err<1y), whole blood r=0.98(err=2.7y), cerebellum r=0.92(err=4.5y), pons r=0.96(err=3.3y), prefrontal cortex r=0.98(err=1.4y), temporal cortex r=0.99(err=2.2y), mixed brain r=0.94(err=3.1y), stomach r=0.84(err=3.7y), thyroid r=0.96(err=4.1y). DNAm age ~0 for ESC/iPSC; correlates with cell passage number; applicable to chimpanzee tissue."
+    },
+    "horvath_2013_erratum": {
+      "pmid": "25968125",
+      "doi": "10.1186/s13059-015-0649-6",
+      "cite": "Horvath S (2015). Erratum to: DNA methylation age of human tissues and cell types. Genome Biology 16:96.",
+      "verified_via": "NCBI esearch (DOI->PMID) + efetch full-text XML (PMC4427927), live this session",
+      "numbers": "Software coding error affected ONLY the cancer-tissue age-acceleration DIRECTION analysis (added a systematic offset via wrong calibration function for cancer datasets); author explicitly retracts the claim that most cancer types show increased DNAm age acceleration (direction is mixed, not uniformly positive). Author states verbatim: results involving non-cancerous tissue or cancer cell lines remain valid -- i.e. this doc's core accuracy numbers (r=0.96/0.97, MAE=2.9/3.6y, 51-tissue breakdown) are explicitly outside the correction's scope. The original abstract's '20 cancer types, average 36 years acceleration' figure is retracted and is NOT repeated in this doc's claims."
+    },
+    "hannum_2013": {
+      "pmid": "23177740",
+      "doi": "10.1016/j.molcel.2012.10.016",
+      "cite": "Hannum G et al (2013). Genome-wide methylation profiles reveal quantitative views of human aging rates. Molecular Cell 49(2):359-367.",
+      "verified_via": "NCBI esearch (DOI->PMID) + efetch abstract, live this session",
+      "numbers": "Whole blood, 656 individuals, ages 19-101; >450,000 CpG markers screened; final model uses 71 CpGs (cross-confirmed via Chen2016 Methods, since Hannum's own abstract does not state the final CpG count). Blood-only training design; abstract claims secondary generalization ('upheld in other human tissues') without a specific accuracy figure for that claim."
+    },
+    "marioni_2015": {
+      "pmid": "25633388",
+      "doi": "10.1186/s13059-015-0584-6",
+      "cite": "Marioni RE et al (2015). DNA methylation age of blood predicts all-cause mortality in later life. Genome Biology 16:25.",
+      "verified_via": "NCBI esearch + efetch full-text XML (PMC4350614), live this session",
+      "numbers": "4 cohorts: LBC1921 N=446/292 deaths, LBC1936 N=920/106 deaths, FHS N=2635/238 deaths, NAS N=657/226 deaths (total N~4658). Age+sex-adjusted HR per 5y {Delta}age: Hannum 1.21 (95%CI 1.14-1.29,P<0.0001), Horvath 1.11 (95%CI 1.05-1.18,P=0.0003). Fully adjusted (childhood IQ, education, social class, hypertension, diabetes, CVD, APOE e4): Hannum 1.16 (95%CI 1.08-1.25,P=6.0e-9), Horvath 1.09 (95%CI 1.02-1.15,P=0.0069). Heritability: Horvath h2=0.43(SE.07,P=9e-13), Hannum h2=0.42(SE.07,P=4e-10) (BSGS cohort). Void-floor comparator in the SAME 4 cohorts: Weidner predictor R=0.02-0.43, MAE=12.6-29.9y, 'not examined further' by the paper's own authors."
+    },
+    "chen_2016": {
+      "pmid": "27690265",
+      "doi": "10.18632/aging.101020",
+      "cite": "Chen BH et al (2016). DNA methylation-based measures of biological age: meta-analysis predicting time to death. Aging (Albany NY) 8(9):1844-1865.",
+      "verified_via": "NCBI esearch + efetch full-text XML (PMC5076441), live this session",
+      "numbers": "13 cohorts, N=13,089, 2734 deaths (21%), 3 racial/ethnic groups (non-Hispanic white n=9215 + Hispanic + African American). All epigenetic age-acceleration measures predictive of mortality independent of chronological age: univariate P<=8.2e-9, fully-adjusted P<5.4e-4. EEAA (cell-composition-corrected, Hannum-based) strongest: HR=1.040 per 1y EEAA (i.e. HR=1.48 for EEAA=10, HR=0.82 for EEAA=-5); smallest reported p-value 7.5e-43. Horvath-Hannum inter-correlation r=0.76 despite sharing only 6/(353+71) CpGs. Per-cohort age-correlation ~0.6-0.8 (e.g. WHI-White Horvath r=0.67, Hannum r=0.73) -- lower than Horvath's original 0.96, an honest disclosed real-world attenuation in older/blood-only/narrower-range cohorts. Paper's own caveat: HRs across differently-scaled measures are not directly comparable."
+    },
+    "levine_2018_phenoage": {
+      "pmid": "29676998",
+      "doi": "10.18632/aging.101414",
+      "cite": "Levine ME et al (2018). An epigenetic biomarker of aging for lifespan and healthspan. Aging (Albany NY) 10(4):573-591.",
+      "verified_via": "NCBI esearch + efetch abstract, live this session",
+      "numbers": "2nd-gen clock trained on a 9-biomarker mortality/phenotype composite (not raw age). Abstract claims: 'strongly outperforms previous measures' for all-cause mortality, cancers, healthspan, physical functioning, Alzheimer's disease; 'correlates strongly with age in every tissue and cell tested' (independent corroboration of cross-tissue tracking from a different CpG panel than Horvath's)."
+    },
+    "lu_2019_grimage": {
+      "pmid": "30669119",
+      "doi": "10.18632/aging.101684",
+      "cite": "Lu AT et al (2019). DNA methylation GrimAge strongly predicts lifespan and healthspan. Aging (Albany NY) 11(2):303-327.",
+      "verified_via": "NCBI esearch + efetch full-text XML (PMC6366976), live this session",
+      "numbers": "2nd-gen clock: 7 DNAm-surrogate plasma proteins + DNAm-estimated smoking pack-years, Cox time-to-death trained. Construction/test cohort: FHS Offspring N=2356 (training 1731/622 pedigrees, test 625/266 pedigrees). Time-to-death Cox P=2.0e-75 ('thousands of individuals' in validation per abstract, exact combined n not stated -- honest gap); time-to-CHD P=6.2e-24; time-to-cancer P=1.3e-12; age-at-menopause P=1.6e-12; comorbidity count P=3.45e-17. GrimAge correlates with chronological age at r=0.82 (lower than Horvath's 0.96/0.97) and with DNAm TIMP-1 r=0.90. AgeAccelGrim vs Horvath-clock-acceleration cross-correlation r=0.17 (weak) -- quantifies the cross-generation partial independence."
+    },
+    "mccrory_2021_tilda": {
+      "pmid": "33211845",
+      "doi": "10.1093/gerona/glaa286",
+      "cite": "McCrory C et al (2021). GrimAge Outperforms Other Epigenetic Clocks in the Prediction of Age-Related Clinical Phenotypes and All-Cause Mortality. J Gerontol A Biol Sci Med Sci 76(5):741-749.",
+      "verified_via": "NCBI esearch (author+title/abstract terms) + efetch abstract, live this session",
+      "numbers": "TILDA cohort n=490, up to 10y follow-up, 9 clinical/mortality outcomes, 4 clocks (Horvath/Hannum/PhenoAge/GrimAge) tested head-to-head, same methods, cohort independent of any clock's own training data. Result: HorvathAA and HannumAA not predictive of health/mortality (0/9); PhenoAgeAA 4/9 minimally-adjusted, loses significance fully adjusted; GrimAgeAA 8/9 minimally-adjusted (all except grip strength), retains significance fully adjusted for walking speed, polypharmacy, frailty, AND mortality specifically."
+    },
+    "higgins_chen_2022_pcclock": {
+      "pmid": "36277076",
+      "doi": "10.1038/s43587-022-00248-2",
+      "cite": "Higgins-Chen AT et al (2022). A computational solution for bolstering reliability of epigenetic clocks. Nature Aging 2(7):644-661.",
+      "verified_via": "NCBI esearch + efetch abstract, live this session",
+      "numbers": "Technical noise produces deviations up to 9 years between replicate measurements of the SAME sample, across 6 prominent epigenetic clocks. Retrained principal-component (PC) versions of the same 6 clocks show agreement between most replicates within 1.5 years. Platform/normalization-dependence anchor; this repo's graph already encodes it as a formal gate (AUTO-CLOCK-CONSTRUCT-VALIDITY-GATE-FOR-ANY-EP, cross-referenced not edited)."
+    },
+    "jaffe_irizarry_2014_heterogeneity": {
+      "pmid": "24495553",
+      "doi": "10.1186/gb-2014-15-2-r31",
+      "cite": "Jaffe AE, Irizarry RA (2014). Accounting for cellular heterogeneity is critical in epigenome-wide association studies. Genome Biology 15(2):R31.",
+      "verified_via": "NCBI esearch + efetch abstract, live this session",
+      "numbers": "Blood is a heterogeneous mix of cell types with very different methylation profiles; cell composition changes with age in blood; cell composition explains much of DNAm variability; high confounding between age-related methylation changes and cell composition at the CpG level. Anchors the tissue-heterogeneity-confounds-blood-clocks symmetric-QC item; motivates why cell-composition-corrected measures (IEAA/EEAA) exist and why Chen2016 found EEAA strongest."
+    },
+    "lu_2020_nature_osk_spotcheck": {
+      "pmid": "33268865",
+      "doi": "10.1038/s41586-020-2975-4",
+      "cite": "Lu Y et al (2020). Reprogramming to recover youthful epigenetic information and restore vision. Nature.",
+      "verified_via": "NCBI esearch + esummary (title/journal/author match), live this session -- bibliographic spot-check only, NOT deep-dived",
+      "numbers": "Not re-derived here; cited only as a due-diligence spot-check of one load-bearing reference in the pre-existing causal-vs-marker debate thread carried in data/body_twin/agent_outputs/epigenetic-clock-mechanism__a4d00113504075d29.json. That thread's numbers are cross-referenced, not re-certified by this doc. Causality is held OPEN, matching the task's explicit instruction."
+    }
+  },
+  "internal_decorrelated_anchors_read_only": {
+    "mol_dna_epigen_program": {
+      "graph_node": "MOL-DNA-EPIGEN-PROGRAM",
+      "artifacts": ["reports/probes/mt_dnaepigen.json", "reports/probes/mt_dnaepigen_leg2.json"],
+      "status_in_graph": "ASSUMED, verdict MEASURED-B",
+      "measured_numbers": {
+        "leg1_rank_generalization": {
+          "dataset": "Sun/Picard fibroblast replicative-lifespan lines",
+          "n_donors": 9,
+          "spearman_rho_age": 0.828,
+          "exact_perm_p": 0.00427,
+          "jackknife_rho_range": [0.755, 0.934]
+        },
+        "leg1_raw_magnitude_transfer": {
+          "result": "FAILS (ratio-to-null 0.956, p=0.278) -- dominated by ~20-27y systematic tissue offset, disclosed not hidden"
+        },
+        "leg1_offset_calibrated_LOO": {
+          "MAE_years": 5.76,
+          "ratio_to_null": 0.248
+        },
+        "leg2_independent_transcriptomic_age": {
+          "dataset": "GSE113957 fibroblast RNA-seq",
+          "n": 141,
+          "age_range": [1, 96],
+          "heldout_R2": 0.712,
+          "null_R2_mean": -0.302,
+          "z_above_null": 7.5,
+          "hgps_holdout": "progeria donors predicted ~36-37y, reproduces Fleischer et al accelerated-aging external anchor"
+        }
+      },
+      "note": "Non-circular: fibroblast clock scores are pre-computed published clocks (Horvath/Hannum/PhenoAge), fixed coefficients applied, not re-fit. A further figure quoted in this graph node's own prose ('Horvath 353-CpG AS-IS on GSE40279 blood n=656: R2=0.815 MAE=4.77y') could NOT be traced to a standalone artifact file and is explicitly NOT claimed as verified by this doc."
+    },
+    "aging_eta_drift_cell": {
+      "graph_node": "AGING-ETA-DRIFT-CELL",
+      "artifact": "reports/probes/mt_aging_null.json",
+      "status_in_graph": "REFUTED, verdict MEASURED-NEGATIVE (POWERED)",
+      "measured_numbers": {
+        "claim": "bioenergetic eta(t) (ATP-linked/basal OCR) vs DNAm-clock age, same-sample fibroblast lines",
+        "result": "NOT coupled: |r|<0.27 across 12 clocks/tolerances/confounds, 92.7% power at n=68 same-sample (tolerance-matched); pre-registered clock (Horvath2) exact-row r=0.088 (p=0.65, n=31)"
+      },
+      "note": "A genuine forced negative (7 adversaries forced and survived per the graph node), relevant context but not this doc's core claim -- cited only as adjacent prior art using the Hannum clock as a face-validity check, read-only."
+    }
+  },
+  "graph_nodes_cross_referenced_not_edited": [
+    "AGE-EPIGENETIC-CLOCK-MECHANISM",
+    "AGE-TELOMERE-BIOLOGY",
+    "AGE-MULTICLOCK-EDGESET",
+    "AGING-ETA-DRIFT-CELL",
+    "MOL-DNA-EPIGEN-PROGRAM",
+    "MOL-DNA-REPAIR-FIDELITY",
+    "AUTO-CLOCK-CONSTRUCT-VALIDITY-GATE-FOR-ANY-EP",
+    "MOL-PROTEOSTASIS-CAPACITY",
+    "MOL-CELLULAR-SENESCENCE-SASP",
+    "ONCO-CANCER-HALLMARKS"
+  ],
+  "headline_falsifiers": {
+    "falsifier_1_horvath_accuracy": {
+      "pre_registered_threshold": "MAE~2.7-3.6y, correlation~0.96 with chronological age, held-out/test data",
+      "measured": {"r_test": 0.96, "MAE_test_years": 3.6, "r_train_optimistic": 0.97, "MAE_train_years": 2.9, "whole_blood_specific": {"r": 0.98, "MAE_years": 2.7}},
+      "PASS": true,
+      "anchor": "Horvath 2013 primary full text, held-out test-data split (author's own unbiased/optimistic distinction)"
+    },
+    "falsifier_2_age_accel_mortality_HR": {
+      "pre_registered_threshold": "measured HR per year of epigenetic age acceleration (Marioni2015/Chen2016)",
+      "measured": {
+        "marioni2015_HR_per_5y_fully_adjusted": {"Horvath": 1.09, "Hannum": 1.16},
+        "marioni2015_derived_HR_per_1y": {"Horvath": 1.017, "Hannum": 1.030, "derivation": "HR_5y^(1/5), this doc's own conversion, explicitly labeled derived"},
+        "chen2016_EEAA_HR_per_1y": 1.040,
+        "chen2016_cohorts": 13,
+        "chen2016_n": 13089
+      },
+      "PASS": true,
+      "anchor": "real vital-status/death-registry follow-up in each cohort; void-floor comparator (Weidner predictor, same cohorts, R=0.02-0.43/MAE=12.6-29.9y) confirms non-automatic signal"
+    },
+    "falsifier_3_decorrelated_1st_vs_2nd_gen": {
+      "pre_registered_threshold": "1st-gen tracks chronological age; 2nd-gen better predicts lifespan/mortality -- quantify the measured difference",
+      "measured": {
+        "age_correlation": {"Horvath_1st_gen": 0.96, "GrimAge_2nd_gen": 0.82},
+        "mccrory2021_TILDA_outcomes_predictive_of_9": {"Horvath": 0, "Hannum": 0, "PhenoAge_minimally_adjusted": 4, "PhenoAge_fully_adjusted": 0, "GrimAge_minimally_adjusted": 8, "GrimAge_fully_adjusted_incl_mortality": 4}
+      },
+      "PASS": true,
+      "anchor": "TILDA (n=490) is independent of GrimAge's (Framingham Offspring) and PhenoAge's (NHANES-III/InCHIANTI/WHI) own training cohorts -- rules out pure circularity",
+      "disclosed_caveat": "part of GrimAge/PhenoAge's edge is by construction (trained on mortality/phenotype surrogates); independent-cohort replication mitigates but does not fully eliminate this as a contributing factor"
+    },
+    "falsifier_4_tissue_independence": {
+      "pre_registered_threshold": "Horvath's clock generalizes across tissue types",
+      "measured": {
+        "within_paper_tissue_count": 51,
+        "per_tissue_r_range": [0.78, 0.99],
+        "per_tissue_MAE_range_years": [1.0, 12.0],
+        "independent_2nd_clock_corroboration": "PhenoAge (Levine 2018): 'correlates strongly with age in every tissue and cell tested'",
+        "in_repo_harder_test_blood_to_fibroblast_rank": {"spearman_rho": 0.828, "exact_perm_p": 0.00427, "n": 9},
+        "in_repo_harder_test_raw_magnitude": "FAILS without offset correction (disclosed, not hidden)"
+      },
+      "PASS": "PASS on rank/existence; explicit disclosed partial-FAIL on raw-magnitude cross-tissue transfer (honest, not force-collapsed to a single verdict)"
+    }
+  },
+  "symmetric_qc_open_items": [
+    "Causality (clock as cause vs marker of aging): genuinely unresolved, held OPEN by design, not adjudicated by this doc.",
+    "Array-platform + normalization dependence: up to 9y technical noise between replicates (Higgins-Chen 2022), ~1.5y after PC-correction -- a real floor against which small intervention effects must be judged.",
+    "Tissue heterogeneity (blood-cell-composition drift with age) confounds naive whole-blood clocks (Jaffe & Irizarry 2014) -- motivates and is partially addressed by composition-corrected variants (IEAA/EEAA).",
+    "2nd-gen clocks' mortality-prediction edge is partly a by-construction effect of their training target, not purely a discovered latent 'pace of aging' -- disclosed, not hidden, in Falsifier 3."
+  ],
+  "overall_verdict": {
+    "falsifier_1_horvath_accuracy": "PASS -- exact primary-source match (r=0.96, MAE=3.6y test data)",
+    "falsifier_2_mortality_HR": "PASS -- significant, non-zero, survives heavy covariate adjustment, replicates across 13 independent cohorts/3 ethnicities, clears a real void-floor comparator",
+    "falsifier_3_decorrelated_1st_vs_2nd_gen": "PASS -- quantified, out-of-training-cohort reversal (0/9 and 0/9 vs 8/9 minimally-adjusted outcomes; GrimAge alone retains mortality significance fully adjusted), with an honestly disclosed partial-circularity caveat",
+    "falsifier_4_tissue_independence": "PASS on rank/existence (within-paper 51-tissue breakdown + independent PhenoAge corroboration + this repo's own harder blood-to-fibroblast rank test); explicit disclosed partial-FAIL on raw cross-tissue magnitude transfer without offset correction",
+    "causal_status": "OPEN, not C -- held open by design, matching the task's explicit instruction"
+  }
+}

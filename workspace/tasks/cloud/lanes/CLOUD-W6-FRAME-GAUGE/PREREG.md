@@ -1,0 +1,3 @@
+# Frozen criterion — CLOUD-W6-FRAME-GAUGE
+
+PASS method only if the combined observation Jacobian has full rank for separate femur and tibia absolute poses (12 local pose degrees of freedom), and a held-out anatomical correspondence test is specified independently of contact fit. Also show an explicit error-propagation budget for tendon arm; if ±10% cannot be guaranteed using stated measurement precisions, downstream use remains UNKNOWN. Include a common-rigid counterexample for relative-only observations. Public literature provides method context, not JW-specific calibration. Do not alter these gates after analysis.

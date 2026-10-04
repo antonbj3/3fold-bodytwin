@@ -1,0 +1,28 @@
+{
+  "status": "FROZEN_BEFORE_NEW_METROLOGY_COMPUTATION",
+  "utc": "2026-09-30T23:46:04.202502+00:00",
+  "parent": "r3/geometry/tip_pressure_results.json",
+  "changed_operation": "Replace nominal F-edge radius with a joint identifiable contactproduct k*R_F; expose metrology needed for heldout actual R_K/R_F query",
+  "reason": "F tip .001inch is approximate and spatially heterogeneous. Conditional60%error does not rejectall actual-radius models. Do not fit this newradiusand call it prediction.",
+  "derivation": "Fn_K(d)=Fn_B(d)+(R_K/R_F)*(12-Fn_B(65)); dFn/dd from piecewise measured B. Determine only diagnosticR_F requiredby heldoutK40percent at20lbf.",
+  "metric": "necessary radiusprecision for20%depthbudget8pp, conditionalontheadditivecontactclosure; normalforce/closureerrorsUNKNOWN",
+  "planned_sensitivity_um": [
+    0.1,
+    0.5,
+    1,
+    2
+  ],
+  "explicit_radius_scenarios_um": [
+    20,
+    30
+  ],
+  "rounding_design": "joint cornersofsharedreferenceDpoint rounding\u00b10.5pp andcalibrationD\u00b10.5pp, heldoutreading\u00b12pp; these are resolution allowancesnotrepeatabilityCI",
+  "falsifiers": [
+    "allowedunknownradiuscanexplainKthenempiricallawrejectionUNKNOWN",
+    "dose-dependentF offset from16/20lbfnotwithinroundingthenconstant-tippressurefailsconditionalclosure",
+    "normalwork remainszero alongsteadytrajectoryregardlessofnormalfit"
+  ],
+  "heldout_reuse_policy": "K-used inverse r is DIAGNOSTIC_ONLY; never replaces originalprediction, no postfitPASS",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

@@ -1,0 +1,3 @@
+# Public primary source note (locally checked before launch)
+
+Wilke H-J et al., *New In Vivo Measurements of Pressures in the Intervertebral Disc in Daily Life*, Spine 24(8):755–762 (1999), DOI 10.1097/00007632-199904150-00005. Full primary PDF: https://fonar.com/pdf/spine_vol_24.No.8.pdf . A transducer measured nucleus pressure in the nondegenerated **L4/L5** disc of one 45-year-old, 70-kg man. The paper reports disc cross-sectional area 1,800 mm². Table 1 gives relaxed standing 0.50 MPa and standing bent forward 1.10 MPa; these are same-level observations in that one person. This is not L5/S1, mean disc stress or a population reference interval. Recheck the source if network permits; preserve the single-subject and pressure-definition limitations.

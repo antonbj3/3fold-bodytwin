@@ -1,0 +1,183 @@
+{
+  "decisions": [
+    {
+      "goal_relative": 0.001,
+      "halfwidth": 0.0001,
+      "robust_joint_status": "feasible",
+      "sources": [
+        {
+          "mu": 0.8,
+          "candidate": "feasible",
+          "heldout_pass": true,
+          "false_accept": false,
+          "conditional_radius": 0.8352225380902241
+        },
+        {
+          "mu": 1.0,
+          "candidate": "feasible",
+          "heldout_pass": true,
+          "false_accept": false,
+          "conditional_radius": 0.857938390270693
+        },
+        {
+          "mu": 1.2,
+          "candidate": "feasible",
+          "heldout_pass": true,
+          "false_accept": false,
+          "conditional_radius": 0.8769461082177655
+        }
+      ],
+      "whole_continuum_status": "conditional structural enclosure, numericalODE/float remainderUNKNOWN",
+      "local_constraints_only": true
+    },
+    {
+      "goal_relative": 0.001,
+      "halfwidth": 0.0005,
+      "robust_joint_status": "feasible",
+      "sources": [
+        {
+          "mu": 0.8,
+          "candidate": "feasible",
+          "heldout_pass": true,
+          "false_accept": false,
+          "conditional_radius": 2.2151843415515917
+        },
+        {
+          "mu": 1.0,
+          "candidate": "feasible",
+          "heldout_pass": true,
+          "false_accept": false,
+          "conditional_radius": 2.2098601953286123
+        },
+        {
+          "mu": 1.2,
+          "candidate": "feasible",
+          "heldout_pass": true,
+          "false_accept": false,
+          "conditional_radius": 2.206468700285542
+        }
+      ],
+      "whole_continuum_status": "conditional structural enclosure, numericalODE/float remainderUNKNOWN",
+      "local_constraints_only": true
+    },
+    {
+      "goal_relative": 1e-05,
+      "halfwidth": 0.0001,
+      "robust_joint_status": "UNKNOWN_REFINE_OR_RETAIN",
+      "sources": [
+        {
+          "mu": 0.8,
+          "candidate": "UNKNOWN_REFINE_OR_RETAIN",
+          "heldout_pass": true,
+          "false_accept": false,
+          "conditional_radius": 0.8352225380902241
+        },
+        {
+          "mu": 1.0,
+          "candidate": "feasible",
+          "heldout_pass": true,
+          "false_accept": false,
+          "conditional_radius": 0.857938390270693
+        },
+        {
+          "mu": 1.2,
+          "candidate": "UNKNOWN_REFINE_OR_RETAIN",
+          "heldout_pass": true,
+          "false_accept": false,
+          "conditional_radius": 0.8769461082177655
+        }
+      ],
+      "whole_continuum_status": "conditional structural enclosure, numericalODE/float remainderUNKNOWN",
+      "local_constraints_only": true
+    },
+    {
+      "goal_relative": 1e-05,
+      "halfwidth": 0.0005,
+      "robust_joint_status": "UNKNOWN_REFINE_OR_RETAIN",
+      "sources": [
+        {
+          "mu": 0.8,
+          "candidate": "UNKNOWN_REFINE_OR_RETAIN",
+          "heldout_pass": false,
+          "false_accept": false,
+          "conditional_radius": 2.2151843415515917
+        },
+        {
+          "mu": 1.0,
+          "candidate": "feasible",
+          "heldout_pass": true,
+          "false_accept": false,
+          "conditional_radius": 2.2098601953286123
+        },
+        {
+          "mu": 1.2,
+          "candidate": "UNKNOWN_REFINE_OR_RETAIN",
+          "heldout_pass": false,
+          "false_accept": false,
+          "conditional_radius": 2.206468700285542
+        }
+      ],
+      "whole_continuum_status": "conditional structural enclosure, numericalODE/float remainderUNKNOWN",
+      "local_constraints_only": true
+    }
+  ],
+  "cost_by_source": [
+    {
+      "mu": 0.8,
+      "candidate_cold_including_actual_past_s": 0.16539174300000004,
+      "retained_ROM_cold_including_actual_past_s": 0.24728768899999992,
+      "candidate_retained_cold_ratio": 0.668823198068708,
+      "prefix120_acquisition": "additionalsharedCONTEXT_CHECKPOINTcostnotincludedintheselowerboundtotals; addingcommoncostpushesratiotoward1",
+      "domain_discovery_attempts_charged": 5,
+      "candidate_domain_query_s": 0.0011323039999999729,
+      "retained_ROM_domain_query_s": 0.0003476609999999436,
+      "sparse_Hessian_spatial_s": 0.005306219999999973,
+      "sparse_Hessian_domain_radius": 2.1719477440361916,
+      "candidate_domain_radius": 2.2151843415515917,
+      "runtime_capsule_bytes": 2236,
+      "new_state_float64_bytes": 1448,
+      "discarded_state_float64_bytes": 6528,
+      "candidate_setup_oracle_validation_included": false,
+      "validation_cost_reported_separately": true
+    },
+    {
+      "mu": 1.0,
+      "candidate_cold_including_actual_past_s": 0.1432870930000001,
+      "retained_ROM_cold_including_actual_past_s": 0.264590918,
+      "candidate_retained_cold_ratio": 0.5415419927603111,
+      "prefix120_acquisition": "additionalsharedCONTEXT_CHECKPOINTcostnotincludedintheselowerboundtotals; addingcommoncostpushesratiotoward1",
+      "domain_discovery_attempts_charged": 5,
+      "candidate_domain_query_s": 0.0010650590000000904,
+      "retained_ROM_domain_query_s": 0.0004498630000000503,
+      "sparse_Hessian_spatial_s": 0.005534368000000067,
+      "sparse_Hessian_domain_radius": 2.166937619621259,
+      "candidate_domain_radius": 2.2098601953286123,
+      "runtime_capsule_bytes": 2251,
+      "new_state_float64_bytes": 1448,
+      "discarded_state_float64_bytes": 6528,
+      "candidate_setup_oracle_validation_included": false,
+      "validation_cost_reported_separately": true
+    },
+    {
+      "mu": 1.2,
+      "candidate_cold_including_actual_past_s": 0.13862672700000012,
+      "retained_ROM_cold_including_actual_past_s": 0.2179954759999998,
+      "candidate_retained_cold_ratio": 0.6359156141387092,
+      "prefix120_acquisition": "additionalsharedCONTEXT_CHECKPOINTcostnotincludedintheselowerboundtotals; addingcommoncostpushesratiotoward1",
+      "domain_discovery_attempts_charged": 5,
+      "candidate_domain_query_s": 0.001195739000000029,
+      "retained_ROM_domain_query_s": 0.0003157759999998788,
+      "sparse_Hessian_spatial_s": 0.005280308000000011,
+      "sparse_Hessian_domain_radius": 2.1637676914849973,
+      "candidate_domain_radius": 2.206468700285542,
+      "runtime_capsule_bytes": 2252,
+      "new_state_float64_bytes": 1448,
+      "discarded_state_float64_bytes": 6528,
+      "candidate_setup_oracle_validation_included": false,
+      "validation_cost_reported_separately": true
+    }
+  ],
+  "innovation_status": "FAIL_COLD_COST_GATE_NOT_PASSED_AND_ESTABLISHED_GOAL_METHODS_ELIGIBLE",
+  "next_operation": "heterogeneous/overlappinghistory and postdeletion unknownendpoints; actualHaarstoragefailure+lateendpointfailure preservedbybodyworker",
+  "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

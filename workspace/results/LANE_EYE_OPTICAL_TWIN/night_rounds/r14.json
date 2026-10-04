@@ -1,0 +1,250 @@
+{
+  "round": 14,
+  "operation": "Independent thickness/common-surface port; eta-nullspace power falsification followed by curvature-preserving highmode wavefront falsification",
+  "control": "same-thickness/index/allocation radial angularmean; preserved R13rotation; held external GaussianEq5; no algorithmcompetition",
+  "outcome": {
+    "sign_direction": {
+      "inherited_R13_delta_power_D": {
+        "all05": -0.4255855130861548,
+        "all15": 0.46577595325334187,
+        "eta0": 0.010589804497080024,
+        "eta1": -0.8617973663741694
+      },
+      "common_bending_delta_power_pair_D": [
+        -1.0368756130053143,
+        0.1856808314681473
+      ],
+      "clinical_direction": "UNKNOWN",
+      "scope": "conditional synthetic model"
+    },
+    "eta_sufficiency": {
+      "restricted_R13": "SUFFICIENT_BY_CONSTRUCTION",
+      "general_expanded_surface_contract": "FAIL",
+      "pair_k_mm_inverse": 0.0005,
+      "identity": {
+        "T_mm": 0.0,
+        "n": 0.0,
+        "J": 0.0,
+        "mean_T_um": 0.0,
+        "subtracted_surface_thickness_mm": 2.220446049250313e-16
+      },
+      "input_eta_error": 0.0,
+      "measured_eta_error": 0.0,
+      "powergap_D": 0.3056391116672543,
+      "max_common_displacement_um": 1.882576016336409,
+      "instance_pairs": 4,
+      "counterexamples": 4
+    },
+    "curvature_sufficiency": {
+      "contract": "central surface jet -> full wavefront",
+      "gate": "FAIL",
+      "pair": [
+        -3.0,
+        3.0
+      ],
+      "identity": {
+        "T_mm": 0.0,
+        "n": 0.0,
+        "J": 0.0,
+        "mean_T_um": 0.0,
+        "subtracted_surface_thickness_mm": 2.220446049250313e-16
+      },
+      "central_jet_identity_error": 0.0,
+      "eta_error": 1.1102230246251565e-16,
+      "C40_gap_um": 0.3802118380505428,
+      "powergap_D": 2.4003057319532672e-09,
+      "instance_pairs": 3,
+      "counterexamples": 3
+    },
+    "minimal_extension": {
+      "fixed_R13_family": "eta only",
+      "fixed_quadratic_bend_family": "one k scalar in addition",
+      "arbitrary_spatial_eye": "one common height field m if complete T known; both raw surfaces must be acquired if T is not known",
+      "eta_role": "derived measurement functional, not general independent material closure"
+    },
+    "rotational_control": {
+      "new_meanpower_difference_D": 4.467172232125449e-07,
+      "inherited": {
+        "power_difference_D": -1.3592092784620036e-08,
+        "thickness_identity_error_um": 2.2737367544323206e-13,
+        "source_files": [
+          "r13/OPTICAL_source30_R13_V1.json",
+          "r13/OPTICAL_source30_radial_R13_V1.json"
+        ]
+      }
+    },
+    "numerics": {
+      "gate": "PASS_SAMPLED",
+      "external_instances": 16,
+      "external_power_error_D": 3.6115963553129404e-09,
+      "refinement_cases": 7,
+      "max_coefficient_error_um": 4.727884750366229e-13,
+      "max_halfpencil_power_error_D": 2.514724428692716e-09,
+      "reciprocity": {
+        "instances": 64,
+        "position_error_mm": 6.060638241914243e-15,
+        "OPL_error_mm": 2.5979218776228663e-14,
+        "direction_error": 5.555043965667446e-16,
+        "alive": true
+      },
+      "rigorous_nonlinear_enclosure": "UNKNOWN"
+    },
+    "consumer": {
+      "coefficient_error_um": 0.0,
+      "power_error_D": 0.0
+    },
+    "cost": {
+      "timed_commands": [
+        {
+          "file": "COST_CONSUMER_V1.txt",
+          "user_s": 1.03,
+          "system_s": 0.03,
+          "maxRSS_KiB": 81916.0,
+          "exit_status": 0.0
+        },
+        {
+          "file": "COST_HIGH_ORDER_V1.txt",
+          "user_s": 6.11,
+          "system_s": 0.07,
+          "maxRSS_KiB": 84304.0,
+          "exit_status": 0.0
+        },
+        {
+          "file": "COST_PLOT_V1.txt",
+          "user_s": 2.22,
+          "system_s": 0.31,
+          "maxRSS_KiB": 113404.0,
+          "exit_status": 0.0
+        },
+        {
+          "file": "COST_SURFACE_TEST_V1.txt",
+          "user_s": 6.58,
+          "system_s": 0.05,
+          "maxRSS_KiB": 82020.0,
+          "exit_status": 0.0
+        },
+        {
+          "file": "COST_VERIFY_SURFACE_V1.txt",
+          "user_s": 11.23,
+          "system_s": 0.12,
+          "maxRSS_KiB": 102108.0,
+          "exit_status": 0.0
+        }
+      ],
+      "known_timed_cpu_s": 27.75,
+      "maxRSS_KiB": 113404.0,
+      "complete_research_cost": "UNKNOWN: search/web/design/reasoning/export not fully timed",
+      "query_inherited_PB_solves": 0,
+      "query_grid_rebuilds": 0,
+      "consumer_evaluation_cpu_s": 0.532027778,
+      "algorithm_speedup_claim": false
+    }
+  },
+  "gate": "FAIL",
+  "gate_scope": "general sufficiency of thickness/index/scalar eta for expanded independent corneal surfaces",
+  "numeric_gate": "PASS_SAMPLED",
+  "clinical_gate": "UNKNOWN",
+  "claim_type": "capability",
+  "form": "C",
+  "review": "PENDING_INDEPENDENT_REVIEW",
+  "obstacle": "unmeasured common surface geometry and coupled deformation law; centralcurvature omits pupilresolvedwavefront",
+  "next": "Registered same-eye pre/post T,m maps to held manifestrefraction/per-termaberrometry, with common-coordinate uncertainty; no energy-only continuation",
+  "source_admission": false,
+  "files": [
+    "CHECKPOINT_R14_V1.json",
+    "NEXT_ROUND.md",
+    "PORT_R14_V1.json",
+    "RESULTS.md",
+    "WORK_STATUS.json",
+    "night_rounds/r14.json",
+    "r14/ACQUISITION_TARGETS_R14_V1.json",
+    "r14/ARTIFACT_MANIFEST_R14_V1.json",
+    "r14/ATTEMPTS_R14_V1.json",
+    "r14/CONSUMER_R14_V1.json",
+    "r14/COST_CONSUMER_V1.txt",
+    "r14/COST_HIGH_ORDER_V1.txt",
+    "r14/COST_PLOT_R14_V1.json",
+    "r14/COST_PLOT_V1.txt",
+    "r14/COST_R14_V1.json",
+    "r14/COST_SURFACE_TEST_V1.txt",
+    "r14/COST_VERIFY_SURFACE_V1.txt",
+    "r14/DECOMPOSITION_R14_V1.json",
+    "r14/DERIVATION_R14.md",
+    "r14/EXPORT_SCIENCE_V1.log",
+    "r14/EXTERNAL_GAUSSIAN_R14_V1.json",
+    "r14/FINALIZE_HANDOVER_V1.log",
+    "r14/FINAL_INTEGRITY_R14_V1.json",
+    "r14/FOUR_POOL_0_V1.txt",
+    "r14/FOUR_POOL_1_V1.txt",
+    "r14/FOUR_POOL_2_V1.txt",
+    "r14/FOUR_POOL_3_V1.txt",
+    "r14/FOUR_POOL_4_V1.txt",
+    "r14/HIGH_ORDER_SUFFICIENCY_R14_V1.json",
+    "r14/HIGH_ORDER_V1.log",
+    "r14/INTEGRITY_PRE_HANDOVER_R14_V1.json",
+    "r14/NEXT_ROUND_R14_V1.md",
+    "r14/OLD_CELLS_CURVATURE_V1.txt",
+    "r14/OLD_CELLS_HORNHINNA_V1.txt",
+    "r14/OPD_HIGH_0p0_R14_V1.npz",
+    "r14/OPD_HIGH_10p0_R14_V1.npz",
+    "r14/OPD_HIGH_3p0_R14_V1.npz",
+    "r14/OPD_HIGH_m3p0_R14_V1.npz",
+    "r14/OPD_k0p0005_R14_V1.npz",
+    "r14/OPD_k0p001_R14_V1.npz",
+    "r14/OPD_k0p002_R14_V1.npz",
+    "r14/OPD_k0p004_R14_V1.npz",
+    "r14/OPD_k0p0_R14_V1.npz",
+    "r14/OPD_km0p0005_R14_V1.npz",
+    "r14/OPD_km0p001_R14_V1.npz",
+    "r14/OPD_km0p002_R14_V1.npz",
+    "r14/OPD_km0p004_R14_V1.npz",
+    "r14/OPTICAL_BENDING_RADIAL_R14_V1.json",
+    "r14/OPTICAL_HIGH_0p0_R14_V1.json",
+    "r14/OPTICAL_HIGH_10p0_R14_V1.json",
+    "r14/OPTICAL_HIGH_3p0_R14_V1.json",
+    "r14/OPTICAL_HIGH_m3p0_R14_V1.json",
+    "r14/OPTICAL_k0p0005_R14_V1.json",
+    "r14/OPTICAL_k0p001_R14_V1.json",
+    "r14/OPTICAL_k0p002_R14_V1.json",
+    "r14/OPTICAL_k0p004_R14_V1.json",
+    "r14/OPTICAL_k0p0_R14_V1.json",
+    "r14/OPTICAL_km0p0005_R14_V1.json",
+    "r14/OPTICAL_km0p001_R14_V1.json",
+    "r14/OPTICAL_km0p002_R14_V1.json",
+    "r14/OPTICAL_km0p004_R14_V1.json",
+    "r14/OUTCOME_R14_V1.json",
+    "r14/PARENT_MANIFEST_R14_V1.json",
+    "r14/PARENT_NEXT_ROUND_R13.md",
+    "r14/PARENT_WORK_STATUS_R13.json",
+    "r14/PLOT_V1.log",
+    "r14/PREREG_HIGH_ORDER_R14_V1.md",
+    "r14/PREREG_R14_V1.md",
+    "r14/REFINED_HIGH_3_R14_V1.json",
+    "r14/REFINED_k0p0005_R14_V1.json",
+    "r14/REFINED_k0p002_R14_V1.json",
+    "r14/REFINED_k0p004_R14_V1.json",
+    "r14/REFINED_km0p0005_R14_V1.json",
+    "r14/REFINED_km0p002_R14_V1.json",
+    "r14/REFINED_km0p004_R14_V1.json",
+    "r14/RESULTS_SECTION_R14_V1.md",
+    "r14/SEARCH_AUDIT_R14_V1.json",
+    "r14/SOURCE_LINEAGE_R14_V1.json",
+    "r14/SURFACE_INFORMATION_R14_V1.pdf",
+    "r14/SURFACE_INFORMATION_R14_V1.png",
+    "r14/SURFACE_SUFFICIENCY_R14_V1.json",
+    "r14/SURFACE_TEST_V1.log",
+    "r14/TOOL_FIND_CORNEAL_V1.txt",
+    "r14/TOOL_FIND_HORNHINNA_V1.txt",
+    "r14/VALIDATION_R14_V1.json",
+    "r14/VERIFY_SURFACE_V1.log",
+    "r14/WORK_STATUS_R14_V1_SNAPSHOT.json",
+    "r14/ZERNIKE_TERMS_R14_V1.md",
+    "r14/export_science.py",
+    "r14/finalize_handover.py",
+    "r14/plot_surface.py",
+    "r14/run_high_order.py",
+    "r14/run_surface_test.py",
+    "r14/surface_port.py",
+    "r14/verify_surface.py"
+  ]
+}

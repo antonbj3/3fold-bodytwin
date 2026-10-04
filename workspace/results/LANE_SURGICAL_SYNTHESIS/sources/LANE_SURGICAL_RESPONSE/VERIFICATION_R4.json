@@ -1,0 +1,761 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scope": "Frozen source/assay reference plus specified mathematical models; not native biological validation",
+  "checks": [
+    {
+      "name": "PREREG_R4_frozen",
+      "pass_check": true,
+      "evidence": "PREREG_R4.json"
+    },
+    {
+      "name": "OBSERVATIONS_R4_frozen",
+      "pass_check": true,
+      "evidence": "OBSERVATIONS_R4.json"
+    },
+    {
+      "name": "PREREG_R4_GLYCO_RESERVOIR_frozen",
+      "pass_check": true,
+      "evidence": "PREREG_R4_GLYCO_RESERVOIR.json"
+    },
+    {
+      "name": "prediction_before_late_score",
+      "pass_check": true,
+      "evidence": "Prospective computation order only; HP42 previously known."
+    },
+    {
+      "name": "separate_score_unchanged_predictions",
+      "pass_check": true,
+      "evidence": "SCORES_R4_v2.json"
+    },
+    {
+      "name": "main_refinement",
+      "pass_check": true,
+      "evidence": 9.08812906874612e-10
+    },
+    {
+      "name": "reservoir_start0_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/reservoir_start0.npz"
+    },
+    {
+      "name": "reservoir_start0_positive",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "reservoir_start0_post10_ledger",
+      "pass_check": true,
+      "evidence": 1.3877787807814457e-17
+    },
+    {
+      "name": "reservoir_start1_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/reservoir_start1.npz"
+    },
+    {
+      "name": "reservoir_start1_positive",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "reservoir_start1_post10_ledger",
+      "pass_check": true,
+      "evidence": 2.0816681711721685e-17
+    },
+    {
+      "name": "reservoir_start2_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/reservoir_start2.npz"
+    },
+    {
+      "name": "reservoir_start2_positive",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "reservoir_start2_post10_ledger",
+      "pass_check": true,
+      "evidence": 1.3877787807814457e-17
+    },
+    {
+      "name": "reservoir_k0.003_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/reservoir_k0.003.npz"
+    },
+    {
+      "name": "reservoir_k0.003_positive",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "reservoir_k0.003_post10_ledger",
+      "pass_check": true,
+      "evidence": 1.1622647289044608e-15
+    },
+    {
+      "name": "reservoir_k0.01_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/reservoir_k0.01.npz"
+    },
+    {
+      "name": "reservoir_k0.01_positive",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "reservoir_k0.01_post10_ledger",
+      "pass_check": true,
+      "evidence": 3.5388358909926865e-16
+    },
+    {
+      "name": "reservoir_k0.03_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/reservoir_k0.03.npz"
+    },
+    {
+      "name": "reservoir_k0.03_positive",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "reservoir_k0.03_post10_ledger",
+      "pass_check": true,
+      "evidence": 2.185751579730777e-16
+    },
+    {
+      "name": "reservoir_k0.1_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/reservoir_k0.1.npz"
+    },
+    {
+      "name": "reservoir_k0.1_positive",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "reservoir_k0.1_post10_ledger",
+      "pass_check": true,
+      "evidence": 1.700029006457271e-16
+    },
+    {
+      "name": "reservoir_k0.3_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/reservoir_k0.3.npz"
+    },
+    {
+      "name": "reservoir_k0.3_positive",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "reservoir_k0.3_post10_ledger",
+      "pass_check": true,
+      "evidence": 4.163336342344337e-17
+    },
+    {
+      "name": "reservoir_k1_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/reservoir_k1.npz"
+    },
+    {
+      "name": "reservoir_k1_positive",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "reservoir_k1_post10_ledger",
+      "pass_check": true,
+      "evidence": 3.122502256758253e-17
+    },
+    {
+      "name": "reservoir_k3_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/reservoir_k3.npz"
+    },
+    {
+      "name": "reservoir_k3_positive",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "reservoir_k3_post10_ledger",
+      "pass_check": true,
+      "evidence": 1.0408340855860843e-17
+    },
+    {
+      "name": "feedback_b0_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.npz"
+    },
+    {
+      "name": "feedback_b0_positive",
+      "pass_check": true,
+      "evidence": 0.0011823529411764705
+    },
+    {
+      "name": "feedback_b0_unload21_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0_unload21.npz"
+    },
+    {
+      "name": "feedback_b0_unload21_positive",
+      "pass_check": true,
+      "evidence": 0.0011823529411764705
+    },
+    {
+      "name": "feedback_b0_unload21_causal_pre21",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "feedback_b0_zeroE10_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0_zeroE10.npz"
+    },
+    {
+      "name": "feedback_b0_zeroE10_positive",
+      "pass_check": true,
+      "evidence": 7.113760483596316e-72
+    },
+    {
+      "name": "feedback_b0.0001_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.0001.npz"
+    },
+    {
+      "name": "feedback_b0.0001_positive",
+      "pass_check": true,
+      "evidence": 0.0011823529411764705
+    },
+    {
+      "name": "feedback_b0.0001_unload21_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.0001_unload21.npz"
+    },
+    {
+      "name": "feedback_b0.0001_unload21_positive",
+      "pass_check": true,
+      "evidence": 0.0011823529411764705
+    },
+    {
+      "name": "feedback_b0.0001_unload21_causal_pre21",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "feedback_b0.0001_zeroE10_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.0001_zeroE10.npz"
+    },
+    {
+      "name": "feedback_b0.0001_zeroE10_positive",
+      "pass_check": true,
+      "evidence": 7.117652321844785e-72
+    },
+    {
+      "name": "feedback_b0.001_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.001.npz"
+    },
+    {
+      "name": "feedback_b0.001_positive",
+      "pass_check": true,
+      "evidence": 0.0011823529411764705
+    },
+    {
+      "name": "feedback_b0.001_unload21_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.001_unload21.npz"
+    },
+    {
+      "name": "feedback_b0.001_unload21_positive",
+      "pass_check": true,
+      "evidence": 0.0011823529411764705
+    },
+    {
+      "name": "feedback_b0.001_unload21_causal_pre21",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "feedback_b0.001_zeroE10_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.001_zeroE10.npz"
+    },
+    {
+      "name": "feedback_b0.001_zeroE10_positive",
+      "pass_check": true,
+      "evidence": 7.152993861359095e-72
+    },
+    {
+      "name": "feedback_b0.003_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.003.npz"
+    },
+    {
+      "name": "feedback_b0.003_positive",
+      "pass_check": true,
+      "evidence": 0.0011823529411764705
+    },
+    {
+      "name": "feedback_b0.003_unload21_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.003_unload21.npz"
+    },
+    {
+      "name": "feedback_b0.003_unload21_positive",
+      "pass_check": true,
+      "evidence": 0.0011823529411764705
+    },
+    {
+      "name": "feedback_b0.003_unload21_causal_pre21",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "feedback_b0.003_zeroE10_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.003_zeroE10.npz"
+    },
+    {
+      "name": "feedback_b0.003_zeroE10_positive",
+      "pass_check": true,
+      "evidence": 7.232798218883816e-72
+    },
+    {
+      "name": "feedback_b0.01_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.01.npz"
+    },
+    {
+      "name": "feedback_b0.01_positive",
+      "pass_check": true,
+      "evidence": 0.0011823529411764705
+    },
+    {
+      "name": "feedback_b0.01_unload21_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.01_unload21.npz"
+    },
+    {
+      "name": "feedback_b0.01_unload21_positive",
+      "pass_check": true,
+      "evidence": 0.0011823529411764705
+    },
+    {
+      "name": "feedback_b0.01_unload21_causal_pre21",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "feedback_b0.01_zeroE10_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.01_zeroE10.npz"
+    },
+    {
+      "name": "feedback_b0.01_zeroE10_positive",
+      "pass_check": true,
+      "evidence": 7.52690859393502e-72
+    },
+    {
+      "name": "feedback_b0.03_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.03.npz"
+    },
+    {
+      "name": "feedback_b0.03_positive",
+      "pass_check": true,
+      "evidence": 0.0011823529411764705
+    },
+    {
+      "name": "feedback_b0.03_unload21_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.03_unload21.npz"
+    },
+    {
+      "name": "feedback_b0.03_unload21_positive",
+      "pass_check": true,
+      "evidence": 0.0011823529411764705
+    },
+    {
+      "name": "feedback_b0.03_unload21_causal_pre21",
+      "pass_check": true,
+      "evidence": 0.0
+    },
+    {
+      "name": "feedback_b0.03_zeroE10_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/feedback_b0.03_zeroE10.npz"
+    },
+    {
+      "name": "feedback_b0.03_zeroE10_positive",
+      "pass_check": true,
+      "evidence": 8.516558950602726e-72
+    },
+    {
+      "name": "selective_f0.25_d0.01_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/selective_f0.25_d0.01.npz"
+    },
+    {
+      "name": "selective_f0.25_d0.03_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/selective_f0.25_d0.03.npz"
+    },
+    {
+      "name": "selective_f0.25_d0.1_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/selective_f0.25_d0.1.npz"
+    },
+    {
+      "name": "selective_f0.5_d0.01_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/selective_f0.5_d0.01.npz"
+    },
+    {
+      "name": "selective_f0.5_d0.03_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/selective_f0.5_d0.03.npz"
+    },
+    {
+      "name": "selective_f0.5_d0.1_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/selective_f0.5_d0.1.npz"
+    },
+    {
+      "name": "selective_f0.75_d0.01_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/selective_f0.75_d0.01.npz"
+    },
+    {
+      "name": "selective_f0.75_d0.03_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/selective_f0.75_d0.03.npz"
+    },
+    {
+      "name": "selective_f0.75_d0.1_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/selective_f0.75_d0.1.npz"
+    },
+    {
+      "name": "chemical_Hill_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/chemical_Hill.npz"
+    },
+    {
+      "name": "constant_HP10_finite",
+      "pass_check": true,
+      "evidence": "r4/predictions_v2/constant_HP10.npz"
+    },
+    {
+      "name": "selective_graphbox_disjoint",
+      "pass_check": true,
+      "evidence": {
+        "HP_inventory_ratio42_10": 2.220261437908497,
+        "HP_inventory_ratio_box": [
+          1.747159090909091,
+          2.8467987804878048
+        ],
+        "collagen_mass_ratio42_10": 0.9294117647058824,
+        "collagen_mass_ratio_box": [
+          0.8522727272727273,
+          1.0121951219512195
+        ],
+        "no_new_HP_required_C42_C10": 0.4186046511627907,
+        "no_new_HP_required_C42_C10_box": [
+          0.35555555555555557,
+          0.48780487804878037
+        ],
+        "no_new_HP_removed_fraction_required": 0.5813953488372092,
+        "selective_turnover_only_gate": "FAIL_FOR_FROZEN_READING_BOX",
+        "scope": "Whole-wound assays, ratio of group means, graphical boxes not biologicalCI; assay/reference invariance assumed",
+        "logical_claim": "Removal of immature collagen alone cannot increase absolute HP inventory when no HP is made/imported and no sampling fraction changes",
+        "required_HP_equivalent_new_per_C10": 0.02196470588235294,
+        "required_HP_equivalent_new_min_box": 0.01494318181818182,
+        "precursor_requirement_2DHLNL_per_HP_nominal": 0.04392941176470588,
+        "precursor_requirement_2DHLNL_per_HP_min_box": 0.02988636363636364,
+        "precursor_stoichiometry_scope": "2 divalent ketoimines perHP demonstrated in cartilage; conditional transfer to murine skin, alternativepathways retainedUNKNOWN"
+      }
+    },
+    {
+      "name": "positive_new_HP_required",
+      "pass_check": true,
+      "evidence": "Frozen graphical boxes; no inferred biological significance."
+    },
+    {
+      "name": "control_first_order_D_NS0.01_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 2.42861286636753e-17,
+        "restart_error": 3.469446951953614e-18
+      }
+    },
+    {
+      "name": "control_first_order_D_NS0.01_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 6.938893903907228e-18,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "control_first_order_D_NS0.03_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 2.0816681711721685e-17,
+        "restart_error": 1.3877787807814457e-17
+      }
+    },
+    {
+      "name": "control_first_order_D_NS0.03_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 2.0816681711721685e-17,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "control_first_order_D_NS0.1_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 8.326672684688674e-17,
+        "restart_error": 2.7755575615628914e-17
+      }
+    },
+    {
+      "name": "control_first_order_D_NS0.1_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 3.469446951953614e-17,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "control_first_order_D_NS0.3_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 2.7755575615628914e-16,
+        "restart_error": 1.1102230246251565e-16
+      }
+    },
+    {
+      "name": "control_first_order_D_NS0.3_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 7.632783294297951e-17,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "control_second_order_D_NS0.01_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 2.42861286636753e-17,
+        "restart_error": 6.938893903907228e-18
+      }
+    },
+    {
+      "name": "control_second_order_D_NS0.01_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 6.938893903907228e-18,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "control_second_order_D_NS0.03_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 4.163336342344337e-17,
+        "restart_error": 1.3877787807814457e-17
+      }
+    },
+    {
+      "name": "control_second_order_D_NS0.03_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 6.938893903907228e-18,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "control_second_order_D_NS0.1_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 8.326672684688674e-17,
+        "restart_error": 5.551115123125783e-17
+      }
+    },
+    {
+      "name": "control_second_order_D_NS0.1_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 3.469446951953614e-17,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "control_second_order_D_NS0.3_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 3.4083846855992306e-14,
+        "restart_error": 1.1102230246251565e-16
+      }
+    },
+    {
+      "name": "control_second_order_D_NS0.3_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 1.457167719820518e-16,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "LH3_knockdown_first_order_D_NS0.01_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 6.938893903907228e-18,
+        "restart_error": 6.938893903907228e-18
+      }
+    },
+    {
+      "name": "LH3_knockdown_first_order_D_NS0.01_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 6.938893903907228e-18,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "LH3_knockdown_first_order_D_NS0.03_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 2.7755575615628914e-17,
+        "restart_error": 1.3877787807814457e-17
+      }
+    },
+    {
+      "name": "LH3_knockdown_first_order_D_NS0.03_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 2.0816681711721685e-17,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "LH3_knockdown_first_order_D_NS0.1_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 1.249000902703301e-16,
+        "restart_error": 2.7755575615628914e-17
+      }
+    },
+    {
+      "name": "LH3_knockdown_first_order_D_NS0.1_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 3.469446951953614e-17,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "LH3_knockdown_first_order_D_NS0.3_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 3.3306690738754696e-16,
+        "restart_error": 1.1102230246251565e-16
+      }
+    },
+    {
+      "name": "LH3_knockdown_first_order_D_NS0.3_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 1.457167719820518e-16,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "LH3_knockdown_second_order_D_NS0.01_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 2.0816681711721685e-17,
+        "restart_error": 6.938893903907228e-18
+      }
+    },
+    {
+      "name": "LH3_knockdown_second_order_D_NS0.01_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 6.938893903907228e-18,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "LH3_knockdown_second_order_D_NS0.03_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 2.7755575615628914e-17,
+        "restart_error": 2.0816681711721685e-17
+      }
+    },
+    {
+      "name": "LH3_knockdown_second_order_D_NS0.03_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 6.938893903907228e-18,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "LH3_knockdown_second_order_D_NS0.1_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 9.71445146547012e-17,
+        "restart_error": 2.7755575615628914e-17
+      }
+    },
+    {
+      "name": "LH3_knockdown_second_order_D_NS0.1_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 3.469446951953614e-17,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "LH3_knockdown_second_order_D_NS0.3_ODE_and_restart",
+      "pass_check": true,
+      "evidence": {
+        "ODE_error": 1.2878587085651816e-14,
+        "restart_error": 1.1102230246251565e-16
+      }
+    },
+    {
+      "name": "LH3_knockdown_second_order_D_NS0.3_stoichiometry",
+      "pass_check": true,
+      "evidence": {
+        "balance": 1.8735013540549517e-16,
+        "min": 0.0
+      }
+    },
+    {
+      "name": "preserve_initial_solver_failure",
+      "pass_check": true,
+      "evidence": "Empty dense-output slice failed; snapshot and partial NPZ preserved."
+    },
+    {
+      "name": "preserve_initial_score_failure",
+      "pass_check": true,
+      "evidence": "Text threshold parsed as numeric; repaired without changing PREREG."
+    },
+    {
+      "name": "no_profile_full_joint_pass",
+      "pass_check": true,
+      "evidence": "Do not select parameter corners with late HP or strength."
+    }
+  ],
+  "count": 126,
+  "passed": 126,
+  "gate": "PASS",
+  "empirical_joint_gate": "UNKNOWN"
+}

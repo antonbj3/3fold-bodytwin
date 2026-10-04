@@ -1,0 +1,117 @@
+{
+  "operation": "Paired-work nuisance/area inverse and exact prospective error bound",
+  "tool_work_diagnostics": [
+    {
+      "gauge": 16,
+      "effective_pierce_J_J_m2": 1153.4569983136594,
+      "reading_bound_J_m2": 50,
+      "measured_unloaded_crack_length_m": 0.0015053763440860215,
+      "required_true_to_reported_crack_area_ratio_if_common_J16": 1.0,
+      "trace_length_reading_relative_bound": 0.019928571428571427,
+      "extra_effective_work_vs_syntheticcut_J_m2": [
+        723.4569983136594,
+        1053.4569983136594
+      ],
+      "pierce_to_syntheticcut_ratio_at_center": [
+        3.0354131534569984,
+        7.6897133220910625
+      ],
+      "additional_paired_nuisance_force_if_common_J16_N": 0.0,
+      "interpretation": "Necessary correction under specified single-assay work geometry, NOT measured area multiplier or mechanism fit; Gamma_cut150..380 is synthetic. Actual crack area can differ from unloaded trace beyond reading precision."
+    },
+    {
+      "gauge": 18,
+      "effective_pierce_J_J_m2": 1801.0118043844857,
+      "reading_bound_J_m2": 50,
+      "measured_unloaded_crack_length_m": 0.0011075268817204301,
+      "required_true_to_reported_crack_area_ratio_if_common_J16": 1.5614035087719298,
+      "trace_length_reading_relative_bound": 0.027087378640776698,
+      "extra_effective_work_vs_syntheticcut_J_m2": [
+        1371.0118043844857,
+        1701.0118043844857
+      ],
+      "pierce_to_syntheticcut_ratio_at_center": [
+        4.7395047483802255,
+        12.006745362563239
+      ],
+      "additional_paired_nuisance_force_if_common_J16_N": 0.7171843551107001,
+      "interpretation": "Necessary correction under specified single-assay work geometry, NOT measured area multiplier or mechanism fit; Gamma_cut150..380 is synthetic. Actual crack area can differ from unloaded trace beyond reading precision."
+    },
+    {
+      "gauge": 21,
+      "effective_pierce_J_J_m2": 944.3507588532883,
+      "reading_bound_J_m2": 50,
+      "measured_unloaded_crack_length_m": 0.0007634408602150538,
+      "required_true_to_reported_crack_area_ratio_if_common_J16": 0.8187134502923976,
+      "trace_length_reading_relative_bound": 0.039295774647887326,
+      "extra_effective_work_vs_syntheticcut_J_m2": [
+        514.3507588532883,
+        844.3507588532883
+      ],
+      "pierce_to_syntheticcut_ratio_at_center": [
+        2.485133575929706,
+        6.295671725688589
+      ],
+      "additional_paired_nuisance_force_if_common_J16_N": -0.1596402473299607,
+      "interpretation": "Necessary correction under specified single-assay work geometry, NOT measured area multiplier or mechanism fit; Gamma_cut150..380 is synthetic. Actual crack area can differ from unloaded trace beyond reading precision."
+    },
+    {
+      "gauge": 25,
+      "effective_pierce_J_J_m2": 2543.001686340641,
+      "reading_bound_J_m2": 50,
+      "measured_unloaded_crack_length_m": 0.000478494623655914,
+      "required_true_to_reported_crack_area_ratio_if_common_J16": 2.2046783625730995,
+      "trace_length_reading_relative_bound": 0.06269662921348314,
+      "extra_effective_work_vs_syntheticcut_J_m2": [
+        2113.001686340641,
+        2443.001686340641
+      ],
+      "pierce_to_syntheticcut_ratio_at_center": [
+        6.692109700896423,
+        16.953344575604273
+      ],
+      "additional_paired_nuisance_force_if_common_J16_N": 0.6648896625505449,
+      "interpretation": "Necessary correction under specified single-assay work geometry, NOT measured area multiplier or mechanism fit; Gamma_cut150..380 is synthetic. Actual crack area can differ from unloaded trace beyond reading precision."
+    }
+  ],
+  "single_common_J_oracle_diagnostic": {
+    "means_min_max_J_m2": [
+      944.3507588532883,
+      2543.001686340641
+    ],
+    "best_constant_J_J_m2": 1377.2542982115654,
+    "minimum_possible_max_relative_error": 0.45841392649903284,
+    "20percent_gate": "FAIL",
+    "scope": "A posteriori lower bound under observed means; not fit used for heldout prediction, not rejection of all fracture models"
+  },
+  "prospective_measurement_budget": {
+    "input": {
+      "Gamma0_absolute_target_J_m2": 30,
+      "effective_work_upper_for_design_J_m2": 3500,
+      "area_relative_bound": 0.002,
+      "external_work_bound_over_A_J_m2": 8,
+      "recoverable_work_bound_over_A_J_m2": 5,
+      "contact_work_bound_over_A_J_m2": 5,
+      "precleavage_work_bound_J_m2": 4,
+      "formula": "epsilon_Gamma0 <= (epsilon_W+epsilon_Psi+epsilon_contact+abs(Gammaeff_hat)*epsilon_A)/(Ahat-epsilon_A)+epsilon_B",
+      "nominal_example_not_executed": {
+        "cut_length_m": 0.005,
+        "depth_m": 0.0015
+      }
+    },
+    "Gamma0_total_bound_J_m2": 29.050100200400802,
+    "target_met_conditionally": true,
+    "nominal_crack_reference_area_m2": 7.5e-06,
+    "external_work_absolute_bound_J": 6e-05,
+    "area_absolute_bound_m2": 1.5000000000000002e-08,
+    "if_only_Ft_errors_act_constant_force_bound_N": 0.012,
+    "if_equal_Ft_Fn_worstcase_force_budget_N": 0.00923076923076923,
+    "achieved_measurement_precision": null,
+    "validity": "Ahat>epsilonA, bounded errors not independent Gaussian assumptions, no covariance posterior, effective upper3500 is design cap not universal skin bound; failure to meet any input invalidates target"
+  },
+  "Gamma0_empirical_J_m2": null,
+  "h_pz_biological_empirical_m": null,
+  "numeric_CPU_s": 0.0002098639999999971,
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

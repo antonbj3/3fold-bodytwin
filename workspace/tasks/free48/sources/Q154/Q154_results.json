@@ -1,0 +1,685 @@
+{
+  "analytical_limit_case": {
+    "max_directional_flux_mol_s": 0.0,
+    "max_state_derivative_mol_s": 0.0,
+    "name": "passive equilibrium with equal concentrations",
+    "passed": true
+  },
+  "averaging_window_s": 600.0,
+  "baseline": {
+    "brain_glucose_gross_umol_g_min": 0.23175850241554408,
+    "brain_glucose_mol": 9.072683788336344e-07,
+    "brain_glucose_net_umol_g_min": 0.18540214665872307,
+    "brain_metabolite_gross_umol_g_min": 0.04826654789170264,
+    "brain_metabolite_mol": 8.046532728336937e-07,
+    "brain_metabolite_net_umol_g_min": 0.04826654789170264,
+    "endothelial_metabolite_mol": 1.5517675053936243e-09,
+    "endothelial_retention_mol": 2.873109912799361e-09,
+    "free_endothelial_glucose_mol": 2.870120629060047e-09,
+    "luminal_efflux_fraction": 0.07389304534321872,
+    "luminal_glucose_final_mM": 4.184226532929778,
+    "luminal_glucose_mol": 8.368451831680647e-07,
+    "max_charge_balance_residual_mol_eq_s": 0.0,
+    "max_mass_balance_residual_mol_s": 2.481541837659083e-24,
+    "minimum_state_pool_mol": 0.0,
+    "pathway_means_umol_g_min": {
+      "j_brain_sink_mol_s": 0.18542542302728407,
+      "j_carrier_endothelium_to_brain_mol_s": 0.22986738329840367,
+      "j_carrier_luminal_efflux_mol_s": 0.035360204820647057,
+      "j_carrier_luminal_in_mol_s": 0.4416671125286548,
+      "j_metabolism_mol_s": 0.2224840323294559,
+      "j_pass_endothelium_to_brain_mol_s": 0.0018887276901475552,
+      "j_pass_endothelium_to_luminal_mol_s": 0.0,
+      "j_pass_luminal_to_e_mol_s": 0.0015768674149462425,
+      "j_receptor_endocytosis_mol_s": 2.989283740792153e-06,
+      "j_receptor_unbinding_mol_s": 5.978567481584306e-06,
+      "j_vesicle_degradation_mol_s": 5.978567482156628e-07,
+      "j_vesicle_release_mol_s": 2.391426992862651e-06
+    },
+    "primary_J_u_umol_g_min": 0.44324696922734186,
+    "primary_criterion_met": true,
+    "primary_relative_error": 0.036419632114474264,
+    "receptor_bound_glucose_mol": 9.964279130724294e-13,
+    "reference_J_u_umol_g_min": 0.46,
+    "vesicle_glucose_mol": 1.992855826241524e-12
+  },
+  "cell_type": "brain capillary endothelial cell",
+  "dimension_checks": {
+    "all_ok": true,
+    "area_equation_ok": true,
+    "area_m2": 0.002,
+    "binding_dimension_ok": true,
+    "binding_rate_mol_s": 4.9999999999999995e-11,
+    "brain_volume_m3": 7e-07,
+    "carrier_flux_mol_s": 7.692307692307693e-09,
+    "concentration_dimension_ok": true,
+    "concentration_from_moles_mol_m3": 0.001,
+    "endothelial_volume_m3": 1e-09,
+    "expected_concentration_unit": "mol m^-3",
+    "expected_flux_unit": "mol s^-1",
+    "kinetic_dimension_ok": true,
+    "lumen_volume_m3": 2e-07,
+    "lumen_volume_ok": true,
+    "parallel_segments_dimensionless": 79577.47154594767,
+    "passive_clearance_m3_s": 2.0000000000000002e-11,
+    "passive_dimension_ok": true,
+    "passive_flux_mol_s": 1.0000000000000002e-10,
+    "perfusion_dimension_ok": true,
+    "perfusion_flow_m3_s": 8.333333333333334e-09,
+    "perfusion_flux_mol_s": 4.166666666666667e-08,
+    "unit_contracts": {
+      "binding_flux": "(m^3 mol^-1 s^-1)*(mol)*(mol m^-3) => mol s^-1",
+      "carrier_flux": "(mol s^-1)*(mol m^-3)/(mol m^-3) => mol s^-1",
+      "charge_flux": "(mol s^-1)*charge => mol eq s^-1",
+      "competition": "C_comp/KI => 1",
+      "concentration": "N/V => mol m^-3",
+      "geometry_area": "2*pi*r*L => m^2",
+      "geometry_volume": "A*h => m^3",
+      "passive_flux": "(m s^-1)*(m^2)*(mol m^-3) => mol s^-1",
+      "perfusion_flux": "(m^3 s^-1)*(mol m^-3) => mol s^-1"
+    }
+  },
+  "equations": {
+    "binding": "dN_R/dt = k_on*(R_total-N_R)*C_L - k_off*N_R - k_end*N_R",
+    "carrier_efflux": "J_C,eff = Vmax_eff*C_E/(Km_eff*(1+C_comp/KI)+C_E)",
+    "carrier_influx": "J_C,in = Vmax_in*C_L/(Km_in*(1+C_comp/KI)+C_L)",
+    "charge_balance": "lactate^- is transported with an equal signed H+ cotransport flux, so z_lactate*J_lactate + z_H*J_H = 0 at each membrane",
+    "geometry": "A = 2*pi*r*L*parallel_segments; V_E = A*h; V_L and V_B are explicit volumes",
+    "metabolism": "J_met = Vmax_met*C_E/(Km_met+C_E), with one lactate molecule per glucose",
+    "metabolite_balance": "d(N_M+N_M,B)/dt = J_met + J_deg + J_M,L->E - J_M,E->L - k_clear*N_M,B",
+    "output": "J_brain,glucose = J_p,E->B + J_C,E->B + J_ves,release; J_brain,lactate = J_M,E->B",
+    "passive_membrane": "J_p,i->j = P_i*A*max(C_i-C_j, 0), with net flux equal to the signed difference of the two directions",
+    "substrate_balance": "d(N_L+N_E+N_R+N_V+N_B)/dt = J_perfusion - J_met - J_deg - J_brain_sink",
+    "vesicles": "dN_V/dt = k_end*N_R - k_release*N_V - k_deg*N_V"
+  },
+  "geometry": {
+    "area_m2": 0.002,
+    "brain_volume_m3": 7e-07,
+    "endothelial_volume_m3": 1e-09,
+    "lumen_volume_m3": 2e-07,
+    "parallel_segments": 79577.47154594767,
+    "single_capillary_area_m2": 2.5132741228718345e-08
+  },
+  "id": "BT-HX-Q154",
+  "identifiability": {
+    "causal_pathway_status": "UNKNOWN",
+    "independent_directed_fluxes_available": false,
+    "independent_metabolite_profile_available": false,
+    "reason": "the run contains modeled fluxes but no substrate-specific inhibitor, tracer, or metabolite measurement to identify them"
+  },
+  "output_sample_dt_s": 1.0,
+  "parameter_table": [
+    {
+      "name": "brain_mass_g",
+      "source_or_assumption": "normalization to one gram brain",
+      "unit": "g",
+      "value": 1.0
+    },
+    {
+      "name": "lumen_volume_ml_per_g",
+      "source_or_assumption": "finite luminal mixing-volume assumption",
+      "unit": "mL g^-1",
+      "value": 0.2
+    },
+    {
+      "name": "perfusion_ml_min_per_g",
+      "source_or_assumption": "capillary perfusion boundary assumption",
+      "unit": "mL min^-1 g^-1",
+      "value": 0.5
+    },
+    {
+      "name": "c_lumen_source_mM",
+      "source_or_assumption": "upstream D-glucose boundary assumption, not a new measurement",
+      "unit": "mM",
+      "value": 5.0
+    },
+    {
+      "name": "surface_area_cm2_per_g",
+      "source_or_assumption": "geometry assumption; network-equivalent BBB surface",
+      "unit": "cm^2 g^-1",
+      "value": 20.0
+    },
+    {
+      "name": "capillary_radius_m",
+      "source_or_assumption": "generic brain-capillary geometry assumption",
+      "unit": "m",
+      "value": 4e-06
+    },
+    {
+      "name": "capillary_length_m",
+      "source_or_assumption": "1-mm capillary subsegment geometry assumption",
+      "unit": "m",
+      "value": 0.001
+    },
+    {
+      "name": "membrane_thickness_m",
+      "source_or_assumption": "endothelial membrane thickness assumption",
+      "unit": "m",
+      "value": 5e-07
+    },
+    {
+      "name": "brain_volume_ml_per_g",
+      "source_or_assumption": "non-endothelial abluminal volume assumption",
+      "unit": "mL g^-1",
+      "value": 0.7
+    },
+    {
+      "name": "c_lumen_mM",
+      "source_or_assumption": "basal D-glucose boundary assumption, not a new measurement",
+      "unit": "mM",
+      "value": 5.0
+    },
+    {
+      "name": "c_endothelium0_mM",
+      "source_or_assumption": "initial endothelial D-glucose assumption",
+      "unit": "mM",
+      "value": 0.2
+    },
+    {
+      "name": "c_brain0_mM",
+      "source_or_assumption": "initial abluminal D-glucose assumption",
+      "unit": "mM",
+      "value": 1.5
+    },
+    {
+      "name": "c_met_lumen_mM",
+      "source_or_assumption": "luminal lactate boundary assumption",
+      "unit": "mM",
+      "value": 0.1
+    },
+    {
+      "name": "c_met_brain_mM",
+      "source_or_assumption": "initial abluminal lactate assumption",
+      "unit": "mM",
+      "value": 1.5
+    },
+    {
+      "name": "p_luminal_m_s",
+      "source_or_assumption": "low passive glucose-permeability assumption",
+      "unit": "m s^-1",
+      "value": 1e-08
+    },
+    {
+      "name": "p_abluminal_m_s",
+      "source_or_assumption": "low passive glucose-permeability assumption",
+      "unit": "m s^-1",
+      "value": 1e-08
+    },
+    {
+      "name": "p_met_luminal_m_s",
+      "source_or_assumption": "lactate membrane permeability assumption",
+      "unit": "m s^-1",
+      "value": 1e-06
+    },
+    {
+      "name": "p_met_abluminal_m_s",
+      "source_or_assumption": "lactate membrane permeability assumption",
+      "unit": "m s^-1",
+      "value": 1e-06
+    },
+    {
+      "name": "vmax_luminal_in_umol_min",
+      "source_or_assumption": "GLUT1/GLUT3-like capacity assumption anchored to published flux order, not independently fitted",
+      "unit": "umol min^-1 g^-1",
+      "value": 0.6
+    },
+    {
+      "name": "km_luminal_in_mM",
+      "source_or_assumption": "facilitated glucose-transport affinity assumption",
+      "unit": "mM",
+      "value": 1.5
+    },
+    {
+      "name": "vmax_luminal_efflux_umol_min",
+      "source_or_assumption": "hypothetical low glucose efflux capacity; substrate-specific value UNKNOWN",
+      "unit": "umol min^-1 g^-1",
+      "value": 0.06
+    },
+    {
+      "name": "km_luminal_efflux_mM",
+      "source_or_assumption": "hypothetical efflux affinity assumption",
+      "unit": "mM",
+      "value": 2.0
+    },
+    {
+      "name": "vmax_abluminal_in_umol_min",
+      "source_or_assumption": "abluminal GLUT-like export capacity assumption",
+      "unit": "umol min^-1 g^-1",
+      "value": 0.35
+    },
+    {
+      "name": "km_abluminal_in_mM",
+      "source_or_assumption": "abluminal carrier affinity assumption",
+      "unit": "mM",
+      "value": 1.5
+    },
+    {
+      "name": "vmax_abluminal_out_umol_min",
+      "source_or_assumption": "abluminal reverse-carrier capacity assumption",
+      "unit": "umol min^-1 g^-1",
+      "value": 0.1
+    },
+    {
+      "name": "km_abluminal_out_mM",
+      "source_or_assumption": "abluminal reverse-carrier affinity assumption",
+      "unit": "mM",
+      "value": 1.5
+    },
+    {
+      "name": "vmax_metabolism_umol_min",
+      "source_or_assumption": "endothelial glucose-metabolism capacity assumption",
+      "unit": "umol min^-1 g^-1",
+      "value": 0.3
+    },
+    {
+      "name": "km_metabolism_mM",
+      "source_or_assumption": "endothelial metabolism affinity assumption",
+      "unit": "mM",
+      "value": 1.0
+    },
+    {
+      "name": "vmax_brain_sink_umol_min",
+      "source_or_assumption": "non-endothelial brain glucose sink assumption; secondary compartment",
+      "unit": "umol min^-1 g^-1",
+      "value": 0.4
+    },
+    {
+      "name": "km_brain_sink_mM",
+      "source_or_assumption": "non-endothelial sink affinity assumption",
+      "unit": "mM",
+      "value": 1.5
+    },
+    {
+      "name": "r_total_pmol_per_g",
+      "source_or_assumption": "hypothetical receptor abundance for a receptor-mediated route, not glucose-specific evidence",
+      "unit": "pmol g^-1",
+      "value": 1.0
+    },
+    {
+      "name": "k_on_m3_mol_s",
+      "source_or_assumption": "receptor association-rate assumption",
+      "unit": "m^3 mol^-1 s^-1",
+      "value": 10.0
+    },
+    {
+      "name": "k_off_s",
+      "source_or_assumption": "receptor dissociation-rate assumption",
+      "unit": "s^-1",
+      "value": 0.1
+    },
+    {
+      "name": "k_endocytosis_s",
+      "source_or_assumption": "receptor-mediated vesicle internalization-rate assumption",
+      "unit": "s^-1",
+      "value": 0.05
+    },
+    {
+      "name": "k_release_s",
+      "source_or_assumption": "vesicle abluminal release-rate assumption",
+      "unit": "s^-1",
+      "value": 0.02
+    },
+    {
+      "name": "k_vesicle_degradation_s",
+      "source_or_assumption": "vesicle substrate loss-rate assumption",
+      "unit": "s^-1",
+      "value": 0.005
+    },
+    {
+      "name": "c_comp_mM",
+      "source_or_assumption": "controlled luminal competitor or inhibitor, baseline zero",
+      "unit": "mM",
+      "value": 0.0
+    },
+    {
+      "name": "ki_comp_mM",
+      "source_or_assumption": "competition-strength assumption for perturbation experiments",
+      "unit": "mM",
+      "value": 10.0
+    },
+    {
+      "name": "k_brain_metabolite_clearance_s",
+      "source_or_assumption": "brain-side lactate clearance assumption",
+      "unit": "s^-1",
+      "value": 0.001
+    }
+  ],
+  "parameters": {
+    "brain_mass_g": 1.0,
+    "brain_volume_ml_per_g": 0.7,
+    "c_brain0_mM": 1.5,
+    "c_comp_mM": 0.0,
+    "c_endothelium0_mM": 0.2,
+    "c_lumen_mM": 5.0,
+    "c_lumen_source_mM": 5.0,
+    "c_met_brain_mM": 1.5,
+    "c_met_lumen_mM": 0.1,
+    "capillary_length_m": 0.001,
+    "capillary_radius_m": 4e-06,
+    "k_brain_metabolite_clearance_s": 0.001,
+    "k_endocytosis_s": 0.05,
+    "k_off_s": 0.1,
+    "k_on_m3_mol_s": 10.0,
+    "k_release_s": 0.02,
+    "k_vesicle_degradation_s": 0.005,
+    "ki_comp_mM": 10.0,
+    "km_abluminal_in_mM": 1.5,
+    "km_abluminal_out_mM": 1.5,
+    "km_brain_sink_mM": 1.5,
+    "km_luminal_efflux_mM": 2.0,
+    "km_luminal_in_mM": 1.5,
+    "km_metabolism_mM": 1.0,
+    "lumen_volume_ml_per_g": 0.2,
+    "membrane_thickness_m": 5e-07,
+    "p_abluminal_m_s": 1e-08,
+    "p_luminal_m_s": 1e-08,
+    "p_met_abluminal_m_s": 1e-06,
+    "p_met_luminal_m_s": 1e-06,
+    "perfusion_ml_min_per_g": 0.5,
+    "r_total_pmol_per_g": 1.0,
+    "surface_area_cm2_per_g": 20.0,
+    "vmax_abluminal_in_umol_min": 0.35,
+    "vmax_abluminal_out_umol_min": 0.1,
+    "vmax_brain_sink_umol_min": 0.4,
+    "vmax_luminal_efflux_umol_min": 0.06,
+    "vmax_luminal_in_umol_min": 0.6,
+    "vmax_metabolism_umol_min": 0.3
+  },
+  "passive_null": {
+    "brain_glucose_gross_umol_g_min": 0.002001576676305209,
+    "brain_glucose_mol": 1.1711803826053578e-06,
+    "brain_glucose_net_umol_g_min": 0.002001576676305209,
+    "brain_metabolite_gross_umol_g_min": 0.0,
+    "brain_metabolite_mol": 7.57323397990879e-08,
+    "brain_metabolite_net_umol_g_min": -0.0007772099927420259,
+    "endothelial_metabolite_mol": 1.0409599075931465e-10,
+    "endothelial_retention_mol": 3.333968198124694e-09,
+    "free_endothelial_glucose_mol": 3.333968198124694e-09,
+    "luminal_efflux_fraction": 0.0,
+    "luminal_glucose_final_mM": 4.995992610978048,
+    "luminal_glucose_mol": 9.992019468702935e-07,
+    "max_charge_balance_residual_mol_eq_s": 0.0,
+    "max_mass_balance_residual_mol_s": 1.0339757656912846e-25,
+    "minimum_state_pool_mol": 0.0,
+    "pathway_means_umol_g_min": {
+      "j_brain_sink_mol_s": 0.0,
+      "j_carrier_endothelium_to_brain_mol_s": 0.0,
+      "j_carrier_luminal_efflux_mol_s": 0.0,
+      "j_carrier_luminal_in_mol_s": 0.0,
+      "j_metabolism_mol_s": 0.0,
+      "j_pass_endothelium_to_brain_mol_s": 0.002001576676305209,
+      "j_pass_endothelium_to_luminal_mol_s": 0.0,
+      "j_pass_luminal_to_e_mol_s": 0.0020030085993153505,
+      "j_receptor_endocytosis_mol_s": 0.0,
+      "j_receptor_unbinding_mol_s": 0.0,
+      "j_vesicle_degradation_mol_s": 0.0,
+      "j_vesicle_release_mol_s": 0.0
+    },
+    "primary_J_u_umol_g_min": 0.0020030085993153505,
+    "primary_criterion_met": false,
+    "primary_relative_error": 0.9956456334797492,
+    "receptor_bound_glucose_mol": 0.0,
+    "reference_J_u_umol_g_min": 0.46,
+    "vesicle_glucose_mol": 0.0
+  },
+  "product": "lactate",
+  "product_specification": {
+    "charge": -1,
+    "cotransport_stoichiometry": 1.0,
+    "counterion": "H+",
+    "counterion_charge": 1,
+    "name": "lactate^-"
+  },
+  "reference": {
+    "authors": "Hertz, Paulson, Barry, Christiansen, Svendsen",
+    "doi": "10.1172/JCI110073",
+    "extraction_fraction": 0.14,
+    "insulin_value": 0.66,
+    "journal": "Journal of Clinical Investigation",
+    "quantity": "unidirectional D-glucose flux from blood across the BBB",
+    "unit": "umol g^-1 min^-1",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC370607/",
+    "value": 0.46,
+    "verification": "webfetch checked article abstract and bibliographic page on 2026-09-25",
+    "year": 1981
+  },
+  "sensitivity": {
+    "baseline_brain_glucose_gross_umol_g_min": 0.23175850241554408,
+    "baseline_primary_J_u_umol_g_min": 0.44324696922734186,
+    "parameters": [
+      {
+        "baseline_value": 0.6,
+        "cases": {
+          "0.5": {
+            "brain_glucose_gross_umol_g_min": 0.11277635922069916,
+            "brain_glucose_relative_change": -0.5133884709934369,
+            "factor": 0.5,
+            "primary_J_u_umol_g_min": 0.23050561908139772,
+            "primary_relative_change": -0.4799612065408819,
+            "value": 0.3
+          },
+          "1.5": {
+            "brain_glucose_gross_umol_g_min": 0.3519632211168823,
+            "brain_glucose_relative_change": 0.5186636841733236,
+            "factor": 1.5,
+            "primary_J_u_umol_g_min": 0.6481319140432237,
+            "primary_relative_change": 0.46223653863450576,
+            "value": 0.8999999999999999
+          }
+        },
+        "max_abs_brain_glucose_relative_change": 0.5186636841733236,
+        "max_abs_primary_relative_change": 0.4799612065408819,
+        "parameter": "vmax_luminal_in_umol_min"
+      },
+      {
+        "baseline_value": 5.0,
+        "cases": {
+          "0.5": {
+            "brain_glucose_gross_umol_g_min": 0.1690940325521707,
+            "brain_glucose_relative_change": -0.27038692954192334,
+            "factor": 0.5,
+            "primary_J_u_umol_g_min": 0.33435783424092375,
+            "primary_relative_change": -0.2456624467759615,
+            "value": 2.5
+          },
+          "1.5": {
+            "brain_glucose_gross_umol_g_min": 0.2609716697594611,
+            "brain_glucose_relative_change": 0.12605003501247047,
+            "factor": 1.5,
+            "primary_J_u_umol_g_min": 0.49173928937106587,
+            "primary_relative_change": 0.10940248554492027,
+            "value": 7.5
+          }
+        },
+        "max_abs_brain_glucose_relative_change": 0.27038692954192334,
+        "max_abs_primary_relative_change": 0.2456624467759615,
+        "parameter": "c_lumen_source_mM"
+      },
+      {
+        "baseline_value": 1.5,
+        "cases": {
+          "0.5": {
+            "brain_glucose_gross_umol_g_min": 0.26967679347270773,
+            "brain_glucose_relative_change": 0.16361121884182683,
+            "factor": 0.5,
+            "primary_J_u_umol_g_min": 0.5066946925398812,
+            "primary_relative_change": 0.14314305052810616,
+            "value": 0.75
+          },
+          "1.5": {
+            "brain_glucose_gross_umol_g_min": 0.20386566049504556,
+            "brain_glucose_relative_change": -0.12035304694231463,
+            "factor": 1.5,
+            "primary_J_u_umol_g_min": 0.39558847641463646,
+            "primary_relative_change": -0.10752130555067896,
+            "value": 2.25
+          }
+        },
+        "max_abs_brain_glucose_relative_change": 0.16361121884182683,
+        "max_abs_primary_relative_change": 0.14314305052810616,
+        "parameter": "km_luminal_in_mM"
+      },
+      {
+        "baseline_value": 0.06,
+        "cases": {
+          "0.5": {
+            "brain_glucose_gross_umol_g_min": 0.2420348532718531,
+            "brain_glucose_relative_change": 0.04434077174818585,
+            "factor": 0.5,
+            "primary_J_u_umol_g_min": 0.4418753154989814,
+            "primary_relative_change": -0.003094558617629084,
+            "value": 0.03
+          },
+          "1.5": {
+            "brain_glucose_gross_umol_g_min": 0.22249789403793688,
+            "brain_glucose_relative_change": -0.03995800922549497,
+            "factor": 1.5,
+            "primary_J_u_umol_g_min": 0.4444244573301068,
+            "primary_relative_change": 0.0026565057056511243,
+            "value": 0.09
+          }
+        },
+        "max_abs_brain_glucose_relative_change": 0.04434077174818585,
+        "max_abs_primary_relative_change": 0.003094558617629084,
+        "parameter": "vmax_luminal_efflux_umol_min"
+      },
+      {
+        "baseline_value": 0.3,
+        "cases": {
+          "0.5": {
+            "brain_glucose_gross_umol_g_min": 0.3124094084722921,
+            "brain_glucose_relative_change": 0.34799545740997484,
+            "factor": 0.5,
+            "primary_J_u_umol_g_min": 0.44286259457520183,
+            "primary_relative_change": -0.0008671794255245002,
+            "value": 0.15
+          },
+          "1.5": {
+            "brain_glucose_gross_umol_g_min": 0.1794288737496565,
+            "brain_glucose_relative_change": -0.22579378154619034,
+            "factor": 1.5,
+            "primary_J_u_umol_g_min": 0.44423155327263225,
+            "primary_relative_change": 0.002221298990507936,
+            "value": 0.44999999999999996
+          }
+        },
+        "max_abs_brain_glucose_relative_change": 0.34799545740997484,
+        "max_abs_primary_relative_change": 0.002221298990507936,
+        "parameter": "vmax_metabolism_umol_min"
+      },
+      {
+        "baseline_value": 20.0,
+        "cases": {
+          "0.5": {
+            "brain_glucose_gross_umol_g_min": 0.23082289257113556,
+            "brain_glucose_relative_change": -0.004037003323101196,
+            "factor": 0.5,
+            "primary_J_u_umol_g_min": 0.4425009477232796,
+            "primary_relative_change": -0.0016830831474442531,
+            "value": 10.0
+          },
+          "1.5": {
+            "brain_glucose_gross_umol_g_min": 0.232686927709789,
+            "brain_glucose_relative_change": 0.0040060031652269235,
+            "factor": 1.5,
+            "primary_J_u_umol_g_min": 0.44399117534972177,
+            "primary_relative_change": 0.0016789875036871127,
+            "value": 30.0
+          }
+        },
+        "max_abs_brain_glucose_relative_change": 0.004037003323101196,
+        "max_abs_primary_relative_change": 0.0016830831474442531,
+        "parameter": "surface_area_cm2_per_g"
+      },
+      {
+        "baseline_value": 1e-08,
+        "cases": {
+          "0.5": {
+            "brain_glucose_gross_umol_g_min": 0.23131872172881365,
+            "brain_glucose_relative_change": -0.0018975816729341899,
+            "factor": 0.5,
+            "primary_J_u_umol_g_min": 0.44250553445287494,
+            "primary_relative_change": -0.0016727351249786748,
+            "value": 5e-09
+          },
+          "1.5": {
+            "brain_glucose_gross_umol_g_min": 0.2321873951210192,
+            "brain_glucose_relative_change": 0.0018506018161359439,
+            "factor": 1.5,
+            "primary_J_u_umol_g_min": 0.4439697340456945,
+            "primary_relative_change": 0.0016306142366016019,
+            "value": 1.5000000000000002e-08
+          }
+        },
+        "max_abs_brain_glucose_relative_change": 0.0018975816729341899,
+        "max_abs_primary_relative_change": 0.0016727351249786748,
+        "parameter": "p_luminal_m_s"
+      },
+      {
+        "baseline_value": 1.0,
+        "cases": {
+          "0.5": {
+            "brain_glucose_gross_umol_g_min": 0.23175722309698124,
+            "brain_glucose_relative_change": -5.520050179397273e-06,
+            "factor": 0.5,
+            "primary_J_u_umol_g_min": 0.4432455596413807,
+            "primary_relative_change": -3.1801367161854444e-06,
+            "value": 0.5
+          },
+          "1.5": {
+            "brain_glucose_gross_umol_g_min": 0.23175978173397252,
+            "brain_glucose_relative_change": 5.520049599416765e-06,
+            "factor": 1.5,
+            "primary_J_u_umol_g_min": 0.4432483788132179,
+            "primary_relative_change": 3.180136524116861e-06,
+            "value": 1.5
+          }
+        },
+        "max_abs_brain_glucose_relative_change": 5.520050179397273e-06,
+        "max_abs_primary_relative_change": 3.1801367161854444e-06,
+        "parameter": "r_total_pmol_per_g"
+      }
+    ],
+    "top_three_brain_glucose": [
+      "vmax_luminal_in_umol_min",
+      "vmax_metabolism_umol_min",
+      "c_lumen_source_mM"
+    ],
+    "top_three_primary": [
+      "vmax_luminal_in_umol_min",
+      "c_lumen_source_mM",
+      "km_luminal_in_mM"
+    ]
+  },
+  "state_order": [
+    "N_L_glucose",
+    "N_E_free_glucose",
+    "N_R_bound_glucose",
+    "N_V_vesicle_glucose",
+    "N_B_glucose",
+    "N_M_endothelial_lactate",
+    "N_M_brain_lactate"
+  ],
+  "substrate": "D-glucose",
+  "time_window_s": 3600.0,
+  "unit_contracts": {
+    "binding_flux": "(m^3 mol^-1 s^-1)*(mol)*(mol m^-3) => mol s^-1",
+    "carrier_flux": "(mol s^-1)*(mol m^-3)/(mol m^-3) => mol s^-1",
+    "charge_flux": "(mol s^-1)*charge => mol eq s^-1",
+    "competition": "C_comp/KI => 1",
+    "concentration": "N/V => mol m^-3",
+    "geometry_area": "2*pi*r*L => m^2",
+    "geometry_volume": "A*h => m^3",
+    "passive_flux": "(m s^-1)*(m^2)*(mol m^-3) => mol s^-1",
+    "perfusion_flux": "(m^3 s^-1)*(mol m^-3) => mol s^-1"
+  },
+  "verification": {
+    "acceptance_relative_error_limit": 0.3,
+    "dimension_checks_ok": true,
+    "mass_balance_limit_mol_s": 1e-10,
+    "model_execution": true,
+    "test_command": "python3 test_model.py",
+    "test_count": 6,
+    "test_file": "test_model.py"
+  }
+}

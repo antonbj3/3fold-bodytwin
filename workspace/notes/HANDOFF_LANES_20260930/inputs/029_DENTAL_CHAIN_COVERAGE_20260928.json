@@ -1,0 +1,1160 @@
+{
+ "id": "DENTAL-CHAIN-PLANNER-20260928",
+ "schema": "dental-chain-coverage-v1",
+ "generated": "2026-09-28T17:15:33+0200",
+ "generated_by": "DENTAL-CHAIN_PLANNER/build_artifacts.py (deterministic, read-only on sources)",
+ "scope": "End-to-end dental and prosthetics chain. Coverage of the EXISTING system, not a claim of a clinically complete product. No clinical advice and no fabricated parameter.",
+ "classification_values": [
+  "IMPLEMENTED_WITH_EVIDENCE",
+  "IMPLEMENTED_UNVERIFIED",
+  "PARTIAL",
+  "MISSING",
+  "UNKNOWN"
+ ],
+ "prosthesis_classes": [
+  "fixed",
+  "removable",
+  "implant_supported"
+ ],
+ "method": [
+  "Read the 550 draft research nodes in dental/notes/expansion/*.jsonl and counted statuses directly.",
+  "Read the 1516-job execution record in dental/tasks/swarm48/STATE.json and counted target ids, source keys and categories directly.",
+  "Read dental/notes/INTERFACE_COVERAGE_AUDIT_20260924.{md,json} (prior work) and built on it rather than repeating it; this document extends the audit from interfaces to the full lifecycle and adds the prosthesis-class dimension it did not have.",
+  "Checked the resource inventories that exist but are unclaimed by the loop: external_research_path (20 domain files) and the BodyTwin workspace.",
+  "Probed ./graph working packet and ./graph dispatch for each new target id before registering it; recorded in evidence/graph_probe.json."
+ ],
+ "inherited_execution_record": {
+  "measured_at": 1790608533.9231582,
+  "total_jobs": 1516,
+  "planner_jobs": 102,
+  "producer_jobs": 1414,
+  "reports_present": 1020,
+  "jobs_without_report": 496,
+  "runnable_including_running": 365,
+  "launched_twice": 131,
+  "intake_ceiling": 480,
+  "reserve_target": 320,
+  "max_planners": 2,
+  "intake_gate_open": false,
+  "unadmitted_proposal_files": 42,
+  "category_counts": {
+   "adversarial": 387,
+   "mechanism": 414,
+   "calibration": 84,
+   "integration": 126,
+   "audit": 371,
+   "exploratory": 32
+  },
+  "source_key_usage": {
+   "SHELL": 362,
+   "GRADE": 323,
+   "RECOURSE": 233,
+   "REACH": 328,
+   "FATIGUE": 249,
+   "GEOM": 291,
+   "THERMAL": 142,
+   "PDL": 158
+  },
+  "distinct_target_ids": 6,
+  "distinct_source_directories": 8,
+  "draft_node_status": {
+   "OPEN": 386,
+   "ASSUMED": 105,
+   "PROVEN": 13,
+   "REFUTED": 40,
+   "DEFERRED": 6
+  },
+  "draft_node_status_by_prefix": {
+   "DENT-ACCESS": {
+    "OPEN": 1
+   },
+   "DENT-BC": {
+    "OPEN": 3
+   },
+   "DENT-BIO": {
+    "OPEN": 4,
+    "REFUTED": 3
+   },
+   "DENT-CELL": {
+    "ASSUMED": 4
+   },
+   "DENT-DATA": {
+    "OPEN": 24
+   },
+   "DENT-DESIGN": {
+    "OPEN": 8,
+    "ASSUMED": 31,
+    "REFUTED": 4
+   },
+   "DENT-DS": {
+    "PROVEN": 2,
+    "OPEN": 11
+   },
+   "DENT-EXP": {
+    "OPEN": 3
+   },
+   "DENT-GAP": {
+    "OPEN": 2
+   },
+   "DENT-GEOM": {
+    "ASSUMED": 19,
+    "REFUTED": 7,
+    "OPEN": 4,
+    "PROVEN": 3
+   },
+   "DENT-HYP": {
+    "REFUTED": 1,
+    "OPEN": 5
+   },
+   "DENT-IF": {
+    "OPEN": 54,
+    "ASSUMED": 2,
+    "REFUTED": 1
+   },
+   "DENT-IMG": {
+    "ASSUMED": 1
+   },
+   "DENT-K1": {
+    "OPEN": 1,
+    "ASSUMED": 2,
+    "REFUTED": 3
+   },
+   "DENT-K1B": {
+    "OPEN": 2,
+    "PROVEN": 1,
+    "ASSUMED": 3,
+    "REFUTED": 1
+   },
+   "DENT-LIC": {
+    "ASSUMED": 2,
+    "REFUTED": 2,
+    "OPEN": 1
+   },
+   "DENT-LOAD": {
+    "OPEN": 5,
+    "ASSUMED": 5
+   },
+   "DENT-MAT": {
+    "REFUTED": 6,
+    "PROVEN": 2,
+    "ASSUMED": 7,
+    "OPEN": 56
+   },
+   "DENT-MATINNOV": {
+    "OPEN": 13
+   },
+   "DENT-METH": {
+    "PROVEN": 1
+   },
+   "DENT-MFG": {
+    "ASSUMED": 4,
+    "OPEN": 7,
+    "PROVEN": 1,
+    "REFUTED": 3
+   },
+   "DENT-NUM": {
+    "ASSUMED": 1
+   },
+   "DENT-PAT": {
+    "OPEN": 55,
+    "DEFERRED": 4
+   },
+   "DENT-PHYS": {
+    "ASSUMED": 5,
+    "REFUTED": 2,
+    "OPEN": 2
+   },
+   "DENT-PROC": {
+    "PROVEN": 2,
+    "ASSUMED": 18,
+    "REFUTED": 7,
+    "OPEN": 3,
+    "DEFERRED": 1
+   },
+   "DENT-REG": {
+    "OPEN": 102
+   },
+   "DENT-REGION": {
+    "OPEN": 1
+   },
+   "DENT-REQ": {
+    "OPEN": 1
+   },
+   "DENT-SOLVER": {
+    "PROVEN": 1
+   },
+   "DENT-UNC": {
+    "ASSUMED": 1
+   },
+   "DENT-VAL": {
+    "OPEN": 7,
+    "DEFERRED": 1
+   },
+   "DENT-VAL2": {
+    "OPEN": 6
+   },
+   "DENT-VAL3": {
+    "OPEN": 5
+   }
+  }
+ },
+ "headline": {
+  "draft_nodes": 550,
+  "dataset_records": 0,
+  "proven": 13,
+  "refuted": 40,
+  "open": 386,
+  "assumed": 105,
+  "producer_jobs": 1414,
+  "distinct_target_ids": 6,
+  "distinct_source_directories": 8,
+  "intake_gate_open": false,
+  "unadmitted_proposal_files": 42,
+  "one_line": "The system has breadth of hypothesis and almost no depth of execution: 386 of 428 mechanism nodes are OPEN, all 1414 producer jobs hit 6 target nodes in 8 source directories, and the controller intake gate has been closed for 42 already-written proposal files."
+ },
+ "lifecycle_rows": [
+  {
+   "id": "L01",
+   "stage": "assessment_and_imaging",
+   "graph_nodes": [
+    "DENT-IMG-CBCT-PSF-TF2",
+    "DENT-DS-TOOTHFAIRY2-NO-TMJ",
+    "DENT-MAT-BONE-CBCT-CALIB-STATE",
+    "DENT-METH-CORTEX-IDENTIFIABILITY"
+   ],
+   "source_paths": [
+    "dental/results/BONE_HU/evidence.json",
+    "dental/results/BONE_HU/summary.json",
+    "dental/results/BONE_PV/evidence.json",
+    "dental/results/BC_TMJ/summary.json",
+    "external_research_path"
+   ],
+   "what_exists": "CBCT grey values are read and characterised; PSF estimated per scan from edge profiles; cortical thickness is shown identifiable only above ~0.5-1.0 mm at high contrast; canal diameters and apex-to-canal distances measured on ToothFairy2 (n=662/735).",
+   "tested_scope": "ToothFairy2 (479 cases) and 53-case BONE_PV field. Synthetic identifiability study, not in vivo. Grey values are NOT HU-calibrated for hard tissue (23 scanners, 168 cases).",
+   "missing": "No acquisition model (dose/noise/reconstruction kernel) that maps scanner -> voxel -> usable modulus. No registered longitudinal scan. No modality beyond CBCT: no intraoral scan, no optical, no MRI.",
+   "upstream": "external dataset (ToothFairy2, MMDental, STS-3D, OpenMandible) on local disk",
+   "downstream": "every downstream stress/fatigue/design cell that consumes tissue stiffness or canal clearance",
+   "status_class": {
+    "fixed": "PARTIAL",
+    "removable": "PARTIAL",
+    "implant_supported": "IMPLEMENTED_UNVERIFIED"
+   },
+   "smallest_next": "Write the scanner -> grey-value -> modulus acquisition function as one explicit relation with an uncertainty, and test it on the two extreme scanners in the 23-scanner set; falsifier: the relation cannot order cases by stiffness within the observed CV 7.0 %.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L02",
+   "stage": "registration_segmentation_anatomy",
+   "graph_nodes": [
+    "DENT-REGION-MAP",
+    "DENT-REG-CRANIOFACIAL",
+    "DENT-REG-TOOTH",
+    "DENT-GEOM-SEGMENT-CBCT",
+    "DENT-EXP-MICROCT-SEG-CHECK"
+   ],
+   "source_paths": [
+    "dental/cells/geometry/analyze_soft.py",
+    "dental/notes/expansion/anatomy_regions.jsonl",
+    "dental/notes/expansion/segment_cbct.jsonl",
+    "dental/notes/INTERFACE_COVERAGE_AUDIT_20260924.md"
+   ],
+   "what_exists": "A 102-region craniofacial region ontology with hierarchy (DENT-REG-*) and per-tooth instantiation by FDI number. Two segmentation cells exist; the gingiva cell reports H1d FAIL and H2d FAIL, H3 PASS 4/5, H4 PASS.",
+   "tested_scope": "One soft-tissue cell. Duplicated draft IDs are exposed as conflicts rather than resolved.",
+   "missing": "No production CBCT -> labelled mesh path. No per-tooth crown/root/PDL instance extraction feeding the FE chain. No error budget propagated into the design margin (DENT-MARGIN edge case).",
+   "upstream": "L01",
+   "downstream": "L04, L06, L07, L11",
+   "status_class": {
+    "fixed": "PARTIAL",
+    "removable": "PARTIAL",
+    "implant_supported": "PARTIAL"
+   },
+   "smallest_next": "Run the existing gingiva cell on a second, independently segmented case set and report the H1d/H2d failure causes as a ranked list; falsifier: the two failures are single-cause and would not recur on an independent set.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L03",
+   "stage": "uncertainty_and_patient_load_assumptions",
+   "graph_nodes": [
+    "DENT-UNC-PROPAGATION-GEOM-DECISION",
+    "DENT-UNC-PROPAGATION",
+    "DENT-REQ-GEOM-PRECISION",
+    "DENT-LOAD-MAGNITUDE-SPECTRUM"
+   ],
+   "source_paths": [
+    "dental/results/GEOM_UNC/",
+    "dental/notes/expansion/geom_uncertainty.jsonl",
+    "dental/notes/expansion/load_spectrum.jsonl",
+    "dental/notes/expansion/design_margin.jsonl"
+   ],
+   "what_exists": "Geometric set-instability is quantified: an implant decision flips on measured error field at 120 sites. Load magnitude spectrum per tooth is a declared mixture (lognormal chewing + Weibull bruxism + GPD hard bite) with two held-out anchors (Morneburg 2002, Nishigawa 2001).",
+   "tested_scope": "Decision-flip counts on the OFJ P17 field; load anchors are public-study values with a P5-P95 epistemic band of 250-20000 cycles/yr above 500 N.",
+   "missing": "Uncertainty stops at geometry. There is no joint (geometry, material, load, process) propagation. DENT-UNC-PROPAGATION is a MISSING_DRAFT blocked on DENT-PHYS-FIELD-SOLVE, which is itself a MISSING_DRAFT: the graph's two highest-scoring gaps are uncreatable drafts.",
+   "upstream": "L01, L02, L04, L07",
+   "downstream": "L09, L10, L15",
+   "status_class": {
+    "fixed": "PARTIAL",
+    "removable": "MISSING",
+    "implant_supported": "PARTIAL"
+   },
+   "smallest_next": "Define the missing draft DENT-PHYS-FIELD-SOLVE as an explicit operator list (the FE field solution that consumes a measured field and returns a stress observable) so the graph stops ranking an uncreatable node; falsifier: the existing FE-REFERENCE cell already satisfies it.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L04",
+   "stage": "dentition_occlusion_chewing",
+   "graph_nodes": [
+    "DENT-LOAD-MASTICATION",
+    "DENT-LOAD-MASTICATION-DIRECTION",
+    "DENT-LOAD-BITE-POSITION-FACTOR",
+    "DENT-LOAD-MUSCLE-DIRECTION-TMJ-COUPLING",
+    "DENT-BC-TMJ"
+   ],
+   "source_paths": [
+    "dental/cells/loads/",
+    "dental/cells/tmj/",
+    "dental/results/BC_TMJ/",
+    "external_research_path"
+   ],
+   "what_exists": "A muscle-leg branch (statically balanced, condylar reaction from OpenMandible levers) and a contact branch (OFJ seating + friction) with a declared bite-position factor of ~0.65. Condylar path measured on 24 Dryad TMD cases via MMDental CBCT.",
+   "tested_scope": "Static balance; one subject (OFJ P17). Direction assumed to be set by condylar reaction, not by muscle (ASSUMED).",
+   "missing": "DECISIVE GAP. 16_occlusion_jawmotion.md states the load case cannot be assembled as a patient-linked chain: Teeth3DS+ arches are NOT co-registered (no measured bite); the Zenodo pre/post set is DUA-gated and its occlusion transform is unconfirmed; the only jaw-kinematics set (N=24) carries no tooth models; T-Scan gives percentages not newtons and its raw data is explicitly non-public. So no public source links bite geometry to bite force for one individual.",
+   "upstream": "L01, L02",
+   "downstream": "L06, L08, L09, L13",
+   "status_class": {
+    "fixed": "PARTIAL",
+    "removable": "PARTIAL",
+    "implant_supported": "PARTIAL"
+   },
+   "smallest_next": "Stop deriving the occlusal spectrum. Publish the ONE acquisition specification that replaces it: register Teeth3DS+ arch pairs with a measured bite transform and record a contact-area / force-per-site table; falsifier: registration residual exceeds the 0.3 mm contact band, so the table cannot be patient-linked at design resolution.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L05",
+   "stage": "restorations_implant_components_abutments_support",
+   "graph_nodes": [
+    "DENT-PROC-INSERT-S4-TORQUE",
+    "DENT-DESIGN-ANCHOR-PRIMARY-STABILITY",
+    "DENT-PHYS-CREST-STRESS-DRIVERS",
+    "DENT-DS-MANDIBULAR-DEFECT-147"
+   ],
+   "source_paths": [
+    "dental/cells/design/",
+    "dental/results/DESIGN_implant/",
+    "dental/results/DESIGN_implant_v2/",
+    "dental/results/PROC_insert/REPORT.md"
+   ],
+   "what_exists": "Thread-form torque modelled as a state transition S3->S4 (flank forming + core interference + shearing in dense material), with held-out interpolation median |ln| 0.35. Anchor-to-crest stress from a converged reference FE. Commercial implant tables for comparison.",
+   "tested_scope": "PROVEN in rigid PU foam ONLY. In cadaver bone the same chain overestimates insertion torque 8-13x, and DENT-PROC-INSERT-CADAVER is REFUTED; DENT-PROC-INSERT-CORTICAL is REFUTED (measured 2.71 vs predicted 1.07).",
+   "missing": "No threaded bone constitutive law that survives contact with real bone. The only PROVEN node in the interface set is proven in the one material where it does not matter.",
+   "upstream": "L02, L03, L06",
+   "downstream": "L07, L08, L13",
+   "status_class": {
+    "fixed": "MISSING",
+    "removable": "MISSING",
+    "implant_supported": "PARTIAL"
+   },
+   "smallest_next": "One acquisition: instrument a single threaded insertion into bovine cortical bone with the existing torque-time trace and report the shear/specific-energy that reproduces the measured 2.71 N m; falsifier: no single constitutive parameter set fits both foam and cortical bone.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L06",
+   "stage": "fixation_contact_soft_tissue_interfaces",
+   "graph_nodes": [
+    "DENT-PHYS-CONTACT-DAMAGE",
+    "DENT-PHYS-CONTACT-DIES",
+    "DENT-PHYS-MARGIN-SINGULARITY",
+    "DENT-PROC-MICROMOTION-CONTACT-FE",
+    "DENT-PROC-MICROMOTION-ABS-LEVEL",
+    "DENT-IF-SET"
+   ],
+   "source_paths": [
+    "dental/cells/physics/contact_law_*.py",
+    "dental/results/CONTACT_damage/",
+    "dental/results/CONTACT_law/",
+    "dental/results/I1/",
+    "dental/results/I2/"
+   ],
+   "what_exists": "Analytic Hertz/quasi-plastic crown-on-cement contact, a contact FE, and a friction law. Margin corner treated as a bimaterial angular corner (Bogy eigenvalue).",
+   "tested_scope": "BOTH contact nodes are REFUTED: contact damage for the crown chain with a 7.7 GPa / 50 um cement spring bed, and contact dies (stiff-vs-compliant die mismatch: A6 e.max/MZ100 ln 1.71 vs observed 0.11). Contact micromotion absolute level is REFUTED (FE/obs 0.13 vertical) while the ORDERING holds 4/4.",
+   "missing": "No validated contact constitutive law for the crown-abutment and implant-abutment pair. The two largest interface computations in the system are both negative results and are being re-litigated instead of repaired.",
+   "upstream": "L03, L05, L07",
+   "downstream": "L09, L11",
+   "status_class": {
+    "fixed": "PARTIAL",
+    "removable": "MISSING",
+    "implant_supported": "PARTIAL"
+   },
+   "smallest_next": "Convert the two REFUTED contact results into one shared inverse problem: given the observed die-compliance ratio, solve for the single law parameter that reconciles e.max/MZ100 across the stiff and compliant die; falsifier: no single parameter does, so the die is not the cause and the crown-abutment bond is.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L07",
+   "stage": "material_composition_microstructure_process_property",
+   "graph_nodes": [
+    "DENT-MAT-BONE-CBCT-CALIB-STATE",
+    "DENT-MAT-BONE-HS-GATE",
+    "DENT-MAT-RESTORATIVE-PSP",
+    "DENT-MATINNOV-H1-GRADED-ZIRCONIA",
+    "DENT-MATINNOV-H6-LPBF-SURFACE-HIP-ROUTE"
+   ],
+   "source_paths": [
+    "dental/tasks/swarm48/sources/GRADE/",
+    "dental/tasks/swarm48/sources/FATIGUE/",
+    "dental/results/BONE_HU/",
+    "dental/notes/expansion/materials_restorative.jsonl",
+    "external_research_path",
+    "external_research_path"
+   ],
+   "what_exists": "A closed spherical-shell eigenstrain model for graded restorative ceramic giving a strength tolerance, and an optical/strength anchor set. DENT-MAT has 71 nodes with 2 PROVEN, 6 REFUTED, 7 ASSUMED and 56 OPEN. Bone is run as a scenario because HU->E is REFUTED.",
+   "tested_scope": "Graded shell, 168 bone cases for the HS gate, and a post-hoc fatigue power law whose five anchors are NOT independent of the cohorts it is scored on.",
+   "missing": "ZERO measured process-property pairs anywhere in the workspace. 73 post-hoc fatigue jobs exist, all on the same inherited power law. Meanwhile 17_fabricate_test_pairs.md lists public-domain, DOI-tagged geometry+measurement pairs (NIST AM-Bench AMB2018-01/03/04, AMB2022-04, AMB2025-02/03) that the loop has never touched.",
+   "upstream": "L08, L11",
+   "downstream": "L09, L10, L12",
+   "status_class": {
+    "fixed": "PARTIAL",
+    "removable": "PARTIAL",
+    "implant_supported": "PARTIAL"
+   },
+   "smallest_next": "Acquire ONE AM-Bench geometry+measurement pair (geometry as-designed and as-built, plus the residual-strain or S-N measurement), fit the process-property relation the model already parameterises, and report the parameter with its uncertainty; falsifier: the fitted property correlates with build orientation but not with the declared process variable.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L08",
+   "stage": "fatigue_wear_fracture_corrosion_aging",
+   "graph_nodes": [
+    "DENT-K1-LOADVECTOR",
+    "DENT-K1B-KT-DIAG",
+    "DENT-HYP-K1B-STRENGTH-SIDE-MECH",
+    "DENT-MATINNOV-H6-LPBF-SURFACE-HIP-ROUTE",
+    "DENT-VAL-BENCH-ISO14801-LOADPATH"
+   ],
+   "source_paths": [
+    "dental/tasks/swarm48/sources/FATIGUE/",
+    "dental/results/K1_lpbf_implant_fatigue/",
+    "dental/results/K1b_iso14801_assembly/",
+    "dental/cells/materials/murakami_route_fatigue.py"
+   ],
+   "what_exists": "An own harmonic axisymmetric FE reproduces Kt_bend 2.631 against the Neuber formula 2.629, isolating that the earlier -7.3% was the model, not the formula. ISO 14801 ladder placement and route-contrast information-per-rung analysis. A post-hoc power law with a censoring-aware estimability record.",
+   "tested_scope": "One assembly (K1b). 351 of 1414 producer jobs carry FATIGUE in source_keys, all against the same inherited power law. Censor handling and heterogeneity are computed but the underlying data are the same censoring problem re-described.",
+   "missing": "No wear model, no corrosion model, no aging/temperature-humidity model at all. A residual ~x1.65 underprediction is localised to the strength side at the thread root but the cause list is unresolved (DENT-HYP-K1B-STRENGTH-SIDE-MECH OPEN).",
+   "upstream": "L04, L05, L07",
+   "downstream": "L10, L15",
+   "status_class": {
+    "fixed": "PARTIAL",
+    "removable": "MISSING",
+    "implant_supported": "PARTIAL"
+   },
+   "smallest_next": "One ISO 14801 bench run with strain gauges at the thread root on a single geometry, testing the two competing load-vector hypotheses (fixture friction/locking vs. realised moment) in one specimen set; falsifier: gauge strain is independent of the friction condition, so the load-vector hypothesis is dead and only the strength side remains.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L09",
+   "stage": "generative_multiobjective_design_manufacturability",
+   "graph_nodes": [
+    "DENT-DESIGN-J3-CREST-STRESS-SURROGATE",
+    "DENT-DESIGN-J3-FE",
+    "DENT-DESIGN-THETA-BONE-SCENARIO",
+    "DENT-MFG-PROCESS-MODEL"
+   ],
+   "source_paths": [
+    "dental/cells/design/",
+    "dental/results/DESIGN_crown/",
+    "dental/results/DESIGN_margin/",
+    "dental/results/DESIGN_spread/",
+    "dental/tasks/swarm48/sources/RECOURSE/"
+   ],
+   "what_exists": "Multi-objective crown design with a recourse/regret branch and a reachability frontier; exact regret baseline against a greedy heuristic; a 155%-worse greedy counterexample.",
+   "tested_scope": "Inherited toy design spaces. DENT-DESIGN-J3-CREST-STRESS-SURROGATE is REFUTED; the FE replacement is ASSUMED. Bone must run as a scenario (ASSUMED) because the material model is REFUTED.",
+   "missing": "No manufacturability constraint is coupled into the design loop. Feasibility is checked AFTER a design exists (milling access, sinter shrinkage), not as a constraint on the search. The reachable material Pareto front is a boundary, not a design variable.",
+   "upstream": "L03, L05, L06, L07, L11",
+   "downstream": "L10, L11, L12",
+   "status_class": {
+    "fixed": "PARTIAL",
+    "removable": "MISSING",
+    "implant_supported": "PARTIAL"
+   },
+   "smallest_next": "Make manufacturability a search constraint rather than a post-check: add milling-access and sinter-shrinkage as hard constraints and measure the Pareto volume lost versus the designs rejected after the fact; falsifier: the post-check rejects nothing that the constraint admits, so the coupling is unnecessary.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L10",
+   "stage": "cadcam_additive_subtractive_sintering_finishing",
+   "graph_nodes": [
+    "DENT-MFG-ASBUILT-DEVIATION",
+    "DENT-MFG-MILL-TOOL-RADIUS",
+    "DENT-MFG-MILL-TOOL-COMPENSATION",
+    "DENT-MFG-CEMENT-SPACER",
+    "DENT-MFG-SINTER-COMP-ERROR",
+    "DENT-MFG-SURF-BLAST-MECH"
+   ],
+   "source_paths": [
+    "dental/cells/manufacturing/",
+    "dental/notes/expansion/contacts.jsonl",
+    "dental/notes/INTERFACE_COVERAGE_AUDIT_20260924.md",
+    "external_research_path",
+    "external_research_path"
+   ],
+   "what_exists": "A process chain crown -> milled green body (ball-nose radius r, CAD compensation) -> sintering (isotropic error) is SPECIFIED. Six MFG nodes quantify as-built deviation, tool radius effect (r 0.3-1.0 mm moves the marginal gap only 12.3 um), missing tool compensation, cement spacer and sinter compensation error. Blasting contact-load physics is PROVEN (Al2O3, 61 m/s at 0.2 MPa, calibrated on PMC8745783).",
+   "tested_scope": "All six MFG nodes are OPEN (4 ASSUMED / 3 REFUTED / 1 PROVEN overall in DENT-MFG). These are the most precisely quantified statements in the whole graph and NONE of them has a cell run. No CAD/CAM, no toolpath, no slicer, no build file has ever been produced or measured.",
+   "missing": "No geometry actually manufactured and re-measured. No CAM output. No as-built-versus-as-designed metrology. This is the widest gap between what the system knows and what it has touched.",
+   "upstream": "L02, L07, L09",
+   "downstream": "L11, L12",
+   "status_class": {
+    "fixed": "PARTIAL",
+    "removable": "PARTIAL",
+    "implant_supported": "PARTIAL"
+   },
+   "smallest_next": "Take the license-free STS die case (DENT-LIC-CASE-STS5-M1, CC BY 4.0), produce a toolpath, mill one zirconia crown, scan it, and measure the as-built marginal gap against the predicted 12.3 um tool-radius effect; falsifier: the measured deviation is dominated by tool wear/holding error, not by r, so the model mis-attributes the cause.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L11",
+   "stage": "fit_metrology_assembly",
+   "graph_nodes": [
+    "DENT-DATA-CROWN-FIT-ANCHORS",
+    "DENT-HYP-K2-SCAN-CAD-OFFSET",
+    "DENT-LIC-H1-FIT-TRANSFER",
+    "DENT-LIC-H2-BIND-TRANSFER",
+    "DENT-LIC-H3-F50-TRANSFER",
+    "DENT-VAL-BENCH-CROWN-FIT"
+   ],
+   "source_paths": [
+    "dental/results/K2_crown_fit/",
+    "dental/cells/manufacturing/crown_fit_geometry.py",
+    "dental/results/A227_pdl_refine/"
+   ],
+   "tested_scope": "K2 fit prediction; a systematic anatomical residual of 38-77 um by region; 2 of 3 transfer hypotheses REFUTED (binding threshold is anatomy-dependent: 0/100 theta pull-outs bind on the STS die; fracture load ratio F50_STS/F50_OM = 1.20-2.50).",
+   "what_exists": "A held-out fit prediction with a declared regional bias structure, and a license-free die case ready for a bench test.",
+   "missing": "NO metrology loop. Nothing takes a measured as-built geometry and updates the design. There is no closed design -> manufacture -> measure -> update cycle anywhere in the system.",
+   "upstream": "L10",
+   "downstream": "L12, L15",
+   "status_class": {
+    "fixed": "PARTIAL",
+    "removable": "PARTIAL",
+    "implant_supported": "PARTIAL"
+   },
+   "smallest_next": "Run the specced bench experiment A on the license-free die (VAL_A_predictions_v2 is already hashad) and report the prediction-vs-measurement residual per region; falsifier: the residual is flat, so the K2 systematic term is an artefact of the source offset and the fit model is unaffected.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L12",
+   "stage": "procedure_and_tissue_effects",
+   "graph_nodes": [
+    "DENT-PROC-S0-PLAN",
+    "DENT-PROC-DRILL-T1-D2P0",
+    "DENT-PROC-CREST-BAND-MEASURED",
+    "DENT-PROC-INSERT-S4-TORQUE",
+    "DENT-PROC-MICROMOTION-CONTACT-FE"
+   ],
+   "source_paths": [
+    "dental/cells/procedure/",
+    "dental/results/F2_pdl_nonlinear/",
+    "dental/results/PROC_insert/",
+    "dental/tasks/swarm48/sources/THERMAL/REPORT.md"
+   ],
+   "what_exists": "The procedure is modelled as explicit state transitions: S0 plan -> S1 drill D=2.0 mm (118 deg tip, boolean subtraction), etc. A 1 mm assumed crest band was replaced by a MEASURED field (53 cases, 370 sites) and t_c = 1.0 reproduced the original choice exactly - a genuine assumption-to-measurement closure. Missing heat source hypothesis is OPEN.",
+   "tested_scope": "Thermal is the one place where an assumed constant was replaced by a measurement and the measurement agreed. Drilling heat is 87 of 1414 producer jobs, all on one thermal model.",
+   "missing": "Abrasive/cutting mechanics, coolant transport, chip evacuation, and tissue removal volume are all absent from the transition model. The state machine changes geometry and contact but not material state (no work hardening, no damaged-layer depth).",
+   "upstream": "L02, L06, L07",
+   "downstream": "L13, L14",
+   "status_class": {
+    "fixed": "PARTIAL",
+    "removable": "PARTIAL",
+    "implant_supported": "PARTIAL"
+   },
+   "smallest_next": "Add the missing heat source as a competing operator (chip/flank friction power from declared cut parameters) and test whether it moves the thermal verdict outside its declared pass band; falsifier: the added term is bounded by the existing pass band for all declared feeds, so the thermal closure is adequate.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L13",
+   "stage": "biological_healing_remodeling_infection",
+   "graph_nodes": [
+    "DENT-BIO-CRESTAL-BONE-REMODELING",
+    "DENT-BIO-MBL-BIOWIDTH-MICROGAP",
+    "DENT-BIO-MECHANOSTAT-ABS-FROST-PERIIMPLANT",
+    "DENT-BIO-MECH-TERM-CRESTAL",
+    "DENT-BIO-MECH-STIMULUS-CLIFF",
+    "DENT-PAT-SET"
+   ],
+   "source_paths": [
+    "dental/notes/expansion/bone_remodeling.jsonl",
+    "dental/notes/expansion/mechanostat_sign.jsonl",
+    "dental/notes/expansion/ortho_remodeling.jsonl",
+    "external_research_path",
+    "external_research_path"
+   ],
+   "what_exists": "A mechanobiologic model for marginal bone loss with a biological leg and a stress leg, a bio-width/microgap rule, and a stimulus q = eps_imp/eps_tooth whose sign cliff is mapped. 55 DENT-PAT nodes are all OPEN or DEFERRED.",
+   "tested_scope": "BOTH generic absolute Frost mechanostat bands are REFUTED (they do not carry the perimplant sign), and the tooth-referenced mechanostat is REFUTED. The ortho PDL-pressure driver is REFUTED.",
+   "missing": "DECISIVE GAP. Three independent attempts at a remodeling driver have all been refuted, so the biological leg has no admissible mechanism. The biological stage therefore cannot currently change any design decision. Healing, infection and soft-tissue remodelling are unmodelled.",
+   "upstream": "L04, L05, L06, L12",
+   "downstream": "L10, L14, L15",
+   "status_class": {
+    "fixed": "MISSING",
+    "removable": "MISSING",
+    "implant_supported": "MISSING"
+   },
+   "smallest_next": "Stop producing a fourth generic Frost-band variant. Take the ONE route with a held-out anchor available: an orthopaedic bone-remodeling dataset with paired load and in-vivo/simulated remodeling (public, figshare-indexed) and test whether a STIMULUS-SPACE (not amplitude) form of the mechanostat recovers its sign; falsifier: even the space form fails, so the mechanostat is the wrong family and the design must carry an empirical risk term instead.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L14",
+   "stage": "experimental_calibration_and_validation",
+   "graph_nodes": [
+    "DENT-VAL-BENCH-PROGRAM",
+    "DENT-VAL2-BENCH-PROGRAM",
+    "DENT-VAL3-BENCH-PROGRAM",
+    "DENT-VAL2-E-IMPLANT-PLACEMENT",
+    "DENT-VAL3-D-DRILL-HEAT-GUIDE-CANAL",
+    "DENT-EXP-MICROCT-SEG-CHECK"
+   ],
+   "source_paths": [
+    "dental/notes/expansion/validation_v3.jsonl",
+    "dental/notes/expansion/validation_experiments.jsonl",
+    "dental/results/GRAPH_WORKING_VIEW_20260923/",
+    "external_research_path"
+   ],
+   "what_exists": "A three-generation bench program (VAL v1/v2/v3) with pre-registered bench predictions, plus a dental ISO 14801 assembly with its own PARDISO build. Held-out anchors exist and are used correctly in at least one place (Morneburg, Nishigawa, canal-label edge).",
+   "tested_scope": "v1/v2/v3 are 7+6+5 = 18 OPEN nodes. Bench programs are SPECIFIED, not executed.",
+   "missing": "No bench has been run. The whole validation layer is a plan. Consequence: 371 audit jobs and 387 adversarial jobs (54 % of all producer work) are re-checking model arithmetic while the layer that would make the arithmetic physically checkable is untouched.",
+   "upstream": "all",
+   "downstream": "all",
+   "status_class": {
+    "fixed": "PARTIAL",
+    "removable": "MISSING",
+    "implant_supported": "PARTIAL"
+   },
+   "smallest_next": "Execute the single cheapest VAL experiment end to end (crown fit on the license-free die, VAL-A) and report the pre-registered residual with its declared tolerance; falsifier: no tolerance was ever declared, which is itself the finding and blocks VAL v2.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L15",
+   "stage": "workflow_interoperability_traceability_lifecycle",
+   "graph_nodes": [
+    "DENT-DATA-LICENSE-GATE",
+    "DENT-LIC-VAL-A-PREDICTIONS-V2",
+    "DENT-DATA-PATENTS-BQ-CORPUS",
+    "DENT-METH",
+    "DENT-SOLVER-HIGHRES"
+   ],
+   "source_paths": [
+    "dental/notes/expansion/license_gate.jsonl",
+    "dental/notes/GRAPH_HYGIENE_2026-09-24.md",
+    "dental/graph",
+    "dental/MERGED_GRAPH.json",
+    "dental/VALIDATION.json",
+    "dental/tasks/swarm48/STATUS.json"
+   ],
+   "what_exists": "A working-view builder with dispatch/feedback receipts, a content-addressed report archive (SWARM48_GRAPH_REPORTS) with hash verification, a licence gate for derived exports, a private 1.6 TB dataset corpus, and a high-resolution CalculiX/PARDISO solver pin.",
+   "tested_scope": "1522 graph_runs receipts. 6 result bindings in a 538-draft working view. Provenance hashes are enforced on proposals and on report snapshots.",
+   "missing": "THE BINDING LAYER IS THE BREAK. 538 draft nodes, 6 bindings, 13 PROVEN of 428 mechanism nodes, and the interface audit counts exactly ONE independently reviewed node out of 102. 41/102 interface nodes lack the contract-required dent_kind field. Two duplicated draft IDs are exposed as conflicts. No lifecycle change (versioning, supersession, re-dispatch after a result) is tracked in the working view.",
+   "upstream": "all",
+   "downstream": "all",
+   "status_class": {
+    "fixed": "PARTIAL",
+    "removable": "PARTIAL",
+    "implant_supported": "PARTIAL"
+   },
+   "smallest_next": "Bind one result to one node per lifecycle stage this week and make the binding count a reported quantity; falsifier: the graph refuses the binding because the packet is stale (known STALE_INPUT from the patents_bq* drafts), in which case the graph hygiene item outranks the binding item.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  },
+  {
+   "id": "L16",
+   "stage": "patient_data_privacy_external_validation",
+   "graph_nodes": [
+    "DENT-LIC-CASE-STS5-M1",
+    "DENT-DATA-LICENSE-GATE",
+    "DENT-DS-OPEN-FULL-JAW",
+    "DENT-LIC-SET"
+   ],
+   "source_paths": [
+    "dental/notes/expansion/license_gate.jsonl",
+    "dental/notes/ADDENDUM_DATA_COLLECTION_2026-09-22.md",
+    "external_research_path",
+    "dental/DENTAL_METHOD.md"
+   ],
+   "what_exists": "A licence gate node governs which derived geometry/mesh/figure may be redistributed, with one CC BY 4.0 case (STS-3D lower first molar) identified as distributable and three transfer hypotheses tested against it (1 ASSUMED, 2 REFUTED). Challenge access classes (a) open / (b) account / (c) DUA / (d) dead are enumerated for 49 challenges, 18 of them dental. The method note forbids sending personal data to external APIs.",
+   "tested_scope": "3 transfer hypotheses on 1 license-free case.",
+   "missing": "No de-identification or consent gate is enforced by the execution loop itself: any job may read any dataset present on disk. No external-validation protocol exists (no held-out clinical site, no multi-centre split, no pre-specified external validation set).",
+   "upstream": "L01, L02",
+   "downstream": "L14",
+   "status_class": {
+    "fixed": "PARTIAL",
+    "removable": "PARTIAL",
+    "implant_supported": "PARTIAL"
+   },
+   "smallest_next": "Add a machine-checked licence/access gate to the controller intake that refuses a proposal whose named dataset is access class (c) or (d) unless it declares a derivation plan; falsifier: no proposal in 1414 named a dataset at all, so the gate is a no-op and the missing metadata is the real gap.",
+   "classification": "UNKNOWN",
+   "classification_rule": "worst of the three prosthesis classes"
+  }
+ ],
+ "prosthesis_class_deltas": [
+  {
+   "class_": "fixed",
+   "changes": "Tooth-borne. The abutment is prepared enamel/dentin with a controllable margin; the load path is crown -> luting cement -> prepared tooth. Needs: margin geometry, cement film, prep taper, and a tooth-side (not implant-side) fix.",
+   "extra_missing": [
+    "cement film thickness and its effect on fracture load (2 of 3 transfers REFUTED)",
+    "preparation taper/height-of-contour as a design variable (absent)",
+    "thermal and chemical effects of luting on the tooth (absent)"
+   ],
+   "best_supported_stage": "L10 (MFG has the most precisely quantified, unrun statements)"
+  },
+  {
+   "class_": "removable",
+   "changes": "Tissue-borne. No implant, no preparation. Support comes from mucosa and the alveolar ridge; the dominant physics is soft-tissue compression, not contact stress. The whole set of cavity/retention mechanics is absent.",
+   "extra_missing": [
+    "no node, cell, or result of any kind addresses a removable prosthesis",
+    "mucosal support area and its pressure-relief behaviour (absent)",
+    "retention/clasp mechanics, wear of the retentive element, and the mucosa-to-hard-tissue transition (absent)",
+    "the implant-comparison framing is inapplicable: 0 of 1414 producer jobs is removable"
+   ],
+   "best_supported_stage": "NONE — the class is unrepresented"
+  },
+  {
+   "class_": "implant_supported",
+   "changes": "Bone-borne, threaded, and the only class with a measured placement quantity. Needs implant position, bone quality, micromotion, osseointegration, and superstructure screw preload.",
+   "extra_missing": [
+    "thread-into-bone constitutive law (REFUTED in cadaver bone, 8-13x overestimation)",
+    "superstructure screw preload and its relaxation (absent)",
+    "aesthetics/shade for the ceramic layer (absent)",
+    "remodeling driver after three REFUTED attempts"
+   ],
+   "best_supported_stage": "L05 and L12 (procedure transitions are the only genuine assumption-to-measurement closure in the system)"
+  }
+ ],
+ "disconnected_steps": [
+  {
+   "pair": "FE solver -> crown design",
+   "left": "DENT-SOLVER-HIGHRES (PROVEN, 10.28 M DOF)",
+   "right": "DENT-PHYS-FE-REFERENCE (ASSUMED) -> DENT-DESIGN-J3-CREST-STRESS-SURROGATE (REFUTED)",
+   "why": "A verified solver and a design consumer both exist, but the field solution that would let the design ask the solver a different question is the MISSING_DRAFT DENT-PHYS-FIELD-SOLVE. The chain is broken at the middle, not at either end."
+  },
+  {
+   "pair": "Bite load -> fatigue life",
+   "left": "DENT-LOAD-MAGNITUDE-SPECTRUM (ASSUMED, P5-P95 250-20000 /yr >500 N)",
+   "right": "DENT-K1-LIFETIME / 351 FATIGUE jobs",
+   "why": "A 80x epistemic band on the load enters a life model whose own power law is post-hoc and non-independent. The compounding is never evaluated, so no fatigue number in the system is a number."
+  },
+  {
+   "pair": "Measured crest band -> insertion torque",
+   "left": "DENT-PROC-CREST-BAND-MEASURED (PROVEN, 370 sites)",
+   "right": "DENT-PROC-INSERT-S4-TORQUE (PROVEN in foam only)",
+   "why": "The only measured tissue field in the system feeds a torque model that is refuted in the material that matters. A measured input and a measured output are both present and the link between them is absent."
+  },
+  {
+   "pair": "Design -> manufactured geometry",
+   "left": "DENT-MFG-* six quantified nodes, all OPEN",
+   "right": "DENT-K2 fit prediction / DENT-VAL-BENCH-CROWN-FIT",
+   "why": "The process model predicts an as-built deviation and nothing measures one. The consumer exists and the producer is a specification only."
+  },
+  {
+   "pair": "Design variable -> biological outcome",
+   "left": "Every design variable (implant diameter, thread, surface, crown contour)",
+   "right": "DENT-BIO-* (3 REFUTED drivers)",
+   "why": "No admissible mechanism connects them, so the biological stage cannot currently veto or justify a design change."
+  }
+ ],
+ "ranked_gaps": [
+  {
+   "rank": 1,
+   "id": "G01",
+   "title": "Occlusal load case: no patient-linked bite force exists",
+   "stage": "L04",
+   "sever": "CRITICAL",
+   "kind": "interface_break",
+   "why": "Every stress, fatigue, wear and design decision in the system consumes a bite force that no public source can supply for a specific patient. 16_occlusion_jawmotion.md answers the load question with \"no\" and enumerates six adversarial counter-arguments, all of which hold. The consequence is that DENT-LOAD-MAGNITUDE-SPECTRUM carries an 80x epistemic band (250-20000 cycles/yr above 500 N) and 100+ downstream nodes inherit it silently.",
+   "smallest_next": "Publish the single acquisition specification (measured bite transform on Teeth3DS+ arch pairs plus a contact-area x force-per-site table) and PAUSE all derived load-spectrum derivations. One specification, then move on.",
+   "falsifier": "Bite registration residual exceeds the 0.3 mm contact band, so a patient-linked table cannot be built at design resolution and the system must instead carry an explicitly population-level load with a stated loss of design resolution."
+  },
+  {
+   "rank": 2,
+   "id": "G02",
+   "title": "Process-property calibration has zero measured pairs; AM-Bench is the route",
+   "stage": "L07/L08/L10",
+   "sever": "CRITICAL",
+   "kind": "acquisition",
+   "why": "The material and process layer is the most quantitatively developed part of the graph and the only part with NO measurement behind it. 73 fatigue jobs and 141 grade jobs re-derive the same inherited power law and eigenstrain model. Meanwhile 17_fabricate_test_pairs.md lists public-domain, DOI-tagged, geometry+measurement pairs (NIST AM-Bench AMB2018-01/03/04, AMB2022-04, AMB2025-02/03) that the loop has never used.",
+   "smallest_next": "Acquire one AM-Bench pair end to end and fit the process-property relation the model already parameterises. This converts an entire branch from ASSUMED to measurable.",
+   "falsifier": "The fitted property is uncorrelated with the declared process variable, so AM-Bench process-property structure does not transfer and the dental ceramic route must be measured directly."
+  },
+  {
+   "rank": 3,
+   "id": "G03",
+   "title": "Biological stage has no admissible mechanism after three refutations",
+   "stage": "L13",
+   "sever": "CRITICAL",
+   "kind": "broken_branch",
+   "why": "Absolute Frost bands: REFUTED. Tooth-referenced mechanostat: REFUTED. Ortho PDL-pressure driver: REFUTED. 55 DENT-PAT nodes remain OPEN. The biological stage cannot change a design decision, so the lifecycle terminates at the tissue boundary.",
+   "smallest_next": "Test a stimulus-SPACE form of the mechanostat against a public load+remodeling dataset with a held-out anchor, or declare an empirical risk term. Do NOT produce a fourth Frost variant.",
+   "falsifier": "Even the space form fails to recover the sign, proving the mechanostat family is wrong for this geometry."
+  },
+  {
+   "rank": 4,
+   "id": "G04",
+   "title": "Intake gate is closed: 42 written proposals silently unadmitted",
+   "stage": "L15",
+   "sever": "CRITICAL",
+   "kind": "operational",
+   "why": "The controller admits followups only while (jobs without RESULTS.md) < intake_ceiling. That count is 499 against a ceiling of 480, so the gate is false every tick. 63 proposal files exist; 21 were ingested; 42 sit unadmitted. The self-refilling loop has been stalled at the intake boundary, not the queue boundary, and STATUS.json does not show it.",
+   "smallest_next": "Gate intake on the runnable backlog (368), consistent with how MASSIVE_QUEUE_POLICY states targets are \"valid research backlog, not concurrency\", rather than on the raw unfinished count. Then re-run and confirm the 42 files are admitted.",
+   "falsifier": "Admitting them pushes the queue past what the hosts can run, in which case the gate should instead be raised explicitly rather than redefined."
+  },
+  {
+   "rank": 5,
+   "id": "G05",
+   "title": "Prosthesis classes: removable is entirely absent, implant is 1 decision in 1414",
+   "stage": "L05/L13",
+   "sever": "HIGH",
+   "kind": "scope",
+   "why": "All 550 draft nodes and all 1414 producer jobs address a single case (implant-supported). 1 of 1414 decisions mentions implant/thread. 0 mention removable. Support physics for a tissue-borne prosthesis (mucosal compression, retention, wear of the retentive element) has no node at all.",
+   "smallest_next": "Open the class as a first-class dimension in the coverage matrix and register one removable-support source family with real files, rather than treating fixed/removable/implant as a footnote on one case.",
+   "falsifier": "No public dataset supports mucosal support mechanics at the required resolution, in which case the class is recorded MISSING by acquisition, not by omission."
+  },
+  {
+   "rank": 6,
+   "id": "G06",
+   "title": "Graph hygiene: the two highest-scoring gaps are uncreatable MISSING_DRAFTs",
+   "stage": "L03/L15",
+   "sever": "HIGH",
+   "kind": "graph_defect",
+   "why": "`./graph working rank` returns DENT-PROC-STEP-MODEL (score 5.3) and DENT-UNC-PROPAGATION (score 5.2) as the top two items, both with admission_state MISSING_DRAFT and path_authority UNLINKED_GOAL_RELEVANCE. A planner cannot create the drafts it is being told to work, so it will re-derive a toy identity instead. `path_authority` is also UNKNOWN for both.",
+   "smallest_next": "Define the two missing drafts as explicit operator lists with their required inputs, so the graph stops ranking uncreatable nodes; and link them to DENT-GOAL so path_authority resolves.",
+   "falsifier": "The existing FE-REFERENCE cell already satisfies DENT-PHYS-FIELD-SOLVE, in which case the node should be an alias, not a new draft."
+  },
+  {
+   "rank": 7,
+   "id": "G07",
+   "title": "No metrology loop: nothing measures an as-built part and updates the design",
+   "stage": "L11",
+   "sever": "HIGH",
+   "kind": "interface_break",
+   "why": "The system predicts as-built deviation to a few micrometres (tool radius 0.3-1.0 mm moves the marginal gap 12.3 um) and has never produced or scanned a part. K2 fit prediction carries a 38-77 um systematic anatomical residual whose two proposed causes are REFUTED. VAL-A is fully specified, hashad, and unrun.",
+   "smallest_next": "Mill and scan one crown on the license-free STS die and report the predicted-vs-measured as-built marginal gap. This closes design->manufacture->measure in one artefact.",
+   "falsifier": "Measured deviation is dominated by tool wear/holding error rather than the modelled causes, so the process model is mis-attributing its own residuals."
+  },
+  {
+   "rank": 8,
+   "id": "G08",
+   "title": "No independent review binding anywhere in the system",
+   "stage": "L14/L15",
+   "sever": "HIGH",
+   "kind": "evidence_gap",
+   "why": "The interface audit found 1 independently reviewed node out of 102. Every report is PRODUCER_OUTPUTS_UNAUDITED. 371 audit + 387 adversarial jobs (54 % of producer work) re-check model arithmetic, yet 0 bind an independent verdict into the graph. The review effort is real and its output is not connected to anything.",
+   "smallest_next": "Bind the verdicts that already exist: take the completed REVIEW-* results, bind them as GRAPH_FEEDBACK with the existing content-addressed archive, and make the bound count a reported quantity in STATUS.json.",
+   "falsifier": "The completed reviews were never independent in the sense the graph requires, in which case the audits are redundant with the producers and the 54 % allocation is wrong."
+  },
+  {
+   "rank": 9,
+   "id": "G09",
+   "title": "Wear, corrosion and aging are entirely unmodelled",
+   "stage": "L08",
+   "sever": "HIGH",
+   "kind": "missing_mechanism",
+   "why": "The durability layer models fatigue only. 73 fatigue jobs exist; zero wear, zero corrosion, zero aging/temperature-humidity. For a ceramic-restored chain, tribological wear of the antagonist pairing and hydrothermal degradation are first-order over service time.",
+   "smallest_next": "Acquire a three-body wear measurement on a declared antagonist pairing and fit a single Archard-type coefficient. The thermocycling reference protocol (5-55 C, 5 min/cycle, ~3000-10000 cycles, PMMA/poppy-seed third body) is the published route.",
+   "falsifier": "The coefficient is pairing-specific and unstable across the three slurries, in which case the layer needs a wear mechanism rather than a wear coefficient."
+  },
+  {
+   "rank": 10,
+   "id": "G10",
+   "title": "Manufacturability is a post-check, not a search constraint",
+   "stage": "L09/L10",
+   "sever": "MEDIUM",
+   "kind": "interface_break",
+   "why": "Milling access, sinter shrinkage and cement spacer are quantified as deviations AFTER a design exists. Six MFG nodes carry the most precise numbers in the graph and none has a cell. A design that is geometrically optimal can be unmanufacturable, and nothing in the search knows that.",
+   "smallest_next": "Add accessibility and shrinkage as hard constraints in one existing design loop and measure the Pareto volume lost relative to post-hoc rejection.",
+   "falsifier": "Post-hoc rejection removes nothing the constraint admits, so the coupling is unnecessary and the current architecture is already correct."
+  }
+ ],
+ "backlog": [
+  {
+   "id": "B11",
+   "title": "Soft-tissue obstacle in the access volume (DENT-ACCESS-SOFT-TISSUE-OBSTACLE, OPEN, unranked)",
+   "stage": "L10",
+   "why": "Manufacturing feasibility ignores lip/cheek/tongue. Milling access is modelled by tool radius only."
+  },
+  {
+   "id": "B12",
+   "title": "Imaging beyond CBCT",
+   "stage": "L01",
+   "why": "No intraoral scan, optical or MRI input. Intraoral scans are the format the design loop actually wants."
+  },
+  {
+   "id": "B13",
+   "title": "Patient-specific manufacturing datasets",
+   "stage": "L10",
+   "why": "A Ti-6Al-4V lattice mandibular scaffold study (15 fabricated, 384 computational variants) is dental-adjacent and CC BY 4.0; its reproducibility link is unresolved."
+  },
+  {
+   "id": "B14",
+   "title": "Fractography of clinically failed implant-supported crowns",
+   "stage": "L08",
+   "why": "Failure-mode classification with dominant debonding at the zirconia-abutment interface. Converts the negative fatigue evidence into a design constraint."
+  },
+  {
+   "id": "B15",
+   "title": "Screw preload and superstructure assembly mechanics",
+   "stage": "L05",
+   "why": "Assembly is absent from the model chain entirely; L11 covers fit, not the screw joint."
+  },
+  {
+   "id": "B16",
+   "title": "External validation protocol",
+   "stage": "L16",
+   "why": "No held-out clinical site or multi-centre split exists; the system has no external validity claim."
+  },
+  {
+   "id": "B17",
+   "title": "Consent/de-identification gate in the controller",
+   "stage": "L16",
+   "why": "Any job may read any dataset on disk. A machine-checked gate is cheap and closes a real privacy risk."
+  },
+  {
+   "id": "B18",
+   "title": "Hip and surface post-treatment route for L-PBF Ti-64",
+   "stage": "L07/L08",
+   "why": "DENT-MATINNOV-H6 is OPEN and is the clearest available design freedom with a public test-bed."
+  },
+  {
+   "id": "B19",
+   "title": "Patent corpus as a design-variable source",
+   "stage": "L09",
+   "why": "107797 strict dental families are on disk with SureChEMBL links and were never mined for design variables; they are the cheapest source of genuinely new design freedoms."
+  },
+  {
+   "id": "B20",
+   "title": "Graph hygiene: resolve 7 duplicated draft-ID conflicts",
+   "stage": "L15",
+   "why": "DENT-DESIGN-MARGIN-FROM-GEOMETRY-SPREAD, DENT-DS-MMDENTAL, DENT-DS-TOOTHFAIRY2 and 4 others are duplicated across drafts; they block packet freshness (STALE_INPUT)."
+  }
+ ],
+ "new_source_families": [
+  {
+   "key": "LOADCASE",
+   "target_id": "DENT-LOAD-MAGNITUDE-SPECTRUM",
+   "files": [
+    [
+     "16_occlusion_jawmotion.md",
+     "external_research_path"
+    ],
+    [
+     "load_spectrum.jsonl",
+     "local_path"
+    ]
+   ],
+   "context": "The occlusal load case. Public parts exist separately but no source links bite geometry to bite force for one individual: Teeth3DS+ arches are not co-registered, the Zenodo bite set is DUA-gated with an unconfirmed transform, the only jaw-kinematics set (N=24) has no tooth models, T-Scan gives percentages and its raw data is non-public. PAUSE derived load-spectrum derivations; produce one acquisition specification instead.",
+   "why_no_experiment": "DENT-LOAD-MAGNITUDE-SPECTRUM carries an 80x epistemic band (250-20000 cycles/yr above 500 N). Any numerical task here re-derives the same unmeasured quantity."
+  },
+  {
+   "key": "PROCPROP",
+   "target_id": "DENT-MFG-PROCESS-MODEL",
+   "files": [
+    [
+     "17_fabricate_test_pairs.md",
+     "external_research_path"
+    ],
+    [
+     "05_cadcam_repositories.md",
+     "external_research_path"
+    ]
+   ],
+   "context": "Geometry-linked measured mechanical response. Public-domain, DOI-tagged pairs exist (NIST AM-Bench AMB2018-01/03/04, AMB2022-04, AMB2025-02/03: build geometry plus deflection, residual stress, tensile, in-situ XRD, S-N) and clinical fractography of failed implant-supported crowns. The loop has used none of them.",
+   "why_no_experiment": "No process-property pair has ever been measured in this workspace. This family exists to buy the first one, not to model the hundredth."
+  },
+  {
+   "key": "REMOVABLE",
+   "target_id": "DENT-ACCESS-SOFT-TISSUE-OBSTACLE",
+   "files": [
+    [
+     "15_uncertainty_meshquality.md",
+     "external_research_path"
+    ],
+    [
+     "18_dental_ceramics_data.md",
+     "external_research_path"
+    ]
+   ],
+   "context": "The non-implant classes. Tissue-borne support (mucosal compression, retention, wear of the retentive element) and the soft-tissue obstacle in the milling access volume are absent from the graph while every node assumes an implant. Also carries mesh-quality uncertainty, which is the quantified front-end error that propagates into every margin.",
+   "why_no_experiment": "There is no cell, no result and no node for tissue-borne support. Adding a design task here would fabricate a mechanism; this must be a definition task first."
+  },
+  {
+   "key": "BIORESP",
+   "target_id": "DENT-BIO-CRESTAL-BONE-REMODELING",
+   "files": [
+    [
+     "10_orthopedic_bone_transfer.md",
+     "external_research_path"
+    ],
+    [
+     "04_clinical_bio_registry.md",
+     "external_research_path"
+    ],
+    [
+     "bone_remodeling.jsonl",
+     "local_path"
+    ]
+   ],
+   "context": "Biological response. Three generic remodeling drivers are already REFUTED (absolute Frost bands, tooth-referenced mechanostat, ortho PDL pressure). Orthopaedic bone-transfer datasets with paired load and in-vivo/simulated remodeling are the only route with a held-out anchor.",
+   "why_no_experiment": "A fourth generic Frost-band variant is forbidden. The admissible test needs a public load+remodeling pair that has not been acquired."
+  },
+  {
+   "key": "VALIDATE",
+   "target_id": "DENT-VAL2-BENCH-PROGRAM",
+   "files": [
+    [
+     "validation_v3.jsonl",
+     "local_path"
+    ],
+    [
+     "09_standards_protocols.md",
+     "external_research_path"
+    ]
+   ],
+   "context": "Bench calibration and validation. VAL v1/v2/v3 specify 18 OPEN bench experiments with pre-registered predictions, plus an assembled ISO 14801 dental chain with its own PARDISO build. None has been run. Standards protocols supply the prescribed load cases.",
+   "why_no_experiment": "VAL-A needs a physical die and a mill. The specification is complete; the equipment step is not a numerical one."
+  },
+  {
+   "key": "PRIVACY",
+   "target_id": "DENT-DATA-LICENSE-GATE",
+   "files": [
+    [
+     "19_challenge_archives.md",
+     "external_research_path"
+    ],
+    [
+     "license_gate.jsonl",
+     "local_path"
+    ]
+   ],
+   "context": "Access, privacy and external validation. 49 challenges (18 dental) are enumerated by access class (a) open / (b) account / (c) DUA / (d) dead. The licence gate governs derived exports. No de-identification or consent gate is enforced by the execution loop, and no external validation protocol exists.",
+   "why_no_experiment": "This family exists so that any future task naming a dataset is checked for access class before it is admitted, not after."
+  }
+ ],
+ "executable_tasks": [
+  {
+   "id": "T01",
+   "gap": "G01",
+   "title": "Replace derived occlusal spectra with one acquisition specification",
+   "category": "integration",
+   "source_key": "LOADCASE",
+   "kind": "definition",
+   "falsifier": "Bite registration residual exceeds the 0.3 mm contact band, so a patient-linked force-per-site table cannot be built at design resolution.",
+   "baseline": "DENT-LOAD-MAGNITUDE-SPECTRUM mixture (lognormal chewing + Weibull bruxism + GPD) with held-out anchors Morneburg 2002 and Nishigawa 2001.",
+   "consumer": "Every stress, fatigue and design cell; the fatigue life model; the design objective.",
+   "readiness": 0.25,
+   "readiness_reason": "inputs are on disk and the negative answer is already evidenced; the binding acquisition needs a scan of the same patient."
+  },
+  {
+   "id": "T02",
+   "gap": "G02",
+   "title": "Acquire one AM-Bench geometry+measurement pair and fit the process-property relation",
+   "category": "calibration",
+   "source_key": "PROCPROP",
+   "kind": "acquisition",
+   "falsifier": "The fitted property correlates with build orientation but not with the declared process variable, so AM-Bench structure does not transfer to the dental route.",
+   "baseline": "Inherited post-hoc power law (five anchors, not independent of the cohorts it is scored on) and the closed spherical-shell eigenstrain model.",
+   "consumer": "DENT-MATINNOV-H6 (HIP route), the fatigue life model, the strength gate.",
+   "readiness": 0.45,
+   "readiness_reason": "public-domain, DOI-tagged, checksum-verified; only the download is missing, and it is bounded (<5 MB sample)."
+  },
+  {
+   "id": "T03",
+   "gap": "G03",
+   "title": "Test a stimulus-space mechanostat against a public load+remodeling pair",
+   "category": "adversarial",
+   "source_key": "BIORESP",
+   "kind": "adverse_test",
+   "falsifier": "Even the space form fails to recover the observed sign, proving the mechanostat family is wrong for this geometry and an empirical risk term is required.",
+   "baseline": "The three REFUTED drivers: absolute Frost bands (MESr 50, MESm 1500, MESp 3000 ue), the tooth-referenced mechanostat, and the ortho PDL-pressure driver.",
+   "consumer": "The biological leg of the design objective; the marginal-bone-loss risk term.",
+   "readiness": 0.35,
+   "readiness_reason": "the falsification evidence exists; the paired dataset has not been acquired and no download is authorised in this turn."
+  },
+  {
+   "id": "T04",
+   "gap": "G04",
+   "title": "Reopen the controller intake gate on the runnable backlog",
+   "category": "integration",
+   "source_key": null,
+   "kind": "operational",
+   "falsifier": "Admitting the 42 pending proposal files pushes the runnable queue beyond host capacity, in which case the ceiling should be raised explicitly rather than the gate redefined.",
+   "baseline": "backlog = jobs without RESULTS.md (499) vs intake_ceiling (480); runnable = 368; reserve target 320.",
+   "consumer": "The whole self-refilling loop; every future planner proposal.",
+   "readiness": 0.95,
+   "readiness_reason": "a two-line change to an existing function, verifiable by a count before and after, with no change to cooldowns, accounts, routes or lease expiry."
+  },
+  {
+   "id": "T05",
+   "gap": "G05",
+   "title": "Open the prosthesis-class dimension with a real removable-support source",
+   "category": "exploratory",
+   "source_key": "REMOVABLE",
+   "kind": "definition",
+   "falsifier": "No public dataset supports mucosal support mechanics at design resolution, in which case the class is MISSING by acquisition rather than by omission and must be recorded as such.",
+   "baseline": "The current graph, in which all 550 nodes and all 1414 producer jobs describe a single implant-supported case.",
+   "consumer": "The coverage matrix, the design objective, the support-physics model.",
+   "readiness": 0.3,
+   "readiness_reason": "the source files exist and are real; no cell, node or result exists for this class, so nothing can be run yet."
+  },
+  {
+   "id": "T06",
+   "gap": "G07",
+   "title": "Close design -> manufacture -> measure on the license-free STS die",
+   "category": "integration",
+   "source_key": "PROCPROP",
+   "kind": "acquisition",
+   "falsifier": "Measured as-built deviation is dominated by tool wear/holding error rather than the modelled tool radius, cement spacer and sinter compensation, so the process model mis-attributes its residuals.",
+   "baseline": "DENT-MFG-MILL-TOOL-RADIUS predicts a 12.3 um marginal-gap shift for r 0.3-1.0 mm; K2 fit prediction carries a 38-77 um systematic anatomical residual.",
+   "consumer": "The fit model, the strength gate, the manufacturing feasibility check.",
+   "readiness": 0.4,
+   "readiness_reason": "the die case is CC BY 4.0 and identified; it needs a mill, a scanner and an operator - not a numerical command."
+  },
+  {
+   "id": "T07",
+   "gap": "G08",
+   "title": "Bind the already-completed independent reviews into the graph",
+   "category": "integration",
+   "source_key": null,
+   "kind": "operational",
+   "falsifier": "The completed reviews were never independent in the sense the graph requires, in which case the 54 % audit allocation is redundant with the producers and should be cut instead.",
+   "baseline": "63 proposal files, 21 ingested; 371 audit + 387 adversarial producer jobs; interface audit found 1 independently reviewed node of 102.",
+   "consumer": "The working view, the graph rank, and every future planner decision.",
+   "readiness": 0.8,
+   "readiness_reason": "the results and the content-addressed archive already exist; the binding path is exercised by controller.bind_report and only needs to be run over the backlog."
+  },
+  {
+   "id": "T08",
+   "gap": "G10",
+   "title": "Make manufacturability a search constraint in one existing design loop",
+   "category": "mechanism",
+   "source_key": "PROCPROP",
+   "kind": "experiment",
+   "falsifier": "Post-hoc rejection removes no design that the constraint admits, so the coupling is unnecessary and the current architecture is already correct.",
+   "baseline": "Current: accessibility, shrinkage and cement spacer are checked after a design exists.",
+   "consumer": "The generative design loop; the Pareto front; the manufacturing feasibility check.",
+   "readiness": 0.55,
+   "readiness_reason": "the six MFG nodes quantify the deviations numerically today, so the experiment runs; only its design-space consumer is thin."
+  }
+ ],
+ "numerical_readiness_legend": "Numerical readiness = fraction of the task that can be decided with the commands allowed in this workspace (bounded, <=60 s, <=100 MB, no bulk download). 1.0 = fully decidable now; 0.0 = requires physical equipment, a new acquisition or an authorization that is not in force. A low value is NOT low priority: it is the reason the task must be labelled definition/acquisition rather than experiment-ready.",
+ "not_claimed": [
+  "That any classification here admits scientific evidence. Every result in this system is PRODUCER_OUTPUTS_UNAUDITED.",
+  "That a missing documentation statement proves missing code. Each row states what was inspected.",
+  "That the 16-stage checklist is exhaustive. It is a starting checklist, and the removable class alone shows how much it omits.",
+  "That filling every row makes the list complete. The binding layer (L15) is the real ceiling: 538 draft nodes carry 6 result bindings."
+ ]
+}

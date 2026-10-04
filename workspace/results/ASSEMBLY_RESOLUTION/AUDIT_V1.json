@@ -1,0 +1,204 @@
+{
+ "variables": 177,
+ "variables_without_a_level": 112,
+ "level_counts": {
+  "MOLECULE": 2,
+  "TISSUE": 28,
+  "ORGAN": 13,
+  "FIBRIL": 1,
+  "PHENOMENOLOGICAL": 10,
+  "CELL": 11,
+  "UNKNOWN": 112
+ },
+ "lowercase_spellings_normalised": 0,
+ "edges": 175,
+ "edges_with_a_known_level_at_both_ends": 36,
+ "edges_unknown_at_one_end_or_more": 139,
+ "edges_crossing_a_level": [
+  {
+   "edge": "T-E1-charge_inventory-vs-ionic_swelling_pressure",
+   "status": "OPEN",
+   "between": [
+    "charge_inventory",
+    "ionic_swelling_pressure"
+   ],
+   "levels": [
+    "MOLECULE",
+    "TISSUE"
+   ],
+   "levels_apart": 3,
+   "bridge_declared": false,
+   "tight_without_a_bridge": false
+  },
+  {
+   "edge": "T-E3-stromal_thickness-vs-refractive_power",
+   "status": "OPEN",
+   "between": [
+    "refractive_power",
+    "stromal_thickness",
+    "stromal_index"
+   ],
+   "levels": [
+    "ORGAN",
+    "TISSUE",
+    "TISSUE"
+   ],
+   "levels_apart": 1,
+   "bridge_declared": false,
+   "tight_without_a_bridge": false
+  },
+  {
+   "edge": "T-E4-surface_allocation-vs-refractive_power",
+   "status": "OPEN",
+   "between": [
+    "refractive_power",
+    "surface_allocation"
+   ],
+   "levels": [
+    "ORGAN",
+    "TISSUE"
+   ],
+   "levels_apart": 1,
+   "bridge_declared": false,
+   "tight_without_a_bridge": false
+  },
+  {
+   "edge": "T-E9-lattice_order-vs-scatter_tail_fraction",
+   "status": "UNKNOWN",
+   "between": [
+    "lattice_order",
+    "scatter_tail_fraction"
+   ],
+   "levels": [
+    "FIBRIL",
+    "TISSUE"
+   ],
+   "levels_apart": 2,
+   "bridge_declared": false,
+   "tight_without_a_bridge": false
+  },
+  {
+   "edge": "T-E10-delivered_energy-vs-removed_mass",
+   "status": "OPEN",
+   "between": [
+    "delivered_energy",
+    "removed_mass"
+   ],
+   "levels": [
+    "PHENOMENOLOGICAL",
+    "TISSUE"
+   ],
+   "levels_apart": 2,
+   "bridge_declared": false,
+   "tight_without_a_bridge": false
+  },
+  {
+   "edge": "T-E12-cem43_thermal_dose-vs-removed_mass",
+   "status": "OPEN",
+   "between": [
+    "cem43_thermal_dose",
+    "removed_mass"
+   ],
+   "levels": [
+    "PHENOMENOLOGICAL",
+    "TISSUE"
+   ],
+   "levels_apart": 2,
+   "bridge_declared": false,
+   "tight_without_a_bridge": false
+  },
+  {
+   "edge": "T-E14-c3b_recycling_fraction-vs-self_surface_growth_rate",
+   "status": "UNKNOWN",
+   "between": [
+    "c3b_recycling_fraction",
+    "self_surface_growth_rate"
+   ],
+   "levels": [
+    "MOLECULE",
+    "CELL"
+   ],
+   "levels_apart": 2,
+   "bridge_declared": false,
+   "tight_without_a_bridge": false
+  },
+  {
+   "edge": "T-E15-c3b_recycling_fraction-vs-activator_host_discrimination",
+   "status": "UNKNOWN",
+   "between": [
+    "activator_host_discrimination",
+    "c3b_recycling_fraction"
+   ],
+   "levels": [
+    "CELL",
+    "MOLECULE"
+   ],
+   "levels_apart": 2,
+   "bridge_declared": false,
+   "tight_without_a_bridge": false
+  },
+  {
+   "edge": "T-E27-shaft_sensing-vs-tip_tangential_load",
+   "status": "OPEN",
+   "between": [
+    "shaft_force_and_moment",
+    "instrument_tip_tangential_load_N"
+   ],
+   "levels": [
+    "ORGAN",
+    "TISSUE"
+   ],
+   "levels_apart": 1,
+   "bridge_declared": false,
+   "tight_without_a_bridge": false
+  },
+  {
+   "edge": "T-E29-shared_mPTP_target-vs-combination_ceiling",
+   "status": "OPEN",
+   "between": [
+    "mPTP_pathway_sharing",
+    "infarct_pct_of_area_at_risk"
+   ],
+   "levels": [
+    "CELL",
+    "ORGAN"
+   ],
+   "levels_apart": 2,
+   "bridge_declared": false,
+   "tight_without_a_bridge": false
+  },
+  {
+   "edge": "T-E30-c3b_recycling_fraction-vs-host_activator_window",
+   "status": "UNKNOWN",
+   "between": [
+    "c3b_recycling_fraction",
+    "host_versus_activator_growth_rate"
+   ],
+   "levels": [
+    "MOLECULE",
+    "CELL"
+   ],
+   "levels_apart": 2,
+   "bridge_declared": false,
+   "tight_without_a_bridge": false
+  },
+  {
+   "edge": "T-E36-hop_scale-vs-macroscopic_diffusivity",
+   "status": "OPEN",
+   "between": [
+    "patch_spacing_um",
+    "macroscopic_diffusivity_um2_s"
+   ],
+   "levels": [
+    "CELL",
+    "TISSUE"
+   ],
+   "levels_apart": 1,
+   "bridge_declared": false,
+   "tight_without_a_bridge": false
+  }
+ ],
+ "tight_edges_crossing_a_level_without_a_declared_bridge": [],
+ "why_no_level_is_inferred_from_units": "MPa is a tissue stress in one edge and a molecular interaction energy density in another; a guessed level would make the cross-scale check run on invented data",
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

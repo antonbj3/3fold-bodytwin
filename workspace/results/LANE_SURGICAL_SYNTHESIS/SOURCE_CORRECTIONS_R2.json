@@ -1,0 +1,29 @@
+{
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "corrections": [
+    {
+      "prior_statement": "Integrated chain43.7vsR3component8.3withsamechemistryinput",
+      "finding": "R3 strength=75*C_R3*externalHPfraction; integrated strength=75*UIMmature; isolatedDHA doesnot enter integrated strength",
+      "source_files": [
+        "surgical_chain/chain.py",
+        "surgical_chain/inventories.py",
+        "../LANE_SURGICAL_RESPONSE/crosslink_port_r3.py"
+      ]
+    },
+    {
+      "prior_statement": "R3 strength8.31withoutstrengthfit",
+      "finding": "No new R3 strengthfit, but C_R3 inherits RESPONSE R1 rates fitted to earlylegacystrength3%@7and20%@21; quantify as calibrated quantity diagnostic, not pure nofit forwardstrength",
+      "source_files": [
+        "surgical_chain/vendor/response_r1.py",
+        "../LANE_SURGICAL_RESPONSE/r1/native_chain/native_geometry_response.json"
+      ]
+    },
+    {
+      "prior_statement": "R1 globalcontextimportpending",
+      "finding": "Coordinator imported four R1 feedbacks; verified existing tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R1_*_IMPORT receipts read-only",
+      "scientific_admission": false
+    }
+  ],
+  "all_prior_raw_results_retained": true
+}

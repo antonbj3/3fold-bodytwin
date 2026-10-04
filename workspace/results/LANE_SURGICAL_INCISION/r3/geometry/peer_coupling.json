@@ -1,0 +1,28 @@
+{
+  "source": "r3/BINDINGS_PORTS_R3_SNAPSHOT.json",
+  "peer_gate": "FAIL",
+  "peer_h_pz_m": null,
+  "peer_micro_cell_h_m": 1.4700978102718317e-05,
+  "NBS_K_radius_m": 5.08e-05,
+  "radius_over_micro_cell_h": 3.455552388762943,
+  "crossprediction": "UNKNOWN: different species, missing Ft/work and measured h_pz; do not map normal groove width/depth to V/A",
+  "sharp_suppression_counterexample_reused": {
+    "same_edge_radius_m": 1e-06,
+    "radius_not_used_as_fitted_parameter": true,
+    "cleavage_without_wedge_drive": {
+      "Gamma_J_m2": 150.0,
+      "volume_work_J_m2": 0.0,
+      "u0": 0.0
+    },
+    "wedge_with_remote_opening": {
+      "Gamma_J_m2": 379.27501220295295,
+      "volume_work_J_m2": 229.27501220295295,
+      "u0_in_yield_units": 2.0,
+      "h_effective_m": 0.0004974030280679682
+    },
+    "scope": "Synthetic BC counterexample; sharp radius alone does not suppress a zone under transmitted wedge loading."
+  },
+  "mechanism_constraint": "delta_b/contact/wedge forcing survives rho->0; R2 delta_b=2R and Gamma150 scenario remain unvalidated",
+  "gain_vs_uniform_FE": null,
+  "strongest_same_information": "TIE"
+}

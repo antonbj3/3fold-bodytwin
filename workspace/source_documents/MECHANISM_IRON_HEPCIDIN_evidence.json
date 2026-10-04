@@ -1,0 +1,148 @@
+{
+  "task": "Iron / hepcidin homeostasis cert: the hepcidin-ferroportin axis (hepcidin binds ferroportin -> internalization/degradation -> blocks Fe export from enterocytes/macrophages), total body iron ~3-4g (~2/3 in hemoglobin), the near-closed-loop recycling economy (~20-25 mg/day recycled vs ~1-2 mg/day dietary absorption), and hepcidin regulation (up by iron+inflammation/IL-6->STAT3, down by erythropoietic drive/erythroferrone). Required falsifiers: (1) mass-balance (recycling >>> absorption, ~90-95% recycled fraction); (2) hepcidin response direction (IL-6 up->hepcidin up->hypoferremia; erythroferrone up->hepcidin down in stress erythropoiesis). Decorrelated check: HFE hemochromatosis (low/blunted hepcidin->overload) and the hepcidin-KO mouse phenocopy.",
+  "confidence_tier": "in-vivo-anchored (Nemeth 2004 JCI human IL-6 infusion, paired hepcidin-fold-change + serum-iron-drop in the SAME subjects/timepoint; Kautz 2014 + Nicolas 2001 + Lesbordes-Brion 2006 mouse genetics; Bridle 2003 + Feder 1996 human HFE hemochromatosis; Ganz 2008 / Kroot 2009 human hepcidin-assay data) for the regulation-direction and decorrelated-check falsifiers; 3-independent-review-cross-checked (Muckenthaler 2017 Cell, Wang & Babitt 2019 Blood, Int J Mol Sci 2021 review) for the mass-balance figures, PLUS one independent geometric/stoichiometric derivation (this doc's own) that lands in the same band from unrelated sibling-doc inputs; standard protein-chemistry-stoichiometry tier for the Hb/heme molecular-weight constants; disclosed STRUCTURAL (not literature-fit) parameters for the WT iron-sensing gain magnitude, the log-linear multi-signal combination, and the dietary-excess ratio in the decorrelated-check ODE.",
+  "isolation_note": "No files edited other than this pair (docs/MECHANISM_IRON_HEPCIDIN.md + this JSON) plus scripts/msk/iron_hepcidin.py and its output data/iron_hepcidin/iron_hepcidin_results.json (all new files, self-created this session). Reads TWO sibling results files read-only (data/erythropoiesis/erythropoiesis_results.json for Hb=15 g/dL, blood_volume=5.0 L, RBC combined lifespan=115 d; data/msk_smoketest/acute_phase_inflammation/acute_phase_inflammation_results.json for il6_peak, AU, qualitative-only cross-check) -- neither sibling script/doc is modified. data/MECHANISM_ANCHOR_GRAPH.json (checked live, read-only, NOT edited -- another instance writes it concurrently per this fork's isolation rules) and data/body_twin/agent_outputs/iron-hepcidin-gate__aa65c4b8164ef5696.json (one pre-existing hypothesis's backing file) were read-only cross-references, never modified, never trusted without independent re-verification. No git operations performed. Of an initial batch of 15 PMIDs drawn from memory for this doc, 5 (33%) were WRONG on live NCBI esummary check (returned completely unrelated papers: a horse-limb-perfusion pharmacokinetics study, a cloned-pig somatic-nuclear-transfer study, a BACH1-transcription-factor study, an O-GlcNAc-glycosylation study, and a transfusion-medicine review) and were re-found via esearch title-string matching -- concrete, in-session confirmation of the recall-drift risk this task warned about (~62% cited); every numeric quote below is machine-grepped from a live-fetched PubMed abstract or PMC/Europe-PMC full text, not recalled.",
+  "citations_verified_live_this_session": {
+    "nemeth_2004_science_mechanism": {
+      "pmid": "15514116", "doi": "10.1126/science.1104742",
+      "cite": "Nemeth E et al (2004). Hepcidin regulates cellular iron efflux by binding to ferroportin and inducing its internalization. Science 306(5704):2090-3.",
+      "verified_via": "NCBI esummary (bibliographic exact match) + efetch abstract, live this session",
+      "numbers": "'Hepcidin bound to ferroportin in tissue culture cells. After binding, ferroportin was internalized and degraded, leading to decreased export of cellular iron... a homeostatic loop: Iron regulates the secretion of hepcidin, which in turn controls the concentration of ferroportin on the cell surface' (exact quote) -- the founding mechanism this entire doc is built on."
+    },
+    "mckie_2000_ferroportin_ireg1": {
+      "pmid": "10882071", "doi": "10.1016/s1097-2765(00)80425-6",
+      "cite": "McKie AT et al (2000). A novel duodenal iron-regulated transporter, IREG1, implicated in the basolateral transfer of iron to the circulation. Mol Cell 5(2):299-309.",
+      "verified_via": "NCBI esearch (title-string match; an initial memory-recalled PMID, 11069897, was WRONG on live check -- returned a BACH1 transcription-factor paper) + esummary confirmation, live this session",
+      "numbers": "'IREG1 represents the long-sought duodenal iron export protein' -- ferroportin discovery, 1 of 3 independent groups/methods same year, decorrelated from the hepcidin-binding mechanism (Nemeth 2004) by 4 years and a completely different assay (transporter cloning vs binding biochemistry)."
+    },
+    "donovan_2000_ferroportin_zebrafish": {
+      "pmid": "10693807", "doi": "10.1038/35001596",
+      "cite": "Donovan A et al (2000). Positional cloning of zebrafish ferroportin1 identifies a conserved vertebrate iron exporter. Nature 403(6771):776-81.",
+      "verified_via": "NCBI esearch (title-string match; an initial memory-recalled PMID, 10993078, was WRONG on live check -- returned a cloned-pig somatic-cell-nuclear-transfer paper) + esummary confirmation, live this session",
+      "numbers": "2nd independent group/species/method (positional cloning of the zebrafish weissherbst hypochromic-anemia mutant) confirming the same exporter -- a 3rd, genetics-based (not biochemistry-based) line of evidence."
+    },
+    "intjmolsci_2021_hepcidin_ferroportin_review": {
+      "pmid": "34204327", "pmcid": "PMC8235187",
+      "cite": "Hepcidin-Ferroportin Interaction Controls Systemic Iron Homeostasis. Int J Mol Sci (2021).",
+      "verified_via": "NCBI esearch/esummary (Europe PMC full-text search cross-check) + own full-text (PMC8235187) fetch, live this session",
+      "numbers": "'In adult humans, total body iron content is approximately 3-4 g' (total pool); hemoglobin 'contains approximately 2-3 g of iron, representing about 2/3-3/4 of the total body iron in adult humans' (Hb fraction); 'normal daily losses are only 1-2 mg'; transferrin 'delivers to target tissues 20-25 mg/day' (flux magnitude). Mechanism detail beyond Nemeth2004: hepcidin triggers 'ubiquitination of the lysine-rich cytoplasmic segment... ferroportin is then targeted to lysosomes and proteasomes for degradation' (cites Nemeth 2004 Science in-text, cross-confirmed)."
+    },
+    "muckenthaler_2017_cell_review": {
+      "pmid": "28129536", "doi": "10.1016/j.cell.2016.12.034", "pmcid": "PMC5706455",
+      "cite": "Muckenthaler MU, Rivella S, Hentze MW, Galy B (2017). A Red Carpet for Iron Metabolism. Cell 168(3):344-361.",
+      "verified_via": "NCBI esummary + efetch abstract + own PMC8235187-independent full-text (PMC5706455) fetch, live this session",
+      "numbers": "Abstract (exact quote): '200 billion red blood cells (RBCs) are produced every day... 20 mL of blood being produced each day, containing 6 g of hemoglobin and 20 mg of iron' -- an INDEPENDENT bottom-up figure (20 mg/day from RBC-production physiology) matching this doc's own stoichiometric derivation (22.6 mg/day, Sec.2). Full text (exact quote): 'iron-recycling macrophages (20-25 mg)'."
+    },
+    "wang_babitt_2019_blood_review": {
+      "pmid": "30401708", "doi": "10.1182/blood-2018-06-815894", "pmcid": "PMC6318427",
+      "cite": "Wang CY, Babitt JL (2019). Liver iron sensing and body iron homeostasis. Blood 133(1):18-29.",
+      "verified_via": "NCBI esummary + efetch abstract + own full-text (PMC6318427) fetch, live this session",
+      "numbers": "'duodenal enterocytes that absorb dietary iron (1-2 mg daily)'; 'reticuloendothelial macrophages that salvage iron from aged erythrocytes (20-25 mg daily)'; '~20 mg iron is used per day to generate 200 billion erythrocytes, accounting for 80% of daily iron needs' -- a 2ND, independent (different author group/year/journal) confirmation of the SAME 20-25/1-2 mg/day split as Muckenthaler 2017. Abstract also confirms this doc's regulation-direction claims verbatim: 'hepcidin production is reduced by iron deficiency and erythropoietic drive... induced by iron loading and inflammation'."
+    },
+    "hepatolcommun_2022_iron_overload_review": {
+      "pmid": "35699322", "pmcid": "PMC9315134",
+      "cite": "Iron overload disorders. Hepatol Commun (2022).",
+      "verified_via": "Europe PMC full-text search + own full-text (PMC9315134) fetch, live this session",
+      "numbers": "3RD independent review: 'Total body iron is approximately 3-4 g'; '1-2 mg are absorbed from the gastrointestinal tract' and 'approximately 1-2 mg of iron are lost' -- confirms the steady-state absorption=loss mass-balance identity independently a third time."
+    },
+    "ganz_2013_physiolrev_review": {
+      "pmid": "24137020", "doi": "10.1152/physrev.00008.2013",
+      "cite": "Ganz T (2013). Systemic iron homeostasis. Physiol Rev 93(4):1721-41.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session",
+      "numbers": "'Hepcidin is in turn feedback-regulated by plasma iron concentration and iron stores, and negatively regulated by the activity of erythrocyte precursors, the dominant consumers of iron... hepcidin synthesis is induced by inflammatory signals including interleukin-6 and activin B' (exact quote) -- both regulatory arms this doc models, stated by Ganz herself independent of the Nemeth/Kautz primary-data papers she co-authors."
+    },
+    "hentze_2010_cell_review": {
+      "pmid": "20603012", "doi": "10.1016/j.cell.2010.06.028",
+      "cite": "Hentze MW, Muckenthaler MU, Galy B, Camaschella C (2010). Two to tango: regulation of Mammalian iron metabolism. Cell 142(1):24-38.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session",
+      "numbers": "Context/couples_to anchor: establishes the hepcidin-ferroportin systemic axis as one of TWO distinct iron-regulatory systems (the other: cellular IRP/IRE machinery, out of this doc's scope)."
+    },
+    "camaschella_2019_blood_review": {
+      "pmid": "30401704", "doi": "10.1182/blood-2018-05-815944",
+      "cite": "Camaschella C (2019). Iron deficiency. Blood 133(1):30-39.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session",
+      "numbers": "'suppression of the iron hormone hepcidin increases iron release to plasma by absorptive enterocytes and recycling macrophages' -- context/couples_to anchor for the deficiency-driven (not ERFE-driven) low-hepcidin arm, not separately modeled quantitatively here."
+    },
+    "nemeth_2004_jci_il6": {
+      "pmid": "15124018", "doi": "10.1172/JCI20945", "pmcid": "PMC398432",
+      "cite": "Nemeth E et al (2004). IL-6 mediates hypoferremia of inflammation by inducing the synthesis of the iron regulatory hormone hepcidin. J Clin Invest 113(9):1271-6.",
+      "verified_via": "NCBI esummary + own full-text (PMC398432) fetch for exact numbers, live this session",
+      "numbers": "HUMAN VOLUNTEER IL-6 infusion, same subjects/timepoint: 'within 2 hours after the infusion, urinary hepcidin levels were 7.5-fold higher on average than at 0 hours' AND 'serum iron decreased on average 34%, and transferrin saturation decreased 33%, in comparison to preinfusion values' (both exact quotes) -- this doc's PRIMARY quantitative anchor for the IL-6 arm, used directly as the model's calibration target (Sec.3)."
+    },
+    "wrighting_2006_stat3": {
+      "pmid": "16835372", "doi": "10.1182/blood-2006-06-027631", "pmcid": "PMC1895528",
+      "cite": "Wrighting DM, Andrews NC (2006). Interleukin-6 induces hepcidin expression through STAT3. Blood 108(9):3204-9.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session",
+      "numbers": "'IL-6... directly regulates hepcidin through induction and subsequent promoter binding of... STAT3. STAT3 is necessary and sufficient for the IL-6 responsiveness of the hepcidin promoter' (exact quote) -- the transduction mechanism behind Nemeth 2004 JCI's observed human dose-response."
+    },
+    "kautz_2014_erfe": {
+      "pmid": "24880340", "doi": "10.1038/ng.2996", "pmcid": "PMC4104984",
+      "cite": "Kautz L et al (2014). Identification of erythroferrone as an erythroid regulator of iron metabolism. Nat Genet 46(7):678-84.",
+      "verified_via": "NCBI esummary + own full-text (PMC4104984) fetch (2 separate targeted queries), live this session",
+      "numbers": "Mouse phlebotomy: 'hepcidin mRNA... 10-fold suppression at 15 hours after phlebotomy' in WT; 'Fam132b-deficient mice failed to mount this response' (necessity test). SELF-CORRECTING FINDING (caught live, not assumed from memory): 'no significant changes in serum iron concentration were observed after either stimulus' in WT, whereas in ERFE-KO 'serum iron concentrations... were at all times significantly lower than baseline' -- i.e. the measured effect is WT-DEFENDS-baseline vs KO-FALLS-below-baseline (a genotype-comparative homeostatic-defense signature), NOT a WT numeric overshoot above baseline. This doc's ERFE falsifier (Sec.3, Sec.7 honest gap) is built on the CORRECTED direction because of this live re-check. Also: 'ERFE expression is greatly increased in Hbb(th3/+) mice with thalassemia intermedia, where it contributes to... the systemic iron overload characteristic of this disease' -- a 2nd, orthogonal (chronic-ERFE-excess, not broken-iron-sensing) disease mechanism converging on the same hepcidin-low/overload endpoint as HFE."
+    },
+    "feder_1996_hfe_discovery": {
+      "pmid": "8696333", "doi": "10.1038/ng0896-399",
+      "cite": "Feder JN et al (1996). A novel MHC class I-like gene is mutated in patients with hereditary haemochromatosis. Nat Genet 13(4):399-408.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session",
+      "numbers": "'Hereditary haemochromatosis (HH), which affects some 1 in 400 and has an estimated carrier frequency of 1 in 10 individuals of Northern European descent' -- HFE gene discovery, prevalence/context for the decorrelated check."
+    },
+    "bridle_2003_hfe_human_hepcidin": {
+      "pmid": "12606179", "doi": "10.1016/S0140-6736(03)12602-5",
+      "cite": "Bridle KR et al (2003). Disrupted hepcidin regulation in HFE-associated haemochromatosis and the liver as a regulator of body iron homoeostasis. Lancet 361(9358):669-73.",
+      "verified_via": "NCBI esearch (found via targeted query) + esummary + efetch abstract, live this session",
+      "numbers": "PRIMARY HUMAN quantitative anchor (n=27 HFE patients vs 7 controls): 'significant decrease in HAMP expression in untreated patients compared with controls (5.4-fold, 95% CI 3.3-7.5; p<0.0001) despite significantly increased iron loading' AND 'hepatic IREG1 [ferroportin] expression was greatly upregulated... (1.8-fold, 95% CI 1.5-2.2; p=0.002)' AND 'significant correlation between hepatic iron concentration and expression of HAMP (r=0.59, p=0.02)' (exact quotes) -- the r=0.59 shows the iron-sensing arm is BLUNTED not absent; the 5.4-fold used directly as this doc's iron-sensing-gain attenuation parameter (Sec.4)."
+    },
+    "nicolas_2001_usf2_ko": {
+      "pmid": "11447267", "doi": "10.1073/pnas.151179498", "pmcid": "PMC37512",
+      "cite": "Nicolas G et al (2001). Lack of hepcidin gene expression and severe tissue iron overload in upstream stimulatory factor 2 (USF2) knockout mice. PNAS 98(15):8780-5.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session",
+      "numbers": "Usf2-/- (hepcidin-null as a side effect) mice 'progressively develop multivisceral iron overload; plasma iron overcomes transferrin binding capacity... in contrast, the splenic iron content is strikingly LOWER in knockout animals than in controls' (exact quote) -- disclosed nuance: overload REDISTRIBUTES (parenchymal up, splenic/macrophage down), not a uniform rise (this doc's single 'storage' compartment does not resolve this sub-structure, Sec.8)."
+    },
+    "lesbordes_2006_hamp1_ko": {
+      "pmid": "16574947", "doi": "10.1182/blood-2006-02-003376",
+      "cite": "Lesbordes-Brion JC et al (2006). Targeted disruption of the hepcidin 1 gene results in severe hemochromatosis. Blood 108(4):1402-5.",
+      "verified_via": "NCBI esearch (found via targeted query, since the true Hamp1-KO is distinct from the USF2-KO surrogate) + esummary + efetch abstract, live this session",
+      "numbers": "THE true, direct Hamp1-knockout mouse (not the USF2-KO surrogate) -- exactly the 'hepcidin-KO mouse' the task names. 'Hepc1-/- mice developed early and severe multivisceral iron overload, with sparing of the spleen macrophages, and demonstrated increased serum iron and ferritin levels as compared with their controls' (exact quote)."
+    },
+    "ganz_2008_hepcidin_immunoassay": {
+      "pmid": "18689548", "doi": "10.1182/blood-2008-02-139915",
+      "cite": "Ganz T et al (2008). Immunoassay for human serum hepcidin. Blood 112(10):4292-7.",
+      "verified_via": "NCBI esearch + esummary + efetch abstract, live this session",
+      "numbers": "SYMMETRIC-QC anchor. Healthy-volunteer 5%-95% range: '29 to 254 ng/mL in men (n=65) and 17 to 286 ng/mL in women (n=49), with median concentrations 112 versus 65 (P<.001)' -- an >8-fold spread within 'healthy'; PLUS 'a diurnal increase of serum hepcidin at noon and 8 pm compared with 8 am' (exact quotes)."
+    },
+    "kroot_2009_hepcidin_roundrobin": {
+      "pmid": "19996119", "doi": "10.3324/haematol.2009.010322", "pmcid": "PMC2791950",
+      "cite": "Kroot JJ et al (2009). Results of the first international round robin for the quantification of urinary and plasma hepcidin assays: need for standardization. Haematologica 94(12):1748-52.",
+      "verified_via": "NCBI esearch + esummary + efetch abstract, live this session",
+      "numbers": "8 labs worldwide: 'the absolute hepcidin concentrations differed widely between methods' (exact quote), though 'analytical variation as percentage of total variance is low' -- a distinct, ADDITIONAL context-dependence (measurement-method variance) kept separate from Ganz 2008's biological-range variance, not conflated."
+    },
+    "finch_1994_classic": {
+      "pmid": "8080980",
+      "cite": "Finch C (1994). Regulators of iron balance in humans. Blood 84(6):1697-702.",
+      "verified_via": "NCBI esearch + esummary bibliographic confirmation, live this session -- no abstract text returned (pre-Web-abstract era in PubMed, disclosed, same convention as this repo's Severinghaus-1966/Nadler-1962 precedent)",
+      "numbers": "Classic foundational ferrokinetics paper -- title + live-confirmed PMID only, historical/provenance citation, not a numeric source used directly in the script's arithmetic."
+    },
+    "andrews_schmidt_2007_review": {
+      "pmid": "17014365", "doi": "10.1146/annurev.physiol.69.031905.164337",
+      "cite": "Andrews NC, Schmidt PJ (2007). Iron homeostasis. Annu Rev Physiol 69:69-85.",
+      "verified_via": "NCBI esearch (an initial memory-recalled PMID, 17014317, was WRONG on live check -- returned a horse-limb-perfusion pharmacokinetics paper) + esummary + efetch abstract, live this session",
+      "numbers": "General review, qualitative framing only (no specific digit extracted this session) -- context/provenance citation."
+    }
+  },
+  "graph_nodes_cross_referenced_not_edited": [
+    "ORG-BLOOD-HEMATOPOIESIS-O2", "AUTO-IRON-METABOLISM-HEPCIDIN-FERROPORTIN-AXI",
+    "MET-IRON-HEPCIDIN-GATE", "AUTO-IRON-SUPPLY-GATE-CELL-INGEST-PER-SUBJECT"
+  ],
+  "graph_backing_files_read_only": [
+    "data/body_twin/agent_outputs/iron-hepcidin-gate__aa65c4b8164ef5696.json"
+  ],
+  "note_on_prior_graph_hypotheses": "All 4 pre-existing graph nodes on this topic are status=OPEN, type=EMPIRICAL, couples_to=None (resolved-edge field unresolved; the coupling prose lives in a separate, unresolved field) -- i.e. DESIGN-stage hypotheses from a prior wave, not certified findings, per docs/MECHANISM_HARDENED_CONVENTIONS.md Sec.4b's 3-stage (acquire/design/measure-certify) pipeline. This doc is the MEASURE/CERTIFY-stage answer: it independently re-verified a fresh PMID set live (not trusting any prior self-reported 'fetched_live' tag) via NCBI E-utilities, with 5 of an initial memory-drawn 15 PMIDs (33%) found WRONG on live check and corrected via esearch title-matching -- concrete, in-session confirmation of exactly the drift risk this task warned about. erythropoiesis.py (a sibling, already-certified doc) explicitly and repeatedly disclaims modeling iron supply, naming these same 2 graph nodes (ORG-BLOOD-HEMATOPOIESIS-O2 / MET-IRON-HEPCIDIN-GATE) as the pointer to where that gap should be closed -- this doc is that closure. It does not edit the graph (isolation: another instance writes data/MECHANISM_ANCHOR_GRAPH.json concurrently; touch only files this session creates).",
+  "results_json_script": "scripts/msk/iron_hepcidin.py -- machine-checkable gate script (stoichiometric derivation + literature-anchored mass-balance + literature-fold-change-calibrated hepcidin logic + a time-integrated decorrelated-check ODE, no curve-fitting to an unseen target). Output: data/iron_hepcidin/iron_hepcidin_results.json. Deterministic: 2 independent runs produce byte-identical JSON (md5 e6f25c06d44aa803ea6a00d8f2d756d8, verified this session).",
+  "overall_verdict": {
+    "f1_mass_balance": "PASS -- Hb-bound iron independently DERIVED (2.60 g, stoichiometry x sibling-doc Hb/blood-volume) lands inside the literature's 2-3 g band; recycling flux independently DERIVED (22.6 mg/day, pool/RBC-lifespan) lands inside the literature's 20-25 mg/day band (triple-sourced); recycled fraction = 93.8%, inside the task's own pre-registered 90-95% band; adversary (lifespan sweep 60-140d, Hb sweep 8-18 g/dL) forced and shown to fall -- recycling-dominance (>85%) holds across 100% of both swept ranges, i.e. the conclusion is not a fragile point-estimate artifact",
+    "f2_hepcidin_response_direction": "PASS -- IL-6 arm calibrated to Nemeth2004JCI's own paired human numbers (7.5x hepcidin -> 34% serum-iron drop, same subjects/timepoint), reconciled exactly by a single-free-parameter (Kd, n=1 no-cooperativity) hyperbolic ferroportin response, disclosed as a functional-form consistency check not an independent magnitude validation; ERFE arm built on the CORRECTED (live full-text re-check caught an initial wrong assumption) genotype-comparative direction from Kautz2014 -- WT defends more plasma iron than a KO-scenario, matching the real WT-unchanged-vs-KO-below-baseline data, with the absolute-level gap (demand-side/erythropoietic-consumption term not modeled) explicitly disclosed",
+    "f4_decorrelated_check_HFE_hepcidin_KO": "PASS -- a time-integrated mass-balance ODE with ONE literature-anchored parameter changed (iron-sensing gain attenuated 5.4x, Bridle2003's own measured HAMP-mRNA reduction) shows WT converging inside the literature's normal 3-4g band (3.75g) while HFE converges OUTSIDE its upper edge (4.82g, ratio 1.28x); forced adversary (nuisance +/-30% wobble on diet/loss/ceiling under INTACT gain, 60 draws) shows its WORST-CASE draw (4.21g) still falls short of the specific mechanism's level (4.82g) -- generic parameter noise does not reproduce the disease-level effect, a MINORITY (~1-in-5) nudging slightly over the literature's own upper edge is honestly disclosed, not hidden",
+    "symmetric_qc_held_open_per_task_instruction": "Iron pools/turnover vary by sex/age/diet/altitude/pregnancy -- all point estimates here are adult-reference-population medians, not subject-specific (same convention as the sibling erythropoiesis.py's Nadler-1962 blood-volume constant). Hepcidin assay is genuinely context-dependent via TWO separate, disclosed, non-conflated sources of variance: biological (Ganz 2008's own healthy-volunteer range spans 29-254 ng/mL men / 17-286 ng/mL women, >8-fold, PLUS a documented diurnal rhythm) and measurement-method (Kroot 2009's 8-lab round robin: absolute concentrations differ widely across assay methods even though each method is internally precise). A real structural limitation is also disclosed: this doc's single 'storage' compartment does not resolve the parenchymal-vs-reticuloendothelial redistribution Nicolas2001 documents in hepcidin-null mice (splenic iron LOWER even as total body iron rises) -- overload is not a uniform rise across all compartments."
+  }
+}

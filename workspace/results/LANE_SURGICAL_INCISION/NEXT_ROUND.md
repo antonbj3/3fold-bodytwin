@@ -1,0 +1,27 @@
+# After INCISION R4: end ports and next work purchase
+
+Status LANE_SCOPE_CLOSED_DATA_ACQUISITION_REQUIRED, PENDING_INDEPENDENT_REVIEW. No automatic fifth synthetic round. Parent GRAPH_INVERSE/MULTIPHYSICS and BT-CTX-SURG-INCISION remains OPEN. Innovation gate FAIL, equally informed control TIE. Always read current governance first.
+
+Ability → same measured skin history should provide new tool's power/work, gap and biological damage zone with local update.
+Conflict → material break must be identified simultaneously with contact/friction/release and loaded area; gauge changes more geometry parameters than diameter.
+Obstacles → effective assay toughness varies with tools, true edge/contact/area and same-hole nuisance drift are unknown; Γ0+B_before and biological gates are unidentified.
+Changed operation → implement MEASUREMENT_SPEC_R4.md or buy public matched synchronous raw curves/area/terminal-work with exactly the same dimensioned observation field.
+
+Read CHECKPOINT_R4_FINAL.json, SOURCE_TARGETS_R4_v2.json, SOURCE_REVIEW_R4.md, r4/fracture_transfer.json, r4/paired_work_observation.json, r4/work_area_requirements.json, PORTS_R4_FINAL.json and VERIFICATION_R4.json. Keep all r1–r4 raw data and the incorrect first R4 freeze; v2 is a documented correction before prediction. PORTS.json is the final consumer port of RESPONSE, where null is not null.
+
+
+
+1. Same species/place/layer/stretch/orientation with first/same-hole/3th pass and precut comparison. Log Ft/Fn/x/z on the same watch and the entire full separation terminal work. Owenreuse is NEW incision sites with same worn needle, not same-hole repeat; do not mix the operators. Buy real force-depth raw curves if legal public package available; the remaining relevant originals are Irwin2021 doi10.1016/j.jmbbm.2021.104660 and Barnett2016 data/correct regression implementation. No email is authorized by this task.
+2. Measure actual localedge curvature, chamfer/coating and loaded nytillkommen3D area; a shank diameter is no edge radius, scartrace no verified area. Matched unload/reload gives release; matchedprecut/repeat provides contact and operation. Use `Wdelta=Gamma_eff DeltaA+DeltaNuisance`; don't assume DeltaNuisance=0 when history changes.
+3. Do not accept an effectively varying J as chemicalΓ0. Buy independent terminal B_before and active new interface/fiber break ports from BINDINGS MEASUREMENT_SPEC_R4. Partial loop, anatomical interface count or returned fitting area is not this work.150–380J/m² is syntheticΓ_cut scenario, not measuredcutposterior. SKIN_TOUGHNESS_GAP mechanism table missing on last read; only read its new published artifacts when they actually exist.
+4. The consumer ports for biological damage/vessel/blood/healing are null. Make per-layer/matchedviability and perfusion around real fracture front. R1:s1,667mm mechanical strain zone or Barnetts0,48–1,51mm unloaded crack traces may not be set as necrosis/avascular width. RESPONSE NEXT_R2 also requires vascular map, flow/Hb and dry mass/volume, not Γ as strength ratio.
+5. Freeze a gauge/radius and a donor before fit. Barnett16G20mm/s is parent calibration, no extra adaptation till18/21/25: fel35,96/22,14/54,64%. Best posterior constant on20mm/s-means misses minst45,84%. The same tool rate changes give at most2,84% central: keep the useful limited rate capability but do not extrapolate to new geometry. Human0,3→0,6mm11,43% are the same previous data med38,33% extreme read variation.
+6. Predict actual work and force for new tools/animals with≤20% central requirement plus declared joint uncertainty. Give the strongest conventional cohesive/contact/history control exactly the same material, work curves and geometry. Barnett's published richer model dataset makes27G-stop11,67–13,57%; don't slap a weaker one-diameter baseline and call it physics innovation. Setup/acquisition/cert/rebuild/fallback/globalstate/history counts if local model now becomes possible.
+
+R4's prospective quota budget is precise and conditional: efficient work≤3500J/m², area0,2%, work/release/contact8/5/5J/m² and oberoendeB4J/m² gives≤29,05J/m² for a hypotetiskt150J/m² intercept. This is **not achieved**.5×1,5mm planned fracture area gives60µJ externalworkbudget eller12mN constantFt-only error. New effective work or major errors require a new budget before prediction. No common empirical parameter posterior was purchased.
+
+## Reproduction and conservation
+
+COMMANDS_R4.md describes driving. `needle_series_r4.py --out <ny lane-lokal katalog>` reproduces the series analysis and rejects existing output. Other scripts write exclusive fixed destinations; reproduce them by copying scripts, frozen source/prereg and necessary inputs in a NY lane local folder. Do not run finalize/handoff/freeze again on original destination. verify_r4.py:s original destination is also exclusive; create new copy/destination. Do not recover already acquiredPDF unnecessarily. SOURCE_MANIFEST_R4 preserves access failures and source regression fails; do not change characters/units in Barnett's Eq12/13 without frozen primary fix.
+
+Only the own LAN/shared data writable; other lane ports are read-only. OMP/OPENBLAS/MKL/NUMEXPR threads2 and PYTHONDONTWRITEBYTECODE=1. No subagents/cloud/queue/graph/product writes. GRAPH_FEEDBACK_R4.json is coordinator documentation for review/define, no actual binding or admission. The parent target requires acquisition above; this round is done.

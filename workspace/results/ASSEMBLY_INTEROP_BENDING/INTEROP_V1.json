@@ -1,0 +1,68 @@
+{
+ "quantity": "ratio (bending/stretch at matched peak tensile strain)",
+ "unit": "1",
+ "ours_analytic": 0.25,
+ "published_floor": 0.25,
+ "published_scope": "peak strain 0.1, pure bending, neutral axis at mid-wall, pointwise linear tension-only response",
+ "external_solver": "scikit-fem 12.0.2, linear elasticity, tetrahedral P1",
+ "rows": [
+  {
+   "span_over_thickness": 20.0,
+   "dofs": 2700,
+   "mean_tensile_response_stretch": 0.1,
+   "mean_tensile_response_bending": 0.025013315418041013,
+   "external_solver_ratio": 0.2501331541804101,
+   "deviation_from_published_floor": 0.00013315418041009996
+  },
+  {
+   "span_over_thickness": 10.0,
+   "dofs": 2700,
+   "mean_tensile_response_stretch": 0.1,
+   "mean_tensile_response_bending": 0.02501543386523393,
+   "external_solver_ratio": 0.25015433865233927,
+   "deviation_from_published_floor": 0.0001543386523392698
+  },
+  {
+   "span_over_thickness": 5.0,
+   "dofs": 2700,
+   "mean_tensile_response_stretch": 0.1,
+   "mean_tensile_response_bending": 0.025017496158726657,
+   "external_solver_ratio": 0.25017496158726654,
+   "deviation_from_published_floor": 0.0001749615872665422
+  },
+  {
+   "span_over_thickness": 2.0,
+   "dofs": 2700,
+   "mean_tensile_response_stretch": 0.1,
+   "mean_tensile_response_bending": 0.025016792653485043,
+   "external_solver_ratio": 0.2501679265348504,
+   "deviation_from_published_floor": 0.00016792653485042663
+  }
+ ],
+ "interface_items_required": [
+  "geometry as a volume mesh, not a thickness scalar — our cell carries no mesh",
+  "an elastic constant pair (E, nu); our cell declares a modulus but not a Poisson ratio",
+  "boundary conditions as displacement fields on named faces; our cell has none",
+  "a kinematic definition of \"pure bending\" — ours is implicit in a formula",
+  "the response functional stated pointwise over a field rather than on a summary",
+  "units for every input; the solver does not carry them, so a mismatch is silent"
+ ],
+ "interface_items_we_could_not_supply": [
+  "a Poisson ratio for the tissue in question, which our cell does not contain",
+  "the end conditions of the real specimen, which the published record does not state"
+ ],
+ "questions_this_makes_askable": [
+  "at what span-to-thickness does the analytic quarter stop holding, and by how much",
+  "what the ratio becomes under a clamped rather than kinematic end, which the published record does not specify",
+  "whether a tension-only response on a computed field differs from the same response on an assumed linear field, which is the sufficiency question in mechanical form"
+ ],
+ "claim_type": "information_link (interface established; numerical agreement not yet informative)",
+ "control": "our own analytic value for the same quantity; the published floor is the external reference and neither implementation is a facit for the other",
+ "review_state": "PENDING_INDEPENDENT_REVIEW",
+ "limitation_found_in_my_own_design": {
+  "what": "Bending was imposed kinematically: the axial displacement at the far end was set proportional to height. That makes the strain linear through the thickness BY CONSTRUCTION, so the solver could not have produced anything else.",
+  "consequence": "The agreement at 0.25 to within 0.0002 across span-to-thickness 20 down to 2 is therefore partly built into the boundary condition, not evidence that the analytic quarter is robust. My stated expectation that it would break for a thick wall is untested, not refuted.",
+  "fix": "Apply a moment or a transverse load and let the solver find the strain distribution. Only then does the external implementation carry information our analytic value does not.",
+  "what_still_stands": "The interface result: six items had to be supplied to make an external solver answer the question at all, and two of them our cell cannot supply. That is independent of the loading choice."
+ }
+}

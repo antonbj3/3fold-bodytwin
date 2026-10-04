@@ -1,0 +1,138 @@
+{
+  "baseline_profile": {
+    "Q_total_m3_s": 7.221112494710785e-08,
+    "q_per_area_m_s": 0.0001537492639673404,
+    "rows": [
+      {
+        "decade_um": [
+          3.0,
+          10.0
+        ],
+        "exit_shear_s_inv": 3912.3039821797583,
+        "flow_share": 4.92586572090045e-05,
+        "n_per_m2_per_decade": 15000.0,
+        "q_per_area_m_s": 7.573482289903967e-09,
+        "q_vessel_m3_s": 5.048988193269311e-13,
+        "radius_geomean_m": 5.477225575051661e-06,
+        "shear_end_share": 0.20021089446003515,
+        "shear_weighted_n": 58684559.73269638
+      },
+      {
+        "decade_um": [
+          10.0,
+          30.0
+        ],
+        "exit_shear_s_inv": 12371.791482634839,
+        "flow_share": 0.004925865720900449,
+        "n_per_m2_per_decade": 15000.0,
+        "q_per_area_m_s": 7.573482289903966e-07,
+        "q_vessel_m3_s": 5.048988193269311e-11,
+        "radius_geomean_m": 1.7320508075688774e-05,
+        "shear_end_share": 0.6331224388732982,
+        "shear_weighted_n": 185576872.23952258
+      },
+      {
+        "decade_um": [
+          30.0,
+          100.0
+        ],
+        "exit_shear_s_inv": 39123.03982179758,
+        "flow_share": 0.009851731441800899,
+        "n_per_m2_per_decade": 300.0,
+        "q_per_area_m_s": 1.5146964579807935e-06,
+        "q_vessel_m3_s": 5.048988193269311e-09,
+        "radius_geomean_m": 5.4772255750516614e-05,
+        "shear_end_share": 0.04004217889200703,
+        "shear_weighted_n": 11736911.946539275
+      },
+      {
+        "decade_um": [
+          100.0,
+          300.0
+        ],
+        "exit_shear_s_inv": 123717.91482634837,
+        "flow_share": 0.9851731441800897,
+        "n_per_m2_per_decade": 300.0,
+        "q_per_area_m_s": 0.00015146964579807932,
+        "q_vessel_m3_s": 5.048988193269311e-07,
+        "radius_geomean_m": 0.00017320508075688773,
+        "shear_end_share": 0.12662448777465962,
+        "shear_weighted_n": 37115374.44790451
+      }
+    ],
+    "shear_weight_total_1_s": 293113718.36666274
+  },
+  "box_span_factor": 16.0,
+  "control_single_log_uniform": {
+    "amplitude_per_m2_per_decade": 7650.0,
+    "interpretation": "two-mode structure is load-bearing for q",
+    "matched_on": "total count integral sum_j n_j (hits per m^2)",
+    "q_per_area_m_s": 0.003901490837602286,
+    "ratio_to_declared": 25.375671641791048
+  },
+  "criteria": {
+    "C1_units": true,
+    "C2_positive": true,
+    "C3_shares_sum_1": true,
+    "C4_share_increases_with_radius_at_const_n": true,
+    "C5_two_mode_load_bearing_gt_2x": true,
+    "C6_box_span_factor": 16.0,
+    "code_criteria_pass": true
+  },
+  "declared_map_status": "ASSUMPTION with no provenance (PREREG 2.1)",
+  "equations": {
+    "Q_total": "q * A_face",
+    "Q_vessel": "pi*dP*R^4/(8*mu*L_out)",
+    "gamma": "dP*R^3/(2*mu*L_out)",
+    "q": "sum_j n_j * Q_vessel(R_j)",
+    "shares": "s_j=Q_j/q ; g_j=n_j*g_j/sum(n_k*g_k)",
+    "v": "v = dP*R^2/(8*mu*L_out)"
+  },
+  "id": "BT-FW48-AUTO-55a5902a27c3f6",
+  "per_decade_precision_for_1pct_q": [
+    203.00999999999993,
+    2.0300999999999996,
+    1.0150499999999998,
+    0.0101505
+  ],
+  "per_decade_relative_tol_for_10pct_q": [
+    2030.0999999999995,
+    20.301,
+    10.1505,
+    0.101505
+  ],
+  "poisson_counts_needed_for_10pct_q": [
+    4121306.009999998,
+    412.13060099999996,
+    103.03265024999999,
+    0.010303265025
+  ],
+  "ports": {
+    "A_face_m2": {
+      "source": "Q033 ellipse_geometry a=0.023,b=0.0065",
+      "unit": "m^2",
+      "value": 0.00046966810171167404
+    },
+    "L_out_m": {
+      "source": "Q033 Parameters.thickness_m",
+      "unit": "m",
+      "value": 0.002
+    },
+    "delta_p_pa": {
+      "source": "ASSUMPTION",
+      "unit": "Pa",
+      "value": 10000.0
+    },
+    "mu_pa_s": {
+      "source": "ASSUMPTION; standard whole blood",
+      "unit": "Pa s",
+      "value": 0.0035
+    }
+  },
+  "total_area_needed_m2_at_declared_n": {
+    "10-30": 0.027475373399999996,
+    "100-300": 3.4344216749999996e-05,
+    "3-10": 274.75373399999984,
+    "30-100": 0.34344216749999995
+  }
+}
