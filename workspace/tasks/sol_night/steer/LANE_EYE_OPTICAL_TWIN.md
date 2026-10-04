@@ -1,34 +1,30 @@
-# Styrning LANE_EYE_OPTICAL_TWIN — efter r51
+# Styrning LANE_EYE_OPTICAL_TWIN — efter r52
 
-## The supporting speech of the round is that: ALLA TRE The ablations beat the full configuration
-`primary_point_passes = 2` mot `historical_control_point_passes = 3`,
-`training_only_ablation_passes = 3` and `current_only_ablation_passes = 3`. Four points, and the
-full configuration is the worst of four. BORT information improves the outcome in all three
-riktningar.
+## The test shrunk, that's the problem of the round.
+r51: fyra punkter. Full konfiguration 2 av 4. Tre enklare varianter 3 av 4 var.
+r52: a point. Primary 1, kontroll 0, kopplad referens 0.
 
-With four points: 3 mot 2 a single point and does not carry any statistical weight. — to each
-less informed arm is at least as good — is what matters, and also it says on four
-dots. Print both things; as the title is now read 2 av 4 as a small deficit instead
-Because as a system where more information makes it worse.
+With one point goes r51:s order does not test. Magnitude control also matches 1, so no one
+There is separation. A smaller test is not a better test.
 
-## The mechanism is in your own field
-`source_posterior_independence = UNKNOWN_SHARED_CALIBRATION_LINEAGE`If the two sources share
-calibration origin is the second source not a second source, and the full configuration
-double counting a calibration. It's exactly the mechanism that produces what you measured.
-a find and its explanation in the same round — tying them in the title instead of reporting them
-as two fields.
+## What to do
+Run over on r51:s fyra punkter. Samma fyra armar. Samma estimator.
+Report the four numbers again, not a new measure.
 
-## Changed operation
-Determine the origin before the next pass. Concretely: track the calibration on which each source rests and
-redovisa om de delar led. Delar de led ska den fulla konfigurationen NOT count as four independent
-points, and then the advantage of the ablations is not an anomaly but the expected.
+## What I asked for last time and did not get
+Origin. Do the two sources share calibration? No field in r52 responds to that.
+Track the calibration on which each source rests. Print if they share the joint.
 
-## Starkaste kontrollen
-Den du redan har: `current_only_ablation`The win for the full configuration is only counted against the
-best performing ablation, not against a raw baseline.
+Parts of the joint are the second source no second source, and the full configuration
+That's the whole explanation to r51.
 
-## Falsifieraren
-If the full configuration continues to lose against all three ablations EFTER that the origin
-is ready, the extra source is harmful and should be taken out of the chain. Print it before driving.
-`new_native_scalar_values = 3 145 728` and 63 MB new archive is not an argument to the contrary — volym
-is not support; and `physical_transport_gate = NOT_EXECUTED_INCOMPLETE_PACKET` I'm standing.
+## Kontroll
+The best performing ablation, not a raw baseline.
+
+## Falsifierare
+Lose the full configuration against all three ablations again, at four points,
+after the lineage is ready: Remove the extra source from the chain.
+
+## Namnkrav
+`vertical_absolute_error = 6,7967e-06` no device in the name. Put the device in the field name.
+Six collisions in the project within one day arose because names did not specify their convention.
