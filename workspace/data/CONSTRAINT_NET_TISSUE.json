@@ -1202,12 +1202,13 @@
             "residual_cylinder"
           ],
           "constraint": "measuring it instead of estimating it cuts residual cylinder error from 0.6209 to 0.2808 D against measured refraction on 69 patients, and this is now confirmed by THREE independent sources for the same input: 0.2808 (IOLMaster posterior), 0.2932 (CASIA posterior, conventions aligned) and 0.3112 D (CASIA total cornea measured in one step). The two devices print ORTHOGONAL posterior meridians, 86 degrees apart in median, and taking the printed axis gives 0.7525 D, which nearly produced a false refutation of this edge",
-          "status": "TIGHT",
+          "status": "OPEN",
           "evidence": "results/ASSEMBLY_TORIC_CROSS_DEVICE/CROSS_DEVICE_V1.json :: residual_cylinder_mae_D.iolmaster_posterior = 0.2808",
           "evidence_was_before_2026_10_03": "results/ASSEMBLY_TORIC_CROSS_DEVICE/CROSS_DEVICE_V1.json :: residual_cylinder_mae_D",
           "evidence_mtime_at_last_check": 1791058069.285,
           "last_checked_status": "OK",
-          "updated_2026_10_03_axis_fix": "from_vector rotated every axis by 90 degrees; fixing it moved the figures in the fourth decimal where the axis was shared and more where it was fixed"
+          "updated_2026_10_03_axis_fix": "from_vector rotated every axis by 90 degrees; fixing it moved the figures in the fourth decimal where the axis was shared and more where it was fixed",
+          "sensitivity_note": "The advantage depends on the orientation of the population stand-in: measured minus population is 0.34 D with the stand-in at 90 deg and 0.0828 D at 0 deg, on the same 69 eyes with the measured arm unchanged at 0.2808 D. Measured 2026-10-04; LANE_CORNEA_SHAPE r23 reached the same conclusion with its own field model (0.5874 -> 0.3541 D) and labels the axis-90 variant MISORIENTED."
         },
         {
           "id": "T-E8-implant_power-vs-refractive_power",
@@ -3497,14 +3498,14 @@
             "tubular_secretion_blocked_fraction",
             "filtration_marker_change_fraction"
           ],
-          "constraint": "Splitting renal clearance into filtration and secretion turns three measured numbers into a verdict: metformin secretion is blocked 0.5561 while the non-secreted filtration marker moves -0.62 percent, so a creatinine rise under this inhibitor is a marker artefact and not a loss of filtration. The route is separated too: OCT2 would need 109 times the unbound concentration that MATE2-K needs.",
+          "constraint": "Splitting renal clearance into filtration and secretion turns three measured numbers into a verdict: metformin secretion is blocked 0.5561 while the non-secreted filtration marker moves -0.62 percent, so a creatinine rise under this inhibitor is a marker artefact and not a loss of filtration. The route is separated too: OCT2 would need 109 times the unbound concentration that MATE2-K needs. Interval added 2026-10-04 from the published 90 percent interval on the clearance ratio (0.516-0.632): the blocked fraction is 0.4949 to 0.6515 with point estimate 0.5773, and the implied unbound concentration on the MATE2-K route is 0.1323 to 0.2524 uM. The route verdict survives the interval: OCT2 needs 27.5 uM even at the most favourable end.",
           "status": "TIGHT",
           "evidence": "results/ASSEMBLY_RENAL_SECRETION/decision.json :: secretion_blocked_fraction = 0.556095804069872",
           "provenance": "tasks/assembly/renal_secretion_decision.py from CONSUMABLE.json READ-A002, A003, A009 and the IC50 rows; external facit PMID 32989831, DOI 10.1002/jcph.1750",
           "quantity_identity_reason": "Both names describe the same two renal processes measured in the same subjects in the same study arm.",
           "executed_check": "equally informed control is creatinine-based eGFR, which has the same creatinine and no transporter term; the facit is the iohexol clearance",
           "review_state": "PENDING_INDEPENDENT_REVIEW",
-          "evidence_mtime_at_last_check": 1791083312.334,
+          "evidence_mtime_at_last_check": 1791089915.655,
           "last_checked_status": "OK"
         },
         {
