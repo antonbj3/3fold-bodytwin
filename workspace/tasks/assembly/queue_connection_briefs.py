@@ -93,10 +93,9 @@ def main() -> int:
                   'Status PENDING_INDEPENDENT_REVIEW.', '']
         # Same arithmetic requirement as the other generators: it costs a minute, needs no source
         # and no network, and it fell eight edges in this net on 2026-10-04.
-        lines = lines + ['', "## Count on the material before searching (obligatoriskt)", '',
-            "You have bash and python3. List each number with unit in the material above. Form each product and quota that gives another unit that also stands there: print × area ger kraft, styvhet × length gives force, concentration × volume provides quantity, flow × tid ger volym, hastighet × time gives length, effect × time gives energy. Compare with the number the material itself indicates and print the ratio.", '',
-            "Direction determines: a quota UNDER 1 when a peak value is multiplied by its surface against a total quantity is physically impossible, and then at least one of three legs is wrong — Tell me which and why. 1 is a multiplier; name it if you can. Is all 1 within rounding, write a line about it and move on.", '',
-            "In addition, for a cellPAR: if the number of the two cells gives the same quantity in different units, convert to the same unit and compare. If they differ, it is either a convention or a finding, and you should say which one."]
+        lines = lines + ['', "## Diverge widely first", '',
+            "This is not a review task. I want ideas about what can KOPPLAS between the two cells. Write three readings of the couple before you search, and let at least one lie completely outside the tissue, body and medicine. Drive them apart, choose the one carrying the longest and go all the way. The strongest outcome is a quantity that binds the two and that someone has already measured in the world; the second strongest is a quantity that would bind them if measured. DOI eller PMID for what you're building on.", '',
+            "If the pair finds no connection, it's an answer and not a failure — say why not."]
         (d / 'BRIEF.md').write_text('\n'.join(lines))
         (d / 'ALLOW_WEB').write_text('1\n')
         json.dump({'id': jid, 'kind': 'creative_connection_between_cells', 'cells': [a, b],
