@@ -31,7 +31,7 @@ QUEUE = W / 'tasks/lanes/bt_queue.txt'
 BLOCK = re.compile(r'excluded_category|excluded_category|excluded_category|sinusoid|excluded_category|excluded_category|excluded_category', re.I)
 QUANT = re.compile(r'["\']([a-z0-9_]{4,}?_(um|mm|nm|pa|mpa|kpa|j|n|k|deg|degc|s|h|mol|percent|'
                    r'ml_min|pa_s|mol_s|kg_m3|j_mol|m_s|per_s))["\']', re.I)
-MAX_PAIRS = 120
+MAX_PAIRS = 257          # 2026-10-04: 257 pairs exist and 120 had been driven, so 137 The roof was the block, not the dedupen.
 
 
 def main() -> int:
