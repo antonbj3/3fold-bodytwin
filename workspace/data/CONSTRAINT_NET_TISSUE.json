@@ -4065,7 +4065,7 @@
       "derivation_route"
      ],
      "constraint": "three independent routes give the nucleus pressure multiplier k and they are not reconcilable: the in-vivo facit implies 0.585959 to 0.718629, our empirical model uses 1.3 to 1.5, and the published fibre equation gives 4.877250096040077. Spread 8.324x",
-     "status": "OPEN",
+     "status": "UNKNOWN",
      "owner": "tasks/assembly/disc_load_decision.py",
      "evidence": "results/ASSEMBLY_DISC_LOAD_DECISION/DISC_LOAD_V1.json :: the_multiplier_the_facit_pins.k_implied_low = 0.586",
      "external_reference": "Ngwa & Agyingi fibre law; Wilke in-vivo nucleus pressure 0.53-0.65 MPa",
@@ -4075,7 +4075,8 @@
      "angle_conditioning": "g crosses zero at 34.5874325119 degrees and it is g, not k, that vanishes, so k diverges there. Positive inversion exists below that angle only. At 30 +/- 1 degree the nonlinear coefficient enclosure is [4.121135, 6.058011], and a 10 percent error allowance with +/- 1 degree uncertainty requires centres no larger than 25.9580415158 degrees. 47089 geometry probes, zero counterexamples to the conditional bound",
      "evidence_previous": "results/ASSEMBLY_DISC_LOAD_DECISION/decision.json :: implied vs model multiplier",
      "evidence_mtime_at_last_check": 1791119903.728,
-     "last_checked_status": "OK"
+     "last_checked_status": "OK",
+     "refuted_2026_10_05_by_swarm": "BT-NET-NUCLEUS-PRESSURE-MULTIPLIER-VS-ROUTE-OF-DERIVATION refuted this edge on three counts and the coordinator accepts all three. ROUTE 3 IS NOT A ROUTE: the report searched for a published fibre equation yielding 4.877250096040077 and could not attach it to any paper, with Schroeder et al. 2008 PMID 18327799 and 2006 PMID 16724211 the nearest candidates and neither reporting that value. The coordinator then checked the repository: the name 'Ngwa' appears in exactly two files, both written by this coordinator today, which means the citation entered from a model's output and was propagated into the net and into a tool as if it were a reference. proof_lane's theorem that k = 1/g > 1 for every positive-compression solution still stands as algebra about an equation, but the equation has no established provenance, so the theorem constrains nothing published. ROUTE 2 IS NOT A MEASUREMENT: the 1.3 to 1.5 range has no source, no specimen, no protocol and -- the point that matters physically -- NO OBSERVATION TIME. With a disc time constant of about 3000 s the omission of observation time is not a formatting detail, it is the whole variable, because the pressure creeps. ROUTE 1 IS ABOUT THE WRONG JOINT: its lineage reports L4-L5 loads in NEWTONS, 144 prone, 240 lateral, 800 standing and 996 sitting (Sato et al. 1999, PMID 10626309), not a dimensionless ratio, and facet contact area is posture dependent so a dimensionless multiplier is not well-posed there at all. The coordinator also notes that the model reference load of 1628.1 N is 1.635 times the largest of those four postures. So the 8.324x spread this edge reported was a spread across three things that are not the same quantity, and the edge as stated is withdrawn rather than narrowed"
     },
     {
      "id": "T-E32-membrane_face_polarity-vs-complement_risk",

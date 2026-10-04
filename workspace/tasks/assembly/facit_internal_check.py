@@ -51,12 +51,16 @@ CHECKS = [
      'reported': {'reported_pm_pp': 4.0, 'n': 7, 'true_SD_if_SEM_pp': 10.583005244258363},
      'derived': lambda r: r['reported_pm_pp'] * math.sqrt(r['n']),
      'against': 'true_SD_if_SEM_pp'},
-    {'source': 'Ngwa & Agyingi fibre law, as used by the disc chain',
-     'chain': 'disc nucleus pressure',
-     'identity': 'k = 1 / g',
-     'reported': {'g': 0.205033570210, 'k': 4.877250096040},
-     'derived': lambda r: 1.0 / r['g'],
-     'against': 'k'},
+    # WITHDRAWN 2026-10-05. This row was never a source self-check and should not have been counted
+    # as one. k was DEFINED as 1/g in the same computation, so checking k against 1/g tests the
+    # arithmetic and nothing about any source -- compare the laser row, where the slope and the heat
+    # of ablation are two separate measurements reported in one paper. Worse, the citation itself is
+    # unverified: BT-NET-NUCLEUS-PRESSURE-MULTIPLIER-VS-ROUTE-OF-DERIVATION searched for a published
+    # fibre equation yielding 4.877250096040077 and could not attach it to any paper, with Schroeder
+    # et al. 2008 (PMID 18327799) and 2006 (PMID 16724211) the nearest candidates and neither
+    # reporting that value. The name 'Ngwa' appears nowhere in this repository except in files this
+    # coordinator wrote today, which means it entered from a model's output and was propagated as if
+    # it were a reference. An untraceable number is an assertion, not a route.
     {'source': 'the Leeds 500 N knee model, doi 10.5518/981',
      'chain': 'meniscus contact',
      'identity': 'sum over condyles of mean pressure times nodal area = applied load',
@@ -92,7 +96,10 @@ def main() -> int:
         'what_a_disagreement_means': ('different specimens, or a different convention; both are '
                                       'findings rather than errors, so this file prints the residual '
                                       'and names the identity and leaves the judgement to the reader'),
-        'scope': 'five instances verified by hand, not a survey of all sources in the net',
+        'scope': ('four instances verified by hand, not a survey of all sources in the net. A fifth '
+                  'was withdrawn on 2026-10-05: it compared a number against its own definition, '
+                  'which tests arithmetic and not a source, and its citation could not be traced to '
+                  'any paper'),
         'rows': rows,
         'review_state': 'PENDING_INDEPENDENT_REVIEW',
     }
