@@ -58,8 +58,9 @@ def main() -> int:
     # Zero rejections is a real answer only if the filter can still reject. Three checks
     # reported green on 2026-10-04 because they matched nothing at all, so the filter proves
     # itself against a constructed string before it reports a count.
-    probe = 'excluded_category' + 'um'
-    if verdict(probe)[0] != 'REJECT':
+    probe_terms = _T._load(_T.LIST_PATH)
+    probe = probe_terms[0] if probe_terms else ''
+    if not probe_terms or verdict(probe)[0] != 'REJECT':
         print("  SJALVTEST FALLER: the filter does not reject its own test case, it relaxes all through what there is for — ingen siffra rapporteras")
         print(f'  {_T.reason()}')
         return 1
