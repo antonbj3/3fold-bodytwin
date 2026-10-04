@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import json
 import math
+import pathlib
 import os
 
 
@@ -94,13 +95,36 @@ def complement_margin() -> dict:
 
 
 def load_redistribution() -> dict:
-    """Headline: fraction of redistribution a uniform scaling explains, from the four measured rows."""
-    rows = [(3.15, 3.0876624781292343), (4.29, 3.9896), (3.58, 3.5134), (4.88, 4.5172)]
-    inputs = {'residual_scale': 1.0}
+    """Headline: the fraction of the spine redistribution a uniform load scaling explains.
+
+    The first version of this arm was WRONG and its baseline said so: it scaled the model's own
+    residual and computed 1 - sum|residual|/sum|change|, which is identically 0 at scale 1 because
+    those are the same numbers. The headline being screened is the SURROGATE's error against the
+    measured change, so the surrogate has to be rebuilt from the muscle data rather than imitated
+    from a residual. A screen that reports a baseline of 0.0 for a decision whose headline is 0.702
+    is screening the wrong quantity, and the baseline is the cheapest place to catch that.
+    """
+    import statistics
+    base_dir = pathlib.Path('source_repository/data/msk_smoketest/subject2_spine_stoop_lift')
+    NON = ('reserve', 'residual', 'box', 'FX', 'FY', 'FZ', 'MX', 'MY', 'MZ')
+
+    def read(arm):
+        lines = (base_dir / arm / 'walking1_StaticOptimization_force.sto').read_text().splitlines()
+        h = next(i for i, l in enumerate(lines) if l.strip().lower() == 'endheader')
+        cols = lines[h + 1].split('\t')
+        rows = [[float(x) for x in l.split('\t')] for l in lines[h + 2:] if l.strip()]
+        return {c: statistics.mean(abs(r[j]) for r in rows)
+                for j, c in enumerate(cols)
+                if j and not any(k.lower() in c.lower() for k in NON)}
+
+    mn, mb = read('so_no_box'), read('so_with_box')
+    shared = sorted(set(mn) & set(mb))
+    inputs = {'surrogate_error_scale': 1.0}
 
     def explained(d):
-        errs = [abs((p - t) * d['residual_scale']) for t, p in rows]
-        change = [abs(t - p) for t, p in rows]
+        scale = sum(mb[m] for m in shared) / sum(mn[m] for m in shared)
+        errs = [abs(mn[m] * scale - mb[m]) * d['surrogate_error_scale'] for m in shared]
+        change = [abs(mb[m] - mn[m]) for m in shared]
         return 1.0 - sum(errs) / sum(change)
 
     base = explained(inputs)
