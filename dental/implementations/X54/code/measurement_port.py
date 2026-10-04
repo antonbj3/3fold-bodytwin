@@ -1,5 +1,5 @@
 """Compare independently measured regional vertical forces to a frozen query.
-No parameter fit. Synthetic interface checks are explicitly not physical facit.
+No parameter fit. Synthetic interface checks are explicitly not physical reference.
 """
 from dental_release.paths import expand as _release_expand
 import argparse, json

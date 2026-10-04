@@ -1,4 +1,28 @@
-"DENT-PROC-MICROMOTION — FE with contact: threaded implant in ben/benblock immediately after deposit.\n\nCell (MICRO_motion, 2026-09-24). Independent: in = Spec-JSON (geometry, material, preload, load, network, contact),\nOutput = a JSONL line with displacement at the point/cronee and relative tangential displacement along the boundary surface.\nUnits: mm , N , MPa , µm in outputs .\n\nModel (3D semimodel y ≥ 0 , symmetry plane y = 0 contains the load vector):\n- Implant: rotationally symmetric body with ANNULAR V threads (profile from cells/physics/implant_thread_fe.py\n  thread_profile_points , K1 ; helix angle ~ 3° neglected), smooth collar top, Ti-Distance (cylinder r_ab ) to\n  load height e above the crest. Load evenly distributed over the top surface of the distance (consistent node weights).\n- Bone : block (width W, depth Hb) with conventional threaded holes = surface of the implant (thread shaped/cut in the leg).\n  Condition: cortical crown strap 0 .. t_c ( E_c ) + cancellous /skum ( E_s ). Linear-elastic.\n- Interface : the nodes are duplicated (leg side) -> surface contact ccx SURFACE TO SURFACE (one pair per bone layer, penalty\n  K = kfac·E_skikt/h_if, Coulomb-friktion mu, stick-lutning λ = lamfac·K/10). Slav = benytan.\n- Preload (initial state of PROC - INSERT): the implant is administered radial/tangential thermal expansion\n  ( ORTHO , cylindrical orientation, α_z = 0 ) with temperature T(z) per layer so that the mean radial pressure per layer =\n  p0_radial from cells/procedure/implant_insertion.py (calibrated in a pre-run, see calibrate()).\n- Step 1 preload, step 2 load F in direction (sin α, 0, − cos α) (α from implant axis).\n- Micromotion = relative displacement bone − implant for each duplicated node pair, step 2 minus step 1, divided into:\n  tangential (sliding) and normal (opening) component against local surface normal. Maximum and area-weighted funds are reported,\n  whether or not per layer. the displacement of the implant at the loading point (mean of the peak surface nodes) and at the crest (axis, z = 0);\nRV: 'bottom' = blockets botten fast; 'lateral_lower' = lower portion (fraction fr) of the lateral surfaces fixed (PMC5577443).\nSolution: CalculiX 2.23 PARDISO building ( cells/solvers/ccx_highres.py ), gmsh 4.15 . Runs via tasks/heavy_run.sh.\nRun: python3.10 micromotion_contact_fe.py <spec.json> <ut.jsonl> <working-directory>\n"
+"""DENT - PROC - MICROMOTION — FE with contact: threaded implant in bone / leg block directly after insertion .
+
+Cell (MICRO_motion, 2026-09-24). Independent: in = Spec-JSON (geometry, material, preload, load, network, contact),
+Output = a JSONL line with displacement at the point/cronee and relative tangential displacement along the boundary surface.
+Units: mm , N , MPa , µm in outputs .
+
+Model (3D semimodel y ≥ 0 , symmetry plane y = 0 contains the load vector):
+- Implant: rotationally symmetric body with ANNULAR V threads (profile from cells/physics/implant_thread_fe.py
+  thread_profile_points , K1 ; helix angle ~ 3° neglected), smooth collar top, Ti-Distance (cylinder r_ab ) to
+  load height e above the crest. Load evenly distributed over the top surface of the distance (consistent node weights).
+- Bone : block (width W, depth Hb) with conventional threaded holes = surface of the implant (thread shaped/cut in the leg).
+  Condition: cortical crown strap 0 .. t_c ( E_c ) + cancellous /skum ( E_s ). Linear-elastic.
+- Interface : the nodes are duplicated (leg side) -> surface contact ccx SURFACE TO SURFACE (one pair per bone layer, penalty
+  K = kfac·E_skikt/h_if, Coulomb-friktion mu, stick-lutning λ = lamfac·K/10). Slav = benytan.
+- Preload (initial state of PROC - INSERT): the implant is administered radial/tangential thermal expansion
+  ( ORTHO , cylindrical orientation, α_z = 0 ) with temperature T(z) per layer so that the mean radial pressure per layer =
+  p0_radial from cells/procedure/implant_insertion.py (calibrated in a pre-run, see calibrate()).
+- Step 1 preload, step 2 load F in direction (sin α, 0, − cos α) (α from implant axis).
+- Micromotion = relative displacement bone − implant for each duplicated node pair, step 2 minus step 1, divided into:
+  tangential (sliding) and normal (opening) component against local surface normal. Maximum and area-weighted funds are reported,
+  whether or not per layer. the displacement of the implant at the loading point (mean of the peak surface nodes) and at the crest (axis, z = 0);
+RV: 'bottom' = blockets botten fast; 'lateral_lower' = lower portion (fraction fr) of the lateral surfaces fixed (PMC5577443).
+Solution: CalculiX 2.23 PARDISO building ( cells/solvers/ccx_highres.py ), gmsh 4.15 . Runs via tasks/heavy_run.sh.
+Run: python3.10 micromotion_contact_fe.py <spec.json> <ut.jsonl> <working-directory>
+"""
 from dental_release.paths import expand as _release_expand
 import json
 import math
@@ -149,7 +173,7 @@ def faces_on(tets, mask):
     return out
 
 def face_geom(nodes, tets, lst):
-    "Area, unit normal (outwards from the element), centroid of the corner triangle."
+    """Area, unit normal (outwards from the element), centroid of the corner triangle."""
     (A, N, C, IDX) = ([], [], [], [])
     for (e, fno) in lst:
         idx = tets[e, list(FACES[fno])]
@@ -288,7 +312,7 @@ def write_inp(path, nodes, elems, pairs, info, p, Tz, loads=True):
     return dict(ref=ref, top=top_nodes, K_pen=Kp, lam=lam, Kd=Kd, lamd=lamd, n_fix=int(len(fix)), n_s_imp=len(s_imp), n_s_bone=int(sum((len(v) for v in s_bone.values()))), s_bone=s_bone, offs=offs, order=order)
 
 def read_frd_disp(path, n_nodes):
-    "The last DISP block in each step (frd writes every increment; step number from the 1PSTEP row)."
+    """The last DISP block in each step (frd writes every increment; step number from the 1PSTEP row)."""
     (blocks, steps) = ([], [])
     step = None
     with open(path) as f:
@@ -376,7 +400,7 @@ def postprocess(nodes, elems, pairs, info, p, deck, U1, U2):
     return (out, ut, zc)
 
 def read_contact_press(frd, n_nodes):
-    "Last/ all CONTACT Block (CPRESS etc.) from .frd; returns list of dict name->(n_nodes,) for each step."
+    """Last/ all CONTACT Block (CPRESS etc.) from .frd; returns list of dict name->(n_nodes,) for each step."""
     res = []
     with open(frd) as f:
         lines = f.readlines()
@@ -403,7 +427,8 @@ def read_contact_press(frd, n_nodes):
     return res
 
 def radial_prestress(nodes, elems, pairs, deck, U1, p):
-    "Radial mean pressure per layer in steps 1 = radial force per length/ ( π r_h) (half model), from the penalty law:\n    pressure = K_pen · overlap in the normal direction (overlap = − (u_ben − u_imp ) · n, n from the leg towards the implant)."
+    """Radial mean pressure per layer in steps 1 = radial force per length/ ( π r_h) (half model), from the penalty law:
+    pressure = K_pen · overlap in the normal direction (overlap = − (u_ben − u_imp ) · n, n from the leg towards the implant)."""
     out = {}
     for (g, lst) in deck['s_bone'].items():
         Kp = deck['Kd'][g]
@@ -496,7 +521,7 @@ def solve(p, wd, tag='job'):
         return rec
     U = read_frd_disp(os.path.join(wd, tag + '.frd'), len(nodes))
     if len(U) < 2:
-        rec.update(ok=False, fail="less than two DISP blocks")
+        rec.update(ok=False, fail='less than two DISP blocks')
         return rec
     pr = radial_prestress(nodes, elems, pairs, deck, U[0], p)
     rec['prestress_p_rad'] = {g: v['p_rad'] for (g, v) in pr.items()}

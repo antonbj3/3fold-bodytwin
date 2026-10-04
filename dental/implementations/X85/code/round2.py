@@ -95,7 +95,7 @@ def run():
         predpath = ROOT / 'raw/FROZEN_PREDICTIONS_REPLAY.json'
         dump(predpath, dict(frozen_utc=now(), predictions=predictions, physical_measurement='NOT_RUN'))
     else:
-        freeze(fp, dict(claim_type='capability', prereg_sha256=sha(ROOT / 'PREREG_R2.json'), predictions=predictions, physical_measurement='NOT_RUN', external_source_contact_queries_before_freeze=0, force_fixture='Own declared simulation; not external force facit'))
+        freeze(fp, dict(claim_type='capability', prereg_sha256=sha(ROOT / 'PREREG_R2.json'), predictions=predictions, physical_measurement='NOT_RUN', external_source_contact_queries_before_freeze=0, force_fixture='Own declared simulation; not external force reference'))
     from review_integrity import assert_frozen_payload
     assert_frozen_payload(ROOT, 'FROZEN_PREDICTIONS.json', 'predictions', clean(predictions))
     q = v6_contact()

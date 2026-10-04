@@ -1,4 +1,4 @@
-# Conditional dental load on993 deklarerade pargrafer
+# Conditional tooth load on 993 declared pargraphs
 
 Source entry: `FALT_TANDLAST`. Source review status: `DEMO_READY_WITH_CORRECTION`. Source claim type: `UNKNOWN`. Physical validation in this release: UNKNOWN.
 

@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parent
 INPUT = ROOT / 'inputs'
 START = time.perf_counter()
 CHECKS = []
-TYPE_NAMES = {'central_incisor': 'Central incisiv', 'lateral_incisor': 'Lateral incisiv', 'canine': "Canine", 'premolar1': 'Premolar 1', 'premolar2': 'Premolar 2', 'molar1': 'Molar 1', 'molar2': 'Molar 2', 'molar3': 'Molar 3'}
+TYPE_NAMES = {'central_incisor': 'Central incisiv', 'lateral_incisor': 'Lateral incisiv', 'canine': 'Canine', 'premolar1': 'Premolar 1', 'premolar2': 'Premolar 2', 'molar1': 'Molar 1', 'molar2': 'Molar 2', 'molar3': 'Molar 3'}
 GUIDE_NAMES = {'fully_guided': 'Fullt guidat', 'pilot_guided': 'Pilotguidat', 'freehand': 'Frihand', 'dynamic_navigation': 'Dynamisk navigation'}
 GUIDE_ORDER = ['fully_guided', 'pilot_guided', 'freehand', 'dynamic_navigation']
 
@@ -72,7 +72,7 @@ def cluster_median_ci(rows, values):
     return [float(x) for x in np.quantile(boot, [0.025, 0.975])]
 
 def region(fdi):
-    side = "left" if fdi // 10 == 3 else "right"
+    side = 'left' if fdi // 10 == 3 else 'right'
     part = 'premolar' if fdi % 10 in [4, 5] else 'molar' if fdi % 10 in [6, 7, 8] else 'anterior'
     return side + ' ' + part
 
@@ -121,7 +121,7 @@ def run_r1(profiles, teeth):
     dental = {'case': chosen['case'], 'fdi': int(chosen['fdi']), 'same_total_tissue_mm': h, 'reduction_mm': r, 'possible_dentin_after_mm': [0, max(0, h - r)], 'enamel_boundary_observed': False, 'resolution': 'PER_TOOTH', 'scope': 'Layered CT-column model; two tissue assignments have identical tooth/pulp masks'}
     out = {'round': 'R1', 'claim_type': ['capability', 'information_link'], 'verdict': 'UNKNOWN_PHYSICAL_IDENTIFICATION', 'real_margin_95pct': 'UNKNOWN', 'real_dentin_fraction': 'UNKNOWN', 'missing': ['signed-loss distribution', 'independent anatomical boundary bound', 'regional guide-error law', 'DEJ', 'expert horn/axis/preparation geometry'], 'orientation_counterexample': worlds, 'dentin_counterexample': dental}
     write('raw/R1_IDENTIFIABILITY.json', out)
-    (ROOT / 'HANDOFF_R1.md').write_text("# R1 : physical identification missing\n\nThe same observed guide error magnitude allows direction towards or from the channel. The same tooth /pulp mask allows different enamel / dentin - bounds . Real 95% margin and actual dentin share is UNKNOWN. No thresholds changed. The next design R2 retains these latent state as a range and inverts explicit research scenarios.\n")
+    (ROOT / 'HANDOFF_R1.md').write_text('# R1 : physical identification missing\n\nThe same observed guide error magnitude allows direction towards or from the channel. The same tooth /pulp mask allows different enamel / dentin - bounds . Real 95% margin and actual dentin share is UNKNOWN. No thresholds changed. The next design R2 retains these latent state as a range and inverts explicit research scenarios.\n')
     state('R1_DECIDED', 'UNKNOWN_PHYSICAL_IDENTIFICATION', 'R2: conditional inverse margin and partial-identification dentin tables')
     return out
 
@@ -291,7 +291,7 @@ def main():
     (gt, params) = run_guides(op, profiles, sites)
     (tt, aggregate, t_raw) = run_teeth(teeth, pr)
     write('raw/R2_CONDITIONAL_RESULTS.json', {'guide_parameters': params, 'posterior_reduction': aggregate, 'actual_clinical_answers': 'UNKNOWN'})
-    (ROOT / 'HANDOFF_R2.md').write_text("# R2 : conditional response and partial identification\n\nInverted 5%-tail query for four guide systems and remaining total hard tissue at three reductions. Retained dentin amounts are a range of lower boundary zero when DEJ is missing. Numerical controls passes; physical identification from R1 is still UNKNOWN. Next design R3 changes the information set through a port for signed lost margin and measured DEJ .\n")
+    (ROOT / 'HANDOFF_R2.md').write_text('# R2 : conditional response and partial identification\n\nInverted 5%-tail query for four guide systems and remaining total hard tissue at three reductions. Retained dentin amounts are a range of lower boundary zero when DEJ is missing. Numerical controls passes; physical identification from R1 is still UNKNOWN. Next design R3 changes the information set through a port for signed lost margin and measured DEJ .\n')
     state('R2_DECIDED', 'CONDITIONAL_GEOMETRY_ONLY', 'R3: physical-input calibration and robust local DEJ port')
     r3 = run_ports(cal)
     write('raw/CONTROLS.json', CHECKS)

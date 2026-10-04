@@ -24,7 +24,7 @@ receipts = []
 for step in steps:
     cmd = [interpreter, str(target / 'code' / f'{step}.py')]
     if step == 'source_solver':
-        gate_cmd = ['python3', _release_expand('@DENTAL_EXTERNAL_ROOT@/projects/bodytwin/scripts/resource_gate.py'), 'check', '--ram-gb', '2', '--vram-gb', '0', '--max-load-per-core', '0']
+        gate_cmd = ['python3', _release_expand('@DENTAL_EXTERNAL_ROOT@/projects/bodytwin/scripts/resource_gate.py'), 'check', '-- frame -gb', '2', '--vram-gb', '0', '--max-load-per-core', '0']
         gate = subprocess.run(gate_cmd, capture_output=True, text=True)
         (target / 'raw/RESOURCE_PREFLIGHT.txt').write_text(gate.stdout + gate.stderr)
         if gate.returncode:

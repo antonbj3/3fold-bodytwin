@@ -59,7 +59,7 @@ def test_certificate_tampering_fails(kind):
     if kind == 'cluster':
         b['cluster_force_bounds']['first']['hi'] -= Q(1, 100)
     if kind == 'status':
-        b['status'] = 'ENTYDIG'
+        b['status'] = 'UNIQUE'
     if kind == 'existence':
         b['existence'] = 'PROVED'
     if kind == 'coverage':

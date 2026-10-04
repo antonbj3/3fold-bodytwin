@@ -346,7 +346,7 @@ def enclose_gap_box(problem, *, max_nodes=2048, exhaustive=False):
         if not out['bounds']:
             raise ArithmeticError('EMPTY_MODEL: no existence witness')
         out['complete'] = True
-        out['status'] = 'ENTYDIG' if all((b['lo'] == b['hi'] for b in out['bounds'].values())) else "MULTIPLE"
+        out['status'] = 'UNIQUE' if all((b['lo'] == b['hi'] for b in out['bounds'].values())) else 'MULTIPLE'
         out['reason'] = 'EXACT_FINITE_MODE_COVER'
         out['contact_candidates'] = contact_candidates(problem, out['bounds'])
     except (ArithmeticError, ValueError, OverflowError) as exc:
@@ -366,7 +366,7 @@ def contact_candidates(problem, bounds):
 def verify_gap_enclosure(problem, answer):
     """Solver-free exact replay, including tree coverage and all claimed bounds."""
     try:
-        if answer['input_sha256'] != problem.digest() or not answer['complete'] or answer['status'] not in ('ENTYDIG', "MULTIPLE"):
+        if answer['input_sha256'] != problem.digest() or not answer['complete'] or answer['status'] not in ('UNIQUE', 'MULTIPLE'):
             return False
         terminal = {}
         bounds = {}
@@ -429,7 +429,7 @@ def verify_gap_enclosure(problem, answer):
                 (c, off) = problem.readouts()[name]
                 if off + dot(c, x) != b[side]:
                     return False
-        status = 'ENTYDIG' if all((b['lo'] == b['hi'] for b in bounds.values())) else "MULTIPLE"
+        status = 'UNIQUE' if all((b['lo'] == b['hi'] for b in bounds.values())) else 'MULTIPLE'
         if 'contact_candidates' in answer and rational_json(answer['contact_candidates']) != rational_json(contact_candidates(problem, bounds)):
             return False
         return status == answer['status']

@@ -71,7 +71,7 @@ def main():
         check.append(dict(name='REGISTRATION_FRAME', nominal_pass=True, injected_error_rejected=rejects(lambda : score(qf, badframe, 2, state))))
         qf.write_text(qf.read_text().replace('OUR_OWN_FIXTURE', 'LAB_MEASUREMENT'))
         check.append(dict(name='FROZEN_QC_HASH', nominal_pass=True, injected_error_rejected=rejects(lambda : score(qf, future, 2, state))))
-        save('raw/CONSUMER_OUTPUTS.json', {'lot': out, 'qc': q, 'examples_kind': 'our_own_fixture, no external physical facit'})
+        save('raw/CONSUMER_OUTPUTS.json', {'lot': out, 'qc': q, 'examples_kind': 'our_own_fixture , no external physical reference'})
     save('raw/CONSUMER_CHECKS.json', {'checks': check, 'all_pass': all((c['nominal_pass'] and c['injected_error_rejected'] for c in check)), 'external_referent': {'kind': 'our_own_fixture', 'locator': 'examples/*.json,examples/*.csv', 'compared_quantity': 'input contract and CLI output', 'refutes_us': True}})
     if not all((c['nominal_pass'] and c['injected_error_rejected'] for c in check)):
         raise RuntimeError('Consumer fault gate failed')

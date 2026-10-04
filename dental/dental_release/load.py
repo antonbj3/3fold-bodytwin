@@ -4,6 +4,7 @@ import importlib.util
 from pathlib import Path
 import sys
 import ast
+import json
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -23,6 +24,8 @@ def kernel(demo, relative, dependencies=()):
     original = list(sys.path)
     saved = dict(sys.modules)
     sys.path.insert(0, str(path.parent))
+    context = json.loads((ROOT/'provenance/IMPORT_CONTRACTS.json').read_text())
+    sys.path[1:1] = [str(ROOT/'implementations'/p) for p in context['paths'].get(demo, [])]
     # Source operators originally used short sibling names; do not cross-contaminate demos.
     for sibling in path.parent.glob('*.py'):
         sys.modules.pop(sibling.stem, None)

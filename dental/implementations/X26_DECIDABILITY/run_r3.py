@@ -42,7 +42,7 @@ def hand_cases():
     band = [coll.r_recruit(p, k) for k in p.kappa_slide_over_rupture_band]
     (lo, hi) = (min(band), max(band))
     classification = interval_decision(lo, hi, 2)
-    c = {'hand_band': [lo, hi], 'engineering_ratio_threshold': 2, 'typed_class': 2 if classification == 'ABSTAIN' else 1, 'hand_class': 2, 'binding_quantity': 'sliding-to-rupture work ratio kappa', 'agreement': classification == 'ABSTAIN', 'physical_status': 'UNKNOWN', 'analogy': 'cement interface dissipative work versus ceramic rupture work', 'parameter_level': 'PHENOMENOLOGICAL', 'external_scope': 'source hand model, not measured physiological facit'}
+    c = {'hand_band': [lo, hi], 'engineering_ratio_threshold': 2, 'typed_class': 2 if classification == 'ABSTAIN' else 1, 'hand_class': 2, 'binding_quantity': 'sliding-to-rupture work ratio kappa', 'agreement': classification == 'ABSTAIN', 'physical_status': 'UNKNOWN', 'analogy': 'cement interface dissipative work versus ceramic rupture work', 'parameter_level': 'PHENOMENOLOGICAL', 'external_scope': 'source hand model, not measured physiological reference'}
     equality = {'f': 0.5, 'hand_predictable': True, 'strict_finite_class': ScalarPort(math.log(2), 'log ratio', math.log(2)).evaluate(0.01)['class'], 'difference': 'same equality convention issue as atlas v2; no finite strict error slack'}
     return {'bleeding': h, 'collagen': c, 'equality_difference': equality, 'all_nonboundary_classes_agree': all((x['agreement'] for x in h)) and c['agreement'], 'physical_hand_parameters_unmeasured': True}
 

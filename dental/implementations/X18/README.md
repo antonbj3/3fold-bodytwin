@@ -1,4 +1,4 @@
-# Krontak mot samma skannade antagonist
+# Crown roof against the same scanned antagonist
 
 Source entry: `X18`. Source review status: `PENDING_INDEPENDENT_REVIEW`. Source claim type: `information_link`. Physical validation in this release: UNKNOWN.
 

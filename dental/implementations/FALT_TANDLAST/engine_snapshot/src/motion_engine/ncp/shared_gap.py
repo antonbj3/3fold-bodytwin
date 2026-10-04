@@ -75,7 +75,7 @@ def shared_gap_enclosure(pb):
         bounds[name] = {side: off + dot(c, x) for (side, x) in [('lo', xlo), ('hi', xhi)]}
         bounds[name].update(lo_witness=xlo, hi_witness=xhi)
     cuts = sorted(set((-g / pb.step for pair in pb.gaps for g in pair)))
-    out = dict(status='ENTYDIG' if all((b['lo'] == b['hi'] for b in bounds.values())) else "MULTIPLE", complete=True, input_sha256=pb.digest(), bounds=bounds, representation='shared_velocity_projection', velocity_cuts=cuts, projected_cells=len(cuts) + 1, point_queries=len(points))
+    out = dict(status='UNIQUE' if all((b['lo'] == b['hi'] for b in bounds.values())) else 'MULTIPLE', complete=True, input_sha256=pb.digest(), bounds=bounds, representation='shared_velocity_projection', velocity_cuts=cuts, projected_cells=len(cuts) + 1, point_queries=len(points))
     out['seconds'] = perf_counter() - start
     return out
 
@@ -103,7 +103,7 @@ def verify_shared_gap(pb, answer):
                 x = [Q(t) for t in b[side + '_witness']]
                 if x[len(pb.gaps):] != g or not _point_ok(pb, x) or off + dot(c, x) != Q(b[side]):
                     return False
-        status = 'ENTYDIG' if all((Q(b['lo']) == Q(b['hi']) for b in answer['bounds'].values())) else "MULTIPLE"
+        status = 'UNIQUE' if all((Q(b['lo']) == Q(b['hi']) for b in answer['bounds'].values())) else 'MULTIPLE'
         return answer['status'] == status
     except (ValueError, TypeError, KeyError, ArithmeticError):
         return False

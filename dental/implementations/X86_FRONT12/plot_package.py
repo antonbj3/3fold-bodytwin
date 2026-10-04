@@ -19,13 +19,13 @@ def main():
     y = range(len(labels))
     a = [groups[k][0] for k in labels]
     b = [groups[k][1] for k in labels]
-    ax.barh(y, a, color='#417d68', label="PASS : specified runcope")
-    ax.barh(y, b, left=a, color='#b34b42', label="Run - or gate error")
-    ax.set_yticks(list(y), ['Bas' if k == 'base' else 'Granskning ' + k[5:] for k in labels])
+    ax.barh(y, a, color='#417d68', label='PASS : specified runcope')
+    ax.barh(y, b, left=a, color='#b34b42', label='Run - or gate error')
+    ax.set_yticks(list(y), ['Bas' if k == 'base' else 'Review ' + k[5:] for k in labels])
     for (i, k) in enumerate(labels):
         ax.text(a[i] + b[i] + max(a + b + [1]) * 0.01, i, f'{groups[k][2]} pass / {groups[k][3]} fail', va='center', fontsize=8)
     ax.set_xlim(0, max([a[i] + b[i] for i in range(len(a))] + [1]) * 1.45)
-    ax.set_xlabel("Measured command time [s ], PHENOMENOLOGICAL")
+    ax.set_xlabel('Measured command time [s ], PHENOMENOLOGICAL')
     expected = len(json.loads(execution_manifest().read_text())['executions'])
     ax.set_title(f"{len(j['records'])}/{expected} active runs completed")
     ax.invert_yaxis()
@@ -33,16 +33,16 @@ def main():
     ax.grid(axis='x', alpha=0.2)
     ax.set_axisbelow(True)
     bx.axis('off')
-    bx.set_title("Freezer before held out lab measurement")
-    texts = [('1  Registrera samma prov', 'CAD, tillverkad form, die, antagonist, ram, batch'), ("2 Measure observation channels", "Height , regional Newton channels, total + moment"), ("3 Calibrate the actual change", "Two regional bases, 5 heights; repeat prehistory"), ('4  Frys prediktionen', 'Geometri-/kalibreringshashar, intervall, kriterier'), ("5 Measure an unused state", "Make/change and compare before the next fit"), ("Unknown before measurement", 'Fysisk kraft, nonlinearitetsrest, sparad justering')]
+    bx.set_title('Freezer before held out lab measurement')
+    texts = [('1 Register the same specimen', 'CAD , manufactured form, die, antagonist, frame , batch'), ('2 Measure observation channels', 'Height , regional Newton channels, total + moment'), ('3 Calibrate the actual change', 'Two regional bases, 5 heights; repeat prehistory'), ('4  Frys prediktionen', 'Geometry -/calibrationhas, intervals, criteria'), ('5 Measure an unused state', 'Make/change and compare before the next fit'), ('Unknown before measurement', 'Physical force , nonlinearity residue, saved adjustment')]
     for (i, (title, sub)) in enumerate(texts):
         h = 0.9 - i * 0.145
         bx.text(0.03, h, title, transform=bx.transAxes, fontsize=11, fontweight='bold', va='top')
         bx.text(0.03, h - 0.045, sub, transform=bx.transAxes, fontsize=8.5, va='top', wrap=True)
         if i < 4:
             bx.annotate('', xy=(0.5, h - 0.11), xytext=(0.5, h - 0.085), xycoords='axes fraction', arrowprops={'arrowstyle': '->', 'color': '#555'})
-    fig.suptitle("Recycle digital operations and try a crown in the lab", fontsize=15)
-    fig.text(0.03, 0.015, "PASS applies to specified digital/ source bound gate . The FAIL and UNKNOWN models are maintained. No physically specimen was performed.", fontsize=9)
+    fig.suptitle('Recycle digital operations and try a crown in the lab', fontsize=15)
+    fig.text(0.03, 0.015, 'PASS applies to specified digital/ source bound gate . The FAIL and UNKNOWN models are maintained. No physically specimen was performed.', fontsize=9)
     fig.tight_layout(rect=(0, 0.04, 1, 0.96))
     fig.savefig(HERE / 'PACKAGE_AND_LAB.png', dpi=180)
     fig.savefig(HERE / 'PACKAGE_AND_LAB.svg')

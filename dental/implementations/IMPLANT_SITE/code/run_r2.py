@@ -70,7 +70,7 @@ for (i, s) in enumerate(sites):
         for p in profiles:
             for target in [0.9, 0.95]:
                 budget = guide.guide(p, 1 - target)['guide_budget_mm']
-                out.append(core | dict(guide=p['id'], target=target, conditional_guide_budget_mm=budget, nerve_clearance_margin_mm=lo - budget, conditional_nerve_pass=lo >= budget, joint_digital_pass=lo >= budget and support and (width <= 1e-06), physical_joint_plan='UNKNOWN', evidence='MODELED_DIGITAL_SCREEN_ONLY'))
+                out.append(core | dict(guide=p['id'], target=target, conditional_guide_budget_mm=budget, nerve_clearance_margin_mm=lo - budget, conditional_nerve_pass=lo >= budget, joint_digital_pass=lo >= budget and support and (width <= 1e-06), physical_joint_plan='UNKNOWN', evidence='MODELLED_DIGITAL_SCREEN_ONLY'))
     for p in profiles:
         for target in [0.9, 0.95]:
             rr = [r for r in out if r['case'] == s['case'] and r['fdi'] == s['fdi'] and (r['guide'] == p['id']) and (r['target'] == target)]
@@ -106,5 +106,5 @@ res = dict(claim_type=['information_link', 'capability'], status='FINITE_DIGITAL
 dump(P / 'rounds/R2.json', res)
 dump(P / 'raw/ORIGINAL_REPLAY_R2.json', replay)
 state('R2_COMPLETE', res['gates'], 'Freeze next construction: directly measure signed clearance loss with registered achieved pose; export test case')
-(P / 'HANDOFF_R2.md').write_text("# R2 : digital dimension issue\n\n" + json.dumps(res, indent=2) + "\n\nThe next design needs to change the information about the guide's direction: the same major radial error can go towards or from the channel. Get registered achieved pose at the same channel region, not another population margin.\n")
+(P / 'HANDOFF_R2.md').write_text('# R2 : digital dimension issue\n\n' + json.dumps(res, indent=2) + "\n\nThe next design needs to change the information about the guide's direction: the same major radial error can go towards or from the channel. Get registered achieved pose at the same channel region, not another population margin.\n")
 print(json.dumps(res, indent=2))

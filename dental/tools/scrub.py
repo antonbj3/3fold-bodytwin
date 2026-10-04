@@ -15,7 +15,7 @@ import subprocess
 # Encoded patterns keep the scanner's own source free of restricted vocabulary.
 PATTERNS = [bytes.fromhex(s).decode() for s in (
     '686f6c6c6f77', '6d696e647477696e', '626f64797477696e2d706572736f6e6c696774',
-    '50454d46', '70656e696c65', '436f2d417574686f7265642d4279', '436c61756465',
+    '50454d46', '70656e696c', '6f73617964', '436f2d417574686f7265642d4279', '436c61756465',
     '43686174475054', '41492d67656e657261746564')]
 BAD = re.compile('|'.join(map(re.escape, PATTERNS)), re.I)
 PRIVATE_PATH = re.compile(r'(?<![\w:/@])(?:/home/[A-Za-z0-9._-]+|/mnt/(?:games-240|shared_data|INTENSO)|/media/[A-Za-z0-9._-]+)')

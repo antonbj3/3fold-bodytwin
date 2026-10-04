@@ -56,3 +56,9 @@ X59 calibration and validation CSVs require `specimen_id`, `protocol_id`, `regio
 | crown_diagnosis.json | DOI 10.1016/j.jds.2025.03.016 Table 1; DOI 10.4047/jap.2025.17.1.1 Table 1 and methods | Numerical facts/locators only. CAD-file RMS and manufactured/scanned cusp variation remain different quantities. |
 
 The reviewed Teeth3DS licence locator is https://osf.io/download/9dutn/ (CC BY-NC-ND 4.0 in the source review). Dataset licence differs from article licence. Bite2Text's current public page links CC BY-NC-SA 4.0; the older local archive's exact version binding remains an external prerequisite. Maxillo and Pulpy3D public data terms remain UNKNOWN; establish them before redistribution. None of these datasets is bundled.
+
+### Historical three-case source configuration
+
+PROOF_LANE_PATIENT360 retains three distinct external selectors: DENTAL_CASE_A, DENTAL_CASE_B and DENTAL_CASE_C, with DENTAL_VOLUME_ID_A/B and DENTAL_SURFACE_ID_C where the original archive operator requires its own identity. Supply the original source-bound selectors from your authorized local input manifest. The release contains no values for these variables, patient artifacts or weights. The selectors are distinct so relocation cannot merge two source/frame records. A missing selector yields an explicit missing-input blocker.
+
+The import contract lists excluded provider, cell and engine modules separately. It does not promise that a source-only pipeline can run with no external code or data. Function-local runtime prerequisites are tested only by the original complete pipeline.

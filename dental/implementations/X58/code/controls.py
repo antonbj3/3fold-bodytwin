@@ -1,4 +1,4 @@
-"""Independent distance controls and falsifiable gates; fixtures are not external facit."""
+"""Independent distance controls and falsifiable gates; fixes are not external reference ."""
 from measure import *
 from scipy.spatial.distance import cdist
 from sections import ray_exit

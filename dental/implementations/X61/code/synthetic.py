@@ -1,4 +1,4 @@
-"""Synthetic specimen series, explicitly distinct from independent external facit."""
+"""Synthetic specimen series, explicitly distinct from independent external reference ."""
 import csv, copy, hashlib, json
 from pathlib import Path
 import numpy as np

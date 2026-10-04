@@ -64,7 +64,7 @@ def main():
     S = np.eye(n)
     value = np.array([r['vector_on_upper_N'][2] for r in pred['rows']])
     rec = dict(kind='independent_measurement', locator='our_own_fixture:interface_only', applicability_evidence_locator='our_own_fixture:interface_only', case=1, geometry_sha256=sha(P / 'raw/geometry_001_h02.json'), force_target_N=100.0, quantity='regional_vertical_force_N', observation_matrix=S, values_N=value)
-    check('measurement_interface_zero_error', compare(rec, pred, rec['geometry_sha256'])['gate'], scope='our_own_fixture, no physical facit')
+    check('measurement_interface_zero_error', compare(rec, pred, rec['geometry_sha256'])['gate'], scope='our_own_fixture , no physical reference')
     rec['values_N'] = value.copy()
     rec['values_N'][0] += 20.0
     check('measurement_interface_injected_20N', not compare(rec, pred, rec['geometry_sha256'])['gate'], scope='our_own_fixture')

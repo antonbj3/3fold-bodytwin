@@ -1,4 +1,4 @@
-"crown_fit_geometry.py — K2 geometri: tandram, exakt redistans (A143- I'm sure.), syntetisk preparation, kron-design.\n\nDel av K2-kedjan (DENT-MFG-PROCESS-MODEL / DENT-MFG-ASBUILT-DEVIATION):\n  intended crown -> milled green body (crown_milling_access) -> sintring (crown_sinter_shrinkage)\n  -> tillverkad krona -> cementspalt/passform (crown_cement_fit).\n\nUnits: length in mm internally; spalter/avvikelser rapporteras i µm av anropande celler.\nRepresentation: signed distance fields (SDF, mm, negativt inuti) on a regular lattice in the frame of the tooth\n(z = tooth length axis, positive to occlusive).\n\nA143 (COMPUTE_CELL_INVENTORY_cs_engines.md, C37/§questions): offset av en union/boolesk kombination eller av en\nvariable offset is NOT a distance field; to offset it again gives the wrong distance. Here is followed each boolean\nsurgery, variable offset, erosion and dilation of `redistance()`, which recalculates the exact distance to\narea of zero level (zero throughputs on lattice edges -> kd-tree -> punkt/plan-avstrod). Egen kod, ingen import av\nfield engine offset (field_csg_fused_v1). Verified against analytical union by two spheres in\nresults/K2_crown_fit/run_a143_check.py.\n\nData source: OpenMandible base model (git e1f8cef, DOI 10.1016/j.dental.2021.01.009), Tooth_L6 = FDI 36\n(emalj+dentin+pulpa). Datalicens UNKNOWN -> processed locally, derived geometry is not spread.\n"
+'crown_fit_geometry.py — K2 geometry : dental frame, precise redistance (A143 -safe), synthetic preparation, crown design.\n\nPart of the K2 chain (DENT-MFG-PROCESS-MODEL / DENT-MFG-ASBUILT-DEVIATION):\n  designed crown -> milled green body (crown_milling_access ) -> sintering ( crown_sinter_shrinkage )\n  -> manufactured crown -> cement gap / fit ( crown_cement_fit ).\n\nUnits: length in mm internally; columns/deviations are reported in µm of calling cells.\nRepresentation: signed distance field (SDF , mm , negative inside) on a regular grid in the frame of the tooth\n(z = tooth length axis, positive towards occlusal ).\n\nA143 (COMPUTE_CELL_INVENTORY_cs_engines.md , C37 /§ queries : offset of a Union/Boolean combination or of a\nvariable offset, is NOT a distance field ; to offset it again gives distance error. Followed by every boolean\nOperation, variable offset, erosion and dilation of `redistance()` , which recalculates the exact distance to\nthe surface of the zero level (zero throughputs on grating edges -> kd-tree -> point/plane-distance ). Custom code, no import of\nField engine offset ( field_csg_fused_v1 ). Verified against analytical union by two spheres in\nresults/K2_crown_fit/run_a143_check.py.\n\nData source: OpenMandible base model (git e 1 f 8 cef, DOI 10.1016/j.dental.2021.01.009 ), Tooth_L6 = FDI 36\n( enamel + dentin + pulp ). Data license UNKNOWN -> is processed local , derived geometry is not spread.\n'
 from dental_release.paths import expand as _release_expand
 import numpy as np
 from scipy import ndimage
@@ -9,7 +9,7 @@ OM_STL = _release_expand('@DENTAL_DATA_ROOT@/biomech/OpenMandible/00 OpenMandibl
 OM_SHA256 = {'Tooth_L6_Enamel.stl': 'af12b89f568ce9743d187bd6762f8d43e755566facd63db53dcd7a9a69642ff8', 'Tooth_L6_Dentin.stl': '7d0b326f167f9021cbfb8e1110f91e517b02c9fc6d60bf4f938a7c6b77dfd028', 'Tooth_L6_Pulp.stl': 'eb982db7f1478fc55dd7ef495a0597ca64e704c5ac90daf191f2eba18fd90890'}
 
 class Grid:
-    "Regular grid : point (i,j,k) is in origin + h*(i,j,k). Field has shape shape (x,y,z)."
+    """Regular grid : point (i,j,k) is in origin + h*(i,j,k). Field has shape shape (x,y,z)."""
 
     def __init__(self, lo, hi, h):
         self.h = float(h)
@@ -26,13 +26,13 @@ class Grid:
         return ((np.asarray(pts) - self.origin) / self.h).T
 
     def sample(self, field, pts, order=1, cval=None):
-        "Trilinear interpolation of fields in arbitrary points (N ,dim)."
+        """Trilinear interpolation of fields in arbitrary points (N ,dim)."""
         if cval is None:
             cval = float(np.max(field))
         return ndimage.map_coordinates(field, self.to_index(pts), order=order, mode='constant', cval=cval)
 
 def zero_crossings(phi, grid):
-    "Zero throughputs on lattice edges (linear interpolation) + normals (gradient, interpolated)."
+    """Zero throughputs on lattice edges (linear interpolation) + normals (gradient, interpolated)."""
     pts = []
     ax = grid.axes()
     dim = phi.ndim
@@ -55,7 +55,8 @@ def zero_crossings(phi, grid):
     return (P, N)
 
 def distance_to_surface(X, P, N, tree=None, workers=WORKERS):
-    "Unsigned distance from X to the surface that is sampled by points P with normals N .\n    Near the surface (within 2 point distance) point-plan-distance , otherwise euclidic point distance is used."
+    """Unsigned distance from X to the surface that is sampled by points P with normals N .
+    Near the surface (within 2 point distance) point-plan-distance , otherwise euclidic point distance is used."""
     if tree is None:
         tree = cKDTree(P)
     (d, i) = tree.query(X, k=1, workers=workers)
@@ -72,7 +73,7 @@ def _spacing(P, tree):
     return _SP_CACHE[key]
 
 def point_triangle_distance(X, A, B, C):
-    "Precisely distance point-triangle (Ericson, Real-Time Collision Detection § 5.1.5 ), vectorised."
+    """Precisely distance point-triangle (Ericson, Real-Time Collision Detection § 5.1.5 ), vectorised."""
     (ab, ac, ap) = (B - A, C - A, X - A)
     d1 = np.einsum('ij,ij->i', ab, ap)
     d2 = np.einsum('ij,ij->i', ac, ap)
@@ -112,13 +113,13 @@ def point_triangle_distance(X, A, B, C):
     return np.linalg.norm(X - Q, axis=1)
 
 def surface_mesh(phi, grid):
-    "\"Marching cubes\" triangulation in grating coordinates -> (V, F)."
+    """"Marching cubes" triangulation in grating coordinates -> (V, F)."""
     from skimage.measure import marching_cubes
     (V, F, _, _) = marching_cubes(phi, 0.0, spacing=(grid.h,) * 3, allow_degenerate=False)
     return (V + grid.origin, F)
 
 def mesh_distance(X, V, F, k=8, tree=None, workers=WORKERS, chunk=1000000):
-    "Exactly distance from X to Triangle Meshe (V,F): min over the k triangles whose centre of gravity is closest."
+    """Exactly distance from X to Triangle Meshe (V,F): min over the k triangles whose centre of gravity is closest."""
     Cc = V[F].mean(1)
     if tree is None:
         tree = cKDTree(Cc)
@@ -134,7 +135,10 @@ def mesh_distance(X, V, F, k=8, tree=None, workers=WORKERS, chunk=1000000):
     return out
 
 def signed_edt(phi, grid):
-    "Pitch-corrected signed EDT from coating (phi< = 0 ): d = d_out - h/ 2 outside, -( d_in - h/ 2 ) inside.\n    Same construction as the field engine faltkarna_v1_mesh_to_sdf d_out/d_in ; recommended before erosion of\n    Union under the A143 notification (3fold-motion-engine/_private/romi_collab/lanes/DENTAL_ANSWERS_20260922.md § 2 ,\n    build/A143/RESULTS.md p. 3,5,9). Errors ≤ ~h/ 2 ; provides the right topology."
+    """Pitch-corrected signed EDT from coating (phi< = 0 ): d = d_out - h/ 2 outside, -( d_in - h/ 2 ) inside.
+    Same construction as the field engine faltkarna_v1_mesh_to_sdf d_out/d_in ; recommended before erosion of
+    Union under the A143 notification (3fold-motion-engine/_private/romi_collab/lanes/DENTAL_ANSWERS_20260922.md § 2 ,
+    build/A143/RESULTS.md p. 3,5,9). Errors ≤ ~h/ 2 ; provides the right topology."""
     occ = phi <= 0
     d_in = ndimage.distance_transform_edt(occ, sampling=grid.h)
     d_out = ndimage.distance_transform_edt(~occ, sampling=grid.h)
@@ -187,18 +191,18 @@ def redistance_lowmem(phi, grid, surface=None, workers=None, k=12, levels=(0.0,)
     return out
 
 def erode(phi, grid, r, nxt=(0.0,), **kw):
-    "Phil must be exactly close to the level -r (see levels at the previous redistance)."
+    """Phil must be exactly close to the level -r (see levels at the previous redistance)."""
     return redistance_lowmem(phi + r, grid, levels=tuple(nxt), **kw)
 
 def dilate(phi, grid, r, nxt=(0.0,), **kw):
     return redistance_lowmem(phi - r, grid, levels=tuple(nxt), **kw)
 
 def opening(phi, grid, r, nxt=(0.0,), **kw):
-    "Phi exactly close -r required. Erosion -> exactly close to +r -> dilatation."
+    """Phi exactly close -r required. Erosion -> exactly close to +r -> dilatation."""
     return dilate(erode(phi, grid, r, nxt=(0.0, r), **kw), grid, r, nxt=nxt, **kw)
 
 def closing(phi, grid, r, nxt=(0.0,), **kw):
-    "phi exactly close to +r required."
+    """phi exactly close to +r required."""
     return erode(dilate(phi, grid, r, nxt=(0.0, -r), **kw), grid, r, nxt=nxt, **kw)
 
 def load_tooth(tooth='L6', check_sha=True):
@@ -211,12 +215,12 @@ def load_tooth(tooth='L6', check_sha=True):
         p = os.path.join(OM_STL, fn)
         if check_sha and fn in OM_SHA256:
             h = hashlib.sha256(open(p, 'rb').read()).hexdigest()
-            assert h == OM_SHA256[fn], f'sha256 differs for {fn}'
+            assert h == OM_SHA256[fn], f'sha 256 differs for {fn}'
         ms[part] = trimesh.load(p)
     return ms
 
 def tooth_frame(ms):
-    """Ram: z = huvudaxel (PCA av emalj+dentin), positiv mot emaljens tyngdpunkt; origo i PCA-medel."""
+    'Frame : z = main axis (PCA of enamel + dentin ), positive to the centre of gravity of the enamel; origin at the PCA mean.'
     V = np.vstack([ms['Dentin'].vertices, ms['Enamel'].vertices])
     c = V.mean(0)
     (w, v) = np.linalg.eigh((V - c).T @ (V - c))
@@ -232,7 +236,8 @@ def tooth_frame(ms):
     return (R, c2)
 
 def union_boundary_mesh(ms, R, c, occ, grid):
-    "Triangles on the Union's edge ( enamel  ∪  dentin  ∪  pulp ) in dental frame: a triangle is retained if the point  1,5  h\n    externally along its normal distance from the centre of gravity lies outside the Union's surface (internal interfaces removed)."
+    """Triangles on the Union's edge ( enamel  ∪  dentin  ∪  pulp ) in dental frame: a triangle is retained if the point  1,5  h
+    externally along its normal distance from the centre of gravity lies outside the Union's surface (internal interfaces removed)."""
     (Vs, Fs, off) = ([], [], 0)
     for part in ('Enamel', 'Dentin', 'Pulp'):
         m = ms[part]
@@ -250,7 +255,7 @@ def union_boundary_mesh(ms, R, c, occ, grid):
     return (np.concatenate(Vs), np.concatenate(Fs))
 
 def occupancy_from_meshes(ms, R, c, grid):
-    "the coating (bool) of the Union by slicing along z and the even-odd rule per disc;"
+    """the coating (bool) of the Union by slicing along z and the even-odd rule per disc;"""
     from matplotlib.path import Path
     (X, Y) = np.meshgrid(*grid.axes()[:2], indexing='ij')
     XY = np.stack([X.ravel(), Y.ravel()], 1)
@@ -276,14 +281,15 @@ def occupancy_from_meshes(ms, R, c, grid):
     return occ
 
 def tooth_sdf(ms, R, c, grid, levels=(0.0,)):
-    "SDF for tooth : characters from coating (sliced mesh), exact point–triangle-distance to original meshens\n    Union stripe in shell around `levels` (e.g. 0 and - occlusal reduction)."
+    """SDF for tooth : characters from coating (sliced mesh), exact point–triangle-distance to original meshens
+    Union stripe in shell around `levels` (e.g. 0 and - occlusal reduction)."""
     occ = occupancy_from_meshes(ms, R, c, grid)
     phi0 = np.where(occ, -1.0, 1.0).astype(np.float32)
     VF = union_boundary_mesh(ms, R, c, occ, grid)
     return (redistance_lowmem(phi0, grid, surface=VF, levels=levels), VF)
 
 def slice_sdf2d(phi3, grid, z):
-    "2D - SDF of the cross section of the tooth at height z (refused in 2D )."
+    """2D - SDF of the cross section of the tooth at height z (refused in 2D )."""
     zs = grid.axes()[2]
     k = int(round((z - zs[0]) / grid.h))
     s = phi3[:, :, k].astype(np.float32)
@@ -295,7 +301,12 @@ def slice_sdf2d(phi3, grid, z):
     return (np.where(s > 0, d, -d).astype(np.float32), float(zs[k]))
 
 def make_preparation(phi_T, grid, z_m, occl_red=2.0, axial_red=1.0, half_angle_deg=3.0, line_angle_radius=0.5, chamfer_radius=None, final_levels=(0.0, 0.05, 0.1)):
-    "Synthetic whole chandelier repair (documented, non-clinical scan):\n    - margin: plane at z_m  (≈ 1   mm  above enamel lowest point), chamfer depth =  axial_red .\n    - axial walls: the outline of the cross section at z_m displaced towards axial_red , convergence half_angle_deg per wall .\n    - occlusal : anatomical reduction occl_red (anatomy displaced downwards along the axis, following the cups).\n    - line angles are rounded (opening, radius line_angle_radius); chamfer-hole heel (closure, radius chamfer_radius).\n    Returns SDF for prepared tooth (including root under z_m) and the margin curve points ."
+    """Synthetic whole chandelier repair (documented, non-clinical scan):
+    - margin: plane at z_m  (≈ 1   mm  above enamel lowest point), chamfer depth =  axial_red .
+    - axial walls: the outline of the cross section at z_m displaced towards axial_red , convergence half_angle_deg per wall .
+    - occlusal : anatomical reduction occl_red (anatomy displaced downwards along the axis, following the cups).
+    - line angles are rounded (opening, radius line_angle_radius); chamfer-hole heel (closure, radius chamfer_radius).
+    Returns SDF for prepared tooth (including root under z_m) and the margin curve points ."""
     if chamfer_radius is None:
         chamfer_radius = 0.9 * axial_red
     (X, Y, Z) = grid.mesh()
@@ -321,7 +332,8 @@ def make_preparation(phi_T, grid, z_m, occl_red=2.0, axial_red=1.0, half_angle_d
     return (prep, margin)
 
 def spacer_field(prep, grid, margin_pts, s_marg, s_int, s_occ=None, b0=0.0, b1=1.0, nz_occ=0.7):
-    "Set cement gap s(x) [mm]: s_marg inom b0 from the margin curve, linear ramp to s_int vid b1,\n    s_occ where the normal preparation points occlusively (n_z > nz_occ), mjukt blandat."
+    """Set cement gap s (x) [mm ]: s_marg within b 0 from the margin curve, linear ramp to s_int at b 1 ,
+    s_occ where the preparation normal points occlusal (n_z > nz_occ ), softly mixed."""
     if s_occ is None:
         s_occ = s_int
     (X, Y, Z) = grid.mesh()
@@ -337,5 +349,6 @@ def spacer_field(prep, grid, margin_pts, s_marg, s_int, s_occ=None, b0=0.0, b1=1
     return ((1 - w) * s_marg + w * s_body).astype(np.float32)
 
 def design_cavity(prep, grid, s, levels=(0.0,)):
-    "Avsedd intaglio (kavitet) = {prep - s(x) <= 0}; variabel offset -> redistans (A143).\n    Levels: levels at which the milling cell thresholds are (t.ex. -r_eff, -r_c)."
+    """Avsedd intaglio (kavitet) = {prep - s(x) <= 0}; variabel offset -> redistans (A143).
+    Levels: levels at which the thresholds milling cell (e.g. - r_eff , - r_c )."""
     return redistance_lowmem((prep - s).astype(np.float32), grid, levels=levels)

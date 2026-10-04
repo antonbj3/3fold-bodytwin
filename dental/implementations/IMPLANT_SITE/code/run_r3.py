@@ -107,5 +107,5 @@ else:
     dump(f, payload)
     f.with_suffix('.json.sha256').write_text(sha(f) + '\n')
 state('R3_COMPLETE', res['gates'], 'Compile external clinical referent, source-control faults, demo and pending feedback')
-(P / 'HANDOFF_R3.md').write_text("# R3 : Digital boundary of the drilling track\n\n" + json.dumps(res, indent=2) + "\n\nFrozen metrology targets exist. Minimum new information: achieved shaft/deep and independent canal wall in the same recorded frame; local drilling torque, temperature history and separate material calibration remain.\n")
+(P / 'HANDOFF_R3.md').write_text('# R3 : Digital boundary of the drilling track\n\n' + json.dumps(res, indent=2) + '\n\nFrozen metrology targets exist. Minimum new information: achieved shaft/deep and independent canal wall in the same recorded frame; local drilling torque, temperature history and separate material calibration remain.\n')
 print(json.dumps(res, indent=2))

@@ -1,4 +1,4 @@
-# Fyndvis bettscreening med negativa valideringsgrindar
+# Bite screening per finding with failed validation gates
 
 Source entry: `X50`. Source review status: `DEMO_READY`. Source claim type: `information_link`. Physical validation in this release: UNKNOWN.
 

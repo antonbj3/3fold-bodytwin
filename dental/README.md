@@ -41,7 +41,7 @@ The external references are [Cunali et al. 2017, Table 1 and Figure 4, p.470](ht
 
 ## Added reviewed operators
 
-Add 39 source deliveries accepted within the stated scope in the review ledger; retain 76 morning entries. Run 14 added profiles against fixed small inputs. The release tests cover 53 checks; original dataset-dependent source tests remain source-only. The previous nine numeric criteria and their source files are unchanged.
+Add 39 source deliveries accepted within the stated scope in the review ledger; retain 76 morning entries. Run 14 added profiles against fixed small inputs. The release tests cover 60 checks; original dataset-dependent source tests remain source-only. The previous nine numeric criteria and their source files are unchanged.
 
 | Command | Replay result | Evidence and limit |
 |---|---|---|
@@ -62,7 +62,7 @@ Add 39 source deliveries accepted within the stated scope in the review ledger; 
 
 PROVEN applies only to the stated stored-coordinate, arithmetic or software contract. CALIBRATED would require an independently measured response with its uncertainty, domain and held-out validation; this release adds 0 such physical calibrations. MODELLED retains constitutive assumptions. UNKNOWN blocks a physical conclusion. No synthetic PASS changes a source review status.
 
-`FROZEN_CAPABILITIES.json` binds the 14 additional criteria, fixtures and selected source files. [Review scope](provenance/REVIEW_SCOPE.json) binds accepted result hashes; [small source outcomes](fixtures/reviewed_outcomes.json) preserve scoped negatives and UNKNOWN. These are disclosures from earlier reviews, not a regenerated anatomical cohort. The ledger considers 96 top-level review records: 39 added, 12 already present, 9 duplicate reviews, 20 without accepted scope and 16 accepted referent-only disclosures. The latter do not admit whole producer programs. X91 is explicitly omitted.
+`FROZEN_CAPABILITIES.json` binds the 14 additional criteria, fixtures and selected source files. [Review scope](provenance/REVIEW_SCOPE.json) binds accepted result hashes; [small source outcomes](fixtures/reviewed_outcomes.json) preserve scoped negatives and UNKNOWN. These are disclosures from earlier reviews, not a regenerated anatomical cohort. The ledger preserves 129 review records. The independent frozen census has 110 reviewed delivery identities: 109 are now directly represented and one 51-record source version is explicitly superseded by an identical-record extension. Five historical exclusion labels are corrected; decision fields remain separate. The latter do not admit whole producer programs. X91 is explicitly omitted.
 
 The additional external numerical facts retain exact locators: [pulpotomy study, Table 4](https://pmc.ncbi.nlm.nih.gov/articles/PMC11629050/#iej14144-tbl-0004), [regional milling trueness, Table 1](https://doi.org/10.3390/healthcare9080983), and three manufacturer depth conditions in [the fixture](fixtures/drill_protocols.json). Published regional milling RMS is not isolated tool deflection. Global apex distance is not signed drill depth. Source-table reproduction does not supply a clinical recommendation.
 
@@ -89,7 +89,7 @@ The software count sufficiency test uses two ledgers with exactly 9 entries each
 
 `FROZEN_PREDICTIONS.json` binds profile criteria, source kernels and input fixtures before this release's replay. The profile thresholds are unchanged. Each of the 23 profiles also changes one checked output and confirms rejection. Scrub tests inject restricted text, paths, metadata, data extensions, binary payloads, an oversized file, a symlink, an unlisted file, a numeric payload and contaminated Git history.
 
-The sufficiency tests in X14, X59, X63 and X82 have summary identity error exactly 0 at machine precision and a changed downstream quantity. X59 retains its source witness: marginal summaries alone change paired SD by 73.900834 µm and threshold disagreements by 4/4. Required additions are chord-relative slopes, paired covariance/observations, regional preload/distortion, and local force response, respectively. A total PASS count does not establish equivalent scientific coverage across the 115 entries.
+The sufficiency tests in X14, X59, X63 and X82 have summary identity error exactly 0 at machine precision and a changed downstream quantity. X59 retains its source witness: marginal summaries alone change paired SD by 73.900834 µm and threshold disagreements by 4/4. Required additions are chord-relative slopes, paired covariance/observations, regional preload/distortion, and local force response, respectively. A total PASS count does not establish equivalent scientific coverage across the 131 entries.
 
 ## What has not been established
 
@@ -119,3 +119,11 @@ Datasets, patient-derived geometry and arrays, weights, source articles, environ
 
 ---
 Dataset citations and licences: [CITATIONS.md](CITATIONS.md).
+
+## Restored historical reviewed deliveries
+
+The catalogue includes all 16 accepted scopes omitted from the first combined release: 14 source packages and two historical documents. STL design/export predecessors X34 and X38 are present; X49 uses the implementations layout. Manuscript/status scopes X39, X41 and X43 have dated historical scope disclosures. No dataset, patient artifacts, full articles, trained weights or copied runtime are added.
+
+The import regression inspects every retained Python file in all 129 code packages using fresh implementation processes, isolated source module names and declared dependency paths. It checks top-level import resolution before initialization, so a missing external input cannot hide a later missing Python module. External data, source drivers and explicitly declared external packages or provider code are separately reported blockers, not successful imports. Function-local runtime dependencies and full original pipelines still require their documented prerequisites. An injected unknown module and a removed designgate module must fail. The independent delivery test also rejects a changed member at identical catalogue count.
+
+[Historical partner summary](docs/reviewed/LAB_PARTNER_SUMMARY.md) and [historical measurement plan](docs/reviewed/MEASUREMENT_PLAN.md) retain their original hashes, scope and original package commands with disclosure. Their counts and commands describe that historical package. No new physical prediction or assay is introduced by this source correction.

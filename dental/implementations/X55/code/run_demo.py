@@ -32,7 +32,7 @@ def known_deformation(path, out):
         expected_pts = np.einsum('ij,ijk->ik', bary, scan.triangles[faces])
         truth = np.einsum('ij,ij->i', expected_pts - pts, n) * 1000
         measured = np.load(out / tag / 'point_fields.npz')['normal_deviation_mm'][0] * 1000
-        results[tag] = dict(normal_field_rmse_um=float(np.sqrt(np.mean((truth - measured) ** 2))), true_field_rms_um=float(np.sqrt(np.mean(truth ** 2))), gate=bool(np.sqrt(np.mean((truth - measured) ** 2)) <= 8), reference='our_own_fixture withheld vertex correspondence; not external physical facit')
+        results[tag] = dict(normal_field_rmse_um=float(np.sqrt(np.mean((truth - measured) ** 2))), true_field_rms_um=float(np.sqrt(np.mean(truth ** 2))), gate=bool(np.sqrt(np.mean((truth - measured) ** 2)) <= 8), reference='our_own_fixture withheld vertex correspondence; not externally physical reference')
     return results
 
 def control(path, candidate):

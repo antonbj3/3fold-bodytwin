@@ -10,7 +10,7 @@ X7 = P.parent / _release_expand('X7')
 X21 = P.parent / _release_expand('X21')
 D = Path(_release_expand('@DENTAL_WORK_ROOT@/X50-bite-screening'))
 FINDINGS = ['crossbite', 'open_bite', 'deep_bite', 'angle_II', 'angle_III', 'scissor_bite']
-NAMES = ['Korsbett', "Anteriort open bite", 'Djupt bett', 'Angle II (molar)', 'Angle III (molar)', 'Saxbett']
+NAMES = ['Korsbett', 'Anteriort open bite', 'Deep bite', 'Angle II (molar)', 'Angle III (molar)', 'Saxbett']
 
 def now():
     return datetime.datetime.now(datetime.timezone.utc).isoformat()

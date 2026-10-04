@@ -2,7 +2,7 @@
 
 Review: LANE_XREVIEW_BATCH33, ACCEPTED. Reviewed result SHA256: `a55bd603c976b6e200d3bfc400198e534627be51fd00b240fce751e56bcef81e`.
 
-Scope: "Tre frysta fall,R0–R5,alla39178 end-point field;40 publicerade Table3-values,independent volumes,closed STL and equal-histogram/volym-prov; ingen fysisk CAM- or strength qualification."
+Scope: "Three frozenn case, R0 – R5 , all 39178 endpoint fields , 40 published Table3 - values ,independent volumes,closed STL and equal-histogram/volume- specimen ; no physical CAM or strength qualification."
 
 Corrections: []
 

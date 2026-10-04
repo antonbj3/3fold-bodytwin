@@ -58,7 +58,7 @@ def generate(group, round_name):
                 exp.mkdir(parents=True, exist_ok=True)
                 for (name, (mv, mf, _)) in methods.items():
                     mesh(mv, mf).export(exp / f'{name}.obj')
-                put(exp / 'CONTEXT.json', {'key': r['key'], 'units': 'provisionally mm', 'surface': 'exposed natural crown reconstruction; open cervical rim; no intaglio', 'dataset_attribution': 'Teeth3DS+ Ben-Hamadou et al; license conflict see README_DEMO'})
+                put(exp / 'CONTEXT.json', {'key': r['key'], 'units': 'provisionally mm', 'surface': 'exposed natural crown reconstruction; open cervical rim; no intaglio', 'dataset_attribution': 'Teeth3DS + Bone -Hamadou et al; license conflict see README_DEMO'})
             rr.update(frame=F.tolist(), center=context_center(center), plane=pl, visible_labels=sorted(teeth), target_in_context=False)
         except Exception as e:
             rr['generation_failure'] = type(e).__name__ + ': ' + str(e)

@@ -105,7 +105,7 @@ def run(rows):
         tests[r['design_id'] + '_array_hash'] = sha(ROOT / r['local_face_artifact']) == r['local_face_sha256']
     for r in r3['source_manifest']:
         tests[Path(r['path']).parent.name + '_' + Path(r['path']).name + '_source_hash'] = sha(Path(r['path'])) == r['sha256']
-    result = {'pass': all(tests.values()), 'checks': tests, 'source_replayed_groups': len(rows), 'force_fixture_kind': 'our_own_fixture', 'fixture_scope': 'Fault detection only, no physical validation or external facit', 'physical_measurements_performed': False}
+    result = {'pass': all(tests.values()), 'checks': tests, 'source_replayed_groups': len(rows), 'force_fixture_kind': 'our_own_fixture', 'fixture_scope': 'Fault detection only, no physical validation or external reference', 'physical_measurements_performed': False}
     (ROOT / 'VERIFICATION.json').write_text(json.dumps(result, indent=2) + '\n')
     if not result['pass']:
         raise ValueError('VERIFICATION_FAIL:' + str([k for (k, v) in tests.items() if not v]))

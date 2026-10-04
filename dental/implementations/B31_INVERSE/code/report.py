@@ -40,7 +40,7 @@ def run():
             w.writerow(r)
     cost = dict(A_seconds=A['seconds'], B_fit_seconds=B['seconds'], B_interval_seconds=BB['seconds'], C_initial_seconds=read(ROOT / 'raw/C.json')['seconds'], C2_seconds=C['seconds'], D_seconds=D['seconds'], verification_seconds=V['seconds'], preparation_and_source_review_seconds=None, physical_acquisition_seconds=None, agent_tokens=None, peak_measured_process_MiB=max(B['peak_rss_MiB'], V['peak_rss_MiB']), B_factorizations=sum(B['factorizations'].values()), D_cells=sum((r['cells_evaluated'] for r in D['supports'].values())), B_cells=sum((r['continuous']['cells_evaluated'] for r in BB['contrasts']['optimized'].values())), own_data_bytes=sum((p.stat().st_size for p in DATA.glob('*') if p.is_file())), threads_current=1, initial_C_HiGHS_threads='UNRECORDED; preserved limitation, C2 explicit1')
     cost['own_data_bytes_including_replays'] = sum((p.stat().st_size for p in DATA.rglob('*') if p.is_file()))
-    cost['resource_gate_waits'] = {name: (ROOT / 'raw' / name).read_text().count("[ heavy_run ] wait") for name in ['B_RUN.log', 'B_BOUNDS_RUN.log', 'D_RUN.log', 'VERIFY_RUN.log', 'RUN_ALL_FAILED_SCRIPT_EDIT.log', 'REFIT_RUN.log', 'RUN_ALL.log'] if (ROOT / 'raw' / name).exists()}
+    cost['resource_gate_waits'] = {name: (ROOT / 'raw' / name).read_text().count('[ heavy_run ] wait') for name in ['B_RUN.log', 'B_BOUNDS_RUN.log', 'D_RUN.log', 'VERIFY_RUN.log', 'RUN_ALL_FAILED_SCRIPT_EDIT.log', 'REFIT_RUN.log', 'RUN_ALL.log'] if (ROOT / 'raw' / name).exists()}
     cost['resource_gate_logged_sleep_seconds'] = 30 * sum(cost['resource_gate_waits'].values())
     cost['verification_initial_seconds'] = read(ROOT / 'raw/VERIFICATION_INITIAL.json')['seconds']
     failed_launcher = ROOT / 'raw/RUN_ALL_FAILED_SCRIPT_EDIT.log'

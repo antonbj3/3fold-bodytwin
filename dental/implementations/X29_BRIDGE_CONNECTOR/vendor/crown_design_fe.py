@@ -1,4 +1,20 @@
-"crown_design_fe.py — DENT-DESIGN-CROWN: FE (CalculiX C3D10) for crown tied to die + contact load + Weibull.\n\nKedja: krona-/die-SDF (crown_design_geometry) -> STL (isotropisk ommeshning) -> gmsh tet4 (crown_design_gmsh.py,\n/usr/bin/python3) -> C3D10 genom rakkantade mittnoder (samma metod som cells/physics/fe_reference_core.py) ->\n*TIE krona(intaglio + marginring, slav-noder) mot die-yta (master) = bundet cementskikt (ANTAGANDE: cementet har\ndie-module, thickness s is included in die) -> fixed RV on die-bottom (z_m - 3 mm ) -> load case as * STEP :\n  the sphere R is set along the load direction d in the the crown's outer surface; contact points ( distance < 20 µm) is clustered;\n  Candidate contacts within 150 µm ; force fractions from the Hertz model (steel sphere displaced δ at F_ref = 1500 N ,\n  f_i ∝ (δ n_i · d − g_i )_+^ 1,5 ), contact radius a_i = sqrt(R · penetration) (floor a_min 0,25 mm ; fixed a to rubber disc/film);\n  pressure p ∝ sqrt(1 -r² /a² ) per surface facet, consistent node loads for 6 -node triangle (corner 0 , centre nodes A/ 3 );\n  friction-free: force along the normal sphere, standardized so that the component along d = 1 N (lateral residue is reported);\n  \"Training\" (directed load): force along d.\nPost-treatment: nodal tensions (.frd) -> ytfacetternas σ1 (tangential main voltage, facet mid) and\nelementens σ1 (centroid) -> Weibull-integraler I_S = Σ A (σ1+)^m, I_V = Σ V (σ1+)^m per lastfall (vid 1 N skalas\nlinear: σ ∝ F). The contact zone (within 3 a from the loading centre) is shown separately (Hertz consnips are not modelled).\nEnheter: mm, N, MPa.\n"
+"""crown_design_fe.py — DENT - DESIGN - CROWN : FE (CalculiX C3D10 ) for crown bound to die + contact load + Weibull.
+
+Chain: crown-/die-SDF (crown_design_geometry) -> STL (isotropic ommeshning) -> gmsh tet 4 (crown_design_gmsh.py,
+/usr/bin/python 3) -> C3D10 by straight-line centre nodes (same method as cells/physics/fe_reference_core.py) ->
+* TIE crown (intakelio + margin ring, slave nodes) to die-surface (master) = bonded cement layer (ANTAGANDE : cement has
+die-module, thickness s is included in die) -> fixed RV on die-bottom (z_m - 3 mm ) -> load case as * STEP :
+  the sphere R is set along the load direction d in the the crown's outer surface; contact points ( distance < 20 µm) is clustered;
+  Candidate contacts within 150 µm ; force fractions from the Hertz model (steel sphere displaced δ at F_ref = 1500 N ,
+  f_i ∝ (δ n_i · d − g_i )_+^ 1,5 ), contact radius a_i = sqrt(R · penetration) (floor a_min 0,25 mm ; fixed a to rubber disc/film);
+  pressure p ∝ sqrt(1 -r² /a² ) per surface facet, consistent node loads for 6 -node triangle (corner 0 , centre nodes A/ 3 );
+  friction-free: force along the normal sphere, standardized so that the component along d = 1 N (lateral residue is reported);
+  "Training" (directed load): force along d.
+finishing: nodala stresses (.frd) -> the surface surface surface σ 1 (tangential main voltage, facet mid) and
+σ 1 (centroid) -> Weibull-integraler I_S = Σ A (σ 1 +)^m, I_V = Σ V ( σ 1 +)^m per load case (at 1 N scaled
+linear: σ ∝ F). The contact zone (within 3 a from the loading centre) is shown separately (Hertz consnips are not modelled).
+Enheter: mm, N, MPa.
+"""
 import os
 import re
 import sys
@@ -31,7 +47,7 @@ def tet_mesh(stl, out_npz, size_max, size_min=0.0):
     return (V, T)
 
 def to_tet10(V, T):
-    "Centre nodes on straight edges. Abaqus/CalculiX C3D10-ordning: 5(1-2) 6(2-3) 7(3-1) 8(1-4) 9(2-4) 10(3-4)."
+    """Centre nodes on straight edges. Abaqus/CalculiX C3D10-ordning: 5(1-2) 6(2-3) 7(3-1) 8(1-4) 9(2-4) 10(3-4)."""
     pairs = [(0, 1), (1, 2), (2, 0), (0, 3), (1, 3), (2, 3)]
     E = np.concatenate([np.sort(T[:, list(p)], 1) for p in pairs])
     (Eu, inv) = np.unique(E, axis=0, return_inverse=True)
@@ -42,7 +58,7 @@ def to_tet10(V, T):
 FACES10 = {1: [0, 1, 2, 4, 5, 6], 2: [0, 3, 1, 7, 8, 4], 3: [1, 3, 2, 8, 9, 5], 4: [2, 3, 0, 9, 7, 6]}
 
 def boundary_faces10(T10):
-    "Randfacetter (C3D10): (elements, face no. 1.. 4, 6 nodes [3 vertices, 3 mid])."
+    """Randfacetter (C3D10): (elements, face no. 1.. 4, 6 nodes [3 vertices, 3 mid])."""
     F = []
     for (f, loc) in FACES10.items():
         F.append(np.column_stack([np.arange(len(T10)), np.full(len(T10), f), T10[:, loc]]))
@@ -59,7 +75,7 @@ def face_geom(V, Fb):
     return ((A + B + C) / 3.0, n, area)
 
 class Model:
-    "Crown + die as two C3D10 - network tied with * TIE ."
+    """Crown + die as two C3D10 - network tied with * TIE ."""
 
     def __init__(self, crown_VT, die_VT, sdf_crown, sdf_die, grid, z_m, z_bot, tie_tol=None):
         (Vc, Tc) = to_tet10(*crown_VT)
@@ -85,11 +101,12 @@ class Model:
         self._outer_pts = Vs[np.abs(grid.sample(sdf_die, Vs, cval=10.0)) > tol]
 
     def outer_points(self):
-        "Points on the the crown's free outer surface of the SDF:s zero (net independent) level for spherical setting and contacts."
+        """Points on the the crown's free outer surface of the SDF:s zero (net independent) level for spherical setting and contacts."""
         return self._outer_pts
 
 def seat_sphere(P, R, d, xy0, perp=None):
-    "Sphere with centre c = c0 + s d is carried along d until first contact with the point cloud P.\n    c0 = startpunkt (xy0 in the plane perpendicular to d, long 'above'). Returns the center and p."
+    """Sphere with centre c = c 0 + s d is carried along d until first contact with point cloud P.
+    c 0 = starting point (xy 0 in the plane perpendicular to d, long ' above'). Returns center and s ."""
     d = d / np.linalg.norm(d)
     c0 = np.asarray(xy0, float) - 30.0 * d
     q = P - c0
@@ -103,7 +120,9 @@ def seat_sphere(P, R, d, xy0, perp=None):
     return (c0 + s * d, s)
 
 def fossa_seat(P, R, d, center_guess, step0=0.3, step_min=0.005):
-    "The sphere 'rolls' to local deepest position along the d starting in center_guess (mountain climbing in the plane\n    perpendicular to d, step halved): stable fossa position (typically three cup contacts). No global search,\n    So the sphere can't slip off the crown."
+    """The sphere 'rolls' to local deepest position along the d starting in center_guess (mountain climbing in the plane
+    perpendicular to d, step halved): stable fossa position (typically three cup contacts). No global search,
+    So the sphere can't slip off the crown."""
     d = d / np.linalg.norm(d)
     u = np.cross(d, [1.0, 0, 0])
     if np.linalg.norm(u) < 1e-06:
@@ -126,7 +145,8 @@ def fossa_seat(P, R, d, center_guess, step0=0.3, step_min=0.005):
     return c
 
 def contacts(P, C, R, tol=0.02, link=0.8, return_gaps=False):
-    "Contact Candidates = local minima of gap g(p) = |p-C|-R among surface points with g < tol: a point is retained if\n    It has the lowest gap within the radius 'link' mm (non-maximum pressure). Returns points (and gap [mm ])."
+    """Contact Candidates = local minima of gap g(p) = |p-C|-R among surface points with g < tol: a point is retained if
+    It has the lowest gap within the radius 'link' mm (non-maximum pressure). Returns points (and gap [mm ])."""
     dist = np.linalg.norm(P - C, axis=1) - R
     m = dist < tol
     (Q, gq) = (P[m], dist[m])
@@ -147,7 +167,10 @@ def contacts(P, C, R, tol=0.02, link=0.8, return_gaps=False):
     return (pts, gaps) if return_gaps else pts
 
 def hertz_share(gaps, normals, d, F_ref, R, E_crown, nu_crown, E_ind=None, nu_ind=None):
-    "Followive contact distribution: rigid sphere displaced δ along d; contact in with initial gap g_i carries\n    f_i = k (δ_n ,i - g_i )_+^ 1,5 (Hertz spherical plane, k = 4 / 3 E* sqrt(R)), δ_n ,i = δ ( n_i · d).\n    Σ f_i (n_i·d) = F_ref. Provides continuous dependence on the gap (a third kusp 30 or 35 µm removes almost\n    The same proportion) instead of a hard tolerance that alternates with the surface discretisation."
+    """Followive contact distribution: rigid sphere displaced δ along d; contact in with initial gap g_i carries
+    f_i = k (δ_n ,i - g_i )_+^ 1,5 (Hertz spherical plane, k = 4 / 3 E* sqrt(R)), δ_n ,i = δ ( n_i · d).
+    Σ f_i (n_i·d) = F_ref. Provides continuous dependence on the gap (a third kusp 30 or 35 µm removes almost
+    The same proportion) instead of a hard tolerance that alternates with the surface discretisation."""
     E_ind = E_ind or STEEL[0]
     nu_ind = nu_ind or STEEL[1]
     Es = 1.0 / ((1 - nu_crown ** 2) / E_crown + (1 - nu_ind ** 2) / E_ind)
@@ -172,13 +195,15 @@ def hertz_a(f, R, E_crown, nu_crown, E_ind=STEEL[0], nu_ind=STEEL[1]):
     return (3.0 * f * R / (4.0 * Es)) ** (1.0 / 3.0)
 
 def fossa_point(P, center_guess, radius=2.5, depth=3.0):
-    "Central Foss = lowest point of the crown's occlusive surface area: points within the radius mm (xy) of the occlusive\n    centroid and maximum'depth' mm below the crown's peak (excludes axial walls and margin)."
+    """Central Foss = lowest point of the crown's occlusive surface area: points within the radius mm (xy) of the occlusive
+    centroid and maximum'depth' mm below the crown's peak (excludes axial walls and margin)."""
     r = np.linalg.norm(P[:, :2] - np.asarray(center_guess)[:2], axis=1)
     Q = P[(r < radius) & (P[:, 2] > P[:, 2].max() - depth)]
     return Q[np.argmin(Q[:, 2])]
 
 def fossa_seat_grid(P, R, d, start, bound=1.0, n=21):
-    "The test machine positions the ball over the fosan: centre (angled against d) within the ‘bound' mm from the fossil point\n    is chosen where the ball sits most deeply (best wedged between the cups); lowering along d without lateral movement."
+    """The test machine positions the ball over the fosan: centre (angled against d) within the ‘bound' mm from the fossil point
+    is chosen where the ball sits most deeply (best wedged between the cups); lowering along d without lateral movement."""
     d = d / np.linalg.norm(d)
     u = np.cross(d, [1.0, 0, 0])
     if np.linalg.norm(u) < 1e-06:
@@ -196,7 +221,11 @@ def fossa_seat_grid(P, R, d, start, bound=1.0, n=21):
     return best[0]
 
 def load_case(model, lc, E_crown, nu_crown, F_ref=1500.0, a_min=0.25):
-    "lc: dict(kind='fossa'|'directed', R, d (3,), center (3,), a_fixed (valfri: gummiskiva/film), sticking).\n    Floss: the sphere is positioned over the central fossil (deepest insertion within 1,0 mm, no lateral movement under load);\n    Directed: the sphere is taken along d from the point of the fossa. A single contact -> force along d (friction/machine stiffness).\n    Active contacts = surface points within 2 · δ_H of the rigidly set sphere, δ_H = a_H² /R = Hertz approach at F_ref\n    (elastic penetration at test load activates more contacts; ≥ 20 µm). Returns node loads for F = 1 N."
+    """lc: dict(kind='fossa'|'directed', R, d (3,), center (3,), a_fixed (valfri: gummiskiva/film), sticking).
+    Floss: the sphere is positioned over the central fossil (deepest insertion within 1,0 mm, no lateral movement under load);
+    Directed: the sphere is taken along d from the point of the fossa. A single contact -> force along d (friction/machine stiffness).
+    Active contacts = surface points within 2 · δ_H of the rigidly set sphere, δ_H = a_H² /R = Hertz approach at F_ref
+    (elastic penetration at test load activates more contacts; ≥ 20 µm ). Returns node loader for F = 1 N ."""
     P = model.outer_points()
     d = np.asarray(lc['d'], float)
     d /= np.linalg.norm(d)
@@ -213,7 +242,7 @@ def load_case(model, lc, E_crown, nu_crown, F_ref=1500.0, a_min=0.25):
     tol = 0.15
     (K, gaps) = contacts(P, C, R, tol=tol, return_gaps=True)
     if len(K) == 0:
-        raise RuntimeError('ingen kontakt')
+        raise RuntimeError('no contact')
     normals = (K - C) / np.linalg.norm(K - C, axis=1, keepdims=True)
     (share, delta) = hertz_share(gaps, normals, d, F_ref, R, E_crown, nu_crown)
     keep = share > 0.0001
@@ -248,7 +277,7 @@ def load_case(model, lc, E_crown, nu_crown, F_ref=1500.0, a_min=0.25):
     return (loads, {'center': C.tolist(), 'fossa_point': fp.tolist(), 'n_contacts': int(len(K)), 'patches': patches, 'contact_tol_mm': float(tol), 'gaps_mm': gaps.tolist(), 'approach_mm': float(delta), 'total_force_per_N': tot.tolist(), 'lateral_resid_per_N': float(resid)})
 
 def fossa_seat_bounded(P, R, d, start, bound=1.0, step0=0.2, step_min=0.005):
-    "As fossa_seat but the position of the sphere (angled to d) is held within'bound' mm from the starting point."
+    """As fossa_seat but the position of the sphere (angled to d) is held within'bound' mm from the starting point."""
     d = d / np.linalg.norm(d)
     u = np.cross(d, [1.0, 0, 0])
     if np.linalg.norm(u) < 1e-06:
@@ -277,7 +306,7 @@ def fossa_seat_bounded(P, R, d, start, bound=1.0, step0=0.2, step_min=0.005):
 def write_deck(path, model, mat_crown, mat_die, cases_loads, F_scale=1.0, solver='PARDISO'):
     (Vc, Tc, Vd, Td, nc) = (model.Vc, model.Tc, model.Vd, model.Td, model.nc)
     L = []
-    L.append('*HEADING\nDENT-DESIGN-CROWN krona+die, mm N MPa')
+    L.append('*HEADING\nDENT - DESIGN - CROWN crown +die, mm N MPa')
     L.append('*NODE, NSET=NALL')
     L += [f'{i + 1},{x:.6f},{y:.6f},{z:.6f}' for (i, (x, y, z)) in enumerate(Vc)]
     L += [f'{i + 1 + nc},{x:.6f},{y:.6f},{z:.6f}' for (i, (x, y, z)) in enumerate(Vd)]
@@ -313,7 +342,7 @@ def write_deck(path, model, mat_crown, mat_die, cases_loads, F_scale=1.0, solver
     open(path, 'w').write('\n'.join(L) + '\n')
 
 def read_frd_stress(path, nmax):
-    "Nodala stresses per step from .frd ( ASCII ). Returns a list of (N,6) [SXX SYY SZZ SXY SYZ SZX]."
+    """Nodala stresses per step from .frd ( ASCII ). Returns a list of (N,6) [SXX SYY SZZ SXY SYZ SZX]."""
     out = []
     cur = None
     mode = None
@@ -336,7 +365,7 @@ def read_frd_stress(path, nmax):
     return out
 
 def sigma1(S):
-    "Maximum main voltage clock (N , 6 ) Voigt [xx yy zz xy yz zx]."
+    """Maximum main voltage clock (N , 6 ) Voigt [xx yy zz xy yz zx]."""
     M = np.zeros((len(S), 3, 3))
     (M[:, 0, 0], M[:, 1, 1], M[:, 2, 2]) = (S[:, 0], S[:, 1], S[:, 2])
     M[:, 0, 1] = M[:, 1, 0] = S[:, 3]
@@ -345,7 +374,7 @@ def sigma1(S):
     return np.linalg.eigvalsh(M)[:, -1]
 
 def tangential_sigma1(S, n):
-    "Maximum main voltage in the facet key plane (surface cracks are opened by tangential tensile voltage)."
+    """Maximum main voltage in the facet key plane (surface cracks are opened by tangential tensile voltage)."""
     M = np.zeros((len(S), 3, 3))
     (M[:, 0, 0], M[:, 1, 1], M[:, 2, 2]) = (S[:, 0], S[:, 1], S[:, 2])
     M[:, 0, 1] = M[:, 1, 0] = S[:, 3]
@@ -359,7 +388,8 @@ def tangential_sigma1(S, n):
     return np.linalg.eigvalsh(M2)[:, -1]
 
 def face_elem_stress(model, S_nodes):
-    "Voltage stones in the center of the crown's edge facets (6-node square interpolation: vertices -1/9, mitt 4/9) and i\n    elementens centroid (tet10: corner -1/8, mitt 1/4). Saves compactly so that the post-treatment can be re-made without FE."
+    """Voltage Stones in the centre of the crown's strip faceters (6 -node square interpolation: vertices -1 / 9 , mid 4 / 9 ) and in
+    the centroid of the elements (the 10 : vertices -1 / 8 , my 1 / 4 ). Saves compactly so that after-treatment can be re-made without FE."""
     S = S_nodes[:model.nc]
     F = model.Fc_all
     Sf = -1 / 9 * (S[F[:, 2]] + S[F[:, 3]] + S[F[:, 4]]) + 4 / 9 * (S[F[:, 5]] + S[F[:, 6]] + S[F[:, 7]])
@@ -374,7 +404,10 @@ def model_geometry_arrays(model):
     return dict(cf=cf, nf=nf, af=af, tied=model.tied_mask, ce=X.mean(1), ve=ve)
 
 def postprocess_arrays(ga, Sf, Se, load_centers, a_list, m_values):
-    "Weibull-integraler per lastfall vid F = 1 N (σ ∝ F).\n    Yta: tangentiell σ1 i facettmitt. The ZONE · a around the loading centre is excluded from the BARA on the outer surface\n    (Hertz ring strokes/conscraps are not modelled); intakelio is always taken with (flexions during the load are exactly the same\n    brottmod som tunna kronor har). Volym: σ1 i elementcentroid, zon = a (only the proximity of the contact)."
+    """Weibull integrals per load case at F = 1 N ( σ ∝ F).
+    Yta: tangentiell σ1 i facettmitt. The ZONE · a around the loading centre is excluded from the BARA on the outer surface
+    (Hertz ring strokes/conscraps are not modelled); intakelio is always taken with (flexions during the load are exactly the same
+    Breaking mood as thin crowns has). Volume: σ 1 in element centroid, zone = a (close proximity of contact only)."""
     (cf, nf, af, tied, ce, ve) = (ga['cf'], ga['nf'], ga['af'], ga['tied'], ga['ce'], ga['ve'])
     s1f = tangential_sigma1(Sf.astype(float), nf)
     s1e = sigma1(Se.astype(float))
@@ -397,7 +430,7 @@ def postprocess_arrays(ga, Sf, Se, load_centers, a_list, m_values):
     return res
 
 def prepare_run(workdir, name, model, mat_crown, mat_die, lcs, solver='ITERATIVE CHOLESKY'):
-    "Phase 1 ( local): loads + tyres. Returns (name list, diagnostics); the tyre is written to workdir/name.inp ."
+    """Phase 1 ( local): loads + tyres. Returns (name list, diagnostics); the tyre is written to workdir/name.inp ."""
     os.makedirs(workdir, exist_ok=True)
     (cases, diags) = ([], [])
     for lc in lcs:
@@ -408,7 +441,7 @@ def prepare_run(workdir, name, model, mat_crown, mat_die, lcs, solver='ITERATIVE
     return ([c[0] for c in cases], diags)
 
 def finish_run(frd_path, model, names, diags, m_values, stress_npz):
-    "Phase 2 : read .frd (also .frd.gz), Weibull finishing, save compact stresses."
+    """Phase 2 : read .frd (also .frd.gz), Weibull finishing, save compact stresses."""
     import gzip
     if frd_path.endswith('.gz'):
         import shutil, tempfile
@@ -419,7 +452,7 @@ def finish_run(frd_path, model, names, diags, m_values, stress_npz):
         os.remove(tmp)
     else:
         Ss = read_frd_stress(frd_path, model.nc + len(model.Vd))
-    assert len(Ss) == len(names), f'{len(Ss)} voltage blocks against: {len(names)} lastfall'
+    assert len(Ss) == len(names), f'{len(Ss)} voltage block against {len(names)} load case'
     out = {'n_nodes': int(model.nc + len(model.Vd)), 'n_el_crown': int(len(model.Tc)), 'n_el_die': int(len(model.Td)), 'dof': int(3 * (model.nc + len(model.Vd))), 'cases': {}}
     ga = model_geometry_arrays(model)
     save = {k: v.astype(np.float32) if v.dtype.kind == 'f' else v for (k, v) in ga.items()}
@@ -437,7 +470,7 @@ def finish_run(frd_path, model, names, diags, m_values, stress_npz):
     return out
 
 def run_model(workdir, name, model, mat_crown, mat_die, lcs, m_values, keep_frd=False, ram_gb=8, solver='PARDISO'):
-    "Build loads, write tires, run PARDISO -ccx via heavy_run , finishing. Returns result per load case."
+    """Build loads, write tires, run PARDISO -ccx via heavy_run , finishing. Returns result per load case."""
     os.makedirs(workdir, exist_ok=True)
     (cases, diags) = ([], [])
     for lc in lcs:

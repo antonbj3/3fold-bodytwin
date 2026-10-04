@@ -1,6 +1,6 @@
 # XBREAK HUNT 5
 
-Review: LANE_XREVIEW_BATCH35, HOLDS_WITH_CORRECTION. Reviewed result SHA256: `39f4ca5e07a8226dd37799821de4e03407f38d1a4a04bf3e5d937bd168eb8b4e`.
+Review: LANE_XREVIEW_BATCH35, ACCEPTED_WITH_CORRECTION. Reviewed result SHA256: `39f4ca5e07a8226dd37799821de4e03407f38d1a4a04bf3e5d937bd168eb8b4e`.
 
 Scope: "All11 supplied test preparations in R1 negative cone result, two explicitly selected R3/R4 pilots, stored STL witness checks and corrected continuous-gap replay. Physical scale, whole crown and any unsupplied same-summary sufficiency test are not admitted."
 

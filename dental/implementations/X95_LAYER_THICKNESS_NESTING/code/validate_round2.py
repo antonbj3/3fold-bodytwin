@@ -21,7 +21,7 @@ def run():
         ov = raw['vertices'][np.unique(raw['faces'][raw['roles'] == 0])]
         identity_outer = float(abs(ov - a['locked_outer_vertices']).max())
         assert identity_outer == 0
-        rows.append({'family': e['family'], 'same_volume_identity_error_mm3': identity, 'same_cube_count': int(k.sum()), 'state_A_guard_min_mm': ga, 'state_B_guard_min_mm': gb, 'downstream_guard_difference_mm': gb - ga, 'state_A_rule_pass': True, 'state_B_rule_pass': False, 'swapped_kept_cube': keep, 'swapped_forbidden_cube': bad, 'outer_vertex_identity_error_mm': identity_outer, 'minimal_extension': 'spatial cube membership plus rule/pose incidence; volume alone is insufficient', 'witness_origin': 'our_own_fixture based on R2 core, not empirical facit', 'resolution': 'PER_POINT'})
+        rows.append({'family': e['family'], 'same_volume_identity_error_mm3': identity, 'same_cube_count': int(k.sum()), 'state_A_guard_min_mm': ga, 'state_B_guard_min_mm': gb, 'downstream_guard_difference_mm': gb - ga, 'state_A_rule_pass': True, 'state_B_rule_pass': False, 'swapped_kept_cube': keep, 'swapped_forbidden_cube': bad, 'outer_vertex_identity_error_mm': identity_outer, 'minimal_extension': 'spatial cube membership plus rule/pose incidence; volume alone is insufficient', 'witness_origin': 'our_own_fixture based on R2 core, not empirical reference', 'resolution': 'PER_POINT'})
     dump(ROOT / 'raw/R2_SUFFICIENCY.json', rows)
     return rows
 if __name__ == '__main__':

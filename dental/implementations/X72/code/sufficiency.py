@@ -38,7 +38,7 @@ def main():
     u = vb['nominal_interval_mm'][1]
     assert v == u
     wall = dict(summary='nominal upper endpoint of film-minimum enclosure', identity_error_mm=v - u, nominal_endpoint_mm=v, before=va['status'], after=vb['status'], robust_intervals_mm=[va['robust_interval_mm'], vb['robust_interval_mm']], geometry_sha_identity=all((a['inputs'][k]['sha256'] == b['inputs'][k]['sha256'] for k in a['inputs'])), minimal_extension='independent calibrated full-region error bounds and signed topology')
-    write(ROOT / 'raw/SUFFICIENCY.json', dict(X54=x54, X2=x2, X49=wall, cost_wall_s=time.perf_counter() - start, physical_external_validation='NOT_CLAIMED; exact-summary tests are counterexamples, not empirical facit'))
+    write(ROOT / 'raw/SUFFICIENCY.json', dict(X54=x54, X2=x2, X49=wall, cost_wall_s=time.perf_counter() - start, physical_external_validation='NOT_CLAIMED ; exact-summary tests are counterexamples, not empirical reference'))
     print('SUFFICIENCY', diff, wall['before'], wall['after'])
 if __name__ == '__main__':
     main()

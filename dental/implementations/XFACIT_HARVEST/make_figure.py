@@ -30,7 +30,7 @@ ax[2].bar(['Scoped edges', 'Calibrated edges'], [r['mapping']['unique_existing_e
 ax[2].set_ylabel('Existing R4 edges')
 ax[2].set_title('Reference availability ≠ calibration')
 ax[2].text(1, 0.4, '0', ha='center')
-fig.suptitle('Dental external facit harvest — source/protocol/region retained', fontsize=13)
+fig.suptitle('Dental external reference harvest — source/protocol/region retined', fontsize=13)
 fig.tight_layout()
 fig.savefig(P / 'FACIT_HARVEST.png', dpi=160)
 fig.savefig(P / 'FACIT_HARVEST.pdf', metadata={'CreationDate': datetime.datetime.fromisoformat(json.loads((P / 'PREREG_XFACIT_R1.json').read_text())['frozen_at'])})

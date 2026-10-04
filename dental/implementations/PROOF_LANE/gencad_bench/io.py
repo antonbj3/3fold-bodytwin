@@ -6,7 +6,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'review_data'
 DENTAL = next((p for p in ROOT.parents if p.name == 'dental' and (p / 'results').is_dir()), None)
 if DENTAL is None:
-    raise RuntimeError('Shared dental inputs require a dental workspace ancestor')
+    from dental_release.paths import MissingInput
+    raise MissingInput('Shared dental inputs require the external source workspace; see docs/DATA.md')
 
 def canonical(x):
     return json.dumps(x, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()

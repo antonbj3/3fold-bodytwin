@@ -1,6 +1,6 @@
-# Rotbana mot benomslaget — X15
+# Root path against the bone envelope — X15
 
-Source entry: `X15`. Source review status: `INTE_REDO_COPY_FAILURE`. Source claim type: `UNKNOWN`. Physical validation in this release: UNKNOWN.
+Source entry: `X15`. Source review status: `NOT_READY_COPY_FAILURE`. Source claim type: `UNKNOWN`. Physical validation in this release: UNKNOWN.
 
 The export contains 12 source files. The full original pipeline is SOURCE_ONLY_EXTERNAL_INPUTS and has not been replayed from this repository.
 

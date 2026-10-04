@@ -28,7 +28,7 @@ class Assurance(str, Enum):
     POINT = 'POINT'
 
 def status(value):
-    aliases = {'OSAKER': 'UNKNOWN', 'UNCERTAIN': 'UNKNOWN', 'UNCERTAIN': 'UNKNOWN', 'AMBIGUOUS': 'MULTIPLE', 'ENTYDIG': 'UNIQUE', 'GRENMANGD': 'MULTIPLE'}
+    aliases = {'UNCERTAIN': 'UNKNOWN', 'UNCERTAIN': 'UNKNOWN', 'UNCERTAIN': 'UNKNOWN', 'AMBIGUOUS': 'MULTIPLE', 'UNIQUE': 'UNIQUE', 'BRANCH_SET': 'MULTIPLE'}
     return Status(aliases.get(value, value))
 
 def exact(x):

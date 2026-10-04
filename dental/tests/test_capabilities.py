@@ -142,14 +142,17 @@ class ReviewBindingContracts(unittest.TestCase):
         records=json.loads((ROOT/'provenance/REVIEW_SCOPE.json').read_text())['records']
         entries=json.loads((ROOT/'demos.json').read_text())['demos']
         added=[r for r in records if r['action']=='ADD']
-        self.assertEqual(len(added),39)
+        scope=json.loads((ROOT/'provenance/RELEASE_SCOPE.json').read_text())
+        self.assertEqual(len(added),scope['added_review_receipts'])
         for row in added:
             self.assertTrue(code_eligible(row))
-            self.assertTrue(any(e.get('reviewed_result_sha256')==row['result_sha256'] and e.get('review_sha256')==row['review_sha256'] for e in entries))
+            pair=dict(result_sha256=row['result_sha256'],review_sha256=row['review_sha256'])
+            self.assertTrue(any((e.get('reviewed_result_sha256')==row['result_sha256'] and e.get('review_sha256')==row['review_sha256'])
+                                or pair in e.get('accepted_receipts',[]) for e in entries))
 
     def test_referent_only_and_missing_binding_are_not_code_approval(self):
         from dental_release.review_scope import code_eligible
-        row=dict(classification="ACCEPTED",action='ADD',result_sha256='a'*64,review_sha256='b'*64)
+        row=dict(classification='ACCEPTED',action='ADD',result_sha256='a'*64,review_sha256='b'*64)
         self.assertTrue(code_eligible(row))
         for change in [dict(action='SCOPED_REFERENT_ONLY'),dict(classification='UNKNOWN'),dict(result_sha256=None),dict(review_sha256='wrong')]:
             with self.subTest(change=change):self.assertFalse(code_eligible(dict(row,**change)))

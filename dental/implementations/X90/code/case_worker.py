@@ -159,7 +159,7 @@ def run(args):
     gap = stable(gate['rules']['occlusal_contact'])
     gap_value = gap.get('measurement', {}).get('minimum_gap_mm')
     links = {'crown': contracts(package, ['D-E-K36']), 'milling': contracts(package, ['D-E-K40', 'D-E-K43']), 'force': contracts(package, ['D-E-DEFORMABLE-FORCES', 'D-E-K21']), 'pulp': contracts(package, ['D-E-K03']), 'nerve': contracts(package, ['D-E-K37'])}
-    rows = [decision('crown', "Crown design and material wall", {'FDI': fdi, 'design_verdict': gate['verdict'], 'wall_rule': wall, 'watertight': bool(final.is_watertight), 'virtual_margin_knot_error_mm': trace['target_knot_identity_error_mm']}, 'mm', "Virtual preparation ; scanner error , the injectivity of form and physical fit Unknown . Distance enclosure is available in the marked X34 region; floating point enclosure is missing.", 'modellerat', 'PER_SURFACE_REGION', gate['verdict'], source_locators, links['crown'], generator=generator_name, generator_scope=generator_scope, latest_generator_refusal=latest_failure, unsuitable_newer_operations=['fixed_prep_projection: fixed preparation is virtual', 'measured_neighbours: no signed loaded neighbour calibration']), decision('milling', "Millability with final radius 0,5 mm", b, 'mm', "X34 : s bullet can detect obstacles. Absence of obstacles does not prove the accessibility of the entire tool path; shrinkage/tool calibration UNKNOWN .", 'modellerat', 'PER_SURFACE_REGION', b['status'], ['DEMO48_PACKAGE/X34/designgate'], links['milling']), decision('occlusal_height', "Occlusal distance in delivered scan pose", gap_value, 'mm', "Digital geometric measure in delivered pose; loaded pose and scanner repeatability UNKNOWN. No physical contact force can be identified from height alone.", 'modellerat' if gap_value is not None else "UNKNOWN", 'PER_POINT', gap['status'], source_locators, links['force'])]
+    rows = [decision('crown', 'Crown design and material wall', {'FDI': fdi, 'design_verdict': gate['verdict'], 'wall_rule': wall, 'watertight': bool(final.is_watertight), 'virtual_margin_knot_error_mm': trace['target_knot_identity_error_mm']}, 'mm', 'Virtual preparation ; scanner error , the injectivity of form and physical fit Unknown . Distance enclosure is available in the marked X34 region; floating point enclosure is missing.', 'MODELLED', 'PER_SURFACE_REGION', gate['verdict'], source_locators, links['crown'], generator=generator_name, generator_scope=generator_scope, latest_generator_refusal=latest_failure, unsuitable_newer_operations=['fixed_prep_projection: fixed preparation is virtual', 'measured_neighbours: no signed loaded neighbour calibration']), decision('milling', 'Millability with final radius 0,5 mm', b, 'mm', 'X34 : s bullet can detect obstacles. Absence of obstacles does not prove the accessibility of the entire tool path; shrinkage/tool calibration UNKNOWN .', 'MODELLED', 'PER_SURFACE_REGION', b['status'], ['DEMO48_PACKAGE/X34/designgate'], links['milling']), decision('occlusal_height', 'Occlusal distance in delivered scan pose', gap_value, 'mm', 'Digital geometric measure in delivered pose; loaded pose and scanner repeatability UNKNOWN. No physical contact force can be identified from height alone.', 'MODELLED' if gap_value is not None else 'UNKNOWN', 'PER_POINT', gap['status'], source_locators, links['force'])]
     force_answer = dict(status='UNKNOWN', reason='No same-subject loaded height/force acquisition', force_interval_N=None)
     if m.get('force_state'):
         state = read(input_path(m['force_state']))
@@ -169,10 +169,10 @@ def run(args):
         force_answer.update(force_bridge.field_request({'case': m['case']}, {}, 'NATIVE_X21_GAPS'))
         force_answer['consumer'] = 'X82.consumer_bridge.field_request: executed native-state refusal'
     observed_fdi = sorted({int(k) for jaw in arches.values() for k in np.unique(jaw['labels']) if k > 0})
-    tooth_forces = [dict(fdi=k, force_interval_N=None, evidence="UNKNOWN", resolution='PER_TOOTH') for k in observed_fdi]
+    tooth_forces = [dict(fdi=k, force_interval_N=None, evidence='UNKNOWN', resolution='PER_TOOTH') for k in observed_fdi]
     if force_answer.get('force_interval_N') is not None:
-        tooth_forces = [dict(fdi=k, force_interval_N=v, evidence='modellerat', resolution='PER_TOOTH') for (k, v) in zip(force_answer['predicted_fdi'], force_answer['force_interval_N'])]
-    rows.append(decision('force', "Force interval per tooth when changing altitude", force_answer.get('force_interval_N'), 'N', "UNKNOWN without three loaded height probes with calibrated regional forces, the same geometry, wrench and contact branch. X82 has analytical model inclusion; general floating point/rare memory closure is missing.", "UNKNOWN" if force_answer.get('force_interval_N') is None else 'modellerat', 'PER_TOOTH', force_answer['status'], ['X82/crown_corridor.py'], links['force'], operator=force_answer, per_tooth=tooth_forces))
+        tooth_forces = [dict(fdi=k, force_interval_N=v, evidence='MODELLED', resolution='PER_TOOTH') for (k, v) in zip(force_answer['predicted_fdi'], force_answer['force_interval_N'])]
+    rows.append(decision('force', 'Force interval per tooth when changing altitude', force_answer.get('force_interval_N'), 'N', 'UNKNOWN without three loaded height probes with calibrated regional forces, the same geometry, wrench and contact branch. X82 has analytical model inclusion; general floating point/rare memory closure is missing.', 'UNKNOWN' if force_answer.get('force_interval_N') is None else 'MODELLED', 'PER_TOOTH', force_answer['status'], ['X82/crown_corridor.py'], links['force'], operator=force_answer, per_tooth=tooth_forces))
     pulp_value = None
     pulp_result = None
     if m.get('cbct') and m['cbct'].get('pulp_observation'):
@@ -181,7 +181,7 @@ def run(args):
         validate_pulp_observation(obs, m, input_path(c['geometry_file']))
         pulp_result = pulp.uniform_shell_decision(obs['distance_mm'], obs['digital_two_surface_radius_mm'], 0.5, 0.5)
         pulp_value = pulp_result
-    rows.append(decision('pulp', "Pulp distance and preparation budget", pulp_value, 'mm', "The same individual pulp -/ DEJ - boundary is missing." if pulp_value is None else "Digital surface geometry with voxelradie; total hard tissue , not separate dentin . Anatomical boundary accuracy UNKNOWN .", "UNKNOWN" if pulp_value is None else 'modellerat', 'PER_POINT', 'UNKNOWN' if pulp_value is None else pulp_result['decision'], ['Dataset modality manifest: no verified same-subject CBCT'] if pulp_value is None else [obs['locator']], links['pulp'], coordinate_frame='CBCT_NATIVE_MM' if pulp_value is not None else 'UNKNOWN', crown_coordinate_transfer='UNKNOWN; native CT observation not registered to the IOS preparation'))
+    rows.append(decision('pulp', 'Pulp distance and preparation budget', pulp_value, 'mm', 'The same individual pulp -/ DEJ - boundary is missing.' if pulp_value is None else 'Digital surface geometry with voxelradie; total hard tissue , not separate dentin . Anatomical boundary accuracy UNKNOWN .', 'UNKNOWN' if pulp_value is None else 'MODELLED', 'PER_POINT', 'UNKNOWN' if pulp_value is None else pulp_result['decision'], ['Dataset modality manifest: no verified same-subject CBCT'] if pulp_value is None else [obs['locator']], links['pulp'], coordinate_frame='CBCT_NATIVE_MM' if pulp_value is not None else 'UNKNOWN', crown_coordinate_transfer='UNKNOWN; native CT observation not registered to the IOS preparation'))
     profiles = read(Path(args.nerve) / 'inputs/guide_profiles.json')['profiles']
     guide_rows = []
     for profile in profiles:
@@ -190,7 +190,7 @@ def run(args):
             budget = nerve.guide(profile, failure)
             direct_control = nerve.controls(profile, failure, budget)
             guide_rows.append(dict(guide=profile['id'], target=target_coverage, **budget, control=direct_control, resolution='POPULATION', physical_margin_mm=None, physical_coverage='UNKNOWN', source=profile['source']))
-    rows.append(decision('nerve', 'Nervmarginal per guidetyp', {'patient_margin_mm': None, 'population_guide_error_budgets': guide_rows}, 'mm', "The patient's anatomic canal wall/implant pose and common guide/wall error model are missing. The population's elements are treated as disclosure; the budgets are not patient margins. Rigorous floating point enclosure missing.", 'modellerat', 'POPULATION', 'UNKNOWN_PATIENT_MARGIN', [p['source'] for p in profiles], links['nerve'], patient_resolution='PER_POINT', source_review='X87 PENDING_INDEPENDENT_REVIEW'))
+    rows.append(decision('nerve', 'Nerve margin per guide type', {'patient_margin_mm': None, 'population_guide_error_budgets': guide_rows}, 'mm', "The patient's anatomic canal wall/implant pose and common guide/wall error model are missing. The population's elements are treated as disclosure; the budgets are not patient margins. Rigorous floating point enclosure missing.", 'MODELLED', 'POPULATION', 'UNKNOWN_PATIENT_MARGIN', [p['source'] for p in profiles], links['nerve'], patient_resolution='PER_POINT', source_review='X87 PENDING_INDEPENDENT_REVIEW'))
     first_freeze_utc = epoch.get('per_case_frozen_utc') or datetime.datetime.now(datetime.timezone.utc).isoformat()
     predictions = dict(schema='dental-case-frozen-v1', frozen_utc=first_freeze_utc, patient=m['patient'], freeze_time_semantics='Actual first freeze of this exact input/code prediction; reruns reuse only its timestamp and must reproduce the complete payload hash', adapter_code_sha256=__import__('hashlib').sha256(''.join((sha(local_common.ROOT / 'code' / name) for name in ['common.py', 'operators.py', 'case_worker.py'])).encode()).hexdigest(), source_geometry_sha256=geometry_hash, source_members=src, input_manifest_sha256=sha(args.manifest), prereg_sha256=sha(local_common.ROOT / 'PREREG_R1.json'), changed_construction_prereg_sha256=sha(local_common.ROOT / 'PREREG_R2.json'), source_domain_prereg_sha256=sha(local_common.ROOT / 'PREREG_R3.json'), fallback_prereg_sha256=sha(local_common.ROOT / 'PREREG_R4.json'), crown_stl_sha256=sha(out / 'crown.stl'), trace=trace, force=force_answer, pulp=pulp_result, decision_payload_sha256=__import__('hashlib').sha256(local_common.encoded(rows)).hexdigest(), physical_measurement='NOT_RUN', prior_exposure='Retrospective digital reconstruction; X11 labels and some cases previously evaluated', prospective_targets=['as-built surface', 'seated regional film', 'loaded region force'], prospective_numeric_predictions='UNKNOWN until matched preparation, material batch and loaded calibration exist')
     freeze(out / 'FROZEN_PREDICTIONS.json', predictions)
@@ -224,7 +224,7 @@ def figure(path, original, generated, fdi):
     xhi = max(original[:, :, 0].max(), generated[:, :, 0].max())
     ylo = min(original[:, :, 1].min(), generated[:, :, 1].min())
     yhi = max(original[:, :, 1].max(), generated[:, :, 1].max())
-    for (ax, tri, title) in zip(axes, [original, generated], ["Measured Original Surface", 'Genererad forskningskrona']):
+    for (ax, tri, title) in zip(axes, [original, generated], ['Measured Original Surface', 'Genererad forskningskrona']):
         pts = tri.mean(1)
         stride = max(1, len(pts) // 5000)
         q = pts[::stride]
@@ -233,11 +233,11 @@ def figure(path, original, generated, fdi):
         ax.set_ylim(ylo - 0.2, yhi + 0.2)
         ax.set_aspect('equal')
         ax.set_title(title)
-        ax.set_xlabel('lokal x [mm]')
-        ax.set_ylabel('lokal y [mm]')
+        ax.set_xlabel('local x [mm ]')
+        ax.set_ylabel('local y [ mm ]')
     fig.subplots_adjust(left=0.08, right=0.88, bottom=0.18, top=0.82, wspace=0.45)
-    fig.colorbar(sc, ax=axes, label='lokal z [mm]', shrink=0.8)
-    fig.suptitle('FDI ' + str(fdi) + " · virtual preparation · physical fit unknown")
+    fig.colorbar(sc, ax=axes, label='local z [mm ]', shrink=0.8)
+    fig.suptitle('FDI ' + str(fdi) + ' · virtual preparation · physical fit unknown')
     fig.savefig(path, dpi=130, metadata={'Software': 'X90 deterministic case report'})
     plt.close(fig)
 if __name__ == '__main__':

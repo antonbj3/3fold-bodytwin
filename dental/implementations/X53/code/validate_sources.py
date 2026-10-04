@@ -1,4 +1,4 @@
-"""Quantitative nominal-source checks, distinct from physical milling facit."""
+"""Quantitative nominal-source checks, distinct from physical milling reference ."""
 from common import *
 import re, xml.etree.ElementTree as E
 
@@ -31,7 +31,7 @@ def run():
             nums = re.findall('(\\d+\\.\\d+) ± (\\d+\\.\\d+)', t)
             for (reg, (mean, sd)) in zip(['bucco_axial', 'occlusal', 'linguo_axial'], nums[:3]):
                 fit.append(dict(region=reg, mean_um=float(mean), sd_um=float(sd), n=10, resolution='PER_SURFACE_REGION', observation_state='replica', source='https://doi.org/10.4047/jap.2016.8.6.439 Table2', comparison_status='UNKNOWN_UNPAIRED_GEOMETRY_AND_MACHINE'))
-    dump(ROOT / 'raw/SOURCE_CHECKS.json', dict(rows=rows, all_pass=True, independent_measured_fit=fit, fit_eligibility=dict(requested=len(fit), eligible=0, excluded=len(fit), dropout_fraction=1.0, reason='No paired design/CAM scene/local film; cannot use a regional mean as local milling facit')))
+    dump(ROOT / 'raw/SOURCE_CHECKS.json', dict(rows=rows, all_pass=True, independent_measured_fit=fit, fit_eligibility=dict(requested=len(fit), eligible=0, excluded=len(fit), dropout_fraction=1.0, reason='No paired design/CAM scene/local film; cannot use a regional mean as local milliling reference')))
     print('nominal source checks', len(rows), 'physical fit cells unmatched', len(fit))
 if __name__ == '__main__':
     run()

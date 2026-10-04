@@ -42,7 +42,7 @@ def main():
         bad = verify(package)
     finally:
         (package / 'raw/R8_teeth.csv').write_bytes(csv)
-    guard = {'valid_pass': not good, '99mm_corruption_rejected': str(package / 'raw/R8_teeth.csv') in bad, 'original_distance_mm': float(old), 'injected_distance_mm': 99.0, 'restoration_hash_exact': sha(package / 'raw/R8_teeth.csv') == original_sha, 'reviewer_guard_sha256': sha(ROOT / 'code/verify_local_artifacts.py'), 'source_job_status': 'INTE_REDO_UNCHANGED'}
+    guard = {'valid_pass': not good, '99mm_corruption_rejected': str(package / 'raw/R8_teeth.csv') in bad, 'original_distance_mm': float(old), 'injected_distance_mm': 99.0, 'restoration_hash_exact': sha(package / 'raw/R8_teeth.csv') == original_sha, 'reviewer_guard_sha256': sha(ROOT / 'code/verify_local_artifacts.py'), 'source_job_status': 'NOT_READY_UNCHANGED'}
     write(ROOT / 'raw/PREREQUISITE_GUARD.json', guard)
     assert all((guard[x] for x in ['valid_pass', '99mm_corruption_rejected', 'restoration_hash_exact'])), guard
     pairs = json.loads((package / 'raw/R6_pairs.json').read_text())
@@ -102,7 +102,7 @@ def main():
     else:
         write(dest, payload)
         (ROOT / 'FROZEN_COHORT.sha256').write_text(sha(dest) + '\n')
-    write(ROOT / 'CURRENT_WORK_STATE.json', {'lane': 'X95-ct-pulp-prep-port', 'milestone': 'IDENTITY_AND_COHORT_FROZEN', 'latest_gate': 'PASS_DIGITAL_PREREQUISITE', 'next_operation': 'freeze regional solid and witness operators before questions', 'source_X12_status': 'INTE_REDO_UNCHANGED', 'cohort_teeth': len(cohort), 'available_pulp_teeth': sum((r['status'] == 'AVAILABLE' for r in cohort))})
+    write(ROOT / 'CURRENT_WORK_STATE.json', {'lane': 'X95-ct-pulp-prep-port', 'milestone': 'IDENTITY_AND_COHORT_FROZEN', 'latest_gate': 'PASS_DIGITAL_PREREQUISITE', 'next_operation': 'freeze regional solid and witness operators before questions', 'source_X12_status': 'NOT_READY_UNCHANGED', 'cohort_teeth': len(cohort), 'available_pulp_teeth': sum((r['status'] == 'AVAILABLE' for r in cohort))})
     print(json.dumps({'guard': guard, 'identity_exact': exact, 'cohort': cohort, 'cost_s': time.monotonic() - started}))
 if __name__ == '__main__':
     main()

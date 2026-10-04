@@ -76,11 +76,11 @@ def validate_decisions(rows):
         if row['id'] in ids:
             raise ValueError('DUPLICATE_DECISION_ID')
         ids.add(row['id'])
-        if row['evidence'] not in ['bevisat', 'kalibrerat', 'modellerat', "UNKNOWN"]:
+        if row['evidence'] not in ['PROVEN', 'CALIBRATED', 'MODELLED', 'UNKNOWN']:
             raise ValueError('EVIDENCE_LABEL')
         if not row['uncertainty'] or not row['sources'] or (not row['would_change']):
             raise ValueError('EMPTY_DECISION_CONTRACT')
-        if row['value'] is None and row['evidence'] != "UNKNOWN":
+        if row['value'] is None and row['evidence'] != 'UNKNOWN':
             raise ValueError('UNKNOWN_VALUE_PROMOTED')
     return True
 

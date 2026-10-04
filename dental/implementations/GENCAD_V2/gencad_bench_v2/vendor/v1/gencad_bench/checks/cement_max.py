@@ -42,8 +42,8 @@ def check(preparation, intaglio, maximum_mm):
     for j in order:
         direction = [f'{x:.12f}' for x in V[j] - closest[j]]
         if verify_negative(P.tolist(), V[j].tolist(), direction, maximum_mm):
-            return result('FAIL', 'maximum distance to convex preparation over required intaglio surface', witness=dict(vertex_index=int(j), point_mm=V[j].tolist(), direction=direction), discovery_gap_mm=float(distance[j]), maximum_mm=maximum_mm, requirement_status='MODELED SCENARIO, not a clinical threshold', input_sha256=digest([preparation, intaglio, maximum_mm]))
+            return result('FAIL', 'maximum distance to convex preparation over required intaglio surface', witness=dict(vertex_index=int(j), point_mm=V[j].tolist(), direction=direction), discovery_gap_mm=float(distance[j]), maximum_mm=maximum_mm, requirement_status='MODELLED SCENARIO, not a clinical threshold', input_sha256=digest([preparation, intaglio, maximum_mm]))
     centre = np.array([0, 0, preparation['apex_mm'] / 2])
     witnesses = [[f'{x:.12f}' for x in (1 - 1e-08) * c + 1e-08 * centre] for c in closest]
     ok = verify_positive(planes, V.tolist(), witnesses, maximum_mm)
-    return result('PASS' if ok else 'UNKNOWN', 'maximum distance to convex preparation over required intaglio surface', certificate=dict(points_in_prep=witnesses) if ok else None, maximum_mm=maximum_mm, requirement_status='MODELED SCENARIO, not a clinical threshold', input_sha256=digest([preparation, intaglio, maximum_mm]))
+    return result('PASS' if ok else 'UNKNOWN', 'maximum distance to convex preparation over required intaglio surface', certificate=dict(points_in_prep=witnesses) if ok else None, maximum_mm=maximum_mm, requirement_status='MODELLED SCENARIO, not a clinical threshold', input_sha256=digest([preparation, intaglio, maximum_mm]))

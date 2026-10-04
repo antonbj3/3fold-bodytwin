@@ -1,6 +1,6 @@
 # XSRC VERIFY
 
-Review: LANE_XREVIEW_BATCH35, HOLDS_WITH_CORRECTION. Reviewed result SHA256: `307f8d6c2c7e3f29430b584ad7e5e09c06b4f66661b4cb8eba2a48dfd42b9345`.
+Review: LANE_XREVIEW_BATCH35, ACCEPTED_WITH_CORRECTION. Reviewed result SHA256: `307f8d6c2c7e3f29430b584ad7e5e09c06b4f66661b4cb8eba2a48dfd42b9345`.
 
 Scope: "80-bundle/429-field accounting, 38/113 attrition, main source-table probes in all six source-job strata, consumer transfer exclusions, existing sufficiency witnesses and offline replay. This is not individual independent semantic certification of all 80 bundles."
 

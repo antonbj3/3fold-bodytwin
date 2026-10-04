@@ -1,6 +1,6 @@
 # Straight graft planning against a virtual mandibular reference
 
-Source entry: `X4`. Source review status: `INTE_REDO_COPY_FAILURE`. Source claim type: `UNKNOWN`. Physical validation in this release: UNKNOWN.
+Source entry: `X4`. Source review status: `NOT_READY_COPY_FAILURE`. Source claim type: `UNKNOWN`. Physical validation in this release: UNKNOWN.
 
 The export contains 13 source files. The full original pipeline is SOURCE_ONLY_EXTERNAL_INPUTS and has not been replayed from this repository.
 

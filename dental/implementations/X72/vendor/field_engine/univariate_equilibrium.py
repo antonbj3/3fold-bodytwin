@@ -87,12 +87,12 @@ def certify(coefficients, *, tolerance='1/1000000000000', max_tiles=20000, max_d
     tol = rational(tolerance)
     if tol <= 0 or max_tiles < 1 or max_depth < 1:
         raise ValueError('invalid budget')
-    out = {'schema': 1, 'scope': 'EXACT_RATIONAL_UNIVARIATE_POLYNOMIAL', 'coefficients': [str(x) for x in c], 'tolerance': str(tol), 'roots': [], 'tiles': [], 'status': 'OSAKER', 'complete': False}
+    out = {'schema': 1, 'scope': 'EXACT_RATIONAL_UNIVARIATE_POLYNOMIAL', 'coefficients': [str(x) for x in c], 'tolerance': str(tol), 'roots': [], 'tiles': [], 'status': 'UNCERTAIN', 'complete': False}
     if c == (Q(0),):
         out['reason'] = 'CONTINUUM_OF_ROOTS'
         return out
     if len(c) == 1:
-        out.update(status='GRENMANGD', complete=True, reason='NO_ROOTS', bound='0')
+        out.update(status='BRANCH_SET', complete=True, reason='NO_ROOTS', bound='0')
         return out
     bound = 1 + max((abs(x / c[-1]) for x in c[:-1]))
     out['bound'] = str(bound)
@@ -134,7 +134,7 @@ def certify(coefficients, *, tolerance='1/1000000000000', max_tiles=20000, max_d
     out['complete'] = all((t['kind'] != 'UNKNOWN' for t in out['tiles']))
     count = len(out['roots'])
     if out['complete']:
-        out['status'] = 'ENTYDIG' if count == 1 else 'GRENMANGD'
+        out['status'] = 'UNIQUE' if count == 1 else 'BRANCH_SET'
         out['reason'] = 'COMPLETE_GLOBAL_COVER'
     else:
         out['reason'] = 'REMAINDER_UNRESOLVED'
@@ -155,11 +155,11 @@ def verify(cert, *, coefficients=None):
         if not c:
             return False
         if c == (Q(0),):
-            return cert['status'] == 'OSAKER' and cert['complete'] is False and (cert['reason'] == 'CONTINUUM_OF_ROOTS') and (cert['roots'] == []) and (cert['tiles'] == [])
+            return cert['status'] == 'UNCERTAIN' and cert['complete'] is False and (cert['reason'] == 'CONTINUUM_OF_ROOTS') and (cert['roots'] == []) and (cert['tiles'] == [])
         if c[-1] == 0:
             return False
         if len(c) == 1:
-            return cert['complete'] is True and cert['status'] == 'GRENMANGD' and (cert['roots'] == []) and (cert['tiles'] == []) and (cert['bound'] == '0')
+            return cert['complete'] is True and cert['status'] == 'BRANCH_SET' and (cert['roots'] == []) and (cert['tiles'] == []) and (cert['bound'] == '0')
         bound = 1 + max((abs(x / c[-1]) for x in c[:-1]))
         if rational(cert['bound']) != bound:
             return False
@@ -219,7 +219,7 @@ def verify(cert, *, coefficients=None):
         if previous != bound or referred != set(range(len(roots))):
             return False
         complete = not unknown
-        status = 'OSAKER' if unknown else 'ENTYDIG' if len(roots) == 1 else 'GRENMANGD'
+        status = 'UNCERTAIN' if unknown else 'UNIQUE' if len(roots) == 1 else 'BRANCH_SET'
         return cert['complete'] is complete and cert['status'] == status
     except (KeyError, TypeError, ValueError, ZeroDivisionError, IndexError):
         return False

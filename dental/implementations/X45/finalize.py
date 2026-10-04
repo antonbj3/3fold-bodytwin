@@ -24,7 +24,7 @@ def main():
     r['control_repair'] = json.loads((ROOT / 'raw/CONTROL_REPAIR.json').read_text())
     r['external_referent'].append(coupon['external_referent'])
     r['artifact_resolution_contract'] = 'Every empirical edge is POPULATION; field/export geometry is PER_POINT/PER_SURFACE_REGION. PHENOMENOLOGICAL debt is explicit in CHAIN_PORTS.json.'
-    r['current_capability'] = 'Two bounded history chains to explicit research consumers, with no full Northstar EXIST promotion'
+    r['current_capability'] = 'Two bounded history chains to explicit research consumers, with no full Northstar PRESENT promotion'
     r['retained_control_weakness'] = {'construction': 'K34_WEAR_R1', 'undetected_source_mutations': 1, 'tested': 15, 'reason': 'corrupted measurement can move toward an already wrong model', 'replacement_controls': '52/52 specified returned-port faults detected,30 exact-rational enclosure checks'}
     r['attrition'].update({'ISQ_R1_rejected': 6, 'ISQ_R1_tested': 8, 'wear_R1_rejected': 15, 'wear_R1_tested': 15, 'wear_R2_rejected': 7, 'wear_R2_tested': 15, 'source_plus10mg_mutation_undetected': 1, 'source_plus10mg_mutations': 15})
     r['cost']['wall_seconds_full_shell_replay'] = 'Individual subprocess timings in ' + sys.argv[1] + '; startup, sources, controls and figure included there. Physical fallback NOT_RUN.'

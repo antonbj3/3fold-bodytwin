@@ -134,7 +134,7 @@ def main():
     srows = json.load(open(SUPPORT))
     unknown = [r['id'] for r in srows if r['evidence'] == 'UNKNOWN']
     write(ROOT / 'raw/SUPPORT_AUDIT.json', dict(source_path=str(SUPPORT), source_sha256=sha(SUPPORT), source_count=len(srows), unknown_count=len(unknown), unknown_ids=unknown, lane_declared_unknown_count=8, source_explicit_unknown_count=len(unknown), unknown_count_contract='DISCREPANCY: frozen lane says 8; local source has 7 explicitly UNKNOWN records', unidentified_eighth_record='UNKNOWN; no invented source ID or stiffness', preserved_source_ids=[r['id'] for r in srows], per_tooth_axial_interval=dict(unit='N/mm', lower=0, lower_open=True, upper=None, upper_kind='UNBOUNDED', status='UNKNOWN_POSITIVE_MODEL_ASSUMPTION'), incisor_prior=dict(interval_N_per_mm=[500, 1130], status='DERIVED_HYPOTHESIS_NOT_USED_AS_AXIAL_CERTIFICATE'), preserved=True, clinical_bounded_axial_stiffness_available=False))
-    write(ROOT / 'raw/INPUT_CONTRACT_DISCREPANCIES.json', dict(dataset_link=dict(lane_impression='X21 to X2 force facit', observed='Bite2Text vs Bits2Bites', matched_case_count=0), support_count=dict(lane_and_frozen_prereg=8, source_explicit_unknown_count=len(unknown), source_total=len(srows), source_sha256=sha(SUPPORT), missing_record_id=None, status='UNRESOLVED_SOURCE_COUNT; all axial inputs remain unknown'), scientific_policy='No frozen criterion changed; preserve discrepant expectations and actual source evidence.'))
+    write(ROOT / 'raw/INPUT_CONTRACT_DISCREPANCIES.json', dict(dataset_link=dict(lane_impression='X21 to X2 force reference', observed='Bite2Text vs Bits2Bites', matched_case_count=0), support_count=dict(lane_and_frozen_prereg=8, source_explicit_unknown_count=len(unknown), source_total=len(srows), source_sha256=sha(SUPPORT), missing_record_id=None, status='UNRESOLVED_SOURCE_COUNT; all axial inputs remain unknown'), scientific_policy='No frozen criterion changed; preserve discrepant expectations and actual source evidence.'))
     st = time.perf_counter()
     ext = external_metrics(results)
     external_s = time.perf_counter() - st
@@ -153,11 +153,11 @@ def main():
     sources.update({str(p): sha(p) for p in (ROOT / 'engine_snapshot').rglob('*.py')})
     write(ROOT / 'raw/SOURCE_MANIFEST.json', dict(sha256=sources, engine_commit='a357dcc', source_scope='hashes/derived quantities only; no mesh or raw array redistribution', study_links=dict(X21='Bite2Text', X2='Bits2Bites', X54='Bits2Bites', matched_X21_X2_cases=0), licenses=dict(Bits2Bites='CC BY-NC-SA 4.0, local read only', Bite2Text='UNKNOWN exact terms, local read only', source_label_provenance='Teeth3DS local binding UNKNOWN; upstream CC BY-NC-ND')))
     with open(ROOT / 'CASE_TABLES.md', 'w') as f:
-        f.write("# En tabell per X21-fall\n\nAll classes apply to the axial model and declared the pair list.\nPhysical patient class is UNCERTAIN for all. FDI without a candidate:\nnever loaded in this model; physical absence or zeroest is unknown.\nShares are closed infimum/supremum-hAll right, let's go. MUST med undre noll kan\nhave strict positive force everywhere without a positive common minimum.\n\n")
-        labels = {'MUST': "must:", 'CAN': 'kan', 'NEVER': 'aldrig'}
+        f.write('# One table per X21 case\n\nAll classes apply to the axial model and declared the pair list.\nPhysical patient class is UNCERTAIN for all. A FDI without a candidate is\nNever loaded in this model; physical absence or zeroest is unknown .\nShares are closed infimum/superremum casings. MUST with lower zero can\nhave strictly positive force everywhere without positive common minimum.\n\n')
+        labels = {'MUST': 'must:', 'CAN': 'may', 'NEVER': 'never'}
         for a in results:
             f.write(f"## {a['case']} ({a['gap_bound_version']}, {a['n_pairs']} par)\n\n")
-            f.write('| FDI | Klass i modellen | Kraft N | Andel % | Fysisk klass |\n|---:|---|---|---|---|\n')
+            f.write('| FDI | Klass i modellen | Force N | Andel % | Physical Class |\n|---:|---|---|---|---|\n')
             for (t, b) in a['teeth'].items():
                 fn = '–'.join((str(float(Q(x))).removesuffix('.0') for x in b['force_hull_N']))
                 pp = '–'.join((str(float(Q(x))).removesuffix('.0') for x in b['share_hull_pp']))

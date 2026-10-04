@@ -38,7 +38,7 @@ b = 0.22
 a2.bar(xx - b, [x['observed_area1_mm2'] for x in external], b, label='Published post area')
 a2.bar(xx, [x['area1_predicted_mm2'] for x in external], b, label='Measured AP + lateral reconstruction')
 a2.bar(xx + b, [x['proportional_volume_predicted_area1_mm2'] for x in r[0]['external_comparisons']], b, label='Measured volume proportional rule')
-a2.set(xticks=xx, xticklabels=['Responders\nn=15', 'Nonresponders\nn=16'], ylabel='Minimum area (mm²)', title='External facit: Shi 2023, Tables 2 / 4')
+a2.set(xticks=xx, xticklabels=['Responders\nn=15', 'Nonresponders\nn=16'], ylabel='Minimum area (mm²)', title='External reference : Shi 2023 , Table 2 / 4')
 a2.legend(fontsize=8)
 a3 = ax[1, 0]
 z = np.array(w['z_mm'])

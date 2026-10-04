@@ -63,7 +63,7 @@ def faults(out):
     del rows[0]['uncertainty']
     rejects('missing_uncertainty', lambda : validate_decisions(rows))
     rows = copy.deepcopy(case['decisions'])
-    rows[3]['evidence'] = 'kalibrerat'
+    rows[3]['evidence'] = 'CALIBRATED'
     rejects('unknown_force_promoted_to_calibrated', lambda : validate_decisions(rows))
     h = out / 'report.html'
     original = h.read_bytes()

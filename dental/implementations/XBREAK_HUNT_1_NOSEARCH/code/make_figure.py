@@ -11,7 +11,7 @@ low = next((r for r in r5['records'] if r['world'] == 0 and r['support'] == 0 an
 query = next((r for r in r6['records'] if r['world'] == 0 and r['support'] == 0 and (r['law'] == 'nonlinear') and (r['reaction_error_N'] == 0.005)))
 (fig, axes) = plt.subplots(1, 2, figsize=(11, 4.3), constrained_layout=True)
 ax = axes[0]
-ax.axvline(query['facit_N'], color='#222222', ls='--', label='Nonlinear native facit')
+ax.axvline(query['facit_N'], color='#222222', ls='--', label='Nonlinear native reference')
 for (y, label, lo, hi, c) in [(2, 'Elastic work', 205, 205, '#b23a48'), (1, 'Low-rate linear fit', low['lower_N'], low['upper_N'], '#cb8a28'), (0, 'Query-rate observation', query['lower_N'], query['upper_N'], '#197d68')]:
     ax.plot([lo, hi], [y, y], lw=5, color=c)
     ax.scatter([(lo + hi) / 2], [y], color=c, s=35)

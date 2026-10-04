@@ -1,4 +1,7 @@
-"ToothFairy2 I/O: reads MetaImage (.mha, okomprimerad) directly out of zip without unpacking.\nIn: zip path, case-id (e.g. 'ToothFairy2F_001'). Output : numpy volume i (z,y,x) order + spacing ( mm , (z,y,x)).\nNo external ITK required; ElementType MET_UCHAR / MET_INT / MET_DOUBLE is supported.\n"
+"""ToothFairy2 I/O: reads MetaImage (.mha, uncompressed ) directly from zip without extraction .
+In: zip path, case-id (e.g. 'ToothFairy2F_001'). Output : numpy volume i (z,y,x) order + spacing ( mm , (z,y,x)).
+No external ITK required; ElementType MET_UCHAR / MET_INT / MET_DOUBLE is supported.
+"""
 from dental_release.paths import expand as _release_expand
 import zipfile, numpy as np
 ZIP = _release_expand('@DENTAL_CORPUS_ROOT@/geometry/ToothFairy2/ToothFairy2_Dataset.zip')
@@ -9,7 +12,7 @@ def read_mha_bytes(buf):
     i = buf.index(b'ElementDataFile')
     j = buf.index(b'\n', i) + 1
     hdr = dict((l.split(' = ', 1) for l in buf[:j].decode().strip().split('\n') if ' = ' in l))
-    assert hdr.get('CompressedData', 'False') == 'False', "compressed MHA not supported"
+    assert hdr.get('CompressedData', 'False') == 'False', 'compressed MHA not supported'
     assert hdr['ElementDataFile'].strip() == 'LOCAL'
     dims = [int(v) for v in hdr['DimSize'].split()]
     sp = [float(v) for v in hdr['ElementSpacing'].split()]

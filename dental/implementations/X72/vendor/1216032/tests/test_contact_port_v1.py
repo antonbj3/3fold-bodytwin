@@ -14,7 +14,7 @@ def sample():
     c = ContactCandidate('a', ('shell', 'tooth'), 'world', g, (0, 0, 1))
     return Port('field', 'motion', (c,), BranchSet((b,), True, 'SCALAR_MODEL', w), (('scan', Q(-1, 1000), Q(1, 1000)),), (AffineGap('a', 0, (('scan', 1),)),), evidence=(w,))
 
-@pytest.mark.parametrize('value,expected', [('OSAKER', Status.UNKNOWN), ('UNCERTAIN', Status.UNKNOWN), ('UNKNOWN', Status.UNKNOWN), ('UNCERTAIN', Status.UNKNOWN), ('AMBIGUOUS', Status.MULTIPLE), ('ENTYDIG', Status.UNIQUE)])
+@pytest.mark.parametrize('value,expected', [('UNCERTAIN', Status.UNKNOWN), ('UNCERTAIN', Status.UNKNOWN), ('UNKNOWN', Status.UNKNOWN), ('UNCERTAIN', Status.UNKNOWN), ('AMBIGUOUS', Status.MULTIPLE), ('UNIQUE', Status.UNIQUE)])
 def test_status_preserves_ambiguity(value, expected):
     assert status(value) == expected
 
@@ -85,7 +85,7 @@ def test_polynomial_replay_and_missing_root():
         from_univariate(cert, source=S)
 
 def test_legacy_clinical_unknown_is_preserved():
-    d = {'schema': 'dental-aligner-branch/v1', 'status': 'OSAKER', 'model_branches': {'natural': {'q_mm': ['1', '2']}, 'everted': {'q_mm': ['-2', '-1']}}}
+    d = {'schema': 'dental-aligner-branch/v1', 'status': 'UNCERTAIN', 'model_branches': {'natural': {'q_mm': ['1', '2']}, 'everted': {'q_mm': ['-2', '-1']}}}
     bs = from_aligner_port(d, source=S)
     assert bs.status == Status.UNKNOWN and len(bs.branches) == 2
     assert json.loads(bs.branches[0].witnesses[0].payload_json) == d

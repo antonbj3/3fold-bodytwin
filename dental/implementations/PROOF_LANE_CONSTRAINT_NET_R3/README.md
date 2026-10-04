@@ -1,4 +1,4 @@
-# Constraint network51 observations;5 ofysiska hinder
+# Constraint-network's 51 observations and 5 physical obstacles
 
 Source entry: `PROOF_LANE_CONSTRAINT_NET_R3`. Source review status: `DEMO_READY_WITH_CORRECTION`. Source claim type: `UNKNOWN`. Physical validation in this release: UNKNOWN.
 

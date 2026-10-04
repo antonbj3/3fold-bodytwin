@@ -1,4 +1,4 @@
-"""Rate-state adverse fixture, independent ODE facit, bounded reaction inversion."""
+"""Rate-state reverse fixture, independent ODE reference , bound reaction inversion."""
 import json, time, resource, warnings
 import numpy as np
 from scipy.integrate import solve_ivp, quad

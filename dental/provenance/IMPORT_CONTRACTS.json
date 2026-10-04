@@ -1,0 +1,273 @@
+{
+ "schema": 1,
+ "scope": "Legacy short-name source import context. External engine/provider/review modules are declared source-only prerequisites, not distributed runtimes. All undeclared missing Python modules fail.",
+ "paths": {
+  "GENCAD_V3": [
+   "GENCAD_V3/code",
+   "GENCAD_V3/vendor",
+   "GENCAD_V3/code/legacy/vendor"
+  ],
+  "GENCAD_V4": [
+   "GENCAD_V3/code",
+   "GENCAD_V3/vendor",
+   "GENCAD_V3/code/legacy/vendor"
+  ],
+  "X42": [
+   "GENCAD_V3/code",
+   "GENCAD_V3/code/legacy/vendor"
+  ],
+  "X60": [
+   "GENCAD_V3/code",
+   "GENCAD_V3/code/legacy/vendor"
+  ],
+  "X8": [
+   "X12/code"
+  ],
+  "X20": [
+   "X12/code"
+  ],
+  "X75": [
+   "X12/code"
+  ],
+  "X95_CT_PULP_PREP_PORT": [
+   "X12/code"
+  ],
+  "X27_ALIGNER_REGIONAL": [
+   "X19/code"
+  ],
+  "X1B": [
+   "X1B/vendor"
+  ],
+  "PROOF_LANE_CROWN_FIX_PREP_R2": [
+   "PROOF_LANE_CROWN_FIX_PREP/code"
+  ],
+  "X37": [
+   "X27_ALIGNER_REGIONAL/code"
+  ],
+  "X33": [
+   "X26_DECIDABILITY"
+  ],
+  "PROOF_LANE_PATIENT360": [
+   "X12/code",
+   "X18/code",
+   "X21/code",
+   "X7/code",
+   "X34/code",
+   "X38/code"
+  ],
+  "PROOF_LANE": [
+   "PROOF_LANE/_vendor/code"
+  ],
+  "X5": [
+   "X12/code"
+  ],
+  "X15": [
+   "X12/code"
+  ],
+  "GENCAD_V2": [
+   "GENCAD_V2/gencad_bench_v2/vendor",
+   "GENCAD_V2/gencad_bench_v2/vendor/v1"
+  ],
+  "X49": [
+   "X34/code",
+   "X38/code",
+   "PROOF_LANE"
+  ],
+  "X53": [
+   "PROOF_LANE",
+   "X53/tests"
+  ],
+  "X58": [
+   "X8"
+  ],
+  "GENCAD_V5": [
+   "GENCAD_V3/code"
+  ],
+  "X72": [
+   "X72/code",
+   "X54/code"
+  ],
+  "FALT_TANDLAST": [
+   "FALT_TANDLAST/engine_snapshot/src"
+  ],
+  "FULL_CROWN": [
+   "GENCAD_V3/code"
+  ],
+  "X73": [
+   "X8",
+   "X20",
+   "X58/code"
+  ],
+  "X77": [
+   "FULL_CROWN/code",
+   "GENCAD_V3/code"
+  ],
+  "PROOF_LANE_FULL_CROWN_DIAG": [
+   "PROOF_LANE_FULL_CROWN_R3/code",
+   "GENCAD_V6/code"
+  ],
+  "X18B_PREP_SURFACE": [
+   "X18/code"
+  ],
+  "X29_BRIDGE_CONNECTOR": [
+   "X29_BRIDGE_CONNECTOR/vendor"
+  ],
+  "X30_ROOT_CANAL_ATLAS": [
+   "X12/code"
+  ],
+  "PROOF_LANE_FULL_CROWN_R5": [
+   "PROOF_LANE_FULL_CROWN_R4/code",
+   "X49/code",
+   "PROOF_LANE"
+  ],
+  "X89": [
+   "X53/code"
+  ],
+  "X94": [
+   "FALT_TANDLAST/code"
+  ],
+  "B31_FULL_CROWN_R6": [
+   "PROOF_LANE_FULL_CROWN_R5/code",
+   "PROOF_LANE_FULL_CROWN_R4/code",
+   "X49/code",
+   "PROOF_LANE"
+  ],
+  "PROOF_LANE_CROWN_ROOT_CAUSE": [
+   "PROOF_LANE_FULL_CROWN_R5/code",
+   "PROOF_LANE_FULL_CROWN_R4/code",
+   "PROOF_LANE"
+  ],
+  "X95_NATIVE_SUPPORT_SHAPE": [
+   "X60/code"
+  ],
+  "X96": [
+   "X8",
+   "X12/code"
+  ],
+  "X54": [
+   "X2/code"
+  ]
+ },
+ "external_code": {
+  "X7": [
+   "bite2text"
+  ],
+  "X8": [
+   "guide_error",
+   "canal_risk"
+  ],
+  "GENCAD_V4": [
+   "field_generator",
+   "x42_generator"
+  ],
+  "X56": [
+   "implant_thread_fe"
+  ],
+  "X72": [
+   "field_engine",
+   "occlusion_operator",
+   "motion_engine"
+  ],
+  "FALT_TANDLAST": [
+   "field_engine",
+   "warp"
+  ],
+  "GENCAD_V5": [
+   "torch",
+   "model"
+  ],
+  "FULL_CROWN": [
+   "mesh2sdf"
+  ],
+  "PROOF_LANE_FULL_CROWN_R3": [
+   "generate_r2",
+   "score",
+   "contact",
+   "generate",
+   "export_format"
+  ],
+  "GENCAD_V3": [
+   "common"
+  ],
+  "X1B": [
+   "ccx_highres",
+   "crown_case_sts3d"
+  ],
+  "X44": [
+   "fe_reference_io"
+  ],
+  "X10": [
+   "decision_certificate"
+  ],
+  "X9": [
+   "crown_case_sts3d"
+  ],
+  "X21": [
+   "morphology"
+  ],
+  "X19": [
+   "morphology"
+  ],
+  "X54": [
+   "morphology"
+  ],
+  "X24_CBCT_HU_CALIBRATION": [
+   "cbct_multidevice_sensitometry_overdet",
+   "decision_certificate",
+   "design_primary_stability",
+   "implant_insertion"
+  ],
+  "PROOF_LANE_FULL_CROWN_R5": [
+   "export"
+  ],
+  "B31_FULL_CROWN_R6": [
+   "export"
+  ],
+  "X95_NATIVE_SUPPORT_SHAPE": [
+   "crown_design_fe",
+   "crown_fit_geometry"
+  ],
+  "X18B_PREP_SURFACE": [
+   "continuous_gap"
+  ],
+  "XBREAK_HUNT_5": [
+   "vtk"
+  ]
+ },
+ "optional_packages": [
+  "matplotlib",
+  "trimesh",
+  "skimage",
+  "sklearn",
+  "pandas",
+  "statsmodels",
+  "torch",
+  "nibabel",
+  "lxml",
+  "meshio",
+  "PIL",
+  "tifffile",
+  "rtree",
+  "requests",
+  "numba",
+  "pytest",
+  "bs4",
+  "sympy",
+  "highspy",
+  "psutil",
+  "openpyxl",
+  "gmsh",
+  "mesh2sdf",
+  "jsonschema",
+  "clarabel",
+  "igl",
+  "omegaconf",
+  "pymeshlab",
+  "pypardiso",
+  "vtk",
+  "warp",
+  "networkx",
+  "threadpoolctl",
+  "typing_extensions"
+ ]
+}

@@ -53,7 +53,7 @@ def self_test():
         rejected = str(path) in bad
     finally:
         path.write_bytes(original)
-    results = {'valid_current_package_pass': not verify(ROOT), '99mm_corrupted_local_result_rejected': rejected, 'restored_current_package_pass': not verify(ROOT), 'guard_reads_current_work_copy': True, 'X12_source_status': 'INTE_REDO_UNCHANGED'}
+    results = {'valid_current_package_pass': not verify(ROOT), '99mm_corrupted_local_result_rejected': rejected, 'restored_current_package_pass': not verify(ROOT), 'guard_reads_current_work_copy': True, 'X12_source_status': 'NOT_READY_UNCHANGED'}
     write(ROOT / 'raw/LOCAL_GUARD_CONTROLS.json', results)
     assert all((results[k] for k in ['valid_current_package_pass', '99mm_corrupted_local_result_rejected', 'restored_current_package_pass']))
 if __name__ == '__main__':

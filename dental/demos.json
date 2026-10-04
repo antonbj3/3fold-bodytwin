@@ -269,8 +269,6 @@
         "run_r3.py",
         "_vendor/cone.py",
         "_vendor/code/dual_witness_v1.py",
-        "_vendor/vendor/highspy/__init__.py",
-        "_vendor/vendor/highspy/highs.py",
         "gencad_bench/__init__.py",
         "gencad_bench/calibration.py",
         "gencad_bench/data_local.py",
@@ -346,7 +344,9 @@
         "code/run_demo.py",
         "code/runtime_select.py",
         "code/surface_gate.py",
-        "code/verify_demo.py"
+        "code/verify_demo.py",
+        "vendor/crown_design_fe.py",
+        "vendor/crown_fit_geometry.py"
       ],
       "full_original_pipeline_replayed": false,
       "source_claim_type": "UNKNOWN",
@@ -457,7 +457,7 @@
     {
       "id": "X4",
       "title": "Straight graft planning against a virtual mandibular reference",
-      "reviewed_status": "INTE_REDO_COPY_FAILURE",
+      "reviewed_status": "NOT_READY_COPY_FAILURE",
       "reviewed_result_sha256": null,
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
@@ -528,8 +528,8 @@
     },
     {
       "id": "X9",
-      "title": "IPR med verklig emalj: vad underlaget faktiskt klarar",
-      "reviewed_status": "INTE_REDO_COPY_FAILURE",
+      "title": "IPR with actual enamel: what the evidence supports",
+      "reviewed_status": "NOT_READY_COPY_FAILURE",
       "reviewed_result_sha256": null,
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
@@ -554,8 +554,8 @@
     },
     {
       "id": "X15",
-      "title": "Rotbana mot benomslaget — X15",
-      "reviewed_status": "INTE_REDO_COPY_FAILURE",
+      "title": "Root path against the bone envelope — X15",
+      "reviewed_status": "NOT_READY_COPY_FAILURE",
       "reviewed_result_sha256": null,
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
@@ -667,7 +667,7 @@
     },
     {
       "id": "X18",
-      "title": "Krontak mot samma skannade antagonist",
+      "title": "Crown roof against the same scanned antagonist",
       "reviewed_status": "PENDING_INDEPENDENT_REVIEW",
       "reviewed_result_sha256": null,
       "physical_validation": "UNKNOWN",
@@ -933,7 +933,7 @@
     },
     {
       "id": "X50",
-      "title": "Fyndvis bettscreening med negativa valideringsgrindar",
+      "title": "Bite screening per finding with failed validation gates",
       "reviewed_status": "DEMO_READY",
       "reviewed_result_sha256": "13ecdd81e596dfffc84e48e74202df99624892a89c2aaba8732c28d1212b7a54",
       "physical_validation": "UNKNOWN",
@@ -969,7 +969,7 @@
     },
     {
       "id": "X49",
-      "title": "Oberoende digital designgrind",
+      "title": "Independent digital design gate",
       "reviewed_status": "DEMO_READY",
       "reviewed_result_sha256": "9c016c1be827da14147262ba4867348a86be0a6c0fd61875288be9cbc07ada15",
       "physical_validation": "UNKNOWN",
@@ -1652,7 +1652,8 @@
         "code/run_r3.py",
         "code/run_r4.py",
         "code/stress_port.py",
-        "code/report.py"
+        "code/report.py",
+        "code/review_provenance.py"
       ],
       "full_original_pipeline_replayed": false,
       "source_claim_type": "UNKNOWN",
@@ -3116,7 +3117,7 @@
       "review_sha256": "0d8f329a84807ff5f75efaeed5e7450772c5f6bdad874c90d56e4e1cff2def4c",
       "review_batch": "LANE_XREVIEW_BATCH3",
       "review_scope": "\"All 9 explicitly requested deliveries; README/results/raw comparison, one independent headline recount each, copied run_all replay, existing fault injections, source identity/quantity, resolution and readable limits. No new design/model/experiment. X24 raw 22-volume remeasurement and X30 full345s atlas not rerun; cached raw-value guards and default scripts rerun. Prior7 imported reviews excluded from rates.\"",
-      "correction": "[{\"job\": \"LANE_X30_ROOT_CANAL_ATLAS\", \"target_id\": \"DENT-REG-PULP\", \"claim_as_written\": \"Run ./run_all.sh from the lane directory\", \"finding\": \"The copy falls missing archive_io from X12The sibling catalogue. Råatlas and supporting prevalences last.\", \"evidence_locator\": [\"@DENTAL_IMPLEMENTATIONS@/X30_ROOT_CANAL_ATLAS/code/atlas.py:12\", \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH3/evidence/LANE_X30_ROOT_CANAL_ATLAS_baseline.log\"], \"corrected_statement\": \"Paketera X12:s reader code and frozen atlas base; keep large CT-archive as explicit local reading dependencies.\", \"class\": \"HOLDS_WITH_CORRECTION\", \"scope\": \"Executable copy/runtime contract\", \"conclusion_change\": \"Numerical headlines unchanged; copy/control guarantee corrected\"}, {\"job\": \"LANE_X30_ROOT_CANAL_ATLAS\", \"target_id\": \"DENT-REG-PULP\", \"claim_as_written\": \"candidate_FDI_slots=4528; tooth_rejection_fraction=989/4528\", \"finding\": \"The code report.py loses three loss fields during standard rerun even though the original results.json contains them.\", \"evidence_locator\": [\"@DENTAL_IMPLEMENTATIONS@/X30_ROOT_CANAL_ATLAS/code/report.py:71\", \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH3/evidence/X30_REPLAY_FIELD_LOSS.json\"], \"corrected_statement\": \"Count the candidate speaker from measured and rejected slots and write4528,989/4528 and the label of the denominator each time.\", \"class\": \"HOLDS_WITH_CORRECTION\", \"scope\": \"Replay result schema\", \"conclusion_change\": \"No key figures are changed; foreclosure contracts are restored.\"}]",
+      "correction": "[{\"job\": \"LANE_X30_ROOT_CANAL_ATLAS\", \"target_id\": \"DENT-REG-PULP\", \"claim_as_written\": \"Run ./run_all.sh from the lane directory\", \"finding\": \"Copy fails because archive_io from the X12 sibling directory is missing. Raw atlas and principal prevalences hold.\", \"evidence_locator\": [\"@DENTAL_IMPLEMENTATIONS@/X30_ROOT_CANAL_ATLAS/code/atlas.py:12\", \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH3/evidence/LANE_X30_ROOT_CANAL_ATLAS_baseline.log\"], \"corrected_statement\": \"Package X12 reader code and frozen atlas inputs; retain large CT archives as explicit local read dependencies.\", \"class\": \"ACCEPTED_WITH_CORRECTION\", \"scope\": \"Executable copy/runtime contract\", \"conclusion_change\": \"Numerical headlines unchanged; copy/control guarantee corrected\"}, {\"job\": \"LANE_X30_ROOT_CANAL_ATLAS\", \"target_id\": \"DENT-REG-PULP\", \"claim_as_written\": \"candidate_FDI_slots=4528; tooth_rejection_fraction=989/4528\", \"finding\": \"report.py drops three attrition fields on standard replay even though original results.json contains them.\", \"evidence_locator\": [\"@DENTAL_IMPLEMENTATIONS@/X30_ROOT_CANAL_ATLAS/code/report.py:71\", \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH3/evidence/X30_REPLAY_FIELD_LOSS.json\"], \"corrected_statement\": \"Count the candidate denominator from measured and rejected slots and always write 4528, 989/4528 and the denominator label.\", \"class\": \"ACCEPTED_WITH_CORRECTION\", \"scope\": \"Replay result schema\", \"conclusion_change\": \"Principal numbers unchanged; attrition contract restored.\"}]",
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
       "code_files": [
@@ -3191,7 +3192,7 @@
       "review_sha256": "a0db52fb453e3b12d00a64b10d9bc223c71688faed9f5aec8ccfec732c10642f",
       "review_batch": "LANE_XREVIEW_BATCH22",
       "review_scope": "{\"sample\": \"Complete requested delivery; all final preregistered rounds and listed target coverage, with independent focal arithmetic/control/source checks\", \"rounds\": 6, \"claim_type\": [\"information_link\", \"algorithm\"], \"resolution\": \"PER_POINT/PER_TOOTH declared fixture queries; not population biological distribution\", \"physical_scientific_admission\": false, \"distribution_gate\": \"No validated patient-force distribution claimed by A/B. Their interval containment is numerical fixture evidence only. X79 has class-conditional confusion+patient bootstrap, no generic population claim. X81 retains conditional group-mean t intervals and missing full physical bounds.\"}",
-      "correction": "[{\"job\": \"LANE_XBREAK_HUNT_1\", \"target_id\": \"DENT-VAL-OCCLUSAL-REGIONAL-FORCES\", \"claim_as_written\": \"CONDITIONAL_PASS if radius<=1 and numeric\", \"finding\": \"Negative error limits accepted: spectral error=-1 and baseline error=-1 ger radie -1.6918425898345635N and CONDITIONAL_PASS.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/XBREAK_HUNT_1/code/predict_edit.py:16\", \"corrected_statement\": \"Require finite, non-negative error limits and known radius model; valid @DENTAL_CASE_ID@ response unchanged after correction.\", \"class\": \"FALLER\", \"reproduction_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH22/audit_controls.py\"}, {\"job\": \"LANE_XBREAK_HUNT_1\", \"target_id\": \"DENT-VAL-OCCLUSAL-REGIONAL-FORCES\", \"claim_as_written\": \"Same global K; numerical sufficiency gate\", \"finding\": \"R1:s samtliga177 low/high-par difference between floating point level; max3.058175934711471e-11N/mm. the validation gate only requires relatively1e-8.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/XBREAK_HUNT_1/code/run_r1.py:31\", \"corrected_statement\": \"R1 is a numerically close-constructed counterfall, not the exact identity test. R5 uppfyller det befintliga exakta provet:0.0N identitetsfel, upp till2.299049N downstream difference.\", \"class\": \"HOLDS_WITH_CORRECTION\", \"reproduction_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH22/audit_controls.py\"}, {\"job\": \"LANE_XBREAK_HUNT_1\", \"target_id\": \"DENT-VAL-OCCLUSAL-REGIONAL-FORCES\", \"claim_as_written\": \"Runnable conditional edit-response consumer\", \"finding\": \"Matchat experimentellt dentalfacit saknas; biologisk riktning/tid Supported only by context articles, no compared prediktioner/meating. README_DEMO.md saknas.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/XBREAK_HUNT_1/RESULTS.md:1\", \"corrected_statement\": \"Executable declared simulation, physical validity UNKNOWN. INTE_REDO som DEMO48-ability with externally matched reference observations; no new reference observations are created in the review.\", \"class\": \"UNDETERMINED\", \"reproduction_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH22/audit_numbers.py\"}]",
+      "correction": "[{\"job\": \"LANE_XBREAK_HUNT_1\", \"target_id\": \"DENT-VAL-OCCLUSAL-REGIONAL-FORCES\", \"claim_as_written\": \"CONDITIONAL_PASS if radius<=1 and numeric\", \"finding\": \"Negative error bounds are accepted: spectral error=-1 and baseline error=-1 give radius -1.6918425898345635 N and CONDITIONAL_PASS.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/XBREAK_HUNT_1/code/predict_edit.py:16\", \"corrected_statement\": \"Require finite nonnegative error bounds and a known radius model; valid @DENTAL_CASE_ID@ response unchanged after correction.\", \"class\": \"REJECTED\", \"reproduction_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH22/audit_controls.py\"}, {\"job\": \"LANE_XBREAK_HUNT_1\", \"target_id\": \"DENT-VAL-OCCLUSAL-REGIONAL-FORCES\", \"claim_as_written\": \"Same global K; numerical sufficiency gate\", \"finding\": \"All 177 R1 low/high pairs differ at floating point level; maximum 3.058175934711471e-11 N/mm. Gate requires only relative 1e-8.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/XBREAK_HUNT_1/code/run_r1.py:31\", \"corrected_statement\": \"R1 is a numerically near-identical constructed counterexample, not the exact identity test. R5 satisfies the existing exact test: 0.0 N identity error, up to 2.299049 N downstream difference.\", \"class\": \"ACCEPTED_WITH_CORRECTION\", \"reproduction_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH22/audit_controls.py\"}, {\"job\": \"LANE_XBREAK_HUNT_1\", \"target_id\": \"DENT-VAL-OCCLUSAL-REGIONAL-FORCES\", \"claim_as_written\": \"Runnable conditional edit-response consumer\", \"finding\": \"Matched experimental dental reference absent; biological direction/time supported only by context papers, with no compared predictions/measurements. README_DEMO.md absent.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/XBREAK_HUNT_1/RESULTS.md:1\", \"corrected_statement\": \"Executable declared simulation, physical validity UNKNOWN. NOT_READY as a DEMO48 capability with matched external reference; no new reference created during review.\", \"class\": \"UNDECIDABLE\", \"reproduction_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH22/audit_numbers.py\"}]",
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
       "code_files": [
@@ -3222,7 +3223,7 @@
       "review_sha256": "03d2dbdd0bed59f773cfeb5814daebbaa5c7b680a4d8baddd54409fe35c6e31a",
       "review_batch": "LANE_XREVIEW_BATCH22",
       "review_scope": "{\"sample\": \"Complete requested delivery; all final preregistered rounds and listed target coverage, with independent focal arithmetic/control/source checks\", \"rounds\": 6, \"claim_type\": [\"information_link\"], \"resolution\": \"PER_POINT/PER_TOOTH declared fixture queries; not population biological distribution\", \"physical_scientific_admission\": false, \"distribution_gate\": \"No validated patient-force distribution claimed by A/B. Their interval containment is numerical fixture evidence only. X79 has class-conditional confusion+patient bootstrap, no generic population claim. X81 retains conditional group-mean t intervals and missing full physical bounds.\"}",
-      "correction": "[{\"job\": \"LANE_XBREAK_HUNT_1_NOSEARCH\", \"target_id\": \"DENT-VAL-OCCLUSAL-REGIONAL-FORCES\", \"claim_as_written\": \"CONDITIONAL_POINT_BOUND from declared reaction error\", \"finding\": \"fe=-0.005N gives reverse interval [283.28803215992764,282.9582828930787]N, fortfarande conditional.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/XBREAK_HUNT_1_NOSEARCH/code/run_r6.py:11\", \"corrected_statement\": \"Avvisa negativa/icke-finite measuring errors; giltiga16/16 answers and0.1292498399244176pp is unchanged.\", \"class\": \"FALLER\", \"reproduction_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH22/audit_controls.py\"}, {\"job\": \"LANE_XBREAK_HUNT_1_NOSEARCH\", \"target_id\": \"DENT-VAL-OCCLUSAL-REGIONAL-FORCES\", \"claim_as_written\": \"Ferrato2017 DOI10.11138/ads/2017.8.2.079, PMCID PMC5726858\", \"finding\": \"DOI avser Comparison of two different debonding techniques in orthodontic treatment (PMC5749376). PMCID5726858 avser kraftartikeln med DOI slut089.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/XBREAK_HUNT_1_NOSEARCH/SOURCES.md:6\", \"corrected_statement\": \"Digital evaluation of occlusal forces: comparison between healthy subjects and TMD patients, DOI10.11138/ads/2017.8.2.089, PMCID PMC5726858. Ingen matchad individuell kraftvalidering.\", \"class\": \"HOLDS_WITH_CORRECTION\", \"reproduction_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH22/verify_sources.py\"}, {\"job\": \"LANE_XBREAK_HUNT_1_NOSEARCH\", \"target_id\": \"DENT-VAL-OCCLUSAL-REGIONAL-FORCES\", \"claim_as_written\": \"Conditional16/16 query-adapted reaction port\", \"finding\": \"Krafterna och5mN/20mN-felboxarna is synthetic; matched physical reference observations and README_DEMO.md saknas.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/XBREAK_HUNT_1_NOSEARCH/RESULTS.md:3\", \"corrected_statement\": \"16/16 valid point issues in declared two-support fixture; no physical dental validation. INTE_REDO for the requested empirical supply.\", \"class\": \"UNDETERMINED\", \"reproduction_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH22/audit_numbers.py\"}]",
+      "correction": "[{\"job\": \"LANE_XBREAK_HUNT_1_NOSEARCH\", \"target_id\": \"DENT-VAL-OCCLUSAL-REGIONAL-FORCES\", \"claim_as_written\": \"CONDITIONAL_POINT_BOUND from declared reaction error\", \"finding\": \"fe=-0.005 N gives inverted interval [283.28803215992764,282.9582828930787] N, still conditional.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/XBREAK_HUNT_1_NOSEARCH/code/run_r6.py:11\", \"corrected_statement\": \"Reject negative/nonfinite measurement errors; valid 16/16 responses and 0.1292498399244176 pp unchanged.\", \"class\": \"REJECTED\", \"reproduction_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH22/audit_controls.py\"}, {\"job\": \"LANE_XBREAK_HUNT_1_NOSEARCH\", \"target_id\": \"DENT-VAL-OCCLUSAL-REGIONAL-FORCES\", \"claim_as_written\": \"Ferrato2017 DOI10.11138/ads/2017.8.2.079, PMCID PMC5726858\", \"finding\": \"DOI identifies Comparison of two different debonding techniques in orthodontic treatment (PMC5749376). PMCID5726858 identifies the force paper with DOI ending 089.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/XBREAK_HUNT_1_NOSEARCH/SOURCES.md:6\", \"corrected_statement\": \"Digital evaluation of occlusal forces: comparison between healthy subjects and TMD patients, DOI10.11138/ads/2017.8.2.089, PMCID PMC5726858. No matched individual force validation.\", \"class\": \"ACCEPTED_WITH_CORRECTION\", \"reproduction_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH22/verify_sources.py\"}, {\"job\": \"LANE_XBREAK_HUNT_1_NOSEARCH\", \"target_id\": \"DENT-VAL-OCCLUSAL-REGIONAL-FORCES\", \"claim_as_written\": \"Conditional16/16 query-adapted reaction port\", \"finding\": \"Forces and 5 mN/20 mN error boxes are synthetic; matched physical reference and README_DEMO.md absent.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/XBREAK_HUNT_1_NOSEARCH/RESULTS.md:3\", \"corrected_statement\": \"16/16 valid point queries in declared two-support fixture; no physical dental validation. NOT_READY for the requested empirical delivery.\", \"class\": \"UNDECIDABLE\", \"reproduction_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH22/audit_numbers.py\"}]",
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
       "code_files": [
@@ -3283,7 +3284,7 @@
       "review_sha256": "52454b32158d5cadc367c8f55b710da57b1599ce3ce83c9afcc21967bf3f9f06",
       "review_batch": "LANE_XREVIEW_BATCH28",
       "review_scope": "[\"AUDIT_COMMON\", \"XAUDIT_COMMON\", \"DEMO48_COMMON exact sufficiency and enclosure\", \"Assigned delivery only; original commands in read-only namespaces over copied lanes; primary source identity/quantity; bearing arithmetic; actual fault injection\", \"X86: all12 frozen profiles, administrative101 hashes, all12 headline arithmetic; full generation not repeated for quick scopes\", \"R5: all36 table rows aggregated, existing default3-family demo and2827 exact rational witnesses; full36 regeneration not repeated\", \"No new designs, models, experiments or graph mutation\"]",
-      "correction": "[{\"id\": \"XREV28-C01\", \"job\": \"LANE_X86_SUNDAY_REFRESH\", \"target_id\": \"DENT-VAL-BASELINE-COMPARISON\", \"claim_as_written\": \"Each check should be able to drop; the receipt reader accepts the status PASS eller pass=true.\", \"finding\": \"Injicerat kvitto med nested status=FAIL/pass=True accepted. Also passport=false at the root can be overlooked.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/X86_FRONT12/receipt_contract.py:30; evidence/CONTROL_FAULT_REPRODUCTION.json:X86_conflicting_nested_status, X86_false_root\", \"corrected_statement\": \"All explicit status fields must hold and no explicit pass=false may be accepted. Corrected readers reject both errors and retain all12 riktiga PASS.\", \"class\": \"HOLDS_WITH_CORRECTION\", \"severity\": \"HIGH\", \"reproducible_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/evidence/reproduce_control_faults.py\", \"patch\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/patches/LANE_X86_SUNDAY_REFRESH/fix.patch\"}, {\"id\": \"XREV28-C03\", \"job\": \"LANE_X86_SUNDAY_REFRESH\", \"target_id\": \"DENT-VAL-BASELINE-COMPARISON\", \"claim_as_written\": \"Skilj247/1728 ceiling issues och2/18 helkroneplatser med spatial kontakt.\", \"finding\": \"The figures refer to: R1/R2 i fast pose. Det separata R5The test of all displacements. ger0/1728 respektive0/18 discriminatory issues and no approved proposals; it is missing in the line of operation of the front.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/X86_FRONT12/FRONT.md:35; DEMO48_PACKAGE/batch19/demos/GENCAD_V6/results.json:rounds.R1, rounds.R5.roof, rounds.R5.whole_all_methods\", \"corrected_statement\": \"Enter fixed pose for247/1728 och2/18 and present R5 separat:0 diskriminering och234FAIL/9UNKNOWN No previous positive number has changed.\", \"class\": \"HOLDS_WITH_CORRECTION\", \"severity\": \"MEDIUM\", \"reproducible_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/evidence/independent_checks.py\", \"patch\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/patches/LANE_X86_SUNDAY_REFRESH/front_text.patch\"}, {\"id\": \"XREV28-C04\", \"job\": \"LANE_X86_SUNDAY_REFRESH\", \"target_id\": \"DENT-VAL-BASELINE-COMPARISON\", \"claim_as_written\": \"remaining85_policy\", \"finding\": \"The remaining numeric version label is outdated.100 godtagbara versioner,12 profiles and88 enbart hashkontrollerade godtagbara versioner, plus1 avvisad.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/X86_FRONT12/replay_front.py:269; FROZEN_FRONT_X86B.json:rows,rejections,front_ids\", \"corrected_statement\": \"Byt till eligible_hash_only_policy and calculate eligible_hash_only_count from the frozen lists:88.\", \"class\": \"HOLDS_WITH_CORRECTION\", \"severity\": \"LOW\", \"reproducible_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/evidence/independent_checks.py\", \"patch\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/patches/LANE_X86_SUNDAY_REFRESH/count_field.patch\"}]",
+      "correction": "[{\"id\": \"XREV28-C01\", \"job\": \"LANE_X86_SUNDAY_REFRESH\", \"target_id\": \"DENT-VAL-BASELINE-COMPARISON\", \"claim_as_written\": \"Every control must be able to reject; receipt reader accepts status PASS or pass=true.\", \"finding\": \"Injected receipt with nested status=FAIL/pass=true is accepted. Even pass=false at the root can be overlooked.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/X86_FRONT12/receipt_contract.py:30; evidence/CONTROL_FAULT_REPRODUCTION.json:X86_conflicting_nested_status, X86_false_root\", \"corrected_statement\": \"All explicit status fields must hold and no explicit pass=false may be accepted. Corrected reader rejects both faults and retains all 12 real PASS records.\", \"class\": \"ACCEPTED_WITH_CORRECTION\", \"severity\": \"HIGH\", \"reproducible_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/evidence/reproduce_control_faults.py\", \"patch\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/patches/LANE_X86_SUNDAY_REFRESH/fix.patch\"}, {\"id\": \"XREV28-C03\", \"job\": \"LANE_X86_SUNDAY_REFRESH\", \"target_id\": \"DENT-VAL-BASELINE-COMPARISON\", \"claim_as_written\": \"Distinguish 247/1728 roof queries and 2/18 full crown sites with spatial contact.\", \"finding\": \"Numbers concern R1/R2 at fixed pose. Separate R5 test over all shifts gives 0/1728 and 0/18 discriminating queries and no accepted proposals; absent from the front operation row.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/X86_FRONT12/FRONT.md:35; DEMO48_PACKAGE/batch19/demos/GENCAD_V6/results.json:rounds.R1, rounds.R5.roof, rounds.R5.whole_all_methods\", \"corrected_statement\": \"State fixed pose for 247/1728 and 2/18 and report R5 separately: 0 discrimination and 234 FAIL/9 UNKNOWN complete proposals. No earlier positive number changed.\", \"class\": \"ACCEPTED_WITH_CORRECTION\", \"severity\": \"MEDIUM\", \"reproducible_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/evidence/independent_checks.py\", \"patch\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/patches/LANE_X86_SUNDAY_REFRESH/front_text.patch\"}, {\"id\": \"XREV28-C04\", \"job\": \"LANE_X86_SUNDAY_REFRESH\", \"target_id\": \"DENT-VAL-BASELINE-COMPARISON\", \"claim_as_written\": \"remaining85_policy\", \"finding\": \"Remaining numeric version label is obsolete. There are 100 eligible versions, 12 profiles and 88 eligible versions checked only by hash, plus 1 rejected.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/X86_FRONT12/replay_front.py:269; FROZEN_FRONT_X86B.json:rows,rejections,front_ids\", \"corrected_statement\": \"Use eligible_hash_only_policy and calculate eligible_hash_only_count from frozen lists: 88.\", \"class\": \"ACCEPTED_WITH_CORRECTION\", \"severity\": \"LOW\", \"reproducible_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/evidence/independent_checks.py\", \"patch\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/patches/LANE_X86_SUNDAY_REFRESH/count_field.patch\"}]",
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
       "code_files": [
@@ -3321,7 +3322,7 @@
       "review_sha256": "3f440104f926d9a520f2a8c6651b1fc15f42445d9c555e05664e4cd8edc9c58c",
       "review_batch": "LANE_XREVIEW_BATCH28",
       "review_scope": "[\"AUDIT_COMMON\", \"XAUDIT_COMMON\", \"DEMO48_COMMON exact sufficiency and enclosure\", \"Assigned delivery only; original commands in read-only namespaces over copied lanes; primary source identity/quantity; bearing arithmetic; actual fault injection\", \"X86: all12 frozen profiles, administrative101 hashes, all12 headline arithmetic; full generation not repeated for quick scopes\", \"R5: all36 table rows aggregated, existing default3-family demo and2827 exact rational witnesses; full36 regeneration not repeated\", \"No new designs, models, experiments or graph mutation\"]",
-      "correction": "[{\"id\": \"XREV28-C02\", \"job\": \"LANE_X87_NERVE_MARGIN_TABLE\", \"target_id\": \"DENT-GEOM-UNCERTAINTY\", \"claim_as_written\": \"Positive digital separation requires that the nominal gap strictly exceeds the budget.\", \"finding\": \"classify uses lower_mm>=threshold and accepts exact similarity even in residual cases0mm. At maximum modeled loss remains then0mm.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/X87/science.py:45; README_DEMO.md:26; evidence/CONTROL_FAULT_REPRODUCTION.json:X87_zero_residual_equality\", \"corrected_statement\": \"Residual target0mm requires lower_mm>threshold; similarity is UNKNOWN. Positive residual target retains inclusive limit. The fixed whole overrun does not change any24 tabellrader.\", \"class\": \"HOLDS_WITH_CORRECTION\", \"severity\": \"MEDIUM\", \"reproducible_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/evidence/reproduce_control_faults.py\", \"patch\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/patches/LANE_X87_NERVE_MARGIN_TABLE/fix.patch\"}]",
+      "correction": "[{\"id\": \"XREV28-C02\", \"job\": \"LANE_X87_NERVE_MARGIN_TABLE\", \"target_id\": \"DENT-GEOM-UNCERTAINTY\", \"claim_as_written\": \"Positive digital separation requires the nominal gap to strictly exceed the budget.\", \"finding\": \"classify uses lower_mm>=threshold and accepts equality even at residual target 0 mm. Maximum modeled loss then leaves 0 mm.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/X87/science.py:45; README_DEMO.md:26; evidence/CONTROL_FAULT_REPRODUCTION.json:X87_zero_residual_equality\", \"corrected_statement\": \"Residual target 0 mm requires lower_mm>threshold; equality is UNKNOWN. Positive residual target retains an inclusive bound. Corrected complete replay changes none of the 24 table rows.\", \"class\": \"ACCEPTED_WITH_CORRECTION\", \"severity\": \"MEDIUM\", \"reproducible_file\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/evidence/reproduce_control_faults.py\", \"patch\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH28/patches/LANE_X87_NERVE_MARGIN_TABLE/fix.patch\"}]",
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
       "code_files": [
@@ -3397,7 +3398,7 @@
       "review_sha256": "15e04dc8c4fcf546345c21c94be1b1c487f856424df1b22b170de97355771210",
       "review_batch": "LANE_XREVIEW_BATCH29",
       "review_scope": "[\"AUDIT_COMMON\", \"XAUDIT_COMMON\", \"DEMO48_COMMON existing sufficiency test\", \"Exactly20 frozen archive referents;no new models/designs/experiments\", \"Original run_all.sh in lane copy;clean inherited environment replay;source tables,statistics and semantic fault injection\", \"All corpus/schema counts are diagnostics,not873 scientific verifications\"]",
-      "correction": "[\"The number check can drop the wrong value, but metadata/kantkontrollen is incomplete;add independent source metadata and audited edge contracts.269/269 Edge mutations and cannon poisoning MIN-enhet/SD.\", \"Expose each pendulum referent with: candidate_id+referent_path and own locator; no numerical metadata may be inherited from our_value.303 pent-up referees are exposed by the correction and remain UNVERIFIED.\", \"269 kurerade,sifferkontrollerade faceter;30 studies and24 Full independent metadata/canter review remains; no physical numerical edge assigned.\"]",
+      "correction": "[\"Numeric check can reject error value ,but metadata/edge control is incomplete;add independent source metadata and audited edge contracts. Corrected control rejects 269/269 edge mutations and cannon-poisoned MIN device/ SD .\", \"Exposing each pendulum reference with candidate_id + referent_path and its own locator; no numerical metadata may be inherited from our_value. 303 pendulum referees are exposed by the correction and remain UNVERIFIED.\", \"269 curated, numerically controlled faceter; 30 studies and 24 edge drafts count correctly. Full independent metadata/edge review remains; no physical numerical edge assigned.\"]",
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
       "code_files": [
@@ -3497,7 +3498,7 @@
       "reviewed_result_sha256": "aa6c86ba524bc017b282d1f148bac7cfe8c69110cb754eb73a80d5e0d8801274",
       "review_sha256": "29853e8c8f1e3de53d8aaebc41e31769e3afe9b3ab30624bc0af4ec59fcea0cd",
       "review_batch": "LANE_XREVIEW_BATCH30",
-      "review_scope": "\"All three case reports and their source calls; full run_all plus 33+7 felprov, 18 byteidentiska replayartefakter, frysta payloads, p95 for case13 independent of libigl, the original surfaces medlems/hashlokatorer. Retrospektiv digital rapportering; inget kliniskt laboratorieresultat.\"",
+      "review_scope": "\"All three case reports and their source calls ; full run_all plus 33 +7 fault tests , 18 byteidentic replayartefacts, frozen payloads, p95 for case 13 independently with libigl , original site member/hash locators. Retrospective digital reporting; no clinical laboratory results.\"",
       "correction": "[]",
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
@@ -3522,7 +3523,7 @@
       "review_sha256": "befa0625dfe5f56ae9e7eefcb30ee004112cf40564692bb10c08491920718c42",
       "review_batch": "LANE_XREVIEW_BATCH30",
       "review_scope": "\"993 geometries and 188 primary test cases; seven percentiles per axis, verified published Table 1, W1 housing mechanism, DKW limit, support -/flow adequacy and fault tests run. Full copy run_all gives unchanged results.json . No matched physical population testing.\"",
-      "correction": "[{\"id\": \"C30-02\", \"job\": \"LANE_X94_FORCE_VALIDATION\", \"target_id\": \"DENT-VAL-OCCLUSAL-REGIONAL-FORCES\", \"claim_as_written\": \"The minimum possible Wasserstein distance between test proxy and any empirical distribution compatible with the source table is:0,109262 for the right-hand side, and0,054974 for rear part\", \"finding\": \"The code integrates point-by-point distances to a quantum housing, with rank and rounding coatings. It calculates a valid lower limit, but does not account for any attainment witness or optimization over empirical 178-Personships.\", \"evidence_locator\": [\"@DENTAL_IMPLEMENTATIONS@/X94/README_DEMO.md:32\", \"@DENTAL_IMPLEMENTATIONS@/X94/code/validate.py:8\", \"@DENTAL_IMPLEMENTATIONS@/X94/code/verify.py:14\"], \"corrected_statement\": \"Rigorous lower W1-limit values below the declared quantum housing are: 0,109261924 and 0,054974177. They should not be described as a proven minimum empirically achieved. 34,20 respektive 12,522275 procentenheter; DKW-the lower end of the population border is still 0.\", \"class\": \"HOLDS_WITH_CORRECTION\", \"severity\": \"bound_wording\", \"reproducer\": \"numeric_audit.py\", \"patch\": \"patches/LANE_X94_FORCE_VALIDATION/wording.patch\", \"verification\": \"NUMERIC_AUDIT.json\"}]",
+      "correction": "[{\"id\": \"C30-02\", \"job\": \"LANE_X94_FORCE_VALIDATION\", \"target_id\": \"DENT-VAL-OCCLUSAL-REGIONAL-FORCES\", \"claim_as_written\": \"Minimum possible Wasserstein distance between test proxy and any empirical distribution compatible with the source table is 0.109262 for right fraction and 0.054974 for posterior fraction.\", \"finding\": \"Code integrates pointwise distances to a quantile envelope, with rank and rounding slack. It calculates a valid lower bound but supplies no attainability witness or optimization over empirical 178-person distributions.\", \"evidence_locator\": [\"@DENTAL_IMPLEMENTATIONS@/X94/README_DEMO.md:32\", \"@DENTAL_IMPLEMENTATIONS@/X94/code/validate.py:8\", \"@DENTAL_IMPLEMENTATIONS@/X94/code/verify.py:14\"], \"corrected_statement\": \"Rigorous lower W1 bounds under the declared quantile envelope are 0.109261924 and 0.054974177. They must not be called a PROVEN attained empirical minimum. Distribution gates still fail by 34.20 and 12.522275 percentage points; the DKW population bound lower endpoint remains 0.\", \"class\": \"ACCEPTED_WITH_CORRECTION\", \"severity\": \"bound_wording\", \"reproducer\": \"numeric_audit.py\", \"patch\": \"patches/LANE_X94_FORCE_VALIDATION/wording.patch\", \"verification\": \"NUMERIC_AUDIT.json\"}]",
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
       "code_files": [
@@ -3641,7 +3642,7 @@
       "review_sha256": "3a524c7c44c093d0377e3916a8de29c742ed890dff24eaadf61eb3e15ba1c239",
       "review_batch": "LANE_XREVIEW_BATCH31",
       "review_scope": "\"AUDIT_COMMON + XAUDIT_COMMON + supplied DEMO48 sufficiency witnesses; six selected deliveries only. Copied local replay; advertised mechanism/number,control falsifiability,external referent/distribution scope,dropout,uncertainty and reader/package requirements. No new research,physical experiment or graph mutation.\"",
-      "correction": "[{\"correction_id\": \"INV-01\", \"job\": \"PROOF_LANE_INVERSE_CROWN\", \"target_id\": \"DENT-VAL-BASELINE-COMPARISON\", \"claim_as_written\": \"inflated_bound_rejected_support = actual+.01>actual+1e-10\", \"finding\": \"The error injection does not call a certificate gate and is always true for finite actual. The same problem in D's wrong_bound_rejected. The real coverage control and our conversions support the conditional limits.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/B31_INVERSE/code/verify.py:52; code/dual_bounds.py:52; evidence/INVERSE_CORRECTED_BOUND_CONTROL.json\", \"corrected_statement\": \"Try both saved lower limit and corrupt border with the same predicated border and actual center. Three support controlled; all corrupt boundaries are convicted, the conclusion does not change.\", \"class\": \"HOLDS_WITH_CORRECTION\"}, {\"correction_id\": \"INV-02\", \"job\": \"PROOF_LANE_INVERSE_CROWN\", \"target_id\": \"DENT-VAL-BASELINE-COMPARISON\", \"claim_as_written\": \"./run_all.sh restores FE- the voltages... no network access is needed.\", \"finding\": \"The verification went through on81,05s, but the report step in the copy without historical refit directories fell when a saved receipt pointed to an older runtime. This is a concrete additional dependency; the copied kernel verification lasted.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/B31_INVERSE/code/report.py:36; evidence/PROOF_LANE_INVERSE_CROWN_run.log\", \"corrected_statement\": \"File only the small cost metadata of the historical refit attempt in: sources/HISTORICAL_REFIT_FIT.json. The report reads this hashbound package file. Neither FE-number or optimization conclusion changes.\", \"class\": \"HOLDS_WITH_CORRECTION\"}]",
+      "correction": "[{\"correction_id\": \"INV-01\", \"job\": \"PROOF_LANE_INVERSE_CROWN\", \"target_id\": \"DENT-VAL-BASELINE-COMPARISON\", \"claim_as_written\": \"inflated_bound_rejected_support = actual+.01>actual+1e-10\", \"finding\": \"Fault injection calls no certificate gate and is always true for finite actual. Same issue in D wrong_bound_rejected. Actual coverage check and our recalculations support the conditional bounds.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/B31_INVERSE/code/verify.py:52; code/dual_bounds.py:52; evidence/INVERSE_CORRECTED_BOUND_CONTROL.json\", \"corrected_statement\": \"Test stored lower bound and corrupted bound with the same predicate against recalculated bound and actual midpoint. Three supports checked; all corrupted bounds rejected, conclusion unchanged.\", \"class\": \"ACCEPTED_WITH_CORRECTION\"}, {\"correction_id\": \"INV-02\", \"job\": \"PROOF_LANE_INVERSE_CROWN\", \"target_id\": \"DENT-VAL-BASELINE-COMPARISON\", \"claim_as_written\": \"./run_all.sh regenerates FE stresses ... No network access required.\", \"finding\": \"Verification passed in 81.05 s, but reporting in a copy without historical refit directories failed when a stored receipt pointed to an older runtime. This is a concrete additional dependency; copied kernel verification held.\", \"evidence_locator\": \"@DENTAL_IMPLEMENTATIONS@/B31_INVERSE/code/report.py:36; evidence/PROOF_LANE_INVERSE_CROWN_run.log\", \"corrected_statement\": \"Archive only small historical refit cost metadata in sources/HISTORICAL_REFIT_FIT.json. Report reads this hash-bound package file. Neither FE values nor optimization conclusion changes.\", \"class\": \"ACCEPTED_WITH_CORRECTION\"}]",
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
       "code_files": [
@@ -3672,7 +3673,7 @@
       "review_sha256": "d5a911c8ab0f6c51a956f6542b1efc0fd75d0cafa78c0a75cac34adada814e2c",
       "review_batch": "LANE_XREVIEW_BATCH31",
       "review_scope": "\"AUDIT_COMMON + XAUDIT_COMMON + supplied DEMO48 sufficiency witnesses; six selected deliveries only. Copied local replay; advertised mechanism/number,control falsifiability,external referent/distribution scope,dropout,uncertainty and reader/package requirements. No new research,physical experiment or graph mutation.\"",
-      "correction": "[{\"correction_id\": \"ENV-01\", \"job\": \"LANE_X95_CROWN_PREP_ENVELOPE\", \"target_id\": \"DENT-DESIGN-PROBLEM\", \"claim_as_written\": \"Foldable kontrollfamiljer6/6;49 numeriska intersektionsvittnen.\", \"finding\": \"The producer's results.json added R4 under granskningen:7 kontrollfamiljer,49 exakta inre korsningar i5 cases and7 avvisade/11 unknown crowns. READMEThe initials and its table were not updated. R2/R3 the overrun is still valid and R4- The delta has been driven separately.\", \"evidence_locator\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH31/evidence/ENVELOPE_README_OBSERVED.md:12,26; @DENTAL_IMPLEMENTATIONS@/B31_PREP_ENVELOPE/results.json/summaries/whole_crown; evidence/ENVELOPE_V3_GATE.json\", \"corrected_statement\": \"Slutversion V3 have already been corrected README: 7/7 kontroller, 7/18 geometriskt avvisade, 11/18 UNKNOWN and 49 exakta positiva korsningspar i 5 Our existing case. R2/R3-omkring plus R4-delta also meets the new detail gate after four hash fields are taken from our own preserved negative checkpoints. +0,001 mm fold. No new geometry was needed.\", \"class\": \"HOLDS_WITH_CORRECTION\", \"resolution_status\": \"RESOLVED_UPSTREAM_BEFORE_FINAL_SEAL\"}]",
+      "correction": "[{\"correction_id\": \"ENV-01\", \"job\": \"LANE_X95_CROWN_PREP_ENVELOPE\", \"target_id\": \"DENT-DESIGN-PROBLEM\", \"claim_as_written\": \"Rejecting control families 6/6; 49 numeric intersection witnesses.\", \"finding\": \"Producer results.json added R4 during review: 7 control families, 49 exact interior intersections in 5 cases and 7 rejected/11 UNKNOWN crowns. README/table were not updated. Initial R2/R3 replay remains valid and R4 delta ran separately.\", \"evidence_locator\": \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH31/evidence/ENVELOPE_README_OBSERVED.md:12,26; @DENTAL_IMPLEMENTATIONS@/B31_PREP_ENVELOPE/results.json/summaries/whole_crown; evidence/ENVELOPE_V3_GATE.json\", \"corrected_statement\": \"Final V3 already has corrected README: 7/7 controls, 7/18 geometrically rejected, 11/18 UNKNOWN and 49 exact positive intersection pairs in 5 cases. Existing R2/R3 replay plus R4 delta also satisfies the new detail gate after four hash fields were obtained from our preserved negative checkpoints. Wall value +0.001 mm rejected. No new geometry run required.\", \"class\": \"ACCEPTED_WITH_CORRECTION\", \"resolution_status\": \"RESOLVED_UPSTREAM_BEFORE_FINAL_SEAL\"}]",
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
       "code_files": [
@@ -3919,8 +3920,8 @@
       "reviewed_result_sha256": "595e1dba704dd67b1672fa9c985c092011c478fcf8c4d2075e836f2968225519",
       "review_sha256": "0dfa6dbb2f221bf7e10922d18bcc28db0c9828adf2c4287071e8522466ba20c0",
       "review_batch": "LANE_XREVIEW_BATCH33",
-      "review_scope": "\"P48/TF2P048,26 etiketter/15 pulverised teeth,90 R1-solider,R2/R3,volym-/clearancepar FDI32 med samtliga520 pulpaceller,hela15-rowtable,actual error checks and world exports; only0.3mm-voxelmodell.\"",
-      "correction": "[\"Executable with audited manifest correction. The result table is unchanged:13/15 motvittnen,9/15 R2- Possible and51 left behind base cells. result_sha256 bevaras.\"]",
+      "review_scope": "\" P48 / TF2P048,26  etiketter/ 15   teeth with pulp labels , 90   R1 -solider, R2 / R3 ,volym-/clearancepar  FDI32  med  all   520   pulp cells ,hela 15 -rowtable,actual error checks and world exports; only 0.3 mm-voxelmodell.\"",
+      "correction": "[\"Executable with review owned manifesting. The results table is unchanged : 13 / 15 counterexamples , 9 / 15 R2 -possible and 51 left behind base cells. Originalets result_sha256 bevaras.\"]",
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
       "code_files": [
@@ -3953,7 +3954,7 @@
       "reviewed_result_sha256": "a55bd603c976b6e200d3bfc400198e534627be51fd00b240fce751e56bcef81e",
       "review_sha256": "c60dc071a6b15be794628f64def70fc5076485960e09640506d321896e8ac805",
       "review_batch": "LANE_XREVIEW_BATCH33",
-      "review_scope": "\"Tre frysta fall,R0–R5,alla39178 end-point field;40 publicerade Table3-values,independent volumes,closed STL and equal-histogram/volym-prov; ingen fysisk CAM- or strength qualification.\"",
+      "review_scope": "\"Three frozenn case, R0 – R5 , all 39178 endpoint fields , 40 published Table3 - values ,independent volumes,closed STL and equal-histogram/volume- specimen ; no physical CAM or strength qualification.\"",
       "correction": "[]",
       "physical_validation": "UNKNOWN",
       "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
@@ -4162,6 +4163,663 @@
       "source_claim_type": "capability",
       "named_input_families": [],
       "input_path_variables": []
+    },
+    {
+      "id": "X41",
+      "title": "X41",
+      "reviewed_status": "ACCEPTED",
+      "reviewed_result_sha256": "f969f236de6a894060e6f462a74583f4f925c680b6c7ff79ff51d058d29e6cf2",
+      "review_sha256": "cbfffe3452b23a262cb3fe76879d8db93276e33c03ff8898fc14246cd43ff813",
+      "review_batch": "LANE_XREVIEW_BATCH8",
+      "review_scope": "Historical separate manuscript decision: 50 source assertions, 46 number substitutions and six summary pairs. Source decision/rendering controls retained; no new evidence admission.",
+      "correction": "[]",
+      "physical_validation": "UNKNOWN",
+      "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
+      "code_files": [
+        "assess_model.py",
+        "assessment_bounds.py",
+        "decidability.py",
+        "decision_error.py",
+        "make_demo.py",
+        "make_figures.py",
+        "render_manuscript.py",
+        "replay_guides.py",
+        "run_r2.py",
+        "snapshot_inputs.py",
+        "verify_delivery.py",
+        "verify_references.py",
+        "voxel_decisions.py"
+      ],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "LANE_X41_MANUSCRIPT_DECISION",
+      "historical_review_date_utc": "2026-10-03T08:13:31.542159+00:00",
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "f969f236de6a894060e6f462a74583f4f925c680b6c7ff79ff51d058d29e6cf2",
+          "review_sha256": "5a7dee343ac35dad3d6c5529aac9dcc3dcde75a64a595fbfaac3fc234b952d86"
+        },
+        {
+          "result_sha256": "f969f236de6a894060e6f462a74583f4f925c680b6c7ff79ff51d058d29e6cf2",
+          "review_sha256": "cbfffe3452b23a262cb3fe76879d8db93276e33c03ff8898fc14246cd43ff813"
+        }
+      ]
+    },
+    {
+      "id": "MEASUREMENT_PLAN",
+      "title": "MEASUREMENT PLAN",
+      "reviewed_status": "ACCEPTED",
+      "reviewed_result_sha256": "0f259b23063dd0abf80ea7d91b5cdee2b612a682a40c1af355ad078a2ec15b38",
+      "review_sha256": "12c7e19c5b1cdf541760e52f6d062b29d59c973acc79ec9ff70455e2609f42c4",
+      "review_batch": "LANE_XREVIEW_BATCH8",
+      "review_scope": "Historical accepted protocol and binomial planning text; proposed assays have not been performed and are not frozen new physical predictions.",
+      "correction": "[]",
+      "physical_validation": "UNKNOWN",
+      "profile": "HISTORICAL_DOCUMENT",
+      "code_files": [],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "DEMO48_PACKAGE/MEASUREMENT_PLAN.md",
+      "document": "docs/reviewed/MEASUREMENT_PLAN.md",
+      "historical_review_date_utc": "2026-10-03T08:13:31.542159+00:00",
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "0f259b23063dd0abf80ea7d91b5cdee2b612a682a40c1af355ad078a2ec15b38",
+          "review_sha256": "12c7e19c5b1cdf541760e52f6d062b29d59c973acc79ec9ff70455e2609f42c4"
+        }
+      ]
+    },
+    {
+      "id": "X34",
+      "title": "X34",
+      "reviewed_status": "ACCEPTED_WITH_CORRECTION",
+      "reviewed_result_sha256": "ded5ab114df7d3c8771ef4bee178947ceb8dbd407b5584726a4d2aa0a6ec6c85",
+      "review_sha256": "268907cad81cceb375c0bd3cb56dd0cacd2d232038d75604eb8af4d1a9e66a2e",
+      "review_batch": "LANE_XREVIEW_BATCH5",
+      "review_scope": "Digital STL geometry gate on generated shells and virtual preparations; corrected source/target witness endpoints and obstacle surface checks. Complete commercial crown or manufactured fit validation UNKNOWN.",
+      "correction": "[{\"job\": \"LANE_X34_STL_DESIGN_GATE\", \"target_id\": \"DENT-VAL-BASELINE-COMPARISON\", \"claim_as_written\": \"34/34 controls pass; all_injected_value_checkers_fall=true\", \"finding\": \"Wall witness target point can be reflected about source point and milling obstacle moved on a sphere without rejection by original controls. False points lie 0.319279 and 0.410069 mm from the target surface.\", \"evidence_locator\": [\"@DENTAL_IMPLEMENTATIONS@/X34/code/validate_r2b.py:32\", \"@DENTAL_IMPLEMENTATIONS@/X34/code/validate_r2b.py:67\", \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH5/X34_WITNESS_RECHECK.json:1\"], \"corrected_statement\": \"Also check both witness endpoints lie on declared source/target surfaces and milling obstacle point lies on crown surface. Corrected control rejects forged coordinates, wrong distance and NaN; actual wall witness 0.159639 mm and regional FAIL remain.\", \"class\": \"ACCEPTED_WITH_CORRECTION\", \"patch\": \"patches/LANE_X34_STL_DESIGN_GATE/review_witness_check.py\"}, {\"job\": \"LANE_X34_STL_DESIGN_GATE\", \"target_id\": \"DENT-VAL-BASELINE-COMPARISON\", \"claim_as_written\": \"Independent STL design gate; real_X18_110_34\", \"finding\": \"Reviewed real-world anchor is the original antagonist. Crown is a generated roof shell and preparation a virtual plane; no complete commercial CAD crown or manufactured fit tested.\", \"evidence_locator\": [\"@DENTAL_IMPLEMENTATIONS@/X34/README_DEMO.md:21\", \"@DENTAL_IMPLEMENTATIONS@/X34/README_DEMO.md:49\"], \"corrected_statement\": \"DEMO_READY_WITH_CORRECTION applies to a scoped digital geometry demonstrator. Requested test on a complete real commercial CAD crown is UNDECIDABLE with supplied material. README already partly stated this correctly; no new crown constructed during review.\", \"class\": \"UNDECIDABLE\", \"patch\": null}]",
+      "physical_validation": "UNKNOWN",
+      "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
+      "code_files": [
+        "code/plot_demo.py",
+        "code/prepare_demo.py",
+        "code/prepare_r2.py",
+        "code/prepare_r2b.py",
+        "code/replay_validation.py",
+        "code/report_demo.py",
+        "code/validate_r1.py",
+        "code/validate_r2.py",
+        "code/validate_r2b.py",
+        "code/designgate/__init__.py",
+        "code/designgate/__main__.py",
+        "code/designgate/distance.py",
+        "code/designgate/gate.py",
+        "code/designgate/geometry.py",
+        "code/designgate/report.py",
+        "code/designgate/vendor/__init__.py",
+        "code/designgate/vendor/checks.py",
+        "code/designgate/vendor/continuous.py",
+        "code/designgate/vendor/geometry.py",
+        "review_witness_check.py",
+        "code/initialize.py"
+      ],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "LANE_X34_STL_DESIGN_GATE",
+      "historical_review_date_utc": null,
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "ded5ab114df7d3c8771ef4bee178947ceb8dbd407b5584726a4d2aa0a6ec6c85",
+          "review_sha256": "87017511b5cfd7f94b0a241d781219bcf1f5d6611b4ddcd34b4b2be5949ab1d5"
+        },
+        {
+          "result_sha256": "ded5ab114df7d3c8771ef4bee178947ceb8dbd407b5584726a4d2aa0a6ec6c85",
+          "review_sha256": "268907cad81cceb375c0bd3cb56dd0cacd2d232038d75604eb8af4d1a9e66a2e"
+        }
+      ]
+    },
+    {
+      "id": "X37",
+      "title": "X37",
+      "reviewed_status": "ACCEPTED_WITH_CORRECTION",
+      "reviewed_result_sha256": "87d7615983df2abf10045fbdddb1aba81f009113644975b5826cbc5c0a1a2619",
+      "review_sha256": "721474e7e0e325cb1ab7e192aaa2eaccb2a19ef527246271f57af3795cd3d1a2",
+      "review_batch": "LANE_XREVIEW_BATCH6",
+      "review_scope": "Historical two-case aligner movement source demonstration accepted with correction. Graph decision UNDECIDABLE concerns the target binding; force and clinical validity remain UNKNOWN.",
+      "correction": "[{\"job\": \"LANE_X37_ALIGNER_MOVEMENT\", \"target_id\": null, \"proposed_target_id\": \"DENT-VAL-ALIGNER-WEEKLY-MOTION-WRENCH\", \"claim_as_written\": \"Preflight PASS: immutable preregs, predecessor hashes, source sizes/published-checksum record (code/verify.py:11).\", \"finding\": \"An injected all-zero expected ZIP SHA256 passes the original preflight while match=true and size are preserved. Actual ZIP and cache bytes are not hashed by that preflight; cached cloud loading bypasses source extraction.\", \"evidence_locator\": [\"LANE_X37_ALIGNER_MOVEMENT/code/verify.py:10\", \"LANE_X37_ALIGNER_MOVEMENT/code/geometry.py:45\", \"evidence/STALE_CONTROL_REPRODUCTIONS.json:1; second object\"], \"corrected_statement\": \"The corrected preflight hashes current ZIP SHA256/MD5 and every sampled-cache file, compares actual bytes with frozen records, and rejects a wrong expected hash. The independent distance control also recomputes 67/2826 and 1.3069155924 mm. This remains an n=2 pipeline test.\", \"class\": \"REJECTED\", \"severity\": \"serious_control_defect\", \"patch\": \"patches/LANE_X37_ALIGNER_MOVEMENT/control.patch\", \"reproducer\": \"python3 reproduce_stale_checks.py\"}]",
+      "physical_validation": "UNKNOWN",
+      "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
+      "code_files": [
+        "review_control.py",
+        "code/geometry.py",
+        "code/plot.py",
+        "code/region.py",
+        "code/run_r1.py",
+        "code/run_r2.py",
+        "code/run_r3.py",
+        "code/run_r3_attempt1.py",
+        "code/run_r4.py",
+        "code/run_r4_attempt1.py",
+        "code/run_r5.py",
+        "code/seal.py",
+        "code/verify.py",
+        "code/verify_reviewed.py",
+        "code/wrench.py"
+      ],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "LANE_X37_ALIGNER_MOVEMENT",
+      "historical_review_date_utc": "2026-10-03T04:09:10.085004+00:00",
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "87d7615983df2abf10045fbdddb1aba81f009113644975b5826cbc5c0a1a2619",
+          "review_sha256": "721474e7e0e325cb1ab7e192aaa2eaccb2a19ef527246271f57af3795cd3d1a2"
+        },
+        {
+          "result_sha256": "87d7615983df2abf10045fbdddb1aba81f009113644975b5826cbc5c0a1a2619",
+          "review_sha256": "f2493e12526e88c7cc23dea54ec6225394e3e7c4a04de6f1c1687d3dfc155496"
+        }
+      ]
+    },
+    {
+      "id": "X1C",
+      "title": "X1C",
+      "reviewed_status": "ACCEPTED_WITH_CORRECTION",
+      "reviewed_result_sha256": "afc7ff0a537803c48b7cff04ec0e1043bffa06069ed915b3e810b4db421ba4b5",
+      "review_sha256": "d66f625fd38243033926514268fd8be58e2f0534168db9cf84c468a929ef78a8",
+      "review_batch": "LANE_XREVIEW_BATCH8",
+      "review_scope": "Historical curated crown-fracture literature gate with source/estimand identity. A downstream consumer does not replace the original curation. Independent systematic search and physical validation UNKNOWN.",
+      "correction": "[\"C01\", \"C02\"]",
+      "physical_validation": "UNKNOWN",
+      "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
+      "code_files": [
+        "review_control.py",
+        "code/analyze_r1.py",
+        "code/analyze_r2.py",
+        "code/compare_lab.py",
+        "code/run_demo.py"
+      ],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "LANE_X1C_CROWN_LITERATURE",
+      "historical_review_date_utc": "2026-10-03T08:13:31.542159+00:00",
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "afc7ff0a537803c48b7cff04ec0e1043bffa06069ed915b3e810b4db421ba4b5",
+          "review_sha256": "86adc25e59b80f91ede78d6061d9dbcf471633b2fa51b8d039e7859d2e003525"
+        },
+        {
+          "result_sha256": "afc7ff0a537803c48b7cff04ec0e1043bffa06069ed915b3e810b4db421ba4b5",
+          "review_sha256": "d66f625fd38243033926514268fd8be58e2f0534168db9cf84c468a929ef78a8"
+        }
+      ]
+    },
+    {
+      "id": "GENCAD_V3",
+      "title": "GENCAD V3",
+      "reviewed_status": "ACCEPTED",
+      "reviewed_result_sha256": "e908ccbccea66cd39c8bf6a24f2fd0505ee6fed0e0cb4059eb26653a1459ec23",
+      "review_sha256": "d5e5382e13978d8931c17f881938ee3b0fe6e5b167617f6c3c213246807f9326",
+      "review_batch": "LANE_XREVIEW_BATCH4",
+      "review_scope": "Historical evaluator scope of 588 primary cases. Later 48-case panels do not replace this scope. Failed generated-crown exterior-distance gates retained; this release does not rerun the cohort.",
+      "correction": "[]",
+      "physical_validation": "UNKNOWN",
+      "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
+      "code_files": [
+        "code/build_cohort.py",
+        "code/case_statistics.py",
+        "code/cohort_audit.py",
+        "code/controls.py",
+        "code/crown_track.py",
+        "code/fast_geometry.py",
+        "code/intake.py",
+        "code/integrity.py",
+        "code/main.py",
+        "code/packing.py",
+        "code/preparation.py",
+        "code/preparation_r3.py",
+        "code/preparation_r7.py",
+        "code/preparation_replay.py",
+        "code/release_anchor.py",
+        "code/report.py",
+        "code/sandbox.py",
+        "code/scorer.py",
+        "code/source_audit.py",
+        "code/source_ops.py",
+        "code/source_solid.py",
+        "code/source_solid_r6.py",
+        "code/source_solid_replay.py",
+        "code/task_io.py",
+        "code/topology.py",
+        "code/util.py",
+        "code/worker.py",
+        "code/legacy_v1/__init__.py",
+        "code/legacy_v1/geometry.py",
+        "code/legacy_v1/io.py",
+        "code/legacy_v1/checks/__init__.py",
+        "code/legacy_v1/checks/cement.py",
+        "code/legacy_v1/checks/cement_max.py",
+        "code/legacy_v1/checks/exact.py",
+        "code/legacy_v1/checks/milling.py",
+        "tools/compact_existing.py",
+        "tools/evaluate_frozen_crowns.py",
+        "tools/evaluate_frozen_preparation.py",
+        "tools/evaluate_frozen_preparation_r3.py",
+        "tools/evaluate_source_solid.py",
+        "tools/generator_smoke.py",
+        "tools/native_distance_control.py",
+        "tools/prepare_audit.py",
+        "tools/prepare_runtime.py",
+        "tools/relocate.py",
+        "tools/retry_relocation_r8.py",
+        "tools/revise_release_r8.py",
+        "tools/scoring_smoke.py",
+        "tools/seal.py",
+        "tools/vendor_sources.py",
+        "vendor/crown_design_geometry.py",
+        "vendor/crown_fit_geometry.py",
+        "vendor/x18b_implicit_prep.py",
+        "vendor/x18b_surface.py",
+        "code/legacy/checks.py",
+        "code/legacy/generators.py",
+        "code/legacy/geometry.py",
+        "code/legacy/__init__.py",
+        "code/legacy/vendor/continuous.py",
+        "code/legacy/vendor/crown_fit_geometry.py",
+        "code/legacy/vendor/obstacle.py"
+      ],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "PROOF_LANE_GENCAD_V3",
+      "historical_review_date_utc": "2026-10-03T01:10:26.534812+00:00",
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "e908ccbccea66cd39c8bf6a24f2fd0505ee6fed0e0cb4059eb26653a1459ec23",
+          "review_sha256": "d5e5382e13978d8931c17f881938ee3b0fe6e5b167617f6c3c213246807f9326"
+        },
+        {
+          "result_sha256": "e908ccbccea66cd39c8bf6a24f2fd0505ee6fed0e0cb4059eb26653a1459ec23",
+          "review_sha256": "339066f6a55dbf01d4edd9404ceae986d70776334a9c74dc7b5e3834cc1ea8a0"
+        }
+      ]
+    },
+    {
+      "id": "X44",
+      "title": "X44",
+      "reviewed_status": "ACCEPTED_WITH_CORRECTION",
+      "reviewed_result_sha256": "e94793c77e1f6dc2b2feb1b50853eda8ffaeeff4a5f21f0cc607e19ef5c89074",
+      "review_sha256": "70b4d38d6436a995684da4bfec3cba60def135f153e57eeee7b76123a59b46a4",
+      "review_batch": "LANE_XREVIEW_BATCH8",
+      "review_scope": "Historical K09/K13/K50 ports, source register and blocker inventory. Later K31/K34 ports do not replace this accepted scope. Physical prerequisites remain explicit.",
+      "correction": "[\"C03\", \"C04\"]",
+      "physical_validation": "UNKNOWN",
+      "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
+      "code_files": [
+        "review_control.py",
+        "code/calibration_port.py",
+        "code/common.py",
+        "code/inventory.py",
+        "code/material_port.py",
+        "code/phase_observation.py",
+        "code/query_region.py",
+        "code/region_field.py",
+        "code/summarize.py",
+        "code/verify_controls.py"
+      ],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "LANE_X44_MISSING_CHAINS",
+      "historical_review_date_utc": "2026-10-03T08:13:31.542159+00:00",
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "e94793c77e1f6dc2b2feb1b50853eda8ffaeeff4a5f21f0cc607e19ef5c89074",
+          "review_sha256": "5905db5b643e32e027c52a44905fb3a67d131a035b8f8eef1f24db611b8725f8"
+        },
+        {
+          "result_sha256": "e94793c77e1f6dc2b2feb1b50853eda8ffaeeff4a5f21f0cc607e19ef5c89074",
+          "review_sha256": "70b4d38d6436a995684da4bfec3cba60def135f153e57eeee7b76123a59b46a4"
+        }
+      ]
+    },
+    {
+      "id": "X39",
+      "title": "X39",
+      "reviewed_status": "ACCEPTED_WITH_CORRECTION",
+      "reviewed_result_sha256": "10a91c555393505a4088b8a9a9cc43f2256dd80e0ee3de89556de1921d0569ff",
+      "review_sha256": "5454b517dd588a5ca0dea27bc3f27ad9cbba184ae31a1df9943f4ea10113b8a1",
+      "review_batch": "LANE_XREVIEW_BATCH7",
+      "review_scope": "Historical manuscript and reporting controls covering 96 number-bearing rows; corrections and checklist/conflict checks retained. No patient text or anatomy distributed.",
+      "correction": "[\"X39-C1\", \"X39-C2\", \"X39-C3\", \"X39-C4\"]",
+      "physical_validation": "UNKNOWN",
+      "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
+      "code_files": [
+        "assemble_manuscript.py",
+        "compile_results.py",
+        "reporting_checklists.py",
+        "review_annotations.py",
+        "review_control.py",
+        "verify_conflicts.py",
+        "verify_package.py"
+      ],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "LANE_X39_MANUSCRIPT_BITE",
+      "historical_review_date_utc": null,
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "10a91c555393505a4088b8a9a9cc43f2256dd80e0ee3de89556de1921d0569ff",
+          "review_sha256": "5454b517dd588a5ca0dea27bc3f27ad9cbba184ae31a1df9943f4ea10113b8a1"
+        },
+        {
+          "result_sha256": "10a91c555393505a4088b8a9a9cc43f2256dd80e0ee3de89556de1921d0569ff",
+          "review_sha256": "8f23b67736c7e34ca78dda206e11561a879515f91d1b60fe0d046c595657a5de"
+        }
+      ]
+    },
+    {
+      "id": "X35_STATISTICS",
+      "title": "X35 STATISTICS",
+      "reviewed_status": "ACCEPTED",
+      "reviewed_result_sha256": "887a384bdf4ede40852766aa57b6de46b97a0341322360c49746225da474002d",
+      "review_sha256": "fa8474c775ff76a872e283aa676eb9f0c9a2b5afa4935a7aba3856a52c67da4c",
+      "review_batch": "LANE_XREVIEW_BATCH5",
+      "review_scope": "Historical statistics and independent-unit checks for 35 then-current deliveries; task, case and study blocks are retained. No claim that the historical denominator describes the present release.",
+      "correction": "[]",
+      "physical_validation": "UNKNOWN",
+      "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
+      "code_files": [
+        "checklists.py",
+        "recalculate.py",
+        "render_report.py",
+        "report_metadata.py",
+        "round2.py",
+        "verify.py"
+      ],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "LANE_X35_PACKAGE_STATISTICS",
+      "historical_review_date_utc": null,
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "887a384bdf4ede40852766aa57b6de46b97a0341322360c49746225da474002d",
+          "review_sha256": "9fc5f4f54697aedddef1e59cf8ecd65853726bf718a82881b2586bdb841f65cd"
+        },
+        {
+          "result_sha256": "887a384bdf4ede40852766aa57b6de46b97a0341322360c49746225da474002d",
+          "review_sha256": "fa8474c775ff76a872e283aa676eb9f0c9a2b5afa4935a7aba3856a52c67da4c"
+        }
+      ]
+    },
+    {
+      "id": "PROOF_LANE_INFOLINK3",
+      "title": "PROOF_LANE INFOLINK3",
+      "reviewed_status": "ACCEPTED_WITH_CORRECTION",
+      "reviewed_result_sha256": "677e5115bec22d39e2b2082204f12560ec3702b44a6f931af7690d635ca749a6",
+      "review_sha256": "ea3bf2b3910b2016bcccbaf25d331086bed1f4232483cbb9dca6631357ff092d",
+      "review_batch": "LANE_XREVIEW_BATCH5",
+      "review_scope": "Historical eleven source links including Ti64 fatigue, EBSD and PLA lattices; corrected source/estimand checks. These links differ from version 4. No whole-paper text or dataset redistribution.",
+      "correction": "[{\"job\": \"PROOF_LANE_INFOLINK3\", \"target_id\": \"DENT-MAT-TI64-LPBF\", \"claim_as_written\": \"exact source value + locator/unit + scoped consumer + fault injection\", \"finding\": \"verify_value compares only raw value; all 20 frozen witnesses accepted even with unit=INJECTED_WRONG_UNIT. Four semantic contract injections per candidate exclude unit.\", \"evidence_locator\": [\"@DENTAL_IMPLEMENTATIONS@/PROOF_LANE_INFOLINK3/make_demo.py:268\", \"@DENTAL_IMPLEMENTATIONS@/PROOF_LANE_INFOLINK3/make_demo.py:289\", \"@DENTAL_INPUT_ROOT@/artifacts/LANE_XREVIEW_BATCH5/PROOF_LANE_SOURCE_RECHECK.json:1\"], \"corrected_statement\": \"Bind witness value, unit, locator and source hash to reviewed immutable reference and reject changed units. 20 positive witnesses, 20 wrong units and 20 wrong values pass/are rejected as intended. Eleven local links remain; L11 with UNKNOWN unit remains rejected.\", \"class\": \"ACCEPTED_WITH_CORRECTION\", \"patch\": \"patches/PROOF_LANE_INFOLINK3/review_source_check.py\"}, {\"job\": \"PROOF_LANE_INFOLINK3\", \"target_id\": \"DENT-MAT-TI64-LPBF\", \"claim_as_written\": \"Eleven new information links; External reference: two original CTF maps\", \"finding\": \"L05/L06 local CTF originals can be read and recalculated, but public deposition locator and snapshot provenance unidentified. README already reports this in the license row.\", \"evidence_locator\": [\"@DENTAL_IMPLEMENTATIONS@/PROOF_LANE_INFOLINK3/README_DEMO.md:41\", \"@DENTAL_IMPLEMENTATIONS@/PROOF_LANE_INFOLINK3/README_DEMO.md:13\"], \"corrected_statement\": \"Eleven scoped local links: nine have identified published data lineages and two only local CTF originals with external deposition locator UNKNOWN. No improved dental predictions established.\", \"class\": \"UNDECIDABLE\", \"patch\": null}]",
+      "physical_validation": "UNKNOWN",
+      "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
+      "code_files": [
+        "finish.py",
+        "freeze.py",
+        "plot_demo.py",
+        "report.py",
+        "review_source_check.py",
+        "make_demo.py"
+      ],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "PROOF_LANE_INFOLINK3",
+      "historical_review_date_utc": null,
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "677e5115bec22d39e2b2082204f12560ec3702b44a6f931af7690d635ca749a6",
+          "review_sha256": "ea3bf2b3910b2016bcccbaf25d331086bed1f4232483cbb9dca6631357ff092d"
+        },
+        {
+          "result_sha256": "677e5115bec22d39e2b2082204f12560ec3702b44a6f931af7690d635ca749a6",
+          "review_sha256": "b7a6b298ed507ee190b357b73c3d3944249863523870c1908f3e37aaa1fa7ab8"
+        }
+      ]
+    },
+    {
+      "id": "X33",
+      "title": "X33",
+      "reviewed_status": "ACCEPTED_WITH_CORRECTION",
+      "reviewed_result_sha256": "1844906bd6cfe5d99affa8f60e0cf02d19e7f6b32df25054316c8f532ff0079e",
+      "review_sha256": "118c2b0585d1386f1781f1157bf5d3a097b88f8b13e7a1a879d2bb0cf590a849",
+      "review_batch": "LANE_XREVIEW_BATCH4",
+      "review_scope": "Corrected declared laser pulse/heat-time and inverse observation operators. Simulated thermal budgets remain conditional on constitutive assumptions; no measured pulp or clinical prediction.",
+      "correction": "[\"X33-C01\", \"X33-C02\", \"X33-C03\"]",
+      "physical_validation": "UNKNOWN",
+      "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
+      "code_files": [
+        "audit_delivery.py",
+        "heat_bin_budget.py",
+        "inverse_measurement.py",
+        "laser_heat.py",
+        "replay.py",
+        "report.py",
+        "review_checks.py"
+      ],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "LANE_X33_LASER_PULP",
+      "historical_review_date_utc": "2026-10-03T01:10:26.534812+00:00",
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "1844906bd6cfe5d99affa8f60e0cf02d19e7f6b32df25054316c8f532ff0079e",
+          "review_sha256": "118c2b0585d1386f1781f1157bf5d3a097b88f8b13e7a1a879d2bb0cf590a849"
+        },
+        {
+          "result_sha256": "1844906bd6cfe5d99affa8f60e0cf02d19e7f6b32df25054316c8f532ff0079e",
+          "review_sha256": "a14f28500b60cf2e3279ce5c488a2e4ccbd934548547c4dbe2b7cd15f5aefb71"
+        }
+      ]
+    },
+    {
+      "id": "X38",
+      "title": "X38",
+      "reviewed_status": "ACCEPTED_WITH_CORRECTION",
+      "reviewed_result_sha256": "d0b0fffac9ede3a61108ea6261cab1d4a50113770c6de21a369f8c854b9811b7",
+      "review_sha256": "b4132862c90e9443d439679ccfcad2d52bc29421d6068e005a4596f292e57efa",
+      "review_batch": "LANE_XREVIEW_BATCH7",
+      "review_scope": "Historical mesh transport, export and readback gate plus population specimen-count planning; source identity and numerical triangle policy are distinct from manufacturing feasibility.",
+      "correction": "[\"X38-C1\", \"X38-C2\", \"X38-C3\"]",
+      "physical_validation": "UNKNOWN",
+      "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
+      "code_files": [
+        "review_control.py",
+        "code/demo.py",
+        "code/exportgate.py",
+        "code/labcount.py",
+        "code/mesh_transport.py",
+        "code/plot.py",
+        "code/prepare.py",
+        "code/report.py",
+        "code/round1.py",
+        "code/verify_lock.py",
+        "tests/test_tools.py"
+      ],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "LANE_X38_EXPORT_GATE",
+      "historical_review_date_utc": null,
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "d0b0fffac9ede3a61108ea6261cab1d4a50113770c6de21a369f8c854b9811b7",
+          "review_sha256": "b4132862c90e9443d439679ccfcad2d52bc29421d6068e005a4596f292e57efa"
+        },
+        {
+          "result_sha256": "d0b0fffac9ede3a61108ea6261cab1d4a50113770c6de21a369f8c854b9811b7",
+          "review_sha256": "96dac64905a5a7d904b26502cd365035e62ab3ba4f27ab68d83189c48ee73ae8"
+        }
+      ]
+    },
+    {
+      "id": "X36",
+      "title": "X36",
+      "reviewed_status": "ACCEPTED_WITH_CORRECTION",
+      "reviewed_result_sha256": "decd97e85b33e39027e92cf164b92dc51ab45afc0152d3f0d7f14ad9e4774fdf",
+      "review_sha256": "a2f6ee64566562560217489eb92913bcf8091799408faa0f82e434b2c707b732",
+      "review_batch": "LANE_XREVIEW_BATCH6",
+      "review_scope": "Study/region-bound cement and crown GLS/heterogeneity analysis. Corrected standalone control recomputes current-table coefficients rather than trusting saved PASS fields. No independent systematic search or clinical validation.",
+      "correction": "[{\"job\": \"LANE_X36_META_REGRESSION\", \"target_id\": \"DENT-IF-RESTORATION-CEMENT-TOOTH\", \"related_target_ids\": [\"DENT-MAT-RESTORATIVE-PSP\"], \"claim_as_written\": \"VERIFICATION.json contains 46 passing checks and wrong-value probes (README_DEMO.md:26).\", \"finding\": \"verify.py accepts MODEL_cement_full.json beta[0]+1000 because dense and external GLS PASS/error fields are read from saved reports rather than recomputed. Original exit=0; corrected current-table GLS exit=1.\", \"evidence_locator\": [\"LANE_X36_META_REGRESSION/verify.py:18\", \"LANE_X36_META_REGRESSION/verify.py:23\", \"LANE_X36_META_REGRESSION/verify.py:63\", \"evidence/STALE_CONTROL_REPRODUCTIONS.json:1; first object\"], \"corrected_statement\": \"The producer replay recomputes GLS, but the original standalone verifier is not sensitive to an altered model beta. The corrected verifier recalculates current-table GLS and generalized I2 using the system statsmodels profile, rejects the altered value, and passes restored data. Scientific conclusions do not change.\", \"class\": \"REJECTED\", \"severity\": \"serious_control_defect\", \"patch\": \"patches/LANE_X36_META_REGRESSION/control.patch\", \"reproducer\": \"python3 reproduce_stale_checks.py\"}, {\"job\": \"LANE_X36_META_REGRESSION\", \"target_id\": \"DENT-IF-RESTORATION-CEMENT-TOOTH\", \"related_target_ids\": [\"DENT-MAT-RESTORATIVE-PSP\"], \"claim_as_written\": \"Run one command from this directory: ./run_all.sh. Dependencies: existing NumPy/SciPy/Matplotlib environment and installed system statsmodels (README_DEMO.md:5).\", \"finding\": \"A relocated bare copy fails because analyze.py still reads sibling LANE_X1B_CROWN_LOOP source files and absolute local fulltexts. The X36 venv also lacks statsmodels, so the corrected verifier must use the separate system profile.\", \"evidence_locator\": [\"LANE_X36_META_REGRESSION/analyze.py:78\", \"LANE_X36_META_REGRESSION/run_all.sh:5\", \"evidence/X36_STANDALONE_COPY.log:1\", \"evidence/PACKAGE_FIRST_ATTEMPT_FAILED.log:1\"], \"corrected_statement\": \"Package execution supplies protected copies of all used sibling/source files at their recorded logical paths and locks both interpreter profiles. ./run_all.sh X36 in DEMO48_PACKAGE is the tested entry. A clean OS installation remains unverified.\", \"class\": \"ACCEPTED_WITH_CORRECTION\", \"severity\": \"reproducibility\", \"patch\": \"batch6_runner.py\"}]",
+      "physical_validation": "UNKNOWN",
+      "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
+      "code_files": [
+        "analyze.py",
+        "contrasts.py",
+        "deliver.py",
+        "meta_engine.py",
+        "protocol_identifiability.py",
+        "review_control.py",
+        "statsmodels_control.py",
+        "verify.py",
+        "verify_reviewed.py"
+      ],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "LANE_X36_META_REGRESSION",
+      "historical_review_date_utc": "2026-10-03T04:09:10.084644+00:00",
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "decd97e85b33e39027e92cf164b92dc51ab45afc0152d3f0d7f14ad9e4774fdf",
+          "review_sha256": "a2f6ee64566562560217489eb92913bcf8091799408faa0f82e434b2c707b732"
+        },
+        {
+          "result_sha256": "decd97e85b33e39027e92cf164b92dc51ab45afc0152d3f0d7f14ad9e4774fdf",
+          "review_sha256": "ca0691959af13da20da1cd3c1dacc11b3d90037b73a66c0cc5a0b326d6f400f4"
+        },
+        {
+          "result_sha256": "decd97e85b33e39027e92cf164b92dc51ab45afc0152d3f0d7f14ad9e4774fdf",
+          "review_sha256": "20577d85e275490523b668520c09aad0cae6e75848040102fc77922d6e57d10f"
+        }
+      ]
+    },
+    {
+      "id": "X43",
+      "title": "X43",
+      "reviewed_status": "ACCEPTED",
+      "reviewed_result_sha256": "e5d31451411bcc4427aa3f1fd38ef06237d1b35f46074895881b6126ce353f6a",
+      "review_sha256": "634773bb367c5d9c947edf767dca90aa73a88c23b8fd9787857990d673b84b74",
+      "review_batch": "LANE_XREVIEW_BATCH8",
+      "review_scope": "Historical status/evidence inventory of 52 named rows and six conservative revisions. Historical acceptance does not certify current physical validation or present project coverage.",
+      "correction": "[]",
+      "physical_validation": "UNKNOWN",
+      "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
+      "code_files": [
+        "curate_evidence.py",
+        "make_demo.py",
+        "render_plot.py",
+        "verify_cli_mutation.py"
+      ],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "LANE_X43_NORTHSTAR_STATUS",
+      "historical_review_date_utc": "2026-10-03T08:13:31.542159+00:00",
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "e5d31451411bcc4427aa3f1fd38ef06237d1b35f46074895881b6126ce353f6a",
+          "review_sha256": "27e45cf6ffee6d4f45ab4924985f94d03406b77ba173ab6aaa61b8639559d65d"
+        },
+        {
+          "result_sha256": "e5d31451411bcc4427aa3f1fd38ef06237d1b35f46074895881b6126ce353f6a",
+          "review_sha256": "634773bb367c5d9c947edf767dca90aa73a88c23b8fd9787857990d673b84b74"
+        }
+      ]
+    },
+    {
+      "id": "PROOF_LANE_PATIENT360",
+      "title": "PROOF_LANE PATIENT360",
+      "reviewed_status": "ACCEPT_WITH_CORRECTION",
+      "reviewed_result_sha256": "aeceabe94a2b4e3e736a3550cf171fc370a059875dbceb175ea7c081028a63d0",
+      "review_sha256": "374aae0c6bea68d04262561c8d36b6947b27a221dcd2cf0b57ef0e38f034782a",
+      "review_batch": "LANE_XREVIEW_BATCH9",
+      "review_scope": "Historical three-case source/tool integration; corrected frame, source-label and artifact binding. No anatomical arrays, photographs, trained weights or patient artifacts are distributed. Full producer replay requires external inputs; rigorous FE floating-point enclosure MISSING.",
+      "correction": "[\"C01: 27 specified producer checks pass; broad actual-artifact binding was not shown. The added retrospective verifier binds actual patient/frame/unit/evidence hashes, source FDI and frozen FE answers and rejects all five injected faults. It is not a universal pre-dispatch guarantee.\", \"C02: @DENTAL_CASE_ID@: semantic_map=identity and source_pulpy_fdi=fdi. @DENTAL_CASE_ID@ keeps left_right_swap. Patch metadata immediately after calibrated tooth_measure return; quantitative results unchanged.\", \"C03: Compare lexicographically sorted whole (x,y,z) vertices per facet; the unchanged oriented mesh has error 0 and the injected corner reassignment fails. Design FAIL and transport PASS remain.\", \"C04: Both cases transpose (2,1,0); @DENTAL_CASE_ID@ additionally flips y, @DENTAL_CASE_ID@ does not. Transforms and semantic maps must be stated per patient.\", \"C05: Source locks detect within-run drift only. Reviewed copies pin 309 code/weight/helper/input files and write all own data/cache locally under read-only-root and network-off execution. Local archives, installed libraries and external CPU torch runtime remain required; clean OS reproduction NOT_VERIFIED.\", \"C06: 20 documented interfaces for the selected three cases: corrected 16 producer entries plus G17 actual bindings, G18 sufficiency/enclosure, G19 replay dependencies, G20 unused photographs. Completeness beyond this audited scope is UNKNOWN.\", \"C07: Contact area alone is insufficient: summary identity error 0, stress difference 31.617342044414976 MPa. Input heat alone is insufficient: exact equal 0.2100000000000001 J, temperature differences 1.7925644551664246 / 1.424874563426937 degC. Minimal extra scalar in each fixed family: total force / cooling h; general spatial fields retained. Geometric compression at fixed other inputs remains UNTESTED. Rigorous FE floating-point enclosure MISSING.\", \"C08: Carry crop_axes and crown_axis_sign explicitly next to the field, retaining frame and source hashes. Every retained tooth voxel is checked back against the original whole-volume tooth label; no array values change.\"]",
+      "physical_validation": "UNKNOWN",
+      "profile": "SOURCE_ONLY_EXTERNAL_INPUTS",
+      "code_files": [
+        "code/audit_delivery.py",
+        "code/cbct.py",
+        "code/crown.py",
+        "code/figure.py",
+        "code/ios.py",
+        "code/report_compare.py",
+        "code/round2.py",
+        "code/round3.py",
+        "code/round4.py",
+        "code/run_pipeline.py",
+        "code/shared.py",
+        "code/verify.py",
+        "verify_snapshot.py",
+        "review_control.py"
+      ],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "PROOF_LANE_PATIENT360",
+      "historical_review_date_utc": null,
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "aeceabe94a2b4e3e736a3550cf171fc370a059875dbceb175ea7c081028a63d0",
+          "review_sha256": "1f0853fb1d5454f9604e76c78148dd412afa08d936f047016a52a3999e273fa2"
+        },
+        {
+          "result_sha256": "aeceabe94a2b4e3e736a3550cf171fc370a059875dbceb175ea7c081028a63d0",
+          "review_sha256": "374aae0c6bea68d04262561c8d36b6947b27a221dcd2cf0b57ef0e38f034782a"
+        },
+        {
+          "result_sha256": "aeceabe94a2b4e3e736a3550cf171fc370a059875dbceb175ea7c081028a63d0",
+          "review_sha256": "3daba10a2a6497ec33968e347d148da1f0bd2b5ef431ab7947c71edb7be406ce"
+        },
+        {
+          "result_sha256": "aeceabe94a2b4e3e736a3550cf171fc370a059875dbceb175ea7c081028a63d0",
+          "review_sha256": "8022303a9500e51b4e430427824687e8c2b8a32971d5de544a80b3e34771e3d5"
+        }
+      ]
+    },
+    {
+      "id": "LAB_PARTNER_SUMMARY",
+      "title": "LAB PARTNER SUMMARY",
+      "reviewed_status": "ACCEPTED",
+      "reviewed_result_sha256": "4c03ca814569bd78b6fc88da5bd3d573c26f18144d620da0984b646048eb80f1",
+      "review_sha256": "065860739983e7d3642a53d7f0c5a181a93e2664caeb5d09209d9a86a45e0481",
+      "review_batch": "LANE_XREVIEW_BATCH8",
+      "review_scope": "Historical accepted laboratory-partner document, not a new physical demonstration or current release replay claim.",
+      "correction": "[]",
+      "physical_validation": "UNKNOWN",
+      "profile": "HISTORICAL_DOCUMENT",
+      "code_files": [],
+      "full_original_pipeline_replayed": false,
+      "source_claim_type": "capability",
+      "source_job": "DEMO48_PACKAGE/LAB_PARTNER_SUMMARY.md",
+      "document": "docs/reviewed/LAB_PARTNER_SUMMARY.md",
+      "historical_review_date_utc": "2026-10-03T08:13:31.542159+00:00",
+      "historical_review_cutoff_utc": "2026-10-04T17:22:41.779335+00:00",
+      "accepted_receipts": [
+        {
+          "result_sha256": "4c03ca814569bd78b6fc88da5bd3d573c26f18144d620da0984b646048eb80f1",
+          "review_sha256": "065860739983e7d3642a53d7f0c5a181a93e2664caeb5d09209d9a86a45e0481"
+        }
+      ]
     }
   ],
   "note": "Source extraction preserves reviewed scope; portable profiles exercise specified kernels only."

@@ -112,7 +112,7 @@ def main():
     if not frozen.exists():
         write(frozen, dict(frozen_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(), patient_id=out['patient_id'], prereg_sha256=sha(P / 'PREREG_R1.json'), result_sha256=sha(P / 'rounds/R1/results.json'), predictions=dict(target36_first_touch_gap_mm=target - g0, height_edits=edits), physical_prediction='UNKNOWN; no force fit before measurement', external_search_started=False))
         frozen.with_suffix('.json.sha256').write_text(sha(frozen) + '\n')
-    write(P / 'CURRENT_WORK_STATE.json', dict(status='R1_COMPLETE', latest_gate=out['physical_gate'], next_operation='External closed-bite per-tooth force facit; change missing measurement representation', updated_utc=datetime.datetime.now(datetime.timezone.utc).isoformat()))
+    write(P / 'CURRENT_WORK_STATE.json', dict(status='R1_COMPLETE', latest_gate=out['physical_gate'], next_operation='External closed-bite per-tooth force reference ; change missing measurement representation', updated_utc=datetime.datetime.now(datetime.timezone.utc).isoformat()))
     print(json.dumps({k: out[k] for k in ['source_crowns', 'possible_projected_pairs', 'source_pose_minimum_gap_mm', 'target36_first_touch_gap_mm', 'height_for_target36_to_become_first_touch_mm', 'cost']}, indent=2))
     print('controls', out['controls']['all_pass'])
 if __name__ == '__main__':

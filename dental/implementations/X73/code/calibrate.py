@@ -112,7 +112,7 @@ def main():
     writecsv(ROOT / 'raw/HELDOUT_POLICIES.csv', policies)
     result['unique_tooth_consumers'] = unique
     dump(ROOT / 'raw/CALIBRATION_RESULT.json', result)
-    (ROOT / 'HANDOFF_R2.md').write_text("# R2 : coverage must follow the wall dimension\n\nAll candidate patients and support -/ directional states are present in raw/PATIENTS.json and hashade puncture arrays. Frozen strict patient maximum gate retains each missing beam as INF; its outcome is found in radial_segments in raw/CALIBRATION_RESULT.json.\n\nR3 changes the operation: the targeted distance loss of the issue to the Union of actually published masks instead of a placeless wall - P95 . The guide coupling replaces no unknown anatomy errors.\n")
+    (ROOT / 'HANDOFF_R2.md').write_text('# R2 : coverage must follow the wall dimension\n\nAll candidate patients and support -/ directional states are present in raw/PATIENTS.json and hashade puncture arrays. Frozen strict patient maximum gate retains each missing beam as INF; its outcome is found in radial_segments in raw/CALIBRATION_RESULT.json.\n\nR3 changes the operation: the targeted distance loss of the issue to the Union of actually published masks instead of a placeless wall - P95 . The guide coupling replaces no unknown anatomy errors.\n')
     state('R3_CALIBRATION_COMPLETE', dict(finite_strict_radial_segments=sum((r['gate_finite_95percent_margin'] for r in radial)), finite_query_budgets=sum((q['wall_loss_budget95_mm'] != 'INF' for q in query)), independent_margin=False), 'Run independent controls and injected corruption probes')
     print(json.dumps(dict(radial=radial, query=query, direct=[r for r in direct if r['segment'] == 'ALL']), indent=2))
 if __name__ == '__main__':

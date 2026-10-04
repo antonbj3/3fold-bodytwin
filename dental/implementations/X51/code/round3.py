@@ -71,7 +71,7 @@ def main():
     dhat = 0.0
     slow = 0.0
     fast = 80 / 7
-    suff = {'summary': 'current real drift um', 'state_current_um': [0.0, 0.0], 'identity_error_um': 0.0, 'next_week_gap_um': [50.0, 130.0], 'downstream_difference_um': 80.0, 'minimum_extension': 'A validated upper increment over the release horizon (rate bound plus jump/event handling)', 'resolution': 'PER_SURFACE_REGION', 'scope': 'constructed conditional additive model, not external dental facit'}
+    suff = {'summary': 'current real drift um', 'state_current_um': [0.0, 0.0], 'identity_error_um': 0.0, 'next_week_gap_um': [50.0, 130.0], 'downstream_difference_um': 80.0, 'minimum_extension': 'A validated upper increment over the release horizon (rate bound plus jump/event handling)', 'resolution': 'PER_SURFACE_REGION', 'scope': 'constructed conditional additive model, not external dental reference'}
     badguard = interval_hold(50, 0, 20, 0, 7, 120)
     bad_refutes = badguard['verdict'] == 'MODEL_WITHIN_LIMIT' and 50 + 80 > 120
     checks = [dict(name='FINITE_BASELINE_STUDENT', nominal_pass=abs(mc - analytic) < 0.005 and analytic <= 0.05, injected_error_rejected=4 * W * student.sf(3, N - 1) > 0.05, detail={'mc': mc, 'analytic': analytic, 'expected_budget_exact': 0.05}), dict(name='HORIZON_ENCLOSURE', nominal_pass=unsafe == 0 and enclosure_residual < 1e-10, injected_error_rejected=bad_refutes, detail={'unsafe_intervals': unsafe, 'endpoint_control_error_um': enclosure_residual}), dict(name='HISTORY_SUMMARY_SUFFICIENCY', nominal_pass=suff['identity_error_um'] == 0 and suff['downstream_difference_um'] > 1, injected_error_rejected=bad_refutes)]

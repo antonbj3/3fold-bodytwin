@@ -8,7 +8,7 @@ from pathlib import Path
 sys.dont_write_bytecode = True
 HERE = Path(__file__).resolve().parents[1]
 DENTAL = HERE.parents[1]
-RESULTS = DENTAL / 'results'
+IMPLEMENTATIONS = DENTAL / 'implementations'
 
 def sha(path):
     h = hashlib.sha256()
@@ -22,17 +22,17 @@ def verify_dependencies():
     for row in lock['files']:
         if sha(row['path']) != row['sha256']:
             raise ValueError('Pinned predecessor changed: ' + row['path'])
-sys.path.insert(0, str(RESULTS / 'LANE_X34_STL_DESIGN_GATE' / 'code'))
+sys.path.insert(0, str(IMPLEMENTATIONS / 'X34' / 'code'))
 from designgate import gate as original_gate
 from designgate import geometry, distance
-sys.path.insert(0, str(RESULTS / 'LANE_X38_EXPORT_GATE' / 'code'))
+sys.path.insert(0, str(IMPLEMENTATIONS / 'X38' / 'code'))
 import mesh_transport as transport
 import exportgate
-sys.path.insert(0, str(RESULTS / _release_expand('PROOF_LANE')))
+sys.path.insert(0, str(IMPLEMENTATIONS / 'PROOF_LANE'))
 from gencad_bench.checks import milling, inherited
 
 def load_cement():
-    path = RESULTS / _release_expand('X13') / 'cement_port.py'
+    path = IMPLEMENTATIONS / 'X13' / 'cement_port.py'
     spec = importlib.util.spec_from_file_location('x49_cement', path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)

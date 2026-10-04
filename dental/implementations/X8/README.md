@@ -1,6 +1,6 @@
 # Guide error and mandibular canal proximity — research demo
 
-Source entry: `X8`. Source review status: `INTE_REDO_COPY_FAILURE`. Source claim type: `UNKNOWN`. Physical validation in this release: UNKNOWN.
+Source entry: `X8`. Source review status: `NOT_READY_COPY_FAILURE`. Source claim type: `UNKNOWN`. Physical validation in this release: UNKNOWN.
 
 The export contains 20 source files. The full original pipeline is SOURCE_ONLY_EXTERNAL_INPUTS and has not been replayed from this repository.
 

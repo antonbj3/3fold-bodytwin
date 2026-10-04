@@ -97,7 +97,7 @@ def extract():
     pmc = 'PMC10828905'
     tid = 'cre2843-tbl-0002'
     for (i, row) in enumerate(raw[pmc][tid][1:], 1):
-        region = {'Marginal': 'marginal', 'Axial': 'axial', 'Cervical': 'cervical', 'Pulpal': 'pulpal', 'Internal': 'internal_overall'}[row[0]]
+        region = {'Marginal': 'marginal', 'Axial': 'axial', 'Cervical': 'cervical', 'Pulpl': 'pulpal', 'Internal': 'internal_overall'}[row[0]]
         add(pmc, tid, i, 3, row[1] + '/' + row[2], region, 60, number(row[3]), number(row[4]), material='lithium_disilicate' if 'max' in row[2] else 'zirconia', n=int(row[5]))
     pmc = 'PMC10971874'
     tid = 'materials-17-01411-t002'

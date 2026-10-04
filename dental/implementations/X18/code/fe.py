@@ -124,6 +124,6 @@ def run():
         np.savez_compressed(D / (str(case) + '_' + str(fdi) + '_fe_loads.npz'), **{k: v for (k, v) in loads.items() if v is not None}, sphere_mask=sphere)
         results.append(dict(case=case, fdi=fdi, type=rr['type'], crossloaded_same_original_roof=True, answers=ans, cost=cost))
         print('FE', case, fdi, cost['wall_seconds'], flush=True)
-    dump(H / 'raw/FE_RESULTS.json', dict(claim_type='capability', rows=results, force_status='UNKNOWN physical pressure; normalized 100N scenario', external_referent=dict(kind='our_own_fixture', locator='code/fe.py same-original-roof cross-load model; NOT external stress facit', compared_quantity='Conditional P1 roof tensile stress from different geometric contact masks', refutes_us=False), physical_stress_accuracy='UNKNOWN', constitutive_contract=pr['fe_contract']))
+    dump(H / 'raw/FE_RESULTS.json', dict(claim_type='capability', rows=results, force_status='UNKNOWN physical pressure; normalized 100N scenario', external_referent=dict(kind='our_own_fixture', locator='code/fe.py same-original-roof cross-load model; NOT external stress reference', compared_quantity='Conditional P1 roof tensile stress from different geometric contact masks', refutes_us=False), physical_stress_accuracy='UNKNOWN', constitutive_contract=pr['fe_contract']))
 if __name__ == '__main__':
     run()

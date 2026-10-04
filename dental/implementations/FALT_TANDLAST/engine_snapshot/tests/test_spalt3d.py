@@ -139,7 +139,7 @@ def test_reviewed_empty_certificate_rejected():
     a = enclose_gap_box(pb)
     a['records'] = []
     a['bounds'] = {}
-    a['status'] = 'ENTYDIG'
+    a['status'] = 'UNIQUE'
     assert not verify_gap_enclosure(pb, a)
 
 def test_reviewed_enumeration_zero_budget_is_lazy():

@@ -23,13 +23,13 @@ def main():
     assert ids == frozen['front_ids'] and ledger['requested'] == ids and (ledger['completed'] == 12)
     assert ledger['pass_count'] == 12 and ledger['failure_count'] == 0
     assert result['scientific_status_promotions'] == result['physical_measurements'] == 0
-    assert result['status_counts'] == {'EXIST': 7, 'DELVIS': 39, "REFUTED": 2, 'FORSKNING': 3, 'SAKNAS': 1}
+    assert result['status_counts'] == {'PRESENT': 7, 'PARTIAL': 39, 'REFUTED': 2, 'RESEARCH': 3, 'MISSING': 1}
     assert len(re.findall('^\\| `', all_demos, re.M)) == 101
     assert result['command_wall_seconds'] == ledger['wall_seconds']
-    assert f"{ledger['wall_seconds']:.3f} s" in front and "IN_PROGRESS" not in front
-    assert 'R7 exakt sammanfattning FAIL' in front and 'target_id=null' in front
-    assert "No paired improvement against R1–R3" in front and 'REJECT / INTE_REDO' in front
-    assert "no new rerun" in front and result['eligible_hash_only_count'] == 88
+    assert f"{ledger['wall_seconds']:.3f} s" in front and 'IN_PROGRESS' not in front
+    assert 'R7 exact summary FAIL' in front and 'target_id=null' in front
+    assert 'No paired improvement against R1–R3' in front and 'REJECT / NOT_READY' in front
+    assert 'no new rerun' in front and result['eligible_hash_only_count'] == 88
     code = read(HERE / 'FROZEN_CODE_X86B.json')
     assert ledger['runtime_code_sha256'] == sha(HERE / 'FROZEN_CODE_X86B.json')
     for (name, want) in code['files'].items():

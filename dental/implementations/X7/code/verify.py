@@ -58,7 +58,7 @@ def run():
     except ValueError:
         rejected = True
     ck('Injected invalid landmark basis rejected', rejected)
-    write('VERIFICATION.json', dict(checks=checks, n=len(checks), passed=sum((x['pass_check'] for x in checks)), independent_review=False, clinical_validity=False, fixture='Landmark algebra fixture is our own internal test, not the external facit'))
+    write('VERIFICATION.json', dict(checks=checks, n=len(checks), passed=sum((x['pass_check'] for x in checks)), independent_review=False, clinical_validity=False, fixture='Landmark algebra fixture is our own internal test, not the external reference'))
     if not all((x['pass_check'] for x in checks)):
         raise RuntimeError('Integrity/semantic failure')
     print('Verification', len(checks), 'PASS')

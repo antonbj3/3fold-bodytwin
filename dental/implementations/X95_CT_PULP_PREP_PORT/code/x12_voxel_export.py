@@ -1,4 +1,4 @@
-"""Exact X12 ASCII voxel export functions; source remains INTE_REDO. No source outputs are written."""
+"""Exact X12 ASCII voxel export functions; source remains NOT_READY. No source outputs are written."""
 import numpy as np
 import hashlib
 

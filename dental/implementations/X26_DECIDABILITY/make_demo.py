@@ -48,7 +48,7 @@ def main():
     settings = [int(x['arm'].split()[0][1:]) for x in cells]
     ax.errorbar(settings, [x['source_mean_um'] for x in cells], yerr=[x['source_sd_um'] for x in cells], fmt='o-', capsize=4, label='Measured group mean ± specimen SD')
     ax.plot(settings, settings, '--', color='#999999', label='CAD value = reported gap')
-    ax.set(xlabel='CAD spacer setting [µm]', ylabel='Measured dry marginal gap [µm]', title='C. Independent laboratory facit | POPULATION')
+    ax.set(xlabel='CAD spacer setting [µm]', ylabel='Measured dry marginal gap [µm]', title='C. Independent Laboratory reference | POPULATION')
     ax.legend(fontsize=8)
     ax.text(0.38, 0.4, 'Cureus 2023, Table 2\nDOI 10.7759/cureus.38688', transform=ax.transAxes, fontsize=8)
     ax = axs[1, 1]

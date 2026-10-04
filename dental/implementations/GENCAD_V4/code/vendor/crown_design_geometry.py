@@ -1,4 +1,26 @@
-"crown_design_geometry.py — DENT-DESIGN-CROWN geometri: verklig molar -> SDF -> syntetisk preparation -> krona/die.\n\nRe-uses K2 : s Geometric Core (cells/manufacturing/crown_fit_geometry.py , dental workspace 2026 -09 -23 :\ndental frame, exact redistans A143, make_preparation, morphological opening/ closure). No copied; import via path.\n\nFall (dokumenterat, syntetiskt): OpenMandible basmodell (git e1f8cef, DOI 10.1016/j.dental.2021.01.009),\nTooth_L6 = FDI 36 (lower left first molar) with real neighbors L5 ( FDI 35 ) and L7 ( FDI 37 ) in the same frame.\nAntagonist: OpenMandible lacks an upper jaw -> antagonist represented by a sphere (radie R_ant ) inserted in\nthe crown's Central Fossa (ANTAGANDE, see REPORT §Fall). Data license for STL UNKNOWN -> is processed local , is not disseminated.\n\nDesign variables bearing geometry (x):\n  t_occ minimum occlusive crown wall thickness [mm ] (preparation = normal-erosion of the anatomy with t_occ + s )\n  t_ax axial reduction = chamfer depth = axial wall thickness at margin [mm ]\n  r_f occlusal fissure rounding [mm ]: morphological closure of the anatomic outer shape (fills fissures,\n          Adds only material where a bullet with radius r_f does not reach -> can never penetrate an antagonist-\n          sphere with radius >= r_f ; see g_occl )\n  s cement gap (set-up, internal) [mm ); preparation reduced t + s , intaglio = prep dilated s\n  r_tool  ball end mill radius at the sintered scale [mm]: outer surface concavities < r_tool cannot be milled -> closure\nFixed (hot/preparation parameters): convergence 3° per wall (6° total), line angle radius 0,5 mm ( min ( 0,5 , t_occ ));\nchamfer holes 0,9 · t_ax , margin plane z_m = lowest point of enamel + 1,0 mm (as K2 ).\n\nEnheter: mm. SDF negative inside. Large fields -> SCRATCH ( INTENSO ).\n"
+"""crown_design_geometry.py — DENT - DESIGN - CROWN geometry : real molar -> SDF -> synthetic preparation -> crown /die.
+
+Re-uses K2 : s Geometric Core (cells/manufacturing/crown_fit_geometry.py , dental workspace 2026 -09 -23 :
+dental frame, exact redistans A143, make_preparation, morphological opening/ closure). No copied; import via path.
+
+Fall (dokumenterat, syntetiskt): OpenMandible basmodell (git e1f8cef, DOI 10.1016/j.dental.2021.01.009),
+Tooth_L6 = FDI 36 (lower left first molar) with real neighbors L5 ( FDI 35 ) and L7 ( FDI 37 ) in the same frame.
+Antagonist: OpenMandible lacks an upper jaw -> antagonist represented by a sphere (radie R_ant ) inserted in
+the crown's Central Fossa (ANTAGANDE, see REPORT §Fall). Data license for STL UNKNOWN -> is processed local , is not disseminated.
+
+Design variables bearing geometry (x):
+  t_occ minimum occlusive crown wall thickness [mm ] (preparation = normal-erosion of the anatomy with t_occ + s )
+  t_ax axial reduction = chamfer depth = axial wall thickness at margin [mm ]
+  r_f occlusal fissure rounding [mm ]: morphological closure of the anatomic outer shape (fills fissures,
+          Adds only material where a bullet with radius r_f does not reach -> can never penetrate an antagonist-
+          sphere with radius >= r_f ; see g_occl )
+  s cement gap (set-up, internal) [mm ); preparation reduced t + s , intaglio = prep dilated s
+  r_tool  ball end mill radius at the sintered scale [mm]: outer surface concavities < r_tool cannot be milled -> closure
+Fixed (hot/preparation parameters): convergence 3° per wall (6° total), line angle radius 0,5 mm ( min ( 0,5 , t_occ ));
+chamfer holes 0,9 · t_ax , margin plane z_m = lowest point of enamel + 1,0 mm (as K2 ).
+
+Enheter: mm. SDF negative inside. Large fields -> SCRATCH ( INTENSO ).
+"""
 from dental_release.paths import expand as _release_expand
 import os
 import sys
@@ -14,7 +36,8 @@ OM_STL = G.OM_STL
 Z_BOT_BELOW_MARGIN = 3.0
 
 def arch_frame(R, c):
-    "Buckal and mesial direction for L6 in the dental frame from the entire dental centroids of the arc ( OpenMandible - frame ).\n    Buckal = away from the centre of the arc (projected on the tooth xy plane); mesial = against L5 ."
+    """Buckal and mesial direction for L6 in the dental frame from the entire dental centroids of the arc ( OpenMandible - frame ).
+    Buckal = away from the centre of the arc (projected on the tooth xy plane); mesial = against L5 ."""
     import trimesh
     cents = {}
     for side in 'LR':
@@ -35,7 +58,7 @@ def arch_frame(R, c):
     return {'buccal': b, 'mesial': m, 'centroids_model': {k: v.tolist() for (k, v) in cents.items()}}
 
 def neighbours_in_frame(R, c):
-    """Grannarnas emalj (L5, L7) som trianglar i tandramen -> proximal kontroll."""
+    """Neighbor enamel (L5, L7 ) that triangles in the tooth frame -> proximal control ."""
     import trimesh
     out = {}
     for t in ('L5', 'L7'):
@@ -44,7 +67,7 @@ def neighbours_in_frame(R, c):
     return out
 
 def build_case(h, cache=True):
-    "The SDF of the tooth frame on grid with site for die down to z_m - 3 mm . Cache i SCRATCH."
+    """The SDF of the tooth frame on grid with site for die down to z_m - 3 mm . Cache i SCRATCH."""
     os.makedirs(SCRATCH, exist_ok=True)
     fn = os.path.join(SCRATCH, f'case_h{h}.npz')
     if cache and os.path.exists(fn):
@@ -67,7 +90,13 @@ def build_case(h, cache=True):
     return dict(grid=grid, phi_T=phi_T, z_m=z_m, R=R, c=c, buccal=af['buccal'], mesial=af['mesial'])
 
 def preparation(case, t_occ, t_ax, s=0.0, cache=True):
-    "Synthetic full crown repair for crown with minimum wall thickness t_occ (occlusal, normal to the surface) and\n    Chamfer depth t_ax, with cement gap s included in the reduction (CAD: thickness = crown material, gap added inside).\n    Based on K2 make_preparation ( cells/manufacturing/crown_fit_geometry.py ) but the occlusive reduction is a\n    exactly normal-erosion of the anatomy with ( t_occ + s ) instead of an axial displacement (the displacement gave\n    normal thickness t*cos(slope): 0.64 mm minimum at 1.0 mm in the pilot). Axial: the contour at z_m displaced inwards ( t_ax + s );\n    3° per wall ; preparation = average of axial and occlusive terms (the most reduced wins), line angles\n    opens (radie min (0,5 , t_occ )), closes chamfer hole ( 0,9 · t_ax ). Under z_m untouched tooth."
+    """Synthetic full crown repair for crown with minimum wall thickness t_occ (occlusal, normal to the surface) and
+    Chamfer depth t_ax, with cement gap s included in the reduction (CAD: thickness = crown material, gap added inside).
+    Based on K2 make_preparation ( cells/manufacturing/crown_fit_geometry.py ) but the occlusive reduction is a
+    exactly normal-erosion of the anatomy with ( t_occ + s ) instead of an axial displacement (the displacement gave
+    normal thickness t*cos(slope): 0.64 mm minimum at 1.0 mm in the pilot). Axial: the contour at z_m displaced inwards ( t_ax + s );
+    3° per wall ; preparation = average of axial and occlusive terms (the most reduced wins), line angles
+    opens (radie min (0,5 , t_occ )), closes chamfer hole ( 0,9 · t_ax ). Under z_m untouched tooth."""
     (grid, h) = (case['grid'], case['grid'].h)
     key = f'prepE_h{h}_o{t_occ:.3f}_a{t_ax:.3f}_s{s:.3f}.npz'
     fn = os.path.join(SCRATCH, key)
@@ -99,7 +128,8 @@ def preparation(case, t_occ, t_ax, s=0.0, cache=True):
     return (prep, margin)
 
 def outer_form(case, r_f=0.0, r_tool=0.0, cache=True):
-    "The crown's outer shape: anatomical surface (OpenMandible L6 ) closed with r = max(r_f , r_tool ).\n    r_tool : the ball cutter cannot milling outer concaves with curvature radius < r (material remains) -> closure ."
+    """The crown's outer shape: anatomical surface (OpenMandible L6 ) closed with r = max(r_f , r_tool ).
+    r_tool : the ball cutter cannot milling outer concaves with curvature radius < r (material remains) -> closure ."""
     grid = case['grid']
     r = max(r_f, r_tool)
     if r <= 0:
@@ -113,7 +143,8 @@ def outer_form(case, r_f=0.0, r_tool=0.0, cache=True):
     return phi
 
 def crown_and_die(case, prep, phi_O, s):
-    " Crown  = outer shape   s  ( A143 -redistans).\n    Die = intlio (above margin, the cement is counted as die-material)  tooth  under margin, kapad  z_m  -  3   mm ."
+    """ Crown  = outer shape   s  ( A143 -redistans).
+    Die = intlio (above margin, the cement is counted as die-material)  tooth  under margin, kapad  z_m  -  3   mm ."""
     (grid, z_m) = (case['grid'], case['z_m'])
     Z = grid.axes()[2][None, None, :]
     phi_I = G.dilate(G.redistance_lowmem(prep, grid, levels=(0.0, s)), grid, s) if s > 0 else prep
@@ -123,7 +154,7 @@ def crown_and_die(case, prep, phi_O, s):
     return (crown, die, phi_I)
 
 def volume(phi, grid, zmin=None):
-    "Volume [ mm ^ 3 ] from SDF with subvoxel coating clip( 0,5 - phi/h, 0 , 1 )."
+    """Volume [ mm ^ 3 ] from SDF with subvoxel coating clip( 0,5 - phi/h, 0 , 1 )."""
     occ = np.clip(0.5 - phi / grid.h, 0, 1)
     if zmin is not None:
         Z = grid.axes()[2][None, None, :]
@@ -131,7 +162,9 @@ def volume(phi, grid, zmin=None):
     return float(occ.sum() * grid.h ** 3)
 
 def thickness_stats(crown, phi_I, phi_O, grid, z_m, t_ax=1.0):
-    "Wall thickness = distance from the inlet surface points to the outer surface (- phi_O, exactly close to the surface).\n    Occlusal : Intakelio-normal n_z >= 0,5 and z > z_m + 2 · t_ax + 0,5 (above the chamfer). Axial: n_z < 0,5 and\n    z > z_m + 1,0 (the chamfer's thin outlet against the margin is excluded and is separately declared as ‘margin_zone')."
+    """Wall thickness = distance from the inlet surface points to the outer surface (- phi_O, exactly close to the surface).
+    Occlusal : Intakelio-normal n_z >= 0,5 and z > z_m + 2 · t_ax + 0,5 (above the chamfer). Axial: n_z < 0,5 and
+    z > z_m + 1,0 (the chamfer's thin outlet against the margin is excluded and is separately declared as ‘margin_zone')."""
     (V, F) = G.surface_mesh(phi_I, grid)
     V = V[V[:, 2] > z_m + 0.05]
     V = V[grid.sample(phi_O, V, cval=1.0) < 0]
@@ -146,7 +179,8 @@ def thickness_stats(crown, phi_I, phi_O, grid, z_m, t_ax=1.0):
     return {'occl_min': q(t[occl], 0.1), 'occl_p5': q(t[occl], 5), 'occl_median': q(t[occl], 50), 'axial_min': q(t[ax], 0.1), 'axial_p5': q(t[ax], 5), 'axial_median': q(t[ax], 50), 'margin_zone_p50': q(t[mz], 50), 'n_occl': int(occl.sum()), 'n_axial': int(ax.sum())}
 
 def surface_for_fe(phi, grid, target_edge, out_stl, smooth_iter=0):
-    "Zero level -> marching cubes -> pymeshlab isotropic ommeshning (target edge target_edge mm ) -> STL .\n    Returns (V, F) and quality measures. Control : waterproof, 2 -diversity."
+    """Zero level -> marching cubes -> pymeshlab isotropic ommeshning (target edge target_edge mm ) -> STL .
+    Returns (V, F) and quality measures. Control : waterproof, 2 -diversity."""
     import pymeshlab
     import trimesh
     (V, F) = G.surface_mesh(phi, grid)
@@ -165,7 +199,11 @@ def surface_for_fe(phi, grid, target_edge, out_stl, smooth_iter=0):
     return (np.asarray(tm.vertices), np.asarray(tm.faces), info)
 
 def proximal_and_occlusal_checks(case, crown, grid, R_ant=2.5, d_fossa=None):
-    "g conditions that geometry can test without a registered antagonist:\n    - Proximal: minimum distance crown -> neighbor enamel (L5, L7) [mm]; < 0 = penetration (ANTAGANDE : OpenMandible -\n      the arc is in contact; the original tooth gives the reference value)\n    - occlusal : antagonist sphere (radie R_ant ) set in the crown's fossa; penetrating the sphere set in\n      The original form (before design change) = interference [mm ]."
+    """g conditions that geometry can test without a registered antagonist:
+    - Proximal: minimum distance crown -> neighbor enamel (L5, L7) [mm]; < 0 = penetration (ANTAGANDE : OpenMandible -
+      the arc is in contact; the original tooth gives the reference value)
+    - occlusal : antagonist sphere (radie R_ant ) set in the crown's fossa; penetrating the sphere set in
+      The original form (before design change) = interference [mm ]."""
     nb = neighbours_in_frame(case['R'], case['c'])
     out = {}
     for (t, (V, F)) in nb.items():

@@ -21,7 +21,7 @@ env = dict(os.environ, OMP_NUM_THREADS='4', OPENBLAS_NUM_THREADS='4', MKL_NUM_TH
 try:
     r = subprocess.run(command, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     (HERE / 'raw/RELEASE_LOCK_INJECTED_HASH.log').write_text(r.stdout)
-    result = {'command': command, 'exit_code': r.returncode, 'wall_seconds': time.monotonic() - start, 'injected_value': '0' * 64, 'injected_field': 'demos.json expected SHA256 in own copied release-lock candidate', 'same_original_loop': 'package_runner.py main PACKAGE_CODE_LOCK check', 'rejected': r.returncode != 0 and 'Package code or lock drift: demos.json' in r.stdout, 'original_scientific_comparisons_reached': False, 'installed_contract': installed, 'scope': 'Administrative byte-identity control, own fault fixture; no physical facit'}
+    result = {'command': command, 'exit_code': r.returncode, 'wall_seconds': time.monotonic() - start, 'injected_value': '0' * 64, 'injected_field': 'demos.json expected SHA256 in own copied release-lock candidate', 'same_original_loop': 'package_runner.py main PACKAGE_CODE_LOCK check', 'rejected': r.returncode != 0 and 'Package code or lock drift: demos.json' in r.stdout, 'original_scientific_comparisons_reached': False, 'installed_contract': installed, 'scope': 'Administrative byte-identity control, own fault fixture; no physical reference'}
     write(HERE / 'raw/RELEASE_LOCK_INJECTED_HASH.json', result)
     print(result['exit_code'], result['rejected'])
     assert result['rejected']

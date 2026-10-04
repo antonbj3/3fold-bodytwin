@@ -58,7 +58,7 @@ def run():
             rows.append(dict(task_id=t['task_id'], status='UNKNOWN_MISSING_DESIGN'))
             continue
         d = read(designfile)
-        row = dict(task_id=t['task_id'], family=t['family'], level=t['level'] if 'level' in t else taskfile.stem.rsplit('_', 1)[1], source_task_sha256=sha(taskfile), source_design_sha256=sha(designfile), source_design_file=str(designfile), resolution='PER_POINT', external_and_full_restoration_access='UNKNOWN_UNMODELED_AXIAL_AND_FIXTURE')
+        row = dict(task_id=t['task_id'], family=t['family'], level=t['level'] if 'level' in t else taskfile.stem.rsplit('_', 1)[1], source_task_sha256=sha(taskfile), source_design_sha256=sha(designfile), source_design_file=str(designfile), resolution='PER_POINT', external_and_full_restoration_access='UNKNOWN_UNMODELLED_AXIAL_AND_FIXTURE')
         if t.get('status') != 'READY':
             row.update(status='UNKNOWN_SOURCE_SITE', reason=t.get('status'))
             rows.append(row)

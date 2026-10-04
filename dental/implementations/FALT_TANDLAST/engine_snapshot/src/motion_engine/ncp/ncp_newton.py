@@ -425,7 +425,7 @@ def solve(pb: Problem, tol=1e-10, max_iter=200, desaxce='newton', linsolver='aut
     return dict(lam=lamv, v=v, x=x, s=s, z=z, natres=fin, iters=it, hist=hist, time=T, t_fact=lin.t_fact + lin_ns.t_fact, t_solve=lin.t_solve + lin_ns.t_solve, n_fact=lin.n_fact + lin_ns.n_fact, n_nonsym=n_ns, t_natres=t_natres, converged=bool(fin < tol), status=status, linsolver=lin.kind)
 
 def _branch_maps(pb, lab, d):
-    """U = E J (rows), Vt = T^T J (rows) so V = J^T T = Vt^T; ny; index maps."""
+    """U = E J (rows), Vt = T^T J (rows) so V = J^T T = Vt^T; new ; index maps."""
     nc = pb.nc
     S = np.where(lab == 1)[0]
     P = np.where(lab == 2)[0]

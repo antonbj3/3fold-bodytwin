@@ -5,7 +5,7 @@
   "case": "6158-21",
   "material": "KATANA_ML",
   "artifact_version": "R2",
-  "review_type": "Oberoende verifiering av befintliga exporter; ingen konstruktion eller forskningsrunda",
+  "review_type": "Independent verification of existing exports; no design or research round",
   "selection": {
     "method": "The only sample is explicitly selected by the client before reading the results.",
     "items": [
@@ -783,7 +783,7 @@
     "The original scan has 879 open edges; the result applies to its existing surfaces.",
     "The source's label-boundary is the provided reference; no physical finish-line metrology was compared.",
     "No later designs, second preparations, second materials or milling results were reviewed.",
-    "Exakta CGAL-predicate certifies threshold outcomes; reported numerical minima calculated separately in binary64 and minimizing triangle pairs were also delimited with precise thresholds ±1e-9 source unit."
+    "Precise CGAL predicate certifies threshold outcomes; reported numerical minima were calculated separately in binary 64 and minimizing triangle pairs were additionally delimited with exact thresholds ± 1e-9 source unit ."
   ],
   "corrections": [
     {
@@ -812,9 +812,9 @@
     "source_files_embedded_below": true,
     "steps": [
       "Create a new separately runtime directory on . Type Output embedded_code to the corresponding file name.",
-      "Copy the three original files in exports.inputs to the runtime directory and check the specified sha256. Copy the four existing programs from exact_replay_binary_sources dit.",
-      "Run the python3 verify_geometry.py, python3 verify_motion.py, python3 replay_exact.py and python3 controls.py med OMP_NUM_THREADS=OPENBLAS_NUM_THREADS=NUMBA_NUM_THREADS=1.",
-      "Resultaten skrivs endast i runtime-katalogen; ta bort den efter granskning."
+      "Copy the three original files in exports.inputs to the runtime directory and check the specified sha 256 . Copy the four existing programs from exact_replay_binary_sources there.",
+      "Run python 3 verify_geometry.py , python 3 verify_motion.py , python 3 replay_exact.py and python 3 controls.py with OMP_NUM_THREADS = OPENBLAS_NUM_THREADS = NUMBA_NUM_THREADS = 1 .",
+      "The results are only written in the runtime directory; remove it after review ."
     ],
     "python_version": "3.10.12",
     "dependencies": {

@@ -170,7 +170,7 @@ def run():
     (OUT / 'results_R3.json').write_text(json.dumps(clean(out), indent=2, allow_nan=False) + '\n')
     unique = {r['path']: r for r in source}
     (OUT / 'SOURCE_MANIFEST_K37.json').write_text(json.dumps(list(unique.values()), indent=2) + '\n')
-    (OUT / 'HANDOFF_R3.md').write_text("# R3 : material fields and consumer bounded\n\n" + json.dumps(summary, indent=2) + '\n\n' + json.dumps(clean(gate)) + "\n\nAbsolute patient-E and complete implant decision UNKNOWN. Next physical construction: water + two certified HA levels in the bone area and a separate HA intermediate step in the same image, repeated position/protocol validation and paired mandibulatory mechanics test.\n")
+    (OUT / 'HANDOFF_R3.md').write_text('# R3 : material fields and consumer bounded\n\n' + json.dumps(summary, indent=2) + '\n\n' + json.dumps(clean(gate)) + '\n\nAbsolute patient-E and complete implant decision UNKNOWN. Next physical construction: water + two certified HA levels in the bone area and a separate HA intermediate step in the same image, repeated position/protocol validation and paired mandibulatory mechanics test.\n')
     s = json.loads((P / 'CURRENT_WORK_STATE.json').read_text())
     s.update(phase='R3_COMPLETE', latest_gate=clean(gate), next_operation='package one-command demo, independent referents, minimum measurement contract and figure')
     (OUT / 'CURRENT_WORK_STATE.json').write_text(json.dumps(s, indent=2) + '\n')

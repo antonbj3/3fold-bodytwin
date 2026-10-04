@@ -1,4 +1,4 @@
-# Komplett negativ krongeneratorbenchmark
+# Complete negative crown generator benchmark
 
 Source entry: `X42`. Source review status: `DEMO_READY_WITH_CORRECTION`. Source claim type: `UNKNOWN`. Physical validation in this release: UNKNOWN.
 

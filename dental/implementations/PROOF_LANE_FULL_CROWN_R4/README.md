@@ -1,4 +1,4 @@
-# Granskad kronytteranatomi med exakt marginal
+# Reviewed outer crown anatomy with an exact margin
 
 Source entry: `PROOF_LANE_FULL_CROWN_R4`. Source review status: `DEMO_READY_WITH_CORRECTION`. Source claim type: `['capability']`. Physical validation in this release: UNKNOWN.
 

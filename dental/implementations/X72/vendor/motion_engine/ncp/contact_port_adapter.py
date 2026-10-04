@@ -134,7 +134,7 @@ def from_global_verdict(verdict, *, source):
     data = {k: getattr(verdict, k) for k in ('status', 'reason', 'velocity', 'impulse_witness', 'input_sha256', 'scope')}
     w = Witness('global_contact_verdict', canonical(data), digest(data), source)
     bs = (Branch('rigid:0', canonical({'velocity': data['velocity']}), (w,)),) if data['velocity'] else ()
-    complete = data['status'] in ('ENTYDIG', 'UNIQUE') and bool(bs)
+    complete = data['status'] in ('UNIQUE', 'UNIQUE') and bool(bs)
     return BranchSet(bs, complete, data['scope'], w if complete else None, data['reason'])
 
 def from_reachability(reach, *, source):

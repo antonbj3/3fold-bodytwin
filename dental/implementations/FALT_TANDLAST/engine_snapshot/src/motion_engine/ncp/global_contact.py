@@ -71,6 +71,6 @@ def global_rigid_translation_verdict(contact_xy, height, inverse_mass, free_velo
         if computed != velocity:
             raise ValueError('exact existence witness failed')
         encoded = json.dumps([[[str(t) for t in row] for row in xy], str(h), list(map(str, mi)), list(map(str, vf)), str(mu)], separators=(',', ':'))
-        return GlobalContactVerdict('ENTYDIG', 'global normal work and positive tangential work form', velocity, imp, sha256(encoded.encode()).hexdigest())
+        return GlobalContactVerdict('UNIQUE', 'global normal work and positive tangential work form', velocity, imp, sha256(encoded.encode()).hexdigest())
     except (TypeError, ValueError, ZeroDivisionError, OverflowError) as exc:
         return GlobalContactVerdict('UNKNOWN', str(exc))

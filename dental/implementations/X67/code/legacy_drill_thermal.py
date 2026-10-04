@@ -1,10 +1,10 @@
-"DENT-PROC-DRILL-THERMAL — transient heat in bone during incremental implant drilling (K3, 2026-09-23).\n\nFree standing cell. Axisymmetric (r,z) finit-volym, explicit tidsstegning (numba), med\n  * Moving heat source at the drill point: P_ben = eta * u(f_rev) * v * A_cut * phi(z)       [W]\n      u(f_rev) = U0 * (f_rev/F0)^(-M_SIZE)   Specific cutting energy with size effect (Kienzle-form)\n      A_cut    = pi/4 (D^2 - d_prev^2)       ring surface cut (stegvis borr) ; phi = 1 kortikalt, BV/TV spongious\n  * material removal: cells inside the drill contour (cylinder + 118°-spetskon) removed -> their heat goes with the shavings,\n    The hole wall becomes Robin-rand (spolning h_irr eller luft h_air) — the change in topology is visible in the heat problem\n  * Pennes-perfusion w_b*rho_b*c_b*(T_a - T) (in vivo), ingen perfusion in vitro\n  * layer: cortical crown layer t_c over spongious leg (Effective properties: bone + marrow, Hashin–Shtrikman boundaries)\n  * utdata: T(t) i sonder, T_max-fhigh, CEM43- field (Sapareto & Dewey 1984, PMID 6547421), time over 47 °C\nEnheter: indata i mm, s, rpm, °C; internt SI (m, s, W).\nParameters and sources: see PARAMS below and results/K3_drilling/PREREG.md.\nIngen kod kopierad. Formen P = cutting -> heat source follows COMPUTE_CELL_INVENTORY_cs_engines C35 (Merchant/Boothroyd,\ncad-to-simulation-I cnc_cutting_process.py @4fd03eb) but the Constitution is replaced by measured bentorque (Ganeyev 2025).\nThe heat line core is verified against analytical Green function (se selftest()).\n"
+'DENT - PROC - DRILL - THERMAL — transient heat in bone during incremental implant drilling (K3 , 2026 -09 -23 ).\n\nStand-alone cell. Axisymmetric (r,z) finite volume, explicit time stepping (numba), with\n  * moving heat source at the drill point: P_ben = eta * u(f_rev ) * v * A_cut * phi(z) [W]\n      u(f_rev ) = U0 * ( f_rev/F0 )^(-M_SIZE ) specific cutting energy with size effect (Kinzle form)\n      A_cut = pi/ 4 (D^ 2 - d_prev ^ 2 ) ring surface cut (step drill) ; phi = 1 cortical, BV / TV cancellous\n  * material removal: cells inside the drilling contour (cylinder + 118° tip cone) are removed -> their heat goes with the chips,\n    the wall of the hole becomes Robin-sand (flushing h_irr or air h_air ) — the topology change is visible in the heat problem\n  * Pennes perfusion w_b*rho_b*c_b*(T_a-T) (in vivo), no in vitro perfusion\n  * layer: cortical crown layer t_c over cancellous bone (effective properties: bone tissue + marrow, Hashin-Shtrikman-bounds )\n  * outputs : T(t) in probe, T_max field, CEM43 field (Saparetto & Dewey 1984 , PMID 6547421 ), time over 47 ° C\nUnits: inputs in mm , s , rpm, ° C ; internal SI (m, s , W).\nParameters and sources : see PARAMS below and results/K3_drilling/PREREG.md.\nNo code copied. The shape P = cutting work -> heat source follows COMPUTE_CELL_INVENTORY_cs_engines C35 (Merchant/Boothroyd,\ncad-to-simulation-I cnc_cutting_process.py @ 4 exd 03 eb) but the Constitution is replaced by measured bentorque (Ganeyev 2025 ).\nThe heat line core is verified against analytical Green function (see selftest()).\n'
 import numpy as np
 import numba as nb
 PARAMS = {'k_cort': 0.58, 'rho_cort': 1800.0, 'cp_cort': 1260.0, 'k_marrow': 0.3, 'rho_marrow': 1029.0, 'cp_marrow': 2666.0, 'bvtv': 0.31, 'U0_J_mm3': 0.683, 'F0_mm_rev': 0.03, 'M_SIZE': 0.44, 'eta': 0.5, 'h_irr': 4000.0, 'h_air': 25.0, 'perf_cort_ml_min_100g': 3.71, 'perf_canc_ml_min_100g': 10.0, 'rho_blood': 1050.0, 'cp_blood': 3617.0, 'point_half_angle_deg': 59.0, 'chi_wall': 0.5}
 
 def hs_bounds(k1, k2, f1):
-    "Hashin–Shtrikman isotropic double-phase conductivity limits (k1 > k2, volymandel f1 av fas 1)."
+    """Hashin-Shtrikman-bounds for isotrop two phase conductivity (k 1 > k 2, volume ratio f 1 of phase 1 )."""
     f2 = 1 - f1
     upper = k1 + f2 / (1 / (k2 - k1) + f1 / (3 * k1))
     lower = k2 + f1 / (1 / (k1 - k2) + f2 / (3 * k2))
@@ -18,7 +18,7 @@ def canc_props(p, bvtv=None, bound='upper'):
     return (k, rc)
 
 def u_spec(f_rev_mm, p):
-    "Specific cutting energy J/mm3 (= N/mm2) vid matning per varv f_rev [mm/varv]."
+    """Specific cutting energy J/mm 3 (= N/mm 2 ) when feeding per revolution f_rev [mm/turn]."""
     return p['U0_J_mm3'] * (np.maximum(f_rev_mm, 0.0001) / p['F0_mm_rev']) ** (-p['M_SIZE'])
 
 def feed_from_force(F_N, D_mm, rpm, p=None):
@@ -86,7 +86,7 @@ def _cem(T, solid, cem, tabove, Tmax, dt, Nr, Nz):
 
 @nb.njit(cache=True)
 def _run(nsteps, T, Tn, solid, kc, rcV, Gr, Gz, perf, Ta, Q, hwall, Tcool, T0, dt, Nr, Nz, dr, dz, htop, rface, rc, cem, tabove, Tmax):
-    """nsteps explicita steg + CEM43/Tmax/tid>47 °C-uppdatering; returnerar aktuell array (T eller Tn)."""
+    """nsteps explicit steps + CEM43 /Tmax/time> 47 ° C update; returns the current array (T or Tn)."""
     ln05 = np.log(0.5)
     ln025 = np.log(0.25)
     for _ in range(nsteps):
@@ -107,7 +107,7 @@ def _run(nsteps, T, Tn, solid, kc, rcV, Gr, Gz, perf, Ta, Q, hwall, Tcool, T0, d
     return (T, Tn)
 
 def simulate(steps, t_cort_mm=1.5, T0=37.0, perfusion=True, h_mm=0.1, p=None, probes=(), cool_after_s=60.0, R_extra_mm=10.0, Z_extra_mm=8.0, canc_bound='upper', bvtv=None, eta=None, t_cort_bottom_mm=0.0, record_every_s=0.05, T_art=None, chi=None, wall_irrig_during=True):
-    "steps: list of dict(D, d_prev, depth, rpm, feed, irrig(bool), Tcool, pause) [mm, mm, mm, rpm, mm/s, -, °C, s].\n    depth = the depth of the tip under the crown (including the length of the tip). probes: (name, r_mm , z_mm ).\n    Returns dict with probe stories, T_max -, CEM43 fields, etc. (fields on grid , mm )."
+    'steps: list of dict(D, d_prev, depth, rpm, feed, irrig(bool), Tcool, pause) [mm, mm, mm, rpm, mm/s, -, °C, s].\n    depth = the depth of the tip under the crown (including the length of the tip). probes: (name, r_mm , z_mm ).\n    Returns dict with probe stories, T_max -, CEM43 fields, etc. (fields on grid , mm ).'
     p = dict(PARAMS if p is None else p)
     if eta is not None:
         p['eta'] = eta
@@ -229,7 +229,7 @@ def simulate(steps, t_cort_mm=1.5, T0=37.0, perfusion=True, h_mm=0.1, p=None, pr
     return {'t': np.array(th), 'probes': {k: np.array(v) for (k, v) in hist.items()}, 'Tmax': Tmax, 'cem43_min': cem, 't_above47_s': tab, 'solid': solid, 'r_mm': rc * 1000.0, 'z_mm': zc * 1000.0, 'dt_s': dt, 'h_mm': h_mm, 'E_bone_J': energy_in, 'steps': step_log, 'T0': T0}
 
 def rosenthal_jaeger(steps, r_mm, z_mm, T0=20.0, p=None, k=None, rc=None, cool_after_s=60.0, n_t=4000):
-    "BASLINJE : transient variable point source in infinitely homogeneous medium (Jaeger/Green function), same heating power P(t)\n    as the numerical model but without holes, layer, cooling or perfusion. The source of the shoulder at the depth of the tip.\n    Returns (t, T) at the point (r_mm, z_mm)."
+    'BASLINJE : transient variable point source in infinitely homogeneous medium (Jaeger/Green function), same heating power P(t)\n    as the numerical model but without holes, layer, cooling or perfusion. The source of the shoulder at the depth of the tip.\n    Returns (t, T) at the point (r_mm, z_mm).'
     p = dict(PARAMS if p is None else p)
     k = p['k_cort'] if k is None else k
     rc = p['rho_cort'] * p['cp_cort'] if rc is None else rc
@@ -268,7 +268,9 @@ def rosenthal_jaeger(steps, r_mm, z_mm, T0=20.0, p=None, k=None, rc=None, cool_a
     return (tq, out)
 
 def selftest():
-    "Verification of the articulated core: instantaneous ring source   holes .\n    Compare numerical solution (no removal, source in a cell on the axis, constant effect) with analytical\n    continuous point source dT = P/( 4 pi k R) erfc(R/( 2 sqrt(alpha t)))."
+    """Verification of the articulated core: instantaneous ring source   holes .
+    Compare numerical solution (no removal, source in a cell on the axis, constant effect) with analytical
+    continuous point source dT = P/( 4 pi k R) erfc(R/( 2 sqrt(alpha t)))."""
     from scipy.special import erfc
     p = dict(PARAMS)
     p['perf_cort_ml_min_100g'] = 0.0

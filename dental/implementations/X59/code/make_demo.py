@@ -1,4 +1,4 @@
-"""One-command local reconstruction, figure, facit and complete result index."""
+"""One-command local reconstruction, figure, reference and complete result index."""
 import csv, json, resource, time
 from pathlib import Path
 import matplotlib
