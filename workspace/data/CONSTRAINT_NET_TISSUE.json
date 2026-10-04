@@ -1117,6 +1117,18 @@
             1,
             1000
           ]
+        },
+        {
+          "id": "pupil_diameter_mm",
+          "unit": "mm",
+          "level": "organ",
+          "domain": "eye",
+          "plausible_range": [
+            2.0,
+            8.0
+          ],
+          "role": "REGIME_AXIS",
+          "note": "The net's own stress-point list says this one needs no measurement: it is a declared condition and must be carried as an explicit regime axis rather than a fixed value. It separates the regime where the surface shape field closes the refractive gap from the regime where it does not: 0 of 101 violations at native pupil against 98 of 98 at large pupil. Added as an axis 2026-10-04; every edge whose evidence was taken at one pupil condition now has somewhere to say so."
         }
       ],
       "edges": [
@@ -3565,13 +3577,14 @@
         "axial_length is the largest term in the refraction calculation and is held from a single instrument"
       ],
       "counts": {
-        "variables": 28,
-        "edges": 19,
-        "TIGHT": 9,
-        "OPEN": 8,
-        "UNKNOWN": 2
+        "variables": 146,
+        "edges": 158,
+        "TIGHT": 24,
+        "OPEN": 83,
+        "UNKNOWN": 51
       },
-      "review_state": "PENDING_INDEPENDENT_REVIEW"
+      "review_state": "PENDING_INDEPENDENT_REVIEW",
+      "counts_note": "Recomputed 2026-10-04. The stored counts said {'variables': 28, 'edges': 19, 'TIGHT': 9, 'OPEN': 8, 'UNKNOWN': 2} while the net held 146 variables and 158 edges, so the summary had been stale since the night the harvest added 99 edges. A count that disagrees with its own file is worse than no count: it reads as a check."
     }
   },
   "_meta": {
