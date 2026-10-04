@@ -11,7 +11,7 @@ if not any((x['id'] == 'L11' for x in ex)):
 (H / 'REJECTIONS.json').write_text(json.dumps(ex, indent=2, ensure_ascii=False))
 hand = f"""# Handoff — PROOF_LANE-infolink3
 
-Eleven new information links installed in `notes/expansion/information_links_astra3_20261003.jsonl`. `GRAPH_INSTALL_CHECK.json` verifies all eleven IDs in the working view. Build: 768 -> {g['build_receipt']['draft_nodes']} drafts, 6 conflicts and 49 gaps unchanged. All other expansion files have identical hashes to the start of the round. Native statuses unchanged. Exact expansion hash: `{g['created_file_sha256']}`.
+Eleven new information links installed in `notes/expansion/information_links_proof_lane3_20261003.jsonl`. `GRAPH_INSTALL_CHECK.json` verifies all eleven IDs in the working view. Build: 768 -> {g['build_receipt']['draft_nodes']} drafts, 6 conflicts and 49 gaps unchanged. All other expansion files have identical hashes to the start of the round. Native statuses unchanged. Exact expansion hash: `{g['created_file_sha256']}`.
 
 Read `README_DEMO.md` for idea, table, figure and limitations. One command: `./run_all.sh`. It reproduces analysis without graph writes. `python3 install_and_check.py` is the separately executed, explicitly authorized installation/build; it refuses to overwrite a differing file. Result control hashes in `VALIDATION.json`. `GRAPH_FEEDBACK.json` is local and PENDING_INDEPENDENT_REVIEW: the specific one-file boundary excludes dispatch/feedback to `tasks/graph_runs`. Coordinator may bind the result after review. Suitable targets exist; no invented coverage target required.
 

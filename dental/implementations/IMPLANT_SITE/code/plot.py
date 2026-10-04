@@ -1,5 +1,5 @@
 import os
-os.environ['MPLCONFIGDIR'] = '/tmp/astra_combine_implant_matplotlib'
+os.environ['MPLCONFIGDIR'] = '/tmp/proof_lane_combine_implant_matplotlib'
 import pathlib, json, csv
 import numpy as np
 import matplotlib

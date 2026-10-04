@@ -66,10 +66,10 @@ with (ROOT / 'raw/PER_SITE_GUIDE_R2.csv').open('w') as f:
     w.writerows(per_site)
 dump(ROOT / 'raw/R2_GUIDE_CONTROLS.json', controls)
 st = (ROOT / 'sources/straumann_blx.txt').read_text()
-at = (ROOT / 'sources/astra_ev_guided.txt').read_text()
+at = (ROOT / 'sources/proof_lane_ev_guided.txt').read_text()
 zt = (ROOT / 'sources/zimvie_t3.txt').read_text()
 import re
-source_checks = dict(blx=re.search('tip is up to 0\\.5\\s*mm longer', st) != None, astra=re.search('tip can be up to 1\\s*mm longer', at) != None, zimvie_tip=re.search('3\\.85 mm\\s+N/A\\s+1\\.2 mm', zt) != None, zimvie_datum=re.search('13 mm\\s+12\\.6 mm\\s+1 mm\\s+0\\.4 mm\\s+13\\.7 mm', zt) != None)
+source_checks = dict(blx=re.search('tip is up to 0\\.5\\s*mm longer', st) != None, proof_lane=re.search('tip can be up to 1\\s*mm longer', at) != None, zimvie_tip=re.search('3\\.85 mm\\s+N/A\\s+1\\.2 mm', zt) != None, zimvie_datum=re.search('13 mm\\s+12\\.6 mm\\s+1 mm\\s+0\\.4 mm\\s+13\\.7 mm', zt) != None)
 from decimal import Decimal as D
 aligned = D('13.7') + D('1.2') - D('12.6') - D('1.0')
 source_checks['datum_arithmetic'] = aligned == D('1.3')

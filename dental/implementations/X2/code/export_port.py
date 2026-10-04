@@ -54,7 +54,7 @@ def main(case=1):
         witnesses.append(dict(upper_region=REGIONS[pair[0]], lower_region=REGIONS[pair[1]], upper_source_face=int(uf[i]), lower_source_face=int(lf[i]), upper_triangle_mm=[V(v) for v in ut], lower_triangle_mm=[V(v) for v in lt], upper_source_point_mm=exact_point(xy[i], ut), lower_nearest_point_mm=V(lp[i]), unsigned_clearance_mm=enc(dist[i]), upper_normal_unscaled=V(un), lower_normal_unscaled=V(ln), lower_point_status='IEEE64 closest-point, rational encoding of computed value; exact source-plane incidence not certified'))
     blockers = ['No validated individual FDI/instance segmentation in Bits2Bites', 'No root effective area, rotational support or anatomically reduced PDL matrix in IOS', 'No acquisition force/load direction or jaw moment', 'Contacts are separated source surfaces, not paired coincident central contacts; normals differ', 'PROOF_LANE v1 accepts one central contact/tooth and a specified closure; our source patches do not satisfy that family', 'Proximity field samples at0.2mm; four-region validation and coarse/fine force gates failed']
     port = dict(schema='dental-occlusion-geometric-contact/v1', consumer='PROOF_LANE_OCKLUSION2', status='UNCERTAIN', scope='OBSERVED_PAIRED_GEOMETRY_AND_UNSIGNED_SAMPLED_CLEARANCE_ONLY', case=case, frame='Bits2Bites registered RAS; no jaw transform', length_unit='mm', force_unit='N', modulus_unit='MPa=N/mm2', numeric_encoding='Dimensioned fields rational strings from measured float32 STL and computedIEEE64 values; no new measurement precision claimed', fdi_status='UNKNOWN_NOT_VALIDATED', load=None, pdl=None, contact_band_mm='1/10', source=dict(zip=str(ZIP), upper_member=r['upper_member'], upper_sha256=r['upper_sha256'], lower_sha256=r['lower_sha256']), regions=REGIONS, witnesses=witnesses, conditional_model=dict(support_per_tooth_N_per_mm=['500', '1130'], support_status='Incisor-derived hypothetical prior; posterior UNKNOWN;35scenario envelopes in round3', shares_pp=[enc(v) for v in r['metrics'][1]['mechanics']['shares_pp']], actual_patient_force_N=None), unresolved=blockers, port_proposal='Accept source-pair geometry with explicit region IDs, separate contact points, unsigned clearance and missing physical leaves; never promote to positive PROOF_LANE mechanical certificate')
-    spec = importlib.util.spec_from_file_location('astra_existing_occlusion', PROOF_LANE)
+    spec = importlib.util.spec_from_file_location('proof_lane_existing_occlusion', PROOF_LANE)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     try:
@@ -64,7 +64,7 @@ def main(case=1):
     except Exception as e:
         accepted = False
         reason = str(e)
-    port['existing_astra_v1_validation'] = dict(accepted=accepted, reason=reason, validator_path=str(PROOF_LANE), validator_sha256=hashlib.sha256(PROOF_LANE.read_bytes()).hexdigest())
+    port['existing_proof_lane_v1_validation'] = dict(accepted=accepted, reason=reason, validator_path=str(PROOF_LANE), validator_sha256=hashlib.sha256(PROOF_LANE.read_bytes()).hexdigest())
     dump(H / 'PORT.json', port)
     dump(H / 'PROOF_LANE_INPUT_BLOCKERS.json', dict(status='UNCERTAIN', blockers=blockers, exact_existing_validator_accepted=accepted, reason=reason))
     print('PROOF_LANE preport exported; existing v1 accepted=', accepted, 'reason=', reason, 'witnesses=', len(witnesses))

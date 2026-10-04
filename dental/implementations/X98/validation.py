@@ -5,7 +5,7 @@ import numpy as np
 from implant_safety import ContractError
 from implant_safety.module import classify, guide_components
 from implant_safety.vendor.x8_geometry import project_cylinder, voxel_cylinder_bracket
-from implant_safety.vendor.astra_control import control_box
+from implant_safety.vendor.proof_lane_control import control_box
 from implant_safety.vendor.x87_science import controls as x87_controls, guide as x87_guide
 from implant_safety.vendor.x96_guide import scalar_control
 from scipy.optimize import minimize

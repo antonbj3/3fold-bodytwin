@@ -3,7 +3,7 @@ from pathlib import Path
 import json, hashlib, subprocess, datetime
 H = Path(__file__).resolve().parent
 R = H.parent.parent
-p = R / 'notes/expansion/information_links_astra4_20261003.jsonl'
+p = R / 'notes/expansion/information_links_proof_lane4_20261003.jsonl'
 b = (H / 'information_links.preview.jsonl').read_bytes()
 
 def sha(p):

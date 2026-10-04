@@ -114,7 +114,7 @@ def main():
             maps_bad.append(r['case'])
     checks.append(dict(name='All200source maps match recorded content hashes', passed=not maps_bad, hash_drift_cases=maps_bad))
     port = json.loads((H / 'PORT.json').read_text())
-    checks.append(dict(name='Actual PROOF_LANE v1 rejects unsupported geometry preport', passed=not port['existing_astra_v1_validation']['accepted']))
+    checks.append(dict(name='Actual PROOF_LANE v1 rejects unsupported geometry preport', passed=not port['existing_proof_lane_v1_validation']['accepted']))
     mutations.append(dict(control='Frozen prediction binding', injected='Replace case1 SHA-256 by zeros', rejected=sha(H / 'raw/cases_3d/001.json') != '0' * 64))
     result = dict(n_checks=len(checks), n_mutations=len(mutations), all_replay_checks_pass=all((x['passed'] for x in checks)), all_injected_faults_rejected=all((x['rejected'] for x in mutations)), checks=checks, mutations=mutations, scope='Arithmetic/source binding and numerical oracle checks; external region/model gates may fail; no independent scientific review')
     dump(H / 'VERIFICATION.json', result)

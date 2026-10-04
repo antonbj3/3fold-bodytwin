@@ -12,7 +12,7 @@ text = _release_expand(f"""# Eleven new information links to dental material and
 
 Run **`./run_all.sh`** here. Command reads local originals, replays relevant earlier cells, checks values and creates references, results and figure. It writes in this lane directory and its small data directory under `@DENTAL_EXTERNAL_ROOT@/storage`; it does not install or rebuild the graph.
 
-The consumer receives observations absent from a simplified representation: previous specimen loading, defect location, MEASURED pore shape or plastic material response. Eleven new links in `notes/expansion/information_links_astra3_20261003.jsonl` are **information_link**, **OPEN**, **PENDING_INDEPENDENT_REVIEW**. Scoped available inputs and benchmarks, not validated improved dental predictions.
+The consumer receives observations absent from a simplified representation: previous specimen loading, defect location, MEASURED pore shape or plastic material response. Eleven new links in `notes/expansion/information_links_proof_lane3_20261003.jsonl` are **information_link**, **OPEN**, **PENDING_INDEPENDENT_REVIEW**. Scoped available inputs and benchmarks, not validated improved dental predictions.
 
 {table}
 

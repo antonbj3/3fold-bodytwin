@@ -73,7 +73,7 @@ def run(output):
         predictions['frozen_utc'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
         dump(frozen, predictions)
         frozen.with_suffix('.json.sha256').write_text(sha(frozen) + '\n')
-    demo = next((r for r in rows if r['site_id'] == 'ToothFairy2P_083/FDI34' and r['query']['guide_type'] == 'fully_guided' and (r['query']['implant_system'] == 'Astra_EV_Guided_2017')))
+    demo = next((r for r in rows if r['site_id'] == 'ToothFairy2P_083/FDI34' and r['query']['guide_type'] == 'fully_guided' and (r['query']['implant_system'] == 'ProofLane_EV_Guided_2017')))
     dump(ROOT / 'examples/query.json', dict(site_id=demo['site_id'], **demo['query']))
     dump(output / 'EXAMPLE_RESULT.json', demo)
     summary = []

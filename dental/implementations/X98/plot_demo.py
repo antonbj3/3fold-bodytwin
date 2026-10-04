@@ -7,7 +7,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 output = Path(sys.argv[1])
 with (output / 'TABLE.csv').open() as f:
-    plot = [r for r in csv.DictReader(f) if r['guide'] == 'fully_guided' and r['system'] == 'Astra_EV_Guided_2017']
+    plot = [r for r in csv.DictReader(f) if r['guide'] == 'fully_guided' and r['system'] == 'ProofLane_EV_Guided_2017']
 
 def values(key):
     return [float(r[key]) for r in plot]
