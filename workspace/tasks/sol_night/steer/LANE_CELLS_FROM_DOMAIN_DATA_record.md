@@ -34,3 +34,29 @@ carry the result.
 If the resolution of one molecule is sufficient for the decision, write which decision can still be made
 at ±1 molecule. If no decision can be made there, the entire chain is below its own resolution limit and that
 is RESULTATET, not a deficit to fix.
+
+
+## Addition after r49 — you already have a decision, expressed in molecules
+I recalculated r49's three radii in molecular units (0,1037837048 µM per molecule):
+
+| storhet | µM | molekyler |
+|---|---|---|
+| budget | 0,0915193952 | **0,88183** |
+| singleton radius | 0,0206063822 | 0,19855 |
+| unknown-bound radius | 0,1243900870 | **1,19855** |
+| target gap | 0,2075674096 | 2,00000 |
+
+The unknown-bound radius is the singleton radius plus **exactly 1,00000 molecule**, and the target gap is exactly
+2 molecules. Everything in the lane is quantized at one molecule; The µM suit hides it.
+
+And then the decision is already in the numbers: the budget 0,882 molecules lies BETWEEN the two radii.
+The chain passes its budget when the species is singleton (0,199 < 0,882) and misses it with **1,359×** so
+soon the bond is unknown (1,199 > 0,882). Formulate it as the result of the lane: *determines if the species is
+single bound, and the chain keeps its budget; leave the bond unknown, and it cannot hold it.*
+It's an ability with a falsifier, not a deficit.
+
+## The acquisition exchange must be recorded
+`thesis_pages = 117` gave `thesis_nonmissing_bound_data = 4` and `thesis_calibration_amounts = 4`,
+thus 0,034 usable numbers per page. Compare with the structure acquisition in r48 (4 structures → 21 ligands
+with 583 heavy atoms). Print the yield per source type in the next round, so that the next acquisition goes where the numbers are
+actually exists.
