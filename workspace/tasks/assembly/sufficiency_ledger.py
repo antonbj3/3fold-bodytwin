@@ -66,6 +66,14 @@ CHAINS = [
      'decision_scale': 'the decision interval itself',
      'gap_over_scale': 1.0,
      'note': 'plateaus 4/5 against 1 give 15/16 against 3/4, gap exactly 3/16'},
+    {'chain': 'lens resolution within-period envelope', 'lane': 'LANE_LENS_RESOLUTION r49',
+     'summary_identity_error': 0.0, 'also_identical': 'the carrier, over 1 600 000 comparisons',
+     'gap': 4.00032e-05, 'gap_unit': 'C gap, dimensionless', 'witnesses': 128,
+     'decision_scale': 'the smallest gap in the same family, 3.12525e-07',
+     'gap_over_scale': 4.00032e-05 / 3.12525e-07,
+     'note': ('128 distinct within-period envelope histories under the SAME carrier give exact raw '
+              'identity 0; the gaps span 3.12525e-07 to 4.00032e-05 with OPPOSITE SIGNS, and the '
+              'ratio is exactly 128.0, the same as the number of histories')},
     {'chain': 'distribution gate initial field', 'lane': 'LANE_DISTRIBUTION_GATE_43 r9',
      'summary_identity_error': 0.0, 'also_identical': 'initial total field exact',
      'gap': 0.148502787956807, 'gap_unit': 'field units', 'witnesses': 2,
