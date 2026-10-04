@@ -1,41 +1,34 @@
-# Styrning LANE_SETTING_TO_DIFFUSIVITY — efter r6
+# Styrning LANE_SETTING_TO_DIFFUSIVITY — efter r7
 
-## My falsifier solved NOT out, and that's good news.
-I wrote: if more than half of the source records report medium-V and medium-I separately, it goes high
-the end is not to calibrate at all. The answer is `separate_time_mean_V_I_only = **0**` av tio — **den farliga
-class is empty**Five entries are paired. RMS-products and five are: RMS med **odeklarerat** fullt
-Alia's risk is therefore in principle but **No source item falls into it**; and
-`inherited_averaging_majority_falsifier = False`.
+## You established that the coupling cannot be approximated away
+`forcing_only_bound_violations = **178**` against `spatial_max_numerical_bound_violation_K = **0,0**` and
+`modal_max_numerical_bound_violation_K = 2,38e−14`. Thus: the spatial, coupled treatment violates
+the bound **never**, while treating the forcing in isolation violates it **178 times**. That is a clean
+result and it closes a shortcut.
 
-The remaining is a minor but real ambiguity: half do not declare whether: RMS applies all the time.
+And isolation is more costly than geometry: `isolated_summary_max_gap_K = **33,98863138521645**` against
+geometry's 27,614871866185098 K in r6 — ratio **1,2308**. Isolation is thus worse than not
+measuring the geometry at all.
 
-## The new obstacle, and it completely shifts focus
-Three comparisons, all counted by me:
+## The obstacle
+Mode acceptance is 35 of 64 in thirteen of sixteen records, with two outliers at 36 and 37 — thus
+**54,7 %** of the modes are needed, and `minimum_basis_proved = False`: the smallest passing basis is 8 but
+not proved minimal. The localised basis differs from the axial one by **5,893052747634478 K**,
+so basis choice carries almost twice as much as the drainage question did.
 
-| vad som varieras | maximalt yttemperaturgap |
-|---|---|
-| **geometrin** | **27,614871866185098 K** |
-| one against two internal drains | 3,1153500798704954 K |
-| returelektrod 8 mot 16 mm | 0,12299267508750233 K |
-
-The geometry is: **8,86×** the removal issue; and **224,5×** I mean, everything I've directed you towards.
-de senaste tre rundorna — dwindling, average conventions, return route — is the second order.
-**Geometry is the first order and it is not measured.**
-
-And the delivered power is now divided by setting: at nominal 25 W levereras
-`[21,90; 19,58; 15,90]` W, vid 50 W `[45,54; 41,66; 33,30]`The span is **1,378×** respektive
-**1,368×** — thus the same relative spread at both ends, and the lowest delivery is 63,6 % and
-66,6 % of nominal. It is a constant relative loss, not a setting dependency.
+`held_max_center_residual_K = 34,954280749785894` across 24 held-out records with 8 overlaps. That is the same
+order of magnitude as the isolation gap, so held-out data does not yet distinguish the treatments.
 
 ## Changed operation
-Change first order variable. Measure which geometric quantity carries the 27,6 K — elektrodradie,
-contact depth, tissue thickness — and specify the gap per quantity separately. Stop refining the 3,1 K.
+Prove the minimality of the basis, or state why it cannot be proved. One number: the smallest basis that
+meets the bound with proof. That determines whether 54,7 % of the modes is a property of the problem or of
+the construction.
 
-## Starkaste kontrollen
-A single geometry, i.e. the current model. Each geometric resolution shall be measured in how much of them
-27,6 K it explains, in Kelvin.
+## The strongest control
+Forcing alone, which gives 178 violations. Every basis or mode saving must be measured against how many violations it
+allows, not against how few modes it uses.
 
-## Falsifierare
-If no single geometric quantity carries more than they 3,1 K as the drain question already gives, so are they
-27,6 K a co-operation and not a dominant factor — and then the chain is not calibreable per quantity.
-Say that with the distribution.
+## Falsifier
+If the held-out centre residual of 34,95 K cannot be pushed below the isolation gap 33,99 K, then
+held-out data does not distinguish the two treatments, and the 178 result is then purely numerical and not empirical.
+Say which.
