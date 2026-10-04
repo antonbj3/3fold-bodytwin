@@ -47,9 +47,10 @@ ts() { date '+%F %T'; }
   #     itself as the queue drains. The others are one-per-thing and are already exhausted.
   python3 tasks/assembly/queue_connection_briefs.py 2>&1 | head -1 | sed "s/^/[$(ts)] /"
 
-  # 2d. Sync the live net into the tracked copy. The live file is a symlink into an untracked
-  #     generations directory, so every edit lives outside git until copied. A one-time sync
-  #     was done at 19:00 and the copy had already fallen 34 edges behind by 20:45.
+  # 2d. Sync the live net into the tracked copy. Moved into tasks/build_night/sync_net.sh so it can
+  #     run on every tick rather than only here; this call stays as a belt for unattended runs.
+  bash tasks/build_night/sync_net.sh 2>&1 | sed "s/^/[$(ts)] /"
+  # (old inline sync kept below for the record of what it reported)
   python3 -c "
 import json,pathlib
 live=json.load(open('CONSTRAINT_NETS.json'))['bodytwin']['tissue_constraint_net']
