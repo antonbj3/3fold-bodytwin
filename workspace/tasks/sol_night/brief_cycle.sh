@@ -73,6 +73,7 @@ print(f'nat synkat: {before} -> {len(live[chr(34)+chr(34)]) if False else len(li
   #    briefs look buried at position 915 when the real backlog was 1082 jobs.
   python3 - <<'PRUNE' 2>&1 | sed "s/^/[$(ts)] /"
 import pathlib, re
+CREATIVE = re.compile(r'BT-(ANOM|OBST|NET|2ND|CAP|IDEA|XSEED|CONN)')
 q = pathlib.Path('tasks/lanes/bt_queue.txt')
 if q.exists():
     lines = q.read_text().splitlines()
@@ -88,6 +89,16 @@ if q.exists():
         keep.append(l)
     if done or broken:
         q.write_text('\n'.join(keep) + '\n')
+    # 3b. Creative families to the front, every cycle. Measured 2026-10-04 12:48: three briefs the
+    #     generator had just prepended sat at position 1177, and the front of the queue was
+    #     BT-DW48-AUTO again. Something between the generator and the dispatcher rotates the file, so
+    #     a one-time reorder does not hold -- the ordering has to be reasserted on every cycle.
+    cre = [l for l in keep if CREATIVE.search(l)]
+    rest = [l for l in keep if not CREATIVE.search(l)]
+    if cre and keep[:len(cre)] != cre:
+        keep = cre + rest
+        q.write_text('\n'.join(keep) + '\n')
+        print(f'creative first: {len(cre)} of {len(keep)} (queue front was {rest[0].split()[-1] if rest else "-"})')
     print(f'queue {len(lines)} -> {len(keep)} ({done} complete, {broken} broken removed)')
 PRUNE
 

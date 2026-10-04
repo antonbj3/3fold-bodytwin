@@ -1,8 +1,9 @@
 {
- "checked": 158,
+ "checked": 161,
  "counts": {
-  "OK": 152,
-  "UNRESOLVED_DECLARED": 6
+  "OK": 153,
+  "UNRESOLVED_DECLARED": 6,
+  "UNCHECKED": 2
  },
  "evidence_moved_since_last_check": [],
  "rows": [
@@ -795,6 +796,21 @@
    "edge": "ASM-E0014",
    "status": "OK",
    "detail": "critical_deposition_efficiency_saturating = 0.004326761426716262 (path)"
+  },
+  {
+   "edge": "T-E23-meniscus_patch_share-vs-stated_axial_load",
+   "status": "UNCHECKED",
+   "detail": "evidence carries no file :: key = value"
+  },
+  {
+   "edge": "T-E24-reference_precision-vs-absolute_margin_goals",
+   "status": "UNCHECKED",
+   "detail": "0 traffar pa bladnyckeln: /outcome/minimum_source_sufficient_geometry_reference_cap_relative"
+  },
+  {
+   "edge": "T-E25-publication_format-vs-decidable_detail_edges",
+   "status": "OK",
+   "detail": "pointer: numbers present"
   }
  ],
  "why": "an edge is a snapshot of prose plus one evidence path; nothing links a new measurement back to the edges that cite it, so staleness is silent",
