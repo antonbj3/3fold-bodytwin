@@ -1,35 +1,35 @@
-# Styrning LANE_EXTERNAL_SOLVER — efter r25
+# Styrning LANE_EXTERNAL_SOLVER — efter r26
 
-## Hindret, med lanens egna ord
-`age_observed = False`, `age_inferred_from_prefix = False`, `repayability_axis =
-CHRONOLOGY_MEASUREMENT_DEBT; SIX_OUTPUTS_ALONE_DO_NOT_SUPPLY_AGE`. Hela r25:s certificate rests on
-an age that none of the six exits can determine. I read the bisection of `age_stress_r25.py`
-rad 24–31 and verified direction towards `AGE_STRESS_R25.json`: 280,3 / 400 / 600 / 900 s FALLER,
-1790 s PASSERAR; and `hi` held on the passing side — Thus, the certificate applies to:
-**age ≥ 1088,1966 s**, en NEDRE border. Field name `sufficient_age_upper_s` states the opposite. Nothing
-consumes the field yet (zero hits in taks/ and in the net); and RESULTS-the section prints both
-the end points correctly, so it's a name error and not a bug reported number — but renamed it to
-`sufficient_age_lower_s` and add the direction as a custom field in the next round.
-Bracketbredden 0,00576 s is exact 1509,7/2¹⁸, i.e. the disintegration of the bisection, not a measured sharpness; say
-that in the artifact so that no one reads it as a measured threshold.
+## Vad r26 actually did with the old age debt
+The steering asked for a certificate without point age, and it came: `age1790_assumed = False`,
+`old_completion_cutoff_s = 0`, `old_history_replay = False`I checked the containment myself:
+intervallets halvbredd 3,9607790651e-08 is exact `one_run_uniform_error_strain`, det nominella
+the value lies inside; and `four_run = 4,000000000000001 × one_run` — The four-run figure is therefore:
+worst-fall-additivity without any alleged extinguishing, and does not carry any information other than:
+The margin against the reserve is **2,229 %**.
 
-## Changed operation
-The debt shall be either paid or eliminated, and there are two different structures:
-1. **Betala**: find an observant that determines the age from what is actually measured, not from the prefix.
-   Then the certificate will be dimensioned instead of conditional.
-2. **Eliminera**: to construct a certificate that holds: UNIFORMT over the whole range
-   [280,3 s, 1790 s] instead of pointwise at an age. Keeping it, the age issue is gone from
-   the forecast and the debt no longer exist.
+## But the debt didn't go away, it changed shape
+`earlier_zero_support_required = True`, status
+`CONDITIONAL_FIXED_LAW_POSITIVE_COMPLETED_BY_0_EARLIER_ZERO`. Kravet "The history must be at least:
+1 088 s gammal" ersattes av "History is exactly zero before window"It's still one.
+assumption of an unobserved past, just another. Write it in plain text in the artifact; as it
+now reads a consumer "no age required" and misses the adoption of a zero history.
 
-Route 2 is he who builds something that does not exist. Do it first, and let go 1 bli falsifieraren:
-If there is no uniform margin, age is a necessary measurement and it is a result in itself.
+## Changed operation: Turns adoption into a speech
+Figure out how big a NOLLSKILD previous history may be before the certificate falls — en
+History budget in the same unit as the reserve, just as the age limit was a number. Then the assumption is not
+longer binary without measurable, and the next measurement can try it. 2,229 % already says that
+The budget is small, so the speech is crucial rather than cosmetic.
 
 ## Starkaste kontrollen
-Equivalently informed: same observations, same forcering, same band — men prognosen tagen med
-the old history replayed. The ability only counts if it matches without replay. `claim_type` is
-`capability`, so the control should be the more expensive way that already works, not another method.
+The same six observations and the same tape, but the prognosis taken MED replayed old history.
+only counts if it matches without replay. `claim_type = capability`, so the control is the more expensive way
+som redan fungerar — not another method.
 
-## Falsifieraren
-Print before driving which uniform margin lowers road 2. `verification_failures = 0`
-and 1 547 approved assertions are not a gate until a deliberately broken age falls: insert
-negative control in the same run and state that it falls.
+## The falsifier and the validation gate
+`FAILED_VERIFY_R26.json` is exactly the kind of preserved error that makes the validation gate credible: the first
+verifieraren omvandlade binary64-end points to the shortest decimal text and treated the text as:
+exactly, on which one point seemed to lie 7,0656e-19 Strain outside containment — en falsk
+certificate flight born from text conversion, correctly removed as: NOT_ESTABLISHED. Keep that pattern:
+6 681 Assertions without error is not a gate until something intentionally broken falls into the same run.
+`qualified_physical_datasets = 0` standing — no physical validation is claimed and shall not be.
