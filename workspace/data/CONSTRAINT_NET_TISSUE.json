@@ -1387,6 +1387,28 @@
       10.0
      ],
      "note": "0.24499999999999997 from the 210 nm hop scale and 0.17529605263157894 from 730 nm, agreeing to 1.3976355789078625"
+    },
+    {
+     "id": "ligament_slack_mm",
+     "unit": "mm",
+     "level": "TISSUE",
+     "domain": "spine",
+     "plausible_range": [
+      -1.0,
+      1.0
+     ],
+     "note": "slack in the ligament; the work sign flips across 0.01912365363549752 to 0.10654162637971365 mm"
+    },
+    {
+     "id": "joint_work_sign",
+     "unit": "1",
+     "level": "TISSUE",
+     "domain": "spine",
+     "plausible_range": [
+      -1,
+      1
+     ],
+     "note": "sign of the joint work; categorical, measured as +9.99e-05 J against -1.63e-04 J at offsets -0.02 and +0.02"
     }
    ],
    "edges": [
@@ -4076,6 +4098,28 @@
      "control": "uniform bath at equal total dose; identical stimulus whenever spacing is below the averaging length",
      "falsifier": "if the two hop scales disagree by more than the measured 1.3976355789078625 on any further scale, the macroscopic diffusivity is not scale-free and the necessary condition cannot be stated in one number",
      "review_state": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+     "id": "T-E37-ligament_slack-vs-work_sign",
+     "between": [
+      "ligament_slack_mm",
+      "joint_work_sign"
+     ],
+     "constraint": "the work changes sign across a ligament slack window of 19.12 to 106.54 micrometres: +9.991910446631359e-05 J at common offset -0.02 against -0.00016259115993616925 J at +0.02, an amplitude ratio of 1.6272, with a critical bracket of exactly 4.0e-04 in the dimensionless offset. The separations survive a 50 percent widening of every matrix, 14 of 14, and removing all current separators needs 79.20 to 99.83 percent widening; at 100 percent none remains. The document own insensitivity claim is therefore false. What is missing is the absolute metrology: both the slack metrology and the matched joint work-conjugate metrology stand UNKNOWN, so the window has no absolute scale from what is in hand",
+     "status": "OPEN",
+     "owner": "tasks/lanes/LANE_SPINE_LIGAMENT_STIFFNESS.md",
+     "evidence": "results/LANE_SPINE_LIGAMENT_STIFFNESS/night_rounds/r5.json :: critical_slack_shift_mm_range",
+     "external_reference": "human archive 25733007 bytes, 97 members, sha256 0063a6f2593e81b96fe1dcf43bcf27664f36a514afb8c1b39a28d5755428e974",
+     "control": "the decision with slack set to zero, the quantity the whole sign flip hangs on",
+     "falsifier": "if the sign flip disappears when the archive own geometry is used instead of the nominal, it is an artefact of the nominal geometry and not a property of the ligament",
+     "review_state": "PENDING_INDEPENDENT_REVIEW",
+     "exhausted_2026_10_05": "four rounds r5 to r8 on the same wall. r5 and r6 produced real results -- the work sign flip at a ligament slack of 19.12 to 106.54 micrometres, and its survival of a 50 percent widening of every matrix with 79.20 to 99.83 percent needed to remove all separators -- but r7 and r8 added nothing: r8 carries six fields, all UNKNOWN or inherited, with empirical_uniform_prediction = FAIL_INHERITED_NO_NEW_MATERIAL_FIT and the same nine coupled held cases unavailable as in r4. The binding constraint is a data wall: physical_slack_metrology and matched_joint_work_conjugate_metrology are both UNKNOWN, so the micrometre finding cannot be given an absolute scale from what is in hand. The slot was swapped to LANE_THIRD_STATE_HUNT; this node expands rather than closing",
+     "branches_opened": [
+      "the absolute slack metrology in micrometres, which is the single number that would make the 19 to 107 micrometre sign flip actionable",
+      "the nine coupled held cases: who holds them, and whether a request is the cheaper route than another round",
+      "whether the 50 percent robustness result alone is enough to carry a decision without the absolute scale, since it is scale-free",
+      "the same sign-flip test on a second motion segment, to see whether the critical window is specimen-specific"
+     ]
     }
    ],
    "stress_points": [
