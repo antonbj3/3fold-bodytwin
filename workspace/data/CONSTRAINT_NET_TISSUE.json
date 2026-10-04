@@ -3167,7 +3167,7 @@
             "knee_contact_area_mm2"
           ],
           "constraint": "At load=1000 N, condition=intact, contact area=110 mm2 and peak pressure=1.2 MPa; retain source condition and method.",
-          "status": "OPEN",
+          "status": "UNKNOWN",
           "evidence": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md :: L120 = At load=1000 N, condition=intact, contact area=110 mm2 and peak pressure=1.2 MPa; retain source condition and method.",
           "provenance": "harvested_detail_layer_2026_10_03",
           "quantity_identity_reason": "Both variable names refer to the specifically stated condition and output in this source relation; shared units alone are not used.",
@@ -3176,7 +3176,9 @@
           "review_state": "PENDING_INDEPENDENT_REVIEW",
           "evidence_relocated": [
             "moved from MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json pointer /computed_evidence/raw_data/rivarola_2026_FE/intact to MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md L120 on 2026-10-04; the claim is in the prose half of the document, not the evidence JSON"
-          ]
+          ],
+          "load_label_unsupported": "The text says \"At load=1000 N\" but the row's own area times peak pressure is 110 mm2 x 1.2 MPa = 132.0 N, which is 0.1320 of the stated load. A peak pressure acting over the contact area cannot carry LESS than the total load, so the 1000 N label is not supported by this row. Verified 2026-10-04 against MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md L122 (Rivarola FE, PMID 41539441), where the row reads 110+-8 mm2 and 1.2+-0.2 MPa with no load column. The 1000 N almost certainly came from the neighbouring Fukubayashi & Kurosawa 1980 row during harvest; the same harvest misattributed that row to Zhang 2015 in HARVEST-E0085. Status set to UNKNOWN until the FE study's own load is read. This also explains DETAIL_LAYER_EDGES r1's \"Rivarola_mean_port_force_capacity_N = 132\": it is 110 x 1.2, not a port capacity.",
+          "implied_load_N": 132.0
         },
         {
           "id": "HARVEST-E0083",
@@ -3185,7 +3187,7 @@
             "knee_peak_contact_pressure_MPa"
           ],
           "constraint": "At load=1000 N, condition=intact, contact area=110 mm2 and peak pressure=1.2 MPa; retain source condition and method.",
-          "status": "OPEN",
+          "status": "UNKNOWN",
           "evidence": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md :: L120 = At load=1000 N, condition=intact, contact area=110 mm2 and peak pressure=1.2 MPa; retain source condition and method.",
           "provenance": "harvested_detail_layer_2026_10_03",
           "quantity_identity_reason": "Both variable names refer to the specifically stated condition and output in this source relation; shared units alone are not used.",
@@ -3194,7 +3196,9 @@
           "review_state": "PENDING_INDEPENDENT_REVIEW",
           "evidence_relocated": [
             "moved from MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json pointer /computed_evidence/raw_data/rivarola_2026_FE/intact to MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md L120 on 2026-10-04; the claim is in the prose half of the document, not the evidence JSON"
-          ]
+          ],
+          "implied_load_N": 132.0,
+          "load_label_unsupported": "Same defect as its sibling edge, found 2026-10-04 by the dimensional scan rather than by hand: the text says \"At load=1000 N\" while the row states 110 mm2 and 1.2 MPa, whose product is 132.0 N, i.e. 0.1320 of the stated load. A peak pressure acting over the contact area cannot carry LESS than the total load, so the label is unsupported. The first pass corrected only the even-numbered siblings because I read them one at a time; the scan found all eight. Status UNKNOWN until the source study's own load is read."
         },
         {
           "id": "HARVEST-E0084",
@@ -3203,7 +3207,7 @@
             "knee_contact_area_mm2"
           ],
           "constraint": "At load=1000 N, condition=radial_tear_50pct, contact area=80 mm2 and peak pressure=2.1 MPa; retain source condition and method.",
-          "status": "OPEN",
+          "status": "UNKNOWN",
           "evidence": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json :: /computed_evidence/raw_data/rivarola_2026_FE/radial_tear_50pct = At load=1000 N, condition=radial_tear_50pct, contact area=80 mm2 and peak pressure=2.1 MPa; retain source condition and method.",
           "provenance": "harvested_detail_layer_2026_10_03",
           "quantity_identity_reason": "Both variable names refer to the specifically stated condition and output in this source relation; shared units alone are not used.",
@@ -3211,7 +3215,9 @@
           "admitted_on": "a mechanical gate — source file exists, TIGHT carries an executed check, an identity reason is present — plus one edge verified line by line in its source (HARVEST-E0002, predicted 1.176-1.357 MPa against Wilke in-vivo 0.53-0.65, ratio 2.09x and 1.81x, verdict FAIL). The other 98 are NOT individually read",
           "review_state": "PENDING_INDEPENDENT_REVIEW",
           "evidence_unresolved": true,
-          "evidence_unresolved_note": "the claim is in neither the cited JSON nor its companion markdown; searched every subtree of MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json and all of MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md on 2026-10-04 (cite was /computed_evidence/raw_data/rivarola_2026_FE/radial_tear_50pct)"
+          "evidence_unresolved_note": "the claim is in neither the cited JSON nor its companion markdown; searched every subtree of MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json and all of MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md on 2026-10-04 (cite was /computed_evidence/raw_data/rivarola_2026_FE/radial_tear_50pct)",
+          "load_label_unsupported": "The text says \"At load=1000 N\" but the row's own area times peak pressure is 80 mm2 x 2.1 MPa = 168.0 N, which is 0.1680 of the stated load. A peak pressure acting over the contact area cannot carry LESS than the total load, so the 1000 N label is not supported by this row. Verified 2026-10-04 against MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md L122 (Rivarola FE, PMID 41539441), where the row reads 110+-8 mm2 and 1.2+-0.2 MPa with no load column. The 1000 N almost certainly came from the neighbouring Fukubayashi & Kurosawa 1980 row during harvest; the same harvest misattributed that row to Zhang 2015 in HARVEST-E0085. Status set to UNKNOWN until the FE study's own load is read. This also explains DETAIL_LAYER_EDGES r1's \"Rivarola_mean_port_force_capacity_N = 132\": it is 110 x 1.2, not a port capacity.",
+          "implied_load_N": 168.0
         },
         {
           "id": "HARVEST-E0085",
@@ -3220,7 +3226,7 @@
             "knee_peak_contact_pressure_MPa"
           ],
           "constraint": "At load=1000 N, condition=radial_tear_50pct, contact area=80 mm2 and peak pressure=2.1 MPa; retain source condition and method.",
-          "status": "OPEN",
+          "status": "UNKNOWN",
           "evidence": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json :: /computed_evidence/raw_data/rivarola_2026_FE/radial_tear_50pct = At load=1000 N, condition=radial_tear_50pct, contact area=80 mm2 and peak pressure=2.1 MPa; retain source condition and method.",
           "provenance": "harvested_detail_layer_2026_10_03",
           "quantity_identity_reason": "Both variable names refer to the specifically stated condition and output in this source relation; shared units alone are not used.",
@@ -3228,7 +3234,9 @@
           "admitted_on": "a mechanical gate — source file exists, TIGHT carries an executed check, an identity reason is present — plus one edge verified line by line in its source (HARVEST-E0002, predicted 1.176-1.357 MPa against Wilke in-vivo 0.53-0.65, ratio 2.09x and 1.81x, verdict FAIL). The other 98 are NOT individually read",
           "review_state": "PENDING_INDEPENDENT_REVIEW",
           "evidence_unresolved": true,
-          "evidence_unresolved_note": "the claim is in neither the cited JSON nor its companion markdown; searched every subtree of MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json and all of MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md on 2026-10-04 (cite was /computed_evidence/raw_data/rivarola_2026_FE/radial_tear_50pct)"
+          "evidence_unresolved_note": "the claim is in neither the cited JSON nor its companion markdown; searched every subtree of MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json and all of MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md on 2026-10-04 (cite was /computed_evidence/raw_data/rivarola_2026_FE/radial_tear_50pct)",
+          "implied_load_N": 168.0,
+          "load_label_unsupported": "Same defect as its sibling edge, found 2026-10-04 by the dimensional scan rather than by hand: the text says \"At load=1000 N\" while the row states 80 mm2 and 2.1 MPa, whose product is 168.0 N, i.e. 0.1680 of the stated load. A peak pressure acting over the contact area cannot carry LESS than the total load, so the label is unsupported. The first pass corrected only the even-numbered siblings because I read them one at a time; the scan found all eight. Status UNKNOWN until the source study's own load is read."
         },
         {
           "id": "HARVEST-E0086",
@@ -3237,7 +3245,7 @@
             "knee_contact_area_mm2"
           ],
           "constraint": "At load=1000 N, condition=radial_tear_100pct, contact area=35 mm2 and peak pressure=3.3 MPa; retain source condition and method.",
-          "status": "OPEN",
+          "status": "UNKNOWN",
           "evidence": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md :: L120 = At load=1000 N, condition=radial_tear_100pct, contact area=35 mm2 and peak pressure=3.3 MPa; retain source condition and method.",
           "provenance": "harvested_detail_layer_2026_10_03",
           "quantity_identity_reason": "Both variable names refer to the specifically stated condition and output in this source relation; shared units alone are not used.",
@@ -3246,7 +3254,9 @@
           "review_state": "PENDING_INDEPENDENT_REVIEW",
           "evidence_relocated": [
             "moved from MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json pointer /computed_evidence/raw_data/rivarola_2026_FE/radial_tear_100pct to MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md L120 on 2026-10-04; the claim is in the prose half of the document, not the evidence JSON"
-          ]
+          ],
+          "load_label_unsupported": "The text says \"At load=1000 N\" but the row's own area times peak pressure is 35 mm2 x 3.3 MPa = 115.5 N, which is 0.1155 of the stated load. A peak pressure acting over the contact area cannot carry LESS than the total load, so the 1000 N label is not supported by this row. Verified 2026-10-04 against MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md L122 (Rivarola FE, PMID 41539441), where the row reads 110+-8 mm2 and 1.2+-0.2 MPa with no load column. The 1000 N almost certainly came from the neighbouring Fukubayashi & Kurosawa 1980 row during harvest; the same harvest misattributed that row to Zhang 2015 in HARVEST-E0085. Status set to UNKNOWN until the FE study's own load is read. This also explains DETAIL_LAYER_EDGES r1's \"Rivarola_mean_port_force_capacity_N = 132\": it is 110 x 1.2, not a port capacity.",
+          "implied_load_N": 115.5
         },
         {
           "id": "HARVEST-E0087",
@@ -3255,7 +3265,7 @@
             "knee_peak_contact_pressure_MPa"
           ],
           "constraint": "At load=1000 N, condition=radial_tear_100pct, contact area=35 mm2 and peak pressure=3.3 MPa; retain source condition and method.",
-          "status": "OPEN",
+          "status": "UNKNOWN",
           "evidence": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md :: L120 = At load=1000 N, condition=radial_tear_100pct, contact area=35 mm2 and peak pressure=3.3 MPa; retain source condition and method.",
           "provenance": "harvested_detail_layer_2026_10_03",
           "quantity_identity_reason": "Both variable names refer to the specifically stated condition and output in this source relation; shared units alone are not used.",
@@ -3264,7 +3274,9 @@
           "review_state": "PENDING_INDEPENDENT_REVIEW",
           "evidence_relocated": [
             "moved from MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json pointer /computed_evidence/raw_data/rivarola_2026_FE/radial_tear_100pct to MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md L120 on 2026-10-04; the claim is in the prose half of the document, not the evidence JSON"
-          ]
+          ],
+          "implied_load_N": 115.5,
+          "load_label_unsupported": "Same defect as its sibling edge, found 2026-10-04 by the dimensional scan rather than by hand: the text says \"At load=1000 N\" while the row states 35 mm2 and 3.3 MPa, whose product is 115.5 N, i.e. 0.1155 of the stated load. A peak pressure acting over the contact area cannot carry LESS than the total load, so the label is unsupported. The first pass corrected only the even-numbered siblings because I read them one at a time; the scan found all eight. Status UNKNOWN until the source study's own load is read."
         },
         {
           "id": "HARVEST-E0088",
@@ -3273,7 +3285,7 @@
             "knee_contact_area_mm2"
           ],
           "constraint": "At load=1000 N, condition=repair, contact area=95 mm2 and peak pressure=1.4 MPa; retain source condition and method.",
-          "status": "OPEN",
+          "status": "UNKNOWN",
           "evidence": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md :: L121 = At load=1000 N, condition=repair, contact area=95 mm2 and peak pressure=1.4 MPa; retain source condition and method.",
           "provenance": "harvested_detail_layer_2026_10_03",
           "quantity_identity_reason": "Both variable names refer to the specifically stated condition and output in this source relation; shared units alone are not used.",
@@ -3282,7 +3294,9 @@
           "review_state": "PENDING_INDEPENDENT_REVIEW",
           "evidence_relocated": [
             "moved from MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json pointer /computed_evidence/raw_data/rivarola_2026_FE/repair to MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md L121 on 2026-10-04; the claim is in the prose half of the document, not the evidence JSON"
-          ]
+          ],
+          "load_label_unsupported": "The text says \"At load=1000 N\" but the row's own area times peak pressure is 95 mm2 x 1.4 MPa = 133.0 N, which is 0.1330 of the stated load. A peak pressure acting over the contact area cannot carry LESS than the total load, so the 1000 N label is not supported by this row. Verified 2026-10-04 against MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md L122 (Rivarola FE, PMID 41539441), where the row reads 110+-8 mm2 and 1.2+-0.2 MPa with no load column. The 1000 N almost certainly came from the neighbouring Fukubayashi & Kurosawa 1980 row during harvest; the same harvest misattributed that row to Zhang 2015 in HARVEST-E0085. Status set to UNKNOWN until the FE study's own load is read. This also explains DETAIL_LAYER_EDGES r1's \"Rivarola_mean_port_force_capacity_N = 132\": it is 110 x 1.2, not a port capacity.",
+          "implied_load_N": 133.0
         },
         {
           "id": "HARVEST-E0089",
@@ -3291,7 +3305,7 @@
             "knee_peak_contact_pressure_MPa"
           ],
           "constraint": "At load=1000 N, condition=repair, contact area=95 mm2 and peak pressure=1.4 MPa; retain source condition and method.",
-          "status": "OPEN",
+          "status": "UNKNOWN",
           "evidence": "source_documents/MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md :: L121 = At load=1000 N, condition=repair, contact area=95 mm2 and peak pressure=1.4 MPa; retain source condition and method.",
           "provenance": "harvested_detail_layer_2026_10_03",
           "quantity_identity_reason": "Both variable names refer to the specifically stated condition and output in this source relation; shared units alone are not used.",
@@ -3300,7 +3314,9 @@
           "review_state": "PENDING_INDEPENDENT_REVIEW",
           "evidence_relocated": [
             "moved from MECHANISM_MENISCUS_LOAD_DISTRIBUTION_evidence.json pointer /computed_evidence/raw_data/rivarola_2026_FE/repair to MECHANISM_MENISCUS_LOAD_DISTRIBUTION.md L121 on 2026-10-04; the claim is in the prose half of the document, not the evidence JSON"
-          ]
+          ],
+          "implied_load_N": 133.0,
+          "load_label_unsupported": "Same defect as its sibling edge, found 2026-10-04 by the dimensional scan rather than by hand: the text says \"At load=1000 N\" while the row states 95 mm2 and 1.4 MPa, whose product is 133.0 N, i.e. 0.1330 of the stated load. A peak pressure acting over the contact area cannot carry LESS than the total load, so the label is unsupported. The first pass corrected only the even-numbered siblings because I read them one at a time; the scan found all eight. Status UNKNOWN until the source study's own load is read."
         },
         {
           "id": "HARVEST-E0090",
