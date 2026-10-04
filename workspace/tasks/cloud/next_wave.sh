@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Launch the next N unstarted, preregistered public lanes sequentially.
 set -euo pipefail
-cd 
+cd "$(dirname "$0")/../.." || exit 1
 count="${1:-2}"
 minute="$(date -u +%M)"
 if [[ "$minute" != 00 && "$minute" != 30 ]]; then

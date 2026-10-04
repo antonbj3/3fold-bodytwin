@@ -1,0 +1,191 @@
+{
+ "question": "what fluence removes the mass you want, and what does our calibration error cost",
+ "external_anchor": {
+  "threshold_J_cm2": 1.15,
+  "slope_ug_per_J": 267.0,
+  "kind": "published mass-loss regression, held out, both coefficients"
+ },
+ "our_calibration_error_as_reported": {
+  "threshold_relative": 0.2651,
+  "slope_relative": -0.2497,
+  "note": "opposite signs, so the effect on a decision depends on the target and was never inverted"
+ },
+ "beam_profile_convention": {
+  "gaussian_proxy_threshold_J_cm2": 1.454844131435398,
+  "top_hat_threshold_J_cm2": 1.908147130815022,
+  "note": "the profile convention moves the threshold more than the slope error does, and is reported rather than resolved here"
+ },
+ "decision_rows": [
+  {
+   "profile": "gaussian_proxy",
+   "target_ug_cm2": 25.0,
+   "our_threshold_J_cm2": 1.4548,
+   "our_slope_ug_per_J": 200.33,
+   "fluence_we_would_choose_J_cm2": 1.5796,
+   "fluence_the_published_law_would_choose_J_cm2": 1.2436,
+   "mass_actually_removed_under_published_law_ug_cm2": 114.71,
+   "mass_error_ug_cm2": 89.71,
+   "mass_error_percent": 358.85
+  },
+  {
+   "profile": "gaussian_proxy",
+   "target_ug_cm2": 50.0,
+   "our_threshold_J_cm2": 1.4548,
+   "our_slope_ug_per_J": 200.33,
+   "fluence_we_would_choose_J_cm2": 1.7044,
+   "fluence_the_published_law_would_choose_J_cm2": 1.3373,
+   "mass_actually_removed_under_published_law_ug_cm2": 148.03,
+   "mass_error_ug_cm2": 98.03,
+   "mass_error_percent": 196.07
+  },
+  {
+   "profile": "gaussian_proxy",
+   "target_ug_cm2": 100.0,
+   "our_threshold_J_cm2": 1.4548,
+   "our_slope_ug_per_J": 200.33,
+   "fluence_we_would_choose_J_cm2": 1.954,
+   "fluence_the_published_law_would_choose_J_cm2": 1.5245,
+   "mass_actually_removed_under_published_law_ug_cm2": 214.67,
+   "mass_error_ug_cm2": 114.67,
+   "mass_error_percent": 114.67
+  },
+  {
+   "profile": "gaussian_proxy",
+   "target_ug_cm2": 200.0,
+   "our_threshold_J_cm2": 1.4548,
+   "our_slope_ug_per_J": 200.33,
+   "fluence_we_would_choose_J_cm2": 2.4532,
+   "fluence_the_published_law_would_choose_J_cm2": 1.8991,
+   "mass_actually_removed_under_published_law_ug_cm2": 347.95,
+   "mass_error_ug_cm2": 147.95,
+   "mass_error_percent": 73.98
+  },
+  {
+   "profile": "gaussian_proxy",
+   "target_ug_cm2": 400.0,
+   "our_threshold_J_cm2": 1.4548,
+   "our_slope_ug_per_J": 200.33,
+   "fluence_we_would_choose_J_cm2": 3.4516,
+   "fluence_the_published_law_would_choose_J_cm2": 2.6481,
+   "mass_actually_removed_under_published_law_ug_cm2": 614.51,
+   "mass_error_ug_cm2": 214.51,
+   "mass_error_percent": 53.63
+  },
+  {
+   "profile": "gaussian_proxy",
+   "target_ug_cm2": 800.0,
+   "our_threshold_J_cm2": 1.4548,
+   "our_slope_ug_per_J": 200.33,
+   "fluence_we_would_choose_J_cm2": 5.4483,
+   "fluence_the_published_law_would_choose_J_cm2": 4.1463,
+   "mass_actually_removed_under_published_law_ug_cm2": 1147.64,
+   "mass_error_ug_cm2": 347.64,
+   "mass_error_percent": 43.45
+  },
+  {
+   "profile": "top_hat_diagnostic",
+   "target_ug_cm2": 25.0,
+   "our_threshold_J_cm2": 1.9081,
+   "our_slope_ug_per_J": 325.46,
+   "fluence_we_would_choose_J_cm2": 1.985,
+   "fluence_the_published_law_would_choose_J_cm2": 1.2436,
+   "mass_actually_removed_under_published_law_ug_cm2": 222.93,
+   "mass_error_ug_cm2": 197.93,
+   "mass_error_percent": 791.74
+  },
+  {
+   "profile": "top_hat_diagnostic",
+   "target_ug_cm2": 50.0,
+   "our_threshold_J_cm2": 1.9081,
+   "our_slope_ug_per_J": 325.46,
+   "fluence_we_would_choose_J_cm2": 2.0618,
+   "fluence_the_published_law_would_choose_J_cm2": 1.3373,
+   "mass_actually_removed_under_published_law_ug_cm2": 243.44,
+   "mass_error_ug_cm2": 193.44,
+   "mass_error_percent": 386.89
+  },
+  {
+   "profile": "top_hat_diagnostic",
+   "target_ug_cm2": 100.0,
+   "our_threshold_J_cm2": 1.9081,
+   "our_slope_ug_per_J": 325.46,
+   "fluence_we_would_choose_J_cm2": 2.2154,
+   "fluence_the_published_law_would_choose_J_cm2": 1.5245,
+   "mass_actually_removed_under_published_law_ug_cm2": 284.46,
+   "mass_error_ug_cm2": 184.46,
+   "mass_error_percent": 184.46
+  },
+  {
+   "profile": "top_hat_diagnostic",
+   "target_ug_cm2": 200.0,
+   "our_threshold_J_cm2": 1.9081,
+   "our_slope_ug_per_J": 325.46,
+   "fluence_we_would_choose_J_cm2": 2.5227,
+   "fluence_the_published_law_would_choose_J_cm2": 1.8991,
+   "mass_actually_removed_under_published_law_ug_cm2": 366.5,
+   "mass_error_ug_cm2": 166.5,
+   "mass_error_percent": 83.25
+  },
+  {
+   "profile": "top_hat_diagnostic",
+   "target_ug_cm2": 400.0,
+   "our_threshold_J_cm2": 1.9081,
+   "our_slope_ug_per_J": 325.46,
+   "fluence_we_would_choose_J_cm2": 3.1372,
+   "fluence_the_published_law_would_choose_J_cm2": 2.6481,
+   "mass_actually_removed_under_published_law_ug_cm2": 530.58,
+   "mass_error_ug_cm2": 130.58,
+   "mass_error_percent": 32.65
+  },
+  {
+   "profile": "top_hat_diagnostic",
+   "target_ug_cm2": 800.0,
+   "our_threshold_J_cm2": 1.9081,
+   "our_slope_ug_per_J": 325.46,
+   "fluence_we_would_choose_J_cm2": 4.3662,
+   "fluence_the_published_law_would_choose_J_cm2": 4.1463,
+   "mass_actually_removed_under_published_law_ug_cm2": 858.74,
+   "mass_error_ug_cm2": 58.74,
+   "mass_error_percent": 7.34
+  }
+ ],
+ "control_fixed_fluence": {
+  "fluence_J_cm2": 2.6949,
+  "rows": [
+   {
+    "target_ug_cm2": 25.0,
+    "mass_removed_ug_cm2": 412.5,
+    "mass_error_percent": 1550.0
+   },
+   {
+    "target_ug_cm2": 50.0,
+    "mass_removed_ug_cm2": 412.5,
+    "mass_error_percent": 725.0
+   },
+   {
+    "target_ug_cm2": 100.0,
+    "mass_removed_ug_cm2": 412.5,
+    "mass_error_percent": 312.5
+   },
+   {
+    "target_ug_cm2": 200.0,
+    "mass_removed_ug_cm2": 412.5,
+    "mass_error_percent": 106.25
+   },
+   {
+    "target_ug_cm2": 400.0,
+    "mass_removed_ug_cm2": 412.5,
+    "mass_error_percent": 3.13
+   },
+   {
+    "target_ug_cm2": 800.0,
+    "mass_removed_ug_cm2": 412.5,
+    "mass_error_percent": -48.44
+   }
+  ]
+ },
+ "control_published_law_as_rule": "exact by construction, it is the facit",
+ "claim_type": "capability",
+ "review_state": "PENDING_INDEPENDENT_REVIEW",
+ "scope": "a decision against a published law, not against measured tissue outcomes; no claim of biological or clinical validity"
+}

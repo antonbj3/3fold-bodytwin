@@ -1,0 +1,323 @@
+{
+  "round": 17,
+  "lane": "LANE_CELLS_FROM_DOMAIN_DATA",
+  "claim_type": "information_link",
+  "operation": "measured species energy contrast -> nonlinear ion-sector enclosure -> synthase/ANT/Pi direction pivots -> external source-equation counterexamples and reaction cancellation",
+  "control": "R16 total/species occupancy and FCCP capacity without the new ionic/electrochemical/transport information. No algorithm speed advantage or general novelty claimed.",
+  "outcome": {
+    "round": 17,
+    "lane": "LANE_CELLS_FROM_DOMAIN_DATA",
+    "claim_type": "information_link",
+    "form": "C",
+    "gate": "UNKNOWN",
+    "gate_scope": "parent GRAPH_INVERSE/MULTIPHYSICS, absolute donor ATP inventory/flux and matched empirical spatial transfer",
+    "result": "Measured species reverse the total-only energy-change sign under equal missing conditions; source-matched direction requires three independent molecular affinities. A known wrong Pi equation persists in the downloaded external model.",
+    "control": "R16 total/species occupancy and FCCP capacity without the new ionic/electrochemical/transport information. No algorithm speed advantage or general novelty claimed.",
+    "subgates": {
+      "old_summary_synthesis_direction": "FAIL",
+      "synthase_only_export_direction": "FAIL",
+      "two_head_Pi_direction": "FAIL",
+      "external_Pi_law_declared_symport": "FAIL",
+      "expression_verification": "PASS_EXPRESSION_ONLY",
+      "conditional_nonlinear_guards": "PASS_MODEL_ONLY",
+      "expanded_measured_energy_sign": "UNKNOWN",
+      "inherited_held_respiration_mean": "FAIL_2.42424_PERCENT_VS_2_PERCENT"
+    },
+    "measured_species_energy": {
+      "round": 17,
+      "temperature_K": 293.15,
+      "input_sha256": "d2dcfc70e6e064b95ac268cb46d901dd24baf5818460088edd61ff8dd63fbb1f",
+      "species_quotient_exact": "8/19",
+      "species_quotient_SD_box": [
+        0.19688269073010664,
+        0.9081081081081082
+      ],
+      "total_only_quotient_exact": "4664/3015",
+      "species_delta_hydrolysis_J_mol": -2108.2142260165333,
+      "total_only_delta_hydrolysis_J_mol": 1063.307484942317,
+      "species_delta_synthesis_cost_J_mol": 2108.2142260165333,
+      "total_only_delta_synthesis_cost_J_mol": -1063.307484942317,
+      "opposite_sign": true,
+      "species_conditional_SD_box_J_mol": [
+        -3960.8885655304753,
+        -234.9309391188932
+      ],
+      "nF_illustrative": [
+        2.6666666666666665,
+        3.6666666666666665
+      ],
+      "additional_potential_at_same_pH_mV": [
+        8.193815979232005,
+        5.959138893986913
+      ],
+      "missing_condition_factor_Z": {
+        "unit": "1",
+        "definition": "deltaGhyd=RT ln[(D1/A1)/(D0/A0) * Z]; Z=(Pi_free1/Pi_free0)*(H1/H0)*(betaA1/betaD1)/(betaA0/betaD0)",
+        "declared_box": [
+          0.5,
+          3
+        ],
+        "expanded_delta_hydrolysis_J_mol": [
+          -5650.26090751774,
+          2442.6608726863974
+        ],
+        "sign_gate": "UNKNOWN",
+        "mean_sign_boundary": 2.375,
+        "all_SD_negative_requires_Z_below": 1.1011904761904763,
+        "all_SD_positive_requires_Z_above": 5.079166666666667,
+        "equal_condition_assumption_is_not_an_acquisition": true
+      },
+      "source_standard_cancels": true,
+      "absolute_reference_not_imported": true,
+      "free_species_scope": "reported Mg-unbound totals U; A4-/D3- inferred only via beta ligand sector. If beta,pH,Pi unchanged, their ratio cancels.",
+      "comparisons": 20000,
+      "instances": 10000,
+      "enclosure_misses": 0,
+      "limitations": [
+        "No new measured energy target; source expression, not empirical ATP validation.",
+        "meanSD rectangles are declared sets, not confidence bounds or paired uncertainties.",
+        "No measured matched deltaPsi/Pi/ionic activities acquired; sign is conditional and expanded sign is UNKNOWN.",
+        "No nF transfer from reference8/3 to plant or R14 donor."
+      ],
+      "wall_s": 0.08680087514221668,
+      "absolute_ATP_flux_mM_s": null,
+      "parent_gate": "UNKNOWN"
+    },
+    "stress_points": {
+      "potential": {
+        "unit": "mV",
+        "span": [
+          80,
+          240
+        ],
+        "instances": 321,
+        "synthase_affinity_span_J_mol": [
+          -7073.283661424408,
+          34093.64967190892
+        ],
+        "forward_count": 55,
+        "blocked_count": 266,
+        "threshold_mV": 212.50887316127736,
+        "verdict_flip": true,
+        "sign_flip": true
+      },
+      "free_Mg": {
+        "unit": "M",
+        "span": [
+          2.5e-05,
+          0.004
+        ],
+        "instances": 321,
+        "fixed_psi_mV": 215,
+        "synthase_affinity_span_J_mol": [
+          -1755.4541810401715,
+          1664.7548592965177
+        ],
+        "transformed_standard_span_J_mol": [
+          -39504.327380800154,
+          -36084.11834046347
+        ],
+        "frozen_standard_wrong_direction_count": 194,
+        "frozen_standard_synthase_J_mol": -640.9503280910867,
+        "verdict_flip": true,
+        "sign_flip": true,
+        "range_kind": "declared synthetic admissible range, not measured donor range"
+      },
+      "nF": {
+        "unit": "mol H+/mol ATP",
+        "span": [
+          2.6666666666666665,
+          3.6666666666666665
+        ],
+        "instances": 321,
+        "fixed_psi_mV": 180,
+        "synthase_affinity_span_J_mol": [
+          -10190.46690491376,
+          8364.31633857559
+        ],
+        "verdict_flip": true,
+        "sign_flip": true,
+        "source_match": "not acquired; do not confuse source stoichiometries"
+      }
+    },
+    "sufficiency": {
+      "summary_identity_errors": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "synthase_gap_J_mol": -41166.93333333333,
+      "ANT_gap_J_mol": 14298.723025545964,
+      "Pi_gap_J_mol": 14298.723025545964,
+      "small_extension": "three reaction affinities for three instantaneous passive direction decisions only"
+    },
+    "external_source_Pi_misses": 1681,
+    "external_source_Pi_instances": 10000,
+    "corrected_Pi_direction_misses": 0,
+    "known_prior_locator": "Heiske2012 primary dissertation printedp127 Eq4.14",
+    "new_empirical_ATP_validations": 0,
+    "matched_donor_acquisitions": 0,
+    "no_absolute_rate_emitted": true,
+    "preserved_negatives": [
+      {
+        "source": "R4 donor metadata",
+        "negative": "42-node description refuted by raw flat geometry;42IMS+1outer43ADP retained, raw untouched"
+      },
+      {
+        "source": "R1/R2 succinate anchor",
+        "negative": "FAIL2.272727% >2% retained"
+      },
+      {
+        "source": "R14 R12 corrected ANT marginals",
+        "negative": "radius1.327002953/1.360235303 exceed1molecule; historical rawPASS not active"
+      },
+      {
+        "source": "BT-FW48-AUTO-fd17bb77bd55fd/results.json",
+        "negative": "constant-pool first-order respiration cannot identify N_A; spread0.0 across200 N,void_floor1.0; source fixture synthetic"
+      },
+      {
+        "source": "r15/FEEDBACK_PROFILE_V1.json",
+        "negative": "actual ADP feedback with freeKm identifies only N_A/Km;200-pool gauge exact0.0,refit void_floor1.0"
+      },
+      {
+        "source": "r15/ENDOGENOUS_ADP_V1.json",
+        "negative": "endogenous time series cannot separate (N,Km,C,D,gain) scale when all free;5dyadic arms bitidentical"
+      },
+      {
+        "source": "r14/OUTCOME_R14.json",
+        "negative": "work V1 sign remains UNKNOWN; R16 did not reacquire its absolute reference/reward budget"
+      },
+      {
+        "source": "r16/SUFFICIENCY_R16_V1.json",
+        "negative": "total ADP and complete old respiration summary fail species sufficiency: identity0.0, occupancy gap0.306474268931171"
+      },
+      {
+        "source": "r16/EVALUATION_R16_V1.json",
+        "negative": "constant-capacity species mean error16.6667%; independent FCCP-capacity extension2.42424%, both FAIL frozen2%; not a statistical rejection with n5 SD tables"
+      },
+      {
+        "source": "r16/EVALUATION_R16_V1.json",
+        "negative": "cross-readout cytosol freeADP/MgADP predictions fail point2% at6.20471%/11.93639%; matrix MgADP validation would be circular and was not claimed"
+      },
+      {
+        "source": "r17/SUFFICIENCY_R17_V1.json",
+        "negative": "occupancy+species+capacity summary fails synthesis-direction sufficiency; identity0.0, gap41166.933333J/mol"
+      },
+      {
+        "source": "r17/JOINT_DIRECTION_PIVOT_R17_V1.json",
+        "negative": "synthase affinity alone fails ATP-export direction; identity0.0, ANTgap14298.723026J/mol"
+      },
+      {
+        "source": "r17/CYCLE_PIVOT_R17_V1.json",
+        "negative": "two-head and total-cycle signs do not determine independent Pi import; identity0.0, Pi gap14298.723026J/mol"
+      },
+      {
+        "source": "r17/FINAL_CELL_CHECKS_R17_V2.json",
+        "negative": "external sourcePi equationFAIL declared symport sign in1681/10000; known in Heiske2012p127"
+      },
+      {
+        "source": "r17/DIFFERENTIAL_ENERGY_R17_V1.json",
+        "negative": "matched missing-condition factor unacquired; expanded energy signUNKNOWN"
+      }
+    ],
+    "review_state": "PENDING_INDEPENDENT_REVIEW",
+    "scientific_admission": false
+  },
+  "gate": "UNKNOWN",
+  "subgates": {
+    "old_summary_synthesis_direction": "FAIL",
+    "synthase_only_export_direction": "FAIL",
+    "two_head_Pi_direction": "FAIL",
+    "external_Pi_law_declared_symport": "FAIL",
+    "expression_verification": "PASS_EXPRESSION_ONLY",
+    "conditional_nonlinear_guards": "PASS_MODEL_ONLY",
+    "expanded_measured_energy_sign": "UNKNOWN",
+    "inherited_held_respiration_mean": "FAIL_2.42424_PERCENT_VS_2_PERCENT"
+  },
+  "obstacle": "missing matched reaction forces, species/activity conventions, intrinsic kinetics and absolute donor scale; external unchangedPi transport contractFAIL",
+  "next": "Acquire paired Pi/pH/ionic activities and potential to bound Z; consume corrected saturating Heiske2012/2017 reaction laws and matched titration data, then finite-response and absolute-scale acquisition. Preserve unchanged externalPi-lawFAIL and existing held respirationFAIL.",
+  "files": [
+    "RESULTS.md",
+    "WORK_STATUS.json",
+    "NEXT_ROUND.md",
+    "CHECKPOINT_R17.json",
+    "PORT_R17.json",
+    "PORT.json",
+    "DERIVATION_R17.md",
+    "PREREG_R17.json",
+    "PREREG_R17.sha256",
+    "ACQUISITION_TARGETS_V17.json",
+    "COST_ACCOUNTING_R17.json",
+    "r17/RUN_R17_V1.log",
+    "r17/DIFFERENTIAL_R17_V1.log",
+    "r17/prepare_r17.py",
+    "r17/thermo_cell_TWO_HEADS_V1.py",
+    "r17/NONLINEAR_ENCLOSURES_R17_V1.json",
+    "r17/BEFORE_R17_NEXT_ROUND.md",
+    "r17/RESULTS_PREFIX_BEFORE_R17.json",
+    "r17/SUFFICIENCY_R17_V1.json",
+    "r17/differential_energy.py",
+    "r17/PREREG_DIFFERENTIAL_R17_V1.sha256",
+    "r17/thermo_cell.py",
+    "r17/OUTCOME_R17.json",
+    "r17/thermo_cell_BEFORE_GATE_FIELD_V1.py",
+    "r17/SEARCH_ACQUIRE_R17_V1.json",
+    "r17/DOWNLOAD_HEISKE_R17_V1.json",
+    "r17/FINAL_CELL_CHECKS_R17_V1.json",
+    "r17/CYCLE_R17_V1.log",
+    "r17/DOWNLOAD_R17_V2.json",
+    "r17/OLD_CELL_CONSUMPTION_R17_V1.json",
+    "r17/cycle_pivot.py",
+    "r17/JOINT_DIRECTION_PIVOT_R17_V1.json",
+    "r17/FINAL_CELL_CHECKS_R17_V2.json",
+    "r17/verify_final.py",
+    "r17/STRESS_R17_V1.json",
+    "r17/NEXT_ROUND_R17_ARCHIVE.json",
+    "r17/verify_final_V1.py",
+    "r17/FINAL_CHECKS_R17_V2.log",
+    "r17/FINAL_CHECKS_R17_V1.log",
+    "r17/PREREG_CYCLE_R17_V1.json",
+    "r17/verify_final_SOURCE_NAME_FAIL_V1.py",
+    "r17/RESULTS_SECTION_R17.md",
+    "r17/EXTERNAL_CHECKS_R17_V1.json",
+    "r17/search_acquire.py",
+    "r17/BEFORE_R17_WORK_STATUS.json",
+    "r17/run_r17.py",
+    "r17/DIFFERENTIAL_ENERGY_R17_V1.json",
+    "r17/BEFORE_R17_PORT.json",
+    "r17/CYCLE_PIVOT_R17_V1.json",
+    "r17/PREREG_CYCLE_R17_V1.sha256",
+    "r17/thermo_cell_THREE_HEADS_V1.py",
+    "r17/PRIMARY_REVIEW_R17_V1.json",
+    "r17/DOWNLOAD_ROBERTS_DOI_R17_V1.json",
+    "r17/EXTERNAL_MODEL_PARAMETERS_R17_V1.json",
+    "r17/SEARCH_CONDITIONS_R17_V1.json",
+    "r17/finalize_r17.py",
+    "r17/FORWARD_INPUTS_R17_V1.json",
+    "r17/FINALIZE_R17_V1.log",
+    "r17/PREREG_DIFFERENTIAL_R17_V1.json",
+    "r17/FINAL_CHECKS_R17_V3.log",
+    "r17/HELD_EXPRESSION_R17_V1.json",
+    "r17/PREDICTIONS_R17_V1.json",
+    "r17/external/beard.cellml",
+    "r17/external/roberts_europe.pdf",
+    "r17/external/beard_correction.pdf",
+    "r17/external/qamas.html",
+    "r17/external/beard_correction.xml",
+    "r17/external/roberts_doi.html",
+    "r17/external/roberts_oa.xml",
+    "r17/external/roberts_pdf_alt.pdf",
+    "r17/external/beard_correction.html",
+    "r17/external/beard_correction.txt",
+    "r17/external/roberts_metadata.json",
+    "r17/external/beard_eq16_page4.png",
+    "r17/external/roberts_publisher.html",
+    "r17/external/beard_eq16_page5.png",
+    "r17/external/heiske_thesis.txt",
+    "r17/external/heiske_thesis.pdf",
+    "r17/external/roberts_europe.xml",
+    "r17/external/roberts_ncbi.html"
+  ],
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

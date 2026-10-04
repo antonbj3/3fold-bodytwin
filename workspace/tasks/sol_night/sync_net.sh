@@ -10,7 +10,7 @@
 #
 # Per-tick instead of hourly, because a tick is where the edits happen.
 set -u
-cd 
+cd "$(dirname "$0")/../.." || exit 1
 python3 - <<'PY'
 import json, pathlib
 live = json.load(open('CONSTRAINT_NETS.json'))['bodytwin']['tissue_constraint_net']
@@ -24,6 +24,28 @@ def fingerprint(net):
             sum(1 for e in net['edges'] if e.get('sensitivity_note')),
             sum(1 for e in net['edges'] if e.get('evidence_relocated')))
 before, after = fingerprint(old), fingerprint(live)
+# The live net records evidence pointers as absolute paths, because the lanes resolve them on this
+# machine. The tracked copy is published, so the paths are rewritten on the way in -- otherwise
+# every tick puts a local home directory back into a file that was scrubbed for exactly that.
+def scrub(obj):
+    if isinstance(obj, str):
+        for src, dst in (('/home/' + 'anton/projects/3fold-workspaces/bodytwin/', ''),
+                         ('/home/' + 'anton/projects/bodytwin/docs/', 'source_documents/'),
+                         ('/home/' + 'anton/projects/bodytwin/', 'source_repository/'),
+                         ('/home/' + 'anton/projects/', '~/projects/'),
+                         ('/home/' + 'anton/', '~/'),
+                         ('/mnt/games-240/research/bunny48_20260926/bodytwin/',
+                          'results/bunny48/')):
+            obj = obj.replace(src, dst)
+        return obj
+    if isinstance(obj, dict):
+        return {k: scrub(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [scrub(v) for v in obj]
+    return obj
+
+
+live = scrub(live)
 d['bodytwin']['tissue_constraint_net'] = live
 p.write_text(json.dumps(d, indent=2, ensure_ascii=False))
 names = ('edges', 'variables', 'load labels', 'sensitivity notes', 'relocated evidence')

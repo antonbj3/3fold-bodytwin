@@ -1,0 +1,108 @@
+{
+ "practice_adopted": "forecast verification: probability output scored against a reference forecast",
+ "field_it_comes_from": "operational weather forecasting",
+ "what_we_did_before": "both decisions emitted a point number with no statement of confidence",
+ "reference_forecast": "climatology, i.e. the leave-one-out cohort base rate",
+ "claim_type": "capability",
+ "control": "the climatology forecast, which is the standard reference in this practice; a positive skill score means the per-patient probability carries information the cohort rate does not",
+ "scope": "the same 20 and 69 patients the decisions were scored on; no new data",
+ "results": [
+  {
+   "decision": "implant_power",
+   "n": 20,
+   "event": "|error| <= 0.5 D",
+   "observed_base_rate": 0.6,
+   "sharpness_covariate": "measured refraction-per-power sensitivity |dR/dP|",
+   "brier_score": 0.25586,
+   "brier_score_climatology_reference": 0.26593,
+   "brier_skill_score_vs_climatology": 0.0379,
+   "murphy_decomposition": {
+    "reliability_lower_is_better": 0.0929,
+    "resolution_higher_is_better": 0.08167,
+    "uncertainty": 0.24,
+    "identity_check": -0.004625502
+   },
+   "reliability_diagram": [
+    {
+     "bin": "0.0-0.2",
+     "n": 0
+    },
+    {
+     "bin": "0.2-0.4",
+     "n": 0
+    },
+    {
+     "bin": "0.4-0.6",
+     "n": 12,
+     "mean_forecast": 0.5834,
+     "observed_frequency": 0.8333
+    },
+    {
+     "bin": "0.6-0.8",
+     "n": 8,
+     "mean_forecast": 0.6223,
+     "observed_frequency": 0.25
+    },
+    {
+     "bin": "0.8-1.0",
+     "n": 0
+    }
+   ],
+   "forecast_range": [
+    0.5458,
+    0.6578
+   ],
+   "leave_one_out": "the error scale is fitted on the other patients only; no patient is in its own fit"
+  },
+  {
+   "decision": "toric_cylinder",
+   "n": 69,
+   "event": "|error| <= 0.5 D",
+   "observed_base_rate": 0.8551,
+   "sharpness_covariate": "measured corneal cylinder magnitude, D",
+   "brier_score": 0.13844,
+   "brier_score_climatology_reference": 0.1276,
+   "brier_skill_score_vs_climatology": -0.085,
+   "murphy_decomposition": {
+    "reliability_lower_is_better": 0.0228,
+    "resolution_higher_is_better": 0.00343,
+    "uncertainty": 0.12392,
+    "identity_check": 0.004849693
+   },
+   "reliability_diagram": [
+    {
+     "bin": "0.0-0.2",
+     "n": 0
+    },
+    {
+     "bin": "0.2-0.4",
+     "n": 0
+    },
+    {
+     "bin": "0.4-0.6",
+     "n": 11,
+     "mean_forecast": 0.5392,
+     "observed_frequency": 0.9091
+    },
+    {
+     "bin": "0.6-0.8",
+     "n": 16,
+     "mean_forecast": 0.7067,
+     "observed_frequency": 0.75
+    },
+    {
+     "bin": "0.8-1.0",
+     "n": 42,
+     "mean_forecast": 0.9112,
+     "observed_frequency": 0.881
+    }
+   ],
+   "forecast_range": [
+    0.4567,
+    0.9966
+   ],
+   "leave_one_out": "the error scale is fitted on the other patients only; no patient is in its own fit"
+  }
+ ],
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

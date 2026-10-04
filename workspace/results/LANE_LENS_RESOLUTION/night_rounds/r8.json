@@ -1,0 +1,596 @@
+{
+  "round": 8,
+  "claim_type": "capability",
+  "operation": "Regular continuous conic transport -> actual-density native adjoint -> exact finite-angle observation-error sector -> coarsest sufficient loaded operator",
+  "control": "Equally informed validated intervalNewton/AD and Hilbert recovery reproduce conditional guarantee; independent high-precision/scalar-angle support, no method win",
+  "outcome": {
+    "round": 8,
+    "claim_type": "capability",
+    "secondary_claim_type": "information_link",
+    "form": "A conditional, B supporting checks",
+    "gate": "UNKNOWN",
+    "numeric_gate": "PASS_CONTINUOUS_EXACT_DECIMAL_CONIC_MODEL_AND_FINITE_ANGLE_REMAINDER",
+    "physical_gate": "UNKNOWN",
+    "clinical_gate": "UNKNOWN",
+    "headline": "Continuous conic transport and finite-angle conversion now carry actual-density native optical task bounds; measured sensor calibration remains open",
+    "rigorous_transport_rows": [
+      {
+        "id": "S1-OD",
+        "cells": 4096,
+        "exit_radius_mm": [
+          2.4848635606651155,
+          2.484863560665119
+        ],
+        "Fprime": [
+          0.9930585943113361,
+          0.9950378433913106
+        ],
+        "M": [
+          0.9930585943113363,
+          0.9939477150173947
+        ],
+        "density_per_mm2": [
+          0.05149522642862165,
+          0.05164405813577979
+        ],
+        "H_mm2": [
+          3.085044440287366,
+          3.086583045004856
+        ],
+        "origin_M": [
+          0.9930616460434981,
+          0.9930616460434991
+        ],
+        "origin_Fprime": [
+          0.993061646043498,
+          0.9930616460434992
+        ],
+        "origin_density_per_mm2": [
+          0.05164374072629818,
+          0.05164374072629841
+        ],
+        "guards": {
+          "posterior_transversality_lower": 0.9965860866385995,
+          "path_lower_mm": 0.41746203338342697,
+          "downstream_clearance_lower_mm": 0.0049999999999995595,
+          "posterior_radius_upper_mm": 2.492777325862226,
+          "snell_discriminant_lower": 0.9863068747167102,
+          "forward_denominator_lower": 0.9999945525076424,
+          "root_existence_and_uniqueness": true
+        }
+      },
+      {
+        "id": "S2-OS",
+        "cells": 4096,
+        "exit_radius_mm": [
+          2.4811625896310923,
+          2.4811625896310963
+        ],
+        "Fprime": [
+          0.9917604296526544,
+          0.9926083120898749
+        ],
+        "M": [
+          0.9924627004109939,
+          0.992573973940791
+        ],
+        "density_per_mm2": [
+          0.051692997514160066,
+          0.05174270630215668
+        ],
+        "H_mm2": [
+          3.0777442093001706,
+          3.079276374409182
+        ],
+        "origin_M": [
+          0.992529900145955,
+          0.992529900145956
+        ],
+        "origin_Fprime": [
+          0.9925299001459549,
+          0.9925299001459561
+        ],
+        "origin_density_per_mm2": [
+          0.051699091609816616,
+          0.051699091609816845
+        ],
+        "guards": {
+          "posterior_transversality_lower": 0.9958250752592004,
+          "path_lower_mm": 0.48348943009255146,
+          "downstream_clearance_lower_mm": 0.004999999999999004,
+          "posterior_radius_upper_mm": 2.491490288807742,
+          "snell_discriminant_lower": 0.9819731949778342,
+          "forward_denominator_lower": 0.9999928125228619,
+          "root_existence_and_uniqueness": true
+        }
+      },
+      {
+        "id": "S3-OS",
+        "cells": 4096,
+        "exit_radius_mm": [
+          2.4844543837953217,
+          2.4844543837953257
+        ],
+        "Fprime": [
+          0.9928991661188136,
+          0.9956203789004878
+        ],
+        "M": [
+          0.9928991661188137,
+          0.9937836387827204
+        ],
+        "density_per_mm2": [
+          0.05147359369358763,
+          0.051660644270898864
+        ],
+        "H_mm2": [
+          3.0836291682752446,
+          3.085159647997403
+        ],
+        "origin_M": [
+          0.992901054455656,
+          0.9929010544556571
+        ],
+        "origin_Fprime": [
+          0.9929010544556559,
+          0.9929010544556572
+        ],
+        "origin_density_per_mm2": [
+          0.05166044777074451,
+          0.051660447770744744
+        ],
+        "guards": {
+          "posterior_transversality_lower": 0.9958148790496063,
+          "path_lower_mm": 0.3064799215239474,
+          "downstream_clearance_lower_mm": 0.0049999999999995595,
+          "posterior_radius_upper_mm": 2.493772350057285,
+          "snell_discriminant_lower": 0.9842969774624787,
+          "forward_denominator_lower": 0.9999934086803864,
+          "root_existence_and_uniqueness": true
+        }
+      }
+    ],
+    "coarsest_sufficient": [
+      {
+        "id": "S1-OD",
+        "alpha": 0,
+        "radial_cells": 1024,
+        "subcells_axis": 4
+      },
+      {
+        "id": "S1-OD",
+        "alpha": 0.5,
+        "radial_cells": 1024,
+        "subcells_axis": 4
+      },
+      {
+        "id": "S1-OD",
+        "alpha": 2,
+        "radial_cells": 1024,
+        "subcells_axis": 4
+      },
+      {
+        "id": "S2-OS",
+        "alpha": 0,
+        "radial_cells": 1024,
+        "subcells_axis": 4
+      },
+      {
+        "id": "S2-OS",
+        "alpha": 0.5,
+        "radial_cells": 1024,
+        "subcells_axis": 4
+      },
+      {
+        "id": "S2-OS",
+        "alpha": 2,
+        "radial_cells": 1024,
+        "subcells_axis": 4
+      },
+      {
+        "id": "S3-OS",
+        "alpha": 0,
+        "radial_cells": 1024,
+        "subcells_axis": 4
+      },
+      {
+        "id": "S3-OS",
+        "alpha": 0.5,
+        "radial_cells": 1024,
+        "subcells_axis": 4
+      },
+      {
+        "id": "S3-OS",
+        "alpha": 2,
+        "radial_cells": 1024,
+        "subcells_axis": 4
+      }
+    ],
+    "numerical_budget_D": 0.0001,
+    "fine_signed_queries": [
+      {
+        "id": "S1-OD",
+        "alpha": 0.5,
+        "conditional": {
+          "gate": "PASS_CONDITIONAL",
+          "physical_gate": "UNKNOWN",
+          "clinical_gate": "UNKNOWN",
+          "ray_solves": 0,
+          "state_solves": 0,
+          "history_solves": 0,
+          "review": "PENDING_INDEPENDENT_REVIEW",
+          "change_D": [
+            -0.03745835081092558,
+            -0.03186673472064821
+          ],
+          "radius_bound_D": 0.002796502893930707,
+          "predicted_change_center_D": -0.03466184791699487,
+          "residual_sector_radius_D": 0.0027878615942331262,
+          "sign": "NEGATIVE",
+          "uncertainty_target_pass": true,
+          "observation_model_error_mm_mrad": 0.00036930012554687745,
+          "signed_complement_assumed_independent": true,
+          "exact_fixed_height_slope_task": true,
+          "nonlinear_power_remainder_D": [
+            0.00015992804393092955,
+            0.0001600477002562022
+          ],
+          "angle_cap": 0.03740198117035747,
+          "phase_RMS_mrad": 0.1,
+          "observation_contract": "Phase-gradient native projection; bounded exact nonlinear conversion; sensor approximation separate",
+          "sensor_model_error_mm_mrad": 0,
+          "screen_at_fixed_plane": true,
+          "manufactured_lens_surface_realization": "UNKNOWN"
+        },
+        "missing_sensor_error": {
+          "gate": "UNKNOWN",
+          "reason": "Missing independent angle/phase-norm/sensor-error contract"
+        }
+      },
+      {
+        "id": "S2-OS",
+        "alpha": 0.5,
+        "conditional": {
+          "gate": "PASS_CONDITIONAL",
+          "physical_gate": "UNKNOWN",
+          "clinical_gate": "UNKNOWN",
+          "ray_solves": 0,
+          "state_solves": 0,
+          "history_solves": 0,
+          "review": "PENDING_INDEPENDENT_REVIEW",
+          "change_D": [
+            -0.03757188115781085,
+            -0.031917680774234174
+          ],
+          "radius_bound_D": 0.00282780155977936,
+          "predicted_change_center_D": -0.03474407959803149,
+          "residual_sector_radius_D": 0.00281915554897245,
+          "sign": "NEGATIVE",
+          "uncertainty_target_pass": true,
+          "observation_model_error_mm_mrad": 0.00042135965206700895,
+          "signed_complement_assumed_independent": true,
+          "exact_fixed_height_slope_task": true,
+          "nonlinear_power_remainder_D": [
+            0.00018290585612789492,
+            0.0001830424546365046
+          ],
+          "angle_cap": 0.03997004676518096,
+          "phase_RMS_mrad": 0.1,
+          "observation_contract": "Phase-gradient native projection; bounded exact nonlinear conversion; sensor approximation separate",
+          "sensor_model_error_mm_mrad": 0,
+          "screen_at_fixed_plane": true,
+          "manufactured_lens_surface_realization": "UNKNOWN"
+        },
+        "missing_sensor_error": {
+          "gate": "UNKNOWN",
+          "reason": "Missing independent angle/phase-norm/sensor-error contract"
+        }
+      },
+      {
+        "id": "S3-OS",
+        "alpha": 0.5,
+        "conditional": {
+          "gate": "PASS_CONDITIONAL",
+          "physical_gate": "UNKNOWN",
+          "clinical_gate": "UNKNOWN",
+          "ray_solves": 0,
+          "state_solves": 0,
+          "history_solves": 0,
+          "review": "PENDING_INDEPENDENT_REVIEW",
+          "change_D": [
+            -0.0375076897585245,
+            -0.03184930604475413
+          ],
+          "radius_bound_D": 0.0028298916463075853,
+          "predicted_change_center_D": -0.03467779811221691,
+          "residual_sector_radius_D": 0.0028212880665124556,
+          "sign": "NEGATIVE",
+          "uncertainty_target_pass": true,
+          "observation_model_error_mm_mrad": 0.0004424447719517226,
+          "signed_complement_assumed_independent": true,
+          "exact_fixed_height_slope_task": true,
+          "nonlinear_power_remainder_D": [
+            0.000191692483451695,
+            0.00019183521358060127
+          ],
+          "angle_cap": 0.04093635923515085,
+          "phase_RMS_mrad": 0.1,
+          "observation_contract": "Phase-gradient native projection; bounded exact nonlinear conversion; sensor approximation separate",
+          "sensor_model_error_mm_mrad": 0,
+          "screen_at_fixed_plane": true,
+          "manufactured_lens_surface_realization": "UNKNOWN"
+        },
+        "missing_sensor_error": {
+          "gate": "UNKNOWN",
+          "reason": "Missing independent angle/phase-norm/sensor-error contract"
+        }
+      }
+    ],
+    "delivered_queries": [
+      {
+        "id": "S1-OD",
+        "alpha": 0.5,
+        "query": {
+          "gate": "PASS_CONDITIONAL",
+          "physical_gate": "UNKNOWN",
+          "clinical_gate": "UNKNOWN",
+          "ray_solves": 0,
+          "state_solves": 0,
+          "history_solves": 0,
+          "review": "PENDING_INDEPENDENT_REVIEW",
+          "change_D": [
+            -0.03748846337191187,
+            -0.031840859148866106
+          ],
+          "radius_bound_D": 0.002826583571002753,
+          "predicted_change_center_D": -0.034661879800909116,
+          "residual_sector_radius_D": 0.0027920183410650844,
+          "sign": "NEGATIVE",
+          "uncertainty_target_pass": true,
+          "observation_model_error_mm_mrad": 0.0003694381690148342,
+          "signed_complement_assumed_independent": true,
+          "exact_fixed_height_slope_task": true,
+          "nonlinear_power_remainder_D": [
+            0.00015974876332758327,
+            0.00016022738904399833
+          ],
+          "angle_cap": 0.03740198117035747,
+          "phase_RMS_mrad": 0.1,
+          "observation_contract": "Phase-gradient native projection; bounded exact nonlinear conversion; sensor approximation separate",
+          "sensor_model_error_mm_mrad": 0,
+          "screen_at_fixed_plane": true,
+          "manufactured_lens_surface_realization": "UNKNOWN"
+        }
+      },
+      {
+        "id": "S2-OS",
+        "alpha": 0.5,
+        "query": {
+          "gate": "PASS_CONDITIONAL",
+          "physical_gate": "UNKNOWN",
+          "clinical_gate": "UNKNOWN",
+          "ray_solves": 0,
+          "state_solves": 0,
+          "history_solves": 0,
+          "review": "PENDING_INDEPENDENT_REVIEW",
+          "change_D": [
+            -0.03760164406189498,
+            -0.03189219321041934
+          ],
+          "radius_bound_D": 0.0028575325770537276,
+          "predicted_change_center_D": -0.03474411148484125,
+          "residual_sector_radius_D": 0.002822948502667567,
+          "sign": "NEGATIVE",
+          "uncertainty_target_pass": true,
+          "observation_model_error_mm_mrad": 0.00042151686800153993,
+          "signed_complement_assumed_independent": true,
+          "exact_fixed_height_slope_task": true,
+          "nonlinear_power_remainder_D": [
+            0.00018270119080805792,
+            0.00018324758531630743
+          ],
+          "angle_cap": 0.03997004676518096,
+          "phase_RMS_mrad": 0.1,
+          "observation_contract": "Phase-gradient native projection; bounded exact nonlinear conversion; sensor approximation separate",
+          "sensor_model_error_mm_mrad": 0,
+          "screen_at_fixed_plane": true,
+          "manufactured_lens_surface_realization": "UNKNOWN"
+        }
+      },
+      {
+        "id": "S3-OS",
+        "alpha": 0.5,
+        "query": {
+          "gate": "PASS_CONDITIONAL",
+          "physical_gate": "UNKNOWN",
+          "clinical_gate": "UNKNOWN",
+          "ray_solves": 0,
+          "state_solves": 0,
+          "history_solves": 0,
+          "review": "PENDING_INDEPENDENT_REVIEW",
+          "change_D": [
+            -0.037537070809324016,
+            -0.03182418997573238
+          ],
+          "radius_bound_D": 0.002859241001370021,
+          "predicted_change_center_D": -0.034677829807953996,
+          "residual_sector_radius_D": 0.002824826650489214,
+          "sign": "NEGATIVE",
+          "uncertainty_target_pass": true,
+          "observation_model_error_mm_mrad": 0.00044260935872687677,
+          "signed_complement_assumed_independent": true,
+          "exact_fixed_height_slope_task": true,
+          "nonlinear_power_remainder_D": [
+            0.00019147863056704994,
+            0.00019204955158890792
+          ],
+          "angle_cap": 0.04093635923515085,
+          "phase_RMS_mrad": 0.1,
+          "observation_contract": "Phase-gradient native projection; bounded exact nonlinear conversion; sensor approximation separate",
+          "sensor_model_error_mm_mrad": 0,
+          "screen_at_fixed_plane": true,
+          "manufactured_lens_surface_realization": "UNKNOWN"
+        }
+      }
+    ],
+    "max_nonlinear_remainder_D": 0.00019183521358060127,
+    "sensor_stress": [
+      {
+        "id": "S1-OD",
+        "sensor_model_error_sufficient_crossing_mm_mrad": [
+          0.05112550616475901,
+          0.0511255061647591
+        ],
+        "criterion": "0.025D actual displayed-center radius; a conservative sufficient-bound crossing, not necessary sensor failure",
+        "cap": 0.03740198117035747,
+        "phase_total_mrad": 0.1,
+        "noise_mrad": 0.005,
+        "signed_complement_mm_mrad": 0.08,
+        "signed_error_mm_mrad": 0.002
+      },
+      {
+        "id": "S2-OS",
+        "sensor_model_error_sufficient_crossing_mm_mrad": [
+          0.0509334052169681,
+          0.05093340521696819
+        ],
+        "criterion": "0.025D actual displayed-center radius; a conservative sufficient-bound crossing, not necessary sensor failure",
+        "cap": 0.03997004676518096,
+        "phase_total_mrad": 0.1,
+        "noise_mrad": 0.005,
+        "signed_complement_mm_mrad": 0.08,
+        "signed_error_mm_mrad": 0.002
+      },
+      {
+        "id": "S3-OS",
+        "sensor_model_error_sufficient_crossing_mm_mrad": [
+          0.05102697226331835,
+          0.05102697226331844
+        ],
+        "criterion": "0.025D actual displayed-center radius; a conservative sufficient-bound crossing, not necessary sensor failure",
+        "cap": 0.04093635923515085,
+        "phase_total_mrad": 0.1,
+        "noise_mrad": 0.005,
+        "signed_complement_mm_mrad": 0.08,
+        "signed_error_mm_mrad": 0.002
+      }
+    ],
+    "sufficiency": {
+      "exact_native_mean_identity_error": 0,
+      "exact_RMS_identity_error": 0,
+      "gap_range_D": [
+        0.13443600458831165,
+        0.13680017314027304
+      ],
+      "domain": "L2 slope fields over the continuous pupil, footprint jumps allowed; not eikonal/manufactured IOL",
+      "minimal_extension": "One independently bounded signed task-complement functional",
+      "R7_phase_screen_negative_threshold_retained": true
+    },
+    "high_precision_scalar_cases": 609,
+    "high_precision_scalar_checks": 1827,
+    "high_precision_escapes": 0,
+    "continuous_affine_validation_fields": 900,
+    "continuous_field_escapes": 0,
+    "finite_angle_validation_instances": 6000,
+    "finite_angle_escapes": 0,
+    "refusal_checks": 8,
+    "refusal_failures": 0,
+    "loaded_query": {
+      "gate": "PASS_CONDITIONAL",
+      "physical_gate": "UNKNOWN",
+      "clinical_gate": "UNKNOWN",
+      "ray_solves": 0,
+      "state_solves": 0,
+      "history_solves": 0,
+      "review": "PENDING_INDEPENDENT_REVIEW",
+      "change_D": [
+        -0.037328235982867865,
+        -0.03200076729502862
+      ],
+      "radius_bound_D": 0.002666356181958749,
+      "predicted_change_center_D": -0.034661879800909116,
+      "residual_sector_radius_D": 0.0026317909520210863,
+      "sign": "NEGATIVE",
+      "uncertainty_target_pass": true,
+      "observation_model_error_mm_mrad": 0,
+      "signed_complement_assumed_independent": true,
+      "exact_fixed_height_slope_task": true
+    },
+    "clinical": {
+      "thin_D": {
+        "n": 20,
+        "bias_D": -0.38653346804925215,
+        "MAE_D": 0.5300977201428003,
+        "RMSE_D": 0.6590910222051469,
+        "max_absolute_error_D": 1.2979966078870295,
+        "within025": 7,
+        "within050": 12
+      },
+      "analytic_thick_D": {
+        "n": 20,
+        "bias_D": 0.1455133623416182,
+        "MAE_D": 0.46974936595537625,
+        "RMSE_D": 0.5902131094711991,
+        "max_absolute_error_D": 1.4349562321405993,
+        "within025": 7,
+        "within050": 13
+      },
+      "resolved_D": {
+        "n": 20,
+        "bias_D": 0.14517879062861172,
+        "MAE_D": 0.46964585301214334,
+        "RMSE_D": 0.5900821795306537,
+        "max_absolute_error_D": 1.4346640346677328,
+        "within025": 7,
+        "within050": 13
+      },
+      "hypothetical_GRIN_D": {
+        "n": 20,
+        "bias_D": 0.1501676899317304,
+        "MAE_D": 0.4712056789758874,
+        "RMSE_D": 0.5916100978341574,
+        "max_absolute_error_D": 1.4391933688259477,
+        "within025": 7,
+        "within050": 13
+      }
+    },
+    "numerical_lens_error_D": 0.000717712009079996,
+    "residual_clinical_MAE_D": 0.46964585301214334,
+    "causal_lens_MAE_share_D": null,
+    "causal_nonlens_MAE_share_D": null,
+    "endpoint_as_forward_input": false,
+    "known_timed_cpu_s": 512.49,
+    "peak_RSS_KiB": 154184.0,
+    "theorem_novelty_claim": false,
+    "strongest_control_gain": false,
+    "scientific_admission": false,
+    "review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  "gate": "UNKNOWN",
+  "obstacle": "Independent native sensor/irradiance/registration error, perturbation sup and signed complement, matched hydrated geometry/material and held transmitted endpoint; same20pose/observer",
+  "next": "Acquire same-specimen native observation-error contract or execute actual-density joint shift/illumination certificate with clipping and complement",
+  "files": [
+    "RESULTS.md",
+    "WORK_STATUS.json",
+    "NEXT_ROUND.md",
+    "CHECKPOINT_R8_V1.json",
+    "PORT_R8_V1.json",
+    "ACQUISITION_TARGETS_V8.json",
+    "r8/OUTCOME_V1.json",
+    "r8/DERIVATION_V1.md",
+    "r8/NATIVE_ADJOINT_COARSE_PORT_V1.json",
+    "r8/TRANSPORT_ENCLOSURE_V1.json",
+    "r8/PHASE_TO_SLOPE_V2.json",
+    "r8/SENSOR_ERROR_STRESS_V1.json",
+    "r8/TRANSPORT_VALIDATION_V1.json",
+    "r8/COARSE_RECOVERY_VALIDATION_V1.json",
+    "r8/COARSE_SELECTION_V1.json",
+    "r8/SOURCE_SCOPE_V1.json",
+    "r8/COST_ACCOUNTING_V1.json",
+    "r8/PREREG_R8_V1.md",
+    "r8/PREREG_PHASE_CONVERSION_V1.md",
+    "r8/PREREG_COARSE_DELIVERY_V1.md"
+  ],
+  "review": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false
+}

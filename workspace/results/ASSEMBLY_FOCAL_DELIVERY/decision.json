@@ -1,0 +1,275 @@
+{
+  "macroscopic_D_from_each_hop_scale_um2_s": {
+    "210nm": 0.24499999999999997,
+    "730nm": 0.17529605263157894
+  },
+  "agreement_ratio_between_the_two_scales": 1.3976355789078625,
+  "dimension_convention_screen": [
+    {
+      "dimension": 1,
+      "D_um2_s": [
+        0.48999999999999994,
+        0.35059210526315787
+      ],
+      "agreement_ratio": 1.3976355789078625
+    },
+    {
+      "dimension": 2,
+      "D_um2_s": [
+        0.24499999999999997,
+        0.17529605263157894
+      ],
+      "agreement_ratio": 1.3976355789078625
+    },
+    {
+      "dimension": 3,
+      "D_um2_s": [
+        0.1633333333333333,
+        0.11686403508771927
+      ],
+      "agreement_ratio": 1.3976355789078627
+    }
+  ],
+  "gate_table": [
+    {
+      "pulse_duration_s": 0.1,
+      "averaging_length_um": [
+        0.26479883129015425,
+        0.31304951684997057
+      ],
+      "minimum_admissible_spacing_um": 0.31304951684997057
+    },
+    {
+      "pulse_duration_s": 1.0,
+      "averaging_length_um": [
+        0.8373674286275504,
+        0.9899494936611665
+      ],
+      "minimum_admissible_spacing_um": 0.9899494936611665
+    },
+    {
+      "pulse_duration_s": 10.0,
+      "averaging_length_um": [
+        2.6479883129015427,
+        3.1304951684997055
+      ],
+      "minimum_admissible_spacing_um": 3.1304951684997055
+    },
+    {
+      "pulse_duration_s": 60.0,
+      "averaging_length_um": [
+        6.486220211462061,
+        7.668115805072325
+      ],
+      "minimum_admissible_spacing_um": 7.668115805072325
+    },
+    {
+      "pulse_duration_s": 300.0,
+      "averaging_length_um": [
+        14.503629309862228,
+        17.146428199482244
+      ],
+      "minimum_admissible_spacing_um": 17.146428199482244
+    }
+  ],
+  "kd_window_nM": [
+    199.52623149688787,
+    316.22776601683796
+  ],
+  "worked_verdicts": [
+    {
+      "inputs": {
+        "patch_spacing_um": 1.0,
+        "pulse_duration_s": 10.0,
+        "patch_peak_concentration_nM": null
+      },
+      "output": {
+        "patch_spacing_um": 1.0,
+        "pulse_duration_s": 10.0,
+        "macroscopic_D_window_um2_s": [
+          0.17529605263157894,
+          0.24499999999999997
+        ],
+        "averaging_length_window_um": [
+          2.6479883129015427,
+          3.1304951684997055
+        ],
+        "minimum_admissible_spacing_um": 3.1304951684997055,
+        "margin": 0.31943828249996997,
+        "kd_upper_nM": 316.22776601683796,
+        "choice": "NO-GO",
+        "why": "the receptor crosses 2.65 to 3.13 um during a 10 s pulse, more than the 1 um spacing, so the population averages the patches: this design IS the uniform bath and the actuator buys nothing"
+      }
+    },
+    {
+      "inputs": {
+        "patch_spacing_um": 5.0,
+        "pulse_duration_s": 10.0,
+        "patch_peak_concentration_nM": null
+      },
+      "output": {
+        "patch_spacing_um": 5.0,
+        "pulse_duration_s": 10.0,
+        "macroscopic_D_window_um2_s": [
+          0.17529605263157894,
+          0.24499999999999997
+        ],
+        "averaging_length_window_um": [
+          2.6479883129015427,
+          3.1304951684997055
+        ],
+        "minimum_admissible_spacing_um": 3.1304951684997055,
+        "margin": 1.5971914124998499,
+        "kd_upper_nM": 316.22776601683796,
+        "choice": "GO, NECESSARY CONDITION ONLY",
+        "why": "5 um exceeds the averaging length 3.13 um by a factor 1.60, so the receptor population can still resolve the pattern. This is necessary and NOT sufficient: the activation advantage over the bath also needs the ligand field to hold a gradient, which no number here settles"
+      }
+    },
+    {
+      "inputs": {
+        "patch_spacing_um": 3.0,
+        "pulse_duration_s": 10.0,
+        "patch_peak_concentration_nM": null
+      },
+      "output": {
+        "patch_spacing_um": 3.0,
+        "pulse_duration_s": 10.0,
+        "macroscopic_D_window_um2_s": [
+          0.17529605263157894,
+          0.24499999999999997
+        ],
+        "averaging_length_window_um": [
+          2.6479883129015427,
+          3.1304951684997055
+        ],
+        "minimum_admissible_spacing_um": 3.1304951684997055,
+        "margin": 0.9583148474999099,
+        "kd_upper_nM": 316.22776601683796,
+        "choice": "CANNOT DECIDE",
+        "why": "3 um lies inside the averaging-length window 2.65 to 3.13 um, which is as wide as the two measured hop scales disagree; a third hop measurement is required before this design is called either way"
+      }
+    },
+    {
+      "inputs": {
+        "patch_spacing_um": 20.0,
+        "pulse_duration_s": 10.0,
+        "patch_peak_concentration_nM": 50.0
+      },
+      "output": {
+        "patch_spacing_um": 20.0,
+        "pulse_duration_s": 10.0,
+        "macroscopic_D_window_um2_s": [
+          0.17529605263157894,
+          0.24499999999999997
+        ],
+        "averaging_length_window_um": [
+          2.6479883129015427,
+          3.1304951684997055
+        ],
+        "minimum_admissible_spacing_um": 3.1304951684997055,
+        "margin": 6.388765649999399,
+        "kd_upper_nM": 316.22776601683796,
+        "choice": "NO-GO ON DOSE",
+        "why": "spacing clears the gate with margin 6.39, but a peak of 50 nM is below the 316 nM affinity scale, so the patch does not occupy the receptor whatever its geometry"
+      }
+    },
+    {
+      "inputs": {
+        "patch_spacing_um": 20.0,
+        "pulse_duration_s": 10.0,
+        "patch_peak_concentration_nM": 1000.0
+      },
+      "output": {
+        "patch_spacing_um": 20.0,
+        "pulse_duration_s": 10.0,
+        "macroscopic_D_window_um2_s": [
+          0.17529605263157894,
+          0.24499999999999997
+        ],
+        "averaging_length_window_um": [
+          2.6479883129015427,
+          3.1304951684997055
+        ],
+        "minimum_admissible_spacing_um": 3.1304951684997055,
+        "margin": 6.388765649999399,
+        "kd_upper_nM": 316.22776601683796,
+        "choice": "GO, NECESSARY CONDITION ONLY",
+        "why": "20 um exceeds the averaging length 3.13 um by a factor 6.39, so the receptor population can still resolve the pattern. This is necessary and NOT sufficient: the activation advantage over the bath also needs the ligand field to hold a gradient, which no number here settles"
+      }
+    },
+    {
+      "inputs": {
+        "patch_spacing_um": 0.5,
+        "pulse_duration_s": 0.1,
+        "patch_peak_concentration_nM": null
+      },
+      "output": {
+        "patch_spacing_um": 0.5,
+        "pulse_duration_s": 0.1,
+        "macroscopic_D_window_um2_s": [
+          0.17529605263157894,
+          0.24499999999999997
+        ],
+        "averaging_length_window_um": [
+          0.26479883129015425,
+          0.31304951684997057
+        ],
+        "minimum_admissible_spacing_um": 0.31304951684997057,
+        "margin": 1.5971914124998496,
+        "kd_upper_nM": 316.22776601683796,
+        "choice": "GO, NECESSARY CONDITION ONLY",
+        "why": "0.5 um exceeds the averaging length 0.31 um by a factor 1.60, so the receptor population can still resolve the pattern. This is necessary and NOT sufficient: the activation advantage over the bath also needs the ligand field to hold a gradient, which no number here settles"
+      }
+    }
+  ],
+  "control": "uniform bath at equal total dose; identical stimulus whenever spacing < averaging length",
+  "measured_anchors": [
+    {
+      "value": [
+        210.0,
+        730.0
+      ],
+      "unit": "nm",
+      "quantity": "nested confinement compartments",
+      "pmid": "15681644",
+      "doi": "10.1529/biophysj.104.048538",
+      "locator": "single-molecule hop-diffusion result"
+    },
+    {
+      "value": [
+        0.045,
+        0.76
+      ],
+      "unit": "s",
+      "quantity": "residence time before a hop",
+      "pmid": "15681644",
+      "doi": "10.1529/biophysj.104.048538",
+      "locator": "same result, matched to the compartment sizes"
+    },
+    {
+      "value": [
+        6.5,
+        6.7
+      ],
+      "unit": "pKb",
+      "quantity": "equilibrium antagonist affinity",
+      "pmid": "15070776",
+      "doi": "10.1073/pnas.0400420101",
+      "locator": "cAMP and inositol-phosphate assays",
+      "caveat": "competitive antagonist equilibrium affinity, not a tracer on/off pair"
+    },
+    {
+      "value": null,
+      "unit": null,
+      "quantity": "complex size scales with receptor density, so concentration is not the only state",
+      "pmid": "23267088",
+      "doi": "10.1073/pnas.1205798110",
+      "locator": "single-molecule arm"
+    }
+  ],
+  "source_report": "results/BT-CAP-Q080/RESULTS.md",
+  "scope": "necessary condition on geometry only; sufficiency needs a ligand-field gradient this file does not compute",
+  "falsifier": "an activation-integral ratio at or below 1 for a spacing above the averaging length refutes the gate; a third hop pair implying a D outside 0.175-0.245 um^2/s by more than 2x moves every spacing as its square root",
+  "unit_trap_recorded": "um is a length and uM is a concentration; no conversion is made between them",
+  "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

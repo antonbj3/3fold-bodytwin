@@ -1,7 +1,7 @@
 #!/bin/bash
 # The swarm keepalive without coordinator: restart drivers, stop hung OVH agents, refill the queue. Runs from a systemd timer.
 [ $(date +%s) -ge 1790948885 ] && exit 0
-cd 
+cd "$(dirname "$0")/.." || exit 1
 systemctl --user is-active -q bt-queue-ovh || systemd-run --user --collect --unit=bt-queue-ovh --slice=jobs-bodytwin.slice -p MemoryMax=300M --working-directory=$PWD /bin/bash $PWD/tasks/lanes/ovh_agents/bt_queue_ovh.sh
 systemctl --user is-active -q bt-queue-driver || systemd-run --user --collect --unit=bt-queue-driver --slice=jobs-bodytwin.slice -p MemoryMax=200M --working-directory=$PWD /bin/bash $PWD/tasks/lanes/bt_queue2.sh
 timeout 60 ssh -i ~/.ssh/hunt_20260923 -o UserKnownHostsFile=external_research_path -o BatchMode=yes -n ubuntu@51.77.110.4 'now=$(date +%s); for u in $(systemctl list-units --no-legend "agent-*" | awk "{print \$1}"); do d=$(systemctl show -p WorkingDirectory --value $u); [ $((now-$(stat -c %Y $d/agent.log 2>/dev/null||echo $now))) -gt 1500 ] && sudo systemctl stop $u; done'

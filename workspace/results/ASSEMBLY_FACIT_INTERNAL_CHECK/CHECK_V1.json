@@ -1,0 +1,70 @@
+{
+ "question": "do a published source's own numbers satisfy the identity that links them",
+ "claim_type": "information_link",
+ "why_it_matters": "a source that reports two quantities linked by an identity has already tested itself, and an elementary check nobody runs is where a bad number survives",
+ "checks": 4,
+ "relative_residual": {
+  "min": 0.0,
+  "max": 0.05315400871861084,
+  "median": 0.012048192771084338
+ },
+ "all_below_5_percent": false,
+ "what_a_disagreement_means": "different specimens, or a different convention; both are findings rather than errors, so this file prints the residual and names the identity and leaves the judgement to the reader",
+ "scope": "four instances verified by hand, not a survey of all sources in the net. A fifth was withdrawn on 2026-10-05: it compared a number against its own definition, which tests arithmetic and not a source, and its citation could not be traced to any paper",
+ "rows": [
+  {
+   "chain": "laser ablation",
+   "source": "Payne BP et al., Lasers Surg Med 1998;23(1):1, PMID 9694144",
+   "identity": "slope [ug/J] = 1e6 / heat_of_ablation [J/g]",
+   "derived_value": 267.379679144385,
+   "reported_value": 267.0,
+   "relative_residual": 0.0014220192673596347,
+   "reported_quantities": {
+    "slope_ug_per_J": 267.0,
+    "heat_of_ablation_J_per_g": 3740.0
+   }
+  },
+  {
+   "chain": "instrument tissue adhesion",
+   "source": "Han & Eriten 2018, doi 10.1098/rsos.172051, with the normal modulus from doi 10.6084/m9.figshare.6231002.v2",
+   "identity": "G = E / (2 (1 + nu)) at nu = 0.25",
+   "derived_value": 13120000.0,
+   "reported_value": 13280000.0,
+   "relative_residual": 0.012048192771084338,
+   "reported_quantities": {
+    "E_Pa": 32800000.0,
+    "G_held_Pa": 13280000.0,
+    "nu": 0.25
+   }
+  },
+  {
+   "chain": "mitochondrial pore ceiling",
+   "source": "the mPTP rabbit preparation, PMID 15642769 and 15698843",
+   "identity": "true SD = reported SEM * sqrt(n), at n = 7",
+   "derived_value": 10.583005244258363,
+   "reported_value": 10.583005244258363,
+   "relative_residual": 0.0,
+   "reported_quantities": {
+    "reported_pm_pp": 4.0,
+    "n": 7,
+    "true_SD_if_SEM_pp": 10.583005244258363
+   }
+  },
+  {
+   "chain": "meniscus contact",
+   "source": "the Leeds 500 N knee model, doi 10.5518/981",
+   "identity": "sum over condyles of mean pressure times nodal area = applied load",
+   "derived_value": 526.5770043593054,
+   "reported_value": 500.0,
+   "relative_residual": 0.05315400871861084,
+   "reported_quantities": {
+    "A1_mm2": 199.01469891419063,
+    "p1_MPa": 1.2885913888072562,
+    "A2_mm2": 252.57164890113802,
+    "p2_MPa": 1.0695118722455845,
+    "applied_load_N": 500.0
+   }
+  }
+ ],
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

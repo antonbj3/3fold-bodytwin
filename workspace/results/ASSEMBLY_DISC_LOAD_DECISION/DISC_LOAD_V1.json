@@ -1,0 +1,103 @@
+{
+ "question": "what axial load keeps nucleus pressure under a limit, and how far is our answer from the one the in-vivo measurement implies",
+ "source": {
+  "path": "source_documents/MECHANISM_INTERVERTEBRAL_DISC.md",
+  "all_values_read_off_not_fitted": true
+ },
+ "measured_inputs": {
+  "disc_area_mm2": 1800.0,
+  "nominal_stress_MPa": 0.9045,
+  "reference_load_N": 1628.0,
+  "our_multiplier_range": [
+   1.3,
+   1.5
+  ],
+  "our_single_empirical_multiplier": 1.524,
+  "wilke_in_vivo_walking_MPa": [
+   0.53,
+   0.65
+  ]
+ },
+ "the_multiplier_the_facit_pins": {
+  "k_implied_low": 0.586,
+  "k_implied_high": 0.7186,
+  "our_k_over_implied_k": [
+   1.809,
+   2.56
+  ],
+  "reading": "the measurement implies a multiplier of 0.59 to 0.72 where our model uses 1.3 to 1.5, so ours is high by a factor of 1.8 to 2.6 on the coefficient itself"
+ },
+ "decision_rows": [
+  {
+   "pressure_limit_MPa": 0.5,
+   "load_our_model_N": [
+    600.0,
+    692.0
+   ],
+   "load_facit_implied_N": [
+    1252.0,
+    1536.0
+   ],
+   "our_limit_is_lower_by_N": 652.0,
+   "our_limit_is_lower_by_factor": 2.087
+  },
+  {
+   "pressure_limit_MPa": 0.65,
+   "load_our_model_N": [
+    780.0,
+    900.0
+   ],
+   "load_facit_implied_N": [
+    1628.0,
+    1997.0
+   ],
+   "our_limit_is_lower_by_N": 848.0,
+   "our_limit_is_lower_by_factor": 2.087
+  },
+  {
+   "pressure_limit_MPa": 1.0,
+   "load_our_model_N": [
+    1200.0,
+    1385.0
+   ],
+   "load_facit_implied_N": [
+    2505.0,
+    3072.0
+   ],
+   "our_limit_is_lower_by_N": 1305.0,
+   "our_limit_is_lower_by_factor": 2.087
+  },
+  {
+   "pressure_limit_MPa": 1.5,
+   "load_our_model_N": [
+    1800.0,
+    2077.0
+   ],
+   "load_facit_implied_N": [
+    3757.0,
+    4608.0
+   ],
+   "our_limit_is_lower_by_N": 1957.0,
+   "our_limit_is_lower_by_factor": 2.087
+  },
+  {
+   "pressure_limit_MPa": 2.0,
+   "load_our_model_N": [
+    2400.0,
+    2769.0
+   ],
+   "load_facit_implied_N": [
+    5010.0,
+    6144.0
+   ],
+   "our_limit_is_lower_by_N": 2610.0,
+   "our_limit_is_lower_by_factor": 2.087
+  }
+ ],
+ "what_the_overprediction_costs_as_a_decision": "inverted, a multiplier that is twice too high prescribes a load limit that is about half what the measurement supports. Our model is therefore CONSERVATIVE in this direction: it under-permits load rather than over-permitting it, which is the safe side of a clinical error but makes the model useless for asking how much load is tolerable",
+ "control": "our own multiplier on the same geometry and the same nominal stress; only the coefficient changes, which is the equally informed comparison",
+ "falsifier": "if the in-vivo range and our nominal stress are not measured at the same posture and load, the implied multiplier is not comparable and this whole inversion is void. The source states walking for the in-vivo range; our nominal stress is at its own reference load, and whether those match is NOT established here",
+ "claim_type": "information_link",
+ "scope": "arithmetic on values read from one document; no clinical validity is claimed",
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

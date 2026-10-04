@@ -1,0 +1,105 @@
+{
+  "round": 4,
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "operation": "Early-only maturation/feedback/turnover -> dimensionedHPinventory -> independentglyco-dependent precursor/HP/otherproduct nonlinear checkpoint",
+  "control": "Same-information per-observable and conventionalinventory/cohort kinetics withsameassays/rates/closures:TIE",
+  "outcome": {
+    "HP_inventory_ratio42_10": 2.220261437908497,
+    "HP_inventory_ratio_reading_box": [
+      1.747159090909091,
+      2.8467987804878048
+    ],
+    "collagen_mass_ratio42_10": 0.9294117647058824,
+    "collagen_mass_ratio_reading_box": [
+      0.8522727272727273,
+      1.0121951219512195
+    ],
+    "no_new_HP_required_massratio_box": [
+      0.35555555555555557,
+      0.48780487804878037
+    ],
+    "selective_denominator_only": "FAIL_WITHIN_FROZEN_READING_BOX_UNDER_FIXED_ASSAY_REFERENCE",
+    "nominal_candidates": [
+      {
+        "label": "reservoir_start0",
+        "HP42": 0.036869183583607114,
+        "early_gate": "FAIL",
+        "HP42_gate": "PASS",
+        "strength_RMSE_pp": 17.767977641699016,
+        "joint_gate": "FAIL"
+      },
+      {
+        "label": "feedback_b0.001",
+        "HP42": 0.020757209685064622,
+        "early_gate": "FAIL",
+        "HP42_gate": "FAIL",
+        "strength_RMSE_pp": 32.097986671987194,
+        "joint_gate": "FAIL"
+      },
+      {
+        "label": "selective_f0.5_d0.03",
+        "HP42": 0.026032384984478033,
+        "early_gate": "PASS",
+        "HP42_gate": "FAIL",
+        "strength_RMSE_pp": 18.617514828406016,
+        "joint_gate": "FAIL"
+      }
+    ],
+    "glyco_nominal_HP42": 0.026338454833019345,
+    "glyco_nominal_strength_RMSE_pp": 23.17981084535914,
+    "illustrative_LH3_HP42": 0.04110713295138986,
+    "illustrative_LH3_strength_RMSE_pp": 11.36080477040609,
+    "illustrative_case_not_selected_winner": true,
+    "all_glyco_joint_gates": "FAIL",
+    "native_joint_gate": "UNKNOWN",
+    "prior_HP42_awareness": true,
+    "blind_validation": false,
+    "fitted_strength_parameters": false,
+    "numerical_checks": "126/126",
+    "numerical_gate": "PASS",
+    "strongest_control": "TIE",
+    "global_coupled_gain": false,
+    "parent_goal_status": "OPEN"
+  },
+  "gate": "FAIL",
+  "obstacle": "Absolute nativeglyco-precursor/yield/rateorder and initialwoundstate unobserved; chemistry/bridge/traction jointport null",
+  "next": "NativeabsoluteGG/G/freeDHLNL+HP+aldehydeproducts underLOXoff/loadperturbation, independentassayday14; thenchemistry-age-angle-bridgejoint coupledO2restart",
+  "files": [
+    "RESULTS.md",
+    "WORK_STATUS.json",
+    "NEXT_ROUND.md",
+    "CHECKPOINT_R4.json",
+    "RESPONSE_PORTS_R4.json",
+    "PREREG_R4.json",
+    "PREREG_R4_GLYCO_RESERVOIR.json",
+    "OBSERVATIONS_R4.json",
+    "SOURCE_REVIEW_R4.md",
+    "SOURCE_MANIFEST_R4.json",
+    "DERIVATION_R4.md",
+    "DECOMPOSITION_R4.json",
+    "ATTEMPTS_R4.json",
+    "COST_ACCOUNTING_R4.json",
+    "PEER_CONTEXT_R4.json",
+    "GRAPH_FEEDBACK_R4.json",
+    "VERIFICATION_R4.json",
+    "COMMANDS_R4.md",
+    "NEXT_ROUND_R4_FINAL.md",
+    "RESULTS_FIGURE_R4.png",
+    "RESULTS_FIGURE_R4.pdf",
+    "r4/SCORES_R4_v2.json",
+    "r4/predictions_v2/predictions.json",
+    "r4/glyco_reservoir/summary.json",
+    "mechanisms_r4.py",
+    "score_r4.py",
+    "glyco_reservoir_r4.py",
+    "plot_r4.py",
+    "verify_r4.py",
+    "finalize_r4.py",
+    "r4/predictions/",
+    "r4/predictions_v2/",
+    "r4/glyco_reservoir/",
+    "r4/sources/"
+  ],
+  "updated_utc": "2026-10-01T01:32:32.071467+00:00"
+}

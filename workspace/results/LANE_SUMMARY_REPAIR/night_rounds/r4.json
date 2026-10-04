@@ -1,0 +1,163 @@
+{
+  "round": 4,
+  "lane": "LANE_SUMMARY_REPAIR",
+  "claim_type": "information_link",
+  "form": "B",
+  "operation": "Existing oxygen resolves the one-minute precision contract with validated refinement; existing H or F resolves it at lower density",
+  "control": "Six V3 same source/forcing/error and matched256/2048 density",
+  "outcome": {
+    "matched_unique_queries": 9,
+    "precision_answers": {
+      "seven": 5,
+      "eight_H": 7,
+      "eight_F": 7
+    },
+    "six_precision_answers": 5,
+    "precision_flips_vs_six": {
+      "seven": 0,
+      "eight_H": 2,
+      "eight_F": 2
+    },
+    "fibre_pairs": 48,
+    "identity_error": 0.0,
+    "containment_misses": 0,
+    "fibre_results": {
+      "seven": {
+        "pairs": 18,
+        "resolved_counterexamples": 15,
+        "maximum_gap": 0.0019506192116153231
+      },
+      "eight_H": {
+        "pairs": 15,
+        "resolved_counterexamples": 12,
+        "maximum_gap": 0.0028077006096823842
+      },
+      "eight_F": {
+        "pairs": 15,
+        "resolved_counterexamples": 12,
+        "maximum_gap": 0.0019506192116153231
+      }
+    },
+    "maximum_solver_disagreement": 4.276135001646253e-12,
+    "stress_instances": 12,
+    "stress_q_span": [
+      0.5343449691885797,
+      0.5352646863341577
+    ],
+    "stress_sign_flips": false,
+    "stress_precision_flips": 12,
+    "exact_seven_or_eight_sufficiency": "FAIL when resolved fibre gaps are nonzero; finite zero gaps do not establish HOLD",
+    "physical_gate": "UNKNOWN",
+    "review": "PENDING_INDEPENDENT_REVIEW",
+    "algorithm_gain_claim": false,
+    "headline": "Existing oxygen resolves the one-minute precision contract with validated refinement; existing H or F resolves it at lower density",
+    "base_one_minute_widths": {
+      "six_256": 0.004050637857326046,
+      "seven_256": 0.002390055060415984,
+      "eight_H_256": 0.00187778383128042,
+      "eight_F_256": 0.001373608182425435,
+      "seven_2048": 0.001958535645450309,
+      "six_2048": 0.003627134692792071
+    },
+    "refined_seven_precision_answers_on_matched9": 7,
+    "refined_seven_flips_vs_same_density_six": 2,
+    "refined_start_minutes": [
+      0.0,
+      94.995
+    ],
+    "F_or_H_necessity_for_one_minute_epsilon": "REFUTED_AS_A_BLANKET_CLAIM; seven2048 passes; fixed256 one-coordinate addition sufficient",
+    "minimal_universal_exact_or_threshold_statistic": "UNKNOWN",
+    "resolved_exact_fibre_counterexamples": 39,
+    "passive_L_only_unresolved_numeric_rows": 9,
+    "eight_H_three_minute_numeric_minimax_radius": 0.0014038503048411921,
+    "eight_H_three_minute_uniform_epsilon": "FAIL_NUMERICAL_FIBRE_WITNESS; rigorous full-source pair enclosure unavailable",
+    "eight_F_boundary_identity_error": 0.0,
+    "eight_F_boundary_gap": 0.0005893330621787318,
+    "eight_F_boundary_q": [
+      0.5002946665309465,
+      0.4997053334687677
+    ],
+    "universal_eight_F_threshold_sufficiency": "FAIL_NUMERICAL_SOURCE_WITNESS",
+    "eight_F_boundary_guard": "ABSTAIN_THRESHOLD",
+    "new_boundary_midpoint_protocol_direction": {
+      "falsely_safe": 1,
+      "falsely_cautious": 0
+    },
+    "historical_five_cell_gate_directions": {
+      "falsely_safe": 0,
+      "falsely_cautious": 0,
+      "unknown": 5
+    },
+    "stress_q_span_width": 0.0009197171455780362,
+    "recorded_numeric_cpu_lower_bound_s": 523.313339643,
+    "source_solver_calls": 296,
+    "source_models_unchanged": true,
+    "gate": "PASS_CONDITIONAL_BOUNDED_QUERY",
+    "gate_scope": "Declared mathematical law and guarded outputs; empirical gate UNKNOWN",
+    "exact_source_future_sufficiency": "FAIL",
+    "scientific_admission": false
+  },
+  "gate": "PASS",
+  "gate_scope": "Guarded source-law precision; exact sufficiency FAIL, universal threshold FAIL_NUMERICAL, physical gate UNKNOWN",
+  "obstacle": "Three-minute uncertainty/overapproximation and unknown empirical observation maps",
+  "next": "Nine-field H+F inclusion, D/Gly fibres, correlated production/demand tubes; no hidden defaults",
+  "files": [
+    "RESULTS.md",
+    "WORK_STATUS.json",
+    "NEXT_ROUND.md",
+    "CHECKPOINT_R4.json",
+    "PORT_R4.json",
+    "PREREG_R4.json",
+    "ACQUISITION_TARGETS_V4.json",
+    "DECOMPOSITION_R4.json",
+    "ATTEMPTS_R4.json",
+    "GOAL_TO_STRESS_POINT_R4.md",
+    "r4/BOUNDARY_R4.json",
+    "r4/BOUNDARY_RUN_R4.log",
+    "r4/CERTIFICATES_R4.json",
+    "r4/COST_R4.json",
+    "r4/COST_RECONCILED_R4.json",
+    "r4/DATASET_RECEIPTS_R4.json",
+    "r4/DERIVATION_R4.md",
+    "r4/DERIVATIVE_CHECK_R4.json",
+    "r4/DISK_RECLAIM_R4.json",
+    "r4/ENTRY_NEXT_ROUND.md",
+    "r4/ENTRY_WORK_STATUS.json",
+    "r4/FIBRES_R4.json",
+    "r4/FINAL_OUTCOME_R4.json",
+    "r4/MATCHED_DENSITY_R4.json",
+    "r4/MATCHED_DENSITY_RUN_R4.log",
+    "r4/NEXT_ROUND_AS_WRITTEN_R4.md",
+    "r4/OUTCOME_R4.json",
+    "r4/PILOT_R4.json",
+    "r4/PILOT_RUN_R4.log",
+    "r4/PREREG_BOUNDARY_R4.json",
+    "r4/PREREG_FREEZE_R4.json",
+    "r4/PREREG_MATCHED_DENSITY_R4.json",
+    "r4/PREREG_REFINEMENT_R4.json",
+    "r4/PREREG_REFINEMENT_V2_R4.json",
+    "r4/REFINEMENT_R4.json",
+    "r4/REFINEMENT_RUN_R4.log",
+    "r4/REFINEMENT_RUN_V2_R4.log",
+    "r4/REFINEMENT_V2_R4.json",
+    "r4/RESULT_SECTION_AS_WRITTEN_R4.md",
+    "r4/RUN_R4.log",
+    "r4/SEARCH_RECEIPTS_R4.json",
+    "r4/STRESS_R4.json",
+    "r4/SWITCH_CHECKS_R4.json",
+    "r4/VARIABLE_VERIFICATION_R4.json",
+    "r4/VERIFICATION_R4.json",
+    "r4/boundary.py",
+    "r4/finalize_round.py",
+    "r4/inclusion_port.py",
+    "r4/matched_density.py",
+    "r4/pilot.py",
+    "r4/refinement.py",
+    "r4/refinement_v2.py",
+    "r4/run_round.py"
+  ],
+  "review": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "round_complete": true,
+  "verification": "PASS 356/356 delivery/source/fibre checks"
+}

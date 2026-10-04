@@ -1,0 +1,202 @@
+{
+  "round": 5,
+  "operation": "Continuous positive-spectrum exact dual -> held chronological/cubic/PSD conservative ablation -> exact nullspace combination -> nonlinear imposed-work/preload sign bracket",
+  "control": "Same-information positive-measure LP duals, generalized Maxwell chronology, conservative PSD identification, independent mode ODE and interval mechanics; held middle-frequency targets excluded. No algorithm advantage.",
+  "claim_type": "capability",
+  "form": [
+    "B",
+    "C"
+  ],
+  "outcome": {
+    "continuous_spectrum": {
+      "held_queries": 92,
+      "certified_query_count": 84,
+      "held_loss_outside_count": 8,
+      "held_loss_inside_count": 76,
+      "finite_rise_query_count": 3,
+      "finite_rise_certified_count": 3,
+      "total_stiffness_cap": null,
+      "relaxation_cutoff_s": null,
+      "certified_empty_query_count": 8,
+      "certified_empty_pair_count": 4,
+      "unresolved_query_count": 0
+    },
+    "finite_rise_work_J_ranges": [
+      {
+        "rise_time_s": 15.915494309189533,
+        "range": [
+          4.2033658892529034e-05,
+          4.800518937891209e-05
+        ]
+      },
+      {
+        "rise_time_s": 0.15915494309189535,
+        "range": [
+          4.6195311544180726e-05,
+          5.343035734327632e-05
+        ]
+      },
+      {
+        "rise_time_s": 0.009947183943243459,
+        "range": [
+          5.0716048721709806e-05,
+          0.00012469703085663875
+        ]
+      }
+    ],
+    "empirical_candidates": {
+      "chronological_linear": {
+        "cases": 92,
+        "joint_pass_count": 0,
+        "load_pass_count": 34,
+        "work_pass_count": 1,
+        "median_load_RMS_over_span": 0.06225071425036767,
+        "median_relative_work_error": 0.7068259291583816
+      },
+      "cubic_fixed_memory": {
+        "cases": 92,
+        "joint_pass_count": 0,
+        "load_pass_count": 39,
+        "work_pass_count": 1,
+        "median_load_RMS_over_span": 0.059418561342386565,
+        "median_relative_work_error": 0.7068259291583816
+      },
+      "cubic_refit_memory": {
+        "cases": 92,
+        "joint_pass_count": 1,
+        "load_pass_count": 40,
+        "work_pass_count": 3,
+        "median_load_RMS_over_span": 0.05850224719503343,
+        "median_relative_work_error": 0.7060314440112972
+      },
+      "six_coordinate_coupled": {
+        "cases": 83,
+        "joint_pass_count": 2,
+        "load_pass_count": 20,
+        "work_pass_count": 3,
+        "median_load_RMS_over_span": 0.07957176870325663,
+        "median_relative_work_error": 0.7096886713276607
+      }
+    },
+    "coupled_held_cases_unavailable": 9,
+    "exact_endpoint_summary_identity_error": 0.0,
+    "exact_endpoint_summary_work_gap_J": 3.196206276645388e-05,
+    "independent_preload_nonlinear_work_J_range": [
+      -0.00034428560347304324,
+      4.4061720594115936e-05
+    ],
+    "combined_hybrid_work_J_range": [
+      -0.00029356955475133345,
+      0.0001687587514507547
+    ],
+    "actual_preload_sign_flip": true,
+    "direct_work_J_at_common_offset_minus_0_02": 9.991910446631359e-05,
+    "direct_work_J_at_common_offset_plus_0_02": -0.00016259115993616925,
+    "critical_common_offset_dimensionless_bracket": [
+      0.003116457225125695,
+      0.003516457225125695
+    ],
+    "critical_slack_shift_mm_range": [
+      -0.10654162637971365,
+      -0.01912365363549752
+    ],
+    "fixed_memory_cubic_work_identity_error_J": 0.0,
+    "uniform_empirical_prediction": "FAIL",
+    "human_ligament_admission": "UNKNOWN",
+    "load_driven_continuous_spectrum_rotation_enclosure": "UNKNOWN",
+    "instrument_metrology": "UNKNOWN"
+  },
+  "gate": "PASS",
+  "gate_scope": "Continuous-spectrum exact work/consistency certificates, held constitutive ablations, exact sufficiency counterexample above numerical resolution and nonlinear imposed-work/preload sign construction. No uniform biological prediction or anatomical parameter admission.",
+  "empirical_prediction_gate": "FAIL",
+  "obstacle": "Matrix dissipative memory and empirical metrology remain unresolved; anatomy/slack/support unmatched; load-driven continuous-spectrum nonlinear rotation enclosure absent.",
+  "next": "NEXT_ROUND.md: full endpoint matrices and PSD matrix memory plus matched slack/registration at the sign-changing work boundary.",
+  "files": [
+    "ACQUISITION_TARGETS_V6.json",
+    "ATTEMPTS_R5.json",
+    "CHECKPOINT_R5.json",
+    "COST_ACCOUNTING_R5.json",
+    "DECOMPOSITION_R5.json",
+    "GOAL_TO_STRESS_POINT.md",
+    "NEXT_ROUND.md",
+    "NEXT_ROUND_BEFORE_R5.md",
+    "PREREG_R5_NONLINEAR_V2.json",
+    "PREREG_R5_NONLINEAR_V2.sha256",
+    "PREREG_R5_NULLSPACE_V4.json",
+    "PREREG_R5_NULLSPACE_V4.sha256",
+    "PREREG_R5_PRELOAD_V3.json",
+    "PREREG_R5_PRELOAD_V3.sha256",
+    "PREREG_R5_V1.json",
+    "PREREG_R5_V1.sha256",
+    "RESULTS.md",
+    "SOURCE_MANIFEST_R5_FINAL.json",
+    "WORK_STATUS.json",
+    "WORK_STATUS_BEFORE_R5.json",
+    "night_rounds/r5.json",
+    "r5/ABSENCE_JUSTIFICATIONS_V1.json",
+    "r5/CHRONOLOGICAL_RESPONSE_RESULTS_V1.json",
+    "r5/CHRONOLOGICAL_RUN_V1.log",
+    "r5/CONTINUOUS_BOUND_RESULTS_V1.json",
+    "r5/CONTINUOUS_BOUND_RESULTS_V2.json",
+    "r5/CONTINUOUS_RUN_V1.log",
+    "r5/CONTINUOUS_RUN_V2.log",
+    "r5/CONTINUOUS_WORK_PORT_V1.json",
+    "r5/DELIVERY_VERIFICATION_V1.json",
+    "r5/DERIVATION_V1.md",
+    "r5/FINALIZE_RUN_V1.log",
+    "r5/NONLINEAR_WORK_RESULTS_V1.json",
+    "r5/NONLINEAR_WORK_RUN_V1.log",
+    "r5/PLOT_RUN_V1.log",
+    "r5/PRELOAD_STRESS_RESULTS_V1.json",
+    "r5/PRELOAD_STRESS_RESULTS_V2.json",
+    "r5/PRELOAD_STRESS_RUN_V1.log",
+    "r5/PRELOAD_STRESS_RUN_V2.log",
+    "r5/PRIMARY_ANCHORS_V1.json",
+    "r5/RESEARCH_FIGURE_V1.pdf",
+    "r5/RESEARCH_FIGURE_V1.png",
+    "r5/RESEARCH_FIGURE_V1.svg",
+    "r5/RESEARCH_VERIFICATION_RUN_V1.log",
+    "r5/RESEARCH_VERIFICATION_RUN_V2.log",
+    "r5/RESEARCH_VERIFICATION_RUN_V3.log",
+    "r5/RESEARCH_VERIFICATION_V1.json",
+    "r5/RESEARCH_VERIFICATION_V3.json",
+    "r5/SEARCH_1_V1.txt",
+    "r5/SEARCH_2_V1.txt",
+    "r5/SEARCH_3_V1.txt",
+    "r5/SEARCH_4_V1.txt",
+    "r5/SEARCH_5_V1.txt",
+    "r5/SEARCH_6_V1.txt",
+    "r5/SEARCH_7_V1.txt",
+    "r5/SEARCH_8_V1.txt",
+    "r5/SEARCH_PRIOR_V1.json",
+    "r5/chronological_response_v1.py",
+    "r5/continuous_bounds_v1.py",
+    "r5/continuous_bounds_v2.py",
+    "r5/finalize_r5.py",
+    "r5/nonlinear_work_v1.py",
+    "r5/plot_results_v1.py",
+    "r5/preload_stress_v1.py",
+    "r5/preload_stress_v2.py",
+    "r5/verify_delivery_v1.py",
+    "r5/verify_research_v1.py",
+    "r5/verify_research_v2.py",
+    "r5/verify_research_v3.py"
+  ],
+  "active_acquisition_targets": "ACQUISITION_TARGETS_V6.json",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "updated_at_utc": "2026-10-04T11:25:47.017036+00:00",
+  "research_verification": {
+    "path": "r5/RESEARCH_VERIFICATION_V3.json",
+    "gate": "PASS",
+    "checks": 238,
+    "failure_count": 0
+  },
+  "delivery_verification": {
+    "path": "r5/DELIVERY_VERIFICATION_V1.json",
+    "gate": "PASS",
+    "checks": 219,
+    "failure_count": 0,
+    "scope": "Internal artifact/reference/prereg/source integrity; research verification and scientific review are distinct."
+  }
+}

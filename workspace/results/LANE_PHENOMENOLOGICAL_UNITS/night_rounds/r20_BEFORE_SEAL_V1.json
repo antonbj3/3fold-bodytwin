@@ -1,0 +1,127 @@
+{
+  "round": 20,
+  "lane": "LANE_PHENOMENOLOGICAL_UNITS",
+  "claim_type": "information_link",
+  "form": "C",
+  "operation": "Independent platelet dataset intake -> recruitment/loss observation-equivalence -> spatial sample mask sufficiency test",
+  "control": "R19 fixed illustrative closures without new datasets; .11666667/.08333333 per min and C_ss=.54179724 at75e9/L. No algorithm contest.",
+  "outcome": {
+    "acquired_complete_numeric_datasets": 2,
+    "numeric_bytes": 16003,
+    "acquired_small_author_sample_videos": 2,
+    "sample_video_bytes": 1030700,
+    "count_movies": 7,
+    "count_scalar_observations": 105,
+    "count_time_range_seconds": [
+      0,
+      3600
+    ],
+    "count_endpoint_denominators": {
+      "PRP_FBG": 122,
+      "washed_COLL4": 275
+    },
+    "paper_figure1D_denominators": {
+      "FBG": 121,
+      "COLL4": 274
+    },
+    "temporal_profile_timepoints_per_group": 47,
+    "temporal_profile_groups": 3,
+    "duplicated_collagen_channel_rows": 47,
+    "collagen_max_fraction_partition_error": 0.5760000000000001,
+    "background_max_fraction_partition_error": 0.16900000000000004,
+    "fibrinogen_max_fraction_partition_error": 0.0,
+    "paired_native_area_or_loss_rate_bindings": 0,
+    "physical_rates_acquired": 0,
+    "count_equivalent_flux_witnesses": 7,
+    "count_observation_identity_error": 0,
+    "conditional_washout_fraction_gap_10min": 0.1376292804641526,
+    "count_loss_identification_set": "[0,+infinity) under arbitrary nonnegative recruitment; observation countermodel only",
+    "source_conditional_C_ss": [
+      0.5417972414893646,
+      0.47813253880085715
+    ],
+    "source_conditional_closure_verdicts": [
+      "FINITE",
+      "NO_FINITE_CLOSURE"
+    ],
+    "source_conditional_verdict_flips": true,
+    "external_mask_witness_identity_error": 0.0,
+    "external_mask_next_frame_gaps_pixels": [
+      157,
+      266
+    ],
+    "external_mask_next_frame_gaps_fraction": [
+      0.006211180124223602,
+      0.012085415720127215
+    ],
+    "mask_insufficiency_witnesses_in_all6_threshold_conditions": true,
+    "binary_flux_balance_integer_error": 0,
+    "autonomous_minimal_sufficient_state": "UNKNOWN",
+    "empirical_forward_prediction": "UNKNOWN",
+    "global_nonlinear_trajectory_enclosure": "UNKNOWN",
+    "census_changed": false,
+    "census_counts": {
+      "FYSISK": 1270,
+      "FENOMENOLOGISK": 153,
+      "NORMALISERAD": 18,
+      "UNKNOWN": 50
+    },
+    "census_denominator": 1491,
+    "census_fraction_interval": [
+      0.10261569416498995,
+      0.13615023474178403
+    ],
+    "census_fraction_point": null,
+    "prior_reported_output_dependence_bounds_inherited": {
+      "affine": 234,
+      "finite_probe": 248
+    },
+    "review": "PENDING_INDEPENDENT_REVIEW",
+    "scientific_admission": false
+  },
+  "gate": "UNKNOWN",
+  "gate_scope": "Independent physical area-loss rate/closure binding remains unresolved; observed-data acquisition and mask-summary counterexamples are delivered.",
+  "subgates": {
+    "delivery": "PASS",
+    "dataset_acquisition": "PASS",
+    "data_checksums": "PASS",
+    "native_A_P_or_loss_rate_binding": "FAIL_OPERATOR_MISMATCH",
+    "collagen_background_CSV_paired_fraction_admission": "FAIL_DEFINITION_CONSISTENCY",
+    "observed_mask_summary_sufficiency": "REFUTED_FOR_DECLARED_ONE_FRAME_READOUT",
+    "exact_count_loss_sufficiency": "REFUTED_UNDER_UNKNOWN_RECRUITMENT",
+    "empirical_source_closure": "UNKNOWN",
+    "joint_physical_rate_region": "UNKNOWN",
+    "autonomous_predictive_state": "UNKNOWN",
+    "global_nonlinear_enclosure": "UNKNOWN",
+    "observation_verification": "PASS",
+    "prior_preservation": "PENDING_SEAL"
+  },
+  "obstacle": "Counts, signed pixel fractions and source area departure rates have incompatible operators; original A/P and mechanics remain uncalibrated.",
+  "next": "Acquire source-defined area departure/exposure, recruitment and mechanical observation; keep spatial masks and donor/protocol support. Do not refit closure or repair CSV by complement assumption.",
+  "files": [
+    "PREREG_R20_V1.json",
+    "PREREG_R20_PIVOT_V1.json",
+    "r20/COUNT_OBSERVATIONS_R20_V1.json",
+    "r20/TEMPORAL_CSV_QC_R20_V1.json",
+    "r20/RATE_IDENTIFICATION_R20_V1.json",
+    "r20/VIDEO_MASK_OBSERVATIONS_R20_V1.json",
+    "r20/OBSERVATION_VERIFICATION_R20_V1.json",
+    "r20/SOURCE_SEARCH_REVIEW_R20_V1.json",
+    "ACQUISITION_TARGETS_V20.json",
+    "DECOMPOSITION_R20_V1.json",
+    "COST_ACCOUNTING_R20_V1.json",
+    "DISK_REVIEW_R20_V1.json",
+    "ATTEMPTS_R20_V1.json",
+    "r20/OBSERVED_SUFFICIENCY_R20_V2.pdf",
+    "PORT_R20_V1.json",
+    "WORK_STATUS.json",
+    "RESULTS.md",
+    "NEXT_ROUND.md",
+    "CHECKPOINT_R20_FINAL_V1.json",
+    "VERIFICATION_R20_V1.json",
+    "ARTIFACT_MANIFEST_R20_V1.json"
+  ],
+  "review": "PENDING_INDEPENDENT_REVIEW",
+  "scientific_admission": false,
+  "round_complete": true
+}

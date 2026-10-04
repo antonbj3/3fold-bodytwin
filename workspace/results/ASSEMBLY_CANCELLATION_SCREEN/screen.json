@@ -1,0 +1,91 @@
+{
+  "screen": [
+    {
+      "decision": "toric_system_margin_POSITIVE_CONTROL",
+      "baseline_headline": 0.3618046844020678,
+      "better_is_lower": true,
+      "per_input": {
+        "stage_posterior_sd": {
+          "worsens_when_improved": true,
+          "cases": [
+            {
+              "input_scaled_to": 0.9,
+              "headline": 0.3671073632246457,
+              "factor_vs_base": 1.0146561917277033
+            },
+            {
+              "input_scaled_to": 0.75,
+              "headline": 0.38516256991880704,
+              "factor_vs_base": 1.0645593783710716
+            },
+            {
+              "input_scaled_to": 0.5,
+              "headline": 0.43788866042367425,
+              "factor_vs_base": 1.2102901905411914
+            }
+          ]
+        },
+        "stage_residual_sd": {
+          "worsens_when_improved": true,
+          "cases": [
+            {
+              "input_scaled_to": 0.1,
+              "headline": 0.40969040517142696,
+              "factor_vs_base": 1.132352406792347
+            },
+            {
+              "input_scaled_to": 0.0,
+              "headline": 0.45562,
+              "factor_vs_base": 1.259298233667082
+            }
+          ]
+        }
+      },
+      "cancellation_dependent": true
+    },
+    {
+      "decision": "renal_blocked_secretion_fraction",
+      "baseline_headline": 0.5560507833603456,
+      "better_is_lower": false,
+      "per_input": {
+        "clearance_ratio": {
+          "worsens_when_improved": false,
+          "cases": []
+        },
+        "gfr_shift": {
+          "worsens_when_improved": false,
+          "cases": []
+        }
+      },
+      "cancellation_dependent": false
+    },
+    {
+      "decision": "complement_critical_deposition_efficiency",
+      "baseline_headline": 0.004326761426716262,
+      "better_is_lower": false,
+      "per_input": {
+        "kcat_per_s": {
+          "error": "ZeroDivisionError: float division by zero"
+        },
+        "t_half_s": {
+          "error": "ZeroDivisionError: float division by zero"
+        }
+      },
+      "cancellation_dependent": false
+    },
+    {
+      "decision": "load_redistribution_explained_fraction",
+      "baseline_headline": 0.7024520336728026,
+      "better_is_lower": false,
+      "per_input": {
+        "surrogate_error_scale": {
+          "worsens_when_improved": false,
+          "cases": []
+        }
+      },
+      "cancellation_dependent": false
+    }
+  ],
+  "standing_gate": "A17",
+  "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

@@ -1,0 +1,97 @@
+{
+ "question": "what tip load may be assumed from shaft force and shaft bending moment",
+ "claim_type": "capability",
+ "theorem": "y = L + S and M = l*L + r*S give L = (M - r*y)/(l - r), re-derived symbolically by this coordinator; singular at l = r, the axially collinear case",
+ "why_force_alone_fails": "the shaft identifies only the sum A(T,h) + b*v + S; 53248 indistinguishable pair cases at exact observation error zero, and one sharp example admits 0.2 to 0.8 N of tip load at identical shaft force, a factor of 4",
+ "what_temperature_buys": "adhesion changes, not the absolute offset",
+ "what_fails_alone": "speed, phase and depth; adhesive memory reproduces a damping phase exactly",
+ "refusal": {
+  "min_arm_separation_fraction": 0.1,
+  "reason": "below it the moment noise amplification 1/(l-r) exceeds tenfold"
+ },
+ "control": "Coulomb y = mu*P + S, same ambiguity; PMID 26700572, doi 10.1016/j.jmbbm.2015.11.024",
+ "coulomb_control_coefficient": {
+  "mu_static": 0.295,
+  "mu_static_reported_scatter": 0.056,
+  "mu_dynamic": 0.255,
+  "mu_dynamic_reported_scatter": 0.086,
+  "source": "Urrea et al., J Mech Behav Biomed Mater 56:98-105 (2016), PMID 26700572",
+  "dispersion_is_not_an_uncertainty_bound": true
+ },
+ "falsifier": "if a shaft-only observable is found that separates adhesion from other resistance without a second mechanical channel, the theorem is wrong and this decision is unnecessary",
+ "geometry_swing_at_identical_shaft_reading": {
+  "note": "the two admissible cases below carry the SAME shaft force and the SAME shaft moment and differ only in where the nuisance contact sits",
+  "nuisance_arm_m": [
+   0.01,
+   0.075
+  ],
+  "tip_load_N": [
+   0.07142857142857144,
+   -0.7333333333333333
+  ],
+  "swing_N": 0.8047619047619047,
+  "reading": "a swing of this size at one shaft reading is the same order as the 0.2 to 0.8 N ambiguity proof_lane exhibited, so the lever arms are not a detail of the calibration -- they are an input the decision cannot do without",
+  "sign_changes": true
+ },
+ "boundary_note": "the third case has separation fraction 0.09999999999999999 in floating point and is refused at exactly the stated threshold; the refusal is reported rather than smoothed",
+ "rows": [
+  {
+   "shaft_force_N": 1.0,
+   "shaft_moment_Nm": 0.02,
+   "tip_arm_m": 0.15,
+   "nuisance_arm_m": 0.01,
+   "arm_separation_fraction": 0.9333333333333332,
+   "decision": "TIP_LOAD_N",
+   "decision_value_N": 0.07142857142857144,
+   "tip_load_enclosure_N": [
+    0.06357142857142858,
+    0.07928571428571429
+   ],
+   "enclosure_half_width_N": 0.007857142857142858,
+   "moment_noise_amplification_per_m": 7.142857142857143,
+   "force_noise_amplification": 0.07142857142857144,
+   "nuisance_resultant_N": 0.9285714285714286,
+   "control_coulomb": "y = mu*P + S carries the same ambiguity unless the normal load or the nuisance is independently known; the quoted coefficient is static and its dispersion is not a rigorous bound (PMID 26700572)",
+   "independent_of_adhesion_law": true
+  },
+  {
+   "shaft_force_N": 1.0,
+   "shaft_moment_Nm": 0.02,
+   "tip_arm_m": 0.15,
+   "nuisance_arm_m": 0.075,
+   "arm_separation_fraction": 0.5,
+   "decision": "TIP_LOAD_N",
+   "decision_value_N": -0.7333333333333333,
+   "tip_load_enclosure_N": [
+    -0.7566666666666666,
+    -0.71
+   ],
+   "enclosure_half_width_N": 0.023333333333333334,
+   "moment_noise_amplification_per_m": 13.333333333333334,
+   "force_noise_amplification": 1.0,
+   "nuisance_resultant_N": 1.7333333333333334,
+   "control_coulomb": "y = mu*P + S carries the same ambiguity unless the normal load or the nuisance is independently known; the quoted coefficient is static and its dispersion is not a rigorous bound (PMID 26700572)",
+   "independent_of_adhesion_law": true
+  },
+  {
+   "shaft_force_N": 1.0,
+   "shaft_moment_Nm": 0.02,
+   "tip_arm_m": 0.15,
+   "nuisance_arm_m": 0.135,
+   "arm_separation_fraction": 0.09999999999999991,
+   "decision": "NO_TIP_LOAD_RETURNED",
+   "reason": "lever arms separated by 0.1000 of the tip arm, below 0.1; the inversion L = (M - r*y)/(l - r) is singular at equal arms, which is the axially collinear case, and no calibration removes it"
+  },
+  {
+   "shaft_force_N": 1.0,
+   "shaft_moment_Nm": 0.02,
+   "tip_arm_m": 0.15,
+   "nuisance_arm_m": 0.145,
+   "arm_separation_fraction": 0.03333333333333337,
+   "decision": "NO_TIP_LOAD_RETURNED",
+   "reason": "lever arms separated by 0.0333 of the tip arm, below 0.1; the inversion L = (M - r*y)/(l - r) is singular at equal arms, which is the axially collinear case, and no calibration removes it"
+  }
+ ],
+ "review_state": "PENDING_INDEPENDENT_REVIEW",
+ "no_claim_of_biological_validation": true
+}

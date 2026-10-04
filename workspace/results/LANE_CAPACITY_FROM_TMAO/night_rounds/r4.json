@@ -1,0 +1,169 @@
+{
+  "round": 4,
+  "status": "PENDING_INDEPENDENT_REVIEW",
+  "claim_type": [
+    "capability",
+    "information_link"
+  ],
+  "form": "A_CONDITIONAL_OBSERVATION_ENCLOSURE",
+  "operation": "fixed-H fast-mode falsifier -> mass-budget branch observation -> cell-resolved inverse -> bounded bypass closure",
+  "control": "current clearance/energy ceiling and t0-current port without bound derivative; same-data standard mass balance has same conditional bound",
+  "outcome": {
+    "native_turnover_interval": null,
+    "native_area_capacity_interval": null,
+    "empirical_compatibility": "UNKNOWN",
+    "mathematical_gate": "PASS_UNDER_EXPLICIT_CLOSURES",
+    "fast_mode": {
+      "instances": 10,
+      "fixed_H_mL_min": 1.0,
+      "fixed_q_forward_nmol": 0.01,
+      "deadtime_min": 0.01,
+      "absolute_error_nmol": 0.0001,
+      "rate_a_range_mL_min": [
+        1000.0,
+        1000000000000.0
+      ],
+      "max_observation_error_nmol": 1.0010010010010011e-05,
+      "volume_range_mL": [
+        0.010000000000010001,
+        0.010010010010010012
+      ],
+      "analytic_upper_unbounded": true
+    },
+    "mass_port": {
+      "ODE_models": 96,
+      "cells": 432,
+      "cell_window_checks": 1296,
+      "interval_instances": 20000,
+      "enclosure_misses": 0,
+      "naive_asynchronous_ratio_counterexamples": 1296,
+      "max_mass_relative_error": 4.663573762299456e-16,
+      "incompatible_mass_test_passed": true,
+      "prerequisite_rejections": 7
+    },
+    "pooled_counterexample": {
+      "a": [
+        1000.0,
+        1.0
+      ],
+      "b": [
+        1.0,
+        1.0
+      ],
+      "H": [
+        0.999000999000999,
+        0.5
+      ],
+      "p": [
+        0.000999000999000999,
+        0.5
+      ],
+      "tracer_doses_nmol": [
+        0.0001,
+        1.0
+      ],
+      "pooledp": 0.4999501048896109,
+      "true_a_sum": 1001.0,
+      "false_pooled_interval": [
+        2.9983011991406197,
+        2.9983011991406197
+      ],
+      "resolved_a_interval": [
+        1001.0,
+        1001.0
+      ],
+      "false_upper_underestimate_factor": 333.85571812695434
+    },
+    "bypass": {
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "ODE_models": 32,
+      "closure_counterexamples": 32,
+      "corrected_enclosure_misses": 0,
+      "max_mass_absolute_error_nmol": 8.881784197001252e-16,
+      "max_uncorrected_p_lower": 0.9621751055953784,
+      "main_p": 0.5,
+      "prerequisite_rejections": 9,
+      "unbounded_bypass_rejected": {
+        "gate": "UNKNOWN_UNBOUND_BYPASS_MASS",
+        "p": null
+      },
+      "numerical_mass_support_nmol": 1e-08,
+      "scope": "synthetic isolated main H and independently given exact bypass budget, no empirical transfer",
+      "numerical_elapsed_s": 0.07965956814587116
+    },
+    "preserved_R2_falsifiers": {
+      "D_2SD": -16.75,
+      "future_person95_worst_margin": -48.20010166537469,
+      "one_SD_empirical_support_defensible": false
+    },
+    "cost": {
+      "numerical_successful_batches_s": 1.2888390780426562,
+      "ODE_solves_completed": 128,
+      "ODE_solves_in_failed_V1": 1,
+      "ODE_solves_total": 129,
+      "interval_instances": 20000,
+      "new_native_estimates": 0,
+      "new_empirical_measurements": 0,
+      "wall_since_prereg_s": 939.9384849071503,
+      "wall_scope": "includes post-prereg source reading/search, construction, computation and writing to this point; pre-prereg reading and subsequent final validation not timed here",
+      "failed_V1_numerical_time_not_separately_measured": true,
+      "complete_cost_comparison": false,
+      "speedup_claimed": false,
+      "threads": 2
+    }
+  },
+  "gate": "FAIL",
+  "delivery_gate": "PASS_SPECIFICATION_AND_EXECUTED_CONDITIONAL_TESTS",
+  "obstacle": "No bound same-cell/all-cell two-sided TMAO count/inventory + isolated H/drivers/bypass metrology; native saturation/inventory/area unbound",
+  "next": "Bind actual mass-based measurement contract, or preserved free-state/J alternative. No new native estimates without data.",
+  "files": [
+    "RESULTS.md",
+    "WORK_STATUS.json",
+    "NEXT_ROUND.md",
+    "PORT.json",
+    "PORT_R4.json",
+    "CHECKPOINT_R4.json",
+    "DERIVATION_R4.md",
+    "MEASUREMENT_SPEC_R4.md",
+    "SOURCE_REVIEW_R4.json",
+    "DECOMPOSITION_R4.json",
+    "ATTEMPTS_R4.json",
+    "FOLLOWUPS_R4.json",
+    "GRAPH_FEEDBACK_PENDING_R4.json",
+    "PREREG_R4.md",
+    "PREREG_R4.sha256",
+    "PREREG_R4_AMENDMENT_A.md",
+    "PREREG_R4_AMENDMENT_A.sha256",
+    "WORK_STATUS_BEFORE_R4.json",
+    "NEXT_ROUND_BEFORE_R4.md",
+    "PORT_BEFORE_R4.json",
+    "RESULTS_R4_SECTION.md",
+    "NEXT_ROUND_R4.md",
+    "night_rounds/r4.json",
+    "r4/BYPASS_CASES_V2.json",
+    "r4/BYPASS_METRICS_V2.json",
+    "r4/BYPASS_RUN_FAILURE_V1.json",
+    "r4/FAST_MODE_WITNESSES_V1.json",
+    "r4/INDEX_clearance_V1.txt",
+    "r4/INDEX_efflux_V1.txt",
+    "r4/INDEX_flow_V1.txt",
+    "r4/INDEX_halvering_V1.txt",
+    "r4/INDEX_uptake_V1.txt",
+    "r4/INDEX_washout_V1.txt",
+    "r4/INTERVAL_CASES_V1.json",
+    "r4/MEMORY_ENCLOSURE_CASES_V1.json",
+    "r4/METRICS_R4_V1.json",
+    "r4/PREREQUISITE_REJECTIONS_V1.json",
+    "r4/PREREQUISITE_REJECTIONS_V3.json",
+    "r4/PRIOR_RAW_MANIFEST_V1.json",
+    "r4/SOURCE_DOWNLOADS_V1.json",
+    "r4/THREE_TREE_SEARCH_V1.json",
+    "r4/mass_port_v1.py",
+    "r4/mass_port_v2.py",
+    "r4/mass_port_v2_before_input_guards.py",
+    "r4/run_bypass_v1.py",
+    "r4/run_bypass_v2.py",
+    "r4/run_observability_v1.py",
+    "r4/write_delivery_v1.py"
+  ]
+}

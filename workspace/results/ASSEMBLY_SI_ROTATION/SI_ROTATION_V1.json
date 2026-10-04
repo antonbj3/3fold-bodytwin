@@ -1,0 +1,106 @@
+{
+ "question": "what sacroiliac rotation interval should a decision carry, given four methods",
+ "source": {
+  "path": "source_documents/MECHANISM_SACROILIAC_JOINT.md",
+  "labels_and_cautions_kept": true
+ },
+ "sources": [
+  {
+   "study": "Egund 1978",
+   "pmid": "717034",
+   "method": "RSA",
+   "images_bone": true,
+   "is_measurement": true,
+   "n": 4,
+   "rotation_deg": 2.0,
+   "caution": "at the axis precision limit per the document"
+  },
+  {
+   "study": "Sturesson 1989",
+   "pmid": "2922636",
+   "method": "RSA refined",
+   "images_bone": true,
+   "is_measurement": true,
+   "n": 25,
+   "rotation_deg": 2.5,
+   "own_range_deg": [
+    0.8,
+    3.9
+   ],
+   "caution": null
+  },
+  {
+   "study": "Jacob & Kissling 1995",
+   "pmid": "11415579",
+   "method": "3-D photogrammetry",
+   "images_bone": false,
+   "is_measurement": true,
+   "n": 24,
+   "rotation_deg": 1.7,
+   "caution": "external markers, explicitly NOT X-ray per the document"
+  },
+  {
+   "study": "Zheng 1997",
+   "pmid": "9136197",
+   "method": "quasi-static FE",
+   "images_bone": false,
+   "is_measurement": false,
+   "n": null,
+   "rotation_deg": null,
+   "caution": "independent computation, not a measurement, per the document"
+  }
+ ],
+ "cross_method_factor_already_in_the_document": {
+  "values": [
+   1.68,
+   1.81
+  ],
+  "bar": 3.0,
+  "gate": "G3 PASS",
+  "note": "not discovered here; it is the premise this decision is made under"
+ },
+ "candidate_intervals": {
+  "all_measurements_pooled": {
+   "low": 1.7,
+   "high": 2.5,
+   "mean": 2.0667,
+   "spread_factor": 1.471,
+   "n_sources": 3,
+   "includes": [
+    "Egund 1978",
+    "Sturesson 1989",
+    "Jacob & Kissling 1995"
+   ],
+   "objection": "includes a method the document flags as not X-ray, so a disagreement between it and the others cannot be attributed to the joint"
+  },
+  "x_ray_methods_only": {
+   "low": 2.0,
+   "high": 2.5,
+   "mean": 2.25,
+   "spread_factor": 1.25,
+   "n_sources": 2,
+   "includes": [
+    "Egund 1978",
+    "Sturesson 1989"
+   ],
+   "objection": "one of the two is flagged as sitting at its own axis precision limit, so the narrow spread may be two readings of the same limitation"
+  },
+  "widest_single_study_range": {
+   "low": 0.8,
+   "high": 3.9,
+   "mean": 2.5,
+   "n_subjects": 25,
+   "spread_factor": 4.875,
+   "includes": [
+    "Sturesson 1989"
+   ],
+   "objection": "one study, but the only one that reported its own between-subject spread, and n=25 is the largest here"
+  }
+ },
+ "recommendation": "the widest single-study range, 0.8 to 3.9 degrees. It is the only interval in the document that measures BETWEEN-SUBJECT variation rather than between-method variation, and a decision about a subject needs the former. The pooled interval is narrower at 1.7 to 2.5 and that narrowness is an artefact of comparing study means to each other, which averages away exactly the variation a decision faces",
+ "the_trap_this_avoids": "a pooled mean of study means looks tighter than any single study and is tighter for the wrong reason: averaging across methods removes between-subject spread, which is the only spread a per-subject decision has to survive. Same shape as reading a composed standard deviation as a floor earlier tonight",
+ "control": "the pooled reading, which is what using every number in the document would give",
+ "claim_type": "information_link",
+ "scope": "reconciliation of published values as labelled; no new measurement and no clinical use",
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

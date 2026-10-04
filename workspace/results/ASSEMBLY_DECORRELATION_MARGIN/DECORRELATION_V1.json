@@ -1,0 +1,350 @@
+{
+ "question": "do the error components decorrelate, and what does assuming it buy",
+ "replaces": "a Brier-scored probability whose resolution was 0.0034, i.e. one estimated scale shared by all patients",
+ "instrument_component_declared_not_stacked": {
+  "component": "instrument_repeatability",
+  "scale_sd_D": 0.08801,
+  "scale_sd_D_p95": 0.21097,
+  "eyes_it_was_measured_on": 300,
+  "overlap_with_surgical_eyes": 0,
+  "why_not_in_the_matrix": "a different cohort and instrument with no overlap, so no unit definition stacks it into the same M x K array; stacking it silently would be the fail-open this module exists to prevent"
+ },
+ "claim_type": "capability",
+ "control": "the two explicit endpoints the module computes: spec/sum(sd) at rho=1 and spec/sqrt(sum sd^2) at rho=0; the bracket between them is the measured value of the independence assumption rather than an assumed one",
+ "caution": "min_units is 20, so the implant-power verdict sits on the floor by construction and is borderline whatever it reports; the toric case at 69 units is not",
+ "results": [
+  {
+   "decision": "implant_power",
+   "units": 20,
+   "stages": [
+    "grid_quantisation",
+    "chain_model_error"
+   ],
+   "per_stage_sd_D": [
+    0.10493,
+    0.63128
+   ],
+   "row_sum_equals_observed_error": {
+    "max_abs_row_sum_D": 1.37503,
+    "mean_abs_row_sum_D": 0.47845
+   },
+   "spec_D": 0.5,
+   "decorrelation_verifier": {
+    "verdict": "UNDECIDABLE",
+    "composition": "SUM",
+    "decorrelation_verified": false,
+    "rho_hat": 0.026,
+    "rho_ci": [
+     -0.3436,
+     0.4184
+    ],
+    "n_units": 20,
+    "n_stages": 2,
+    "reason": "stage-error correlation CI [-0.344,+0.418] straddles tol 0.15 (rho_hat=+0.026): cannot certify independence -> conservative SUM default (gather more units to resolve)."
+   },
+   "decorrelation_gate_is_one_sided": true,
+   "repair_response": {
+    "combined_sd_D": 0.64263,
+    "per_stage_repair": {
+     "grid_quantisation": {
+      "combined_sd_after_full_repair_D": 0.63128,
+      "factor_vs_now": 0.9823,
+      "repair_helps": true
+     },
+     "chain_model_error": {
+      "combined_sd_after_full_repair_D": 0.10493,
+      "factor_vs_now": 0.1633,
+      "repair_helps": true
+     }
+    },
+    "two_stage_interior_optimum": {
+     "rho": 0.026,
+     "optimal_sd_stage0_D": 0.0,
+     "optimal_sd_stage1_D": 0.0,
+     "stage0_above_optimum_factor": null,
+     "stage1_above_optimum_factor": null
+    },
+    "independent_combined_sd_D": 0.63994,
+    "cancellation_removes_fraction": -0.0042
+   },
+   "covariance_aware_margin": {
+    "verdict": "COVARIANCE-AWARE",
+    "margin": 0.59,
+    "plugin_margin": 0.7781,
+    "rss_margin": 0.7813,
+    "sum_margin": 0.6792,
+    "sysvar_ci_upper": 0.718072,
+    "n_units": 20,
+    "n_stages": 2,
+    "reason": "covariance-aware system margin 0.590x from the CI-UPPER of 1'Sigma1 (RSS endpoint 0.781, SUM endpoint 0.679). The PLUG-IN point estimate 0.778 fails open (~50%); the CI-upper gate is conservative. Recovers margin vs pure SUM when the measured common-mode is moderate, without the plug-in fail-open."
+   },
+   "from_samples_margin": {
+    "verdict": "FROM-SAMPLES-CHI2",
+    "margin": 0.5676,
+    "var_hat": 0.412974,
+    "var_ci_upper": 0.775883,
+    "excess_kurtosis": -0.001,
+    "gaussian_precondition_ok": true,
+    "n_units": 20,
+    "alpha": 0.05,
+    "reason": "chi-square CI-upper margin 0.568x from Var(row-sum) (M=20, alpha=0.05). Gaussian precondition OK (excess kurtosis -0.00)."
+   },
+   "heavy_tail": {
+    "hill_xi": 0.4519,
+    "heavy_tail": true,
+    "n_raw": 40,
+    "hill_thresh": 0.35
+   }
+  },
+  {
+   "decision": "implant_power_with_declared_instrument",
+   "units": 20,
+   "stages": [
+    "grid_quantisation",
+    "chain_model_error",
+    "instrument_repeatability_declared"
+   ],
+   "per_stage_sd_D": [
+    0.10493,
+    0.63128,
+    0.07683
+   ],
+   "row_sum_equals_observed_error": {
+    "max_abs_row_sum_D": 1.36397,
+    "mean_abs_row_sum_D": 0.49452
+   },
+   "spec_D": 0.5,
+   "decorrelation_verifier": {
+    "verdict": "UNDECIDABLE",
+    "composition": "SUM",
+    "decorrelation_verified": false,
+    "rho_hat": -0.0187,
+    "rho_ci": [
+     -0.1935,
+     0.1957
+    ],
+    "n_units": 20,
+    "n_stages": 3,
+    "reason": "stage-error correlation CI [-0.194,+0.196] straddles tol 0.15 (rho_hat=-0.019): cannot certify independence -> conservative SUM default (gather more units to resolve)."
+   },
+   "decorrelation_gate_is_one_sided": true,
+   "repair_response": {
+    "combined_sd_D": 0.65026,
+    "per_stage_repair": {
+     "grid_quantisation": {
+      "combined_sd_after_full_repair_D": 0.6409,
+      "factor_vs_now": 0.9856,
+      "repair_helps": true
+     },
+     "chain_model_error": {
+      "combined_sd_after_full_repair_D": 0.12057,
+      "factor_vs_now": 0.1854,
+      "repair_helps": true
+     },
+     "instrument_repeatability_declared": {
+      "combined_sd_after_full_repair_D": 0.64263,
+      "factor_vs_now": 0.9883,
+      "repair_helps": true
+     }
+    },
+    "independent_combined_sd_D": 0.64454,
+    "cancellation_removes_fraction": -0.0089
+   },
+   "covariance_aware_margin": {
+    "verdict": "COVARIANCE-AWARE",
+    "margin": 0.5931,
+    "plugin_margin": 0.7689,
+    "rss_margin": 0.7757,
+    "sum_margin": 0.615,
+    "sysvar_ci_upper": 0.710623,
+    "n_units": 20,
+    "n_stages": 3,
+    "reason": "covariance-aware system margin 0.593x from the CI-UPPER of 1'Sigma1 (RSS endpoint 0.776, SUM endpoint 0.615). The PLUG-IN point estimate 0.769 fails open (~50%); the CI-upper gate is conservative. Recovers margin vs pure SUM when the measured common-mode is moderate, without the plug-in fail-open."
+   },
+   "from_samples_margin": {
+    "verdict": "FROM-SAMPLES-CHI2",
+    "margin": 0.561,
+    "var_hat": 0.422836,
+    "var_ci_upper": 0.794412,
+    "excess_kurtosis": -0.202,
+    "gaussian_precondition_ok": true,
+    "n_units": 20,
+    "alpha": 0.05,
+    "reason": "chi-square CI-upper margin 0.561x from Var(row-sum) (M=20, alpha=0.05). Gaussian precondition OK (excess kurtosis -0.20)."
+   },
+   "heavy_tail": {
+    "hill_xi": 0.9206,
+    "heavy_tail": true,
+    "n_raw": 60,
+    "hill_thresh": 0.35
+   }
+  },
+  {
+   "decision": "toric_cylinder",
+   "units": 69,
+   "stages": [
+    "posterior_information",
+    "chain_residual"
+   ],
+   "per_stage_sd_D": [
+    0.45562,
+    0.59698
+   ],
+   "row_sum_equals_observed_error": {
+    "max_abs_row_sum_D": 1.0901,
+    "mean_abs_row_sum_D": 0.28085
+   },
+   "spec_D": 0.5,
+   "decorrelation_verifier": {
+    "verdict": "DECORRELATED-CERTIFIED",
+    "composition": "RSS",
+    "decorrelation_verified": true,
+    "rho_hat": -0.7961,
+    "rho_ci": [
+     -0.8565,
+     -0.7254
+    ],
+    "n_units": 69,
+    "n_stages": 2,
+    "reason": "stage-error mean off-diagonal correlation CI-UPPER -0.725 <= tol 0.15 (rho_hat=-0.796, M=69): stages are certified DECORRELATED -> the favorable RSS system margin is claimable."
+   },
+   "decorrelation_gate_is_one_sided": true,
+   "repair_response": {
+    "combined_sd_D": 0.36178,
+    "per_stage_repair": {
+     "posterior_information": {
+      "combined_sd_after_full_repair_D": 0.59698,
+      "factor_vs_now": 1.6501,
+      "repair_helps": false
+     },
+     "chain_residual": {
+      "combined_sd_after_full_repair_D": 0.45562,
+      "factor_vs_now": 1.2594,
+      "repair_helps": false
+     }
+    },
+    "two_stage_interior_optimum": {
+     "rho": -0.7961,
+     "optimal_sd_stage0_D": 0.47527,
+     "optimal_sd_stage1_D": 0.36273,
+     "stage0_above_optimum_factor": 0.9586,
+     "stage1_above_optimum_factor": 1.6458
+    },
+    "independent_combined_sd_D": 0.75098,
+    "cancellation_removes_fraction": 0.5183
+   },
+   "covariance_aware_margin": {
+    "verdict": "COVARIANCE-AWARE",
+    "margin": 1.184,
+    "plugin_margin": 1.382,
+    "rss_margin": 0.6658,
+    "sum_margin": 0.475,
+    "sysvar_ci_upper": 0.178325,
+    "n_units": 69,
+    "n_stages": 2,
+    "reason": "covariance-aware system margin 1.184x from the CI-UPPER of 1'Sigma1 (RSS endpoint 0.666, SUM endpoint 0.475). The PLUG-IN point estimate 1.382 fails open (~50%); the CI-upper gate is conservative. Recovers margin vs pure SUM when the measured common-mode is moderate, without the plug-in fail-open."
+   },
+   "from_samples_margin": {
+    "verdict": "FROM-SAMPLES-CHI2",
+    "margin": 1.1853,
+    "var_hat": 0.130888,
+    "var_ci_upper": 0.177937,
+    "excess_kurtosis": 0.184,
+    "gaussian_precondition_ok": true,
+    "n_units": 69,
+    "alpha": 0.05,
+    "reason": "chi-square CI-upper margin 1.185x from Var(row-sum) (M=69, alpha=0.05). Gaussian precondition OK (excess kurtosis +0.18)."
+   },
+   "heavy_tail": {
+    "hill_xi": 0.2162,
+    "heavy_tail": false,
+    "n_raw": 138,
+    "hill_thresh": 0.35
+   }
+  },
+  {
+   "decision": "toric_cylinder_with_declared_instrument",
+   "units": 69,
+   "stages": [
+    "posterior_information",
+    "chain_residual",
+    "instrument_repeatability_declared"
+   ],
+   "per_stage_sd_D": [
+    0.45562,
+    0.59698,
+    0.08089
+   ],
+   "row_sum_equals_observed_error": {
+    "max_abs_row_sum_D": 1.0211,
+    "mean_abs_row_sum_D": 0.30004
+   },
+   "spec_D": 0.5,
+   "decorrelation_verifier": {
+    "verdict": "DECORRELATED-CERTIFIED",
+    "composition": "RSS",
+    "decorrelation_verified": true,
+    "rho_hat": -0.2231,
+    "rho_ci": [
+     -0.2767,
+     -0.1668
+    ],
+    "n_units": 69,
+    "n_stages": 3,
+    "reason": "stage-error mean off-diagonal correlation CI-UPPER -0.167 <= tol 0.15 (rho_hat=-0.223, M=69): stages are certified DECORRELATED -> the favorable RSS system margin is claimable."
+   },
+   "decorrelation_gate_is_one_sided": true,
+   "repair_response": {
+    "combined_sd_D": 0.37989,
+    "per_stage_repair": {
+     "posterior_information": {
+      "combined_sd_after_full_repair_D": 0.59371,
+      "factor_vs_now": 1.5629,
+      "repair_helps": false
+     },
+     "chain_residual": {
+      "combined_sd_after_full_repair_D": 0.48109,
+      "factor_vs_now": 1.2664,
+      "repair_helps": false
+     },
+     "instrument_repeatability_declared": {
+      "combined_sd_after_full_repair_D": 0.36178,
+      "factor_vs_now": 0.9523,
+      "repair_helps": true
+     }
+    },
+    "independent_combined_sd_D": 0.75532,
+    "cancellation_removes_fraction": 0.497
+   },
+   "covariance_aware_margin": {
+    "verdict": "COVARIANCE-AWARE",
+    "margin": 1.1388,
+    "plugin_margin": 1.3162,
+    "rss_margin": 0.662,
+    "sum_margin": 0.4411,
+    "sysvar_ci_upper": 0.192781,
+    "n_units": 69,
+    "n_stages": 3,
+    "reason": "covariance-aware system margin 1.139x from the CI-UPPER of 1'Sigma1 (RSS endpoint 0.662, SUM endpoint 0.441). The PLUG-IN point estimate 1.316 fails open (~50%); the CI-upper gate is conservative. Recovers margin vs pure SUM when the measured common-mode is moderate, without the plug-in fail-open."
+   },
+   "from_samples_margin": {
+    "verdict": "FROM-SAMPLES-CHI2",
+    "margin": 1.1288,
+    "var_hat": 0.144317,
+    "var_ci_upper": 0.196193,
+    "excess_kurtosis": -0.241,
+    "gaussian_precondition_ok": true,
+    "n_units": 69,
+    "alpha": 0.05,
+    "reason": "chi-square CI-upper margin 1.129x from Var(row-sum) (M=69, alpha=0.05). Gaussian precondition OK (excess kurtosis -0.24)."
+   },
+   "heavy_tail": {
+    "hill_xi": 0.257,
+    "heavy_tail": false,
+    "n_raw": 207,
+    "hill_thresh": 0.35
+   }
+  }
+ ],
+ "review_state": "PENDING_INDEPENDENT_REVIEW"
+}

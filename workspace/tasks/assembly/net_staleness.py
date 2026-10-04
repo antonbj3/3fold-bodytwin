@@ -46,7 +46,13 @@ _spec.loader.exec_module(_rel)
 carries = _rel.carries
 
 W = Path('')
+# The live net is a symlink into the shared generation directory and is deliberately untracked, so
+# a clone of this repo does not have it. The tracked copy under data/ is written by
+# tasks/build_night/sync_net.sh on every tick and carries the same edges with the evidence pointers
+# rewritten to relative paths, so the gate falls back to it rather than dying on a missing file.
 NET = W / 'CONSTRAINT_NETS.json'
+if not NET.exists():
+    NET = W / 'data' / 'CONSTRAINT_NET_TISSUE.json'
 # The value class used to be [\d.eE+], which accepts 1.25e+09 and rejects 1.25e-09. Four edges
 # whose provenance resolved perfectly were therefore reported as "evidence carries no
 # file :: key = value": the exponent sign, not the evidence, was the defect. Exponents of either
