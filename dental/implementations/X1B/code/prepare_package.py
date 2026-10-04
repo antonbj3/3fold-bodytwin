@@ -37,7 +37,7 @@ for rel in ['XREVIEW.md', 'REVIEW_LANE_X1_CROWN_LOOP.json']:
 modules = ['design/crown_case_sts3d.py', 'design/crown_design_geometry.py', 'manufacturing/crown_fit_geometry.py', 'design/crown_design_weibull.py']
 for rel in modules:
     copy(W / 'cells' / rel, 'vendor/' + Path(rel).name)
-src = W / 'tasks/bunny48/sources/LIT_CROWN/crown_fracture_papers.jsonl'
+src = W / 'tasks/swarm48/sources/LIT_CROWN/crown_fracture_papers.jsonl'
 copy(src, 'inputs/literature/crown_fracture_papers.jsonl')
 for id in ['PMC4764450', 'PMC8558575', 'PMC6642729', 'PMC9081244', 'PMC7274823']:
     copy(W / 'results/DESIGN_crown/sources' / f'{id}.txt', f'inputs/literature/{id}.txt')

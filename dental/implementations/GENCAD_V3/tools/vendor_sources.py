@@ -12,4 +12,4 @@ for (a, b) in files.items():
     shutil.copy2(a, p)
     rows.append(dict(source=a, local=b, sha256=hashlib.sha256(p.read_bytes()).hexdigest()))
 (R / 'code/legacy/__init__.py').touch()
-(R / 'SOURCE_REUSE.json').write_text(json.dumps(dict(files=rows, review=str(S / 'LANE_XREVIEW_GENCAD_V2/XREVIEW.md'), existing_search='Targeted dental/results, cells, bunny48 dental RESULTS and bodytwin LANE RESULTS; no equivalent v3 found', old_cells_index='notes/OLD_DENTAL_CELL_INDEX.md and jsonl; no old measured preparation quantity imported'), indent=2) + '\n')
+(R / 'SOURCE_REUSE.json').write_text(json.dumps(dict(files=rows, review=str(S / 'LANE_XREVIEW_GENCAD_V2/XREVIEW.md'), existing_search='Targeted dental/results, cells, swarm48 dental RESULTS and bodytwin LANE RESULTS; no equivalent v3 found', old_cells_index='notes/OLD_DENTAL_CELL_INDEX.md and jsonl; no old measured preparation quantity imported'), indent=2) + '\n')

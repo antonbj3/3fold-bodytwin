@@ -12,7 +12,7 @@ from dental_release.paths import expand as _release_expand
 import json
 import pathlib
 import re
-STORE = pathlib.Path(_release_expand('@DENTAL_EXTERNAL_ROOT@/storage/research/bunny48_20260926/bodytwin'))
+STORE = pathlib.Path(_release_expand('@DENTAL_EXTERNAL_ROOT@/storage/research/swarm48_20260926/bodytwin'))
 OUT = pathlib.Path(_release_expand('@DENTAL_EXTERNAL_ROOT@/coupled-model/results/ASSEMBLY_REFUTATIONS'))
 NUM = re.compile('-?\\d+\\.?\\d*(?:[eE][+-]?\\d+)?')
 

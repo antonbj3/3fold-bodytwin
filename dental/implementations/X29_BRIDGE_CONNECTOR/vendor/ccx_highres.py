@@ -10,7 +10,7 @@ BUILD (reproducible, nothing system-wide; everything under @DENTAL_EXTERNAL_ROOT
   mkdir SPOOLES.2.2 && tar xzf spooles.2.2.tgz -C SPOOLES.2.2 && cd SPOOLES.2.2
   sed -i 's#^  CC = /usr/lang-4.0/bin/cc#  CC = gcc#; s#^  OPTLEVEL = -O#  OPTLEVEL = -O3#' Make.inc
   make lib && (cd MT/src && make -f makeGlobalLib)          # MT objects are appended to spooles.a
-  conda create -y -p $O/mklenv -c conda-forge mkl-devel=2024 mkl-include llvm-openmp   # MKL 2024 (PARDISO)
+  conda create -y -p $O/mklenv -c conda-content_platform mkl-devel=2024 mkl-include llvm-openmp   # MKL 2024 (PARDISO)
   cd $O/src/CalculiX/ccx_2.23/src && <write Makefile_F2 as below> && make -j10 -f Makefile_F2
   Makefile_F2 = stock Makefile_MT with
     CFLAGS += -I$(MKL)/include -DSPOOLES -DARPACK -DPARDISO -DMATRIXSTORAGE -DUSE_MT=1

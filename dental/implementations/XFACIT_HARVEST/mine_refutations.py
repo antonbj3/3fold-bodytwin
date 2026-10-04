@@ -1,7 +1,7 @@
 from dental_release.paths import expand as _release_expand
 from pathlib import Path
 import json, re, hashlib, datetime, collections, time
-STORE = Path(_release_expand('@DENTAL_EXTERNAL_ROOT@/storage/research/bunny48_20260926/dental'))
+STORE = Path(_release_expand('@DENTAL_EXTERNAL_ROOT@/storage/research/swarm48_20260926/dental'))
 OUT = Path(__file__).resolve().parent
 NUM = re.compile('(?<![A-Za-z])[-+]?\\d+(?:\\.\\d+)?(?:[eE][-+]?\\d+)?')
 start = time.monotonic()
@@ -10,7 +10,7 @@ manifest = []
 bad = []
 counts = collections.Counter()
 paths = sorted(STORE.glob('*/results.json'))
-paths += sorted(Path(_release_expand('@DENTAL_EXTERNAL_ROOT@/media/sdc1-tmp/dental_bunny48_archive')).glob('*/results.json'))
+paths += sorted(Path(_release_expand('@DENTAL_EXTERNAL_ROOT@/media/sdc1-tmp/dental_swarm48_archive')).glob('*/results.json'))
 seen = set()
 for f in paths:
     resolved = str(f.resolve())

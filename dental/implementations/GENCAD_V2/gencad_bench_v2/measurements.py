@@ -43,7 +43,7 @@ def predict():
         train = [q for q in shrink if q['position'] != r['position'] and q['material'] == r['material'] and (q['method'] == r['method'])]
         same_axis = [q for q in train if q['axis'] == r['axis']]
         sp.append(dict(id=i, candidate_pct=float(np.mean([q['mean_shrinkage_pct'] for q in same_axis])) if same_axis else None, practice_pct=float(np.mean([q['mean_shrinkage_pct'] for q in train])) if train else None, heldout_position=r['position']))
-    inputs = [ROOT / 'data/published_measurements.json', X13 / 'measurements.csv', X14 / 'FROZEN_PREDICTIONS.json', X14 / 'raw/R1_test.json', X14 / 'raw/shrinkage_cells.json', X12 / 'raw/R8_teeth.csv', X12 / 'raw/STS_COMPARISON.json', DENTAL / 'tasks/bunny48/sources/LIT_CROWN/crown_fracture_papers.jsonl']
+    inputs = [ROOT / 'data/published_measurements.json', X13 / 'measurements.csv', X14 / 'FROZEN_PREDICTIONS.json', X14 / 'raw/R1_test.json', X14 / 'raw/shrinkage_cells.json', X12 / 'raw/R8_teeth.csv', X12 / 'raw/STS_COMPARISON.json', DENTAL / 'tasks/swarm48/sources/LIT_CROWN/crown_fracture_papers.jsonl']
     payload = dict(claim_type='capability', fracture=frac, cement=cp, sinter_angle=angle, sinter_shrinkage=sp, source_hashes={str(p): sha(p) for p in inputs}, prospective=False, prior_exposure='Original lanes and this author have seen literature; retrospective folds, computational freeze only', physical_scores_for_generated_parts='UNKNOWN_SETUP_MISMATCH')
     freeze(ROOT / 'FROZEN_MEASUREMENT_PREDICTIONS.json', payload)
     dump(ROOT / 'raw/measurement_fit_cost.json', dict(seconds=time.perf_counter() - start))

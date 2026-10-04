@@ -14,7 +14,7 @@ def main():
     t = time.perf_counter()
     out = ROOT / 'inputs'
     (out / 'primary').mkdir(parents=True, exist_ok=True)
-    copies = {'anchors_legacy.csv': SRC / 'results/K1b_iso14801_assembly/anchors.csv', 'k1b_eval_legacy.json': SRC / 'results/K1b_iso14801_assembly/k1b_eval.json', 'run_k1b_eval_legacy.py': SRC / 'results/K1b_iso14801_assembly/run_k1b_eval.py', 'fe_summary_legacy.json': SRC / 'results/K1_lpbf_implant_fatigue/fe_summary.json', 'literature_candidates.jsonl': SRC / 'tasks/bunny48/sources/LIT_ISO14801/iso14801_papers.jsonl'}
+    copies = {'anchors_legacy.csv': SRC / 'results/K1b_iso14801_assembly/anchors.csv', 'k1b_eval_legacy.json': SRC / 'results/K1b_iso14801_assembly/k1b_eval.json', 'run_k1b_eval_legacy.py': SRC / 'results/K1b_iso14801_assembly/run_k1b_eval.py', 'fe_summary_legacy.json': SRC / 'results/K1_lpbf_implant_fatigue/fe_summary.json', 'literature_candidates.jsonl': SRC / 'tasks/swarm48/sources/LIT_ISO14801/iso14801_papers.jsonl'}
     manifest = []
     for (name, p) in copies.items():
         dst = out / name

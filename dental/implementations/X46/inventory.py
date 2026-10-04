@@ -9,7 +9,7 @@ def sha(p):
     return hashlib.sha256(p.read_bytes()).hexdigest()
 
 def main():
-    state_path = ROOT / 'tasks/bunny48/STATE.json'
+    state_path = ROOT / 'tasks/swarm48/STATE.json'
     state = json.loads(state_path.read_text())
     (rows, rejected) = ([], collections.Counter())
     for (jid, job) in state['jobs'].items():

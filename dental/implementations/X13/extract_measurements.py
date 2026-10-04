@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 import re, json, csv, hashlib, time
 P = Path(__file__).resolve().parent
 ROOT = Path(_release_expand('@DENTAL_CORPUS_ROOT@/europepmc/fulltext'))
-LIT = Path(_release_expand('@DENTAL_INPUT_ROOT@/workspace/tasks/bunny48/sources/LIT/marginal_fit_papers.jsonl'))
+LIT = Path(_release_expand('@DENTAL_INPUT_ROOT@/workspace/tasks/swarm48/sources/LIT/marginal_fit_papers.jsonl'))
 
 def sha(p):
     return hashlib.sha256(Path(p).read_bytes()).hexdigest()

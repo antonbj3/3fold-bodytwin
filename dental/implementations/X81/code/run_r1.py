@@ -35,7 +35,7 @@ def main():
     gap = read('net')['edges']
     gap = next((e for e in gap if e['id'] == 'D-E-K23'))['gap']['value']
     old_mae_sd = 0.71 * math.sqrt(2 / math.pi)
-    correction = {'reported_proxy_MAE_degC': gap, 'bunny_other_cohort_sd_degC': 0.71, 'bunny_gaussian_expected_abs_degC': old_mae_sd, 'bunny_quadrature_number_degC': math.sqrt(gap ** 2 - old_mae_sd ** 2), 'identified_model_error_degC': None, 'identified_sensor_noise_degC': None, 'reason': 'Unpaired rotary cohort SD mixes biology/process/sensor; laser proxy comparison is another observable. MAE has no additive variance identity.', 'resolution': 'POPULATION', 'source': 'BT-DW48-NET-K23 RESULTS.md checked against R3/X33 observation contract', 'claims_rejected': ['94 percent is sensor noise', 'physics error is 0.20degC', 'proxy MAE is an individual error bound']}
+    correction = {'reported_proxy_MAE_degC': gap, 'swarm_other_cohort_sd_degC': 0.71, 'swarm_gaussian_expected_abs_degC': old_mae_sd, 'swarm_quadrature_number_degC': math.sqrt(gap ** 2 - old_mae_sd ** 2), 'identified_model_error_degC': None, 'identified_sensor_noise_degC': None, 'reason': 'Unpaired rotary cohort SD mixes biology/process/sensor; laser proxy comparison is another observable. MAE has no additive variance identity.', 'resolution': 'POPULATION', 'source': 'BT-DW48-NET-K23 RESULTS.md checked against R3/X33 observation contract', 'claims_rejected': ['94 percent is sensor noise', 'physics error is 0.20degC', 'proxy MAE is an individual error bound']}
     p = read('preload')
     n = p['n']
     delta = p['first']['mean_N'] - p['tenth']['mean_N']

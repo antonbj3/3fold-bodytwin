@@ -8,6 +8,6 @@ for fn in ['SELECTED_R3.json', 'SELECTED_R3B.json']:
     for r in json.loads((P / fn).read_text()):
         (status, prefixes, note) = D[r['rank']]
         ids = [o['id'] for o in obs if any((o['id'].startswith(x) for x in prefixes))]
-        base.append({'inspection_order': len(base) + 1, 'round': 'R3B' if fn.endswith('R3B.json') else 'R3', 'candidate_id': r['candidate_id'], 'original_rank': r['rank'], 'frozen_report': r['path'], 'frozen_report_sha256': r['source_sha256'], 'external_referent_original': r['external_referent'], 'verification_status': status, 'verified_observation_ids': ids, 'note': note, 'review_state': 'PENDING_INDEPENDENT_REVIEW', 'source_numerical_adoption': bool(ids), 'entire_bunny_claim_endorsed': False})
+        base.append({'inspection_order': len(base) + 1, 'round': 'R3B' if fn.endswith('R3B.json') else 'R3', 'candidate_id': r['candidate_id'], 'original_rank': r['rank'], 'frozen_report': r['path'], 'frozen_report_sha256': r['source_sha256'], 'external_referent_original': r['external_referent'], 'verification_status': status, 'verified_observation_ids': ids, 'note': note, 'review_state': 'PENDING_INDEPENDENT_REVIEW', 'source_numerical_adoption': bool(ids), 'entire_swarm_claim_endorsed': False})
 (P / 'VERIFICATIONS.jsonl').write_text(''.join((json.dumps(x, ensure_ascii=False) + '\n' for x in base)))
 print('adjudicated', len(base), 'with source numeric facets', sum((v['source_numerical_adoption'] for v in base)))

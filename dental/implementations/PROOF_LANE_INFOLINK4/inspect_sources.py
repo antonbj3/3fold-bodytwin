@@ -23,7 +23,7 @@ for sid in ids:
                 lines.append(E.ElementTree(root.getroot()).getpath(e) + ' ' + re.sub('\\s+', ' ', ' '.join(e.itertext())))
     (H / 'source_review' / f'{sid}.txt').write_text('\n\n'.join(lines))
 paths = []
-for base in [R / 'results', Path(_release_expand('@DENTAL_EXTERNAL_ROOT@/coupled-model/results')), Path(_release_expand('@DENTAL_EXTERNAL_ROOT@/storage/research/bunny48_20260926/dental'))]:
+for base in [R / 'results', Path(_release_expand('@DENTAL_EXTERNAL_ROOT@/coupled-model/results')), Path(_release_expand('@DENTAL_EXTERNAL_ROOT@/storage/research/swarm48_20260926/dental'))]:
     pattern = 'LANE_*/RESULTS.md' if base.parent.name == 'bodytwin' else '*/RESULTS.md'
     paths.extend((str(p) for p in base.glob(pattern) if p.is_file()))
 paths.extend((str(p) for p in (R / 'cells').glob('**/*.py')))

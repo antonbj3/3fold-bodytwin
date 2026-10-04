@@ -8,7 +8,7 @@ assert len(D) == 40
 out = []
 for (i, (r, (status, prefixes, note))) in enumerate(zip(rows, D), 1):
     ids = [o['id'] for o in obs if any((o['id'].startswith(x) for x in prefixes))]
-    out.append({'inspection_order': i, 'candidate_id': r['candidate_id'], 'original_rank': r['rank'], 'frozen_report': r['path'], 'frozen_report_sha256': r['source_sha256'], 'external_referent_original': r['external_referent'], 'verification_status': status, 'verified_observation_ids': ids, 'note': note, 'review_state': 'PENDING_INDEPENDENT_REVIEW', 'source_numerical_adoption': bool(ids), 'entire_bunny_claim_endorsed': False})
+    out.append({'inspection_order': i, 'candidate_id': r['candidate_id'], 'original_rank': r['rank'], 'frozen_report': r['path'], 'frozen_report_sha256': r['source_sha256'], 'external_referent_original': r['external_referent'], 'verification_status': status, 'verified_observation_ids': ids, 'note': note, 'review_state': 'PENDING_INDEPENDENT_REVIEW', 'source_numerical_adoption': bool(ids), 'entire_swarm_claim_endorsed': False})
 (P / 'VERIFICATIONS.jsonl').write_text(''.join((json.dumps(x, ensure_ascii=False) + '\n' for x in out)))
 (P / 'CURRENT_WORK_STATE.json').write_text(json.dumps({'updated_at': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'phase': 'R1_40_REPORTS_ADJUDICATED', 'latest_gate': '146 primary observation facets from18sources;source contradictions and inaccessible primary quantities excluded', 'next_operation': 'Protocol/quantity/range binding and independently parsed intake fault test', 'claim_type': 'information_link'}, indent=2))
 print('adjudicated', len(out), 'withnumericfacets', sum((x['source_numerical_adoption'] for x in out)))
