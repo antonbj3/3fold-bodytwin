@@ -8,7 +8,7 @@ import time
 from pathlib import Path
 
 ROOT = Path('/opt/agents')
-# The model map is located on the machine, not in the rope: it names the liver ants and model.
+# The model map is located on the host, not in the trade: it names the liver ants and model.
 def _models():
     import json
     for cand in (ROOT / 'models.json', pathlib.Path.home() / '.bodytwin' / 'models.json'):

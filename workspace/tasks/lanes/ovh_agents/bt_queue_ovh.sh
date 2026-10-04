@@ -5,7 +5,7 @@
 # back when AGENT_EXIT exists. Cap: tasks/lanes/ovh_agents/cap (default 30). Stop: systemctl --user stop bt-queue-ovh.
 W=$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd); Q=$W/tasks/lanes/bt_queue.txt; D=${BT_CLOUD_DIR:-$W/tasks/lanes/ovh_agents}
 # Runtime values outside the tree: keys, dashboard flag and helper scripts.
-set -a; . "$HOME/.bodytwin/runners.env" 2>/dev/null || { echo "saknar ~/.bodytwin/runners.env"; exit 1; }; set +a
+set -a; . "$HOME/.bodytwin/runners.env" 2>/dev/null || { echo "missing ~/.bodytwin/runners.env"; exit 1; }; set +a
 LOG=$D/queue_ovh.log; LLOG=$W/tasks/lanes/bt_queue.log; RUN=$D/running; mkdir -p $RUN
 SSHO=(-o ConnectTimeout=15 -o ServerAliveInterval=30 -i "$SSH_KEY" -o IdentitiesOnly=yes -o UserKnownHostsFile="$KNOWN_HOSTS" -o BatchMode=yes)
 H=${BT_CLOUD_HOST:-ubuntu@51.77.110.4}; END=${BT_CLOUD_END:-1791042504}
