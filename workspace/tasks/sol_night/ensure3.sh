@@ -110,5 +110,6 @@ done < "$D/slots.txt"
 
 # Creative jobs first in the swarm queue. Claimed every tick, not once: the refill generators lay
 # auto-package in front and a one-time sort lasted only seventeen minutes (2026-10-04 12:48 -> 13:05).
+python3 "$ROOT/tasks/build_night/quarantine_zombies.py" 2>/dev/null | sed "s/^/[$(date +%F' '%T)] /" >> "$LOG"
 python3 "$ROOT/tasks/build_night/creative_first.py" 2>/dev/null | sed "s/^/[$(date +%F' '%T)] /" >> "$LOG"
 exit 0
