@@ -38,12 +38,36 @@ MOLAR_MASS = {'SiO2': 60.083, 'Al2O3': 101.961, 'Na2O': 61.979, 'K2O': 94.196,
               'MgO': 40.304, 'CaO': 56.077, 'Fe2O3': 159.688, 'TiO2': 79.866, 'SO3': 80.063}
 # Standard decomposition enthalpies, carbonate -> oxide + CO2, kJ per mol of oxide formed.
 # Values are the textbook standard-state figures; each is tagged with what it rests on.
+# Reconciled against the staged probe (reports/probes/glass_batch_decomp_v0.json) with the graph
+# lane on 2026-10-04, and the four terms do NOT share an evidence status. The probe is a
+# TWO-carbonate batch: its reaction list holds Na2CO3 and CaCO3 only, and K2CO3 and MgCO3 occur zero
+# times in it. The gap between its 1.018232 and this file's first figure of 1.037191 decomposed to
+# zero: K2O +0.012396, MgO +0.005872, Na2O enthalpy choice +0.003683, CaO enthalpy choice -0.000935,
+# and the mass basis -0.002084, summing to the observed 0.018932 exactly.
+#
+# What remains is a BATCH question, not a thermochemistry one, and the two extra terms stand on
+# different ground. The chain's own raw-material line reads "quartz sand + soda ash (Na2CO3->Na2O) +
+# limestone/DOLOMITE (CaCO3->CaO) + minor Al2O3/K2O/MgO/Fe2O3/TiO2/SO3 fining agents".
+#
+#   MgO  -- dolomite is named as a raw material and dolomite is CaMg(CO3)2, so its magnesium enters
+#           as a carbonate and its endotherm belongs. The probe names the mineral and omits its
+#           magnesium, so the probe's basis is incomplete as written. READING OF THE SPEC.
+#   K2O  -- potassium appears only inside the fining-agent list and no raw-material line names
+#           potash. This term therefore assumes a potassium carbonate source. ASSUMPTION.
+#
+# So the defensible range on the spec as written is 1.0183 to 1.0242 MJ/kg, and anything above that
+# rests on the potash assumption. Both are reported, labelled, and never summed silently.
 DECOMPOSITION_KJ_PER_MOL = {
-    'CaO': (178.3, 'CaCO3 -> CaO + CO2, standard enthalpies of formation'),
-    'Na2O': (321.0, 'Na2CO3 -> Na2O + CO2, standard enthalpies of formation'),
-    'MgO': (117.9, 'MgCO3 -> MgO + CO2, standard enthalpies of formation'),
-    'K2O': (393.0, 'K2CO3 -> K2O + CO2, standard enthalpies of formation'),
+    'CaO': (178.3, 'CaCO3 -> CaO + CO2, standard formation enthalpies; probe uses 178.80, JANAF 178.8'),
+    'Na2O': (321.0, 'Na2CO3 -> Na2O + CO2, standard formation enthalpies; probe uses 319.28'),
+    'MgO': (117.9, 'MgCO3 -> MgO + CO2 via the DOLOMITE named in the raw materials; reading of the spec'),
+    'K2O': (393.0, 'K2CO3 -> K2O + CO2; ASSUMES a potash source that no raw-material line declares'),
 }
+EVIDENCE_STATUS = {'Na2O': 'declared', 'CaO': 'declared', 'MgO': 'reading_of_the_spec',
+                   'K2O': 'assumption_undeclared_source'}
+PROBE_TWO_CARBONATE_MJ_PER_KG = 1.018232
+PROBE_PLUS_DOLOMITE_MJ_PER_KG = 1.0242
+PROBE_PROCESS_CO2_G_PER_KG = 176.582
 CO2_MOLAR_MASS = 44.009
 SENSIBLE_HEAT_MJ_PER_KG = 1.3644712286060199     # the chain's own v0 number
 FURNACE_T_C = 1322.0258827053422                 # the chain's own isokom target
@@ -85,8 +109,25 @@ def main() -> None:
           f'{(carbonate_MJ + SENSIBLE_HEAT_MJ_PER_KG) / SENSIBLE_HEAT_MJ_PER_KG:.3f} on the control')
     print(f'CO2 released                        : {co2_g:.1f} g per kg of glass, so '
           f'{batch_per_glass:.4f} kg of batch per kg of glass')
-    verdict = ('CHANGES THE DECISION: the open branch is not bookkeeping'
-               if share > 0.10 else
+    declared = sum(r['MJ_per_kg_glass'] for r in rows
+                   if EVIDENCE_STATUS[r['oxide']] == 'declared')
+    with_dolomite = declared + sum(r['MJ_per_kg_glass'] for r in rows
+                                   if EVIDENCE_STATUS[r['oxide']] == 'reading_of_the_spec')
+    print('\nTHREE READINGS, never summed silently:')
+    print(f'  two declared carbonates only   : {declared:.4f} MJ/kg  '
+          f'(staged probe: {PROBE_TWO_CARBONATE_MJ_PER_KG:.6f})')
+    print(f'  plus dolomite magnesium        : {with_dolomite:.4f} MJ/kg  '
+          f'(graph lane: {PROBE_PLUS_DOLOMITE_MJ_PER_KG})')
+    print(f'  plus assumed potash            : {carbonate_MJ:.4f} MJ/kg  '
+          'rests on a source no raw-material line declares')
+    print(f'  defensible range on the spec   : '
+          f'{PROBE_TWO_CARBONATE_MJ_PER_KG:.4f} to {PROBE_PLUS_DOLOMITE_MJ_PER_KG:.4f} MJ/kg')
+    share_low = PROBE_TWO_CARBONATE_MJ_PER_KG / SENSIBLE_HEAT_MJ_PER_KG
+    share_high = PROBE_PLUS_DOLOMITE_MJ_PER_KG / SENSIBLE_HEAT_MJ_PER_KG
+    print(f'  share of sensible heat, range  : {share_low * 100:.1f} to {share_high * 100:.1f} %')
+    verdict = ('CHANGES THE DECISION: the open branch is not bookkeeping, and it holds across the '
+               'whole defensible range, not only on the potash assumption'
+               if share_low > 0.10 else
                'negligible: close the open branch rather than leaving it open')
     print(f'\nverdict: {verdict}')
     print('still open and named: furnace radiative and flue losses, which are geometry, not')
@@ -99,10 +140,15 @@ def main() -> None:
         'share_of_control': share,
         'corrected_total_MJ_per_kg': carbonate_MJ + SENSIBLE_HEAT_MJ_PER_KG,
         'factor_on_control': (carbonate_MJ + SENSIBLE_HEAT_MJ_PER_KG) / SENSIBLE_HEAT_MJ_PER_KG,
-        'co2_released_g_per_kg_glass': co2_g,
+        'process_co2_g_per_kg_glass': co2_g,
         'batch_kg_per_kg_glass': batch_per_glass,
         'furnace_isokom_target_C': FURNACE_T_C,
         'per_oxide': rows,
+        'evidence_status_per_oxide': EVIDENCE_STATUS,
+        'defensible_range_MJ_per_kg': [PROBE_TWO_CARBONATE_MJ_PER_KG,
+                                       PROBE_PLUS_DOLOMITE_MJ_PER_KG],
+        'process_co2_g_per_kg_glass_this_file': None,
+        'process_co2_g_per_kg_glass_probe': PROBE_PROCESS_CO2_G_PER_KG,
         'verdict': verdict,
         'still_open': ['furnace radiative and flue losses', 'heat of mixing into the melt'],
         'review_state': 'PENDING_INDEPENDENT_REVIEW',
