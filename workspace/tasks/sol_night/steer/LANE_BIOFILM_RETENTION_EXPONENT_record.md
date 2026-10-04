@@ -27,3 +27,17 @@ If the strength is independent of the shear rate over 0,1 to 50 per second, the 
 Unit in each field name. Plan, convention and spread measurements printed. Six collisions
 in the project in one day came from names that did not follow their convention. All
 PENDING_INDEPENDENT_REVIEW. No breakthroughs without equally informed control.
+
+## Extensions 2026-10-04 11:40 — your searches are blocked, work from disk
+The provider's content filter responds to your web searches with "flagged for possible biological
+risk" and leaves no report. Six rounds have been lost so over three lanes; one of them burned
+129 754 tokens without outcome. The driver booked them as ready because they had driven long enough, and filled up
+on into the same wall. It is now fixed: a round whose log contains the string is counted as aborted.
+
+**Change the operation, not the wording.** Do not reformulate the search to slip through
+the filter. Instead, work from the material already on the table, and say in the report
+which search you could NOT do and what it would have yielded. A named unreachable
+source is a result; a rewritten search that happens to pass is not verifiable.
+
+You have published numbers in hand from previous rounds. Count on them. If you need a source you cannot retrieve,
+write it as an acquisition target with size, unit and locator so that someone else can retrieve it.
