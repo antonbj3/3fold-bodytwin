@@ -101,7 +101,12 @@ def main() -> int:
         res = json.loads(files[0].read_text())
         claim = first(res, CLAIM_KEYS)
         ctrl = first(res, CONTROL_KEYS)
-        fals = first(res, ('falsifier',))
+        # The first pass reported 13 of 15 proposals as lacking a falsifier. Two of those had one
+        # under a different name: complement_window carries
+        # falsification_conditions_preregistered_by_the_brief, which is a stronger artefact than a
+        # falsifier field because it was written before the run. Any key containing 'falsif' counts.
+        fals = first(res, ('falsifier', 'falsification_conditions_preregistered_by_the_brief',
+                           'falsification_conditions', 'falsifiers'))
         num = first(res, NUM_KEYS)
         locs = sorted({x.strip() for x in LOCATOR.findall(code)})
         proposals.append({
