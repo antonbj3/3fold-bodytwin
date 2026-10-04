@@ -34,6 +34,7 @@ at target depth" produces a good one. Numeric gaps on the edges are the precondi
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -58,10 +59,29 @@ def main() -> int:
             skipped += 1
             continue
         tag = re.sub(r'^T-E\d+-', '', e['id']).upper().replace('_', '-')[:46].strip('-')
-        jid = f'BT-NET-{tag}'
+        # One brief per edge was a dead end by construction: every edge got its question once, the
+        # answers came back, and the generator then found nothing to do for the rest of the night
+        # even though the edges themselves had CHANGED. Measured 2026-10-04 morning: 375 creative
+        # reports complete, four generators producing 0 new briefs, and zero creative jobs running.
+        #
+        # So the id carries a short hash of the edge's own content. An edge whose constraint, status
+        # or evidence has moved since its last brief is a NEW question and gets a new one; an edge
+        # that has not moved stays silent. That is the difference between asking again and asking
+        # the same thing again, which is the failure mode that put ~90 re-analysis packets into the
+        # queue in September.
+        stamp = hashlib.sha256((str(e.get('constraint', '')) + str(e.get('status', ''))
+                                + str(e.get('evidence', ''))).encode()).hexdigest()[:6]
+        jid = f'BT-NET-{tag}-{stamp}'
         d = W / 'results' / jid
         if (d / 'RESULTS.md').exists():
             continue
+        # An earlier brief for the SAME edge under a different content hash is not a duplicate, but
+        # the new brief has to say what moved or the worker will redo the old analysis.
+        # The first generation of briefs had no content hash, so the earlier report for an edge is
+        # named BT-NET-<tag> with nothing after it. A glob of BT-NET-<tag>-* misses exactly those,
+        # which are all 375 of them.
+        prior = sorted(q.name for q in (W / 'results').glob(f'BT-NET-{tag}*')
+                       if q.name != jid and (q / 'RESULTS.md').exists())
         if jid in queued:
             # Idempotent on job CREATION was not enough: brief_cycle.sh runs unattended, and a job
             # whose answer has not come back yet has no RESULTS.md, so every cycle queued all twelve
@@ -80,6 +100,17 @@ def main() -> int:
             body += ["The same quantities appear here:", '']
             body += [f"> {x['constraint'][:230]}" for x in near[:3]]
             body += ['']
+        if prior:
+            # Without this the worker cannot tell a second question from a repeat of the first, and
+            # it will redo the earlier analysis. Name the earlier report and what moved.
+            body.append('')
+            body.append("## This is not the first question about this edge")
+            body.append(f"""An earlier report is available: "results/{prior[-1]}/RESULTS.md`. The content of the edge has changed since it was written, and that's why this question exists. Read that report FIRST and say in a row what's new at the edge. Don't repeat its analysis. If you can't see any difference, write it and stop — a repetition is worse than an empty answer.""")
+            body.append(f'Kantens nuvarande status: {e.get("status")}. '
+                        f'Bevis: {str(e.get("evidence", ""))[:200]}')
+            for k in ('load_label_unsupported', 'sensitivity_note', 'evidence_relocated'):
+                if e.get(k):
+                    body.append(f'Noted on the edge ({k}): {str(e[k])[:300]}')
         (d / 'BRIEF.md').write_text('\n'.join(body).rstrip() + ASK)
         (d / 'ALLOW_WEB').write_text('1\n')
         json.dump({'id': jid, 'kind': 'creative_from_net', 'edge': e['id'],
