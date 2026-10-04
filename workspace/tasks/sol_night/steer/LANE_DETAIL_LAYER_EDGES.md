@@ -1,34 +1,37 @@
-# Styrning LANE_DETAIL_LAYER_EDGES — efter r2
+# Styrning LANE_DETAIL_LAYER_EDGES — efter r3
 
-## Vad jag verifierade
-0,1980154503 mm and 0,51 I recalculated from the four rows of `STRONGER_CONTROL_R2.json` and received
-your speeches exactly. I also read VAD the control is, which is not in the heading: `repair_only_prior_mm`
-for the suture group: 3,58/4,88 — the other group MEASURING values — and vice versa. The check is therefore
-"The groups are interchangeable", not a published baseline. Write it in the name; a reader will otherwise take 0,51 mm
-for an external reference observation. Your own three lines remain and are correct:`new_discrete_choice_over_matched_prior
-= False`, `algorithm_superiority = False`, `prior_is_measured_clinical_practice = False`. En
-the accuracy gain that does not change the choice is not an ability, and the validation gate stands real on NOT_ESTABLISHED.
+## Everything was reproduced, including what you weren't praised for.
+I recalculated from the ten lines in `HELD_OPTICAL_VALIDATION_R3.json`: MAE 0,2952574989 and maximum error
+0,5 exactly as you state. The rounding certificate I got first to 8 av 10 and worst 0,65 mm, and
+det var MITT fel: jag avrundade bara prediktionssidan. Med ±0,05 mm also on the published
+the mean it falls out on exactly your numbers, 6 av 10 and 0,7000000001 mm. The certificate is correct and
+it is the most important result of the round: **10 av 10 at nominal values shall be: 6 av 10 when the source:
+custom rounding counts with**, and no tightening up of the model changes that.
 
-## Obstacle, sharpened to a speech
-The error grows with the cycles: 0,0623 → 0,3004 mm for suture and 0,0666 → 0,3628 mm for kanbold between 100
-and 250 cycles, i.e. 0,00159 respektive 0,00198 mm per cycle. The group difference to be determined by the decision
-is 0,59 mm vid 250 The linear in cycles reaches the model's EGET error the difference at about **432
-cycles for suture and 365 for fakold**That is where the election ceases to be decisive, and it is a
-sharper wording of the obstacle than "saknar lokal historik".
+## The defect you should correct: the threshold means different in your two tests
+Mean test counting maximum error 0,500 mm som PASS (of which 10/10), medan avrundningscertifikatet
+counting exactly 0,5000 som FAIL — rad 1 and row 5 have both 0,5000 standing as: `False`Same number, two.
+conventions, in the same file, and the difference determines 2 av 10 outcome. Select a convention, print if
+the limit counts, and rerun both with it. Two of the ten nominal passports are also located EXAKT on
+border (fel ≥ 0,4995), so 10/10 is a run-off and not a margin.
+
+Small thing in the same spirit: 0,7000000001000002 carry a 1e-10-garde. Rapportera 0,70 mm, not ten digits of
+numeriskt skydd.
 
 ## Changed operation
-Calculate that limit properly instead of my linear back-on-curve: fit the wrong plant on the
-points you have, specify the form you assume, and give the number of bikes where 95-percentage interval of error meets
-the group difference. The result will be a useful number — "this Decision applies up to N cycles" — and
-not one MAE without consistency. Four group averages are sufficient for a limit at intervals, but not to:
-say a form; tell me what form you assumed.
+You now have two numbers that together are a useful decision: `maximum_admissible_baseline_width_mm`
+= 0,03 and rounding window ±0,05 from the publication. One is smaller than the other.
+consistency in plain text: the decision requires a baseline width that the source's own numerical resolution cannot
+If it's true, it's true. RUNDANS resultat — a limit set by the publication format and not by:
+the measurement — and the next step is raw, not a better model.
 
 ## Starkaste kontrollen
-Samma fyra rader, samma metrik, men utbytbarhetskontrollen — the one you already have. The win only counts there
-It is changing the elections, and it is not doing so today.
-average, which is less informed than both and shows how much of the profits are group structure.
+`leave_one_spacing_out_prior_mae_mm` = 0,5 is suspected round and equal to the assignment. Tell me if it is
+SECURITISATION at the same ten points or set to the assignment; a check that happens to be equal to the threshold
+is not a check. Add the third arm: the group's common average.
 
 ## Falsifieraren
-If the border ends up below 250 cycles the decision is not valid even on the data available, and it shall:
-skrivas ut i klartext. `verification_failures = 0` over 2 442 Assertions are not a gate until a
-deliberately broken bike dependence falls into the same drive.
+Om avrundningscertifikatet faller under 5 av 10 at one of the two threshold conventions:
+the forecast does not depend on published data at all, and it should be in plain text.
+`verification_assertions = 16578` with zero error is not a gate until a intentionally broken
+Rounding corners fall into the same run.
