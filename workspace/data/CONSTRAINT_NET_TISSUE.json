@@ -1280,6 +1280,25 @@
       1.0
      ],
      "note": "signed growth rate of the complement cascade on a surface; the host flips sign at recycling fraction 0.6901150139456149 while the activator never does"
+    },
+    {
+     "id": "basolateral_apical_C3_ratio",
+     "unit": "1",
+     "level": "CELL",
+     "domain": "immune",
+     "plausible_range": [
+      0.0,
+      3.0
+     ],
+     "note": "basolateral over apical C3 deposition on tubular epithelium; measured 0.45 +/- 0.16 at rest and 0.93 +/- 0.24 under luminal transferrin, PMID 11136173"
+    },
+    {
+     "id": "face_at_complement_risk",
+     "unit": "1",
+     "level": "CELL",
+     "domain": "immune",
+     "plausible_range": null,
+     "note": "which membrane face carries the complement risk; categorical, so no range. Apical at rest, not nameable under luminal protein load"
     }
    ],
    "edges": [
@@ -3884,6 +3903,22 @@
      "three_routes_resolved_2026_10_05": "PROOF_LANE_THREE_ROUTES settled whether the three values of k can be simultaneously true. They cannot. The fibre denominator is explicitly whole-disc force in the paper, so both mechanical prescriptions target the same pressure-to-mean-traction ratio on a common state and the 'different quantities' escape is closed. At the stipulated common geometry and load the empirical interval and the fibre value differ by at least 3.377250 in k, which exceeds their declared interval spreads. And there is a theorem: with x = 1/gamma^2 and z = (1-x)/ln(1/x), g = eta*x + (1-eta)*z - 2*z*tan^2(phi) is strictly below 1, because eta*x < eta, (1-eta)*z < (1-eta) and the third term is negative. Therefore k = 1/g > 1 for EVERY positive-compression solution and no admissible fibre angle can ever reach the facit-implied k of 0.585959 to 0.718629, which is below 1. This coordinator reproduced g = 0.20503357021037677 at eta = 0.16, gamma^2 = 2, phi = 30 degrees to eleven decimals and verified the inequality term by term",
      "control_k_equals_one_wins": "neither forward multiplier beats k = 1 on the supplied comparison. Predicted nucleus pressures are 0.9045 MPa at k = 1, 1.17585 to 1.35675 MPa at our k, and 4.411473 MPa from the fibre law, against the in-vivo facit 0.53 to 0.65 MPa. Distance to the facit midpoint 0.59 MPa: 0.3145 for k = 1, 0.5859 and 0.7667 for ours, 3.8215 for the fibre law. The assumption-poorest choice is the closest, which means our empirical multiplier is not earning its place",
      "angle_conditioning": "g crosses zero at 34.5874325119 degrees and it is g, not k, that vanishes, so k diverges there. Positive inversion exists below that angle only. At 30 +/- 1 degree the nonlinear coefficient enclosure is [4.121135, 6.058011], and a 10 percent error allowance with +/- 1 degree uncertainty requires centres no larger than 25.9580415158 degrees. 47089 geometry probes, zero counterexamples to the conditional bound"
+    },
+    {
+     "id": "T-E32-membrane_face_polarity-vs-complement_risk",
+     "between": [
+      "basolateral_apical_C3_ratio",
+      "face_at_complement_risk"
+     ],
+     "constraint": "the complement risk is face-resolved and the axis is MEASURED, unlike the recycling fraction the net carried until today. C3 deposition on tubular epithelium is apically dominated at rest with a basolateral-over-apical ratio of 0.45 +/- 0.16, and luminal transferrin moves it to 0.93 +/- 0.24. This coordinator recomputed the comparison: the shift is 0.4800 against a combined dispersion of 0.2884, so the two states are 1.6641 sigma apart -- real but not overwhelming. At rest the ratio is 3.4375 sigma below 1, which is the firm part and names the apical face with C3 deposition 2.2222 times higher there. Under luminal protein load it is 0.2917 sigma from 1, so the faces are not separable and the decision names no face. The mechanism is asymmetric by measurement and not by assumption: Crry is the only membrane-bound regulator in tubule and is polarised basolaterally, with immunogold labelling higher than brush border at P < 0.001 and the 53 kDa band absent from the brush border fraction, while the apical face is left to fluid-phase factor H; blocking factor H raises activation on both faces whereas Crry protects only basolaterally, and DAF and CD59 are not expressed in tubule at all",
+     "status": "OPEN",
+     "owner": "tasks/assembly/polarised_complement_decision.py",
+     "evidence": "results/ASSEMBLY_POLARISED_COMPLEMENT/DECISION_V1.json :: separation_sigma = 1.6641",
+     "external_reference": "PMID 11136173 doi 10.1053/ajkd.2001.20593; PMID 16444293 doi 10.1172/JCI24521; PMID 20675597 doi 10.4049/jimmunol.1000111",
+     "control": "a single unpolarised regulator, which makes the ratio 1 by construction and no face ever at differential risk -- what a twin without this measurement assumes",
+     "falsifier": "if an independent measurement of the same ratio under luminal protein load lands within one combined dispersion, 0.2884, of the resting 0.45, the shift is not there and the decision has no axis",
+     "replaces": "the unmeasured C3b recycling fraction axis behind T-E14, T-E15 and T-E30, all of which were downgraded on 2026-10-05 when LANE_IMMUNE_OVERACTIVATION r1 returned rho_status = UNMEASURED_MODEL_CLOSURE",
+     "review_state": "PENDING_INDEPENDENT_REVIEW"
     }
    ],
    "stress_points": [
