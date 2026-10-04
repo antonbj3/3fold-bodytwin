@@ -1309,10 +1309,11 @@
       "ionic_swelling_pressure"
      ],
      "constraint": "halving the charge inventory lowers the swelling pressure by 489.65 Pa",
-     "status": "TIGHT",
+     "status": "OPEN",
      "evidence": "results/LANE_EYE_OPTICAL_TWIN/night_rounds/r13.json :: chain_all05.Pi_change_Pa = -489.64879350600813",
      "evidence_mtime_at_last_check": 1791046583.616,
-     "last_checked_status": "OK"
+     "last_checked_status": "OK",
+     "scale_bridge_verdict_2026_10_05": "PROOF_LANE_SCALE_BRIDGE settled when a scale-crossing edge may be TIGHT. The answer for this net is: none of them unconditionally. Of the eleven edges that cross a resolution level, ZERO warrant unconditional physical TIGHT status and only T-E27 carries an exact conditional inverse. The well-posedness contract it derived requires five declarations: typed inputs and normalisation; admissible states and histories; governing operator and target; a covering error or stability certificate; and the decision predicate. This edge declares none of them, and its corneal evidence cannot be certified from the separate disc endpoints, so it stays below TIGHT. Also measured there: mean plus variance failed in 378 of 378 exact-summary pairs, so that pair is never a sufficient summary in this family -- the seventh sufficiency result of the day and the only categorical one"
     },
     {
      "id": "T-E2-ionic_swelling_pressure-vs-stromal_thickness",
