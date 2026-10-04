@@ -1,39 +1,43 @@
-# Styrning LANE_DISC_LOAD_LABEL — efter r3
+# Styrning LANE_DISC_LOAD_LABEL — efter r5
 
-## You named the quantity that was missing, and it's not the load.
-`sameforce_charge_pressure_gap_MPa = 0,32164781492307004`. Vid **samma kraft** ger olika fast
-‘charge density' means a pressure gap of: 0,322 MPa, which is **2,6804×** The whole width of the Wilke band.
-samma form som r2:s riktningsfynd, men nu med en namngiven storhet: **fixed charge density**, som
-does not exist anywhere in our input.
+## The charging axis is now bounded by observed endpoints, and it is nearly enough
+`observed_charge_endpoints_mEq_g_wet = [0,026; 0,261]` ger tryckintervallen
+`[0,023309096232235992; 0,03859036624457082]` at low charge, and
+`[0,6412536686681382; 0,6937588578725777]` at high, with separation **0,6026633024235674 MPa** and
+**no overlap**. It is a big step: the whole physiological charge range corresponds to:
+nucleus pressure from 0,023 till 0,694 MPa.
 
-## FAILThe verdict no longer holds as it said.
-`conditional_pressure_interval_at1628p1N_MPa = [0,2508975219612329; 0,6904589796073666]`. Jag
-kontrollerade: facitbandet **0,53–0,65 MPa is strictly inside** det intervallet. Det tidigare
-FAIL- The verdict was based on `k = 1,3–1,5` vid σ = 0,9045, som ger 1,1759–1,3567 MPa, i.e. over reference observations
-— but with the swelling and charge physics inside, the model's own range is at **exakt samma
-1628,1 N** compatible with the measurement.
+But I counted the meeting with reference sightings and it's narrow. 0,53–0,65 overlaps
+high charge range only in **[0,6413; 0,65]**, a width of **0,008746 MPa** — i.e. **7,29 %**
+av facitbandet. Facits nedre kant 0,53 is **0,1113 MPa under** high charge range lower
+Edge. The model reaches reference sightings only at its absolute peak.
 
-But it is compatible by being wide: the range width 0,439561 MPa is **3,663×** facitbandets
-0,12 MPa, not accuracy, but roominess, it should be so in every row that quotes it.
+And `zero_charge_pressure_MPa = 0` med `zero_charge_contains_held_diagnostic_band = False`: without
+charge becomes pressure exactly zero and reference observations are inaccessible. **The charging is therefore necessary**, which
+is a stronger statement than it's just missing.
 
-## Hindret, exakt
-`descriptive_shortfall_pct = [73,1232914928812; 89,5511711496348]`. The swelling is held at 1,85
-g/g; den opassade modellen ger 0,49721910738169783 and the semi-charge case 0,19330333373175648 —
-i.e. **73,12 %** respektive **89,55 %** deficit, which I recalculated myself. A model like
-misses the swelling by three quarters cannot carry a pressure on two decimal places.
+## Hindret
+`electrical_summary_identity_error_exact = 0` samtidigt med
+`electrical_alias_pressure_gap_MPa = 0,08108314647592979` and
+`electrical_alias_changes_diagnostic = True`. Thus: an electrical summary which is **identisk**
+hides a pressure gap on 0,081 MPa — **67,6 %** av facitbandet — And it changes the diagnosis.
+the case in the network today where identical summaries conceal different permits, and the first where
+the difference reverses a decision.
 
 ## Changed operation
-Measure the loading density as input, not as parameter. Specify the published value you use
-with locator, and run the conditional interval at: 1628,1 N for the lowest and highest published
-two intervals, not one. If the two do not overlap, the charge is the dominant
-unknown and cargo a secondary matter.
+Close the alias first. Specify the quantity that distinguishes the two electrical states that give identical
+summary, and add it to the summary. Everything else you count on top of a summary
+which does not separate the state inherits the gap.
+
+Then: find out where in the charging range 0,026–0,261 ett **in-vivo**- value actually lies.
+decide whether they: 7,29 % overlap is the whole meeting or just what you happened to try.
 
 ## Starkaste kontrollen
-Det gamla `k = 1,3–1,5` vid σ = 0,9045, that is 1,1759–1,3567 MPa. It's now a **falsifierad**
-control and shall be accounted for as such — the missed reference sightings, the new interval does not.
-compare the width: a narrow and error check can be more useful than a wide range
-and right, and that's determined by whether the decision is reversed within the scope.
+`k = 1` rakt, som ger 0,9045 MPa. proof_lane showed that it hits both forward multipliers against reference observations —
+distance 0,3145 MPa mot 0,5859 and 3,8215Your charging interval at high charge lies 0,0513 MPa
+from the conclusion and thus beats `k = 1` Say it for the first time, but only for the high-charge transmission.
 
 ## Falsifierare
-Om det villkorade intervallet vid 1628,1 N still contains reference observations when setting the charge density
-to zero, so the charge carries nothing and the width comes from something else. Then state where.
+If a published in-vivo charge value ends up in the **nedre** halvan av 0,026–0,261, so predicts
+modellen ett tryck under 0,35 MPa Where Reference Observations Say 0,53–0,65, and then the charging axis is right quantity
+with the wrong value. Please enter the number and the locator.
