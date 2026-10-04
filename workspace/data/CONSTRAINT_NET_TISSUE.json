@@ -1454,10 +1454,11 @@
       "self_surface_growth_rate"
      ],
      "constraint": "the growth rate on a self surface crosses zero at a recycling fraction of 0.69012, moving from -0.15115 to -0.00188 per minute",
-     "status": "TIGHT",
+     "status": "UNKNOWN",
      "evidence": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r1_V1.json :: rho_critical = 0.6901150139263259",
      "evidence_mtime_at_last_check": 1791015218.234,
-     "last_checked_status": "OK"
+     "last_checked_status": "OK",
+     "downgraded_2026_10_05": "downgraded from TIGHT to UNKNOWN on 2026-10-05 by LANE_IMMUNE_OVERACTIVATION r1, which applied the falsifier this coordinator wrote into its brief: if no locator measures the C3b recycling fraction as a quantity, the flip must not carry a decision. The lane's verdict is rho_status = UNMEASURED_MODEL_CLOSURE -- the recycling fraction is a closure of the model, not a measured quantity, and the lysis thresholds are synthetic, with roots bracketed to 1.91e-06 in rho and global nonlinear monotonicity not proved. The lane explicitly left the shared graph unchanged and handed the decision here, which is the right division. Also measured: two states with IDENTICAL summaries (both identity errors exactly 0.0) differ by 17.60797843701942 nM in MAC, which this coordinator checked against the primary numerical interval [0, 0.5441770553588867] nM -- the gap is 32.36 TIMES the entire interval the decision operates in. A summary that cannot separate states 32 intervals apart cannot support a TIGHT edge"
     },
     {
      "id": "T-E15-c3b_recycling_fraction-vs-activator_host_discrimination",
@@ -1466,10 +1467,11 @@
       "c3b_recycling_fraction"
      ],
      "constraint": "discrimination is 486.11 without recycling and 4.969 with it, a factor of 97.83; published biology supports the recycling end",
-     "status": "TIGHT",
+     "status": "UNKNOWN",
      "evidence": "results/LANE_DOMAIN_DATA_TO_CELLS/night_rounds/r2.json :: discrimination_change_factor = 97.83134000044933",
      "evidence_mtime_at_last_check": 1791018446.897,
-     "last_checked_status": "OK"
+     "last_checked_status": "OK",
+     "downgraded_2026_10_05": "downgraded from TIGHT to UNKNOWN on 2026-10-05 by LANE_IMMUNE_OVERACTIVATION r1, which applied the falsifier this coordinator wrote into its brief: if no locator measures the C3b recycling fraction as a quantity, the flip must not carry a decision. The lane's verdict is rho_status = UNMEASURED_MODEL_CLOSURE -- the recycling fraction is a closure of the model, not a measured quantity, and the lysis thresholds are synthetic, with roots bracketed to 1.91e-06 in rho and global nonlinear monotonicity not proved. The lane explicitly left the shared graph unchanged and handed the decision here, which is the right division. Also measured: two states with IDENTICAL summaries (both identity errors exactly 0.0) differ by 17.60797843701942 nM in MAC, which this coordinator checked against the primary numerical interval [0, 0.5441770553588867] nM -- the gap is 32.36 TIMES the entire interval the decision operates in. A summary that cannot separate states 32 intervals apart cannot support a TIGHT edge"
     },
     {
      "id": "T-E16-mac_concentration-vs-self_surface_growth_rate",
@@ -3858,13 +3860,14 @@
       "host_versus_activator_growth_rate"
      ],
      "constraint": "the regulatory window is one-sided, not a band. The host cell flips at recycling fraction 0.6901150139456149 while the activator never flips anywhere on the interval, so the host is spared for every fraction below the flip and the activator is lysed throughout. Host growth runs from -0.15114693 per minute at zero recycling to +0.0552569 at full, one sign change over 2001 sampled points; the activator runs +0.21090987 to +0.21986663, zero sign changes. Just below the flip the host sits at -0.00018768 per minute against the activator at +0.21710422, a ratio of about 1157 in the discrimination this window exists to produce",
-     "status": "OPEN",
+     "status": "UNKNOWN",
      "owner": "tasks/assembly/complement_window_decision.py",
      "evidence": "results/ASSEMBLY_COMPLEMENT_WINDOW/WINDOW_V1.json :: window.host_flip = 0.6901150139456149",
      "external_reference": "doi 10.1016/j.molimm.2007.11.003, doi 10.1182/blood-2005-02-0782, doi 10.1182/blood-2008-11-189944, PMID 6229580",
      "control": "the two arms read at zero and at full recycling, which is the window without its interior",
      "falsifier": "preregistered in the decision itself, not added here: both arms flipping at the same fraction means there is no window, and a plateau rather than a point means a range and no single flip. Neither occurred -- the activator has zero sign changes and the host exactly one -- so the one-sided reading survives its own stated conditions. What it has NOT survived is the other failure mode: every arm here asks whether the host is spared, and host DAMAGE at high recycling is not scored at all, which LANE_IMMUNE_OVERACTIVATION now owns",
-     "review_state": "PENDING_INDEPENDENT_REVIEW"
+     "review_state": "PENDING_INDEPENDENT_REVIEW",
+     "qualified_2026_10_05": "the flip at 0.6901150139456149 stands as a NUMERICAL result and not as a decision-bearing one: LANE_IMMUNE_OVERACTIVATION r1 found rho_status = UNMEASURED_MODEL_CLOSURE, so the recycling fraction has no measured counterpart, and the lysis thresholds behind the window are synthetic. T-E14 and T-E15 were downgraded from TIGHT the same day for the same reason. The one-sided form and the preregistered falsifiers still held on their own terms; what fails is the claim that the axis is a measured quantity"
     }
    ],
    "stress_points": [
