@@ -43,6 +43,13 @@ CL_METFORMIN_BASELINE_L_H = 30.0     # READ-A009
 CL_METFORMIN_ON_DRUG_L_H = 17.6      # READ-A009
 IC50_METFORMIN_UM = {'OCT2': 14.7, 'MATE1': 0.34, 'MATE2-K': 0.135}
 IC50_CREATININE_UM = {'OCT2': 0.107, 'MATE1': 0.0855}
+# The published geometric least-squares-mean ratio and its 90 percent interval, which the first
+# version of this file did not use: it worked from the arithmetic means alone and therefore gave the
+# blocked fraction without an interval. A swarm job (BT-FW48-AUTO-99bbf4a78c1398) quoted the interval
+# from the same DOI while doing something else, and it is the input that turns the verdict below into
+# a range instead of a point. Propagating it is the honest version of the same decision.
+LSM_RATIO = 0.571
+LSM_RATIO_90CI = (0.516, 0.632)
 
 
 def split_renal_clearance(cl_total_ml_min: float, gfr_ml_min: float,
@@ -63,6 +70,15 @@ def implied_unbound_inhibitor_uM(blocked_fraction: float, ic50_uM: float) -> flo
 
 def blocked_fraction_at(i_uM: float, ic50_uM: float) -> float:
     return i_uM / (i_uM + ic50_uM)
+
+
+def blocked_fraction_from_ratio(ratio: float) -> float:
+    """Blocked secretion implied by a total-clearance ratio, with filtration held at its measured
+    values in each arm. Filtration is measured separately, so only the secretion term moves."""
+    cl_base = CL_METFORMIN_BASELINE_L_H * L_PER_H_TO_ML_PER_MIN
+    sec_base = cl_base - GFR_BASELINE_ML_MIN
+    sec_drug = ratio * cl_base - GFR_ON_DRUG_ML_MIN
+    return 1.0 - sec_drug / sec_base
 
 
 def main() -> None:
@@ -102,6 +118,18 @@ def main() -> None:
     print('  creatinine and has no transporter term, so it reports impairment. The facit is the')
     print(f'  iohexol clearance, which moved {filt_change * 100:+.2f} %.')
 
+    print('\nTHE VERDICT AS A RANGE, from the published 90 percent interval on the clearance ratio')
+    lo_f = blocked_fraction_from_ratio(LSM_RATIO_90CI[1])   # a HIGHER ratio means LESS blocked
+    hi_f = blocked_fraction_from_ratio(LSM_RATIO_90CI[0])
+    print(f'  blocked secretion fraction : {lo_f:.4f} to {hi_f:.4f}, '
+          f'point estimate {blocked_fraction_from_ratio(LSM_RATIO):.4f}')
+    print(f'    the arithmetic-mean figure above, {blocked:.4f}, sits inside that interval')
+    i_lo = implied_unbound_inhibitor_uM(lo_f, IC50_METFORMIN_UM['MATE2-K'])
+    i_hi = implied_unbound_inhibitor_uM(hi_f, IC50_METFORMIN_UM['MATE2-K'])
+    print(f'  implied unbound concentration on the MATE2-K route : {i_lo:.4f} to {i_hi:.4f} uM')
+    print(f'  the OCT2 route needs {implied_unbound_inhibitor_uM(hi_f, IC50_METFORMIN_UM["OCT2"]):.1f} uM '
+          f'even at the interval end most favourable to it, so the route verdict survives the interval.')
+
     print('\nFALSIFIER, stated before the next measurement: if the measured unbound plasma')
     print(f'  concentration of the inhibitor is below {i_mate2k:.4f} uM, then not even the most')
     print('  sensitive transporter in this set can account for the blocked fraction, and a route')
@@ -118,6 +146,16 @@ def main() -> None:
         'creatinine_block_at_mate2k_concentration': {k: blocked_fraction_at(i_mate2k, v)
                                                      for k, v in IC50_CREATININE_UM.items()},
         'external_facit': {'pmid': '32989831', 'doi': '10.1002/jcph.1750'},
+        'published_lsm_ratio': LSM_RATIO,
+        'published_lsm_ratio_90ci': list(LSM_RATIO_90CI),
+        'blocked_fraction_90ci': [blocked_fraction_from_ratio(LSM_RATIO_90CI[1]),
+                                  blocked_fraction_from_ratio(LSM_RATIO_90CI[0])],
+        'blocked_fraction_point_from_lsm': blocked_fraction_from_ratio(LSM_RATIO),
+        'implied_unbound_inhibitor_uM_mate2k_90ci': [
+            implied_unbound_inhibitor_uM(blocked_fraction_from_ratio(LSM_RATIO_90CI[1]),
+                                         IC50_METFORMIN_UM['MATE2-K']),
+            implied_unbound_inhibitor_uM(blocked_fraction_from_ratio(LSM_RATIO_90CI[0]),
+                                         IC50_METFORMIN_UM['MATE2-K'])],
         'review_state': 'PENDING_INDEPENDENT_REVIEW',
     }
     d = 'results/ASSEMBLY_RENAL_SECRETION'
