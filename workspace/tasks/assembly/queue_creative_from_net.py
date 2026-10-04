@@ -100,6 +100,16 @@ def main() -> int:
             body += ["The same quantities appear here:", '']
             body += [f"> {x['constraint'][:230]}" for x in near[:3]]
             body += ['']
+        # Branches the coordinator booked on the edge when it expanded. Without these the brief asks
+        # the one question the edge is named after and the four openings sit unread in the JSON.
+        if e.get('branches_opened'):
+            body.append('')
+            body.append("## Branches already booked on this node")
+            body.append("Each one is his own question. Take the one you can get the longest with and say which one you took; leave the others untouched rather than answer thinly to everyone.")
+            body.append('')
+            for i, b in enumerate(e['branches_opened'], 1):
+                body.append(f'{i}. {b}')
+
         if prior:
             # Measured 2026-10-04 11:57: of 232 briefs answered in three hours, 117 returned nothing
             # but "results/<jid>/RESULTS.md does not exist on this filesystem". The worker runs in the
