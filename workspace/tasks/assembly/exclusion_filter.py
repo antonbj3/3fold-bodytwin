@@ -6,7 +6,13 @@ Three things do not enter, and the operator stated them as content rules rather 
    counted. It is not read, consumed, cited, or included in any total.
 2. Anything concerning the collaborator is out entirely. No named person appears in anything written
    here.
-3. excluded_category is conditional, and the condition is about the content: it enters only if the quantity can be
+3. excluded_category is OUT, unconditionally. It was conditional until 2026-10-05, when the condition was tested
+   against the material and Anton closed it: of the 154 rows a classification had listed as
+   conditionally admissible, two carried a frequency or a flux density and eleven named a tissue
+   type. The rest were the acronym with no quantity, base64 where the letters fall together, or
+   PEMFC, which is a proton exchange membrane fuel cell and belongs to porous-media literature.
+   There was nothing to admit, so the condition is gone and the exclusion is flat. What follows
+   below was the old condition and is kept only to show what was tested:
    stated generally -- an electromagnetic field with a frequency, a flux density and an exposure time
    acting on tissue, with the tissue named as a tissue type and nothing else. If it cannot be written
    that way without the original application showing through, it stays out. A doubtful case stays out,
