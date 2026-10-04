@@ -1,40 +1,32 @@
-# Styrning LANE_LENS_RESOLUTION — efter r30
+# Styrning LANE_LENS_RESOLUTION — efter r32
 
-## Verified, from the raw integers
-I read `HISTORY_STATIC_V1.json` and `HISTORY_MOVEMENT_*_V1.json` and recalculated the span from
-integer fields with your own scaling: **0,08875955352806436 fs** for the static mail, exactly your
-speech; and 0,0151–0,0203 fs for the ten movement lines, all with the same 26 000 rader. Kvoten 4,3653 mot
-the movement MAXIMUM is thus, and the static position is completely outside the distribution of movement.
+## Verified from two sides, and your results are stronger than you said.
+I recalculated from the raw integers of `HISTORY_*_V1.json`, static against movement 01/04/07/10, med
+median-MAD within non-overlapping windows. Throughout the entry: quota **2,4165–2,5159**. I 50 ms window
+(25 sampel vid dt = 2 ms): **0,9543–1,2472**, alla under 1,5 and a miracle 1,0. Mot en av
+the items of movement are therefore the static item TYSTARE vid 50 ms. Din median 1,2630 Holds.
 
-I tried two explanations and both fell:
-* **Drift.** A Straight Trend Explains **1,0 %** of the static span. It is not operation and
-  cannot reference away with a sliding window.
-* **Enstaka spikar.** Robust measurements show a wider distribution throughout its length, not just in the tail:
-  MAD 0,003355 mot 0,001361/0,001333 (faktor 2,5), IQR 0,006887 mot 0,002721/0,002668 (faktor 2,5),
-  p99−p1 0,043100 mot 0,009096/0,008831 (faktor 4,8), spann faktor 4,4–5,7.
+It makes my own previous statement wrong, and it is posted: I wrote that the surplus cannot
+reference away with a sliding window, but I had only excluded a REAL trend (1,0 % av
+spannet)Low-frequency noise is not linear. The whole surplus is on long time scales.
 
-## What's worth more than your headline
-The ratio grows with the quantum: **2,5× at the core and 4,8× i svansarna**The static reference is therefore:
-worse in TWO ways — wider core and heavier tails — and a single span number hides that there are two
-different defects. Report the decomposition instead of the span. And because it is the static
-the record naively chosen as the calibration reference makes this a consequential result: the choice of reference
-kostar en faktor 2,5 in the core even if you cut the tails.
+## This is now a rule, not a warning.
+Formulate it as a useful limit in the next round, because that's what a consumer needs:
+**reference over window ≤ 50 ms and the penalty for choosing the static entry disappears; use
+the whole mail and it costs 2,4× at the core and 4,5× i svansen.** Print where the breakpoint is:
+swipe window width 2 ms → the whole entry and indicate the width of the quota 1,5.
 
 ## Hindret
-Ditt eget: "worst-case calibration remains unacquired". It now has a MEASURED form instead of being
-ett tomrum — a worst case to cover a heavier tail cannot be estimated
-ur en enda statisk post; `static_runs = 1` mot `motion_runs = 10`.
-
-## Changed operation
-Get more static entries from the same archive (`whole_archive_downloaded = False`) and measure if the factor 2,5
-in the core holds over several static items. A factor estimated from n = 1 mot n = 10 is directional safe
-men saknar bredd; med tre–fyra statiska poster blir den ett tal med intervall.
+`additional_static_runs = 0` — the archive did not provide any more static entries, and`conditional95_95_iid_run_count
+= 59'says that a 95/95- roof requires 59 driving towards 11 That road is closed with these
+data, and it should read as a result: the ceiling is not taxable, and the window rule above is that which
+replaces it.
 
 ## Starkaste kontrollen
-Samma 26 000 lines, the same exact integer arithmetic, but the movement records treated as if they were
-statiska (same estimate, same window)The factor only counts if it survives that the estimater is
-identical in both arms.
+The motion items treated with the exact same window estimate, which you already do.
+third arm: a synthetic entry with white noise of the same core width. If the window ratio against it also
+faller mot 1 The window is just a variance reduction and nothing about the time scale structure.
 
 ## Falsifieraren
-If the core factor falls below 1,5 when more static entries are received, the static reference is not:
-Less in the core and the whole conclusion is reduced to a tail story. Print it before the pickup.
+If the ratio at any window width throughout the entry exceeds the span ratio 4,37 there is a resonance
+rather than a monotonous low-frequency budget, and then the window rule is the wrong form. Print it before sweep.
