@@ -1409,6 +1409,28 @@
       1
      ],
      "note": "sign of the joint work; categorical, measured as +9.99e-05 J against -1.63e-04 J at offsets -0.02 and +0.02"
+    },
+    {
+     "id": "reflection_coefficient_sigma",
+     "unit": "1",
+     "level": "TISSUE",
+     "domain": "transport",
+     "plausible_range": [
+      0.0,
+      1.0
+     ],
+     "note": "true solute reflection coefficient; the single-observation reading 1 - r underestimates it by exactly -1/(1+Pe)"
+    },
+    {
+     "id": "observed_concentration_ratio_r",
+     "unit": "1",
+     "level": "TISSUE",
+     "domain": "transport",
+     "plausible_range": [
+      0.0,
+      1.0
+     ],
+     "note": "observed downstream-over-upstream ratio; r = (1 - sigma) + sigma/(1 + Pe)"
     }
    ],
    "edges": [
@@ -4121,6 +4143,22 @@
       "whether the 50 percent robustness result alone is enough to carry a decision without the absolute scale, since it is scale-free",
       "the same sign-flip test on a second motion segment, to see whether the critical window is specimen-specific"
      ]
+    },
+    {
+     "id": "T-E38-two_flow_protocol-vs-reflection_coefficient",
+     "between": [
+      "observed_concentration_ratio_r",
+      "reflection_coefficient_sigma"
+     ],
+     "constraint": "a single steady observation cannot measure the reflection coefficient. With r = (1 - sigma) + sigma/(1 + Pe) and Pe = Q/PS, the one-observation reading sigma = 1 - r carries an EXACT relative bias of -1/(1 + Pe), so it always underestimates and the size of the error is set by a quantity the single observation does not measure. The consequence is one-sided and stated as such: a single steady observation can EXCLUDE a permeability lesion but never establish one. Two flows invert it in closed form, PS = (r1 - r2)/((1 - r1)/Q1 - (1 - r2)/Q2) and sigma = (1 - r1)(PS + Q1)/Q1, with a fixture round-trip error of at most 1e-09, and the protocol requirement is a flow ratio of at least 3.814697265625 to hold the sigma error below 0.05",
+     "status": "OPEN",
+     "owner": "tasks/assembly/reflection_coefficient_decision.py",
+     "evidence": "results/ASSEMBLY_REFLECTION_COEFFICIENT/decision.json :: required_flow_ratio_for_sigma_error_below_0.05 = 3.814697265625",
+     "external_reference": "see decision.json source_report results/BT-CAP-Q020/RESULTS.md section 4 for the four locators it carries",
+     "control": "the single-observation reading sigma = 1 - r, whose bias is exactly -1/(1 + Pe) and therefore always an underestimate",
+     "falsifier": "the decision states its own limit: verdict_on_real_tissue = CANNOT DECIDE, because no measured two-flow protein ratio with a locator exists. If such a pair is found and the closed-form inversion misses the published sigma by more than its own fixture error of 1e-09 scaled by the measurement dispersion, the relation does not hold on tissue",
+     "why_it_is_OPEN_and_not_TIGHT": "the algebra is exact and the fixture round-trip closes to 1e-09, but the quantity has never been inverted on a measured tissue pair, so the edge carries a method and not a result",
+     "review_state": "PENDING_INDEPENDENT_REVIEW"
     }
    ],
    "stress_points": [
