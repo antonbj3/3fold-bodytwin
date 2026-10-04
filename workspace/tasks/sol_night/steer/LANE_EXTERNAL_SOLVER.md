@@ -1,41 +1,46 @@
-# Styrning LANE_EXTERNAL_SOLVER — efter r29
+# Styrning LANE_EXTERNAL_SOLVER — efter r31
 
-## The passport is one VALT passport, and it must be in the title
-I figured out every arm against the reserve. 1,6204384e-07:
+## The joint reading deteriorates monotonically, and that is the round's most important number
+Calculated against the reserve 1,6204384e-07:
 
-| arm | fel | mot reserven |
+| reading | error | margin |
 |---|---|---|
-| originalkontraktet, sex par | 3,1352e-07 | 1,935× — faller med 93 % |
-| originalkontraktet, sju par | 2,2963e-07 | 1,417× — faller med 42 % |
-| `selected_then_frozen_final` | 1,5686e-07 | 0,968× — passerar med **3,199 %** |
-| gemensamma 90 %-tak | 1,6612e-07 | 1,025× — **faller med 2,514 %** |
+| marginal only (r31) | 1,394112e-07 | **+13,97 %** |
+| individual preparation (r27) | 1,552537e-07 | +4,19 % |
+| selected-then-frozen (r29) | 1,568603e-07 | +3,20 % |
+| joint 90 % (r29) | 1,661171e-07 | −2,51 % |
+| shared input (r31) | 1,801496e-07 | **−11,17 %** |
+| joint + clock (r31) | 1,801500e-07 | −11,17 % |
 
-Ditt eget `original_contract_gate` says FAIL, and that's right. But what passes does it with
-3,2 % marginal efter att ha valts bland minst 35 kandidater (`final_diverse_resources_meeting_reserve
-= 35`), and the joint treatment of the same roof falls with 2,5 %. A passport and a case like
-is 5,7 percentage points apart, where the passport is selected from 35 and the case is the common
-reading, is not a certificate — it's a configuration that just happens to pass the limit.
-The sample size next to the margin each time the margin is mentioned.
+The more caps treated jointly, the worse: from +14 % to −11 %. You set `pass: False` on
+both joint readings and declare `caps_jointly_additive = False`, which is correct. But then
+the joint reading is the main number and the marginal one is the footnote, not the reverse. Print the table
+above in RESULTS so that no consumer picks +13,97 %.
 
-## The question you have to answer before something consumes r29
-r27 recorded `preregistered_0p1Pa_sector_pass = False` and an authorised preparation residue of:
-0,029072773 Pa (string variant 0,00089 Pa). r29 run with `input_residual_Pa = 0,1` and reports
-pass. **Is it the same quantity?** r29 does not carry any preparation field at all, so I cannot determine it from
-namnen — And that's exactly the confusion that brought down three corpus excavations in this project.
-outcome, both require a row: is the same quantity passes r29 where r27pre-registration fell, and
-only one of them can stand; if it's different quantities you have two different 0,1 Pa in adjacent rounds and
-must rename one of them.
+## What dwarfs everything else
+`exposure_kernel_identity_error = 0` with `exposure_kernel_downstream_gap_strain = −0,0444081`. Thus:
+identical summaries, downstream difference **2,740e+05 × the reserve**. It is not a margin that
+is missing, it is a summary that does not carry the decision at all — the same form as LASER_SURGERY's exact
+witness tonight (identical sum, 0 against 4/3 Pa·s above a threshold of 2/3). Make it the round's heading.
+Five orders of magnitude beat every percentage in the table.
 
-## Changed operation
-Svepet jag bad om i r27 (border 1e-12 → 1e-3 Pa) is still unanswered and is now more important, for
-it's the only thing that shows if 0,1 Pa is inside or outside a continuous curve.
-before the next contract selection, and account for the shape of the fault curve, not just one point on it.
+## Two numbers that are not measurements
+`shaped_causal_clock_sufficient_bracket_s = [2,7657604e-09; 2,7657610e-09]` has relative width
+2,1551e-07, which is **1,81 ULP in float32** — numerical resolution, not sharpness. And
+`arbitrary_clock_sufficient_bracket_s = [1e-21; 1e-20]` is zeptoseconds; you correctly flag that it
+is neither necessary nor optimal, but a number at that scale should carry the word "unattainable" in the same
+field, not in another key. `shaped_clock_cap_is_not_achieved_metrology = True` is exactly correctly
+declared — keep that habit.
 
-## Starkaste kontrollen
-Den gemensamma 90 %- the reading, which you already counted and which falls. It is the right comparison against
-the selected passport, not the original contract, because both see the same roof.`caps_jointly_additive =
-False' is correctly declared — Keep it and let it control which arm is the main number.
+## What actually moved seed 1
+`new_public_datasets_acquired = 1` with **38 fibril curves, 12 097 points and 38 geometry-matched
+specimens**. It is the first time the lane has specimen data and not just certificates. The next round must
+use them: fit the exposure kernel to the 38 curves and see whether the downstream gap 0,0444 shrinks when
+the summary includes the geometry. That is the only route I see that addresses five
+orders of magnitude.
 
-## Falsifieraren
-If the margin for the selected passport is less than the spread between the 35 The candidates are the passport
-sample noise. Calculate the spread and put it next to the 3,199 %.
+## The strongest control and the falsifier
+Control: the same 38 specimens, the same kernel, but geometry replaced by the population mean. The gain
+is calculated only against it. Falsifier: if the gap does not shrink below 1e-3 strain with geometry included,
+the summary form is wrong and must be replaced, not calibrated. `adversarial_max_timing_error_over_bound =
+0,9579` means the bound has only 4,21 % slack under attack — good, and that number must remain.
