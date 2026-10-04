@@ -1,0 +1,812 @@
+{
+  "port_id": "HUM-TOOLGRASP::dry_scalpel_tangential_capacity_N",
+  "node_id": "manufacturing:HUM-TOOLGRASP",
+  "quantity": "total axial/shear slip capacity of two opposed dry scalpel contacts",
+  "original_domain": "PRECISION",
+  "direction": "provides",
+  "source_value": null,
+  "source_unit": null,
+  "source_regime": "two fixed parallel contacts, no rotations, rigid translation; step0.01s",
+  "source_validity_stage": "CONDITIONAL_REDUCED_MODEL",
+  "source_provenance_class": "UNSOURCED",
+  "source_provenance_detail": "internal exact model; external published inputs retained separately",
+  "source_locator": "the field lane build tree/SOL_FALT_SPALTKLUSTER_20261002/raw/decision_checks.json",
+  "source_scope": "synthetic gap/contact closure; not the21DoF native HUM model",
+  "binding_status": "COMPUTED_CONDITIONAL_MODEL_INTERVAL",
+  "computed_value": {
+    "lower": "58/5",
+    "upper": "66/5",
+    "unit": "N",
+    "uncertainty_kind": "EXACT_MODEL_BOUND",
+    "source_refs": [
+      "hum_grasp_certificate.py",
+      "upstream_grasp_replay",
+      "virtual_budget.py",
+      "scalpel_glove_2026.html"
+    ],
+    "certificate_status": "EXACT_CONDITIONAL_MODEL_BOUND"
+  },
+  "computed_unit": "N",
+  "computed_provenance_class": "UNSOURCED",
+  "computed_origin": {
+    "commit": "78251fc8955a59764b28fa52d704a5150d759be7",
+    "file": "the field lane build tree/SOL_FALT_SPALTKLUSTER_20261002/raw/decision_checks.json",
+    "source_refs": [
+      "hum_grasp_certificate.py",
+      "upstream_grasp_replay",
+      "virtual_budget.py",
+      "scalpel_glove_2026.html"
+    ],
+    "lane_code_file": "the field lane build tree/SOL_FALT_ROBOTPORT_20261003/code/hum_grasp_certificate.py",
+    "lane_code_sha256": "162264132c5470269e524d90973f8f330fabfe3a93bf718e98ad71db4f9031c6"
+  },
+  "priority": 1,
+  "required_computation": "exact normal SPD response and circular friction capacity over declared input boxes",
+  "required_output_unit": "N",
+  "lower_inputs_required": "gap[m],step[s],normal compliance[(m/s)/(N*s)],inverse mass[1/kg],mu[1],free velocity[m/s],fixedframes",
+  "candidate": null,
+  "notes": [
+    "new HUM extension; no original202 port rebound",
+    "12–20N per finger is an achieved model-force range, not a measured minimum grip requirement"
+  ],
+  "bench_assay_requirements_counted_as_robot_gaps": false,
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "claim_type": "information_link",
+  "consumer_node_resolution": "external CAD manufacturing namespace; BodyTwin graph admission pending",
+  "quantities": {
+    "tangential_capacity": {
+      "lower": "58/5",
+      "upper": "66/5",
+      "unit": "N",
+      "uncertainty_kind": "EXACT_MODEL_BOUND",
+      "source_refs": [
+        "hum_grasp_certificate.py",
+        "upstream_grasp_replay",
+        "virtual_budget.py",
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "EXACT_CONDITIONAL_MODEL_BOUND"
+    },
+    "required_tangent_force_squared": {
+      "lower": "1052361/10000",
+      "upper": "1052361/10000",
+      "unit": "N^2",
+      "uncertainty_kind": "EXACT_MODEL_BOUND",
+      "source_refs": [
+        "hum_grasp_certificate.py",
+        "upstream_grasp_replay",
+        "virtual_budget.py",
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "EXACT_CONDITIONAL_MODEL_BOUND"
+    },
+    "margin_squared": {
+      "lower": "293239/100000000",
+      "upper": "690039/100000000",
+      "unit": "(N*s)^2",
+      "uncertainty_kind": "EXACT_MODEL_BOUND",
+      "source_refs": [
+        "hum_grasp_certificate.py",
+        "upstream_grasp_replay",
+        "virtual_budget.py",
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "EXACT_CONDITIONAL_MODEL_BOUND"
+    },
+    "vx": {
+      "lower": "0",
+      "upper": "0",
+      "unit": "m/s",
+      "uncertainty_kind": "EXACT_MODEL_BOUND",
+      "source_refs": [
+        "hum_grasp_certificate.py",
+        "upstream_grasp_replay",
+        "virtual_budget.py",
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "EXACT_CONDITIONAL_MODEL_BOUND"
+    },
+    "vy": {
+      "lower": "0",
+      "upper": "0",
+      "unit": "m/s",
+      "uncertainty_kind": "EXACT_MODEL_BOUND",
+      "source_refs": [
+        "hum_grasp_certificate.py",
+        "upstream_grasp_replay",
+        "virtual_budget.py",
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "EXACT_CONDITIONAL_MODEL_BOUND"
+    },
+    "vz": {
+      "lower": "0",
+      "upper": "0",
+      "unit": "m/s",
+      "uncertainty_kind": "EXACT_MODEL_BOUND",
+      "source_refs": [
+        "hum_grasp_certificate.py",
+        "upstream_grasp_replay",
+        "virtual_budget.py",
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "EXACT_CONDITIONAL_MODEL_BOUND"
+    }
+  },
+  "inputs": {
+    "step_s": {
+      "lower": "1/100",
+      "upper": "1/100",
+      "unit": "s",
+      "uncertainty_kind": "FIXED_DESIGN_CONSTANT",
+      "source_refs": [
+        "hum_grasp_certificate.py",
+        "upstream_grasp_replay",
+        "virtual_budget.py",
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "FIXED_DESIGN_INPUT"
+    },
+    "gap_finger0_m": {
+      "lower": "-1/1000",
+      "upper": "-1/1000",
+      "unit": "m",
+      "uncertainty_kind": "ASSUMED_EFFECTIVE_GAP_BOX",
+      "source_refs": [
+        "hum_grasp_certificate.py",
+        "upstream_grasp_replay",
+        "virtual_budget.py",
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "FIXED_DESIGN_INPUT"
+    },
+    "gap_finger1_m": {
+      "lower": "-1/1000",
+      "upper": "-1/1000",
+      "unit": "m",
+      "uncertainty_kind": "ASSUMED_EFFECTIVE_GAP_BOX",
+      "source_refs": [
+        "hum_grasp_certificate.py",
+        "upstream_grasp_replay",
+        "virtual_budget.py",
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "FIXED_DESIGN_INPUT"
+    },
+    "mu": {
+      "lower": "29/50",
+      "upper": "33/50",
+      "unit": "1",
+      "uncertainty_kind": "HULL_OF_PUBLISHED_MATERIAL_MEANS_NOT_POPULATION_BOUND",
+      "source_refs": [
+        "hum_grasp_certificate.py",
+        "upstream_grasp_replay",
+        "virtual_budget.py",
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "PUBLISHED_INPUT_NOT_DETERMINISTIC_BOUND"
+    },
+    "surface_Ra_m": {
+      "lower": "37/50000000",
+      "upper": "41/50000000",
+      "unit": "m",
+      "uncertainty_kind": "REPORTED_PLUS_MINUS_DISPERSION_UNDEFINED",
+      "source_refs": [
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "PUBLISHED_INPUT_NOT_DETERMINISTIC_BOUND"
+    },
+    "glove_thickness_latex_m": {
+      "lower": "11/100000",
+      "upper": "13/100000",
+      "unit": "m",
+      "uncertainty_kind": "REPORTED_PLUS_MINUS_DISPERSION_UNDEFINED",
+      "source_refs": [
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "PUBLISHED_INPUT_NOT_DETERMINISTIC_BOUND"
+    },
+    "glove_thickness_nitrile_m": {
+      "lower": "3/25000",
+      "upper": "7/50000",
+      "unit": "m",
+      "uncertainty_kind": "REPORTED_PLUS_MINUS_DISPERSION_UNDEFINED",
+      "source_refs": [
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "PUBLISHED_INPUT_NOT_DETERMINISTIC_BOUND"
+    },
+    "glove_thickness_polyisoprene_m": {
+      "lower": "7/50000",
+      "upper": "1/6250",
+      "unit": "m",
+      "uncertainty_kind": "REPORTED_PLUS_MINUS_DISPERSION_UNDEFINED",
+      "source_refs": [
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "PUBLISHED_INPUT_NOT_DETERMINISTIC_BOUND"
+    },
+    "glove_thickness_neoprene_m": {
+      "lower": "19/100000",
+      "upper": "23/100000",
+      "unit": "m",
+      "uncertainty_kind": "REPORTED_PLUS_MINUS_DISPERSION_UNDEFINED",
+      "source_refs": [
+        "scalpel_glove_2026.html"
+      ],
+      "certificate_status": "PUBLISHED_INPUT_NOT_DETERMINISTIC_BOUND"
+    }
+  },
+  "certificate": {
+    "model_status": "EXACT_CONDITIONAL_MODEL_BOUND",
+    "physical_status": "UNKNOWN",
+    "empirical_validation": "UNKNOWN",
+    "payload": {
+      "schema": "hum-circular-grasp-certificate/v1",
+      "request": {
+        "J": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "inverse_mass": [
+          "1",
+          "1",
+          "1"
+        ],
+        "compliance": [
+          "1",
+          "1"
+        ],
+        "step_s": "1/100",
+        "gaps_m": [
+          [
+            "-1/1000",
+            "-1/1000"
+          ],
+          [
+            "-1/1000",
+            "-1/1000"
+          ]
+        ],
+        "mu": [
+          [
+            "29/50",
+            "33/50"
+          ],
+          [
+            "29/50",
+            "33/50"
+          ]
+        ],
+        "free_velocity_m_s": [
+          "0",
+          "-981/10000",
+          "-3/100"
+        ]
+      },
+      "input_sha256": "840f981a12deb2ae47f90b2ef3d086801533b1ab6b4f84ed731cbecb73dbf83c",
+      "license": "SPD_NORMAL_AFFINE_AND_MONOTONE_DISK_CAPACITY",
+      "decision": "HOLDS_ENTIRE_BOX",
+      "model_status": "EXACT_CONDITIONAL_MODEL_BOUND",
+      "physical_status": "UNKNOWN",
+      "any_slip_witness": false,
+      "bounds": {
+        "normal_force_per_finger": [
+          {
+            "lower": "10",
+            "upper": "10",
+            "unit": "N",
+            "uncertainty_kind": "EXACT_MODEL_BOUND"
+          },
+          {
+            "lower": "10",
+            "upper": "10",
+            "unit": "N",
+            "uncertainty_kind": "EXACT_MODEL_BOUND"
+          }
+        ],
+        "tangential_capacity": {
+          "lower": "58/5",
+          "upper": "66/5",
+          "unit": "N",
+          "uncertainty_kind": "EXACT_MODEL_BOUND"
+        },
+        "required_tangent_force_squared": {
+          "lower": "1052361/10000",
+          "upper": "1052361/10000",
+          "unit": "N^2",
+          "uncertainty_kind": "EXACT_MODEL_BOUND"
+        },
+        "margin_squared": {
+          "lower": "293239/100000000",
+          "upper": "690039/100000000",
+          "unit": "(N*s)^2",
+          "uncertainty_kind": "EXACT_MODEL_BOUND"
+        },
+        "vx": {
+          "lower": "0",
+          "upper": "0",
+          "unit": "m/s",
+          "uncertainty_kind": "EXACT_MODEL_BOUND"
+        },
+        "vy": {
+          "lower": "0",
+          "upper": "0",
+          "unit": "m/s",
+          "uncertainty_kind": "EXACT_MODEL_BOUND"
+        },
+        "vz": {
+          "lower": "0",
+          "upper": "0",
+          "unit": "m/s",
+          "uncertainty_kind": "EXACT_MODEL_BOUND"
+        }
+      },
+      "corner_witnesses": [
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "29/50",
+            "29/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "29/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "981/20000",
+              "3/200"
+            ],
+            [
+              "981/20000",
+              "3/200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "29/50",
+            "33/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "31/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "28449/620000",
+              "87/6200"
+            ],
+            [
+              "32373/620000",
+              "99/6200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "33/50",
+            "29/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "31/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "32373/620000",
+              "99/6200"
+            ],
+            [
+              "28449/620000",
+              "87/6200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "33/50",
+            "33/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "33/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "981/20000",
+              "3/200"
+            ],
+            [
+              "981/20000",
+              "3/200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "29/50",
+            "29/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "29/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "981/20000",
+              "3/200"
+            ],
+            [
+              "981/20000",
+              "3/200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "29/50",
+            "33/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "31/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "28449/620000",
+              "87/6200"
+            ],
+            [
+              "32373/620000",
+              "99/6200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "33/50",
+            "29/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "31/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "32373/620000",
+              "99/6200"
+            ],
+            [
+              "28449/620000",
+              "87/6200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "33/50",
+            "33/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "33/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "981/20000",
+              "3/200"
+            ],
+            [
+              "981/20000",
+              "3/200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "29/50",
+            "29/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "29/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "981/20000",
+              "3/200"
+            ],
+            [
+              "981/20000",
+              "3/200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "29/50",
+            "33/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "31/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "28449/620000",
+              "87/6200"
+            ],
+            [
+              "32373/620000",
+              "99/6200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "33/50",
+            "29/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "31/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "32373/620000",
+              "99/6200"
+            ],
+            [
+              "28449/620000",
+              "87/6200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "33/50",
+            "33/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "33/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "981/20000",
+              "3/200"
+            ],
+            [
+              "981/20000",
+              "3/200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "29/50",
+            "29/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "29/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "981/20000",
+              "3/200"
+            ],
+            [
+              "981/20000",
+              "3/200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "29/50",
+            "33/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "31/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "28449/620000",
+              "87/6200"
+            ],
+            [
+              "32373/620000",
+              "99/6200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "33/50",
+            "29/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "31/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "32373/620000",
+              "99/6200"
+            ],
+            [
+              "28449/620000",
+              "87/6200"
+            ]
+          ]
+        },
+        {
+          "gaps_m": [
+            "-1/1000",
+            "-1/1000"
+          ],
+          "mu": [
+            "33/50",
+            "33/50"
+          ],
+          "normal_impulses_N_s": [
+            "1/10",
+            "1/10"
+          ],
+          "capacity_N_s": "33/250",
+          "vx_m_s": "0",
+          "tangent_witness_N_s": [
+            [
+              "981/20000",
+              "3/200"
+            ],
+            [
+              "981/20000",
+              "3/200"
+            ]
+          ]
+        }
+      ]
+    },
+    "missing_observables": [
+      "native21DoF geometry-to-gap/compliance calibration",
+      "bounded friction variation and actual per-finger normal force",
+      "independent matched two-finger axial slip onset force",
+      "contact patch area/pressure and rotational wrench"
+    ],
+    "geometry_role": "published flat contact zone; Ra and thickness retained as regime data; no gap inferred from them",
+    "geometry_scale": "macroscopic parallel contact;0.74–0.82um surface Ra and0.11–0.23mm glove thickness lumped into measured mu",
+    "bounded_refinement": "intersect admissible gap/mu boxes; retained license gives nested mathematical enclosures; empirical coverage still requires measured inputs"
+  },
+  "boundary_map": {
+    "pair": 4,
+    "overlap": "glove/tool staticmu is distinct from needle/tissue drained-undrained dimensionless ratio",
+    "unsupported_outputs": [
+      "peak_contact_pressure_Pa",
+      "rate_dependent_friction",
+      "tissue_response_time_s"
+    ]
+  },
+  "contact_port_v1_file": "CONTACT_PORT_V1_HUM-TOOLGRASP.json"
+}
