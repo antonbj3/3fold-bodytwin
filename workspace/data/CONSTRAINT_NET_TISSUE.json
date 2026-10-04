@@ -1299,6 +1299,28 @@
      "domain": "immune",
      "plausible_range": null,
      "note": "which membrane face carries the complement risk; categorical, so no range. Apical at rest, not nameable under luminal protein load"
+    },
+    {
+     "id": "summary_fibre_decision_count",
+     "unit": "1",
+     "level": "PHENOMENOLOGICAL",
+     "domain": "instrument",
+     "plausible_range": [
+      1,
+      64
+     ],
+     "note": "M, the largest number of distinct decisions inside one summary fibre; read off exhibited witnesses, so a lower bound"
+    },
+    {
+     "id": "minimum_extra_fields",
+     "unit": "1",
+     "level": "PHENOMENOLOGICAL",
+     "domain": "instrument",
+     "plausible_range": [
+      0,
+      16
+     ],
+     "note": "ceil(log_q M) extra fields of q symbols, sharp with full-state access, from PROOF_LANE_MINIMAL_FIELD"
     }
    ],
    "edges": [
@@ -3919,6 +3941,29 @@
      "control": "a single unpolarised regulator, which makes the ratio 1 by construction and no face ever at differential risk -- what a twin without this measurement assumes",
      "falsifier": "if an independent measurement of the same ratio under luminal protein load lands within one combined dispersion, 0.2884, of the resting 0.45, the shift is not there and the decision has no axis",
      "replaces": "the unmeasured C3b recycling fraction axis behind T-E14, T-E15 and T-E30, all of which were downgraded on 2026-10-05 when LANE_IMMUNE_OVERACTIVATION r1 returned rho_status = UNMEASURED_MODEL_CLOSURE",
+     "review_state": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+     "id": "T-E33-summary_fibre_count-vs-minimum_extra_fields",
+     "between": [
+      "summary_fibre_decision_count",
+      "minimum_extra_fields"
+     ],
+     "constraint": "six independent chains were measured with a summary identity error of exactly zero beside a decision-relevant gap: instrument adhesion at a peak-force ratio of 10.0 with the normal field identical too, the complement window at 17.60797843701942 nM against an interval of 0.5441770553588867 nM, the disc electrical alias at 0.08108314647592979 MPa which is 0.6757 of the facit band and changes the diagnosis, delivered electrical power at 20.0 W between witnesses of 50 and 30 W, the biofilm plateau at exactly 3/16 of normalised signal, and the distribution gate initial field at 0.148502787956807. The bound on repair is ceil(log_q M) extra fields where M is the largest number of distinct decisions in one fibre, sharp with full-state access. Applied here it gives the same answer for all six -- M >= 2, one extra binary field each, six in total -- because every lane exhibited exactly ONE witness pair. So the theorem is sharp and our data is not: the bound cannot discriminate between a chain hiding two decisions and one hiding twenty until a lane exhibits a third separated state inside the same fibre. That is the next operation, not a refinement of the bound",
+     "status": "OPEN",
+     "owner": "tasks/assembly/sufficiency_ledger.py",
+     "evidence": "results/ASSEMBLY_SUFFICIENCY_LEDGER/LEDGER_V1.json :: minimum_extra_binary_fields_over_all_chains = 6",
+     "external_reference": "none; the bound is a mathematical result from PROOF_LANE_MINIMAL_FIELD, 72083 exact test instances",
+     "control": "carry the raw state, always sufficient and never compressing, which is what the repo does today when it gives up",
+     "falsifier": "a chain whose summary separates its witnesses after one extra field, where this ledger says it needs more, falsifies the M read off that lane; the lane must then exhibit the third state or withdraw the row",
+     "categorical_result": "PROOF_LANE_SCALE_BRIDGE found mean plus variance insufficient in 378 of 378 exact summary pairs, so that pair is never a sufficient summary in that family -- the only categorical sufficiency result so far",
+     "no_derived_field_is_a_fix": "every f = h(sigma) preserves an existing witness, so reprocessing what the summary already carries cannot repair it; new retained data is required",
+     "branches_opened": [
+      "a third separated state inside one fibre for the adhesion chain, whose ratio is 10.0 and therefore the likeliest to hide more than two decisions",
+      "the same for the complement window, whose gap is 32.36 times its own decision interval",
+      "whether the unique coarsest sufficient partition can be computed for any one of the six, since minimum-sized fields are not unique but the coarsest partition is",
+      "a seventh chain: the eye residual, where no identity error has been measured against a gap yet"
+     ],
      "review_state": "PENDING_INDEPENDENT_REVIEW"
     }
    ],
