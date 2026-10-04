@@ -1,30 +1,25 @@
-# Styrning LANE_EYE_OPTICAL_TWIN — efter r52
+# Styrning LANE_EYE_OPTICAL_TWIN
 
-## The test shrunk, that's the problem of the round.
-r51: fyra punkter. Full konfiguration 2 av 4. Tre enklare varianter 3 av 4 var.
-r52: a point. Primary 1, kontroll 0, kopplad referens 0.
+**Hindret.** Our prospective strength misses the downright effect with 0,5345 D in funds over 89 Eye disorders
+(`results/ASSEMBLY_PROSPECTIVE_POWER/PROSPECTIVE_V1.json`). Kanten `T-E22` explained it by:
+I recalculated it myself today: a 0,5 D-rout networks give me the wrong medium `s/4` = 0,125 D,
+i.e. 23,4 % av de 0,5345 D. **0,5197 D in square clock is located outside the grid and is unexplained.**
+The distribution of labels would need to be: SD ≥ 0,655 D for the floor to carry the fault; biggest
+published bench scattering is 0,12 D.
 
-With one point goes r51:s order does not test. Magnitude control also matches 1, so no one
-There is separation. A smaller test is not a better test.
+**Change of operation.** Dela upp de 0,5197 D per eye instead of explaining them in prose.
+the breakdown against the columns in the rows: `aqd_prediction_error_mm`, `dR_dAQD_D_per_mm`,
+`IOLM_AL`, `IOLM_ACD`, `IOLM_LT`, `IOLM_CCT`, `implanted_power_D`Ask which one. **enskild** term som
+carries most of the rest, and state how much in dioptria, not in shares.
 
-## What to do
-Run over on r51:s fyra punkter. Samma fyra armar. Samma estimator.
-Report the four numbers again, not a new measure.
+**Starkaste kontroll.** Permutera `hindsight_correct_power_D` between the eyes and run the same breakdown.
+A term that carries the same amount of permutated data carries nothing.
 
-## What I asked for last time and did not get
-Origin. Do the two sources share calibration? No field in r52 responds to that.
-Track the calibration on which each source rests. Print if they share the joint.
+**Falsifierare.** If no single term carries more than the permutated control of: 95Percentile, is the rest.
+not structured by something we measure, and then it should be said straight: the fault is not the grid, nor is it.
+the location of the lens, and we don't know what it is.
 
-Parts of the joint are the second source no second source, and the full configuration
-That's the whole explanation to r51.
-
-## Kontroll
-The best performing ablation, not a raw baseline.
-
-## Falsifierare
-Lose the full configuration against all three ablations again, at four points,
-after the lineage is ready: Remove the extra source from the chain.
-
-## Namnkrav
-`vertical_absolute_error = 6,7967e-06` no device in the name. Put the device in the field name.
-Six collisions in the project within one day arose because names did not specify their convention.
+**Count the right number.** Field `eyes_where_the_grid_choice_changes = 44` count eyes there **our own**
+recommendation moves when the lens position is predicted instead of measured. It is not "steps other than:
+implanterade linsen" — that number is 58 av 89 prospektivt, 68 av 89 with measured position. Never use 44 pr
+den utsagan igen.
