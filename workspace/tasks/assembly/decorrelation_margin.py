@@ -123,6 +123,46 @@ def instrument_component() -> dict:
     }
 
 
+def repair_response(X: np.ndarray, stage_names: list[str]) -> dict:
+    """Does IMPROVING a stage improve the system? Under negative correlation it need not.
+
+    A swarm audit (BT-FW48-AUTO-4fa8c5a121ab31) refuted its own brief's discriminator -- a linear
+    fit of residual against bin width, which read R^2 = 0.021 on a 6-point ladder and 0.630 on a
+    9-point ladder for the same arm -- and replaced it with the response of the spread to a
+    per-operator repair. Measured there, reported spreads understated the truth by 1.90x to 2.74x
+    because opposite-sign errors cancelled. The same test belongs here, because this module's
+    favourable margins come from exactly that: the toric chain is certified on rho_hat = -0.796.
+
+    So for each stage, set its error to zero -- the best possible repair -- and recompute the
+    combined standard deviation. A margin that rests on cancellation gets WORSE when a stage is
+    repaired, and a consumer who reads the margin as a bound that survives improvement is misled.
+    The interior optimum for a two-stage chain is sigma_j = -rho * sigma_other, which is also
+    reported, because below it further improvement costs rather than pays.
+    """
+    sd_now = float(np.std(X.sum(axis=1), ddof=1))
+    out = {'combined_sd_D': round(sd_now, 5), 'per_stage_repair': {}}
+    for j, nm in enumerate(stage_names):
+        Y = X.copy()
+        Y[:, j] = 0.0
+        sd_rep = float(np.std(Y.sum(axis=1), ddof=1))
+        out['per_stage_repair'][nm] = {
+            'combined_sd_after_full_repair_D': round(sd_rep, 5),
+            'factor_vs_now': round(sd_rep / sd_now, 4),
+            'repair_helps': bool(sd_rep < sd_now)}
+    if X.shape[1] == 2:
+        s0, s1 = (float(x) for x in X.std(axis=0, ddof=1))
+        rho = float(np.corrcoef(X[:, 0], X[:, 1])[0, 1])
+        out['two_stage_interior_optimum'] = {
+            'rho': round(rho, 4),
+            'optimal_sd_stage0_D': round(max(-rho * s1, 0.0), 5),
+            'optimal_sd_stage1_D': round(max(-rho * s0, 0.0), 5),
+            'stage0_above_optimum_factor': round(s0 / (-rho * s1), 4) if rho < 0 else None,
+            'stage1_above_optimum_factor': round(s1 / (-rho * s0), 4) if rho < 0 else None}
+    out['independent_combined_sd_D'] = round(float(np.sqrt((X.std(axis=0, ddof=1) ** 2).sum())), 5)
+    out['cancellation_removes_fraction'] = round(1.0 - sd_now / out['independent_combined_sd_D'], 4)
+    return out
+
+
 def analyse(name: str, X: np.ndarray, stage_names: list[str], extra_sd: float | None = None) -> dict:
     if extra_sd is not None:
         # The declared component enters as an independent column with the stated scale, drawn once with a
@@ -146,6 +186,11 @@ def analyse(name: str, X: np.ndarray, stage_names: list[str], extra_sd: float | 
             'mean_abs_row_sum_D': round(float(np.mean(np.abs(row_sum))), 5)},
         'spec_D': SPEC_D,
         'decorrelation_verifier': v,
+        # The verifier's rule is one-sided: it passes when the correlation's CI UPPER bound is below
+        # the tolerance, so a strongly ANTI-correlated chain passes a gate named "decorrelation".
+        # That is how rho_hat = -0.796 was certified. Stated here rather than left to be inferred.
+        'decorrelation_gate_is_one_sided': True,
+        'repair_response': repair_response(X, stage_names),
         'covariance_aware_margin': cam,
         'from_samples_margin': fsm,
         'heavy_tail': hti,
