@@ -1,6 +1,6 @@
 BT-HX-Q084
 
-## Resultat
+## Results
 
 No model or results file existed from the interrupted session; the work therefore builds on `inputs/QUESTION.md`, `inputs/NIGHT_PREAMBLE.md` and the frozen `PREREG.md`. The primary source is Destrian et al., PNAS 123(4), e2519599123 (2026), DOI `10.1073/pnas.2519599123`: Fig. 3C states `16–20 µm² s⁻¹`, Fig. 3D about `20 %` low-porosity effect and Fig. 4D–G up to `70 %` nano-obstacle effect.
 

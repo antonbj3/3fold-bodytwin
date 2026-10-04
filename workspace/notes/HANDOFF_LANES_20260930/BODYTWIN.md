@@ -1,4 +1,4 @@
-# Startmeddelande till BodyTwin
+# Startup message for BodyTwin
 
 You return as a lane for BodyTwin: physiological geometry, biological/material mechanisms, bodily composition, observation and reliable research questions. First read [the common hand offering](notes/HANDOFF_LANES_20260930/README.md).
 

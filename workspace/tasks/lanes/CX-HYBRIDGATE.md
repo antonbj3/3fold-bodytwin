@@ -14,4 +14,4 @@ Also report:
 - the result with the gate applied during the learning too (LOPO, as a secondary variant);
 - a control: a random gate with the same share per person must NOT give the same gain.
 
-Reuse `results/CX-HYBRID/` (score.py, caches), `results/CX-QUADARM/mechanism.py` (ρ, arm per frame) and `results/CX-PATELLAJW/`. Runtime ≤ 45 min, 2 threads under bigmem.lock, at most 200 MB of intermediate files on external_media Deliver RESULTS.md starting with `# CX-HYBRIDGATE` and results.json. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Internal data stays local.
+Reuse `results/CX-HYBRID/` (score.py, caches), `results/CX-QUADARM/mechanism.py` (ρ, arm per frame) and `results/CX-PATELLAJW/`. Runtime ≤ 45 min, 2 threads under bigmem.lock, at most 200 MB of intermediate files on external_media Deliver RESULTS.md starting with `# CX-HYBRIDGATE` and results.json. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Internal data stays local.

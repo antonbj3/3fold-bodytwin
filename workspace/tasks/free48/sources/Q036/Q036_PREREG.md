@@ -18,7 +18,7 @@ The primary output is the state of contractile function and its mechanistic inte
 
 ## Verified primary anchors
 
-These are literature anchors, not calibration data. The values were looked up in the primary articles; none is marked `OVERIFIERAD`.
+These are literature anchors, not calibration data. The values were looked up in the primary articles; none is marked `UNVERIFIED`.
 
 1. El Baradie et al., *Scientific Reports* 11, 6152 (2021), DOI `10.1038/s41598-021-85753-x`, PMID 33731782, PMCID PMC7969970. In the mouse single-hindlimb ischemia experiment, ischemia was 90 min. The Results text and Fig. 2–3 report approximately 1% of baseline flow during ischemia and approximately 10% of baseline flow immediately after release in the vehicle group; these are normalized perfusion units (% of pre-ischemic baseline) and are reported approximations, not digitized observations. Table 2 reports control gait score `1.70 +/- 0.67` and NIM-811 gait score `2.70 +/- 0.82` (unitless Tarlov score). The functional measurement was obtained after recovery, so it is an independent early/clinical anchor rather than a direct 15 min model label.
 2. McAllister et al., *American Journal of Physiology Regulatory, Integrative and Comparative Physiology* 295, R681–R689 (2008), DOI `10.1152/ajpregu.90303.2008`, PMID 18509099. In pig muscle, postconditioning or mPTP inhibition reduced infarction and was associated with lower mitochondrial Ca2+ and higher muscle ATP after ischemia/reperfusion. This supports the proposed Ca2+ -> mPTP -> ATP/function chain but supplies no coefficient for this normalized model.

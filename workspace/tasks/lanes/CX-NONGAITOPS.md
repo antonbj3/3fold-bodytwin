@@ -9,4 +9,4 @@ Background: L1 operators exist only for gait (113 trials) and JW4 non-gait (11 t
    - the law via this ID must reproduce CX-LGSYNTH's law RMSE per trial (tolerance 0.02 BW; report deviations and why: the ID method differs from the BT-LG proxy);
    - the LP lo/hi via HiGHS; report the feasible share per trial.
 3. Save to external_media<SESS>__<trial>.npz with a json per trial (QC). Write RESULTS.md starting with `# CX-NONGAITOPS`, with a table per trial of QC, feasible share, lo/meas/hi medians, and N1g/law RMSE.
-No hypothesis test here: this is infrastructure for the heavy-task node. Run under bigmem.lock with 2 threads. Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+No hypothesis test here: this is infrastructure for the heavy-task node. Run under bigmem.lock with 2 threads. Internal data stays local. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

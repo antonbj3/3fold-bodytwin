@@ -56,7 +56,7 @@ new model.
    implicated. This supports the mechanism but is not used to invent a
    parameter value.
 
-If a cited value cannot be checked, mark it `OVERIFIERAD`; no unverified value
+If a cited value cannot be checked, mark it `UNVERIFIED`; no unverified value
 is used as a measured input. All other model parameters are explicitly marked
 as assumptions or derived scenario values.
 

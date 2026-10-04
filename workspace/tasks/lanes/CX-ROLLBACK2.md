@@ -15,4 +15,4 @@ Unlock: Field's U391 (F-8) searched 576 frame conventions (axes × Euler order �
 4. If the arm is identifiable within ±10 %, replace L1's patella arm and rerun CX-SLACK's strength fit for JW → does the held-out 90°/s curve fall from 35 % to ≤ 20 %? Then V0/S1b gait against N1g.
 5. Counter-tests: the second-best convention; a permuted frame order; openfe (unloaded) vs lunge (loaded).
 
-Resources: lane runner has full permissions in the workspace. Internal TLEM data stays local or on OVH. Locally: nice, 2 threads. Write in `results/CX-ROLLBACK2/`. `RESULTS.md` starting with `# CX-ROLLBACK2`, plus results.json and pytest.
+Resources: lane_runner has full permissions in the workspace. Internal TLEM data stays local or on OVH. Locally: nice, 2 threads. Write in `results/CX-ROLLBACK2/`. `RESULTS.md` starting with `# CX-ROLLBACK2`, plus results.json and pytest.

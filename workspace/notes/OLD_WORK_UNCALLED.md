@@ -10,12 +10,12 @@ JSON in `scripts/physics_exp/`, 417 distilled memories in `docs/inherited_memory
 workspace in one pass. Log files, `night_rounds/`, `results/MAP/` and `.tsv` do NOT count as a
 hit: an agent that mentioned a name in a log has not connected anything.
 
-| pool | okallade | av |
+| pool | uncalled | out of |
 |---|---|---|
 | `docs/inherited_memory/*.md` (distilled, graded lessons) | **410** | 417 |
 | `reports/*.json` | 339 | 821 |
 | `scripts/physics_exp/*.json` | 147 | 374 |
-| **totalt** | **896** | 1 612 |
+| **total** | **896** | 1 612 |
 
 The densest loss is therefore not the reports but the distilled memories: **7 of 417 are
 mentioned**. 117 of the uncalled ones are `type: project`. Many carry the text `RECALL-ONLY — index

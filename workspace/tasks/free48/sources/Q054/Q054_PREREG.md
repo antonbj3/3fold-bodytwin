@@ -29,7 +29,7 @@ The source is used as a size and plausibility reference. It is not a validation 
 - \(P=1800\) N is a synthetic load scenario chosen to place the nominal model in the source's order of magnitude; it is not a patient load.
 - No weighting, friction, fluid pumping, ligaments or foreign bodies are included.
 
-## Frysta kriterier
+## Frozen criteria
 
 1. Load equilibrium: \(|\sum_i p_iA_i-P|/P<10^{-10}\).
 2. The unit check should pass all declared dimensions.
@@ -47,6 +47,6 @@ The source is used as a size and plausibility reference. It is not a validation 
 - Synthetic CAD/shape values must never be reported as measured data.
 - Underlying fluid processes, three-dimensional contact and shear do not count as validated.
 
-## Frysning
+## Freezing
 
 This preregistration is written before the first run of `model.py` and `test_model.py`.

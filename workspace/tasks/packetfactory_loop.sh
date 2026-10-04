@@ -9,7 +9,7 @@ exec 9>results/CX-PACKETFACTORY/.queue.lock
 
 log(){ printf '[%s] %s\n' "$(date '+%F %T %Z')" "$*" >> "$LOG"; }
 while true; do
-  if [[ $(date +%H%M) -ge 2340 ]]; then log 'stopp 23:40'; exit 0; fi
+  if [[ $(date +%H%M) -ge 2340 ]]; then log 'stop 23:40'; exit 0; fi
   unfinished=$(python3 - <<'PY'
 from pathlib import Path
 root=Path('results'); n=0
@@ -36,7 +36,7 @@ for d in root.iterdir():
 priority={'AG':0,'R':1,'P':2,'X':3};packs.sort(key=lambda p:(priority[p[1]],p[0]))
 lines=[];swarm=0
 for ident,family in packs:
-    if family=='X' or (family=='AG' and len(lines)%2==0):lines.append(f'C reserve_worker {ident}')
+    if family=='X' or (family=='AG' and len(lines)%2==0):lines.append(f'C swarm_worker {ident}')
     else:
         lines.append(f'{"ABC"[swarm%3]} swarm {ident}');swarm+=1
 Path('results/CX-PACKETFACTORY/queue_pending.txt').write_text('\n'.join(lines)+('\n' if lines else ''))
@@ -44,7 +44,7 @@ PY
     flock -x 9
     while read -r profile model ident; do
       [[ -z "${ident:-}" ]] && continue
-      if ! grep -Eq "^[ABC] (swarm|reserve_worker) ${ident}$" "$QUEUE" && python3 tasks/packetfactory.py check "$ident" >/dev/null; then
+      if ! grep -Eq "^[ABC] (swarm|swarm_worker) ${ident}$" "$QUEUE" && python3 tasks/packetfactory.py check "$ident" >/dev/null; then
         printf '%s %s %s\n' "$profile" "$model" "$ident" >> "$QUEUE"
         log "queued $ident ($profile $model)"
       fi

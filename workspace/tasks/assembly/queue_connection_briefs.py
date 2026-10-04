@@ -47,7 +47,7 @@ def _load_block_pattern(extra: str = '') -> 're.Pattern[str]':
 BLOCK = _load_block_pattern()
 QUANT = re.compile(r'["\']([a-z0-9_]{4,}?_(um|mm|nm|pa|mpa|kpa|j|n|k|deg|degc|s|h|mol|percent|'
                    r'ml_min|pa_s|mol_s|kg_m3|j_mol|m_s|per_s))["\']', re.I)
-MAX_PAIRS = 257          # 2026-10-04: 257 pairs exist and 120 had been driven, so 137 The roof was the block, not the dedupen.
+MAX_PAIRS = 257          # 2026-10-04: 257 pair exists and 120 had been run, so 137 had never been set. The ceiling was the block, not the dedupe.
 
 
 def main() -> int:
@@ -91,27 +91,37 @@ def main() -> int:
             continue
         d.mkdir(parents=True, exist_ok=True)
         lines = [f'# {a} and {b}', '',
-                 "Two cells in the same twin. This is how they describe themselves:", '']
+                 'Two cells in the same twin. This is how they describe themselves:', '']
         for c in (a, b):
             if info[c]['purpose']:
                 lines += [f'**{c}**', '', f'> {info[c]["purpose"]}', '']
-        lines += [f'They carry greatness in {nshared} gemensamma dimensioner:', '']
+        lines += [f'They carry quantities in {nshared} common dimensions:', '']
         for u in shared[:6]:
             qa = sorted(info[a]['units'][u])[:4]
             qb = sorted(info[b]['units'][u])[:4]
             lines += [f'- **{u}** — {a}: ' + ', '.join(f'`{x}`' for x in qa)
                       + f' | {b}: ' + ', '.join(f'`{x}`' for x in qb)]
         lines += ['',
-                  "Vad blir **Adjustable** if the two are connected together, which none of them can answer separately? A connection is not to write an adapter — It is that a quantity from one becomes input to the other and that something can thus be determined.", '',
-                  "Write three different ways of looking at what the connection would make possible, where at least one is not about tissue or the human body at all. Drive apart first, then choose.", '',
-                  "For what you choose: which quantity passes, in which direction, and what is outside us to score the result against?", '',
-                  "No special answer form. DOI eller PMIDIf those two can't connect, tell me what's missing between them.", '',
+                  'What becomes **askable** when the two are connected, which neither can answer on its '
+                  'own? A connection is not writing an adapter — it means making a quantity from one '
+                  'input to the other, so that something can be decided.', '',
+                  'Write three different ways of looking at what the connection would make possible, with at least one that has nothing '
+                  'to do with tissue or the human body at all. Diverge first, then choose.', '',
+                  'For what you choose: what quantity passes, in what direction, and what is outside '
+                  'us to judge the result against?', '',
+                  'No particular answer format. Give DOI or PMID. If the two cannot be connected, say what '
+                  'is missing between them.', '',
                   'Status PENDING_INDEPENDENT_REVIEW.', '']
         # Same arithmetic requirement as the other generators: it costs a minute, needs no source
         # and no network, and it fell eight edges in this net on 2026-10-04.
-        lines = lines + ['', "## Diverge widely first", '',
-            "This is not a review task. I want ideas about what can KOPPLAS between the two cells. Write three readings of the couple before you search, and let at least one lie completely outside the tissue, body and medicine. Drive them apart, choose the one carrying the longest and go all the way. The strongest outcome is a quantity that binds the two and that someone has already measured in the world; the second strongest is a quantity that would bind them if measured. DOI eller PMID for what you're building on.", '',
-            "If the pair finds no connection, it's an answer and not a failure — say why not."]
+        lines = lines + ['', '## Diverge widely first', '',
+            'This is not a review job. I want ideas about what can be CONNECTED between the '
+            'two cells. Write three readings of the pair before searching, and let at least one lie entirely '
+            'outside tissue, body and medicine. Diverge, choose the one that goes furthest and go all '
+            'the way. The strongest outcome is a quantity that binds the two and someone has already '
+            'measured in the world; the next strongest is a quantity that would bind them if measured. '
+            'DOI or PMID for what you are building on.', '',
+            'If the pair finds no connection, it\'s an answer and not a failure — say why not.']
         (d / 'BRIEF.md').write_text('\n'.join(lines))
         (d / 'ALLOW_WEB').write_text('1\n')
         json.dump({'id': jid, 'kind': 'creative_connection_between_cells', 'cells': [a, b],
@@ -133,7 +143,8 @@ def main() -> int:
         have = {l.split()[-1] for l in existing if l.split()}
         lines = [l for l in lines if l.split()[-1] not in have]
         QUEUE.write_text('\n'.join(lines + existing) + '\n')
-    print(f'{len(info)} celler, {len(pairs)} par med minst 2 gemensamma dimensioner, {len(made)} briefer queued (tak {MAX_PAIRS})')
+    print(f'{len(info)} cells, {len(pairs)} pairs with at least 2 shared dimensions, '
+          f'{len(made)} briefs queued (cap {MAX_PAIRS})')
     for m in made[:8]:
         print('  ' + m)
     return 0

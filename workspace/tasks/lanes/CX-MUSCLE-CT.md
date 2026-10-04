@@ -10,6 +10,6 @@ Models (LOSO):
 Report the error in muscle volume/CSA in %, per person and in median. Counter-test: permuted persons. Criterion: M-d or M-e beats M-a and M-b by ≥ 20 % median absolute error. Also report whether postmortem CT biases the HU thresholds (state it; do not correct it silently).
 
 ## Common
-- PREREG.md + PREREG.sha256 BEFORE the first run: facit, criteria with numbers, counter-tests (permuted inputs), and what counts as a fall. Symmetric skepticism.
-- The lane runner sandbox has network access (public data may be downloaded; save it on external_media and record the URL + sha256). Locally: nice, 2 threads, ≤ 60 s per test; heavier work via Modal (`tasks/modal_run.py`) for public data, or OVH (`tasks/cloud_run.sh`, BodyTwin ≤ 8 vCPU) for internal data.
+- PREREG.md + PREREG.sha256 BEFORE the first run: reference, criteria with numbers, counter-tests (permuted inputs), and what counts as a fall. Symmetric skepticism.
+- The lane_runner sandbox has network access (public data may be downloaded; save it on external_media and record the URL + sha256). Locally: nice, 2 threads, ≤ 60 s per test; heavier work via Modal (`tasks/modal_run.py`) for public data, or OVH (`tasks/cloud_run.sh`, BodyTwin ≤ 8 vCPU) for internal data.
 - Write only in `results/CX-MUSCLE-CT/`. `~/projects/bodytwin` is read-only. `RESULTS.md` starting with `# CX-MUSCLE-CT`, plus results.json and code with pytest.

@@ -1,4 +1,4 @@
-# Styrning LANE_REFLECTION_TWO_FLOW — ny lane 2026-10-04
+# Steering LANE_REFLECTION_TWO_FLOW — new lane 2026-10-04
 
 ## Starting point
 The decision already exists as an executable file: `tasks/assembly/reflection_coefficient_identifiability.py`

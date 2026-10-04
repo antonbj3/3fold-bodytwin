@@ -1,4 +1,4 @@
-# LANE_RUNNER_ANALYSIS3 — resultat 2026-09-30
+# LANE_RUNNER_ANALYSIS3 — results 2026-09-30
 
 Independent analysis delivered: **local conditional continuation is possible; the empirical
 disease pipeline and full cloud handoff have explicit prerequisites remaining.**

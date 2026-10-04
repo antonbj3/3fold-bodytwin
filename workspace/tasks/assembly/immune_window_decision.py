@@ -113,12 +113,14 @@ def main() -> int:
     (OUT / 'IMMUNE_WINDOW_V1.json').write_text(json.dumps(summary, indent=1, ensure_ascii=False))
 
     hr = summary['host_spared_range']
-    print(f"  values are spared for rho i [{hr['rho_low']}, {hr['rho_high']}], {hr['count_of_1001']} av 1001 punkter")
+    print(f"  the host is spared for rho in [{hr['rho_low']}, {hr['rho_high']}], "
+          f"{hr['count_of_1001']} of 1001 points")
     d = summary['discrimination_at_the_ends']
-    print(f"  diskriminering: rho=0 -> {d['rho_0']}, just at the turning point -> {d['rho_at_flip_minus']}, rho=1 -> {d['rho_1']}")
-    print(f"\n  {'krav':>8s} {'admissible rho of 1001':>22s} {'intervall':>26s}")
+    print(f"  discrimination: rho=0 -> {d['rho_0']}, just below the turning point -> "
+          f"{d['rho_at_flip_minus']}, rho=1 -> {d['rho_1']}")
+    print(f"\n  {'requirement':>8s} {'admissible rho of 1001':>22s} {'interval':>26s}")
     for v in verdicts:
-        rng = f"[{v['rho_low']}, {v['rho_high']}]" if v['window_exists'] else 'TOMT'
+        rng = f"[{v['rho_low']}, {v['rho_high']}]" if v['window_exists'] else 'EMPTY'
         print(f"  {v['required_discrimination']:>8.0f} {v['admissible_rho_count_of_1001']:>22d} {rng:>26s}")
     return 0
 

@@ -8,7 +8,7 @@ final report. No model parameters have been changed (PREREG N3).
 
 ## 1. What was built on
 
-| Underlag | Roll |
+| Input | Role |
 |---|---|
 | `inputs/Q058_QUESTION.md` | Q058 — switching between detail levels without losing biological memory |
 | `inputs/Q058_model.py` | the model being constrained, `PARAMETER_TABLE` rows 51–157 |
@@ -24,7 +24,7 @@ length, mass, moment arm or anatomical attachment exists. Every geometry/anatomy
 `NOT_APPLICABLE` for this model, and "coordinate frame" is reported as `NOT_APPLICABLE` instead
 of fabricated. It is a property of the input, not a void.
 
-## 2. Nyckeltal med fil
+## 2. Key numbers with file
 
 All numbers below are traceable to `results.json`.
 
@@ -83,7 +83,7 @@ for shape and unit checks, **not** for absolute quantification.
   public material found.
 - **N2 could not be applied as frozen** (ADC counts, not µV).
 
-## 4. Korrigering i denna session
+## 4. Correction in this session
 
 `DATA_SOURCES.json` rank 4 stated "8 sheets" for the Dryad file. Verification against
 `pandas.read_excel` gave **17 sheets**: 13 person sheets ("1".."13", 55×23 except "4", which is 54×23) plus

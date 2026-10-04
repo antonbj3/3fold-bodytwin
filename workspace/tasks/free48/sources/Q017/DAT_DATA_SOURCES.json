@@ -2,7 +2,7 @@
   "job": "BT-DAT-Q017",
   "purpose": "Public measured datasets that constrain the Q017 cardiorenal-transient model in inputs/Q017_model.py",
   "written_utc": "2026-09-26",
-  "frozen_requirements": "PREREG.md 'Frysade dataset-krav': every post carries (a) landing URL answering HTTP 200 at check time, (b) license string copied verbatim from the source's own page, (c) size in bytes/MB from the source's file index, (d) file format, (e) number of subjects with a source, (f) which model parameter or output it constrains, (g) verification status in {downloaded_parsed, listing_verified_only, metadata_only}. Posts without a substantive (a) and (b) are not counted as candidates.",
+  "frozen_requirements": "PREREG.md 'Frozen dataset requirements': every post carries (a) landing URL answering HTTP 200 at check time, (b) license string copied verbatim from the source's own page, (c) size in bytes/MB from the source's file index, (d) file format, (e) number of subjects with a source, (f) which model parameter or output it constrains, (g) verification status in {downloaded_parsed, listing_verified_only, metadata_only}. Posts without a substantive (a) and (b) are not counted as candidates.",
   "sample_budget": {
     "limit_mb": 50.0,
     "used_mb": 42.407,
@@ -129,7 +129,7 @@
       "not_downloaded_reason": "credentialed access, DUA and CITI training required; PREREG.md 'Not redone' forbids fetching access-protected material in this lane",
       "counts_as_candidate": false,
       "missing_fields": ["c_size"],
-      "why_it_matters": "this is the single most important unexploited constraint for Q017: it is the only candidate that natively carries pressure, fluid volume and a renal marker on one stay-level time axis at hour resolution, i.e. exactly the 'synkrona perturbationsserier' the Q017 question demands. The eICU demo substitutes for it only partially (1039 unit stays carry MAP+intake+urine+creatinine, but the demo is 2520 stays, about 4 % of the full database)."
+      "why_it_matters": "this is the single most important unexploited constraint for Q017: it is the only candidate that natively carries pressure, fluid volume and a renal marker on one stay-level time axis at hour resolution, i.e. exactly the 'synchronous perturbation series' the Q017 question demands. The eICU demo substitutes for it only partially (1039 unit stays carry MAP+intake+urine+creatinine, but the demo is 2520 stays, about 4 % of the full database)."
     },
     {
       "id": "HIRID-1.1.1",

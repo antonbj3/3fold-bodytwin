@@ -19,4 +19,4 @@ Background:
    - Option: the offline part (N, projection) is precomputed per trial pose if A varies slowly; report reuse across frames.
 4. **Deliver:** `contact_band_fast(A, b, F0, cj, C0, med, lat, eps)` in bodytwin_core-compatible form + pytest (identical to the reference on a synthetic system and on 3 real trials).
 
-Deliver RESULTS.md starting with `# CX-GAUGE2D`, results.json, and the benchmark script. Run locally with 2 threads under bigmem.lock for large runs. Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+Deliver RESULTS.md starting with `# CX-GAUGE2D`, results.json, and the benchmark script. Run locally with 2 threads under bigmem.lock for large runs. Internal data stays local. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

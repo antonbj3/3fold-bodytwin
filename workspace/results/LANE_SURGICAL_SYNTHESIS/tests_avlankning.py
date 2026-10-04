@@ -12,13 +12,13 @@ class ScalarTests(unittest.TestCase):
             model_context='same load, geometry, extension')
         args.update(kw);return path_preference(**args)
     def test_labels(self):
-        self.assertEqual(self.call()['decision'],"DEFLECTION")
-        self.assertEqual(self.call(gamma_interface=['1','2'])['decision'],"REVIEW")
+        self.assertEqual(self.call()['decision'],'DEFLECTION')
+        self.assertEqual(self.call(gamma_interface=['1','2'])['decision'],'REVIEW')
         self.assertEqual(self.call(gamma_interface=['1/2','3/5'])['decision'],'UNCERTAIN')
     def test_strict_boundary(self):
         self.assertEqual(self.call(gd=['1/2']*2,gamma_interface=['1/2']*2)['decision'],'UNCERTAIN')
         eps=Q(1,2**100)
-        for sign,label in [(-1,"DEFLECTION"),(1,"REVIEW")]:
+        for sign,label in [(-1,'DEFLECTION'),(1,'REVIEW')]:
             self.assertEqual(self.call(gd=['1/2']*2,gamma_interface=[str(Q(1,2)+sign*eps)]*2)['decision'],label)
     def test_null_zero_context(self):
         for kw in (dict(gd=None),dict(model_context=None),dict(gp=['0','1']),dict(gamma_layer=['0','1'])):
@@ -35,7 +35,7 @@ class ScalarTests(unittest.TestCase):
         self.assertIsNone(r['predicted_depth']['value']);self.assertIsNone(r['biological_damage_width']['value'])
     def test_integrity_and_tamper(self):
         r=self.call();self.assertTrue(verify_integrity(r))
-        r['decision']="REVIEW";self.assertFalse(verify_integrity(r))
+        r['decision']='REVIEW';self.assertFalse(verify_integrity(r))
 
 class CornerRegressionTests(unittest.TestCase):
     def test_all_13_false_certain_corners(self):
@@ -59,9 +59,9 @@ class CornerRegressionTests(unittest.TestCase):
         self.assertEqual(full['decision'],'UNCERTAIN')
         for theta in ('-90','90'):
             corner=fixture_preference(dict(b,theta=[theta,theta]),**args)
-            self.assertEqual(corner['decision'],"DEFLECTION")
+            self.assertEqual(corner['decision'],'DEFLECTION')
         mid=fixture_preference(dict(b,theta=['0','0']),**args)
-        self.assertEqual(mid['decision'],"REVIEW")
+        self.assertEqual(mid['decision'],'REVIEW')
     def test_external_infinitesimal_anchor_is_separate(self):
         # Published homogeneous static mode III: R²=1/3. Synthetic sin² law.
         self.assertLess(Q(19,25)**2,Q(4,3))  # corner W=2
@@ -84,19 +84,19 @@ class FrontTests(unittest.TestCase):
         a=self.cells();b=self.cells(('1/2','5/2'))
         for key in ('gp','gd','gamma_layer','gamma_interface'):
             self.assertEqual(sum(Q(c[key][0]) for c in a),sum(Q(c[key][0]) for c in b))
-        self.assertEqual(self.call(a)['decision'],"DEFLECTION")
+        self.assertEqual(self.call(a)['decision'],'DEFLECTION')
         r=self.call(b);self.assertEqual(r['decision'],'UNCERTAIN');self.assertTrue(r['mixed_front'])
-        self.assertEqual(r['area_fractions'],{"REVIEW":'1/2',"DEFLECTION":'1/2','UNCERTAIN':'0'})
+        self.assertEqual(r['area_fractions'],{'REVIEW':'1/2','DEFLECTION':'1/2','UNCERTAIN':'0'})
     def test_unknown_coupling_and_coverage(self):
         for kw in (dict(independent_strips=False),dict(front_complete=False)):
             self.assertEqual(self.call(**kw)['decision'],'UNCERTAIN')
     def test_bounded_coupling_and_boundary(self):
-        self.assertEqual(self.call(independent_strips=False,coupling_margin_bound='1/4')['decision'],"DEFLECTION")
+        self.assertEqual(self.call(independent_strips=False,coupling_margin_bound='1/4')['decision'],'DEFLECTION')
         self.assertEqual(self.call(independent_strips=False,coupling_margin_bound='1/2')['decision'],'UNCERTAIN')
     def test_refinement_preserves_parent_enclosure(self):
         parent={k:self.cells()[0][k] for k in ('gp','gd','gamma_layer','gamma_interface')}
         parent['gd']=['1/2','5/2']
-        self.assertEqual(self.call(parent_enclosures=parent)['decision'],"DEFLECTION")
+        self.assertEqual(self.call(parent_enclosures=parent)['decision'],'DEFLECTION')
         parent['gd']=['1/2','1'];
         with self.assertRaises(ValueError):self.call(parent_enclosures=parent)
     def test_bad_cells(self):

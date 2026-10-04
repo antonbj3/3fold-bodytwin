@@ -103,10 +103,10 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / 'LOAD_PATH_V1.json').write_text(json.dumps(summary, indent=1, ensure_ascii=False))
 
-    print(f"  styvhet {K_DISC_N_PER_MM} +/- {K_DISC_SD} N/mm "
-          f"({100*K_DISC_SD/K_DISC_N_PER_MM:.1f} %), facettandel {FACET_FRACTION} "
-          f"({FACET_FRACTION[1]/FACET_FRACTION[0]:.1f}x spann)\n")
-    print(f"  {'last N':>8s} {'displacement mm':>26s} {'bredd':>8s} {'facett':>8s} {'styvhet':>8s} {'kvot':>6s}")
+    print(f"  stiffness {K_DISC_N_PER_MM} +/- {K_DISC_SD} N/mm "
+          f"({100*K_DISC_SD/K_DISC_N_PER_MM:.1f} %), facet fraction {FACET_FRACTION} "
+          f"({FACET_FRACTION[1]/FACET_FRACTION[0]:.1f}x span)\n")
+    print(f"  {'load N':>8s} {'displacement mm':>26s} {'width':>8s} {'facet':>8s} {'stiffness':>8s} {'ratio':>6s}")
     for r in rows:
         print(f"  {r['load_N']:>8.0f} "
               f"{f'{r[chr(100)+chr(105)+chr(115)+chr(112)+chr(108)+chr(97)+chr(99)+chr(101)+chr(109)+chr(101)+chr(110)+chr(116)+chr(95)+chr(108)+chr(111)+chr(119)+chr(95)+chr(109)+chr(109)]}-{r['displacement_high_mm']}':>26s} "

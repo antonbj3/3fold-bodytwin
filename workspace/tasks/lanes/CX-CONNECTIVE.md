@@ -13,7 +13,7 @@ Background: `python3 ~/projects/bodytwin/scripts/anchor_graph_tools.py --graph d
 - Field's cartilage contact U384 `cartilage_contact(R,t,E,ν,δ)` (64/64 within 2 % of FE, not audited): `../3fold-motion-engine/_private/romi_collab/build/U384/code/` (contact_api.py, regime.py, poroelastic.py). Use it via an adapter with a source reference, only in its valid regime.
 
 ## Facit (public)
-- Look for cadaver knee data with ligament forces and cartilage contact, starting with Open Knee(s) (SimTK). The lane runner sandbox has network access. Also check local datasets (`tasks/index/DATASETS.json`, grep openknee/ligament/cadaver). Download to `external_media` and record the source + licence.
+- Look for cadaver knee data with ligament forces and cartilage contact, starting with Open Knee(s) (SimTK). The lane_runner sandbox has network access. Also check local datasets (`tasks/index/DATASETS.json`, grep openknee/ligament/cadaver). Download to `external_media` and record the source + licence.
 - Literature values with DOI for tendon/ligament stiffness and cartilage thickness/modulus.
 
 ## Tasks (PREREG.md + sha256 first)
@@ -22,4 +22,4 @@ Background: `python3 ~/projects/bodytwin/scripts/anchor_graph_tools.py --graph d
 3. **Connect** it to the knee chain: does the module change L1's early-stance overestimate (A312: +0.7–1.0 BW) or the medial/lateral split (compare with the F-8 facit only through Field's sealed procedure — do not open eTibia yourself)?
 4. Update the graph node's claim/evidence as a proposal in `results/CX-CONNECTIVE/GRAPH_UPDATE.md`. Do not write in the graph (read-only).
 
-Resources: lane runner has full permissions in the workspace. Internal TLEM/the collaborator data stays local or on OVH. Write in `results/CX-CONNECTIVE/`. `RESULTS.md` starting with `# CX-CONNECTIVE`, plus results.json and code with pytest.
+Resources: lane_runner has full permissions in the workspace. Internal TLEM/the collaborator data stays local or on OVH. Write in `results/CX-CONNECTIVE/`. `RESULTS.md` starting with `# CX-CONNECTIVE`, plus results.json and code with pytest.

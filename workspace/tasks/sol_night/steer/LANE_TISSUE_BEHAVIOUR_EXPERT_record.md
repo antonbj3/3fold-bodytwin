@@ -1,21 +1,21 @@
-# Direction — round 1 (coordinator, 2/10 21:30)
+# Control — round 1 (the coordinator, 2/10 21:30)
 
-New lane in a Sol wave. Anton 2/10: "it is up to you to fix all this and make it work, you know the goal is comparative improvement". The wave builds connections; it revises no numbers.
+New lane in a Sol wave. Anton 2/10: "it's up to you to fix all this and make it work, you know the goal is comparative improvement". Libra builds connections; it does not revise numbers.
 
-Read the lane brief in `tasks/lanes/` for the task. These are the additions that apply to all lanes in the wave.
+Read the lane letter in `tasks/lanes/` for the mission. These are the additions that apply to all lanes in the wave.
 
 ## The graph engine is now in the cloud
-It is at `/opt/agents/graph_engine` on both cloud hosts, with the quoted path symlinked there, pinned commit `352c6d3`. Import via the path is verified. **Do not reimplement it** — four jobs today did so silently because it was missing, and one gave a result I had to qualify because its "engine" was its own rewrite.
+It resides at `/opt/agents/graph_engine` on both cloud hosts, with the quoted path symlinked to it, pinned commit `352c6d3`. Import via the path is verified. **Don't reimplement it** — four jobs today killed it because it was missing, and one of them gave a result I had to qualify because its "engine" was its own rewrite.
 
 ## Five error classes that cost us today, each with its price
-1. **Wrong regime.** A requirement was calculated as flux = k_cat × N, i.e. saturated, and compared against a value in the linear regime where clearance = V_max/K_m. The factor was over a hundred and it rejected today’s largest claim. State which regime and denominator every number belongs to before comparing.
-2. **Pooled is not paired.** A gap of 2,9–9,1× turned out to be a 2,17–7,76× cohort artifact because amount and activity came from different individuals.
-3. **Structural absence is not independence.** 25 of 27 anchors did not change sign under a physiological modifier — because the modifier was not even a port in the model. Label such things untested, never robust.
-4. **Prediction is not measurement.** A field with *conditional* in its name was read as measured, by me. Label every number MEASURED or DERIVED.
-5. **A verdict nobody reads is worthless.** Four instances today. Every verdict you produce should have a test that FAILS if a consumer ignores it.
+1. **Wrong regime.** A requirement was calculated as flow = k_cat × N, i.e. saturated, and compared against a value in linear regime where clearance = V_max/K_m. The factor was over a hundred and it brought down the biggest claim of the day. Say what regime and denominator each number is in before comparing.
+2. **Poolate is not paired.** A gap of 2,9–9,1× was found to be 2,17–7,76× cohort artifact of quantity and activity coming from different individuals.
+3. **Structural absence is not independent.** 25 of 27 anchors did not reverse sign under a physiological modifier — because the modifier was not even a port in the model. Brand such untested, never robust.
+4. **Prediction is not measurement.** A field with *conditional* in the name was read as measured, by me. Label each number MEASURED or HELD.
+5. **A verdict no one reads is worthless.** Four instances today. Every verdict you produce should have a test like FALLER if a consumer ignores it.
 
 ## Missing file
-`missing_prerequisite` in the FIRST paragraph of RESULTS.md, not a footnote. Never silently reconstruct a missing input — four jobs did that today and one produced an incorrect headline that I amplified further.
+`missing_prerequisite` in the FIRST paragraph of RESULTS.md, not in a footnote. Never silently reconstruct a missing input — four jobs did that today and one produced an incorrect header that I amplified further.
 
 Everything PENDING_INDEPENDENT_REVIEW. No internal data leaves the machine.
 

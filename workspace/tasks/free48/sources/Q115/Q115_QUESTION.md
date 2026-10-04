@@ -16,7 +16,7 @@
 
 **Outputs:** villus and crypt area, mm²; cell age distribution, cells; renewal time and barrier conductance, day and mS/cm² respectively
 
-**Reuse:** No direct code anchor mapped in this limited review.
+**Reuse:** No direct code anchor mapped in this bounded review.
 
 **Next work/data:** No villus, crypt or renewal model exists among the exact anchors in the supplied excerpt.
 

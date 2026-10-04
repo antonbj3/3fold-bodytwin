@@ -91,10 +91,10 @@ try:
     L.append(f'Yttre facit LEVERERAT (results.json, 2 h): {_ok} av {len(_done)} — ' + ', '.join(f'{k} {v}' for k,v in _d.most_common()))
 except Exception as _e:
     L.append(f'Delivered reference observations: could not be measured ({type(_e).__name__})')
-# 2/10 21:10 (anton-5f): etiketten omdopt. 'Okorsade par' raknar par som aldrig NAMNTS ihop i nagot
+# 2/10 21:10 (anton-5f): label renamed. 'Uncrossed pairs' refers to pairs that are never NAMED together in anything
 # job's key list, which is not the same as them being able to JAMFORAS. An integration job in math
 # pain that 900 of 903 couple of years UNDECIDED therefore that 40 of 43 families do not get their artifacts in
-# inputs/, medan den har raden samtidigt sa '0 par aldrig namnda ihop, av 903'. Jag laste det som full tackning
+# inputs/, while it has the line at the same time said '0 pair never named together, by 903'. I loaded it as full thanks
 # and quoted it further. The line must say what it matters.
 L += ['', '## Nyckelpar som aldrig NAMNTS ihop (ej samma sak som jamforbara)', '']
 # Keys from new constructive results; pairs that have never occurred together in any job in STATE.json.

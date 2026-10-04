@@ -15,4 +15,4 @@ Leads:
 4. Patella: compare the model's patellar tendon moment arm against Krevolin 2004 and other DOI sources over 0–100°. If the shape is wrong (peak at 0°), test a patella tracking that follows the femoral groove from the individual geometry. Report the effect on the quadriceps strength curve (CX-SLACK's held-out 90°/s) and on knee force.
 5. Counter-tests: another person's transform, and permuted landmarks.
 
-Resources: lane runner has full permissions. TLEM/restricted model data stays local or on OVH. Locally: nice, 2 threads. Write in `results/CX-CT2MARKER/`. `RESULTS.md` starting with `# CX-CT2MARKER`, plus results.json and code with pytest.
+Resources: lane_runner has full permissions. TLEM/restricted model data stays local or on OVH. Locally: nice, 2 threads. Write in `results/CX-CT2MARKER/`. `RESULTS.md` starting with `# CX-CT2MARKER`, plus results.json and code with pytest.

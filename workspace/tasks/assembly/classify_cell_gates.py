@@ -87,12 +87,13 @@ def main() -> None:
     (out / 'CLASSIFICATION.json').write_text(json.dumps(
         {'n_cells': len(rows), 'counts': counts, 'rows': rows,
          'review_state': 'PENDING_INDEPENDENT_REVIEW'}, indent=1, ensure_ascii=False))
-    print(f'celler: {len(rows)}   {counts}')
-    print(f"need distribution gate: {sum((r['needs_distribution_gate'] for r in rows))}")
+    print(f'cells: {len(rows)}   {counts}')
+    print(f'needs distribution gate: {sum(r["needs_distribution_gate"] for r in rows)}')
     print()
     for r in rows:
         if r['needs_distribution_gate']:
-            print(f"  {r['cell']:<26} {r['gate_kind']:<22} band={r['band_hits']} skalar={r['scalar_hits']}  {r['criterion_source'][:28]}")
+            print(f'  {r["cell"]:<26} {r["gate_kind"]:<22} '
+                  f'band={r["band_hits"]} scalar={r["scalar_hits"]}  {r["criterion_source"][:28]}')
     print('wrote', out / 'CLASSIFICATION.json')
 
 

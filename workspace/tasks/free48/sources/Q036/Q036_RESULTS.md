@@ -1,6 +1,6 @@
 BT-HX-Q036
 
-# Resultat
+# Results
 
 ## Core answer
 
@@ -13,7 +13,7 @@ The first executable model states that the early reperfusion response cannot be 
 
 It is this coherent state that the model tests. The primary predicted quantity is `DeltaF15 = F15 - Fpre`: the full model is predicted to give a negative value, while flow-only is predicted to give zero. Inflammation is not included in the first resolution, because the question concerns early response and the mechanical chain can be described without an inflammation compartment. No measurement data has been used to calibrate any parameter.
 
-## Reproduktion
+## Reproduction
 
 - `PREREG.md` and `PREREG.sha256` were created before the first run; final hash is `1042448a06adcbf76e41cea35a367b537d884c7e25e134a9a81aed0e69eb0885`.
 - `python3 model.py --output results.json` runs the pre-registration hash check and writes `results.json`.
@@ -104,22 +104,22 @@ The full table of value, unit, source and assumption is in `model.py` (`PARAMETE
 
 | Parameter | Value | Unit | Source/Assumption |
 |---|---:|---|---|
-| `q_art` | 1.0 | normalised flow [1] | definition |
-| `q_ischemia` | 0.01 | normalised flow [1] | E1, approximately 1% of baseline during ischaemia |
-| `tau_flow` | 0.35 | min | assumption |
-| `k_oxygen_on` | 1.20 | min^-1 | assumption |
-| `k_oxygen_use` | 0.70 | min^-1 | assumption |
-| `vmax_resp` | 0.12 | min^-1 | assumption |
-| `km_oxygen` | 0.20 | normalised oxygen [1] | assumption |
-| `gmax` | 0.055 | min^-1 | assumption |
-| `k_ca_influx` | 0.035 | min^-1 | assumption |
-| `k_ros_reox` | 0.180 | min^-1 | assumption |
-| `k_mptp_open` | 0.450 | min^-1 | assumption |
-| `k_mptp_close` | 0.160 | min^-1 | assumption |
+| `q_art` | 1.0 | normalized flow [1] | definition |
+| `q_ischemia` | 0.01 | normalized flow [1] | E1, approximately 1% of baseline during ischemia |
+| `tau_flow` | 0.35 | min | antagande |
+| `k_oxygen_on` | 1.20 | min^-1 | antagande |
+| `k_oxygen_use` | 0.70 | min^-1 | antagande |
+| `vmax_resp` | 0.12 | min^-1 | antagande |
+| `km_oxygen` | 0.20 | normaliserat syre [1] | antagande |
+| `gmax` | 0.055 | min^-1 | antagande |
+| `k_ca_influx` | 0.035 | min^-1 | antagande |
+| `k_ros_reox` | 0.180 | min^-1 | antagande |
+| `k_mptp_open` | 0.450 | min^-1 | antagande |
+| `k_mptp_close` | 0.160 | min^-1 | antagande |
 | `k_no_reflow` | 1.35 | dimensionless | assumption, direction supported by E1 |
-| `k_injury` | 0.008 | min^-1 | assumption |
-| `k_edema` | 0.004 | min^-1 | assumption |
-| `tau_function` | 0.650 | min | assumption |
+| `k_injury` | 0.008 | min^-1 | antagande |
+| `k_edema` | 0.004 | min^-1 | antagande |
+| `tau_function` | 0.650 | min | antagande |
 
 The unit test in `check_units()` verifies that each parameter has a registered unit and that each ODE-term has the time unit `min^-1` or an expression that explicitly has `/min`. `results.json` contains the full control and `unit_consistent=true`.
 
@@ -139,11 +139,11 @@ The default case is 5 minutes pre-ischemia, 90 minutes `q_ext=0.01`, and 30 minu
 
 | Condition | q | o | A | C | M | F |
 |---|---:|---:|---:|---:|---:|---:|
-| pre-ischemi | 1.0000 | 0.9423 | 1.0000 | 1.0000 | 0.0000 | 1.0000 |
-| ischemi slut | 0.00063 | 0.00063 | 0.0000 | 2.7895 | 0.6717 | 0.0000 |
+| pre-ischemia | 1.0000 | 0.9423 | 1.0000 | 1.0000 | 0.0000 | 1.0000 |
+| ischemia slut | 0.00063 | 0.00063 | 0.0000 | 2.7895 | 0.6717 | 0.0000 |
 | reperfusionsstart | 0.00063 | 0.00063 | 0.0000 | 2.7895 | 0.6717 | 0.0000 |
-| 15 min efter release | 0.06594 | 0.06561 | 0.0000 | 2.4218 | 0.6654 | 0.0000 |
-| 30 min efter release | 0.07077 | 0.07055 | 0.0000 | 2.2425 | 0.6600 | 0.0000 |
+| 15 min after release | 0.06594 | 0.06561 | 0.0000 | 2.4218 | 0.6654 | 0.0000 |
+| 30 min after release | 0.07077 | 0.07055 | 0.0000 | 2.2425 | 0.6600 | 0.0000 |
 
 At 15 minutes the full model flow is only 6.59% of the baseline, which is a mechanical result and not a claimed measurement. mPTP remains high despite external reperfusion schedule, and function reaches zero. This is a stark 90 minute scenario, not a general forecast.
 
@@ -152,7 +152,7 @@ At 15 minutes the full model flow is only 6.59% of the baseline, which is a mech
 - `flow_only` keeps metabolic states healthy but allows the same external flow chart to pass. At 15 minutes are `q=1.0000`, `A=1.0000`, `M=0.0000`, `D=0.0000`, `E=0.0000` and `F=1.0000`. Flow alone cannot therefore create the model's damage.
 - `mptp_blocked` uses 85% mPTP opening blocking. At 15 minutes `q=0.6768` , `o=0.6646` , `C=1.1774` , `M=0.1590` , `D=0.2970` , `E=0.3760` and `F=0.0646` . The difference to the full model is a mechanistic control outcome, not a clinical NIM-811 effect.
 
-### Fryst kriterium
+### Frozen criterion
 
 `results.json` specifies `all_passed=true` for all frozen controls:
 

@@ -3,7 +3,7 @@ import argparse, collections, fcntl, hashlib, json, os, shutil, subprocess, time
 from pathlib import Path
 from route_runtime import choose_free_models,apply_route,run_guarded,reserve_slot
 ROOT=Path('/opt/agents')
-MODELS={'reserve_worker':'opencode-go/reserve_worker-v4.1-flash','swarm':'opencode/space-swarm-free','free_worker':'opencode/free_worker-2.5-preview-free'}
+MODELS={'swarm_worker':'opencode-go/swarm_worker-v4.1-flash','swarm':'opencode/space-swarm-free','swarm_worker':'opencode/swarm_worker-2.5-preview-free'}
 def select(label, requested, directory):
     return reserve_slot(label,requested,directory)
 def environment(label,model,directory,web=False):

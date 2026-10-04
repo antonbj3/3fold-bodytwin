@@ -12,4 +12,4 @@ Background: A1775 CX-HYBRID. Predictor (c) = w·N1g + (1−w)·(lo_q + c(phase))
 - Report per activity group as well, including JW separately, and with a result excluding JW labelled as a SECONDARY analysis. JW's exclusion is justified by A1777 (the L1 arm is broken), but it must not be the primary result.
 - Control: lo_q time-shifted by half a load window must lose the gain.
 
-Reuse results/CX-HYBRID (score.py), results/CX-QUADARM/geometry.py, and bodytwin_core/contact_band_batch.py. Runtime ≤ 60 min, 2 threads under bigmem.lock, at most 200 MB of intermediate files. Deliver RESULTS.md starting with `# CX-HYBRIDOOS` and results.json. Internal data stays local; no jw_lungef1. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+Reuse results/CX-HYBRID (score.py), results/CX-QUADARM/geometry.py, and bodytwin_core/contact_band_batch.py. Runtime ≤ 60 min, 2 threads under bigmem.lock, at most 200 MB of intermediate files. Deliver RESULTS.md starting with `# CX-HYBRIDOOS` and results.json. Internal data stays local; no jw_lungef1. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

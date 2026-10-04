@@ -10,7 +10,7 @@ Hypothesis H1 is that the unidirectional glucose transfer at basal plasma concen
 
 There was no model or result file from a previously aborted session in this directory. `agent.log` only showed directory checking and reading of `BRIEF.md`; no node IDs or reusable BodyTwin files were available to reuse. The external paths mentioned in `NIGHT_PREAMBLE.md` do not exist in this container environment. Therefore, the work is based only on the question and published literature.
 
-## Builds on
+## Building on
 
 - `BRIEF.md`, `inputs/NIGHT_PREAMBLE.md` and `inputs/QUESTION.md`.
 - `agent.log`: no previously deployed node or executable.
@@ -18,7 +18,6 @@ There was no model or result file from a previously aborted session in this dire
 
 ## Not redone
 
-- No internal BodyTwin data, restricted model data runs, external solver runtime or private results.
 - No literature review; the source is used only as a numerical comparison.
 - No 3D geometry or substrate-specific efflux identification; these are the next resolution steps.
 

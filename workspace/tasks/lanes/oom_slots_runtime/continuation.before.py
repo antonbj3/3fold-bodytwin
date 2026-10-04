@@ -25,15 +25,15 @@ if events.exists():
    if row['time']>state['last_rate']:fresh.append(row)
   except (ValueError,KeyError):pass
 with (root/'rate_policy.lock').open('a') as lock:
- fcntl.flock(lock,fcntl.LOCK_EX);policy=json.loads(p.read_text());cap=policy.get('bunny_active_cap',4);now=time.time()
+ fcntl.flock(lock,fcntl.LOCK_EX);policy=json.loads(p.read_text());cap=policy.get('swarm_active_cap',4);now=time.time()
  productive=sum(w['selected']=='swarm' and w['tool_calls']>0 and not w['network_errors'] and w['log_age_s']<600 for w in status['workers'])
  if fresh:
   cap=max(2,cap//2);state.update(last_rate=max(x['time'] for x in fresh),last_change=now)
-  policy['bunny_backoff_until']=max(policy.get('bunny_backoff_until',0),now+1800)
- elif now>=policy.get('bunny_backoff_until',0) and now-state['last_change']>=180 and productive>=max(1,cap//2) and status['memory_available_mib']>=RESERVE:
+  policy['swarm_backoff_until']=max(policy.get('swarm_backoff_until',0),now+1800)
+ elif now>=policy.get('swarm_backoff_until',0) and now-state['last_change']>=180 and productive>=max(1,cap//2) and status['memory_available_mib']>=RESERVE:
   cap=min(CEILING,cap+STEP);state['last_change']=now
- policy['bunny_active_cap']=cap;p.write_text(json.dumps(policy,indent=2)+'\\n')
-state.update(time=time.time(),cap=cap,productive_bunny=productive,cooldown_until=policy.get('bunny_backoff_until',0),active=status['active_workers'],models=status['by_model'],memory_mib=status['memory_available_mib'])
+ policy['swarm_active_cap']=cap;p.write_text(json.dumps(policy,indent=2)+'\\n')
+state.update(time=time.time(),cap=cap,productive_swarm=productive,cooldown_until=policy.get('swarm_backoff_until',0),active=status['active_workers'],models=status['by_model'],memory_mib=status['memory_available_mib'])
 statefile.write_text(json.dumps(state,indent=2)+'\\n');print(json.dumps(state))
 '''.replace('STATUS_CODE',repr((A/'HOME_EGRESS/worker_status.py').read_text())).replace('RESERVE',str(4096 if host=='ovh' else 1300)).replace('CEILING',str(42 if host=='ovh' else 10)).replace('STEP',str(3 if host=='ovh' else 1))
  return json.loads(operations.remote(host,code))
@@ -96,7 +96,7 @@ def main():
   events=A/'MODEL_BACKOFF/SWARM_RATE_EVENTS.jsonl'
   if events.exists():
    rows=[json.loads(x) for x in events.read_text().splitlines()[-100:]]
-   if rows:data['bunny_until']=max(data.get('bunny_until',0),max(x['time'] for x in rows)+1800)
+   if rows:data['swarm_until']=max(data.get('swarm_until',0),max(x['time'] for x in rows)+1800)
   save(policy,data);save(R/'CONTINUATION_STATUS.json',state);print(json.dumps(state))
 
 if __name__=='__main__':main()

@@ -2,7 +2,7 @@ BT-DAT-Q031
 
 # Public measured datasets that constrain the Q031 model
 
-## Kort svar
+## Short answer
 
 Nine public, measured datasets mapped; a sample was downloaded and read. All nine are freely available
 without a login, and seven of the nine are CC0-1.0. `PREREG.md` was frozen before the search,
@@ -25,7 +25,7 @@ covers 1 µF/cm² but as a narrow lower corner, not as a typical value.
 to which Q031's reference anchor applies. The measurement limits a *generic* membrane
 capacitance value. It does not validate the Q031 model and is not counted as such.
 
-## Provet som laddades ner
+## The sample that was downloaded
 
 `samples/Pogoda_PNAS2018_DataSource_20160830.xlsx`, **257 130 B** (≤ 50 MB, frozen limit).
 md5 `e408dd94073a9b46b3f48caa3f1ac1f8` = registered checksum in the repository;
@@ -103,7 +103,7 @@ basis (`membrane_capacitance_F_m2`, `initial_volume_m3` , `area_to_volume_initia
 4. Redo the download for S7 if `.opj` can be read; it is the only way to an osmotic
    time series of simultaneous ion signal found.
 
-## Filer
+## Files
 
 `PREREG.md` + `PREREG.sha256` (frozen before the search) · `DATA_SOURCES.json` · `results.json`
 · `results_sample_load.json` · `samples/Pogoda_PNAS2018_DataSource_20160830.xlsx`

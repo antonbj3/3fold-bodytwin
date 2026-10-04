@@ -10,14 +10,14 @@ This document builds on `MECHANISM_TRANSFER_INVENTORY.md` (O5) and does not repe
 
 Counts and sizes come from `find -maxdepth 6` per directory and `du` on selected directories. **Not accessible:**
 
-- `external_media Volume` (sdb2): FUSE-avbrott, *Transport endpoint is not connected*. `~/datasets` pekar dit.
+- `external_media Volume` (sdb2): FUSE interruption, *Transport endpoint is not connected*. `~/datasets` points there.
 - `external_mount`.
 - `external_mount`: linux_data.img is not mounted and contains football_pose_v1.
 - INTENSO sdb1: not connected.
 
 We make no statements about the contents there.
 
-## 1. Inventering per kluster
+## 1. Inventory per cluster
 
 | Cluster | What | Source / license | Scope | Code | Reports (key numbers) | Status | BodyTwin relevance |
 |---|---|---|---|---|---|---|---|
@@ -36,7 +36,7 @@ We make no statements about the contents there.
 | C12 Own filming / personal | `sdc1-tmp/PERSONAL`, `Osorterat/Videos`, `8838…/Users`, `Foton-Xiaomi`, `lite random videos`, `~/captures` | **Personal data**; only path and volume | 109 / 51 / 130 / – / 21 / 3 videos | – | – | – | Not used. No own lab filming with a reference |
 | C13 Not body-relevant | Courses (1848 videos, 134 GB), cad_course_corpus CAD tutorials (687, 19,4 GB), cs_video physics/optics (274, 21,7 GB), film, sharp_football | – | – | – | – | – | None |
 
-## 2. Byggstenar som saknas i BodyTwin
+## 2. Building blocks missing in BodyTwin
 
 In `references/current_bodytwin`, there is no code for camera, video, pose or movement. In `~/projects/bodytwin/scripts/msk`, the following are missing:
 
@@ -53,7 +53,7 @@ The full decomposition (idea → mechanism → equation → operation → repres
 
 | # | Candidate | Domain coupling | Equation / operation | Unlocks | First experiment: hypothesis · baseline · countertest · falsified if | Cost |
 |---|---|---|---|---|---|---|
-| 1 | **K-A: uncertainty of the joint centre → the collaborator's \|R\|** | Camera twins and markers → the collaborator-kedjan (K1) | e = R_pelvis·(p_video − p_ref); ΔR/R = f_K1(e) | the collaborator's most sensitive leaves receive a measured error distribution instead of an assumption | Median \|ΔR/R\| > 10 % · marker regression through the same K1 · permutera axlar/personer · < 5 % with extended grid | Low. **Smoked** |
+| 1 | **K-A: joint-center uncertainty → the collaborator's \|R\|** | Camera twin and markers → the collaborator chain (K1) | e = R_pelvis·(p_video − p_ref); ΔR/R = f_K1(e) | the collaborator's most sensitive leaf gets a measured error distribution instead of an assumption | Median \|ΔR/R\| > 10 % · marker regression through the same K1 · permute axes/people · < 5 % with an extended grid | Low. **Smoke-tested** |
 | 2 | K-B: video-COM → vertical GRF | Humanoid simulation (momentum-GRF) → actual video → force plate | F_z = M(g + c̈_COM), c = Σ m_i c_i / M with de Leva fractions or `region_mass_v1` | Ground reaction without a force plate for jumping, squats and rising | MAE < 15 %BW in DJ/squat · F = Mg and the same estimator on mocap · time shift 0,2 s + wrong person's mass · does not beat Mg in DJ | Low |
 | 3 | K-C: gait events from video | Sports tracking → gait events | Zeni: HS = argmax (heel − pelvis)·v̂; reference F_z > 20 N | %GC clock without a force plate; makes C2/C4 video analyzable per cycle | \|error\| < 30 ms HS, < 50 ms TO · Zeni on mocap · half-cycle shift · HS error > 50 ms | Low |
 | 4 | K-D: segment length → mass/inertia with σ | Video QC (leg-length CV) → scaling | σ_I/I ≈ √((σ_m/m)² + (2σ_L/L)²) | Individual scaling in `uncertainty_v1` | \|bias\| < 10 mm, CV < 3 % · L = 0,245·H · permute people · does not beat height regression | Low |
@@ -85,7 +85,7 @@ The run used CPU with one thread, at most 130 MB RSS and about 6 minutes. The so
 | Fraction outside K1's ±10 mm on at least one axis | 96 % | 96 % |
 | Best configuration | OpenPose_highAccuracy with 5 cameras, 35,6 mm | – |
 
-Tolkning:
+Interpretation:
 
 - **Video-HJC is not sufficient as input to the collaborator's chain.** The systematic error is about twice K1's largest tested shift. According to K1, −10 mm anteriorly already gives +22 % \|R\|.
 - **The K1 translation is not interpretable yet.** The clipped sum, about 0,116, consists of +0,220 and −0,126 that partly cancel. K1 L1 must be rerun with ±40 mm.
@@ -97,7 +97,7 @@ Tolkning:
   2. Run K1 with the HJC distributions (video, regression and reference) as Monte Carlo.
   3. Add a functional HJC (sphere fitting on thigh markers across movement) as a third marker method.
 
-## 5. Auditnoteringar
+## 5. Audit notes
 
 - `bodytwin/reports/probes/markerless_vs_marker_validation.json`, G4, passes the gate only thanks to 5 % tolerance. Median RMSE **increases** from 4,651 to 4,807 and 4,971° with 2, 3 and 5 cameras.
 - The number "4,0–5,5° against mocap" for video2kin in `MECHANISM_MOVEMENT_BASELINE_CORPUS.md` has no JSON source that we have found.

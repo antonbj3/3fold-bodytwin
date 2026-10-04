@@ -1,13 +1,12 @@
 # Night 24/9 — common entrance for all BodyTwin missions (goal: comparison with published references before the collaborator Friday 25/9 13:00)
 
-Tavla: the collaborator'its own objectives: `notes/COLLABORATOR_REQUIREMENTS_AND_SOFTWARE.md` §0. Register: `notes/RESULTS_INDEX.md`. Kartor: `results/MAP2/*/overlap.tsv`, `SUMMARY.md`.
+Board: the collaborator's own goals: `notes/COLLABORATOR_REQUIREMENTS_AND_SOFTWARE.md` §0. Registry: `notes/RESULTS_INDEX.md`. Maps: `results/MAP2/*/overlap.tsv`, `SUMMARY.md`.
 
 0. **Direction (Anton 24/9 13:0x):** innovate across the board — best in the world in every part, even what doesn't exist yet. the collaborator/the reference model is one of several references, not the guiding tool: prioritize according to value and breakthrough potential, not according to similarity to the collaborator's publications. What impresses the collaborator must be a side effect.
 1. **Start in existing work.** Before design: grep in `~/projects/bodytwin/data/MECHANISM_ANCHOR_GRAPH.json` (claim/notes/scripts), `~/projects/bodytwin/scripts/msk/` (filename + docstrings + content), `~/projects/bodytwin/docs/MECHANISM_*`, `~/projects/bodytwin/bt_memory/` and `results/<id>/` of the day mentioned in your brief. NOTE: `tool_find.py`/`capability_index.py` index cad-to-simulation-I, not BodyTwin — grabbed directly. In PREREG.md write a section "Builds on" with the node id and files, and "Not redone" (whatever you deliberately reuse).
 2. **Mandatory null models** (night showed that simple baselines beat musculoskeletal models): hip/knee/back — BT-B24 (body weight × OrthoLoad median) AND N12's N1 (k·|GRF|, k adjusted for other subjects). A BodyTwin joint power claim only counts if it beats both.
 3. **PREREG.md + PREREG.sha256 before first run**: hypothesis, conclusion, criteria with numbers, counter test (null model/placebo), what counts as error.
 4. **Resources**: `nice -n 19`, Wire Roof 4; job ≥ 8 GB RAM or GPU via `tasks/heavy_run.sh`; large intermediate results on `external_media<id>/` or `external_mount<id>/`; never `pgrep -f`, never `nvidia-smi -q`; no `import *` from other agents' code (copy function with source reference); read-only in `~/projects/bodytwin` and other source repos; just write under `results/<id>/`.
-5. Inga mail, ingen publicering, inga pushar, inget external-solver runtime/Wine, inga egna underagenter. restricted model data/the collaborator's data/LHDL internt.
 6. Final answer ≤ 300 words: what was built on, key figures with file, what failed, what the next step is. Type RESULTS.md/README.md in your folder if the harness allows; otherwise everything in the answer.
 
 ## 7. Cloud and data (AFTER THE CRASH 00:55: all numerics > 60 s or > 1 GB goes to the cloud — no local batch/LOSO/sweeps; locally only model clients and short samples) (Anton 00:15: "kitchen sink — use cloud resources and local data")

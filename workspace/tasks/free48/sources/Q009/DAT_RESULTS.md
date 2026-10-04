@@ -81,7 +81,7 @@ and no calibration or validation is claimed.
 4. If no such dataset exists openly, it should be stated as a lasting data-gap
    state for Q009, not as a search failure.
 
-## Filer
-`PREREG.md` (frozen, sha256 i `PREREG.sha256`), `DATA_SOURCES.json`, `results.json`,
-`samples/` (14 filer), `scripts/fetch_ncats_adme.py`, `scripts/fetch_pmc_samples.py`,
+## Files
+`PREREG.md` (frozen, sha256 in `PREREG.sha256`), `DATA_SOURCES.json`, `results.json`,
+`samples/` (14 files), `scripts/fetch_ncats_adme.py`, `scripts/fetch_pmc_samples.py`,
 `scripts/parse_samples.py`, `scripts/build_results.py`.

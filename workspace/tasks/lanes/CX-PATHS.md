@@ -26,4 +26,4 @@ Common factor: L1's muscle paths are straight lines without wrapping, on TLEM ge
 4. Counter-tests: permuted wrap parameters and another person's bone.
 5. Criterion for "the root cause is the paths": (b) or (c) lowers the moment-arm RMSE vs the literature by ≥ 30 % AND the held-out strength curve by ≥ 30 %. Symmetric skepticism.
 
-Resources: lane runner has full permissions. Internal TLEM data stays local or on OVH (`tasks/cloud_run.sh`, BodyTwin ≤ 12 vCPU, finish by 22:45). Locally: nice, 2 threads. Write in `results/CX-PATHS/`. `RESULTS.md` starting with `# CX-PATHS`, plus results.json and code with pytest.
+Resources: lane_runner has full permissions. Internal TLEM data stays local or on OVH (`tasks/cloud_run.sh`, BodyTwin ≤ 12 vCPU, finish by 22:45). Locally: nice, 2 threads. Write in `results/CX-PATHS/`. `RESULTS.md` starting with `# CX-PATHS`, plus results.json and code with pytest.

@@ -4,343 +4,343 @@
       "q_art": {
         "value": 1.0,
         "unit": "normalized flow [1]",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; definition",
-        "scope": "Pre-ischemic arterial oxygen-delivery reference; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Pre-ischemic arterial oxygen-delivery reference; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "q_ischemia": {
         "value": 0.01,
         "unit": "normalized flow [1]",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; literature_anchor",
-        "scope": "El Baradie 2021 Results/Fig. 2-3: approximately 1% of baseline during ischemia; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "El Baradie 2021 Results/Fig. 2-3: approximately 1% of baseline during ischemia; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "tau_flow": {
         "value": 0.35,
         "unit": "min",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "First-order regional-flow relaxation; not a measured rate; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "First-order regional-flow relaxation; not a measured rate; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_no_reflow": {
         "value": 1.35,
         "unit": "dimensionless",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Injury-dependent conductance loss; direction supported by early no-reflow anchor; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Injury-dependent conductance loss; direction supported by early no-reflow anchor; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_edema_flow": {
         "value": 0.35,
         "unit": "dimensionless",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Additional flow loss from edema; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Additional flow loss from edema; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_oxygen_on": {
         "value": 1.2,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "First-order oxygen availability relaxation; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "First-order oxygen availability relaxation; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_oxygen_use": {
         "value": 0.7,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Oxygen withdrawal by respiration; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Oxygen withdrawal by respiration; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "vmax_resp": {
         "value": 0.12,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Normalized oxidative phosphorylation capacity; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Normalized oxidative phosphorylation capacity; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "km_oxygen": {
         "value": 0.2,
         "unit": "normalized oxygen [1]",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Monod oxygen half-saturation; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Monod oxygen half-saturation; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "gmax": {
         "value": 0.055,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Maximal glycolytic ATP production rate; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Maximal glycolytic ATP production rate; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_gly_recovery": {
         "value": 0.01,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Flow-dependent replenishment of glycolytic substrate; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Flow-dependent replenishment of glycolytic substrate; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_atp_recovery": {
         "value": 0.008,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Flow/oxygen-dependent reserve recovery term; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Flow/oxygen-dependent reserve recovery term; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_lactate_clear": {
         "value": 0.1,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Flow washout of lactate proxy; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Flow washout of lactate proxy; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "lactate_yield": {
         "value": 5.0,
         "unit": "lactate units per ATP proxy",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Proxy yield, not a stoichiometric clinical value; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Proxy yield, not a stoichiometric clinical value; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_acid_clear": {
         "value": 0.12,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Flow washout of acidosis proxy; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Flow washout of acidosis proxy; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "acid_yield": {
         "value": 2.0,
         "unit": "acidosis units per glycolytic ATP proxy",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Proxy coupling coefficient; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Proxy coupling coefficient; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_acid_anoxic": {
         "value": 0.02,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "ATP-deficit contribution to acidosis; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "ATP-deficit contribution to acidosis; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_ca_influx": {
         "value": 0.035,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Calcium entry during low flow; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Calcium entry during low flow; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_ca_release": {
         "value": 0.012,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Calcium release coupled to energy deficit; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Calcium release coupled to energy deficit; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_ca_clear": {
         "value": 0.32,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Flow-dependent calcium extrusion; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Flow-dependent calcium extrusion; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_ca_mito": {
         "value": 0.04,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Calcium transfer associated with mPTP stress; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Calcium transfer associated with mPTP stress; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_ros_reox": {
         "value": 0.18,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Reoxygenation-associated ROS production; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Reoxygenation-associated ROS production; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_ros_mito": {
         "value": 0.12,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "ROS production from damaged mitochondria; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "ROS production from damaged mitochondria; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_ros_anoxic": {
         "value": 0.012,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "ATP-deficit-associated ROS production; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "ATP-deficit-associated ROS production; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_ros_clear": {
         "value": 0.16,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Antioxidant/flow-dependent ROS clearance; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Antioxidant/flow-dependent ROS clearance; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_mptp_open": {
         "value": 0.45,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Maximum mPTP opening rate; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Maximum mPTP opening rate; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_mptp_close": {
         "value": 0.16,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "mPTP closing rate; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "mPTP closing rate; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_ca_gate": {
         "value": 0.25,
         "unit": "normalized calcium [1]",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Hill/Michaelis-Menten gate scale; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Hill/Michaelis-Menten gate scale; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_ros_gate": {
         "value": 0.15,
         "unit": "normalized ROS [1]",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "ROS gate scale; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "ROS gate scale; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_energy_gate": {
         "value": 0.25,
         "unit": "normalized ATP deficit [1]",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "ATP-deficit gate scale; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "ATP-deficit gate scale; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_ros_priming": {
         "value": 0.35,
         "unit": "dimensionless",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Weight of ROS in the opening gate; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Weight of ROS in the opening gate; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_injury": {
         "value": 0.008,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Irreversible injury accumulation; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Irreversible injury accumulation; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_injury_repair": {
         "value": 0.01,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Flow-dependent repair/removal term; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Flow-dependent repair/removal term; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_edema": {
         "value": 0.004,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Low-flow edema formation; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Low-flow edema formation; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_edema_mptp": {
         "value": 0.003,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "mPTP-associated edema formation; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "mPTP-associated edema formation; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_edema_clear": {
         "value": 0.1,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Flow-dependent edema clearance; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Flow-dependent edema clearance; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "tau_function": {
         "value": 0.65,
         "unit": "min",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "First-order relaxation toward functional capacity; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "First-order relaxation toward functional capacity; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       },
       "k_function_stroke": {
         "value": 0.025,
         "unit": "min^-1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen Q036/model.py parameter_table; assumption",
-        "scope": "Direct calcium/mPTP functional depression; cardiac ischemia proxy transferred to wound: SYNTETISKT",
+        "scope": "Direct calcium/mPTP functional depression; cardiac ischemia proxy transferred to wound: SYNTHETIC",
         "joint_id": "scenario_nominal"
       }
     },
@@ -362,7 +362,7 @@
       "k1": {
         "value": 1.0,
         "unit": "1/(nM min)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -371,7 +371,7 @@
       "k2": {
         "value": 1.0,
         "unit": "1/(nM min)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -380,7 +380,7 @@
       "k3": {
         "value": 1.0,
         "unit": "1/(nM min)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -389,7 +389,7 @@
       "k5": {
         "value": 1.0,
         "unit": "1/(nM min)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -398,7 +398,7 @@
       "k4": {
         "value": 1.0,
         "unit": "1/(nM min)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -407,7 +407,7 @@
       "k6_base": {
         "value": 1.0,
         "unit": "1/min",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -416,7 +416,7 @@
       "k6_boost": {
         "value": 428.571428571,
         "unit": "1/(nM min)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -425,7 +425,7 @@
       "Km_X": {
         "value": 100.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -434,7 +434,7 @@
       "k7": {
         "value": 1.0,
         "unit": "1/(nM min)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -443,7 +443,7 @@
       "k8": {
         "value": 1.0,
         "unit": "1/(nM min)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -452,7 +452,7 @@
       "k9_base": {
         "value": 0.0001,
         "unit": "1/min",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -461,7 +461,7 @@
       "k9_boost": {
         "value": 1.0,
         "unit": "1/(nM min)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -470,7 +470,7 @@
       "Km_II": {
         "value": 800.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -479,7 +479,7 @@
       "k10": {
         "value": 0.01,
         "unit": "1/min",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -488,7 +488,7 @@
       "Km_Fg": {
         "value": 2000.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -497,7 +497,7 @@
       "kdiss_VIIIa": {
         "value": 0.08,
         "unit": "1/min",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -506,7 +506,7 @@
       "kclear_XIa": {
         "value": 0.05,
         "unit": "1/min",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -515,7 +515,7 @@
       "Ki_tfpi": {
         "value": 2.5,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -524,7 +524,7 @@
       "S_init": {
         "value": 8.0,
         "unit": "1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -533,7 +533,7 @@
       "S_fb": {
         "value": 0.2,
         "unit": "1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -542,7 +542,7 @@
       "S_amp": {
         "value": 5.0,
         "unit": "1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -551,7 +551,7 @@
       "S_XI": {
         "value": 1.0,
         "unit": "1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -560,7 +560,7 @@
       "TF": {
         "value": 1000.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -569,7 +569,7 @@
       "XIIa": {
         "value": 0.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation_hemostasis.py rhs",
         "scope": "Illustrative/tuned 15-species closure, not original full34-species kinetics",
@@ -578,7 +578,7 @@
       "kAT_IIa": {
         "value": 0.0005399999999999999,
         "unit": "1/(nM min)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen anticoagulation parameter conversion",
         "scope": "Source-proxy rates; wound-transfer assumption",
@@ -587,7 +587,7 @@
       "kAT_Xa": {
         "value": 0.00015,
         "unit": "1/(nM min)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen anticoagulation parameter conversion",
         "scope": "Source-proxy rates; wound-transfer assumption",
@@ -596,7 +596,7 @@
       "kAT_IXa": {
         "value": 6e-07,
         "unit": "1/(nM min)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen anticoagulation parameter conversion",
         "scope": "Source-proxy rates; wound-transfer assumption",
@@ -607,7 +607,7 @@
       "X": {
         "value": 170.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -616,7 +616,7 @@
       "Xa": {
         "value": 0.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -625,7 +625,7 @@
       "IX": {
         "value": 90.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -634,7 +634,7 @@
       "IXa": {
         "value": 0.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -643,7 +643,7 @@
       "XI": {
         "value": 30.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -652,7 +652,7 @@
       "XIa": {
         "value": 0.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -661,7 +661,7 @@
       "V": {
         "value": 20.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -670,7 +670,7 @@
       "Va": {
         "value": 0.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -679,7 +679,7 @@
       "VIII": {
         "value": 0.7,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -688,7 +688,7 @@
       "VIIIa": {
         "value": 0.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -697,7 +697,7 @@
       "II": {
         "value": 1400.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -706,7 +706,7 @@
       "IIa": {
         "value": 0.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -715,7 +715,7 @@
       "Fg": {
         "value": 8823.529411764704,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -724,7 +724,7 @@
       "Fbn": {
         "value": 0.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -733,7 +733,7 @@
       "AT": {
         "value": 2300.0,
         "unit": "nM",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen coagulation y0_vec",
         "scope": "Specified uniform-concentration reservoir; no whole-blood advection",
@@ -744,7 +744,7 @@
       "K_ON0": {
         "value": 0.5333333333333333,
         "unit": "1/min",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen platelet_hemostasis.py",
         "scope": "Illustrative adhesion/aggregation/coverage closure",
@@ -753,7 +753,7 @@
       "K_AGG0": {
         "value": 0.5333333333333333,
         "unit": "1/min",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen platelet_hemostasis.py",
         "scope": "Illustrative adhesion/aggregation/coverage closure",
@@ -762,7 +762,7 @@
       "KOFF_A": {
         "value": 0.11666666666666665,
         "unit": "1/min",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen platelet_hemostasis.py",
         "scope": "Illustrative adhesion/aggregation/coverage closure",
@@ -771,7 +771,7 @@
       "KOFF_P": {
         "value": 0.08333333333333333,
         "unit": "1/min",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen platelet_hemostasis.py",
         "scope": "Illustrative adhesion/aggregation/coverage closure",
@@ -780,7 +780,7 @@
       "W_A": {
         "value": 0.3,
         "unit": "1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen platelet_hemostasis.py",
         "scope": "Illustrative adhesion/aggregation/coverage closure",
@@ -789,7 +789,7 @@
       "W_P": {
         "value": 0.7,
         "unit": "1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen platelet_hemostasis.py",
         "scope": "Illustrative adhesion/aggregation/coverage closure",
@@ -798,7 +798,7 @@
       "THETA_C": {
         "value": 0.5,
         "unit": "1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "Frozen platelet_hemostasis.py",
         "scope": "Illustrative adhesion/aggregation/coverage closure",
@@ -4052,7 +4052,7 @@
       ]
     },
     "unit": "mol/molreference collagen",
-    "status": "SYNTETISKT",
+    "status": "SYNTHETIC",
     "uncertainty": {
       "kind": "propagated conditional scenario",
       "parents": [
@@ -4116,7 +4116,7 @@
     "length": {
       "value": 0.01,
       "unit": "m",
-      "status": "SYNTETISKT",
+      "status": "SYNTHETIC",
       "uncertainty": {
         "kind": "propagated conditional scenario",
         "parents": [
@@ -4136,7 +4136,7 @@
     "depth": {
       "value": 0.002,
       "unit": "m",
-      "status": "SYNTETISKT",
+      "status": "SYNTHETIC",
       "uncertainty": {
         "kind": "propagated conditional scenario",
         "parents": [
@@ -4156,7 +4156,7 @@
     "area": {
       "value": 2e-05,
       "unit": "m²",
-      "status": "SYNTETISKT",
+      "status": "SYNTHETIC",
       "uncertainty": {
         "kind": "propagated conditional scenario",
         "parents": [
@@ -4176,7 +4176,7 @@
     "force": {
       "value": 0.3,
       "unit": "N",
-      "status": "SYNTETISKT",
+      "status": "SYNTHETIC",
       "uncertainty": {
         "kind": "propagated conditional scenario",
         "parents": [
@@ -4196,7 +4196,7 @@
     "work": {
       "value": 0.003,
       "unit": "J",
-      "status": "SYNTETISKT",
+      "status": "SYNTHETIC",
       "uncertainty": {
         "kind": "propagated conditional scenario",
         "parents": [
@@ -4237,7 +4237,7 @@
     "gap": {
       "value": 0.0002,
       "unit": "m",
-      "status": "SYNTETISKT",
+      "status": "SYNTHETIC",
       "uncertainty": "Specified scenario, no CI",
       "source": "PREREG_R1.json / documented scenario",
       "scope": "Synthetic gap; joint scenario, no identified native posterior",
@@ -4246,7 +4246,7 @@
     "biological_width": {
       "value": 0.00025,
       "unit": "m",
-      "status": "SYNTETISKT",
+      "status": "SYNTHETIC",
       "uncertainty": "Specified scenario, no CI",
       "source": "PREREG_R1.json / documented scenario",
       "scope": "Synthetic biological_width; joint scenario, no identified native posterior",
@@ -4255,7 +4255,7 @@
     "perfusion_width": {
       "value": 0.00025,
       "unit": "m",
-      "status": "SYNTETISKT",
+      "status": "SYNTHETIC",
       "uncertainty": "Specified scenario, no CI",
       "source": "PREREG_R1.json / documented scenario",
       "scope": "Synthetic perfusion_width; joint scenario, no identified native posterior",
@@ -4267,7 +4267,7 @@
     "initial_flow_m3_s": {
       "value": 1.135082558483221e-10,
       "unit": "m³/s",
-      "status": "SYNTETISKT",
+      "status": "SYNTHETIC",
       "uncertainty": {
         "kind": "propagated conditional scenario",
         "parents": [
@@ -4324,7 +4324,7 @@
     "blood_volume_uL": {
       "value": 118.76799085897807,
       "unit": "µL",
-      "status": "SYNTETISKT",
+      "status": "SYNTHETIC",
       "uncertainty": {
         "kind": "propagated conditional scenario",
         "parents": [
@@ -4381,7 +4381,7 @@
     "seal_final": {
       "value": 0.6177950272739207,
       "unit": "1",
-      "status": "SYNTETISKT",
+      "status": "SYNTHETIC",
       "uncertainty": {
         "kind": "propagated conditional scenario",
         "parents": [
@@ -4448,7 +4448,7 @@
   "oxygen_edge_pressure": {
     "value": 26.858024384080466,
     "unit": "Torr",
-    "status": "SYNTETISKT",
+    "status": "SYNTHETIC",
     "uncertainty": {
       "kind": "propagated conditional scenario",
       "parents": [
@@ -4505,7 +4505,7 @@
   "hypoxic_width_proxy": {
     "value": 0.0,
     "unit": "m",
-    "status": "SYNTETISKT",
+    "status": "SYNTHETIC",
     "uncertainty": {
       "kind": "propagated conditional scenario",
       "parents": [
@@ -4566,7 +4566,7 @@
       0.28463554912765876
     ],
     "unit": "normalized reference mass",
-    "status": "SYNTETISKT",
+    "status": "SYNTHETIC",
     "uncertainty": {
       "kind": "propagated conditional scenario",
       "parents": [
@@ -6428,7 +6428,7 @@
       ]
     },
     "unit": "%intact",
-    "status": "SYNTETISKT",
+    "status": "SYNTHETIC",
     "uncertainty": {
       "kind": "propagated conditional scenario",
       "parents": [
@@ -6541,7 +6541,7 @@
       "edge_radius": {
         "value": 5e-06,
         "unit": "m",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Local edge radius; no calibrated radius→work law",
@@ -6550,7 +6550,7 @@
       "speed": {
         "value": 0.02,
         "unit": "m/s",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Tangential path speed; not used to extrapolate toughness",
@@ -6571,7 +6571,7 @@
         ]
       ],
       "unit": "m",
-      "status": "SYNTETISKT",
+      "status": "SYNTHETIC",
       "uncertainty": "Specified scenario, no CI",
       "source": "PREREG_R1.json / documented scenario",
       "scope": "Straight planar incision path",
@@ -6580,7 +6580,7 @@
     "cut_depth": {
       "value": 0.002,
       "unit": "m",
-      "status": "SYNTETISKT",
+      "status": "SYNTHETIC",
       "uncertainty": "Specified scenario, no CI",
       "source": "PREREG_R1.json / documented scenario",
       "scope": "Penetration depth, single geometric crack plane",
@@ -6592,7 +6592,7 @@
         "thickness": {
           "value": 0.0015,
           "unit": "m",
-          "status": "SYNTETISKT",
+          "status": "SYNTHETIC",
           "uncertainty": "Specified scenario, no CI",
           "source": "PREREG_R1.json / documented scenario",
           "scope": "Synthetic dermal thickness",
@@ -6601,7 +6601,7 @@
         "gamma_cut": {
           "value": 150.0,
           "unit": "J/m²",
-          "status": "SYNTETISKT",
+          "status": "SYNTHETIC",
           "uncertainty": "Specified scenario, no CI",
           "source": "PREREG_R1.json / documented scenario",
           "scope": "Synthetic BINDINGS severance scenario; not needle J",
@@ -6613,7 +6613,7 @@
         "thickness": {
           "value": 0.0005,
           "unit": "m",
-          "status": "SYNTETISKT",
+          "status": "SYNTHETIC",
           "uncertainty": "Specified scenario, no CI",
           "source": "PREREG_R1.json / documented scenario",
           "scope": "Synthetic subcutis thickness",
@@ -6622,7 +6622,7 @@
         "gamma_cut": {
           "value": 150.0,
           "unit": "J/m²",
-          "status": "SYNTETISKT",
+          "status": "SYNTHETIC",
           "uncertainty": "Specified scenario, no CI",
           "source": "PREREG_R1.json / documented scenario",
           "scope": "Explicit assumed subcutis cutting law; not borrowed empirical dermis",
@@ -6634,7 +6634,7 @@
       "gap": {
         "value": 0.0002,
         "unit": "m",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic gap; joint scenario, no identified native posterior",
@@ -6643,7 +6643,7 @@
       "biological_width": {
         "value": 0.00025,
         "unit": "m",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic biological_width; joint scenario, no identified native posterior",
@@ -6652,7 +6652,7 @@
       "perfusion_width": {
         "value": 0.00025,
         "unit": "m",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic perfusion_width; joint scenario, no identified native posterior",
@@ -6664,7 +6664,7 @@
           2.5e-05
         ],
         "unit": "m",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic radius_bins; joint scenario, no identified native posterior",
@@ -6676,7 +6676,7 @@
           20000.0
         ],
         "unit": "1/m²",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic density_bins; joint scenario, no identified native posterior",
@@ -6685,7 +6685,7 @@
       "driving_pressure": {
         "value": 4000.0,
         "unit": "Pa",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic driving_pressure; joint scenario, no identified native posterior",
@@ -6694,7 +6694,7 @@
       "blood_viscosity": {
         "value": 0.0035,
         "unit": "Pa s",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic blood_viscosity; joint scenario, no identified native posterior",
@@ -6703,7 +6703,7 @@
       "vascular_path": {
         "value": 0.001,
         "unit": "m",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic vascular_path; joint scenario, no identified native posterior",
@@ -6712,7 +6712,7 @@
       "domain": {
         "value": 0.008,
         "unit": "m",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic domain; joint scenario, no identified native posterior",
@@ -6721,7 +6721,7 @@
       "grid_dx": {
         "value": 5e-06,
         "unit": "m",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic grid_dx; joint scenario, no identified native posterior",
@@ -6730,7 +6730,7 @@
       "early_dt": {
         "value": 0.1,
         "unit": "min",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic early_dt; joint scenario, no identified native posterior",
@@ -6739,7 +6739,7 @@
       "early_until": {
         "value": 120.0,
         "unit": "min",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic early_until; joint scenario, no identified native posterior",
@@ -6748,7 +6748,7 @@
       "late_dt": {
         "value": 0.1,
         "unit": "day",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic late_dt; joint scenario, no identified native posterior",
@@ -6757,7 +6757,7 @@
       "late_until": {
         "value": 90.0,
         "unit": "day",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic late_until; joint scenario, no identified native posterior",
@@ -6766,7 +6766,7 @@
       "oxygen_storage": {
         "value": 30.0,
         "unit": "mlO2/(m³ Torr)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic oxygen_storage; joint scenario, no identified native posterior",
@@ -6775,7 +6775,7 @@
       "oxygen_permeability": {
         "value": 1.3e-06,
         "unit": "mlO2/(m min Torr)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "RESPONSE R1 Stücker viable-skin proxy; transfer to incision SYNTHETIC",
         "scope": "Synthetic oxygen_permeability; joint scenario, no identified native posterior",
@@ -6784,7 +6784,7 @@
       "oxygen_consumption": {
         "value": 1470.0,
         "unit": "mlO2/(m³ min)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "RESPONSE R1 dermal consumption proxy; dry-volume/lineage transfer SYNTHETIC",
         "scope": "Synthetic oxygen_consumption; joint scenario, no identified native posterior",
@@ -6793,7 +6793,7 @@
       "face_conductance": {
         "value": 0.0,
         "unit": "mlO2/(m² min Torr)",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic face_conductance; joint scenario, no identified native posterior",
@@ -6802,7 +6802,7 @@
       "face_pressure": {
         "value": 160.0,
         "unit": "Torr",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic face_pressure; joint scenario, no identified native posterior",
@@ -6811,7 +6811,7 @@
       "seal_rate": {
         "value": 20.0,
         "unit": "1/min",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic seal_rate; joint scenario, no identified native posterior",
@@ -6820,7 +6820,7 @@
       "seal_oxygen_coupling": {
         "value": 1.0,
         "unit": "1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic seal_oxygen_coupling; joint scenario, no identified native posterior",
@@ -6829,7 +6829,7 @@
       "aggregation_factor": {
         "value": 1.0,
         "unit": "1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic aggregation_factor; joint scenario, no identified native posterior",
@@ -6838,7 +6838,7 @@
       "k_deposit": {
         "value": 0.1,
         "unit": "1/day",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic k_deposit; joint scenario, no identified native posterior",
@@ -6847,7 +6847,7 @@
       "k_mature_legacy": {
         "value": 0.04,
         "unit": "1/day",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic k_mature_legacy; joint scenario, no identified native posterior",
@@ -6856,7 +6856,7 @@
       "k_U_I": {
         "value": 0.1,
         "unit": "1/day",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic k_U_I; joint scenario, no identified native posterior",
@@ -6865,7 +6865,7 @@
       "k_I_M": {
         "value": 0.05,
         "unit": "1/day",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic k_I_M; joint scenario, no identified native posterior",
@@ -6874,7 +6874,7 @@
       "turnover_U_I": {
         "value": 0.03,
         "unit": "1/day",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic turnover_U_I; joint scenario, no identified native posterior",
@@ -6883,7 +6883,7 @@
       "chemistry_D10": {
         "value": 0.066,
         "unit": "mol/molreference collagen",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic chemistry_D10; joint scenario, no identified native posterior",
@@ -6892,7 +6892,7 @@
       "chemistry_H10": {
         "value": 0.018,
         "unit": "mol/molreference collagen",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic chemistry_H10; joint scenario, no identified native posterior",
@@ -6901,7 +6901,7 @@
       "chemistry_A10": {
         "value": 0.0,
         "unit": "mol/molreference collagen",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic chemistry_A10; joint scenario, no identified native posterior",
@@ -6910,7 +6910,7 @@
       "chemistry_rate": {
         "value": 0.06949679103768976,
         "unit": "1/day",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic chemistry_rate; joint scenario, no identified native posterior",
@@ -6919,7 +6919,7 @@
       "chemistry_yield": {
         "value": 0.2833333333333334,
         "unit": "1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic chemistry_yield; joint scenario, no identified native posterior",
@@ -6928,7 +6928,7 @@
       "birth_scale": {
         "value": 0.1,
         "unit": "1/day",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic birth_scale; joint scenario, no identified native posterior",
@@ -6937,7 +6937,7 @@
       "bridge_fraction": {
         "value": 1.0,
         "unit": "1",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic bridge_fraction; joint scenario, no identified native posterior",
@@ -6946,7 +6946,7 @@
       "load_angle": {
         "value": 0.0,
         "unit": "degree",
-        "status": "SYNTETISKT",
+        "status": "SYNTHETIC",
         "uncertainty": "Specified scenario, no CI",
         "source": "PREREG_R1.json / documented scenario",
         "scope": "Synthetic load_angle; joint scenario, no identified native posterior",

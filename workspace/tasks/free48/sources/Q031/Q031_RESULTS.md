@@ -1,12 +1,12 @@
 BT-HX-Q031
 
-# Resultat
+# Results
 
-## Kort svar
+## Kort answer
 
 The frozen limit is that the membrane potential **dynamics** must be coupled to the volume if the voltage clamp changes the volume more than 2 % of the initial volume, `chi_V = max_t |V_full(t) - V_clamp(t)| / V0 > 0,02`. In the base case, `chi_V = 0,008394857` became; thus, full dynamic voltage coupling does not meet this requirement for this particular protocol. The voltage must still exist in the ion flows through the Nernst law. The conclusion is not universal: the pumping density +50 % gave `chi_V = 0,018841727`, close to the limit.
 
-## Vad som byggdes
+## Vad that byggdes
 
 `model.py` is a coupled ODE-model with membrane potential `Vm`, cell volume `V`, three ion quantities, water quantity, cumulative ion fluxes and a small countercharge reserve. Na/K-pump moves 3 Na out and 2 K in per cycle. The ion fluxes are given by Nernst potentials and linear conduction; the water flow is given by RT-baserad osmotic pressure balance. The surface scales with the volume, so the same geometry changes capacitance, conduction, pump flow and water flow.
 

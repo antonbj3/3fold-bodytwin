@@ -2,7 +2,7 @@
 
 Date: 2026-09-30. **Status: PARTIAL_INPUT_COVERAGE / NOT_ADMITTED.** The review of available material is complete. The full task's disease comparison is not feasible because the mandatory `BODYTWIN_DISEASE_LIBRARY.md` is missing. The expected disease JSON and the producer's RESULT file were also missing during the input inventory. No other analyst's output or log has been read.
 
-Leveranser:
+Deliverables:
 
 - [Analysis report](external_research_path).
 - [Machine-readable findings and risks](external_research_path).

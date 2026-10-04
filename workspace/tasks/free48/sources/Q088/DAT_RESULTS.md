@@ -2,7 +2,7 @@ BT-DAT-Q088
 
 # Public measured dataset constraining the Q088 model
 
-## What it built on
+## What was built on
 
 `inputs/Q088_QUESTION.md` (Q088: ATP recovery, ion balance, pre-registered functional
 outcome), `inputs/Q088_model.py` `PARAMETER_TABLE` (lines 94-233) and `REFERENCE_ANCHORS`
@@ -40,10 +40,10 @@ Nearest misses: `nzv32s3v35` (sEMG + NIRS hemodynamics, CC-BY, **407 MB** → ov
 **no data**), `4061844` Sarcolab (2 astronauts, miRNA/cytokines → not parameter addressable),
 `4726374` (crosslink kinetics → would require reinterpretation, not restriction).
 
-## Prov: laddat, form, enheter, koordinatram
+## Test: loaded, form, units, coordinate frame
 
 `GET https://datadryad.org/api/v2/versions/417431/download` → HTTP 200, 38 103 B →
-`samples/dryad_9p8cz8wwr_v4.zip` (sha256 `6dbf8692…95a2f85`). Laddas med
+`samples/dryad_9p8cz8wwr_v4.zip` (sha256 `6dbf8692…95a2f85` ). Loaded with
 `python3 load_sample.py` → `sample_load_report.json`.
 
 - **Form**: ark `CD+CF` (46 rader × 8 columns), ark `CSA+Per+SFI+CAF+CFi` (138 × 12),
@@ -93,7 +93,7 @@ digests exactly (XLSX `28cc4cc1…3b55dcb` , README `19669374…8f4d93` ).
 - Finding no fully matching design is explicitly **not**
   an error according to PREREG but a documented gap.
 
-## Reproduktion
+## Reproduction
 
 ```
 python3 load_sample.py     # -> sample_load_report.json

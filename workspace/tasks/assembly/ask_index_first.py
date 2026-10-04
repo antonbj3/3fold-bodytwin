@@ -112,13 +112,13 @@ def main() -> int:
          'review_state': 'PENDING_INDEPENDENT_REVIEW',
          'rows': report}, indent=1, ensure_ascii=False))
 
-    print(f'  indefinite variables checked: {len(report)}')
-    print(f'  already in our own corpus (the right dimension): {len(held)}')
-    print(f"  without dimension in the name: {sum((1 for r in report if r['verdict'] == 'NO_UNIT_IN_NAME'))}")
+    print(f'  undetermined variables checked: {len(report)}')
+    print(f'  already in our own corpus (right dimension): {len(held)}')
+    print(f"  without dimension in the name: {sum(1 for r in report if r['verdict'] == 'NO_UNIT_IN_NAME')}")
     for r in held[:8]:
         t = r['top'][0]
-        print(f"    {r['variable'][:30]:30s} [{r['unit']:>6s}] {r['candidates_in_our_corpus']:>5d} st  "
-              f"t.ex. {t['quantity'][:48]} = {t['value']}")
+        print(f"    {r['variable'][:30]:30s} [{r['unit']:>6s}] {r['candidates_in_our_corpus']:>5d} items  "
+              f"e.g. {t['quantity'][:48]} = {t['value']}")
     return 0
 
 

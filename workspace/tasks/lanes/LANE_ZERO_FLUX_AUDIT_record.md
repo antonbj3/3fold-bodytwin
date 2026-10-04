@@ -65,4 +65,4 @@ The unit invariance error in the oxygen case was exactly 0,0, so dimensional che
 character test result, as well as the breakdown of bug versus undeclared scope. Plus, for each offense,
 what past results rest on it.
 
-Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+No internal data. Everything PENDING_INDEPENDENT_REVIEW.

@@ -24,4 +24,4 @@ Propagate the uncertainty: ±5 mm translation, ±3° rotation, as Monte Carlo ov
 3. Deliver `fdk_knee(trial, pose)` + pytest.
 If it does not converge: which phase/DOF, and what that points to.
 
-GPU allowed (a single process, NEVER `nvidia-smi -q`). 2 CPU threads under bigmem.lock, at most 300 MB of intermediate files on external_media (check df first). Deliver RESULTS.md starting with `# CX-FDK2` and results.json. Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+GPU allowed (a single process, NEVER `nvidia-smi -q`). 2 CPU threads under bigmem.lock, at most 300 MB of intermediate files on external_media (check df first). Deliver RESULTS.md starting with `# CX-FDK2` and results.json. Internal data stays local. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

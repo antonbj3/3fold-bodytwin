@@ -3,6 +3,6 @@
 W=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd); cd $W
 while [ $(date +%H%M) -lt 2340 ]; do
   left=$(awk '{print $3}' tasks/lanes/bt_queue.txt | while read j; do [ -n "$j" ] && [ ! -s results/$j/RESULTS.md ] && echo $j; done | wc -l)
-  if [ "$left" -lt 100 ]; then echo "[$(date +%T)] kvar $left → quickfill" >> tasks/lanes/quickfill.log; python3 tasks/quickfill.py 150 >> tasks/lanes/quickfill.log 2>&1; fi
+  if [ "$left" -lt 100 ]; then echo "[$(date +%T)] remaining $left → quickfill" >> tasks/lanes/quickfill.log; python3 tasks/quickfill.py 150 >> tasks/lanes/quickfill.log 2>&1; fi
   sleep 120
 done

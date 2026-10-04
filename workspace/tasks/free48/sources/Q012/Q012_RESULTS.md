@@ -1,6 +1,6 @@
 BT-HX-Q012
 
-## Slutsats
+## Conclusion
 
 A first executable first-principles model of the chain **dietary precursor → colonic microbial TMA →
 hepatic FMO3 → TMAO → renal excretion** is in `model.py` with 11/11 PASS in
@@ -16,10 +16,10 @@ dependence), capacity ceiling **108.2326 µM** with margin **164.74×**, exposur
 
 | Measure | Value | Threshold | Outcome |
 |---|---:|---:|---|
-| G1 mikrobiell beroendegrad Φ | 0.988652 | ≥ 0.95 | **PASS** |
-| G2 exposeringskontrast | 3.3184× | ≥ 2× | **PASS** |
-| G3 identifierbarhet av `p = f_esc·y` | 34.11 | < 0.10 | **FAIL** |
-| G4 kapacitetsmarginal | 164.74× | ≥ 3× | **PASS** |
+| G1 degree of microbial dependence Φ | 0.988652 | ≥ 0.95 | **PASS** |
+| G2 exposure contrast | 3.3184× | ≥ 2× | **PASS** |
+| G3 identifiability of `p = f_esc·y` | 34.11 | < 0.10 | **FAIL** |
+| G4 capacity margin | 164.74× | ≥ 3× | **PASS** |
 
 G1 is conditional on `r_host_umol_h = 0.062 µmol/h`, a free assumption that has not been
 looked up. Sensitivity is weak: at `r_host = 0.20 µmol/h`, Φ becomes 0.9643, still
@@ -60,9 +60,9 @@ steady-state expression — it appears only in the half-life 4.0842 h.
 
 ## Which variables are needed (Q012)
 
-Grekisk urval (`needed_variables`) tills 90 %-bredden ≤ 2×:
+Greek selection (`needed_variables`) until the 90 % width ≤ 2×:
 
-| Steg | Variabel | Block | 90 %-bredd efter |
+| Step | Variable | Block | 90 % width afterwards |
 |---:|---|---|---:|
 | — | start (everything at median) | — | 38.407× |
 | 1 | `y_microbial_conversion` | microbiome | 9.052× |

@@ -22,6 +22,6 @@ Goal: Space The swarm (free, accounts A/B/C) must always have jobs. The queue is
 7. `results/CX-SWARMGEN/RESULTS.md` starting with `# CX-SWARMGEN`: table id → question → axis → inputs size → check status.
 
 ## Forbidden
-- Material from other private domains (tissuetwin, glioma, excluded_category, dental, personal health data). Only musculoskeletal BodyTwin data.
+- Material from other private domains (tissuetwin, glioma, out of scope, dental, personal health data). Only musculoskeletal BodyTwin data.
 - API keys or credentials in packets. Writing in `~/projects/bodytwin` (read-only). `pgrep -f`, broad kill commands, heavy computation locally (> 60 s).
 - Redoing a job that already has RESULTS.md under results/.

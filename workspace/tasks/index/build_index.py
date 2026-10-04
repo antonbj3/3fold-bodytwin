@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"Indexes all results and datasets so no data point is lost.\nWriting tasks/index/index.json (each file: path, size, sha256, mtime; PREREG before/after run)\nand tasks/index/DATASETS.json. Runs at every wake-up. Does not modify result files."
+"""Indexes all results and datasets so no data point is lost.
+Writing tasks/index/index.json (each file: path, size, sha256, mtime; PREREG before/after run)
+and tasks/index/DATASETS.json. Runs at every wake-up. Does not modify result files."""
 import hashlib, json, os, time, glob
 W = ""
 DS = "external_mount"
@@ -34,5 +36,5 @@ for m in sorted(glob.glob(f"{DS}/*/MANIFEST.json")):
     except Exception as e: ds[m] = {"error": str(e)}
 json.dump(ds, open(f"{W}/tasks/index/DATASETS.json", "w"), indent=1)
 for k, v in out["experiments"].items():
-    print(f"{k:4s} filer={v['n_files']:4d} README={v['has_readme']!s:5s} PREREG={v['has_prereg']!s:5s} prereg_ffirst={v['prereg_before_all_json']}")
+    print(f"{k:4s} filer={v['n_files']:4d} README={v['has_readme']!s:5s} PREREG={v['has_prereg']!s:5s} prereg_first={v['prereg_before_all_json']}")
 print("dataset:", ", ".join(ds))

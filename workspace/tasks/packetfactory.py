@@ -157,24 +157,24 @@ def generate(spec):
         (inp/'REQUIREMENT.json').write_text(json.dumps(req,ensure_ascii=False,indent=2)+'\n')
         if family=='AG':
             (inp/'RESULTS_INDEX_ROWS.md').write_text('\n'.join(req['register_lines'])+'\n')
-            question=f"Granska oberoende registerraderna {req['audit_rows']} against copied source files."
-            criterion="3/3 rows: recalculate at least one numerical claim per row; deviation at most 1 % relative. Otherwise UNKNOWN."
-            counter="Also compare against the source's own conclusion without using it as independent ground truth."
+            question=f'Independently review the register rows {req["audit_rows"]} against copied source files.'
+            criterion='3/3 rows: recalculate at least one numerical claim per row; deviation at most 1 % relative. Otherwise UNKNOWN.'
+            counter='Also compare against the source\'s own conclusion without using it as independent ground truth.'
         elif family=='R':
-            question=f"Recalculate {req['field']} from the raw table with its own code."
-            criterion="Relative deviation at most 1 % against the frozen result field; flag larger deviations."
-            counter="Recalculate after omitting one row; the number should then respond according to the metric definition."
+            question=f'Recalculate {req["field"]} from the raw table with your own code.'
+            criterion='Relative deviation at most 1 % against the frozen result field; flag larger deviations.'
+            counter='Recalculate after omitting one row; the number should then respond according to the metric definition.'
         elif family=='P':
-            question=f"Is the median of {req['column']} stable when a person is left out?"
-            criterion="All personwise omissions change the median by at most 20 % relative to the full table."
-            counter="Compare with a 20 % higher threshold and report the largest change and denominator."
+            question=f'Is the median for {req["column"]} stable when one person is omitted?'
+            criterion='All personwise omissions change the median by at most 20 % relative to the full table.'
+            counter='Compare with a 20 % higher threshold and report the largest change and denominator.'
         else:
-            question=f"Transfer the same median analysis of {req['column']} between the two frozen tables."
-            criterion="Both tables have at least 5 finite values; report median ratio and overlap without assuming a common cohort."
-            counter="Compare min/max and person counts; report UNKNOWN for external generalization."
+            question=f'Transfer the same median analysis of {req["column"]} between the two frozen tables.'
+            criterion='Both tables have at least 5 finite values; report median ratio and overlap without assuming a common cohort.'
+            counter='Compare min/max and person counts; report UNKNOWN for external generalization.'
         refs=', '.join('inputs/'+x for x in req['files'])
-        (inp/'DATA_SUFFICIENCY.md').write_text(f'# Data adequacy — {ident}\nLadda {refs}. Require finite values and fields indicated in: inputs/REQUIREMENT.json. Run the python3 tasks/packetfactory.py check {ident}`. Saknat data ger UNKNOWN.\n')
-        (d/'BRIEF.md').write_text(f"# {ident}\nRead inputs/NIGHT_PREAMBLE.md. Endast paketet, 1 thread.\nBuilds on:{', '.join(dict.fromkeys((src for src, _ in files)))}.\nQuestion: {question}\nKriterium: {criterion}\nMotprov: {counter}\nUnderlag: {refs}, inputs/REQUIREMENT.json, inputs/DATA_SUFFICIENCY.md.\nSkriv PREREG.md and PREREG.sha256 before analysis. Separate source, derivation and hypothesis. Deliver results.json and RESULTS.md with first row`# {ident}`.\n")
+        (inp/'DATA_SUFFICIENCY.md').write_text(f'# Data sufficiency — {ident}\nLoad {refs}. Require finite values and the fields specified in inputs/REQUIREMENT.json. Run `python3 tasks/packetfactory.py check {ident}`. Missing data gives UNKNOWN.\n')
+        (d/'BRIEF.md').write_text(f'# {ident}\nRead inputs/NIGHT_PREAMBLE.md. Only the packet, 1 thread.\nBuilds on: {", ".join(dict.fromkeys(src for src,_ in files))}.\nQuestion: {question}\nCriterion: {criterion}\nCountertest: {counter}\nEvidence: {refs}, inputs/REQUIREMENT.json, inputs/DATA_SUFFICIENCY.md.\nWrite PREREG.md and PREREG.sha256 before analysis. Distinguish source, derivation and hypothesis. Deliver results.json and RESULTS.md with the first line `# {ident}`.\n')
         errors=check(ident)
         if errors: raise ValueError('; '.join(errors))
         return True
@@ -188,24 +188,24 @@ def check(ident):
         req=json.loads((d/'inputs/REQUIREMENT.json').read_text())
         brief=(d/'BRIEF.md').read_text()
         if not brief.startswith('# '+ident+'\n'):errors.append('brief-ID')
-        if "Builds on:" not in brief or 'PREREG' not in brief:errors.append('brief-kontrakt')
-        if not (d/'inputs/NIGHT_PREAMBLE.md').is_file() or not (d/'inputs/DATA_SUFFICIENCY.md').is_file():errors.append('preamble/dataprov')
+        if 'Builds on:' not in brief or 'PREREG' not in brief:errors.append('brief-contract')
+        if not (d/'inputs/NIGHT_PREAMBLE.md').is_file() or not (d/'inputs/DATA_SUFFICIENCY.md').is_file():errors.append('preamble/data-sample')
         if any(x.is_symlink() for x in d.rglob('*')):errors.append('symlink')
         for rel in req['files']:
             p=(d/'inputs'/rel).resolve()
-            if not p.is_relative_to((d/'inputs').resolve()) or not p.is_file():errors.append('saknad '+rel)
+            if not p.is_relative_to((d/'inputs').resolve()) or not p.is_file():errors.append('missing '+rel)
         if req['family']=='R':
             src=req['source']; rel=req['files'][0].removeprefix(src+'/')
             observed=metric(rows(d/'inputs'/src/rel),req['metric'])
             claimed=field(json.loads((d/'inputs'/src/'results.json').read_text()),req['field'])
-            if abs(observed-claimed)>max(1e-9,abs(claimed)*.01):errors.append('R-avvikelse')
+            if abs(observed-claimed)>max(1e-9,abs(claimed)*.01):errors.append('R-deviation')
         elif req['family'] in ('P','X'):
             for rel in (x for x in req['files'] if x.endswith('.csv')):
                 rr=rows(d/'inputs'/rel); col=req['column']
                 vals=[float(r[col]) for r in rr if r.get(col) and math.isfinite(float(r[col]))]
-                if len(vals)<5:errors.append("insufficient numeric data "+rel)
+                if len(vals)<5:errors.append('insufficient numeric data '+rel)
         elif req['family']=='AG':
-            if len(req['audit_rows'])!=3 or len(set(req['audit_rows']))!=3:errors.append("audit-coverage")
+            if len(req['audit_rows'])!=3 or len(set(req['audit_rows']))!=3:errors.append('audit-coverage')
             for src in req['sources']:
                 sd=d/'inputs'/src
                 if hashlib.sha256((sd/'PREREG.md').read_bytes()).hexdigest() != (sd/'PREREG.sha256').read_text().split()[0]:errors.append('audit-hash '+src)
@@ -216,11 +216,11 @@ def check(ident):
                     elif isinstance(value,list):
                         for v in value:yield from nums(v)
                     elif isinstance(value,(float,int)) and not isinstance(value,bool):yield value
-                if sum(math.isfinite(x) for x in nums(data))<3:errors.append('audit-numerik '+src)
-            if len((d/'inputs/RESULTS_INDEX_ROWS.md').read_text().splitlines())!=3:errors.append('registerrader')
-        else:errors.append('familj')
+                if sum(math.isfinite(x) for x in nums(data))<3:errors.append('audit-numerics '+src)
+            if len((d/'inputs/RESULTS_INDEX_ROWS.md').read_text().splitlines())!=3:errors.append('register-rows')
+        else:errors.append('family')
         size=sum(p.stat().st_size for p in d.rglob('*') if p.is_file())
-        if size>MAX_BYTES:errors.append("over 50 MB")
+        if size>MAX_BYTES:errors.append('over 50 MB')
     except Exception as e:errors.append(f'{type(e).__name__}: {e}')
     return errors
 

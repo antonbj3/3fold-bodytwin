@@ -30,32 +30,98 @@ W = Path('')
 # tonight's cells; the framing does not.
 BRIEFS = {
     'AXIAL-LENGTH': (
-        "Eye length",
-        "The length of the eye is the largest single term in the entire refraction calculation.\nsingle device, and we have never seen a second value for the same eye.\n\nThe two devices we *can* compare do not disagree randomly. They differ systematically:\n9,90 mikrometer in corneal thickness, 0,144 millimeter in anterior chamber depth. Every time. This is\nnot noise, these are two devices that agree with themselves and disagree with each other.\n\nIf the same applies to length, there is an error larger than anything we measured tonight — and we cannot\nsee it, because we only have one measurement.\n\nWhat do you do about a quantity you can only measure in one way? Other fields have been in that situation:\nmetrology, surveying, astronomy, manufacturing control.",
+        'Eye length',
+        """The eye's length is the largest single term in the entire refraction calculation. We have it from a
+single device, and we have never seen a second value for the same eye.
+
+The two devices we *can* compare do not disagree randomly. They differ systematically:
+9,90 mikrometer in corneal thickness, 0,144 millimeter in anterior chamber depth. Every time. This is
+not noise, these are two devices that agree with themselves and disagree with each other.
+
+If the same applies to length, there is an error larger than anything we measured tonight — and we cannot
+see it, because we only have one measurement.
+
+What do you do about a quantity you can only measure in one way? Other fields have been in that situation:
+metrology, surveying, astronomy, manufacturing control. What do they do?""",
     ),
     'POSTERIOR-CORNEAL-CYLINDER': (
-        "Two devices, orthogonal answers",
-        "Two devices measured the same 69 eyes. On the back of the cornea reports the shoulders lying\n**86 grader apart** at the median — 65 of 69 eyes between 75 and 105 grader, not a single one within 15. They are\ntherefore systematically perpendicular to each other.\n\nWhen we took the axis as given our result was 0,758 dioptrier, worse than guessing a\npopulation average. When we rotated 90 grader it became 0,293 — almost exactly like the other device.\nSo it was a convention, not a disagreement.\n\nBut we discovered it by chance, because the number became unreasonable. In the same eyes the axes agree for\nthe *front* of the cornea, so there was no rule to carry over.\n\nHow do you know that two measurements of the same thing are expressed in the same convention, when no one has written down\nIt's not an eye problem.",
+        'Two devices, orthogonal answers',
+        """Two devices measured the same 69 eyes. On the back of the cornea they report axes that lie
+**86 grader apart** at the median — 65 of 69 eyes between 75 and 105 grader, not a single one within 15. They are
+therefore systematically perpendicular to each other.
+
+When we took the axis as given our result was 0,758 dioptrier, worse than guessing a
+population average. When we rotated 90 grader it became 0,293 — almost exactly like the other device.
+So it was a convention, not a disagreement.
+
+But we discovered it by chance, because the number became unreasonable. In the same eyes the axes agree for
+the *front* of the cornea, so there was no rule to carry over.
+
+How do you know that two measurements of the same thing are expressed in the same convention, when no one has written down
+the convention? This is not an eye problem.""",
     ),
     'CORNEAL-THICKNESS': (
-        "The model overestimates",
-        "We build the cornea of a front plus a back and calculate its astigmatism. CASIA\nmeasures the whole cornea in one step. We get 2,029 dioptrier, the direct measurement gives 1,831. The difference is\n0,292 — **larger than the error in the decisions we make from the model**.\n\nSo the model is wrong by more than what it is meant to decide, and it still works: the decision\nlands at 0,28 against practice at 0,63.\n\nThat is uncomfortable. Either two errors cancel each other out, or the two things do not measure the same quantity\ndespite having the same name.\n\nAnd how could that be determined?",
+        'The model overestimates',
+        """We build the cornea from a front plus a back and calculate its astigmatism. CASIA
+measures the whole cornea in one step. We get 2,029 dioptrier, the direct measurement gives 1,831. The difference is
+0,292 — **larger than the error in the decisions we make from the model**.
+
+So the model is wrong by more than what it is meant to decide, and it still works: the decision
+lands at 0,28 against practice at 0,63.
+
+That is uncomfortable. Either two errors cancel each other out, or the two things do not measure the same quantity
+despite having the same name.
+
+Which? And how could you determine that?""",
     ),
     'LENS-POSITION': (
-        "Where the lens ends up",
-        "Where the artificial lens ends up in the eye determines the end result: one millimeter becomes 1,35\ndioptrier. But you only know afterwards, when it is in place.\n\nWe predict it from measurements taken before surgery and get within 0,114 millimeter, against the quantity's own\nspread of 0,284. That is enough — 0,114 millimeter becomes 0,15 dioptrier, below the clinical threshold.\n\nThe odd thing: predicting the position gave a **better** decision than entering the measured position.\n0,535 against 0,569 dioptrier. So the prediction is more useful than the measurement of the same thing.\n\nWhy would a guess take a measurement, and where's the limit?",
+        'Where the lens ends up',
+        """Where the artificial lens ends up in the eye determines the final result: one millimeter becomes 1,35
+dioptrier. But you only know afterwards, when it is in place.
+
+We predict it from measurements taken before surgery and get within 0,114 millimeter, against the quantity's own
+spread of 0,284. That is enough — 0,114 millimeter becomes 0,15 dioptrier, below the clinical threshold.
+
+The odd thing: predicting the position gave a **better** decision than entering the measured position.
+0,535 against 0,569 dioptrier. So the prediction is more useful than the measurement of the same thing.
+
+Why would a guess beat a measurement? And where is the limit to that?""",
     ),
     'IOL-POWER-LABEL': (
-        "Is the label correct",
-        "The lenses are available in steps of 0,5 Diopteria and we choose one step. We deal with the number that stands on\nlinsen som exakt.\n\nOur decision moves to another step in 44 of 89 eyes. So almost half the cases are decided by\nhalf a dioptri.\n\nIf the manufacturing tolerance approaches half a step, there is a floor that no model can go\nbelow — and we would not notice it, because we have never measured a lens.\n\nHow do other industries find out if the component is consistent with its labelling, without measuring each specimen?",
+        'Is the label correct',
+        """The lenses come in steps of 0,5 dioptrier and we choose a step. We treat the number on
+the lens as exact.
+
+Our decision moves to another step in 44 of 89 eyes. So almost half the cases are decided by
+half a dioptri.
+
+If the manufacturing tolerance approaches half a step, there is a floor that no model can go
+below — and we would not notice it, because we have never measured a lens.
+
+How do other industries find out whether the component matches its label, without measuring every specimen?""",
     ),
     'STROMAL-INDEX': (
-        "A number we calculated ourselves",
-        "The cornea's refractive index goes into every optical calculation we make.\nhydration model — we have never compared it with an independently measured value.\n\nAround that point there are four relations we have not managed to determine. The nearest says that thickness,\nindex, hydration and surface distribution *together* leave 0,306 dioptrier undetermined, and that each individual\npair is exactly identical in four out of four cases. So the quantities cannot be distinguished with what we measure\ntoday.\n\nMeasuring one of them better does not help if they cannot be separated.\n\nHow do you break apart quantities that just appear together? That problem is solved in several fields.",
+        'A number we calculated ourselves',
+        """The cornea's refractive index enters every optical calculation we make. The number comes from our own
+hydration model — we have never compared it with an independently measured value.
+
+Around that point there are four relations we have not managed to determine. The nearest says that thickness,
+index, hydration and surface distribution *together* leave 0,306 dioptrier undetermined, and that each individual
+pair is exactly identical in four out of four cases. So the quantities cannot be distinguished with what we measure
+today.
+
+Measuring one of them better does not help if they cannot be separated.
+
+How do you separate quantities that only appear together? That problem has been solved in several fields.""",
     ),
 }
 
-TAIL = "\nYou do not need to answer in any particular form. Say what you conclude, and give DOI or PMID for what\nyou build on so we can follow it. If you conclude that the question is wrongly posed, say that instead.\n\nStatus PENDING_INDEPENDENT_REVIEW.\n"
+TAIL = """
+You do not need to answer in any particular form. Say what you conclude, and give DOI or PMID for what
+you build on so we can follow it. If you conclude that the question is wrongly posed, say that instead.
+
+Status PENDING_INDEPENDENT_REVIEW.
+"""
 
 
 def main() -> int:
@@ -69,7 +135,7 @@ def main() -> int:
                      'required_output_form': None,
                      'review_state': 'PENDING_INDEPENDENT_REVIEW'})
         json.dump(meta, j.open('w'), ensure_ascii=False, indent=1)
-        print(f"  {tag:28s} {len((d / 'BRIEF.md').read_text()):>5d} tecken")
+        print(f"  {tag:28s} {len((d / 'BRIEF.md').read_text()):>5d} characters")
     return 0
 
 

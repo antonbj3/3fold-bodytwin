@@ -22,4 +22,4 @@ Lead:
 4. If the strength curve improves: rerun V0/S1b gait for JW (L1 chain) and C1 (CX-BEATN1G2) → against N1g.
 5. Counter-tests: a shifted/permuted rollback curve; DM's/SC's geometry with JW's rollback.
 
-Resources: lane runner has full permissions in the workspace. Internal TLEM data stays local or on OVH. Locally: nice, 2 threads. Write in `results/CX-ROLLBACK/`. `RESULTS.md` starting with `# CX-ROLLBACK`, plus results.json and code with pytest.
+Resources: lane_runner has full permissions in the workspace. Internal TLEM data stays local or on OVH. Locally: nice, 2 threads. Write in `results/CX-ROLLBACK/`. `RESULTS.md` starting with `# CX-ROLLBACK`, plus results.json and code with pytest.

@@ -57,4 +57,4 @@ Read `tasks/index/DATASETS.json` and `~/projects/bodytwin/docs/DATASET_MAP.md`; 
 4. **Do NOT queue.** Write `results/CX-DATAMATRIX/QUEUE_PROPOSAL.txt` in the format `<A|B|C> swarm BT-DM-…`, spread over A/B/C. The coordinator reviews SAMPLE.md and queues.
 5. A reducer `tasks/datamatrix_reduce.py`: gathers the finished packets' tables into `results/DATAMATRIX_TABLES/<protocol>.csv` (one row per unit, with provenance), so that consumers can read them directly.
 
-`results/CX-DATAMATRIX/RESULTS.md` starting with `# CX-DATAMATRIX`: protocols, number of packets per dataset, filter statistics. lane runner has full permissions in the workspace; the raw-data zips are read-only.
+`results/CX-DATAMATRIX/RESULTS.md` starting with `# CX-DATAMATRIX`: protocols, number of packets per dataset, filter statistics. lane_runner has full permissions in the workspace; the raw-data zips are read-only.

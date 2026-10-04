@@ -19,9 +19,17 @@ import sys
 
 W = pathlib.Path(__file__).resolve().parents[2]
 QUEUE = W / 'tasks/lanes/bt_queue.txt'
-REFUSAL = re.compile("(does not exist|exist \\*\\*not\\*\\*|does not exist|not reachable|cannot be satisfied|could not be read)")
+# The phrases as a report use it vaguely. They stood in Swedish and English mixed
+# Because the reports did; now the reports are English, and the monster is flying with.
+# Monsters who don't match the next tiger in the stables to fail, and then koas nothing about.
+REFUSAL = re.compile(r'(does not exist|is \*\*not\*\* present|not present|not reachable|'
+                     r'cannot be satisfied|could not be read|was not found)')
 POINTER = re.compile(r'`results/(BT-[A-Za-z0-9_.-]+)/RESULTS\.md`')
-SECTION = re.compile("\\n## (?:This is not the first question about this edge|This edge has been answered at once before)\\n.*?(?=\\n## |\\Z)", re.S)
+# The headings written by it have the file sjalv, and it must then be able to find again.
+# stod tidigare pa svenska i bada andar; nar briefarna oversattes maste monstret folja med,
+# otherwise it doesn't match anything and the jobs are rearranged without the previous report being attached.
+SECTION = re.compile(r'\n## (?:This is not the first question about this edge|'
+                     r'This edge has been answered once before)\n.*?(?=\n## |\Z)', re.S)
 
 
 def main() -> int:
@@ -44,7 +52,9 @@ def main() -> int:
         # The pointer section is replaced whether or not the prior text was found: leaving it in is
         # what killed the job the first time.
         if text:
-            repl = ("\n## This edge has been answered at once before\nYou don't have our file system, so this is all you get from it. Don't repeat its analysis, build on:\n\n```\n"
+            repl = ('\n## This edge has been answered once before\n'
+                    'The earlier answer follows pasted below. You do not have our filesystem, so this '
+                    'is all you get of it. Do not redo its analysis, build on it:\n\n```\n'
                     + text[:4000] + '\n```\n')
         else:
             repl = ''
@@ -72,7 +82,7 @@ def main() -> int:
         lines = [f'{slots[i % 4]} swarm {j}' for i, j in enumerate(made)]
         existing = QUEUE.read_text().splitlines() if QUEUE.exists() else []
         QUEUE.write_text('\n'.join(lines + existing) + '\n')
-    print(f'{len(made)} briefer lined up with previous answers including')
+    print(f'{len(made)} briefs requeued with earlier answers pasted in')
     return 0
 
 

@@ -17,4 +17,4 @@
 3. Sensitivity: which single muscle group's arm/projection, scaled ±10 %, moves lo the most? That identifies the node.
 4. Counter-test: a random ±10 % perturbation of the arms must not give the same improvement.
 
-Deliver RESULTS.md starting with `# CX-L1ARMS`, results.json, the scripts, and pytest. Run the LP under bigmem.lock with 2 threads, or on OVH via `tasks/cloud_run.sh` (finish by 07:30). Internal data stays local. Exclude jw_lungef1. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Every outcome is a node that expands.
+Deliver RESULTS.md starting with `# CX-L1ARMS`, results.json, the scripts, and pytest. Run the LP under bigmem.lock with 2 threads, or on OVH via `tasks/cloud_run.sh` (finish by 07:30). Internal data stays local. Exclude jw_lungef1. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Every outcome is a node that expands.

@@ -1,6 +1,6 @@
 # Mission: diseases as high-dimensional objects (Sol B)
 
-You're a lane runner. `lane-model`Agent with full mandate from the coordinator. (Anton)You own all decisions. Perform without asking; report the default selection. You are working **oberoende** av andra agenter — write your own interpretation, even if it clashes with others'.
+You are a lane_runner `lane-model` agent with full mandate from the coordinator (Anton). You own all the decisions. Perform without asking; report default choices. You work **independently** of other agents — write your own interpretation, even if it conflicts with others'.
 
 ## Goal
 Describe **individual diseases in high dimensions** and lay the groundwork to actually **solve them** — not as labels, but as structures with interactions and edge profile. Produce a **scaled disease library** as high-level goals to input and densify the boundary work.

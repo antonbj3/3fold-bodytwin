@@ -119,19 +119,19 @@
       {
         "id": "01a0f2aa-40f5-7150-820b-9fdf2213f0b2",
         "name": "/root/bodytwin_breakthrough",
-        "model": "lane-model",
+        "model": "build-lane model",
         "status": "inProgress"
       },
       {
         "id": "01a0f2aa-aba3-7ea0-af80-6381e31418f3",
         "name": "/root/dental_breakthrough",
-        "model": "lane-model",
+        "model": "build-lane model",
         "status": "inProgress"
       },
       {
         "id": "01a0f2ab-2717-74a1-8279-0f17409e60ff",
         "name": "/root/graph_breakthrough",
-        "model": "lane-model",
+        "model": "build-lane model",
         "status": "inProgress"
       }
     ],
@@ -155,12 +155,12 @@
         "reason": "explicit provider rate limit",
         "next_eligible_epoch": 1790726898.123077
       },
-      "free_worker": {
+      "swarm_worker": {
         "time": 1790795112.724303,
         "reason": "explicit provider rate limit",
         "next_eligible_epoch": 1790796912.7243898
       },
-      "reserve_worker": {
+      "swarm_worker": {
         "time": 1790679232.2211797,
         "reason": "no completed tools for six minutes",
         "next_eligible_epoch": 1790681032.2212663
@@ -242,23 +242,23 @@
     "slice_limit": 30064771072,
     "policy": {
       "desired_host_concurrency": 26,
-      "bunny_active_cap": 17,
-      "free_worker_active_cap": 4,
-      "reserve_worker_reserve_cap": 16,
-      "reserve_worker_job_share": 0.25,
-      "reserve_worker_reserve_until": 1790806605.307248,
-      "reserve_worker_backoff_until": 0,
-      "bunny_backoff_until": 1790759089.8129277,
-      "free_worker_backoff_until": 1790796912.725227,
-      "reserve_worker_value_only": false,
-      "reserve_worker_weekly_used_pct": 0,
-      "reserve_worker_weekly_stop_pct": 95,
-      "free_worker_fill_target": 4
+      "swarm_active_cap": 17,
+      "swarm_worker_active_cap": 4,
+      "swarm_worker_reserve_cap": 16,
+      "swarm_worker_job_share": 0.25,
+      "swarm_worker_reserve_until": 1790806605.307248,
+      "swarm_worker_backoff_until": 0,
+      "swarm_backoff_until": 1790759089.8129277,
+      "swarm_worker_backoff_until": 1790796912.725227,
+      "swarm_worker_value_only": false,
+      "swarm_worker_weekly_used_pct": 0,
+      "swarm_worker_weekly_stop_pct": 95,
+      "swarm_worker_fill_target": 4
     },
     "allocation": {
       "credit": 0,
       "admitted": 464,
-      "reserve_worker": 247,
+      "swarm_worker": 247,
       "free": 217,
       "fallback": 2,
       "updated": 1790795894.96711,
@@ -311,7 +311,7 @@
         "reason": "explicit provider rate limit",
         "next_eligible_epoch": 1790725697.0150743
       },
-      "free_worker": {
+      "swarm_worker": {
         "time": 1790795948.1589723,
         "reason": "explicit provider rate limit",
         "next_eligible_epoch": 1790797748.1590273
@@ -373,7 +373,7 @@
       {
         "id": "agent-BT-FW48-AUTO-6f92138643425f-1790796206.service",
         "job": "BT-FW48-AUTO-6f92138643425f",
-        "model": "reserve_worker",
+        "model": "swarm_worker",
         "pid": 2702134,
         "cpu_ns": 53135046000,
         "memory": 668106752,
@@ -386,7 +386,7 @@
     ],
     "models": {
       "swarm": 2,
-      "reserve_worker": 1
+      "swarm_worker": 1
     },
     "launchers": 3,
     "invalid_markers": 0,
@@ -394,23 +394,23 @@
     "slice_limit": 7516192768,
     "policy": {
       "desired_host_concurrency": 5,
-      "bunny_active_cap": 3,
-      "free_worker_active_cap": 1,
-      "reserve_worker_reserve_cap": 3,
-      "reserve_worker_job_share": 0.25,
-      "reserve_worker_reserve_until": 1790806598.9634993,
-      "reserve_worker_backoff_until": 0,
-      "bunny_backoff_until": 1790759064.3141148,
-      "free_worker_backoff_until": 1790797748.159648,
-      "reserve_worker_value_only": false,
-      "reserve_worker_weekly_used_pct": 0,
-      "reserve_worker_weekly_stop_pct": 95,
-      "free_worker_fill_target": 1
+      "swarm_active_cap": 3,
+      "swarm_worker_active_cap": 1,
+      "swarm_worker_reserve_cap": 3,
+      "swarm_worker_job_share": 0.25,
+      "swarm_worker_reserve_until": 1790806598.9634993,
+      "swarm_worker_backoff_until": 0,
+      "swarm_backoff_until": 1790759064.3141148,
+      "swarm_worker_backoff_until": 1790797748.159648,
+      "swarm_worker_value_only": false,
+      "swarm_worker_weekly_used_pct": 0,
+      "swarm_worker_weekly_stop_pct": 95,
+      "swarm_worker_fill_target": 1
     },
     "allocation": {
       "credit": 0,
       "admitted": 124,
-      "reserve_worker": 56,
+      "swarm_worker": 56,
       "free": 68,
       "fallback": 1,
       "updated": 1790796206.3489337,

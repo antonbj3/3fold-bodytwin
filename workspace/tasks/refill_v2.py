@@ -63,7 +63,8 @@ DENTAL_FOLLOWUPS = {
 }
 PRIVATE_MARKERS = re.compile(_private_input_pattern('(?<![A-Za-z0-9])(collaborator|collaborator|gc)(?![A-Za-z0-9])'), re.I)
 NON_DATA_PREFIXES = ('AUTO-', 'AUDIT-', 'BUILD-', 'FIX-', 'GRAPH-', 'SOLVE-')
-HEAD = ("Read inputs/NIGHT_PREAMBLE.md. Just work here, ≤ 45 min, 1 thread. Web allowed for published literature and public datasets. PREREG.md + sha256 before calculation; RESULTS.md begins with the line \"{j}\"; results.json. No judgment words, do not find on the measurement data.\n\n")
+HEAD = ("Read inputs/NIGHT_PREAMBLE.md. Work only here, ≤ 45 min, 1 thread. Web allowed for published literature and public datasets. "
+        "PREREG.md + sha256 before computation; RESULTS.md starts with the line \"{j}\"; results.json. No verdict words, do not invent measured data.\n\n")
 
 
 def done(d: Path) -> bool:
@@ -154,7 +155,19 @@ def graph_data_id(node):
 
 
 def graph_data_brief(node, priority, next_score):
-    return (f'Nodstyrd PUBLIK data search for graphnode {node}. Grafprioritet {priority:g}, next-action-score {next_score:g} are only sample signals. population/regim, unit of measurement, time base and pre-search decision criteria. Find an actual independent raw data sample; specify URL/DOI, license, filhash, parsad form, units and measurement uncertainty in DATA_SOURCES.json. Compare with the exact question in the package. Read no private graphs from the cloud.ID: not unambiguously indicate observable and intended comparison: account NEEDS_TASK_DEFINITION and the missing fields before wide search; do not guess internal meaning. This is a task gap, not a negative research result. Do not copy internal graph text, the collaborator/GC/restricted model data or private raw data to a ALLOW_WEB-paket or any web service. If no matching source is available: UNKNOWN and an explicit coverage gap. Upgrade no graph status.')
+    return (f"Node-guided PUBLIC data search for graph node {node}. Graph priority {priority:g}, "
+            f"next-action-score {next_score:g} are selection signals only. Freeze observable, "
+            "population/regime, unit of measurement, time base and decision criterion before searching. "
+            "Seek an actual independent raw-data sample; state URL/DOI, licence, file hash, "
+            "parsed shape, units and measurement uncertainty in DATA_SOURCES.json. Compare against "
+            "the exact question in the packet. Read no private graphs from the cloud. If the node ID "
+            "does not unambiguously state the observable and intended comparison: report "
+            "NEEDS_TASK_DEFINITION and the missing fields before broad searching; do not guess "
+            "the internal meaning. This is a task gap, not a negative "
+            "research result. Do not copy "
+            "internal graph text, the collaborator/GC/restricted model data or private raw data to an ALLOW_WEB packet "
+            "or any web service. If no matching source exists: UNKNOWN and an "
+            "explicit coverage gap. Do not upgrade any graph status.")
 
 
 def integrated_models():
@@ -191,7 +204,7 @@ def plan(limit: int = 80, now: float | None = None):
             continue
         files = [(a / 'DATA_SOURCES.json', f'{qa}_DATA_SOURCES.json'), (b / 'DATA_SOURCES.json', f'{qb}_DATA_SOURCES.json')]
         detail = json.dumps(pair['evidence'][0], ensure_ascii=False)
-        add(f'BT-DATX-{qa}-{qb}', f'KOMBINERA dataset. Graflink: {detail}. Load yourself and parse at least one actual data sample per source; check sha256, form, units, coordinate frame and time base. Write an integral SI-conversion for each quantity of measurement: for molecular mass 528,9 g/mol applies to: 1 ng/mL = 1/528,9 µmol/L, not 1/0,5289. Visa explicit om individ-ID, states and observables can be matched. If there is no common measurement: report unmatched and no parameter improvement, without synthetic joy. Calculate uncertainty before/after only for identifiable quantity. A coupling annotation is hypothesis, not evidence.', files + model_files(qa) + model_files(qb))
+        add(f'BT-DATX-{qa}-{qb}', f"COMBINE the datasets. Graph link: {detail}. Load and parse at least one actual data sample per source yourself; check sha256, shape, units, coordinate frame and time base. Write a worked SI conversion for each measured quantity: for molecular mass 528,9 g/mol, 1 ng/mL = 1/528,9 µmol/L, not 1/0,5289. Show explicitly whether individual ID, state and observables can be matched. If no common measurement exists: report unmatchability and no parameter improvement, without a synthetic join. Compute uncertainty before/after only for an identifiable quantity. A coupling annotation is a hypothesis, not an evidence verdict.", files + model_files(qa) + model_files(qb))
 
     for q, finding in QUALITY_TARGETS.items():
         if len(selected) >= int(limit * .65): break
@@ -200,7 +213,7 @@ def plan(limit: int = 80, now: float | None = None):
         files = [(dat / 'RESULTS.md', f'{q}_DAT_RESULTS.md'),
                  (dat / 'DATA_SOURCES.json', f'{q}_DATA_SOURCES.json'),
                  (R / 'CX-SWARMPLANNER/QUALITY_LOG.md', 'QUALITY_LOG.md')]
-        add(f'BT-DATQ-{q}', f'Oberoende datakvalitetsomtag: {finding}. Reopen actual source file via samples/ or SAMPLES_MOVED.txt; kontrollera SHA256, parses, shape, units and measurement definition with the sharpened DAT-mallen. Frys det specifika felet i PREREG. Rapportera korrigerat eller UNKNOWN, with an impact on previous conclusion. collaborator/GC/restricted model data shall not be included.', files)
+        add(f'BT-DATQ-{q}', f"Independent data-quality retry: {finding}. Reopen the actual source file via samples/ or SAMPLES_MOVED.txt; check SHA256, parser, shape, units and measurement definition with the tightened DAT template. Freeze the specific error in PREREG. Report corrected or UNKNOWN, with the effect on the previous conclusion. Internal the collaborator/GC/restricted model data must not be included.", files)
 
     for q in robust_models():
         if len(selected) >= int(limit * .85): break
@@ -231,7 +244,7 @@ def plan(limit: int = 80, now: float | None = None):
         files = model_files(q) + [(dat / 'RESULTS.md', f'{q}_DAT_RESULTS.md')]
         if (dat / 'DATA_SOURCES.json').is_file():
             files.append((dat / 'DATA_SOURCES.json', f'{q}_DATA_SOURCES.json'))
-        add(f'BT-VAL-{q}', f'Independently measured validation of {target}. Freezer outputs, units of measurement, baseline and full-out separation in PREREG before data analysis. Read and check an actual public sample; enter DOI/URL, licens, sha256, number of individuals, sample format and uncertainty. Do not reuse the same individuals or endpoint for both fit and test. If the matched open sample is missing, the outcome is UNKNOWN; if the model loses to baseline, it is a valid negative result. collaborator/GC/restricted model data may not be loaded or described here.', files)
+        add(f'BT-VAL-{q}', f"Independent measured validation of {target}. Freeze outcome, units of measurement, baseline and held-out separation in PREREG before data analysis. Read and check an actual public sample; state DOI/URL, licence, sha256, number of individuals, sample format and uncertainty. Do not reuse the same individuals or endpoint for both fitting and testing. If a matched open sample is missing, the outcome is UNKNOWN; if the model loses to the baseline, that is a valid negative result. Internal the collaborator/GC/restricted model data must not be loaded or described here.", files)
 
     for pair in pairs:
         if len(selected) >= limit: break
@@ -241,13 +254,13 @@ def plan(limit: int = 80, now: float | None = None):
         if not (criterion_met(R / f'BT-HX-{qa}') and criterion_met(R / f'BT-HX-{qb}')):
             continue
         detail = json.dumps(pair['evidence'][0], ensure_ascii=False)
-        add(f'BT-CPL-{qa}-{qb}', f'Koppla modellerna via den grafrelaterade storheten. Relation: {detail}. Specify the port, units and frozen test against a measured value that no model alone predicts. Validate the physics of the relationship before any dependence.', model_files(qa) + model_files(qb))
+        add(f'BT-CPL-{qa}-{qb}', f"Couple the models through the graph-related quantity. Relation: {detail}. State port, units and a frozen test against a measured value that neither model alone predicts. Validate the relation’s physics before any dependency verdict.", model_files(qa) + model_files(qb))
 
     for name, (parent, objective) in DENTAL_FOLLOWUPS.items():
         if len(selected) >= limit - audit_budget: break
         d = R / parent
         if done(d):
-            add(f'BT-DENT2-{name}', f'Continue From {parent}: {objective} Preserve past negative results and uncertainty. individ/regim, SI-units and a frozen counterexample; no synthetic joy or graph status change. Use only public data in this ALLOW_WEB-paket.', [(d / 'RESULTS.md', parent + '_RESULTS.md'), (d / 'results.json', parent + '_results.json')])
+            add(f'BT-DENT2-{name}', f"Continue from {parent}: {objective} Preserve earlier negative results and uncertainty. Require the same individual/regime, SI units and a frozen countertest; no synthetic join or graph-status change. Use only public data in this ALLOW_WEB packet.", [(d / 'RESULTS.md', parent + '_RESULTS.md'), (d / 'results.json', parent + '_results.json')])
 
     # Fill spare capacity only after the finite validation and coupling work.
     # This also keeps refills useful after those finite families are exhausted.
@@ -261,7 +274,7 @@ def plan(limit: int = 80, now: float | None = None):
         files += [(d/f,d.name+'_'+f) for f in ('results.json','DATA_SOURCES.json','SAMPLES_MOVED.txt','BRIEF.md') if (d/f).is_file()]
         sample=next((f for f in sorted((d/'samples').rglob('*')) if f.is_file() and f.stat().st_size<20e6),None)
         if sample:files.append((sample,d.name+'_'+sample.name))
-        add('BT-AUD-V2-'+d.name, 'Oberoende granskning av '+d.name+". Check exact task definition, primary source, actual parsing, units, sample shape and independence between fit/test. Choose the conclusion that most affects the next model decision and recompute it. Report separately: verified finding, model assumption, missing material or wrong task definition. An honest UNKNOWN can be correct but does not mean increased model capability. State concretely which next experiment or implementation decision the result supports. No graph status may be upgraded.",files)
+        add('BT-AUD-V2-'+d.name, 'Independent review of '+d.name+'. Check exact task definition, primary source, actual parsing, units, sample shape and independence between fit/test. Choose the conclusion that most affects the next model decision and recompute it. Report separately: verified finding, model assumption, missing material or wrong task definition. An honest UNKNOWN can be correct but does not mean increased model capability. State concretely which next experiment or implementation decision the result supports. No graph status may be upgraded.',files)
     selected.sort(key=lambda item: 0 if item[0].startswith('BT-AUD-') else 1)
     return selected
 

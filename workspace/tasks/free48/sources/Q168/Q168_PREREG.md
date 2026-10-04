@@ -26,7 +26,7 @@ The pre-specified mechanism perturbations are: microbial conversion capacity, ep
 
 The numerical scale anchor is the median fasting plasma TMAO concentration of **4.6 µM** reported in the GeneBank cohort (`n = 2,595`). The same paper reports the oral d3-(methyl)-L-carnitine challenge dose of **250 mg**, serial plasma sampling, and 24 h urine collection.
 
-Source: Koeth RA, Wang Z, Levison BS, et al. (2013), *Intestinal microbiota metabolism of L-carnitine, a nutrient in red meat, promotes atherosclerosis*, **Nature Medicine** 19:576–585, DOI **10.1038/nm.3145**. Page consulted: https://pmc.ncbi.nlm.nih.gov/articles/PMC3650111/ (abstract, Figure 1 caption, Figure 4f, Methods). The value is **verified**; it is not labelled `OVERIFIERAD`.
+Source: Koeth RA, Wang Z, Levison BS, et al. (2013), *Intestinal microbiota metabolism of L-carnitine, a nutrient in red meat, promotes atherosclerosis*, **Nature Medicine** 19:576–585, DOI **10.1038/nm.3145**. Page consulted: https://pmc.ncbi.nlm.nih.gov/articles/PMC3650111/ (abstract, Figure 1 caption, Figure 4f, Methods). The value is **verified**; it is not labelled `UNVERIFIED`.
 
 The source value is an observational total-TMAO median, whereas `Y` is a labelled-tracer AUC. The comparison is therefore a scale/anchor check, not independent validation of the tracer estimand. No exact human tracer AUC matching the synthetic parameterisation is asserted.
 

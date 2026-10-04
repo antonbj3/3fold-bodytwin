@@ -16,7 +16,7 @@
 
 **Output:** prephonatory pressure [Pa]; mucosal wave speed [m/s]; contact fraction [%]; fundamental frequency [Hz]
 
-**Reuse:** No direct code anchor mapped in this limited review.
+**Reuse:** No direct code anchor mapped in this scoped review.
 
 **Next work/data:** Layer geometry and material laws, high-speed video, air pressure/flow and sound, as well as contact and fluid-film data where needed.
 

@@ -12,7 +12,7 @@ Usable anchors: **EMPIAR-11542** (cryo-ET tilt series, C. elegans whole mitochon
 
 ## Sample
 
-`samples/emd_18991.map.gz`, 2 688 407 B, sha256 `948fa9b9…c55e1a`, decompressing to 10 977 024 B. Form: 3-D scalar density volume, 2 744 000 voxels. Units: steam current, arbitrary density scale. Coordinate frame: origin `(0,0,0)`, col/row/sec ordering = X/Y/Z fast-to-slow, 3.58 O/voxel, box 501.2 Oh, space group 1, C2 applied. **Found a defect**: the deposited MRC `mode` word says int32 while the EMDB XML and the bytes say float32 — the float32 reading reproduces the depositor's own min/max to 1e-8, the int32 reading spans the whole dtype range including the `-2147483648` sentinel.
+`samples/emd_18991.map.gz`, 2 688 407 B, sha256 `948fa9b9…c55e1a`, decompressing to 10 977 024 B. Form: 3-D scalar density volume, 2 744 000 voxels. Units: angstrom, arbitrary density scale. Coordinate frame: origin `(0,0,0)`, col/row/sec ordering = X/Y/Z fast-to-slow, 3.58 O/voxel, box 501.2 Oh, space group 1, C2 applied. **Found a defect**: the deposited MRC `mode` word says int32 while the EMDB XML and the bytes say float32 — the float32 reading reproduces the depositor's own min/max to 1e-8, the int32 reading spans the whole dtype range including the `-2147483648` sentinel.
 
 ## What fell
 

@@ -1,4 +1,22 @@
-"BT-N5: extended validity certificate v2 for a *organized individual*.\n\nCopy/extension of the published `bodytwin.geometry.geometry_validity_v1` (source:\nreferences/current_bodytwin/src, byte-identical to inputs/baseline/src/geometry_validity_v1.py,\nsha256 47bba924…). The v1 check `geometry_certificate` is imported unchanged and supplemented with\nfour checks missing from v1 (see PREREG.md):\n\n  1. Jacobian sign per element (per triangle, in the source's own tangent basis).\n  2. Rotation-invariant fold measure (X1b's Kabsch method).\n  3. Attachment–surface distance (anchored attachments against the deformed part surface).\n  4. Joint-centre–sphere residual (declared joint centre against a sphere fit of the joint head).\n\nCopied functions with source references (no `import *`):\n  * `_patch_rotations`, `_fold_check`  <- results/X1b/geomgr_ll2/model.py (lines 128-185).\n  * `sphere_fit_algebraic`, `sphere_fit` <- results/X1b/geomgr_ll2/joints.py (lines 14-38).\n  * `distance_to_surface`              <- results/X1b/geomgr_ll2/landmarks.py (lines 92-96).\n\nThresholds (fixed in PREREG.md): JAC_TOL = -1e-9, FOLD = 0, ATTACH_TOL_MM = 1e-6, JOINT_TOL_MM = 10.0.\n"
+"""BT-N5: extended validity certificate v2 for an *instantiated individual*.
+
+Copy/extension of the published `bodytwin.geometry.geometry_validity_v1` (source:
+references/current_bodytwin/src, byte-identical to inputs/baseline/src/geometry_validity_v1.py,
+sha256 47bba924…). The v1 check `geometry_certificate` is imported unchanged and supplemented with
+four checks missing from v1 (see PREREG.md):
+
+  1. Jacobian sign per element (per triangle, in the source's own tangent basis).
+  2. Rotation-invariant fold measure (X1b's Kabsch method).
+  3. Attachment–surface distance (anchored attachments against the deformed part surface).
+  4. Joint-centre–sphere residual (declared joint centre against a sphere fit of the joint head).
+
+Copied functions with source references (no `import *`):
+  * `_patch_rotations`, `_fold_check`  <- results/X1b/geomgr_ll2/model.py (lines 128-185).
+  * `sphere_fit_algebraic`, `sphere_fit` <- results/X1b/geomgr_ll2/joints.py (lines 14-38).
+  * `distance_to_surface`              <- results/X1b/geomgr_ll2/landmarks.py (lines 92-96).
+
+Thresholds (fixed in PREREG.md): JAC_TOL = -1e-9, FOLD = 0, ATTACH_TOL_MM = 1e-6, JOINT_TOL_MM = 10.0.
+"""
 from __future__ import annotations
 
 import numpy as np
@@ -17,7 +35,7 @@ __all__ = [
 JAC_TOL = -1e-9
 ATTACH_TOL_MM = 1e-6
 JOINT_TOL_MM = 10.0
-DEGEN_REL = 1e-3   # D1:s degeneracitetskriterium: hogd/langsta kant < DEGEN_REL
+DEGEN_REL = 1e-3   # D1's degeneracy criterion: height/longest edge < DEGEN_REL
 
 
 # ---------------------------------------------------------------- 1. Jacobian per element
@@ -125,12 +143,17 @@ def per_face_jacobian(V0, V1, F, rings=2):
 
 # ---------------------------------------------------------------- 2. rotation-invariant fold check
 def _patch_rotations(V0, V1, F, rings=2):
-    "COPY with source reference: results/X1b/geomgr_ll2/model.py lines 128-157 (identical logic;\n    shares implementation with `_patch_rotation_and_sign`)."
+    """COPY with source reference: results/X1b/geomgr_ll2/model.py lines 128-157 (identical logic;
+    shares implementation with `_patch_rotation_and_sign`)."""
     return _patch_rotation_and_sign(V0, V1, F, rings=rings)[0]
 
 
 def rotation_invariant_fold(V0, V1, F, rings=2):
-    "KOPIA/adaptation with source citation: results/X1b/geomgr_ll2/model.py rad 160-185.\n\n    Source normal rotated with the neighbourhood's best rigid rotation (Kabsch), then compared with\n    the deformed normal. Folded = cos <= 0. Degenerate source triangles counted separately (D1 rule).\n    "
+    """COPY/adaptation with source reference: results/X1b/geomgr_ll2/model.py lines 160-185.
+
+    Source normal rotated with the neighbourhood's best rigid rotation (Kabsch), then compared with
+    the deformed normal. Folded = cos <= 0. Degenerate source triangles counted separately (D1 rule).
+    """
     def normals(V):
         t = V[F]
         nn = np.cross(t[:, 1] - t[:, 0], t[:, 2] - t[:, 0])
@@ -158,7 +181,8 @@ def rotation_invariant_fold(V0, V1, F, rings=2):
 
 # ---------------------------------------------------------------- 3. attachment-to-surface
 def distance_to_surface(V, F, points):
-    "KOPIA with source citation: results/X1b/geomgr_ll2/landmarks.py rad 92-96 (identisk).\n    N7c: numpy exact point-triangle distance when trimesh is absent (cloud)."
+    """COPY with source reference: results/X1b/geomgr_ll2/landmarks.py lines 92-96 (identical).
+    N7c: numpy exact point-triangle distance when trimesh is absent (cloud)."""
     try:
         import trimesh  # noqa: F401
     except ImportError:
@@ -194,7 +218,7 @@ def attachment_residuals(parts_def, attachments):
 
 # ---------------------------------------------------------------- 4. joint-centre sphere residual
 def sphere_fit_algebraic(P):
-    "COPY with source reference: results/X1b/geomgr_ll2/joints.py lines 14-19 (identical)."
+    """COPY with source reference: results/X1b/geomgr_ll2/joints.py lines 14-19 (identical)."""
     P = np.asarray(P, float)
     A = np.c_[2 * P, np.ones(len(P))]
     x = np.linalg.lstsq(A, (P ** 2).sum(1), rcond=None)[0]
@@ -203,7 +227,7 @@ def sphere_fit_algebraic(P):
 
 
 def sphere_fit(P):
-    "COPY with source reference: results/X1b/geomgr_ll2/joints.py lines 22-38 (identical)."
+    """COPY with source reference: results/X1b/geomgr_ll2/joints.py lines 22-38 (identical)."""
     from scipy.optimize import least_squares
     P = np.asarray(P, float)
     c0, r0 = sphere_fit_algebraic(P)

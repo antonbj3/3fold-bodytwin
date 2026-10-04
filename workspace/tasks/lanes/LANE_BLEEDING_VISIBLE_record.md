@@ -54,4 +54,4 @@ re-registration changes the entire branch's calculation.
 landmark, and the number of re-registrations per procedure with and without bleeding. Plus the acquisition item for
 fibrin-to-rheology.
 
-Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+No internal data. Everything PENDING_INDEPENDENT_REVIEW.

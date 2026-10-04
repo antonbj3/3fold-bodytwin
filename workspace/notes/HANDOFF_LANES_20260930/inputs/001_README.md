@@ -22,7 +22,7 @@ cd local_path
 
 The same commands exist in `bodytwin`. `rank` is the existing engine's structural work order based on inherited dependencies, goal weights and costs or cost proxies; it is not calibrated information value or approval of the sources' claims.
 
-## Filerna som visar grafen
+## Files that show the graph
 
 | File | Contents |
 |---|---|

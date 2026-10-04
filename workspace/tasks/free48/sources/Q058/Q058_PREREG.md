@@ -1,10 +1,10 @@
-# BT-HX-Q058 — fryst preregistration
+# BT-HX-Q058 — frozen preregistration
 
 ## Status and limit
 
 This is written before the first run of `model.py`. The model is a small, deterministic and normalized isometric muscle model. It does not represent a particular person, a particular joint or a measurement data set. `F_max = 1` is used as the power unit; all relative errors are therefore fractions of maximum power. No training or post-adjustment is made after the criteria here are frozen.
 
-## Hypotes
+## Hypothesis
 
 A switch between levels of detail is biologically memory-preserving if the coarser model (a) accommodates all slow states that may still affect the future and (b) initializes the fast states with the correct value, or causes them to approach their quasi-stationary value. If only the slow fatigue/capacity pools is transmitted, a residual central adaptation or metabolic fatigue history will produce an observation error after a later perturbation.
 
@@ -28,7 +28,7 @@ Look up 2026-09-25 in the open full text for Potvin & Fuglevand (2017), *A motor
 
 The reference values ​​are thus verified; `OVERIFIERAD` is not used. The mechanistic parameters in the table in `model.py` explicitly distinguish between published values ​​and assumptions. This model must not claim to reproduce 511,5 s or 95,5 s.
 
-## Fryst kriterium
+## Frozen criterion
 
 A switch case counts as memory conservation in the first iteration if all of the following apply:
 
@@ -52,7 +52,7 @@ A case that fails 1 or 2 is `FAIL`, not a case that gets a new threshold value. 
 
 Frozen ±50 % for `τ_f`, `k_f` and `τ_s`. Each parameter is changed alone, other parameters are kept frozen. Report `E_switch`, capacity jump and relative sensitivity `(Y(+50%)-Y(-50%))/(2Y0)`. This is a sensitivity analysis, not a measurement range claim.
 
-## Builds on
+## Building on
 
 - `inputs/QUESTION.md`, Q058 and its inputs K03, K09, K10; the substrate only contains labels, not their file contents.
 - Potvin & Fuglevand (2017), DOI 10.1371/journal.pcbi.1005581, especially Fig. 1–3, Fig. 7 and Methods Eq. (1), (4), (5), (6), (10)–(14).

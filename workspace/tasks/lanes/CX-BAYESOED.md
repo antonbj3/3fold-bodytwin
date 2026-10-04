@@ -45,4 +45,4 @@
    - (f) a coverage check on simulated truth, person-level.
 4. Everything is a node that expands (FRAMING_NOTE): report where the protocol cannot close g, and which measurement node would be needed.
 
-Resources: lane runner has full permissions in the workspace; the graph and Field code is read-only (copy with a source reference). Heavy sampling goes to OVH (`tasks/cloud_run.sh`, BodyTwin ≤ 12 vCPU, finish by 07:30) or UpCloud; internal the collaborator data stays local/OVH only. Write in `results/CX-BAYESOED/`. `RESULTS.md` starting with `# CX-BAYESOED`, plus results.json and pytest.
+Resources: lane_runner has full permissions in the workspace; the graph and Field code is read-only (copy with a source reference). Heavy sampling goes to OVH (`tasks/cloud_run.sh`, BodyTwin ≤ 12 vCPU, finish by 07:30) or UpCloud; internal the collaborator data stays local/OVH only. Write in `results/CX-BAYESOED/`. `RESULTS.md` starting with `# CX-BAYESOED`, plus results.json and pytest.

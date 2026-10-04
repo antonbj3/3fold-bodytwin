@@ -7,14 +7,14 @@
 - Field's night results in romi_collab/build/U47x–U48x (read-only), where they touch the knee.
 
 ## 2. Register
-Append ONE row per new result to `notes/RESULTS_INDEX.md`. The next A-number = max(A-number in the file)+1; compute it immediately before writing. Use the same column format as the last rows, and mark "ej granskad" or "OGRANSKAD (The swarm)" as appropriate.
+Append ONE row per new result to `notes/RESULTS_INDEX.md`. The next A-number = max(A-number in the file)+1; compute it immediately before writing. Use the same column format as the last rows, and mark "not reviewed" or "UNREVIEWED (The swarm)" as appropriate.
 
 ## 3. The morning summary
 Write `external_research_path`, max 60 lines, in Swedish, for Anton. Cover:
 - the state of the knee line (N1g 0.396 is the reference to beat; the model error = frames below Fmin; what L1ARMS showed);
 - what holds and what does not;
-- 3 proposed next nodes. Rules: no process narration,
-  no verdict words ("kill"/"dead end").
+- 3 proposed next nodes.
+Rules: no process narration, no verdict words ("kill"/"dead end").
 
 ## 4. The next The swarm wave
 Build 40–100 packets in `results/BT-N3-*` that follow from the night's results. Each packet MUST compute something new against measured implant force or against an independent reference, with a frozen criterion in its BRIEF.md. No reanalysis/meta questions.
@@ -22,10 +22,10 @@ Build 40–100 packets in `results/BT-N3-*` that follow from the night's results
 - Write QUEUE_PROPOSAL.txt with a value justification per packet group.
 - Then append the lines to `tasks/lanes/bt_queue.txt` (format `A swarm <ID>`, round-robin over A/B/C). The coordinator has pre-approved this under the rule above.
 
-lane runner has full permissions in the workspace; `~/projects/bodytwin` and romi_collab are read-only. No emails, pushes or credentials. Internal data stays local. Commit via `bash tasks/lanegit.sh add ... && bash tasks/lanegit.sh commit -m ...`.
+lane_runner has full permissions in the workspace; `~/projects/bodytwin` and romi_collab are read-only. No emails, pushes or credentials. Internal data stays local. Commit via `bash tasks/lanegit.sh add ... && bash tasks/lanegit.sh commit -m ...`.
 
-## Supplement 23:55
-Also read results/CX-L1ARMS2 and results/CX-DESIGNLOOP (the proof lane's night priorities §1/§4 in external_research_path — basis for Anton's presentation). The morning summary should have its own section per priority: what was completed, callable function, paired numbers, measured time.
+## Addition 23:55
+Also read results/CX-L1ARMS2 and results/CX-DESIGNLOOP (the proof lane's night priorities §1/§4 in external_research_path — inputs for Anton's presentation). The morning summary must have a separate section per priority: what was completed, callable function, paired numbers, measured time.
 
 ## Second run (05:30)
 First read results/CX-NIGHTSYNTH/RESULTS.md and the morning summary; UPDATE it (do not write a new file) with everything added since then (BT-N1 results, L1ARMS2, DESIGNLOOP, Field's U47x–U48x). The next The swarm wave is called BT-N3-*.

@@ -7,8 +7,8 @@ systemctl --user is-active -q bt-queue-driver || systemd-run --user --collect --
 timeout 60 ssh -i ~/.ssh/hunt_20260923 -o UserKnownHostsFile=external_research_path -o BatchMode=yes -n ubuntu@51.77.110.4 'now=$(date +%s); for u in $(systemctl list-units --no-legend "agent-*" | awk "{print \$1}"); do d=$(systemctl show -p WorkingDirectory --value $u); [ $((now-$(stat -c %Y $d/agent.log 2>/dev/null||echo $now))) -gt 1500 ] && sudo systemctl stop $u; done'
 n=$(python3 tasks/queue_supply.py)
 if [ $n -lt 40 ] && true; then python3 tasks/refill_v2.py 80; fi
-echo "[$(date +%T)] keepalive runnable=$n ovh=$(ls tasks/lanes/ovh_agents/running | wc -l) local=$(systemctl --user list-units --no-legend 'bt-job-*' | wc -l)" >> tasks/lanes/bunny_keepalive.log
-# Free result-driven planner replaces automatic paid lane runner maintenance.
+echo "[$(date +%T)] keepalive runnable=$n ovh=$(ls tasks/lanes/ovh_agents/running | wc -l) local=$(systemctl --user list-units --no-legend 'bt-job-*' | wc -l)" >> tasks/lanes/swarm_keepalive.log
+# Free result-driven planner replaces automatic paid lane_runner maintenance.
 n2=$(python3 tasks/queue_supply.py)
 if [ "$n2" -lt 40 ]; then python3 tasks/free_controller.py; fi
 # (2) Cap: raise it while the success rate is good and OVH has memory; lower it on many failures.

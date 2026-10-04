@@ -21,15 +21,15 @@ is machine-readable in `DATA_SOURCES.json`; same structures plus
 criteria output values are in `results.json`. No figure from any dataset has
 entered into the model — the connection is symbolic (dataset → model symbol).
 
-## Verifierat prov
+## Verified sample
 
 `curl` against `https://zenodo.org/api/records/7668420/files/Data%20source%20file_dualfilament_regulation.xlsx/content`
 → **HTTP 200, 1 824 082 B** (= 3,6 % of the 50 MB boundary), saved as
 `samples/dualfilament_7668420.xlsx`,
 sha256 `b16ec2f0883daca16c33d9d8667ce5adf054803e9a197e2b43dfa3366b667f3b`.
 
-- **Form:** magiska bytes `50 4b 03 04` = ZIP/OOXML-paket, 17 zipposter,
-  4 kalkylblad — `Figure 1` (A2:AI43, 37 icke-tomma rader), `Figure 3`
+- **Form:** magic bytes `50 4b 03 04` = ZIP/OOXML package, 17 zip entries,
+  4 worksheets — `Figure 1` (A2:AI43, 37 nonempty rows), `Figure 3`
   (A1:BL4563, 4563), `Figure 4` (B1:V18210, 4840), `Figure 6` (B2:H20902, 20901).
   Read with `openpyxl` 3.1.5; first row of data in each sheet has parsed numeric
   cells (see `results.json → sample_verification.sheets`).
@@ -84,7 +84,7 @@ sha256 `b16ec2f0883daca16c33d9d8667ce5adf054803e9a197e2b43dfa3366b667f3b`.
   next resolution step.
 - `E` (edema), `F` in acute human cohort, as well as `K01/K03/K09/K12` semantics: `UNKNOWN`.
 
-## Reproduktion
+## Reproduction
 
 - `PREREG.md` was written **before** first request; `PREREG.sha256` =
   `9a1ae3a61668ac434c21e48f4171ca5da30139671696cc319e0f30a3cc6a1c7b`, unchanged i

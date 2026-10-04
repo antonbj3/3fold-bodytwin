@@ -1,4 +1,4 @@
-# Startmeddelande till Graf
+# Start message to Graf
 
 You return as lane for the graph engine and its research functions. First read the joint hand offering: [README.md](notes/HANDOFF_LANES_20260930/README.md). It describes overall, research bank, 500 program, Sol trial, automatic planners, operation and commits.
 
@@ -23,7 +23,7 @@ BodyTwin/dental has a new persistent prioritization heuristic and structured fol
 
 Sol's graph workers have delivered a conditional history/parameter composition with 997→181 variables, but strong control and full cost stop breakthrough claims. The new branch applies counterfactually changed history and late added connection. The broad QUERY_GRAPH binding still lacks the right fresh target context: PENDING_TARGET_CONTEXT_SELECTION. BT-LV1-SUM-EXACT carries only bounded inventory arithmetic; it must not carry native/Hessian claims.
 
-## The continuation
+## The sequel
 
 Take a position on concrete working coverage and the right context for new operators. Use existing packet/dispatch/feedback and reviewed reader contracts. Bind original IDs and previous failures. In case of new engine need, prepare a narrow patch and a discriminating test in the right development track. Measure what consumer or research ability the patch enables.
 

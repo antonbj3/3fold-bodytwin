@@ -23,14 +23,14 @@ So the measurement route is closed for now and the geometry route is structurall
 3. **The bound on mode mixity, which is the actual goal.** Separation work in opening breaks bonds normally; in shear the same bonds may break after sliding and rebinding. Derive what the inventory allows for the ratio k = Γ_II/Γ_I, and state whether it gives an **upper** bound, which the geometry route demonstrably cannot. An upper bound on k is what decides the sign of our age prediction, and no other route to it is known today.
 4. **Forbid yourself to reach 20–30 kJ/m².** That number is the skin's tear toughness at millimeter scale and belongs to another level. If your inventory comes close something has gone wrong with the area convention.
 
-## Strongest control and falsifiers
+## Strongest control and falsifier
 
 - **Control:** our own energy balance over the blister cavity, thus 17,8–80 J/m² as an upper bound without mode resolution. The gain shall be a bound on the RATIO, not a better point value for Γ_i.
 - **Falsifier:** if the bond inventory cannot give any bound on k without additional unmeasured quantities, say exactly which quantity is missing and which measurement would freeze it. It is a fully adequate outcome and better than a bound that rests on an assumption.
 - **Forbidden:** accounting elastic straightening as dissipation; comparing a bond-level number directly against 20–30 kJ/m²; treating cultured skin as native DEJ; converting N/m to J/m² without a work balance.
 
-## Leverans
+## Delivery
 
 `PORT.json` with Γ_i from below as an interval, the bound on k with its direction (upper or lower) and what it rests on, and a list of missing quantities with the measurement that would freeze each one. Narrow follow-ups to the swarm in FOLLOWUPS.json with external_referent complete.
 
-Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+No internal data. Everything PENDING_INDEPENDENT_REVIEW.

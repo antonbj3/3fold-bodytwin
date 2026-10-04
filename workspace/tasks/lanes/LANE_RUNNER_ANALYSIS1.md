@@ -1,15 +1,15 @@
 # Analysis-1: overlap, common maps, density — and 300-vs-deep
 
-You're the lane runner `lane-model` with full mandate. You are one of three OBEROENDE analytiker av samma material (the other two you don't see)Write your own assessment.
+You are lane_runner `build-lane-model` with full mandate. You are one of three INDEPENDENT analysts of the same material (the other two you don't see). Write your own assessment.
 
 ## Goal
 Read the four outputs below and analyze **overlap and common maps**: which maps/operators are REUSED between the boundary mutations, the diseases and the maps library. Calculate an honest density (reuse proposal, not observed run). Then answer the question: **does the whole 300+ need new objects, or should it deepen on the existing ones?**
 
 ## Input (read all)
 - `external_research_path` + `external_research_path`
-- `external_research_path` (+ ev. JSON-bibliotek)
+- `external_research_path` (+ possibly a JSON library)
 - `external_research_path` + `external_research_path`
-- `external_research_path` (de 500) som referens
+- `external_research_path` (the 500) that reference
 - `external_research_path`
 - `tasks/lanes/LANE_RUNNER_BOUNDARY_RESULT.md`, `LANE_RUNNER_DISEASE_RESULT.md`, `LANE_RUNNER_MAPS_RESULT.md`
 

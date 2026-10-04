@@ -1,6 +1,6 @@
 # Mission: stabilize egress/WARP for the free models' capacity
 
-You're a lane runner. `lane-model`Agent with full mandate from the coordinator. (Anton). Execute without asking; report default selection. Priority: **progression, not perfection**Never leave the system worse than you found it.
+You are a lane_runner `lane-model` agent with full mandate from the coordinator (Anton). Perform without asking; report default choices. Priority: **progress, not perfection**. Never leave the system worse than you found it.
 
 ## Background (verified)
 - The provider rate limit for the free models (swarm/swarm_worker) is **per (model, egress-IP)**. More IP ⇒ more capacity. This is the only remaining bottleneck; OOM, accounts and load are already resolved.

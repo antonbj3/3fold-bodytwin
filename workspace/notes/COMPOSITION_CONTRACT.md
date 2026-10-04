@@ -2,7 +2,7 @@
 
 Contract and inventory were written before the run (PREREG sha256 in `results/C1/PREREG.sha256`); §3–§5 after. All numbers in §3–§5 are in `results/C1/c1_results.json` or `results/C1/out/*/stage*.json`.
 
-## 1. Inventering: hur delarna representerar samma sak
+## 1. Inventory: how the parts represent the same thing
 
 | Part | Geometry | Identity | Device | Frame | Material | Uncertainty | Provenance/status |
 |---|---|---|---|---|---|---|---|
@@ -32,7 +32,7 @@ Contract and inventory were written before the run (PREREG sha256 in `results/C1
 
 Each link in a chain takes in and out **quantities** and puts them into a regular `ResultEnvelope` (`make_envelope`), sealed with `seal_chain` against the upstream link's sealed artifact. The novelty lies in what a quantity must carry and in six rules that a link maintains before it counts.
 
-### 2.1 Entiteter
+### 2.1 Entities
 
 `Body` (subject), `Segment`, `Region` (material region in a segment), `Landmark`, `Joint`, `Material`, `Field` (SDF/ownership field), `Trajectory` (q, q̇, q̈ over time), `Load` (external force, GRF), `Observation` (raw measurement, eg an assessor's landmark). Everyone has `id@version` and `body` (which subject they belong to).
 
@@ -58,11 +58,11 @@ Each link in a chain takes in and out **quantities** and puts them into a regula
 - **R5 Identity.** Quantities from different `body` may only be combined via a declared `Mapping` link (registration/scaling) that is in `assumptions` and `uncertainty`.
 - **R6 Conservation per region.** A representation switching link (mesh → field) counts volume per declared region. A region with 0 cells becomes UNKNOWN (A188/N7), never a neighbor label.
 
-### 2.4 Grafnod
+### 2.4 Graph node
 
 The last link writes a node in graph-engine's `{nodes, edges}` format (same as `3fold-motion-engine/examples/compose`), with `status` = contract status, `numbers` with entities in the key name, `uncertainty` and `assumptions`, and a `produces` edge from each link.
 
-## 3. Tunn implementation (`results/C1/compose/`)
+## 3. Thin implementation (`results/C1/compose/`)
 
 | File | Contents |
 |---|---|
@@ -97,9 +97,9 @@ Error budget for Δτ hip flexion: rater spread throughout the chain (20 runs) S
 
 Mechanism check: the knee contribution calculated as pure Newton–Euler sum over the distal bodies (5,09 kg) matches the chain rnea result to 1,4·10⁻¹³ N·m. My first check left out that the acceleration of distal bodies changes as the knee moves and just explained 0,65 by 2,13 N·m; that version is reported in JSON.
 
-### Motprov
+### Counter sample
 
-| Prov | Utfall |
+| Test | Outcome |
 |---|---|
 | (a) synthetic flag into L0 | **passed.** Status `synthetic` in all seven sealed envelopes (L0–L5, L7) and in the graph node; strict consumer refuses. The numbers are identical to nominal run, only the status differs. |
 | (b) density UNKNOWN (`MSK-BONE-CORTICAL` is not in the registry) | **approved.** `ChainStop` in L5a, no envelope L5 and no minutes written. |

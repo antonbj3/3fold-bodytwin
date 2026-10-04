@@ -1,10 +1,10 @@
 BT-PG-199
 
-## Resultat
+## Results
 
 All four requested quantities were generated in the same run of `extract.py`, with the same hash-validated sources and separate results for 60 and 90°/s. This is a descriptive observation from SC, not a population estimate.
 
-### Sammanfattande tabell
+### Summary table
 
 | Measured quantity | 60°/s | 90°/s | Unit and method | Non-circular control |
 |---|---:|---:|---|---|
@@ -15,14 +15,14 @@ All four requested quantities were generated in the same run of `extract.py`, wi
 
 ### Primary RMS-integration
 
-| Hastighet | Antal EMG-samples i 10–110° | Quadriceps RMS | Hamstrings RMS | Q/H | Medial RMS | Lateral RMS | Medial/lateral |
+| Speed | Number EMG-samples i 10–110° | Quadriceps RMS | Hamstrings RMS | Q/H | Medial RMS | Lateral RMS | Medial/lateral |
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | 60°/s | 9 701 | 0.073524 | 0.392532 | 0.187307 | 0.005347 | 0.110327 | 0.048468 |
 | 90°/s | 10 426 | 0.069662 | 0.354359 | 0.196585 | 0.003997 | 0.107002 | 0.037358 |
 
 RMS values are given in the raw unit scale of the source; the source does not contain a calibration unit. The ratios are therefore dimensionless within this observation.
 
-## Metod
+## Method
 
 - Primary sources: `inputs/emg/SC_isokin{60,90}_emg.csv` and `inputs/biodex/SC_isokin{60,90}_biodex.csv`. Biodex files prefiltered EMG-columns were not used.
 - Timestamp interval: actual overlap only, 0–10.4167 s (10 417 EMG-samples) at 60°/s and 0–11.6750 s (11 676) at 90°/s samples. No extrapolation.
@@ -32,9 +32,9 @@ RMS values are given in the raw unit scale of the source; the source does not co
 - Primary angle integration: `[10,20), [20,30), ..., [100,110)`. The bin ratio and the pooled total are reported. `0–10°` and `110–120°` are available as sensitivity data in `results.json`.
 - Cycles: turnaround detection on the Biodex angle with five-point Savitzky–Golay smoothing, 40° prominence and minimum 0,5 s distance. A complete cycle is low turn → high turn → low turn with at least 80° span. This gives 2 complete cycles at 60°/s and 3 at 90°/s.
 
-## Numeriska 10°-bin
+## Numeric 10° bins
 
-| Hastighet | Bin | Samples | Q/H | Medial/lateral |
+| Speed | Bin | Samples | Q/H | Medial/lateral |
 |---:|---:|---:|---:|---:|
 | 60°/s | 10–20° | 1 060 | 0.355837 | 0.036650 |
 | 60°/s | 20–30° | 1 012 | 0.395037 | 0.040674 |
@@ -59,7 +59,7 @@ RMS values are given in the raw unit scale of the source; the source does not co
 
 ## Cycles and activation operation
 
-| Hastighet | Cykel | Tid (s) | Samples | Q/H | Medial/lateral | RMS fem kanaler |
+| Speed | Cykel | Tid (s) | Samples | Q/H | Medial/lateral | RMS fem kanaler |
 |---:|---:|---:|---:|---:|---:|---:|
 | 60°/s | 1 | 1.0750–4.6917 | 3 617 | 0.226974 | 0.047642 | 0.201834 |
 | 60°/s | 2 | 4.6917–8.3667 | 3 675 | 0.264761 | 0.031428 | 0.231018 |
@@ -69,12 +69,12 @@ RMS values are given in the raw unit scale of the source; the source does not co
 
 The drift value in the main table is the last/first complete cycle RMS over all five channels. Control values:
 
-| Hastighet | Q sen/tidig | H sen/tidig | `bifem` | `rf` | `semimem` | `vaslat` | `vasmed` |
+| Speed | Q sen/tidig | H sen/tidig | `bifem` | `rf` | `semimem` | `vaslat` | `vasmed` |
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | 60°/s | 1.318201 | 1.130066 | 1.130192 | 1.258574 | 0.975614 | 1.338180 | 0.882754 |
 | 90°/s | 0.937151 | 1.192979 | 1.193139 | 0.824142 | 1.020275 | 0.975903 | 0.970085 |
 
-## 0,2 s-motprov
+## 0,2 s counter sample
 
 The hamstrings envelope was replaced with `e_h(t−0.2 s)`; quadriceps, angle bins and the shared time window were otherwise unchanged. The shifted run is compared with an allocated Q/H run on exactly the same samples.
 

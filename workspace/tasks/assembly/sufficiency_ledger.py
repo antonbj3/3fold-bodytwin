@@ -50,7 +50,7 @@ CHAINS = [
     {'chain': 'disc electrical alias', 'lane': 'LANE_DISC_LOAD_LABEL r5',
      'summary_identity_error': 0.0, 'also_identical': 'electrical summary exact',
      'gap': 0.08108314647592979, 'gap_unit': 'MPa', 'witnesses': 2,
-     'decision_scale': 'facit band width 0.65 - 0.53 = 0.12 MPa',
+     'decision_scale': 'reference band width 0.65 - 0.53 = 0.12 MPa',
      'gap_over_scale': 0.08108314647592979 / 0.12,
      'note': 'the only one so far where the alias CHANGES the diagnosis'},
     {'chain': 'delivered electrical power', 'lane': 'LANE_SETTING_TO_DIFFUSIVITY r3',
@@ -126,13 +126,13 @@ def main() -> int:
     }
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / 'LEDGER_V1.json').write_text(json.dumps(summary, indent=1, ensure_ascii=False))
-    print(f'{"kedja":34} {"vittnen":>8} {"M>=":>5} {"min falt":>9} {"gap/skala":>11}')
+    print(f'{"chain":34} {"witnesses":>8} {"M>=":>5} {"min fields":>9} {"gap/scale":>11}')
     for r in rows:
         g = f"{r['gap_over_scale']:.4f}" if r['gap_over_scale'] is not None else '-'
         print(f"  {r['chain']:32} {r['witnesses']:8} {r['M_lower_bound']:5} "
               f"{r['min_extra_binary_fields']:9} {g:>11}")
-    print(f'  sum minimum extra binary fields above {len(rows)} kedjor: {total}')
-    print(f"  gap mot beslutets skala: min {min(ratios):.4f}, median "
+    print(f'  sum of minimum extra binary fields across {len(rows)} chains: {total}')
+    print(f"  gap relative to the decision scale: min {min(ratios):.4f}, median "
           f"{sorted(ratios)[len(ratios) // 2]:.4f}, max {max(ratios):.4f}")
     return 0
 

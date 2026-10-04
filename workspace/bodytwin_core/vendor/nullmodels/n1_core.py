@@ -1,4 +1,9 @@
-"N1 Core: AnyBody family landmark morphs of TLEM (affin, affin-HJC, RBF φ=r, RBF φ=r²log r; two\nlandmark sources) and our population-conditioned morphs (PSM, PSM+R) with common error measurement.\n\nRead-only import: results/P3 (p3_chain -> P1, X1), results/RM1 (rm1_core: kriging/REML for the RTPS reference).\nNo files outside results/N1 and external_media are written. See PREREG.md.\n"
+"""N1 core: landmark morphs of TLEM (affine, affine-HJC, RBF φ=r, RBF φ=r²log r; two
+landmark sources) and our population-conditioned morphs (PSM, PSM+R) with common error measurement.
+
+Read-only import: results/P3 (p3_chain -> P1, X1), results/RM1 (rm1_core: kriging/REML for the RTPS reference).
+No files outside results/N1 and external_media are written. See PREREG.md.
+"""
 from __future__ import annotations
 
 import os
@@ -17,7 +22,7 @@ HERE = Path(__file__).resolve().parent
 RES = HERE.parent
 sys.dont_write_bytecode = True
 CLOUD = os.environ.get("N1_CLOUD")
-if CLOUD:                                   # cloud run: vendrade pure Python package + dataset in package (cloud_bundle.sh)
+if CLOUD:                                   # cloud run: vendored pure Python packages + dataset in the package (cloud_bundle.sh)
     _B = Path(CLOUD)
     sys.path.insert(0, str(_B / "vendor"))
 sys.path[:0] = [str(RES / "P3"), str(RES / "RM1"), str(RES / "P1"), str(RES / "X1")]
@@ -53,7 +58,7 @@ SEED = 20260924
 
 # ------------------------------------------------------------------ landmarks
 def feat(Ld, names):
-    "(m,3) landmarks in names order; HJC = geometric sphere through 6 femoral head points (as in morph.subject_targets)."
+    """(m,3) landmarks in names order; HJC = geometric sphere through 6 femoral head points (as in morph.subject_targets)."""
     out = []
     for k in names:
         if k == "HJC":
@@ -73,7 +78,7 @@ def frame_idx(names):
 
 def frame_of(Y, names):
     i, m, l = frame_idx(names)
-    return joints.femur_frame(Y[i], Y[m], Y[l])[1]      # kolumner = axlar
+    return joints.femur_frame(Y[i], Y[m], Y[l])[1]      # columns = axes
 
 
 def rot_block(Nloc, R):
@@ -83,7 +88,7 @@ def rot_block(Nloc, R):
 
 
 def wkabsch(A, B, w=None):
-    "R, t such that A @ R.T + t ≈ B (weighted, without scale)."
+    """R, t such that A @ R.T + t ≈ B (weighted, without scale)."""
     w = np.ones(len(A)) if w is None else np.asarray(w, float)
     w = w / w.sum()
     ma, mb = w @ A, w @ B
@@ -113,7 +118,7 @@ def mean_dict(s, rs=None):
 
 
 def m4_draws(s, n=10):
-    "10 draws: 4 different raters, one random valid trial each (index r = rater*4 + trial)."
+    """10 draws: 4 different raters, one random valid trial each (index r = rater*4 + trial)."""
     rng = np.random.default_rng(SEED + s)
     ok = set(ok_ratings(s))
     out = []
@@ -128,7 +133,8 @@ def m4_draws(s, n=10):
 
 
 def noise_cov(s, names, cond="S1"):
-    "Second moment (in the local femur frame) of (input − mean-20) over the other 18 individuals.\n    S1: each individual rating (corrected n/(n−1), as in RM1). M4: 10 M4 draws per individual. M20: 0."
+    """Second moment (in the local femur frame) of (input − mean-20) over the other 18 individuals.
+    S1: each individual rating (corrected n/(n−1), as in RM1). M4: 10 M4 draws per individual. M20: 0."""
     d = len(names) * 3
     if cond == "M20":
         return np.zeros((d, d))
@@ -159,7 +165,7 @@ def vsd_reg(sid):
 
 
 def def_cov(s, names):
-    "Definition deviation: mean-20 minus template landmarks on P1's registration of CT, other 18, block 3×3."
+    """Definition deviation: mean-20 minus template landmarks on P1's registration of CT, other 18, block 3×3."""
     dev = []
     for j in range(len(SUBJ)):
         if j == s:
@@ -176,7 +182,7 @@ def def_cov(s, names):
 
 
 # ------------------------------------------------------------------ TLEM sources
-XT = P.XT.astype(float)                                   # the template registered on: TLEM (TLEM-ram)
+XT = P.XT.astype(float)                                   # template registered to TLEM (TLEM frame)
 HIPJOINT = np.asarray(json.loads((RES / "geometry_inputs.json").read_text())["hip_joint_mm"], dtype=float)
 _TAB = dict(morph.tlem_landmarks()[1])
 _TMPL = E.landmarks(XT)
@@ -202,7 +208,7 @@ def tlem_src(source, names, hjc="hipjoint"):
 
 
 class RBF:
-    """RBF + polynom grad 1. kernel 'r' (= TPS3, biharmonisk 3D) eller 'r2logr'."""
+    """RBF + polynomial of degree 1. kernel 'r' (= TPS3, biharmonic 3D) or 'r2logr'."""
 
     def __init__(self, src, dst, kernel):
         self.c = np.asarray(src, float)
@@ -221,7 +227,7 @@ class RBF:
     def _phi(self, r):
         if self.k == "r":
             return r
-        rm = r / 1000.0                          # AnyBody counts in meters; r² log r is not scalp variant
+        rm = r / 1000.0                          # The reference formulation uses meters; r² log r is not scale invariant
         with np.errstate(divide="ignore", invalid="ignore"):
             v = rm ** 2 * np.log(rm)
         return np.nan_to_num(v)
@@ -259,7 +265,8 @@ TMPL_DISTAL = np.array([_TMPL[k] for k in P.DISTAL])
 
 
 def ab_arm(kind, source, y, names):
-    "landmark-based morph of TLEM to the landmarks y. Returns (fem-dict for P.quantities, surface mesh vertices (TLEM topology),\n    template correspondence vertices (XT through the same mapping, for rigid fitting in E_form))."
+    """landmark-based morph of TLEM to the landmarks y. Returns (fem-dict for P.quantities, surface mesh vertices (TLEM topology),
+    template correspondence vertices (XT through the same mapping, for rigid fitting in E_form))."""
     src = tlem_src(source, names)
     if src is None:
         return None
@@ -275,9 +282,9 @@ def ab_arm(kind, source, y, names):
     return fem, M(TLEM_V), Xm
 
 
-# ------------------------------------------------------------------ formmodell (PSM)
+# ------------------------------------------------------------------ shape model (PSM)
 class PSM:
-    "Posterior shape model. Prior: PCA of GPA-fitted shapes (without scale). Landmark function linearized per mode."
+    """Posterior shape model. Prior: PCA of GPA-fitted shapes (without scale). Landmark function linearized per mode."""
 
     def __init__(self, shapes, names, perm_seed=None):
         self.names = names
@@ -298,7 +305,7 @@ class PSM:
                 vk = self.V[:, k].reshape(-1, 3)
                 W[:, k] = (feat_shape(self.mu + sg * vk, names).ravel() - feat_shape(self.mu - sg * vk, names).ravel()) / (2 * sg)
             self.W = W
-        else:                                   # motprov: regression av (permuterade) landmarks on form points
+        else:                                   # countertest: regression of (permuted) landmarks on shape scores
             Fm = np.array([feat_shape(a, names).ravel() for a in A])
             Fm = Fm[np.random.default_rng(perm_seed).permutation(len(Fm))]
             Fc = Fm - Fm.mean(0)
@@ -307,7 +314,8 @@ class PSM:
         self.r = r
 
     def condition(self, y, Nloc, Soos_loc, K, iters=200, tol=0.01):
-        "y (m,3) in the CT frame. Nloc: rater+definition noise, Soos_loc: model incompleteness (both in the local femur frame).\n        Returns dict with the posterior of all modes (for MC) and K-truncated mean shape, residual field ĝ, pose."
+        """y (m,3) in the CT frame. Nloc: rater+definition noise, Soos_loc: model incompleteness (both in the local femur frame).
+        Returns dict with the posterior of all modes (for MC) and K-truncated mean shape, residual field ĝ, pose."""
         W, lam, mu_f = self.W, self.lam, self.mu_f
         G_all = (W * lam) @ W.T
         m = len(self.names)
@@ -350,12 +358,12 @@ class PSM:
                     resid_mm=float(np.sqrt(np.mean(np.sum((ym - fhat) ** 2, 1)))))
 
     def shape(self, post, K, resid=False, b=None, g=None):
-        """Form i CT-ram. K-trunkerad medelform (+ residual-TPS om resid)."""
+        """Shape in the CT frame. K-truncated mean shape (+ residual-TPS if resid)."""
         b = post["b"] if b is None else b
         Sm = self.mu + (self.V[:, :K] @ b[:K]).reshape(-1, 3)
         if resid:
             g = post["g"] if g is None else g
-            g = g + self.W[:, K:] @ b[K:]          # Σ_g = Σ_trunk + Σ_oos: truncated modern landmark part + incompleteness
+            g = g + self.W[:, K:] @ b[K:]          # Σ_g = Σ_trunk + Σ_oos: landmark part of the truncated modes + incompleteness
             f_base = (self.mu_f + self.W[:, :K] @ b[:K]).reshape(-1, 3)
             Sm = TPS3(f_base).displace(Sm, g.reshape(-1, 3))
         return (Sm - post["t"]) @ post["R"]
@@ -368,7 +376,7 @@ class PSM:
 
 
 def psm_fem(Sct):
-    "Femur side (P3 arm A rule) for a shape in template correspondence, CT frame."
+    """Femur side (P3 arm A rule) for a shape in template correspondence, CT frame."""
     return P.femur_from_template(Sct)
 
 
@@ -392,7 +400,7 @@ def soos_imperial(names):
         for i in te:
             s_, Rm, tt = E.umeyama(Y[i], mu, scale=False)
             Yi = E.apply(s_, Rm, tt, Y[i])
-            for _ in range(3):                    # stel passning mot projektionen (iterera)
+            for _ in range(3):                    # rigid fitting to the projection (iterate)
                 proj = mu + (V @ (V.T @ (Yi - mu).ravel())).reshape(-1, 3)
                 s_, Rm, tt = E.umeyama(Yi, proj, scale=False)
                 Yi = E.apply(s_, Rm, tt, Yi)
@@ -422,7 +430,7 @@ def samples(mesh_or_VF, n, seed=0):
 
 
 class Target:
-    "Raw surface (CT or MR) with dense samples and KD trees."
+    """Raw surface (CT or MR) with dense samples and KD trees."""
 
     def __init__(self, mesh, key, n=200000):
         f = TMP / f"tgt_{key}.npy"
@@ -440,7 +448,8 @@ class Target:
 
 
 def eval_surface(tgt, V, Fc, Xcorr, Xtrue, n=100000):
-    "E_yta (as placed) and E_form (after rigid fitting Xcorr -> Xtrue via template correspondence).\n    The surface is sampled once; E_form moves the samples rigidly (same as sampling the moved surface)."
+    """E_yta (as placed) and E_form (after rigid fitting Xcorr -> Xtrue via template correspondence).
+    The surface is sampled once; E_form moves the samples rigidly (same as sampling the moved surface)."""
     ps = samples((V, Fc), n, seed=2)
     e_placed = tgt.sym_rms_pts(ps)
     R, t = wkabsch(Xcorr, Xtrue)
@@ -462,7 +471,7 @@ import pickle  # noqa: E402
 
 
 def truth(sid):
-    "P3.truth(sid) precomputed locally by n1_precompute.py (pel, T1, T2, floor)."
+    """P3.truth(sid) precomputed locally by n1_precompute.py (pel, T1, T2, floor)."""
     with open(PRE / f"truth_{sid}.pkl", "rb") as f:
         return pickle.load(f)
 

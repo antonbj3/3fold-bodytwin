@@ -1,13 +1,13 @@
 BT-HX-Q080
 
-## Resultat
+## Result
 
 The frozen core model provides **support for the mechanistic hypothesis**, not a biological measurement result. For an identical total number of 880 receptors, four Gaussian patches give a 2.7723 times greater peak activation at the end of the pulse than uniform distribution. The CV difference increases by 1.03494. The total activation at the end of the pulse is 1.1723 times larger and the time-integrated activation 1.0167 times larger. Both frozen requirements (`peak_ratio >= 1.20`, `CV increase >= 0.10`) are fulfilled. Source: `results.json` → `primary`.
 
 | Distribution | Peak at 0.10 s (receptor/µm²) | Total activation at 0.10 s (receptor) | CV at 0.10 s |
 |---|---:|---:|---:|
-| Jmn | 10.2680 | 58.4106 | 0.502716 |
-| Patchad | 28.4659 | 68.4739 | 1.537658 |
+| Uniform | 10.2680 | 58.4106 | 0.502716 |
+| Patched | 28.4659 | 68.4739 | 1.537658 |
 
 At 1.2 s a clear peak remains (101.0767 vs 29.6127 receptor/µm²), while total bound receptors are almost equal (462.0351 vs 460.1279). This is a deterministic consequence of local mass action, the ligand field, and the slow receptor/dissociation dynamics, not an observed effect.
 

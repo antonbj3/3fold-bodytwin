@@ -39,7 +39,7 @@ not.
 
 The control is Coulomb, and it does not escape either: y = mu*P + S carries the same ambiguity unless
 the normal load or the nuisance resistance is independently known. The coefficient usually quoted is
-static, and proof_lane notes its reported dispersion is not a rigorous uncertainty bound -- Urrea et al.,
+static, and the proof lane notes its reported dispersion is not a rigorous uncertainty bound -- Urrea et al.,
 J Mech Behav Biomed Mater 56:98-105 (2016), PMID 26700572, doi 10.1016/j.jmbbm.2015.11.024. An earlier
 night-log row of mine treated 0.295 +/- 0.056 as if the dispersion bounded uncertainty; it does not,
 and the sigma distances computed from it are descriptive only.
@@ -138,7 +138,7 @@ def main() -> int:
             'tip_load_N': [rows[0]['decision_value_N'], rows[1]['decision_value_N']],
             'swing_N': rows[0]['decision_value_N'] - rows[1]['decision_value_N'],
             'reading': ('a swing of this size at one shaft reading is the same order as the 0.2 to '
-                        '0.8 N ambiguity proof_lane exhibited, so the lever arms are not a detail of the '
+                        '0.8 N ambiguity the proof lane exhibited, so the lever arms are not a detail of the '
                         'calibration -- they are an input the decision cannot do without'),
             'sign_changes': (rows[0]['decision_value_N'] > 0) != (rows[1]['decision_value_N'] > 0)},
         'boundary_note': ('the third case has separation fraction 0.09999999999999999 in floating '

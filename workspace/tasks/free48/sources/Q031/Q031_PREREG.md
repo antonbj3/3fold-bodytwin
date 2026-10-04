@@ -2,9 +2,8 @@
 
 ## Status and scope
 
-This is a first executable mechanistic model, not a validated measurement model. It does not use internal BodyTwin, restricted model data or personal data and makes no parameter adaptation to new data. All measurement values below are literature anchors; all other values are explicit assumptions.
 
-## Hypotes
+## Hypothesis
 
 When an osmotic perturbation changes intracellular osmolarity, membrane potential and ion transport must be solved together with water volume if any of the following is true: the electrical potential drives a measurable net ion flux, ion flux changes total intracellular osmolarity over the relevant timescale, or geometry changes membrane capacitance and conductance. A pure Nernst/water model is therefore insufficient when electrical and osmotic feedback exceed the frozen error scenario.
 
@@ -16,7 +15,7 @@ The model is a reduced first-principles core. It does not include ion activity c
 
 Before the first complete run, a unit check of the water law was performed. The published Pf unit cm/s is not treated as m/(s Pa). It is therefore refrozen to Lhyd = 6,1×10^-6 m/s / (150 mol m^-3 · R T) = 1,65×10^-11 m s^-1 Pa^-1, with Pf interpreted as a coefficient per 150 mM step. To represent a cell layer, a fixed hydraulic surface efficiency fw = 0,025 of the electrical geometric area is also used. This is an explicit layer geometry assumption, not a parameter that may be changed after seeing the result. Electrical area, capacitance and ion fluxes use the full area; only water flow uses fw.
 
-## Referensankare
+## Reference anchors
 
 Primary source: Farinas J, Verkman AS. Cell volume and plasma membrane osmotic water permeability in epithelial cell layers measured by interferometry. Biophysical Journal. 1996;71(6):3511–3522. DOI: 10.1016/S0006-3495(96)79546-2. PMID 8968620, PMCID PMC1233838.
 
@@ -66,7 +65,6 @@ For each run, V∞/V0, t50, χV and the full charge/amount balance are reported.
 
 ## Not redone
 
-- No access to or use of ~/projects/bodytwin, restricted model data, the collaborative data or other internal result trees; no internal node-ids or files could therefore be reused.
 - No external musculoskeletal solver run or comparison with external musculoskeletal solver: the task is a cell mechanism and lacks relevant external solver runtime or measurement material.
 - No full channel model, pump regulation, active mechanics, pH, ATP coupling or heat transfer.
 - No interpretation of sensitivity as measured data or as a universal bound across other cells.

@@ -10,7 +10,7 @@
 
 **Mathematical start:** `dM_c/dt=J_ileal−M_c/τ_c; dN_g/dt=J_prod+J_upstream−J_rect−J_abs−J_diss. M_c [g], J_ileal [g/h], N_g [mmol], gas-J [mmol/h], τ_c [h]. J_upstream is measured gas transfer from earlier GI segments, not swallowed air directly.`
 
-**Detailed reference to develop:** 3D flow in measured moving geometry, with tissue, transport and acoustics for the question at hand; space/time refined separately.
+**Detailed reference to develop:** 3D flow in measured moving geometry, with tissue, transport and acoustics for the current question; space/time are refined separately.
 
 **Laws/parameters to determine:** Tissue/mucus rheology, turbulence description, fluid interface, perfusion and activation.
 

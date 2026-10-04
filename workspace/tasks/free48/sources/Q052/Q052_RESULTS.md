@@ -1,10 +1,10 @@
 BT-HX-Q052
 
-## Resultat
+## Results
 
 I built on `Q052` in `inputs/QUESTION.md` and `BRIEF.md`/`inputs/NIGHT_PREAMBLE.md`; no external BodyTwin anchors could be read in the session. `model.py` couples a process state `s` to the same pore geometry `(φ,d)` and from there to effective stiffness, Darcy permeability, diffusion/advection and a hypothesis-based response window.
 
-Nominalfallet (`s=0.5`, `φ=0.80`, `d=800 µm`) ger:
+The nominal case (`s=0.5`, `φ=0.80`, `d=800 µm`) gives:
 
 - `E_eff = 3.30 GPa` — in Chao et al. (2021), DOI `10.3389/fbioe.2021.779854`, figure 8/9: 2.6–4.0 GPa.
 - `K = 1.87e-8 m²` — Chao et al. figure 13A: verified reference value.

@@ -1,6 +1,6 @@
 BT-DAT-Q052
 
-## What it built on
+## What was built on
 
 `inputs/Q052_QUESTION.md` (coupling porosity → mechanics → transport for **the same sample**),
 `inputs/Q052_model.py` (28 frozen parameters, unchanged — sha256 before == after, `MODEL_INPUT.sha256`)
@@ -23,7 +23,7 @@ verified through the Zenodo API in this session:
 | DS-06 | 167808 35 volunteers' femur/tibia (NOT_FETCHED, 153 MB) | L (scale context) |
 | DS-07 | 10635546 apparent E cranial cancellous bone | E_eff (bone side) |
 
-## Provet laddar: form, enheter, koordinatram
+## The sample loads: shape, units, coordinate frame
 
 `samples/BMLPL_001_REF_17_SEG_SUB.nii`: NIfTI-1, `sizeof_hdr=348`, magic `n+1`, dim 100³, int16,
 `vox_offset=352`, labels {0,1}. `xyzt_units=0` → **the unit is UNKNOWN in the header**; `pixdim=0.01741`
@@ -31,7 +31,7 @@ is interpreted as mm (17.41 µm; the register text states 17.59 µm) — documen
 (quaternion 0,0,1), `sform_code=0` (srow zeros) → scanner coordinates, no anatomical axes.
 Extent 1.74 mm.
 
-## Nyckeltal (alla i `results.json`)
+## Key numbers (all in `results.json`)
 
 - φ = 0.518–0.902, mean **0.692**; 3 of 8 volumes lie in the frozen [0.70, 0.90] → the model's
   φ interval is not covered by measurements at its lower end.

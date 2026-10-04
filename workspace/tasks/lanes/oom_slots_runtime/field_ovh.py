@@ -89,9 +89,9 @@ def prepare(j):
     principles=Path('external_research_path').read_text()
     open(jd + '/BRIEF.md', 'w').write(f"# {j['id']} — {j['title']}\n{j['body']}\n{guard}\n{current_rules()}\n\n{principles}\n")
     open(jd+'/JOB.json','w').write(json.dumps(j,ensure_ascii=False,indent=1))
-    if j.get('preferred_model') in ('swarm','free_worker'):
+    if j.get('preferred_model') in ('swarm','swarm_worker'):
         open(jd+'/PREFERRED_MODEL','w').write(j['preferred_model'])
-    shutil.copy2(R+'/lanes/automation_runtime/execute_job.py',jd+'/_run_bunny.py')
+    shutil.copy2(R+'/lanes/automation_runtime/execute_job.py',jd+'/_run_swarm.py')
     open(jd + '/.ovh_claim', 'w').write(time.strftime('%F %T'))
     return jd
 
@@ -122,7 +122,7 @@ def start(j, acc):
     prompt = f'Read BRIEF.md and execute the bounded task. Write RESULTS.md with the job ID on line 1 when done.'
     cmd = (f"{GUARD.replace('sudo -u ubuntu', 'sudo')} -- systemd-run --quiet --collect --slice=research.slice --unit=agent-F_{jid}-$(date +%s) --uid=ubuntu -p MemoryMax=1500M -p MemoryHigh=1250M "
            f"-p CPUQuota=100% -p RuntimeMaxSec=5400 --working-directory=/opt/agents/jobs/F_{jid} /bin/bash -c "
-           f"'python3 _run_bunny.py {acc} F_{jid} {jid} >> wrapper.log 2>&1 < /dev/null; echo $? > AGENT_EXIT'")
+           f"'python3 _run_swarm.py {acc} F_{jid} {jid} >> wrapper.log 2>&1 < /dev/null; echo $? > AGENT_EXIT'")
     r = ssh(cmd)
     if r.returncode: log('start fail', jid, r.stderr[-200:]); return False
     open(f'{RUN}/{jid}', 'w').write(acc); log('ovhstart', jid, acc); return True

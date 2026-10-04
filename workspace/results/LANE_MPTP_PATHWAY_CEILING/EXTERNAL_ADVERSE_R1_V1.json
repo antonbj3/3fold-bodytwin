@@ -1,0 +1,36 @@
+{
+  "claim_type": "information_link",
+  "review_state": "PENDING_INDEPENDENT_REVIEW",
+  "primary_locator": "PMID:16301224; DOI:10.1213/01.ANE.0000181288.13549.28",
+  "heldout_endpoint_input_leakage": false,
+  "inputs_pct_of_AAR": {
+    "control": 42.0,
+    "isoflurane_0p5_MAC": 44.0,
+    "CsA_5_mg_per_kg": 43.0
+  },
+  "measured_single_arm_sd_percentage_points": {
+    "control": 7.0,
+    "isoflurane_0p5_MAC": 6.0,
+    "CsA_5_mg_per_kg": 6.0
+  },
+  "predicted_best_single_arm_ceiling_pct_of_AAR": 43.0,
+  "heldout_measured_combination_pct_of_AAR": 27.0,
+  "heldout_measured_combination_sd_percentage_points": 4.0,
+  "ceiling_residual_percentage_points": -16.0,
+  "Bliss_prediction_pct_of_AAR_diagnostic_only": 45.04761904761905,
+  "Bliss_gate": "Singles slightly exceed control; beneficial monotonicity fails at observed means. Do not apply monotone union-rescue bounds to these noisy marginal means.",
+  "single_CsA_change_vs_control_percentage_points": 1.0,
+  "combo_change_vs_control_percentage_points": -15.0,
+  "matched_Argaud_pair_anchor": false,
+  "excluded_match_reasons": [
+    "CsA instead of NIM811",
+    "isoflurane instead of mechanical Post-C",
+    "3 h instead of 4 h reperfusion"
+  ],
+  "conclusion": "The portable best-single-arm point ceiling fails on this external combination. mPTP involvement alone does not establish saturation/nested response. Exact Argaud combination remains empirically unknown.",
+  "group_specific_n_count": null,
+  "total_animals_across_multiple_groups_count": 102,
+  "statistical_limit": "Primary abstract reports SD and protection versus control. No p value for combo versus each single reconstructed.",
+  "control_prediction_pct_of_AAR": 43.0,
+  "gain_over_same_information_arithmetic": false
+}

@@ -1,6 +1,6 @@
 # Quest: fix OOM-kills in `research.slice` (the BodyTwin SEED-500 run)
 
-You're a lane runner. `lane-model`Agent with full mandate from the coordinator. (Anton). Execute the assignment without asking; choose reasonable default choices and report them. Network, cloud and writing in the workspace is allowed. No mail, pushes, publishing or credential changes.
+You are a lane_runner `build-lane-model` agent with full mandate from the coordinator (Anton). Complete the mission without asking; choose reasonable default choices and account for them. Network, cloud and writing in the workspace is allowed. No emails, pushes, publishing or credential changes.
 
 ## Symptoms (the new, newly introduced problem)
 - `dmesg` shows OOM-kill in cgroup **`research.slice`** on both cloud hosts: **UpCloud 485 kills**, **OVH 37 kills**.

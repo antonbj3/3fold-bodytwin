@@ -32,7 +32,7 @@ constant, with ratios between 0,96 and 1,00. Data, however, rise weakly: ×1,43 
 | N2 13→26 | ” | 0,97–1,61 | 1,25 | 1,00 P | P | 2,00 F | P |
 | N3 26→52 | ” | 0,87–1,34 | 1,08 | 1,00 P | P | 2,00 F | P |
 | N4 52→78 | ” | 0,93–1,37 | 1,13 | 1,00 P | P | 1,50 F | P |
-| O1 50→100 cN, premolar tippning | Owman-Moll 1996a | 0,77–1,30 | ns | 0,97 P | P | 2,00 F | P |
+| O1 50→100 cN, premolar tipping | Owman-Moll 1996a | 0,77–1,30 | ns | 0,97 P | P | 2,00 F | P |
 | O2 50→200 cN | Owman-Moll 1996b | 1,07–1,93 | 1,50 | 0,96 F | F | 4,00 F | F |
 | Y1 50→300 g, rabbit sliding mechanics | Yee 2009 | > 1,10 (sign only) | sign. | 0,98 F | F | 6,00 P | F |
 | E1 50→150 g, month 1 | El-Salam 2026 (table 3, read after freezing) | 0,85–1,87 | 1,26 | 1,00 P | P | 3,00 F | P |

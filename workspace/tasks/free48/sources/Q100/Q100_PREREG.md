@@ -12,7 +12,7 @@ The comparison is a prediction exercise, not a clinical or physiological validat
 
 ## Reference value
 
-The order-of-magnitude benchmark is approximately `120 Hz`, from the classic two-mass study by N. Ishizaka and J. L. Flanagan, “Two-mass model of the vocal folds,” *Journal of the Acoustical Society of America* (1972), representative phonation condition. The numerical value and the precise pressure/geometry associated with it are **OVERIFIERAD, UR MINNET**; no online verification was possible. It is therefore used only as a broad mechanical benchmark, not as a matched individual measurement.
+The order-of-magnitude benchmark is approximately `120 Hz`, from the classic two-mass study by N. Ishizaka and J. L. Flanagan, “Two-mass model of the vocal folds,” *Journal of the Acoustical Society of America* (1972), representative phonation condition. The numerical value and the precise pressure/geometry associated with it are **UNVERIFIED, FROM MEMORY**; no online verification was possible. It is therefore used only as a broad mechanical benchmark, not as a matched individual measurement.
 
 ## Frozen approval criterion
 

@@ -28,7 +28,7 @@ while true; do
   fi
   while read -r P M J; do
     [ -z "$J" ] && continue; [[ "$P" == \#* ]] && continue
-    [ "$M" = reserve_worker ] && continue  # preserve paid-model pause
+    [ "$M" = swarm_worker ] && continue  # preserve paid-model pause
     [ -d "$W/results/$J" ] || continue
     [ -s "$W/results/$J/RESULTS.md" ] && continue
     [ -e "$W/results/$J/.ovh_claim" ] && continue

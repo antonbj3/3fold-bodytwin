@@ -1,4 +1,4 @@
-# Styrning LANE_PRECISION_LABEL — ny lane 2026-10-04
+# Steering LANE_PRECISION_LABEL — new lane 2026-10-04
 
 ## The finding came from the swarm and is verified
 A creative job on edge H-E29 took the number `2.220261437908497` from our own network and reconstructed it

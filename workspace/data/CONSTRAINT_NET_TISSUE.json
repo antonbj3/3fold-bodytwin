@@ -1452,7 +1452,7 @@
             0,
             1
           ],
-          "note": "whether a published source can be used as a facit; categorical, decided by its own internal identity check"
+          "note": "whether a published source can be used as a reference; categorical, decided by its own internal identity check"
         }
       ],
       "edges": [
@@ -1517,7 +1517,7 @@
           "constraint": "with native pupil-limited shape data the maximum gap is 0.2396 D, below the 0.25 D clinical threshold, 0 violations in 101 cases",
           "status": "TIGHT",
           "evidence": "results/LANE_CORNEA_SHAPE/night_rounds/r2.json :: native_pupil_max_gap_D = 0.23961891826215265",
-          "evidence_mtime_at_last_check": 1791034417.391,
+          "evidence_mtime_at_last_check": 1791144966.549,
           "last_checked_status": "OK"
         },
         {
@@ -1668,7 +1668,7 @@
           "constraint": "a stationary end value cannot identify the conductance under maintained pressure boundaries, where q_ss = -K dP/L is nonzero; closed finite reservoirs give q(inf) = 0 to 7.211e-12. All 45 flow cells now carry a declared boundary class, none unknown",
           "status": "TIGHT",
           "evidence": "results/LANE_ZERO_FLUX_AUDIT/night_rounds/r15.json :: boundary_census.baseline_regimes.UNKNOWN = 0",
-          "evidence_mtime_at_last_check": 1791018148.962,
+          "evidence_mtime_at_last_check": 1791144966.669,
           "last_checked_status": "OK"
         },
         {
@@ -1688,7 +1688,7 @@
           "second_refutation_2026_10_04": "the edge was corrected earlier today after its premise -- that no digitised series separates first from repeated passage -- fell to Fukushima, Saito and Naemura, Procedia CIRP 5:265-269 (2013). The replacement claim, that what is missing is a FIRST-pass forward-friction number, is also wrong. Fukushima and Naemura, ROBOMECH Journal 1:14 pp.1-8 (2014), doi 10.1186/s40648-014-0014-7, use a coaxial needle that, in their own abstract read by this coordinator, 'could measure the total insertion force and the needle tip force separately in real time'. That is a first-insertion split, not a second-passage subtraction, and it is exactly the third measurement the identifiability theorem requires. Two negative existence claims on one edge, both refuted the same day",
           "identifiability_theorem": "PROOF_LANE_FIRST_PASS: with R friction, S other resistance and C cutting, F1 - F2 = C1 holds exactly iff (R1 - R2) + (S1 - S2) - C2 = 0. Equal friction alone is insufficient unless the other terms are handled. After nuisance corrections the two total-force records identify C1 + (R1 - R2); neither the friction difference nor its ratio is separately identifiable. One independent scalar observation suffices when the nuisance terms are known, and a further total-force passage does not. Simultaneous tip-force measurement on both passages identifies the friction difference; pure cutting additionally requires the first-pass non-cutting tip load. Non-identifiability is witnessed, not asserted: 13104 indistinguishable pairs at observation error exactly zero, no scoped proposition falsified",
           "third_correction_2026_10_04": "the first-passage forward friction is NOT missing. It is printed in the source's own Fig. 6 under the wrong name. In the post-penetration segment, where the needle has passed through and no material lies ahead of the tip, the cutting term is identically zero on BOTH passages, so the measured force is pure shaft-tissue friction and the ratio F1/F2 IS the passage friction ratio. Measured: 0.349 +/- 0.018 N first passage against 0.241 +/- 0.004 N second, ratio 1.4481, which this coordinator recomputed together with its propagated dispersion: 1.448 +/- 0.078, i.e. 5.71 sigma from unity. So friction is NOT equal across passages -- the edge's original assumption is refuted with a number, not just its stated reason",
-          "astra_theorem_scope_narrowed": "PROOF_LANE_FIRST_PASS's non-identifiability holds only where a cutting term exists. The penetration mark in the source (I_d about 22.6 mm in Fig. 6, about 24 mm in Fig. 7, section 3.2 '10~23 mm') marks where it vanishes. Past it the identity needs a cutting term that is identically zero, so it does not apply and the quantity is identified on that segment. The theorem is right about the scalar coefficient and wrong about the force. Both halves are now carried",
+          "proof_lane_theorem_scope_narrowed": "PROOF_LANE_FIRST_PASS's non-identifiability holds only where a cutting term exists. The penetration mark in the source (I_d about 22.6 mm in Fig. 6, about 24 mm in Fig. 7, section 3.2 '10~23 mm') marks where it vanishes. Past it the identity needs a cutting term that is identically zero, so it does not apply and the quantity is identified on that segment. The theorem is right about the scalar coefficient and wrong about the force. Both halves are now carried",
           "digitisation_checks_by_coordinator": "the report's digitisation is internally consistent to the printed digits, checked here: abscissae 0.00802, 0.01203, 0.01605 N stand in 1 : 1.5000 : 2.0012 as depths 10:15:20 mm require; the fit F_2nd = 10.679/N * (P*S_t) - 0.01333 N reproduces the ordinates 0.0723 against 0.0724 and 0.1581 against 0.1581; the slope differs from the printed 10.7 by -0.021 per N, which is 0.00656 of the source's own stated SD 3.20; and the follow-up's 9.82 sits 0.88 from it, 0.2102 of the combined SD sqrt(3.20^2 + 2.70^2) = 4.1869",
           "external_reference": "Kataoka, Washio, Chinzei, Mizuhara, Simone, Okamura, MICCAI 2002, LNCS 2488:216-223",
           "branches_opened": [
@@ -1705,7 +1705,7 @@
           ],
           "constraint": "our value of 30.0 um/h against a held-out measurement of 9.00 +/- 0.465 um/h, ratio 3.3333, and the constant was chosen to produce 0.03 mm/h rather than measured",
           "status": "OPEN",
-          "evidence": "results/bunny48/BT-FW48-AUTO-ab449fce1f6f56/results.json :: external_facit.q115_over_anchor_ratio = 3.3333333333333335",
+          "evidence": "results/swarm48/BT-FW48-AUTO-ab449fce1f6f56/results.json :: external_facit.q115_over_anchor_ratio = 3.3333333333333335",
           "note": "a self-edge marking a quantity refuted against its own external referent",
           "evidence_mtime_at_last_check": 1791014551.542,
           "last_checked_status": "OK"
@@ -1770,7 +1770,7 @@
           "evidence": "results/LANE_AMBITIOUS_QUERY_GRAPH/night_rounds/r1.json :: outcome.measurements.composition_additive_max_early_error_mg_kg = 0.3598975439846015",
           "provenance": "auto_harvested_2026_10_03",
           "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
-          "evidence_mtime_at_last_check": 1790804669.833,
+          "evidence_mtime_at_last_check": 1791144966.549,
           "last_checked_status": "OK"
         },
         {
@@ -1783,7 +1783,7 @@
           "evidence": "results/LANE_ANCHOR_CELLS/night_rounds/r19.json :: outcome.max_float_C_absolute_error_J = 1.9539925233402755e-14",
           "provenance": "auto_harvested_2026_10_03",
           "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
-          "evidence_mtime_at_last_check": 1791013919.828,
+          "evidence_mtime_at_last_check": 1791144966.549,
           "last_checked_status": "OK"
         },
         {
@@ -1822,7 +1822,7 @@
           "evidence": "results/LANE_CELLS_FROM_DOMAIN_DATA/night_rounds/r17_BEFORE_DELIVERY_V1.json :: outcome.sufficiency.synthase_gap_J_mol = -41166.93333333333",
           "provenance": "auto_harvested_2026_10_03",
           "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
-          "evidence_mtime_at_last_check": 1791022264.841,
+          "evidence_mtime_at_last_check": 1791144966.549,
           "last_checked_status": "OK"
         },
         {
@@ -1835,7 +1835,7 @@
           "evidence": "results/LANE_COARSEST_SUFFICIENT/night_rounds/r13.json :: outcome.critical_common_endpoint_detector_error = 513.5",
           "provenance": "auto_harvested_2026_10_03",
           "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
-          "evidence_mtime_at_last_check": 1791027050.003,
+          "evidence_mtime_at_last_check": 1791144966.549,
           "last_checked_status": "OK"
         },
         {
@@ -1952,7 +1952,7 @@
           "evidence": "results/LANE_FUNCTION_GRAPH_DENSIFY/night_rounds/r10.json :: outcome.independent_gain_max_error = 0.3067479707849784",
           "provenance": "auto_harvested_2026_10_03",
           "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
-          "evidence_mtime_at_last_check": 1790992353.583,
+          "evidence_mtime_at_last_check": 1791144966.549,
           "last_checked_status": "OK"
         },
         {
@@ -1965,7 +1965,7 @@
           "evidence": "results/LANE_HISTORY_REPRESENTATION/night_rounds/r3.json :: outcome.source_max_abs_error = 2.220446049250313e-16",
           "provenance": "auto_harvested_2026_10_03",
           "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
-          "evidence_mtime_at_last_check": 1790971593.712,
+          "evidence_mtime_at_last_check": 1791144966.549,
           "last_checked_status": "OK"
         },
         {
@@ -1978,7 +1978,7 @@
           "evidence": "results/LANE_IMMUNE_SETPOINT/night_rounds/r9.json :: outcome.constant_no_colony_errors = 335.0",
           "provenance": "auto_harvested_2026_10_03",
           "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
-          "evidence_mtime_at_last_check": 1790982957.805,
+          "evidence_mtime_at_last_check": 1791144966.549,
           "last_checked_status": "OK"
         },
         {
@@ -1991,7 +1991,7 @@
           "evidence": "results/LANE_LASER_FORMS/night_rounds/r7.json :: outcome.additional_release_gap_per_dye = 0.2969970751451323",
           "provenance": "auto_harvested_2026_10_03",
           "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
-          "evidence_mtime_at_last_check": 1791046897.328,
+          "evidence_mtime_at_last_check": 1791144966.55,
           "last_checked_status": "OK",
           "withdrawn_refutation_2026_10_03": {
             "what_I_claimed": "that the 2033-fold published spread in per-fluorophore singlet-oxygen production refutes our single per_dye value of 0.2969970751451323",
@@ -2032,7 +2032,7 @@
           "evidence": "results/LANE_PHENOMENOLOGICAL_UNITS/night_rounds/r20_BEFORE_SEAL_V1.json :: outcome.collagen_max_fraction_partition_error = 0.5760000000000001",
           "provenance": "auto_harvested_2026_10_03",
           "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
-          "evidence_mtime_at_last_check": 1791027150.55,
+          "evidence_mtime_at_last_check": 1791144966.55,
           "last_checked_status": "OK"
         },
         {
@@ -2071,7 +2071,7 @@
           "evidence": "results/LANE_ROBOT_FLEET_FOUNDATION/night_rounds/r9.json :: outcome.rational_basis_entries_checked = 8748.0",
           "provenance": "auto_harvested_2026_10_03",
           "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
-          "evidence_mtime_at_last_check": 1791003028.793,
+          "evidence_mtime_at_last_check": 1791144966.55,
           "last_checked_status": "OK"
         },
         {
@@ -2097,7 +2097,7 @@
           "evidence": "results/LANE_SUMMARY_REPAIR/night_rounds/r4.json :: outcome.fibre_results.eight_H.maximum_gap = 0.0028077006096823842",
           "provenance": "auto_harvested_2026_10_03",
           "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
-          "evidence_mtime_at_last_check": 1791046065.956,
+          "evidence_mtime_at_last_check": 1791144966.551,
           "last_checked_status": "OK"
         },
         {
@@ -2188,7 +2188,7 @@
           "evidence": "results/LANE_WOUND_CROSSLINK_CHEMISTRY/night_rounds/r2.json :: outcome.reference_cap_target_ratio = 0.5623043083792691",
           "provenance": "auto_harvested_2026_10_03",
           "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
-          "evidence_mtime_at_last_check": 1790834537.659,
+          "evidence_mtime_at_last_check": 1791144966.669,
           "last_checked_status": "OK"
         },
         {
@@ -2201,7 +2201,7 @@
           "evidence": "results/LANE_XSEED_REVIEW/night_rounds/r1.json :: outcome.original_margin = 9.430535904834802",
           "provenance": "auto_harvested_2026_10_03",
           "why_unknown": "a harvested number is not a settled relation; status has to be earned by a control, and this pass has none",
-          "evidence_mtime_at_last_check": 1790826516.909,
+          "evidence_mtime_at_last_check": 1791144925.533,
           "last_checked_status": "OK"
         },
         {
@@ -3870,9 +3870,9 @@
           "constraint": "Splitting renal clearance into filtration and secretion turns three measured numbers into a verdict: metformin secretion is blocked 0.5561 while the non-secreted filtration marker moves -0.62 percent, so a creatinine rise under this inhibitor is a marker artefact and not a loss of filtration. The route is separated too: OCT2 would need 109 times the unbound concentration that MATE2-K needs. Interval added 2026-10-04 from the published 90 percent interval on the clearance ratio (0.516-0.632): the blocked fraction is 0.4949 to 0.6515 with point estimate 0.5773, and the implied unbound concentration on the MATE2-K route is 0.1323 to 0.2524 uM. The route verdict survives the interval: OCT2 needs 27.5 uM even at the most favourable end.",
           "status": "TIGHT",
           "evidence": "results/ASSEMBLY_RENAL_SECRETION/decision.json :: secretion_blocked_fraction = 0.556095804069872",
-          "provenance": "tasks/assembly/renal_secretion_decision.py from CONSUMABLE.json READ-A002, A003, A009 and the IC50 rows; external facit PMID 32989831, DOI 10.1002/jcph.1750",
+          "provenance": "tasks/assembly/renal_secretion_decision.py from CONSUMABLE.json READ-A002, A003, A009 and the IC50 rows; external reference PMID 32989831, DOI 10.1002/jcph.1750",
           "quantity_identity_reason": "Both names describe the same two renal processes measured in the same subjects in the same study arm.",
-          "executed_check": "equally informed control is creatinine-based eGFR, which has the same creatinine and no transporter term; the facit is the iohexol clearance",
+          "executed_check": "equally informed control is creatinine-based eGFR, which has the same creatinine and no transporter term; the reference is the iohexol clearance",
           "review_state": "PENDING_INDEPENDENT_REVIEW",
           "evidence_mtime_at_last_check": 1791119905.083,
           "last_checked_status": "OK"
@@ -3959,7 +3959,7 @@
             "electrosurgical_dwell_time_s",
             "collateral_thermal_damage_depth_mm"
           ],
-          "constraint": "an electrosurgical incision is flow limited, not force limited. Mechanical fracture costs 4 J per metre of cut against 2260 J per metre for vaporisation, which is 0.177 percent, and warming the kerf from 37 to 100 C adds exactly 10.0 percent -- all three recomputed by this coordinator from a 1 mm x 1 mm kerf, water latent heat 2.26 MJ/kg and soft tissue specific heat 3.6 kJ/kg/K. Hand force is therefore a second order quantity: the force ratio stays at or below 0.07 over 0.5-6 N and kerf areas 1.0 and 0.2 mm2. Published damage depth 0.56-1.70 mm at 1-3 s read as delta = sqrt(D_eff t) gives D_eff 3.1360e-07 to 9.6333e-07 m2/s, 2.24x to 6.88x the conduction-only 1.4e-07, so the measured damage travels further than conduction allows. The facit pins D_eff only within a factor 3.0719, which makes the dwell enclosure 2.0719 times the conservative dwell itself",
+          "constraint": "an electrosurgical incision is flow limited, not force limited. Mechanical fracture costs 4 J per metre of cut against 2260 J per metre for vaporisation, which is 0.177 percent, and warming the kerf from 37 to 100 C adds exactly 10.0 percent -- all three recomputed by this coordinator from a 1 mm x 1 mm kerf, water latent heat 2.26 MJ/kg and soft tissue specific heat 3.6 kJ/kg/K. Hand force is therefore a second order quantity: the force ratio stays at or below 0.07 over 0.5-6 N and kerf areas 1.0 and 0.2 mm2. Published damage depth 0.56-1.70 mm at 1-3 s read as delta = sqrt(D_eff t) gives D_eff 3.1360e-07 to 9.6333e-07 m2/s, 2.24x to 6.88x the conduction-only 1.4e-07, so the measured damage travels further than conduction allows. The reference pins D_eff only within a factor 3.0719, which makes the dwell enclosure 2.0719 times the conservative dwell itself",
           "status": "OPEN",
           "evidence": "results/ASSEMBLY_INCISION_SETTING/DECISION_V1.json :: d_eff_spread_factor = 3.0719",
           "external_reference": "PMID 12642261, doi 10.1177/03635465030310021601",
@@ -3976,9 +3976,9 @@
           "review_state": "PENDING_INDEPENDENT_REVIEW",
           "falsifier_refuted_2026_10_04": "the falsifier in this edge -- slope about 0.5 that saturates against a pure diffusion model -- is EMPTY. PROOF_LANE_TWO_TIMESCALE gave the closed-form counterexample: with x = log(P/P0), any positive smooth depth response is reproduced exactly by log(d/d0) = a + x/2 + g(x), g(x) = log[d(P0 e^x)/d0] - a - x/2, so curvature, smooth saturation, derivatives and moments cannot separate the models, and no number of points on 10-60 or 10-120 resolves it. 1200 smooth constructions, 67200 exact checks, 1300 optimisation cases, no counterexamples to the restricted results",
           "replacement_witness": "a four-corner design, two settings crossed with two durations, rejects when |I| > 4*eta for I = log(d11 d22 / d12 d21) with log-depth error eta per observation: |I| > 0.08 at eta = 0.02. The endpoint-slope witness needs |m - 0.5| > epsilon + 2*eta/L, which is 0.022324 over 10-60 and 0.016097 over 10-120 at eta = 0.02 -- both recomputed by this coordinator from L = log 6 and log 12",
-          "correlation_scope_corrected": "the R values were booked as one quantity over two ranges. They are not: R about 0.95 is coagulation depth over 10-60 and R about 0.73 is cut volume over 10-120, two modes and two quantities, and the same-mode cut-volume correlation recomputes far lower. A swarm report read the same material the opposite way, saying coagulation lacks the significant volume relation; that conflict is open and proof_lane's reading is carried because it supplies the construction",
+          "correlation_scope_corrected": "the R values were booked as one quantity over two ranges. They are not: R about 0.95 is coagulation depth over 10-60 and R about 0.73 is cut volume over 10-120, two modes and two quantities, and the same-mode cut-volume correlation recomputes far lower. A swarm report read the same material the opposite way, saying coagulation lacks the significant volume relation; that conflict is open and the_proof_lane's reading is carried because it supplies the construction",
           "evidence_previous": "PMID 12642261 :: thermal damage depth 0.56-1.70 mm at 1-3 s; results/ASSEMBLY_INCISION_SETTING/DECISION_V1.json :: facit.d_eff_m2_s",
-          "evidence_mtime_at_last_check": 1791138505.774,
+          "evidence_mtime_at_last_check": 1791144980.32,
           "last_checked_status": "OK"
         },
         {
@@ -3996,13 +3996,13 @@
           "falsifier": "if a shaft-only observable is found that separates adhesion from other resistance without a second mechanical channel, the theorem is wrong and the decision is unnecessary",
           "branches_opened": [
             "the projected lever arm of the nuisance contact as a measured quantity, since the decision swings 0.8 N on it",
-            "distributed nonnegative contacts with known support, which proof_lane says permit sharp two-sided bounds instead of a point",
+            "distributed nonnegative contacts with known support, which the_proof_lane says permit sharp two-sided bounds instead of a point",
             "whether a corrected force channel placed beyond every unwanted contact is realisable on a real shaft",
             "matched temperature and tangent data, which no public source in hand supplies"
           ],
           "owner": "tasks/assembly/tip_load_decision.py",
           "review_state": "PENDING_INDEPENDENT_REVIEW",
-          "evidence_mtime_at_last_check": 1791138505.811,
+          "evidence_mtime_at_last_check": 1791144980.343,
           "last_checked_status": "OK"
         },
         {
@@ -4020,7 +4020,7 @@
           "method_note": "six hand-picked budgets showed zero difference from the control, which looked like the finding buying nothing. That was a sampling artefact: the two readings differ by the constant 0.108 N, so the control over-allows exactly when the budget falls in that window below a multiple of 0.241 N. The budget axis is scanned, not sampled",
           "owner": "tasks/assembly/passage_friction_decision.py",
           "review_state": "PENDING_INDEPENDENT_REVIEW",
-          "evidence_mtime_at_last_check": 1791138505.841,
+          "evidence_mtime_at_last_check": 1791144980.378,
           "last_checked_status": "OK"
         },
         {
@@ -4064,19 +4064,19 @@
             "disc_nucleus_pressure_multiplier",
             "derivation_route"
           ],
-          "constraint": "three independent routes give the nucleus pressure multiplier k and they are not reconcilable: the in-vivo facit implies 0.585959 to 0.718629, our empirical model uses 1.3 to 1.5, and the published fibre equation gives 4.877250096040077. Spread 8.324x",
+          "constraint": "three independent routes give the nucleus pressure multiplier k and they are not reconcilable: the in-vivo reference implies 0.585959 to 0.718629, our empirical model uses 1.3 to 1.5, and the published fibre equation gives 4.877250096040077. Spread 8.324x",
           "status": "UNKNOWN",
           "owner": "tasks/assembly/disc_load_decision.py",
           "evidence": "results/ASSEMBLY_DISC_LOAD_DECISION/DISC_LOAD_V1.json :: the_multiplier_the_facit_pins.k_implied_low = 0.586",
           "external_reference": "Ngwa & Agyingi fibre law; Wilke in-vivo nucleus pressure 0.53-0.65 MPa",
           "review_state": "PENDING_INDEPENDENT_REVIEW",
-          "three_routes_resolved_2026_10_05": "PROOF_LANE_THREE_ROUTES settled whether the three values of k can be simultaneously true. They cannot. The fibre denominator is explicitly whole-disc force in the paper, so both mechanical prescriptions target the same pressure-to-mean-traction ratio on a common state and the 'different quantities' escape is closed. At the stipulated common geometry and load the empirical interval and the fibre value differ by at least 3.377250 in k, which exceeds their declared interval spreads. And there is a theorem: with x = 1/gamma^2 and z = (1-x)/ln(1/x), g = eta*x + (1-eta)*z - 2*z*tan^2(phi) is strictly below 1, because eta*x < eta, (1-eta)*z < (1-eta) and the third term is negative. Therefore k = 1/g > 1 for EVERY positive-compression solution and no admissible fibre angle can ever reach the facit-implied k of 0.585959 to 0.718629, which is below 1. This coordinator reproduced g = 0.20503357021037677 at eta = 0.16, gamma^2 = 2, phi = 30 degrees to eleven decimals and verified the inequality term by term",
-          "control_k_equals_one_wins": "neither forward multiplier beats k = 1 on the supplied comparison. Predicted nucleus pressures are 0.9045 MPa at k = 1, 1.17585 to 1.35675 MPa at our k, and 4.411473 MPa from the fibre law, against the in-vivo facit 0.53 to 0.65 MPa. Distance to the facit midpoint 0.59 MPa: 0.3145 for k = 1, 0.5859 and 0.7667 for ours, 3.8215 for the fibre law. The assumption-poorest choice is the closest, which means our empirical multiplier is not earning its place",
+          "three_routes_resolved_2026_10_05": "PROOF_LANE_THREE_ROUTES settled whether the three values of k can be simultaneously true. They cannot. The fibre denominator is explicitly whole-disc force in the paper, so both mechanical prescriptions target the same pressure-to-mean-traction ratio on a common state and the 'different quantities' escape is closed. At the stipulated common geometry and load the empirical interval and the fibre value differ by at least 3.377250 in k, which exceeds their declared interval spreads. And there is a theorem: with x = 1/gamma^2 and z = (1-x)/ln(1/x), g = eta*x + (1-eta)*z - 2*z*tan^2(phi) is strictly below 1, because eta*x < eta, (1-eta)*z < (1-eta) and the third term is negative. Therefore k = 1/g > 1 for EVERY positive-compression solution and no admissible fibre angle can ever reach the reference-implied k of 0.585959 to 0.718629, which is below 1. This coordinator reproduced g = 0.20503357021037677 at eta = 0.16, gamma^2 = 2, phi = 30 degrees to eleven decimals and verified the inequality term by term",
+          "control_k_equals_one_wins": "neither forward multiplier beats k = 1 on the supplied comparison. Predicted nucleus pressures are 0.9045 MPa at k = 1, 1.17585 to 1.35675 MPa at our k, and 4.411473 MPa from the fibre law, against the in-vivo reference 0.53 to 0.65 MPa. Distance to the reference midpoint 0.59 MPa: 0.3145 for k = 1, 0.5859 and 0.7667 for ours, 3.8215 for the fibre law. The assumption-poorest choice is the closest, which means our empirical multiplier is not earning its place",
           "angle_conditioning": "g crosses zero at 34.5874325119 degrees and it is g, not k, that vanishes, so k diverges there. Positive inversion exists below that angle only. At 30 +/- 1 degree the nonlinear coefficient enclosure is [4.121135, 6.058011], and a 10 percent error allowance with +/- 1 degree uncertainty requires centres no larger than 25.9580415158 degrees. 47089 geometry probes, zero counterexamples to the conditional bound",
           "evidence_previous": "results/ASSEMBLY_DISC_LOAD_DECISION/decision.json :: implied vs model multiplier",
-          "evidence_mtime_at_last_check": 1791119903.728,
+          "evidence_mtime_at_last_check": 1791143740.819,
           "last_checked_status": "OK",
-          "refuted_2026_10_05_by_swarm": "BT-NET-NUCLEUS-PRESSURE-MULTIPLIER-VS-ROUTE-OF-DERIVATION refuted this edge on three counts and the coordinator accepts all three. ROUTE 3 IS NOT A ROUTE: the report searched for a published fibre equation yielding 4.877250096040077 and could not attach it to any paper, with Schroeder et al. 2008 PMID 18327799 and 2006 PMID 16724211 the nearest candidates and neither reporting that value. The coordinator then checked the repository: the name 'Ngwa' appears in exactly two files, both written by this coordinator today, which means the citation entered from a model's output and was propagated into the net and into a tool as if it were a reference. proof_lane's theorem that k = 1/g > 1 for every positive-compression solution still stands as algebra about an equation, but the equation has no established provenance, so the theorem constrains nothing published. ROUTE 2 IS NOT A MEASUREMENT: the 1.3 to 1.5 range has no source, no specimen, no protocol and -- the point that matters physically -- NO OBSERVATION TIME. With a disc time constant of about 3000 s the omission of observation time is not a formatting detail, it is the whole variable, because the pressure creeps. ROUTE 1 IS ABOUT THE WRONG JOINT: its lineage reports L4-L5 loads in NEWTONS, 144 prone, 240 lateral, 800 standing and 996 sitting (Sato et al. 1999, PMID 10626309), not a dimensionless ratio, and facet contact area is posture dependent so a dimensionless multiplier is not well-posed there at all. The coordinator also notes that the model reference load of 1628.1 N is 1.635 times the largest of those four postures. So the 8.324x spread this edge reported was a spread across three things that are not the same quantity, and the edge as stated is withdrawn rather than narrowed"
+          "refuted_2026_10_05_by_swarm": "BT-NET-NUCLEUS-PRESSURE-MULTIPLIER-VS-ROUTE-OF-DERIVATION refuted this edge on three counts and the coordinator accepts all three. ROUTE 3 IS NOT A ROUTE: the report searched for a published fibre equation yielding 4.877250096040077 and could not attach it to any paper, with Schroeder et al. 2008 PMID 18327799 and 2006 PMID 16724211 the nearest candidates and neither reporting that value. The coordinator then checked the repository: the name 'Ngwa' appears in exactly two files, both written by this coordinator today, which means the citation entered from a model's output and was propagated into the net and into a tool as if it were a reference. the_proof_lane's theorem that k = 1/g > 1 for every positive-compression solution still stands as algebra about an equation, but the equation has no established provenance, so the theorem constrains nothing published. ROUTE 2 IS NOT A MEASUREMENT: the 1.3 to 1.5 range has no source, no specimen, no protocol and -- the point that matters physically -- NO OBSERVATION TIME. With a disc time constant of about 3000 s the omission of observation time is not a formatting detail, it is the whole variable, because the pressure creeps. ROUTE 1 IS ABOUT THE WRONG JOINT: its lineage reports L4-L5 loads in NEWTONS, 144 prone, 240 lateral, 800 standing and 996 sitting (Sato et al. 1999, PMID 10626309), not a dimensionless ratio, and facet contact area is posture dependent so a dimensionless multiplier is not well-posed there at all. The coordinator also notes that the model reference load of 1628.1 N is 1.635 times the largest of those four postures. So the 8.324x spread this edge reported was a spread across three things that are not the same quantity, and the edge as stated is withdrawn rather than narrowed"
         },
         {
           "id": "T-E32-membrane_face_polarity-vs-complement_risk",
@@ -4093,7 +4093,7 @@
           "falsifier": "if an independent measurement of the same ratio under luminal protein load lands within one combined dispersion, 0.2884, of the resting 0.45, the shift is not there and the decision has no axis",
           "replaces": "the unmeasured C3b recycling fraction axis behind T-E14, T-E15 and T-E30, all of which were downgraded on 2026-10-05 when LANE_IMMUNE_OVERACTIVATION r1 returned rho_status = UNMEASURED_MODEL_CLOSURE",
           "review_state": "PENDING_INDEPENDENT_REVIEW",
-          "evidence_mtime_at_last_check": 1791122315.941,
+          "evidence_mtime_at_last_check": 1791144966.534,
           "last_checked_status": "OK"
         },
         {
@@ -4102,7 +4102,7 @@
             "summary_fibre_decision_count",
             "minimum_extra_fields"
           ],
-          "constraint": "six independent chains were measured with a summary identity error of exactly zero beside a decision-relevant gap: instrument adhesion at a peak-force ratio of 10.0 with the normal field identical too, the complement window at 17.60797843701942 nM against an interval of 0.5441770553588867 nM, the disc electrical alias at 0.08108314647592979 MPa which is 0.6757 of the facit band and changes the diagnosis, delivered electrical power at 20.0 W between witnesses of 50 and 30 W, the biofilm plateau at exactly 3/16 of normalised signal, and the distribution gate initial field at 0.148502787956807. The bound on repair is ceil(log_q M) extra fields where M is the largest number of distinct decisions in one fibre, sharp with full-state access. Applied across seven chains it now sums to 13 minimum extra binary fields. Six of the chains give the same answer -- M >= 2, one extra binary field each -- because every lane exhibited exactly ONE witness pair. So the theorem is sharp and our data is not: the bound cannot discriminate between a chain hiding two decisions and one hiding twenty until a lane exhibits a third separated state inside the same fibre. That is the next operation, not a refinement of the bound",
+          "constraint": "six independent chains were measured with a summary identity error of exactly zero beside a decision-relevant gap: instrument adhesion at a peak-force ratio of 10.0 with the normal field identical too, the complement window at 17.60797843701942 nM against an interval of 0.5441770553588867 nM, the disc electrical alias at 0.08108314647592979 MPa which is 0.6757 of the reference band and changes the diagnosis, delivered electrical power at 20.0 W between witnesses of 50 and 30 W, the biofilm plateau at exactly 3/16 of normalised signal, and the distribution gate initial field at 0.148502787956807. The bound on repair is ceil(log_q M) extra fields where M is the largest number of distinct decisions in one fibre, sharp with full-state access. Applied across seven chains it now sums to 13 minimum extra binary fields. Six of the chains give the same answer -- M >= 2, one extra binary field each -- because every lane exhibited exactly ONE witness pair. So the theorem is sharp and our data is not: the bound cannot discriminate between a chain hiding two decisions and one hiding twenty until a lane exhibits a third separated state inside the same fibre. That is the next operation, not a refinement of the bound",
           "status": "OPEN",
           "owner": "tasks/assembly/sufficiency_ledger.py",
           "evidence": "results/ASSEMBLY_SUFFICIENCY_LEDGER/LEDGER_V1.json :: minimum_extra_binary_fields_over_all_chains = 13",
@@ -4120,7 +4120,7 @@
           "review_state": "PENDING_INDEPENDENT_REVIEW",
           "complete_invariant_2026_10_05": "PROOF_LANE_SUFFICIENT_BY_CONSTRUCTION answered the elegant form of this ledger's question. The construction exists and is canonical -- the complete invariant identifies states exactly when every allowed decision agrees, future interventions included -- and it reproduced ALL SIX source counterexamples against a stated requirement of at least four. But it CANNOT guarantee compression. Raw to complete coordinates per case, with the ratio recomputed by this coordinator: adhesion 1 to 1 (none), immune history 3 to 2 (1.5x), disc charge and mobility 3 to 1 (3.0x, the best), paired power 4 to 3 (1.3333x), sampled plateau 4 to 3 (1.3333x), two-mode spatial state 4 to 4 (none). Totals 19 to 14, an overall 1.3571x, with no compression at all in two of six cases. The decisive qualifier is that the invariant is relative to the DECLARED decision family: change what may later be asked and the invariant changes, so there is no decision-independent sufficient summary. Zero same-contract counterexamples across 6098 finite machines, 19 polynomial systems and 6350 nonlinear continuation cases; one overbroad claim was rejected and preserved rather than quietly dropped",
           "M_resolved_2026_10_05": "LANE_THIRD_STATE_HUNT r1 resolved M for the adhesion chain in all three readings, which is more than this ledger could bound. It constructed a third witness (newly_constructed_witnesses = 1 beside 4 inherited, third_capacity_witness_gate = PASS) with peak force 6.287056417647859e-05 N against 5.947431818370846e-05 N for the first, a gap of 3.3962459927701416e-06 N which this coordinator verified, sitting 5.7104 percent above the first witness and 47.1448 percent below the third inherited one at 0.00011894863636741692 N, itself exactly twice the first. The three readings: for the ORIGINAL binary decision M = 2 EXACTLY and one extra bit is provably enough, with the third state landing outside the decision codomain (third_original_binary_decision_gate = IMPOSSIBLE_CODOMAIN) -- so for that contract the ledger's lower bound was already the answer. For a joint query M = 3 exactly and the bound rises to two bits, but the contract changed to get there (joint_query_contract_changed = True). For exact real-valued capacity over all real demands M is INFINITE and no finite q-symbol repair exists, which instantiates the negative case PROOF_LANE_MINIMAL_FIELD proved possible -- yet on a frozen path a single real scalar field suffices (exact_real_capacity_fields_for_frozen_path = 1). So the honest statement is that M is a property of the declared contract and not of the chain, exactly as PROOF_LANE_SUFFICIENT_BY_CONSTRUCTION found for the complete invariant",
-          "evidence_mtime_at_last_check": 1791131578.793,
+          "evidence_mtime_at_last_check": 1791144966.548,
           "last_checked_status": "OK",
           "seventh_chain_discriminates_2026_10_05": "the ledger said its own bound could not discriminate because every chain had exhibited exactly one witness pair. LANE_LENS_RESOLUTION r49 supplied the chain that breaks the tie: 128 distinct within-period envelope histories under the SAME carrier give exact raw identity 0 over 1 600 000 comparisons, so M >= 128 and the minimum rises to 7 fields against 1 for every other chain. The C gaps span 3.12525e-07 to 4.00032e-05 with OPPOSITE SIGNS, and this coordinator checked the ratio: it is exactly 128.0, the same as the number of histories, which makes the spread a structural signature of the family rather than scatter. The ledger now holds seven chains, 13 minimum extra binary fields in total, and a gap-over-scale median that moved from 1.0000 to 10.0000. The bound discriminates: one chain needs seven fields and six need one",
           "evidence_updated_2026_10_05": "was 6 across six chains; the lens resolution chain added M >= 128 and therefore 7 fields, taking the total to 13 over seven chains"
@@ -4131,7 +4131,7 @@
             "renal_total_clearance_ratio",
             "secretion_blocked_fraction"
           ],
-          "constraint": "the decision predicts a creatinine clearance ratio of 0.5866666666666667 under inhibitor exposure and a blocked secretion fraction of 0.556095804069872. The published facit is a least-squares-mean ratio of 0.571 with a 90 percent interval of 0.516 to 0.632, implying a blocked fraction of 0.5772555375472719 with interval 0.49486763911399234 to 0.6515397082658021. This coordinator checked both: the model lands INSIDE both intervals, 2.74 percent above the clearance point estimate and 3.67 percent below the blocked-fraction point. Baseline secreted share is 0.7404000000000001 and the filtration change is only -0.006163328197226536, so the effect is secretory and not filtrative. The implied unbound inhibitor concentrations separate the transporters by two orders: OCT2 at 18.41525354969573 uM, MATE1 at 0.42593103448275843 and MATE2-K at 0.1691196754563894 uM, with the MATE2-K value bracketed at 0.13225668449197855 to 0.2524186046511626 uM by the published interval",
+          "constraint": "the decision predicts a creatinine clearance ratio of 0.5866666666666667 under inhibitor exposure and a blocked secretion fraction of 0.556095804069872. The published reference is a least-squares-mean ratio of 0.571 with a 90 percent interval of 0.516 to 0.632, implying a blocked fraction of 0.5772555375472719 with interval 0.49486763911399234 to 0.6515397082658021. This coordinator checked both: the model lands INSIDE both intervals, 2.74 percent above the clearance point estimate and 3.67 percent below the blocked-fraction point. Baseline secreted share is 0.7404000000000001 and the filtration change is only -0.006163328197226536, so the effect is secretory and not filtrative. The implied unbound inhibitor concentrations separate the transporters by two orders: OCT2 at 18.41525354969573 uM, MATE1 at 0.42593103448275843 and MATE2-K at 0.1691196754563894 uM, with the MATE2-K value bracketed at 0.13225668449197855 to 0.2524186046511626 uM by the published interval",
           "status": "OPEN",
           "owner": "tasks/assembly/renal_secretion_decision.py",
           "evidence": "results/ASSEMBLY_RENAL_SECRETION/decision.json :: total_clearance_ratio = 0.5866666666666667",
@@ -4226,13 +4226,13 @@
             "facit_internal_residual",
             "external_reference_usability"
           ],
-          "constraint": "a source that reports two quantities linked by an identity has already tested itself, and the test is elementary enough that nobody runs it. Five of our external facits admit such a check and all five pass under 5.4 percent: the laser mass-loss slope 267 ug/J against the same paper heat of ablation 3740 J/g, which are reciprocals, residual 0.142 percent; the instrument shear modulus 13 280 000 Pa against the isotropic relation from the independently sourced Young modulus 32 800 000 Pa at nu = 0.25, residual 1.205 percent; the mPTP true SD under the SEM reading against 4.0 pp times sqrt(7), residual exactly 0; the fibre coefficient k = 4.877250096040 against 1/g with g = 0.205033570210, residual exactly 0; and the meniscus condyle forces 199.01469891419063 mm2 times 1.2885913888072562 MPa plus 252.57164890113802 times 1.0695118722455845 against the applied 500 N, residual 5.315 percent. Median 0.142 percent. The meniscus residual is the largest and sits inside that chain own stated area errors of 4.80 and 4.44 percent, so it is explained rather than anomalous",
+          "constraint": "a source that reports two quantities linked by an identity has already tested itself, and the test is elementary enough that nobody runs it. Five of our external references admit such a check and all five pass under 5.4 percent: the laser mass-loss slope 267 ug/J against the same paper heat of ablation 3740 J/g, which are reciprocals, residual 0.142 percent; the instrument shear modulus 13 280 000 Pa against the isotropic relation from the independently sourced Young modulus 32 800 000 Pa at nu = 0.25, residual 1.205 percent; the mPTP true SD under the SEM reading against 4.0 pp times sqrt(7), residual exactly 0; the fibre coefficient k = 4.877250096040 against 1/g with g = 0.205033570210, residual exactly 0; and the meniscus condyle forces 199.01469891419063 mm2 times 1.2885913888072562 MPa plus 252.57164890113802 times 1.0695118722455845 against the applied 500 N, residual 5.315 percent. Median 0.142 percent. The meniscus residual is the largest and sits inside that chain own stated area errors of 4.80 and 4.44 percent, so it is explained rather than anomalous",
           "status": "OPEN",
           "owner": "tasks/assembly/facit_internal_check.py",
           "evidence": "results/ASSEMBLY_FACIT_INTERNAL_CHECK/CHECK_V1.json :: relative_residual.max = 0.05315400871861084",
           "external_reference": "PMID 9694144; doi 10.1098/rsos.172051; PMID 15642769; doi 10.5518/981",
           "control": "using a published law without checking its own coefficients against each other, which is what every chain in this net did until today",
-          "falsifier": "a source whose linked quantities disagree by more than the dispersion it reports for either one cannot be used as a facit without first resolving which quantity is being measured; the file deliberately does not reject such a source, because a disagreement can mean different specimens or a different convention, and both are findings",
+          "falsifier": "a source whose linked quantities disagree by more than the dispersion it reports for either one cannot be used as a reference without first resolving which quantity is being measured; the file deliberately does not reject such a source, because a disagreement can mean different specimens or a different convention, and both are findings",
           "scope": "five instances verified by hand, not a survey; the net holds 14 edges with an external reference and nine of them carry enough numbers for a check that has not been run",
           "branches_opened": [
             "the nine remaining external-reference edges that carry two or more source numbers but have not been checked",
@@ -4251,7 +4251,7 @@
           "variable": "surface_shape_field",
           "why": "it decides the SIGN of a procedure's refractive outcome; the span over its proxy is 0.8724 D against a 0.25 D clinical threshold",
           "closing_measurement": "corneal topography height field with common registration, routinely acquired",
-          "correction_2026_10_04": "The stated why -- that identical lumped inputs differ because the whole effect is non-symmetric structure -- is NOT supported. An proof_lane round shows the 0.3056 D gap is carried by RADIAL COMMON BENDING, a symmetric mode, and that radial bending alone reproduces the mean-power gap to within 1.574e-10 D. Pure astigmatic bending gives essentially zero mean gap but 0.1840 D of cylinder-vector distance. The symmetry statement I reasoned from was wrong: rotational symmetry forces P = qI, so astigmatism vanishes while the mean power q stays FREE -- verified here by direct commutation. A near-zero rotational control therefore says nothing about mean power. Also: the two allocation numbers that agree at 0.8724 D are NOT independent; they reuse the same endpoints, since changing eta moves both surfaces by -d_eta * delta_T, so their agreement describes one field excursion counted twice.",
+          "correction_2026_10_04": "The stated why -- that identical lumped inputs differ because the whole effect is non-symmetric structure -- is NOT supported. An the_proof_lane round shows the 0.3056 D gap is carried by RADIAL COMMON BENDING, a symmetric mode, and that radial bending alone reproduces the mean-power gap to within 1.574e-10 D. Pure astigmatic bending gives essentially zero mean gap but 0.1840 D of cylinder-vector distance. The symmetry statement I reasoned from was wrong: rotational symmetry forces P = qI, so astigmatism vanishes while the mean power q stays FREE -- verified here by direct commutation. A near-zero rotational control therefore says nothing about mean power. Also: the two allocation numbers that agree at 0.8724 D are NOT independent; they reuse the same endpoints, since changing eta moves both surfaces by -d_eta * delta_T, so their agreement describes one field excursion counted twice.",
           "closing_measurement_sharpened": "Both registered surfaces for the same 69 eyes with signed coefficients, covariance and residual maps over a 5.700 mm disk. The radial mode is the target, which is cheaper than the full non-symmetric field the original note implied."
         },
         {

@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
-# Queue driver 2: runs Space The swarm/reserve_worker jobs on OVH (Anton 24/9 ~15:15: "yes", profile keys on OVH).
+# Queue driver 2: runs Space The swarm/swarm_worker jobs on OVH (Anton 24/9 ~15:15: "yes", profile keys on OVH).
 # Reads the same bt_queue.txt as the local driver. Claims a job with results/<J>/.ovh_claim (the local driver skips it),
 # sends the packet to /opt/agents/jobs/<J>, starts its own systemd unit on OVH (1500M/100 % CPU), and fetches it
 # back when AGENT_EXIT exists. Cap: tasks/lanes/ovh_agents/cap (default 30). Stop: systemctl --user stop bt-queue-ovh.
 W=$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd); Q=$W/tasks/lanes/bt_queue.txt; D=${BT_CLOUD_DIR:-$W/tasks/lanes/ovh_agents}
+# Runtime values outside the tree: keys, dashboard flag and helper scripts.
+set -a; . "$HOME/.bodytwin/runners.env" 2>/dev/null || { echo "saknar ~/.bodytwin/runners.env"; exit 1; }; set +a
 LOG=$D/queue_ovh.log; LLOG=$W/tasks/lanes/bt_queue.log; RUN=$D/running; mkdir -p $RUN
-SSHO=(-o ConnectTimeout=15 -o ServerAliveInterval=30 -i local_config_path/hunt_20260923 -o IdentitiesOnly=yes -o UserKnownHostsFile=external_research_path -o BatchMode=yes)
+SSHO=(-o ConnectTimeout=15 -o ServerAliveInterval=30 -i "$SSH_KEY" -o IdentitiesOnly=yes -o UserKnownHostsFile="$KNOWN_HOSTS" -o BatchMode=yes)
 H=${BT_CLOUD_HOST:-ubuntu@51.77.110.4}; END=${BT_CLOUD_END:-1791042504}
 # Shared with Field; the host lock makes the final check + unit start atomic.
 # Keep this default equal to the unit's Environment=BT_AGENT_MEMORY_MIB, or the script
@@ -26,7 +28,7 @@ while true; do
   CAP=$(cat $D/cap 2>/dev/null || echo 30)
   # Shared cloud guard selects a measured hard budget and authorises every
   # start. A zero cap still means explicit pause; positive caps need no tuning.
-  if [ -f external_research_path ] && [ "$CAP" -gt 0 ]; then
+  if [ -f "$AUTOMATIC_FLAG" ] && [ "$CAP" -gt 0 ]; then
     CAP=10000
   fi
   # 1) fetch finished jobs: done = AGENT_EXIT exists OR no agent-<J> unit running anymore (timeout/OOM leaves no AGENT_EXIT)
@@ -34,7 +36,7 @@ while true; do
   if [ "$ACTIVE" != "__SSH_FAIL__" ]; then
     for f in $RUN/*; do [ -e "$f" ] || continue; J=$(basename $f)
       echo "$ACTIVE" | grep -q "^agent-$J-" && continue
-      if ! python3 external_research_path "$H:/opt/agents/jobs/$J/" "$W/results/$J/" "ssh ${SSHO[*]}" < /dev/null; then
+      if ! python3 "$COLLECT_VERIFIED" "$H:/opt/agents/jobs/$J/" "$W/results/$J/" "ssh ${SSHO[*]}" < /dev/null; then
         echo "[$(date +%T)] fetch failed; remote preserved $J" >> "$LOG"
         continue
       fi
@@ -44,15 +46,15 @@ while true; do
       EX0=$(cat $W/results/$J/AGENT_EXIT 2>/dev/null || echo "")
       # exit 75 is the provider rate limit. Record a per-model skip so the rotation stops asking for
       # a model that is not answering: measured 3/10 21:56, five consecutive BT-CONN starts exited 75
-      # and every one ran on ling or free_worker while swarm answered 24 of 38, and throughput fell from
+      # and every one ran on ling or swarm_worker while swarm answered 24 of 38, and throughput fell from
       # 104 to 48 reports an hour. A third model raises the ceiling only while it answers.
       if [ "$EX0" = "75" ]; then
         MOD=$(python3 -c "import json;print(json.load(open('$W/results/$J/MODEL_ROUTE.json')).get('model',''))" 2>/dev/null)
         case "$MOD" in
           *ling*)    echo $(( $(date +%s) + 1200 )) > "$D/.skip_ling"
                      echo "[$(date +%T)] rate-limit on ling, skipping it for 20 min" >> $LOG;;
-          *free_worker*) echo $(( $(date +%s) + 1200 )) > "$D/.skip_free_worker"
-                     echo "[$(date +%T)] rate-limit on free_worker, skipping it for 20 min" >> $LOG;;
+          *swarm_worker*) echo $(( $(date +%s) + 1200 )) > "$D/.skip_swarm_worker"
+                     echo "[$(date +%T)] rate-limit on swarm_worker, skipping it for 20 min" >> $LOG;;
         esac
       fi
       # exit 137 is SIGKILL, which for a unit with MemoryMax means the memory limit. Re-queue once.
@@ -104,7 +106,7 @@ while true; do
       [ "$n" -ge "$CAP" ] && break
       [ "$SLOTS" -le 0 ] && break
       [ -z "$J" ] && continue; [[ "$P" == \#* ]] && continue
-      [ "$M" = reserve_worker ] && continue  # paid model remains paused
+      [ "$M" = swarm_worker ] && continue  # paid model remains paused
       # Rate limits are per model, so a third free model raises the ceiling without more memory:
       # measured 2026-10-03, 12.5 % of fetches returned the provider rate-limit exit. ling-3.1-flash
       # was smoke-tested through the real launcher the same day and answered at zero cost. The host
@@ -116,25 +118,25 @@ while true; do
         LING_N=$(cat "$D/.ling_n" 2>/dev/null || echo 0)
         case "$LING_N" in (*[!0-9]*|"") LING_N=0;; esac
         LING_N=$((LING_N + 1)); echo "$LING_N" > "$D/.ling_n"
-        # 3/10 21:56: ling and free_worker are BOTH rate-limited right now while swarm answers -- the
-        # five most recent BT-CONN starts all exited 75 and all of them ran on ling or free_worker, and
+        # 3/10 21:56: ling and swarm_worker are BOTH rate-limited right now while swarm answers -- the
+        # five most recent BT-CONN starts all exited 75 and all of them ran on ling or swarm_worker, and
         # throughput fell from 104 to 48 reports an hour. A third model raises the ceiling only while
         # it answers; when it does not, it burns a slot per start. So a model that returns the
         # rate-limit exit is skipped for 20 minutes, written as an epoch in .skip_<model>.
         LING_SKIP=$(cat "$D/.skip_ling" 2>/dev/null || echo 0)
         if [ $((LING_N % 3)) -eq 0 ] && [ "$(date +%s)" -ge "$LING_SKIP" ]; then M=ling; fi
       fi
-      if [[ "$J" == BT-DW48-* ]] && [ ! -f external_research_path ]; then
+      if [[ "$J" == BT-DW48-* ]] && [ ! -f "$AUTOMATIC_FLAG" ]; then
         DENT_N=$(find "$RUN" -maxdepth 1 -name 'BT-DW48-*' -type f | wc -l)
         [ "$DENT_N" -ge 12 ] && continue
       fi
-      nds=$(for r in $RUN/*; do [ -e "$r" ] && { [ -s "$r" ] && cat "$r" || echo reserve_worker; }; done | grep -c reserve_worker); [ "$M" = reserve_worker ] && [ "$nds" -ge "$(cat $D/cap_reserve_worker 2>/dev/null || echo 30)" ] && continue   # fasta platser: The swarm tappar aldrig alla platser
+      nds=$(for r in $RUN/*; do [ -e "$r" ] && { [ -s "$r" ] && cat "$r" || echo swarm_worker; }; done | grep -c swarm_worker); [ "$M" = swarm_worker ] && [ "$nds" -ge "$(cat $D/cap_swarm_worker 2>/dev/null || echo 30)" ] && continue   # fixed slots: The swarm never loses all slots
       [ -s $W/results/$J/RESULTS.md ] && continue; [ -e $W/results/$J/.ovh_claim ] && continue; [ -e $W/results/$J/.local_claim ] && continue; [ -d $W/results/$J ] || continue
       [ -n "$(localrun $J)" ] && continue
       [ "$(grep -cF "start $J ($P $M)" $LLOG)" -ge 3 ] && continue
       RATE_RETRY=0
       if [ "$(grep -cF "ovhstart $J " $LOG)" -ge 2 ]; then
-        python3 external_research_path "$J" || continue
+        python3 "$DEFERRED_GATE" "$J" || continue
         RATE_RETRY=1
       fi
       ( set -o noclobber; : > "$W/results/$J/.ovh_claim" ) 2>/dev/null || continue
@@ -169,7 +171,7 @@ while true; do
         # The shared host guard can reject a stale capacity snapshot. Charge a
         # delayed retry only after a real unit start, never for failed admission.
         if [ "$RATE_RETRY" -eq 1 ]; then
-          python3 external_research_path "$J" --claim || true
+          python3 "$DEFERRED_GATE" "$J" --claim || true
         fi
       else
         rm -f "$W/results/$J/.ovh_claim"

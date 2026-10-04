@@ -1,6 +1,6 @@
 # LANE_REGISTRATION_SCOPE — the binding term may have the wrong scope in four lanes
 
-Resultatmapp `results/LANE_REGISTRATION_SCOPE/`.
+Results directory `results/LANE_REGISTRATION_SCOPE/`.
 
 ## Why the lane exists, and why it goes first
 The bleeding lane found something in round 2 that weighs more than its own question:

@@ -22,7 +22,7 @@
    Also run without the C0 correction, to isolate its effect.
 4. **Counter-test:** the time-shifted measured force must give clearly lower coverage.
 
-Deliver RESULTS.md starting with `# CX-EPSBAND`, results.json, code (`eps_band(trial, eps)` in bodytwin_core-compatible form), and pytest. Internal data stays local; LP/QP runs go under bigmem.lock or on OVH via `tasks/cloud_run.sh` (≤ 12 vCPU, finish by 07:30). Every outcome is a node that expands (no verdict words). lane runner has full permissions in the workspace; `~/projects/bodytwin` and romi_collab are read-only.
+Deliver RESULTS.md starting with `# CX-EPSBAND`, results.json, code (`eps_band(trial, eps)` in bodytwin_core-compatible form), and pytest. Internal data stays local; LP/QP runs go under bigmem.lock or on OVH via `tasks/cloud_run.sh` (≤ 12 vCPU, finish by 07:30). Every outcome is a node that expands (no verdict words). lane_runner has full permissions in the workspace; `~/projects/bodytwin` and romi_collab are read-only.
 
 ## Addition (Field): U447's minimum-norm-C0 per frame (COMPARISON only, not model/training)
 ../3fold-motion-engine/_private/romi_collab/build/U447/raw/repair_run1.json (key rows), sampled_run1.json (muscle projections, gauge basis), summary.json. Compare your independent geometric C0 correction against these; never use them for fitting.

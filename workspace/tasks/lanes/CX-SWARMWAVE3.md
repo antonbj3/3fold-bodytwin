@@ -43,4 +43,4 @@ A packet that would only find out that data is missing must NOT be built. Instea
 
 Queue only passing packets (`>> tasks/lanes/bt_queue.txt`). `results/CX-SWARMWAVE3/RESULTS.md` starting with `# CX-SWARMWAVE3`: table id → priority (BT-DS in CX-DSWAVE exists: do not duplicate) → question → why it has high value.
 
-Rules: lane runner has full permissions in the workspace. `~/projects/bodytwin` is read-only. restricted model data/the collaborator data may go into local/OVH packets, never to the coordinator cloud or Modal. Dental is paused.
+Rules: lane_runner has full permissions in the workspace. `~/projects/bodytwin` is read-only. restricted model data/the collaborator data may go into local/OVH packets, never to the coordinator cloud or Modal. Dental is paused.

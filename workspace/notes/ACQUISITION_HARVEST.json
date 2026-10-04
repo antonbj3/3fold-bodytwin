@@ -73,7 +73,7 @@
   {
    "quantities": [
     {
-     "quantity": "joniserat kalcium Ca(t)",
+     "quantity": "ionised calcium Ca(t)",
      "unit": "mmol/L",
      "resolution_level": "MOLECULE",
      "quantity_class": "concentration",
@@ -89,7 +89,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "kalibrerad PTH-sekretion per cell",
+     "quantity": "calibrated PTH secretion per cell",
      "unit": "mol/(cell*min)",
      "resolution_level": "CELL",
      "quantity_class": "flow",
@@ -97,7 +97,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "PTH-eliminationskonstant",
+     "quantity": "PTH elimination constant",
      "unit": "1/min",
      "resolution_level": "MOLECULE",
      "quantity_class": "time",
@@ -166,7 +166,7 @@
   {
    "quantities": [
     {
-     "quantity": "fri obunden fraktion fu",
+     "quantity": "free unbound fraction fu",
      "unit": "1",
      "resolution_level": "MOLECULE",
      "quantity_class": "concentration",
@@ -174,7 +174,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "intrinsisk upptagsclearance CLint",
+     "quantity": "intrinsic uptake clearance CLint",
      "unit": "L/min",
      "resolution_level": "CELL",
      "quantity_class": "flow",
@@ -192,7 +192,7 @@
    ],
    "decides": "Whether CLH can be calculated independently of the extraction ratio ER now used to back-solve fu*CLint.",
    "search_terms": [
-    "leverclearance fri fraktion intrinsisk upptag L/min samma preparat",
+    "liver clearance free fraction intrinsic uptake L/min same preparation",
     "hepatic intrinsic uptake clearance unbound fraction matched hepatic blood flow L/min"
    ],
    "matching_requirements": "Same substance, free plasma concentration, preparation and flow regime; specify cell count/protein normalisation and scaling factor to the liver. The ER reference is validation only.",
@@ -269,7 +269,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "matchad referensbenvolym BV",
+     "quantity": "matched reference bone volume BV",
      "unit": "mm^3",
      "resolution_level": "TISSUE",
      "quantity_class": "clearance",
@@ -354,7 +354,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "osmotisk vattenpermeabilitet Pf",
+     "quantity": "osmotic water permeability Pf",
      "unit": "m/s",
      "resolution_level": "CELL",
      "quantity_class": "flow",
@@ -362,7 +362,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "osmotisk drivkoncentration, segmentvis",
+     "quantity": "osmotic driving concentration, segmentwise",
      "unit": "mol/m^3",
      "resolution_level": "MOLECULE",
      "quantity_class": "concentration",
@@ -481,7 +481,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "oberoende termisk konversions/eliminationskonstant",
+     "quantity": "independent thermal conversion/elimination constant",
      "unit": "1/s",
      "resolution_level": "MOLECULE",
      "quantity_class": "time",
@@ -556,7 +556,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "segmentvis fritt glukos",
+     "quantity": "segmentwise free glucose",
      "unit": "mol/m^3",
      "resolution_level": "MOLECULE",
      "quantity_class": "concentration",
@@ -653,7 +653,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "dyad/cleft-volym",
+     "quantity": "dyad/cleft volume",
      "unit": "m^3",
      "resolution_level": "CELL",
      "quantity_class": "clearance",
@@ -661,7 +661,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "lokal fri Ca-koncentration",
+     "quantity": "local free Ca concentration",
      "unit": "mol/m^3",
      "resolution_level": "MOLECULE",
      "quantity_class": "concentration",
@@ -754,7 +754,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "intramyokardiellt regionalt tryck Pim(t)",
+     "quantity": "intramyocardial regional pressure Pim(t)",
      "unit": "mmHg",
      "resolution_level": "TISSUE",
      "quantity_class": "pressure",
@@ -847,7 +847,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "sekretionsrespons till impulsen",
+     "quantity": "secretion response to the impulse",
      "unit": "ng/(L*min)",
      "resolution_level": "CELL",
      "quantity_class": "flow",
@@ -873,7 +873,7 @@
    ],
    "decides": "Whether the LH impulse response peak/FWHM can be predicted when gamma parameters are not solved from the same held width.",
    "search_terms": [
-    "LH GnRH impuls sekretionskinetik clearance minuter ng/L",
+    "LH GnRH impulse secretion kinetics clearance minutes ng/L",
     "pituitary LH GnRH impulse response independent secretion clearance kinetics ng L min"
    ],
    "matching_requirements": "Same male endocrine regime and assay; independent impulse series from the peak/FWHM reference, with gain and baseline. Specify analyte identity per ng/L channel.",
@@ -932,7 +932,7 @@
   {
    "quantities": [
     {
-     "quantity": "luminal lipasaktivitet vid faktiskt substrat/pH",
+     "quantity": "luminal lipase activity at actual substrate/pH",
      "unit": "mol/min",
      "resolution_level": "MOLECULE",
      "quantity_class": "flow",
@@ -948,7 +948,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "segmentvis transit/residenstid",
+     "quantity": "segmentwise transit/residence time",
      "unit": "min",
      "resolution_level": "ORGAN",
      "quantity_class": "time",
@@ -956,7 +956,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "luminalt pH",
+     "quantity": "luminal pH",
      "unit": "1",
      "resolution_level": "MOLECULE",
      "quantity_class": "concentration",
@@ -1025,7 +1025,7 @@
   {
    "quantities": [
     {
-     "quantity": "human 37C fri Ca-waveform",
+     "quantity": "human 37C free Ca waveform",
      "unit": "mol/L",
      "resolution_level": "MOLECULE",
      "quantity_class": "concentration",
@@ -1120,7 +1120,7 @@
   {
    "quantities": [
     {
-     "quantity": "BAX/BAK pore-opening transitionshastighet",
+     "quantity": "BAX/BAK pore-opening transition rate",
      "unit": "1/min",
      "resolution_level": "MOLECULE",
      "quantity_class": "time",
@@ -1205,7 +1205,7 @@
   {
    "quantities": [
     {
-     "quantity": "airway/glottis dynamiska geometri",
+     "quantity": "airway/glottis dynamic geometry",
      "unit": "m",
      "resolution_level": "TISSUE",
      "quantity_class": "clearance",
@@ -1213,7 +1213,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "regional volymcompliance",
+     "quantity": "regional volume compliance",
      "unit": "m^3/Pa",
      "resolution_level": "TISSUE",
      "quantity_class": "pressure",
@@ -1221,7 +1221,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "drivtryck under hosta",
+     "quantity": "driving pressure during cough",
      "unit": "Pa",
      "resolution_level": "TISSUE",
      "quantity_class": "pressure",
@@ -1312,7 +1312,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "lokal absorptionskoefficient",
+     "quantity": "local absorption coefficient",
      "unit": "1/m",
      "resolution_level": "TISSUE",
      "quantity_class": "clearance",
@@ -1328,7 +1328,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "hudlagertjocklek",
+     "quantity": "skin layer thickness",
      "unit": "m",
      "resolution_level": "TISSUE",
      "quantity_class": "clearance",
@@ -1423,7 +1423,7 @@
    ],
    "decides": "Whether priming peak and regrowth time can be predicted from lower-level kinetics without clock/restoration fit to the same timing.",
    "search_terms": [
-    "leverregeneration priming proliferation kinetik resektion tidsserie",
+    "liver regeneration priming proliferation kinetics resection time series",
     "liver regeneration independent priming growth activation kinetics resection proliferation hour"
    ],
    "matching_requirements": "Same species, resection fraction, cell population and time; target timing/mass recovery is kept separate from kinetics acquisition.",
@@ -1514,7 +1514,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "inhibitors tidsberoende restverkan",
+     "quantity": "inhibitor's time-dependent residual effect",
      "unit": "1",
      "resolution_level": "MOLECULE",
      "quantity_class": "concentration",
@@ -1583,7 +1583,7 @@
   {
    "quantities": [
     {
-     "quantity": "p16-transkriptionshastighet",
+     "quantity": "p16 transcription rate",
      "unit": "copies/(cell*day)",
      "resolution_level": "MOLECULE",
      "quantity_class": "flow",
@@ -1591,7 +1591,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "p16-transkriptens nedbrytningshastighet",
+     "quantity": "p16 transcript degradation rate",
      "unit": "1/day",
      "resolution_level": "MOLECULE",
      "quantity_class": "time",
@@ -1599,7 +1599,7 @@
      "unit_status": "REQUESTED_REPORTING_UNIT_NOT_A_MEASURED_VALUE"
     },
     {
-     "quantity": "T-cellsubsetfraktion per klon",
+     "quantity": "T-cell subset fraction per clone",
      "unit": "1",
      "resolution_level": "CELL",
      "quantity_class": "concentration",
@@ -1735,7 +1735,7 @@
    "search_terms": [
     "TMAO stable isotope same individual plasma urine timed dose raw data",
     "trimethylamine N oxide measured renal clearance individual dietary history",
-    "trimetylaminoxid parade individdata dos plasma urin tidsserie"
+    "trimethylamine oxide paired individual data dose plasma urine time series"
    ],
    "review_state": "PENDING_INDEPENDENT_REVIEW",
    "scientific_admission": false,
@@ -1867,7 +1867,7 @@
    "search_terms": [
     "TMAO stable isotope same individual plasma urine timed dose raw data",
     "trimethylamine N oxide measured renal clearance individual dietary history",
-    "trimetylaminoxid parade individdata dos plasma urin tidsserie"
+    "trimethylamine oxide paired individual data dose plasma urine time series"
    ],
    "review_state": "PENDING_INDEPENDENT_REVIEW",
    "scientific_admission": false,
@@ -1940,7 +1940,7 @@
    "search_terms": [
     "TMAO stable isotope same individual plasma urine timed dose raw data",
     "trimethylamine N oxide measured renal clearance individual dietary history",
-    "trimetylaminoxid parade individdata dos plasma urin tidsserie"
+    "trimethylamine oxide paired individual data dose plasma urine time series"
    ],
    "review_state": "PENDING_INDEPENDENT_REVIEW",
    "scientific_admission": false,
@@ -2111,7 +2111,7 @@
    "search_terms": [
     "TMAO stable isotope same individual plasma urine timed dose raw data",
     "trimethylamine N oxide measured renal clearance individual dietary history",
-    "trimetylaminoxid parade individdata dos plasma urin tidsserie"
+    "trimethylamine oxide paired individual data dose plasma urine time series"
    ],
    "review_state": "PENDING_INDEPENDENT_REVIEW",
    "scientific_admission": false,
@@ -2180,7 +2180,7 @@
    "search_terms": [
     "TMAO stable isotope same individual plasma urine timed dose raw data",
     "trimethylamine N oxide measured renal clearance individual dietary history",
-    "trimetylaminoxid parade individdata dos plasma urin tidsserie"
+    "trimethylamine oxide paired individual data dose plasma urine time series"
    ],
    "review_state": "PENDING_INDEPENDENT_REVIEW",
    "scientific_admission": false,
@@ -2249,7 +2249,7 @@
    "search_terms": [
     "TMAO stable isotope same individual plasma urine timed dose raw data",
     "trimethylamine N oxide measured renal clearance individual dietary history",
-    "trimetylaminoxid parade individdata dos plasma urin tidsserie"
+    "trimethylamine oxide paired individual data dose plasma urine time series"
    ],
    "review_state": "PENDING_INDEPENDENT_REVIEW",
    "scientific_admission": false,

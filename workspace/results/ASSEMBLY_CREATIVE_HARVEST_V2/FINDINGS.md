@@ -24,7 +24,7 @@ admissible as E·A (96–462 N), the *opposite* verdict from ALL and ISL, not to
 
 - **No network egress** (PubMed eutils returned empty), so "the source bears the number" was closed throughout; every
   verification above is recomputation from the raw detail-layer file the edge points at, in
-  `source_documents`. Published numbers are marked as quoted from the report, not confirmed.
+  `source_repository/docs`. Published numbers are marked as quoted from the report, not confirmed.
 - **HARVEST-E0096** (spectrin 10 nm vs 7.5 nm) — the finding is that the two numbers are different objects, an
   in-situ inferred anchor length against a WLC tetramer model parameter. Nothing recomputable locally.
 - **HARVEST-E0092** (coronary gain) — 0.46 vs −0.20 is over 60–100 mmHg, two later series over 120–60 at 20 mmHg steps.
@@ -37,4 +37,4 @@ admissible as E·A (96–462 N), the *opposite* verdict from ALL and ISL, not to
   intra-compartmental pressure and mean F/A; and `BT-NET-HARVEST-E0085` attributes the 1000 N triple to Zhang 2015
   while the raw evidence file attributes it to Fukubayashi & Kurosawa 1980 (PMID 6894212) — the raw file wins.
 - None of the 14 target variables carries a `plausible_range`, so the range gate ran against a range stated per
-  proposal. `review_state: PENDING_INDEPENDENT_REVIEW` on every entry; `exclusion_filter.py` over this directory: 5713 ADMIT, 0 non-admit.
+  proposal. `review_state: PENDING_INDEPENDENT_REVIEW` on every entry; 

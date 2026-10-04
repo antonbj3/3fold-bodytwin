@@ -2,15 +2,15 @@ BT-DAT-Q090
 
 # Results — public measured datasets that can constrain BT-HX-Q090
 
-## Status: negativt dat|resultat, rapporterat som ett nederlag
+## Status: negative dat|result, reported as a defeat
 
 No license-clear public measured data could be downloaded and opened within the sample budget of 50 MB. Falsification conditions **F1** and **F2** triggered, **F3** partly. I report this rather than fill the gaps with values from articles.
 
-## What it built on
+## What was built on
 
 `inputs/Q090_QUESTION.md`, `inputs/Q090_model.py`, `inputs/Q090_RESULTS.md`. The model has 39 parameter rows, of which **32 are tagged `Antagen`**, 3 `Fryst`, 3 numerical and 1 `OVERIFIERAD, UR MINNET` (`reference_mobility_m = 8.0e-5 m`). Zero rows are measurement-backed. The model's own sensitivity table guides prioritization: `t_PDL` 94.856507 %, `E_PDL` 48.698176 %, `E_TMJ_disc` 0.958975 %.
 
-## Nyckeltal med fil
+## Key numbers with file
 
 - Sample: `samples/zmk-tooth-cohort-0.8.zip`, 22 005 589 B, sha256 `387ad734…26f06e`, md5 `b1e6d338…` **matches** the repo's published checksum. `zipfile.testzip()` OK, 11 entries.
 - Form: two JPEG renderings 2803×2176 and 2404×3756 px, two notebooks (67 cells), `README.md`, `requirements.txt`.

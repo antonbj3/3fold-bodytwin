@@ -21,7 +21,7 @@ Anton: "sensor fusion was the first word that struck me". The pieces already exi
 3. Value per sensor: the posterior width and error with and without EMG; EMG per muscle group (leave-one-channel-out). Which channel reduces the most? Compare against A1400's minimal triple.
 4. Counter-test: permuted EMG (between trials) must remove the EMG gain.
 
-Deliver RESULTS.md starting with `# CX-FUSION`, results.json, code in bodytwin_core-compatible form (a `fuse_knee(trial)` function), and pytest. Internal data stays local; heavy computations go through the shared queue or `tasks/cloud_run.sh` OVH (≤ 12 vCPU, finish by 07:30). Every outcome is a node that expands. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+Deliver RESULTS.md starting with `# CX-FUSION`, results.json, code in bodytwin_core-compatible form (a `fuse_knee(trial)` function), and pytest. Internal data stays local; heavy computations go through the shared queue or `tasks/cloud_run.sh` OVH (≤ 12 vCPU, finish by 07:30). Every outcome is a node that expands. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
 
 ## Addition (A1412, Field U440)
 The body's gauge is actuator redundancy (956 out of 1 133 null directions = muscles with support on ≤2 segments), not graph cycles; the compliance path is ill-conditioned at 1 mm pose noise. This strengthens the case that fusion should rely on the recruitment prior + EMG, not on joint stiffness. Feel free to report the posterior width broken down by muscle group (which redundant groups EMG actually closes).

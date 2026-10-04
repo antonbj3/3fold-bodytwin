@@ -7,14 +7,14 @@ The isotropic R1 observer is exactly `S=75 A m`, where `A=trace(U+I+M)` and `m=t
 | Ersatt port | RMSE pp | ΔRMSE pp |
 |---|---:|---:|
 | None: original chain | 43.703696 | +0.000000 |
-| Amount only A → R3 C | 13.000632 | +30.703064 |
-| Maturation only m → R3 HP normalization | 39.456781 | +4.246914 |
+| Quantity A only → R3 C | 13.000632 | +30.703064 |
+| Enbart mognad m → R3 HP-normalisering | 39.456781 | +4.246914 |
 | Both A and m → R3 | 8.306367 | +35.397329 |
-| Amount A → the chain's own FV C | 29.560901 | +14.142795 |
+| Quantity A → chain's own FV C | 29.560901 | +14.142795 |
 | m → isolated D/H/A-HP with R3 scale | 47.268908 | -3.565212 |
-| Bridge → R3 reference1 | 43.703696 | +0.000000 |
-| Direction → isotropic R3 reference | 43.703696 | +0.000000 |
-| Early state/hazard → R3 | 45.697008 | -1.993312 |
+| Bridge → R3 referens1 | 43.703696 | +0.000000 |
+| Riktning → isotrop R3 referens | 43.703696 | +0.000000 |
+| Tidig state/hazard → R3 | 45.697008 | -1.993312 |
 | All six upstream R3 ports | 60.007651 | -16.303955 |
 | gap → R3 | 52.892706 | -9.189010 |
 | biological_width → R3 | 43.004371 | +0.699325 |

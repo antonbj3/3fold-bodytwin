@@ -1,4 +1,4 @@
-# Reproduktion R2
+# Reproduction R2
 
 Threads2 is set in the scripts. Choose **new** output/file names for reruns; existing destination files are rejected. PREREG/design must be verified before a new run. Large field data is on games-240, not shared_data.
 

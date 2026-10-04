@@ -1,13 +1,13 @@
 BT-DAT-Q100
 
-## Slutsats
+## Conclusion
 
 Six public **measured** datasets constrain Q100’s geometry, operating point and kinematics, but **no**
 public measured dataset constrains Q100’s layered material law. That is the answer to the question, not just
 a list. `PREREG.md` + `PREREG.sha256` were created before the first retrieval and verify
 (`32b81eee…75b2`). `results.json` carries all numbers with sha256, `DATA_SOURCES.json` all sources.
 
-**Nyckeltal med fil**
+**Key numbers with file**
 
 | What | Value | File |
 |---|---:|---|
@@ -20,8 +20,8 @@ a list. `PREREG.md` + `PREREG.sha256` were created before the first retrieval an
 | BAGLS sample, glottal area | 620 px² (mask 256×256, values {0, 255}) | `samples/bagls_0_seg.png` |
 | BAGLS sample, frame rate | 4000 Hz → 250 µs/frame (declared in `.meta`) | `samples/bagls_0.meta` |
 | VF-3D-MRI, NRRD-header | 224³ `double`, LPS, 0,383929 voxel, FOV 86,0001 mm, origin (−39,095; 39,526; 42,801) | `samples/vf3d_thick_nrrd_header.txt` |
-| VF-3D-MRI, STL | 28 112 trianglar, bbox 15,04 × 22,41 × 29,56 | `samples/vf3d_thick_frame01.stl` |
-| Ikuma Case2, MP4-container | 256×120 px, 904 frames, 158,2 s, tidsbas ger 5,714 fps mot deklarerade 2000 fps | `results.json:sample_loads.DS-04_ikuma_hsv` |
+| VF-3D-MRI, STL | 28 112 triangles, bbox 15,04 × 22,41 × 29,56 | `samples/vf3d_thick_frame01.stl` |
+| Ikuma Case2, MP4 container | 256×120 px, 904 frames, 158,2 s, time base gives 5,714 fps against declared 2000 fps | `results.json:sample_loads.DS-04_ikuma_hsv` |
 
 **What failed**
 
@@ -50,10 +50,10 @@ a list. `PREREG.md` + `PREREG.sha256` were created before the first retrieval an
 4. Mucosal wave speed remains the declared proxy `c_m = sqrt(T_sheet/(rho_mucus*h_m))`; measurable
    wave speed was not publicly available and was not found.
 
-## What it built on
+## What was built on
 
-`inputs/Q100_QUESTION.md` (mekanism + fyra utdata), `inputs/Q100_model.py` (41 `Parameters` med
-enheter, `F_air`/`F_contact`/`F_meniscus`, proxyformeln), `inputs/Q100_RESULTS.md` +
+`inputs/Q100_QUESTION.md` (mechanism + four outputs), `inputs/Q100_model.py` (41 `Parameters` with
+units, `F_air`/`F_contact`/`F_meniscus`, the proxy formula), `inputs/Q100_RESULTS.md` +
 `inputs/Q100_results.json` (`measured_inputs_used=false`, `geometry_measured=false`,
 `mucosal_wave_empirical_validation=UNKNOWN`; f0 302,148/138,910 Hz), `inputs/NIGHT_PREAMBLE.md`
 (source vs derivation, explicit UNKNOWN, write only here). `DATA_SOURCES.json` +
@@ -72,7 +72,7 @@ the BT-HX-Q100 run’s own gaps (`data_status`).
 | DS-05 | Ultrafast 3D-MRI phase II, pathologies, Zenodo 19915187 | CC-BY-4.0 | 72 124 458 B (5 mp4) | mp4, audio removed | 5 cases: polyp, MTD, scar, nodules, paresis | f0, contact fraction per pathology |
 | DS-06 | DVTD, figshare 11897187, [10.6084/m9.figshare.11897187](https://doi.org/10.6084/m9.figshare.11897187.v1) | CC0 | 1 129 467 424 B | MRI-STL + FEM + aeroacoustics | 2 speakers, 22 German sounds | only f0 indirectly (`indirect`) |
 
-## Proven laddar (form, enheter, koordinatram)
+## Samples load (shape, units, coordinate frame)
 
 - **DS-02** `trajectories.npy`: ndarray `float64`, shape **(288, 2048, 6)**, axes = recording ×
   frame × glottal wall point; the 6 columns are left posterior/medial/anterior and right

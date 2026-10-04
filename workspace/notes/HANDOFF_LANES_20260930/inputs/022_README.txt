@@ -1,4 +1,4 @@
-AGENTER & MOLN
+AGENTS & CLOUD
 
 Start: local_path
 Q closes the view; D shows details; R requests a new measurement. Update every 15 seconds.

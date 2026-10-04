@@ -50,13 +50,14 @@ def main() -> None:
         {'total': len(rows), 'rows': rows, 'review_state': 'PENDING_INDEPENDENT_REVIEW'}, indent=2))
     checkable = [r for r in rows if r['our_numbers'] and r['has_doi_or_pmid']]
     print(f'refutes_us TRUE: {len(rows)}')
-    print(f'  med egna tal AND extern DOI/PMID (direkt kontrollerbara): {len(checkable)}')
-    print(f"  with own numbers but without external locator: {len([r for r in rows if r['our_numbers'] and (not r['has_doi_or_pmid'])])}")
-    print(f"  without own numbers: {len([r for r in rows if not r['our_numbers']])}")
+    print(f'  with own numbers AND an external DOI/PMID (directly checkable): {len(checkable)}')
+    print(f'  with own numbers but without an external locator: '
+          f'{len([r for r in rows if r["our_numbers"] and not r["has_doi_or_pmid"]])}')
+    print(f'  without own numbers: {len([r for r in rows if not r["our_numbers"]])}')
     print()
     for r in checkable[:12]:
         print(f'{r["job"][-14:]}  {str(r["target"])[:22]:<22} {r["our_numbers"]}')
-        print(f'   mot: {r["compared_quantity"][:120]}')
+        print(f'   against: {r["compared_quantity"][:120]}')
     print('\nwrote', OUT / 'REFUTATIONS.json')
 
 

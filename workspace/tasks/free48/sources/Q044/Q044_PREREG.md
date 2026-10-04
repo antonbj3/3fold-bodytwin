@@ -46,7 +46,7 @@ Vorwerk, J., Wolters, C. H., & Baumgarten, D. (2024), *Global sensitivity of EEG
 
 Those reported Sobol and localization values are the literature reference. They are not numerically equated to this reduced spherical model's RDM; the frozen RDM threshold above is an independent mechanistic test.
 
-## Modellfryst setup
+## Model-frozen setup
 
 - Geometry: five concentric conductive compartments, with radii (m) `0.050` white matter, `0.080` gray matter, `0.083` CSF inner boundary, `0.090` skull outer boundary, and `0.095` scalp outer boundary. The inner three radii and the two layer thicknesses are explicit assumptions for a first runnable model, not anatomical measurements.
 - Conductivity (S/m): white matter `0.140`, gray matter `0.330`, CSF `1.790`, skull `0.010`, scalp `0.430`, from Vorwerk et al. Table 1.

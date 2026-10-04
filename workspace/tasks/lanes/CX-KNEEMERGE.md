@@ -17,4 +17,4 @@ Anton (24/9): "so it's partial calculations inside the high-resolution one that 
 3. The force-controlled formulation, where the existing knee is displacement-controlled: implement it as an option and test it on the same data.
 4. Counter-tests: (b) outside its regime must be flagged/rejected, never used silently.
 
-Resources: lane runner has full permissions in the workspace. `~/projects/bodytwin` is read-only (copy with source references). Internal data stays local or on OVH. Write in `results/CX-KNEEMERGE/`. `RESULTS.md` starting with `# CX-KNEEMERGE`, plus pytest.
+Resources: lane_runner has full permissions in the workspace. `~/projects/bodytwin` is read-only (copy with source references). Internal data stays local or on OVH. Write in `results/CX-KNEEMERGE/`. `RESULTS.md` starting with `# CX-KNEEMERGE`, plus pytest.

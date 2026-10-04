@@ -15,4 +15,4 @@
    - (d) the ankle term 0.29|M_ankle|/0.045 at high plantarflexion moments.
 4. Every deviation is a node that expands. Report which activity or angle range still falls outside after the curves are applied.
 
-Deliver RESULTS.md starting with `# CX-RQANGLE`, results.json, the script, and pytest. It is cheap computation; run locally with 2 threads. Exclude jw_lungef1. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+Deliver RESULTS.md starting with `# CX-RQANGLE`, results.json, the script, and pytest. It is cheap computation; run locally with 2 threads. Exclude jw_lungef1. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

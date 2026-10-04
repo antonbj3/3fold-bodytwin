@@ -1,0 +1,69 @@
+{
+  "claim_type": "information_link",
+  "review": "PENDING_INDEPENDENT_REVIEW",
+  "model_force_source": "source_repository/data/msk_smoketest/subject2_walking1/spine_gait_force/spine_gait_force_results.json",
+  "model_source_sha256": "86c94fb0e34bfb8039705411c98ee16994874fb35fd5728c5af64b3676e0e1bf",
+  "model_peak_force_N": 1628.103793657084,
+  "model_peak_time_s": 0.09,
+  "model_mass_kg": 78.97591675025181,
+  "model_body_weight_N": 774.4891739988569,
+  "activity_label": "walking, not lifting",
+  "activity_locator": "source_documents/MECHANISM_INTERVERTEBRAL_DISC.md:43-47; JSON gait_compressive_force/tier2b_muscle_and_ligament_subtracted_PRIMARY",
+  "force_domain": "One lumped lumbar hinge, combined bone/facet/disc contact",
+  "domain_locator": "source_documents/MECHANISM_SPINE_GAIT_VBR.md:311-315",
+  "source_pressure_is_force_measurement": false,
+  "held_pressure_does_not_identify_k_separately_from_F": true,
+  "same_subject": false,
+  "same_segment_force_domain": false,
+  "same_statistic": false,
+  "hidden_nominal_stress_coefficient_attribution": "NOT_IDENTIFIED",
+  "lifting_vs_walking_label_explanation": "REFUTED_BY_MODEL_SOURCE",
+  "independent_wilke_force": "NOT_ACQUIRED",
+  "matched_force_pressure_near_1628N": "NOT_ACQUIRED; no universal absence claim",
+  "source_statuses_preserved": true,
+  "sato_control": {
+    "pmid": "10626309",
+    "doi": "10.1097/00007632-199912010-00008",
+    "journal": "Spine 1999;24(23):2468-2474",
+    "status": "Force is calculated from pressure/posture; standing/sitting and other subjects, not an independent Wilke walking force"
+  },
+  "follower_load_control": {
+    "pmid": "11740371",
+    "doi": "10.1097/00007632-200112150-00014",
+    "journal": "Spine 2001;26(24):E557-E561",
+    "status": "Controlled ex-vivo follower load, not Wilke same-subject walking force"
+  },
+  "legacy_consumed": [
+    {
+      "id": "CLOUD-W3-DISC-IDENT",
+      "path": "results/CLOUD-W3-DISC-IDENT/disc_ident.py",
+      "use": "Synthetic equilibrium co-contraction null direction; constants retain synthetic status",
+      "sha256": "916834d2c860d30cd540aff7a90f81946cccb5001374006abdebffd113eb5ef3"
+    },
+    {
+      "id": "BT-DS-120",
+      "path": "results/BT-DS-120/RESULTS.md",
+      "use": "Preserved negative: rank is not practical identifiability; no physical validation",
+      "sha256": "3338815fcc4097ac75a73a15a280c1c590b0497cbd9366408551d05642e4d471"
+    }
+  ],
+  "old_cell_index": "No intradiscal quantity match; disc/disk matches are bookkeeping false positives; no legacy measured force was consumed",
+  "sources": [
+    {
+      "path": "source_documents/MECHANISM_INTERVERTEBRAL_DISC.md",
+      "sha256": "3b2370f7941d503a6e090eccc671b3e041e33de2a1a179358780b0998f9d86b4"
+    },
+    {
+      "path": "source_documents/MECHANISM_SPINE_GAIT_VBR.md",
+      "sha256": "c8101683047a2d46d04ad53b4791e8dca3226045549c087a957a7a20e7e1dd26"
+    },
+    {
+      "path": "results/LANE_DISC_LOAD_LABEL/r1/WILKE_1999_V1.pdf",
+      "sha256": "d09f0fe637670f6f9c7694e1dd2d1f257924fb01126db10df7c6c999826e2d36"
+    },
+    {
+      "path": "results/LANE_DISC_LOAD_LABEL/r1/PREREG_R1_V1.md",
+      "sha256": "c0b2efb91ee6b25c1bfbc820145c0e3f839972f753f2be94ee77070d44dd3843"
+    }
+  ]
+}

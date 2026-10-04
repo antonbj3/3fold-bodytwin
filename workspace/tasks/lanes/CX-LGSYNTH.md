@@ -25,4 +25,4 @@ Rules:
 - No reanalysis of our own results; every packet computes something new against the measured force.
 - Copy tasks/NIGHT_PREAMBLE.md into inputs/.
 
-Write `results/CX-LGSYNTH/RESULTS.md`, starting with `# CX-LGSYNTH`, plus results.json and the aggregation script. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. No verdict words; every deviation is a node that expands.
+Write `results/CX-LGSYNTH/RESULTS.md`, starting with `# CX-LGSYNTH`, plus results.json and the aggregation script. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. No verdict words; every deviation is a node that expands.

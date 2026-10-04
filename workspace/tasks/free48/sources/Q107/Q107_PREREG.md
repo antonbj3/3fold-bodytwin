@@ -11,7 +11,7 @@ Reference: total gastric volume in mL, residual solid mass in g, pyloric flow in
 - Collins, P. J. (1983), *Gut*, normal-subject scintigraphic gastric-emptying reference: approximately `T50 = 20 min` for liquid meal and `T50 = 90 min` for solid meal. **OVERIFIERAD, out of memory**. This is a broad literature anchor, not a measurement from this session and not a source dataset used for calibration.
 - The reference values ​​are only used as external direction. No partial volumes, pressures, flows, food properties or individual data are found.
 
-## Frozen acceptance criterion
+## Frozen acceptance criteria
 
 1. Numerical mass/volume conservation: maximum relative deviation in final state and cumulative balance `<= 1e-8` .
 2. The floating `T50` of the model must be within factor 2 of 20 min, thus `[10, 40] min`.
@@ -27,7 +27,7 @@ Reference: total gastric volume in mL, residual solid mass in g, pyloric flow in
 - No calibration against the target references is done in this run.
 - Sensitivity ranking: each parameter is varied alone with `+50%` and `-50%`; reported as absolute change in both `T50` values.
 
-## Modellens frysta antaganden
+## The frozen assumptions of the model
 
 - SI-units internal; mL, mmHg and min are only converted on output.
 - Fundus and antrum are compressible wall volumes with separate resting volumes, passive pressures and active contractions.
@@ -35,7 +35,7 @@ Reference: total gastric volume in mL, residual solid mass in g, pyloric flow in
 - The pylorus is a time-dependent orifice-like opening; liquid uses pressure flow, while solid particles require mobilization and size selection.
 - No contact, fracture, microstructure, or 3D geometry parameters are identified; they are replaced by explicit assumptions and marked as such in `model.py`.
 
-## Builds on
+## Building on
 
 - `inputs/QUESTION.md` (core mechanism, parameters and control tests).
 - `inputs/NIGHT_PREAMBLE.md` (rules of conduct, zero model and pre-registration requirements).

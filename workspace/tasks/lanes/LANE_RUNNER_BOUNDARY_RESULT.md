@@ -1,11 +1,11 @@
-# LANE_RUNNER_BOUNDARY — resultat 2026-09-30
+# LANE_RUNNER_BOUNDARY — result 2026-09-30
 
 **Decision:** option (b), BM1–BM12 building on 25 existing v6 definitions
 and each other. Twelve sharp boundary constructions were prioritized over approx
 300 variants because identifiability, physical closure and actual consumer
 are the common obstacles. No new internal molecular states or canonical edges.
 
-**Huvudleveranser:**
+**Main deliverables:**
 
 - `external_research_path`: gaps, explicit port contracts,
   connectivity map, results/negativosis, cost parity and six steps for the next
@@ -38,7 +38,7 @@ NumPy JSON serialization bug and fix is in ATTEMPTS.
 working packets missing (exit2 receipts saved); imported GRAPH was read directly.
 New definitions saved via `./graph dispatch` and `./graph feedback` in
 `tasks/graph_runs/LANE_RUNNER_BOUNDARY_PORTS_20260930/` respektive
-`LANE_RUNNER_BOUNDARY_IMMUNITY_20260930/`, med `launched=false`,
+`LANE_RUNNER_BOUNDARY_IMMUNITY_20260930/`, with `launched=false`,
 `scientific_admission=false`, `PENDING_INDEPENDENT_REVIEW`.
 C4's history contains an older RESULT_HASH_MISMATCH; it is preserved as
 unverified, not repaired by rewriting older results.

@@ -7,7 +7,7 @@ BT-DAT-Q146
 `PREREG.md` + `PREREG.sha256` = `a3d4a94df9e4ceea98a359cdea105444e0e75d7836d5756bf24d6d1b11c6949f`.
 Final answer ≤ 300 words. No own measured data; no verdict words.
 
-## Vad som gjordes
+## What was done
 
 Seven sources verified (URL + HTTP response or provider API), each mapped to a
 specific symbol in `inputs/Q146_model.py`. One sample downloaded and loaded. Complete
@@ -59,7 +59,7 @@ population with 35× spread in cotinine.
   D7 multi-GB). D4 (n = 130, region masks in mm, RAS) is the only open source that can
   measure S_cm2 per region — but the size discipline makes it unavailable here.
 
-## Next step
+## Next steps
 
 1. Acquire D4 within the size discipline (streaming subset, or request an exception from 50 MB)
    and measure S_cm2 per region; compare with 10/15/50/80/10 cm².
@@ -69,7 +69,7 @@ population with 35× spread in cotinine.
 4. Update `inputs/Q146_RESULTS.md`: the t_max error is now **two independent public
    pieces of evidence**, not an internal spot check.
 
-## Filer
+## Files
 
 `PREREG.md`, `PREREG.sha256`, `DATA_SOURCES.json`, `results.json`, `sample_report.json`,
 `samples/P_COT.xpt`, `read_sample.py`, `build_results.py`, `zq.py` (API search tool),

@@ -16,4 +16,4 @@ Read: `results/CX-QUADPRED/` (score.py, per-frame caches), `results/CX-QUADARM/g
 Criterion (frozen): the person-median RMSE is ≥ 5 % below N1g (0.396 → ≤ 0.376 BW) AND better than N1g for ≥ 3/4 held-out persons, AND the time-shift control loses that gain.
 Report the peak and early stance too.
 
-Deliver RESULTS.md starting with `# CX-HYBRID`, results.json, the script, and pytest. Runtime ≤ 60 min; reuse the caches; 2 threads under bigmem.lock. At most 200 MB of intermediate files (the disk is almost full; write to external_media). Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+Deliver RESULTS.md starting with `# CX-HYBRID`, results.json, the script, and pytest. Runtime ≤ 60 min; reuse the caches; 2 threads under bigmem.lock. At most 200 MB of intermediate files (the disk is almost full; write to external_media). Internal data stays local. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

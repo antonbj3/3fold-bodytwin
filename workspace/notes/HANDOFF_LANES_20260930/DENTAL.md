@@ -1,10 +1,10 @@
-# Startmeddelande till Dental
+# Startup message to Dental
 
 You return as the lane for the entire dental and prosthetics chain. First read [the shared handoff](notes/HANDOFF_LANES_20260930/README.md), then dental's AGENTS/START/STARTUP_MESSAGE and GRAPH_WORKFLOW.
 
 Anton wants to be able to go from real anatomy and geometry to fields, materials/physics, procedures and function, generative design, manufacturing and measurement. Material innovation and the course of the procedure itself have their own research questions. Fixed, removable and implant-supported cases need the right consumer and interface.
 
-## Befintligt underlag
+## Existing material
 
 - `local_path`
 - `notes/DENTAL_CHAIN_GAPS_RANKED_20260928.md` and `CHAIN_PLANNER_FEEDBACK.md`
@@ -23,7 +23,7 @@ Important directions are process→as-built→property→design, real load, tiss
 
 The existing five-minute controller creates planner and followup jobs with graph packets and sources. New priority/value rules exist in queue selection, planner inputs and followup intake; aim for constructions that change an actual design capability. Independent review remains and scientific admission requires its own receipts.
 
-## Sols konsumentarbete
+## Sol's consumer work
 
 The current dental-named Sol agent tests a shared physiological benchmark as a robust inverse consumer. This is an executed cross-domain attempt, with explicit exposures, design boxes and controls. The dental product's physiology/material requires separate anatomical and empirical bindings.
 
@@ -31,7 +31,7 @@ The entire ±0,0005 box is conditionally closed for a known and retained new cou
 
 These results can give the next concrete error/history/inverse contract to test in a relevant dental model. Transfer needs its own mapping of state, inventory, observation and load. Coordinate with Field/BodyTwin if the operation is to become a reusable cell.
 
-## The continuation
+## Continuation
 
 Choose an important gap in the chain with data and code prepared. Describe its mathematical design role, frozen decision measure, strongest equally informed baseline, test that defeats the construction and full cost. Bind to an existing target and register missing coverage as a bounded proposal.
 

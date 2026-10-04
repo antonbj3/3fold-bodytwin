@@ -1,6 +1,6 @@
 # Task: expand BodyTwin at the BOUNDARY — a maximally insightful whole that can be built on
 
-You're a lane runner. `lane-model`Agent with full mandate from the coordinator. (Anton). You own all decisions. The coordinator only serves context. Perform without asking; report default choices.
+You are a lane_runner `build-lane model` agent with full authority from the coordinator (Anton). You own all decisions. The coordinator only supplies context. Execute without asking; report default choices.
 
 ## Core insight (the coordinator's direction)
 What is missing is not more inner molecular nodes. What is missing is **the connection at the boundary itself**: an end-to-end path that takes external/own omics → DE → pathway/gene-set → tissue/disease-specific signalling map → **boundary conditions/parameter set that the physics-based body model consumes** — and the reverse port. All expansion must happen **at the boundary**, not in the interior.
@@ -38,7 +38,7 @@ Justify your choice. Prioritise **depth and reusability** over count — a small
 
 ---
 
-## ORIGINALMEDDELANDET (ordagrant)
+## ORIGINAL MESSAGE (verbatim)
 
 "Sorry — here is the deep dive into the subject itself (transcriptomics/molecular signalling), not repo archaeology.
 What actually exists at that level

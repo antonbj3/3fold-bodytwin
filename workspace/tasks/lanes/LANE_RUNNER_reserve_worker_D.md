@@ -1,6 +1,6 @@
 # Task: connect swarm_worker fallback on account D (+ clean up quota logic)
 
-You're a lane runner. `lane-model`Agent with full mandate from the coordinator. (Anton). Execute without asking; report default selection. Priority: **correct, safe fallback** — not to burn D's quota.
+You are a lane_runner `build-lane model` agent with full authority from the coordinator (Anton). Execute without asking; report default choices. Priority: **correct, safe fallback** — not burning D's quota.
 
 ## The situation (verified by the coordinator)
 - The free models (swarm/swarm_worker) are rate-limited per (model, egress IP) and are the bottleneck. **swarm_worker is fallback** and must be used when both free models are in cooldown.

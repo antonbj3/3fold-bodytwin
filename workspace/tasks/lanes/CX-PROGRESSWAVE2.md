@@ -1,4 +1,4 @@
-# CX-PROGRESSWAVE2 — 80 The swarm + 30 reserve_worker packets that PRODUCE PROGRESS for BodyTwin (new ability or new knowledge about the body), no reanalysis
+# CX-PROGRESSWAVE2 — 80 The swarm + 30 swarm_worker packets that PRODUCE PROGRESS for BodyTwin (new ability or new knowledge about the body), no reanalysis
 
 Anton: "we're supposed to make progress here". The previous waves filled the queue with second-order questions about our own results (reanalyses of DXA, KKT gaps, certificate status, recalculations). Those are banned here.
 
@@ -42,9 +42,9 @@ Same as CX-DSWAVE:
 - a complete `inputs/` with DATA_SUFFICIENCY and a load test;
 - the brief must NOT refer to files outside the packet;
 - The swarm packets ≤ 60 s of computation;
-- reserve_worker packets somewhat heavier.
-- IDs: `BT-PG-111` … `BT-PG-220` (100 The swarm, 10 more demanding The swarm; reserve_worker is OUT — its quota is used up, so all lines use `swarm`, spread over A/B/C).
+- swarm_worker packets somewhat heavier.
+- IDs: `BT-PG-111` … `BT-PG-220` (100 The swarm, 10 more demanding The swarm; swarm_worker is OUT — its quota is used up, so all lines use `swarm`, spread over A/B/C).
 
-**Do NOT queue.** Write `results/CX-PROGRESSWAVE2/QUEUE_PROPOSAL.txt` (one line: `<A|B|C> <swarm|reserve_worker> BT-PG-xxx | area | one-sentence question | build/measure/test`). The coordinator reads the list and queues it.
+**Do NOT queue.** Write `results/CX-PROGRESSWAVE2/QUEUE_PROPOSAL.txt` (one line: `<A|B|C> <swarm|swarm_worker> BT-PG-xxx | area | one-sentence question | build/measure/test`). The coordinator reads the list and queues it.
 
-lane runner has full permissions in the workspace; ~/projects/bodytwin is read-only.
+lane_runner has full permissions in the workspace; ~/projects/bodytwin is read-only.

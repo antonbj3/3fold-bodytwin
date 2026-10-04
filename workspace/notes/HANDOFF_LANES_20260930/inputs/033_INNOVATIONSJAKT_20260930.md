@@ -1,4 +1,4 @@
-# Innovationsjakt 30 september
+# Innovation hunt 30 September
 
 Anton's mission: continue from the 500 spreads and Sol additions. Cross previous results, try different constructions against the same question and open contradictions. Use existing graph for selection and feedback.
 
@@ -28,7 +28,7 @@ The first round is delivered under `results/LANE_BREAK30_BODYTWIN`, `results/LAN
 
 Three build lane workers continue these tracks. Two helped with resource management during the intermediate stage and have returned to research. The originally wider dental/graph planning is preserved; the sequel still follows the 500 spreads and Sol additions.
 
-### Antons korrigering: AMBITION
+### Anton's correction: AMBITION
 
 The first results were not enough for the ordered innovation hunt. Integration, correctness checks and classical small inverses are useful building blocks but not an accomplished major research goal. After Anton's explicit correction, all three were re-directed. Previous raw data, failures and ongoing unfinished reports are preserved.
 
@@ -50,13 +50,13 @@ A round with only re-implementation of known method, adapter, regular correctnes
 
 The Gate does not require a positive outcome, invented novelty or excessive gain. A decisive negative result is progress when it locates the obstacle and leads to the next substantive trial. The report shall state the pre-work capability, the proposed new operation, strongest comparable control, actual outcome, remaining obstacles, and the next design change performed.
 
-## Automatisk resursstyrning
+## Automatic resource control
 
 The terminal view `agent-status` updates the same surface and shows numbers per server/model and end times. Details are behind D. It can be closed without stopping the queues.
 
 Existing shared cloud guards now select memory budget from completed full jobs and control hard reservations, future memory growth, CPU and memory pressure. Positive manual queue roofs do not need to be adjusted. Provider restrictions and original end times still apply. Separate automatic steering aims at approximately 25% swarm_worker of concurrently active workers, including local; previous rule applied to new starts and did not correspond to Anton's intention. Operating receipts and code can be found in `external_research_path`.
 
-## Grafkopplingen
+## The graph connection
 
 A direct read during this session provided 356 reports from the recorded 500 batch and 200 recorded graph feedback. These are variable operating numbers. Large parts of the other report bank are also automatically reconnected. An attached report is not automatically an audited, quantified relationship or new scientific dependency. Imported source, graph's curated work goals, report binding, constructive densification, and independent evidence admission retain their various meanings.
 
@@ -64,11 +64,11 @@ The reports should specify exactly which previous lookups/results were used, whi
 
 ## Operation and preserved review, evening 30 September
 
-Anton clarified that the clouds shall be filled according to actual hardware capacity. Full reservation of each worker's maximum memory blocked replenishment despite free CPU/RAM. The full limit is now reserved during the first15 seconds and with missing/old measurements; otherwise measured working memory plus at least256MiB or twice the observed memory growth over60s is used. This is overbooking of individual maximum limits with continuous monitoring, not a guarantee of simultaneous maximum peaks. Individual maxima and shared slice-max remain. MemoryHigh is set below slice-max with the earlier host reserve. CPU-PSI is weighed together with actual CPU load; high wait time within a single core's quota must not alone block other free cores. Memory pressure/new OOM retains stopping and recovery. Pure inactive file cache outside live child jobs is handled separately and conservatively.
+Anton clarified that the clouds should be filled according to actual hardware capacity. Full reservation of each worker's maximum memory blocked replenishment despite idle CPU/RAM. Now full limit is reserved during the first15 seconds and in case of missing/old measurements; otherwise, measured working memory plus minst256MiB or twice observed memory growth over 60s is used. This is an over-reservation of individual maximum limits with ongoing monitoring, not a guarantee of simultaneous maximum peaks. Individual max and common slice-max consist. MemoryHigh is set below slice-max with previous host reserve. CPU-PSI is weighed together with actual CPU load; high latency within a single core's quota must not alone block other idle cores. Memory pressure/new OOM retains stop and recovery. Pure inactive file cache outside of live child jobs is handled separately and conservatively.
 
 A successful job measurement of2166.37890625MiB stopped the entire class at the old largest2560MiB tier with40% margin.3072/4096MiB have been added for real larger successful runs. Memory errors at2048MiB or more require further review. Old positive queue caps and dental ceiling12 do not prevent automatic cloud start. The model's swarm ceiling follows the resource limit on both clouds; provider backoff and the concurrent swarm_worker share remain. Local automatic systemd startup is also introduced; no local work is used as proof of increased cloud concurrency.22 negative/boundary policy tests pass. Exact remote backups and receipts are in `research/AGENT_DASHBOARD_20260930`, especially `ELASTIC_CLOUD_DEPLOY.json`, `MODEL_CEILING_DEPLOY.json`, `CACHE_ACCOUNTING_DEPLOY.json`, `LOCAL_CAPACITY_CHECKS.json` and `CAPACITY_REPAIR_20260930.json`.
 
-### Uppgifternas kvalitet
+### Task quality
 
 Four automatic successor tasks from18:25 are reviewed as different attacks on the same Q012 parent `BT-FW48-AUTO-170907d6cc9193`, not four independent innovation tracks. `18994cb13910e7`: clearance/flow domain; `497acbe98f2ee7`: recirculating third pool, most interesting but not yet fully connected; `3175f63a4953c3`: flow definition repair; `17a30b3602b693`: factor-two audit. A counterexample to the parent's extra order requirement: R=1,Q=66.8,CL= 8.316,E=2/3,s=0 gives Cport=R/Q and Csys=Q(1-E)Cport/CL. Csys/Cport=2.677569344236011 despite positive concentrations and zero portal/systemic/total mass balance. Csys<=Cport does not follow only from these balances. The fourth corollary's own expressions R/CL and R(1-E)/(ECL) coincide at E=.5, which contradicts its factor-two claim. These are preserved review objections; not admission or rewriting of the parent's records. The entire bank is not QA.500 batch had471 reports/29 missing at18:19; it is a dated operating number.
 

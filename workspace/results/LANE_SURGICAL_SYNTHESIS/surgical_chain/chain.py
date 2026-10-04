@@ -73,15 +73,15 @@ def run(config,*,mode='evidence',out=None,grid_kind='graded',shear=True,inventor
  st=time.perf_counter();cpu=time.process_time();ports=check_config(config)
  path_gate=incision_path_gate(config.get('avlankning'),mode=mode)
  path_blocked=path_gate is not None and path_gate['blocks_straight_chain']
- unavailable=[k for k,p in ports.items() if p.status!="MEASURED"]
- unknown_names=[k for k,p in ports.items() if p.status=="UNKNOWN"]
+ unavailable=[k for k,p in ports.items() if p.status!='MEASURED']
+ unknown_names=[k for k,p in ports.items() if p.status=='UNKNOWN']
  if mode=='evidence' or unknown_names or path_blocked:
   reason='Synthetic/unknown inputs cannot populate an empirical prediction' if mode=='evidence' else 'Scenario must explicitly fill all consumed unknowns'
   if path_blocked and mode=='scenario' and not unknown_names:reason='Requested preference does not license straight continuation; a branched geometry and growth solver is required'
-  result={'review_state':REVIEW,'scientific_admission':False,'mode':mode,'engineering_gate':'PASS_UNKNOWN_PROPAGATION','empirical_joint_gate':'UNKNOWN','missing_or_nonempirical_ports':unavailable,'native_strength':unknown('%intact','Final source ports',reason).dict(),'stages':{s:{'status':"UNKNOWN",'value':None,'reason':reason} for s in ['injury_gap','bleeding_hemostasis','oxygen','healing_inventories','strength']}}
+  result={'review_state':REVIEW,'scientific_admission':False,'mode':mode,'engineering_gate':'PASS_UNKNOWN_PROPAGATION','empirical_joint_gate':'UNKNOWN','missing_or_nonempirical_ports':unavailable,'native_strength':unknown('%intact','Final source ports',reason).dict(),'stages':{s:{'status':'UNKNOWN','value':None,'reason':reason} for s in ['injury_gap','bleeding_hemostasis','oxygen','healing_inventories','strength']}}
   if path_gate is not None:
    result['incision_path_gate']=path_gate
-   result['stages']['path_continuation']={'status':"UNKNOWN",'value':None,'reason':"Straight continuation requires REVIEW in every requested box; deflection needs a branched geometry solver"}
+   result['stages']['path_continuation']={'status':'UNKNOWN','value':None,'reason':'Straight continuation requires REVIEW in every requested box; deflection needs a branched geometry solver'}
    if path_blocked and mode=='scenario' and not unknown_names:
     result['engineering_gate']='PASS_PATH_GUARD'
     result['missing_or_nonempirical_ports']=unavailable+['straight_path_preference']

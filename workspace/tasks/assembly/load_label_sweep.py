@@ -143,17 +143,17 @@ def main() -> int:
     d.mkdir(parents=True, exist_ok=True)
     (d / 'SWEEP_V1.json').write_text(json.dumps(out, indent=1, ensure_ascii=False))
 
-    print(f'Edges with both pressure and load: {len(rows)}')
-    print(f'  of which with an area, so a product is available: {len(rows) - len(bare)}')
-    print(f'  produkt UNDER sin angivna last (impossible for a top): {len(impossible)}')
-    print(f'  products that span more than {PEAK_OVER_MEAN_MAX}x: {len(spread)}')
+    print(f"edges with both pressure and load: {len(rows)}")
+    print(f"  of which with an area, so a product exists: {len(rows) - len(bare)}")
+    print(f"  product BELOW its stated load (impossible for a peak): {len(impossible)}")
+    print(f"  products spanning more than {PEAK_OVER_MEAN_MAX}x: {len(spread)}")
     seen = set()
     for r in impossible + spread:
         if r['id'] in seen:
             continue
         seen.add(r['id'])
         rs = sorted(x['ratio'] for x in r['ratios'])
-        print(f"   {r['id']}  {r['status']}  kvoter {rs[0]:.4g} .. {rs[-1]:.4g}")
+        print(f"   {r['id']}  {r['status']}  ratios {rs[0]:.4g} .. {rs[-1]:.4g}")
     return 0
 
 

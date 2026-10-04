@@ -35,7 +35,7 @@ Six arms on the same solver, with the same tolerances and the same initial state
 5. **A→B**.
 6. **B→A**.
 
-Rapporteras per observabel:
+Reported per observable:
 
 - Effect: Δ = arm − base.
 - Nonadditivity: Δ(A+B) − Δ(A) − Δ(B).
@@ -71,11 +71,11 @@ for arm, sched in ARMS.items():
 
 Result, osteoclast C, AUC excess in pM·dag:
 
-| Arm | C-AUC | C-topp/C0 | B-AUC |
+| Arm | C-AUC | C-peak/C0 | B-AUC |
 |---|---|---|---|
-| bas | 1,5e-5 (drift) | 1,00006 | 4,1e-5 |
-| A (PTH) | 0,1659 | 4,04 (cellens eget +304 % reproduceras) | 0,0588 |
-| B (OPG, 1000 pM/dag, **ANTAGEN dos**) | −0,0028 | min 0,947 | −0,0014 |
+| base | 1,5e-5 (drift) | 1,00006 | 4,1e-5 |
+| A (PTH) | 0,1659 | 4,04 (the cell's own +304 % reproduced) | 0,0588 |
+| B (OPG, 1000 pM/dag, **ASSUMED dose**) | −0,0028 | min 0,947 | −0,0014 |
 | A+B | 0,1503 | 3,82 | 0,0548 |
 | A→B | 0,1637 | 4,04 | 0,0578 |
 | B→A | 0,1629 | 4,04 | 0,0574 |
@@ -87,7 +87,7 @@ Result, osteoclast C, AUC excess in pM·dag:
 
 ## 4. Known gaps, which cells can fill them, and countertests
 
-| Lucka | Befintlig byggsten | Motprov |
+| Gap | Existing building block | Countertest |
 |---|---|---|
 | Bone mass/BMD state | `bone_remodeling_transient_arithmetic` (`transient_from_acf_step`, `persistent_rate_from_imbalance`) | null case: no interventions gives unchanged mass |
 | Mechanical load as intervention | `bone_wolff_law_mechanostat.mechanostat_rate`, `bone_remodeling` (strain) | without coupling to RANKL/OPG, the load arm should give exactly zero C effect |

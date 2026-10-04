@@ -19,14 +19,14 @@ A `Box` in the claim layer is `dict[str, tuple[float, float]]`, thus a parameter
 3. **Show that it is consumed.** A verdict nobody reads is worthless — we measured that four times today. Write at least one test that FAILS if a consumer ignores path identity, just as the graph lane's mutant test fails on 28 and 25 assertions respectively.
 4. **Test against the surgical case.** "Third passage through the same tissue" must be expressible, and it must differ from "first passage" even when all declared scalars are equal.
 
-## Strongest control and falsifiers
+## Strongest control and falsifier
 
 - **Control:** a box with history lifted into an extra axis, thus "number of previous passages" as a parameter. It is cheap and often sufficient. The gain must be a case where it demonstrably does not suffice, and the heat-opening case is the candidate.
 - **Falsifier:** if every path dependence we actually have compresses into a scalar, no new representation is needed and a declared axis suffices. Report that — it would be a strong negative that saves us a whole build.
 - **Forbidden:** changing the graph engine; building a representation without a test that fails when it is ignored; treating 11,27× as a physical fact (it is our own synthetic thermo-cohesive model and the final states' equality may be a property of its construction — test that first).
 
-## Leverans
+## Deliverable
 
 The representation, the test that fails, and the verdict on whether our own path dependence requires it. `PORT.json` to the graph lane if the result justifies a change in the engine — as a proposal, not as a change.
 
-Allt PENDING_INDEPENDENT_REVIEW. Inga interna data.
+Everything PENDING_INDEPENDENT_REVIEW. No internal data.

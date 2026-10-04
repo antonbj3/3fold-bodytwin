@@ -70,7 +70,7 @@ the quasi-static asymptote in the driver run; the transient solver exists in
 
 ## 4. Sensitivity ±50 % (which 2–3 govern)
 
-| Parameter | Δ`D_eff/D_0` | Δκ | Roll |
+| Parameter | Δ`D_eff/D_0` | Δκ | Role |
 |---|---|---|---|
 | **φ_cell** (0,25) | **0,83** | **6,80** | Largest. Porosity governs both, through ε² and ε³ respectively. |
 | **φ_EPS** (0,10) | **0,35** | **2,52** | Second largest; the EPS recipe. |

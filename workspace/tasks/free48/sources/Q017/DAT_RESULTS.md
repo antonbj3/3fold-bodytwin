@@ -14,7 +14,7 @@ A single fix was made in `scripts/load_sample.py`: the eICU table lookup
 `infusiondrug.csv.gz`. The file name on disk was not changed; only the lookup was done
 case insensitive. Without this, `infusiondrug.csv.gz` (38 256 lines) would never have been opened.
 
-## Prov: form, enheter, koordinatram
+## Test: form, units, coordinate frame
 
 `scripts/load_sample.py` → `results_load_sample.json`. 13 files, **42,407 MB of 50 MB**
 (42 407 332 bytes, summed over files in `samples/`; `du -sb` gives 42 419 620 bytes including
@@ -91,8 +91,8 @@ Verified HTTP 200: `physionet.org/content/eicu-crd-demo/2.0.1/` , `wwwn.cdc.gov/
 | K3 | median eGFR CKD-EPI 2021, eICU-demon | 78,40 mL/min (n = 2 371) | [60; 150] | PASS | pos. 0,20 |
 | K4 | median measured urine / model's 0,9824 mL/min | 3,393× (3,333 mL/min = 200 mL/h) | ≥ 10× | **FAIL** | 0,34 |
 | K5 | \|π_gc_est − 32\|, eICU-albumin 2,80 g/dL | 3,07 mmHg | ≤ 8 | PASS | 0,38 |
-| K6 | percentil av 3 000 mL i per-patient max 3 h-intake | 87,0 (median max-3h 1 070 mL, n = 1 387) | ≥ 1:a percentil | PASS | — |
-| K7 | \|medel vuxen-MAP NHANES − 100\| | 9,80 mmHg (medel 90,199; SBP 124 / DBP 72) | ≤ 12 | PASS | 0,82 |
+| K6 | percentil of 3 000 mL i per-patient max 3 h-intake | 87,0 (median max-3h 1 070 mL, n = 1 387) | ≥ 1:a percentil | PASS | — |
+| K7 | \|mean vuxen-MAP NHANES − 100\| | 9,80 mmHg (mean 90,199; SBP 124 / DBP 72) | ≤ 12 | PASS | 0,82 |
 | K8 | \|median eGFR NHANES − 122,8\| / 122,8 | 0,2085 (97,20 mL/min, n = 5 154) | ≤ 0,25 | PASS | 0,83 |
 | K9 | V0/73 kg | 0,24233 (median kroppsmassa 78,9 kg; 73 kg = 37,9:e percentilen) | [0,18; 0,30] | PASS | pos. 0,52 |
 
@@ -103,7 +103,7 @@ the declared 40–260 mmHg window). The two NIBP-kanalerna are clean (0,70 % and
 K1's NIBP-only execution is reported as `sensitivity_nibp_channels_only` and is explicitly
 marked as declared after the merged outcome was known; it does not replace the primary.
 
-## Motprov M1–M4
+## Counter samples M1–M4
 
 - **M1 channel switching pig (distinguishable).** Within-patient correlation between mean MAP and
   cumulative volume delivery on a common 60 minute patient and hourly grid:
@@ -222,7 +222,7 @@ mmHg per g/dL; NHANES survey weights not applied; 73 kg as the assumed body mass
    (r_CO,pred = 0,8367347 vs 0,147 ± 0,050). These numbers are a catalog of where
    frozen values have measurement support, not a calibration.
 
-## Reproduktion
+## Reproduction
 
 ```
 sha256sum -c PREREG.sha256

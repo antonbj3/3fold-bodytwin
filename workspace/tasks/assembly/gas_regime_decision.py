@@ -17,7 +17,7 @@ production consistent with it. The honest answer in the absorbing regime is a LO
 interval, not a number, and saying so is the point.
 
 The control is the regime-blind reading: taking the measured output as proportional to production with
-one fixed absorption fraction, which is what a single-coefficient model does. The facit is the measured
+one fixed absorption fraction, which is what a single-coefficient model does. The ground truth is the measured
 pair of fractions and the measured threshold, none of which this cell fits.
 
 Mass closure is checked rather than assumed, because the residual is 30 per cent of the total and an
@@ -121,10 +121,13 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / 'GAS_REGIME_V1.json').write_text(json.dumps(summary, indent=1, ensure_ascii=False))
 
-    print(f'  mass balance: named components leave {closure:.0f} mL/24h unaccounted for, the residual is {100 * RESIDUAL_24H / TOTAL_24H:.0f} % av totalen')
+    print(f"  mass balance: named components leave {closure:.0f} mL/24h unaccounted, "
+          f"the residual is {100*RESIDUAL_24H/TOTAL_24H:.0f} % of the total")
     rc = summary['rate_consistency_check']
-    print(f"  takt: {rc['day_plus_sleep_over_24h_mL']} mL/24h from day and night on a measured basis {rc['measured_total_mL_24h']}")
-    print(f"\n  {'measured 6h':>8s} {'regim':>10s} {'produktion lo':>14s} {'hi':>8s} {'regimblind':>11s} {'fel %':>7s}")
+    print(f"  rate: {rc['day_plus_sleep_over_24h_mL']} mL/24h from day and night rates against measured "
+          f"{rc['measured_total_mL_24h']}")
+    print(f"\n  {'measured 6h':>8s} {'regime':>10s} {'production lo':>14s} {'hi':>8s} "
+          f"{'regime-blind':>11s} {'error %':>7s}")
     for r in rows:
         print(f"  {r['measured_6h_mL']:>8.0f} {r['regime']:>10s} {r['production_low_mL_6h']:>14.1f} "
               f"{str(r['production_high_mL_6h']):>8s} {r['regime_blind_single_fraction_mL']:>11.1f} "

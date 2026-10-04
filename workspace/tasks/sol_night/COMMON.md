@@ -1,48 +1,49 @@
-# Nattens genombrottsjakt, BodyTwin, natten 30/9–1/10
+# Tonight's breakthrough hunt, BodyTwin, night 30/9–1/10
 
 You are one of three build lane workers who run all night in shifts. The coordinator (coordinator coordinator for BodyTwin) reads each round and controls via `tasks/build_night/steer/<LANE>.md`. Anton wants breakthroughs, not groundwork.
 
 ## Goal
 
-The same larger goal as `MAXIMAL_GOALS.md` → `GRAPH_INVERSE` and `MULTIPHYSICS`: change forcing, local coupling, history or design and answer new physical questions in a genuinely coupled nonlinear model with memory and shared uncertainty, **without full global recomputation of state and history**, preserving accuracy and the error budget. The aspiration is a large capability/cost difference (preferably an order of magnitude in a warm query) against the strongest equally informed control, counting all setup, certification, rebuild and fallback costs.
+Same larger goal as `MAXIMAL_GOALS.md` → `GRAPH_INVERSE` and `MULTIPHYSICS`: change forcing, local coupling, history or design and answer new physical questions in a truly coupled nonlinear model with memory and shared uncertainty, **without full global recalculation of state and history**, with preserved accuracy and error budget. The aspiration is a large capability/cost difference (preferably an order of magnitude in hot query) against strongest equally informed control, with all setup, cert, rebuild and fallback costs accounted for.
 
-## Hur du arbetar: forskare i frontlinjen
+## How you work: frontline researchers
 
-You are a frontline researcher, not an executor. Break the problem down to its smallest components before building: which individual operation costs, which information carries the answer, which mathematical structure (monotonicity, conservation, low rank, separability, causality, symmetry) does the coupled model have that the control does not exploit? Calculate cost and error from first principles (flops, number of ODE solves, stored history) and let that guide which operation can yield an order of magnitude. Pursue innovation: draw ideas from neighboring fields (systems theory, numerical analysis, statistics, physics) when they address the obstacle, and test them honestly against the strongest control.
+You are a front-line researcher, not an executor. Break the problem down to its smallest components before building: what single operation costs, what information carries the answer, what mathematical structure (monotonicity, conservation, low rank, separability, causality, symmetry) does the coupled model have that the control does not exploit? Calculate cost and error from first principles (flops, number of ODE solutions, stored history) and let that guide which operation can yield an order of magnitude. Pursue innovation: pull ideas from neighboring fields (systems theory, numerical analysis, statistics, physics) as they attack the obstacle, and test them honestly against strongest scrutiny.
 
-## Ambitionsgrinden (Antons uttryckliga instruktion)
+## The ambition gate (Anton's explicit instruction)
 
-Each round opens with four lines: desired capability beyond current feasibility → simultaneous conflicting requirements → precise obstacle → changed operation that addresses the obstacle.
+Each round opens with four lines: desired capability beyond current feasibility → concurrent requirements in conflict → precise obstacle → changed operation attacking the obstacle.
 
-A round consisting only of reimplementation of a known method, an adapter, a routine correctness check, a larger mesh, another cache counterexample or yet another ROM-TIE fails as an innovation round. Correct yourself when you notice yourself drifting there. When the strongest control matches: locate the critical limitation (often in the benchmark's symmetry or representation) and **execute** the next design change in the same round, rather than merely formulate it.
+A round consisting only of re-implementation of known method, adapter, regular correctness check, larger net, additional cache counter-hits or yet another ROM-TIE is failed as innovation round. Correct yourself when you notice yourself slipping there. When strongest control matches: locate the bearing constraint (often in the benchmark's symmetry or representation) and **execute** the next design change in the same round, not just formulate it.
 
-A decisive negative result is progress when it locates the obstacle and leads to the next substantive test. Invented novelty or inflated gain is worse than an honest TIE.
+A decisive negative result is progress when it locates the obstacle and leads to the next substantive trial. Made up news or inflated gain is worse than an honest TIE.
 
-## Workflow per round
+## Working method per round
 
-1. Read, in order: this file; `tasks/build_night/steer/<LANE>.md` (the latest steering takes precedence over everything else); `tasks/lanes/<LANE>.md` (the original brief and its sources/contracts); `results/<LANE>/WORK_STATUS.json`, `CHECKPOINT*`, the end of `RESULTS.md`, `NEXT_ROUND.md` if present; `night_rounds/` in your folder. Also look at the other two lanes' `NEXT_ROUND.md` and latest `night_rounds/` — you share a benchmark and can build on each other's operators.
-2. Freeze PREREG for the round's new operation (a file in your folder) before computation: what is measured, the strongest equally informed control, error requirements, falsifiers.
-3. Execute. Build on existing code and data in the folder; do not redo completed steps. Preserve every failed gate and previous raw data (never overwrite a result file — use a new file with a suffix).
+1. Read, in order: this file; `tasks/build_night/steer/<LANE>.md` (latest control takes precedence); `tasks/lanes/<LANE>.md` (origin brief and its sources/contract); `results/<LANE>/WORK_STATUS.json`, `CHECKPOINT*`, end of `RESULTS.md`, `NEXT_ROUND.md` if present; `night_rounds/` in your folder. Also look at the other two lanes' `NEXT_ROUND.md` and latest `night_rounds/` — you share benchmarks and can build on each other's operators.
+2. Freeze PREREG for the round's new operation (file in your folder) before calculation: what is measured, strongest equally informed check, error requirement, falsifier.
+3. Execute. Build on existing code and data in the folder; do not redo completed steps. Keep every failed gate and previous raw data (never overwrite a result file — new file with suffix).
 4. End the round with:
-   - A new section at the end of `results/<LANE>/RESULTS.md`: `## Night 1/10, round <N>` with the fields prior capability, new operation, strongest control, actual outcome (numbers), remaining obstacle, next design change.
+   - A new section at the end of `results/<LANE>/RESULTS.md`: `## Night 1/10, round <N>` with the fields ability before, new operation, strongest control, actual outcome (numbers), remaining obstacles, next construction change.
    - Updated `WORK_STATUS.json`.
-   - `NEXT_ROUND.md`: the next critical operation, concrete enough for the next round to start immediately.
+   - `NEXT_ROUND.md`: next bearing operation, concrete enough that the next round can start immediately.
    - `night_rounds/r<N>.json`: `{"round":N,"operation":...,"control":...,"outcome":...,"gate":"PASS|FAIL|TIE|UNKNOWN","obstacle":...,"next":...,"files":[...]}`.
 
-Prefer a round of 1–3 hours with a real design change over many small ones. If you finish an operation early, continue with the next one in the same round.
+Consider one 1–3 hour round with one real build change rather than many small ones. If you finish an operation early, continue with the next one in the same round.
 
 ## Resources and limits
 
-- Local CPU, `OMP/OPENBLAS/MKL/NUMEXPR_NUM_THREADS=2`. Individual commands preferably ≤10 min and ≤2 GiB. The machine is shared with other sessions.
+- Local CPU, `OMP/OPENBLAS/MKL/NUMEXPR_NUM_THREADS=2`. Single command preferably ≤10 min and ≤2 GiB. The machine is shared with other sessions.
 - Jobs ≥8 GB RAM or GPU: only through `tasks/heavy_run.sh` (bigmem lock + resource_gate). Large intermediate data on `external_mount<LANE>/ (never / or external_mount — both almost full)`, not `/tmp`.
-- No subagents. No cloud, no queue writes, no changes to source graph, canonical code, services or product code. Write only in `results/<LANE>/` and `external_mount<LANE>/ (never / or external_mount — both almost full)`.
+- No subagents. No cloud, no queue writes, no changes to the source graph, canonical code, services or product code. Write only in `results/<LANE>/` and `external_mount<LANE>/ (never / or external_mount — both almost full)`.
+- Web allowed for reading related primary research (reduced methods, adaptive/parsimonious methods, history compression). Never send internal data (the collaborator, Grand Challenge, restricted model data) or our code out.
 - Read-only: `~/projects/bodytwin`, other lanes' folders and other sessions' workspaces.
-- No emails, push, publishing, credentials. Everything is `PENDING_INDEPENDENT_REVIEW`; no scientific admission, no clinical claims. Biological closures are synthetic until otherwise measured.
-- The words "kill" and "dead path" are not used; an obstacle is a node that expands into the next design.
+- No emails, push, publishing, credentials. Everything is `PENDING_INDEPENDENT_REVIEW`; no scientific admission, no clinical claims. Biological closures are synthetic until otherwise satisfied.
+- The word "kill" and "dead end" are not used; an obstacle is a node that expands to the next construct.
 
-## Grafbindning (graf-lanen 30/9 23:40)
+## Graph binding (graph lane 30/9 23:40)
 
-The goal context for the three LANE_AMBITIOUS lanes is `BT-CTX-GLUCOSE-HISTORY`, not `BT-C4-ERROR-BUDGET`. It is definition-only: bind results with `./graph dispatch --id BT-CTX-GLUCOSE-HISTORY --kind review` (or `define`) and `./graph feedback`, with PENDING_INDEPENDENT_REVIEW. Native/Hessian claims are not supported by any package. HISTORY_INVERSE/FINAL_DOMAIN_DECISIONS.json is already bound (lane GRAPH_CTX_LANE_20260930, negative_result true: the frozen cost gate 0,5 failed, 0,54–0,67).
+The target context for the three LANE_AMBITIOUS-lanerna is `BT-CTX-GLUCOSE-HISTORY`, not `BT-C4-ERROR-BUDGET`. It is definition-only: bind results with `./graph dispatch --id BT-CTX-GLUCOSE-HISTORY --kind review` (or `define`) and `./graph feedback`, with PENDING_INDEPENDENT_REVIEW. Native/Hessian claims are not carried by any package. HISTORY_INVERSE/FINAL_DOMAIN_DECISIONS.json is already bound (lane GRAPH_CTX_LANE_20260930, negative_result true: frozen cost gate 0,5 fell, 0,54–0,67).
 
 ## Form (Anton 1/10, effective from now — replaces "hit an equally informed check")
 
@@ -213,7 +214,7 @@ the breaking force change, today span 0,87 D between the extremes of the surface
 And rather say there is no measurement than write a vague entry: `no_measurement_exists: true` plus what
 that would be required is a satisfactory and honest outcome.
 
-`python3 tasks/build_night/harvest_acquisitions.py` samlar posterna till
+`python3 tasks/build_night/harvest_acquisitions.py` collects the records
 `notes/ACQUISITION_HARVEST.json`.
 
 ## Language: write new material in English

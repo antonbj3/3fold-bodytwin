@@ -18,7 +18,7 @@
  ],
  "method": [
   "Read the 550 draft research nodes in dental/notes/expansion/*.jsonl and counted statuses directly.",
-  "Read the 1516-job execution record in dental/tasks/bunny48/STATE.json and counted target ids, source keys and categories directly.",
+  "Read the 1516-job execution record in dental/tasks/swarm48/STATE.json and counted target ids, source keys and categories directly.",
   "Read dental/notes/INTERFACE_COVERAGE_AUDIT_20260924.{md,json} (prior work) and built on it rather than repeating it; this document extends the audit from interfaces to the full lifecycle and adds the prosthesis-class dimension it did not have.",
   "Checked the resource inventories that exist but are unclaimed by the loop: external_research_path (20 domain files) and the BodyTwin workspace.",
   "Probed ./graph working packet and ./graph dispatch for each new target id before registering it; recorded in evidence/graph_probe.json."
@@ -404,8 +404,8 @@
     "DENT-MATINNOV-H6-LPBF-SURFACE-HIP-ROUTE"
    ],
    "source_paths": [
-    "dental/tasks/bunny48/sources/GRADE/",
-    "dental/tasks/bunny48/sources/FATIGUE/",
+    "dental/tasks/swarm48/sources/GRADE/",
+    "dental/tasks/swarm48/sources/FATIGUE/",
     "dental/results/BONE_HU/",
     "dental/notes/expansion/materials_restorative.jsonl",
     "external_research_path",
@@ -436,7 +436,7 @@
     "DENT-VAL-BENCH-ISO14801-LOADPATH"
    ],
    "source_paths": [
-    "dental/tasks/bunny48/sources/FATIGUE/",
+    "dental/tasks/swarm48/sources/FATIGUE/",
     "dental/results/K1_lpbf_implant_fatigue/",
     "dental/results/K1b_iso14801_assembly/",
     "dental/cells/materials/murakami_route_fatigue.py"
@@ -469,7 +469,7 @@
     "dental/results/DESIGN_crown/",
     "dental/results/DESIGN_margin/",
     "dental/results/DESIGN_spread/",
-    "dental/tasks/bunny48/sources/RECOURSE/"
+    "dental/tasks/swarm48/sources/RECOURSE/"
    ],
    "what_exists": "Multi-objective crown design with a recourse/regret branch and a reachability frontier; exact regret baseline against a greedy heuristic; a 155%-worse greedy counterexample.",
    "tested_scope": "Inherited toy design spaces. DENT-DESIGN-J3-CREST-STRESS-SURROGATE is REFUTED; the FE replacement is ASSUMED. Bone must run as a scenario (ASSUMED) because the material model is REFUTED.",
@@ -561,7 +561,7 @@
     "dental/cells/procedure/",
     "dental/results/F2_pdl_nonlinear/",
     "dental/results/PROC_insert/",
-    "dental/tasks/bunny48/sources/THERMAL/REPORT.md"
+    "dental/tasks/swarm48/sources/THERMAL/REPORT.md"
    ],
    "what_exists": "The procedure is modelled as explicit state transitions: S0 plan -> S1 drill D=2.0 mm (118 deg tip, boolean subtraction), etc. A 1 mm assumed crest band was replaced by a MEASURED field (53 cases, 370 sites) and t_c = 1.0 reproduced the original choice exactly - a genuine assumption-to-measurement closure. Missing heat source hypothesis is OPEN.",
    "tested_scope": "Thermal is the one place where an assumed constant was replaced by a measurement and the measurement agreed. Drilling heat is 87 of 1414 producer jobs, all on one thermal model.",
@@ -656,7 +656,7 @@
     "dental/graph",
     "dental/MERGED_GRAPH.json",
     "dental/VALIDATION.json",
-    "dental/tasks/bunny48/STATUS.json"
+    "dental/tasks/swarm48/STATUS.json"
    ],
    "what_exists": "A working-view builder with dispatch/feedback receipts, a content-addressed report archive (SWARM48_GRAPH_REPORTS) with hash verification, a licence gate for derived exports, a private 1.6 TB dataset corpus, and a high-resolution CalculiX/PARDISO solver pin.",
    "tested_scope": "1522 graph_runs receipts. 6 result bindings in a 538-draft working view. Provenance hashes are enforced on proposals and on report snapshots.",

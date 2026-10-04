@@ -25,14 +25,14 @@ Test this concretely: an immune response that both fails to clear a pathogen AND
 3. **Use an invariance as a constraint, as the CRP job did.** A quantity constant across states rejects an entire mechanism class without measuring it. Seek at least one such invariance with locator, and say which class it rejects. It is the lane’s strongest possible move and is already tested in our own material.
 4. **Keep the anchor outside the model.** Every published measurement is held data and must never be input. State the type of spread per source — SD, SE, 95 % CI, IQR and range are not interchangeable.
 
-## Strongest control and falsifiers
+## Strongest control and falsifier
 
 - **Control:** the usual description with one threshold, i.e. a point between underactivation and overactivation, calibrated on the same data. The gain should be a statement about the set’s shape, not a better threshold value.
 - **Falsifier:** if the set where both errors are satisfied is empty for every published parameter combination, the point picture is right and the lane has shown it. Report that just as clearly — a confirmed point picture with a computed margin is a result.
 - **Prohibited:** calibrating against the outcome metric; treating a clinical cutoff as a measurement (it is often a committee convention); comparing a concentration against a flux without the denominator; counting an active fraction as a remainder.
 
-## Leverans
+## Delivery
 
 `PORT.json` with the set’s shape (point or region) and its measure, the invariance used and which mechanism class it rejects, and the missing quantities with the measurement that would freeze each one. Narrow follow-ups to the swarm in FOLLOWUPS.json with external_referent complete — and **no template repeated per node**, because another lane today produced 24 identical follow-up proposals and only one of 31 carried external ground truth.
 
-Inga interna data, inga patientdata. Allt PENDING_INDEPENDENT_REVIEW.
+No internal data, no patient data. Everything PENDING_INDEPENDENT_REVIEW.

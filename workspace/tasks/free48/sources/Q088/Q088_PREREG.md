@@ -39,7 +39,7 @@ The values below are anchors for scale and for the qualitative sign checks. They
 5. Segal and Faulkner (1985), *American Journal of Physiology* 248:C265–C270, DOI `10.1152/ajpcell.1985.248.3.C265`:
    - **Abstract**, rat muscle context: calculated critical oxygen-diffusion radius `1.19 mm` at `20 degrees C` and `0.51 mm` at `40 degrees C`. This is a whole-muscle context check, not a substituted single-fiber measurement.
 
-All five sources were located in public literature records/full text. No value is marked `OVERIFIERAD`.
+All five sources were located in public literature records/full text. No value is marked `UNVERIFIED`.
 
 ## Frozen protocol
 

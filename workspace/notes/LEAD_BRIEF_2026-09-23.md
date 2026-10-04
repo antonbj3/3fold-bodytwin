@@ -4,7 +4,7 @@ Basis for guiding the work further. Written after Anton pointed out that the age
 
 ## 1. Where BodyTwin is located
 
-| Plats | Vad | Regel |
+| Place | What | Rule |
 |---|---|---|
 | `~/projects/bodytwin` | BodyTwin's own repo (formerly "mechanism", fork of cad-to-simulation-I). Code, graph, ledger, project memory `bt_memory/` (2 859 files). Controlled by `COORDINATOR.md` and `docs/MECHANISM_HARDENED_CONVENTIONS.md` | Read from the workspace; will not change from here. Own isolation: memory in repot, neutral dialect in shared runtime state |
 | `data/MECHANISM_ANCHOR_GRAPH.json` in the repo | Source graph: 3 950 nodes (3 873 OPEN, 66 ASSUMED, 7 REFUTED, 3 DEFERRED, 1 PROVEN). References `scripts/msk` 3 895 times | Starting point for each task |
@@ -26,16 +26,16 @@ Code size in the repo (`.py`, machine inventory `results/MAP/private_inventory.t
 | Hand | `MSK-HAND-DEXTERITY`, PROSTH domain (97 nodes, grips, force-closure, tenodes) | `anatomical_hand`, `scripts/msk/inherited_hand/`, `scripts/hand_leg` |
 | Physiology in general | ORG, NEU, ENDO, RENAL, CVD, IMM et al. (hundreds of nodes) | `scripts/msk/*` (cardiac, baroreflex, glucose, calcium_pth …) |
 
-## 3. Dygnets resultat mot grafen
+## 3. The results of the day against the graph
 
 Source graph searched 23:15 for keywords (0 = no nodes).
 
-**Nytt (ingen motsvarighet i grafen):**
+**New (no counterpart in graph):**
 - Shape models and morphs: VSD (0), Keast (0), femur-SSM (0), TPS morph (0) → P1, P2, P2b, P3, H7, RM1, J2, X1/X1b geometry core, D1.
 - Mounts and Atlas Errors: LHDL (0), Pellikaan (0) → H2, H2b, AT1, JS1, IM3 (star movement against CT + prosthesis).
 - Certified calculations: Lean/Range (0) → LV1, LV2 (+ BT-LV1-SUM from another session).
-- Buggar i publicerad kod → R1, BT-R2 (patchar i klon).
-- Oberoende granskningar AU1–AU8.
+- Bugs in published code → R1, BT-R2 (patches in clone).
+- Independent reviews AU1–AU8.
 
 **Largely redone (Graph had it):**
 - Video/GRF/OpenCap (53 nodes) → E1, E2, V0, V0b, V2–V6, G1, G1b, G2, FV1, BT-V7, V4. The numbers of the day can be booked as independent samples against existing nodes (eg V2 time-GRF 8,3 %BW against the node's 8–17 %).
@@ -57,7 +57,6 @@ Source graph searched 23:15 for keywords (0 = no nodes).
 4. Disk: / 1,2 GB, shared_data 8,9 GB, sdc1 17 GB (BodyTwin roof 12 GB there). No new downloads without space.
 5. No `import *` from other agents' code; own OUTDIR (incident H2b overwrote H2).
 6. lane_runner is not used tonight (Anton 23:00). swarm_worker lanes: `--agent build` + mandate required (otherwise plan mode). coordinator weekly quota 5 % (reset 22:00).
-7. Inga mail, ingen publicering, ingen trial/Wine; restricted model data and the collaborative's data interna; LHDL icke-kommersiell.
 
 ## 6. Ongoing right now
 

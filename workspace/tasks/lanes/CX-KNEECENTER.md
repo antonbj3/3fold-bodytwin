@@ -17,7 +17,7 @@
 3. Frozen criteria: (a) the law's person-median RMSE improves by ≥10 % for ≥3/4 persons; (b) the share of frames below Fmin falls by ≥50 %.
 4. Counter-test: a random centre shift of the same size as the SCoRE offset, in random directions, must not give the same improvement.
 
-Deliver RESULTS.md starting with `# CX-KNEECENTER`, results.json, `functional_knee_center(session)` in bodytwin_core-compatible form, and pytest. The LP part goes under bigmem.lock with 2 threads, or on OVH via `tasks/cloud_run.sh` (finish by 07:30). Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Every outcome is a node that expands.
+Deliver RESULTS.md starting with `# CX-KNEECENTER`, results.json, `functional_knee_center(session)` in bodytwin_core-compatible form, and pytest. The LP part goes under bigmem.lock with 2 threads, or on OVH via `tasks/cloud_run.sh` (finish by 07:30). Internal data stays local. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Every outcome is a node that expands.
 
 ## Addendum 23:20 (A1435, CX-EPSBAND)
 L1's C0 = −F_knee · y_tibia (n12_model.null0). The ID knee reaction projected on the tracked tibial axis. The reaction force itself barely depends on where the centre is (force balance), but y_tibia does: the tibial long axis runs from the knee centre to the ankle centre.

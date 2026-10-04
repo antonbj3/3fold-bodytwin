@@ -63,20 +63,26 @@ def main() -> int:
             return f"- **{other}** [{e['status']}] {e['constraint']}"
 
         body = [f'# {node}', '',
-                f"Noden is in our containment network. Here's the region around it: {len(dist)} nodes within two steps, {len(inside)} kanter mellan dem, {len(openish)} All numbers are our own measurements.", '',
-                "## Directly on the node"]
-        body += [fmt(e) for e in direct] or ['- (inga)']
+                f'The node is in our constraint network. Here is the region around it: '
+                f'{len(dist)} nodes within two steps, {len(inside)} edges between them, '
+                f'{len(openish)} of them undetermined. All numbers are our own measurements.', '',
+                '## Directly on the node']
+        body += [fmt(e) for e in direct] or ['- (none)']
         if further:
-            body += ['', "## One step away — this is where the path continues"]
+            body += ['', '## One step away — this is where the path continues']
             body += [f"- **{' + '.join(e['between'])}** [{e['status']}] {e['constraint'][:190]}"
                      for e in further]
         body += ['',
-                 "TIGHT = relationen fastlagd med ett tal. OPEN = not fixed, the gap is as number. UNKNOWN = We don't know.", '',
-                 "What would move any of the edges of this region? It doesn't have to be the node itself. — A two-step measurement away can unlock it. Tell us what you find, what it differs from ours, and what edge it touches.", '',
-                 'Ge DOI eller PMID. Status PENDING_INDEPENDENT_REVIEW.', '']
+                 'TIGHT = the relation established with a number. OPEN = undetermined, the gap is given as a number. '
+                 'UNKNOWN = we do not know.', '',
+                 'What would move any of the edges in this region? It need not be the node '
+                 'itself — a measurement two steps away can unlock it. Tell us what you find, how it '
+                 'differs from ours, and which edge it concerns.', '',
+                 'Give DOI or PMID. Status PENDING_INDEPENDENT_REVIEW.', '']
         out = W / 'results' / f'BT-2ND-{tag}' / 'BRIEF.md'
         out.write_text('\n'.join(body))
-        print(f'  {tag:28s} {len(dist):>2d} noder, {len(inside):>2d} kanter ({len(direct)} direkta, {len(openish)} indefinite)')
+        print(f'  {tag:28s} {len(dist):>2d} nodes, {len(inside):>2d} edges '
+              f'({len(direct)} direct, {len(openish)} undetermined)')
     return 0
 
 

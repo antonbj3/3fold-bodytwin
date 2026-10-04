@@ -10,13 +10,13 @@ result = run(scenario_config(), mode='scenario')
 
 CLI `run_chain.sh` uses `--inventory shared` as default; evidence-mode remains default and leaves native outcomes null. For the old R1/R2 model, specify `--inventory legacy`; the Python API `surgical_chain.chain.run` retains its historical default `inventory='legacy'`. Dynamic HP/abundance curves are not fed into the new forward model. PARAM k_deposit≈5/day in R3 upstream config is inherited early strength calibration, not a measured native collagen rate. Nominal config still has k_deposit=.1/day and is a separate scenario diagnostic.
 
-Use R3 checkpoint `../r3/experiment_v2/all_R3/checkpoint21.npz` for the new inventory. R1 checkpoint is rejected by shared solver; the prefix was rebuilt from day0 and charged. Checkpoint-resume selects solver from metadata and also saves the shared chemical marks. The suffix's entire spatialstate is recomputed; strongest same-information FV/cohort control has TIE.
+Use R3 checkpoint `../r3/experiment_v2/all_R3/checkpoint21.npz` for the new inventory. R1 checkpoint is rejected by the shared solver; the prefix was rebuilt from day0 and charged. Checkpoint resume selects solver from metadata and also saves the shared chemical marks. The suffix’s entire spatialstate is recalculated; strongest same-information FV/cohort control has TIE.
 
 The older documentation below explicitly describes the legacy construction and its preserved regressions. Its51-test status and R1 checkpoint are historical.
 
-## Bevarad R1/R2-dokumentation
+## Preserved R1/R2 documentation
 
-`tool + path + tissue layers → supplied injury/gap → radius-resolved bleeding/seal → O2/FV history → U/I/M direction/bridge inventories → conditional strength`. RESPONSE R4's D/H/A reservoir runs in parallel with explicitly missing chemistry→rupture law.
+`tool + path + tissue layers → supplied injury/gap → radius-resolved bleeding/seal → O2/FV history → U/I/M direction/bridge inventories → conditional strength`. RESPONSE R4’s D/H/A reservoir runs in parallel with an explicitly missing chemistry→rupture law.
 
 Requires Python3.10+, NumPy and SciPy in the existing environment. No external services or networks are used. The package contains frozen Q036/FV, coagulation and platelet definitions; their origin, hash and changes are in SOURCE_MANIFEST and CLOSURE_MANIFEST. A MEASURED label refers only to the source’s stated species/cohort/assay. SYNTHETIC is a chosen closure/transfer. UNKNOWN is always null.
 
@@ -31,7 +31,7 @@ OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 NUMEXPR_NUM_THREADS=2
 
 Each output destination must be new. Default mode `evidence` leaves biological outcomes null and lists all missing/nonempirical ports. `scenario` is an explicit opt-in; an unknown consumed port stops that mode too. Native rupture stress in Pa remains null. A custom config is supplied with `--config <json>`; create it from `scenario_config()`/`evidence_config()` and change value, unit, status, source, scope and joint ID together. See `r1/nominal_complete_v4/summary.json` for full config and closure manifest.
 
-Python-API:
+Python API:
 
 ```python
 from surgical_chain.scenario import scenario_config
@@ -51,4 +51,4 @@ Checkpoint21 contains grid, full lateFVstate, early12state/hazard, Q_U/Q_I/Q_M, 
 
 Separate observable curves are in `controls.SeparateCurve`: they interpolate their own calibration domain; new interventions and extrapolations return unknown until an extra closure is specified. Rich control with the same physical state/operator has TIE. Measured species/cohort marginals have no joint posterior; three shared scenario directions are sensitivity, not CI.
 
-Existing main run: `r1/nominal_complete_v4/`. Regressions: `r1/tests_final_v2/verification.json`, `TESTS_R1_final_v2.log`. Numerical refinement: `REFINEMENT_R1.json`. The first seal counterexample and all initial outputs are preserved. Graph receipts are created with the lane's own `../graph`; they are local review receipts awaiting coordinator import. All artifacts PENDING_INDEPENDENT_REVIEW.
+Existing main run: `r1/nominal_complete_v4/`. Regressions: `r1/tests_final_v2/verification.json`, `TESTS_R1_final_v2.log`. Numerical refinement: `REFINEMENT_R1.json`. The first seal counterexample and all initial outputs are preserved. Graph receipts are created with the lane’s own `../graph`; they are local review receipts awaiting coordinator import. All artifacts PENDING_INDEPENDENT_REVIEW.

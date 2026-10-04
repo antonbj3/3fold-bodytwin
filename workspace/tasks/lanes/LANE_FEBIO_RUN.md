@@ -1,6 +1,6 @@
 # LANE_FEBIO_RUN — run the external model that has never been run
 
-Resultatmapp `results/LANE_FEBIO_RUN/`.
+Result directory `results/LANE_FEBIO_RUN/`.
 
 ## Why, and what is already settled
 Seed 1: external biological models must be connectable so that more questions become askable. The blocker has

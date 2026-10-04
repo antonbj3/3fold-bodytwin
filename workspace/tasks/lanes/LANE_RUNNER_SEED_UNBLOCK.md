@@ -1,6 +1,6 @@
 # Task: two urgent fixes for the SEED-500 flow
 
-You're a lane runner. `lane-model`Agent with full mandate from the coordinator. (Anton). Execute without asking; report default selection. Priority: **Get more jobs ready**Do not touch. OOM/slot-minneslogiken beyond what's in here.
+You are a lane_runner `build-lane model` agent with full authority from the coordinator (Anton). Execute without asking; report default choices. Priority: **get more jobs completed**. Do not touch the OOM/slot-memory logic beyond what is stated here.
 
 ## Background (verified by the coordinator 2026-09-30)
 - **498 of 500 SEED jobs have been started** (1150 start events, 462 jobs started >1 time, up to 6 times) but only **84 completed**. The churn is enormous: ~14 starts per completed job. Main cause: `exit=75` (provider rate limit / admission wait expired).

@@ -207,7 +207,7 @@ DOI: `10.1136/bmjopen-2015-010873`** (open access, PMC4762079). Full text read:
   rate used in training (p<0.001)"*; post hoc 100 vs {120,140} both p<0.001
   (Friedman). **Confirms an order/carryover effect that survives a >= 2-day
   washout.** Per-condition means are reported only in Figure 2 (image), so the
-  mm values are **OVERIFIERAD at the value level** (figure-only); the design
+  mm values are **UNVERIFIED at the value level** (figure-only); the design
   and significance numbers above are from the text.
 
 ### R5 — washout adequacy is empirically unjustified (context, not calibration)
@@ -235,7 +235,7 @@ gives the 16-of-36 count of studies that gave no washout justification.
 | `MDC95` (uncorrected period-1 contrast) | `t(.975,14)*sqrt(3.19²/7+3.69²/9)` | **3.70** | points |
 | `t` for the uncorrected period-1 contrast | `4.8/1.723` | **2.79** (p≈0.015) | — |
 
-### `tau` — **OVERIFIERAD, and that is the correct epistemic status**
+### `tau` — **UNVERIFIED, and that is the correct epistemic status**
 I could not retrieve a primary-source carryover time constant for this
 estimand in the time available, and I will not invent one. `tau` is therefore
 declared a **free parameter to be identified from within-subject decay data**

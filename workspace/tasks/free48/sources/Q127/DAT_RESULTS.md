@@ -4,7 +4,7 @@ BT-DAT-Q127
 
 **Builds on** `PREREG.md` (SHA-256 `ff1dd3b76eb7ad3fd75490fe6839e279e697362766b076a020042ad6ef3d31e5`, frozen before first download), `inputs/Q127_QUESTION.md`, `inputs/Q127_PREREG.md` (frozen parameter table, 32 rows) and `inputs/Q127_results.json`. The model was **not** rerun. `inputs/` is untouched.
 
-### Inventariet
+### The inventory
 
 9 datasets, 6 with full credit + 3 with half → **7.5 ≥ 6** (C1). Measured per parameter: `A0, M0, S0, a_base, a_load, fiber_length, k_cycle, r_nuc` = **8 ≥ 6**; of the target group `{M0, A0, k_loss, J_fuse/y_fuse, fiber_length}`, **3** are hit; of `{S0, a_base, a_load, k_cycle}`, **3** are hit (C2).
 
@@ -22,7 +22,7 @@ BT-DAT-Q127
 
 ### Downloaded sample — loads and verified (C3, C4)
 
-5 filer i `samples/`, alla ≤ 50 MB (max **204 843 B**), SHA-256 i `samples/SHA256SUMS.txt`:
+5 files in `samples/`, all ≤ 50 MB (max **204 843 B**), SHA-256 in `samples/SHA256SUMS.txt`:
 
 - **DS01** (11 538 B, sha `91324276…`): 1 sheet, 15 rows, 14 columns. Units: `Fiber diameter (um)` = µm (in the column header), `Number of nuclei per fiber` = count/fiber. **Measured: 77,2514 ± 13,16 nuclei/fiber (n = 14, 58,08–102,29); diameter 35,4347 ± 4,7738 µm (28,28–43,25).** Derivation: `π/4·d²` = 628,14–1469,10 µm². The model's `A0 = 4029 µm²` corresponds to d = **71,62 µm**, outside the dataset's range. The `Myonuclear domain` column has **no unit** and fails internal consistency (6,141–25,296 µm²/nucleus derived against 6469,7–10394,2 reported) → excluded from all numbers.
 - **DS02** (12 213 B, sha `8e02e2f9…`): 1 sheet `Raw Counts`, 38 rows × 26 columns (13 WT + 13 KO), 0h/24h/48h/72h. **Measured (WT 0h): median 5,0 cells/fiber, 2,0–8,0, n = 25 fibers. WT 72h: median 29,5 (21–43, n = 18).** Derivation: +24,5 cells/fiber over 72 h = 0,340278 cells/(fiber·h). Units documented, coordinate frame = fiber section, no axial coordinates. **Not a fusion rate and no nuclear count.**
@@ -38,14 +38,14 @@ BT-DAT-Q127
 
 `publicly_constrained` 8 (`M0, A0, r_nuc, S0, a_base, a_load, k_cycle, fiber_length`) · `literature_only` 1 (`k_loss`) · `unconstrained` 23.
 
-### Nyckeltal
+### Key numbers
 
 - The model's `R_excess = 1,3542475` against reference `0,8888889`, relative error **52,35 %**, `criterion_met = false` (source: `inputs/Q127_results.json`).
 - The model's fusion flow **0,0085089 / 0,0022092 / 0,0081554** events/fiber/day (source: same file).
 - `S0 = 0,1` vs measured resting pool 2,0–8,0 cells/fiber → **20×–80×** (source: DS02 above).
 - `k_loss = 0,00035 day⁻¹` has **no** public measurement; the sensitivity range for `R_excess` is 1,295–1,420 over 3× in `k_loss`.
 
-### Slutsats
+### Conclusion
 
 1. The two human values the entire model rests on (`M0 = 2,4`, `A0 = 4029`) have **no public machine-readable source** — they are literature means from a single study. All quantitative acceptance criteria in `inputs/Q127_PREREG.md` are therefore `literature_only`.
 2. The four parameters creating the retention result — `k_fuse`, `y_fuse`, `k_loss` and thus `J_fuse` — lack publicly measured values from any species. No public datasets report a fusion rate per fiber and day.
@@ -61,10 +61,10 @@ BT-DAT-Q127
 3. Report the `Myonuclear domain` column in DS01 to its authors — with the specified fiber diameter, the values are three orders of magnitude wrong for µm² per nucleus.
 4. Do not use DS02 to fit `S0`/`a_base`/`k_cycle` without stating the transfer assumption mouse→human and injury→training; it is assumption, not derivation.
 
-### Korrigering mot prereg
+### Correction against prereg
 
 `PREREG.md` wrote "26 parameters"; the frozen table in `inputs/Q127_PREREG.md` has **32** rows. C5 is evaluated over all 32. No criteria, thresholds or target lists were changed — the six extra rows are numerical settings (`dt`, `seed`, `stochastic_fibres`) and width/kinematics constants (`w_D`, `q_atrophy`, `p_protect`, `damage_sigma`, `repulsion`), none of them candidates for measured data.
 
-### Filer
+### Files
 
 `PREREG.md`, `PREREG.sha256`, `DATA_SOURCES.json`, `results.json`, `RESULTS.md`, `samples/` (5 files + `SHA256SUMS.txt`). `harness/` contains the scripts that fetched metadata, downloaded the samples and generated `results.json`/`DATA_SOURCES.json` — runnable for checking. Released: nothing reused from `inputs/`, no code from other agents, no model run, no internal data.

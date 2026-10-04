@@ -2,7 +2,7 @@
 
 Agent K2, 2026-09-22. The graph is in `results/K2/components.json` (72 nodes, 71 edges, 11 links), built by `results/K2/build_components.py`. The preregistration is `results/K2/PREREG.md` (sha256 in `PREREG.sha256`). All numbers below are in `results/K2/out/*.json`.
 
-## 1. Kedjan
+## 1. The chain
 
 Geometry → region partition → material → CT density → density–modulus → load → solver → strain/SED → mechanobiology → observable quantity → measurement noise.
 
@@ -31,13 +31,13 @@ Three leaves have high sensitivity and were untested:
 
 Data: Keast et al. 2023, tibia SSM (CC BY 4.0). The dataset contains CT-segmented surfaces for both outer cortex and endosteal boundary. The cortical shell is therefore measured and not synthetic. There is no CT density in any of our datasets, so the density in T1 and T3 is synthetic and declared as such.
 
-## 3. T2: kortikal tjocklek genom konverteringen yta → voxel (verklig geometri)
+## 3. T2: cortical thickness through the surface → voxel conversion (real geometry)
 
 Method: 5 tibias and up to 3000 rays per tibia along the inward normal. The reference is the hit on the endosteal surface. The same line is then sampled in the voxel label. The control with an analytical cylindrical shell reproduced the thickness with max error 2.3e-4 mm.
 
 | h | median \|error\| (mm) | lost cortex, t_ref < 1 mm (n = 503) | lost, 1–2 mm | \|ΔV\|/V cortex |
 |---|---|---|---|---|
-| 2 mm | 0.58–0.64 | **41 %** (gitterfas 0) / **48 %** (fas h/2) | 13 % | ≤ 0.74 % |
+| 2 mm | 0.58–0.64 | **41 %** (grid phase 0) / **48 %** (phase h/2) | 13 % | ≤ 0.74 % |
 | 1 mm | 0.29–0.31 | 9–11 % | ≤ 0.3 % | ≤ 0.13 % |
 | 0.5 mm | 0.14–0.15 | 0–0.8 % | 0 | ≤ 0.03 % |
 
@@ -68,13 +68,13 @@ Beyond PREREG (reported but does not gate):
 - Within the Morgan family, the spread is only 1.33–1.45×. Keller and Carter–Hayes give 2.7–4.3× more strain than Morgan pooled.
 - At ρ = 0.3, the Morgan relations give 443–616 µε and Keller/Carter–Hayes 1806–2621 µε. The repo's mechanostat threshold is at 1500 µε (`bone_remodeling.THRESHOLD_VARIANTS`). **The choice of relation therefore determines the regime**: maintenance or formation. This leaf precedes X3's mechanobiology and every BMD prediction.
 
-## 5. T3: homogenisering av tunt kortikalt skikt vid h = 2 mm (verklig geometri, syntetisk densitet)
+## 5. T3: homogenization of a thin cortical layer at h = 2 mm (real geometry, synthetic density)
 
 Method: same crop and load as T1, with relation R2 at ρ = 0.3. The reference is binary voxel-FE with h = 0.5 mm (663 793 elements), solved matrix-free with Jacobi-PCG: 6249 iterations, residual 1.0e-8, 1.08 GB RSS. The coarse model has h = 2 mm (10 387 elements). The volume fractions per coarse voxel are computed from 64 subsamples.
 
 | rule | ΔQ3 stiffness | ΔQ1 subchondral strain |
 |---|---|---|
-| majoritetsetikett | −4.1 % | −11.9 % |
+| majority label | −4.1 % | −11.9 % |
 | Voigt | **+0.01 %** | −30.9 % |
 | Reuss | −20.1 % | **+2.5 %** |
 | HS upper | −4.5 % | −24.2 % |
@@ -89,7 +89,7 @@ The important part lies beside the criteria. **No rule hits both stiffness and l
 
 The coarse model also loses 11.5 % of the cortical volume in the element mask (φ_ben ≥ 0.5), while total bone volume only changes +0.6 %. The sum check is therefore blind here too (N5). Caveat: the Q1 set is 456 coarse voxels against 24 912 fine ones, a comparable volume but not identical points.
 
-## 6. Delat med dental (samordning, ingen dubblering)
+## 6. Shared with dental (coordination, no duplication)
 
 | leaf | BodyTwin | dental |
 |---|---|---|

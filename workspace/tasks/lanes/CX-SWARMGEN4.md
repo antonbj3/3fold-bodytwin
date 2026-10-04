@@ -10,7 +10,7 @@ Same format and rules as `tasks/lanes/CX-SWARMGEN.md` (read it), with these chan
    c. Follow-up questions on A324–A327 (N1g, constraint net, early stance, muscle parameters) that are small and bounded. Examples: knee angle as a term per activity; the activity×GRF interaction per person; the sign convention of the ID moment against OpenSim ID for the DM trials; the TLEM slack-length window on straight-line paths per element.
    d. Follow-up questions on the The swarm results booked in `notes/RESULTS_INDEX.md` from A313 onward.
    e. New angles on the board's axes 1–17 that have not been taken, per the preamble §0 direction (innovate across the board, test against established baselines).
-   f. 10 audit packets BT-AN-G20…G29 for the unaudited rows from A372 onward (The swarm/reserve_worker rows; each row once) (not the CX-* rows; they are audited separately).
+   f. 10 audit packets BT-AN-G20…G29 for the unaudited rows from A372 onward (The swarm/swarm_worker rows; each row once) (not the CX-* rows; they are audited separately).
 3. IDs: BT-B250…BT-B289 and BT-AN-G34…G43. Build the packets DIRECTLY in `results/<id>/` (not in your own directory), and append the queue lines to `tasks/lanes/bt_queue.txt` with >> once the check passes (spread over A/B/C; audits go to C). If an id directory already exists, skip that id.
 4. `results/CX-SWARMGEN4/RESULTS.md` starting with `# CX-SWARMGEN4`: table id → question → axis → size → data check.
 

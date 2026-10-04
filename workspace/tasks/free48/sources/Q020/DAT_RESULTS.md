@@ -5,7 +5,7 @@ BT-DAT-Q020
 no verdict on Q020's mechanism. All numbers are in `results.json` / `DATA_SOURCES.json`.
 PREREG frozen before download: `PREREG.sha256` = `6575aee933aadc6ff09eb49af4433196ba42e30955070c4379370e45a5c541b1`.
 
-## 1. Dom
+## 1. Verdict
 
 **31 of 34 parameters in `PARAMS` have no public, individually measured data source.** The model's
 microvascular half (`K_f0`, `L_p`, `A_cap`, `sigma_g0`, `sigma_s0`, `D_ratio`, glycocalyx
@@ -18,7 +18,7 @@ preregistered test failed** (D5, `Pc_cap`).
 
 6 files, 35.7 MB total, largest individual 12.2 MB. All HTTP-verified 200/206.
 
-| Fil | Form | Enheter (ur filens egen header/codebook) | Koordinatram | N |
+| File | Form | Units (from the file's own header/codebook) | Coordinate frame | N |
 |---|---|---|---|---|
 | `samples/BIOPRO_J.xpt` | SAS XPORT v5, row = participant, key `SEQN` | `LBDSALSI` g/L, `LBXSAL` g/dL, `LBDSTPSI` g/L, `LBXSOSSI` mmol/kg | **N/A** – no geometry | 6401 (5905 with albumin) |
 | `samples/BIX.xpt` | SAS XPORT v5, BIS 5 kHz–1 MHz + Cole model | `BIDECF` L, `BIDICF` L, `BIDTBW` L, `BIDFFM` kg, `BIXS*`/`BIXC*` ohm | **N/A** – body level, electrode geometry fixed in protocol | 5311 (4083 with volume) |
@@ -66,7 +66,7 @@ Filter for D4: `BIAEXSTS==1`, `BIDFIT<=2` (the file's own quality requirement), 
 
 ## 4. What does NOT exist openly (negative reference, the core of the assignment)
 
-| Block | Parametrar | Status |
+| Block | Parameters | Status |
 |---|---|---|
 | Microvascular | `K_f0`, `L_p`, `A_cap`, `sigma_g0`, `sigma_s0`, `D_ratio`, `f_glyc`, `n_glyc`, `k_leak`, `E_min` | only Michel & Curry 1999 / Squire. **No open data.** |
 | Interstitium | `c_isc0`, `a_stiff`, `V_k_ratio`, `R_mob_max`, `P_half_mob`, `P_min`, `P_max` | only Guyton 1965/1966 + subcutaneous PIV. **No open data.** |
@@ -111,7 +111,7 @@ BioLINCC, OAI/NDA. One probe failed and was logged as failed:
 4. Leave `Pc_cap` as a literature value and rewrite D5 as a test of *MAP ranges* if anything,
    not capillary pressure.
 
-## 7. Filer
+## 7. Files
 
 `PREREG.md`, `PREREG.sha256`, `analyze_sample.py` (pipeline + countertests), `DATA_SOURCES.json`,
 `results.json`, `samples/` (6 files, sha256 in `results.json`).

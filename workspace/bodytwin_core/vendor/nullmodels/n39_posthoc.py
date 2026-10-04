@@ -1,4 +1,6 @@
-"N39 post hoc (EJ preregistered, logged as outlier): is A2's gain the muscle term or just group-k?\nN1g = k_g·|GRF| per activity group (LOSO), A2_placebo = A2 with MB from another trial (same rule as L1 placebo).\nReusing n39_score.py (same directory, own code). Typing ../posthoc.json."
+"""N39 post hoc (EJ preregistered, logged as outlier): is A2's gain the muscle term or just group-k?
+N1g = k_g·|GRF| per activity group (LOSO), A2_placebo = A2 with MB from another trial (same rule as L1 placebo).
+Reusing n39_score.py (same directory, own code). Typing ../posthoc.json."""
 import json
 import numpy as np
 import n39_score as S

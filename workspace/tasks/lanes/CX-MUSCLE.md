@@ -21,7 +21,7 @@ Can the individual's muscle parameters be derived from the individual's own body
 
 ## Tasks
 1. PREREG.md + PREREG.sha256 first. Include:
-   - facit: Grand Challenge knee force (JW/DM/SC/PS), OrthoLoad hip, OpenCap EMG, and any strength data you find (grep for dynamometer/MVC/isokinetic/grip in data maps: `tasks/index/DATASETS.json`, `~/projects/bodytwin/docs/DATASET_MAP.md`);
+   - reference: Grand Challenge knee force (JW/DM/SC/PS), OrthoLoad hip, OpenCap EMG, and any strength data you find (grep for dynamometer/MVC/isokinetic/grip in data maps: `tasks/index/DATASETS.json`, `~/projects/bodytwin/docs/DATASET_MAP.md`);
    - null models B24, N1/N1g (preamble §2) and the LengthMass baseline and LengthMassFat.
 2. A parameter chain M0–M4, same everything else, LOSO/LOPO:
    - M0: generic;
@@ -37,9 +37,9 @@ Can the individual's muscle parameters be derived from the individual's own body
 - Local: nice, 2 threads, ≤ 60 s per test.
 - Heavy runs go on Modal (`modal run tasks/modal_run.py ... --cpu 8 --mem-gb 16`). If the sandbox has no network, write shard scripts + `RUN_ON_CLOUD.md`.
 - Write only under `results/CX-MUSCLE/`. `~/projects/bodytwin` is read-only. restricted model data and the collaborator's data stay internal. No emails or pushes.
-- `RESULTS.md` starting with `# CX-MUSCLE`: table model → error per facit → vs N1g/B24 → verdict. Plus `results.json` and code with pytest.
+- `RESULTS.md` starting with `# CX-MUSCLE`: table model → error per reference → vs N1g/B24 → verdict. Plus `results.json` and code with pytest.
 
 ## Handover from L1 (read first): `results/L1/FOR_CX_MUSCLE.md`
 - TLEM architecture for 166 elements: `results/L1/code/tlem_arch.json`. Slack lengths do not fit straight-line paths (soleus ~2x L0, 27–56/166 outside range).
-- STRENGTH FACIT: Grand Challenge has isometric hip/knee strength trials (gc4–gc6), MaxEMG (gc1–4, gc6) and Biodex strength data in the competition zips on external_media (not extracted). Extracted EMG: external_mount Use measured strength as a direct facit for M0–M4 (predicted vs measured max moment per person).
+- STRENGTH REFERENCE: Grand Challenge has isometric hip/knee strength trials (gc4–gc6), MaxEMG (gc1–4, gc6) and Biodex strength data in the competition zips on external_media (not extracted). Extracted EMG: external_mount Use measured strength as a direct reference for M0–M4 (predicted vs measured max moment per person).
 - OpenCap muscle parameters for 6 persons: `results/L1/n55x/*.npz`.

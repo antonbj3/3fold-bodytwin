@@ -24,4 +24,4 @@ Read: `results/CX-CT2MARKER`, `results/CX-FLUOROLINK`, `results/CX-JWGEOM` (arch
 4. Deliver `implant_to_segment(person)` with a transform + uncertainty, and pytest.
 If it is impossible with the archive, say EXACTLY which measurement is missing and how it would be acquired.
 
-Deliver RESULTS.md starting with `# CX-IMPLREG` and results.json. 2 threads, at most 300 MB of intermediate files. Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+Deliver RESULTS.md starting with `# CX-IMPLREG` and results.json. 2 threads, at most 300 MB of intermediate files. Internal data stays local. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

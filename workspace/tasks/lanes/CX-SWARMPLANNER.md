@@ -2,8 +2,8 @@
 
 Anton: "it has to be properly filled; put a Sol agent on it right away."
 Infrastructure (already running):
-- the timer `bt-swarm-keepalive` runs `tasks/bunny_keepalive.sh` every 15 min: it restarts the drivers, stops hung OVH agents, and runs `tasks/refill_v2.py 80` when the queue has fewer than 40 runnable jobs;
-- the queue is tasks/lanes/bt_queue.txt; the OVH driver is tasks/lanes/ovh_agents/bt_queue_ovh.sh (cap in tasks/lanes/ovh_agents/cap); the log is tasks/lanes/bunny_keepalive.log and tasks/lanes/ovh_agents/queue_ovh.log;
+- the timer `bt-swarm-keepalive` runs `tasks/swarm_keepalive.sh` every 15 min: it restarts the drivers, stops hung OVH agents, and runs `tasks/refill_v2.py 80` when the queue has fewer than 40 runnable jobs;
+- the queue is tasks/lanes/bt_queue.txt; the OVH driver is tasks/lanes/ovh_agents/bt_queue_ovh.sh (cap in tasks/lanes/ovh_agents/cap); the log is tasks/lanes/swarm_keepalive.log and tasks/lanes/ovh_agents/queue_ovh.log;
 - the strategy (Anton): DATASETS and COMBINING datasets first, then integration into bodytwin_core, then couplings. The graph drives pairs and priority (results/CX-QGRAPH, if it is finished).
 
 ## Your job (loop over rounds; each round ≈ 20–30 min)

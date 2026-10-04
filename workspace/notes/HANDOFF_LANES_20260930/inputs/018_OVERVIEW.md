@@ -4,7 +4,7 @@ Updated: 2026-09-26T20:50:33.140635+00:00. Window from 2026-09-24T20:50:33.14063
 
 **Scope:** the named active workspaces below. This is an inventory of files, deliveries and version state, not a full scientific review or a claim that all other sessions' work has been found. Modification time does not show when an experiment started or finished.
 
-## Statusnyckel
+## Status key
 
 - **Ongoing:** no completed delivery receipt.
 - **Delivered:** report/package exists; a running process may have finished.
@@ -38,7 +38,7 @@ Updated: 2026-09-26T20:50:33.140635+00:00. Window from 2026-09-24T20:50:33.14063
 
 BodyTwin's lane repo has a separate git directory; the usual empty .git folder in the workspace is not its version history. Working changes must not be merged blindly across owners/experiments. The field integration tree is newer than staging main.
 
-## Inventerade resultat
+## Inventoried results
 
 | Area | Reports found | Modified within 48 h |
 |---|---:|---:|
@@ -91,7 +91,7 @@ The full index is in [INDEX.json](INDEX.json): each report has a path, hash, nea
 | PROOF_LANE_WAVE3_20260926/HIDDEN_BRANCHES | ongoing/report exists | not yet | [HIDDEN_BRANCHES](external_research_path) |
 | PROOF_LANE_WAVE3_20260926/MATERIAL_REACHABILITY | done | yes | [MATERIAL_REACHABILITY](external_research_path) |
 
-## Kvarvarande ordningsarbete
+## Remaining organization work
 
 1. Split the BodyTwin lane's working changes by completed experiment and responsible session; distinguish collector moves/generated files from code changes. No broad commit of the entire workspace has been made.
 2. Dental's different scoped repos and original data need continued version mapping; this inventory links the workspace's reports.

@@ -124,10 +124,11 @@ def main() -> None:
         {'tolerance': TOL, 'n_findings': len(rows), 'documents_scanned': len(docs),
          'rows': rows, 'review_state': 'PENDING_INDEPENDENT_REVIEW'}, indent=1, ensure_ascii=False))
     edges = [r for r in rows if r['kind'] == 'net_edge']
-    print(f'dokument skannade: {len(docs)}   fynd: {len(rows)}   of which at mesh edges: {len(edges)}')
+    print(f'documents scanned: {len(docs)}   findings: {len(rows)}   '
+          f'of which in net edges: {len(edges)}')
     for r in rows[:14]:
         print(f"  {str(r['record'])[:46]:<48} {r['left']:>12} x {r['right']:>12} "
-              f"-> {r['stated']:>12}  faktor {r['implied_over_stated']:.4g}")
+              f"-> {r['stated']:>12}  factor {r['implied_over_stated']:.4g}")
     print('wrote', out / 'FINDINGS.json')
 
 

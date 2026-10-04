@@ -20,13 +20,13 @@ This lane therefore does not run a new model as a demonstration. It takes the co
 4. **Compare against a held-out measurement.** Choose an anchor from `results/LANE_EXTERNAL_FACIT_HUNT/FACIT_INDEX_v2.json` where the model can actually predict the quantity. The anchor is held-out data and must never be input data.
 5. **Report the cost of the coupling honestly:** how many lines of glue, how many unit conversions, what assumptions needed to be added. "Friktionsfritt" is the word of the seed and the cost is what determines if it is correct.
 
-## Strongest control and falsifiers
+## Strongest control and falsifier
 
 - **Control:** our own reimplementation of the same mechanism. The win isn't a better number — it's that a model we didn't write ran through our gates and gave a comparable number. If the reimplementation is better, that is a valid result and should be said.
 - **Forger:** if no external model can run end-to-end without manual steps, "drop-in" is not a feature we have, and the delivery is the exact list of what is missing in the port contract. It's a good and important outcome — better than another reimplementation.
 - **Forbidden:** to reimplement the model and call it a plug-in (it's been done twice); bypassing the gate instead of determining whether it was right; to let an anchor become input; to send internal data somewhere.
 
-## Leverans
+## Deliverable
 
 A run, a number, a comparison against a held-out measurement, and the coupling's cost in lines and assumptions. `PORT.json` with what the port contract lacked. If the outcome is negative: the list of what is missing, so that the next lane can build it.
 

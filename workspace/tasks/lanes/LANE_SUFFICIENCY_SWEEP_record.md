@@ -62,4 +62,8 @@ review to the highest expected return per run identified by the night.
   
   
 
-Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+## Delivery
+`PORT.json`: the three distribution numbers with declared coverage, one row per tested summary with
+
+
+No internal data. Everything PENDING_INDEPENDENT_REVIEW.

@@ -3,8 +3,8 @@
 ## Frozen before the first run
 
 Status: `FROZEN_BEFORE_MODEL_EXECUTION`  
-Modellversion: `BT-HX-Q013-0.1`  
-Datum: 2026-09-25
+Model version: `BT-HX-Q013-0.1`  
+Date: 2026-09-25
 
 This is a mechanism model, not an empirical effect model. No BodyTwin, patient or other internal measured data are used. No parameters are adjusted after the model has been run.
 
@@ -45,7 +45,7 @@ The source measures systemic plasma exposure, not independent cell exposure. The
 
 A separate older primary source, Tsunoda SM et al., *Clin Pharmacol Ther* 1999;66:461–471, DOI `10.1016/S0009-9236(99)70009-3`, PMID `10579473`, reports in its public abstract a 5-fold intravenous and 16-fold oral AUC increase for midazolam with ketoconazole. It is used as a mechanistic quality check, not as a calibration value for the executable model.
 
-## Fryst kriterium
+## Frozen criterion
 
 1. **Calibration:** with `bioavailability_multiplier = 1,27`, `clearance_multiplier = 1` and unchanged absorption rate, the numerical `R_plasma` must be `1,27 ± 0,01`; it must lie within the source's 90-percent CI `[1,06, 1,52]`.
 2. **PK-only:** if the combination's local exposure curve is used and `gamma = 1`, the measured/predicted residual `|delta_E_PD| / Emax <= 0,02` must count as PK-explained in this first pass.
@@ -53,9 +53,9 @@ A separate older primary source, Tsunoda SM et al., *Clin Pharmacol Ther* 1999;6
 4. **Exposure:** plasma may be used as a proxy only to compute `R_plasma`; local cell concentration or an independent local measure is required for cell-sensitivity classification.
 5. **Countertest:** gamma must be tested at `1,0` and `1,5`; the PK parameter must be tested at `0,5` and `1,5` times the nominal value. No parameter may be chosen after the residual criterion has been evaluated.
 
-## Modellens fysiska struktur
+## The model's physical structure
 
-### Exponering
+### Exposure
 
 The victim drug is given as extraction into a central compartment and, for the oral route, a first-order absorption compartment:
 
@@ -74,7 +74,7 @@ For a linear system with the same `ka`, `V_p` and complete sieving law, `AUC_inf
 
 The reference case is frozen at `F_mult = 1,27`, `CL_mult = 1`. This is an identification assumption, not a claim that the source can distinguish these two branches.
 
-### Lokal exponering
+### Local exposure
 
 The cell compartment uses mass balance across a local volume segment:
 

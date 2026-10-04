@@ -98,7 +98,7 @@ PREREG §5 V7b requires each dataset to specify whether its length is **spherica
 half depth d/2** or **full thickness L**. It's not cosmetic: `Q160_model.py:t90_cluster()` I guess
 **sphere of radius R**. Wrong interpretation gives a factor 2 silent in C3. Results:
 
-| Dataset | V7a enhet + datumpunkt | V7b geometrisk tolkning |
+| Dataset | V7a unit + data point | V7b geometric interpretation |
 |---------|------------------------|-------------------------|
 | S1 | µm; zero level = **cup solid surface**; no profile, just mean ± SD per cup | **full thickness** of a laterally spread layer. As spherical R → ~2× error |
 | S3 | no spatial datum (bulk rheology on scraped colony) | N/A — and that's *exactly* why S3 doesn't transfer to Q160's `tau_y` (see below) |

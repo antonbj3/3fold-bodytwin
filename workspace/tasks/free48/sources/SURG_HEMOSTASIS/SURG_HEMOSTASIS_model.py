@@ -1,5 +1,51 @@
 #!/usr/bin/env python3
-"SURG_HEMOSTASIS -- incision geometry to bleeding rate to time to hemostasis.\n\nWhy this file exists. Anton 2026-10-02: \"Fix model files for that then, if they do not exist yet.\"\nCorrection first, as in the sibling cell: this folder was NOT empty. It holds 1102 lines in two\nscripts -- a reduced 15-species thrombin-generation ODE anchored to Hockin & Mann, and a platelet\nprimary-hemostasis layer whose author caught three misremembered PMIDs by live verification. What\nwas missing was the entry point carrying the cell contract, so nothing could call the cell and no\nedge could be drawn to it. I had reported the cell as absent because it has no `<CELL>_model.py`.\n\nWhat this cell adds that neither existing script does: the two existing scripts model the CASCADE\nin time, given that bleeding happens. Neither takes the surgeon's two controlled quantities --\ncut length and cut depth -- and returns a bleeding rate. That is the link the catalog entry asks\nfor, and it is the link a surgeon can act on.\n\nTHE RESULT THAT MAKES THIS CELL WORTH HAVING is a negative one, and it is structural rather than\nnumerical: a severed vessel's bleeding rate is not computable from the vessel's own geometry. The\ncut does not change the resistance upstream of it, and that upstream resistance is what sets the\nflow out of the stub. Write f for the fraction of a vessel's series resistance lying upstream of\nthe cut plane. Then\n\n    Q_cut / Q_normal  ~=  1 / f\n\nand the bleeding rate is predictable within a factor of two only when f >= 0.5. That condition\nsorts the layers of a skin incision cleanly, and it sorts them the way surgical practice already\nbehaves: capillary and venular ooze is predictable, and a cut artery is not. The same structure\ndecided the renal certificate tonight -- when extraction ratio approaches 1 no clearance\nmeasurement can bound transporter turnover from above -- and it is the honest form of answer when\na quantity is set by something the measurement does not see.\n\nTWO INDEPENDENT ROUTES ARE COMPUTED AND THEIR DISAGREEMENT IS REPORTED, not averaged:\n  route A  count the vessels the cut plane intersects and sum their own luminal flows\n  route B  take the perfusion of the tissue within a drainage distance of the cut plane\nRoute A must UNDER-predict, because a severed capillary drains its upstream arteriole and not\nmerely its own lumen. The size of the disagreement is therefore a measurement of the mechanism,\nnot an error bar, and a cell that averaged the two would destroy the finding.\n\nSOURCE CLASS IS ATTACHED TO EVERY NUMBER. Nothing here is live-verified in this file: the vessel\ndensities, the resistance split across the vascular tree and the template bleeding time are all\nSTANDARD, meaning textbook values carried without an independent check. They are declared as\nbands for that reason, and `acquisition_required` lists what would turn each into a measurement.\nA vendor or textbook number is not a measurement and must never be reported as one.\n\nNo internal data. Everything PENDING_INDEPENDENT_REVIEW.\n\nUsage:\n  python3 SURG_HEMOSTASIS_model.py --output results.json\n"
+"""SURG_HEMOSTASIS -- incision geometry to bleeding rate to time to hemostasis.
+
+Why this file exists. Anton 2026-10-02: "Create model files for it then, if they do not exist."
+Correction first, as in the sibling cell: this folder was NOT empty. It holds 1102 lines in two
+scripts -- a reduced 15-species thrombin-generation ODE anchored to Hockin & Mann, and a platelet
+primary-hemostasis layer whose author caught three misremembered PMIDs by live verification. What
+was missing was the entry point carrying the cell contract, so nothing could call the cell and no
+edge could be drawn to it. I had reported the cell as absent because it has no `<CELL>_model.py`.
+
+What this cell adds that neither existing script does: the two existing scripts model the CASCADE
+in time, given that bleeding happens. Neither takes the surgeon's two controlled quantities --
+cut length and cut depth -- and returns a bleeding rate. That is the link the catalog entry asks
+for, and it is the link a surgeon can act on.
+
+THE RESULT THAT MAKES THIS CELL WORTH HAVING is a negative one, and it is structural rather than
+numerical: a severed vessel's bleeding rate is not computable from the vessel's own geometry. The
+cut does not change the resistance upstream of it, and that upstream resistance is what sets the
+flow out of the stub. Write f for the fraction of a vessel's series resistance lying upstream of
+the cut plane. Then
+
+    Q_cut / Q_normal  ~=  1 / f
+
+and the bleeding rate is predictable within a factor of two only when f >= 0.5. That condition
+sorts the layers of a skin incision cleanly, and it sorts them the way surgical practice already
+behaves: capillary and venular ooze is predictable, and a cut artery is not. The same structure
+decided the renal certificate tonight -- when extraction ratio approaches 1 no clearance
+measurement can bound transporter turnover from above -- and it is the honest form of answer when
+a quantity is set by something the measurement does not see.
+
+TWO INDEPENDENT ROUTES ARE COMPUTED AND THEIR DISAGREEMENT IS REPORTED, not averaged:
+  route A  count the vessels the cut plane intersects and sum their own luminal flows
+  route B  take the perfusion of the tissue within a drainage distance of the cut plane
+Route A must UNDER-predict, because a severed capillary drains its upstream arteriole and not
+merely its own lumen. The size of the disagreement is therefore a measurement of the mechanism,
+not an error bar, and a cell that averaged the two would destroy the finding.
+
+SOURCE CLASS IS ATTACHED TO EVERY NUMBER. Nothing here is live-verified in this file: the vessel
+densities, the resistance split across the vascular tree and the template bleeding time are all
+STANDARD, meaning textbook values carried without an independent check. They are declared as
+bands for that reason, and `acquisition_required` lists what would turn each into a measurement.
+A vendor or textbook number is not a measurement and must never be reported as one.
+
+No internal data. Everything PENDING_INDEPENDENT_REVIEW.
+
+Usage:
+  python3 SURG_HEMOSTASIS_model.py --output results.json
+"""
 from __future__ import annotations
 
 import argparse
@@ -285,7 +331,7 @@ def make_results(p: Parameters) -> dict[str, Any]:
         "claim_type": "capability",
         "claim_type_reason": "Nothing in the project previously turned cut length and depth into a "
                              "bleeding rate at all, so there is no method to contest. It is judged "
-                             "by whether the answer survives an external facit.",
+                             "by whether the answer survives an external reference.",
     }
 
 

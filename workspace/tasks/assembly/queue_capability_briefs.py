@@ -49,7 +49,35 @@ UNITY = re.compile(r'["\']([a-z0-9_]*_(?:um|mm|mm2|nm|pa|mpa|kpa|j|n|k|deg|degc|
                    r'ml_min|percent|ratio|fraction|per_s|m_s|mol_s|pa_s|kg_m3|j_mol))["\']', re.I)
 DOI = re.compile(r'10\.\d{4,9}/[^\s"\',\)\]]+')
 
-ASK = "\n\nWhat can this cell **decide** that nobody has asked it to decide? A forward model can be run\nbackwards: instead of calculating what happens, choose what produces a desired outcome.\n\nWrite three different ways of looking at what it could decide, with at least one that\nhas nothing to do with tissue or the human body at all. Diverge first, then choose.\n\nFor what you choose: what is the decision, what is the goal, and what is outside\nus to score it against? A decision without an external reference is an opinion.\n\nNo particular answer format. Give DOI or PMID. If the cell cannot\ndecide anything, say what is missing for it to do so.\n\nStatus PENDING_INDEPENDENT_REVIEW.\n\n\n## Diverge widely first\n\nThis is not a review job. I want ideas. Write three readings before searching, and let at least one\nlie entirely outside tissue, body and medicine. Diverge, choose the one that goes furthest and follow\nit all the way. What I want to see is something that is not in the material: a connection nobody has\nposed, a quantity that would settle the question if someone measured it, or a way to make the question\ndecidable with something already measured elsewhere. DOI or PMID for what you build on.\n\nIf you see along the way that two numbers do not agree dimensionally,\nsay so in one line and move on. A bonus, not the task.\n\n"
+ASK = """
+
+What can this cell **decide** that nobody has asked it to decide? A forward model can be run
+backwards: instead of calculating what happens, choose what produces a desired outcome.
+
+Write three different ways of looking at what it could decide, with at least one that
+has nothing to do with tissue or the human body at all. Diverge first, then choose.
+
+For what you choose: what is the decision, what is the goal, and what is outside
+us to score it against? A decision without an external reference is an opinion.
+
+No particular answer format. Give DOI or PMID. If the cell cannot
+decide anything, say what is missing for it to do so.
+
+Status PENDING_INDEPENDENT_REVIEW.
+
+
+## Diverge widely first
+
+This is not a review job. I want ideas. Write three readings before searching, and let at least one
+lie entirely outside tissue, body and medicine. Diverge, choose the one that goes furthest and follow
+it all the way. What I want to see is something that is not in the material: a connection nobody has
+posed, a quantity that would settle the question if someone measured it, or a way to make the question
+decidable with something already measured elsewhere. DOI or PMID for what you build on.
+
+If you see along the way that two numbers do not agree dimensionally,
+say so in one line and move on. A bonus, not the task.
+
+"""
 
 
 def main() -> int:
@@ -87,12 +115,12 @@ def main() -> int:
 
         body = [f'# {cell.name}', '']
         if purpose:
-            body += ["The cell's own description of what it does:", '', f'> {purpose}', '']
+            body += ['The cell\'s own description of what it does:', '', f'> {purpose}', '']
         if quantities:
-            body += [f'Magnificences it carries, with unity in the name ({len(quantities)} av dem):', '']
+            body += [f'Quantities it carries, with unit in the name ({len(quantities)} of them):', '']
             body += ['  ' + ', '.join(f'`{q}`' for q in quantities), '']
         if dois:
-            body += ["External sources it already names:", '']
+            body += ['External sources it already names:', '']
             body += ['  ' + ', '.join(dois), '']
 
         (d / 'BRIEF.md').write_text('\n'.join(body).rstrip() + ASK)
@@ -112,7 +140,7 @@ def main() -> int:
         existing = [l for l in (QUEUE.read_text().splitlines() if QUEUE.exists() else [])
                     if l.split() and l.split()[-1] not in set(made)]
         QUEUE.write_text('\n'.join(lines + existing) + '\n')
-    print(f'{len(made)} Ability briefings, {skipped} celler uteslutna (tomma eller filtrerade)')
+    print(f'{len(made)} capability briefs, {skipped} cells excluded (empty or filtered)')
     for m in made[:12]:
         print('  ' + m)
     return 0

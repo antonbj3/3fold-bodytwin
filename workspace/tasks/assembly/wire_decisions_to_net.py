@@ -135,10 +135,12 @@ def main() -> int:
               'review_state': 'PENDING_INDEPENDENT_REVIEW'}
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / 'PROPOSALS_V1.json').write_text(json.dumps(report, indent=1, ensure_ascii=False))
-    print(f'  redan kopplade: {len(already)}   without result-JSON: {len(no_output)}   Proposal: {len(proposals)}')
-    print(f"  of the proposals lack: {report['proposals_missing_a_falsifier']} falsifiers and {report['proposals_without_any_locator']} any locator at all")
+    print(f'  already wired: {len(already)}   without result JSON: {len(no_output)}   '
+          f'proposals: {len(proposals)}')
+    print(f'  of the proposals, {report["proposals_missing_a_falsifier"]} lack a falsifier and '
+          f'{report["proposals_without_any_locator"]} any locator at all')
     for p in proposals:
-        print(f"   {'lok' if p['external_reference'] else '   '} "
+        print(f"   {'loc' if p['external_reference'] else '   '} "
               f"{'fals' if not p['falsifier_missing'] else '    '}  {p['proposed_owner'][16:]}")
     return 0
 

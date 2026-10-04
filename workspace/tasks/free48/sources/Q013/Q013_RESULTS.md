@@ -1,13 +1,13 @@
 BT-HX-Q013
 
-## Resultat
+## Results
 
 A workable first-principles model was built in `model.py` with separate PK and cell branches:
 
 1. Oral first-order absorption and one-compartment clearance: `dA_g/dt=-ka A_g`, `dA_p/dt=F ka A_g-CL A_p/V`.
 2. Lokal exponering: `dC_local/dt=k_in C_p-k_out C_local`.
 3. Target occupancy: `O=C_local^h/(EC50^h+C_local^h)`.
-4. Effekt: `E=E0+gamma Emax O`.
+4. Power: `E=E0+gamma Emax O` .
 
 `gamma=1` is unchanged cell sensitivity. `delta_E_PD=E_kombination-E_PK(C_local)` tests whether the effect deviates after local exposure is controlled. An independent local measurement can be specified to `decompose`; plasma alone is not sufficient for cell sensitivity grading.
 
@@ -23,7 +23,7 @@ A workable first-principles model was built in `model.py` with separate PK and c
 
 `python3 model.py --output results.json` succeeded. Calibration passed: plasma AUC-ratio **1,2700000000000002**, local AUC-ratio **1,27**. All five tests in `test_model.py` passed, including analytical limit case `C_local=EC50 -> O=0,5`.
 
-| scenario | AUC plasma | AUC local | max effekt | residual/Emax | modellklass |
+| scenario | AUC plasma | AUC local | max power | residual/Emax | model class |
 |---|---:|---:|---:|---:|---|
 | medicine only | 1,999991 | 2,857142 | 0,318790 | — | — |
 | PK-only | 2,539989 | 3,628571 | 0,372778 | 0,000000 | `PK_ONLY` |

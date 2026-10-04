@@ -13,4 +13,4 @@ Background: A1449 CX-L1ARMS2, pre-registered single swaps. Replacing ONLY the qu
    Does the new arm move ANY model-based predictor closer to N1g?
 5. Deliver `knee_geometry(model='l1_quadarm_rajagopal')` (+ an 'im_eqma' variant) + pytest.
 
-Deliver RESULTS.md starting with `# CX-QUADARM` and results.json. Reuse CX-L1ARMS2/extract_consistent.py and geometry.py. Run the LP under bigmem.lock with 2 threads. Internal data stays local; no jw_lungef1. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Every outcome is a node that expands.
+Deliver RESULTS.md starting with `# CX-QUADARM` and results.json. Reuse CX-L1ARMS2/extract_consistent.py and geometry.py. Run the LP under bigmem.lock with 2 threads. Internal data stays local; no jw_lungef1. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Every outcome is a node that expands.

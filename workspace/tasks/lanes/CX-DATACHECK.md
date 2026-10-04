@@ -19,4 +19,4 @@ Recompute the key number with your OWN code from raw data, per packet. Verdict: 
 - PG-021–030: the isokinetic curves, the passive correction, cycle variation.
 - PG-031–040: CT muscle geometry.
 
-Write in `results/CX-DATACHECK/`. `RESULTS.md` starting with `# CX-DATACHECK`, plus results.json. lane runner has full permissions in the workspace; the zips are read-only.
+Write in `results/CX-DATACHECK/`. `RESULTS.md` starting with `# CX-DATACHECK`, plus results.json. lane_runner has full permissions in the workspace; the zips are read-only.

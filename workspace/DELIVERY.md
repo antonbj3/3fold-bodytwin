@@ -1,10 +1,10 @@
-# DELIVERY — BodyTwin-lanen (22–24 sep 2026)
+# DELIVERY — the BodyTwin lane (22–24 Sep 2026)
 
 Status: **ongoing** = running/not committed · **commit** = saved locally · **reviewed** = independent audit (G in `notes/RESULTS_INDEX.md`) · **candidate** = candidate for publication (none yet; requires Anton's decision). A commit is not scientific approval. Nothing is pushed.
 
 ## Where the work is
 
-| Del | Plats | Versionshantering |
+| Part | Location | Version control |
 |---|---|---|
 | The lane's code, PREREG, result receipts, notes, briefs | `~/projects/3fold-workspaces/bodytwin/{notes,tasks,results}` (shared workspace, not git) | local repo with separate git directory `~/research/bodytwin_lane_git`, branch `bodytwin-lane`; run `tasks/lanegit.sh <git-kommando>`. Only explicitly added files are tracked; other sessions' files (DS_*, BT-MAT-*, BT_*_2026*, PROOF_LANE_*, GRAPH_*, BT-SUM-GRID1, BT-CERT-AUDIT, BT-LV1-SUM, SOL6_*) are not included |
 | Patches to published BodyTwin (R1, BT-R2, BT-R2b) | clone `external_mount` (branches fix/day1-findings, fix/gates-exit), temporary clone `external_media` (branch fix/gates-exit-2, commit cde20a2); format-patch in `results/BT-R2b/patches/` | own git commits in the clones; published b95a8dc untouched |
@@ -16,10 +16,10 @@ Status: **ongoing** = running/not committed · **commit** = saved locally · **r
 
 | Commit | Contents |
 |---|---|
-| 98ffa97 | anteckningar, planer, briefs, lane-drivare, `cloud_run.sh`, `lanegit.sh` |
-| 7973152 | avslutade experiment: kod, PREREG, resultat-JSON/MD, granskningar (2 118 filer totalt i grenen) |
+| 98ffa97 | notes, plans, briefs, lane drivers, `cloud_run.sh`, `lanegit.sh` |
+| 7973152 | completed experiments: code, PREREG, result JSON/MD, reviews (2 118 files total in the branch) |
 
-## Leveranslista
+## Delivery list
 
 Numbers and conditions: `notes/RESULTS_INDEX.md` (row ID in parentheses). Review = AU row.
 
@@ -40,7 +40,7 @@ Numbers and conditions: `notes/RESULTS_INDEX.md` (row ID in parentheses). Review
 | BT-B1, BT-B4 (Space The swarm) | 7973152 | BT-B1 `recalculate.py` 2,94 s | not reviewed | — |
 | **Ongoing (not committed):** N1, N2, N3, N6, N7a, N7b, N12, N14, LV3 (coordinator); BT-N4, N5, N8, N9, N10, N11, N13, N15 (swarm_worker); BT-B5–B10 (Space The swarm) | — | — | review planned per result | committed when complete |
 
-## Graf/journal
+## Graph/journal
 
 Proposal for graph connections (folds, artifacts, links, 32 gaps) in `tasks/graph_proposals/` (validated, not loaded). Registration through the workspace's `./graph working dispatch/feedback` (`notes/GRAPH_WORKFLOW.md`) remains — the results must go in with status PENDING_INDEPENDENT_REVIEW. Negative results and validity limits are in RESULTS_INDEX and each RESULTS.md.
 

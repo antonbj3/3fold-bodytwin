@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Queue driver 2: runs Space The swarm/reserve_worker jobs on OVH (Anton 24/9 ~15:15: "yes", profile keys on OVH).
+# Queue driver 2: runs Space The swarm/swarm_worker jobs on OVH (Anton 24/9 ~15:15: "yes", profile keys on OVH).
 # Reads the same bt_queue.txt as the local driver. Claims a job with results/<J>/.ovh_claim (the local driver skips it),
 # sends the packet to /opt/agents/jobs/<J>, starts its own systemd unit on OVH (1500M/100 % CPU), and fetches it
 # back when AGENT_EXIT exists. Cap: tasks/lanes/ovh_agents/cap (default 30). Stop: systemctl --user stop bt-queue-ovh.
@@ -45,12 +45,12 @@ while true; do
       [ "$n" -ge "$CAP" ] && break
       [ "$SLOTS" -le 0 ] && break
       [ -z "$J" ] && continue; [[ "$P" == \#* ]] && continue
-      [ "$M" = reserve_worker ] && continue  # paid model remains paused
+      [ "$M" = swarm_worker ] && continue  # paid model remains paused
       if [[ "$J" == BT-DW48-* ]]; then
         DENT_N=$(find "$RUN" -maxdepth 1 -name 'BT-DW48-*' -type f | wc -l)
         [ "$DENT_N" -ge 12 ] && continue
       fi
-      nds=$(for r in $RUN/*; do [ -e "$r" ] && { [ -s "$r" ] && cat "$r" || echo reserve_worker; }; done | grep -c reserve_worker); [ "$M" = reserve_worker ] && [ "$nds" -ge "$(cat $D/cap_reserve_worker 2>/dev/null || echo 30)" ] && continue   # fasta platser: The swarm tappar aldrig alla platser
+      nds=$(for r in $RUN/*; do [ -e "$r" ] && { [ -s "$r" ] && cat "$r" || echo swarm_worker; }; done | grep -c swarm_worker); [ "$M" = swarm_worker ] && [ "$nds" -ge "$(cat $D/cap_swarm_worker 2>/dev/null || echo 30)" ] && continue   # fasta platser: The swarm tappar aldrig alla platser
       [ -s $W/results/$J/RESULTS.md ] && continue; [ -e $W/results/$J/.ovh_claim ] && continue; [ -e $W/results/$J/.local_claim ] && continue; [ -d $W/results/$J ] || continue
       [ -n "$(localrun $J)" ] && continue
       [ "$(grep -cF "start $J ($P $M)" $LLOG)" -ge 3 ] && continue

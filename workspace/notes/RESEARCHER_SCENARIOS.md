@@ -12,9 +12,9 @@ Sources labeled "retrieved" were checked on the web 2026-09-22. Sources labeled 
 
 ---
 
-## 1. Forskarroller
+## 1. Researcher roles
 
-### 1.1 the collaborator / biomekanisk modellering (dokumenterat fall)
+### 1.1 the collaborator / biomechanical modeling (documented case)
 
 **Documented.** the collaborator's group works on digital human twins with a biomechanical focus. He states that they lack a "geometry manager"/"geometry engine". He wants to see how we model physiological geometry and parameterize shapes. He could not distinguish implemented from planned in our repo. Source: emails 99, 100 and 107 (`references/collaborator_context.md`).
 
@@ -73,7 +73,7 @@ His tools already have three scaling steps, **DOCUMENTED [S1, retrieved]**: affi
 
 **Today's workflow.** Material testing, then fitting in FEBio (MIT license, biphasic and hyperelastic materials [S10, retrieved]). Specimen-specific joint models in Open Knee(s): MR plus joint mechanical testing for 8 knees, CC BY [S11, retrieved].
 
-**Saknade kopplingar:**
+**Missing connections:**
 
 - `thickness_v1` propagates thickness uncertainty to τ (dτ/τ = 2·dL/L, RUN).
 - No cell connects a measured force–displacement trajectory to FE or biphasic inversion.
@@ -113,7 +113,7 @@ His tools already have three scaling steps, **DOCUMENTED [S1, retrieved]**: affi
 - OAI: 4 796 people, access through NIMH Data Archive with an agreement [S13, retrieved].
 - BodyParts3D: CC BY-SA 2.1 JP, already used.
 
-**BodyTwin idag.**
+**BodyTwin today.**
 
 - `mesh_ingest_v1` requires mm and closed surfaces.
 - `geometry_validity_v1` rejects unevaluated self-intersection.
@@ -166,7 +166,7 @@ BODYTWIN_OUT=$OUT python src/bodytwin/cells/musculoskeletal/{bone_remodeling,bmu
 
 The chain is shape parameter (NSA, offset, outer diameter, cortical thickness) → beam stress → strain σ/E (E = 17 GPa) → mechanostat regime → BMU turnover.
 
-**Resultat.**
+**Results.**
 
 - `bone_remodeling` gives 2 000 µε medially and 1 647 µε laterally, with the sweep 1 529–2 412 µε. Everything is classified as "formation, not maintenance".
 - The cell itself warns: the beam is dominated by bending (σ_axial 3 MPa against σ_bend 31 MPa), because muscle forces are missing. The verdict is therefore probably too high.
@@ -174,7 +174,7 @@ The chain is shape parameter (NSA, offset, outer diameter, cortical thickness) �
 
 **Where the flow breaks:**
 
-| Brott | Typ | Detalj |
+| Break | Type | Detail |
 |---|---|---|
 | The producers `bone_stress` and `femoral_neck_stress` are unpublished | missing cell | The consumers read handwritten synthetic JSON |
 | The synthetic flag is lost | missing contract | Inputs have `"synthetic": true`. Outputs from `bone_remodeling` and `bmu_turnover_kinetics` contain 0 occurrences of "synthetic" and are labeled as results. `result_envelope_v1` is only connected to `metabolic_cost`. |
@@ -196,7 +196,7 @@ Composition in the scratchpad (RUN, `flow2_flow3.py`). The chain uses only expor
 
 The muscle is a **synthetic ellipsoid** (12×20×30 mm, as a masseter stand-in) scaled isotropically with s = 0,9/1,0/1,1. Fiber length (25·s mm) and pennation (15°) are ASSUMED. The moment arm is held at 22,5 mm and the bite distance at 50 mm (center of the cell's sweep).
 
-| s | V (mm³) | massa (g) | I_zz (kg·mm²) | PCSA (mm²) | F per sida (N) | F_bett molar (N) | R_kondyl (N) |
+| s | V (mm³) | mass (g) | I_zz (kg·mm²) | PCSA (mm²) | F per side (N) | F_bett molar (N) | R_kondyl (N) |
 |---|---|---|---|---|---|---|---|
 | 0,9 | 21 928 | 23,2 | 2,04 | 941 | 239 | 215 | 262 |
 | 1,0 | 30 079 | 31,9 | 3,46 | 1 162 | 295 | 265 | 324 |
@@ -226,7 +226,7 @@ RUN with `thickness_v1.relaxation_time_s` and assumed thicknesses 1,8–3,0 mm (
 
 ---
 
-## 3. Modalitetskarta
+## 3. Modality map
 
 "Frame" means the coordinate frame in which the measurement is given. "Derived" means that the quantity requires a model or reconstruction beyond the instrument. The error models are typical values from the literature and must not be read as checked numbers, except where a source is given.
 

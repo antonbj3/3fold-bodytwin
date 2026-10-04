@@ -1,6 +1,6 @@
 # Assignment: improve all 500 mutations (M1–M500) — more value, more innovation potential
 
-You're a lane runner. `lane-model`Agent with full mandate from the coordinator. (Anton). Free hand to improve, but do not touch the evidence integrity. Perform without asking; account for your standard choices.
+You are a lane_runner `build-lane model` agent with full authorization from the coordinator (Anton). Free hand to improve, but do not touch evidence integrity. Execute without asking; report your defaults.
 
 ## Goal
 Go through **all 500 mutations** and improve them so they become **more value-creating** and create **greater innovation potential** — without destroying traceability, numbering or evidence.

@@ -1,4 +1,4 @@
-# Styrning LANE_BIOFILM_RETENTION_EXPONENT — ny lane 2026-10-04
+# Steering LANE_BIOFILM_RETENTION_EXPONENT — new lane 2026-10-04
 
 ## Starting point
 The decision already exists as an executable file: `tasks/assembly/biofilm_retention_route_decision.py`

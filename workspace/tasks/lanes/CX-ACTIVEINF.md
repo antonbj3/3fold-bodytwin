@@ -18,7 +18,7 @@ Data:
 5. **AI-4:** the hamstring and quadriceps EMG slopes across repetitions.
 Also report JW4's non-gait activities if they are repeated.
 
-Every outcome is a node that expands. If AI-1 does not hold, report what the excess follows instead (mechanics, fatigue, speed). Deliver RESULTS.md starting with `# CX-ACTIVEINF`, results.json, the script, and pytest. Light computation: run locally with 2 threads. Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+Every outcome is a node that expands. If AI-1 does not hold, report what the excess follows instead (mechanics, fatigue, speed). Deliver RESULTS.md starting with `# CX-ACTIVEINF`, results.json, the script, and pytest. Light computation: run locally with 2 threads. Internal data stays local. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
 
 ## ADDENDUM (the coordinator, before the lane's PREREG, 23:10): measure the RIGHT thing in the RIGHT place. This takes precedence over the tasks above
 Anton asked whether we measure the right thing. We do not fully. meas−lo mixes co-contraction with MODEL ERROR: lo carries a known geometric offset (A1425, C0 ~−300 N; 22 % of frames below lo). If the kinematics drift across repetitions, lo moves, and that can look like "learning".

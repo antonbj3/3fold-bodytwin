@@ -4,7 +4,7 @@ You return to a project where research and automated driving have continued for 
 
 This is a working document from the coordinating lane_runner, compiled on 30 September around 21:30 Stockholm. Read the common part and your lane message. Numerical results have limited ranges of validity; automated processes and ongoing experiments may have changed since the measurement. Exact readings, hashes and operating image can be found in `SOURCE_MANIFEST.json`, `CURRENT_STATE.json` and `RUNTIME_SNAPSHOT.json` next to this file. Use the original's run commands and preserved failures for further research.
 
-## Antons riktning
+## Antons direction
 
 Anton has explicitly asked for an offensive pursuit of innovation and that we use available resources independently. The coordinator and lanes must maintain the level of ambition without Anton needing to remind them of it. Work backward from an important ability that the existing representation does not yet support. Locate the bearing obstacle and build an operation that can change it.
 
@@ -14,7 +14,7 @@ The ambition may be an order of magnitude better cost or a previously unavailabl
 
 Communicate with Anton briefly and comprehensibly in Swedish. Start with what the trial should enable and what has actually changed. Explain technical terms when needed. Do not enter ten internal IDs as the only explanation for the work. Put exact contracts, file paths and raw values ​​in the documents.
 
-Gemensamma forskningsinstruktioner:
+Shared research instructions:
 
 - [FIRST_PRINCIPLES.md](external_research_path)
 - [SEARCH_METHOD.md](external_research_path)
@@ -38,11 +38,11 @@ Read applicable AGENTS and README before changing code. The workspaces' common i
 
 BodyTwin and dental use a version-locked graph engine according to [ENGINE.json](local_path): research commit `73e76dd83a601ddf2ccb5bab041512dd426ddb2c`. This pin is updated through a separate audited step. Later graph branches are research grounds until compatible integration is accomplished.
 
-## Grafens funktion i arbetet
+## The graph's function in the work
 
 Anton describes the graph as variables and their relationships, larger goals and what needs to be solved to reach them, as well as densification through new connections. We need to use all these parts in the research.
 
-### De befintliga lagren
+### The existing layers
 
 - The anchor graph represents targets, assertions, supporting dependencies and their status.
 - The relationship layer represents quantified relationships between quantities, constraints, margins and stress points.
@@ -143,9 +143,9 @@ Costs shall include preparation, fit, discovery, validation, update, questions a
 
 ## The ongoing Sol work
 
-Three build lane agents are now working together on a joint ambitious main effort:
+Three the build lane agents are now working together on a joint ambitious main quest:
 
-| Agent | Konkret roll |
+| Agent | Concrete role |
 |---|---|
 | BodyTwin | Actually connected physiology, signal/binding history, conservative inventory, history representation and different counter-case. |
 | Graph | Composable operators, query conditional influence, signed moments, error bounds, exports and next representation switch. |
@@ -348,7 +348,7 @@ Start with this file, your lane message, applicable AGENTS/START and common rese
 The historical handover of the field and the chain map of the dental are in the respective lane message. Move on from reading to a bounded useful construction after the orientation. The summary does not make new model starts, publications, or changes to source graphs.
 
 
-## Driftuppdatering efter att startmeddelandena skrevs — 30 september, 22:03
+## Operation update after the start messages were written — 30 September, 22:03
 
 OVH's low concurrency is now investigated and fixed. A successful comparable job reached 3 419,59 MiB. With the existing safety margin of 40 %, the next job needed more than the largest previous memory level, 4 096 MiB. This blocked the entire job class despite free host memory. The budget can now grow to the entire GiB according to measured need; the locked control of host memory, slice and spare still determines whether the job is allowed to start. For this class, 5 120 MiB is now used. The change is installed on OVH and UpCloud; 24 resource tests passed.
 
@@ -356,7 +356,7 @@ Verified runtime about 22:03: OVH 20 concurrent workers (12 The_swarm, 8 swarm_w
 
 This replaces the previous handoff's open OVH-diagnosis and expands its list of small memory tiers with measured larger budgets. Original time-stamped snapshots remain. Receipt: [OVH correction ](external_research_path), with full afterimages in the same directory. The operating change does not approve any research results.
 
-### Sols tillkommande checkpoint
+### Sol's additional checkpoint
 
 Changed previous pulse followed by a new late clutch is actually run. The old cache still meets the original late exposure limit of 0,1 %; that question thus does not justify a new ability. For the early local storage query with existing boundary 0,02 mg/kg misses old cache, while a numerical candidate and a strong conventional check pass it. Candidate's full defect guarantee and cost benefit are still open.
 

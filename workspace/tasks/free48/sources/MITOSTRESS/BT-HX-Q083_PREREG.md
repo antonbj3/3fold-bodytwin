@@ -1,6 +1,6 @@
 # BT-HX-Q083 — preregistration
 
-## Hypotes
+## Hypothesis
 
 A fusion–fission event leaves a memory that is greater than total quantities in the merged organelle. To predict a later perturbation, the first model needs only per-daughter volume, per-daughter concentrations of soluble cargo and protein/regulatory state, membrane potential, and an explicit partitioning rule. Global totals and the number of organelles are a placebo/null model.
 
@@ -102,14 +102,14 @@ and expected cargo `cargo * p_release`. `activation` is a slowly mixing regulato
 
 Mitochondrial initial case before fusion:
 
-| Dotter | `V` (`um^3`) | `substrate` (`nmol`) | `enzyme` (`nmol`) | `damage` (`nmol`) | `opa1` (`nmol`) | `psi` (`mV`) |
+| Daughter | `V` (`um^3`) | `substrate` (`nmol`) | `enzyme` (`nmol`) | `damage` (`nmol`) | `opa1` (`nmol`) | `psi` (`mV`) |
 |---|---:|---:|---:|---:|---:|---:|
 | A | 1,0 | 1,20 | 0,80 | 0,10 | 0,90 | −175 |
 | B | 1,0 | 0,50 | 0,40 | 0,60 | 0,30 | −150 |
 
 The vesicle case uses two states with the same volume and different `cargo` and `activation`; values are normalised and stated in the results JSON.
 
-## Acceptanskriterier
+## Acceptance criteria
 
 The model is accepted only if all the following conditions hold:
 

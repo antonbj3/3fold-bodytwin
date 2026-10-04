@@ -34,6 +34,6 @@
    - If (d) wins: that is a physiological law for co-contraction, and a muscle model that beats N1g for the RIGHT reason.
    - If none wins: report what s shows about the body's strategy.
 
-Resources: local (L1's data is internal) or OVH (`tasks/cloud_run.sh`, BodyTwin ≤ 12 vCPU, finish by 07:30). Write in `results/CX-INVERSEOC/`. `RESULTS.md` starting with `# CX-INVERSEOC`, plus results.json and pytest. lane runner has full permissions in the workspace.
+Resources: local (L1's data is internal) or OVH (`tasks/cloud_run.sh`, BodyTwin ≤ 12 vCPU, finish by 07:30). Write in `results/CX-INVERSEOC/`. `RESULTS.md` starting with `# CX-INVERSEOC`, plus results.json and pytest. lane_runner has full permissions in the workspace.
 
 6. **Addendum 22:10:** read results/CX-INVERSEOC/EPS_OPTIMAL_NOTE.md (ε-suboptimal set: how close to optimal is the body, ε* per frame).

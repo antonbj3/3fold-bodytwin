@@ -31,7 +31,7 @@ def _load(path, default):
 
 def _model_key(model):
     name = model.rsplit('/', 1)[-1]
-    return {'space-swarm-free': 'swarm', 'free_worker-2.5-preview-free': 'free_worker'}.get(name, name)
+    return {'space-swarm-free': 'swarm', 'swarm_worker-2.5-preview-free': 'swarm_worker'}.get(name, name)
 
 
 def _normalise_state(state):
@@ -184,7 +184,7 @@ def prepare_cache(egress, env, model):
     catalog = Path(source)
     models = json.loads(catalog.read_text()).get('opencode', {}).get('models', {})
     model_id = model.rsplit('/', 1)[-1]
-    model_id = {'free_worker': 'free_worker-2.5-preview-free', 'swarm': 'space-swarm-free'}.get(model_id, model_id)
+    model_id = {'swarm_worker': 'swarm_worker-2.5-preview-free', 'swarm': 'space-swarm-free'}.get(model_id, model_id)
     if model_id not in models:
         raise ValueError('Requested free model missing from public catalog')
     cache = Path(env['XDG_CACHE_HOME']) / 'opencode' / 'models.json'

@@ -21,7 +21,7 @@ latent heat and soft-tissue specific heat:
 So mechanical fracture is a fifth of a percent of the energy the cut costs, and hand force is a
 second-order quantity. The quantity that sets collateral damage is a flow ratio, not a force.
 
-The external facit, and what it pins. Thermal damage depth is measured at 0.56 to 1.70 mm for 1 to 3 s
+The external reference, and what it pins. Thermal damage depth is measured at 0.56 to 1.70 mm for 1 to 3 s
 in human menisci (PMID 12642261, doi 10.1177/03635465030310021601). Read as a diffusion depth
 delta = sqrt(D_eff * t), those two endpoints give
 
@@ -30,7 +30,7 @@ delta = sqrt(D_eff * t), those two endpoints give
 
 which is 2.24x to 6.88x the conduction-only thermal diffusivity of soft tissue, about 1.4e-07 m^2/s.
 The measured damage therefore travels further than conduction alone allows, which is the evaporative
-channel showing up in the facit rather than in the model.
+channel showing up in the reference rather than in the model.
 
 The refusal that makes this a decision and not a curve -- and the correction that narrowed what it may
 claim. The gate was written as "damage volume tracks the setting at R = 0.73 over 10-120 but at
@@ -42,7 +42,7 @@ written: it is a refusal to extrapolate past the range where any mode was well c
 measured collapse of one predictor. It is kept, with that scope.
 
 The falsifier that was in this file is empty, and that was worth finding. It said a two-timescale chain
-must show slope about 0.5 that saturates, while a pure diffusion model gives 0.5 throughout. proof_lane
+must show slope about 0.5 that saturates, while a pure diffusion model gives 0.5 throughout. the proof lane
 constructed the counterexample in closed form: with x = log(P/P0), any positive smooth depth response
 d(P) is reproduced exactly by log(d/d0) = a + x/2 + g(x) where g(x) = log[d(P0 e^x)/d0] - a - x/2. So
 curvature, smooth saturation, derivatives and moments all fail to separate the models, and no number of
@@ -60,7 +60,7 @@ quantity here: at the dwell the decision returns, xi comes out exactly 1.0, 4.0 
 0.5, 1.0 and 1.5 mm, which is (tolerance / kerf halfwidth) squared and nothing more. It restates the
 tolerance. And the generator setting does not move the dwell limit at all -- it only gates, because
 nothing published here ties the setting to D_eff. So what this decision currently does is: read D_eff
-from the facit, return the conservative dwell, and refuse above setting 60. Tying the setting to D_eff
+from the reference, return the conservative dwell, and refuse above setting 60. Tying the setting to D_eff
 needs a measured D_eff per setting, which is the next acquisition and is named in the output.
 
 The control is the equally informed one: choose by hand force, which is what the hand is taught to do.
@@ -87,7 +87,7 @@ KERF_HALFWIDTH_MM = 0.5                # half of the 1 mm kerf the energy balanc
 
 
 def d_eff_bounds() -> tuple[float, float]:
-    """Both endpoints of the facit, in m^2/s. Nothing is fitted; both are read off."""
+    """Both endpoints of the reference, in m^2/s. Nothing is fitted; both are read off."""
     vals = sorted(((d * 1e-3) ** 2) / t for d, t in FACIT_DEPTH_MM_AT_S)
     return vals[0], vals[-1]
 
@@ -103,7 +103,7 @@ def thermal_ratio(dwell_s: float, d_eff: float) -> float:
 
 
 def decide(tolerance_mm: float, setting: float) -> dict:
-    """Longest dwell whose damage depth stays inside the tolerance at BOTH facit endpoints."""
+    """Longest dwell whose damage depth stays inside the tolerance at BOTH reference endpoints."""
     lo, hi = d_eff_bounds()
     out = {'tolerance_mm': tolerance_mm, 'setting': setting}
     if not SETTING_CALIBRATED_RANGE[0] <= setting <= SETTING_CALIBRATED_RANGE[1]:
@@ -187,16 +187,18 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / 'DECISION_V1.json').write_text(json.dumps(summary, indent=1, ensure_ascii=False))
 
-    print(f'  D_eff ur facit: {lo:.4e} till {hi:.4e} m2/s '
-          f'({lo / CONDUCTION_ONLY_M2_S:.2f}x till {hi / CONDUCTION_ONLY_M2_S:.2f}x ren konduktion)')
-    print(f'  brott/felongation: {4.0 / 2260.0 * 100:.3f} %   heating charge: {226.8 / 2260.0 * 100:.1f} %')
-    print(f'{"tolerans mm":>12} {"instaellning":>12} {"beslut":>20} '
-          f'{"uppehall s":>12} {"holje s":>10} {"xi":>8}')
+    print(f'  D_eff from reference: {lo:.4e} to {hi:.4e} m2/s '
+          f'({lo / CONDUCTION_ONLY_M2_S:.2f}x to {hi / CONDUCTION_ONLY_M2_S:.2f}x pure conduction)')
+    print(f'  fracture/vaporisation: {4.0 / 2260.0 * 100:.3f} %   warming surcharge: {226.8 / 2260.0 * 100:.1f} %')
+    print(f'{"tolerance mm":>12} {"setting":>12} {"decision":>20} '
+          f'{"dwell s":>12} {"enclosure s":>10} {"xi":>8}')
     for r in rows:
         if r['decision'] == 'NO_SETTING_RETURNED':
-            print(f'{r["tolerance_mm"]:12} {r["setting"]:12} {"INGET SVAR":>20}')
+            print(f'{r["tolerance_mm"]:12} {r["setting"]:12} {"NO ANSWER":>20}')
         else:
-            print(f"{r['tolerance_mm']:12} {r['setting']:12} {'dwell limit':>20} {r['decision_value_s']:12.4f} {r['dwell_enclosure_width_s']:10.4f} {r['xi_thermal_at_conservative_dwell']:8.4f}")
+            print(f'{r["tolerance_mm"]:12} {r["setting"]:12} {"dwell limit":>20} '
+                  f'{r["decision_value_s"]:12.4f} {r["dwell_enclosure_width_s"]:10.4f} '
+                  f'{r["xi_thermal_at_conservative_dwell"]:8.4f}')
     return 0
 
 

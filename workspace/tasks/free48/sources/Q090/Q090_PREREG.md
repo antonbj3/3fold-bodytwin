@@ -46,7 +46,7 @@ The PDL load distribution between horizontal and inclined fibres follows `E_axia
 - The hypothesis is falsified for this output if reduced PDL compliance does not increase the load share in the TMJ paths, if load equilibrium is not solved, or if the analytical limit fails.
 - A result cannot "succeed" by selecting new material data after the run; all assumptions and uncertainties are reported.
 
-## Frysta modellantaganden
+## Frozen model assumptions
 
 - Symmetric, idealised immediate load onset; no inertia in primary load distribution.
 - Molar support: fibrous compressible PDL in series with compressible alveolar bone.

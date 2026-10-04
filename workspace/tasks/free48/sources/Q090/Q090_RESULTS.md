@@ -1,11 +1,11 @@
 BT-HX-Q090
-# Resultat
+# Result
 
 ## Status
 
 First runnable mechanistic model is complete. `PREREG.md` was frozen before execution and the checksum is `a84ba74c54f80b296bccb00c26806236509770a3c24057c4e9eefe4f196c8ca4`. No measured load distribution was found in the work catalogue; the results below are therefore model predictions, not claimed measurement data.
 
-## Builds on
+## Building on
 
 `BRIEF.md`, `inputs/QUESTION.md` and `inputs/NIGHT_PREAMBLE.md`. There was no previous model or results file to reuse. The model couples a rigid jaw plate with two molar clearances and two bilateral TMJ paths. PDL fibers are homogenized into an axial modulus; PDL and alveolar bone are in series. TMJ disc and two CART bearings are in series. Darcy damping provides a reversible kinetic term. Momentum balance, energy balance and dimensional checks are included.
 
@@ -15,7 +15,7 @@ The control case is a single `100 N` tooth path. The model gives `39,218977 µm`
 
 ## Base load distribution
 
-Symmetriskt scenario: `F_close = 100 N`, `M_external = 0`.
+Symmetric scenario: `F_close = 100 N`, `M_external = 0`.
 
 | Magnitude | Left | Right | Total / Share |
 |---|---:|---:|---:|
@@ -35,9 +35,9 @@ Each parameter was changed separately with `±50 %`.
 2. `E_PDL`: second largest, `48,698176 %` maximum absolute relative change.
 3. `E_TMJ_disc`: `0,958975 %`; the map layers dominate the assumed TMJ serial path.
 
-Det mekaniska placebofallet — alla komplianser skalas lika — bevarar lastandelarna med maximal skillnad `1,387779×10^-17`.
+The mechanical placebo case — all compliances scaled equally — preserves load shares with a maximum difference of `1,387779×10^-17`.
 
-## Verifiering
+## Verification
 
 The equilibrium, dimensionality, analytical limit case, transient and placebo criteria are `PASS`. The transient control reaches static end position with post-ramp inertia ratio `0,001444945`. The model run and tests are reproduced with:
 

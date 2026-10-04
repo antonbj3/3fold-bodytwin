@@ -20,7 +20,7 @@ def classify(row, now):
     try:
         pid = row['pid']; started = float(row['started']); job = row['job']
         if not isinstance(pid, int) or pid <= 1 or not isinstance(job, str) or not job: return 'malformed'
-        if row['selected'] not in ('swarm', 'free_worker', 'reserve_worker') or row['account'] not in ('A','B','C','D'): return 'malformed'
+        if row['selected'] not in ('swarm', 'swarm_worker', 'swarm_worker') or row['account'] not in ('A','B','C','D'): return 'malformed'
         try: proc, ticks, boot, epoch = identity(pid)
         except (FileNotFoundError, ProcessLookupError): return 'dead'
         if not 0 <= now-started <= MAX_AGE: return 'aged'
@@ -86,7 +86,7 @@ for host in ['ovh','upcloud']:
  route=(B/(host+'.before.route_runtime.py')).read_text()
  route=route.replace("ROOT=Path('/opt/agents')", "ROOT=Path('/opt/agents')\nimport slot_markers\n\ndef _active_counts(*, locked=False):\n    rows=slot_markers.scan_locked(ROOT)[0] if locked else slot_markers.live_rows(ROOT)\n    return collections.Counter((r['account'],r['selected']) for r in rows)")
  route=route.replace("def choose_free_models(preference,counts,policy,now):", "def choose_free_models(preference,counts,policy,now,eligible=None):")
- route=route.replace("allowed=[m for m in ('swarm','free_worker') if now>=", "allowed=[m for m in ('swarm','free_worker') if (eligible is None or m in eligible) and now>=")
+ route=route.replace("allowed=[m for m in ('swarm','swarm_worker') if now>=", "allowed=[m for m in ('swarm','swarm_worker') if (eligible is None or m in eligible) and now>=")
  route=route.replace("    began=time.time()\n    while", "    slot_markers.install_cleanup()\n    began=time.time()\n    while",1)
  start=route.index('            counts=collections.Counter()')
  end=route.index("            pref=directory/'PREFERRED_MODEL'",start)
@@ -96,14 +96,14 @@ for host in ['ovh','upcloud']:
  route=route[:start]+"""            # Atomic egress snapshot; do not acquire EGRESS_POOL.lock under slots.
             import egress_pool
             rows=slot_markers.scan_locked(ROOT)[0]
-            eligible=[m for m in ('swarm','free_worker') if egress_pool.has_available(m,rows)]
+            eligible=[m for m in ('swarm','swarm_worker') if egress_pool.has_available(m,rows)]
             pref=directory/'PREFERRED_MODEL'
             models=choose_free_models(pref.read_text().strip() if pref.exists() else requested,counts,policy,time.time(),eligible=eligible)
 """+route[end:]
  route=route.replace("choose_go_reserve(policy,counts,time.time()) if hv else None","choose_go_reserve(policy,counts,time.time(),free_unavailable=True) if hv else None")
  start=route.index("                    marker=active/(str(os.getpid())+'.json')")
- end=route.index("                    return go_account,'reserve_worker',marker",start)
- route=route[:start]+"                    marker=slot_markers.write_locked(ROOT,go_account,'reserve_worker',directory,'free models unavailable: cooldown, capacity or egress backoff')\n"+route[end:]
+ end=route.index("                    return go_account,'swarm_worker',marker",start)
+ route=route[:start]+"                    marker=slot_markers.write_locked(ROOT,go_account,'swarm_worker',directory,'free models unavailable: cooldown, capacity or egress backoff')\n"+route[end:]
  start=route.index("                marker=active/(str(os.getpid())+'.json')")
  end=route.index("                return account,selected,marker",start)
  route=route[:start]+"                marker=slot_markers.write_locked(ROOT,account,selected,directory)\n"+route[end:]
@@ -141,8 +141,8 @@ for host in ['ovh','upcloud']:
  fallback=(B/(host+'.before.fallback_reserve.py')).read_text()
  fallback=fallback.replace('Explicit Go fallback; only after BOTH free models enter cooldown.','Explicit Go fallback after free admission is unavailable.')
  fallback=fallback.replace('def choose(policy,counts,now):','def choose(policy,counts,now,*,free_unavailable=False):')
- fallback=fallback.replace("if not all(now<policy.get(m+'_backoff_until',0) for m in ('swarm','free_worker')):return None","if not free_unavailable and not all(now<policy.get(m+'_backoff_until',0) for m in ('swarm','free_worker')):return None")
- fallback=fallback.replace("policy.get('reserve_worker_weekly_stop_pct',101)","min(95,policy.get('reserve_worker_weekly_stop_pct',95))")
+ fallback=fallback.replace("if not all(now<policy.get(m+'_backoff_until',0) for m in ('swarm','swarm_worker')):return None","if not free_unavailable and not all(now<policy.get(m+'_backoff_until',0) for m in ('swarm','swarm_worker')):return None")
+ fallback=fallback.replace("policy.get('swarm_worker_weekly_stop_pct',101)","min(95,policy.get('swarm_worker_weekly_stop_pct',95))")
  (B/(host+'.fallback_reserve.py')).write_text(fallback)
  runner=(B/(host+'.before.run_profile_ovh.py')).read_text()
  start=runner.index("    env,runtime=environment")

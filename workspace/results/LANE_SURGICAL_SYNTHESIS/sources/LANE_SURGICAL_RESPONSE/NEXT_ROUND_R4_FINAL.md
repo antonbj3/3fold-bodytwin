@@ -32,6 +32,6 @@ Cell-free analogue: control k=.06950/dag, η=.2833; LH3-knockdown k=.04474/dag,�
 
 R4's explicitly synthetic defaults: stop initiation/loss at10 in the first reservoir test, feedbackcapacity.2mol/mol, b=.001, f=.5 andd=.03/dag for selective continuation, glycoD_NS=.03 and independentcontrol/firstorder as nominal.75%strength reference and(.043−.003)=.040scale are reused fromR3. HP42 is already known: no blind prediction claims.126/126checks concern mathematics/causality/provenance, biologyUNKNOWN.
 
-## Reproduktion
+## Reproduction
 
 COMMANDS_R4.md states the order and new exclusive destinations. Do not run original scoring/plot/verify/finalize again on fixed files: copy lane inputs/code to a new lane-local replica or give new suffixes. mechanisms_r4.py requires new --out; score_r4.py uses controlling predictions_v2 and v2-summary. Initial empty dense-output slice, the string-threshold error and initial score metadata are preserved.2CPUthreads, no subagent/cloud/queue/graph/product/peer write. GRAPH_FEEDBACK_R4.json is local coordinator material, no admission.

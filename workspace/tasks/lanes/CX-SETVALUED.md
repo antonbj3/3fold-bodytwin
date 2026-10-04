@@ -20,4 +20,4 @@
 3. **Product**: `bodytwin_core.solver.solve_bounds(...)` gives [min, max] per step and per joint, with a test. the collaborator's data stays local/OVH.
 4. Every outcome expands a node (framing A1386 / FRAMING_NOTE): a wide set means the next measurement comes from U405; a narrow set that holds means a certified interval twin.
 
-Write in `results/CX-SETVALUED/`. `RESULTS.md` starting with `# CX-SETVALUED`, plus results.json and pytest. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+Write in `results/CX-SETVALUED/`. `RESULTS.md` starting with `# CX-SETVALUED`, plus results.json and pytest. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

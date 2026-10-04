@@ -25,4 +25,4 @@ Criteria:
 - gait V0 median ≥ 10 % lower than the base for the persons with curves;
 - the counter-test gives a smaller gain.
 
-Resources: lane runner has full permissions. Internal TLEM data stays local or on OVH. Locally: nice, 2 threads. Write in `results/CX-SLACK/`. `RESULTS.md` starting with `# CX-SLACK`, plus results.json and code with pytest.
+Resources: lane_runner has full permissions. Internal TLEM data stays local or on OVH. Locally: nice, 2 threads. Write in `results/CX-SLACK/`. `RESULTS.md` starting with `# CX-SLACK`, plus results.json and code with pytest.

@@ -13,7 +13,7 @@ import hashlib
 import json
 import math
 
-LABELS = ("REVIEW", "DEFLECTION", 'UNCERTAIN')
+LABELS = ('REVIEW', 'DEFLECTION', 'UNCERTAIN')
 ENERGIES = ('gp', 'gd', 'gamma_layer', 'gamma_interface')
 BANK_SHA256 = '3c1ce365002d55dddbb4badec5ac02908280c2e968baf984ffe736a68b9783c7'
 FIXTURE_CONTEXT = 'modeIII_square_-1_1_trace_y_extension_1/4_n64'
@@ -42,13 +42,13 @@ def _hash(x):
 
 
 def _label(lo, hi):
-    return "DEFLECTION" if lo > 0 else "REVIEW" if hi < 0 else 'UNCERTAIN'
+    return 'DEFLECTION' if lo > 0 else 'REVIEW' if hi < 0 else 'UNCERTAIN'
 
 
 def _output(decision, margin, *, source, context, missing=(), unit='(J/m²)^2'):
     def port(value, units, scope):
         return dict(value=value, unit=units,
-            status="UNKNOWN" if value is None else 'SYNTETISKT',
+            status='UNKNOWN' if value is None else 'SYNTETISKT',
             uncertainty=None if value is None else {'kind': 'conditional model; no probability'},
             source=source, scope=scope, joint_id=None)
     return dict(decision=decision, physical_admission=False, model_context=context,
@@ -269,7 +269,7 @@ def front_preference(cells, *, front_complete=False, independent_strips=False,
     result.update(cells=rows,area_fractions={k:str(v) for k,v in counts.items()},
         fraction_kind='declared spatial area, not probability',
         coupling_margin_bound=None if delta is None else str(delta),
-        mixed_front=counts["REVIEW"]>0 and counts["DEFLECTION"]>0)
+        mixed_front=counts['REVIEW']>0 and counts['DEFLECTION']>0)
     return _certificate(result,dict(cells=cells,front_complete=front_complete,
         independent_strips=independent_strips,coupling_margin_bound=coupling_margin_bound,
         source=source,context=model_context,mode=mode,parent_enclosures=parent_enclosures),
@@ -305,7 +305,7 @@ def incision_path_gate(config, *, mode='evidence'):
         raise ValueError('unique nonempty request IDs required')
     rows=[evaluate_request(r,mode=mode) for r in requests]
     return dict(schema='bodytwin-avlankning-gate-v1',mode=mode,boxes=rows,
-        blocks_straight_chain=any(r['decision']!="REVIEW" for r in rows),
+        blocks_straight_chain=any(r['decision']!='REVIEW' for r in rows),
         physical_admission=False,scope='opt-in conditional path check; supplied depth and injury remain independent')
 
 

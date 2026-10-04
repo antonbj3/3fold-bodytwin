@@ -38,7 +38,7 @@ Test which combinations add information and which share the same errors or under
 
 The camera twin is a candidate for representing image formation and its uncertainties: optics, projection, camera movement, timestamps and relevant image processing stages. Map what the existing code actually does. Connect each reconstruction back to raw observation and camera assumptions. See `MECHANISM_MODALITY_SOURCES.md` for local entry points.
 
-## Flera behandlingsfronter
+## Multiple treatment fronts
 
 Develop a research contract for **combined and sequential interventions**, including their connection to procedures, rehabilitation, mechanical influence or biological models where a basis exists. No particular treatment or patient is assigned through this task.
 

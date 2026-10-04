@@ -9,12 +9,12 @@ Inventoryed from disk 2026-09-17 (script + raw data: `private_runs/graph_invento
 | `ANCHOR_GRAPH.json` | **The graph.** Nodes = targets and what the targets are on. Fields: `claim`, `type`, `status`, `depends_on`, `evidence`, `risk`, `cost`. This is README's "unlock graph". | `anchor_graph_tools.py` (`validate`, `next-actions`, `priority`) |
 | `FOLD_LEDGER*.jsonl` | **The measurement log.** One row = a completed work with results. Points to the graph via `consumers`; the graph's nodes point back via `evidence`. `supersedes`/`refines` = corrections. | `fold_ledger_tools.py`, `fold_gate*.py` |
 
-## ★ Antons egen bild av grafen (hans prompts jun–jul, minnesfilen `project_graph_as_anton_conceives_it`)
+## ★ Anton’s own picture of the graph (his prompts Jun–Jul, memory file `project_graph_as_anton_conceives_it`)
 
 "Variables that have relations to each other" + unlock graph + densification. NOT accounting. The README
 was written by an agent from the code and mostly describes the accounting layer. The layers, from top:
 
-| lager | vad | fil i CS-I `data/` |
+| layer | what | file in CS-I `data/` |
 |---|---|---|
 | Unlock graph | target → load-bearing subnodes | `ANCHOR_GRAPH.json` (97 nodes, 14 targets) |
 | **Variables in relation (the core)** | quantities linked by quantified relations; edge status TIGHT / OPEN / UNKNOWN; evidence as list {file, key, value} | `CONSTRAINT_NET_VEHICLE.json` (20 variables, 34 edges: 32 TIGHT), `CONSTRAINT_NET_PROJECTOR.json` , `CONSTRAINT_NET_FLEET_FACTORY.json` ; stress map `CONSTRAINT_STRESS_MAP_V1.json` |
@@ -24,9 +24,9 @@ was written by an agent from the code and mostly describes the accounting layer.
 Volvo: node `VEH-REDBLOCK-BASE` (root under `VEH-CONSTRAINT-NET` → `VEHICLE-GOAL` ), 46 folds, base in `~/research/volvo_redblock/` . No
 migration needed: everything above is correct. What is missing is a READ VIEW that shows the layers together (reads, never writes).
 
-## cad-to-simulation (ett git-repo, 16 worktrees = en gren per lane)
+## cad-to-simulation (a git-repo, 16 worktrees = one branch per lane)
 
-| vad | var | storlek |
+| what | where | size |
 |---|---|---|
 | The graph | **only in CS-I** (`feat/breakthrough-hyperreal`, the hub) `data/ANCHOR_GRAPH.json` | 97 nodes (14 targets), 81 dependencies, 660 evidence pointers. Created 07-16 with 11 nodes, 364 commits |
 | Measurement logs, one per lane | CS-I 976 · CS-L 704 · CS-F 626 · CS-H 319 · CS-G 124 · CS-B 8 · CS-C 8 · CS-J 7 | ≈ 2 770 folds total |
@@ -35,9 +35,9 @@ migration needed: everything above is correct. What is missing is a READ VIEW th
 
 The graph is small in number of nodes and heavy in evidence: 17 PROVEN, 78 of 97 nodes have evidence.
 
-## BodyTwin / Mechanism (ett repo, gren `bodytwin`; `mechanism/` = samma repo vid 07-23, `bodytwin/` vid 08-14)
+## BodyTwin / Mechanism (one repo, branch `bodytwin`; `mechanism/` = same repo at 07-23, `bodytwin/` at 08-14)
 
-| vad | storlek |
+| what | size |
 |---|---|
 | Inherited copy of the CS graph (mode 07-19) `data/ANCHOR_GRAPH.json` | 66 nodes — all 66 ids remain in CS today |
 | Inherited measurement log `data/FOLD_LEDGER.jsonl` | 451 rows |
@@ -45,7 +45,7 @@ The graph is small in number of nodes and heavy in evidence: 17 PROVEN, 78 of 97
 
 Mirror of CS, as intended. The difference in size: 3 873 of 3 950 nodes are OPEN (designed, not measured), 1 PROVEN; 1 876 comes from the cluster "autonomous-expansion". CS: few nodes, very saturated. BodyTwin: many designed nodes, a bit saturated.
 
-## Staging / publikt (`3fold_staging/`)
+## Staging / public (`3fold_staging/`)
 
 The engine, not the graphs. `3fold-graph-engine` : all tools above + an example with 4 nodes and 4 folds. `3fold-bodytwin` : extract
 45, 26 and 2 nodes with 35 resp. 17 folds. The README says the same: nodes and overlays were created privately and are not included.

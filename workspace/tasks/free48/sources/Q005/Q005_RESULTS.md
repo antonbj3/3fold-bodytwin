@@ -1,6 +1,6 @@
 BT-HX-Q005
 
-# Resultat
+# Result
 
 ## Core results
 

@@ -13,4 +13,4 @@ Read first:
 4. First optimisation step (D1 bold): which u minimises the peak hip force in the collaborator's box lift within ±10° / ±10 mm? Use the gradient + projection. Verify the optimum with a full rebuild (not Taylor, Field's caveat). Report whether the optimum lies inside the model's uncertainty band (N2b A363).
 5. Counter-tests: permuted u axes; another person's femur.
 
-Resources: lane runner has full permissions. Internal the collaborator/restricted model data stays local or on OVH (`tasks/cloud_run.sh`, BodyTwin ≤ 12 vCPU, finish by 23:59), not Modal. Read-only in `3fold_staging` (copy U380's code with a source reference). Write in `results/CX-D1PARITY/`. `RESULTS.md` starting with `# CX-D1PARITY`, plus results.json, code, and pytest.
+Resources: lane_runner has full permissions. Internal the collaborator/restricted model data stays local or on OVH (`tasks/cloud_run.sh`, BodyTwin ≤ 12 vCPU, finish by 23:59), not Modal. Read-only in `3fold_staging` (copy U380's code with a source reference). Write in `results/CX-D1PARITY/`. `RESULTS.md` starting with `# CX-D1PARITY`, plus results.json, code, and pytest.

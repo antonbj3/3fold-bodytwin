@@ -23,4 +23,4 @@ Leads:
 3. A144: repair the cap-QP with an optimality check (KKT/dual gap per step), then rerun. Write a correction `[CORRECTED … by CX-SOLVER-ROBUST]` inline in A144's row in `notes/RESULTS_INDEX.md` ONLY once the new frozen audit is done.
 4. Counter-test: permuted scaling must not change the solution (invariance).
 
-Resources: lane runner has full permissions in the workspace. the collaborator's data is internal (local/OVH only, via `tasks/cloud_run.sh`, BodyTwin ≤ 12 vCPU, finish by 23:59). Write in `results/CX-SOLVER-ROBUST/`. `RESULTS.md` starting with `# CX-SOLVER-ROBUST`, plus results.json and pytest.
+Resources: lane_runner has full permissions in the workspace. the collaborator's data is internal (local/OVH only, via `tasks/cloud_run.sh`, BodyTwin ≤ 12 vCPU, finish by 23:59). Write in `results/CX-SOLVER-ROBUST/`. `RESULTS.md` starting with `# CX-SOLVER-ROBUST`, plus results.json and pytest.

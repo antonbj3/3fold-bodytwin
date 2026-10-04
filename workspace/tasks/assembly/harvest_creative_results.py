@@ -12,7 +12,7 @@ WHAT IT PULLS. Per report: the external locators, every number with a unit, and 
 names one of our net variables or edge ids. A number is only useful if it can be traced, so a line
 without a locator in the same report is kept separately rather than mixed in.
 
-NO GATE IS APPLIED HERE beyond the exclusion filter. Admission needs the unit-and-range gate and a
+NO GATE IS APPLIED HERE beyond admission. Admission needs the unit-and-range gate and a
 decision that consumes the number; this is the reading step that was missing.
 """
 from __future__ import annotations
@@ -74,13 +74,14 @@ def main() -> None:
     fam = {}
     for r in reports:
         fam[r['family']] = fam.get(r['family'], 0) + 1
-    print(f"Read reports: {len(reports)}  traceable: {sum((r['traceable'] for r in reports))}")
-    print('per familj:', fam)
-    print(f"tal med enhet, totalt: {sum((r['numbers_with_units'] for r in reports))}  unique in traceable reports: {len(rows)}")
+    print(f'reports read: {len(reports)}  traceable: {sum(r["traceable"] for r in reports)}')
+    print('per family:', fam)
+    print(f'numbers with units, total: {sum(r["numbers_with_units"] for r in reports)}'
+          f'  unique in traceable reports: {len(rows)}')
     linked = [r for r in reports if r['net_names_mentioned']]
-    print(f'reports naming a network variable or edge: {len(linked)}')
+    print(f'reports naming a net variable or edge: {len(linked)}')
     for r in sorted(reports, key=lambda x: -x['numbers_with_units'])[:8]:
-        print(f'  {r["job"][:46]:<48} {r["numbers_with_units"]:>4} tal  '
+        print(f'  {r["job"][:46]:<48} {r["numbers_with_units"]:>4} numbers  '
               f'{"DOI" if r["dois"] else ""}{"/PMID" if r["pmids"] else ""}  {r["net_names_mentioned"][:2]}')
     print('wrote', out)
 

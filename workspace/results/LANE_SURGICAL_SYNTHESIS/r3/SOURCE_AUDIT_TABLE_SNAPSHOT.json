@@ -1292,7 +1292,7 @@
       "findings": [
         {
           "id": "Q005_cell_conversion",
-          "classification": "ENHETSFEL",
+          "classification": "UNIT ERROR",
           "inventory": "steady intracellular substrate",
           "ports": "OCT2 pmol cm^-2 min^-1 versus MATE P[cm/s]*C[uM]*1000*60",
           "tests": [
@@ -1903,7 +1903,7 @@
         },
         {
           "id": "Q012_day_hour",
-          "classification": "ENHETSFEL",
+          "classification": "UNIT ERROR",
           "inventory": "time-integrated TMAO moles",
           "ports": "RHS mol L^-1 h^-1 integrated on days grid",
           "tests": [
@@ -2708,7 +2708,7 @@
         },
         {
           "id": "Q052_Pascal",
-          "classification": "ENHETSFEL",
+          "classification": "UNIT ERROR",
           "inventory": "dimension metadata",
           "ports": "Pa = kg m^-1 s^-2",
           "tests": [
@@ -3194,7 +3194,7 @@
       "findings": [
         {
           "id": "Q115_cutoff",
-          "classification": "TRUNCATION THAT IS DECLARED AND NEGLIGIBLE",
+          "classification": "CUTOFF THAT IS DECLARED AND NEGLIGIBLE",
           "inventory": "sum age-bin cells",
           "ports": "birth - shedding - explicit LAST_CUTOFF_OUTFLOW",
           "tests": [
@@ -4057,7 +4057,7 @@
         },
         {
           "id": "Q115_steady_grid",
-          "classification": "TIDSSTEGSARTEFAKT",
+          "classification": "TIME STEP ARTEFACT",
           "inventory": "stationary cells",
           "ports": "birth_rate*dt and hazard_rate*dt must appear in stationary age recurrence",
           "tests": [
@@ -4281,7 +4281,7 @@
         },
         {
           "id": "Q146_local_AUC",
-          "classification": "ENHETSFEL",
+          "classification": "UNIT ERROR",
           "inventory": "exposure",
           "ports": "local concentration integral",
           "tests": [
@@ -4313,7 +4313,7 @@
         },
         {
           "id": "Q146_local_concentration",
-          "classification": "ENHETSFEL",
+          "classification": "UNIT ERROR",
           "inventory": "local concentration",
           "ports": "mol/m3 -> mg/mL",
           "tests": [

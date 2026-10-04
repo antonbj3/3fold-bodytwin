@@ -11,7 +11,7 @@ well as, for each fold, `extension.factorization` (the exact source equation)
 and for each hold `hold_argument` . So I haven't had to code the shape
 myself to get an independent label — the run already has one.
 
-Den etiketten separerar utfallet **exakt**:
+That label separates the output **exactly**:
 
 | `summary_form` starts with `local_` | FAILED | HELD |
 |---|---:|---:|
@@ -79,7 +79,7 @@ point, same moment, same weight, no other independent coordinate).
 Expansion size among the 38 precipitates: **1 scalar in 29, 2 scalars
 in 5, no small found in 4**. No case required more than two.
 
-## 2. Hypotesen faller — rent ut
+## 2. The hypothesis fails — plainly
 
 The hypothesis was: *sufficiency fails exactly when the reading is a non-linear functional
 of a distribution whose relevant moments are more than the rank of the summary.*
@@ -279,7 +279,7 @@ the quantity is decision-making; if the practice estimates or measures it is
 UNKNOWN per row. The list is thus a generator of *questions for practice*, and
 it is computable — it falls out of the sufficiency test without extra work.
 
-## 7. Falsifierare
+## 7. Falsifier
 
 The criterion is passed if any of the following occurs:
 1. a read with zero representative mismatch falls on a pair with identity errors

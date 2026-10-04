@@ -123,12 +123,12 @@ def main() -> int:
         'proposals': attachable,
     }, indent=1, ensure_ascii=False))
 
-    print(f'  job read: {len(per_job)}')
-    print(f'  poster med tal + enhet + lokalisator: {len(records)}')
-    print(f'  of which attached to a network variable or cell: {len(attachable)}')
-    print('  per familj: ' + ', '.join(f'{k} {v}' for k, v in
+    print(f'  jobs read: {len(per_job)}')
+    print(f'  records with number + unit + locator: {len(records)}')
+    print(f'  of which attach to a net variable or cell: {len(attachable)}')
+    print('  per family: ' + ', '.join(f'{k} {v}' for k, v in
                                        Counter(r['family'] for r in attachable).most_common()))
-    print('  vanligaste enheter: ' + ', '.join(f'{u} {n}' for u, n in
+    print('  most common units: ' + ', '.join(f'{u} {n}' for u, n in
                                                Counter(r['unit'] for r in attachable).most_common(8)))
     return 0
 

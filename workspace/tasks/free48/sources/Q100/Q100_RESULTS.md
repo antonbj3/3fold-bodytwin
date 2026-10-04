@@ -17,7 +17,7 @@ Other layered outputs are glottal area 1.63570e-5 to 1.69527e-5 m^2, maximum con
 
 ## Sensitivity, ±50 %
 
-| Parameter | -50 %: f0 / kontakt / amplitud | +50 %: f0 / kontakt / amplitud |
+| Parameter | -50 %: f0 / contact / amplitude | +50 %: f0 / contact / amplitude |
 |---|---|---|
 | `k_surface` | 127.875 Hz / 15.346 % / 232.974 um | 131.090 Hz / 0.000 % / 2.635 um |
 | `k_contact_surface` | 137.331 Hz / 17.871 % / 106.332 um | 139.851 Hz / 11.022 % / 95.420 um |

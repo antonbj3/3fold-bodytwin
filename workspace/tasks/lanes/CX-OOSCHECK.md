@@ -12,4 +12,4 @@ Background: A1778 CX-HYBRIDOOS. Hybrid (c), learned on gait: 0.536 vs N1g 0.698 
    - phase definition, BW, units.
 5. **Verdict:** does (c) beat the fairest N1g (1) for ≥ 3/4 persons with ≥ 5 % person-median improvement, AND beat the level-only control (2)? Report the numbers.
 
-Runtime ≤ 45 min, 2 threads under bigmem.lock, at most 200 MB of intermediate files. Deliver RESULTS.md starting with `# CX-OOSCHECK` and results.json. Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+Runtime ≤ 45 min, 2 threads under bigmem.lock, at most 200 MB of intermediate files. Deliver RESULTS.md starting with `# CX-OOSCHECK` and results.json. Internal data stays local. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

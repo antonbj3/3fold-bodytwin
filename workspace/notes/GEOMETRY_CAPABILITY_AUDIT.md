@@ -6,7 +6,7 @@ Sources, all read without modification:
 
 | Source | Path | Version |
 |---|---|---|
-| Publicerad | `references/current_bodytwin` → `external_mount` | `b95a8dc` "Add geometry contracts and refuse unapproved chained results" |
+| Published | `references/current_bodytwin` → `external_mount` | `b95a8dc` "Add geometry contracts and refuse unapproved chained results" |
 | Staging | `../3fold-bodytwin` | `2ec6cb2` |
 | Private | `source_repository/` | `2c42ec52f9` |
 | Field engine | `local_path` | `3ffdb0e` |
@@ -32,7 +32,7 @@ Warp wrote "CUDA error 100: no CUDA-capable device" to stderr. This is expected 
 
 ---
 
-## 2. Kapabilitetstabell, publicerad `b95a8dc` (`src/bodytwin/geometry/`)
+## 2. Capability table, published `b95a8dc` (`src/bodytwin/geometry/`)
 
 Conventions throughout the package: mm is explicitly required (`units='mm'`, otherwise ValueError). There is no unit guessing, no repair and no resampling. Missing data gives ABSTAIN/UNKNOWN and is never replaced by a default value.
 
@@ -126,7 +126,7 @@ The dental inventory, row 30, states that no OpenSim model contains a mandible. 
 
 The field engine and motion engine have none of this. The barycentric hit in the field engine is internal and should not be bound in.
 
-## 6. Rekommenderad minsta demokedja
+## 6. Recommended minimum demo chain
 
 **Dataset: OpenMandible base model**, with mandible, 14 attachments, 14 origins on the skull, condylar cartilage and teeth per material. It already passes the strict seam, and the attachments are exact vertex subsets.
 - License: the code is GPL-3.0, but **the license for model data is not specified** (UNKNOWN, according to `../dental/notes/orient_C_code_chain.md`). This is enough for an internal demonstration. Before publication, clarification from the author is required, or a switch to BodyParts3D mandible (CC BY-SA 2.1 JP / CC BY 4.0, but attachments are missing there) or Open-Full-Jaw (CC BY-NC-SA 4.0, 17 patients, conforming tet and tooth/PDL/bone, but without muscle attachments).

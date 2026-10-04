@@ -24,7 +24,7 @@ Two things make the decision weaker than it looks:
    the conservative break. A decision whose envelope is twice its value hardly chooses anything.
 
 ## Operationen
-Bygg kalibreringen `setting → D_eff` from published data, or show that it cannot be
+Build the calibration `setting → D_eff` from published data, or show that it cannot be done
 identify out of depth-versus-time alone. Candidates already named in the swarm's material:
 
 | source | what it carries |
@@ -49,5 +49,5 @@ gating and not deciding, and that's the result. Print the quantity that would br
 produkten.
 
 ## Rules
-`PENDING_INDEPENDENT_REVIEW`, no claim of biological validation, no excluded_category material, nothing that
-names an individual person. Every source with PMID or DOI, volume and pages.
+`PENDING_INDEPENDENT_REVIEW` , no statement of biological validation, no excluded_category
+material, nothing naming an individual. Each source with PMID or DOI, volume and pages.

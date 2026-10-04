@@ -25,7 +25,7 @@ V0 searched BodyTwin, mechanism and the data volumes, but almost none of the cad
 | `external_mount`, `external_mount` | Mounted | Contain only dental videos and entertainment films. |
 | `sde1` (vfat) | Mounted | Contains 3D-printer data and no video. |
 
-## Kluster
+## Clusters
 
 "Missed by V0" means the cluster is absent from `results/V0/inventory.json`. "Partial" means V0 mentioned the path but not the contents, or judged the cluster irrelevant. Full paths are in `clusters.json`. CS-I stands for `local_path`.
 
@@ -70,7 +70,7 @@ V0 searched BodyTwin, mechanism and the data volumes, but almost none of the cad
 | Isaac Sim assets 5.0 | Sim assets | Deleted 2026-09-22, manifest exists | Isaac Assist | Yes: NVIDIA URL in README |
 | MECHANISM foot close-ups | Foot | Never downloaded (YouTube bot-blocked) | `foot_closeup_pose.py` | – |
 
-## Ordcensus i korthet
+## Word census briefly
 
 Each row shows the number of files with hits and the five directories with the most hits. Noise from common words (frame, depth, match, hand, sharp, reflect, gaussian) is described in `census.json`. The CS trees are worktrees with partly the same contents, so the numbers must not be summed across them.
 
@@ -81,9 +81,9 @@ Each row shows the number of files with hits and the five directories with the m
 | scene_eyes | 3594 | CS-I 1070, omniverse_extension 165 |
 | disassembly/disassembly | 1473 | CS-I 272, robot_lab-spine 159, CS-J 77 |
 | smpl | 731 | CS-I 135, content_platform 132 |
-| ansikte/face | 204 | content_platform 82, CS-I 52 |
+| face/face | 204 | content_platform 82, CS-I 52 |
 | euroc | 2218 | CS-I 354, CS-C 242, CS-G 120 |
-| kameratvilling | 267 | CS-I 85 |
+| camera twin | 267 | CS-I 85 |
 | rolling shutter | 655 | CS-I 152, CS-C 88 |
 | brdf / polarisation / psf | 1689 / 3058 / 1799 | CS-I 456 / 544 / 322 |
 | isaac camera | 235 | omniverse_extension 173 |

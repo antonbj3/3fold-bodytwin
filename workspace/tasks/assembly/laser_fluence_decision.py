@@ -100,7 +100,7 @@ def main() -> int:
                     'reported rather than resolved here'},
         'decision_rows': rows,
         'control_fixed_fluence': {'fluence_J_cm2': round(fixed, 4), 'rows': fixed_rows},
-        'control_published_law_as_rule': 'exact by construction, it is the facit',
+        'control_published_law_as_rule': 'exact by construction, it is the ground truth',
         'claim_type': 'capability',
         'review_state': 'PENDING_INDEPENDENT_REVIEW',
         'scope': ('a decision against a published law, not against measured tissue outcomes; no claim '
@@ -109,8 +109,9 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / 'LASER_DECISION_V1.json').write_text(json.dumps(summary, indent=1, ensure_ascii=False))
 
-    print(f'  published law: threshold {HELD_THRESHOLD} J/cm2, lutning {HELD_SLOPE} ug/J\n')
-    print(f"  {'target ug/cm2':>11s} {'our fluence':>11s} {'publicerad':>11s} {'faktiskt bort':>13s} {'fel %':>8s}   fast fluens fel %")
+    print(f"  published law: threshold {HELD_THRESHOLD} J/cm2, slope {HELD_SLOPE} ug/J\n")
+    print(f"  {'target ug/cm2':>11s} {'our fluence':>11s} {'published':>11s} "
+          f"{'actually removed':>13s} {'error %':>8s}   fixed fluence error %")
     for r, fr in zip(gauss, fixed_rows):
         print(f"  {r['target_ug_cm2']:>11.0f} {r['fluence_we_would_choose_J_cm2']:>11.4f} "
               f"{r['fluence_the_published_law_would_choose_J_cm2']:>11.4f} "

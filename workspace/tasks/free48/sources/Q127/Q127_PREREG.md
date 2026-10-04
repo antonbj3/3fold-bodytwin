@@ -8,9 +8,9 @@ Scope: one representative adult type-II muscle fibre, with a longitudinal fibre 
 - `inputs/QUESTION.md`: the requested state variables, `dM/dt = J_fuse - k_loss M`, the warning that fusion yield is dimensionless per event, and the required outputs.
 - `inputs/NIGHT_PREAMBLE.md`: the bounded, one-thread, public-literature-only execution and the separation of source, derivation, and hypothesis.
 - The only pre-existing session artifact was `agent.log`; it records an interrupted directory check and contains no model or results. No earlier deliverable was present.
-- Public reference: Cumming, K. T., Reitzner, S. M., Hanslien, M., Skilnand, K., Seynnes, O. R., Horwath, O., Psilander, N., Sundberg, C. J., and Raastad, T. (2024), “Muscle memory in humans: evidence for myonuclear permanence and long-term transcriptional regulation after strength training”, *The Journal of Physiology* 602(17):4171–4193, DOI `10.1113/JP285675`. The Ovid full-text page was fetched and the values below occur in its “Number of myonuclei” Results and Figs. 3 and 6: https://www.ovid.com/journals/jphy/fulltext/10.1113/jp285675~muscle-memory-in-humans-evidence-for-myonuclear-permanence. The page was found; this reference is not marked OVERIFIERAD.
+- Public reference: Cumming, K. T., Reitzner, S. M., Hanslien, M., Skilnand, K., Seynnes, O. R., Horwath, O., Psilander, N., Sundberg, C. J., and Raastad, T. (2024), “Muscle memory in humans: evidence for myonuclear permanence and long-term transcriptional regulation after strength training”, *The Journal of Physiology* 602(17):4171–4193, DOI `10.1113/JP285675`. The Ovid full-text page was fetched and the values below occur in its “Number of myonuclei” Results and Figs. 3 and 6: https://www.ovid.com/journals/jphy/fulltext/10.1113/jp285675~muscle-memory-in-humans-evidence-for-myonuclear-permanence. The page was found; this reference is not marked UNVERIFIED.
 
-## Hypotes
+## Hypothesis
 
 A load episode first increases a fibre’s precursor-to-fibre fusion flux when its cytoplasmic domain is stressed. The number of nuclei can subsequently remain above the no-history control during detraining even when fibre area returns toward baseline. A slowly decaying intracellular priming state can alter per-nucleus synthesis on retraining, but that state is not labelled motor memory and is not inferred from the nuclear count alone.
 

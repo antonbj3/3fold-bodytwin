@@ -64,7 +64,7 @@ Actual automated SEED runs on OVH:
 Example, actual `MODEL_ROUTE.json` for SEED-495:
 
 ```json
-{"account":"D","requested":"swarm","selected":"reserve_worker","model":"opencode-go/reserve_worker-v4.1-flash","started":1790759089.4781682}
+{"account":"D","requested":"swarm","selected":"swarm_worker","model":"opencode-go/swarm_worker-v4.1-flash","started":1790759089.4781682}
 ```
 
 Process snapshot shows `opencode run --model opencode-go/swarm_worker-v4.1-flash` with these jobs and the marker’s launcher as parent. The snapshot for SEED-493/-494/-495 contains 7 completed tool calls each at measurement time. swarm_worker processes and tool calls were observed **also on UpCloud** in its ordinary AUTO jobs during the same fallback test; UpCloud also runs the existing SEED wave. Free routes resumed when verification backoff expired.

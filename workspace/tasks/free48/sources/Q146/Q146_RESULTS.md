@@ -10,10 +10,10 @@ frozen before execution: `PREREG.md` + `PREREG.sha256` (fed66c26…).
 
 ## Prediction against reference
 
-Referens **R1** = Johansson C-J m.fl., *Eur J Clin Pharmacol* 1991;40:581–588,
-DOI 10.1007/BF00314989 — 1 mg nikotin intranasalt (septum/conchae/spray) mot
-0,7 mg iv, n = 8. GI-ben **R2** = *Clin Pharmacokinet* 2020/21,
-DOI 10.1007/s40262-020-00960-5 (F_oral = 0,40). Geometri **R5** = Ličen m.fl.,
+Reference **R1** = Johansson C-J et al., *Eur J Clin Pharmacol* 1991;40:581–588,
+DOI 10.1007/BF00314989 — 1 mg nicotine intranasally (septum/conchae/spray) versus
+0,7 mg iv, n = 8. GI-bone **R2** = *Clin Pharmacokinet* 2020/21,
+DOI 10.1007/s40262-020-00960-5 (F_oral = 0,40). Geometry **R5** = Ličen et al.,
 *Biomedicines* 2026;14(2):329, DOI 10.3390/biomedicines14020329.
 
 | site | F_pred | F_measured (R1) | quota | ceiling F_max | F_sw | C_free,max [mol/m³] | AUC_plasma [mol·s/m³] | t_max [min] |
@@ -24,9 +24,9 @@ DOI 10.1007/s40262-020-00960-5 (F_oral = 0,40). Geometri **R5** = Ličen m.fl.,
 
 The model underpredicts all three by 11–32 %, **without site-specific adaptation**.
 
-## Kriterier (frysta i PREREG §4)
+## Criteria (frozen in PREREG §4)
 
-| | kriterium | utfall |
+| | criterion | outcome |
 |---|---|---|
 | C1 | F(spray) within factor 2 of 0,58 | **YES** (1,32) |
 | C2 | all three sites within factor 2 | **YES** (1,30 / 1,11 / 1,32) |

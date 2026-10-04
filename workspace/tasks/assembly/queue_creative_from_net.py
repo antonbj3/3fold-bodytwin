@@ -60,7 +60,34 @@ def _load_block_pattern(extra: str = '') -> 're.Pattern[str]':
 
 BLOCK = _load_block_pattern()
 
-ASK = "\n\nBefore you look for anything: write down **three different ways of looking at this**,\nwith at least one that has nothing to do with tissue or eyes at all. Diverge first.\n\nThen choose what you think goes furthest and pursue it. What do you find?\n\nNo particular answer format. Give DOI or PMID for what you build on. If you conclude\nthat the material above points somewhere other than the question, say so.\n\n## Diverge widely first\n\nThis is not a review job. I want **ideas**, and they do not come from checking my numbers.\nWrite three readings of the material before searching for anything, and let at least one\nbe entirely outside tissue, body and medicine — a manufacturing process, a measuring instrument,\nan economic system, a material, anything that has the same form. Diverge as far\nas possible. Then choose the one that goes furthest and pursue it all the way.\n\nWhat I want to see is something that is NOT in the material: a connection nobody has\nposed, a quantity that would settle the question if someone measured it, a mechanism\nthat explains two things at once, or a way to make the question decidable with something\nalready measured elsewhere in the world. Give DOI or PMID for what you build on.\n\nIf along the way you see that two numbers in the material do not agree dimensionally,\nsay so in one line and move on — it is a bonus, not the task.\n\nStatus PENDING_INDEPENDENT_REVIEW.\n"
+ASK = """
+
+Before you look for anything: write down **three different ways of looking at this**,
+with at least one that has nothing to do with tissue or eyes at all. Diverge first.
+
+Then choose what you think goes furthest and pursue it. What do you find?
+
+No particular answer format. Give DOI or PMID for what you build on. If you conclude
+that the material above points somewhere other than the question, say so.
+
+## Diverge widely first
+
+This is not a review job. I want **ideas**, and they do not come from checking my numbers.
+Write three readings of the material before searching for anything, and let at least one
+be entirely outside tissue, body and medicine — a manufacturing process, a measuring instrument,
+an economic system, a material, anything that has the same form. Diverge as far
+as possible. Then choose the one that goes furthest and pursue it all the way.
+
+What I want to see is something that is NOT in the material: a connection nobody has
+posed, a quantity that would settle the question if someone measured it, a mechanism
+that explains two things at once, or a way to make the question decidable with something
+already measured elsewhere in the world. Give DOI or PMID for what you build on.
+
+If along the way you see that two numbers in the material do not agree dimensionally,
+say so in one line and move on — it is a bonus, not the task.
+
+Status PENDING_INDEPENDENT_REVIEW.
+"""
 
 
 def main() -> int:
@@ -110,18 +137,19 @@ def main() -> int:
                 and set(x['between']) & set(e['between'])
                 and not BLOCK.search(x['constraint'])]
         body = [f"# {' and '.join(e['between'])}", '',
-                "This is what our own measurements say:", '',
+                'This is what our own measurements say:', '',
                 f"> {e['constraint']}", '']
         if near:
-            body += ["The same quantities appear here:", '']
+            body += ['The same quantities appear here:', '']
             body += [f"> {x['constraint'][:230]}" for x in near[:3]]
             body += ['']
         # Branches the coordinator booked on the edge when it expanded. Without these the brief asks
         # the one question the edge is named after and the four openings sit unread in the JSON.
         if e.get('branches_opened'):
             body.append('')
-            body.append("## Branches already booked on this node")
-            body.append("Each one is his own question. Take the one you can get the longest with and say which one you took; leave the others untouched rather than answer thinly to everyone.")
+            body.append('## Branches already booked on this node')
+            body.append('Each is its own question. Take the one you can get the furthest with and say which one '
+                        'you took; leave the others untouched rather than respond thinly to all.')
             body.append('')
             for i, b in enumerate(e['branches_opened'], 1):
                 body.append(f'{i}. {b}')
@@ -148,18 +176,21 @@ def main() -> int:
             except OSError:
                 pass
             body.append('')
-            body.append("## This edge has been answered once before")
+            body.append('## This edge has been answered once before')
             if old_c and old_c != e['constraint'].strip()[:len(old_c)]:
-                body.append("This is how the edge read then:")
+                body.append('This is how the edge read then:')
                 body.append('')
                 body.append(f'> {old_c[:400]}')
                 body.append('')
-                body.append("That's what it says. (top quote in this briefen)The difference is why the question is asked again.")
+                body.append('That\'s how it reads now (top quote in this brief). The difference is '
+                            'the reason why the question is asked again.')
             else:
-                body.append('Kantens bevis eller status har flyttat sedan dess; texten kan se lik ut.')
+                body.append('The evidence or status of the edge has moved since then; the text may look similar.')
             if prior_text:
                 body.append('')
-                body.append("The previous answer, including in its entirety or the beginning of it — You don't have our file system, so this is all you get from it. Don't repeat its analysis, build on:")
+                body.append('The previous answer, pasted in its entirety or the beginning of it — you '
+                            'doesn\'t have our file system, so this is all you get from it. Don\'t redo '
+                            'its analysis, build further:')
                 body.append('')
                 body.append('```')
                 body.append(prior_text[:4000])
@@ -169,7 +200,7 @@ def main() -> int:
                         f'Bevis: {str(e.get("evidence", ""))[:200]}')
             for k in ('load_label_unsupported', 'sensitivity_note', 'evidence_relocated'):
                 if e.get(k):
-                    body.append(f'Noted on the edge ({k}): {str(e[k])[:300]}')
+                    body.append(f'Noted on edge ({k}): {str(e[k])[:300]}')
         (d / 'BRIEF.md').write_text('\n'.join(body).rstrip() + ASK)
         (d / 'ALLOW_WEB').write_text('1\n')
         # The shared queue orderer (research_value.assess) reads these fields and the ordering
@@ -221,7 +252,7 @@ def main() -> int:
         lines = [f'{slots[i % 4]} swarm {j}' for i, j in enumerate(made)]
         existing = QUEUE.read_text().splitlines() if QUEUE.exists() else []
         QUEUE.write_text('\n'.join(lines + existing) + '\n')
-    print(f'{len(made)} briefer out of the net; {skipped} uteslutna av filtret')
+    print(f'{len(made)} briefs out of the net, {skipped} excluded by the filter')
     for m in made:
         print('  ' + m)
     return 0

@@ -19,4 +19,4 @@ Search: `../3fold-motion-engine/` (src/, docs/, docs/papers P1–P4 + reproducib
 - A ranking of the top 10 by (expected value for BodyTwin) / (integration cost), with one line of justification each.
 - Explicitly: "not relevant" for large parts, with a search log (a negative requires a search log).
 - `motion_map.json`: the same data, machine-readable.
-No builds, no computation over 60 s, no writes outside `results/CX-MOTIONSCAN/`. lane runner has full permissions to read.
+No builds, no computation over 60 s, no writes outside `results/CX-MOTIONSCAN/`. lane_runner has full permissions to read.

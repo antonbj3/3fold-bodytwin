@@ -15,7 +15,7 @@ The branch now exists: **41 nodes and 202 ports**, merged from two independent r
 
 A branch whose ports connect to nothing is a drawing. That is what should be fixed, not the node count.
 
-## What is already decided and shall not be redone
+## What is already decided and should not be redone
 
 - **The binding limit is registration time, not sensing.** At 150 s per registration, acquisition is 0,002 % of the model update chain: 312 → 6417 Hz buys 3 ms out of 150 s, while 150 s → 1 s is 149,5×. The brainstorm's headline gap of 1,0e8 sits on the wrong term, and its denominator is a work cycle sold as a frequency.
 - **The error budget against 1,08 mm target accuracy:** brain shift +195 %, pivot deviation 110 %, tremor 1,0 %, optical error 0,1 %. Three of four headline gaps are far from binding; brain shift versus tremor is 193× in leverage.
@@ -37,13 +37,13 @@ A branch whose ports connect to nothing is a drawing. That is what should be fix
 - **Falsifier:** if no robot-side port can connect to anything we calculate, the branch is premature, and the result is a list of what we must calculate FIRST. Report it plainly — it is a fully adequate and important outcome, and better to know now than after twenty more nodes.
 - **Forbidden:** adding nodes or ports (the branch should be connected, not grow); using a vendor number as a measurement; counting a bench-only requirement as a robot gap; changing the graph engine.
 
-## Leverans
+## Delivery
 
 `PORT.json` with each connected port, its calculated quantity and provenance class; a `REQUIRES_NEW_COMPUTATION` list of what must be calculated first; and one number: how many ports now rely on more than one source, against 13 before.
 
-Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+No internal data. Everything PENDING_INDEPENDENT_REVIEW.
 
 
-## PIN UPDATED (the coordinator 2/10 21:05)
-Pinned commit moved from `cf9c1e9` to `352c6d3`, three commits later, seven files changed. The reason is that the three contain precisely the corrections we have pursued tonight: *Abstain when the downstream cert says nothing, instead of reading silence as a pass*, *Stop a validity filter from passing a point it never checked*, and *Say whether the declaration could separate two discordant reports, and count unconsumed verdicts*. The older pin would have let silence pass as approved.
-The engine is now also on both cloud hosts under `/opt/agents/graph_engine`, with the cited path symlinked there, so a job no longer needs to reimplement it. Verified: import through the cited path works on both.
+## PIN UPDATED (coordinator 2/10 21:05)
+Pinned commit moved from `cf9c1e9` to `352c6d3`, three commits later, seven files changed. The reason is that those three contain exactly the corrections we pursued tonight: *Abstain when the downstream cert says nothing, instead of reading silence as a pass*, *Stop a validity filter from passing a point it never checked*, and *Say whether the declaration could separate two discordant reports, and count unconsumed verdicts*. The older pin had let silence pass as approval.
+The engine is now also on both cloud hosts under `/opt/agents/graph_engine`, with the quoted path symlinked there, so a job no longer needs to reimplement it. Verified: import through the quoted path works on both.

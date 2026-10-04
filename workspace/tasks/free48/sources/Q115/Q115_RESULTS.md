@@ -1,6 +1,6 @@
 BT-HX-Q115
 
-## Resultat
+## Results
 
 Builds on `inputs/QUESTION.md`, `inputs/NIGHT_PREAMBLE.md` and `BRIEF.md`; no previous model files or result nodes were in the directory. `PREREG.md` was frozen before running and is included in `PREREG.sha256`.
 
@@ -25,29 +25,29 @@ Biggest impact at ±50 %: TA-delningssannolikhet (max 152,16 %), stem cycle (100
 
 The text above is unchanged and not touched, as it is reviewed. But the numbers it rests on have fallen.
 
-The migration rate of the cell was never a measurement. It fell out of `drag_pN_h_per_mm = 100.0`
-(`Q115_model.py:26`), whose own parameter table on line 114 said **"chosen to give 0.03 mm/h; assumption"**.
-The speed was the target and the drag was the steering wheel: (2,1 + 0,9) / 100 = 0,03 mm/h = 30,0 µm/h.
+The migration rate of the cell was never a measurement. It fell out of `drag_pN_h_per_mm = 100.0` (`Q115_model.py:26`),
+whose own parameter table on line 114 said **"chosen to give 0.03 mm/h; assumption"**. The
+speed was the target and the drag was the dial: (2,1 + 0,9) / 100 = 0,03 mm/h = 30,0 µm/h.
 
 With the sustained measurement 9,00 ± 0,465 µm/h (DOI 10.1096/fj.201601002) as declared input:
 
 | | before | now |
 |---|---|---|
 | turnover time | 73,33 h | **223,16 h** |
-| error against 72,5 h reference | 1,15 % | **207,81 %** |
-| cell count | 1670 | 5103 |
-| uptake | — | **+282,68 %** |
+| wrong versus 72,5 h-referensen | 1,15 % | **207,81 %** |
+| cellantal | 1670 | 5103 |
+| upptag | — | **+282,68 %** |
 | `primary_turnover` | PASS | **FAIL** |
 | `cell_census` | PASS | **FAIL** |
 | `mechanistic_perturbation` | FAIL | **PASS** |
 
-The match of 1,15 % was produced **twice**: also `baseline_path_mm = 1.95` was selected
-"with v=0.03 to represent 65 h", and 65 h is the figure the reference's 72,5 h is derived from. So were both
-the speed and distance set to hit the reference.
+The 1,15 % compliance was produced **twice**: also `baseline_path_mm = 1.95` was chosen
+"with v=0.03 to represent 65 h", and 65 h is the figure the reference's 72,5 h is derived
+from. Thus, both the speed and the distance were set to meet the reference.
 
 `--migration-speed-um-h 30.0` reproduces the old blocks identically, so nothing is lost.
 
-Checked separately: the model's age ceiling of 240 h does not explain the outcome — the ceiling flow is exactly 0,0
-at both 30,0 and 9,00 µm/h.
+Checked separately: the model age ceiling of 240 h does not explain the
+outcome — the ceiling flux is exactly 0,0 at both 30,0 and 9,00 µm/h.
 
 Status PENDING_INDEPENDENT_REVIEW.

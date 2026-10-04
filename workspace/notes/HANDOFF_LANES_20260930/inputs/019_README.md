@@ -1,6 +1,6 @@
 # Graph-guided invention, including invention of the search itself
 
-Anton, 2026-09-28: force combinatorics over the whole research history; reuse the substantial graph work; make improvement of the search an innovation task itself. One further proof_lane wave is reserved for later coordinator selection. This package launches no paid model.
+Anton, 2026-09-28: force combinatorics over the whole research history; reuse the substantial graph work; make improvement of the search an innovation task itself. One further the proof lane wave is reserved for later coordinator selection. This package launches no paid model.
 
 ## What already exists (code inspected)
 
@@ -46,11 +46,11 @@ Self-improvement is a testable loop: the selector is itself a versioned mechanis
 
 `seed.py` prepares six bounded jobs in the existing free-model queue. `ACTIVATION.json` lists exactly what was registered; process activity must be checked separately. Existing CPU/memory/concurrency limits and provider cooldowns apply.
 
-The six proposals are not six separate new graph engines. Each must name reused functions, justify any small extension, and provide a runnable patch or adapter in its own workspace. `BINDING.json` links outputs to this research target and the reused source files. Product integration requires review after delivery. These results become preparation for the one remaining proof_lane wave, not permission to launch it.
+The six proposals are not six separate new graph engines. Each must name reused functions, justify any small extension, and provide a runnable patch or adapter in its own workspace. `BINDING.json` links outputs to this research target and the reused source files. Product integration requires review after delivery. These results become preparation for the one remaining the proof lane wave, not permission to launch it.
 
-## First operational use — second reserve_worker wave
+## First operational use — second swarm_worker wave
 
-`select_wave.py` imports the delivered GRAPH-06 `Corpus` reader and uses its analogy/complement queries, followed by the existing engine `throws.draw_pairs`. The refreshed view includes 3,224 report-index rows and 339 cards. Ten pairs were selected for the explicitly requested `reserve_worker10B` wave. Each joins a first-wave reserve_worker result to a distinct earlier producer; a different reserve_worker result is added as a third constituent. Original source code, available older provenance packets and coordinator corrections accompany the task.
+`select_wave.py` imports the delivered GRAPH-06 `Corpus` reader and uses its analogy/complement queries, followed by the existing engine `throws.draw_pairs`. The refreshed view includes 3,224 report-index rows and 339 cards. Ten pairs were selected for the explicitly requested `reserve_worker10B` wave. Each joins a first-wave swarm_worker result to a distinct earlier producer; a different swarm_worker result is added as a third constituent. Original source code, available older provenance packets and coordinator corrections accompany the task.
 
 `ACTIVE/SELECTION.json` records the selected cards, query metadata, eligible population and conditional sampling probability. `ACTIVE/GRAPH_VIEW.json` is the typed reader output. These are declared-tag retrieval proposals: zero corpus-level mechanical distances have been measured. The prototype's resistance selector was excluded after code inspection because its incidence lookup loses family/version identity. Source-ID conflicts and unresolved references remain visible. This first use changes the actual input pair for ten executed jobs; it is not proof of improved discovery yield or a rollout to every autonomous planner.
 
@@ -58,12 +58,12 @@ Each job must return `GRAPH_FEEDBACK.json` and compare the selected bridge to an
 
 ## Connection to ongoing planners — 2026-09-28
 
-`cloud_bridge.py` supplies a first pool of ten immutable, source-bound candidate packets to the existing BodyTwin, dental and field planners. Each planner receives two candidates, actual mechanism code, coordinator corrections and returned feedback. The initial ten reserve_worker combination reports are already indexed as producer feedback. `CLOUD/PLANNER_START.json` records three explicitly queued planner jobs; a queue receipt is distinct from a running model.
+`cloud_bridge.py` supplies a first pool of ten immutable, source-bound candidate packets to the existing BodyTwin, dental and field planners. Each planner receives two candidates, actual mechanism code, coordinator corrections and returned feedback. The initial ten swarm_worker combination reports are already indexed as producer feedback. `CLOUD/PLANNER_START.json` records three explicitly queued planner jobs; a queue receipt is distinct from a running model.
 
 BodyTwin and dental retain their own native source catalogs, target IDs, dispatch gates and result bindings. The field planner retains its field/contact/material context and source queue. Cross-domain candidate IDs supplement those contracts. No source graph or engine pin is changed. The typed `CLOUD/EXECUTION_GRAPH.json` describes candidates, tasks and delivered artifacts separately from accepted scientific claims.
 
 Planner proposals may carry up to three registered candidate IDs. The normal intake then packages the corresponding code and previous feedback for the execution job; dependent followups retain those IDs. Field source copying preserves the experimental `work/` code for registered packets. Jobs return `GRAPH_COMBINATION_FEEDBACK.json`; planners return `GRAPH_PLANNING_DECISIONS.json`. A minute timer refreshes the feedback index for subsequent planning, including negative outcomes and missing feedback. Draft report availability, process completion and scientific admission remain distinct.
 
-This is a bounded integration of the delivered prototype into actual planning. Candidate exposure rotates within this initial pool; it is not a measured-distance optimizer over the whole corpus, and useful discovery yield is not yet established. Planners continue to propose independent directions from their native sources. The remaining proof_lane wave is not launched by this integration.
+This is a bounded integration of the delivered prototype into actual planning. Candidate exposure rotates within this initial pool; it is not a measured-distance optimizer over the whole corpus, and useful discovery yield is not yet established. Planners continue to propose independent directions from their native sources. The remaining the proof lane wave is not launched by this integration.
 
 `check_cloud_bridge.py` verifies real source hashes/code copying, rejected invalid candidate IDs, inherited provenance, negative-result return, draft/completed distinctions, field proposal intake and preservation of native project targets. Test output is in `CLOUD/CHECKS.json`. Changes and deployment receipts are included in the existing private research checkpoint archive.

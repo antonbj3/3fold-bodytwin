@@ -124,15 +124,15 @@ def main() -> None:
               'glass_batch_energy': glass_batch_energy(),
               'mptp_pathway_ceiling': mptp_ceiling()}
     flips = []
-    print(f'{"beslut / fall":<44} {"punkt":<22} {"andel":>7}  utfall')
+    print(f'{"decision / case":<44} {"point":<22} {"fraction":>7}  outcome')
     for decision, cases in report.items():
         for case, r in cases.items():
-            mark = "FLIPPED -> FAIL" if r['flipped'] else "stands"
+            mark = 'FLIPPED -> FAIL' if r['flipped'] else 'stands'
             if r['flipped']:
                 flips.append(f'{decision}/{case}')
             print(f'  {decision + "/" + case:<42} {str(r["point_verdict"])[:20]:<22} '
                   f'{r["agreement_fraction"]:>7.3f}  {mark}')
-    print(f'\nturn: {len(flips)} av {sum((len(c) for c in report.values()))}')
+    print(f'\nflipped: {len(flips)} of {sum(len(c) for c in report.values())}')
     for f in flips:
         print('   ', f)
     d = 'results/ASSEMBLY_DISTRIBUTION_GATE'

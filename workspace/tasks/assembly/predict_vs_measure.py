@@ -99,10 +99,16 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / 'PREDICT_VS_MEASURE_V1.json').write_text(json.dumps(summary, indent=1, ensure_ascii=False))
 
-    print(f'  {n} eyes with all greatness\n')
-    print(f"  {'storhet':6s} {'enhet':>5s} {'measurement disagreement':>14s} {'prediktion':>11s} {'kohortmedel':>12s}  Closer?")
+    print(f"  {n} eyes with all quantities\n")
+    print(f"  {'quantity':6s} {'unit':>5s} {'measurement disagreement':>14s} {'prediction':>11s} "
+          f"{'cohort mean':>12s}  tighter?")
     for r in results:
-        print(f"  {r['quantity']:6s} {r['unit']:>5s} {r['measurement_disagrees_with_itself_mean']:>14.5f} {r['prediction_error_from_other_quantities_mean']:>11.5f} {r['cohort_mean_control_error']:>12.5f}  {('JA' if r['prediction_tighter_than_the_measurement'] else 'nej')}{('' if r['prediction_beats_the_cohort_mean'] else '  (does not beat cohort mean)')}")
+        print(f"  {r['quantity']:6s} {r['unit']:>5s} "
+              f"{r['measurement_disagrees_with_itself_mean']:>14.5f} "
+              f"{r['prediction_error_from_other_quantities_mean']:>11.5f} "
+              f"{r['cohort_mean_control_error']:>12.5f}  "
+              f"{'YES' if r['prediction_tighter_than_the_measurement'] else 'no'}"
+              f"{'' if r['prediction_beats_the_cohort_mean'] else '  (does not beat cohort mean)'}")
     return 0
 
 

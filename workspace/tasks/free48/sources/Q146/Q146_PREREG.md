@@ -9,7 +9,7 @@ Run: `python3 model.py` (writes `results.json`), `python3 test_model.py`.
 
 ---
 
-## 1. Hypotes (H1)
+## 1. Hypothesis (H1)
 
 A regional, geometrically resolved nasal model where **absorption rate and
 mucus clearance compete locally** (dimensionless number Pe = k_epi·a / v_clear) and where
@@ -19,13 +19,13 @@ from **one** parameter set, without site-specific fitting.
 
 ## 2. Reference answers (outputs according to the question)
 
-| Storhet | Enhet |
+| Quantity | Unit |
 |---|---|
 | N_nose, regional remaining amount | mol |
 | F_swallow, swallowed fraction of the dose | 1 |
 | C_free, maximum free local concentration in a mucosal strip | mol/m³ |
 | AUC_plasma | mol·s/m³ |
-| F_abs, absolut bioavailableitet (iv-refererad) | 1 |
+| F_abs, absolute bioavailability (iv-referenced) | 1 |
 
 ## 3. Reference values (published, looked up with web search before the run)
 
@@ -42,7 +42,7 @@ PMID 1815971. Verified: publication page (link.springer.com + doi.org) read 2026
 - The authors’ own conclusion: *"there was no significant difference in the rate or
   extent of absorption between the different nasal treatments."*
 
-**R2 (GI-ben, F_oral).** "Nicotine Population Pharmacokinetics in Healthy Smokers
+**R2 (GI branch, F_oral).** "Nicotine Population Pharmacokinetics in Healthy Smokers
 After Intravenous, Oral, Buccal and Transdermal Administration." *Clin Pharmacokinet*
 2020/2021. DOI **10.1007/s40262-020-00960-5** (PMC8016787). Verified 2026-09-25.
 - F_oral = 40 % (published interval 17–69 %); swallowed fraction in buccal
@@ -55,13 +55,13 @@ Kinetics and Biomarkers" (PMC2953858): total CL ≈ 1200 ml/min; non-renal CL �
 70 % of liver flow ⇒ approximately 70 % extraction per liver passage. Verified 2026-09-25.
 The model here uses well-stirred: E_H = 1 − CL/Q_H with Q_H = 90 L/h ⇒ E_H ≈ 0,23–0,26.
 
-**R4 (slemclearance).** Caponnetto P et al. "Saccharin test for the study of
+**R4 (mucus clearance).** Caponnetto P et al. "Saccharin test for the study of
 muciliary clearance: reference values for a Spanish population." PMID **19006634**:
-n = 249, nasal MCT median 16 min, medel 17,17 ± 8,43 min, 2,5–97,5 percentile 6–36 min.
-Hastighet: 5–8 mm/min (Puchelle F et al., *Acta Oto-Laryngol* 1981;91:297–303,
-DOI 10.3109/00016488109138511; jmf. popline-abstract 1990: 5,0–8,0 mm/min).
+n = 249, nasal MCT median 16 min, mean 17,17 ± 8,43 min, 2,5–97,5 percentile 6–36 min.
+Speed: 5–8 mm/min (Puchelle F et al., *Acta Oto-Laryngol* 1981;91:297–303,
+DOI 10.3109/00016488109138511; cf. popline abstract 1990: 5,0–8,0 mm/min).
 
-**R5 (GEOMETRI).** Ličen A, Grmaš J, Gubič Š, Trontelj J, Gomboc T, Hriberšek M et al.
+**R5 (GEOMETRY).** Ličen A, Grmaš J, Gubič Š, Trontelj J, Gomboc T, Hriberšek M et al.
 "Development, Fabrication and Application of a Sectioned 3D-Printed Human Nasal Cavity
 Model for In Vitro Nasal Spray Deposition Studies." *Biomedicines* 2026;14(2):329.
 DOI **10.3390/biomedicines14020329**. Verified 2026-09-25.
@@ -120,7 +120,7 @@ DOI 10.1186/1617-9625-5-11). ⇒ R_met is physically necessary but its magnitude
   workspace (checked with glob) ⇒ the pointer is dead; the physics is rewritten from first
   principles here. No `import *`.
 
-## 7. Resurser
+## 7. Resources
 
 1 thread, < 1 GB, no batch/sweep, no cloud, no GPU. The computation is an
 ODE integration at a couple of hundred time points.

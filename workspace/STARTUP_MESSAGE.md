@@ -24,7 +24,7 @@ Break down ideas recursively: **idea → mechanism → equation → operation �
 
 ## Read first, in order
 
-Arbetsmapp: ``.
+Working folder: ``.
 
 1. `../AGENTS.md`, `START.md`, `../README.md`, `../FORMAT.md` and `../SETUP_STATUS.json`.
 2. `references/collaborator_context.md`, which points to `external_research_path`. It contains identified emails, primary sources and a completed geometry audit. Read the original correspondence as needed through available read access; send nothing.

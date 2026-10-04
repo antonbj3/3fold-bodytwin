@@ -1,4 +1,4 @@
-# CX-BOOKKEEP — book finished The swarm/reserve_worker results in the register (one row each)
+# CX-BOOKKEEP — book finished The_swarm/swarm_worker results in the register (one row each)
 
 Jobs: BT-AN-G10 BT-AN-G11 BT-AN-G12 BT-AN-G13 BT-AN-G16 BT-B143 BT-B152 BT-B153 BT-B154 BT-B161 BT-B162 BT-B163 BT-B164 BT-B165 BT-B166 BT-B167 BT-B168 BT-B169 BT-B170 BT-B171 BT-B172 BT-B173 BT-B174 BT-B175 BT-B176 BT-B177 BT-B178 BT-B179 BT-N59 
 

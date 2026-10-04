@@ -68,11 +68,11 @@ def late_response(g,p,e,params,until,dt,*,checkpoint=None):
 def run(config,*,mode='evidence',out=None,grid_kind='graded',shear=True):
  if mode not in ['evidence','scenario']:raise ValueError('Mode must be evidence or scenario')
  st=time.perf_counter();cpu=time.process_time();ports=check_config(config)
- unavailable=[k for k,p in ports.items() if p.status!="MEASURED"]
- unknown_names=[k for k,p in ports.items() if p.status=="UNKNOWN"]
+ unavailable=[k for k,p in ports.items() if p.status!='MEASURED']
+ unknown_names=[k for k,p in ports.items() if p.status=='UNKNOWN']
  if mode=='evidence' or unknown_names:
   reason='Synthetic/unknown inputs cannot populate an empirical prediction' if mode=='evidence' else 'Scenario must explicitly fill all consumed unknowns'
-  result={'review_state':REVIEW,'scientific_admission':False,'mode':mode,'engineering_gate':'PASS_UNKNOWN_PROPAGATION','empirical_joint_gate':'UNKNOWN','missing_or_nonempirical_ports':unavailable,'native_strength':unknown('%intact','Final source ports',reason).dict(),'stages':{s:{'status':"UNKNOWN",'value':None,'reason':reason} for s in ['injury_gap','bleeding_hemostasis','oxygen','healing_inventories','strength']}}
+  result={'review_state':REVIEW,'scientific_admission':False,'mode':mode,'engineering_gate':'PASS_UNKNOWN_PROPAGATION','empirical_joint_gate':'UNKNOWN','missing_or_nonempirical_ports':unavailable,'native_strength':unknown('%intact','Final source ports',reason).dict(),'stages':{s:{'status':'UNKNOWN','value':None,'reason':reason} for s in ['injury_gap','bleeding_hemostasis','oxygen','healing_inventories','strength']}}
   if out is not None:out.mkdir(parents=True,exist_ok=False);write(out/'summary.json',result)
   return result
  positive={'domain','grid_dx','early_dt','early_until','late_dt','late_until','oxygen_storage','oxygen_permeability','oxygen_consumption','blood_viscosity','vascular_path','biological_width'}

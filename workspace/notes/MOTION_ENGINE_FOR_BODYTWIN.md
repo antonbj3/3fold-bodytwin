@@ -2,7 +2,7 @@
 
 The engine reviewed is `3fold-motion-engine` on aae29ed (public checkout, read but not changed). Two components are tested on real human gait (gait2392 subject01, force plate). Numbers and deviations are in `results/M1/README.md`, the criteria in `results/M1/PREREG.md`.
 
-## Svaret i korthet
+## Short answer
 
 - **Inverse dynamics works.** The motor's URDF path (`pin.buildModelFromUrdf` followed by `pin.rnea`) gives OpenSim's joint moment of 3·10⁻⁹ N·m. The engine's own batchable RNEA (`rnea_warp`) kernel gives the same result of 10⁻⁵ N·m in float32. The requirements: the model is converted with coupled joints, gravity is applied along y, and GRF is applied as an external wrench.
 - **The identifiability gate works on humans.** It shows that a gait cycle with force plate only identifies:
@@ -43,7 +43,7 @@ The Status column indicates:
 
 ## Measured in real time
 
-| Test | Resultat |
+| Test | Results |
 |---|---|
 | A1: engine against OpenSim-ID (same model, kinematics and GRF) | 12 joint moments and 6 residuals: RMS 2,7–3,1·10⁻⁹ N·m |
 | A1k: knee as usual URDF-revolute | knee 1,9 N·m RMS (3,3–4,1 % of top), hip flexion up to 7 N·m, pelvic residuals up to 9,7 % |

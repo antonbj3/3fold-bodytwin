@@ -16,7 +16,7 @@ The scientific ambition is to use the connection between the BodyTwin, the field
 
 Exact prosthetic construction, materials, load cases, manufacturing process and research question are still open. The mapping is partly called "implants", but that title does not determine the final delimitation of the project. General BodyTwin and the collaborator's biomechanics questions have their own workspace.
 
-## Keep the stress point
+## Hold the stress point
 
 **Aim for a result that deserves to be tested by a scientist and built in a laboratory. Keep pressure on the load bearing restraint. When you reach a limit: make it measurable, open the mechanism behind it and try a way to move it. When an experiment fails: use it to formulate a sharper hypothesis. When it succeeds: subject it to a stronger counter test. Let each round leave us with better ability, clearer knowledge or a precisely defined gap.**
 
@@ -26,7 +26,7 @@ Drive your own hypotheses from first principles, our previous results and the pr
 
 Work with high demands on utility, accuracy and full calculation cost. A positive result must withstand comparison for the same task, quality and coverage. Keep negative results and UNKNOWN. Do not change measures or thresholds afterwards to make an outcome positive. Breakthrough is the ambition; the evidence determines what we are allowed to say.
 
-## Expandera grafen genom hela kedjan
+## Expand the graph through the entire chain
 
 Start from existing BodyTwin and manufacturing nodes and their underpinnings. Map overlaps, gaps and ambiguous identities before creating new nodes. Each area below should be broken down into usable building blocks with explicit connections to neighboring areas:
 
@@ -91,7 +91,7 @@ Inventory what BodyTwin actually has in executable code, what only exists as a g
 
 ## Read in this order
 
-Arbetsmapp: `local_path`.
+Working directory: `local_path`.
 
 1. `../AGENTS.md`, `START.md`, `../README.md`, `../FORMAT.md` and `../SETUP_STATUS.json`.
 2. `external_research_path`. Read project intent and open questions carefully. Scientific figures and broad conclusions in older mapping need their own source checks before use.

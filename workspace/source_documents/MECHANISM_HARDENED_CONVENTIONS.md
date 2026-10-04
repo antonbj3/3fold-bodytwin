@@ -13,7 +13,7 @@
 > (see §7). Do not trust a docstring over what the code does + what the hardening check asserts.
 
 ## 1. ISOLATION INVARIANTS (non-negotiable — the reason this fork exists)
-- **Never write CS's graph.** `data/ANCHOR_GRAPH.json` is CS's (worker reads it). Biology lives ONLY
+- **Never write CS's graph.** `data/ANCHOR_GRAPH.json` is CS's (coordinator reads it). Biology lives ONLY
   in `data/MECHANISM_ANCHOR_GRAPH.json`. The hardening check asserts the two graphs share **zero** node
   ids — a collision is an isolation breach.
 - **Never `git push`.** `upstream` = cad-to-simulation, FETCH-ONLY (pull via `merge -X ours`). Push stays

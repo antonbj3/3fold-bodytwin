@@ -112,12 +112,15 @@ def main() -> int:
     }
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / 'DECISION_V1.json').write_text(json.dumps(summary, indent=1, ensure_ascii=False))
-    print(f'  measured axle: B/A {REST_BA} +/- {REST_SD} i vila, {LOADED_BA} +/- {LOADED_SD} med transferrin; skifte {shift:.4f}, kombinerad spridning {comb:.4f}, separation {shift / comb:.4f} sigma')
+    print(f'  measured axis: B/A {REST_BA} +/- {REST_SD} at rest, {LOADED_BA} +/- {LOADED_SD} with '
+          f'transferrin; shift {shift:.4f}, combined dispersion {comb:.4f}, '
+          f'separation {shift / comb:.4f} sigma')
     for r in rows:
         if r['decision'] == 'NO_FACE_NAMED':
-            print(f"  {r['state']:22} {r['sigma_from_symmetry']:7.4f} sigma from 1  INGEN SIDA NAMNGES")
+            print(f"  {r['state']:22} {r['sigma_from_symmetry']:7.4f} sigma from 1  NO FACE NAMED")
         else:
-            print(f"  {r['state']:22} {r['sigma_from_symmetry']:7.4f} sigma from 1  {r['decision_value_face']} i risk, {r['reading']}")
+            print(f"  {r['state']:22} {r['sigma_from_symmetry']:7.4f} sigma from 1  "
+                  f"{r['decision_value_face']} at risk, {r['reading']}")
     return 0
 
 

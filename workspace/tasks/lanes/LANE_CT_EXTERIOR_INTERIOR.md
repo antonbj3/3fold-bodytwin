@@ -23,4 +23,3 @@ Baseline sex + height + body volume; subset without contrast and with L3 fully i
 - Start with a pilot of ~50 CT, measure time/memory per CT, then scale.
 - RAM per CT may be a few GB: run heavy steps via `tasks/heavy_run.sh` if > 8 GB, otherwise directly with 2 threads. No GPU is needed.
 - The NHANES comparison (`external_media`) may only be read locally, and only summarized numbers may be cited; it contains no personal information that may leave the machine.
-- Inga interna BodyTwin-personer, the collaborator, Grand Challenge eller restricted model data.

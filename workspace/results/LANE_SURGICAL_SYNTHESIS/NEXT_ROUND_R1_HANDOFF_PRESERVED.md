@@ -2,12 +2,12 @@
 
 PENDING_INDEPENDENT_REVIEW. R1's engineering gate PASS(51/51), strongest control TIE, integrated strength proxyFAIL43,7037pp, nativejointUNKNOWN. Parental goals GRAPH_INVERSE/MULTIPHYSICS OPEN. Read latest COMMON/steer before work. Keep all R1 files and select new output/PREREG names.
 
-Ability → the same observed surgical incisions should cause bleeding, O2 and targeted90-day force with a sufficient re-starting permit and common error budget.
+Capability → the same observed surgical incision should provide bleeding, O2, and targeted 90-day strength with a sufficient restart condition and joint error budget.
 Conflict → fast executable coupling against missing empirical transition laws and mismatched species/assays.
 Obstacle → prescribed damage/perfusion width and gap drive the scenario, but the tool does not predict them; shear/seal/O2 and native chemistry×bridge→rupture lack matched data.
 Changed operation → fill the earliest broken transition with a registered damage/perfusion/radius/pressure/flow packet, then identified coupling law; no more unchanged rate/net variants.
 
-## Start directly
+## Start right away
 
 1. Read CHECKPOINT_R1.json, r1/INTEGRATION_SUMMARY.json, PORT_TABLE_R1_FINAL.json, MEASUREMENT_SPEC_R1.md, VERIFICATION_R1.json and SOURCE_CORRECTIONS_R1.json. RESPONSE R4 is in sources/LANE_SURGICAL_RESPONSE/{RESPONSE_PORTS_R4.json,NEXT_ROUND_R4_FINAL.md,OBSERVATIONS_R4.json,r4/SCORES_R4_v2.json}. R3's8,31pp is HP-input diagnostics, not the new chain prediction.
 2. Drive existing evidence-default to **new** lane-local output with run_chain.sh; native outcome should be null. Run explicit scenario or resume only with new suffix. Base: r1/nominal_complete_v4/checkpoint21.npz + .json; requiredstates and code hashes are in CHECKPOINT/CODE_MANIFEST. Tests_r1.py require --out <new lane-local directory>. The entire suffix is ​​still spatial global; nothing10×gain/localcertificate is shown.

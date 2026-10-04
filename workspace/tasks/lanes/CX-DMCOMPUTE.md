@@ -29,4 +29,4 @@ Examples:
 - (f) the variation between repeated trials as the measurement-noise floor for all our models (what error is irreducible?).
 Write `results/CX-DMCOMPUTE/QUEUE_PROPOSAL.txt` (`<A|B|C> swarm BT-DA-xxx | question | consumers | check`). **Do NOT queue** — the coordinator reviews.
 
-`results/CX-DMCOMPUTE/RESULTS.md` starting with `# CX-DMCOMPUTE`: rows per protocol, the check statistics, flagged outliers, and the analysis-packet list. lane runner has full permissions in the workspace; the raw zips are read-only.
+`results/CX-DMCOMPUTE/RESULTS.md` starting with `# CX-DMCOMPUTE`: rows per protocol, the check statistics, flagged outliers, and the analysis-packet list. lane_runner has full permissions in the workspace; the raw zips are read-only.

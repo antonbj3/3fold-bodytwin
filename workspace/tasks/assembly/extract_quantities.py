@@ -128,10 +128,11 @@ def main() -> int:
          'rows': rows}, ensure_ascii=False))
 
     print(f"  reports read: {stats['reports']}  (unreadable {stats['unparsable']})")
-    print(f"  med minst en storhet: {stats['reports_with_at_least_one']}  without: {stats['reports_with_none']}")
-    print(f"  storheter utvunna: {stats['triples']}  "
-          f"varav med DOI/PMID: {sum(1 for r in rows if r['locator'])}")
-    print('  vanligaste enheter: ' + ', '.join(
+    print(f"  with at least one quantity: {stats['reports_with_at_least_one']}  "
+          f"without: {stats['reports_with_none']}")
+    print(f"  quantities extracted: {stats['triples']}  "
+          f"of which with DOI/PMID: {sum(1 for r in rows if r['locator'])}")
+    print('  most common units: ' + ', '.join(
         f'{u} {n}' for u, n in Counter(r['unit'] for r in rows).most_common(8)))
     return 0
 

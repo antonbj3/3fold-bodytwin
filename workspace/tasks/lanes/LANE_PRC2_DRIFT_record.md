@@ -10,7 +10,7 @@ Anton's seed (X bookmarks, batch1 TOP5 #2; external_research_path and SEEDS_BODY
 
 Load GSE179847 (fibroblasts in culture with population doublings and calendar days, including contact-inhibited samples). Annotate CpG with the PRC2 set from public H3K27me3 peaks for fibroblasts. Drift measure = mean deviation from the donor's own baseline. Per donor: drift against doublings and drift against days, separately in the PRC2 set and in the control set.
 
-## Starkaste kontroll
+## Strongest control
 
 Size-matched random set: same number of CpGs, same distribution of baseline methylation and coverage as the PRC2 set (otherwise regression to the mean is measured at low-methylated positions). Second control: contact-inhibited samples (days pass, no divisions) must follow doublings rather than days.
 

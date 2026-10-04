@@ -22,4 +22,4 @@ Consumer: the Field lane. The displacement-controlled contact was ill-posed: the
 3. `README_FOR_FIELD.md` (≤ 25 lines): frames, signs, what the total contact force contains (external load + muscles), and why balancing against the net ID force alone would give too low a total.
 4. `RESULTS.md` starting with `# CX-LUNGEID`: plausibility checks — the GRF moment arm, and the knee flexion moment's sign against the knee angle in the lunge.
 
-Resources: local, nice, 2 threads, ≤ 60 s per step. lane runner has full permissions in the workspace. When done, write `results/CX-LUNGEID/READY_FOR_FIELD.md`.
+Resources: local, nice, 2 threads, ≤ 60 s per step. lane_runner has full permissions in the workspace. When done, write `results/CX-LUNGEID/READY_FOR_FIELD.md`.

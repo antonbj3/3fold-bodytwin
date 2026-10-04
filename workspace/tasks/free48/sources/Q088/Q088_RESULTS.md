@@ -2,7 +2,7 @@ BT-HX-Q088
 
 # First executable mechanistic model
 
-## Vad som byggdes
+## What was built
 
 `model.py` is a reduced cylindrical model of a skeletal muscle fiber/territory with three coupled states: a radially resolved oxygen field, ATP/PCr energy and a normalized ionic disturbance `I`. The oxygen field uses implicit radial diffusion with Robin conditions (`k_transfer=1.0e-5 m/s`), Michaelis-Menten oxygen consumption and volume weighting. ATP and PCr fluxes are driven by oxygen factor, substrate factor, energy demand and fast CK transfers. The ion pump is ATP- and oxygen-dependent. The preregistered functional outcome is `F=0.50*PCr/PCr_rest+0.30*ATP/ATP_rest+0.20*(1-I)`. It is an equivalent surface-supplied cylinder, not a literal central-capillary geometry.
 
@@ -13,7 +13,7 @@ python3 model.py --output results.json
 python3 -m unittest -v test_model.py
 ```
 
-## Referensankare
+## Reference anchors
 
 - **Source, Layec et al. 2013**, DOI `10.1152/japplphysiol.00257.2013`, Table 3: PCr-tau `33 +/- 21 s` (free flow) and `27 +/- 10 s` (reactive hyperemia); `V_ATP` `28.7 +/- 13.3` and `41.2 +/- 13.6 mM/min` respectively. Table 4: reoxygenation mean response time `70 +/- 15` and `24 +/- 15 s` respectively. Methods: `ATP_rest=8.2 mM`.
 - **Source, Heskamp et al. 2021**, DOI `10.1113/JP280771`, Table 2: distal/proximal `k_PCr=0.44 +/- 0.26` and `1.50 +/- 0.57 min^-1` respectively; `V_PCr=5.2 +/- 3.1` and `23.3 +/- 8.9 mM/min` respectively; `k_O2Hb=5.4 +/- 3.8` and `7.8 +/- 4.4 min^-1` respectively.
@@ -23,7 +23,7 @@ python3 -m unittest -v test_model.py
 
 The reference values are scale and direction anchors; they are not a trained model and do not demonstrate validation on the target person.
 
-## Fryst resultat
+## Frozen result
 
 | Condition | pO2 (kPa) | work (mM/s) | R (mikrometer) | T90_F (s) | V_PCr0 (mM/min) | PCr at end of exercise (mM) | O2, volume mean (mol/m3) |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -41,7 +41,7 @@ The combination is explicit: at `2 kPa`, `0.90 mM/s` and `R=40 mikrometer`, `V_P
 | Parameter | lower (−50 %) | nominal | higher (+50 %) |
 |---|---:|---:|---:|
 | pO2 (kPa) | 6.65: V=22.22, T90=110.35 s | 13.3: V=27.37, T90=53.52 s | 19.95: V=29.26, T90=36.05 s |
-| arbete (mM/s) | 0.30: V=0, T90=46.57 s | 0.60: V=27.37, T90=53.52 s | 0.90: V=27.37, T90=84.16 s |
+| work (mM/s) | 0.30: V=0, T90=46.57 s | 0.60: V=27.37, T90=53.52 s | 0.90: V=27.37, T90=84.16 s |
 | R (mikrometer) | 12.5: V=28.13, T90=46.14 s | 25: V=27.37, T90=53.52 s | 37.5: V=26.43, T90=63.75 s |
 
 At 0.30 mM/s no PCr depletion occurs under normoxia; the zero rate therefore means no initial resynthesis flux, not an error. It expresses that this state does not test the same recovery load.

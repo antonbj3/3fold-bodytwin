@@ -5,7 +5,7 @@ Resultatmapp `results/LANE_COARSEST_SUFFICIENT/`.
 ## The finding that makes the lane necessary, measured three times independently last night
 Three lanes in three different areas of physics measured the same thing without knowing about each other:
 
-| var | grov | fin | faktor |
+| variable | coarse | fine | factor |
 |---|---|---|---|
 | heat dose in tissue | 48,87 % error | 0,19 % at 10 µm | **254×** |
 | transport across the blood brain barrier | 22,90 % misclumped | 0,126 % axially resolved, 256 segments | **181×** |
@@ -77,4 +77,4 @@ Replicate lane-locally, don't write in the old project.
 order of convergence, the classification of the two axes and the calculation cost factor. Plus the calibration line:
 three out of three measured cases reproduced, or which missed.
 
-Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+No internal data. Everything PENDING_INDEPENDENT_REVIEW.

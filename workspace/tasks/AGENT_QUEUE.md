@@ -24,12 +24,12 @@ Shared rules in every brief: PREREG must be hashed (PREREG.sha256) BEFORE the fi
 ## Wave 0 — context (started ~21:15)
 - O2 BodyTwin geometry: actual chain published/staging/private, parameterisation, landmarks/attachments, local data → notes/GEOMETRY_CAPABILITY_AUDIT.md (+ reads dental I1 when complete)
 - O3 Field/engine results relevant to BodyTwin (A183–A208, U285–U288, SHARED_GEOMETRY_MATH) → notes/FIELD_RESULTS_FOR_BODYTWIN.md with hypothesis candidates
-- O4 Forskarscenarier + modaliteter → notes/RESEARCHER_SCENARIOS.md
+- O4 Researcher scenarios + modalities → notes/RESEARCHER_SCENARIOS.md
 - O5 Mechanism transfer → notes/MECHANISM_TRANSFER_INVENTORY.md
 
 ## NEXT FREE SLOT
 - E1 (interrupted at the crash before output): restart with the same brief when a slot exists
-- P2 Keast tibia-SSM (keast2023_tibia_ssm) som oberoende kontroll av P1-metoden
+- P2 Keast tibia SSM (keast2023_tibia_ssm) as an independent control of the P1 method
 
 ## Wave 1 — candidates (filled from wave 0)
 - D1 Demo chain: real public mesh → shape parameter → landmarks/attachments/regions tracked → measurable consequence in a calculation (moment arm / mass/inertia / contact surface) — PREREG + counter-test

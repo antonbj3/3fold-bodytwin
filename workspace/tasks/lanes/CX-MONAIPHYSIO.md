@@ -19,7 +19,7 @@ Anton: "monai-physio — put a Sol agent on investigating exactly how we can use
 3. **Try it for real** (the licence is not a gate): install it in a separate venv under external_media (NOT on /, the disk is tight). Run the smallest example or bundle on public test data. Measure the time and the GPU memory on an RTX 5070: a single process, NEVER run `nvidia-smi -q`; use only field queries such as `nvidia-smi --query-gpu=memory.used --format=csv`. Do not install anything system-wide.
 4. **Recommendation per touch point:** use it directly / use it as a component / do not use it, with the reason, the integration cost, and the first concrete step.
 
-Deliver `results/CX-MONAIPHYSIO/RESULTS.md` starting with `# CX-MONAIPHYSIO`, results.json, and any run log. Internal data (the collaborator, GC, restricted model data) must NEVER go to any external service. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+Deliver `results/CX-MONAIPHYSIO/RESULTS.md` starting with `# CX-MONAIPHYSIO`, results.json, and any run log. Internal data (the collaborator, GC, restricted model data) must NEVER go to any external service. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
 
 ## Addition (Anton): less focus on licensing
 Licence: just one line per candidate (what it is), not an obstacle to trying or recommending it. Put the effort into what it does, how it connects and running it.

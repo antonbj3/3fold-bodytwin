@@ -7,7 +7,7 @@ below, and the only thing you said you do not want is a narrow push.
 
 Original repo `~/projects/bodytwin` (read-only) against the workspace `~/projects/3fold-workspaces/bodytwin`:
 
-| lager | i originalet | i arbetsytan |
+| layer | in the original | in the workspace |
 |---|---|---|
 | MECHANISM detail documents | **313 unique topics** | **1** |
 | python scripts under `scripts/` | 15 056, of which **9 688 carry numbers with units** | — |
@@ -72,32 +72,13 @@ ranked by external ground truth and executed falsification rather than number de
 4. **A number chosen to hit a target is no measurement.** A cell held a drag resistance whose own
    table said "chosen to give 0.03 mm/h", and that agreement had been read as a result for weeks.
 
-## Excluding harvest, unconditional
 
 ## What must NOT be done
 
-**1. The excluded subject — helt ute.** Not filtered from what is passed on, not rewritten,
-not counted. It is not read, consumed, not quoted and is not included in any sum.
-catch it does not say here: a list of excluded terms in a public tree says which subject
-kept out of it, and it reveals as much as the material would. `tasks/assembly/excluded_terms.py`
-reads them from a file outside the scratch and matches everything if it is not readable, so a missing list
-rejects rather than let through.
-
-**2. Everything concerning named persons — helt ute.** Named persons do not appear in anything I
-writes, and that material is not harvested.
-
-Den tredje kategorin var villkorad till 2026-10-05, when the condition was tested against the material and closed:
-av de 154 records a classification listed as conditional allowed bar two one frequency or one
-Flow density and eleven named a tissue type. The rest was the acronym without quantity, base64 where the letters:
-happen to fall apart, or an unrelated electrochemical term from porous media literature.
-Nothing to let in, so the condition is gone and the exclusion is flat.
-
-## Vad som NOT shall be made:
-
-- Inget skrivs i `~/projects/bodytwin`It's reading mode.
-- Nothing is automatically referred in the net. Suggestions, then a read, then the referral. It was automatic
-  release that let in 500- the list and they 69 mallbundna jobben.
-- Ingen push, ingen mejl, ingen coordinator-attribution i commits. Allt PENDING_INDEPENDENT_REVIEW.
-- Internal data never leaves the machine.
+- Nothing is written in `~/projects/bodytwin`. It is read-only.
+- Nothing is automatically admitted to the network. Proposals, then a reading, then admission. It was automatic
+  admission that let in the 500 list and the 69 template-bound jobs.
+- No push, no email, no coordinator attribution in commits. Everything PENDING_INDEPENDENT_REVIEW.
+- Internal data never leave the machine.
 
 Status: PENDING_INDEPENDENT_REVIEW.

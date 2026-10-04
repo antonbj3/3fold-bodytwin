@@ -1,4 +1,4 @@
-# BT-HX-Q052 — fryst preregistration
+# BT-HX-Q052 — frozen preregistration
 
 Status: `FROZEN` before the first run. No parameter or model code changes after the hash is created.
 
@@ -21,11 +21,11 @@ Q052 asks for a first executable mechanistic model of how process-dependent poro
 - The process variable is an explicit dimensionless AM process mode, not a calibrated machine model.
 - External BodyTwin anchors according to the preamble (`MECHANISM_ANCHOR_GRAPH.json`, `scripts/msk/`, `docs/MECHANISM_*`, `bt_memory/`) were not readable in this session and are therefore not reused.
 
-## Hypothesis and reference
+## Hypothesis and ground truth
 
 **H1:** For a given process sequence, a common microstructure `s → {φ, d}` arises. Increased pore volume and pore size increase hydraulic and diffusive transport, but decrease load-bearing solid volume and can therefore give a non-monotonic response to mechanical loading and tissue response.
 
-Facit: `Q052-porositet–mekanik–transport–respons`.
+Ground truth: `Q052-porositet–mekanik–transport–respons`.
 
 ## Frozen prediction target
 
@@ -33,9 +33,9 @@ The primary prediction is hydraulic permeability `K` for the nominal case `s = 0
 
 The reference value is **VERIFIED** in Chao et al. (2021), figure 13A: `K_ref = 1.87e-8 m²`, at `φ = 0.80`, `d = 800 µm`, Ti-6Al-4V scaffold, water at 37 °C. This is a measured/reproduced CFD result in a primary study, not an internal BodyTwin value. The natural bone reference `1.50e-10 m²` (figure 14) is context, not a requirement on the same geometry.
 
-## Frysta ekvationer
+## Frozen equations
 
-1. Processgeometri:
+1. Process geometry:
    `φ(s) = φ_min + (φ_max - φ_min)s`
    `d(s) = d_min + (d_max - d_min)s^q`.
 2. Pore geometry and tortuosity:
@@ -55,7 +55,7 @@ The reference value is **VERIFIED** in Chao et al. (2021), figure 13A: `K_ref = 
    `R = response_max · f_O(c_mid) · f_E(ε_loc) · f_S(τ_w)`,
    where `f_O=c_mid/(c_50+c_mid)`, `f_E=exp[-0.5((ε_loc-ε_peak)/ε_width)^2]`, and `f_S` is a log-normal shear window. `R` is not measured data and must not be interpreted as cell count.
 
-## Fryst parameterregister
+## Frozen parameter register
 
 | Parameter | Value | Unit | Source or assumption |
 |---|---:|---|---|
@@ -87,7 +87,7 @@ The reference value is **VERIFIED** in Chao et al. (2021), figure 13A: `K_ref = 
 | `tau_ratio_width` | 1.5 | 1 | assumed shear window width |
 | `response_max` | 1.0 | 1 | hypothetical maximum potential |
 
-## Frysta acceptanskriterier
+## Frozen acceptance criteria
 
 The model is accepted for this first run only if:
 

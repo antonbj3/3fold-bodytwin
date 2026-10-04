@@ -1,6 +1,6 @@
 # LANE_EYE_OPTICAL_TWIN — the eye as an optical unit, all the way to the wavefront
 
-Resultatmapp `results/LANE_EYE_OPTICAL_TWIN/`.
+Results directory `results/LANE_EYE_OPTICAL_TWIN/`.
 
 ## The operator’s seed
 "Hyperrealistic digital twin of an eye, just like everything else." And: the eye as an **optical
@@ -114,4 +114,4 @@ The tools thus exist — they have been aimed at telescopes and metalenses, neve
 classified, scattering fraction in the PSF tail as a function of lattice order, and the LASIK profile’s
 predicted power and scattering change against published ground truth.
 
-Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+No internal data. Everything PENDING_INDEPENDENT_REVIEW.

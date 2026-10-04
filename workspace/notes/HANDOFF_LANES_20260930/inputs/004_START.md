@@ -1,6 +1,6 @@
-# Dental — BodyTwin + tillverkning
+# Dental — BodyTwin + manufacturing
 
-Arbetsmapp: `local_path`.
+Working folder: `local_path`.
 
 **Research work 2026-09-23:** use `./graph working rank` and [the graph workflow](notes/GRAPH_WORKFLOW.md) for dental nodes, new results, selection of the next lane and feedback. The older `./graph rank` below concerns the imported source structure.
 
@@ -12,13 +12,13 @@ The shared read view combines BodyTwin with manufacturing's dependency graph, th
 ./graph unbound --limit 5
 ```
 
-Start with `MERGED_GRAPH.json` for the full structure and `VALIDATION.json` for separate layer counts. `./graph show --id <exakt-ID>` shows a record and its connections. [The shared README file](../README.md) describes all detail layers and [FORMAT.md](../FORMAT.md) defines the contract.
+Start with `MERGED_GRAPH.json` for the entire structure and `VALIDATION.json` for separate layer counts. `./graph show --id <exakt-ID>` shows a record and its connections. [The shared README file](../README.md) describes all detail layers and [FORMAT.md](../FORMAT.md) defines the contract.
 
 - `notes/`, `tasks/`, `results/`: the project's own continuing work.
 - `references/current_bodytwin`: current published BodyTwin code and geometry implementation.
 - `references/field_engine`: the field engine's public code.
 
-The sources' own statuses are preserved. Statistical fusion of raw margins requires additional uncertainty, normalisation and provenance. Unbound records, conflicts and older evidence gaps remain explicit in the review view.
+The sources' own statuses are preserved. Statistical fusion of raw margins requires additional uncertainty, normalization and provenance. Unbound records, conflicts and older evidence gaps remain explicit in the review view.
 
 `data/corpus` now points to the checksum-verified data copy on `external_mount`. `references/dataset_mapping` contains the collection mapping. The move covered 52 005 files; this does not mean all originally planned dataset downloads are complete.
 

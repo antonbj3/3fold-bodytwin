@@ -10,7 +10,7 @@ def _active_counts(*, locked=False):
     return collections.Counter((r['account'],r['selected']) for r in rows)
 
 def _high_value(directory):
-    """Paid reserve_worker is reserved for synthesis/planner jobs, not bulk AUTO churn."""
+    """Paid swarm_worker is reserved for synthesis/planner jobs, not bulk AUTO churn."""
     try:
         if (directory/'HIGH_VALUE').exists():return True
         j=json.loads((directory/'JOB.json').read_text())
@@ -20,18 +20,18 @@ def _high_value(directory):
 
 
 def choose_free_models(preference,counts,policy,now,eligible=None):
-    # Maximise the free tier: fill free_worker up to its fill target first, then
+    # Maximise the free tier: fill swarm_worker up to its fill target first, then
     # The swarm, and offer both when neither is preferred; each model is bounded by
     # its own backoff and active cap.
-    counts_by_model={m:sum(n for (a,k),n in counts.items() if k==m) for m in ('swarm','free_worker')}
-    allowed=[m for m in ('swarm','free_worker') if (eligible is None or m in eligible) and now>=policy.get(m+'_backoff_until',0) and counts_by_model[m]<policy.get(m+'_active_cap',1000)]
+    counts_by_model={m:sum(n for (a,k),n in counts.items() if k==m) for m in ('swarm','swarm_worker')}
+    allowed=[m for m in ('swarm','swarm_worker') if (eligible is None or m in eligible) and now>=policy.get(m+'_backoff_until',0) and counts_by_model[m]<policy.get(m+'_active_cap',1000)]
     if not allowed:return []
-    if 'free_worker' in allowed and counts_by_model['free_worker']<policy.get('free_worker_fill_target',0):return ['free_worker']
+    if 'swarm_worker' in allowed and counts_by_model['swarm_worker']<policy.get('swarm_worker_fill_target',0):return ['swarm_worker']
     if preference in allowed:return [preference]
     return allowed
 
 def reserve_slot(label,requested,directory):
-    if requested not in ('swarm','free_worker'):return label,requested,None
+    if requested not in ('swarm','swarm_worker'):return label,requested,None
     active=ROOT/'active_models';active.mkdir(exist_ok=True)
     slot_markers.install_cleanup()
     began=time.time()
@@ -43,16 +43,16 @@ def reserve_slot(label,requested,directory):
             # Atomic egress snapshot; do not acquire EGRESS_POOL.lock under slots.
             import egress_pool
             rows=slot_markers.scan_locked(ROOT)[0]
-            eligible=[m for m in ('swarm','free_worker') if egress_pool.has_available(m,rows)]
+            eligible=[m for m in ('swarm','swarm_worker') if egress_pool.has_available(m,rows)]
             pref=directory/'PREFERRED_MODEL'
             models=choose_free_models(pref.read_text().strip() if pref.exists() else requested,counts,policy,time.time(),eligible=eligible)
             if not models:
                 from fallback_reserve import choose as choose_go_reserve
-                hv=(not policy.get('reserve_worker_value_only',True)) or _high_value(directory)
+                hv=(not policy.get('swarm_worker_value_only',True)) or _high_value(directory)
                 go_account=choose_go_reserve(policy,counts,time.time(),free_unavailable=True) if hv else None
                 if go_account is not None:
-                    marker=slot_markers.write_locked(ROOT,go_account,'reserve_worker',directory,'free models unavailable: cooldown, capacity or egress backoff')
-                    return go_account,'reserve_worker',marker
+                    marker=slot_markers.write_locked(ROOT,go_account,'swarm_worker',directory,'free models unavailable: cooldown, capacity or egress backoff')
+                    return go_account,'swarm_worker',marker
             accounts=[label]  # Fixed queue profile; never rotate credentials after a limit.
             if models:
                 pairs=[(a,m) for a in accounts for m in models]
@@ -110,7 +110,7 @@ def stop_child(process):
         process.wait(timeout=5)
 
 def run_guarded(command,*,cwd,env,runtime):
-    selected='free_worker' if 'opencode/free_worker-2.5-preview-free' in command else 'swarm' if 'opencode/space-swarm-free' in command else 'reserve_worker' if 'opencode-go/reserve_worker-v4.1-flash' in command else None
+    selected='swarm_worker' if 'opencode/swarm_worker-2.5-preview-free' in command else 'swarm' if 'opencode/space-swarm-free' in command else 'swarm_worker' if 'opencode-go/swarm_worker-v4.1-flash' in command else None
     if selected is None:
         return subprocess.run(command,cwd=cwd,env=env)
     began=time.time();progress=Progress(Path(cwd)/"agent.log");process=subprocess.Popen(command,cwd=cwd,env=env,start_new_session=True)
@@ -125,7 +125,7 @@ def run_guarded(command,*,cwd,env,runtime):
                     fcntl.flock(stream,fcntl.LOCK_EX);stream.write(json.dumps(row)+'\n');stream.flush()
                 (Path(cwd)/'RATE_INTERRUPTION.json').write_text(json.dumps(row,indent=2)+'\n')
                 suppress=False
-                if selected in ('swarm','free_worker'):
+                if selected in ('swarm','swarm_worker'):
                     try:
                         import egress_pool
                         if egress_pool.enabled():
@@ -134,7 +134,7 @@ def run_guarded(command,*,cwd,env,runtime):
                             suppress=not egress_pool.record(selected,row.get('egress'))
                     except Exception:
                         suppress=False
-                if selected in ('swarm','free_worker','reserve_worker') and not suppress:
+                if selected in ('swarm','swarm_worker','swarm_worker') and not suppress:
                     with (ROOT/'rate_policy.lock').open('a') as lock:
                         fcntl.flock(lock,fcntl.LOCK_EX)
                         policy_file=ROOT/'FREE_MODEL_POLICY.json'
@@ -149,7 +149,7 @@ def run_guarded(command,*,cwd,env,runtime):
             time.sleep(3)
         if process.returncode and progress.tools==0:
             suppress=False
-            if selected in ('swarm','free_worker'):
+            if selected in ('swarm','swarm_worker'):
                 try:
                     import egress_pool
                     route=Path(cwd)/'EGRESS_ROUTE.json'
@@ -158,7 +158,7 @@ def run_guarded(command,*,cwd,env,runtime):
                 except Exception:
                     suppress=False
             # Proxy/tunnel startup failures isolate the failed IP just like a 429.
-            # reserve_worker and the existing all-IP cooldown behavior remain unchanged.
+            # swarm_worker and the existing all-IP cooldown behavior remain unchanged.
             if not suppress:
                 with (ROOT/'rate_policy.lock').open('a') as lock:
                     fcntl.flock(lock,fcntl.LOCK_EX)

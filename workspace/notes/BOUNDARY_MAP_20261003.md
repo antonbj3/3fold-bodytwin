@@ -8,7 +8,7 @@ Sources read:
 - B: `tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json` (500, field `observable`/`consumer`/`regime`/`domain`).
 - C: `tasks/free48/sources/` (45 cells, QUESTION/PREREG/model) + `results/LANE_*` + all `PORT*.json` (622 files, 1057 distinct unit strings).
 
-## 1. Paren
+## 1. The pairs
 
 Ranked: **S** = shared quantity with identical unit, **M** = shared mechanism/same equation class without identical unit, **A** = analogy (marked as analogy, not upgraded).
 
@@ -32,7 +32,7 @@ Ranked: **S** = shared quantity with identical unit, **M** = shared mechanism/sa
 | 16 | SEED-ENV-ISOLATION-AXIS (disturbance budget {vibration, thermal drift, particles}) | LANE_DEPTH_TEMPERATURE (`Registered local depth temperature trajectory` **K**) + `Slip relaxation time` **s** | thermal drift **K**, relaxation time **s** | **A** (analogy) | Same *shape* (disturbance vs tolerance), but C's K-path is tissue temperature during a procedure and A's is machine operation during a process. The unit coincides, the physics and the time scale do not. Marked as analogy; shall not be booked as a split amount. |
 | 17 | PATH-SCANNING + PROJ-ILLUMINATION-LASER | LANE_LASER_FORMS (`pulse-duration boundary in histologic vascular response` **µs**; `rupture power threshold / mild coagulation power threshold`, dimensionless) | pulse length **µs**; threshold effect (dimensionless in C) | **A** (analogy, unit partially split) | Same physics axis — energy deposition per pulse vs material threshold — but C's threshold is reported dimensionless and against tissue response, A's is needed in W/cm² against speckle and thermals. The edge is valid as a *method template* (how to set a pulse length limit with two thresholds), not as a number. |
 
-## 2. Nollpunkterna — namngivna
+## 2. The zero points — named
 
 These clusters in A share **nothing** with C other than words. Each line indicates what I searched for before I said it.
 
@@ -52,7 +52,7 @@ Searched: `track`, `SMPL`, `splat`, `gsplat`, `Spearman` as well as the unit *pe
 
 **N6 — A FOURTH ID SPACE who was not in the mission.** `LANE_ROBOT_PORT_CONNECT/PORT_R5_FINAL.json` points to `external_research_path` (sha256 4670b9d4…): 41 nodes, **202 ports**, of which 167 robot side. `robot_ports_with_strict_computed_binding` = **0 before and 0 after**; `requires_new_computation` = 167; inherited valid numeric tissue bindings = 2; `branch_null_values` = 80; provenance `UNSOURCED` = 109 of 202. So it's not just an empty corner of C — it's its own coordinate system that neither A nor C's cells reach, and its own lane has posted zero calculated numbers two rounds in a row.
 
-## 3. De tio seeds som kan admitteras direkt
+## 3. The ten seeds that can be admitted directly
 
 Criterion: seeds `observable` carries a **sized** unit that a named cell/lane in C actually counts (exact unit hit against C's 1057 unit strings). I don't count `s` or `min` as a lone hit — that's wall clock/cost, not a physical observable.
 
@@ -78,7 +78,7 @@ A first run yielded 86 hits and an earlier 42. The difference is three traps I h
 3. **`phosphor` → `phosphorylation`** (N3 above).
 The final number below (40) is after all three corrections.
 
-## 4. De tre talen
+## 4. The three numbers
 
 - **Pairs on shared quantity with identical unit (S): 8** — No. 1, 2, 3, 4, 5, 8, 10, 11 in the table. (No 4 is S with reservation: C reports quota, not absolute N.)
 - **Pair on split mechanism (M): 7** — No. 6, 7, 9, 12, 13, 14, 15.

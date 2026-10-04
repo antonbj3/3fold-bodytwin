@@ -1,4 +1,33 @@
-"\nBT-HX-Q160 -- Q160: The biofilm's EPS mechanics and transport.\nFirst-principles 1-D elasto-poro-EPS biofilm.\n\nEverything is SI.  No fitted constants beyond the frozen PREREG table.\nGoverning set (per unit total (solid+fluid) volume, coordinate x = 0 at the\nrigid substratum, x = L at the bulk-fluid interface):\n\n  (1) phase balance         dphi_s/dt + div(phi_s v_s) = G_s      s in {cell,EPS}\n  (2) mixture continuity    div( (1-eps) v_s + q ) = 0\n  (3) Darcy (Re_pore<<1)    q = -(kappa/mu) grad p\n  (4) solute balance        d(eps c)/dt + div( -eps D_eff grad c + q c ) = R\n  (5) momentum (inertia ~0) div(sigma) + (1-eps) grad p = 0 ,  sigma = sigma' - p I\n  (6) skeleton (oedometer)  sigma' = -(K_o-2G/3)(e-e0) I + 2G e\n  (7) yield / compaction    de_p/dt = (<tau_dev> - tau_y(phi_EPS))^+ / K_o\n  (8) porosity kinematics   d(eps)/dt = -(1-eps) dv_s/dx - de_p/dt\n  (9) shared geometry       r_m(eps,phi_EPS) = r_0 (eps/eps_0)^(3/2) exp(-beta_c phi_EPS)\n  (10) Kozeny-Carman        kappa = eps^3 r_m^2 / (45 (1-eps)^2)\n  (11) Cohan + Renkin       D_eff = D_0 * eps_a^2 * H(lam_s / r_m)\n  (12) rule of mixtures      G = G_c phi_c + G_E phi_EPS ;  K_o = K_c phi_c + K_E phi_EPS\n  (13) cohesion              tau_y = tau_y0 + tau_yE phi_EPS\n  (14) erosion               v_er = k_er ( (tau_b - tau_y)^+ / tau_y )\n  (15) Monod growth          dphi_c/dt = mu_max c/(K_O2+c) phi_c\n  (16) EPS production        dphi_EPS/dt = Y_EPS dphi_c/dt - erosion at x = L\n  (17) front advance         dL/dt = v_grow(front) - v_er\n\nThe single point of the model: (9)-(11) and (10)-(13) all read the *same*\nmoving geometric state (eps, r_m, phi_EPS).  Diffusion, flow resistance and\ndetachment therefore cannot be tuned independently -- that is the Q160 claim.\n"
+"""
+BT-HX-Q160 -- Q160: The biofilm's EPS mechanics and transport.
+First-principles 1-D elasto-poro-EPS biofilm.
+
+Everything is SI.  No fitted constants beyond the frozen PREREG table.
+Governing set (per unit total (solid+fluid) volume, coordinate x = 0 at the
+rigid substratum, x = L at the bulk-fluid interface):
+
+  (1) phase balance         dphi_s/dt + div(phi_s v_s) = G_s      s in {cell,EPS}
+  (2) mixture continuity    div( (1-eps) v_s + q ) = 0
+  (3) Darcy (Re_pore<<1)    q = -(kappa/mu) grad p
+  (4) solute balance        d(eps c)/dt + div( -eps D_eff grad c + q c ) = R
+  (5) momentum (inertia ~0) div(sigma) + (1-eps) grad p = 0 ,  sigma = sigma' - p I
+  (6) skeleton (oedometer)  sigma' = -(K_o-2G/3)(e-e0) I + 2G e
+  (7) yield / compaction    de_p/dt = (<tau_dev> - tau_y(phi_EPS))^+ / K_o
+  (8) porosity kinematics   d(eps)/dt = -(1-eps) dv_s/dx - de_p/dt
+  (9) shared geometry       r_m(eps,phi_EPS) = r_0 (eps/eps_0)^(3/2) exp(-beta_c phi_EPS)
+  (10) Kozeny-Carman        kappa = eps^3 r_m^2 / (45 (1-eps)^2)
+  (11) Cohan + Renkin       D_eff = D_0 * eps_a^2 * H(lam_s / r_m)
+  (12) rule of mixtures      G = G_c phi_c + G_E phi_EPS ;  K_o = K_c phi_c + K_E phi_EPS
+  (13) cohesion              tau_y = tau_y0 + tau_yE phi_EPS
+  (14) erosion               v_er = k_er ( (tau_b - tau_y)^+ / tau_y )
+  (15) Monod growth          dphi_c/dt = mu_max c/(K_O2+c) phi_c
+  (16) EPS production        dphi_EPS/dt = Y_EPS dphi_c/dt - erosion at x = L
+  (17) front advance         dL/dt = v_grow(front) - v_er
+
+The single point of the model: (9)-(11) and (10)-(13) all read the *same*
+moving geometric state (eps, r_m, phi_EPS).  Diffusion, flow resistance and
+detachment therefore cannot be tuned independently -- that is the Q160 claim.
+"""
 
 import json
 import math

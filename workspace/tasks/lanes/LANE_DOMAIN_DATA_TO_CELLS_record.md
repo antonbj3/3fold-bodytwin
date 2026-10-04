@@ -21,10 +21,10 @@ The source project is readable but **read only**. Everything new is written in t
 `source_repository/data/corneal_transparency/corneal_transparency_results.json` carries exactly
 the relation eye lane has as a fault, i.e. disturbed lattice order → scattering tail:
 
-| quantity | value |
+| magnitude | value |
 |---|---|
 | `C_PREF` | 16,3511 |
-| gitter | a = 14,0 nm, φ_areal = 0,28, ρ2d = 4,5473e-4 /nm², d_hex = 50,3917 nm |
+| lattice | a = 14,0 nm, φ_areal = 0,28, ρ2d = 4,5473e-4 /nm², d_hex = 50,3917 nm |
 | index | n_fibril = 1,411, n_matrix = 1,365, Δn = 0,046 |
 | thickness | L = 500 000 nm |
 | **the cost of disorder** | `falsifier_ratio_poisson_over_physio` min **20,2466**, max **59,4856**, mean **38,1381** |
@@ -46,7 +46,7 @@ the relation eye lane has as a fault, i.e. disturbed lattice order → scatterin
 `source_repository/data/complement_cascade/complement_cascade_results.json` bears
 the discrimination between host and activator, which IS the issue of under- and over-activation:
 
-| quantity | value |
+| magnitude | value |
 |---|---|
 | half-life unstabilized / activator / host | 3,0 / 30,0 / **1,05** min |
 | properdin stabilization | **10,0×** |
@@ -88,4 +88,4 @@ Two executable cells in `tasks/free48/sources/`, each its `PORT.json` with consu
 areas of validity, the statement of compliance against the eyelash spread tail, and the two turning margins
 for under- and over-activation.
 
-Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+No internal data. Everything PENDING_INDEPENDENT_REVIEW.

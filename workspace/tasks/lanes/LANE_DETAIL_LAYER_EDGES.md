@@ -1,6 +1,6 @@
 # LANE_DETAIL_LAYER_EDGES — decisions outside the eye, from the detail layer
 
-Resultatkatalog `results/LANE_DETAIL_LAYER_EDGES/`.
+Result directory `results/LANE_DETAIL_LAYER_EDGES/`.
 
 ## Measured state, the night of 3–4 October
 The readable repo `source_repository/` carries 313 MECHANISM documents with their own published

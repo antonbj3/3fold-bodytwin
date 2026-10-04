@@ -18,7 +18,7 @@ New lane, and it is a shift in what Sol time is used for. Anton: "I kind of don'
 2. **Missing file, silently reconstructed.** Four jobs today silently reimplemented a missing module or reconstructed missing constants, and one of them gave an incorrect header that I amplified further. Something is missing: `missing_prerequisite` in the FIRST paragraph of RESULTS.md.
 3. **Prediction read as measurement.** A field with *conditional* in the name was treated as measured, by me. Label each number MEASURED or HELD.
 
-Allt PENDING_INDEPENDENT_REVIEW.
+Everything PENDING_INDEPENDENT_REVIEW.
 
 # Round 2 (the coordinator, 2/10 22:15) — determines whether 41 % is the comparison or the model
 A model ran end-to-end against a measurement: 1722,10 N against 1222,26 N, peak error 0,4089, RMSE 531,75. 39 of 39 frames converged. It's a real drive.

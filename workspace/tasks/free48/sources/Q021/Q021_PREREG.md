@@ -10,7 +10,7 @@ Hypothesis: a single homogeneous compartment is adequate only when regional vent
 
 Primary endpoint: the model-predicted alveolar-arterial O2 difference, `A-aDO2 = PAO2_global - PaO2_mixed`, in Torr, at rest and at `exercise_fraction = 1.0` (heavy-load analogue). The primary comparison is the heavy-load regional model with the heavy-load homogeneous null model.
 
-Reference anchors (public primary sources; values were checked and are not OVERIFIERAD):
+Reference anchors (public primary sources; values were checked and are not UNVERIFIED):
 
 1. Hall ET et al. *The effect of supine exercise on the distribution of regional pulmonary blood flow measured using proton MRI.* Journal of Applied Physiology 2014;116:451-461. DOI `10.1152/japplphysiol.00659.2013`. Table 4 reports perfusion in `ml min^-1 ml^-1`: nondependent `2.9 ± 1.7` at rest and `4.0 ± 1.5` during exercise; middle `4.5 ± 1.7` and `5.7 ± 2.1`; dependent `4.2 ± 1.7` and `5.1 ± 1.6`. The derived nondependent/dependent ratios are `0.690` at rest and `0.784` during exercise.
 2. Tedjasaputra V et al. *The heterogeneity of regional specific ventilation is unchanged following heavy exercise in athletes.* Journal of Applied Physiology 2013;115:126-135. DOI `10.1152/japplphysiol.00778.2012`. Table 3 reports `A-aDO2 = 6.3 ± 3.7 Torr` at rest and `23.3 ± 5.3 Torr` averaged during exercise, together with arterial blood gases. These are external observations, not calibration data.

@@ -1,6 +1,6 @@
 # CX-DESIGNLOOP — a real design call: shape change → attachments/mass properties → rebuilt mechanics → forces → candidate check, with no archived force curve
 
-Background: proof_lane's night priority §4 (research/COLLABORATOR_PRESENTATION_20260924/NIGHT_PRIORITIES.md). `bodytwin_core.demo` builds geometry but solves SAVED matrices. The separate trials CX-WHATIF2 and CX-D1PARITY actually rebuild the systems:
+Background: the proof lane's night priority §4 (research/COLLABORATOR_PRESENTATION_20260924/NIGHT_PRIORITIES.md). `bodytwin_core.demo` builds geometry but solves SAVED matrices. The separate trials CX-WHATIF2 and CX-D1PARITY actually rebuild the systems:
 - `results/CX-D1PARITY/`: build_direct.py, direct_geometry.py, femur_massprops.py, massprop.py, full_step.py;
 - `results/CX-WHATIF2/`: its builders.
 Read both, plus `bodytwin_core/` (demo.py, solver, determined), before writing any code.
@@ -19,4 +19,4 @@ Read both, plus `bodytwin_core/` (demo.py, solver, determined), before writing a
 3. A search step: find the parameter value that minimises the peak knee (or hip) contact under feasibility, and check the optimum with a full recomputation.
 4. Leave out the contact layer (CART-KNEE is not activated) and say where it would plug in.
 
-Deliver RESULTS.md starting with `# CX-DESIGNLOOP`, results.json, pytest (including a parity test against CX-D1PARITY), and the timing. Internal data stays local; heavy runs go under bigmem.lock with 2 threads. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Every outcome is a node that expands.
+Deliver RESULTS.md starting with `# CX-DESIGNLOOP`, results.json, pytest (including a parity test against CX-D1PARITY), and the timing. Internal data stays local; heavy runs go under bigmem.lock with 2 threads. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Every outcome is a node that expands.

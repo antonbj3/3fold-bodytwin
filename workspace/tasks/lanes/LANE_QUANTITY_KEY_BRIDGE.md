@@ -1,6 +1,6 @@
 # LANE_QUANTITY_KEY_BRIDGE — the source keys by DIMENSION, the cells by MODEL ROLE
 
-Resultatmapp `results/LANE_QUANTITY_KEY_BRIDGE/`.
+Results folder `results/LANE_QUANTITY_KEY_BRIDGE/`.
 
 ## The root cause, now measured rather than named
 Seed 2 was for the dense expert to be CONTENT that cells consume. After twelve rounds,
@@ -25,7 +25,7 @@ more records.
 ## What the bridge would give, calculated
 I mapped the 16 cell variables to their dimension class and counted available records:
 
-| cellvariabel | dimensionsklass | poster |
+| cell variable | dimension class | records |
 |---|---|---|
 | `cut_depth`, `cut_length`, `vessel_radius` | clearance_distance | **46** |
 | `plug_time` | time | **22** |
@@ -76,4 +76,4 @@ quantity also missing from the source.
 `PORT.json`: the mapping cell variable → dimension class → unit → number of records meeting all three
 requirements, plus at least one actual consumption with what it moved and its N_eff.
 
-Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+No internal data. Everything PENDING_INDEPENDENT_REVIEW.

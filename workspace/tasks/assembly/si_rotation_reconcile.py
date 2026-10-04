@@ -123,9 +123,10 @@ def main() -> int:
     (OUT / 'SI_ROTATION_V1.json').write_text(json.dumps(summary, indent=1, ensure_ascii=False))
 
     for name, c in candidates.items():
-        print(f"  {name:28s} [{c['low']}, {c['high']}] grader, spridningsfaktor {c['spread_factor']}, {len(c['includes'])} sources")
-    print(f'\n  method distance already in the document: {CROSS_METHOD_FACTOR} towards border {CROSS_METHOD_BAR}')
-    print(f"  rekommendation: {recommendation[:96]}")
+        print(f"  {name:28s} [{c['low']}, {c['high']}] degrees, spread factor "
+              f"{c['spread_factor']}, {len(c['includes'])} sources")
+    print(f"\n  method separation already in the document: {CROSS_METHOD_FACTOR} against limit {CROSS_METHOD_BAR}")
+    print(f"  recommendation: {recommendation[:96]}")
     return 0
 
 

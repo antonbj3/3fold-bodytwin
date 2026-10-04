@@ -110,4 +110,4 @@ four pools (see `COMMON.md` ) but no cell counts it.
 `PORT.json` : the number of the three boxes, the list of requirements per intervention with quantity
 and unit, the resolution dependency per requirement, and the outcome of the one generator attempt.
 
-Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+No internal data. Everything PENDING_INDEPENDENT_REVIEW.

@@ -137,7 +137,7 @@ This is local myogenic/TGF-like negative feedback. The negative GFR part makes i
  \tau_N\frac{dN}{dt}=N^*-N
 \]
 
-med
+with
 
 \[
  S^*=clip[-k_{S,P}(P_a-P_{a0})+k_{S,V}(V_0-V)/V_{scale},-1.5,1.5]
@@ -167,11 +167,11 @@ med
 
 The supplied volume and urine outflow are separate account volumes; fluid cannot disappear through hidden feedback.
 
-## Fryst protokol
+## Frozen protocol
 
 All arms start from the same initial state and have a 300 s baseline before the perturbation. The main arm is `saline_load`: 3 000 mL is infused evenly over 10 800 s from t=300 s to t=11 100 s. The simulation ends at 14 400 s. This matches the Kumar study's dose and timescale but is not the same study participants.
 
-Kontrollarmar:
+Control arms:
 
 - `no_renal_autoregulation`: TGF/myogenic coefficients are set to zero; everything else unchanged.
 - `no_neural_hormonal`: S, A and N are held at zero and their effects on TPR, afferent resistance and reabsorption are switched off.
@@ -181,7 +181,7 @@ Kontrollarmar:
 
 No control arm is used to move the primary criterion after the run.
 
-## Frysta parametrar
+## Frozen parameters
 
 | parameter | value | unit | source or assumption |
 |---|---:|---|---|
@@ -223,7 +223,7 @@ No parameter may change after `PREREG.sha256` is written. The run's parameter li
 
 After the main run, three governing parameters are varied one at a time by ±50 percent, without simultaneous variation:
 
-1. `k_pre` (volym/preload till cardiac output),
+1. `k_pre` (volume/preload to cardiac output),
 2. `k_myo` (renal autoregulation),
 3. `tau_A` (slow RAAS lag).
 

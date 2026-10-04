@@ -2,7 +2,7 @@
 
 The chain now runs a shared collagen reference inventory through O2/FV history, U/I/M and internal chemistry. **90/90 tests pass. Autonomous strength RMSE is21,811pp; the target8,306pp without external HP input failed.** Mass coupling is solved in the synthetic model; the native rupture law and joint biological prediction are UNKNOWN, strongest controlTIE. [Current run instructions](COMMANDS_R3.md), [port contract](PORT_CONTRACT_R3.md), [prioritized measurements](MEASUREMENT_SPEC_R3.md) and [figure](SHARED_INVENTORY_R3.pdf). The latest results are in round3 at the end; older sections and raw data preserve every previous miss.
 
-## Night 1/10, Round 1
+## Night 1/10, round 1
 
 **Prior capability:** Four separate lanes had measurement/mechanism ports and negative trials. INCISION/BINDINGS lacked native scalpel toughness and biological/vascular damage width; GAP lacked a mode-specific bridge inventory; RESPONSE's joint chemistry/strength missed the world. The new synthesis lane lacked its own checkpoint and code. Existing models and frozen observations are reused.
 
@@ -42,7 +42,7 @@ A seal→atmosphere ablation changes the day90 proxy2,63117pp, with exactly equa
 **Next construction change:** [Prioritized measurement specification](MEASUREMENT_SPEC_R1.md): start with a registered incision that gives gap, separate cell viability/perfusion and vessel radius/pressure/flow on the same clock. It opens three early transitions; a new isolated Γ value does not do that. Then dryvolume/O2 and chemistry×connectedbridge with separate ultimate-load. [NEXT_ROUND](NEXT_ROUND.md) gives a directly executable start and falsifiers.
 
 
-## Night 1/10, Round 2
+## Night 1/10, round 2
 
 **Prior capability:** R1 gave an executable scenario chain and51 green regressions but strength proxy RMSE43,7037pp. R3's8,3064pp was a separate component diagnostic; prioritization in the measurement specification was qualitative. Native strength, full hemostasis time and edge necrosis lacked a shared observation law.
 
@@ -52,7 +52,7 @@ A seal→atmosphere ablation changes the day90 proxy2,63117pp, with exactly equa
 
 **Actual outcome — which port carries the strength error:** ΔRMSE is reduction from43,703696; negative numbers worsen it.
 
-| Portbyte | RMSE pp | ΔRMSE pp |
+| Port replacement | RMSE pp | ΔRMSE pp |
 |---|---:|---:|
 | Amount A→R3 C only | 13,000632 | +30,703064 |
 | Maturation m→R3 HP only | 39,456781 | +4,246914 |
@@ -81,7 +81,7 @@ All320 scenarios are right-censored for full hemostasis at120min. SD0 for `min(T
 **Next construction change:** A single declared reference amount and shared formation/removal ports shall carry FV C and the U/I/M partition. Acquire absolute collagen amount on fixed area/volume and matched early O2/viability, then chemistry×connected traction. The information operator needs separate target-adapted observations/bandwidths and a new trial; a shared kernel must not hide M1's loss. [Directly executable continuation](NEXT_ROUND.md).
 
 
-## Night 1/10, Round 3
+## Night 1/10, round 3
 
 **Prior capability:** The chain had two different collagen inventories. The same nominal upstream gave43,703696pp strength-RMSE; all six R3 upstream ports gave60,007651pp because a saturated FV C closed formation in the other inventory. The component's8,306367pp used an externally observed HP curve and an amount that inherited early strength calibration.
 
@@ -91,7 +91,7 @@ All320 scenarios are right-censored for full hemostasis at120min. SD0 for `min(T
 
 **Actual outcome:** Seven preserved targets with `independent_day=true` are used with replicates retained; day7/21 that contributed to the earlier rate calibration are not included in RMSE. Separate mouse/rat assays remain an unmatched diagnostic, no joint cohort validation.
 
-| Konstruktion | Styrke-RMSE pp | Utfall |
+| Construction | Strength-RMSE pp | Outcome |
 |---|---:|---|
 | Earlier nominal, two inventories | 43,703696 | Preserved miss |
 | Same nominal, one inventory | 30,950030 | Mass coupling improves proxy |
@@ -109,7 +109,7 @@ After the missed8,3 gate the next construction was executed in the same round: n
 
 **Verification and cost:** **90/90 tests PASS**, all70 earlier plus20 new including integrated strength-RMSE regression, reference/stoichiometry, pure loss with nonzero initial mass, two-step kinetics against matrix exponential, noformation/noremove/blockade, cohort control and incorrectly referenced checkpoint. [VERIFICATION_R3](VERIFICATION_R3.json). Halved dt gives≤0,005264pp strength difference; halved dx≤0,000453pp. The new day21 checkpoint's suffix matches the full run within6,76·10⁻¹⁴pp and chemical marks within1e−12. The old checkpoint is rejected by the new solver operator; the entire day0 prefix has been rebuilt and the cost counted. The prefix then need not be replayed, but the global spatial suffix is still computed.
 
-Four whole chains, five global late suffixes, restart and scoring cost29,624s wall/29,487CPU-s;90-test suite9,645s. A separate CLI run with import/process startup/output cost5,38s wall and81 740KiB maxRSS. Highest experimentRSS82 972KiB. The first path error and its code snapshot are preserved; reported compute-wall lower bound is45,066s including this error and CLI. Development, graph/figure work, historical rateacquisition and actual laboratory cost are UNKNOWN, not0. [Full cost accounting](COST_ACCOUNTING_R3_FINAL.json). No10×gain or globalstate-free capability follows from these numbers.
+Four entire chains, five global late suffixes, restart and scoring cost29,624s wall/29,487CPU-s; the90-test suite9,645s. A separate CLI run with import/process start/output cost5,38s wall and81 740KiB maxRSS. Highest experimentRSS82 972KiB. The first path error and its code snapshot are preserved; the reported compute-wall lower bound is45,066s including this error and CLI. Development, graph/figure work, historical rate acquisition and actual laboratory cost are UNKNOWN, not0. [Full cost accounting](COST_ACCOUNTING_R3_FINAL.json). No10×gain or globalstate-free capability follows from these numbers.
 
 **Prioritized measurement list, value per cost:** [MEASUREMENT_SPEC_R3](MEASUREMENT_SPEC_R3.md) prioritizes **M2 O2/storage/boundary flux/viability → M1 registered incision and radius/perfusion → matched M4+M5 absolute collagen/precursor/chemistry×connected traction → M3 long plug/seal clock → M6 full work/area ledger**. For the target of late strength, matched M4+M5 comes first. R2's model score/costM2=.06325, M1=.02649 and M5=.02305 were historically computed with costs3/8/16 relative work units; they are not upgraded to a new R3 posterior. M4's old zero score concerned a missing consumer; the absolute amount measurement now has C as consumer. Native benefit/prices and shared assay precision are missing. Measure newbornsitebudget/yield and fixed-reference amount before rates are trial-fitted; keep late days/donor out of the fit. All R2's320 hemostasis scenarios remain censored120min; full hemostasis and edge necrosis remain null.
 

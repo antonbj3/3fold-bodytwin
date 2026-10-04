@@ -13,7 +13,7 @@ The previous session's memory reservation was completed with a shared host check
 - `(slice_max − reserverat − slice_reserv) / agent_bytes`
 - `(slice_max − slice_current − slice_reserv) / agent_bytes`
 - `(MemAvailable − host_reserv) / agent_bytes`
-- `host_cap − totalt antal agenter`
+- `host_cap − total number of agents`
 
 `BT_AGENT_MEMORY_MIB=1500` is also used at `systemd-run`. An ubuntu-owned `capacity_admission.lock` is held across the final check and registration of each systemd unit. This prevents BodyTwin and Field from reserving the same memory simultaneously. Broken measurement, unlimited cgroup or <2 GiB free disk stops new starts. Existing cached memory makes OVH's practical concurrency about 16, despite host ceiling 17. The OVH queue's cap file was set to 24; the separate memory check governs actual global concurrency.
 

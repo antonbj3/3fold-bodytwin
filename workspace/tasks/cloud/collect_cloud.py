@@ -22,7 +22,7 @@ def api():
     # These are the same login files and endpoints as inspect_cloud.py. Never log responses.
     config = json.loads(Path('local_config_path').read_text())
     auth = json.loads(Path('local_config_path/.credentials.json').read_text())
-    headers = {'Authorization': 'Bearer ' + auth['claudeAiOauth']['accessToken'],
+    headers = {'Authorization': 'Bearer ' + auth['coordinatorAiOauth']['accessToken'],
                'anthropic-beta': 'ccr-byoc-2025-07-29',
                'x-organization-uuid': config['oauthAccount']['organizationUuid'],
                'anthropic-version': '2023-06-01', 'Accept': 'application/json'}

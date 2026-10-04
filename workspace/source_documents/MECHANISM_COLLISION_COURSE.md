@@ -1,6 +1,6 @@
 # COLLISION COURSE — standing directive, 2026-07-25
 
-Operator direction: *"you need to get on a collision course against what exists, not just walk in circles"*
+Operator direction: *"challenge existing approaches instead of going in circles"*
 and *"jag vill bota Alzheimers, jag vill bota paralysis, alla former av cancer"*.
 
 This overrides the habit the tick prompt encourages. The tick's audit menu (deferred arithmetic, void-floor,

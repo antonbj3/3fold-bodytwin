@@ -2,7 +2,7 @@
 
 All **500 mutations M1–M500** have been improved with unchanged numbering and job-ID `BT-FW48-SEED-001..500`. **406 BRIEF.md was updated; 94 was protected and left untouched.** TOP40 is complete. No mutation was run as a new experiment by this review, and no evidence was accepted.
 
-## Leveranser
+## Deliverables
 
 - [All 500 in v6](external_research_path).
 - [Machine-readable v6 program ](tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json): array with same 500 IDs, original record preserved under `original`, explicit job ID and full breakdown under `first_principles`.
@@ -31,7 +31,7 @@ Example: M9/M472 shares fusion fixture with rank/covariance stress as separate d
 
 Preflight hashes were taken before the mutations were written. Every job with claim, RESULTS, driving history or active process/running-registry was protected. This includes aborted attempts with no remaining claim. Before the commit, the status and briefhash were checked again during a short reservation with the queue's existing `.local_claim` protocol and live reviewer-PID; no `.ovh_claim` was created or modified. Reservation removed after atomic BRIEF replacement. **Only BRIEF.md had a permanent change in the job directories**; original briefs are available as a backup outside the jobs. Existing worker limits and the entire first-principles rule were retained in each updated brief.
 
-**Uppdaterade jobb:** BT-FW48-SEED-082–140, BT-FW48-SEED-151–190, BT-FW48-SEED-194–500.
+**Updated Jobs:** BT-FW48-SEED-082–140, BT-FW48-SEED-151–190, BT-FW48-SEED-194–500.
 
 **Orelated jobs:** BT-FW48-SEED-001–081, BT-FW48-SEED-141–150, BT-FW48-SEED-191–193.
 

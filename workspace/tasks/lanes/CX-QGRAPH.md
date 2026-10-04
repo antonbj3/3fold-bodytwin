@@ -21,4 +21,4 @@ Anton: the pairing/priority shall come from the graph. Today tasks/refill_v2.py 
    Test it: `python3 tasks/refill_v2.py 0` must run without errors and print which packets it WOULD create. Do not queue anything yourself.
 4. **Graph binding (feedback):** for the finished INT/DATX results, write proposed feedback records (the format per notes/GRAPH_WORKFLOW.md: target ID, result path/hash, quantity, unit, uncertainty, gate, outcome, review_state PENDING_INDEPENDENT_REVIEW) to `results/CX-QGRAPH/GRAPH_FEEDBACK_PROPOSED.json`. Do NOT run `./graph feedback` and do not change the graph files.
 
-Deliver RESULTS.md starting with `# CX-QGRAPH` (the number mapped, how many pairs, examples) + pytest for the new refill logic. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only; GRAPH.json/current/generations must NOT be edited.
+Deliver RESULTS.md starting with `# CX-QGRAPH` (the number mapped, how many pairs, examples) + pytest for the new refill logic. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only; GRAPH.json/current/generations must NOT be edited.

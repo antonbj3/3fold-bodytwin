@@ -1,4 +1,4 @@
-# Egress/WARP — resultat 2026-09-30
+# Egress/WARP — results 2026-09-30
 
 **Working WARP is deployed in the egress pool on both OVH and UpCloud.** Endpoint `162.159.192.1:2408` shakes hands. Local direct traffic still gives `31.208.14.101`; WARP gives `104.28.234.225` and Cloudflare's `warp=on`. Over 24 minutes of observation after the first handshake; the scheduled check has **82/82 healthy cough probes**, with the same WARP-IP.
 
@@ -16,7 +16,7 @@
 
 Same account **A**, model **swarm_worker**, task and input: read the factors 17/19, use Python and write `{"product":323}`. The final probes used the installed routing-/cachekoden from empty runtimes, without changing the production policy or slot markers.
 
-| Host | Egress/IP | Utfall | Tid |
+| Host | Egress/IP | Outcome | Tid |
 |---|---|---|---:|
 | OVH | direct / 51.77.110.4 | Explicit provider rate-limit, no answer | 9,12 s |
 | OVH | WARP / 104.28.234.225 | Correct answer, 3 completed utility calls | 21,01 s |

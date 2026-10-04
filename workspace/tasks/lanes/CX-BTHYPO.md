@@ -27,4 +27,4 @@ Each packet = one person × one activity group (or one held-out person), with ra
 4. a counter-test: M_ext time-shifted/permuted → the gain must disappear.
 Also 3–5 packets that pool across persons (LOPO) and one that tests activities N1g has never seen (stairs/step-up/chair rise).
 
-Write `results/CX-BTHYPO/QUEUE_PROPOSAL.txt` + `SAMPLE.md` (2 full BRIEFs). Do NOT queue. Also write `results/CX-BTHYPO/HYPOTHESIS.md` (the hypothesis, the falsifier, and which registry rows it builds on). lane runner has full permissions in the workspace.
+Write `results/CX-BTHYPO/QUEUE_PROPOSAL.txt` + `SAMPLE.md` (2 full BRIEFs). Do NOT queue. Also write `results/CX-BTHYPO/HYPOTHESIS.md` (the hypothesis, the falsifier, and which registry rows it builds on). lane_runner has full permissions in the workspace.

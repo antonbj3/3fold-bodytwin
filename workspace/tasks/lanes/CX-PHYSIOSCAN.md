@@ -15,4 +15,4 @@ Anton: "also send a Sol agent to look for similar projects, because it's the fir
    - one line on why each;
    - for the top 3, a runnable first step: install in a venv under external_media (not on /), and run the smallest example on public data if it takes under 20 min. Single process on the GPU, NEVER `nvidia-smi -q`.
 
-Deliver `results/CX-PHYSIOSCAN/RESULTS.md` starting with `# CX-PHYSIOSCAN`, and `candidates.json`. Internal data must never go to external services. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+Deliver `results/CX-PHYSIOSCAN/RESULTS.md` starting with `# CX-PHYSIOSCAN`, and `candidates.json`. Internal data must never go to external services. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

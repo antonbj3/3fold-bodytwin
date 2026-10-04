@@ -18,7 +18,7 @@ def classify(row, now):
     try:
         pid = row['pid']; started = float(row['started']); job = row['job']
         if not isinstance(pid, int) or pid <= 1 or not isinstance(job, str) or not job: return 'malformed'
-        if row['selected'] not in ('swarm', 'free_worker', 'reserve_worker') or row['account'] not in ('A','B','C','D'): return 'malformed'
+        if row['selected'] not in ('swarm', 'swarm_worker', 'swarm_worker') or row['account'] not in ('A','B','C','D'): return 'malformed'
         try: proc, ticks, boot, epoch = identity(pid)
         except (FileNotFoundError, ProcessLookupError): return 'dead'
         if not 0 <= now-started <= MAX_AGE: return 'aged'

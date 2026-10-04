@@ -108,7 +108,7 @@ Columns: n = nodes; U = unit; S = source in data_sources; E = uncertainty; R = c
 - Fatigue exists (K1 and SCG) but is **REFUTED**: DENT-K1-ISO14801-MARGIN, DENT-K1-SIGMAW-ROUTE and DENT-MAT-SCG-LIFE-CROWN.
 - Healing and remodeling have no DENT node.
 
-## 3. Centrala variabler som saknas
+## 3. Central variables that are missing
 
 Labeling: **UNKNOWN** means that no value exists in the project sources read. If a number exists, it is stated together with the source and the place where it appears.
 
@@ -178,7 +178,7 @@ Labeling: **UNKNOWN** means that no value exists in the project sources read. If
 
 **Total:** 46 central variables are missing or have no source-backed value of their own. Of these, 29 are entirely missing.
 
-## 4. Kedjan geometri → material → last → respons → biologiskt utfall
+## 4. The chain geometry → material → load → response → biological outcome
 
 | Interface | Geometry | Material | Load | Response | Biological outcome | Break |
 |---|---|---|---|---|---|---|

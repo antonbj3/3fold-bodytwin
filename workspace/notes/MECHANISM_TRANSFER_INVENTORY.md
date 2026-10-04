@@ -4,9 +4,9 @@ O5, 2026-09-22. Read-only in the source projects. No source graphs written, no o
 
 ## 1. Hash status: mechanism compared with bodytwin
 
-Urval: filer under `scripts/ src/ docs/ reports/probes/` vars namn matchar splat, camera, pose, football, motion, track, video, human_capture, retarget, optic, pitch_calib, smpl eller anthropo.
+Selection: files under `scripts/ src/ docs/ reports/probes/` whose names match splat, camera, pose, football, motion, track, video, human_capture, retarget, optic, pitch_calib, smpl or anthropo.
 
-| Utfall | Antal | Kommentar |
+| Outcome | Count | Comment |
 |---|---|---|
 | Byte-identical | 715 | All inputs in the assignment, including `football_tracking`, `video_index/*`, `p20_camera_twin.py`, `splat_*`, `l_splat_*`/`l_certified_splat*` with JSON, `human_capture_chain_v0/v1`, `hum_retarget`, `pitch_calibration.py` and `temporal_split_cert.py`. |
 | Different | 3 | `scripts/mechanism_video_analyze.py`: mechanism has a newer version (1268 lines) that adds the pitch anchor; bodytwin has 854 lines. `scripts/msk/pose_to_opensim_ik.py`: bodytwin has the newer version (811 lines) with flags for occlusion asymmetry, low frame coverage and the model's joint limits; mechanism has 577 lines. `scripts/msk/body_composition_from_video.py`: bodytwin adds a `reference_body` block that names a real private individual. That block must not be carried forward. |
@@ -87,7 +87,7 @@ Conclusion: almost all code for motion, video and splats exists in a single vers
   - **Content:** phone capture → glomap SfM → 3DGS. The gates are photometric: PSNR ≥ 27, SSIM ≥ 0,85, LPIPS ≤ 0,25.
   - **Outcome:** the latest runs in `pipeline_runs.jsonl` have status failed or error. `scene_normalized.ply` is scale-normalised, thus without metric scale.
 
-### 2.3 Kameratvillingar
+### 2.3 Camera twins
 
 The camera twins are two different things with the same name. Neither is a measurement-camera model.
 

@@ -1,11 +1,11 @@
 #!/bin/bash
-# Drive a BodyTwin-lane with lane runner (lane model, medium effort, full permission according to Anton 24/9). Kostnadsbesparande:
+# Run a BodyTwin lane with lane_runner (build-lane model, medium effort, full permissions according to Anton 24/9). Cost-saving:
 # one exec per round, at most MAX_ROUNDS rounds, continues only if RESULTS.md is missing.
 # Usage: tasks/lanes/run_lane_runner.sh <LANE> [results-directory]   (default results/<LANE>)
 set -u
 LANE=${1:?}; ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
-OUTDIR=${2:-results/$LANE}; OUT=$ROOT/$OUTDIR/RESULTS.md; LOG=$ROOT/tasks/lanes/codex_$LANE.log
-MODEL=${MODEL:-lane-model}; EFFORT=${EFFORT:-medium}; MAX_ROUNDS=${MAX_ROUNDS:-3}
+OUTDIR=${2:-results/$LANE}; OUT=$ROOT/$OUTDIR/RESULTS.md; LOG=$ROOT/tasks/lanes/lane_runner_$LANE.log
+MODEL=${MODEL:-build-lane model}; EFFORT=${EFFORT:-medium}; MAX_ROUNDS=${MAX_ROUNDS:-3}
 mkdir -p "$ROOT/$OUTDIR"; exec 9>"$ROOT/$OUTDIR/.lane_runner.lock"; flock -n 9 || { echo "$LANE is already running"; exit 0; }
 export OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 NUMEXPR_NUM_THREADS=2
 done_ok(){ [ -s "$OUT" ] && head -3 "$OUT" | grep -q "$LANE"; }

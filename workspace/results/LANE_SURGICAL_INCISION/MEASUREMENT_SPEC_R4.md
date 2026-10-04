@@ -15,7 +15,7 @@ Modified operation → synchronous two-component force, 3D crack front and match
 6. Γ and micromechanics. Effective Γ_cut=(Wext−ΔΨ−Dcontact)/ΔA. For chemical Γ0, in addition, independent B_before is required: Γ0=Γ_cut−B_before. BINDINGS full-terminal traction/opening-work, newly added interface area and fiber break/pullout must come from matched lineage. A partial hysteresis loop or a radius close to zero does not identify B_before. Γ_pierce and Γ_cut remain different assay ports until the same skin, crack kinematics and process mechanisms are measured. Measure the needle insertion first/same-hole/3th pass with the same working port as the scalpel.
 7. Damage zone to RESPONSE. Define width as the distance normal from the measured fracture front, per side, layer and time. Report mechanical strain zone, irreversible matrix damage, membrane permeability/cell viability and perfusion loss separately. Perform spatial viability/membrane assay directly and at exempelvis24h, plus vessel imaging with caliber, tightness and pre/post flow. A mechanical strain threshold must first be compared to this independent observation; it is not a measure of necrosis. No pin track width is taken as avascular edge to RESPONSE. Wound gap and bleeding flow are measured separately, with suture/margin conditions documented.
 
-## Fryst prospektiv felbudget
+## Frozen prospective error budget
 
 Exact bounded quotient error bound, when Ahat>εA:
 

@@ -1,5 +1,32 @@
 #!/usr/bin/env python3
-"The surgically frequent expert as an information society — normalized and inquisitive.\n\nWhy the file exists. Anton: the dense expert should be a source of information that the system asks,\nnot a document anyone reads. Four Sonnet agents harvested 155 records of ~40 specialty lenses,\nbut they are in four directories with FYRA OLIKA SCHEMAN — the same thing is called `threshold`,\n`threshold_or_behaviour` and `expected_behaviour_or_threshold`, and verification status is called\n`locator_status`, `locator_verified` and `locator_check`. As long as it's true, that's four reports\nand not a source.\n\nThe verification mode differs DRASTISKT between the blocks and it must never be equalized:\n  D 33 records — each locator retrieved as PubMed record with abstract. Strongest.\n  C 17 entries — each locator confirmed to exist; a misremembered reference corrected.\n  A 36 record — generated from memory, no web access, all locators unchecked.\n  B 69 records — generated from memory, 14 with low reproduction confidence, returned for resolution.\nB's 69 are therefore worth less than D's 33. The quantity lies about the quality, and whoever asks the source\nmust see it, so each record carries `trust` and a question can be filtered on it.\n\nEdges are formed between STORHETER, not between anatomy (dental evidence: every link that gave a\nuseful result matched on the limiting quantity and its unit). The specialty is the lens\none collected with; the key is the greatness. Therefore, `--quantity` is the main query and `--lens` is a filter.\n\nUse:\n  python3 tasks/build_night/surgical_expert.py --build # normalize and write source\n  python3 tasks/build_night/surgical_expert.py --quantity flow # query per quantity class\n  python3 tasks/build_night/surgical_expert.py --quantity force --trust high\n  python3 tasks/build_night/surgical_expert.py --timescale INTRAOPERATIVE --numeric\n  python3 tasks/build_night/surgical_expert.py --stats\n"
+"""The surgical dense expert as a SOURCE OF INFORMATION — normalized and questionable.
+
+Why the file exists. Anton: the dense expert should be a source of information that the system asks,
+not a document anyone reads. Four Sonnet agents harvested 155 records of ~40 specialty lenses,
+but they are in four directories with FYRA OLIKA SCHEMAN — the same thing is called `threshold`,
+`threshold_or_behaviour` and `expected_behaviour_or_threshold`, and verification status is called
+`locator_status`, `locator_verified` and `locator_check`. As long as it's true, that's four reports
+and not a source.
+
+The verification mode differs DRASTISKT between the blocks and it must never be equalized:
+  D 33 records — each locator retrieved as PubMed record with abstract. Strongest.
+  C 17 entries — each locator confirmed to exist; a misremembered reference corrected.
+  A 36 record — generated from memory, no web access, all locators unchecked.
+  B 69 records — generated from memory, 14 with low reproduction confidence, returned for resolution.
+B's 69 are therefore worth less than D's 33. The quantity lies about the quality, and whoever asks the source
+must see it, so each record carries `trust` and a question can be filtered on it.
+
+Edges are formed between STORHETER, not between anatomy (dental evidence: every link that gave a
+useful result matched on the limiting quantity and its unit). The specialty is the lens
+one collected with; the key is the greatness. Therefore, `--quantity` is the main query and `--lens` is a filter.
+
+Use:
+  python3 tasks/build_night/surgical_expert.py --build # normalize and write source
+  python3 tasks/build_night/surgical_expert.py --quantity flow # query per quantity class
+  python3 tasks/build_night/surgical_expert.py --quantity force --trust high
+  python3 tasks/build_night/surgical_expert.py --timescale INTRAOPERATIVE --numeric
+  python3 tasks/build_night/surgical_expert.py --stats
+"""
 from __future__ import annotations
 
 import argparse
@@ -95,11 +122,11 @@ def build() -> dict:
             loc_ok = r.get('locator_verified') is True or str(r.get('locator_status','')).lower() in ('verified','true','confirmed')
             num = str(r.get('number_status','')).lower()
             if loc_ok and ('confirm' in num or 'correct' in num):
-                rec_trust = 'high'          # source found AND the number is confirmed or corrected against it
+                rec_trust = 'high'          # the source exists AND the speech is confirmed or corrected against it
             elif loc_ok:
-                rec_trust = 'medium'        # the source exists, the number unchecked
+                rec_trust = 'medium'        # source exists, number unchecked
             elif 'not_found' in num or 'absent' in num or 'contradict' in num:
-                rec_trust = 'refuted'       # the number is not in the source or contradicted by it
+                rec_trust = 'refuted'       # the number is not in the source or is contradicted by it
             rows.append({
                 'id': f"{block}:{r.get('id')}",
                 'block': block,

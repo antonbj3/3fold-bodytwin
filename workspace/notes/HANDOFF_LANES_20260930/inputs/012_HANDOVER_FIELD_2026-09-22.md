@@ -18,7 +18,7 @@ Anton says the coordinator quota was just reset and that he has about 27 hours t
 4. `~/HANDOVER_romi_2026-09-21.md` is the older chronological log. Its latest addition was at 18:09 and describes the queue running then. It is **outdated on current process state**; use this new handoff and a live process check.
 5. For the graph coupling: `~/projects/graph_workspace/GRAPH_MAP.md` and `lanes/GRAPH_FIELD_BRIDGE_20260922.md`. The actual graph map has now been confirmed by the other session and Anton.
 
-Forskningsrot:
+Research root:
 
 ```
 ../3fold-motion-engine/_private/romi_collab
@@ -77,13 +77,13 @@ The field engine's three older fixes are also already published:
 
 - staging `../3fold-field-engine`: `597600c3031b1af29e4bdd0351a22ced61baee4d`.
 - public `local_path`: `3ffdb0edb119fdfb3484f4d0aa36639412f51508`.
-- Publika commits: `2b91296`, `9705033`, `3ffdb0e` (stale owner-celler, massgrid/tre frames, deterministiska owner-ties). Staging var rent vid ny kontroll.
+- Public commits: `2b91296`, `9705033`, `3ffdb0e` (stale owner cells, massgrid/three frames, deterministic owner ties). Staging was clean at a new check.
 
 **U271/A187 explicitly reports no further release candidate.** A187's report has been read for this handoff; its tests have not been rerun by root. The chosen payload is empty and `integration_ready=false`. The audit reports 30 regression passes and confirms already published files. This does not mean a new field release is ready.
 
 U273/A189's sand patch is a separate track. Read A189 and later U287/A203 before deciding. U271's local installer accepts `--apply` but lacks an actual write path according to A187; do not use it as a working installer without correction and review.
 
-No new commissions or pushar were made during this handover. Communicate concrete new deliveries with Anton before publishing. No private project names or model attributes in public filer/commits. Staging Author `Anton <[epost borttagen]>`; publikt `Anton Björkegren <antonbj3@users.noreply.github.com>` enligt tidigare instruktion.
+No new commits or pushes were made during this handoff. Discuss concrete new deliveries with Anton before publishing. No private project names or model attribution in public files/commits. Staging author `Anton <[email removed]>`; publicly `Anton Björkegren <antonbj3@users.noreply.github.com>` according to the earlier instruction.
 
 Previously authorized follow-up: 40/40 SMTP-accepted, Michael Posa excluded. Old email queues paused. **No further mailing, no arXiv upload.** Anton writes his emails and replies himself.
 

@@ -52,7 +52,7 @@ not as sources, with HTTP status verbatim (`null` + reason).
 
 `samples/Remifentanil.csv` — **124 398 B = 0.12 MB, far below the 50 MB cap.**
 
-* **Form:** 2107 rader × 12 kolumner, index `rownames`; `ID, Subject, Time, conc, Rate,
+* **Shape:** 2107 rows × 12 columns, index `rownames`; `ID, Subject, Time, conc, Rate,
   Amt, Age, Sex, Ht, Wt, BSA, LBM`. dtypes: 8 × float64, 2 × int64, 1 × object (`Sex`),
   1 × int64. Missing `conc` in 115/2107 rows (5.5 %, documented, not removed).
   `conc` 0.1–245.4 ng/ml. 20–54 obs/patient.
@@ -97,9 +97,9 @@ design block (`t_p = t_o = 90 d`, `t_w = 0`, from `Q014_model.py`):
 
 | Measured `tau` | `tau/t_p` | `S` | `c` | `R` | Parenthesis `S(1+R)−c` |
 |---|---|---|---|---|---|
-| remifentanil median 10.58 min | **8.2e−5** | 1.0 | 1.0 | 0.0 | **0.0 exakt** |
-| remifentanil max 27.19 min | 2.1e−4 | 1.0 | 1.0 | 0.0 | 0.0 exakt |
-| kinidin median 4923 h | 3.8e−2 | 1.0 | 1.0 | 3.7e−12 | 3.7e−12 |
+| remifentanil median 10.58 min | **8.2e−5** | 1.0 | 1.0 | 0.0 | **0.0 exactly** |
+| remifentanil max 27.19 min | 2.1e−4 | 1.0 | 1.0 | 0.0 | 0.0 exactly |
+| quinidine median 4923 h | 3.8e−2 | 1.0 | 1.0 | 3.7e−12 | 3.7e−12 |
 
 **Conclusion (derivation from the model’s own formula, not from measured data):** if memory time
 is short — and it is short in every measured decay found, 7 minutes to 205 days

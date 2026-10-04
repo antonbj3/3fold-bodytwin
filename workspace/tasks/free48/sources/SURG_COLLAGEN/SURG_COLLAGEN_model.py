@@ -1,5 +1,57 @@
 #!/usr/bin/env python3
-"SURG_COLLAGEN -- the molecule-to-tissue chain that sets what a blade meets.\n\nWhy this file exists. Anton 2026-10-02: \"Fix model files for that then, if they do not exist yet.\"\nCorrection to my own earlier claim first: this cell was NOT empty. It already holds 951 lines in\nthree scripts (triple-helix thermal stability, tendon hierarchical mechanics, myofascial\ntransmission). I called it \"no cell\" because I searched for the Q-cell filename convention\n`<CELL>_model.py` and it has none. That is the third false-absence of the same class in one\nevening (a glob that did not recurse, a vocabulary that missed motor-unit terms, and now a\nfilename pattern). The content was there; the ENTRY POINT with the cell contract was not, and an\nedge cannot be drawn to a catalog entry that nothing calls.\n\nWhat the chain is, with the resolution level of every quantity declared (COMMON.md rule: a\nquantity carries its level, and an edge is drawn at the finest level the two sides share):\n\n  MOLECULE  hydroxyproline content -> triple-helix melting temperature Tm  [K]\n            consumed, not re-derived: collagen_triple_helix_thermal_stability.json in this folder\n            over-determines the mammalian anchor by two non-circular routes (~310-313 K).\n  MOLECULE  crosslink density (enzymatic LOX + non-enzymatic glycation)    [mol/mol collagen]\n  FIBRIL    work of separation per unit fibril area, Gamma_fibril          [J/m^2]  <-- NULL\n  FIBRIL    recruitment fraction: fibrils within angle theta of the cut plane that carry load\n  TISSUE    work of cutting per unit crack area, Gamma_tissue              [J/m^2]  <-- NULL\n\nTHE POINT OF THE CELL, and the reason it is worth building with a null in the middle.\nGamma_fibril has no measurement: `notes/ACQUISITION_LIST.md` item 8 records that a full\nforce-opening curve to rupture on a single fibril does not exist, so every absolute tissue\ntoughness in this project is a debt. But a RATIO of two cutting states divides Gamma_fibril out.\nSo this cell deliberately refuses to emit an absolute and emits two ratios instead:\n\n  R_thermal     = work to cut native tissue / work to cut the same tissue above Tm\n  R_recruit     = work to cut across the fibre axis / work to cut along it\n\nBoth are measurable, both are decision-relevant (a heated blade and a chosen incision direction\nare things a surgeon actually controls), and neither needs the missing absolute. This is the same\nstructure that saved the fibril-recruitment result tonight and the same structure by which the\nrenal certificate decided what clearance can and cannot bound.\n\nWHAT IS CONSUMED FROM TONIGHT'S MEASURED WORK (so this cell is an edge, not an island):\n  - network bending exponent converging on the published value: 1.186 -> 1.033 -> 0.980,\n    the two largest bracketing 1.0 (lane DEJ/fibril work)\n  - corrected recruitment target band 1.2978-2.1836, against which 7 of 8 realizations fell\n    below the floor, mean 1.2090, max 1.9629 inside\n  - Tm anchor from this folder's own verified script\n\nDECLARED PHENOMENOLOGICAL DEBT, named rather than hidden: the post-denaturation residual fibril\nwork fraction phi is not measured here. It enters as a declared interval, and every output that\ndepends on it is reported as a band with the interval printed beside it. A band is an honest\nanswer; a point value from an unmeasured phi would not be.\n\nNo internal data. Everything PENDING_INDEPENDENT_REVIEW.\n\nUsage:\n  python3 SURG_COLLAGEN_model.py --output results.json\n"
+"""SURG_COLLAGEN -- the molecule-to-tissue chain that sets what a blade meets.
+
+Why this file exists. Anton 2026-10-02: "Fix model files for that then, if they do not exist yet."
+Correction to my own earlier claim first: this cell was NOT empty. It already holds 951 lines in
+three scripts (triple-helix thermal stability, tendon hierarchical mechanics, myofascial
+transmission). I called it "no cell" because I searched for the Q-cell filename convention
+`<CELL>_model.py` and it has none. That is the third false-absence of the same class in one
+evening (a glob that did not recurse, a vocabulary that missed motor-unit terms, and now a
+filename pattern). The content was there; the ENTRY POINT with the cell contract was not, and an
+edge cannot be drawn to a catalog entry that nothing calls.
+
+What the chain is, with the resolution level of every quantity declared (COMMON.md rule: a
+quantity carries its level, and an edge is drawn at the finest level the two sides share):
+
+  MOLECULE  hydroxyproline content -> triple-helix melting temperature Tm  [K]
+            consumed, not re-derived: collagen_triple_helix_thermal_stability.json in this folder
+            over-determines the mammalian anchor by two non-circular routes (~310-313 K).
+  MOLECULE  crosslink density (enzymatic LOX + non-enzymatic glycation)    [mol/mol collagen]
+  FIBRIL    work of separation per unit fibril area, Gamma_fibril          [J/m^2]  <-- NULL
+  FIBRIL    recruitment fraction: fibrils within angle theta of the cut plane that carry load
+  TISSUE    work of cutting per unit crack area, Gamma_tissue              [J/m^2]  <-- NULL
+
+THE POINT OF THE CELL, and the reason it is worth building with a null in the middle.
+Gamma_fibril has no measurement: `notes/ACQUISITION_LIST.md` item 8 records that a full
+force-opening curve to rupture on a single fibril does not exist, so every absolute tissue
+toughness in this project is a debt. But a RATIO of two cutting states divides Gamma_fibril out.
+So this cell deliberately refuses to emit an absolute and emits two ratios instead:
+
+  R_thermal     = work to cut native tissue / work to cut the same tissue above Tm
+  R_recruit     = work to cut across the fibre axis / work to cut along it
+
+Both are measurable, both are decision-relevant (a heated blade and a chosen incision direction
+are things a surgeon actually controls), and neither needs the missing absolute. This is the same
+structure that saved the fibril-recruitment result tonight and the same structure by which the
+renal certificate decided what clearance can and cannot bound.
+
+WHAT IS CONSUMED FROM TONIGHT'S MEASURED WORK (so this cell is an edge, not an island):
+  - network bending exponent converging on the published value: 1.186 -> 1.033 -> 0.980,
+    the two largest bracketing 1.0 (lane DEJ/fibril work)
+  - corrected recruitment target band 1.2978-2.1836, against which 7 of 8 realizations fell
+    below the floor, mean 1.2090, max 1.9629 inside
+  - Tm anchor from this folder's own verified script
+
+DECLARED PHENOMENOLOGICAL DEBT, named rather than hidden: the post-denaturation residual fibril
+work fraction phi is not measured here. It enters as a declared interval, and every output that
+depends on it is reported as a band with the interval printed beside it. A band is an honest
+answer; a point value from an unmeasured phi would not be.
+
+No internal data. Everything PENDING_INDEPENDENT_REVIEW.
+
+Usage:
+  python3 SURG_COLLAGEN_model.py --output results.json
+"""
 from __future__ import annotations
 
 import argparse

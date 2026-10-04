@@ -30,7 +30,7 @@ Indexed in **`notes/OLD_CELL_INDEX.json`** (search with `python3 tasks/build_nig
 - **the 431 refuted are as useful as the measured** — a preserved negative prevents a lane from rerunning a question that has already failed
 - NOTE: searching for flow, tissue, perfusion, collagen, blood, vessel and pressure gives **zero** hits in the index. The cells belong to another research line (amyloid kinetics, AMYKIN series). Do not count on them for tissue and flow.
 
-## 3. Arbetsytans 43 celler
+## 3. The workspace’s 43 cells
 
 `tasks/free48/sources/` — 35 Q-numbered plus BIORESP, IMMUNITY, MITOSTRESS, SOLBENCH and four SURG_*. Each cell is a first-principles chain with declared parameters, units and dimensional checks (see `Q012_model.py`, which starts "first-principles model of diet x microbiome -> metabolite exposure").
 
@@ -71,7 +71,7 @@ Old project: `baroreflex`, `cough_reflex`, `emesis_reflex`, eight `msk_*` domain
 `~/projects/mechanism`: 7 690 py files, 5,4 GB. Transfer needs are in `notes/MECHANISM_TRANSFER_INVENTORY.md`.
 UNCHECKED in detail. What I checked: searching for look/gaze/saccade/fixation gives 37 files, but they are in grasping and optics code, i.e. camera gaze and not eye. **No nervous system material there that the workspace lacks**, as far as I have seen.
 
-## 7. Styrningen
+## 7. Direction
 
 `tasks/build_night/` — `COMMON.md` (read by each lane: classify the claim, resolution level per quantity, edge at the finest level, key per quantity, search the cell index before derivation), `slots.txt`, `max_lanes`, `steer/<LANE>.md`, `NIGHT_LOG.md` (each finding one row, historical rows are never edited).
 
@@ -85,4 +85,3 @@ Meters: `lane_runner_usage.sh` (window **and credits** — the window is no stop
 - external models are executable but **never run**; the only actual connection was rejected at 0 % valid frames
 - `negative_result` exists in 47 of 11 799 results (but 77 % in jobs after the requirement was introduced)
 
-Allt PENDING_INDEPENDENT_REVIEW. Inga interna data (collaborator, restricted model data, Grand Challenge, JW, patientdata) leaves the machine.

@@ -21,7 +21,7 @@ Three are large and entirely unused in the workspace:
 
 You run locally and have read permission on them. **Read them without changing anything** — the old project is read-only and this workspace is an adapter.
 
-## Uppgiften: leverera KANTER
+## Task: deliver EDGES
 
 A node without an edge is a blueprint. The lane is judged by the number of edges carrying a named shared quantity, not the number of domains it has touched.
 
@@ -38,7 +38,7 @@ Classify according to COMMON.md: this is `information_link`. The control is what
 - **Falsifier:** if none of the three domains shares a quantity in the same unit with any existing cell, they cannot be connected today and the delivery is which quantity is missing per domain. It is a fully valid outcome and better than an invented edge.
 - **Prohibited:** creating an edge between two quantities sharing only a name (the unit decides, not the word); changing anything in `~/projects/bodytwin`; counting a domain as connected before the edge has run; building a new cell before the edges are mapped — Anton asked for connections, not more nodes.
 
-## Leverans
+## Delivery
 
 `PORT.json` with the edges: producer, consumer, quantity, unit, conversion, and the question the edge makes askable. Plus the number of decidable pairs before and after. Narrow follow-ups in FOLLOWUPS.json — no template repeated per domain.
 

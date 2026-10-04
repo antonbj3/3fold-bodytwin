@@ -6,7 +6,7 @@
     "M_body": {
       "value": 70.0,
       "unit": "kg",
-      "source": "ANTAGANDE (brief: 70 kg vuxen)"
+      "source": "ASSUMPTION (brief: 70 kg adult)"
     },
     "V_plasma0": {
       "value": 3.0,
@@ -26,27 +26,27 @@
     "c_plasma": {
       "value": 40.0,
       "unit": "g/L",
-      "source": "ANTAGANDE: plasmaalbumin 4 g/dL; ger pi_p=18.4 mmHg"
+      "source": "ASSUMPTION: plasma albumin 4 g/dL; gives pi_p=18.4 mmHg"
     },
     "c_isc0": {
       "value": 15.0,
       "unit": "g/L",
-      "source": "ANTAGANDE: ~0.38 c_p; ger pi_i~5 mmHg (subkutan litteratur)"
+      "source": "ASSUMPTION: ~0.38 c_p; gives pi_i~5 mmHg (subcutaneous literature)"
     },
     "T": {
       "value": 310.0,
       "unit": "K",
-      "source": "ANTAGANDE 37 C"
+      "source": "ASSUMPTION 37 C"
     },
     "M_n": {
       "value": 69300.0,
       "unit": "g/mol",
-      "source": "ANTAGANDE albuminmonomer"
+      "source": "ASSUMPTION albumin monomer"
     },
     "n_Hill": {
       "value": 1.5,
       "unit": "-",
-      "source": "KALIBRERAD pa (pi(10 g/L)=3.1, pi(40 g/L)=18.4 mmHg)"
+      "source": "CALIBRATED on (pi(10 g/L)=3.1, pi(40 g/L)=18.4 mmHg)"
     },
     "pi_max": {
       "value": null,
@@ -66,132 +66,132 @@
     "K_f0": {
       "value": 0.05,
       "unit": "mL/min/mmHg",
-      "source": "ANTAGANDE: helkroppseffektiv K_f; ger nettofiltr. ~0.5 mL/min"
+      "source": "ASSUMPTION: whole-body effective K_f; gives net filtr. ~0.5 mL/min"
     },
     "L_p": {
       "value": 1.5e-07,
       "unit": "cm/s",
-      "source": "Michel & Curry 1999 Physiol Rev 79:703-761 (10.1152/physrev.1999.79.3.703) - INTERVALL OVERIFIERAD"
+      "source": "Michel & Curry 1999 Physiol Rev 79:703-761 (10.1152/physrev.1999.79.3.703) - INTERVAL UNVERIFIED"
     },
     "A_cap": {
       "value": 3000.0,
       "unit": "m^2",
-      "source": "ANTAGANDE: helkroppens kapillaryarea"
+      "source": "ASSUMPTION: whole-body capillary area"
     },
     "sigma_g0": {
       "value": 0.95,
       "unit": "-",
-      "source": "ANTAGANDE: glykokalysens onkotiska screening"
+      "source": "ASSUMPTION: glycocalyx oncotic screening"
     },
     "sigma_s0": {
       "value": 0.9,
       "unit": "-",
-      "source": "ANTAGANDE: albuminreflektion"
+      "source": "ASSUMPTION: albumin reflection"
     },
     "D_ratio": {
       "value": 0.0002,
       "unit": "-",
-      "source": "ANTAGANDE: diffusiv/reflektiv (L_p D_s)/(K_f delta); kalibrerat sa att c_isc0 ~ 0.4 c_p"
+      "source": "ASSUMPTION: diffusive/reflective (L_p D_s)/(K_f delta); calibrated so that c_isc0 ~ 0.4 c_p"
     },
     "f_glyc": {
       "value": 2.0,
       "unit": "-",
-      "source": "ANTAGANDE: E~0.5 nar dP_eff = f_glyc*pi_p"
+      "source": "ASSUMPTION: E~0.5 when dP_eff = f_glyc*pi_p"
     },
     "n_glyc": {
       "value": 12.0,
       "unit": "-",
-      "source": "ANTAGANDE: skarpa knaet"
+      "source": "ASSUMPTION: sharp knee"
     },
     "k_leak": {
       "value": 2.0,
       "unit": "-",
-      "source": "ANTAGANDE: K_f-okning nar glykocalysen tappar"
+      "source": "ASSUMPTION: K_f increase when the glycocalyx drops"
     },
     "E_min": {
       "value": 0.05,
       "unit": "-",
-      "source": "ANTAGANDE: golv pa glykokalys"
+      "source": "ASSUMPTION: floor on glycocalyx"
     },
     "E_fixed": {
       "value": null,
       "unit": "-",
-      "source": "Nollmodell N3: None = fri E, 1.0 = laserad glykokalys"
+      "source": "Null model N3: None = free E, 1.0 = locked glycocalyx"
     },
     "a_stiff": {
       "value": 12.0,
       "unit": "mmHg",
-      "source": "ANTAGANDE: P = a ln(V/V_k)"
+      "source": "ASSUMPTION: P = a ln(V/V_k)"
     },
     "pv_form": {
       "value": "log",
       "unit": "-",
-      "source": "'log' = Guyton-riktande; 'linear' = nollmodell N0"
+      "source": "'log' = Guyton-directed; 'linear' = null model N0"
     },
     "V_k_ratio": {
       "value": 1.2,
       "unit": "-",
-      "source": "ANTAGANDE: V_k = 1.20 V_isc0 -> P_ISC,0 ~ -2.2 mmHg"
+      "source": "ASSUMPTION: V_k = 1.20 V_isc0 -> P_ISC,0 ~ -2.2 mmHg"
     },
     "R_mob_max": {
       "value": 100000.0,
       "unit": "-",
-      "source": "Guyton/Scheel/Murphree 1966 Circ Res 19:412-419 (10.1161/01.res.19.2.412): >1e5 ggr MOBILITETSfall"
+      "source": "Guyton/Scheel/Murphree 1966 Circ Res 19:412-419 (10.1161/01.res.19.2.412): >1e5 times MOBILITY drop"
     },
     "P_half_mob": {
       "value": 0.25,
       "unit": "mmHg",
-      "source": "ANTAGANDE: knaets halvbredd"
+      "source": "ASSUMPTION: half-width of the knee"
     },
     "P_min": {
       "value": -14.0,
       "unit": "mmHg",
-      "source": "ANTAGANDE: golv pa P_ISC"
+      "source": "ASSUMPTION: floor on P_ISC"
     },
     "P_max": {
       "value": 25.0,
       "unit": "mmHg",
-      "source": "ANTAGANDE: tak pa P_ISC"
+      "source": "ASSUMPTION: ceiling on P_ISC"
     },
     "K_lymph": {
       "value": 1.0,
       "unit": "mL/min/mmHg",
-      "source": "ANTAGANDE: lymfansangio-konduktans (dimensionellt K_L)"
+      "source": "ASSUMPTION: lymphangio conductance (dimensionally K_L)"
     },
     "P_pump": {
       "value": 0.5,
       "unit": "mmHg",
-      "source": "ANTAGANDE: vilande pumptryck"
+      "source": "ASSUMPTION: resting pump pressure"
     },
     "beta": {
       "value": 0.05,
       "unit": "mmHg^-1",
-      "source": "ANTAGANDE: K_A A_L / K_L (Humphrey-formen) - OVERIFIERAD"
+      "source": "ASSUMPTION: K_A A_L / K_L (Humphrey form) - UNVERIFIED"
     },
     "P_out": {
       "value": 0.0,
       "unit": "mmHg",
-      "source": "ANTAGANDE: extrinsiskt/visceralt referenstryck"
+      "source": "ASSUMPTION: extrinsic/visceral reference pressure"
     },
     "sigma_L": {
       "value": 0.1,
       "unit": "-",
-      "source": "ANTAGANDE: lymfans proteinreflektion"
+      "source": "ASSUMPTION: lymph protein reflection"
     },
     "tau_l": {
       "value": 20.0,
       "unit": "min",
-      "source": "ANTAGANDE: lymfvaskompartimentets omsattningstid"
+      "source": "ASSUMPTION: lymph vascular compartment turnover time"
     },
     "f_p_lymph": {
       "value": 0.3,
       "unit": "-",
-      "source": "ANTAGANDE: andel lymfprotein som ater till plasma"
+      "source": "ASSUMPTION: fraction of lymph protein returning to plasma"
     },
     "tau_hep": {
       "value": 120.0,
       "unit": "min",
-      "source": "ANTAGANDE: hepatostatisk reglering av c_p (lever som kallande mangkomp)"
+      "source": "ASSUMPTION: hepatostatic regulation of c_p (liver as sourcing amount compartment)"
     },
     "pi_cell": {
       "value": null,
@@ -206,22 +206,22 @@
     "K_cell": {
       "value": 0.5,
       "unit": "mL/min/mmHg",
-      "source": "ANTAGANDE: cellmembrans konduktans"
+      "source": "ASSUMPTION: cell membrane conductance"
     },
     "c_cell": {
       "value": 50.0,
       "unit": "mmHg",
-      "source": "ANTAGANDE: cellernas P-V-stelhet (dP_c/d(V/V0))"
+      "source": "ASSUMPTION: cell P-V stiffness (dP_c/d(V/V0))"
     },
     "tau_cell": {
       "value": 500.0,
       "unit": "min",
-      "source": "ANTAGANDE: langsam cellvolymreglering (VRAC etc.)"
+      "source": "ASSUMPTION: slow cell volume regulation (VRAC etc.)"
     },
     "c_prop": {
       "value": 0.0001,
       "unit": "-",
-      "source": "ANTAGANDE: extracell. proteinklarande /tau_l -> k=5e-6 1/min (t1/2 ~ 5 d)"
+      "source": "ASSUMPTION: extracell. protein clearance /tau_l -> k=5e-6 1/min (t1/2 ~ 5 d)"
     }
   },
   "derived_params": {
@@ -280,7 +280,7 @@
       "ok": true
     },
     {
-      "relation": "4  P_ISC = a ln(V/V_k)           [mmHg] = a[mmHg]*dimensionellt",
+      "relation": "4  P_ISC = a ln(V/V_k)           [mmHg] = a[mmHg]*dimensionless",
       "lhs_unit": "mmHg^1  [mmHg]",
       "rhs_unit": "mmHg^1  [mmHg]",
       "value": -2.187858681527455,
@@ -789,10 +789,10 @@
     "A1 K_lymph (unit check)",
     "A2 D_ratio (baseline equilibrium)",
     "A3 c_cell/tau_cell/c_prop",
-    "A4 pi_cell kalibrerad",
-    "A5 hepatostat PI pa albuminmassa",
-    "A6 Radau + L/g-skalning",
-    "A7 BUGFIX: dV_p -= J_c dubbelraknades (vattenbalansen brotts, hittad av T3)"
+    "A4 pi_cell calibrated",
+    "A5 hepatostat PI on albumin mass",
+    "A6 Radau + L/g scaling",
+    "A7 BUGFIX: dV_p -= J_c was double-counted (water balance broken, found by T3)"
   ],
   "amendment_note": "Metadata changes after the run: no numbers in baseline/scenarios/sensitivity/null_models have changed. All changes are calibrations or error corrections, tested against unit check and mass balance -- not against the P1-P6 outcome. See PREREG.md §8."
 }

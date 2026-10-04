@@ -14,7 +14,7 @@ Read: `results/CX-FUSION/` (fuse.py, analyze.py: the EMG mapping to L1 muscle gr
 3. **Frozen criterion:** beats N1g for ≥ 3/4 held-out persons, AND permuted EMG is ≥ 10 % worse.
 4. Report separately the frames where meas < lo (the model-error cap). Also give the result on frames inside the set.
 
-Deliver RESULTS.md starting with `# CX-EMGLEARN`, results.json, the script, and pytest. Run the LP/QP under bigmem.lock with 2 threads or on OVH via `tasks/cloud_run.sh` (finish by 07:30). Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Every outcome is a node that expands.
+Deliver RESULTS.md starting with `# CX-EMGLEARN`, results.json, the script, and pytest. Run the LP/QP under bigmem.lock with 2 threads or on OVH via `tasks/cloud_run.sh` (finish by 07:30). Internal data stays local. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Every outcome is a node that expands.
 
 ## VARIANT B (the coordinator, 23:40; add it to PREREG before scoring): blind, implant-FREE gain calibration against ID moments (EMG-driven, CEINMS-like; free-energy framing)
 Idea: the body's natural stride-to-stride pose variation changes A (the moment arms). A1439 says pose changes are exactly what make the hidden observable. If the gain G per channel group is constant across strides for a person, G can be calibrated WITHOUT the implant: minimise the moment residual ‖A f(EMG; G) − b‖ over all of that person's frames/strides. Here f(EMG;G) = the EMG-driven forces for the recorded groups + a minimal correction for the unmeasured muscles, within the box/set.

@@ -90,7 +90,7 @@ def main():
     write_json(LANE/"night_rounds/r1.json",round_record)
     artifacts=[]
     for p in sorted(LANE.rglob("*")):
-        if p.is_file() and p.name not in ("ARTIFACT_MANIFEST_R1.json","codex_r1.log") and "__pycache__" not in str(p):
+        if p.is_file() and p.name not in ("ARTIFACT_MANIFEST_R1.json","lane_runner_r1.log") and "__pycache__" not in str(p):
             artifacts.append({"path":str(p.relative_to(LANE)),"sha256":sha(p),"bytes":p.stat().st_size})
     write_json(LANE/"ARTIFACT_MANIFEST_R1.json",{"artifacts":artifacts,"mutable_metadata":["WORK_STATUS.json","RESULTS.md","NEXT_ROUND.md"],"updated_utc":stamp})
     print(json.dumps({"verification":checks,"gate":"FAIL","strongest_control":"TIE","artifacts":len(artifacts),"measured_experiment_CPU_lower_bound_s":cost["instrumented_experiment_CPU_lower_bound_s"]}))

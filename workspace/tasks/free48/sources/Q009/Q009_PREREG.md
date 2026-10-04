@@ -2,7 +2,7 @@
 
 Status: frozen before the first model run. This is a first executable mechanistic model, not a validated clinical prediction.
 
-## Hypotes
+## Hypothesis
 
 A similar total plasma curve gives different free exposure in the target tissue when the free plasma fraction differs, or when transport, tissue binding or local clearance differs. Total plasma is therefore not a sufficient description of the free exposure trajectory.
 
@@ -16,7 +16,7 @@ under an identical total plasma curve and identical other parameters.
 
 Predicted model quantity: `Q = 2.00`. This follows from linearity in the free plasma input; it is an analytical structure check and not an empirical validation.
 
-Tekniskt PASS-kriterium fryses till:
+The technical PASS criterion is frozen at:
 
 - the maximum relative deviation between the imposed total plasma curves is at most `1e-12`;
 - the observed ratio lies between `1.90` and `2.10`;
@@ -25,7 +25,7 @@ Tekniskt PASS-kriterium fryses till:
 
 Physical PASS means only that the mechanism is implemented numerically and dimensionally. Physical VALID means that a matched tissue dataset reproduces the curve; this is `UNKNOWN` in this run.
 
-## Fryst numeriskt experiment
+## Frozen numerical experiment
 
 - Time axis: `0–24 h`.
 - Controlled total plasma curve for all cases: `C_p,total(t) = 10 exp(-0.08 t) + 1 exp(-0.8 t) mg/L`.

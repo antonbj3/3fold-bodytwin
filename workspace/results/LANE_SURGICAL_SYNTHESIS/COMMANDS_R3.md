@@ -1,4 +1,4 @@
-# Reproduktion av R3
+# Reproduction of R3
 
 Choose new output destinations. Experiments and tests verify frozen PREREG. Two CPU threads; no network traffic or external HP/abundance consumer in the forward chain.
 

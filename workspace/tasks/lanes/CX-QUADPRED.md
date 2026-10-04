@@ -10,4 +10,4 @@ Freeze in PREREG.md (+sha256) before scoring:
 - ALL with the quadriceps-arm geometry, against N1g (L1 LOPO) on INVERSEOC's mask.
 Criterion: person-median RMSE < 0.396 BW, or better than N1g for ≥ 3/4 persons.
 Reuse caches; run the QP batched (contact_band_batch / analyze.qp) with 2 threads under bigmem.lock. If the full mask does not fit in time: 3 trials per person, stratified.
-Deliver `results/CX-QUADPRED/RESULTS.md` starting with `# CX-QUADPRED`, results.json, and the script. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Internal data stays local. NOTE the disk: external_media has ~2 GB free; write at most 200 MB of intermediate files.
+Deliver `results/CX-QUADPRED/RESULTS.md` starting with `# CX-QUADPRED`, results.json, and the script. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Internal data stays local. NOTE the disk: external_media has ~2 GB free; write at most 200 MB of intermediate files.

@@ -34,7 +34,7 @@ Start from existing code, corrections and failed results. Every new branch must 
 <!-- AMBITIOUS_SEARCH_METHOD_20260927 -->
 # Ambitious goals as a search method
 
-Anton, 2026-09-27. Applies to proof_lane, Sol, The swarm and free_worker. Source: the original graph README, `projects/graph_workspace/pub/README.md`, initial public commit `0d836fa` (2026-09-13), especially The unlock graph, Densification and Big goals as coverage probes. This describes how to search; it does not certify the README's individual scientific claims.
+Anton, 2026-09-27. Applies to the proof lane, Sol, The swarm and swarm_worker. Source: the original graph README, `projects/graph_workspace/pub/README.md`, initial public commit `0d836fa` (2026-09-13), especially The unlock graph, Densification and Big goals as coverage probes. This describes how to search; it does not certify the README's individual scientific claims.
 
 **Aim at a consequential capability.** Use an extremely ambitious goal to expose missing knowledge and representations: what useful operation would become possible if the present restriction disappeared? Work backward from that capability. A major gain is a search aspiration, never an instruction to report a positive result. A small experiment should illuminate a large goal.
 
@@ -48,14 +48,14 @@ Anton, 2026-09-27. Applies to proof_lane, Sol, The swarm and free_worker. Source
 
 **Leave branches that another worker can use.** For each explored seed record its parent/source, actual result, binding requirement, next mechanism, decisive test and downstream goal. Emit a compact SEED_EXPANSIONS.json (or these fields in an existing structured output). Map it to follow-up proposal IDs, already completed work, or an explicit prerequisite/refutation/deferment. Proposals use the existing SWARM_QUEUE_ADD.json or FOLLOWUPS.json schema. Do not rerun an unchanged failed approach. A queue entry or graph edge is not scientific acceptance.
 
-**Use the available graph honestly.** BodyTwin and dental workers receive selected graph packets; dispatch and feedback are handled by their existing controller. Keep target/source IDs in results and report missing dependencies for review. Field/proof_lane use linked result packets and queues as well; do not claim that they are a complete shared knowledge graph. Do not edit canonical graphs or mark your own findings validated.
+**Use the available graph honestly.** BodyTwin and dental workers receive selected graph packets; dispatch and feedback are handled by their existing controller. Keep target/source IDs in results and report missing dependencies for review. Field/the proof lane use linked result packets and queues as well; do not claim that they are a complete shared knowledge graph. Do not edit canonical graphs or mark your own findings validated.
 
-For a bounded The swarm/free_worker job, implement one valuable step in this chain and leave explicit next branches. For a planner, expand and rank several distinct steps. For a Sol review, identify which evidence changes the next construction. Existing resource limits and task scope still apply; this message authorizes no extra paid agents.
+For a bounded The swarm/swarm_worker job, implement one valuable step in this chain and leave explicit next branches. For a planner, expand and rank several distinct steps. For a Sol review, identify which evidence changes the next construction. Existing resource limits and task scope still apply; this message authorizes no extra paid agents.
 
 
 ## Highest-value continuation — 2026-09-27
 
-Select the next action by the capability it unlocks, the decisive uncertainty it removes, and its complete cost. Compare alternatives explicitly without inventing numeric probabilities. Track exact parent result/seed IDs; distinguish a catalog entry, planned experiment, executed result and independent review. Read ALL_WAVES_COVERAGE.json and ALL_WAVES_PRIORITIES.json in the supplied review packet when available. A failed network invocation is not scientific evidence. Reuse preserved work. Prefer a new mechanism with a native consumer, a repair that unblocks consequential descendants, or a discriminating test between live hypotheses. Give strong baselines equal information and design freedom. Keep a branch open only with a concrete next mechanism or prerequisite. Do not manufacture variations to meet a proposal count. Produce 6–12 distinct well-supported next actions per planner round; existing reserves supply breadth. At least half should construct or improve useful capability. All automatic execution uses the explicitly configured free models. No Sol/proof_lane/coordinator dispatch or paid model fallback is authorized by this continuation.
+Select the next action by the capability it unlocks, the decisive uncertainty it removes, and its complete cost. Compare alternatives explicitly without inventing numeric probabilities. Track exact parent result/seed IDs; distinguish a catalog entry, planned experiment, executed result and independent review. Read ALL_WAVES_COVERAGE.json and ALL_WAVES_PRIORITIES.json in the supplied review packet when available. A failed network invocation is not scientific evidence. Reuse preserved work. Prefer a new mechanism with a native consumer, a repair that unblocks consequential descendants, or a discriminating test between live hypotheses. Give strong baselines equal information and design freedom. Keep a branch open only with a concrete next mechanism or prerequisite. Do not manufacture variations to meet a proposal count. Produce 6–12 distinct well-supported next actions per planner round; existing reserves supply breadth. At least half should construct or improve useful capability. All automatic execution uses the explicitly configured free models. No Sol/the proof lane/coordinator dispatch or paid model fallback is authorized by this continuation.
 
 
 <!-- STAY_AT_STRESS_POINT_20260927 -->
@@ -78,7 +78,7 @@ Save compact ATTEMPTS.json entries: parent artifact/seed IDs, hypothesis, change
 
 For planners: choose experiments whose interaction can unlock the ambitious capability. Read failures as branch points. Do not spend the round only cataloguing, adding adapters, repeating validation, or proposing more generic planners. Retain original seed IDs across waves. Reuse existing equivalent jobs, and explain the new delta before adding a successor. Explicit audit jobs retain their narrow independent checking role. Constructive work gets first scheduling priority; the audit queue remains available before scientific acceptance.
 
-Existing runtime, memory, source boundaries and model permissions remain in force. Automatic work uses only the configured free models. No additional Sol, proof_lane or coordinator wave is authorized.
+Existing runtime, memory, source boundaries and model permissions remain in force. Automatic work uses only the configured free models. No additional Sol, the proof lane or coordinator wave is authorized.
 
 
 <!-- GOAL_GENERATES_STRESS_POINT_20260927 -->
@@ -109,7 +109,7 @@ Save compact ATTEMPTS.json entries: parent artifact/seed IDs, hypothesis, change
 
 For planners: choose experiments whose interaction can unlock the ambitious capability. Read failures as branch points. Do not spend the round only cataloguing, adding adapters, repeating validation, or proposing more generic planners. Retain original seed IDs across waves. Reuse existing equivalent jobs, and explain the new delta before adding a successor. Explicit audit jobs retain their narrow independent checking role. Constructive work gets first scheduling priority; the audit queue remains available before scientific acceptance.
 
-Existing runtime, memory, source boundaries and model permissions remain in force. Automatic work uses only the configured free models. No additional Sol, proof_lane or coordinator wave is authorized.
+Existing runtime, memory, source boundaries and model permissions remain in force. Automatic work uses only the configured free models. No additional Sol, the proof lane or coordinator wave is authorized.
 
 # Goals that generate the stress points
 

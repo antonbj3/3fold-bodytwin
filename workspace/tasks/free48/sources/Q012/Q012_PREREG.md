@@ -30,7 +30,7 @@ The choice is motivated by TMAO specifically having (a) a stoichiometric, stepwi
 from first principles, (b) quantitative human interventions with isotope labeling, and (c) a
 quantified clinical anchor. See §3.
 
-## 2. Hypotes (mekanistisk, falsifierbar)
+## 2. Hypothesis (mechanistic, falsifiable)
 
 > **H1 (microbial dependence).** Steady-state plasma concentration of TMAO is linearly proportional
 > to the product `f_colonic_escape · y_microbial_conversion` at hepatic load far below capacity.
@@ -55,7 +55,7 @@ seen.
 Smith JD, DiDonato JA, Chen J, Li H, Wu GD, Lewis JD, Warrier M, Brown JM, Krauss RM, Tang WH,
 Bushman FD, Lusis AJ, Hazen SL. "Intestinal microbiota metabolism of L-carnitine, a nutrient in
 red meat, promotes atherosclerosis." *Nature Medicine* 2013;19(5):576–585.
-**DOI 10.1038/nm.3145**, PMID 23563705, PMC3650111. Fulltext verifierad via Europe PMC
+**DOI 10.1038/nm.3145**, PMID 23563705, PMC3650111. Full text verified via Europe PMC
 (2026-09-25).
 
 - **Fig. 1 / Supplementary Methods:** L-carnitine test = 250 mg d₃-L-carnitine in a capsule **+**
@@ -73,8 +73,8 @@ red meat, promotes atherosclerosis." *Nature Medicine* 2013;19(5):576–585.
 
 ### R2 — Tang WH, Wang Z, Levison BS, Koeth RA, Britt EB, Fu X, Wu Y, Hazen SL. "Intestinal
 microbial metabolism of phosphatidylcholine and cardiovascular risk." *New England Journal of
-Medicine* 2013;368(17):1575–1584. **DOI 10.1056/NEJMoa1109400**, PMID 23614584. Abstrakt
-verifierat via Europe PMC (2026-09-25).
+Medicine* 2013;368(17):1575–1584. **DOI 10.1056/NEJMoa1109400**, PMID 23614584. Abstract
+verified via Europe PMC (2026-09-25).
 
 - **Methods:** phosphatidylcholine challenge = **two hard-boiled eggs** + d₉-labeled phosphatidylcholine;
   plasma **and urine TMAO** were quantified before and after oral broad-spectrum antibiotics.
@@ -87,8 +87,8 @@ verifierat via Europe PMC (2026-09-25).
 ### R3 — Wang Z, Klipfell E, Bennett BJ, Koeth R, Levison BS, Dugar B, Feldstein AE, Britt EB,
 Fu X, Chung YM, Wu Y, Schauer P, Smith JD, Allayee H, Tang WH, DiDonato JA, Lusis AJ, Hazen SL.
 "Gut flora metabolism of phosphatidylcholine promotes cardiovascular disease." *Nature*
-2011;472(7341):57–63. **DOI 10.1038/nature09922**, PMID 21475195, PMC3086762. Abstrakt
-verifierat via Europe PMC (2026-09-25).
+2011;472(7341):57–63. **DOI 10.1038/nature09922**, PMID 21475195, PMC3086762. Abstract
+verified via Europe PMC (2026-09-25).
 
 - Choline, TMAO and betaine were identified as metabolites of dietary phosphatidylcholine that predict
   CVD risk; germ-free mice confirm that **both dietary choline and gut flora** are required for TMAO formation;

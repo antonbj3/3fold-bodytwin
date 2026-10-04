@@ -110,8 +110,9 @@ def main() -> int:
     (OUT / 'DISC_LOAD_V1.json').write_text(json.dumps(summary, indent=1, ensure_ascii=False))
 
     t = summary['the_multiplier_the_facit_pins']
-    print(f"  multiplier: spring {K_MODEL[0]}-{K_MODEL[1]}, facit implicerar {t['k_implied_low']}-{t['k_implied_high']}, that is {t['our_k_over_implied_k']}x too high")
-    print(f"\n  {'limit MPa':>10s} {'our load N':>22s} {'facit N':>22s} {'faktor':>7s}")
+    print(f"  multiplier: ours {K_MODEL[0]}-{K_MODEL[1]}, ground truth implies "
+          f"{t['k_implied_low']}-{t['k_implied_high']}, thus {t['our_k_over_implied_k']}x too high")
+    print(f"\n  {'limit MPa':>10s} {'our load N':>22s} {'ground truth N':>22s} {'factor':>7s}")
     for r in rows:
         print(f"  {r['pressure_limit_MPa']:>10.2f} {str(r['load_our_model_N']):>22s} "
               f"{str(r['load_facit_implied_N']):>22s} {r['our_limit_is_lower_by_factor']:>7.2f}")

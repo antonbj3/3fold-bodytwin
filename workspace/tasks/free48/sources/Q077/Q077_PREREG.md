@@ -33,7 +33,7 @@ at `L = 0.9 um`, with identical `A_IM`, `V_IMS`, ATP-synthase density, ANT densi
 
 ## Reference value and source
 
-Status: **VERIFIED**, not `OVERIFIERAD`.
+Status: **VERIFIED**, not `UNVERIFIED`.
 
 Primary source: Adams R, Afzal N, Jafri MS, Mannella CA. “How the Topology of the Mitochondrial Inner Membrane Modulates ATP Production.” *Cells*. 2025;14(4):257. DOI: `10.3390/cells14040257`. PMCID: `PMC11853683`.
 

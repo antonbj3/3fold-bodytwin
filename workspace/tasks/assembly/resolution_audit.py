@@ -119,12 +119,16 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / 'AUDIT_V1.json').write_text(json.dumps(report, indent=1, ensure_ascii=False))
 
-    print(f"  variabler {report['variables']}, without level {report['variables_without_a_level']} ({100 * report['variables_without_a_level'] / report['variables']:.0f} %), normaliserade stavningar {normalised}")
-    print(f'  kanter {len(edges)}: level known at both ends {both_known}, unknown in at least one {one_missing}')
-    print(f"  crosses a level: {len(crossing)}, varav TIGHT without the bridge declared: {len(report['tight_edges_crossing_a_level_without_a_declared_bridge'])}")
+    print(f"  variables {report['variables']}, without level {report['variables_without_a_level']} "
+          f"({100 * report['variables_without_a_level'] / report['variables']:.0f} %), "
+          f"normalized spellings {normalised}")
+    print(f"  edges {len(edges)}: level known at both ends {both_known}, "
+          f"unknown in at least one {one_missing}")
+    print(f"  crosses a level: {len(crossing)}, of which TIGHT without declared bridge: "
+          f"{len(report['tight_edges_crossing_a_level_without_a_declared_bridge'])}")
     for c in crossing:
-        mark = 'TIGHT WITHOUT BRYGGA' if c['tight_without_a_bridge'] else ''
-        print(f"   {c['levels_apart']} steg  {str(c['levels']):32} {c['status']:8} "
+        mark = 'TIGHT WITHOUT BRIDGE' if c['tight_without_a_bridge'] else ''
+        print(f"   {c['levels_apart']} steps {str(c['levels']):32} {c['status']:8} "
               f"{c['edge'][:44]:44} {mark}")
     return 0
 

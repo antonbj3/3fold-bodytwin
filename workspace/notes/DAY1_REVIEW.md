@@ -1,4 +1,4 @@
-# DAY1_REVIEW — BodyTwin, dygn 1 (2026-09-22 ~21:10 → 2026-09-23 ~21:10)
+# DAY1_REVIEW — BodyTwin, day 1 (2026-09-22 ~21:10 → 2026-09-23 ~21:10)
 
 **FINAL VERSION 23/9 22:15 — reviews AU6–AU8 of lane_runner results are ongoing and will be added when they are ready.**
 
@@ -17,7 +17,7 @@ Version and data for the whole day:
 
 ---
 
-## 1. Det viktigaste
+## 1. The most important points
 
 **For the collaborator (meeting 2026-09-25)**
 
@@ -72,7 +72,7 @@ Note: the figures for P3 and J1 show the agents' original comparisons (P3 agains
 
 | Result | Number | Source | Status | Review |
 |---|---|---|---|---|
-| the collaborator's eget problem | individuella modeller "too cumbersome" (NATO STO 2024) | A1; `notes/COLLABORATOR_REQUIREMENTS_AND_SOFTWARE.md` | R | — |
+| the collaborator's own problem | individual models "too cumbersome" (NATO STO 2024) | A1; `notes/COLLABORATOR_REQUIREMENTS_AND_SOFTWARE.md` | R | — |
 | Demo D5, a command | 8/8 tests; 127 tracked numbers in v2 | `results/D5/README.md`, `DEMO_CLAIMS_v2.md` | A, G | AU1: reproduced bit identically, 106/106 (v1) |
 | Certificate of femur and pelvis | both approved; landmarks ≤ 1,20 mm from the surface | D5 B1 | A, G | AU1: confirmed |
 | Mounts as triangle + weights | follow the surface through each morph with the same ID; 209 of 232 anchored | D5 B2 | A, G | AU1: the number 1,3·10⁻¹³ mm crossed out (tautology); ID confirmed |
@@ -94,7 +94,7 @@ Note: the figures for P3 and J1 show the agents' original comparisons (P3 agains
 | Measurement strategy for the collaborator (JS1) | gmed arm ±95 % with atlas attachment: height/weight/palpation/mocap/video 16,6–17,8 mm; EOS 13,3–15,3; CT 12,7; CT + MR-imaged attachment 3,6 (exactly at requirement ±3,6); hip reaction median/p95: first group 11–23 / 33–123 %, EOS 7–8 / 21–23, CT 6,4 / 19, CT+MR 2,1 / 6 %; injury factor p95 6–165 / 3,4–3,9 / 2,8 / 1,4 | A98, A101 | A, G | reviewed AU4; the floor depends on atlas-σ (AT1: anisotropic, limited supporting material); e box lift −0,49 → EOS 6,0 %, CT 4,7 %; height/weight with palpated frame 14,7 % (palpation 17,5, video 18,0, mocap 22,7; mocap with the literature's 9,4 mm 13,9 % no worse); costs without a source |
 | Anisotropic atlas error in H2 and JS1 (H2b) | atlas contribution to r_ab 6,47 → 2,65 mm; full CT ±12,8 → ±5,3 (4,2–7,7); ±3,6 mm only with CT + both mounts depicted on 2 mm (3,56); JS1: EOS 13,3–13,5 → 6,6–7,1 mm, hip reaction median 7 → 5 %; CT 12,7 → 5,4 mm, 6,4 → 2,9 % | A103 | A | is based on AT1 — origin can be larger, Δr_ab validation not covered (A105) |
 | Walk-ID through the contract | peak moment 48,03 N·m; Δτ 2,43 = knee 2,13 + leg 0,30 | A51; D5 B12 | A, R, G | AU1: status "counted, not compared" |
-| UNKNOWN stoppar kedjan | `ChainStop`, inget tal | D5 B13 | A, G | AU1: "kontrollerat beteende" |
+| UNKNOWN stops the chain | `ChainStop`, no number | D5 B13 | A, G | AU1: "controlled behavior" |
 
 ### 2.2 What is not suitable to show, or only with reservations
 
@@ -163,7 +163,7 @@ Figures: [H5b](../results/H5b/fig_h5b_summary.png) · [K3 FE Grid](../results/K3
 | V6 mass from visual hull | 0/9 within 5 % (+28…+50 %, median +44 %) FAILED; 3/4/5 cameras +101/+62/+44 % | B88 | A, R |
 | V6 thigh mass and contour | thigh mass versus de Leva −1,2 %BW median; contour error 6,5–11,2 mm → 0/9 ≤ 5 mm FALL | B89 | A |
 
-### 3.3 Mekanobiologi
+### 3.3 Mechanobiology
 
 Figurer: [X3 armar](../results/X3/fig_arms.png) · [X3 Sobol](../results/X3/fig_sobol.png) · [X3b](../results/X3b/fig_x3b.png) · [X3c](../results/X3c/fig_x3c.png)
 
@@ -239,7 +239,7 @@ Background and plan: "Innovation track from Anton (2026-09-23 ~12:40)". Arithmet
 
 ### 3.8 Hands
 
-Figur: [HD1 grepp mot friktionskon](../results/HD1/fig_grip_vs_cone.png)
+Figure: [HD1 grip on friction cone](../results/HD1/fig_grip_vs_cone.png)
 
 | Result | Number | Source | Status |
 |---|---|---|---|
@@ -309,10 +309,10 @@ Figur: [HD1 grepp mot friktionskon](../results/HD1/fig_grip_vs_cone.png)
 | Can the femur population from the osteotomy work be shared? | P3 based on Imperial 70 | ask 6 |
 | external solver runtime under Wine; node locked trial? | AB1b cannot be run without | AB1b |
 | Illustrated muscle mounts (both gmed mounts) | only independent reference for W1/C2/H2; H2b: ±3,6 mm requires both | A69, A58, A103 |
-| Senexkursion (ultraljud) med verklig noggrannhet | IM1 antog 1 mm (optimistiskt) | A106 |
+| Tendon excursion (ultrasound) with true accuracy | IM1 assumed 1 mm (optimistic) | A106 |
 | Joint center from image (MR/CT/EOS) or star movements | mocap-HJC separate 22 mm between definitions; star motion helps at ≤ ~9 mm | B35, A106 |
 | Multiple raters per individual | J1: one rater gives TPS spread equal to the difference | A95 |
-| ε-N-kurva vid Δε 0,002–0,003 | exponenten dominerar skadan | A47 |
+| ε-N curve at Δε 0,002–0,003 | the exponent dominates the damage | A47 |
 | Dense density reference in CT; validated density–modulus per site | calibration lacks anchor at dense end; the relationship determines the mechanostat and the damage chain (C4) | B83, B84, B93 |
 | Shoe information (sole thickness, midsole) and why HS is missed | FV3 fell with shoe model | B98 |
 | Recruitment Criterion | dominates damage and knee contact force | A38, A80 |
@@ -324,7 +324,7 @@ Figur: [HD1 grepp mot friktionskon](../results/HD1/fig_grip_vs_cone.png)
 
 ## 6. Recommended sequel
 
-| # | Alternativ | Evidens | Kostnad |
+| # | Alternative | Evidence | Cost |
 |---|---|---|---|
 | 1 | **Mount imaged or measured via excursion.** Data with imaged gmed mounts (both) from the collaborator's group, TLEMsafe, or the LHDL entity; examination of tendon excursion with true ultrasound accuracy; star movement-HJC | JS1/AU4: only CT + MR image mount reaches ±3,6 mm; H2b: both mounts required (3,56 mm), only origin 4,0; AT1/AU5: a pure comparison; IM1: excursion 86 %, star movement 48,5 % at 5 mm, passage 5,5 % | data and agreement (AT1's questions 1–4 to the collaborator); the calculation is available |
 | 2 | **Task-oriented measures and averaged landmarks** as message and demo for the collaborator; always compare against affine landmark baseline with landmark-HJC | H7 T5 16/19 (p 0,003/0,045, AU3); TPS on means of 20 assessments 3,2 % against T2; RM1: prior-morph adds nothing; AU1-safe lines in D5 | rewording + an extra arm in existing code; multiple raters require data |
@@ -340,7 +340,7 @@ Figur: [HD1 grepp mot friktionskon](../results/HD1/fig_grip_vs_cone.png)
 
 ```bash
 cd 
-python3 results/D5/demo/run_demo.py --subject z001          # hela kedjan → demo_results.json, run_log.json, graph_node_z001.json
+python3 results/D5/demo/run_demo.py --subject z001          # the whole chain → demo_results.json, run_log.json, graph_node_z001.json
 python3 results/D5/demo/figures.py --subject z001           # fig1–fig4
 python3 results/D5/collect_claims_v2.py                     # claims_v2.json
 cd results/D5 && python3 -m pytest -q -p no:cacheprovider tests   # 8 tester
@@ -360,21 +360,21 @@ WINEPREFIX=$HOME/.wine nice -n 19 python3 run_anybody_dump.py --subject identity
 
 The rest of the steps and the comparison (`compare_runtime.py`): `results/AB1b/TOMORROW_v2.md`.
 
-**lane runner-lanes**
+**lane_runner-lanes**
 
 ```bash
 cd 
 tasks/lanes/run_lane_runner.sh BT-IM1                      # one lane: reads tasks/lanes/BT-IM1.md, writes results/BT-IM1/RESULTS.md
-tasks/lanes/run_codex.sh BT-FV2 results/FV2          # lane med annan resultatmapp
-MODEL=lane-model EFFORT=medium MAX_ROUNDS=3 tasks/lanes/run_codex.sh BT-V7   # default values, may be changed
+tasks/lanes/run_lane_runner.sh BT-FV2 results/FV2          # lane with a different results folder
+MODEL=lane-model EFFORT=medium MAX_ROUNDS=3 tasks/lanes/run_lane_runner.sh BT-V7   # defaults, can be changed
 PAR=3 tasks/lanes/run_lane_runner_queue.sh                 # queue in priority order, at most PAR at once
 ```
 
 Lane description: `tasks/lanes/<LANE>.md`. Log: `tasks/lanes/lane_runner_<LANE>.log` and `tasks/lanes/lane_runner_queue.log`. The script runs `lane_runner exec` with workspace-write-sandbox (write-roots sdc1/bodytwin, bodytwin_work, /tmp), 2 threads, `nice 10`, max 3 rounds, and is finished when `results/<LANE>/RESULTS.md` starts with `# <LANE>`. A lock per result folder prevents double-start.
 
-**Granskningarna**
+**The reviews**
 
-| Granskning | Vad | Fil | Skript |
+| Review | What | File | Script |
 |---|---|---|---|
 | AU1 | D5-demon | `results/AU1/AUDIT.md` | `results/AU1/scripts/` |
 | AU2 | P3, J1, H7, AB1b | `results/AU2/AUDIT.md`, `audit.json` | `results/AU2/scripts/` (t.ex. `p3_arms.py main`, `h7_audit.py agg`, `j1_gate.py`, `ab1b_hjc_check.py`) |
@@ -388,7 +388,7 @@ Lane description: `tasks/lanes/<LANE>.md`. Log: `tasks/lanes/lane_runner_<LANE>.
 
 The probes run with nice 19, 2 threads and 1 process, reading the source folders without changing them and only writing in their own `results/AU<n>/`.
 
-**R1-/R2-patchar**
+**R1/R2 patches**
 
 R1: clone `external_mount`, branch `fix/day1-findings`; patches `results/R1/patches/0001–0005*.patch`, applied with `git am` on top of `b95a8dc`; test logs before/after in `results/R1/`. R2: `results/BT-R2/RESULTS.md` and `results/BT-R2/patches/` (commit ee07a39 only in the clone).
 

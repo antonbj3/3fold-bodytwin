@@ -1,6 +1,6 @@
 # Weaving: bring the three analyses together into a handover package
 
-You're the lane runner `lane-model` med fullt mandat. Koordinatorn (Anton) ska **flytta arbetet till en lane runner-session** and needs a complete package. You own the compilation.
+You are lane_runner `build-lane model` with full mandate. The coordinator (Anton) will **move the work to a lane_runner session** and needs a consolidated, complete package. You own the compilation.
 
 ## Goal
 Read the three independent analyses + the four original outputs and weave them together into **ONE handover package**: an overall picture with no contradictions remaining, with shared conclusions, remaining disagreements explicitly written out, and a concrete next plan.
@@ -10,7 +10,7 @@ Read the three independent analyses + the four original outputs and weave them t
 - Originals: `external_research_path` + `_BOUNDARY_MUTATIONS.json`, `BODYTWIN_DISEASE_LIBRARY.md` (may be missing), `BODYTWIN_MAPS_OPERATORS.md` + `.json`, `BODYTWIN_MUTATIONS_IMPROVED_v6.md`
 - Organisation: `external_research_path`
 - Result-md: `tasks/lanes/LANE_RUNNER_*_RESULT.md`
-- Grafen: `./graph`, `notes/GRAPH_WORKFLOW.md`
+- The graph: `./graph`, `notes/GRAPH_WORKFLOW.md`
 
 ## To produce
 1. **Consensus:** what all three analyses agree on (shared maps, load-bearing objects, density, gaps).

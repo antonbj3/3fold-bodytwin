@@ -4,7 +4,7 @@
 
 Source (read only): `source_repository/data/`. Nothing was written there.
 
-## Sammanfattning
+## Summary
 
 164 directories traversed (of 505 entries total; 341 entries are top-level files) · 108 directories with numeric domain data · 13 already covered by a cell · 36 directories excluded as accounting/orchestration/non-domain · 15 directories without parsable numeric file (only mesh/video/binary) · 2 empty · 337 top-level files not opened.
 
@@ -50,14 +50,14 @@ Deviation from the background task: `complement_cascade` and `capillary_starling
 | 24 | (e) other physiology | `mucociliary_clearance/mucociliary_clearance_results.json` | 12809 | no |
 | 25 | (e) other physiology | `fluid_compartments/fluid_compartments_results.json` | 25919 | no |
 
-## Per kandidat: ordagranna tal ur filen
+## Per candidate: verbatim numbers from file
 
 ### 1. `source_repository/data/tissue_lit_refs/measurements.nir_photobiomodulation_optics.jsonl`
 - Size: 250358 byte · Track: (a) eye and optics
 - Covered by cell: no
 - Numbers read from the file (verbatim, no rounding):
   - `mu_a (whole blood, HbO2 100%, 630 nm, Hct 0.45, C_Hb 150 g/L)` = 3.2665 cm^-1
-  - `si (samma post, SI)` = 326.6458 1/m
+  - `si (same record, SI)` = 326.6458 1/m
   - `molar_extinction_HbO2` = 610.0 cm^-1/M
   - `molar_extinction_Hb` = 5148.8 cm^-1/M
   - `mu_s_reduced (whole blood)` = 270.0 cm^-1
@@ -74,11 +74,11 @@ Deviation from the background task: `complement_cascade` and `capillary_starling
   - `params.a_nm (fibril radius)` = 14.0 nm
   - `params.phi_areal` = 0.28 dimensionless
   - `params.d_hex_nm` = 50.3916571460783 nm
-  - `params.n_fibril` = 1.411 brytningsindex
-  - `params.n_matrix` = 1.365 brytningsindex
-  - `params.dn` = 0.04600000000000004 brytningsindex
-  - `params.L_nm (tjocklek)` = 500000.0 nm
-  - `C_PREF` = 16.35109626093563 (enhet ej angiven i filen)
+  - `params.n_fibril` = 1.411 refractive index
+  - `params.n_matrix` = 1.365 refractive index
+  - `params.dn` = 0.04600000000000004 refractive index
+  - `params.L_nm (thickness)` = 500000.0 nm
+  - `C_PREF` = 16.35109626093563 (unit not specified in file)
   - `validation.large_disorder_agreement.median_relerr_pct` = 7.9271096618596975 %
 - What a cell can calculate: Transmission T(lambda) and attenuation tau_per_um for cornea at varying fibril order (sigma 0.00–0.06) over 400–700 nm. Can be converted to how much disorder is required for a given visible turbidity, and to edema sensitivity via phi_areal.
 - Note: File has tau_per_um and T vectors per sigma level over 31 wavelengths.
@@ -93,7 +93,7 @@ Deviation from the background task: `complement_cascade` and `capillary_starling
   - `accommodated_fixed_index.delta` = 7.504173473168226 D
   - `index_rise_required[0].target_amplitude_D` = 10.0 D
   - `index_rise_required[0].delta_n_relative_pct` = 0.49407233146678925 %
-  - `stiffness_gradient_toy.average.k_per_year` = 0.09545699348069321 1/ar
+  - `stiffness_gradient_toy.average.k_per_year` = 0.09545699348069321 1/year
   - `hofstetter_vs_measured[0].measured_D (age 9.24, n=5444)` = 14.44 D
 - What a cell can calculate: Amplitude of accommodation in diopters from lens geometry (R1/R2) and refractive index; age-dependent loss via E/E14-curve, and how large an index gradient is required for a desired amplitude.
 - Note: Also contains rigid_lens_falsifier.delta_D = 0.0 as null control.
@@ -115,10 +115,10 @@ Deviation from the background task: `complement_cascade` and `capillary_starling
 - Covered by cell: no
 - Numbers read from the file (literally, no rounding):
   - `fits.wi38_1|ACTA2|WT|excl_rigid|linear.E50` = 61.1344 kPa
-  - `... .n (Hill-exponent)` = 1.782 dimensionslos
-  - `... .r2` = -0.3993 dimensionslos
-  - `... .N` = 61 datapunkter
-  - `... .stiffness_levels_kPa` = [0.5, 32.0] kPa (forsta..sista av 4)
+  - `... .n (Hill-exponent)` = 1.782 dimensionless
+  - `... .r2` = -0.3993 dimensionless
+  - `... .N` = 61 data points
+- `... .stiffness_levels_kPa` = [0.5, 32.0] kPa (first..last of 4)
   - `... .leave_one_stiffness_out_E50_range_kPa` = [45.683, 61.134] kPa
   - `fits.wi38_1|ACTA2|WT|incl_rigid|linear.E50` = 4415823.4096 kPa
 - `... incl_rigid stiffness_levels_kPa` = [0.5, 2300000.0] kPa (first..last of 5)
@@ -134,7 +134,7 @@ Deviation from the background task: `complement_cascade` and `capillary_starling
   - `R_pointwise_threshold_at_half_peak` = 0.125 ratio
   - `R_pointwise_quadratic_tension_only` = 0.16666666666666666 ratio
   - `R_peak_driven_network_integrates` = 1.0 ratio
-  - `collagen_increase_cyclic_flexure_vs_STATIC (ovint SMC pa PGA/PLLA)` = 63.0 %
+  - `collagen_increase_cyclic_flexure_vs_STATIC (ovine SMC on PGA/PLLA)` = 63.0 %
   - `effective_stiffness_increase_flex_arm` = 429.0 %
   - `effective_stiffness_increase_static_arm` = 351.0 %
 - What a cell can calculate: Thickness-integrated growth law: how much collagen synthesis and effective stiffness that bending provides compared to pure stretching at the same peak strain, i.e. which mode of loading builds tissue. The entries carry both derived ratios and measured percentages using PMID.
@@ -167,7 +167,7 @@ Deviation from the background task: `complement_cascade` and `capillary_starling
   - `1_shear_modulus.parameters.mu_anchor_band_uN_m` = [6.6, 8.3] uN/m
   - `mu0_native_x0_uN_m.p_modeling_7.5nm` = 2.795649939374008 uN/m
   - `mu0_native_x0_uN_m.p_measured_10nm` = 2.0967374545305058 uN/m
-  - `void_floor_grid.frac_in_tight_anchor_6to9` = 0.05988455988455989 fraktion av 1386 punkter
+  - `void_floor_grid.frac_in_tight_anchor_6to9` = 0.05988455988455989 fraction of 1386 points
   - `2_bilayer_adversary.mu_bilayer_uN_m` = 0.0 uN/m
 - What a cell can calculate: Shear modulus of a spectrin network out of WLC-parameters (persistence length, contour length, prestretch) — a bottom-up elasticity cell generalizable to other network tissues, with built-in control that the appendix itself yields zero shear modulus.
 
@@ -178,8 +178,8 @@ Deviation from the background task: `complement_cascade` and `capillary_starling
   - `falsifier_1_setpoint.task_band_mmol_l` = [1.1, 1.2] mmol/L
   - `brown_setpoint_controls_mmol_l` = 1.13 mmol/L
   - `parfitt_setpoint_controls_mmol_l` = 1.25 mmol/L
-  - `brown_vs_parfitt_correlation_controls_r` = 0.85 korrelation
-  - `brown_vs_parfitt_correlation_patients_r` = 0.91 korrelation
+  - `brown_vs_parfitt_correlation_controls_r` = 0.85 correlation
+  - `brown_vs_parfitt_correlation_patients_r` = 0.91 correlation
   - `brown_setpoint_patients_1oHPT_mmol_l` = 1.32 mmol/L
   - `parfitt_setpoint_patients_1oHPT_mmol_l` = 1.42 mmol/L
   - `falsifier_2_clamp_perturbation.step_mmol_l` = 0.05 mmol/L
@@ -190,12 +190,12 @@ Deviation from the background task: `complement_cascade` and `capillary_starling
 - Covered by cell: no
 - Numbers read from the file (verbatim, no rounding):
   - `_meta.sign_check_vasint_r_30deg_cm` = -5.054691308100564 cm
-  - `sweeps.knee_angle_r.range_deg` = [0.1, 139.89999999999992] grader
-  - `sweeps.knee_angle_r.step_deg` = 2.0 grader
+  - `sweeps.knee_angle_r.range_deg` = [0.1, 139.89999999999992] degrees
+  - `sweeps.knee_angle_r.step_deg` = 2.0 degrees
   - `groups.vasti.mean_peak_cm` = -5.256708453956803 cm
   - `groups.vasti.min_peak_cm` = -5.403911030681704 cm
   - `groups.vasti.max_peak_cm` = -5.131499657704872 cm
-  - `groups.vasti.mean_angle_of_peak_deg` = 12.100000000000001 grader
+  - `groups.vasti.mean_angle_of_peak_deg` = 12.100000000000001 degrees
   - `groups.rectus_femoris.mean_peak_cm` = -5.6368169073348735 cm
 - What a cell can calculate: Torque arm as a function of joint angle per muscle group — converts muscle force into joint torque over the entire range of motion. Base for a muscle-joint cell and for sanity checking external MSK models.
 - Note: msk_smoketest has 469 files; only this one opened.
@@ -220,10 +220,10 @@ Deviation from the background task: `complement_cascade` and `capillary_starling
 - Numbers read from the file (verbatim, no rounding):
   - `part1_shm_rate.mu_shm_per_bp_per_division` = 0.001 mutations/bp/division
   - `part1_shm_rate.L_V_bp` = 500.0 bp
-  - `part1_shm_rate.N_gc_divisions` = 10.0 delningar
-  - `part1_shm_rate.E_mutations_per_lineage` = 5.0 mutationer
-  - `part1_shm_rate.baseline_replication_rate_per_bp_per_division` = 1e-09 mutationer/bp/delning
-  - `part1_shm_rate.fold_vs_baseline` = 1000000.0 ggr
+  - `part1_shm_rate.N_gc_divisions` = 10.0 divisions
+  - `part1_shm_rate.E_mutations_per_lineage` = 5.0 mutations
+  - `part1_shm_rate.baseline_replication_rate_per_bp_per_division` = 1e-09 mutations/bp/division
+  - `part1_shm_rate.fold_vs_baseline` = 1000000.0 times
   - `part2...kd0_germline_M` = 1e-06 M
   - `part2...kd_ceiling_anchor_M` = 1e-10 M
 - What a cell can calculate: Affinity maturity: number of mutations per line in the germinal center and how far Kd can be driven (1e-6 to 1e-10 M) before the ceiling is reached. A cell can calculate how many GC-rounds are required for a desired antibody affinity and where selection saturates — directly relevant to underactivation, i.e. insufficient affinity.
@@ -235,7 +235,7 @@ Deviation from the background task: `complement_cascade` and `capillary_starling
   - `constants.T_HALF_UNSTABILIZED_MIN` = 3.0 min
   - `constants.T_HALF_ACTIVATOR_MIN` = 30.0 min
   - `constants.T_HALF_HOST_MIN` = 1.05 min
-  - `constants.FOLD_H` = 4.761904761904762 ggr
+  - `constants.FOLD_H` = 4.761904761904762 times
   - `constants.KM_C5_NM` = 1400.0 nM
   - `constants.KCAT_C5_PER_MIN` = 0.288 1/min
   - `constants.C5_0_NM` = 400.0 nM
@@ -306,8 +306,8 @@ Deviation from the background task: `complement_cascade` and `capillary_starling
   - `sweeps.T_TISSUE_MM_ENGINEERING_ASSUMPTION` = 8.0 mm
   - `sweeps.k_list_Pa_per_m` = [6250000.0, 75000000.0] Pa/m
   - `sweeps.worst_case.p_max_kPa` = 113.35360117736319 kPa
-  - `sweeps.worst_case.peak_to_mean` = 3.3352531669326084 kvot
-  - `sweeps.worst_case.contact_frac` = 0.49250000000000005 fraktion
+  - `sweeps.worst_case.peak_to_mean` = 3.3352531669326084 ratio
+  - `sweeps.worst_case.contact_frac` = 0.49250000000000005 fraction
   - `sweeps.nominal_case.p_max_kPa` = 5.600922791759508 kPa
   - `mesh_convergence_self_test.finest_vs_prev_relchange` = 0.00025526541691094534 relative
 - What a cell can calculate: Tool to tissue: a Winkler bed gives contact pressure p_max and contact proportion from applied force and moment and the tissue stiffness E_tissue. A cell can calculate the grip force a robotic cuff must apply before the pressure ulcer limit is crossed, and how sensitive p_max is to tissue stiffness (k_invariance_relspread 2.7e-15).
@@ -332,12 +332,12 @@ Deviation from the background task: `complement_cascade` and `capillary_starling
 - Covered by cell: no
 - Numbers read from the file (verbatim, no rounding):
   - `delivered_force.F0_frictionless_N_at_T_high` = 11.849592622820806 N
-  - `delivered_force.mu_cable_central` = 0.35 friktionskoefficient
-  - `delivered_force.wrist_retained_fraction_central` = 0.9396468777237291 fraktion
+  - `delivered_force.mu_cable_central` = 0.35 friction coefficient
+  - `delivered_force.wrist_retained_fraction_central` = 0.9396468777237291 fraction
   - `delivered_force.F_delivered_conservative_incl_pin_friction_N_at_T_high` = 9.822621826975045 N
-  - `delivered_force.MU_FINGERTIP` = 0.4 friktionskoefficient
+  - `delivered_force.MU_FINGERTIP` = 0.4 friction coefficient
   - `geometric_envelope.hinge_wobble_slop_mm` = 5.407451092865333 mm
-  - `geometric_envelope.approach_error_deg_chest_robust` = 17.1 grader
+  - `geometric_envelope.approach_error_deg_chest_robust` = 17.1 degrees
   - `tasks.door_key_turn_lock_cylinder.T_turn_Nm_bracket` = [0.05, 0.35] Nm
   - `tasks.door_key_turn_lock_cylinder.sweep.frac_force_closed` = 0.6791979949874687 fraction
 - What a cell can calculate: Force transmission through a cable-driven manipulator with frictional losses, and what proportion of an approach error sweep produces force slope on a real object. A cell can calculate the force delivered at the grip tip and the angular tolerance of a tool–object grip — the same math as a surgical instrument in a holder.
@@ -349,9 +349,9 @@ Deviation from the background task: `complement_cascade` and `capillary_starling
   - `inputs.F_bayonet_governing_N` = 11.849592622820806 N
   - `inputs.M_bayonet_Nm` = 1.9302986382575094 Nm
   - `inputs.cuff_length_mm` = 252.9 mm
-  - `inputs.ARC_GAP_DEG` = 60.0 grader
+  - `inputs.ARC_GAP_DEG` = 60.0 degrees
   - `inputs.ceiling_kPa` = 83.5 kPa
-  - `q1_free_body_from_cad.contact_arc_deg` = 300.0 grader
+  - `q1_free_body_from_cad.contact_arc_deg` = 300.0 degrees
   - `gate_b_field_reconstruction.rows[0].reconstructed_p_max_Pa` = 5600.919304805415 Pa
 - What a cell can figure out: Exposing two contact surfaces: how force and torque are distributed between two separate tissue patches, and whether the reconstructed pressure field is consistent with static equilibrium. A cell can calculate the load distribution when a tool has two support points against tissue, against a pressure ceiling of 83.5 kPa.
 
@@ -382,12 +382,12 @@ Deviation from the background task: `complement_cascade` and `capillary_starling
 - Covered by cell: no
 - Numbers read from the file (verbatim, no rounding):
   - `healthy.f0_hz` = 13.0 Hz
-  - `healthy.x0_delta_over_L` = 0.9285714285714286 dimensionslos
+  - `healthy.x0_delta_over_L` = 0.9285714285714286 dimensionless
   - `healthy.U_um_s` = 110.5 um/s
   - `healthy.U_mm_min` = 6.63 mm/min
   - `healthy.measured_band_mm_min` = [4.0, 10.0] mm/min
-  - `cbf_sweep_measured_values.cbf_hz` = [8.0, 16.8] Hz (13 punkter)
-  - `cbf_sweep_measured_values.U_mm_min` = [4.08, 8.568] mm/min (13 punkter)
+  - `cbf_sweep_measured_values.cbf_hz` = [8.0, 16.8] Hz (13 points)
+  - `cbf_sweep_measured_values.U_mm_min` = [4.08, 8.568] mm/min (13 points)
   - `slope_check.model_slope_um_s_per_hz` = 8.5 (um/s)/Hz
 - What a cell can calculate: Transport speed from cilia beat frequency and mucus layer thickness. A cell can calculate the clearance time for a particle and how much frequency drop is needed to knock out the transport.
 

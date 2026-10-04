@@ -23,7 +23,7 @@ I read the source and built my own minimal counterexample, independent of biolog
 ## Delivery
 Table anchor × verdict × n_zero_slope × n_opposite_sign, a corrected PORT.json with changed statuses pointed out, and the one number: the number of previous score-0 anchor now showing a character reversal in the common box. Slim follow-ups to the swarm in FOLLOWUPS.json with external_referent complete.
 
-Allt PENDING_INDEPENDENT_REVIEW. Inga interna data.
+Everything PENDING_INDEPENDENT_REVIEW. No internal data.
 
 # Round 4 (the coordinator, 2/10 17:00)
 
@@ -103,6 +103,6 @@ This is the **last round** of the lane. 23 keys lack a complete published operat
 To post an anchor as robust when the axis is missing from the model. To open a new mathematical track. To report parent_goal as closed — it is OPEN and should read OPEN.
 
 
-## PIN UPDATED (the coordinator 2/10 21:05)
-Pinned commit moved from `cf9c1e9` to `352c6d3`, three commits later, seven files changed. The reason is that the three contain precisely the corrections we have pursued tonight: *Abstain when the downstream cert says nothing, instead of reading silence as a pass*, *Stop a validity filter from passing a point it never checked*, and *Say whether the declaration could separate two discordant reports, and count unconsumed verdicts*. The older pin would have let silence pass as approved.
-The engine is now also on both cloud hosts under `/opt/agents/graph_engine`, with the cited path symlinked there, so a job no longer needs to reimplement it. Verified: import through the cited path works on both.
+## PINNING UPDATED (coordinator 2/10 21:05)
+Pinned commit moved from `cf9c1e9` to `352c6d3`, three commits later, seven files changed. The shell is that the three contain exactly the rattles we've been chasing in agony: *Abstain when the downstream cert says nothing, instead of reading silence as a pass*, *Stop a validity filter from passing a point it never checked*, and *Say whether the declaration could separate two discordant reports, and count unconsumed verdicts*. The old pining had let silence pass as acceptable.
+The engine is now also on both cloud vards under `/opt/agents/graph_engine`, with the quoted sokvage symlinked there, so a job no longer needs to reimplement it. Verified: import via the quoted sokvage works on both.

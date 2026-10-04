@@ -37,4 +37,4 @@ admissible as E·A (96–462 N), the *opposite* verdict from ALL and ISL, not to
   intra-compartmental pressure and mean F/A; and `BT-NET-HARVEST-E0085` attributes the 1000 N triple to Zhang 2015
   while the raw evidence file attributes it to Fukubayashi & Kurosawa 1980 (PMID 6894212) — the raw file wins.
 - None of the 14 target variables carries a `plausible_range`, so the range gate ran against a range stated per
-  proposal. `review_state: PENDING_INDEPENDENT_REVIEW` on every entry; `exclusion_filter.py` over this directory: 5713 ADMIT, 0 non-admit.
+  proposal. `review_state: PENDING_INDEPENDENT_REVIEW` on every entry; 

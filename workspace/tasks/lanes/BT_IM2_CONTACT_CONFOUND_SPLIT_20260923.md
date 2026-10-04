@@ -10,7 +10,7 @@
 
 # BT_IM2_CONTACT_CONFOUND_SPLIT_20260923
 
-User renewed reserve_worker authorization 2026-09-23 ~16:08; breakthrough hunt across domains.
+User renewed swarm_worker authorization 2026-09-23 ~16:08; breakthrough hunt across domains.
 
 OVERRIDING RUN SCOPE: write only results/BT_IM2_CONTACT_CONFOUND_SPLIT_20260923/; source modules and other lanes read-only. Read applicable AGENTS and project START before work. Hash PREREG before first new numerical evaluation; exploratory changes separately documented. CPU2 (all BLAS/OMP/MKL/NUMEXPR), nice19, <=2GB unless the task explicitly authorizes one gated solve. Maximum new root-disk artifacts50MB; no bulk downloads, package/toolchain builds, GPU, cloud compute, source edits, public output or email. No child agents. No process killing. Never read credentials or billing settings. Do not wait on other lanes; snapshot completed referenced outputs and record missing dependencies. All numbers in machine-readable files. RESULTS must begin '# BT_IM2_CONTACT_CONFOUND_SPLIT_20260923' in first5lines; report negative or incomplete results honestly.
 

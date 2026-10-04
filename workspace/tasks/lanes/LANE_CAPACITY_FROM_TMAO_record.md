@@ -21,14 +21,14 @@ At the same time, there is a held-out TMAO-ankare that no capacity chain has use
 3. **OIndependent control that does not go via flow at all:** a concentration ratio at steady state is set by thermodynamics and not by delivery. Derive the intracellular accumulation allowed by membrane potential and pH gradient for a cation, and compare with published accumulation in cells expressing the transporter alone and together with the efflux transporter, respectively. That limit holds regardless of turnover, which is the whole point of having it.
 4. **Test if the two paths are compatible.** If the flow-separated TMAO limit and the thermodynamic ceiling give incompatible intervals, at least one assumption is wrong — name which one and what would determine. Two independent paths that happen to match is a stronger result than one path that does.
 
-## Strongest control and falsifiers
+## Strongest control and falsifier
 
 - **Control:** the metformin chain as it stands, i.e. the one that gave 243× and as the certificate shows cannot bind the capacity. The profit should be a finite interval where it gave an unlimited.
 - **Forger:** if the TMAO limit also becomes unlimited upwards when the dispersion is propagated, the certificate separation does not hold in practice for our anchor, and then it must be said — it would be an important negative about a result we just posted.
 - **Prohibited:** to use metformin clearance as capacity limit; to mix saturated and linear regime in the same ratio; pooling amount from one cohort with activity from another (that artifact was 2,17–7,76× in another lane today); to treat an estimating equation value as a measured filtration.
 
-## Leverans
+## Deliverable
 
 `PORT.json` with the capacity range out of TMAO, the thermodynamic ceiling, and a verdict if the two are compatible. Plus a row about which of our existing renal conclusions rest on metformin and thus need to be recalculated. Narrow follow-ups in FOLLOWUPS.json with external_referent complete — no template repeated per node.
 
-Inga interna data, inga patientdata. Allt PENDING_INDEPENDENT_REVIEW.
+No internal data, no patient data. Everything PENDING_INDEPENDENT_REVIEW.

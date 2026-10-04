@@ -66,19 +66,19 @@ LF n=12 mean 2.633, HJS n=12 mean 2.578).
 **S4** — 16 control / 20 hunt / 15 park / 13 ALS, 300 s @ 300 Hz per person, 2 shoe channels.
 Body mass in kg is in `subject-description`.
 
-## Avvisade — 3 st (`rejected`)
+## Rejected — 3 (`rejected`)
 
 - `R1_ZENODO_4767469` — only `GD Poster.pdf` (3 549 710 B). No data → U1 fails.
 - `R2_ZENODO_20807109` — `access_right='restricted'`, `files=[]`. Gated → may be listed but is
   never counted as verified (U6). Would have been relevant to P9/O1–O3.
 - `R3_ZENODO_4983030` — wrong lead, see above.
 
-## Prov som laddats (A2)
+## Samples loaded (A2)
 
 `samples/` = 11 089 736 B total, largest individual file **1 751 873 B (1.67 MB)** — far below
 50 MB. Complete demonstration report: `samples/load_report.json` (shape, size, units, frame).
 
-| prov | form | storlek | **enhet** | **koordinatram / orientering** |
+| sample | shape | size | **unit** | **coordinate frame / orientation** |
 |---|---|---|---|---|
 | `S1` NIfTI | NIfTI-1 `.nii.gz`, 3D, int16, labels {0,1} | 311×311×431 voxels, 1.5 mm isotropic | **mm** — from `xyzt_units` space code 2 | **RAS+**, from `sform_code=1` (NIFTI_XFORM_SCANNER_ANAT); diagonal affine 1.5 mm, bbox 465×465×645 mm |
 | `S2` CSV | CSV, UTF-8 BOM, 10 columns | 99 files × 57 landmarks, XYZ shape 57×3 | **mm** — *declared in the record, not in the file* | **patient-level LPS** — *declared in the record, not verified from the file* |
@@ -129,7 +129,7 @@ route, and none of the candidates could deliver them.
   clinical case series, no geometry dataset. None could be derived from S1/S2 either — they are
   acetabular, not humeral.
 
-## Accepterade grindar
+## Accepted gates
 
 `api_cache/acceptance.json`, run by `check_acceptance.py` after everything was in place:
 
@@ -139,7 +139,7 @@ PASS  A4_null_control    PASS  A5_byte_check        PASS  U5_coupling
 ==> ALLA FRYSTA STEG PASS
 ```
 
-## Next step
+## Next steps
 
 1. **P1 must be solved separately** — no public femur geometry was found. The Imperial-35-femur mesh
    (zenodo 167808, 52 112 646 B) is already on disk according to `NIGHT_PREAMBLE.md` §18 but is
@@ -151,7 +151,7 @@ PASS  A4_null_control    PASS  A5_byte_check        PASS  U5_coupling
    MRI cartilage segmentation with measured thickness; R2 is exactly that type of source, just gated.
 4. `R2` (zenodo 20807109) and a request for access to gated catalogues are routes, not solutions.
 
-## Reproducera
+## Reproduce
 
 ```
 sha256sum -c PREREG.sha256
@@ -160,7 +160,7 @@ python3 build_data_sources.py      # -> DATA_SOURCES.json + api_cache/binding_co
 python3 check_acceptance.py        # -> api_cache/acceptance.json
 ```
 
-## Filer i mappen
+## Files in the folder
 
 | file | contents |
 |---|---|

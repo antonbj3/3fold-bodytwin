@@ -14,11 +14,11 @@ p=R/'PREREG_R1_RESPONSE_R4.json'
 with p.open('x') as f:json.dump(pre,f,indent=2)
 p.with_suffix('.sha256').write_text(hashlib.sha256(p.read_bytes()).hexdigest()+'\n')
 rows=json.loads((R/'PORT_TABLE_R1.json').read_text())['ports'];rows.extend([
- dict(step='slutlig kemi R4',port='native precursor D10',value=None,unit='mol/molreference collagen',status="UNKNOWN",uncertainty=None,source='LANE_SURGICAL_RESPONSE/RESPONSE_PORTS_R4.json',scope='Same reference and absolute glyco pools missing'),
- dict(step='slutlig kemi R4',port='cell-free first-order control k,eta',value=[.06949679103768976,.2833333333333334],unit='1/day,1',status="MEASURED",uncertainty='Apparent endpoint-derived analogue; first/second order nonidentified',source='LANE_SURGICAL_RESPONSE/RESPONSE_PORTS_R4.json',scope='External cell-culture typeI assay, native transfer synthetic'),
- dict(step='slutlig kemi R4',port='HP inventory42/10',value=2.220261437908497,unit='1',status="MEASURED",uncertainty=[1.747159090909091,2.8467987804878048],source='LANE_SURGICAL_RESPONSE/r4/SCORES_R4_v2.json',scope='Ratio of group means; fixed assay reference; graphical box, not CI')])
+ dict(step='final chemistry R4',port='native precursor D10',value=None,unit='mol/molreference collagen',status='UNKNOWN',uncertainty=None,source='LANE_SURGICAL_RESPONSE/RESPONSE_PORTS_R4.json',scope='Same reference and absolute glyco pools missing'),
+ dict(step='final chemistry R4',port='cell-free first-order control k,eta',value=[.06949679103768976,.2833333333333334],unit='1/day,1',status='MEASURED',uncertainty='Apparent endpoint-derived analogue; first/second order nonidentified',source='LANE_SURGICAL_RESPONSE/RESPONSE_PORTS_R4.json',scope='External cell-culture typeI assay, native transfer synthetic'),
+ dict(step='final chemistry R4',port='HP inventory42/10',value=2.220261437908497,unit='1',status='MEASURED',uncertainty=[1.747159090909091,2.8467987804878048],source='LANE_SURGICAL_RESPONSE/r4/SCORES_R4_v2.json',scope='Ratio of group means; fixed assay reference; graphical box, not CI')])
 with (R/'PORT_TABLE_R1_FINAL.json').open('x') as f:json.dump({'review_state':'PENDING_INDEPENDENT_REVIEW','ports':rows},f,indent=2,ensure_ascii=False)
 with (R/'PORT_TABLE_R1_FINAL.md').open('x') as f:
- f.write("# Final port table, including RESPONSE R4\n\n| Step | Port | Value / unit | Uncertainty | Status | Source / scope |\n|---|---|---|---|---|---|\n")
+ f.write('# Final port table, including RESPONSE R4\n\n| Step | Port | Value / unit | Uncertainty | Status | Source / scope |\n|---|---|---|---|---|---|\n')
  for x in rows:f.write('| '+' | '.join([x['step'],x['port'],str(x['value'])+' '+x['unit'],str(x['uncertainty']),x['status'],x['source']+'; '+x['scope']]).replace('\n',' ')+' |\n')
 print('R4 frozen last; final table',len(rows),'ports')

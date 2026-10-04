@@ -1,6 +1,6 @@
 # Breakthrough hunt night 24/9 — ready tasks to start when resources/instructions arrive
 
-Each mission: read `tasks/NIGHT_PREAMBLE.md` first. Shoulder number = "Based on:" = start point that MUST be read. Model selection is set when the lane runner-lanner instructions for reserve_worker/space swarm arrived. Already running: N1 (axel 1), N2 (3), N3 (6), AU6, LV3.
+Each task: read `tasks/NIGHT_PREAMBLE.md` first. Axis numbers = "Builds on" = starting point that MUST be read. Model selection is set when the lane_runner lane’s instructions for swarm_worker/space swarm arrive. Already running: N1 (axis 1), N2 (3), N3 (6), AU6, LV3.
 
 | Id | Axis | Question (falsifiable) | Builds on | Ground truth / counter-test |
 |---|---|---|---|---|

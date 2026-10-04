@@ -7,7 +7,7 @@ Conflict → local topology change, non-local compliance, cohesive memory and ma
 Obstacle → the new tip positions' cusp lies outside the17D global basis; even κ±5% gives0,298–0,649µm error, and the residual bound is too wide.
 Changed operation → compiled support family with shared deformations plus local Green/tip responses, and a signed history-residual sector.
 
-## Start directly
+## Start immediately
 
 1. Read PREREG_R1_CENTERED_RESIDUAL.json. `compiled_query_r1.py` imports only NumPy/stdlib and reads `r1/centered_residual/operator_tier2.npz`. `--length-mm 9` is conditionally accepted; `--length-mm 8` requires fallback. There is no solver/globalstate dependence in this warm consumer. Full fallback has actually been run in `centered_residual_r1.py`, not merely proposed.
 2. Use exactly the same nx64×ny32, β20, strain0,10 and synthetic materials as preferably the first instrument. Retain the missed lengths8/16/24/32mm and κ±5% at lengths1/9/17/25mm. Frozen gates: gap≤1e−7m, cert≤1e−7m, no warm global solve or state recreation. Full evolving cohesive history and biological accuracy remain UNKNOWN until separate sectors close.

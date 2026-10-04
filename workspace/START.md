@@ -1,6 +1,6 @@
 # BodyTwin
 
-Arbetsmapp: ``.
+Working folder: ``.
 
 **Context check 2026-09-23:** Read [the check of existing work](notes/CONTEXT_COVERAGE_AUDIT_20260923.md) before new experiments. The working view's nine selected packets do not cover the private implementation. `MERGED_GRAPH.json` is an index; code references and previous corrections are in the detailed graph `GRAPH.json`. New coordinator lanes wait until the plan is ready according to Anton.
 

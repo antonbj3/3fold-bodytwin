@@ -1,6 +1,6 @@
 # Task: verify that ALL old mechanism/3FOLD material is available to the graph and workers
 
-You're a lane runner. `lane-model`Agent with full mandate from the coordinator. (Anton)You own the decisions. **not** att bygga nytt — it is to verify that the existing is **Available, readable and usable** of graphene and of running workers.
+You are a lane_runner `build-lane model` agent with full mandate from the coordinator (Anton). You own the decisions. The purpose is **not** to build new — it is to verify that what exists is **findable, readable and usable** by the graph and running workers.
 
 ## Background (the coordinator’s context, verbatim claims to verify)
 Anton previously worked with a program described as follows (mechanism / 3FOLD BodyTwin, `~/projects/bodytwin`, a fork of cad-to-simulation):

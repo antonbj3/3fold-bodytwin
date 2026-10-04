@@ -5,7 +5,7 @@ BT-FW48-SEED-493
 Status: **PENDING_INDEPENDENT_REVIEW**. This is a *definition/review* job. The scientific
 claim (does autocomposition improve a real molecular-to-organ error budget) is
 **NOT_EXECUTED_DESIGN_REVIEW**. What *was* executed is the planner/instrument layer as the
-brief's own Designstandard prescribes for software/planner cases: a synthetic mechanism test
+brief's own design standard prescribes for software/planner cases: a synthetic mechanism test
 on a frozen replay round with **declared** model scales, N in {1,10,100} as *planned* query
 counts, on the supplied but **unaudited** Q005 model.
 

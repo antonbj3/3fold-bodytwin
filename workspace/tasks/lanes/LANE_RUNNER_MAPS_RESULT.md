@@ -2,13 +2,13 @@
 
 Completed 2026-09-30. Independent interpretation and execution; no other agents or their interpretations have been consulted. Status: `PENDING_INDEPENDENT_REVIEW`. No scientific evidence admission.
 
-## Leverans
+## Delivery
 
 1. [BODYTWIN_MAPS_OPERATORS.md](external_research_path) — overall view of the spaces' metric/topology, explicit maps, invariant preservation, dimensional loss, algebra, inverses/near-isometries, error transport, subject intersections, unexplored ground, identifiability and prioritisation.
 2. [BODYTWIN_MAPS_OPERATORS.json](external_research_path) — machine-readable catalogue with **15 spaces and 27 operators**, of which **eight port objects**. All have domain/codomain, injectivity/surjectivity with conditions, invariants, reduction, uncertainty, identifiability, discriminating test, strong control, counter-case and rank.
 3. [RESULTS.md](results/LANE_RUNNER_MAPS_C/RESULTS.md) — execution, checks, scientific limitations and reproduction. Supporting artifacts are in `results/LANE_RUNNER_MAPS_C/`.
 
-## Beslut
+## Decisions
 
 - Theta is a correspondence or explicit prior-dependent kernel until omics→activity→rates/BC is calibrated. A point estimator establishes no unique physical inverse.
 - The disease map M consists of typed changes in law, parameter values, boundary conditions and memory, followed by forward solver and observation. Diagnosis names are metadata.
@@ -27,7 +27,7 @@ The detailed graph and relevant existing code/negative result were reviewed beyo
 
 `GOAL_TO_STRESS_POINT.md`, `ATTEMPTS.json`, `SEED_EXPANSIONS.json` and `FOLLOWUPS.json` preserve parent targets, controls, open obstacles and eight distinct constructive successors. These are definitions; no automatic queue/execution was started.
 
-## Verifiering
+## Verification
 
 **10/10 scoped mathematics tests passed:** spectrum/observability, non-normal response, complementary vs duplicate fusion, dependence/conflict, target quotient, composition/feedback error, flux cancellation, steady/transient kinetic ambiguity, residual conditioning and positivity in projection. All values are dimensionless fixtures. **0 empirical tests and 0 patients.** Full conventional joint solve gives the same fusion result; no comparative improvement or biological gain is claimed.
 

@@ -16,15 +16,15 @@ S=R/'sources'
 class PortTests(unittest.TestCase):
  def test_unknown_never_zero(self):
   with self.assertRaises(UnknownPort):unknown('m','src','Unknown injury').require('m')
-  with self.assertRaises(ValueError):Port(0.,'m',"UNKNOWN",None,'src','scope')
+  with self.assertRaises(ValueError):Port(0.,'m','UNKNOWN',None,'src','scope')
  def test_null_needs_unknown(self):
-  with self.assertRaises(ValueError):Port(None,'m',"MEASURED",None,'src','scope')
+  with self.assertRaises(ValueError):Port(None,'m','MEASURED',None,'src','scope')
  def test_units(self):
   with self.assertRaises(ValueError):synth(1.,'mm','src','length').require('m')
  def test_finite(self):
   with self.assertRaises(ValueError):synth(float('nan'),'m','src','length')
  def test_provenance(self):
-  with self.assertRaises(ValueError):Port(1.,'m',"MEASURED",None,'','')
+  with self.assertRaises(ValueError):Port(1.,'m','MEASURED',None,'','')
  def test_evidence_stops(self):
   d=run(evidence_config());self.assertIsNone(d['native_strength']['value'])
   self.assertTrue(all(x['value'] is None for x in d['stages'].values()))

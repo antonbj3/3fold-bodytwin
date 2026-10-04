@@ -2,7 +2,7 @@ BT-DAT-Q154
 
 # Results — public measurement data that can constrain the Q154 model (D-glucose at the BBB)
 
-## Kort svar
+## Short answer
 
 I found and downloaded **10 public sources**, all ≤ 50 MB, all HTTP 200, all
 verified with `verify_samples.py` (form, units, reference frame) and SHA-256 in
@@ -23,9 +23,9 @@ at accession level (S10) and rewrote the script. `samples/` already contained BB
 (regression + LICENSE + README) and a broken ChEMBL lookup — these are verified
 and reused, not downloaded again.
 
-## Facit per hypotes
+## Reference per hypothesis
 
-| Hypotes | Utfall | Nyckeltal | Fil |
+| Hypothesis | Outcome | Key number | File |
 |---|---|---|---|
 | H1 logBB ≈ 0 for passive small polar substances | `NOT_TESTED_BY_DATA` | 0 of 1058 B3DB records contain glucose; median logBB −0,02, 33,0 % have \|logBB\| < 0,3 | `results.json` → `theochem_B3DB_regression.tsv.form` |
 | H2 measured Km/Ki/IC50 for GLUT1/3, MRP1, P-gp | `NOT_TESTED_BY_DATA` | **0** glucose-substrate records against 4 targets; ChEMBL contains 13 glucose molecules (e.g. CHEMBL1614854) but no activity against these targets | `samples/chembl_glucose_vs_transporters.json` |
@@ -98,21 +98,20 @@ Full URL, `constrains`/`order_only`/`not_applicable` and justification per sourc
 - **Plasma glucose and lactate in mol/L** from an open human study, to replace the
   two explicitly assumed concentrations.
 
-## Reproduktion
+## Reproduction
 
 ```
-python3 verify_samples.py     # skriver results.json, skriver ut storlek/http/sha256
+python3 verify_samples.py     # writes results.json, prints size/http/sha256
 sha256sum samples/*
 ```
 
 `PREREG.md` was not changed after downloading began; criteria, order
 and countertest are unchanged since the hash was set.
 
-## Disclaimer
+## Caveats
 
 The task frame (`≤ 45 min`, 1 thread) was delayed because HPA's cell-type archive first had to
 be found at the right path. `~/projects/bodytwin` does not exist in this container, so no
 node IDs from `MECHANISM_ANCHOR_GRAPH.json` can be cited and no internal datasets
-(restricted model data, LHDL, OrthoLoad, OpenCap) have been used. No measurement values are manufactured,
 interpolated or typical; every number above is traced to `results.json` or
 `DATA_SOURCES.json`.

@@ -1,4 +1,4 @@
-# Styrning LANE_LASER_SURGERY — efter r52
+# Control LANE_LASER_SURGERY — after r52
 
 ## The strongest number of the round is a precise witness of inadequacy
 I checked it: with `q = (1/2, −1/2)` — a sum that is exactly zero — and `S_N = Y = 0`
@@ -19,7 +19,7 @@ steps are repaired; and a swarm job measured aggregate underestimates of 1,90–
 The test that reveals it is the same in all three: disrupt or repair the EN component and see if
 the aggregate grows. Run it on your own limits and report the direction.
 
-## Hindret, dina egna ord
+## The obstacle, in your own words
 "Gain remains PHENOMENOLOGICAL, owing actual PVDF charge/polarization, capacitance/load and force
 reference." Three measurements that are all on a bench sheet, not in an article. List them by unit
 and order of magnitude so that the next acquisition can be targeted; `native_echo_origin_gate =

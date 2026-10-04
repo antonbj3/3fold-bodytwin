@@ -1,13 +1,37 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"\nBT-HX-Q020 -- vessel-interstitium-lymph: can the same model produce BOTH swelling\nand substance retention?\n\nFirst-principles 4-kompartmentmodell:\n    P   plasma            V_p [mL], M_p [mg albumin]\n    ISC interstitium      V_i [mL], M_i [mg albumin]      <- enda \"lagrade\" tillstandet\n    C   celler            V_c [mL]  (vatten, protein immobil, egen volymreglering)\n    L   lymfa             V_l [mL], M_l [mg]  (kvasi-stationaert, tau_l)\n\nSource equations (no empirical \"swelling formulas\"):\n 1) van-Slyke/Hill  pi(c)  -- oncotic pressure from albumin mass concentration\n 2) Starling/filtr. J_net = K_f[(P_c - P_ISC) - sigma_g(pi_p - pi_i)]  with\n    (a) hard lower bound on reabsorption flow:  J_net >= -K_f sigma_g pi_p\n    (b) glycocalyx dilution E -> sigma_g, sigma_s, K_f  (Michel & Curry form)\n 3) albumin flow through the capillary  J_p = (1-sigma_s) c_p J_net + G_d (c_p - c_i)\n 4) interstitial P-V  P_ISC = a ln(V_ISC/V_k)  -- RECTIFYING (Guyton 1965/1966)\n 5) mobility resistance to lymph R_mob(P) -- knee-shaped (Guyton 1966: >1e5)\n 6) lymph pump  Q_L = P_pump exp(beta dP_L_eff)   (Humphrey form)\n 7) lymph protein c_l = (1 - sigma_L) c_i ; return to plasma with the fraction f_p\n 8) cell exchange J_c = K_c[(P_c - P_ISC) + (pi_i - pi_c)] + cell volume regulation\n\nUnit check: each relation is assigned a Dim vector (mL, mg, min, mmHg)\nand checked automatically by unit_check(). No unit is assumed without a check.\n"
+"""
+BT-HX-Q020 -- vessel-interstitium-lymph: can the same model produce BOTH swelling
+and substance retention?
+
+First-principles 4-compartment model:
+    P   plasma            V_p [mL], M_p [mg albumin]
+    ISC interstitium      V_i [mL], M_i [mg albumin]      <- only "stored" state
+    C   cells            V_c [mL]  (water, immobile protein, own volume regulation)
+    L   lymph             V_l [mL], M_l [mg]  (quasi-steady, tau_l)
+
+Source equations (no empirical "swelling formulas"):
+ 1) van-Slyke/Hill  pi(c)  -- oncotic pressure from albumin mass concentration
+ 2) Starling/filtr. J_net = K_f[(P_c - P_ISC) - sigma_g(pi_p - pi_i)]  with
+    (a) hard lower bound on reabsorption flow:  J_net >= -K_f sigma_g pi_p
+    (b) glycocalyx dilution E -> sigma_g, sigma_s, K_f  (Michel & Curry form)
+ 3) albumin flow through the capillary  J_p = (1-sigma_s) c_p J_net + G_d (c_p - c_i)
+ 4) interstitial P-V  P_ISC = a ln(V_ISC/V_k)  -- RECTIFYING (Guyton 1965/1966)
+ 5) mobility resistance to lymph R_mob(P) -- knee-shaped (Guyton 1966: >1e5)
+ 6) lymph pump  Q_L = P_pump exp(beta dP_L_eff)   (Humphrey form)
+ 7) lymph protein c_l = (1 - sigma_L) c_i ; return to plasma with the fraction f_p
+ 8) cell exchange J_c = K_c[(P_c - P_ISC) + (pi_i - pi_c)] + cell volume regulation
+
+Unit check: each relation is assigned a Dim vector (mL, mg, min, mmHg)
+and checked automatically by unit_check(). No unit is assumed without a check.
+"""
 from __future__ import annotations
 import json, math, hashlib, argparse
 import numpy as np
 from scipy.integrate import solve_ivp
 
 # ----------------------------------------------------------------------------
-# Enhetsalgebra: Dim = (mL, mg, min, mmHg)
+# Unit algebra: Dim = (mL, mg, min, mmHg)
 # ----------------------------------------------------------------------------
 class Dim:
     __slots__ = ("e", "name")
@@ -28,75 +52,75 @@ ML   = Dim(mL=1,  name="mL")
 MG   = Dim(mg=1,  name="mg")
 MIN  = Dim(minute=1, name="min")
 MMHG = Dim(mmHg=1, name="mmHg")
-G_L  = Dim(mL=-1, mg=1, name="g/L")          # masskoncentration
+G_L  = Dim(mL=-1, mg=1, name="g/L")          # mass concentration
 FLUX_V = ML / MIN                              # mL/min
 FLUX_M = MG / MIN
-KF_UNIT = FLUX_V / MMHG          # K_f har enheten mL/min/mmHg
-KC_UNIT = FLUX_V / MMHG          # cellkonduktans har samma enhet som K_f                              # mg/min
+KF_UNIT = FLUX_V / MMHG          # K_f has the unit mL/min/mmHg
+KC_UNIT = FLUX_V / MMHG          # cell conductance has the same unit as K_f                              # mg/min
 
 # ----------------------------------------------------------------------------
-# PARAMETERTABELL  (fryst i PREREG.md §4)
+# PARAMETER TABLE  (frozen in PREREG.md §4)
 # ----------------------------------------------------------------------------
 PARAMS = {
- # ---- kropp ---------------------------------------------------------------
- "M_body":     (70.0,   "kg",  "ANTAGANDE (brief: 70 kg vuxen)"),
+ # ---- body ---------------------------------------------------------------
+ "M_body":     (70.0,   "kg",  "ASSUMPTION (brief: 70 kg adult)"),
  "V_plasma0":  (3.0,    "L",   "DERIVED: 0.043 L/kg plasma"),
  "V_isc0":     (11.0,   "L",   "DERIVED: ECF 0.2 L/kg - plasma 0.043 L/kg"),
  "V_cell0":    (28.0,   "L",   "DERIVED: TBW 0.6 L/kg - ECF 0.2 L/kg"),
- "c_plasma":   (40.0,   "g/L", "ANTAGANDE: plasmaalbumin 4 g/dL; ger pi_p=18.4 mmHg"),
- "c_isc0":     (15.0,   "g/L", "ANTAGANDE: ~0.38 c_p; ger pi_i~5 mmHg (subkutan litteratur)"),
+ "c_plasma":   (40.0,   "g/L", "ASSUMPTION: plasma albumin 4 g/dL; gives pi_p=18.4 mmHg"),
+ "c_isc0":     (15.0,   "g/L", "ASSUMPTION: ~0.38 c_p; gives pi_i~5 mmHg (subcutaneous literature)"),
  # ---- van Slyke / Hill ----------------------------------------------------
- "T":          (310.0,  "K",   "ANTAGANDE 37 C"),
- "M_n":        (69300.0,"g/mol","ANTAGANDE albuminmonomer"),
- "n_Hill":     (1.5,    "-",   "KALIBRERAD pa (pi(10 g/L)=3.1, pi(40 g/L)=18.4 mmHg)"),
+ "T":          (310.0,  "K",   "ASSUMPTION 37 C"),
+ "M_n":        (69300.0,"g/mol","ASSUMPTION albumin monomer"),
+ "n_Hill":     (1.5,    "-",   "CALIBRATED on (pi(10 g/L)=3.1, pi(40 g/L)=18.4 mmHg)"),
  "pi_max":     (None,   "mmHg","DERIVED from the calibration above"),
  "c_half":     (None,   "g/L", "DERIVED from the calibration above"),
- # ---- kapillar ------------------------------------------------------------
- "Pc_cap":     (20.0,   "mmHg","ANTAGANDE: capillary pressure mean (20-25)"),
- "K_f0":       (0.05,   "mL/min/mmHg", "ANTAGANDE: helkroppseffektiv K_f; ger nettofiltr. ~0.5 mL/min"),
- "L_p":        (1.5e-7, "cm/s","Michel & Curry 1999 Physiol Rev 79:703-761 (10.1152/physrev.1999.79.3.703) - INTERVALL OVERIFIERAD"),
- "A_cap":      (3000.0, "m^2", "ANTAGANDE: helkroppens kapillaryarea"),
- "sigma_g0":   (0.95,   "-",   "ANTAGANDE: glykokalysens onkotiska screening"),
- "sigma_s0":   (0.90,   "-",   "ANTAGANDE: albuminreflektion"),
- "D_ratio":    (2.0e-4, "-",   "ANTAGANDE: diffusiv/reflektiv (L_p D_s)/(K_f delta); kalibrerat sa att c_isc0 ~ 0.4 c_p"),
+ # ---- capillary ------------------------------------------------------------
+ "Pc_cap":     (20.0,   "mmHg","ASSUMPTION: mean capillary pressure (20-25)"),
+ "K_f0":       (0.05,   "mL/min/mmHg", "ASSUMPTION: whole-body effective K_f; gives net filtr. ~0.5 mL/min"),
+ "L_p":        (1.5e-7, "cm/s","Michel & Curry 1999 Physiol Rev 79:703-761 (10.1152/physrev.1999.79.3.703) - INTERVAL UNVERIFIED"),
+ "A_cap":      (3000.0, "m^2", "ASSUMPTION: whole-body capillary area"),
+ "sigma_g0":   (0.95,   "-",   "ASSUMPTION: glycocalyx oncotic screening"),
+ "sigma_s0":   (0.90,   "-",   "ASSUMPTION: albumin reflection"),
+ "D_ratio":    (2.0e-4, "-",   "ASSUMPTION: diffusive/reflective (L_p D_s)/(K_f delta); calibrated so that c_isc0 ~ 0.4 c_p"),
  # ---- glycocalyx dilution ------------------------------------------------
- "f_glyc":     (2.0,    "-",   "ANTAGANDE: E~0.5 nar dP_eff = f_glyc*pi_p"),
- "n_glyc":     (12.0,   "-",   "ANTAGANDE: skarpa knaet"),
- "k_leak":     (2.0,    "-",   "ANTAGANDE: K_f-okning nar glykocalysen tappar"),
- "E_min":      (0.05,   "-",   "ANTAGANDE: golv pa glykokalys"),
- "E_fixed":    (None,   "-",   "Nollmodell N3: None = fri E, 1.0 = laserad glykokalys"),
+ "f_glyc":     (2.0,    "-",   "ASSUMPTION: E~0.5 when dP_eff = f_glyc*pi_p"),
+ "n_glyc":     (12.0,   "-",   "ASSUMPTION: sharp knee"),
+ "k_leak":     (2.0,    "-",   "ASSUMPTION: K_f increase when the glycocalyx declines"),
+ "E_min":      (0.05,   "-",   "ASSUMPTION: floor on glycocalyx"),
+ "E_fixed":    (None,   "-",   "Null model N3: None = free E, 1.0 = locked glycocalyx"),
  # ---- interstitium (Guyton) ----------------------------------------------
- "a_stiff":    (12.0,   "mmHg","ANTAGANDE: P = a ln(V/V_k)"),
- "pv_form":    ("log",   "-",   "'log' = Guyton-riktande; 'linear' = nollmodell N0"),
- "V_k_ratio":  (1.20,   "-",   "ANTAGANDE: V_k = 1.20 V_isc0 -> P_ISC,0 ~ -2.2 mmHg"),
- "R_mob_max":  (1.0e5,  "-",   "Guyton/Scheel/Murphree 1966 Circ Res 19:412-419 (10.1161/01.res.19.2.412): >1e5 ggr MOBILITETSfall"),
- "P_half_mob":  (0.25,   "mmHg","ANTAGANDE: knaets halvbredd"),
- "P_min":      (-14.0,  "mmHg","ANTAGANDE: golv pa P_ISC"),
- "P_max":      (25.0,   "mmHg","ANTAGANDE: tak pa P_ISC"),
- # ---- lymfa ---------------------------------------------------------------
- "K_lymph":    (1.0,    "mL/min/mmHg", "ANTAGANDE: lymfansangio-konduktans (dimensionellt K_L)"),
- "P_pump":     (0.5,    "mmHg","ANTAGANDE: vilande pumptryck"),
- "beta":       (0.05,   "mmHg^-1","ANTAGANDE: K_A A_L / K_L (Humphrey-formen) - OVERIFIERAD"),
- "P_out":      (0.0,    "mmHg","ANTAGANDE: extrinsiskt/visceralt referenstryck"),
- "sigma_L":    (0.10,   "-",   "ANTAGANDE: lymfans proteinreflektion"),
- "tau_l":      (20.0,   "min", "ANTAGANDE: lymfvaskompartimentets omsattningstid"),
- "f_p_lymph":  (0.30,   "-",   "ANTAGANDE: andel lymfprotein som ater till plasma"),
- "tau_hep":    (120.0,  "min", "ANTAGANDE: hepatostatisk reglering av c_p (lever som kallande mangkomp)"),
- # ---- celler --------------------------------------------------------------
- "pi_cell":    (None,   "mmHg","DESIRED/KALIBRERAD: sa att J_cell=0 in the base equilibrium (se PREREG A4)"),
+ "a_stiff":    (12.0,   "mmHg","ASSUMPTION: P = a ln(V/V_k)"),
+ "pv_form":    ("log",   "-",   "'log' = Guyton-rectifying; 'linear' = null model N0"),
+ "V_k_ratio":  (1.20,   "-",   "ASSUMPTION: V_k = 1.20 V_isc0 -> P_ISC,0 ~ -2.2 mmHg"),
+ "R_mob_max":  (1.0e5,  "-",   "Guyton/Scheel/Murphree 1966 Circ Res 19:412-419 (10.1161/01.res.19.2.412): >1e5 times MOBILITY drop"),
+ "P_half_mob":  (0.25,   "mmHg","ASSUMPTION: knee half-width"),
+ "P_min":      (-14.0,  "mmHg","ASSUMPTION: floor on P_ISC"),
+ "P_max":      (25.0,   "mmHg","ASSUMPTION: ceiling on P_ISC"),
+ # ---- lymph ---------------------------------------------------------------
+ "K_lymph":    (1.0,    "mL/min/mmHg", "ASSUMPTION: lymphangion conductance (dimensionally K_L)"),
+ "P_pump":     (0.5,    "mmHg","ASSUMPTION: resting pump pressure"),
+ "beta":       (0.05,   "mmHg^-1","ASSUMPTION: K_A A_L / K_L (Humphrey form) - UNVERIFIED"),
+ "P_out":      (0.0,    "mmHg","ASSUMPTION: extrinsic/visceral reference pressure"),
+ "sigma_L":    (0.10,   "-",   "ASSUMPTION: lymph protein reflection"),
+ "tau_l":      (20.0,   "min", "ASSUMPTION: lymph vessel compartment turnover time"),
+ "f_p_lymph":  (0.30,   "-",   "ASSUMPTION: fraction of lymph protein returning to plasma"),
+ "tau_hep":    (120.0,  "min", "ASSUMPTION: hepatostatic regulation of c_p (liver as source mass compartment)"),
+ # ---- cells --------------------------------------------------------------
+ "pi_cell":    (None,   "mmHg","DERIVED/CALIBRATED: so that J_cell=0 at baseline equilibrium (see PREREG A4)"),
  "P_cell":     (0.0,    "mmHg","ASSUMPTION: intracellular hydrostatic"),
- "K_cell":     (0.5,    "mL/min/mmHg", "ANTAGANDE: cellmembrans konduktans"),
- "c_cell":     (50.0,   "mmHg","ANTAGANDE: cellernas P-V-stelhet (dP_c/d(V/V0))"),
- "tau_cell":   (500.0,  "min", "ANTAGANDE: langsam cellvolymreglering (VRAC etc.)"),
- "c_prop":     (1.0e-4, "-",   "ANTAGANDE: extracell. proteinklarande /tau_l -> k=5e-6 1/min (t1/2 ~ 5 d)"),
+ "K_cell":     (0.5,    "mL/min/mmHg", "ASSUMPTION: cell membrane conductance"),
+ "c_cell":     (50.0,   "mmHg","ASSUMPTION: cell P-V stiffness (dP_c/d(V/V0))"),
+ "tau_cell":   (500.0,  "min", "ASSUMPTION: slow cell volume regulation (VRAC etc.)"),
+ "c_prop":     (1.0e-4, "-",   "ASSUMPTION: extracell. protein clearance /tau_l -> k=5e-6 1/min (t1/2 ~ 5 d)"),
 }
 
-# van-Slyke-kalibrering: Hill-form pi = pi_max c^n / (c_half^n + c^n)
+# van-Slyke calibration: Hill form pi = pi_max c^n / (c_half^n + c^n)
 # 2 points: (c=10 g/L, pi=3.1 mmHg) and (c=40 g/L, pi=18.4 mmHg) @37 C
 _PI_CAL = [(10.0, 3.1), (40.0, 18.4)]
 
 def _fit_hill(n):
-    """los pi_max, c_half fran 2 punkter med given Hill-exponent."""
+    """solve pi_max, c_half from 2 points with a given Hill exponent."""
     (c1, p1), (c2, p2) = _PI_CAL
     r = p2 / p1
     # p1 = pm c1^n/(ch^n+c1^n), p2 = pm c2^n/(ch^n+c2^n)
@@ -122,21 +146,21 @@ def build_params(**over):
     return p
 
 # ----------------------------------------------------------------------------
-# 1) ONKOTISKT TRYCK
+# 1) ONCOTIC PRESSURE
 # ----------------------------------------------------------------------------
 def pi_albumin(c_gL, p):
-    """pi [mmHg] fran albuminmasskoncentration [g/L].  Dim: G_L -> mmHg."""
+    """pi [mmHg] from albumin mass concentration [g/L].  Dim: G_L -> mmHg."""
     c = max(float(c_gL), 0.0)
     n, ch, pm = p["n_Hill"], p["c_half"], p["pi_max"]
     return pm * (c ** n) / ((ch ** n) + (c ** n))
 
 # ----------------------------------------------------------------------------
-# 4) INTERSTITIELL P-V  (riktande, Guyton 1965/1966)
+# 4) INTERSTITIAL P-V  (rectifying, Guyton 1965/1966)
 # ----------------------------------------------------------------------------
 def P_isc(V, p):
     """P_ISC [mmHg].  Dim: mL -> mmHg.
-    pv_form='log'    : Guyton-riktande P = a ln(V/V_k)   (standard)
-    pv_form='linear' : nollmodell N0, samma lokala komplians: P = P(V0) + (a/V_k)(V-V0)"""
+    pv_form='log'    : Guyton-rectifying P = a ln(V/V_k)   (standard)
+    pv_form='linear' : null model N0, same local compliance: P = P(V0) + (a/V_k)(V-V0)"""
     V0 = p["V_isc0"] * 1e3
     V_k = V0 * p["V_k_ratio"]                            # mL
     if p.get("pv_form", "log") == "linear":
@@ -147,19 +171,19 @@ def P_isc(V, p):
     return float(np.clip(Pv, p["P_min"], p["P_max"]))
 
 # ----------------------------------------------------------------------------
-# 5) MOBILITETSMOTSTAND TILL LYMFAN  (knaeformad)
+# 5) MOBILITY RESISTANCE TO THE LYMPH (knee-shaped)
 # ----------------------------------------------------------------------------
 def R_mob(P, p):
-    """R [1].  Dim: mmHg -> 1.  R=1 nedanfor knaet, R->R_mob_max ovanfor."""
+    """R [1].  Dim: mmHg -> 1.  R=1 below the knee, R->R_mob_max above."""
     h = max(P, 0.0) / p["P_half_mob"]
     f = (h ** 4) / (1.0 + (h ** 4)) if h > 0 else 0.0
     return 1.0 + (p["R_mob_max"] - 1.0) * f
 
 # ----------------------------------------------------------------------------
-# 2b) GLYKOKALYSMODELLEN  (E <-> J_net, sigma_g, sigma_s, K_f)  -- fixed point
+# 2b) GLYCOCALYX MODEL  (E <-> J_net, sigma_g, sigma_s, K_f)  -- fixed point
 # ----------------------------------------------------------------------------
 def capillary(p, P_c, V_i, c_i, n_iter=60, tol=1e-12):
-    """Socker J_net [mL/min], sigma_g, sigma_s, K_f, E_glyc, dP_eff."""
+    """Finds J_net [mL/min], sigma_g, sigma_s, K_f, E_glyc, dP_eff."""
     Pi = P_isc(V_i, p)
     pi_i = pi_albumin(c_i, p)
     pi_p = pi_albumin(p["c_plasma"], p)
@@ -167,7 +191,7 @@ def capillary(p, P_c, V_i, c_i, n_iter=60, tol=1e-12):
     dP_raw = (P_c - Pi) - p["sigma_g0"] * (pi_p - pi_i)   # eff. gradient, E=1
     E = 1.0
     J = 0.0
-    if p.get("E_fixed") is not None:        # nollmodell N3: glykokalysen laserad
+    if p.get("E_fixed") is not None:        # null model N3: damaged glycocalyx
         E = float(p["E_fixed"])
         n_iter = 0
     for _ in range(n_iter):
@@ -175,7 +199,7 @@ def capillary(p, P_c, V_i, c_i, n_iter=60, tol=1e-12):
         ss = p["sigma_s0"] * E
         Kf = Kf0 * (1.0 + p["k_leak"] * (1.0 - E))
         J = Kf * dP_raw
-        # fys. tak: reabsorbtion kan aldrig overstiga onkotisk screening
+        # phys. ceiling: reabsorption can never exceed oncotic screening
         J = max(J, -Kf * sg * pi_p)
         dP_eff = J / Kf if Kf > 0 else 0.0
         E_new = 1.0 / (1.0 + (max(dP_eff, 0.0) / (p["f_glyc"] * pi_p)) ** p["n_glyc"])
@@ -193,10 +217,10 @@ def capillary(p, P_c, V_i, c_i, n_iter=60, tol=1e-12):
                 P_isc=Pi, pi_i=pi_i, pi_p=pi_p, dP_eff=J / Kf)
 
 # ----------------------------------------------------------------------------
-# 6) LYMFAN
+# 6) LYMPH
 # ----------------------------------------------------------------------------
 def lymph(p, P_isc_val):
-    "Q_L [mL/min] and effective driving pressure [mmHg]."
+    """Q_L [mL/min] and effective driving pressure [mmHg]."""
     dP = P_isc_val - p["P_out"]
     R = R_mob(dP, p)
     dP_eff = dP / R
@@ -204,11 +228,11 @@ def lymph(p, P_isc_val):
     return dict(Q_L=Q, dP_L=dP, dP_L_eff=dP_eff, R_mob=R)
 
 # ----------------------------------------------------------------------------
-# TILLSTAND: y = [V_p, M_p, V_i, M_i, V_c]  (V_l, M_l algebraiskt)
+# STATE: y = [V_p, M_p, V_i, M_i, V_c]  (V_l, M_l algebraic)
 # ----------------------------------------------------------------------------
 def rhs(t, y, p, dPc=0.0, infuse=0.0, null="none"):
-    """y = [V_p, M_p, V_i, M_i, V_c] i [L, g, L, g, L] -- L/g skalning for numerisk
-    konditionering.  Floden i kroppen ar i mL/min resp mg/min = *1e-3 i L/g per min."""
+    """y = [V_p, M_p, V_i, M_i, V_c] in [L, g, L, g, L] -- L/g scaling for numerical
+    conditioning.  Flows in the body are in mL/min and mg/min, respectively = *1e-3 i L/g per min."""
     V_p, M_p, V_i, M_i, V_c = y
     V_p = max(V_p, 1e-6); V_i = max(V_i, 1e-6); V_c = max(V_c, 1e-6)
     c_p = M_p / V_p
@@ -222,34 +246,34 @@ def rhs(t, y, p, dPc=0.0, infuse=0.0, null="none"):
     J_p = (1.0 - ss) * c_p * J + Gd * (c_p - c_i)
     J_p = max(J_p, 0.0)
 
-    # 6) lymfa
+    # 6) lymph
     ly = lymph(p, Pi)
     Q_L = 0.0 if null == "N1" else ly["Q_L"]
     c_l = (1.0 - p["sigma_L"]) * c_i
     M_l_ret = p["f_p_lymph"] * c_l * Q_L         # mg/min
     J_clear = p["c_prop"] * M_i * 1e3 / p["tau_l"]   # mg/min
 
-    # 8) celler
+    # 8) cells
     P_c = p["P_cell"] + p["c_cell"] * (V_c - p["V_cell0"]) / p["V_cell0"]
     J_osm = p["K_cell"] * ((P_c - Pi) + (cap["pi_i"] - p["pi_cell"]))
     J_reg = (p["V_cell0"] - V_c) * 1e3 / p["tau_cell"]
     J_c = J_osm + J_reg
 
-    # 9) hepatostat (kallan som haller c_p)
-    S_hep = (p["c_plasma"] * V_p - M_p) / p["tau_hep"] * 1e3      # mg/min, PI pa c_p
+    # 9) hepatostat (the source that maintains c_p)
+    S_hep = (p["c_plasma"] * V_p - M_p) / p["tau_hep"] * 1e3      # mg/min, PI on c_p
 
-    if null == "N2":            # sigma_s = 0 : allt protein lacker
+    if null == "N2":            # sigma_s = 0 : all protein leaks
         J_p = max(Gd * (c_p - c_i), 0.0)
 
     dV_i = (J - Q_L - J_c) * 1e-3               # L/min
     dM_i = (J_p - M_l_ret - J_clear) * 1e-3     # g/min
-    dV_p = (-J + Q_L) * 1e-3 + infuse       # plasma <-> interstitium <-> celler
+    dV_p = (-J + Q_L) * 1e-3 + infuse       # plasma <-> interstitium <-> cells
     dM_p = (-J_p + M_l_ret + S_hep) * 1e-3
     dV_c = J_c * 1e-3
     return np.array([dV_p, dM_p, dV_i, dM_i, dV_c])
 
 # ----------------------------------------------------------------------------
-# KORRIGERINGAR AV HJALPFUNKTIONER (V_i-anropningen i cell_flux var overflodig)
+# CORRECTIONS TO HELPER FUNCTIONS (the V_i call in cell_flux was redundant)
 # ----------------------------------------------------------------------------
 def cell_flux(p, V_c, V_i, M_i):
     Pi = P_isc(V_i, p)
@@ -259,11 +283,11 @@ def cell_flux(p, V_c, V_i, M_i):
     return J_reg, J_osm, P_c, Pi
 
 # ----------------------------------------------------------------------------
-# SIMULERING
+# SIMULATION
 # ----------------------------------------------------------------------------
 def simulate(p, dPc=0.0, t_end=40 * 1440.0, t_eval_h=24.0, null="none",
              y0=None, dt=60.0):
-    """y i [L, g, L, g, L] (L/g). y0 = samma skalning."""
+    """y in [L, g, L, g, L] (L/g). y0 = same scaling."""
     if y0 is None:
         y0 = np.array([p["V_plasma0"], p["c_plasma"] * p["V_plasma0"],
                        p["V_isc0"], p["c_isc0"] * p["V_isc0"], p["V_cell0"]])
@@ -308,23 +332,25 @@ def steady(p, dPc=0.0, null="none", y0=None, **kw):
     return r, -1
 
 def equilibrate(p, t_end=25 * 1440.0, null="none", **kw):
-    "Base equilibrium at dP_c = 0; all scenarios start from there."
+    """Base equilibrium at dP_c = 0; all scenarios start from there."""
     r = simulate(p, dPc=0.0, null=null, t_end=t_end, **kw)
     return r["y0"]
 
 # ----------------------------------------------------------------------------
-# ENHETSKONTROLL
+# UNIT CHECK
 # ----------------------------------------------------------------------------
 UNIT_CHECKS = []
 def _reg(name, lhs, rhs): UNIT_CHECKS.append((name, lhs, rhs))
 
 def unit_check(p):
-    "Mechanical dimensional analysis of EVERY constitutive relation.\n    Each entry: (relation, unit on either side, value check on a dimensional\n    condition -> on plain numbers one can only test the dimension, not the number)."
+    """Mechanical dimensional analysis of EVERY constitutive relation.
+    Each entry: (relation, unit on either side, value check on a dimensional
+    condition -> on plain numbers one can only test the dimension, not the number)."""
     cap = capillary(p, p["Pc_cap"], 11000.0, 15.0)
     ly = lymph(p, 1.0)
     si = cap["sigma_s"]
     checks = [
-        # (relation, dim(vard), dim(hogerled), varde, boad villkor)
+        # (relation, dim(value), dim(right-hand side), value, both conditions)
         ("1  pi = f(c)                     [mmHg] = f[g/L]",
          MMHG, MMHG, pi_albumin(15.0, p), lambda v: v > 0 and np.isfinite(v)),
         ("2  J_net = K_f*dP_eff            [mL/min] = [mL/min/mmHg]*[mmHg]",
@@ -373,8 +399,8 @@ def unit_check(p):
     return out
 
 def convergence(r, p, dt_min=1440.0):
-    """|dX/dt| vid slutet, normaliserad mot X (konvergenskontroll)."""
-    V, M = r["V_i"], r["M_i"]          # V i mL, M i mg
+    """|dX/dt| at the end, normalized against X (convergence check)."""
+    V, M = r["V_i"], r["M_i"]          # V in mL, M in mg
     dV_L = abs(V[-1] - V[-2]) / dt_min / 1e3      # L/min
     dM_g = abs(M[-1] - M[-2]) / dt_min / 1e3      # g/min
     relV = dV_L * 1440.0 / (V[-1] / 1e3)
@@ -384,12 +410,12 @@ def convergence(r, p, dt_min=1440.0):
             "converged": bool(relV < 5e-3 and relM < 5e-3)}
 
 def mass_balance_residual(r):
-    "The total mass of the water must be conserved (closed model without infusion)."
+    """The total mass of the water must be conserved (closed model without infusion)."""
     tot = r["V_p"] + r["V_i"] + r["V_c"] + r["V_l"]
     return float(np.max(np.abs(tot - tot[0]))) / float(np.mean(tot))
 
 # ----------------------------------------------------------------------------
-# KANSLIGHET  (+/-50 %)
+# SENSITIVITY  (+/-50 %)
 # ----------------------------------------------------------------------------
 def sensitivity(p, dPc=5.0, keys=("K_f0", "beta", "a_stiff"), f=0.5):
     y0 = equilibrate(p)
@@ -420,7 +446,7 @@ def sensitivity(p, dPc=5.0, keys=("K_f0", "beta", "a_stiff"), f=0.5):
     return b, rows
 
 # ----------------------------------------------------------------------------
-# HUVUD
+# MAIN
 # ----------------------------------------------------------------------------
 def main():
     ap = argparse.ArgumentParser()
@@ -438,7 +464,7 @@ def main():
                               "f_A_eff": p["K_f0"] / (p["L_p"] * p["A_cap"] * 6e5)},
            "unit_check": units}
 
-    # --- P6: basfloden ---------------------------------------------------
+    # --- P6: baseline flows ---------------------------------------------------
     base, _ = steady(p, dPc=0.0, y0=equilibrate(p))
     res["baseline"] = {
         "V_isc_L": float(base["V_i"][-1] / 1e3),
@@ -453,7 +479,7 @@ def main():
         "E_glyc": float(base["E_glyc"][-1]),
         "mass_balance_rel_resid": mass_balance_residual(base)}
 
-    # --- P1/P2/P3: steg i Pc ---------------------------------------------
+    # --- P1/P2/P3: steps in Pc ---------------------------------------------
     scen = {}
     y0 = equilibrate(p)
     res["y0_equilibrated"] = [float(v) for v in y0]
@@ -484,17 +510,17 @@ def main():
             "M_l_ss_g": float(r["M_l"][-1] / 1e3)}
     res["scenarios"] = scen
 
-    # --- P4: mobilitetsknae ------------------------------------------------
+    # --- P4: mobility knee ------------------------------------------------
     Rl, Rh = R_mob(-1.0, p), R_mob(+1.0, p)
     res["P4_mobility_knee"] = {"R_mob_Pminus1": Rl, "R_mob_Pplus1": Rh,
                                "ratio": Rh / Rl, "threshold_P4": 100.0,
                                "ok": bool(Rh / Rl >= 100.0)}
 
-    # --- P5: kritisk last --------------------------------------------------
+    # --- P5: critical load --------------------------------------------------
     y0 = equilibrate(p)
     res["P5_threshold_scan"] = _threshold_scan(p, (y0,))
 
-    # --- nullmodeller ------------------------------------------------------
+    # --- null models ------------------------------------------------------
     res["null_models"] = _null_models(p)
 
     # --- sensitivity --------------------------------------------------------------------
@@ -503,7 +529,7 @@ def main():
                           "base_dM_alb_g": b["dM"] / 1e3,
                           "base_R_ret_mg_mL": b["R_ret"], "rows": rows}
 
-    # --- prereg-kriterier --------------------------------------------------
+    # --- prereg criteria --------------------------------------------------
     ks = [k for k in scen if scen[k].get("R_ret_mg_mL") is not None]
     Rr = [scen[k]["R_ret_mg_mL"] for k in ks]
     cs = [scen[k]["c_isc_ss_gL"] for k in ks]
@@ -549,7 +575,7 @@ def _dflt(o):
     return str(o)
 
 def _t90(V_i):
-    """tid [h] till 90 % av slutvardet (index -> t via t_eval-steget 6 h)"""
+    """time [h] to 90 % of the final value (index -> t via the t_eval step 6 h)"""
     d = np.asarray(V_i) - V_i[0]
     tgt = 0.9 * d[-1]
     if abs(tgt) < 1e-12: return 0.0
@@ -580,7 +606,7 @@ def _threshold_scan(p, EQ, t_end=25 * 1440.0):
                                       "ok": bool(thr is not None and 4.0 <= thr <= 20.0)}}
 
 def _safe(fn, *a, **kw):
-    "Runaway = no finite equilibrium; this is a result, not an error."
+    """Runaway = no finite equilibrium; this is a result, not an error."""
     try:
         return fn(*a, **kw), None
     except RuntimeError as e:
@@ -589,7 +615,7 @@ def _safe(fn, *a, **kw):
 def _null_models(p):
     y0 = equilibrate(p)
     out = {}
-    # N1 ingen lymfa
+    # N1 no lymph
     r, err = _safe(steady, p, dPc=5.0, null="N1", y0=y0, t_end=25 * 1440.0, t_eval_h=12.0)
     out["N1_no_lymph"] = ({"runaway_no_steady_state": True, "note": err} if r is None else
         {"dV_isc_L": float(r[0]["V_i"][-1] - r[0]["y0"][2] * 1e3) / 1e3,
@@ -601,7 +627,7 @@ def _null_models(p):
         {"dV_isc_L": float(r[0]["V_i"][-1] - r[0]["y0"][2] * 1e3) / 1e3,
          "dM_alb_g": float(r[0]["M_i"][-1] - r[0]["y0"][3] * 1e3) / 1e3,
          "R_ret_mg_mL": float(r[0]["M_i"][-1] - r[0]["y0"][3] * 1e3) / float(r[0]["V_i"][-1] - r[0]["y0"][2] * 1e3)})
-    # N3 full glykocalyx (E = 1) : satt n_glyc = 0 -> E = 1/(1+0) = 1
+    # N3 full glycocalyx (E = 1) : set n_glyc = 0 -> E = 1/(1+0) = 1
     p3 = build_params(**{"E_fixed": 1.0})
     out["N3_full_glycocalyx"] = {}
     for dp in (2.0, 5.0, 10.0):
@@ -614,8 +640,8 @@ def _null_models(p):
         vv = None
     out["N3_full_glycocalyx"]["dV_spread"] = ((max(vv) - min(vv)) / min(vv)
                                              if vv and min(vv) != 0 else None)
-    # N0 linjar P-V (ballong)
-    p0 = build_params(**{"pv_form": "linear"})   # N0: ingen riktning, samma lokala komplians
+    # N0 linear P-V (balloon)
+    p0 = build_params(**{"pv_form": "linear"})   # N0: no rectification, same local compliance
     out["N0_balloon"] = {}
     for dp in (2.0, 5.0, 10.0):
         r, err = _safe(steady, p0, dPc=dp, y0=equilibrate(p0), t_end=25 * 1440.0, t_eval_h=12.0)

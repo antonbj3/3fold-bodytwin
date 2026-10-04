@@ -1,6 +1,6 @@
 # LANE_NULLSPACE_NAMES_IT — turn 181 silent rank deficiencies into named observables
 
-Resultatmapp `results/LANE_NULLSPACE_NAMES_IT/`.
+Results directory `results/LANE_NULLSPACE_NAMES_IT/`.
 
 ## The finding the lane builds on, measured and not guessed
 Across **5 984** swarm reports, **794 (13,3 %)** make an explicit claim of structural
@@ -67,4 +67,4 @@ is worth connecting.**
 a unit, classification as liftable or structural, and for the liftable ones the smallest set of independent
 observables that suffices. Plus the calibration row: 3 of 3 against the self-named ones, or which ones failed.
 
-Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+No internal data. Everything PENDING_INDEPENDENT_REVIEW.

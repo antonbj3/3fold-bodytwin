@@ -22,4 +22,4 @@ Consumer: the Field lane (anton-12), U388. It computes contact force between the
 3. `SYNC.md` (≤ 30 lines): time base, the offset between fluoro/markers/GRF/eTibia (measured, e.g. cross-correlation of the load), known gaps (152 missing frame numbers between segments), units, and frames.
 4. `RESULTS.md` starting with `# CX-LUNGESYNC`: what was delivered, checks (fluoro vs marker angle), and N1/N1g error against eTibia **after** Field has frozen its PREREG. You may compute N1g's error against eTibia immediately, since it is our own null model; say so.
 
-Resources: local, nice, 2 threads, ≤ 60 s per step. lane runner has full permissions in the workspace; the zips are read-only. When done, send a short note to Field: write `results/CX-LUNGESYNC/READY_FOR_FIELD.md` with the paths.
+Resources: local, nice, 2 threads, ≤ 60 s per step. lane_runner has full permissions in the workspace; the zips are read-only. When done, send a short note to Field: write `results/CX-LUNGESYNC/READY_FOR_FIELD.md` with the paths.

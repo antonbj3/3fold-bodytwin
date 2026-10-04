@@ -1,6 +1,6 @@
-# CX-DSWAVE2 — 40 curated reserve_worker packets (C) aimed straight at the plan's priorities BT-1–BT-4 (highest value, no busywork)
+# CX-DSWAVE2 — 40 curated swarm_worker packets (C) aimed straight at the plan's priorities BT-1–BT-4 (highest value, no busywork)
 
-Anton: "Highest value, everything thought through, no busywork… maximum progress in 8 h." reserve_worker C has quota left and is underused. Mechanical packet sources (the factory, "next step" extraction) mostly produced non-actionable packets. You will write 40 thought-through packets instead.
+Anton: "Highest value, everything thought through, no busywork… maximum progress in 8 h." swarm_worker C has quota left and is underused. Mechanical packet sources (the factory, "next step" extraction) mostly produced non-actionable packets. You will write 40 thought-through packets instead.
 
 
 ## NEW LEADS since the previous wave (use them first)
@@ -15,7 +15,7 @@ Anton: "Highest value, everything thought through, no busywork… maximum progre
 - `notes/RESULTS_INDEX.md` A359–A369 and the rows they refer to.
 - `results/CX-D1PARITY` (running), `results/CX-WHATIF2`, `results/CX-SLACK`, `results/CX-PATHS`, `results/CX-JWGEOM`, `results/CX-GC-STRENGTH*`, `results/CX-STRENGTH-POP`, `results/CX-MUSCLE-CT2`, `results/CX-SPINEARM`, `results/CX-SURGERYFE`, `results/CX-IMUFORCE`, `results/CX-GEOMCERT`, `results/CX-FLUOROLINK`, `results/CX-POPBAND`.
 
-## Packets `results/BT-DS-041` … `BT-DS-080` (queue line `C reserve_worker BT-DS-0xx (041–080)`)
+## Packets `results/BT-DS-041` … `BT-DS-080` (queue line `C swarm_worker BT-DS-0xx (041–080)`)
 Distribution (about 10 each):
 - **BT-2, the knee chain:**
   - patella tracking along the femoral groove on the GC bone surfaces (the arm maximum should land around 45°; Krevolin 2004);
@@ -41,4 +41,4 @@ A packet that would only find out that data is missing must NOT be built. Instea
 
 Queue only passing packets (`>> tasks/lanes/bt_queue.txt`). `results/CX-DSWAVE2/RESULTS.md` starting with `# CX-DSWAVE2`: table id → priority → question → why it has high value.
 
-Rules: lane runner has full permissions in the workspace. `~/projects/bodytwin` is read-only. restricted model data/the collaborator data may go into local/OVH packets, never to the coordinator cloud or Modal. Dental is paused.
+Rules: lane_runner has full permissions in the workspace. `~/projects/bodytwin` is read-only. restricted model data/the collaborator data may go into local/OVH packets, never to the coordinator cloud or Modal. Dental is paused.

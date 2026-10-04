@@ -27,7 +27,7 @@ Values below were looked up in public primary literature before implementation. 
 | Full myofilament activation anchor | Same primary source, Fig. 10 discussion | pCa approximately 4.90 | pCa (dimensionless) | VERIFIED |
 | pCa 5.40 converted for the model | Derived from `10^-pCa` | 3.9810717e-6 | M | VERIFIED DERIVATION |
 | pCa 4.90 converted for the model | Derived from `10^-pCa` | 1.2589254e-5 | M | VERIFIED DERIVATION |
-| Perfusion-induced peak-force change | Schouten, V.J., Allaart, C.P., Westerhof, N. (1992), *J Physiol* 451:585–604, DOI `10.1113/jphysiol.1992.sp019180`, PubMed abstract Results paragraph 3 | 74 ± 20 (n=11) for 0 → 70 cmH2O | % peak force | OVERIFIERAD for figure/table; exact abstract result verified |
+| Perfusion-induced peak-force change | Schouten, V.J., Allaart, C.P., Westerhof, N. (1992), *J Physiol* 451:585–604, DOI `10.1113/jphysiol.1992.sp019180`, PubMed abstract Results paragraph 3 | 74 ± 20 (n=11) for 0 → 70 cmH2O | % peak force | UNVERIFIED for figure/table; exact abstract result verified |
 | Flow/contractility counterexample | Schulz, R., Guth, B.D., Heusch, G. (1991), *Circulation* 83:1390–1403, DOI `10.1161/01.cir.83.4.1390`, abstract Results | no significant change across 88–186 mmHg in the autoregulatory range; fall only at 57 ± 13 mmHg | mmHg, % wall thickening | VERIFIED abstract result |
 | Whole-heart corroboration | Goto, Y., Slinker, B.K., LeWinter, M.M. (1991), *Circ Res* 68:482–492, DOI `10.1161/01.res.68.2.482`, abstract Results | flow +99 ± 76%, Emax +18 ± 15% at 93 ± 11 mmHg | %, mmHg | VERIFIED abstract result |
 

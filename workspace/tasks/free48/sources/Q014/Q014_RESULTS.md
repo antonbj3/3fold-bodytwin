@@ -9,7 +9,7 @@ Run: `python3 model.py && python3 test_model.py` (numpy 1.26 / scipy 1.11,
 
 ---
 
-## 1. Svaret i en mening
+## 1. The answer in one sentence
 
 The order changes an observable outcome **if and only if four gates
 are simultaneously open**, and the product of them is Closed form:
@@ -40,7 +40,7 @@ on a 60×60 grid in `(tau, t_w)`, `≤1e-12`.)
 `e = e^{−t_p/tau}`. Then the bracket is `e(1−e) ≤ ¼`, so
 
 ```
-max_tau |lam_hat| = a_A/8  = 0.600 pt   vid   tau* = t_p / ln 2 = 129.84 d
+max_tau |lam_hat| = a_A/8  = 0.600 pt   at   tau* = t_p / ln 2 = 129.84 d
 ```
 
 Along the entire identification line (`a_A = 4.8/S`) the ceiling is `2.352 pt`.
@@ -92,11 +92,11 @@ identifiable** from R1 (see PREREG §6/Erratum 4). No measurement data is invent
 
 ---
 
-## 3. Frysta kriterier — alla uppfyllda
+## 3. Frozen criteria — all met
 
 `results.json:frozen_criteria` → `frozen_criteria_all_pass: true`
 
-| ID | Kriterium | Resultat |
+| ID | Criterion | Result |
 |---|---|---|
 | FC1 | calibration brand is **identified**, not assumed | 4.800000 vs 4.8 pt (exact; declared non-independent) |
 | **FC2** | **independent test:** model's `\|lam_hat\|` forecast ≤ published resolution 2.449 pt | **0.00011 pt** ✔ |
@@ -144,7 +144,7 @@ At `t_o = 0` (where the order effect is detectable, `lam_hat = 4.800 pt`):
 | `tau` = 9 d | 4.800 | 4.800 | 4.794 | 0.1 % | **17.53 → 35.05 → 51.76 d** |
 | `sigma_w` = 3.45 pt | 4.800 | 4.800 | 4.800 | 0 % | **∞ → 35.05 → 5.70 d** |
 | `t_p` = 90 d | 4.768 | 4.800 | 4.800 | 0.7 % | 32.43 → 35.05 → 35.07 d |
-| `a_A`, `G`, `t_o` | 4.800 | 4.800 | 4.800 | 0 % | 35.05 d (icke-identifierbara) |
+| `a_A`, `G`, `t_o` | 4.800 | 4.800 | 4.800 | 0 % | 35.05 d (non-identifiable) |
 
 **Reading:** the *magnitude* of the contrast is robust; the **critical washing time `t_w*`
 controlled by the noise floor and the memory constant, not by the intervention size**.

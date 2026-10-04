@@ -10,10 +10,9 @@ From molecular bonds to tissue fracture properties and damage zone, without free
 
 `~/projects/bodytwin/scripts/msk/{collagen_triple_helix_thermal_stability.py, tendon_collagen_hierarchical_mechanics.py, myofascial_transmission.py, skin_pulp_mechanics.py, bone_fracture_toughness_lefm.py}` and corresponding `data/msk_results/*.json`; `tasks/free48/sources/SURG_COLLAGEN/`, `SURG_INCISION/`; `results/BT-HX-Q049/` (thin layers), `results/BT-HX-Q036/` (ischaemic state vector). Graph nodes: MODEL-COLLAGEN-TRIPLE-HELIX-THERMAL-STABILITY, MODEL-TENDON-COLLAGEN-MECHANICS, SKIN-DERMAL-STIFFNESS-COLLAGEN-COMPOSITION, MSK-FASCIA-NETWORK. Graph target: `BT-CTX-SURG-COLLAGEN` (kind define/review).
 
-## Portar till INCISION-lanen
+## Ports to the INCISION lane
 
 Write `results/LANE_SURGICAL_BINDINGS/PORTS.json`: per layer G_c (J/m²), failure strain, anisotropy ratio, cell-damage threshold, denaturation kinetics (A, Ea), with uncertainty and source. Read `results/LANE_SURGICAL_INCISION/` for what it needs.
 
 ## References, data boundary, control
 
-Published measurements (brottseghet hud/dermis, kollagen-denaturering DSC/Arrhenius, cell survival vs elongation/temperature). Pre-register hit targets. No internal data (Nothing from `BT-DAT-Q034`, `BT-DAT-Q050`, the collaborator, Grand Challenge, restricted model data, external musculoskeletal solver). Strongest control: phenomenological tissue model calibrated separately per observable with the same data, full cost.

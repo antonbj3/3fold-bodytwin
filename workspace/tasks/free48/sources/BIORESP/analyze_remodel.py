@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"Contrasts (predictions) per scenario from pred_rows.json -> predictions.json.\nDefinitions (PREREG §Predictions). MBL in mm from insertion; '_fromload' = from loading (t_load 0,25 years)."
+"""Contrasts (predictions) per scenario from pred_rows.json -> predictions.json.
+Definitions (PREREG §Predictions). MBL in mm from insertion; '_fromload' = from loading (t_load 0,25 years)."""
 import json, os, math
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -49,7 +50,7 @@ for sc in sorted(set(r["scen"] for r in rows)):
         d["Cc_rough_minus_machined_%sy" % t] = mean(P0, k) - mean(mach, k) if mach else None
         f2 = sel(sc, "G0_matched", 2.0)
         d["Cd_load2x_minus_1x_%sy" % t] = mean(f2, k) - mean(P0, k) if f2 else None
-        d["Cd_bruxism_%sy" % t] = 0.0   # location-specific reference: leg is adapted to individual load
+        d["Cd_bruxism_%sy" % t] = 0.0   # site-specific reference: the bone is adapted to the individual's own load
         g4 = sel(sc, "G4_PS035_sub1")
         d["Ce_sub1_minus_equi_PS_%sy" % t] = mean(g4, k) - mean(g1, k) if g4 and g1 else None
     d["P0_increment_1to5"] = d["P0_MBL_5y"] - d["P0_MBL_1y"]

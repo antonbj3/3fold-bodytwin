@@ -284,7 +284,7 @@ The list is generated from the hashed INPUT_MANIFEST. Original paths show proven
 | 24 | [tasks/lanes/LANE_RUNNER_SEED_UNBLOCK_RESULT.md](tasks/lanes/LANE_RUNNER_SEED_UNBLOCK_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/023_LANE_RUNNER_SEED_UNBLOCK_RESULT.md](results/LANE_RUNNER_WEAVE_20260930/inputs/023_LANE_RUNNER_SEED_UNBLOCK_RESULT.md) |
 | 25 | [tasks/lanes/LANE_RUNNER_WEAVE.md](tasks/lanes/LANE_RUNNER_WEAVE.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/024_LANE_RUNNER_WEAVE.md](results/LANE_RUNNER_WEAVE_20260930/inputs/024_LANE_RUNNER_WEAVE.md) |
 | 26 | [tasks/lanes/LANE_RUNNER_DISEASE_B.md](tasks/lanes/LANE_RUNNER_DISEASE_B.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/025_LANE_RUNNER_DISEASE_B.md](results/LANE_RUNNER_WEAVE_20260930/inputs/025_LANE_RUNNER_DISEASE_B.md) |
-| 27 | [tasks/lanes/codex_DISEASE_B.log](tasks/lanes/codex_DISEASE_B.log) | [results/LANE_RUNNER_WEAVE_20260930/inputs/026_codex_DISEASE_B.log](results/LANE_RUNNER_WEAVE_20260930/inputs/026_codex_DISEASE_B.log) |
+| 27 | [tasks/lanes/lane_runner_DISEASE_B.log](tasks/lanes/lane_runner_DISEASE_B.log) | [results/LANE_RUNNER_WEAVE_20260930/inputs/026_lane_runner_DISEASE_B.log](results/LANE_RUNNER_WEAVE_20260930/inputs/026_lane_runner_DISEASE_B.log) |
 | 28 | [results/LANE_RUNNER_DISEASE_B/disease_specs.py](results/LANE_RUNNER_DISEASE_B/disease_specs.py) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/014_disease_specs.py](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/014_disease_specs.py) |
 | 29 | [tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json](tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/013_SEED_PROGRAM_500_IMPROVED_20260929.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/013_SEED_PROGRAM_500_IMPROVED_20260929.json) |
 | 30 | [results/LANE_RUNNER_ANALYSIS3_20260930/NEXT_WAVE.json](results/LANE_RUNNER_ANALYSIS3_20260930/NEXT_WAVE.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/029_NEXT_WAVE.json](results/LANE_RUNNER_WEAVE_20260930/inputs/029_NEXT_WAVE.json) |
@@ -299,7 +299,7 @@ The list is generated from the hashed INPUT_MANIFEST. Original paths show proven
 | 39 | [results/LANE_RUNNER_ANALYSIS2/DECOMPOSITION.json](results/LANE_RUNNER_ANALYSIS2/DECOMPOSITION.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/038_DECOMPOSITION.json](results/LANE_RUNNER_WEAVE_20260930/inputs/038_DECOMPOSITION.json) |
 | 40 | [notes/CONTEXT_COVERAGE_AUDIT_20260923.md](notes/CONTEXT_COVERAGE_AUDIT_20260923.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/039_CONTEXT_COVERAGE_AUDIT_20260923.md](results/LANE_RUNNER_WEAVE_20260930/inputs/039_CONTEXT_COVERAGE_AUDIT_20260923.md) |
 
-## Bilaga B — Analys 3:s 33 befintliga frysta filer
+## Appendix B — Analysis 3's 33 existing frozen files
 
 Root: `results/LANE_RUNNER_ANALYSIS3_20260930/handoff/`. All source paths and full hashes can be found in its unaltered HANDOFF_MANIFEST and weave manifests. These complement the 40 inputs; overlaps are not counted as independent substrates.
 

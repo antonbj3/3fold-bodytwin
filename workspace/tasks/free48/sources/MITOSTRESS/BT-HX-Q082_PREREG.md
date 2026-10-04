@@ -36,7 +36,7 @@ Primary source: Pérez-Mitta, G. & MacKinnon, R. (2023), “Freestanding lipid b
 
 `L`, `A_r`, `x_m(0)`, `x_m(T)`, `k_s`, `k_+`, `alpha`, `T`, `q_b`, binding rates, binding capacities, and initial concentrations are explicit model assumptions for a controlled mechanistic test run. They are not claimed metrics. `F=96485.33212 C/mol` and `R=8.314462618 J/(mol K)` are used as physical constants.
 
-## Builds on
+## Building on
 
 - `inputs/QUESTION.md`: Q082's functionality surface with balance residual, positivity, concentration, surface bound number, deformation, edge flux and capacitance.
 - `inputs/NIGHT_PREAMBLE.md`: requirements for pre-registration, unit control, conservative diagnoses and that sensitivity is reported.

@@ -73,7 +73,7 @@ tasks/lanes/seed_unblock_evidence/*.diff
 tasks/lanes/*.out
 tasks/lanes/bt_queue.max
 tasks/lanes/bt_queue_archive_*.txt
-tasks/lanes/cap_reserve_worker_local
+tasks/lanes/cap_swarm_worker_local
 tasks/free48/CATALOG.json
 tasks/free48/GRAPH_PACKET.json
 tasks/free48/proposal_reviews/
@@ -84,10 +84,9 @@ tasks/cloud/*.txt
 /current
 /*.json
 
-# ...men de handgjorda analysutdata under results/ASSEMBLY_* are deliveries, not in-law data.
-# The line above is results/* and not results/, for git cannot re-include a file whose
-# parent directory is excluded: with results/ did not apply to any of the negatations below, and 64
-# decision outputs that each quoted number in the network points to were off-repot without it being visible.
+# ...but the handmade analysis output under results/ASSEMBLY_* is deliverables, not swarm output.
+# The line above is results/* and not results/, because git cannot reinclude a file whose parent
+# directory is excluded, and the decision outputs that every cited number points to live under it.
 !results/ASSEMBLY_*/
 !results/ASSEMBLY_*/**
 
@@ -95,28 +94,40 @@ tasks/cloud/*.txt
 # (*.acquisition.json with requested url, final url, timestamp, byte count and sha256) and the
 # OpenAlex metadata are tracked, so the same file can be fetched from its source.
 *.pdf
-notes/COLLABORATOR_*
-notes/BACKUP_SENSITIVITY_CLASSIFICATION.md
-# Publishing material: hoarded articles, page images and rADATA responses remain local but may not
-# distribueras vidare. Proveniensposterna (*.acquisition.json med url, sha256 and time) and
-# OpenAlex-metadata ar sparade, sa en lasare kan hamta samma fil fran kallan sjalv.
 results/*/literature/**/*.txt
 results/*/literature/**/*.png
 results/*/literature/**/*.jpeg
 results/*/literature/**/*.html
 results/*/literature/**/*.response
 results/*/literature/**/*.failed_response
-# matplotlib-cache som rakade bli sparad
+# matplotlib cache that happened to be saved
 **/mplconfig/
 **/mpl_config/
 **/.mplconfig*/
 
-# harledda databaser far enligt 3.3 only be used internally. The coordinate tables remain local.
+# Licensed third-party model data and anything derived from it stays local, as its licence requires.
 results/D3/
 external_mount/
-notes/JOHN_*
+notes/private_*
+notes/[A-Z]*_REQUIREMENTS_AND_SOFTWARE.md
+notes/[A-Z]*_CHAIN_DECOMPOSITION.md
+notes/[A-Z]*_SENSITIVITY_CLASSIFICATION.md
 **/mpl_config/**
-# Maskingenererade index over alla jobb: 458 MB respektive 179 MB, over GitHub's fir tree and
-# regenererbara ur korningarna. Negationen for results/ASSEMBLY_* ovan drog in dem.
+# Machine-generated indexes over all jobs: hundreds of MB each and regenerable from the runs.
 results/ASSEMBLY_FRAME_SHIFT/HITS.json
 results/ASSEMBLY_QUANTITY_INDEX/QUANTITY_INDEX_V1.json
+
+# Admission tooling and its output are configuration, not source material.
+tasks/assembly/admission*.py
+tasks/build_night/*_FILTER.md
+**/*_VERDICTS.json
+
+# Local work that is not published.
+tasks/lanes/BRAINSTORM_FLEET.md
+tasks/lanes/fleet_lenses.tsv
+results/BT-FLEET-*
+notes/FLEET_*
+docs/FLEET_*
+
+# The coordinator's own work log: internal, not part of the published work.
+tasks/build_night/NIGHT_LOG.md

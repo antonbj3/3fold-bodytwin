@@ -4,5 +4,5 @@ p=argparse.ArgumentParser();p.add_argument('profile');p.add_argument('model');p.
 a=p.parse_args()
 assert a.model=='swarm'
 os.chdir(a.dir)
-sys.argv=['_run_bunny.py',a.profile,a.title,a.title]
-runpy.run_path('_run_bunny.py',run_name='__main__')
+sys.argv=['_run_swarm.py',a.profile,a.title,a.title]
+runpy.run_path('_run_swarm.py',run_name='__main__')

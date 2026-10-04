@@ -1,6 +1,6 @@
 # Ambitious goals as a search method
 
-Anton, 2026-09-27. Applies to proof_lane, Sol, The swarm and free_worker. Source: the original graph README, `projects/graph_workspace/pub/README.md`, initial public commit `0d836fa` (2026-09-13), especially The unlock graph, Densification and Big goals as coverage probes. This describes how to search; it does not certify the README's individual scientific claims.
+Anton, 2026-09-27. Applies to the proof lane, Sol, The swarm and swarm_worker. Source: the original graph README, `projects/graph_workspace/pub/README.md`, initial public commit `0d836fa` (2026-09-13), especially The unlock graph, Densification and Big goals as coverage probes. This describes how to search; it does not certify the README's individual scientific claims.
 
 **Aim at a consequential capability.** Use an extremely ambitious goal to expose missing knowledge and representations: what useful operation would become possible if the present restriction disappeared? Work backward from that capability. A major gain is a search aspiration, never an instruction to report a positive result. A small experiment should illuminate a large goal.
 
@@ -14,6 +14,6 @@ Anton, 2026-09-27. Applies to proof_lane, Sol, The swarm and free_worker. Source
 
 **Leave branches that another worker can use.** For each explored seed record its parent/source, actual result, binding requirement, next mechanism, decisive test and downstream goal. Emit a compact SEED_EXPANSIONS.json (or these fields in an existing structured output). Map it to follow-up proposal IDs, already completed work, or an explicit prerequisite/refutation/deferment. Proposals use the existing SWARM_QUEUE_ADD.json or FOLLOWUPS.json schema. Do not rerun an unchanged failed approach. A queue entry or graph edge is not scientific acceptance.
 
-**Use the available graph honestly.** BodyTwin and dental workers receive selected graph packets; dispatch and feedback are handled by their existing controller. Keep target/source IDs in results and report missing dependencies for review. Field/proof_lane use linked result packets and queues as well; do not claim that they are a complete shared knowledge graph. Do not edit canonical graphs or mark your own findings validated.
+**Use the available graph honestly.** BodyTwin and dental workers receive selected graph packets; dispatch and feedback are handled by their existing controller. Keep target/source IDs in results and report missing dependencies for review. Field/the proof lane use linked result packets and queues as well; do not claim that they are a complete shared knowledge graph. Do not edit canonical graphs or mark your own findings validated.
 
-For a bounded The swarm/free_worker job, implement one valuable step in this chain and leave explicit next branches. For a planner, expand and rank several distinct steps. For a Sol review, identify which evidence changes the next construction. Existing resource limits and task scope still apply; this message authorizes no extra paid agents.
+For a bounded The swarm/swarm_worker job, implement one valuable step in this chain and leave explicit next branches. For a planner, expand and rank several distinct steps. For a Sol review, identify which evidence changes the next construction. Existing resource limits and task scope still apply; this message authorizes no extra paid agents.

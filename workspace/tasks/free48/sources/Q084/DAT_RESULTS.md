@@ -2,7 +2,7 @@ BT-DAT-Q084
 
 # Results — public datasets that constrain the Q084 model
 
-## What it built on
+## What was built on
 
 `inputs/NIGHT_PREAMBLE.md`, `inputs/Q084_QUESTION.md` (the Q084 row) and `inputs/Q084_model.py`.
 The model was read but **not** rerun and no frozen parameter changed. The interrupted session
@@ -16,7 +16,7 @@ e2519599123 (2026), DOI `10.1073/pnas.2519599123`.
 `PREREG.md` was written and hashed (`c0f4fd75…f909f`, `PREREG.sha256`) before any download.
 The hash is verified unchanged in `results.json`.
 
-## Vad som hittades
+## What was found
 
 Six datasets are included, of which **four measured**, one simulated and one incompletely interpreted.
 All files ≤ 50 MB; the largest individual file is 8.73 MB, total 32.79 MB. Complete
@@ -25,16 +25,16 @@ URL/licence/size/format/subjects/parameter allocation is in `DATA_SOURCES.json`.
 | ID | Dataset | Licence | Measured | Size | Load |
 |---|---|---|---|---|---|
 | DS1 | FCS/RICS D and α for eGFP and NCp7-eGFP, PLOS Figshare 1320326, DOI `10.1371/journal.pone.0116921.t002` | CC BY 4.0 | yes | 5.6 kB | LOADED |
-| DS2 | Live-cell confocal, osmotisk stress, *D. discoideum* Ax2 GFP-Ran, Zenodo 14142946 | CC BY 4.0 | ja | 6.55 + 8.07 MB | LADDAD |
-| DS3 | cryo-ET-segmenteringar *Chlamydomonas*, EMPIAR-11830 via Zenodo 15875786 | CC BY 4.0 | ja | 3.08 MB | LADDAD |
-| DS4 | PolyD-NPC Brownian dynamics, Zenodo 14885286 | CC BY 4.0 | **nej (simulerad)** | 6.12 MB | LADDAD |
-| DS5 | PDB 1EMA, GFPstruktur 1.9 O | CC0 (wwPDB-policy) | ja | 244 kB | LADDAD |
-| DS6 | fluotracify FCS-TCSPC PEX5, Zenodo 8109282 | CC BY 4.0 | ja | 8.73 MB | DELVIS |
+| DS2 | Live-cell confocal, osmotic stress, *D. discoideum* Ax2 GFP-Ran, Zenodo 14142946 | CC BY 4.0 | yes | 6.55 + 8.07 MB | LOADED |
+| DS3 | cryo-ET segmentations *Chlamydomonas*, EMPIAR-11830 through Zenodo 15875786 | CC BY 4.0 | yes | 3.08 MB | LOADED |
+| DS4 | PolyD-NPC Brownian dynamics, Zenodo 14885286 | CC BY 4.0 | **no (simulated)** | 6.12 MB | LOADED |
+| DS5 | PDB 1EMA, GFP structure 1.9 O | CC0 (wwPDB policy) | yes | 244 kB | LOADED |
+| DS6 | fluotracify FCS-TCSPC PEX5, Zenodo 8109282 | CC BY 4.0 | yes | 8.73 MB | PARTIAL |
 
 13 model parameters and 4 model outputs are affected. All four frozen criteria are met
 (`results.json → acceptance.overall_passed = true`).
 
-## Nyckeltal med fil
+## Key numbers with file
 
 - **DS1** cytoplasmic eGFP `D = 34 ± 3 µm²/s` (FCS, `α = 0.92 ± 0.08`), nucleus `31 ± 1`
   (FCS) and `28 ± 3` (RICS). The binder construct NCp7-eGFP gives `4.5 ± 1` in cytoplasm against
@@ -48,22 +48,22 @@ URL/licence/size/format/subjects/parameter allocation is in `DATA_SOURCES.json`.
   `1041.20` (0.4 M sorbitol), ratio `1.0693`; time-variability CV `1.290 %` against `0.836 %`,
   ratio `0.6480`. Pixel size can **not** be recovered (ResolutionUnit = 1).
   → `samples_loaded.json` → `DS2b_hoffmann2024_osmotic_pair`.
-- **DS3** fyra medlemmar (`649_Membrane/npc/Nucleosome/Ribosome.tiff`), vardera
-  `shape_zyx = [511, 1024, 1024]` uint8 i en Deflate64-zip (`samples_loaded.json` →
+- **DS3** four members (`649_Membrane/npc/Nucleosome/Ribosome.tiff`), each
+  `shape_zyx = [511, 1024, 1024]` uint8 in a Deflate64 zip (`samples_loaded.json` →
   `DS3_empiar11830_chlamydomonas_cryoET_segmentation.members`). Voxel pitch 0.784 nm from
   the EMPIAR-11830 image set's metadata, thus field of view `802.8 × 802.8 × 400.6 nm`. The central plane
-  z = 255 har icke-noll-andel 1.21 % / 0.31 % / 0.97 % / 1.17 %. 16×16-blockkarta (64 px =
+  z = 255 has non-zero fraction 1.21 % / 0.31 % / 0.97 % / 1.17 %. A 16×16 block map (64 px =
   50.2 nm) gives spatial CV **1.93–4.93** with blocks from 0.0 to 66.9 % — the obstacle field is
   patchy, not sinusoidal.
 - **DS4** 20 062 files in 2 068 directories. The sweep covers pore diameters 36–80 nm, cargo radius
-  0.5–9.0 nm, `k_on` 1e-1/1e-2/1e-3 per ns, `k_of` 1e-2 per ns, attraktionsyta 0–4. Exempel:
-  `pore_d40/leng_209/kon_1e-1/kof_1e-2/cargo_r01_5` ger `flux = 1.30469e-05`, 128 seeds,
+  0.5–9.0 nm, `k_on` 1e-1/1e-2/1e-3 per ns, `k_of` 1e-2 per ns, attraction surface 0–4. Example:
+  `pore_d40/leng_209/kon_1e-1/kof_1e-2/cargo_r01_5` gives `flux = 1.30469e-05`, 128 seeds,
   167 molecules across the first interface, `rate_ave.txt` with 9 rows (0.016 at interface
   0 to 0.822 at interface 8). The MSD file has 24 rows but **no documented
   time unit**, so no diffusivity is derived.
-- **DS5** 1717 ATOM-siter, 149 HETATM (CRO/HOH/MSE), 236 aminosyror, cell 51.77 × 62.85 ×
-  70.67 Å. Gyration radius around the centre of gravity `Rg = 16.18 Å`, sphere equivalent
-  `R = Rg·√(5/3) = 2.09 nm` mot modellens frysta `tracer_radius_R = 2.3 nm`.
+- **DS5** 1717 ATOM sites, 149 HETATM (CRO/HOH/MSE), 236 amino acids, cell 51.77 × 62.85 ×
+  70.67 Å. Radius of gyration around the centre of mass `Rg = 16.18 Å`, sphere-equivalent
+  `R = Rg·√(5/3) = 2.09 nm` against the model's frozen `tracer_radius_R = 2.3 nm`.
 
 ## What failed
 
@@ -104,7 +104,7 @@ field distribution DS3 measures, where non-zero blocks vary from 0 to 67 % with 
 4.93 over a field of view of 0.8 µm. The model's geometric assumptions are thus not supplied by
 any public licensed measurement found.
 
-## Next step
+## Next steps
 
 1. EMPIAR-10988 through PDBj/EMDB API for the explicit cytosol label — the only candidate that
    can give `phi_m` and `phi_n` in absolute numbers.
@@ -117,11 +117,11 @@ any public licensed measurement found.
 5. The Destrian source: contact the authors about a licensed deposition. Without it,
    the only measurement the model is actually calibrated against is missing.
 
-## Reproduktion
+## Reproduction
 
 ```
 sha256sum -c PREREG.sha256
-python3 -W ignore scratch/inspect_samples.py     # skriver samples_loaded.json
+python3 -W ignore scratch/inspect_samples.py     # writes samples_loaded.json
 ```
 
 Requires `7z` on PATH: the cryo-ET zip uses Deflate64, which Python's `zipfile` cannot

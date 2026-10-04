@@ -1,4 +1,8 @@
-"BodyTwin Cloud Drive on Modal (replace OVH when it is not reachable). Usage:\n    modal run tasks/modal_run.py --job-id <ID> --src <local directory> --cmd \"<command>\" [--cpu 4|8|16] [--mem-gb 8|16|32]  (size s/m/l is selected; max 3 h)\nThe directory is uploaded, the command runs in it (bash -c), the whole directory is retrieved back to <src>/modal_out/<ID>/.\nImage: debian_slim + numpy 2.2.6, scipy, h5py. Receipt is placed in tasks/cloud_receipts.jsonl. Write results in the working directory.\n"
+"""BodyTwin cloud run on Modal (replaces OVH when it is unreachable). Usage:
+    modal run tasks/modal_run.py --job-id <ID> --src <local directory> --cmd "<command>" [--cpu 4|8|16] [--mem-gb 8|16|32]  (size s/m/l is selected; max 3 h)
+The directory is uploaded, the command runs in it (bash -c), the whole directory is retrieved back to <src>/modal_out/<ID>/.
+Image: debian_slim + numpy 2.2.6, scipy, h5py. Receipt is placed in tasks/cloud_receipts.jsonl. Write results in the working directory.
+"""
 import io, json, os, pathlib, tarfile, time
 import modal
 

@@ -1,4 +1,4 @@
-# LANE_RUNNER_ORG_AUDIT — resultat 2026-09-30
+# LANE_RUNNER_ORG_AUDIT — result 2026-09-30
 
 The assignment has been completed as disk/graph/worker verification. **PARTIAL COVERAGE:** all preserved material in the requested trees is readable via a new separate inputs manifest; old raw/intermediate results and omics working packets are still missing.
 

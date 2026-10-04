@@ -4,7 +4,7 @@
 Why this exists, and why now. Three decisions were built today and each one has an edge that quotes
 its numbers in prose: T-E26 quotes the incision dwell chain, T-E27 the shaft inversion, T-E28 the
 passage friction budget. Both sides were then edited several times -- the incision decision's refusal
-was narrowed after proof_lane falsified its falsifier, the needle edge was corrected three times, the
+was narrowed after the proof lane falsified its falsifier, the needle edge was corrected three times, the
 meniscus edge was dissolved and rebuilt. Each edit is a chance for an edge to keep quoting a number
 the code no longer produces, and a stale quoted number is worse than a missing one because it reads
 as evidence.
@@ -139,10 +139,11 @@ def main() -> int:
     (d / 'EDGE_VS_SCRIPT_V1.json').write_text(json.dumps(report, indent=1, ensure_ascii=False))
     for c in report['checked']:
         n = len(c['quoted_numbers_not_produced'])
-        print(f"  {c['edge'][:46]:46} {c['numbers_produced']:4} tal ur skriptet, {n} quoted numbers that the script does not give")
+        print(f"  {c['edge'][:46]:46} {c['numbers_produced']:4} numbers from the script, "
+              f"{n} quoted numbers that the script does not produce")
         for t in c['quoted_numbers_not_produced']:
-            print(f'      saknas: {t}')
-    print(f"  kanter med problem: {len(report['stale'])} av {len(OWNED)}")
+            print(f'      missing: {t}')
+    print(f"  edges with problems: {len(report['stale'])} of {len(OWNED)}")
     return 0
 
 

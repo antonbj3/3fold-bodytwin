@@ -46,7 +46,7 @@ criterion of the M495 test **on this constructed adverse-case distribution**.
   specification/ablation result, **not** an empirical measured gain.
 
 ## Missing inputs (UNKNOWN; do not invent)
-- L3 UNKNOWN: `sigma` (noise) for `korrekta reusebeslut andel`; observation vs latent state.
+- L3 UNKNOWN: `sigma` (noise) for `fraction of correct reuse decisions`; observation vs latent state.
 - L4 UNKNOWN: transfer/reduction error to the real recursive operator-/method-planner; consumer bound.
 - Real solver-precision ↔ runtime calibration on the frozen runtime replay (cold + N warm).
 - The two *named* unseen task families from the supplied protocol (here F1/F2 are declared synthetic).

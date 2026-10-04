@@ -13,7 +13,7 @@ within the literature intervals, or the model fails. No conclusion is chosen in 
 **Substrates that Q020 points to (K01, K04, K09) are NOT in the package**
 — see §6. Replacement reference: published literature (brief allows web).
 
-## 1. Hypotes (mekanistisk, falsifierbar)
+## 1. Hypothesis (mechanistic, falsifiable)
 
 H1. **Swelling and substance retention are two consequences of the same two closed flows.**
     Water: `J_filtration` into the interstitium, `Q_lymf` out. Volume congestion occurs when
@@ -80,13 +80,13 @@ compliance in SI units. The values ​​below are **assumptions**, not measured
 
 ## 4. Frozen parameters (the model must not change these after execution)
 
-Se `model.py` PARAM-tabell. Viktigaste frysta antaganden:
-`W=70 kg`, `M_n=69 300 g/mol`, `n_Hill=0.45`, `T=310 K`, `V_ISC,0=11.0 L`,
-`c_p,alb=40 g/L`, `L_p=1.5e-7 cm/s`, `A_cap=3000 m²`, `f_A=0.02`,
-`σ_s,0=0.90`, `D_ratio=0.02`, `σ_L=0.10`, `P_pump=0.5 mmHg`, `β=0.05 mmHg⁻¹`,
-`R_mob`-ratio 1e5 above the knee, `V_knee` and `a` enligt tabell.
+See `model.py` PARAM table. Key frozen assumptions: `W=70 kg` , `M_n=69 300 g/mol`
+, `n_Hill=0.45` , `T=310 K` , `V_ISC,0=11.0 L` , `c_p,alb=40 g/L` ,
+`L_p=1.5e-7 cm/s` , `A_cap=3000 m²` , `f_A=0.02` , `σ_s,0=0.90` , `D_ratio=0.02`
+, `σ_L=0.10` , `P_pump=0.5 mmHg` , `β=0.05 mmHg⁻¹` , `R_mob`
+ratio 1e5 over knee, `V_knee` and `a` according to table.
 
-## 5. Motprov (nollmodell / placebo)
+## 5. Counter test (null model / placebo)
 
 | Null model | What it should show | What counts H1 as false |
 |---|---|---|

@@ -1,4 +1,4 @@
-"Make Anton's X bookmarksseeds (BodyTwin-delen, external_research_path) to self-supporting swarming jobs.\n\nOne job per selected seed: results/BT-XSEED-<batch><B>/ with BRIEF.md, inputs/SEED.md (seed's section verbatim), JOB.json, ALLOW_WEB.\nThe runs are placed FIRST in tasks/lanes/bt_queue.txt (Anton's seeds before the backlog), under the queue lock. Idempotent."
+"Make Anton's X bookmark seeds (BodyTwin part, external_research_path) into self-sustaining swarm jobs.\n\nOne job per selected seed: results/BT-XSEED-<batch><B>/ with BRIEF.md, inputs/SEED.md (seed's section verbatim), JOB.json, ALLOW_WEB.\nThe runs are placed FIRST in tasks/lanes/bt_queue.txt (Anton's seeds before the backlog), under the queue lock. Idempotent."
 import fcntl, hashlib, json, re, time
 from pathlib import Path
 

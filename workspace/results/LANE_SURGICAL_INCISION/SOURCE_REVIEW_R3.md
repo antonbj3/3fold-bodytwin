@@ -2,7 +2,7 @@
 
 Everything is PENDING_INDEPENDENT_REVIEW. No academic admission. Retrieved PDFs, failed HTTP responses, text snippets, and image pages remain under `literature/r3/`; each fetch has a acquisition.json with URL, status and hash. Metadata from OpenAlex is used only to find originals.
 
-## Den nya hudserien
+## The new skin series
 
 [Sorrells & Berger, *Some Cutting Experiments on Human Skin and Synthetic Materials*, NBSIR 73-262, oktober 1973](https://www.govinfo.gov/content/pkg/GOVPUB-C13-7440d7745c063aa551900802884c8d51/pdf/GOVPUB-C13-7440d7745c063aa551900802884c8d51.pdf) is a published primary experimental report, expressly preliminary and incomplete. It is not a peer-reviewed scalpel study. The report provides the same specimen's nominal edge radii/angles, applied normal force and residual damage/cut depth. **It does not provide cutting work or tangential force.**
 
@@ -28,7 +28,7 @@ D* is the report's depth of damage, which may include crushing even when a cut i
 
 Pereira1997's full text from NUS and Doran2004's Wiley full text could not be retrieved (403). Smith2013's PDF is still missing after repaired redirect (404). Failed Citeseer/ASME/Scispace responses are also saved. Abstract or quoted secondary values do not replace measured original curves. Barnett2016 and Pissarenko2020 retain R2's scope; their data are not assembled with obduktionsprov18 into a common parameter posterior.
 
-## Porten som fortfarande saknas
+## The port that is still missing
 
 At stationary depth of cut, `P=Ft*vt+Fn*vn` and `vn=0`. The published Fn cannot thus be used as the conjugate force of the work along the tangential motion. `Fn/d` has energy units but is not measured fracture energy. At K-depth 0,48 mm the declared effective work candidates 150 and 2500 J/m² give outer terms of 0,072 and 1,2 N respectively in the tangent direction; both leave the published normal force 88,96 N undetermined by the energy accounting. These are accounting witnesses, **not two resolved mechanically admissible contact fields**. Rank zero refers to direct energy information from the normal force on the stationary path; a fully measured contact model could add other information.
 

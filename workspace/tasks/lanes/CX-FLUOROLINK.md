@@ -10,7 +10,8 @@ Builds on `results/CX-CT2MARKER` (A368: only two femur points, 12,8 mm best JW r
 ## PREREG and gate
 Transform: median held landmark/residual ≤10 mm and 95th percentile ≤20 mm; at least 3 independent anatomical correspondences per segment, full rank. Force gain: ≥10% lower person-median RMSE than both N1g and B24 on ≥2 people; otherwise negative/UNKNOWN. Countertest: time shift ≥0,2 s, person swap, permuted correspondences. Require all three to lose the registration gate.
 
-## Gemensamma regler
-- Skriv endast under `results/CX-FLUOROLINK/`, samt stora mellanresultat i `external_media`Read it. `tasks/NIGHT_PREAMBLE.md`, and relevant A-rows in `notes/RESULTS_INDEX.md`. `~/projects/bodytwin` and other sessions' workspaces are read-only.
+## Shared rules
+- Write only under `results/CX-FLUOROLINK/`, plus large intermediate results in `external_media`. Read `tasks/NIGHT_PREAMBLE.md`, and relevant A rows in `notes/RESULTS_INDEX.md`. `~/projects/bodytwin` and other sessions' workspaces are read-only.
 - Before the first computation: `PREREG.md` and `PREREG.sha256` with hypothesis, data/selection, numerical gate, strongest baseline, countertests and error definition. Document `Builds on` with graph node and source files plus `Not redone`. Preserve negative results and `UNKNOWN`.
+- Locally only reading/short probes with at most two threads. Numerics >60 s or >1 GB via `tasks/cloud_run.sh` on OVH, within the BodyTwin quota of 12 vCPU and complete before 22:45. Internal restricted model data/the collaborator/LHDL data must never go to Modal. No email, push or publication.
 - Deliver `results/CX-FLUOROLINK/RESULTS.md` with the first line `# CX-FLUOROLINK`, `results.json`, runnable code, provenance/hashes and meaningful checks. Report counts of both valid and excluded units.

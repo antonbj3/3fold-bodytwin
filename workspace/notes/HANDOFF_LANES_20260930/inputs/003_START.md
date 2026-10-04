@@ -2,9 +2,9 @@
 
 Arbetsmapp: ``.
 
-**Context check 2026-09-23:** Read [the check of existing work](notes/CONTEXT_COVERAGE_AUDIT_20260923.md) before new experiments. The working view's nine selected packets do not cover the private implementation. `MERGED_GRAPH.json` is an index; code references and previous corrections are in the detailed graph `GRAPH.json`. New coordinator lanes wait until the plan is ready according to Anton.
+**Context check 2026-09-23:** Read [the check of existing work](notes/CONTEXT_COVERAGE_AUDIT_20260923.md) before new experiments. Arbetsvyn's nine selected packages do not cover the private implementation. `MERGED_GRAPH.json` is an index; code references and previous corrections can be found in the detail graph `GRAPH.json`. New coordinator lanes wait until the plan is ready according to Anton.
 
-**Research work 2026-09-23:** use `./graph working rank` and [the graph workflow](notes/GRAPH_WORKFLOW.md) for separate the collaborator/BodyTwin targets, new results, selection of the next lane and feedback. The older `./graph rank` below concerns the imported source structure.
+**Research work 2026-09-23:** use `./graph working rank` and [graph workflow](notes/GRAPH_WORKFLOW.md) for separate the collaborator/BodyTwin targets, new results, next lane selection and feedback. The older `./graph rank` below applies to the imported source structure.
 
 The private BodyTwin graph, its source records and inherited measurement logs are loaded.
 
@@ -14,21 +14,21 @@ The private BodyTwin graph, its source records and inherited measurement logs ar
 ./graph unbound --limit 5
 ```
 
-Start with `MERGED_GRAPH.json` for the full structure and `VALIDATION.json` for separate layer counts. `./graph show --id <exakt-ID>` shows a record and its connections. [The shared README file](../README.md) describes all detail layers and [FORMAT.md](../FORMAT.md) defines the contract.
+Start with `MERGED_GRAPH.json` for the entire structure and `VALIDATION.json` for separate layer counts. `./graph show --id <exakt-ID>` shows a record and its connections. [The common README-file](../README.md) describes all detail layers and [FORMAT.md](../FORMAT.md) defines the contract.
 
-- `notes/`, `tasks/`, `results/`: the project's own continuing work.
+- `notes/`, `tasks/`, `results/`: projektets eget fortsatta work.
 - `references/current_bodytwin`: current published BodyTwin code and geometry implementation.
-- `references/field_engine`: the field engine's public code.
+- `references/field_engine`: field engine public code.
 
-The sources' own statuses are preserved. Statistical fusion of raw margins requires additional uncertainty, normalisation and provenance. Unbound records, conflicts and older evidence gaps remain explicit in the review view.
+The sources' own statuses are preserved. Statistical fusion of raw margins requires complementary uncertainty, normalization and provenance. Unbound records, conflicts and older evidence gaps remain explicitly in the review view.
 
-`references/collaborator_context.md` contains verified context about the external collaborator and his questions. It is a subtask within the general BodyTwin direction.
+`references/collaborator_context.md` contains verified context about the external collaborator and his questions. It is a partial task within the general BodyTwin orientation.
 
-For a new session: [complete startup message — BodyTwin and the collaborator, first 24 hours](STARTUP_MESSAGE.md).
+For a new session: [Complete start message — BodyTwin and the collaborator, first 24 hours](STARTUP_MESSAGE.md).
 
-The session has two parallel tracks: the collaborator's actual needs/software and a relevant geometry demonstration, and broad improvement and innovation hunting in BodyTwin. The first day must provide executable results where possible, tested hypotheses and a basis for further prioritisation. Materials, tissues, computational cells and geometric relationships are part of the broader direction.
+The session has two parallel tracks: the collaborator's actual behov/software and a relevant geometry demonstration, as well as broad improvement and innovation shunt in BodyTwin. The first day should provide executable results where possible, tested hypotheses and basis for continued prioritization. Materials, tissues, calculation cells and geometric relationships are part of the broader orientation.
 
-The broader direction also includes [researcher roles, multimodality and combined interventions](notes/RESEARCH_USERS_AND_MODALITIES.md), and [Mechanism, movement, video, splats and camera twin](notes/MECHANISM_MODALITY_SOURCES.md). Relevant public data and tools may be acquired according to the startup message. Trial registration and Wine experiments are postponed until the discussion with Anton tomorrow.
+The broader orientation also includes [researcher roles, multimodality and combined interventions](notes/RESEARCH_USERS_AND_MODALITIES.md), as well as [Mechanism, movement, video, space and camera twin](notes/MECHANISM_MODALITY_SOURCES.md). Relevant public data and tools may be downloaded according to the start notice. Trial registration and Wine trials are postponed until the discussion with Anton tomorrow.
 
 ## Added research clusters — 2026-09-26
 

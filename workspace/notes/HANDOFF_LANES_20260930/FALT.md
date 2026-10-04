@@ -29,6 +29,6 @@ The new track concerns heterogeneous/overlapping history, a compact physical dec
 
 Identify the next useful numerical or representational operation, with an actual downstream consumer, strong control, error budget and complete setup/update/fallback cost. Define the CPU/GPU task from the kernel and data movement before using acceleration as a target. Seek actual new capabilities across geometry, materials and physics.
 
-## Kodleverans
+## Code delivery
 
 The integration worktree and staging main have different HEADs. Research archives and product fixes have separate commits. Prepare a narrow tested patch in the right lane, bind producer/review and report exactly which function becomes possible. Coordinate interfaces with Graph, BodyTwin and Dental through dimensioned contracts and raw results.

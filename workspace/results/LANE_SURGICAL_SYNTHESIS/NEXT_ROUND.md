@@ -7,7 +7,7 @@ Conflict → the same mass reference, chemical stoichiometry and physically cali
 Obstacles → the mass reference is resolved in the scenario model, but the U/I/M:s two-stage clock does not render HP-inputproxy; fixedsite/yield-kemin reaches the highest HP/C=.01445 against the proxy reference.043. Native assay→maturity→connected traction missing.
 Changed operation → a common kemi-age-direction-generator/observationskontrakt, guided by measured newborn site inventory and matched connected traction; no rates are selected from late strength goals.
 
-## Start directly
+## Start right away
 
 1. Read CHECKPOINT_R3.json, PREREG_R3.json, DECOMPOSITION_R3.json, PORT_CONTRACT_R3.md, r3/ROUND_SUMMARY.json and r3/experiment_v2/EXPERIMENT.json. The new physical checkpoint is r3/experiment_v2/all_R3/checkpoint21.npz. It contains reference_version, full FVstate, Q_U/I/M, chemical_marks, initial/born/removed, grid, absolute clock and early state/hazard. Its JSON carries boundaries/config/rates. The prefix was rebuilt on day0 and charged; old R1 checkpoint is rejected by shared solver and remains untouched.
 2. Follow COMMON and new steer before new experiment. Create new PREREG: keep common B=kdep Fh(1-C), lambda=.008macrophage and partition's trace=C. Proportional removal/isotrop birth is synthetic. `birth_scale` and `turnover_U_I` are unused legacy ports. New state/lag requires explicit full rebuild or verified conversion with cost; never reinterpret the existing history for free.

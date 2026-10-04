@@ -16,4 +16,4 @@ Read:
    Frozen criterion: JW gait under lo ≤ 25 % with NO curve from another model (only JW's own geometry).
 3. If the archive lacks independent geometry: report exactly what is missing, and which measurement (a lateral X-ray, fluoro frame, CT) would close it.
 
-Deliver RESULTS.md starting with `# CX-JWPATGEOM`, results.json and pytest. Run under bigmem.lock with 2 threads. Internal data stays local; no jw_lungef1. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+Deliver RESULTS.md starting with `# CX-JWPATGEOM`, results.json and pytest. Run under bigmem.lock with 2 threads. Internal data stays local; no jw_lungef1. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

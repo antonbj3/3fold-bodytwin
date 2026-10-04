@@ -21,4 +21,4 @@ Read: `results/L1/code/n12_model.py` (the patella solver, rho, bounds 0.4–1.3)
    Also report the ε=10 % coverage, and lo+c/stress-2 against N1g.
 4. Deliver `knee_geometry(model='l1_patella_fixed')` + pytest.
 
-Deliver RESULTS.md starting with `# CX-PATELLAJW` and results.json. Run under bigmem.lock with 2 threads. Internal data stays local; no jw_lungef1. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Every outcome is a node that expands.
+Deliver RESULTS.md starting with `# CX-PATELLAJW` and results.json. Run under bigmem.lock with 2 threads. Internal data stays local; no jw_lungef1. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only. Every outcome is a node that expands.

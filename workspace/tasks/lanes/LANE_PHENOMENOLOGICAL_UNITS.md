@@ -1,6 +1,6 @@
 # LANE_PHENOMENOLOGICAL_UNITS — which cells CANNOT receive an external measurement?
 
-Resultatmapp `results/LANE_PHENOMENOLOGICAL_UNITS/`.
+Result directory `results/LANE_PHENOMENOLOGICAL_UNITS/`.
 
 ## The finding that makes the lane necessary
 The immune lane retrieved an external anchor — 33,18 million resident macrophages per mL from a published

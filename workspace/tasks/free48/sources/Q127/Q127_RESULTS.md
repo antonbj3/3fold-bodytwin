@@ -11,4 +11,4 @@ Deterministic prediction: `M1=2.9345089`, `M_D=3.0765813`, `M_C,D=2.3527240` nuc
 
 Next step: longitudinal fiber-identified PCM1/DAPI measurement with registered biopsy position and injury site; measure fusion/loss, satellite cells, fCSA and fiber type per fiber. Without this data, nuclear retention should not be interpreted as functioning memory.
 
-Alla tal: `results.json`.
+All numbers: `results.json`.

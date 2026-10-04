@@ -41,25 +41,125 @@ def _load_block_pattern(extra: str = '') -> 're.Pattern[str]':
 
 BLOCK = _load_block_pattern()
 
-ASK = "\n\nBefore you look for anything: write down **three different ways of looking at this**, with\nat least one that has nothing to do with tissue or the human body at all. Diverge first.\n\nThen choose what you think goes furthest and pursue it. What do you find?\n\nNo particular answer format. Give DOI or PMID for what you build on. If you conclude\nthat the material above points somewhere other than the question, say so.\n\nStatus PENDING_INDEPENDENT_REVIEW.\n\n\n## Diverge widely first\n\nThis is not a review job. I want ideas. Write three readings before searching, and let at least one\nlie entirely outside tissue, body and medicine. Diverge, choose the one that goes furthest and follow\nit all the way. What I want to see is something that is not in the material: a connection nobody has\nposed, a quantity that would settle the question if someone measured it, or a way to make the question\ndecidable with something already measured elsewhere. DOI or PMID for what you build on.\n\nIf you see along the way that two numbers do not agree dimensionally,\nsay so in one line and move on. A bonus, not the task.\n\n"
+ASK = """
+
+Before you look for anything: write down **three different ways of looking at this**, with
+at least one that has nothing to do with tissue or the human body at all. Diverge first.
+
+Then choose what you think goes furthest and pursue it. What do you find?
+
+No particular answer format. Give DOI or PMID for what you build on. If you conclude
+that the material above points somewhere other than the question, say so.
+
+Status PENDING_INDEPENDENT_REVIEW.
+
+
+## Diverge widely first
+
+This is not a review job. I want ideas. Write three readings before searching, and let at least one
+lie entirely outside tissue, body and medicine. Diverge, choose the one that goes furthest and follow
+it all the way. What I want to see is something that is not in the material: a connection nobody has
+posed, a quantity that would settle the question if someone measured it, or a way to make the question
+decidable with something already measured elsewhere. DOI or PMID for what you build on.
+
+If you see along the way that two numbers do not agree dimensionally,
+say so in one line and move on. A bonus, not the task.
+
+"""
 
 # Verified tonight, each number reproduced from the raw file by me.
 ANOMALIES = {
-    'CORNEA-MODEL-OVERSTATES': "We assemble the corneal astigmatism of a front and a back.\nAn apparatus measures the entire cornea in one step.\n\n| | |\n|---|---|\n| our composite | 2,029 D |\n| directly measured in one step | 1,831 D |\n| mean difference per eye | 0,292 D |\n| the error in the decision made from the model | 0,282 D |\n\nThe difference is greater than the error in the decision the model is used to. The decision still works.",
+    'CORNEA-MODEL-OVERSTATES': """We put together the corneal astigmatism of a front side and a back side.
+An apparatus measures the entire cornea in one step.
 
-    'ORTHOGONAL-AXES': "Two devices measured the back of the cornea on the same 69 eyes.\n\n| | |\n|---|---|\n| axis difference, median | 86° |\n| eyes within 15° | 0 of 69 |\n| eyes between 75° and 105° | 65 of 69 |\n\nOn the front of the cornea, the same eyes, the same devices: 3,55° i median, 67 av 69 inom 15°.",
+| | |
+|---|---|
+| our composite | 2,029 D |
+| directly measured in one step | 1,831 D |
+| mean difference per eye | 0,292 D |
+| the error in the decision made from the model | 0,282 D |
 
-    'DEVICE-CHANGES-THE-LENS': "Samma 83 eyes, same manufacturer's catalog, two devices as input data.\n\n| | |\n|---|---|\n| eyes where the cylinder label becomes another | 50 of 83 |\n| eyes where sphere+cylinder becomes another lens | 63 by 83 |\n| worst-case failure, selection by device A | 0,559 D |\n| worst-case-error, selection by device B | 0,544 D |\n| worst-case failure, lens that holds under both | 0,372 D |\n\nThe resistance to outcomes is almost equal for A and B: 0,282 mot 0,293 D.",
+The difference is greater than the error in the decision the model is used for. The decision still works.""",
 
-    'AXIAL-LENGTH-SINGLE-SOURCE': "The length of the eye is the largest single term in the refraction calculation.\nWe have it from a device. No other value exists for any of the 89 eyes.\n\nThe quantities in which two devices exist differ systematically, not randomly:\n\n| storhet | skillnad | spridning |\n|---|---|---|\n| hornhinnans tjocklek | 9,90 µm | 6,26 |\n| anterior chamber depth | −0,144 mm | 0,081 |\n| medelhornhinnestyrka | +0,851 D | 0,361 |",
+    'ORTHOGONAL-AXES': """Two devices measured the back of the cornea on the same 69 eyes.
 
-    'CONFIDENCE-CARRIES-NOTHING': "Two decisions scored as probabilities against the cohort's own quota\nas reference prognosis, 20 and 69 patients.\n\n| decision | Brier | reference | skill | resolution |\n|---|---|---|---|---|\n| linsstyrka | 0,2559 | 0,2659 | +0,038 | 0,0817 |\n| toriskt | 0,1384 | 0,1276 | −0,085 | 0,0034 |\n\nThe range of forecasts was 0,46 to 1,00. The decisions themselves beat the control clearly: 0,535 vs. 1,130 D\nand 0,282 mot 0,626 D.",
+| | |
+|---|---|
+| axis difference, median | 86° |
+| eyes within 15° | 0 of 69 |
+| eyes between 75° and 105° | 65 of 69 |
 
-    'ERROR-BELOW-ITS-OWN-SIGMA': "Three independent measured uncertainty terms in the input give per eye a\ncomposite standard deviation. The outcomes compared to it:\n\n| | |\n|---|---|\n| eyes with errors UNDER own composite sigma | 50 of 89 |\n| deras medelfel | 0,204 D |\n| deras sammansatta sigma | 0,451 D |\n| de 39 other, average error | 0,959 D |\n| sammansatt sigma i medel | 0,456 D |\n| faktiskt medelfel | 0,535 D |\n| correlation sigma to actual error, per eye | +0,127 |",
+On the front of the cornea, same eyes, same apparatus: 3,55° in median, 67 of 69 within 15°.""",
 
-    'PREDICTION-BEATS-MEASUREMENT': "The position of the lens after the operation determines the result: 1 mm blir 1,349 D.\n\n| | |\n|---|---|\n| decision with the MEASURED mode | 0,569 D|\n| decision with a PREDICTED position from preoperative measurements | 0,535 D|\n| own mean error of the prediction | 0,114 mm |\n| the quantity's dispersion | 0,284 mm |\n\nThe gesture made a better decision than the measurement of the same thing.",
+    'DEVICE-CHANGES-THE-LENS': """Same 83 eyes, same manufacturer catalog, two devices as input.
 
-    'LABEL-WIDER-THAN-THE-STEP': "Linser tillverkas i steg om 0,5 D and we choose one step.\n\n| power range | permissible deviation according to standard |\n|---|---|\n| 0–15,00 D | ±0,30 D |\n| 15,50–25,00 D | ±0,40 D |\n| 25,50–30,00 D | ±0,50 D |\n| over 30 D | ±1,00 D |\n\n68 of our 89 lenses are in the ±0,40 band. Measured deviations in the literature: 0,18 ± 0,12 D vs. exact\netikett, 0,24 ± 0,11 D vid 20 We've never measured a lens.",
+| | |
+|---|---|
+| eyes where the cylinder label becomes another | 50 of 83 |
+| eyes where sphere+cylinder becomes another lens | 63 by 83 |
+| worst-case failure, selection by device A | 0,559 D |
+| worst-case-error, selection by device B | 0,544 D |
+| worst-case failure, lens that holds under both | 0,372 D |
+
+The residual versus outcome is almost equal for A and B: 0,282 versus 0,293 D.""",
+
+    'AXIAL-LENGTH-SINGLE-SOURCE': """The length of the eye is the largest single term in the refraction calculation.
+We have it from a device. No other value exists for any of the 89 eyes.
+
+The quantities in which two devices exist differ systematically, not randomly:
+
+| quantity | difference | dispersion |
+|---|---|---|
+| hornhinnans tjocklek | 9,90 µm | 6,26 |
+| anterior chamber depth | −0,144 mm | 0,081 |
+| medelhornhinnestyrka | +0,851 D | 0,361 |""",
+
+    'CONFIDENCE-CARRIES-NOTHING': """Two decisions scored as probabilities against the cohort's own quota
+as reference prognosis, 20 and 69 patients.
+
+| decision | Brier | reference | skill | resolution |
+|---|---|---|---|---|
+| linsstyrka | 0,2559 | 0,2659 | +0,038 | 0,0817 |
+| toriskt | 0,1384 | 0,1276 | −0,085 | 0,0034 |
+
+The range of forecasts was 0,46 to 1,00. The decisions themselves beat the control clearly: 0,535 vs. 1,130 D
+and 0,282 against 0,626 D.""",
+
+    'ERROR-BELOW-ITS-OWN-SIGMA': """Three independent measured uncertainty terms in the input data give per eye one
+composite standard deviation. The outcomes compared to it:
+
+| | |
+|---|---|
+| eyes with errors UNDER own composite sigma | 50 of 89 |
+| deras medelfel | 0,204 D |
+| deras sammansatta sigma | 0,451 D |
+| de 39 other, average error | 0,959 D |
+| sammansatt sigma i medel | 0,456 D |
+| faktiskt medelfel | 0,535 D |
+| correlation sigma versus actual error, per eye | +0,127 |""",
+
+    'PREDICTION-BEATS-MEASUREMENT': """The position of the lens after the operation determines the result: 1 mm becomes 1,349 D.
+
+| | |
+|---|---|
+| decision with the MEASURED mode | 0,569 D|
+| decision with a PREDICTED position from preoperative measurements | 0,535 D|
+| own mean error of the prediction | 0,114 mm |
+| the quantity's dispersion | 0,284 mm |
+
+Guessing gave a better decision than measuring the same thing.""",
+
+    'LABEL-WIDER-THAN-THE-STEP': """Lenses are manufactured in steps of 0,5 D and we choose a step.
+
+| power range | permissible deviation according to standard |
+|---|---|
+| 0–15,00 D | ±0,30 D |
+| 15,50–25,00 D | ±0,40 D |
+| 25,50–30,00 D | ±0,50 D |
+| over 30 D | ±1,00 D |
+
+68 of our 89 lenses are in the ±0,40 band. Measured deviations in the literature: 0,18 ± 0,12 D vs. exact
+label, 0,24 ± 0,11 D at 20 D and above. We have never measured a lens.""",
 }
 
 
@@ -109,7 +209,13 @@ def main() -> int:
             continue
         d.mkdir(parents=True, exist_ok=True)
         (d / 'BRIEF.md').write_text(
-            f"# {re.sub('^LANE_', '', lane).replace('_', ' ').lower()}\n\nOne of our own runs stopped and wrote down what it couldn't find.\n\n> {obstacle}\n\nWhat it was trying to do, also literally:\n\n> {str(dd.get('operation') or '-')[:400]}\n\nWhat it compared to:\n\n> {str(dd.get('control') or '-')[:300]}\n"
+            f"# {re.sub(r'^LANE_', '', lane).replace('_', ' ').lower()}\n\n"
+            f"One of our own runs stopped and wrote down what it couldn't get. Literally: \n\n"
+            f"> {obstacle}\n\n"
+            f"What it tried to do, also verbatim:\n\n"
+            f"> {str(dd.get('operation') or '-')[:400]}\n\n"
+            f"What it compared against:\n\n"
+            f"> {str(dd.get('control') or '-')[:300]}\n"
             + ASK)
         (d / 'ALLOW_WEB').write_text('1\n')
         json.dump({'id': jid, 'kind': 'creative_from_lane_obstacle', 'lane': lane, 'round': rnd,

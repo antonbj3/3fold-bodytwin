@@ -11,4 +11,4 @@ Read: `results/L1/code/n12_io.py` and `n12_model.py` (per-person geometry, stati
    Frozen criterion: |k_formula − k_meas| ≤ 10 % for ≥ 4/6 sessions AND RMSE within 5 % of LOPO-N1g for ≥ 3/4 persons.
 3. With 4–6 points this is thin: report it honestly as a pilot, with a leave-one-out on the formula choice.
 
-Deliver RESULTS.md starting with `# CX-KANAT`, results.json, the script, and pytest. Light computation: run locally with 2 threads. Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+Deliver RESULTS.md starting with `# CX-KANAT`, results.json, the script, and pytest. Light computation: run locally with 2 threads. Internal data stays local. lane_runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

@@ -13,7 +13,7 @@ Feedback: HP production depends on the strength/load proxy; unloading21 changes 
 
 Selective turnover: if HP moles H are not created/imported, H42≤H10 is possible. Then h42/h10≤C10/C42. The previous main test of HP concentration was insufficient for this mechanism.
 
-## Inventarieoperator
+## Inventory operator
 
 `h = H / Cmol`, `H = h*Cmass/Mcollagen`. The same Mcollagen cancels in H42/H10. The frozen whole-wound reading gives H42/H10=2,2203; lowest box ratio1,7472. No new HP + reduced immature mass requires C42/C10≤h10/h42≈.4186. Observed mass ratio.9294 with box.8523–1.0122 is disjoint from required.3556–.4878. This rejects **the specified denominator-only mechanism** under constant sample/assay reference. It does not reject turnover in combination with maturation, import or other sampling. The box result is no biological significance test.
 

@@ -1,6 +1,6 @@
 BT-HX-Q154
 
-# Resultat
+# Results
 
 ## Primary outcome
 
@@ -10,7 +10,7 @@ The prediction `J_u` is the mean of the total luminal flux to the endothelium du
 
 This is a numerical order-of-magnitude result, not an independent validation of parameter values. The passive null model gives **0,0020030086 µmol g⁻¹ min⁻¹** and does not meet the criterion; it thus cannot alone reproduce the reference's order of magnitude under the assumed geometry and permeability values.
 
-## Modellens utdata
+## Model outputs
 
 | Quantity | Value | Unit |
 |---|---:|---|

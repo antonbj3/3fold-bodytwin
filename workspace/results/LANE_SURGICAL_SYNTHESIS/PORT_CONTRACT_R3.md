@@ -1,4 +1,4 @@
-# Gemensamt kollagenreferenskontrakt R3
+# Shared collagen reference contract R3
 
 PENDING_INDEPENDENT_REVIEW. `shared_reference_r3` is a synthetic forward model.
 

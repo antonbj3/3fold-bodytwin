@@ -178,22 +178,23 @@ def main() -> None:
          'null_expectation_per_factor': {str(k): v for k, v in null.items()},
          'rel_tol': REL_TOL, 'review_state': 'PENDING_INDEPENDENT_REVIEW'}, indent=1,
         ensure_ascii=False))
-    print(f'speech in the net with known dimension: {len(pool)}   couples tried: {len(pool) * (len(pool) - 1) // 2}   hits: {len(hits)}')
-    print("\nhits against chance expectation (40 shuffles, dimensions preserved):")
-    print(f"  {'faktor':>12} {'obs':>5} {'slump':>7} {'kvot':>6}  Declaration")
+    print(f'numbers in the net with known dimension: {len(pool)}   pairs tested: '
+          f'{len(pool)*(len(pool)-1)//2}   hits: {len(hits)}')
+    print('\nhits against chance expectation (40 shuffles, dimensions preserved):')
+    print(f'  {"factor":>12} {"obs":>5} {"chance":>7} {"ratio":>6}  explanation')
     rows = []
     for f, n in sorted(per_factor.items(), key=lambda kv: -kv[1]):
         exp = null.get(f, 0.0)
         lift = n / exp if exp > 0 else float('inf')
         rows.append((lift, f, n, exp))
     for lift, f, n, exp in sorted(rows, reverse=True):
-        mark = "  <-- above chanceen" if lift > 2.0 and n >= 4 else ''
+        mark = '  <-- above chanceen' if lift > 2.0 and n >= 4 else ''
         print(f'  {f:>12} {n:>5} {exp:>7.1f} {lift:>6.2f}  {FRAMES[f][:52]}{mark}')
-    print("\nthe ten most specific hitsna:")
+    print('\nthe ten most specific hitsna:')
     rare = sorted(hits, key=lambda h: per_factor[h['factor']])
     for h in rare[:10]:
-        print(f"  {h['a']:>12} ({h['a_edge'][:18]:<18}) mot {h['b']:>12} "
-              f"({h['b_edge'][:18]:<18}) kvot {h['ratio']:.4g} -> {h['frame'][:46]}")
+        print(f"  {h['a']:>12} ({h['a_edge'][:18]:<18}) versus {h['b']:>12} "
+              f"({h['b_edge'][:18]:<18}) ratio {h['ratio']:.4g} -> {h['frame'][:46]}")
     print('wrote', out / 'HITS.json')
 
 

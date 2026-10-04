@@ -86,8 +86,8 @@ def main() -> None:
     (out / 'AUDIT.json').write_text(json.dumps(
         {'found_by': 'swarm job on edge H-E29, verified here', 'n': len(rows), 'rows': rows,
          'review_state': 'PENDING_INDEPENDENT_REVIEW'}, indent=1, ensure_ascii=False))
-    print(f'numbers with more printed numbers than they bear: {len(rows)}')
-    print(f"{'source':<30} {'siffror':>8} {'utskrivna':>10}  exakt kvot")
+    print(f'numbers with more printed digits than they carry: {len(rows)}')
+    print(f'{"source":<30} {"digits":>8} {"printed":>10}  exact ratio')
     for r in rows[:14]:
         print(f'  {r["source"][:28]:<30} {r["significant_figures"]:>6} {r["printed_digits"]:>10}  '
               f'{r["exact_rational"][:24]:<26} {r["field"][-34:]}')

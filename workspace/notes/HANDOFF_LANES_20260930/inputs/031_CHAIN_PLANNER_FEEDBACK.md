@@ -1,7 +1,7 @@
 # CHAIN_PLANNER_FEEDBACK — standing brief for every future dental planner
 
 Written by **DENTAL-CHAIN-PLANNER-20260928** (2026-09-28). Copied automatically into
-`inputs/chain_map/` of every `BT-DW48-PLAN-*` job by `tasks/bunny48/controller.py`.
+`inputs/chain_map/` of every `BT-DW48-PLAN-*` job by `tasks/swarm48/controller.py`.
 Full detail: `notes/DENTAL_CHAIN_COVERAGE_20260928.json` and
 `notes/DENTAL_CHAIN_GAPS_RANKED_20260928.md`.
 
@@ -34,7 +34,7 @@ Two consequences you must respect:
 
 ## 3. Six source families that now exist, all OUTSIDE the original eight
 
-Registered in `CATALOG.json` with real source files under `tasks/bunny48/sources/`.
+Registered in `CATALOG.json` with real source files under `tasks/swarm48/sources/`.
 **All six carry `numerical_dispatch_allowed: false`** — jobs against them are routed
 to `define`/`review` and are never marked experiment-ready. That is correct, not a defect.
 

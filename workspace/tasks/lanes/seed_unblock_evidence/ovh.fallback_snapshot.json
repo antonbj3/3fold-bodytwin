@@ -12,7 +12,7 @@
     {
       "pid": 1207923,
       "account": "D",
-      "selected": "reserve_worker",
+      "selected": "swarm_worker",
       "job": "BT-DW48-PLAN-1790756902472711392",
       "started": 1790758845.8424065,
       "start_ticks": 42189594,
@@ -22,7 +22,7 @@
     {
       "pid": 1208065,
       "account": "D",
-      "selected": "reserve_worker",
+      "selected": "swarm_worker",
       "job": "BT-DW48-AUTO-657e5f8bdd1e34",
       "started": 1790758852.708069,
       "start_ticks": 42190281,
@@ -73,7 +73,7 @@
     {
       "pid": 1208201,
       "account": "D",
-      "selected": "reserve_worker",
+      "selected": "swarm_worker",
       "job": "BT-DW48-AUTO-a44cd023397eb8",
       "started": 1790758858.574337,
       "start_ticks": 42190868,
@@ -102,13 +102,13 @@
       "started": 1790757731.1186936
     }
   ],
-  "reserve_worker_runs": [
+  "swarm_worker_runs": [
     {
       "route": {
         "account": "D",
         "requested": "swarm",
-        "selected": "reserve_worker",
-        "model": "opencode-go/reserve_worker-v4.1-flash",
+        "selected": "swarm_worker",
+        "model": "opencode-go/swarm_worker-v4.1-flash",
         "started": 1790758845.8425813
       },
       "job": "BT-DW48-PLAN-1790756902472711392",
@@ -118,19 +118,19 @@
       "route": {
         "account": "D",
         "requested": "swarm",
-        "selected": "reserve_worker",
-        "model": "opencode-go/reserve_worker-v4.1-flash",
+        "selected": "swarm_worker",
+        "model": "opencode-go/swarm_worker-v4.1-flash",
         "started": 1790758852.7082407
       },
       "job": "BT-DW48-AUTO-657e5f8bdd1e34",
-      "agent_tail": ",\\\"state\\\":{\\\"status\\\":\\\"completed\\\",\\\"input\\\":{\\\"command\\\":\\\"ls -la\\\"},\\\"output\\\":\\\"total 84\\\\ndrwxrwxr-x   3 ubuntu ubuntu  4096 Sep 30 09:00 .\\\\ndrwxr-xr-x 166 ubuntu ubuntu 12288 Sep 30 09:00 ..\\\\n-rw-rw-r--   1 ubuntu ubuntu     0 Sep 30 07:16 ALLOW_WEB\\\\n-rw-rw-r--   1 ubuntu ubuntu 30419 Sep 30 07:16 BRIEF.md\\\\n-rw-rw-r--   1 ubuntu ubuntu   331 Sep 30 07:16 DISPATCH_RECEIPT.txt\\\\n-rw-rw-r--   1 ubuntu ubuntu   306 Sep 30 07:16 GRAPH_RESEARCH_RECEIPT.json\\\\n-rw-rw-r--   1 ubuntu ubuntu  4344 Sep 30 07:16 JOB.json\\\\n-rw-r--r--   1 ubuntu ubuntu   137 Sep 30 09:00 MODEL_ROUTE.json\\\\n-rw-rw-r--   1 ubuntu ubuntu  2434 Sep 27 10:36 _run_bunny.py\\\\n-rw-rw-r--   1 ubuntu ubuntu   453 Sep 26 14:19 _run_dental.py\\\\n-rw-r--r--   1 ubuntu ubuntu   250 Sep 30 09:00 agent.log\\\\ndrwxrwxr-x   5 ubuntu ubuntu  4096 Sep 30 07:16 inputs\\\\n\\\",\\\"metadata\\\":{\\\"output\\\":\\\"total 84\\\\ndrwxrwxr-x   3 ubuntu ubuntu  4096 Sep 30 09:00 .\\\\ndrwxr-xr-x 166 ubuntu ubuntu 12288 Sep 30 09:00 ..\\\\n-rw-rw-r--   1 ubuntu ubuntu     0 Sep 30 07:16 ALLOW_WEB\\\\n-rw-rw-r--   1 ubuntu ubuntu 30419 Sep 30 07:16 BRIEF.md\\\\n-rw-rw-r--   1 ubuntu ubuntu   331 Sep 30 07:16 DISPATCH_RECEIPT.txt\\\\n-rw-rw-r--   1 ubuntu ubuntu   306 Sep 30 07:16 GRAPH_RESEARCH_RECEIPT.json\\\\n-rw-rw-r--   1 ubuntu ubuntu  4344 Sep 30 07:16 JOB.json\\\\n-rw-r--r--   1 ubuntu ubuntu   137 Sep 30 09:00 MODEL_ROUTE.json\\\\n-rw-rw-r--   1 ubuntu ubuntu  2434 Sep 27 10:36 _run_bunny.py\\\\n-rw-rw-r--   1 ubuntu ubuntu   453 Sep 26 14:19 _run_dental.py\\\\n-rw-r--r--   1 ubuntu ubuntu   250 Sep 30 09:00 agent.log\\\\ndrwxrwxr-x   5 ubuntu ubuntu  4096 Sep 30 07:16 inputs\\\\n\\\",\\\"exit\\\":0,\\\"truncated\\\":false},\\\"title\\\":\\\"ls -la\\\",\\\"time\\\":{\\\"start\\\":1790758858500,\\\"end\\\":1790758858741}},\\\"id\\\":\\\"prt_0f18baee8001dQ1QV0sY7SxtIX\\\",\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"messageID\\\":\\\"msg_0f18ba55a001edO2nxoHyIfbdB\\\"}}\\n{\\\"type\\\":\\\"step_finish\\\",\\\"timestamp\\\":1790758858761,\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"part\\\":{\\\"id\\\":\\\"prt_0f18baffa001AYPvMJ6mxEMkei\\\",\\\"reason\\\":\\\"tool-calls\\\",\\\"messageID\\\":\\\"msg_0f18ba55a001edO2nxoHyIfbdB\\\",\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"type\\\":\\\"step-finish\\\",\\\"tokens\\\":{\\\"total\\\":7174,\\\"input\\\":5274,\\\"output\\\":94,\\\"reasoning\\\":14,\\\"cache\\\":{\\\"write\\\":0,\\\"read\\\":1792}},\\\"cost\\\":0.000861276}}\\n{\\\"type\\\":\\\"step_start\\\",\\\"timestamp\\\":1790758861026,\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"part\\\":{\\\"id\\\":\\\"prt_0f18bb8dc001VVDPwsfnqMhsH4\\\",\\\"messageID\\\":\\\"msg_0f18bb004001LVmKKOD2jzVkuF\\\",\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"type\\\":\\\"step-start\\\"}}\\n\",\"exit\":0,\"truncated\":true,\"outputPath\":\"/opt/agents/runtime/844d01f5ff80d4c86641e820/data/opencode/tool-output/tool_0f18bbe5e001Re3IVyxtaVhoMD\"},\"title\":\"find inputs -maxdepth 3 -type f | head -100; echo ---; cat JOB.json; echo ---; cat GRAPH_RESEARCH_RECEIPT.json; echo ---; cat MODEL_ROUTE.json; echo ---; cat agent.log\",\"time\":{\"start\":1790758862406,\"end\":1790758862438}},\"id\":\"prt_0f18bbe08001uEWtni0Rs9epSv\",\"sessionID\":\"ses_f0e745f1affePoXbhfePDlYNPQ\",\"messageID\":\"msg_0f18bb004001LVmKKOD2jzVkuF\"}}\n{\"type\":\"step_finish\",\"timestamp\":1790758862491,\"sessionID\":\"ses_f0e745f1affePoXbhfePDlYNPQ\",\"part\":{\"id\":\"prt_0f18bbe69001BluMIRfxwGWypk\",\"reason\":\"tool-calls\",\"messageID\":\"msg_0f18bb004001LVmKKOD2jzVkuF\",\"sessionID\":\"ses_f0e745f1affePoXbhfePDlYNPQ\",\"type\":\"step-finish\",\"tokens\":{\"total\":13981,\"input\":6673,\"output\":88,\"reasoning\":180,\"cache\":{\"write\":0,\"read\":7040}},\"cost\":0.00118287}}\n"
+      "agent_tail": ",\\\"state\\\":{\\\"status\\\":\\\"completed\\\",\\\"input\\\":{\\\"command\\\":\\\"ls -la\\\"},\\\"output\\\":\\\"total 84\\\\ndrwxrwxr-x   3 ubuntu ubuntu  4096 Sep 30 09:00 .\\\\ndrwxr-xr-x 166 ubuntu ubuntu 12288 Sep 30 09:00 ..\\\\n-rw-rw-r--   1 ubuntu ubuntu     0 Sep 30 07:16 ALLOW_WEB\\\\n-rw-rw-r--   1 ubuntu ubuntu 30419 Sep 30 07:16 BRIEF.md\\\\n-rw-rw-r--   1 ubuntu ubuntu   331 Sep 30 07:16 DISPATCH_RECEIPT.txt\\\\n-rw-rw-r--   1 ubuntu ubuntu   306 Sep 30 07:16 GRAPH_RESEARCH_RECEIPT.json\\\\n-rw-rw-r--   1 ubuntu ubuntu  4344 Sep 30 07:16 JOB.json\\\\n-rw-r--r--   1 ubuntu ubuntu   137 Sep 30 09:00 MODEL_ROUTE.json\\\\n-rw-rw-r--   1 ubuntu ubuntu  2434 Sep 27 10:36 _run_swarm.py\\\\n-rw-rw-r--   1 ubuntu ubuntu   453 Sep 26 14:19 _run_dental.py\\\\n-rw-r--r--   1 ubuntu ubuntu   250 Sep 30 09:00 agent.log\\\\ndrwxrwxr-x   5 ubuntu ubuntu  4096 Sep 30 07:16 inputs\\\\n\\\",\\\"metadata\\\":{\\\"output\\\":\\\"total 84\\\\ndrwxrwxr-x   3 ubuntu ubuntu  4096 Sep 30 09:00 .\\\\ndrwxr-xr-x 166 ubuntu ubuntu 12288 Sep 30 09:00 ..\\\\n-rw-rw-r--   1 ubuntu ubuntu     0 Sep 30 07:16 ALLOW_WEB\\\\n-rw-rw-r--   1 ubuntu ubuntu 30419 Sep 30 07:16 BRIEF.md\\\\n-rw-rw-r--   1 ubuntu ubuntu   331 Sep 30 07:16 DISPATCH_RECEIPT.txt\\\\n-rw-rw-r--   1 ubuntu ubuntu   306 Sep 30 07:16 GRAPH_RESEARCH_RECEIPT.json\\\\n-rw-rw-r--   1 ubuntu ubuntu  4344 Sep 30 07:16 JOB.json\\\\n-rw-r--r--   1 ubuntu ubuntu   137 Sep 30 09:00 MODEL_ROUTE.json\\\\n-rw-rw-r--   1 ubuntu ubuntu  2434 Sep 27 10:36 _run_swarm.py\\\\n-rw-rw-r--   1 ubuntu ubuntu   453 Sep 26 14:19 _run_dental.py\\\\n-rw-r--r--   1 ubuntu ubuntu   250 Sep 30 09:00 agent.log\\\\ndrwxrwxr-x   5 ubuntu ubuntu  4096 Sep 30 07:16 inputs\\\\n\\\",\\\"exit\\\":0,\\\"truncated\\\":false},\\\"title\\\":\\\"ls -la\\\",\\\"time\\\":{\\\"start\\\":1790758858500,\\\"end\\\":1790758858741}},\\\"id\\\":\\\"prt_0f18baee8001dQ1QV0sY7SxtIX\\\",\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"messageID\\\":\\\"msg_0f18ba55a001edO2nxoHyIfbdB\\\"}}\\n{\\\"type\\\":\\\"step_finish\\\",\\\"timestamp\\\":1790758858761,\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"part\\\":{\\\"id\\\":\\\"prt_0f18baffa001AYPvMJ6mxEMkei\\\",\\\"reason\\\":\\\"tool-calls\\\",\\\"messageID\\\":\\\"msg_0f18ba55a001edO2nxoHyIfbdB\\\",\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"type\\\":\\\"step-finish\\\",\\\"tokens\\\":{\\\"total\\\":7174,\\\"input\\\":5274,\\\"output\\\":94,\\\"reasoning\\\":14,\\\"cache\\\":{\\\"write\\\":0,\\\"read\\\":1792}},\\\"cost\\\":0.000861276}}\\n{\\\"type\\\":\\\"step_start\\\",\\\"timestamp\\\":1790758861026,\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"part\\\":{\\\"id\\\":\\\"prt_0f18bb8dc001VVDPwsfnqMhsH4\\\",\\\"messageID\\\":\\\"msg_0f18bb004001LVmKKOD2jzVkuF\\\",\\\"sessionID\\\":\\\"ses_f0e745f1affePoXbhfePDlYNPQ\\\",\\\"type\\\":\\\"step-start\\\"}}\\n\",\"exit\":0,\"truncated\":true,\"outputPath\":\"/opt/agents/runtime/844d01f5ff80d4c86641e820/data/opencode/tool-output/tool_0f18bbe5e001Re3IVyxtaVhoMD\"},\"title\":\"find inputs -maxdepth 3 -type f | head -100; echo ---; cat JOB.json; echo ---; cat GRAPH_RESEARCH_RECEIPT.json; echo ---; cat MODEL_ROUTE.json; echo ---; cat agent.log\",\"time\":{\"start\":1790758862406,\"end\":1790758862438}},\"id\":\"prt_0f18bbe08001uEWtni0Rs9epSv\",\"sessionID\":\"ses_f0e745f1affePoXbhfePDlYNPQ\",\"messageID\":\"msg_0f18bb004001LVmKKOD2jzVkuF\"}}\n{\"type\":\"step_finish\",\"timestamp\":1790758862491,\"sessionID\":\"ses_f0e745f1affePoXbhfePDlYNPQ\",\"part\":{\"id\":\"prt_0f18bbe69001BluMIRfxwGWypk\",\"reason\":\"tool-calls\",\"messageID\":\"msg_0f18bb004001LVmKKOD2jzVkuF\",\"sessionID\":\"ses_f0e745f1affePoXbhfePDlYNPQ\",\"type\":\"step-finish\",\"tokens\":{\"total\":13981,\"input\":6673,\"output\":88,\"reasoning\":180,\"cache\":{\"write\":0,\"read\":7040}},\"cost\":0.00118287}}\n"
     },
     {
       "route": {
         "account": "D",
         "requested": "swarm",
-        "selected": "reserve_worker",
-        "model": "opencode-go/reserve_worker-v4.1-flash",
+        "selected": "swarm_worker",
+        "model": "opencode-go/swarm_worker-v4.1-flash",
         "started": 1790758858.5745108
       },
       "job": "BT-DW48-AUTO-a44cd023397eb8",

@@ -29,8 +29,8 @@ Packaging is not the obstacle: the controller copies `sources/<key>` for each ke
 - **Falsifier:** if the chain runs but says nothing beyond the two parts, the coupling is technical rather than scientific. Say it plainly; having an executable chain is still progress, but claim no more than it gives.
 - **Forbidden:** reimplementing one family to make them fit (done twice in the project and counted as interop); letting the anchor become input; calling a chain coupled if a step requires a human; hardcoding unit conversions without naming them.
 
-## Leverans
+## Delivery
 
 One executable command, one number, one comparison against a held-out measurement, and the coupling's cost in lines and assumptions. `PORT.json` with the port contract so the next lane can replace an end. If it cannot be done: the exact list of deficiencies in the contract.
 
-Allt PENDING_INDEPENDENT_REVIEW. Inga interna data.
+Everything PENDING_INDEPENDENT_REVIEW. No internal data.

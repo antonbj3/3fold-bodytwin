@@ -33,7 +33,7 @@ at `L = 0.9 um`, with identical `A_IM`, `V_IMS`, ATP-synthase density, ANT densi
 
 ## Reference value and source
 
-Status: **VERIFIED**, not `OVERIFIERAD`.
+Status: **VERIFIED**, not `UNVERIFIED`.
 
 Primary source: Adams R, Afzal N, Jafri MS, Mannella CA. “How the Topology of the Mitochondrial Inner Membrane Modulates ATP Production.” *Cells*. 2025;14(4):257. DOI: `10.3390/cells14040257`. PMCID: `PMC11853683`.
 
@@ -56,7 +56,7 @@ The primary prediction passes only if all of the following hold in the default r
 
 A topology effect is called unresolved if condition 1 fails, if the no-reaction limit develops a gradient, or if the matched-geometry bookkeeping fails. A negative result is retained; no parameter is retuned to force a pass.
 
-## Motprov and placebo
+## Counter-test and placebo
 
 - No-reaction limit: with zero ANT/synthase sink and equal cytosolic boundary concentrations, the IMS ADP profile must be spatially uniform.
 - Fast-diffusion placebo: increasing `D` by 50% must not increase the topology contrast beyond the fixed numerical tolerance used in the sensitivity report; convergence toward the no-crista limit is expected.

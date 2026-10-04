@@ -9,4 +9,4 @@ Frozen comparator: CX-DESIGNLOOP results.json, the full 141-frame z001 profile a
 
 Falsifier: the independent solve also fails at the same frame with a certified infeasibility witness, or the apparently accepted neighbor fails a 141-frame capacity check. Keep the earlier 140/141 status until a full independent rerun changes it. The broad CT↔motion registration and CART-KNEE contact gap remain separate prerequisites before any clinical design claim.
 
-Deliver RESULTS.md starting with `# CX-DESIGNLOOP-KKT` in results/CX-DESIGNLOOP-KKT/, results.json and pytest. Write PREREG.md + sha256 first. Run under bigmem.lock with 2 threads. lane runner has full permissions in the workspace; ~/projects/bodytwin is read-only. Internal data stays local.
+Deliver RESULTS.md starting with `# CX-DESIGNLOOP-KKT` in results/CX-DESIGNLOOP-KKT/, results.json and pytest. Write PREREG.md + sha256 first. Run under bigmem.lock with 2 threads. lane_runner has full permissions in the workspace; ~/projects/bodytwin is read-only. Internal data stays local.

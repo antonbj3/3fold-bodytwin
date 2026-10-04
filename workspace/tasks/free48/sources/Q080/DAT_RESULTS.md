@@ -5,7 +5,7 @@ Interpretation note: "No judgment words" in `BRIEF.md` is read as *no value judg
 whether the Q080 model is right, validated or biologically meaningful. Upstream's
 `primary_pass` is reproduced only as a quoted field.
 
-## What it built on
+## What was built on
 
 `inputs/Q080_QUESTION.md` (Q080 row, K01–K03), `inputs/Q080_model.py` (frozen equations,
 `Parameters`, unit check), `inputs/Q080_results.json` (17 parameters with
@@ -28,8 +28,8 @@ Full machine-readable catalog: `DATA_SOURCES.json`. Below per record; all number
 |---|---|---|---|---|---|---|---|---:|---|
 | D1 | ChEMBL bioactivity, human Adenosine A1 (CHEMBL226) | CC BY-SA 3.0 | REST-JSON | nM (per `standard_units`) | none | 1000 of 9789 matching records fetched (API page limit `limit=1000`), 74 source documents, 837 ligands, 236 assays; Ki 781, IC50 86, EC50 85, Kd 46, Koff 2 | **T4** | 1 473 789 | yes (200) |
 | D2 | ChEMBL bioactivity, human β2-adrenergic (CHEMBL210) | CC BY-SA 3.0 | REST-JSON | nM | none | 1000 of 7286 matching records fetched, 127 assays; Ki 227, EC50 406, IC50 365, Kd 2 | T4 (weakly) | 1 504 305 | yes (200) |
-| D3 | ChEMBL-kinetiksubset ADORA1 (Kon/Koff) | CC BY-SA 3.0 | REST-JSON | `1/nM.1/min` | ingen | 2 av 2 Koff-poster, **0 Kon-poster**, 1 assay | T4 (negativt resultat) | 2 909 | ja (200) |
-| D4 | RCSB PDB **3SN6** β2AR–Gs–VHH, X-ray 3.2 O, P 2₁2₁1 | CC0 1.0 | mmCIF | O (`_atom_site.length_unit` missing; mmCIF standard applied) | kristallfasens ASU, right-handed Cartesius, origo in deposited cell origin — **not the membrane plane** | 1 struktur, 5 polymera kedjor, 10 274 atomsiter | **T1, T2** | 2 016 591 | ja (200) |
+| D3 | ChEMBL kinetics subset ADORA1 (Kon/Koff) | CC BY-SA 3.0 | REST-JSON | `1/nM.1/min` | none | 2 of 2 Koff records, **0 Kon records**, 1 assay | T4 (negative result) | 2 909 | yes (200) |
+| D4 | RCSB PDB **3SN6** β2AR–Gs–VHH, X-ray 3.2 O, P 2₁2₁1 | CC0 1.0 | mmCIF | O (`_atom_site.length_unit` missing; mmCIF standard applied) | crystal phase ASU, right-handed Cartesian, origin at deposited cell origin — **not membrane plane** | 1 structure, 5 polymer chains, 10 274 atom sites | **T1, T2** | 2 016 591 | yes (200) |
 | D5 | Human Protein Atlas `proteinatlas.tsv` | CC0 1.0 | zipped TSV | per column in the column name (nTPM/pTPM/nCPM/NX) | none | 20 162 gene rows × 119 columns; ADORA1 and ADRB2 present | T1 — **nothing quantitative** | 7 460 135 | yes (200) |
 | D6 | BioImage Archive/Europe PMC receptor topography in nm (S-EPMC9499342 AChR nanoclusters STED+STORM, S-EPMC6460894 CD4, S-EPMC7753144 MET) | CC0 1.0 (archive terms) | record metadata + PDF/AVI | claimed nm, not read from file | **UNKNOWN** | cell count not specified in the records | T2/T3/T6 in principle, **unusable** | 0 data files | **no** |
 
@@ -38,15 +38,15 @@ field names per record are in `DATA_SOURCES.json → catalogue[].constrains[].un
 
 ## The sample downloaded and displayed: `samples/3SN6_b2ar_Gs.cif`
 
-- **Form:** mmCIF, 2 016 591 byte, sha256 `f17b5faa3097784a5d05604cb4946ac7e333a4e8fc731a1f909c265b044a6737`.
-- **Enheter:** Oh. `_atom_site.length_unit` is *absent* in this entry, so mmCIF default
-  used; the coordinates are consistent with: `_cell` 119.339/64.555/131.240 Oh.
-- **Koordinatram:** deponerad kristallografisk asymmetrisk enhet i `P 1 21 1`,
+- **Form:** mmCIF, 2 016 591 bytes, sha256 `f17b5faa3097784a5d05604cb4946ac7e333a4e8fc731a1f909c265b044a6737`.
+- **Units:** Oh. `_atom_site.length_unit` is *absent* in this record, so the mmCIF default
+  is used; coordinates are consistent with `_cell` 119.339/64.555/131.240 Oh.
+- **Coordinate frame:** deposited crystallographic asymmetric unit in `P 1 21 1`,
   right-handed Cartesian, origin at the cell origin. **Not a membrane frame** — the xy projection
   below is a projection in the crystal frame. Every claim about membrane packing is therefore a
   *ceiling*, not a measurement of a membrane.
 - **Content:** 10 274 atom sites, `auth_asym_id` A = Gsα, B = Gβ, G = Gγ, N = VHH,
-  R = Endolysin+β2-adrenergi receptor (443 Cα).
+  R = Endolysin+β2-adrenergic receptor (443 Cα).
 
 ### Derived quantities from the coordinates alone (`derived`, formulas in `results.json`)
 
@@ -68,7 +68,7 @@ receptor diameters — the frozen "patch" is an agglomerate of many receptors, n
 receptor. (2) 55 receptor/µm² is 0.13 % below the physical ceiling set by receptor size;
 it is consistent with a sparse membrane and is therefore not a deviation in itself.
 
-## Kontroller (frysta i PREREG.md)
+## Controls (frozen in PREREG.md)
 
 - **Accession placebo, `pass`:** deliberately wrong accession `CHEMBL279` resolves to
   *Vascular endothelial growth factor receptor 2*, not the A1 receptor. The controls
@@ -87,9 +87,9 @@ it is consistent with a sparse membrane and is therefore not a deviation in itse
   Rg, because columnwise permutation preserves each axis margin and thus the variance sum.
   The placebo therefore only has power for joint statistics (2D hull area). This is not hidden.
 
-## Kriterierna C1–C8
+## Criteria C1–C8
 
-| Kriterium | Utfall | Kort |
+| Criterion | Outcome | Brief |
 |---|---|---|
 | C1 live access | **PASS** | 5/5 `verified_live` records: HTTP 200 and bytes online = bytes on disk = bytes in catalog |
 | C2 license specified | **PASS** | 6/6 records have a license string |
@@ -110,9 +110,9 @@ and Calebiro 2013 as datasets would give 6/6, but that is exactly what PREREG's
 
 ## C4: where the frozen Kd lies in the measured distribution
 
-`derived` ur `inputs/Q080_results.json`: `Kd = koff_s1/kon_s1_nM1 = 0.66/0.02 = 33.0 nM`.
-`measured` ur D1, `standard_type = "Kd"`, `standard_relation = "="`, `standard_units = "nM"`:
-n = 45, kvartiler 0.36 / 0.71 / 1.10 nM, min 0.24 nM, max 45 000 nM.
+`derived` from `inputs/Q080_results.json`: `Kd = koff_s1/kon_s1_nM1 = 0.66/0.02 = 33.0 nM`.
+`measured` from D1, `standard_type = "Kd"`, `standard_relation = "="`, `standard_units = "nM"`:
+n = 45, quartiles 0.36 / 0.71 / 1.10 nM, min 0.24 nM, max 45 000 nM.
 
 The frozen 33 nM is **outside the IQR, above the 75th percentile and far below max**.
 It is an anchoring figure, not an approval. The max value 45 000 nM is an
@@ -152,7 +152,7 @@ out) give identical n = 45, because all fetched Kd records already have relation
    ligand dose field, and a preregistered fit of patch width, effective ligand diffusion and
    kinetics on holdout cells.
 
-## Reproduktion
+## Reproduction
 
 ```
 python3 fetch.py                 # 11 requests, logs HTTP status and bytes in samples/_fetch_log.json

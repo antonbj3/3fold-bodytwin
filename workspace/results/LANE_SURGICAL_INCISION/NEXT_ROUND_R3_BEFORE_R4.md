@@ -21,7 +21,7 @@ Preserve R3's negative results; do not make a new fit and call it prediction. A-
 
 Furthermore, no constant F offset can match12/16/20lb with the declared resolution scenarios:8,000–8,091 /9,143–9,524 /14,857–15,238lb. This is a failed closure test that is not solved by changing RF. Moving forward requires variation/contact kinematics along the actual cutting sites and synchronous force–motion; a load-dependent fitted offset does not make the model predictive.
 
-## BINDINGS-kopplingen
+## The BINDINGS coupling
 
 Request deltaV/DeltaA for an actually advancing fracture front with full first-pass energy, anchor detachment/fibre rupture/delamination and the wedge's imposed contact work. Microcell contour length is not measured process-zone depth, partial hysteresis is not full fracture energy. The same radius can give different work. Do not transfer a porcine microcell scenario to human autopsy skin as a shared posterior.
 

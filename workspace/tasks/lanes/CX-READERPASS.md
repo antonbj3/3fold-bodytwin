@@ -10,7 +10,7 @@ Write `external_research_path`. Do NOT edit the original or the html/pdf files.
 - Example of the right level: "Implant contact is computed in about 0.5 ms per evaluation and matches an independent double-precision calculation to within 0.0004 N. [S19, S20]"
 - Afterwards: write `READERPASS_DIFF.md` next to it, a table of paragraph → the number(s) in the original → the number(s) in v2 → the same meaning (yes/no). Every row must say yes.
 
-The work is text only, with no computation. lane runner has full permissions to write the two new files in FOR_JOHN/; everything else is read-only. No publishing, no emails.
+The work is text only, with no computation. lane_runner has full permissions to write the two new files in FOR_JOHN/; everything else is read-only. No publishing, no emails.
 
 ## ADDENDUM (Anton, takes precedence): NO comparisons with our own earlier versions
 "You don't need to tell them that it used to take 8 ms; that's irrelevant." Remove ALL comparisons with our own earlier implementations/runs: "than before", "previous", "improved from", "N× faster" against ourselves, and the history of fixes. State only what the system does NOW. Comparisons are allowed only against external references the reader knows (e.g. the reference model, published methods, measured implant force). READERPASS_DIFF.md marks the removed comparisons as "removed (internal history)".

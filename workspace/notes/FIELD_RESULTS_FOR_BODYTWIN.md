@@ -82,7 +82,7 @@ For each result, what was confirmed, what failed, which BodyTwin recipient it ma
 - *Recipient:* Thin barriers where a hole must not be treated as sealed. Examples are cortical shell, cartilage, PDL and septa.
 - *Transfer:* A β1/Euler witness quantity for the material-restricted complex (A204’s next hypothesis) and a refusal path in the FEM consumer are required.
 
-### 2.3 Geometrirepresentation
+### 2.3 Geometry representation
 
 **U267/A183: adaptive interval enclosure with UNKNOWN**
 - *Confirmed:* The definitive labels are sound in real arithmetic, with 0 misclassifications on 4000 unseen points. The uniform baseline errs on 187–240 points. The encoding fix works.
@@ -157,7 +157,7 @@ For each result, what was confirmed, what failed, which BodyTwin recipient it ma
 
 ---
 
-## 4. Hypoteser
+## 4. Hypotheses
 
 All hypotheses below are *hypotheses*. None has been tested. Each hypothesis is stated with idea, mechanism, equation, operation, representation, assumptions, expected outcome, strong baseline, counter-test, cost and data. The mapping to the tracks is stated as **J** (the collaborator: shape parameter → biomechanical quantity) and **B** (broad BodyTwin: material, tissue and uncertainty).
 
@@ -276,11 +276,11 @@ All hypotheses below are *hypotheses*. None has been tested. Each hypothesis is 
 - **Assumptions:** Geodesic path on the wrapping surface. No muscle forces, only kinematics.
 - **Expected outcome:** The event-aware derivative agrees with FD outside the guard band. The frozen derivative has large errors near θ*. The guard refuses in a narrow band.
 - **Strong baseline:** FD over b. It is cheap when b is low-dimensional, so a cost gain is required only if b is large.
-- **Motprov:**
+- **Counter-tests:**
   1. If no wrapping transitions occur in the physiological angle interval, the hypothesis is irrelevant for this muscle.
-  2. Om den frysta derivatan har samma fel som den eventmedvetna, faller mekanismen.
+  2. If the frozen derivative has the same error as the event-aware one, the mechanism fails.
   3. If the guard band must be so wide that coverage falls below 80 %, the method is unusable.
-- **Kostnad:** CPU i sekunder till minuter.
+- **Cost:** CPU in seconds to minutes.
 
 ### H5. Exact inertia for multimaterial segments through second moments and affine deformation (J+B, priority 5)
 
@@ -354,7 +354,7 @@ All hypotheses below are *hypotheses*. None has been tested. Each hypothesis is 
 
 ---
 
-## 5. Prioritering
+## 5. Prioritization
 
 | Prio | Hypothesis | Track | Why first | Depends on |
 |---|---|---|---|---|

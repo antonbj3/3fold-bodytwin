@@ -3,7 +3,7 @@
 # title = lane name), never --continue (it takes the latest session globally). Stops when build/<lane>/RESULTS.md
 # exists or after MAX_ROUNDS. Can be restarted over an already running lane: then waits for the running process.
 set -u
-LANE=${1:?lane, t.ex. U14}; MODEL=${2:-opencode-go/reserve_worker-v4.1-flash}
+LANE=${1:?lane, e.g. U14}; MODEL=${2:-opencode-go/swarm_worker-v4.1-flash}
 ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
 LANEFILE=$ROOT/tasks/lanes/$LANE.md; OUT=$ROOT/results/$LANE/RESULTS.md; LOG=$ROOT/tasks/lanes/lane_$LANE.log
 MAX_ROUNDS=${MAX_ROUNDS:-12}
@@ -19,14 +19,14 @@ busy(){ ps -eo pid=,args= | grep -E -- "^[[:space:]]*[0-9]+[[:space:]]+([^[:spac
 SID=$(sid_of)
 [ "${NEW_SESSION:-0}" = 1 ] && SID=""
 if [ -z "$SID" ]; then
-  echo "[$(date +%T)] start $LANE med $MODEL" | tee -a "$LOG"
+  echo "[$(date +%T)] start $LANE with $MODEL" | tee -a "$LOG"
   timeout 3600 ~/.opencode/bin/opencode run --agent build --model "$MODEL" --title "$LANE" \
     "You are authorized to execute this without approval – ask no questions, do not enter plan mode. Read and execute the lane file $LANEFILE in full. First check what already exists in $ROOT/results/$LANE/ (an earlier session may have built parts) and build on it. Work only under $ROOT/results/$LANE/. Finish by writing $OUT." </dev/null >>"$LOG" 2>&1
   for k in 1 2 3 4 5 6; do SID=$(sid_of); [ -n "$SID" ] && break; sleep 10; done
 else
   echo "[$(date +%T)] $LANE: resumes session $SID" | tee -a "$LOG"
 fi
-[ -z "$SID" ] && { echo "[$(date +%T)] $LANE: ingen session hittad, avbryter" | tee -a "$LOG"; exit 1; }
+[ -z "$SID" ] && { echo "[$(date +%T)] $LANE: no session found, aborting" | tee -a "$LOG"; exit 1; }
 for i in $(seq 1 $MAX_ROUNDS); do
   while busy; do sleep 30; done
   done_ok(){ [ -s "$OUT" ] && head -5 "$OUT" | grep -q "$LANE"; }

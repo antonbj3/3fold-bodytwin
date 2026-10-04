@@ -163,4 +163,4 @@ of the bleeding lane's ten anchor consistencies they address, R_thermal's laser 
 reference, and the binding term for a non-contacting tool. Plus the list of lithography files you
 wrote off, with reasons.
 
-Inga interna data. Allt PENDING_INDEPENDENT_REVIEW.
+No internal data. Everything PENDING_INDEPENDENT_REVIEW.

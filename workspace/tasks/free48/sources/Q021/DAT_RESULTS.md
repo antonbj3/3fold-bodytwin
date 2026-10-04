@@ -1,6 +1,6 @@
 BT-DAT-Q021
 
-## Resultat (kort svar)
+## Results (short answer)
 
 Seven public candidates found, of which **one is admissible and downloaded**: `doi:10.11588/DATA/ZPEZPX`
 (heiDATA, CC BY 4.0, 19 COPD patients, 76 measurements, 12 regions). It loads, has units and
@@ -18,7 +18,7 @@ failed criteria from `inputs/Q021_RESULTS.md` remain failed.
   **frozen** comparators (0.321475 / 0.540052 / 6.667433 / 2.441848 mmHg), Hall 2014 0.690/0.784.
 - `samples/perfusion_results.tab` + `samples/data_dictionary.txt` (554 870 + 1 275 B).
 
-### Nyckeltal med fil
+### Key numbers with file
 
 | Quantity | Value | File |
 |---|---:|---|

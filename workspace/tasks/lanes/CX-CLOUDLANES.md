@@ -28,7 +28,7 @@ Include RESULTS.md, results.json, and small code files (≤ 200 KB in total). Th
    - (d) a minimal measurement protocol per person (B1): an OED derivation over DXA/X-ray/landmarks/strength/knee angle with the numbers from our register rows (copy the rows, not internal files);
    - (e) the NATO chain activity → tissue load → ε-N fatigue → injury risk with a public ε-N/bone-fatigue reference and an error budget per link;
    - (f) an independent audit of the constraint-net/N1g reasoning (A324–A358) as a mathematical question: why N_eff = 1, and which information must be individual (only register text + public GC data if it can be bundled legally);
-   - (g) a vascular–interstitial transient (Starling/lymph) with a public reference (lane runner plan BT-B);
+   - (g) a vascular–interstitial transient (Starling/lymph) with a public reference (lane_runner plan BT-B);
    - (h) the strength–angle curve as an identifiable individual signature (B4): an identifiability derivation with public curves.
    Each gets BRIEF.md with the strongest baseline, prior counterexamples, criteria and deliverables, following the preamble style (PREREG first).
 4. Launch the 8, verify that the first one returns via the collector (a real session, model_id coordinator-5-5), and log the balance before and after.
@@ -38,7 +38,7 @@ Include RESULTS.md, results.json, and small code files (≤ 200 KB in total). Th
 - Never print or copy the OAuth token or keys to files, logs or bundles. No PRs, merges or public pushes.
 - Only the promotional credit. Do not enable paid extra usage; stop if the balance approaches 0 or if usage appears outside the credit.
 - Coordinate with Field: BodyTwin ~100 USD, Field ~100 USD, reserve ~50 USD. Write the reservation in the plan's §14 (`external_research_path`) as a bounded addition in BodyTwin's row.
-- lane runner has full permissions; `~/projects/bodytwin` is read-only.
+- lane_runner has full permissions; `~/projects/bodytwin` is read-only.
 
 ## ADDENDUM 24/9 ~16:00 (coordinator) — READ BEFORE CONTINUING
 - The first launch worked (CLOUD-A359, session_01KrvT34D6J9bWS2kY37YKxN). CLOUD-A367 got stuck on coordinator Code's interactive "trust this folder" question, because each lane is a new directory.

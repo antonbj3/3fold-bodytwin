@@ -17,7 +17,7 @@ Changed operation → exact edge response, elimination of opened part, nonlinear
 
 **Strongest control:** Uniform fine P1-FE with identical material layer, mesh, bias and history. An equally informed conventional Schur/substructure/residual-Gram control receives the same purchase and is mathematically identical. The profit against it is **1×, TIE**. The model's fine control experiment is not the requested full vector FE of skin; the broader comparison contract remains.
 
-**Faktiskt utfall:**
+**Actual outcome:**
 
 | Trial | Actual Result | Gate |
 |---|---|---|
@@ -61,7 +61,7 @@ Changed operation → integrate the work of the fiber bridges until the arrival 
 
 **Strongest control:** Phenomenological cohesive model with separately calibrated cutting/tearing energy per observable, identical stock equilibrium and same purchase. Its adaptation to the abrasives is exact on the training data; no holdout result is claimed. The same bridge-law/FE/positive LP gets all parameters and matches: **TIE,1×**. The microparameterization has not predicted both fracture modes against the world. No full global state/history free capability or new hot cost gain has been demonstrated.
 
-**Faktiskt utfall:**
+**Actual outcome:**
 
 | Trial | Digits | Gate/scope |
 |---|---|---|
@@ -104,7 +104,7 @@ Changed operation → acquisitiona primary skin series, try contact width, switc
 
 **Strongest control:** Equally informed phenomenological contact/cohesive model gets same reference curve and extra F-anchor. The same contact/inverse/work algebra matches: **TIE**. No uniform fine FE was run in R3, and no measured errors or cost gains against such FE are claimed. R1/R2's full synthetic equilibrium and costs are preserved.
 
-**Faktiskt utfall:**
+**Actual outcome:**
 
 | Trial | Actual numbers | Gate and scope |
 |---|---|---|
@@ -143,23 +143,23 @@ Changed operation → acquire two additional independent primary skin series, tr
 
 **Strongest check:** The same amount of information and the same first-minus-repeat-work/area or F∝D algebra gives identical answers: **TIE**. No observed hot cost benefit. Barnett's richer published model, with all four training gauges, friction/tension/crack data, and per-gauge contactfit, predicts27G with11,67–13,57% central fault (0,155–0,183N) in digitized Fig16. This strong existing result counts, but it uses more calibration information than our only16G anchor. It is published curve reading, no full model recreated here. Uniform fine cohesive/XFEM-/phase field check has not been run; no speed/error gain against such FE is claimed.
 
-**Faktiskt utfall:**
+**Actual outcome:**
 
 | Hold Case/Operation | Result | Gate and Validity |
 |---|---|---|
-| Human0,3→0,6mm, reused |11,43% central;38,33% extreme reading variation | Central PASS; robust reading gate FAIL, no new independent success |
-| Barnett16G-calibrated J at20mm/s | J16≈1153J/m²; held-out J18/J21/J25≈1801/944/2543J/m² | Central errors **35,96/22,14/54,64%:FAIL** |
-| Reading uncertainty for the same J transfer |18G31,27–40,39%;21G10,97–34,56%;25G51,73–57,44% |21G's marginal FAIL is reading-sensitive;18G/25G remain |
-| Same16G, held-out speeds1/40/80mm/s | Central J errors1,18/0,58/2,84%; worst declared reading error≤10,81% | **PASS** within the same tool/assay, no radius rule |
-| A common J for all gauge means | Even the best post hoc constant has at least45,84% maximum relative error; reported plot bands+reading tolerance have an empty intersection | **FAIL** for this common-effective-J-closure, not all fracture models |
-| Barnett peakforce F∝D,16G→18/21/25/27G at20mm/s | Error23,22/6,23/21,25/45,99% | Only21G central PASS;25G marginally reading-sensitive; no general transfer |
-| Published richer27G control | Error11,67–13,57%; at most18,79% with the declared reading bound | PASS for the published holdout; larger training set explicit |
-| Owen21G0,45N→18G1,32N,exp2 | Prediction0,697N, error47,20% under borrowed nominal diameter | **FAIL_CONDITIONAL_GEOMETRY**, actual diameters missing |
-| Owenexp2→exp4 new21G | Prediction0,45N versusmedian0,70N, error35,71% without a new cohortfit | **FAIL** for unchanged common-c; material/tool differences unknown |
-| Owenexp4, same21G diameter, new incision site each time | Median0,70N with a new needle→1,28N at100uses:1,829× | Tool history needed; not same-hole repeat or measured radius |
-| Peak minus steady-J×unloaded crackmean |25G remaining centralforce−0,095N | Must **not** be labeled friction; different times/aggregates/covariance, no proven energy violation |
-| Γ_pierce versus syntheticΓ_cut150–380 | At20mm/s effective J0,944–2,543kJ/m²; ratio2,49–16,95 depending on tool/scenario | Distinct assay/scenario ports; **UNKNOWN** empiricalΓ_cut/chemicalΓ0 |
-| Prospective strict work/area budget | Design3500J/m², area0,2%, work8+5+5J/m², separateB4J/m² →Γ0 error≤29,05J/m² | Conditional design against30; physical acquisition/precision **not achieved** |
+| Human0,3→0,6mm, recycled |11,43% central;38,33% extreme reading variation | Central PASS; robust read gate FAIL, no new independent hit |
+| Barnett16G calibrated J at20mm/s | J16≈1153J/m²; held J18/J21/J25≈1801/944/2543J/m² | Central errors **35,96/22,14/54,64%:FAIL** |
+| Read uncertainty for the same J-transfer |18G31,27–40,39%;21G 10,97–34,56%;25G51,73–57,44% |21G's marginal FAIL is read sensitive;18G/25G remains |
+| Same16G, held speeds1/40/80mm/s | Central J-error1,18/0,58/2,84%; worst declared read error≤10,81% | **PASS** within the same tool/assay, no radius rule |
+| A common J for all gauge means | Even the best a posteriori constant has at least45,84% maximum relative error; reported plot bands+read tolerance has blank section | **FAIL** for just common-effective-J-closure, not all crime models |
+| Barnett peakforce F∝D,16G→18/21/25/27G at20mm/s | Error23,22/6,23/21,25/45,99% | Only21G central PASS;25G marginally sensitive; no general transfer |
+| Published richer27G Control | Error11,67–13,57%; at most18,79% with declared reading limit | PASS for published stop case; greater amount of training clear |
+| Owen21G0,45N→18G1,32N,exp2 | Prediction0,697N, error47,20% below borrowed nominal diameter | **FAIL_CONDITIONAL_GEOMETRY**, actual diameters missing |
+| Owenexp2→exp4 new21G | Prediction0,45N againstmedian0,70N, error35,71% without new cohort fit | **FAIL** for unchanged common-c; material/tool ​​differences unknown |
+| Owenexp4, same21G diameter, new cut point every time | Median0,70N at new needle→1,28N at100uses:1,829× | Tool history needed; not same-hole repeat or measured radius |
+| Peak minus steady-J×unloaded crackmean |25G residual centralforce−0,095N | May **not** friction be errort; different times/aggregate/covariance, no proven energy violation |
+| Γ_pierce versus syntheticΓ_cut150–380 | At20mm/s effective J0,944–2,543kJ/m²; ratio2,49–16,95 depending on tool/scenario | Distinct assay/scenario-ports; **UNKNOWN** empiricalΓ_cut/chemicalΓ0 |
+| Prospective strict work/area budget | Design3500J/m², area0,2%, work8+5+5J/m², separateB4J/m² →Γ0-error≤29,05J/m² | Conditional design toward30; physical acquisition/precision **not achieved** |
 
 When common-J missed, the observation exchange was executed in the same round. If the entire25G difference were to be attributed to area, actual/reported area is required≈2,205×; if same16G-J is held, extra paired-nuisanceforce≈0,665N is required at the read crackmean. These are alternative **necessity diagnoses**, no new fitted mechanisms. ±0,03mm trace reading for25G is≈6,27%, which alone does not cover the area change; however, the difference between true loaded3D area and unloaded track is still unknown. Independent terminal B_before is still needed for the Γ0+B_before null direction. A gauge series is not an isolated edge radius series when the phases vary and the edge radii are ungauged.
 

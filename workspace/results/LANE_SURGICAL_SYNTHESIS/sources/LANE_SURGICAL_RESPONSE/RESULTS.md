@@ -1,4 +1,4 @@
-## Night 1/10, Round 1
+## Night 1/10, round 1
 
 **Capability before:** new lane without checkpoint. Four existing scripts could give separate assay/time curves, Q036 synthetic ischemic/reperfused muscle response. No incision→vascular bleeding→spatial oxygen→cell migration→matrix→strength chain existed in these parents. Original runs and their negative gates are preserved.
 
@@ -6,7 +6,7 @@
 
 **Strongest control:** the same conventional graded/truncated finite volumes, the same checkpoint/cache, the same Q036/closures and information acquisition. Candidate and local standard control have bit-identical state/strength digests in5 repetitions: **TIE, algebraic gain1**. Fine uniform control has1600 cells against273–371 graded; local4L has320. The old Hill curve got exactly the same two legacy strength targets and fits them, while the new mean(CX) closure misses day21.
 
-**Faktiskt utfall (syntetiska modellresultat):**
+**Actual outcome (synthetic model results):**
 
 | Question | Outcome |
 |---|---|
@@ -31,11 +31,11 @@
 
 [Curves and flux discriminant](RESULTS_FIGURE_R1.png). PREREG*, source snapshots, ATTEMPTS_R1.json, VERIFICATION_R1_FINAL.json, COST_ACCOUNTING_R1.json and raw npz/json preserve all limitations. References/provenance in WORLD_REFERENCES_R1.json and SOURCE_REVIEW_R1.md; graph binding awaits the coordinator locally.
 
-## Night 1/10, Round 2
+## Night 1/10, round 2
 
-**Capability before:** R1 had an executed synthetic chain from incision to hemostasis, oxygen, cell response and strength. The strongest control was TIE; joint empirical cross-prediction UNKNOWN. The goal remains: one physical parameter set must predict several outcomes with history and an error budget, without full global recomputation.
+**Capability before:** R1 had a run synthetic chain from incision to hemostasis, oxygen, cell response and strength. Strongest control was TIE; joint empirical crossprediction UNKNOWN. The goal remains: one physical parameter set must predict several outcomes with history and error budget, without full global recomputation.
 
-**New operation:** The latest steer was prioritised over the DtN handoff. The primary curve was frozen before computation. A sutured geometry change with unchanged kinetics, a dimensioned dry-mass port, finite blood-oxygen inventories, avascular epidermis and a conservative sensor port were then executed. Four PREREG files were frozen before each respective construction. No strength parameters were fitted in R2. Previous data and all missed comparisons were preserved.
+**New operation:** Latest steer took priority over the DtN handoff. The primary curve was frozen before computation. A sutured geometry change was then executed with unchanged kinetics, a dimensioned dry-mass port, finite blood-oxygen inventories, avascular epidermis and a conservative sensor port. Four PREREG files were frozen before each construction. No strength parameters were fitted in R2. Earlier data and all missed comparisons were preserved.
 
 **Strongest control:** The Hill curve with the same legacy calibration at day 7/21 had held-out RMSE 14,91 percentage points, against native 25,25 and sutured250 16,08. A control with separate calibrated curves per observable gets the same observations; its interpolated training fit is no joint prediction. The strongest equally informed numerical control has identical conventional FV, inverse, blood and sensor operators: **TIE**, cost ratio 1 by construction. No separate timing gain is claimed.
 
@@ -59,14 +59,14 @@ A new PREREG and new SENSOR operator corrected the observation operation. Membra
 
 All computation threads were limited to 2. At most 80,6 MiB recorded RSS. Summed solver wall 8.998 s and CPU 8.977 s are lower bounds; source acquisition, OCR, construction and R1 setup are not included in that sum. No gain against the strongest control or full global-state-free new capability was demonstrated.
 
-**Remaining obstacles:** Same-specimen dry mass/volume, vessel/Hb/flow map, mechanical organisation and assay law are missing. The latest INCISION R3 and BINDINGS status R4 still lack corresponding biological ports. A mechanical strain zone is not transferred to cell necrosis or perfusion width.
+**Remaining obstacles:** Same-specimen dry mass/volume, vessel/Hb/flow map, mechanical organisation and assay law are missing. Latest INCISION R3 and BINDINGS status R4 still lack corresponding biological ports. Mechanical strain zone is not transferred to cell necrosis or perfusion width.
 
-**Next construction change:** Joint acquisition of dry mass/wet volume, O2, vascular advection and skin surface pressure; an organisation→traction operator identified from independent data; and a flow/shear-dependent hemostatic seal. Executable inventories and concrete falsifiers are in NEXT_ROUND.md. Round gate **FAIL**, strongest control **TIE**, empirical joint **UNKNOWN**. Everything is **PENDING_INDEPENDENT_REVIEW**. No source/graph/product mutation, subagent or clinical admission. GRAPH_FEEDBACK_R2 is local material for the coordinator.
+**Next construction change:** Joint acquisition of dry mass/wet volume, O2, vascular advection and skin-surface pressure; an organisation→traction operator identified from independent data; and a flow/shear-dependent hemostatic seal. Executable inventories and concrete falsifiers are in NEXT_ROUND.md. Round gate **FAIL**, strongest control **TIE**, empirical joint **UNKNOWN**. Everything is **PENDING_INDEPENDENT_REVIEW**. No source/graph/product mutation, subagent or clinical admission. GRAPH_FEEDBACK_R2 is local material for the coordinator.
 
 [Figure R2](RESULTS_FIGURE_R2.png) and [PDF](RESULTS_FIGURE_R2.pdf). The figure’s strength error bars are deterministic ±2SE ratio envelopes with fixed group weight, no confidence intervals. Raw data and all unmatched protocol misses are in r2/. COMMANDS_R2.md, COST_ACCOUNTING_R2.json and VERIFICATION_R2.json state reproduction and limitations.
 
 
-## Night 1/10, Round 3
+## Night 1/10, round 3
 
 **Capability before.** R2’s coupled early O2/cell/collagen chain gave native strength RMSE25,25percentage points on Levenson’s held-out days14/28/42/61/90; legacyHill gave14,91. Collagen and maturation were closures and the strength port lacked chemical/directional observation. Desired capability is joint prediction of amount and strength to90days and new forcing/loading questions from sufficient history.
 
@@ -74,7 +74,7 @@ All computation threads were limited to 2. At most 80,6 MiB recorded RSS. Summed
 
 **Strongest control.** Same amount-calibration days for Hill; same external chemistry and organisation for per-observable interpolation; same rate/mark/cohorts for conventional tensor/moment operator. Richest equally informed control gives **TIE**, gain1,0. A scalar product is an information-weak diagnostic, not innovation control. No new global O2 system was solved and no global coupled cost gain has been shown.
 
-**Faktiskt utfall.**
+**Actual outcome.**
 
 | Test | Outcome |
 |---|---|
@@ -84,7 +84,7 @@ All computation threads were limited to 2. At most 80,6 MiB recorded RSS. Summed
 | Independent HP as input | Native RMSE8,31pp, tracerproxy9,46pp and sutured25012,97pp. All nominal held-out gates FAIL. Native14=17,91% against7,95%;21=37,87% against19,58%. Improvement against25,25 is conditional curve description, not a biologically validated capability. |
 | Figure precision±.002 on five HP points | Native8/32, tracer12/32 and sutured0/32 corners pass the held-out gate; **0/32** pass all ages in each case, with robust21 conflict. Corners are not probabilities or a common biological CI. |
 | Chemistry fit without strength data | Direct/two-step model trainedHP0/3/5/10 predictsHP42=.01975–.02068 against.043mol/molcollagen:51,91–54,08% too low, FAIL. ChemicalHill gives.01983, alsoFAIL. Constant LOX-driven closure cannot carry the late increase. |
-| Joint-state construction change | The same initial C=1,M=.5,totalQ=diag(.5,.5) can give15% or60% in the same direction; factorized37,5% does not distinguish the history. Requirement≥40% gives A angles0–41,81° and B48,19–90°. Twelve futureLOX/birth cases match fullcohorts within5,86e-12: conditional numericalPASS, strongest controlTIE, empirical jointUNKNOWN. |
+| Joint-state construction change | Same initial C=1,M=.5,totalQ=diag(.5,.5) can give15% or60% in the same direction; factorized37,5% does not distinguish history. Requirement≥40% gives A angles0–41,81° and B48,19–90°. Twelve futureLOX/birth cases match fullcohorts within5,86e-12: conditional numericalPASS, strongest controlTIE, empiricaljointUNKNOWN. |
 
 The Madden plateau is **wound-minus-skin tracer activity**, not identified absolute scar mass. Figure5 strength reuses Levenson and does not count as new validation. Mouse-excision chemistry/SHG and rat-incision strength share no measured joint posterior. HP is a species-specific part of crosslinks, not total mature skin collagen. See [Eyre2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6484114/). Initially totalQ too is equal in the tensor pair; later totalQ changes differently through selective turnover, which is reported and not hidden.
 
@@ -92,6 +92,6 @@ The Madden plateau is **wound-minus-skin tracer activity**, not identified absol
 
 **Remaining obstacles.** Measured pathway/turnover kinetics, assay→physical mass, joint maturation–angle–cut bridging and chemistry→traction/rupture are missing. BINDINGS R4’s6MPa is a synthetic transfer reference; native stress law and crosslink→tau are null. Final INCISION R4’s biological/vascular injuries are also null. EffectiveΓ is no strength ratio. O2/hemostasis feedback, spatial vessels and common uncertainty remain. The round’s innovation/response gate **FAIL**, strongest control **TIE**, actual biological joint prediction **UNKNOWN**, parent goal **OPEN**. Everything PENDING_INDEPENDENT_REVIEW.
 
-**Next construction change.** Build a matched observation port for chemical pathways/turnover and fibre age×loading angle×incision bridging; then measure its traction/rupture law. Restart from Q_U/Q_I/Q_M, couple measured rates to the preserved early O2 state and test new forcing/design with all cert/rebuild/fallback counted. NEXT_ROUND.md contains fields, models and hold gates. No further scalar strength fit can fill the missing ports.
+**Next construction change.** Build a matched observation port for chemical pathways/turnover and fibre age×loading angle×incision bridging; then measure its traction/rupture law. Restart from Q_U/Q_I/Q_M, couple measured rates to preserved early O2 state and test new forcing/design with all cert/rebuild/fallback counted. NEXT_ROUND.md contains fields, models and held-out gates. No further scalar strength fit can fill the missing ports.
 
 Artefacts: CHECKPOINT_R3.json, RESPONSE_PORTS_R3.json, PREREG_R3*.json, WORLD_TARGETS_R3_v2.json, ATTEMPTS_R3.json, DECOMPOSITION_R3.json, SOURCE_MANIFEST_R3.json, COST_ACCOUNTING_R3.json and VERIFICATION_R3.json. [Figure](RESULTS_FIGURE_R3.png) and [exportPDF](RESULTS_FIGURE_R3.pdf). Four solver packages took39,31sCPU and39,32swall; source acquisition/setup is reported separately and not deducted. R1/R2 raw data are preserved; no source graph, canonical code or peer directory was changed.

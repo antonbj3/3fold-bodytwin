@@ -1,6 +1,6 @@
 BT-HX-Q058
 
-## Resultat
+## Results
 
 I built a normalized first-principles model with fine detail (activation, filter, central adaptation, fast and slow fatigue) and a coarse model retaining only `a` and `m_s`. Calibration is sourced to Potvin & Fuglevand (2017), DOI 10.1371/journal.pcbi.1005581: `c0 = 0,050 s`, `beta_ct = 0,379` and `tau_h = 22 s`. No measurement data have been generated or fitted.
 

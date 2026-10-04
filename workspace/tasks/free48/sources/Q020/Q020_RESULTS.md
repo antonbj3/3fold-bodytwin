@@ -5,13 +5,13 @@ BT-HX-Q020
 1 macromolecule (albumin).** Files: `PREREG.md` + `PREREG.sha256`, `model.py`, `test_model.py`,
 `results.json`. Runtime ~1,5 min per scenario sweep, 0 threads, < 200 MB.
 
-## 1. Dom
+## 1. Verdict
 
 **Partly — and the answer is no for the quantitative part.** The same parameter set
 can *reproduce both quantities*, but **not with the amount and sign the question
 suggests within the model’s validity domain**, and the two are **not the same event**:
 
-| Storhet | Modellens svar vid ΔP_c = +5 mmHg | Referens |
+| Quantity | Model’s response at ΔP_c = +5 mmHg | Reference |
 |---|---|---|
 | **Swelling** ΔV_ISC | **+3.42 L** (11.07 → 14.41 L, +31 %), P_ISC −2.11 → **+1.06 mmHg** | P_ISC > 0 in edema: Guyton 1965, `10.1161/01.res.16.5.452` (VERIFIED summary) |
 | **Substance retention** ΔM_alb | **−2.19 g** (143.3 → 162.7 g stored, but ΔM against start −2.2 g) | no primary source looked up — **UNVERIFIED** |
@@ -55,7 +55,7 @@ a *final* equilibrium protein amount arises without active storage. This is the 
 mechanism. Its failure to emerge in practice is because `J_clear` and dilution
 catch up throughout the loads the model can handle.
 
-## 4. Preregistrerade kriterier — utfall (alla i `results.json:prereg_verdict`)
+## 4. Preregistered criteria — outcomes (all in `results.json:prereg_verdict`)
 
 | Criterion | Bound | Value | Outcome |
 |---|---|---|---|

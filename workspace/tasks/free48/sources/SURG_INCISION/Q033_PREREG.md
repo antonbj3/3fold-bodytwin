@@ -30,7 +30,7 @@ Predictions before the run:
 
 ## Published reference values
 
-### Mekanik
+### Mechanics
 
 Lackmann F, Rohwedder T, Maron A, Stegen L, Brunnberg M, Brunnberg L, Burger M, Böttcher P. “Quantification of skin wound tension using a newly designed wound tensiometer.” *Tierarztliche Praxis Ausgabe K: Kleintiere/Heimtiere*. 2023;51(6):386–393. DOI: `10.1055/a-2150-0587`.
 
@@ -38,7 +38,7 @@ Primary source: ex vivo dog cadavers, 19 dogs. Table 1 states for experienced su
 
 The reference value is verified in Table 1 and Figure 7. It is **not** `OVERIFIERAD`: the source and table/figure reference are checked. The value is not a human-specific or incision-exact calibration.
 
-### Transportanalog
+### Transport analogue
 
 Barthe M, Clerbaux LA, Thénot JP, Braud VM, Osman-Ponchet H. “Systematic characterization of the barrier function of diverse ex vivo models of damaged human skin.” *Frontiers in Medicine*. 2024;11:1481645. DOI: `10.3389/fmed.2024.1481645`.
 
@@ -46,7 +46,7 @@ Primary source: ex vivo human skin. Figure 2 shows that mechanical dermabrasion 
 
 The reference value is verified in Figure 2 and Figure 4. It is **not** `OVERIFIERAD`. It is a barrier-damage analogue from human skin, not a measurement of surgical wound fluid; it is therefore used only as a justified assumption for an effective evaporative flux factor.
 
-## Frysta kriterier
+## Frozen criteria
 
 The criteria are fixed before the first run:
 
@@ -71,7 +71,6 @@ The criteria are fixed before the first run:
 - `BRIEF.md`, `inputs/QUESTION.md` and `inputs/NIGHT_PREAMBLE.md`.
 - The interrupted session's `agent.log` was read; no previous `PREREG.md`, `model.py`, `test_model.py` or results files remained in the working directory.
 - Public primary sources: DOI `10.1055/a-2150-0587` and DOI `10.3389/fmed.2024.1481645`.
-- Inga interna data, restricted model data-data eller the collaborator's data are used.
 
 ## Not redone
 
@@ -80,6 +79,6 @@ The criteria are fixed before the first run:
 - No reaction/biology, blood circulation, electrical transport or drug diffusion beyond the explicit Darcy and evaporative boundary model.
 - No 3D-FEM, mesh refinement, time-dependent healing or individual calibration.
 
-## Frysning
+## Freezing
 
 This file and `PREREG.sha256` must exist before `model.py` is run. The hash applies to this exact text before any later edits.

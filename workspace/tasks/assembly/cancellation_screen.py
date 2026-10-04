@@ -1,13 +1,13 @@
 """Does any decision we built tonight get WORSE when one of its inputs gets better?
 
-READ THIS FIRST, 2026-10-04 afternoon: an proof_lane round on the cancellation question found a THIRD
+READ THIS FIRST, 2026-10-04 afternoon: an the proof lane round on the cancellation question found a THIRD
 mechanism that this screen cannot see, and it limits what a hit here means. On the 69 toric rows,
 replacing only the stored intermediate predictor leaves EVERY total error exactly unchanged while
 changing the measured stage-2 repair effect. So part of the anticorrelation is created by the
 ADDITIVE DECOMPOSITION into stages, not by the system, and it survives arbitrarily large samples.
 A hit in this screen is therefore a property of how the error was SPLIT as much as of the chain.
 
-proof_lane also corrected the direction of my own reading, and the correction is the useful part:
+the proof lane also corrected the direction of my own reading, and the correction is the useful part:
 
   exact K-stage condition   dV = d^2 v_j - 2 d g_j,  with v_j = Sigma_jj and
                             g_j = (Sigma 1)_j = Cov(e_j, S)
@@ -18,7 +18,7 @@ For the toric pair that gives sigma_2* = 0.36272 against the current 0.59698, a 
 39.24 percent -- so stage 2 IMPROVES the system up to a 39 percent repair and only harms beyond it.
 My earlier reading, that repairing stage 2 is 1.2594x worse, was the FULL-removal case stated as if
 it were the repair case. Partial repair helps. I verified the 39.24 percent and the variance drop of
-0.0507528 D^2 on halving against proof_lane's 0.0507480 independently.
+0.0507528 D^2 on halving against the proof lane's 0.0507480 independently.
 
 And the metric matters: halving stage 2 reduces variance by 0.0507480 D^2 while INCREASING mean
 squared error by 0.00570006 D^2, because component means do not vanish. For MSE the covariance has

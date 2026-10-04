@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-# BodyTwin model job queue (after crash 2026-09-24 00:5x). Reading bt_queue.txt: lines "PROFIL MODELL JOBB_ID".
-# Starts next job when own BT-opencode-jobb < MAX, MemAvailable > 12 GB and memory PSI full avg10 < 10.
+# BodyTwin model job queue (after crash 2026-09-24 00:5x). Reads bt_queue.txt: rows "PROFIL MODELL JOBB_ID".
+# Starts the next job when own BT-opencode jobs < MAX, MemAvailable > 12 GB and memory PSI full avg10 < 10.
 # Skips jobs that already have RESULTS.md or are already running. Runs under setsid so it survives the session.
-W=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd); RP=external_research_path
+W=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
+# Run values (runner path, swarm model token) are outside the tree.
+set -a; . "$HOME/.bodytwin/runners.env" 2>/dev/null || { echo "missing ~/.bodytwin/runners.env"; exit 1; }; set +a
+RP="$RUNNER_PY"
 Q=$W/tasks/lanes/bt_queue.txt; LOG=$W/tasks/lanes/bt_queue.log
 running(){ ps -eo args | grep -E '^[^ ]*opencode run' | grep -oE -- "--title $1( |$)" | head -1; }
 nown(){ ps -eo args | grep -E '^[^ ]*opencode run' | grep -cE -- '--title BT-'; }

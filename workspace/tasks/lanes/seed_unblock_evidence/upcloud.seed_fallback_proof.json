@@ -50,7 +50,7 @@
       "results_present": false
     }
   ],
-  "reserve_worker_processes": [
-    "1624628 1624627 /opt/agents/.opencode/bin/opencode run --pure --auto --agent build --model opencode-go/reserve_worker-v4.1-flash --dir /opt/agents/jobs/BT-FW48-AUTO-3ae2a020bc70ed --format json --title BT-FW48-AUTO-3ae2a020bc70ed Read BRIEF.md. Execute the bounded task in small steps. Job ID: BT-FW48-AUTO-3ae2a020bc70ed. First write WORK_STATUS.md with the next concrete calculation. Read at most two source files before writing runnable code or a precise missing-input report. Do one small matched calculation before attempting a general derivation. Write RESULTS.md after the first actual result, starting with the job ID; clearly state what remains incomplete. Reason briefly between tools: the previous jobs could lose an entire generation to internal reasoning without any files. "
+  "swarm_worker_processes": [
+    "1624628 1624627 /opt/agents/.opencode/bin/opencode run --pure --auto --agent build --model opencode-go/swarm_worker-v4.1-flash --dir /opt/agents/jobs/BT-FW48-AUTO-3ae2a020bc70ed --format json --title BT-FW48-AUTO-3ae2a020bc70ed Read BRIEF.md. Execute the bounded task in small steps. Job ID: BT-FW48-AUTO-3ae2a020bc70ed. First write WORK_STATUS.md with the next concrete calculation. Read at most two source files before writing runnable code or a precise missing-input report. Do one small matched calculation before attempting a general derivation. Write RESULTS.md after the first actual result, starting with the job ID; clearly state what remains incomplete. Reason briefly between tools: the previous jobs could lose an entire generation to internal reasoning without any files. "
   ]
 }

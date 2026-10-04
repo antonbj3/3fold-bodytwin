@@ -1,4 +1,4 @@
-# Styrning LANE_CELLS_FROM_DOMAIN_DATA — efter r48
+# Control LANE_CELLS_FROM_DOMAIN_DATA — after r48
 
 ## Calculate in MOLEKYLER, not in µM — then the obstacle is immediately visible
 `target_gap_uM = 0,20756740959193906` is bit-identical in r41, r43, r45, r46, r47 and r48, and in r45
@@ -39,7 +39,7 @@ is RESULTATET, not a deficit to fix.
 ## Addition after r49 — you already have a decision, expressed in molecules
 I recalculated r49's three radii in molecular units (0,1037837048 µM per molecule):
 
-| storhet | µM | molekyler |
+| quantity | µM | molecules |
 |---|---|---|
 | budget | 0,0915193952 | **0,88183** |
 | singleton radius | 0,0206063822 | 0,19855 |

@@ -8,7 +8,7 @@ RESULTS=ROOT/'results'; LANE=RESULTS/'CX-DATAMATRIX'
 manifest=json.loads((LANE/'MANIFEST.json').read_text())['packets']
 groups=defaultdict(list)
 for item in manifest:groups[item['protocol']].append(item)
-lines=["# CX-DATAMATRIX — sample for the coordinator",'',"Two complete BRIEF+FILTER per protocol. The packets contain raw data and a separate load test.",'']
+lines=['# CX-DATAMATRIX — sample for the coordinator','','Two complete BRIEF+FILTER per protocol. The packets contain raw data and a separate load test.','']
 queue=[]
 for proto,items in sorted(groups.items()):
     lines+=['## '+proto,''];chosen=[];seen=set()

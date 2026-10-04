@@ -21,11 +21,11 @@ Cost means chosen relative work units for preparation, instruments and analysis,
 
 The damage proxy is the Q036 translation's width where `1−exp(−hazard)>0,20`; the hypoxia proxy uses10Torr. These declared thresholds are no necrosis assay. Native edge necrosis needs separate viability with a typed cell, time and local registration. For all six items its posterior-SD and SD reduction are null.
 
-## Precision per delobservation
+## Precision per subobservation
 
 σ states a chosen future random-error target; “shared” is a calibration error shared across a package. These are requirements for the calculation, not verified assay accuracy. All subitems from R1 that lack an observation operator are in the design's `unrepresented` and are commented on above; they have UNKNOWN native information value.
 
-| Paket | Observation | σ / gemensamt | ΔSD styrka28 pp | ΔSD styrka90 pp | ΔSD skadeproxy µm |
+| Package | Observation | σ / shared | ΔSD strength28 pp | ΔSD strength90 pp | ΔSD damage proxy µm |
 |---|---|---:|---:|---:|---:|
 | M1 | gap | 1e-05 / 0 | 0.0205 | 0.0363 | 0.0095 |
 | M1 | biological_width | 2.5e-05 / 1e-05 | 0.0130 | 0.0138 | 52.7041 |
@@ -67,17 +67,17 @@ SI units and the observations' exact meaning: gap/widths/path in m, pressure in 
 - n256_noise2.0_floorFalse: M2 > M1 > M5 > M3 > M4 > M6.
 - n256_noise1.0_floorTrue: M2 > M1 > M3 > M5 > M4 > M6.
 
-M2: nytt128-scenarioprov ger varians/MSE-minskning28/90/skadeproxy 9.0/2.2/65.9%.
+M2: new128-scenario trial gives variance/MSE reduction28/90/damage proxy 9.0/2.2/65.9%.
 
-M1: nytt128-scenarioprov ger varians/MSE-minskning28/90/skadeproxy 1.2/1.0/81.1%.
+M1: new128-scenario trial gives variance/MSE reduction28/90/damage proxy 1.2/1.0/81.1%.
 
-M5: nytt128-scenarioprov ger varians/MSE-minskning28/90/skadeproxy 81.1/60.3/3.2%.
+M5: new128-scenario trial gives variance/MSE reduction28/90/damage proxy 81.1/60.3/3.2%.
 
-M3: nytt128-scenarioprov ger varians/MSE-minskning28/90/skadeproxy -1.2/-2.5/2.8%.
+M3: new128-scenario trial gives variance/MSE reduction28/90/damage proxy -1.2/-2.5/2.8%.
 
-M4: nytt128-scenarioprov ger varians/MSE-minskning28/90/skadeproxy 0.0/0.0/0.0%.
+M4: new128-scenario trial gives variance/MSE reduction28/90/damage proxy 0.0/0.0/0.0%.
 
-M6: nytt128-scenarioprov ger varians/MSE-minskning28/90/skadeproxy 0.0/0.0/0.0%.
+M6: new128-scenario trial gives variance/MSE reduction28/90/damage proxy 0.0/0.0/0.0%.
 
 Precision0,5×/2× and128/256 compare the same frozen prior. Separate cost intervals can change rank: for each pair dominance is counted only when the candidate's lower value/cost exceeds the control's upper one. The additional floors20pp and50µm are open sensitivity assumptions for an unresolved observation law, no measured error bounds. They can neither be identified nor reduced by the modeled port measurements.
 

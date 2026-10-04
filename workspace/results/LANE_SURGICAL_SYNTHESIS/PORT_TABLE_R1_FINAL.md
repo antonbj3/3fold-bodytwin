@@ -1,4 +1,4 @@
-# Slutlig porttabell, inklusive RESPONSE R4
+# Final port table, including RESPONSE R4
 
 | Stage | Port | Value / unit | Uncertainty | Status | Source / scope |
 |---|---|---|---|---|---|

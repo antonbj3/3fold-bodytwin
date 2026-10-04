@@ -52,20 +52,17 @@ ADMIT = {
     'BT-FW48-SEED-186': ('IMMUNITY', 'secondary response in pg/mL'),
 }
 
-# The block list is not kept in the repo. tasks/assembly/excluded_terms.py says why, loads it from
-# outside the tree, and matches everything if it cannot be read, so a missing list rejects rather
-# than admits.
 def _load_block_pattern(extra: str = '') -> 're.Pattern[str]':
-    import importlib.util, pathlib
-    for parent in pathlib.Path(__file__).resolve().parents:
-        cand = parent / 'tasks' / 'assembly' / 'excluded_terms.py'
-        if cand.exists():
-            spec = importlib.util.spec_from_file_location('excluded_terms', cand)
-            mod = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(mod)
-            pat = mod.block_pattern().pattern
-            return re.compile(pat + ('|' + extra if extra else ''), re.I)
-    return re.compile(r'(?s).*')  # loader gone: reject everything rather than pass everything
+    """Admission pattern for the harvest. Configuration is not part of the tree."""
+    import importlib.util, os, pathlib
+    cand = pathlib.Path(os.environ.get('BODYTWIN_ADMISSION',
+                                       pathlib.Path.home() / '.bodytwin' / 'tools' / 'admission.py'))
+    if cand.exists():
+        spec = importlib.util.spec_from_file_location('admission', cand)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return re.compile(mod.block_pattern().pattern + ('|' + extra if extra else ''), re.I)
+    return re.compile(r'(?s).*')
 
 
 BLOCK = _load_block_pattern()

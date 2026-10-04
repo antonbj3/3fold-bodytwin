@@ -2,7 +2,7 @@
 
 Frozen **before the first run**. Hash: see `PREREG.sha256`. All numbers below are inputs, not results.
 
-## 0. Nod
+## 0. Node
 
 `BT-HX-Q160` expands to: `BT-HX-Q160/P1` (EPS→geometry→D_eff), `BT-HX-Q160/P2`
 (EPS→geometry→kappa), `BT-HX-Q160/P3` (geometry→yield stress→detachment),
@@ -76,7 +76,7 @@ the porosity interval below is AN ASSUMPTION, not a cited measurement. Marked UN
 
 ## 6. Frozen acceptance criteria (binding, frozen before the run)
 
-| ID | Storhet | Kriterium | Granskas mot |
+| ID | Quantity | Criterion | Reviewed against |
 |----|---------|-----------|--------------|
 | **C1** | `D_eff/D_0`, fluorescein, mature biofilm | **0,20 ≤ pred ≤ 0,80** (factor 2 around R1 = 0,40) | R1 |
 | **C2** | Size dependence: `D_eff` for all 10 solutes | **≥ 7 of 10** within factor 2 of measured `D_e`; **and** Spearman correlation(pred `D_e`, measured `D_e`) ≥ 0,7 | R1b |

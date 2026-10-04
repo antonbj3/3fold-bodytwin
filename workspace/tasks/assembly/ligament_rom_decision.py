@@ -121,7 +121,7 @@ def main() -> int:
 
     print('  topp per ligament (grader, N): ' + ', '.join(
         f'{g} {peaks[g]:+d}/{TABLE[peaks[g]][g]}' for g in LIGAMENTS))
-    print(f"\n  {'limit N':>8s} {'alla fem':>18s} {'bindande flex/ext':>22s} {'bara ALL':>18s} {'tappat':>7s}")
+    print(f"\n  {'limit N':>8s} {'all five':>18s} {'binding flex/ext':>22s} {'only ALL':>18s} {'lost':>7s}")
     for r in rows:
         a, o = r['all_five_ligaments'], r['using_ALL_alone']
         rng = f"[{a['low_deg']}, {a['high_deg']}]"

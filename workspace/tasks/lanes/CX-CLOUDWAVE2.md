@@ -12,7 +12,7 @@ Read: `tasks/lanes/CX-CLOUDLANES.md` (incl. the ADDENDUM: launch from the truste
    - derivations that unlock BT-2: the patella mechanism, operating-range identifiability;
    - B1 (the minimal measurement protocol), B5 (disc pressure), and the NATO chain;
    - the hyperrealism roadmap (`results/HYPERREALISM_ROADMAP_20260924/`), with one or two bounded cell/tissue questions that have a public reference.
-4. Pace control: after launching, measure the cost per session. Start more at ~30-min intervals, so that the BodyTwin share plus Field's reaches ~0 USD at ~23:30. Write the plan to `tasks/cloud/PACING.md` (balance, sessions/h, the expected end). If the lane runner round ends, leave a script `tasks/cloud/next_wave.sh` that the coordinator can run, which launches the next N prepared lanes.
+4. Pace control: after launching, measure the cost per session. Start more at ~30-min intervals, so that the BodyTwin share plus Field's reaches ~0 USD at ~23:30. Write the plan to `tasks/cloud/PACING.md` (balance, sessions/h, the expected end). If the lane_runner round ends, leave a script `tasks/cloud/next_wave.sh` that the coordinator can run, which launches the next N prepared lanes.
 5. `results/CX-CLOUDWAVE2/RESULTS.md` starting with `# CX-CLOUDWAVE2`.
 
 Rules: never print or copy the OAuth token. Only the promotional credit; stop if paid usage appears. No PRs/merges/public pushes (branches in the private research-cloud-lanes are OK).

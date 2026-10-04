@@ -1,4 +1,4 @@
-# Till BodyTwin / coordinator — innovation efter RM1
+# To BodyTwin / coordinator — innovation after RM1
 
 Handed over at Anton's explicit request 2026-09-23. Research proposal for the session's assessment; no new run started through this message.
 

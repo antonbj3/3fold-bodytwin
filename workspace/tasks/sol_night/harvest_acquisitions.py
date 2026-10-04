@@ -1,5 +1,17 @@
 #!/usr/bin/env python3
-"Harvest acquisition requirements from all lane ports to EN lista.\n\nWhy. On the night of 2–3 October, five independent lanes converged on the same conclusion: what binds is\nmeasurements we do not have, not resolution and not method. The resolution atlas gave 96,08 % of the undecidables\nthe magnitudes without nameable other magnitude; expert source rendered 175 of 188 records unprovable; the eyeball landed\non a single missing greatness; the anchor cells were closed on a missing receipt. But the requirements remain in each\nlane's own files — mentioned in twelve lanes — while the combined list has nine entries. This crop makes them\nto a list.\n\nRule that makes the output useful: a record WITHOUT entity is not searchable, so entity is the only hard thing\nthe requirement for an item to be considered orderable. Entries without units are listed separately as incomplete,\naldrig tysta.\n"
+"""Harvest acquisition requirements from all lane ports to EN list.
+
+Why. On the night of 2–3 October, five independent lanes converged on the same conclusion: what binds is
+measurements we do not have, not resolution and not method. The resolution atlas gave 96,08 % of the undecidables
+the magnitudes without nameable other magnitude; expert source rendered 175 of 188 records unprovable; the eyeball landed
+on a single missing greatness; the anchor cells were closed on a missing receipt. But the requirements remain in each
+lane's own files — mentioned in twelve lanes — while the combined list has nine entries. This crop makes them
+to a list.
+
+Rule that makes the output useful: a record WITHOUT entity is not searchable, so entity is the only hard thing
+the requirement for an item to be considered orderable. Entries without units are listed separately as incomplete,
+aldrig tysta.
+"""
 from __future__ import annotations
 
 import json
@@ -21,7 +33,7 @@ UNIT_PAT = re.compile(
 
 
 def texts_of(obj, path=''):
-    "Flatten to (path, text) for each string and each dict with a claim key."
+    """Flatten to (path, text) for each string and each dict with a claim key."""
     out = []
     if isinstance(obj, dict):
         for k, v in obj.items():

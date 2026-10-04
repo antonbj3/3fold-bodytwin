@@ -1,4 +1,7 @@
-"N39 scoring according to PREREG.md (sha256 in ../PREREG.sha256).\nCopied with source attribution from results/N12b/code/n12b_score.py: PERSON, metrics(), plate_mixed(), load() (unchanged),\nN1 adaptation and the COMAK frame rule. c′ = N12b's LOSO selection (N12b/scores.json -> LOSO_picks.cprime).\nUsage: python3 n39_score.py. Writes ../scores.json."
+"""N39 scoring according to PREREG.md (sha256 in ../PREREG.sha256).
+Copied with source attribution from results/N12b/code/n12b_score.py: PERSON, metrics(), plate_mixed(), load() (unchanged),
+N1 adaptation and the COMAK frame rule. c′ = N12b's LOSO selection (N12b/scores.json -> LOSO_picks.cprime).
+Usage: python3 n39_score.py. Writes ../scores.json."""
 import glob
 import json
 from pathlib import Path
@@ -53,20 +56,20 @@ def load():
                 excl[key] = f"nan_frac {r['nan_frac']:.2f}"
                 continue
             if plate_mixed(r['plate_use']):
-                excl[key] = f"platta delad {r['plate_use']}"
+                excl[key] = f"plate shared {r['plate_use']}"
                 continue
             z = dict(np.load(OUT / f'{key}.npz'))
             inr = z['inr'].astype(bool)
             n = len(inr)
             if inr.mean() < 0.9:
-                excl[key] = f'measuring signal covers {inr.mean():.2f} by window'
+                excl[key] = f'measurement signal covers {inr.mean():.2f} of the window'
                 continue
             z['inr_mask'] = inr.copy()
             z = {k: (v[..., inr] if (hasattr(v, 'shape') and v.ndim >= 1 and v.shape[-1] == n) else
                      (v[inr] if (hasattr(v, 'shape') and v.ndim >= 1 and v.shape[0] == n) else v)) for k, v in z.items()}
             T[key] = dict(sess=sess, person=PERSON[sess], trial=t, act=r['activity'], z=z, info=r)
     return T, excl
-# ---- slut kopia
+# ---- end of copy
 
 
 def lsq(cols, y):
@@ -78,7 +81,7 @@ def main():
     keys = sorted(T)
     picks = json.load(open(N12B / 'scores.json'))['LOSO_picks']['cprime']
     res = dict(n_trials=len(T), n_excluded=len(excl), cprime_picks=picks)
-    # ---- extraherade ID-storheter, samma rutor
+    # ---- extracted ID quantities, same frames
     chk = []
     for k in keys:
         z = T[k]['z']
@@ -196,7 +199,7 @@ def main():
                        'P0': z['N0_tot'] + z['MB']}
             del pred[k]['Hg_N12b']
     res['params_LOSO'] = params
-    # kontroll mot N12b:s N1-k
+    # check against N12b's N1-k
     n12b = json.load(open(N12B / 'scores.json'))
     res['N1_k_vs_N12b_max_abs'] = max(abs(params[P]['k_N1'] - n12b['N1_params'][P]['k']) for P in PERSONS)
     MODELS = list(pred[keys[0]].keys())
@@ -228,13 +231,13 @@ def main():
         for tr in trials:
             key = f'{sess}__{tr}'
             if key not in T or f'{key}__V1' not in cs:
-                rows[tr] = 'saknas: ' + str(excl.get(key, 'ingen COMAK'))
+                rows[tr] = 'missing: ' + str(excl.get(key, 'no COMAK'))
                 continue
             z = T[key]['z']
             tc, fc_ = cs[f'{key}__V1']
             m = (z['t'] >= tc[0]) & (z['t'] <= tc[-1])
             if m.sum() < 10:
-                rows[tr] = f'too few common boxes ({int(m.sum())})'
+                rows[tr] = f'too few common frames ({int(m.sum())})'
                 continue
             bw = float(z['bwN'])
             meas = z['meas_tot'][m]
@@ -256,7 +259,7 @@ def main():
         pk[P]['B24null'] = float(np.median([pk[Q_]['meas'] for Q_ in pk if Q_ != P]))
     res['B24_peak_ngait'] = dict(per_person=pk, rmse_pctBW={mn: float(np.sqrt(np.mean([(pk[P][mn] - pk[P]['meas']) ** 2 for P in pk])))
                                                             for mn in MODELS + ['B24null']})
-    # ---- kriterier
+    # ---- criteria
     crit = {}
     N1s = summ['N1']
     for mn in MODELS:

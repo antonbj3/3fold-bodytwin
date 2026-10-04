@@ -38,7 +38,7 @@
       "marker": {
         "pid": 1214208,
         "account": "D",
-        "selected": "reserve_worker",
+        "selected": "swarm_worker",
         "job": "BT-FW48-SEED-493",
         "started": 1790759059.3253312,
         "start_ticks": 42210943,
@@ -48,8 +48,8 @@
       "route": {
         "account": "D",
         "requested": "swarm",
-        "selected": "reserve_worker",
-        "model": "opencode-go/reserve_worker-v4.1-flash",
+        "selected": "swarm_worker",
+        "model": "opencode-go/swarm_worker-v4.1-flash",
         "started": 1790759059.3255308
       },
       "tools_completed": 7,
@@ -138,7 +138,7 @@
       "marker": {
         "pid": 1215326,
         "account": "D",
-        "selected": "reserve_worker",
+        "selected": "swarm_worker",
         "job": "BT-FW48-SEED-495",
         "started": 1790759089.4779847,
         "start_ticks": 42213958,
@@ -148,8 +148,8 @@
       "route": {
         "account": "D",
         "requested": "swarm",
-        "selected": "reserve_worker",
-        "model": "opencode-go/reserve_worker-v4.1-flash",
+        "selected": "swarm_worker",
+        "model": "opencode-go/swarm_worker-v4.1-flash",
         "started": 1790759089.4781682
       },
       "tools_completed": 7,
@@ -233,7 +233,7 @@
       "marker": {
         "pid": 1215191,
         "account": "D",
-        "selected": "reserve_worker",
+        "selected": "swarm_worker",
         "job": "BT-FW48-SEED-494",
         "started": 1790759084.5954258,
         "start_ticks": 42213469,
@@ -243,8 +243,8 @@
       "route": {
         "account": "D",
         "requested": "swarm",
-        "selected": "reserve_worker",
-        "model": "opencode-go/reserve_worker-v4.1-flash",
+        "selected": "swarm_worker",
+        "model": "opencode-go/swarm_worker-v4.1-flash",
         "started": 1790759084.5956135
       },
       "tools_completed": 7,
@@ -288,10 +288,10 @@
       "results_present": false
     }
   ],
-  "reserve_worker_processes": [
-    "1210607 1210606 /opt/agents/.opencode/bin/opencode run --pure --auto --agent build --model opencode-go/reserve_worker-v4.1-flash --dir /opt/agents/jobs/BT-FW48-AUTO-5e573e93b9cabd --format json --title BT-FW48-AUTO-5e573e93b9cabd Read BRIEF.md. Execute the bounded task in small steps. Job ID: BT-FW48-AUTO-5e573e93b9cabd. First write WORK_STATUS.md with the next concrete calculation. Read at most two source files before writing runnable code or a precise missing-input report. Do one small matched calculation before attempting a general derivation. Write RESULTS.md after the first actual result, starting with the job ID; clearly state what remains incomplete. Reason briefly between tools: the previous jobs could lose an entire generation to internal reasoning without any files. ",
-    "1214209 1214208 /opt/agents/.opencode/bin/opencode run --pure --auto --agent build --model opencode-go/reserve_worker-v4.1-flash --dir /opt/agents/jobs/BT-FW48-SEED-493 --format json --title BT-FW48-SEED-493 Read BRIEF.md. Execute the bounded task in small steps. Job ID: BT-FW48-SEED-493. First write WORK_STATUS.md with the next concrete calculation. Read at most two source files before writing runnable code or a precise missing-input report. Do one small matched calculation before attempting a general derivation. Write RESULTS.md after the first actual result, starting with the job ID; clearly state what remains incomplete. Reason briefly between tools: the previous jobs could lose an entire generation to internal reasoning without any files. ",
-    "1215192 1215191 /opt/agents/.opencode/bin/opencode run --pure --auto --agent build --model opencode-go/reserve_worker-v4.1-flash --dir /opt/agents/jobs/BT-FW48-SEED-494 --format json --title BT-FW48-SEED-494 Read BRIEF.md. Execute the bounded task in small steps. Job ID: BT-FW48-SEED-494. First write WORK_STATUS.md with the next concrete calculation. Read at most two source files before writing runnable code or a precise missing-input report. Do one small matched calculation before attempting a general derivation. Write RESULTS.md after the first actual result, starting with the job ID; clearly state what remains incomplete. Reason briefly between tools: the previous jobs could lose an entire generation to internal reasoning without any files. ",
-    "1215327 1215326 /opt/agents/.opencode/bin/opencode run --pure --auto --agent build --model opencode-go/reserve_worker-v4.1-flash --dir /opt/agents/jobs/BT-FW48-SEED-495 --format json --title BT-FW48-SEED-495 Read BRIEF.md. Execute the bounded task in small steps. Job ID: BT-FW48-SEED-495. First write WORK_STATUS.md with the next concrete calculation. Read at most two source files before writing runnable code or a precise missing-input report. Do one small matched calculation before attempting a general derivation. Write RESULTS.md after the first actual result, starting with the job ID; clearly state what remains incomplete. Reason briefly between tools: the previous jobs could lose an entire generation to internal reasoning without any files. "
+  "swarm_worker_processes": [
+    "1210607 1210606 /opt/agents/.opencode/bin/opencode run --pure --auto --agent build --model opencode-go/swarm_worker-v4.1-flash --dir /opt/agents/jobs/BT-FW48-AUTO-5e573e93b9cabd --format json --title BT-FW48-AUTO-5e573e93b9cabd Read BRIEF.md. Execute the bounded task in small steps. Job ID: BT-FW48-AUTO-5e573e93b9cabd. First write WORK_STATUS.md with the next concrete calculation. Read at most two source files before writing runnable code or a precise missing-input report. Do one small matched calculation before attempting a general derivation. Write RESULTS.md after the first actual result, starting with the job ID; clearly state what remains incomplete. Reason briefly between tools: the previous jobs could lose an entire generation to internal reasoning without any files. ",
+    "1214209 1214208 /opt/agents/.opencode/bin/opencode run --pure --auto --agent build --model opencode-go/swarm_worker-v4.1-flash --dir /opt/agents/jobs/BT-FW48-SEED-493 --format json --title BT-FW48-SEED-493 Read BRIEF.md. Execute the bounded task in small steps. Job ID: BT-FW48-SEED-493. First write WORK_STATUS.md with the next concrete calculation. Read at most two source files before writing runnable code or a precise missing-input report. Do one small matched calculation before attempting a general derivation. Write RESULTS.md after the first actual result, starting with the job ID; clearly state what remains incomplete. Reason briefly between tools: the previous jobs could lose an entire generation to internal reasoning without any files. ",
+    "1215192 1215191 /opt/agents/.opencode/bin/opencode run --pure --auto --agent build --model opencode-go/swarm_worker-v4.1-flash --dir /opt/agents/jobs/BT-FW48-SEED-494 --format json --title BT-FW48-SEED-494 Read BRIEF.md. Execute the bounded task in small steps. Job ID: BT-FW48-SEED-494. First write WORK_STATUS.md with the next concrete calculation. Read at most two source files before writing runnable code or a precise missing-input report. Do one small matched calculation before attempting a general derivation. Write RESULTS.md after the first actual result, starting with the job ID; clearly state what remains incomplete. Reason briefly between tools: the previous jobs could lose an entire generation to internal reasoning without any files. ",
+    "1215327 1215326 /opt/agents/.opencode/bin/opencode run --pure --auto --agent build --model opencode-go/swarm_worker-v4.1-flash --dir /opt/agents/jobs/BT-FW48-SEED-495 --format json --title BT-FW48-SEED-495 Read BRIEF.md. Execute the bounded task in small steps. Job ID: BT-FW48-SEED-495. First write WORK_STATUS.md with the next concrete calculation. Read at most two source files before writing runnable code or a precise missing-input report. Do one small matched calculation before attempting a general derivation. Write RESULTS.md after the first actual result, starting with the job ID; clearly state what remains incomplete. Reason briefly between tools: the previous jobs could lose an entire generation to internal reasoning without any files. "
   ]
 }

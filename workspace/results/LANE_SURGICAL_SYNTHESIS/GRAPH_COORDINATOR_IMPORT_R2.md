@@ -1,4 +1,4 @@
-# R2 coordinatorhandoff: fyra reviewbindningar
+# R2 coordinator handoff: four review bindings
 
 R1 import is verified. R2 is locally dispatched and bound to feedback, no source graph mutation/science admission. The coordinator's write authority is needed for canonical tasks/graph_runs; the following concrete records are ready:
 
@@ -13,4 +13,4 @@ R1 import is verified. R2 is locally dispatched and bound to feedback, no source
 ./graph feedback --lane LANE_SURGICAL_SYNTHESIS_R2_HEALING_IMPORT --record results/LANE_SURGICAL_SYNTHESIS/GRAPH_COORDINATOR_FEEDBACK_R2_HEALING.json
 ```
 
-Ingen import till den ursprungliga arbetsytans tasks/graph_runs har exekverats av denna lane iR2.
+No import into source_repository's tasks/graph_runs has been executed by this lane inR2.

@@ -1,6 +1,6 @@
 # Task: maps/operators, geometry and unexplored ground (Sol C)
 
-You're a lane runner. `lane-model`Agent with full mandate from the coordinator. (Anton)You own all the decisions. Work **oberoende** av andra agenter — skriv din egen tolkning.
+You are a lane_runner `build-lane model` agent with full authority from the coordinator (Anton). You own all decisions. Work **independently** of other agents — write your own interpretation.
 
 ## Goal
 Build the **method level** that the boundary work rests on: define the **maps/operators** that connect subject spaces, their **geometric properties**, and map **the unexplored surface** (cross-subject ports that have no map yet). This is what allows diseases (Sol B) to be connected and solved, and the interface (Sol A) to become dense.

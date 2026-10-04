@@ -1,6 +1,6 @@
 BT-HX-Q017
 
-## Resultat
+## Results
 
 **Builds on:** no aborted implementation was found in the directory. `PREREG.md` and `PREREG.sha256` were frozen before the run. The model is based on the nodes `INT-CARDIORENAL-PRESSURE-AXIS`, `ORG-KIDNEY-NEPHRON`, `MODEL-RAAS-BLOOD-PRESSURE`, `MODEL-ARTERIAL-WINDKESSEL`, `SYS-BAROREFLEX-AUTONOMIC` and `scripts/msk/renal_filtration.py`, `nephron_transport_cell.py`, `raas.py`, `baroreflex.py`, `venous_return.py` and `fluid_compartments.py`. The segmented nephron model, full RAAS-kaskaden and pulse wave model were not rebuilt.
 

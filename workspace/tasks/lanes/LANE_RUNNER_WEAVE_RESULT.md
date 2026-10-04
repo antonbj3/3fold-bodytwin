@@ -1,4 +1,4 @@
-# LANE_RUNNER_WEAVE — resultat 2026-09-30
+# LANE_RUNNER_WEAVE — results 2026-09-30
 
 **The handover is complete:** [HANDOVER_BODYTWIN_LANE_RUNNER.md](external_research_path) is the next lane_runner session's collected entry point with context text, exact file lists, consensus, disagreements, input gaps, repair register, prioritized W00–W10 wave and the first five concrete steps.
 

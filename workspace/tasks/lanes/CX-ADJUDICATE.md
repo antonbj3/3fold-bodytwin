@@ -2,7 +2,7 @@
 
 Source: `results/CX-BOOKKEEP3/RESULTS.md` ("The swarm reproductions that DEVIATE", "Three recommended next steps").
 
-## 1. Adjudication (model hierarchy: a The swarm finding against reserve_worker/lane runner does not count until it has been verified by a stronger model)
+## 1. Adjudication (model hierarchy: a The swarm finding against swarm_worker/lane_runner does not count until it has been verified by a stronger model)
 For each pair below:
 - read the original and the reproduction, including the code and data in the packets;
 - recompute the disputed number with your OWN minimal code;
@@ -28,4 +28,4 @@ The gaps are in the CX-WHATIF2 curves (A369; points with 140/141 KKT; list in `r
 ## Deliverables
 `results/CX-ADJUDICATE/RESULTS.md` starting with `# CX-ADJUDICATE`: a verdict table plus the KKT gaps before/after, and results.json.
 
-lane runner has full permissions in the workspace.
+lane_runner has full permissions in the workspace.

@@ -1,4 +1,4 @@
-# LANE_RUNNER_ANALYSIS1 — oberoende resultat 2026-09-30
+# LANE_RUNNER_ANALYSIS1 — independent results 2026-09-30
 
 **Decision: deepen the existing designs; no quota on 300+ new objects.**
 Status: `LEVERERAD_ANALYS_MED_UPSTREAM_INDATA_GLAPP` , `PENDING_INDEPENDENT_REVIEW`
