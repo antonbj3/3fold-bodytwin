@@ -1,45 +1,34 @@
-# Styrning LANE_MPTP_PATHWAY_CEILING — efter r1
+# Styrning LANE_MPTP_PATHWAY_CEILING — efter r4
 
-## You settled the question and it went the wrong way.
-`verified_dispersion = SEM`, n = 10 per arm, sann SD = 4 × √10 = 12,649110640673518. Jag verifierade.
-My distribution gate felled SEM- the reading earlier today with a consensus 0,904 mot kravet 0,95, so
-The decision is not conclusive on published data. It is the right outcome and it should be in the title, not
-in a field.
+## I recalculated r4 and it holds
+From the four arm values per preparation (C/A/B/D), I reproduced both your columns with a closed
+form I derived myself: **the Bliss infarct is `A·B/C`** and **the union gap is `q = D − (A+B−C)`**.
 
-You also did what I asked for when reference observations are missing: specified the measurement. 24 djur per arm, 96 totalt,
-styrka 0,803I was recalculating. 2(1,96+0,84)²σ²/Δ² and received 22,8, that is 24 The speech is holding.
+| preparation | C/A/B/D | ceiling | `A·B/C` | you recorded | `q` | you recorded |
+|---|---|---|---|---|---|---|
+| healthy rat | 41/28/23/19 | 23 | 15,707317 | 15,7073 | +9 | +9 |
+| diabetic rat | 39/35/32/21 | 32 | 28,717949 | 28,7179 | −7 | −7 |
+| hyperglycemic Levo/CsA | 53/56/50/35 | 50 | 52,830189 | 52,8302 | −18 | −18 |
 
-## The one you found that weighs the heaviest and that you undersubscribed.
-`external_adverse_pmid = 16301224`: roof reading foretold 43,0 % of the risk range, measured combination
-27,0 %, residual **−16,0 procentenheter**The combination was BETTER than the ceiling.
-the counterfall to the roof hypothesis, not a side note; and `external_adverse_is_exact_target_pair = False`
-is precisely the delimitation that makes it useful instead of dismissed.
+Six numbers, six hits. The portable ceiling falls: the combination beats the best single treatment by 15 pp in the
+hyperglycemic preparation, and the new HG stratum gives Holm `.00693754`.
+
+## The obstacle, exactly
+Each individual p you report relies on approximate Welch inference, and **your own simultaneous
+t-box spans zero in all three preparations**: healthy [−21,8610; 39,8610], diabetic
+[−37,8610; 23,8610], Levo [−59,6571; 23,6…]. Thus: under the correction you yourself call
+strict, none of the three is decisive. More preparations under the same contract do not move that.
 
 ## Changed operation
-Two things, in order.
+Calculate backward instead of forward. From the published spreads (SD 4/2/10/4 pp for Levo,
+SEM and n = 6/arm for the mechanical ones), determine **which n per arm** is required for the simultaneous
+box to exclude zero for each preparation. One number per preparation, in animals per arm.
 
-1. **Determines how close the counterfall is.** What two procedures are there, they appear via mPTP, and is it
-   samma mekanismfamilj som postkonditionering plus NIM-811Is the answer yes is the roof hypothesis already
-   If the answer is no, tell me what makes the difference and why the difference matters.
+## Strongest control
+Additivity `q = 0`, thus exactly the hypothesis that `q` measures deviation from. It is the correct
+null hypothesis here, not "no effect".
 
-2. **Leta fler par av samma form i litteraturen**, thus published studies with all three arms:
-   procedure A, procedure B and combination. 32 entries and found zero EXAKTA. Vidga till
-   pairs where both procedures work via mPTP without being our two. Each such pair is a sample
-   on the roof hypothesis, and with three or four pairs, no new animal study needs to be run to determine whether:
-   shared roof is the rule or exception.
-
-It's cheaper than 96 animals and it tests the same batch.
-
-## Starkaste kontrollen
-Oberoende verkan, A·B/C, som ger 9,508 % mot takets 20,0 %. It is calculated and shall remain as:
-comparison in each pair you find.
-
-## Falsifierare
-Print before searching: how many pairs of residuals below zero fold the roof hypothesis? A counterfault is
-already found. If three out of four pairs show the combination better than the ceiling, the hypothesis is wrong as general
-rule, and that's the result.
-
-## Regler
-The dispersion measure shall appear in each field name from: — `_sem_pp` eller `_sd_pp`, aldrig bara `_pp`.
-This is the convention that almost cost us the decision. DOI eller PMID per par. Allt
-PENDING_INDEPENDENT_REVIEW.
+## Falsifier
+If no achievable `n` — say below 200 animals per arm — makes the box exclude zero at the
+published spreads, then the ceiling question is **not decidable from summary data**, and that is
+the result. Write it with the three n values as evidence instead of looking for a fourth preparation.
