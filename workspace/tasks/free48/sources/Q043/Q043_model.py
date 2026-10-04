@@ -167,7 +167,7 @@ def force_kernel(tau_s: float, dt: float):
     length = max(2, int(np.ceil(8.0 * tau_s / dt)))
     tau = np.arange(length + 1, dtype=float) * dt
     kernel = tau / (tau_s * tau_s) * np.exp(1.0 - tau / tau_s)
-    area = np.trapz(kernel, dx=dt)
+    area = np.trapezoid(kernel, dx=dt)
     return kernel / max(float(area), 1e-12)
 
 
@@ -459,7 +459,7 @@ def unit_check(p: Parameters):
     if p.electrode_half_separation_mm <= 0.0 or p.geometry_length_mm <= 0.0:
         raise ValueError("electrode geometry is invalid")
     kernel = force_kernel(p.force_tau_min_s, p.dt)
-    area = float(np.trapz(kernel, dx=p.dt))
+    area = float(np.trapezoid(kernel, dx=p.dt))
     if not math.isfinite(area) or abs(area - 1.0) > 0.02:
         raise ValueError("force kernel does not pass the unit-integral check")
     return {

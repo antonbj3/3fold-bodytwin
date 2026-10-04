@@ -321,7 +321,7 @@ def mass_balance_residual(
         excreted_water = float(states[cumulative_start + 1, -1])
     else:
         reabsorbed_water = 0.0
-        excreted_water = float(np.trapz(states[n_segments - 1, :] / residence[-1], times))
+        excreted_water = float(np.trapezoid(states[n_segments - 1, :] / residence[-1], times))
     initial_water = float(np.sum(initial_volumes))
     final_water = float(np.sum(final_volumes))
     water_residual = initial_water + filtered_water - reabsorbed_water - excreted_water - final_water

@@ -474,7 +474,7 @@ def t90_cluster(R, D, c_target=0.9, n=20001):
     so t_target is found by bisection.  [s]"""
     r = np.linspace(0.0, R, n)
     def fill(t):
-        return 3.0 / R ** 3 * np.trapz(
+        return 3.0 / R ** 3 * np.trapezoid(
             r ** 2 * erfc((R - r) / (2.0 * np.sqrt(D * t))), r)
     lo, hi = 1e-12 * R ** 2 / D, 400.0 * R ** 2 / D
     for _ in range(80):

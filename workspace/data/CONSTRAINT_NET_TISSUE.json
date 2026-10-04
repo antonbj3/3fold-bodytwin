@@ -1067,6 +1067,56 @@
             1,
             6
           ]
+        },
+        {
+          "id": "tubular_secretion_blocked_fraction",
+          "unit": "1",
+          "level": "organ",
+          "domain": "renal_transport",
+          "plausible_range": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": "filtration_marker_change_fraction",
+          "unit": "1",
+          "level": "organ",
+          "domain": "renal_transport",
+          "plausible_range": [
+            -1,
+            1
+          ]
+        },
+        {
+          "id": "implied_unbound_inhibitor_uM",
+          "unit": "uM",
+          "level": "CELL",
+          "domain": "renal_transport",
+          "plausible_range": [
+            0.0001,
+            100
+          ]
+        },
+        {
+          "id": "critical_deposition_efficiency",
+          "unit": "1",
+          "level": "CELL",
+          "domain": "complement",
+          "plausible_range": [
+            1e-05,
+            1
+          ]
+        },
+        {
+          "id": "convertase_turnovers_per_lifetime",
+          "unit": "1",
+          "level": "CELL",
+          "domain": "complement",
+          "plausible_range": [
+            1,
+            1000
+          ]
         }
       ],
       "edges": [
@@ -3440,6 +3490,38 @@
           "evidence_mtime_at_last_check": 1791083026.685,
           "last_checked_status": "OK",
           "evidence_note": "the first version of this edge carried a hand-typed value, 3.0348405976205284, which the staleness checker rejected against the file's 3.0351684331766617; the number is now read from the file"
+        },
+        {
+          "id": "ASM-E0013",
+          "between": [
+            "tubular_secretion_blocked_fraction",
+            "filtration_marker_change_fraction"
+          ],
+          "constraint": "Splitting renal clearance into filtration and secretion turns three measured numbers into a verdict: metformin secretion is blocked 0.5561 while the non-secreted filtration marker moves -0.62 percent, so a creatinine rise under this inhibitor is a marker artefact and not a loss of filtration. The route is separated too: OCT2 would need 109 times the unbound concentration that MATE2-K needs.",
+          "status": "TIGHT",
+          "evidence": "results/ASSEMBLY_RENAL_SECRETION/decision.json :: secretion_blocked_fraction = 0.556095804069872",
+          "provenance": "tasks/assembly/renal_secretion_decision.py from CONSUMABLE.json READ-A002, A003, A009 and the IC50 rows; external facit PMID 32989831, DOI 10.1002/jcph.1750",
+          "quantity_identity_reason": "Both names describe the same two renal processes measured in the same subjects in the same study arm.",
+          "executed_check": "equally informed control is creatinine-based eGFR, which has the same creatinine and no transporter term; the facit is the iohexol clearance",
+          "review_state": "PENDING_INDEPENDENT_REVIEW",
+          "evidence_mtime_at_last_check": 1791083312.334,
+          "last_checked_status": "OK"
+        },
+        {
+          "id": "ASM-E0014",
+          "between": [
+            "convertase_turnovers_per_lifetime",
+            "critical_deposition_efficiency"
+          ],
+          "constraint": "One alternative-pathway convertase cleaves 115.6 to 231.1 C3 molecules before it decays (bracketing every substrate level from C3 at Km to saturation), so a quiescent surface must keep deposition efficiency per cleaved C3 below 0.433 to 0.865 percent. Decay of the convertase cannot supply that by itself, so an active regulator is necessary rather than merely helpful. Which initiation route starts the loop changes amplification by only 16.9 percent and does not decide it.",
+          "status": "OPEN",
+          "evidence": "results/ASSEMBLY_COMPLEMENT_AMPLIFICATION/decision.json :: critical_deposition_efficiency_saturating = 0.004326761426716262",
+          "provenance": "tasks/assembly/complement_amplification_decision.py from CONSUMABLE.json rows READ-A035 to READ-A039",
+          "quantity_identity_reason": "Both names describe the same amplification loop: cleavages produced by one convertase and the fraction of them that may become new convertases.",
+          "executed_check": "the equally informed control is the reading in which the measured half-lives and the decayed-Bb activity decide alone; it predicts quiescence at every substrate level and the turnover number refutes it",
+          "review_state": "PENDING_INDEPENDENT_REVIEW",
+          "evidence_mtime_at_last_check": 1791086370.346,
+          "last_checked_status": "OK"
         }
       ],
       "stress_points": [

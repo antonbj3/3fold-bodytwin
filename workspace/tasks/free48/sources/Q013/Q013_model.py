@@ -156,7 +156,7 @@ def parameter_table(p: Parameters) -> list[dict[str, Any]]:
 def _trapezoid(values: np.ndarray, time_h: np.ndarray) -> float:
     trapezoid = getattr(np, "trapezoid", None)
     if trapezoid is None:
-        trapezoid = np.trapz
+        trapezoid = np.trapezoid  # np.trapz was removed in numpy 2.4.1; the name is the only change
     return float(trapezoid(values, time_h))
 
 

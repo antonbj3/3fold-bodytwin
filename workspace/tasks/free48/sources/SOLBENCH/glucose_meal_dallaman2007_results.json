@@ -1,0 +1,117 @@
+{
+  "citation": {
+    "pmid_2007": "17926672",
+    "pmid_2006_gut": "17153204",
+    "biomodel": "BIOMD0000000379"
+  },
+  "basal_diag": {
+    "Gp_b_guess": 178.6,
+    "Gt_b_guess": 137.36790216262244,
+    "dIp_check_analytic": 0.8665421,
+    "equilibration_drift_mgkgmin": 0.0,
+    "G_equilibrated": 94.94182111391892,
+    "gap_equilibrated_vs_Gb_pct": -0.061240932716926676,
+    "Ipo_equilibrated": 3.5872006450621625,
+    "Ipo_identity_target": 3.6,
+    "Ip_equilibrated": 1.5198610106809398,
+    "Ip_identity_target": 1.25
+  },
+  "scenario1_basal_drift_pct": {
+    "lo": -0.061240932716926676,
+    "hi": -0.061240932716926676
+  },
+  "scenario2_3_dose_response": {
+    "50": {
+      "G_peak": 140.6830608641519,
+      "G_peak_t": 75.0,
+      "I_peak": 161.76020277260847,
+      "I_peak_t": 89.0,
+      "G_120": 132.1820749710935,
+      "G_240": 100.85755831720837
+    },
+    "75": {
+      "G_peak": 160.89171579295535,
+      "G_peak_t": 70.0,
+      "I_peak": 245.33609432634583,
+      "I_peak_t": 84.0,
+      "G_120": 144.20526793312135,
+      "G_240": 101.28430993880987
+    },
+    "100": {
+      "G_peak": 179.79645757689914,
+      "G_peak_t": 66.0,
+      "I_peak": 337.74994203173355,
+      "I_peak_t": 81.0,
+      "G_120": 152.68399679093238,
+      "G_240": 101.49341637446493
+    }
+  },
+  "scenario4_egp_suppression_pct": {
+    "40": 33.86057685641762,
+    "50": 40.84520231861217,
+    "60": 47.58136927051477,
+    "75": 57.299892784142,
+    "100": 72.72334174289064
+  },
+  "scenario5_t1d": {
+    "fasting_Gp_over_VG": 247.19928732184974,
+    "fasting_drift_check": 2.6716406864579767e-12,
+    "meal_peak_G": 414.17755888276747,
+    "meal_peak_t": 254.0
+  },
+  "scenario6_t1d_pump": {
+    "a_bolus_alone": {
+      "G_at_502": 228.01352114298112,
+      "G_at_600": 230.23203113736403,
+      "min_G": 227.97478351061676
+    },
+    "b_bolus_plus_basal": {
+      "cross_below_200_t": 190.0,
+      "G_at_600": 137.77707599812118
+    }
+  },
+  "recorded_original_claim": {
+    "drift_lo": -0.35,
+    "drift_hi": 0.92,
+    "G_peak_75": 161.6,
+    "I_peak_75": 248.7,
+    "G120_75": 144.7,
+    "G240_75": 101.4,
+    "Gpeak_50": 141.5,
+    "Gpeak_75": 161.6,
+    "Gpeak_100": 180.5,
+    "egp40": 30.6,
+    "egp50": 37.2,
+    "egp60": 43.6,
+    "egp75": 52.8,
+    "egp100": 67.4,
+    "t1d_fasting": 246.2,
+    "t1d_meal_peak": 413.5,
+    "a_end600": 214.7,
+    "a_never_below_200": true,
+    "b_cross200": 276.0,
+    "b_end600": 136.5
+  },
+  "gates": {
+    "basal_drift_band": true,
+    "healthy75_Gpeak": true,
+    "healthy75_Ipeak": true,
+    "healthy75_G120": true,
+    "healthy75_G240": true,
+    "doseresp_50_Gpeak": true,
+    "doseresp_75_Gpeak": true,
+    "doseresp_100_Gpeak": true,
+    "egp_supp_40": false,
+    "egp_supp_50": false,
+    "egp_supp_60": false,
+    "egp_supp_75": false,
+    "egp_supp_100": false,
+    "t1d_fasting_Gp": true,
+    "t1d_meal_peak": true,
+    "t1d_bolusalone_end600": false,
+    "t1d_bolusalone_never_below_200": true,
+    "t1d_bolusbasal_cross200": false,
+    "t1d_bolusbasal_end600": true
+  },
+  "required_gates_overall_pass": false
+}

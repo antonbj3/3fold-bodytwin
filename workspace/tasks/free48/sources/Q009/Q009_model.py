@@ -155,7 +155,9 @@ def plasma_curve(time_h: Sequence[float]) -> np.ndarray:
 
 
 def _auc(time_h: np.ndarray, values: np.ndarray) -> float:
-    trapezoid = getattr(np, "trapezoid", np.trapz)
+    # getattr evaluates its default eagerly, so naming the removed np.trapz as the fallback
+    # raised the very AttributeError the getattr was written to avoid.
+    trapezoid = getattr(np, "trapezoid", None) or getattr(np, "trapz")
     return float(trapezoid(values, x=time_h))
 
 

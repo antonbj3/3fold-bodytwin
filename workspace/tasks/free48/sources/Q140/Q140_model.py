@@ -313,7 +313,7 @@ def summarize(y: np.ndarray, t: np.ndarray, p: ModelParameters, water_in: list[f
     terminal_secretion = sum(item["j_mate_mg_min"] for item in details) / c_p
     terminal_reabsorption = sum(item["j_reabs_mg_min"] for item in details) / c_p
     terminal_clearance = terminal_filtration + terminal_secretion - terminal_reabsorption
-    auc = float(np.trapz(y[:, STATE_AP] / (p.plasma_volume_l * 1000.0), t))
+    auc = float(np.trapezoid(y[:, STATE_AP] / (p.plasma_volume_l * 1000.0), t))
     urine_mass = float(terminal_state[STATE_URINE_MASS])
     summary: dict[str, Any] = {
         "initial_plasma_concentration_mg_l": float(y[0, STATE_AP] / (p.plasma_volume_l * 1000.0)),

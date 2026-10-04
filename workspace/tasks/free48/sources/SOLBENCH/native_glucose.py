@@ -401,7 +401,7 @@ def egp_suppression_pct(D, y0, secretion_gain=1.0, use_ke=True):
     EGP = np.maximum(P["kp1"] - P["kp2"] * Gp - P["kp3"] * Id - P["kp4"] * Ipo, 0.0)
     mask = (t >= 28.0) & (t <= 240.0)
     EGP_b = P["kp1"] - P["kp2"] * (P["G_b"] * P["V_G"]) - P["kp3"] * P["I_b"] - P["kp4"] * (P["S_b"] / P["gamma"])
-    auc_actual = np.trapz(EGP[mask], t[mask])
+    auc_actual = np.trapezoid(EGP[mask], t[mask])
     auc_basal = EGP_b * (t[mask][-1] - t[mask][0])
     supp_pct = (1.0 - auc_actual / auc_basal) * 100.0
     return supp_pct
