@@ -1,71 +1,36 @@
-# Styrning r17 — back to the tissue; the thermometry of an enzyme assay is not the lan's question
+# Styrning LANE_LASER_SURGERY — efter r52
 
-## Hindret, ur din egen r16
-the validation gate stands **FAIL** And it's honestly reported, so don't start defending the game.
-surgery was: measured protein blank → bindningstemperaturkvitton → polarisation and
-elimination of reinforcement → archived mDH source → rejected false acceptance.
-**instrumentvalidering i en enzymassay**, and the next step you suggest is a 460 nm-mottagarstandard.
+## The strongest number of the round is a precise witness of inadequacy
+I checked it: with `q = (1/2, −1/2)` — a sum that is exactly zero — and `S_N = Y = 0`
+exactly, the source emission is **0 against 4/3 Pa·s**, and the declared threshold 2/3 is exactly in the middle
+between. Two configurations with IDENTISK summary thus end up on separate sides of the decision,
+and that is exact, not statistical. `summary_sufficiency_gate = FAIL_AGGREGATE_ECHO_AND_TERMINAL_SUM`
+is thus correctly set, and the witness is what should be in the title, not 15 413 instances without counterexamples.
 
-Lanen's question is laser surgery: how a delivered dose changes tissue. Fourteen files in `r16/` tubes of tissue;
-ablation or fluence, so the contact is available — but the round's work went to an analysis chain whose only
-The result is that an incorrect temperature can be rejected. Your own obstacle line says it straight out: *"additional
-orientation information rejects wrong answers but does not validate T."*
+In addition, the aggregate systematically underestimates: **14 412 of 15 413 positive instances (93,51 %)**
+strictly exceeds the homogeneous aggregate. An aggregate that underestimates in 93,5 % of the cases is not
+conservatively, it is wrong in one direction, and it should be said with that number.
 
-And it's connected to the night's correction in the resolution slot: the old heat dose 10 µm-results are
-numerically under its old law, and the latest skin comparison **avvisar absolut temperatur** medan
-normalized form is still descriptive. Absolute temperature is thus the quantity missing in two
-lanes samtidigt.
+## The pattern you are third place for tonight
+Three independent chains showed last night the same structure: a favorable number that rests on a blackout
+KEPT. Your title says it itself ("sharp endpoint bounds only after spatial cancellation is
+retained"); our own toric system margin is certified on ρ = −0,796 and becomes 1,65× worse if a
+steps are repaired; and a swarm job measured aggregate underestimates of 1,90–2,74× for the same reason.
+The test that reveals it is the same in all three: disrupt or repair the EN component and see if
+the aggregate grows. Run it on your own limits and report the direction.
 
-## The operation this round
-1. **Switch reading from temperature to threshold.** Absolute temperature is unbound in two independent lanes;
-   To keep chasing it is to refine a cliff. **the fluency ablation threshold; J/cm², is however
-   externt dokumenterad** for the usual clinical wavelengths. Find a published threshold for a tissue
-   We already model, compare with our chain prediction and report the deviation as a number.
-   Form C with a real reference observations, which is what the lane needs.
-2. **And if no matched published threshold exists for our tissue: say it as an acquisition post** med
-   Quantity, unity and what it determines, in the same form as the entries in `notes/ACQUISITION_TARGETS.json`Then is.
-   The round is still ready, because it has moved an unknown thing from diffuse to orderable.
-3. **Keep the normalized form as it is.** It still describes how the dose is also distributed
-   when the absolute level is not certified, and it is useful for surgical planning of margins.
-   Print out what it's good for and what it's not good enough for.
+## Hindret, dina egna ord
+"Gain remains PHENOMENOLOGICAL, owing actual PVDF charge/polarization, capacitance/load and force
+reference." Three measurements that are all on a bench sheet, not in an article. List them by unit
+and order of magnitude so that the next acquisition can be targeted; `native_echo_origin_gate =
+UNKNOWN_NOT_REGISTERED` is the fourth.
 
-## Strongest control and falsifiers
-- **Kontroll:** practice without the new source information, i.e. the frozen r15- Calibration. The lane is a
-  information link and not an algorithm, so the control should be less informed — not equivalent
-  informerad.
-- **Falsifierare:** if our chain hits the published fluence threshold only after a free parameter
-  adjusted it is a pass and not a test. Declare each free parameter before the comparison and
-  frys den.
-- **Forbidden:** another set of assay-internal instrument validation; to report a temperature of:
-  validated when: physical_gate stand UNKNOWN; to draw the threshold from our own cells and call it external.
+## Strongest control
+The same 15 413 instances with the extinction BORTTAGEN (q set to (1/2, 1/2) or equivalent
+non-cancelling pairs). If the sharp boundaries disappear, the sharpness is a property of the witness and
+not with physics, and that is a result.
 
-## APPENDIX — the external reference observation you lack exists, and it is better targeted than the fluence threshold
-`source_repository/data/tissue_lit_refs/measurements.pbm_thermal_confound.jsonl` (readable;
-skrivskyddad) berries **25 entries whose property name IS your question**, i.e. if the power is thermal at all:
-`thermal_clamp_invariance_of_light_effect`, `matched_heating_does_not_reproduce_light_effect`,
-`matched_heating_produces_opposite_effect`, `effect_with_no_detectable_temperature_rise`,
-`brain_temperature_null_at_high_irradiance`, `within_experiment_dT_effect_inversion`,
-`heat_x_light_factorial_on_collagen`.
-
-The items carry `prop`, `value`, `unit`, `tissue`, `year` and a verification tag, and the tags are
-primary sources: **13 VERIFIED_PRIMARY_ABSTRACT_XML med PMID identity assured against: XML-elementet, 5
-VERIFIED_PRIMARY_FULLTEXT_XML, 5 COMPUTED_FROM_VERIFIED_INPUTS, 1 Omlc primary table.** Exempel:
-`thermal_clamp_invariance_of_light_effect` = 2,3 percentage points wound closure at 14 day, squeezed minus
-bleam. The same directory also has 236 optical records with units; and DOI, bland dem
-`mu_a` = 3,2665 cm⁻¹ for whole blood at 630 nm vid hematokrit 0,45.
-
-**This is matched heating as control, i.e. exactly the equally informed control our
-classification requires:** — And it's stronger targeted than the ablation threshold I suggested above.
-1Read them. 25 The entries, choose those who have a number with unity, and set the prediction of our chain against them.
-2. **Skilj de fyra verifieringsklasserna i rapporten.** En COMPUTED_FROM_VERIFIED_INPUTS-post is not a
-   measurement; a PMID-verified abstract record is. Count them separately.
-3. **And declare each free parameter before comparison**, otherwise it's a pass.
-
-**Forbidden in this directory:** konsumera eller citera poster som namnger en apparat, en enhet eller
-a target tissue analogue of a private character — stick to tissue generic optics and thermics.
-contain such items and they do not leave the machine.
-
-## OBLIGATORISKT FILTER — read tasks/build_night/LIT_REFS_FILTER.md before the first entry
-Two files in `tissue_lit_refs` are not used at all, and the other eight are read with row filters. After the filter
-remaining 549 of 671 records. Your lane loses almost nothing: the thermal file has an affected entry of 25 and
-bend/stretch file zero of 62. Report how many records the filter removed.
+## The falsifier
+If the aggregate underestimation holds in one direction even without extinction, it is a property of
+the aggregate and can be corrected by a factor. If it only sticks to extinction, it cannot be corrected
+at all, and then the unit must not be used. Print which before driving.
