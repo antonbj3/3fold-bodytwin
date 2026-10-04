@@ -47,3 +47,28 @@ weak — the known 3-of-8 frequency says zero is wrong. If you find 35 the thres
 ## Rules
 The dispersion measure in every field name: `_sd`, `_sem` or `_unknown`, never just a number. DOI or
 PMID where the source is published. Everything PENDING_INDEPENDENT_REVIEW.
+
+
+## Appendix 2026-10-04 18:0x — The classification cannot be done with pattern matching
+I tried to classify the gate type of the cells mechanically and failed three times.
+**acceptance criteria are written in at least four conventions** over 45 celler.
+
+| konvention | antal | exempel |
+|---|---|---|
+| engelsk prosa | 21 | MITOSTRESS, Q005, Q019 |
+| svensk prosa | 14 | Q009, Q013, Q017 |
+| G-etiketterade grindar | 2 | Q012, Q014 |
+| **ingen prereg-fil alls** | **8** | BIORESP, COMPLEMENT_DISCRIMINATION, CORNEA_SCATTER, IMMUNITY |
+
+Q012 says, for example, "G4 FAIL and H3 already in force in the Protocol" and "ska missa G1" — ett
+frozen criterion, but without a single English keyword. My regex saw nothing.
+
+**You're supposed to read, not match.** One cell at a time, the criterion in plain text, and the classification written out with
+quotes from the criterion so that the next reader can check it.
+
+De 8 without prereg is a more severe problem than a scalar gate: **a cell without a printed criterion may:
+Don't fall.** Den ska bokas som `NO_FROZEN_CRITERION` and not as approved, and it's one of its own
+results regardless of what the distribution gate says about the others.
+
+My rating code is in `tasks/assembly/classify_cell_gates.py` med alla tre felstegen
+commented. Use it as a warning, not as a tool.
