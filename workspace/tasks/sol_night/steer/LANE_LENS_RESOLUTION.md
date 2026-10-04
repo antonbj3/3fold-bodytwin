@@ -51,3 +51,25 @@ antagande — Print out which one.
 the width of the nominal range; 13,8307–13,9886 pm, is 0,1580 pm = 1,136 % of the central value.
 Tell me if it is the spread of the instrument or a rounding margin; i r3-familjen visade sig den
 the type of band be publication rounding and not measurement.
+
+
+## Additions after r35 — ditt `original20_MAE_D` is our speech in one ANNAT PLAN
+Du rapporterar `original20_MAE_D = 0,46964585301214334` med `within025 = 7` and `within050 = 13`.
+Monteringskedjan `iol_decision.py` gives on the same 20 Eye disorders MAE **0,688330** med inom 0,25 = 6 and within
+0,50 = 12. It looks like a contradiction and is it not: I am recalculating our fault to
+THE GLASSING PLAN with each eye's own `sensitivity_dR_dP` become ours MAE **0,47844553**, that is 1,87 %
+from your speech, and the tapes 8 respektive 12 mot dina 7 and 13.
+
+So... 0,4696 and 0,6883 is the same result in two different planes. Your field name does not carry a plane, and our
+did not state it either. This is the fourth convention collision in this project within one day — axel,
+meridian, plane, and magnitude against vector — and all four have the same form: two numbers read as
+comparable because the names do not bear the Convention.
+
+**Operation:** Name each dioptri field so that the plane is in the name
+(`..._lens_plane_D` / `..._spectacle_plane_D`), and specify the sensitivity used per eye.
+kvarvarande 1,87-percentage difference is then all that needs to be explained, and it is small enough to
+be the route to the production grid or another source of sensitivity — skriv ut vilken.
+
+Two numbers from r33 unchanged in r35: `native_temperature_FWHM_K` and `nominal_FWHM_pm`. Min
+Unit question from the tick is thus unanswered — the two can only be converted with an effective wavelength;
+and 13,90896 pm svarar mot 0,154544 K first at 1137,94 nm.
