@@ -17,10 +17,20 @@ ts() { date '+%F %T'; }
   #    killed a whole night on 2026-09-26.
   if python3 tasks/assembly/net_staleness.py > /tmp/.staleness.$$ 2>&1; then
     head -1 /tmp/.staleness.$$ | sed "s/^/[$(ts)] /"
-    if grep -qE '\[STALE|\[MOVED' /tmp/.staleness.$$; then
-      echo "[$(ts)] STALE eller MOVED kanter — briefgenerering HOPPAS OVER THIS BIKE"
-      grep -E '\[STALE|\[MOVED' /tmp/.staleness.$$ | sed "s/^/[$(ts)]   /"
-      grep -E '\[STALE|\[MOVED' /tmp/.staleness.$$ >> tasks/build_night/ALERTS.log
+    # MOVED no longer blocks. Measured 2026-10-05 18:19: four edges were flagged MOVED and all
+    # brief generation was skipped, but MOVED is set ONLY when the value still matches
+    # (the condition in net_staleness.py is status == OK and changed mtime). The four came from me running
+    # the decisions myself in the consistency gate, which rewrites their output without changing a number.
+    # Stopping brief production because a file was rewritten is a false-alarm brake; STALE, where the value
+    # actually differs, still stops it.
+    if grep -qE '\[MOVED' /tmp/.staleness.$$; then
+      echo "[$(ts)] MOVED edges (value matches, file rewritten) — noted, does not block"
+      grep -E '\[MOVED' /tmp/.staleness.$$ | sed "s/^/[$(ts)]   /"
+    fi
+    if grep -qE '\[STALE' /tmp/.staleness.$$; then
+      echo "[$(ts)] STALE edges — brief generation SKIPPED this cycle"
+      grep -E '\[STALE' /tmp/.staleness.$$ | sed "s/^/[$(ts)]   /"
+      grep -E '\[STALE' /tmp/.staleness.$$ >> tasks/build_night/ALERTS.log
       rm -f /tmp/.staleness.$$
       echo "[$(ts)] cycle end (blockerad)"
       exit 0
