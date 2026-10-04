@@ -22,7 +22,18 @@ cap = int(args[args.index('--max') + 1]) if '--max' in args else 60
 now = time.time()
 
 rows = []
-for r in list(STORE.glob('*/RESULTS.md')) + list(Path('./results').glob('BT-XSEED-*/RESULTS.md')):
+# 2026-10-04 morning: this glob listed STORE plus ONE workspace family (XSEED), so the creative
+# jobs built from our own net -- BT-NET, BT-CONN, BT-OBST, BT-CAP, BT-IDEA, BT-ANOM, BT-2ND -- were
+# invisible to every scan for twelve hours. 383 of their directories existed, 375 had a RESULTS.md
+# and all 375 carried a DOI or PMID, while every report I opened came from STORE and was therefore
+# chain-internal. The swarm was not idle and was not self-recursing; the scanner was reading the
+# wrong directory. Families are listed explicitly rather than globbed as BT-* so that a new family
+# has to be added deliberately instead of silently joining or silently missing.
+_WS = Path('./results')
+_FAMILIES = ('BT-XSEED-', 'BT-NET-', 'BT-CONN-', 'BT-OBST-', 'BT-CAP-', 'BT-IDEA-', 'BT-ANOM-',
+             'BT-2ND-')
+_ws_reports = [q for fam in _FAMILIES for q in _WS.glob(fam + '*/RESULTS.md')]
+for r in list(STORE.glob('*/RESULTS.md')) + _ws_reports:
     try: m = r.stat().st_mtime
     except Exception: continue
     if m <= since: continue
