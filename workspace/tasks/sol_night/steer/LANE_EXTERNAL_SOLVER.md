@@ -1,53 +1,35 @@
-# LANE_EXTERNAL_SOLVER — the interoperability seed, now that a real external solver exists here
+# Styrning LANE_EXTERNAL_SOLVER — efter r25
 
-Result directory `results/LANE_EXTERNAL_SOLVER/`.
+## Hindret, med lanens egna ord
+`age_observed = False`, `age_inferred_from_prefix = False`, `repayability_axis =
+CHRONOLOGY_MEASUREMENT_DEBT; SIX_OUTPUTS_ALONE_DO_NOT_SUPPLY_AGE`. Hela r25:s certificate rests on
+an age that none of the six exits can determine. I read the bisection of `age_stress_r25.py`
+rad 24–31 and verified direction towards `AGE_STRESS_R25.json`: 280,3 / 400 / 600 / 900 s FALLER,
+1790 s PASSERAR; and `hi` held on the passing side — Thus, the certificate applies to:
+**age ≥ 1088,1966 s**, en NEDRE border. Field name `sufficient_age_upper_s` states the opposite. Nothing
+consumes the field yet (zero hits in taks/ and in the net); and RESULTS-the section prints both
+the end points correctly, so it's a name error and not a bug reported number — but renamed it to
+`sufficient_age_lower_s` and add the direction as a custom field in the next round.
+Bracketbredden 0,00576 s is exact 1509,7/2¹⁸, i.e. the disintegration of the bisection, not a measured sharpness; say
+that in the artifact so that no one reads it as a measured threshold.
 
-## Why this lane exists now and could not before
-The operator's first seed is that external biology models should be connectable so that more questions
-become askable. Its blocker has been that interoperability was never actually tested: one solver
-connection was rejected at 0 % valid frames, and FEBio was closed without ever being run. I checked why:
-**FEBio is not installed on this machine and no finite-element solver was available at all** — the
-inventory found gmsh, trimesh and scipy, which mesh and manipulate but do not solve.
+## Changed operation
+The debt shall be either paid or eliminated, and there are two different structures:
+1. **Betala**: find an observant that determines the age from what is actually measured, not from the prefix.
+   Then the certificate will be dimensioned instead of conditional.
+2. **Eliminera**: to construct a certificate that holds: UNIFORMT over the whole range
+   [280,3 s, 1790 s] instead of pointwise at an age. Keeping it, the age issue is gone from
+   the forecast and the debt no longer exist.
 
-That is now fixed. `scikit-fem` 12.0.2 is installed and verified by assembling a linear-elasticity
-stiffness matrix on a refined tetrahedral mesh: 345 degrees of freedom, 10 383 non-zeros. It is a pure
-Python finite-element solver with no system dependencies, developed independently of this project, which
-is exactly what an interoperability test requires — **an independent implementation, not a second copy
-of our own assumptions.**
+Route 2 is he who builds something that does not exist. Do it first, and let go 1 bli falsifieraren:
+If there is no uniform margin, age is a necessary measurement and it is a result in itself.
 
-## Do this
-1. **Pick one quantity that one of our cells already computes and that a finite-element solver can also
-   compute.** Tissue stiffness response is the natural candidate: the literature collection's
-   bending-versus-stretch file has 62 records with the unit *ratio (bending/stretch at matched peak
-   tensile strain)* and a computed floor of 0.25 at a strain of 0.1 for pure bending with the neutral
-   axis at mid-wall. Our own fibril and collagen cells carry the same kind of quantity.
-2. **Compute it both ways and report the deviation.** Ours, the external solver's, and the published
-   record. Three numbers for one quantity. State the mesh and the element order the external result used,
-   and its convergence under one refinement — an external number without its discretisation is not
-   better than ours just because it came from elsewhere.
-3. **The deliverable is the INTERFACE, not the agreement.** Write down exactly what had to be supplied to
-   make the external solver answer our question: geometry representation, material law, boundary
-   conditions, units. That list is the interoperability result, because it is what any future external
-   model will have to be given. Count the items and name the ones we could not supply from our own cell.
-4. **Then say which NEW questions become askable.** The seed is not about reproducing a number we have;
-   it is about questions we cannot pose today. Name three concretely, with the quantity and unit each
-   would deliver, and mark which of the three the installed solver can already answer.
+## Starkaste kontrollen
+Equivalently informed: same observations, same forcering, same band — men prognosen tagen med
+the old history replayed. The ability only counts if it matches without replay. `claim_type` is
+`capability`, so the control should be the more expensive way that already works, not another method.
 
-## Control and falsifier
-- **Control:** our own cell's value for the same quantity, at its current resolution. The comparison is
-  an information link, not an algorithm contest — neither implementation is a facit for the other, and
-  the published record is the only external reference.
-- **Falsifier:** if the external solver cannot be given our question without inventing a material law or
-  a boundary condition that our cell does not contain, then the interface is the missing piece rather
-  than the solver, and the honest result is the list of what is missing. That would be a more useful
-  outcome than agreement, and it must be reported as the headline.
-- **Forbidden:** calling agreement a validation — an independent implementation of the same assumptions
-  agreeing with us is a consistency check, not evidence about tissue; tuning either side to match the
-  other; reporting the external number without its mesh and convergence.
-
-## Delivery
-`PORT.json` with the three numbers for one quantity, the external solver's mesh, element order and
-refinement check, the itemised interface list with the unsuppliable items named, and the three new
-questions with units.
-
-No internal data. Everything PENDING_INDEPENDENT_REVIEW.
+## Falsifieraren
+Print before driving which uniform margin lowers road 2. `verification_failures = 0`
+and 1 547 approved assertions are not a gate until a deliberately broken age falls: insert
+negative control in the same run and state that it falls.
