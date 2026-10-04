@@ -3577,14 +3577,15 @@
      "status": "OPEN",
      "evidence": "results/ASSEMBLY_LOAD_LABEL_SWEEP/SWEEP_V1.json :: edges_with_a_product_below_its_stated_load = 8; computed by tasks/assembly/load_label_sweep.py",
      "branches_opened": [
-      "what fraction of the 1000 N the FE sub-region carries according to the FE itself, not inferred from area times peak",
-      "is the concentration factor 1.485 a property of the partial-meniscectomy geometry or of the measurement window",
-      "why the published whole-versus-local force factor spans 2.08 to 628.6, and which end our rows sit at",
-      "what measurement would make a peak validation row eligible, given that zero published rows qualify"
+      "which of the three labels is wrong, tested one at a time against the inequality kappa >= 1",
+      "the joint total contact area A_joint, which the factorisation needs and no row states",
+      "the local shape factor p_rep/p_mean_joint separately from the area fraction, since only their product was measured",
+      "whether any published meniscus row anywhere satisfies kappa >= 1, which would show what a correctly labelled triple looks like"
      ],
      "owner_lane": "LANE_MENISCUS_LOAD_LABEL",
      "review_state": "PENDING_INDEPENDENT_REVIEW",
-     "refuted_2026_10_04_r1": "the coordinator's explanation -- that the 1000 N label was imported from the neighbouring experimental row -- is REFUTED. The original FE Methods states explicitly that a 1000 N axial load was applied, so the load is a genuine source boundary condition and the reported area and peak simply do not describe the whole contact. The common share f = 0.137125 therefore stands as a description of four rows at one condition, not as a transferable constant: tested against Baratz partial meniscectomy it fails. Area alone predicts a peak ratio of 1/0.9 = 1.1111111111111112 while Baratz reports about 1.65, a relative point error of 0.3265993265993266, and reconciling them needs a concentration factor of 1.485 on top -- all three reproduced by this coordinator from the two source numbers. The experimental concentrations 3.45 (intact) and 3.12 (total meniscectomy) are arithmetic summaries of observations and do not establish an intervention-invariant shape. No external row qualifies to validate the peak: external_eligible_peak_validation_rows = 0, and the published whole-versus-local force factor spans 2.0754691213987133 to 628.590825088317"
+     "refuted_2026_10_04_r1": "the coordinator's explanation -- that the 1000 N label was imported from the neighbouring experimental row -- is REFUTED. The original FE Methods states explicitly that a 1000 N axial load was applied, so the load is a genuine source boundary condition and the reported area and peak simply do not describe the whole contact. The common share f = 0.137125 therefore stands as a description of four rows at one condition, not as a transferable constant: tested against Baratz partial meniscectomy it fails. Area alone predicts a peak ratio of 1/0.9 = 1.1111111111111112 while Baratz reports about 1.65, a relative point error of 0.3265993265993266, and reconciling them needs a concentration factor of 1.485 on top -- all three reproduced by this coordinator from the two source numbers. The experimental concentrations 3.45 (intact) and 3.12 (total meniscectomy) are arithmetic summaries of observations and do not establish an intervention-invariant shape. No external row qualifies to validate the peak: external_eligible_peak_validation_rows = 0, and the published whole-versus-local force factor spans 2.0754691213987133 to 628.590825088317",
+     "dissolved_2026_10_04_by_swarm": "BT-NET-MENISCUS-PATCH-SHARE-VS-STATED-AXIAL-LOAD-cee485 recomputed this coordinator's arithmetic exactly -- products 132.0, 168.0, 115.5, 133.0, mean 137.125000 N -- and then refuted the interpretation. The quantity is not a load share. Writing kappa = A_rep * p_rep / W it factorises exactly into (A_rep/A_joint) * (p_rep/p_mean_joint), an area fraction times a local shape factor. So the question this edge asked -- fixed share because it is a sub-region, or artefact of segmentation -- is a false dichotomy: both branches return the SAME kappa, because the product of one anatomically set factor and one segmentation set factor is kappa either way. And the hard result: since W = integral p dA <= p0 * A, kappa = p0*A/W >= 1 ALWAYS. Our four values are 0.1155 to 0.168, all below 1, so the three numbers are provably not the triple (peak pressure, total contact area, total load) -- one of the three labels is wrong, with no model needed to say so. That is stronger than the plausibility argument this edge carried"
     },
     {
      "id": "T-E24-reference_precision-vs-absolute_margin_goals",
@@ -3646,6 +3647,28 @@
      "falsifier_refuted_2026_10_04": "the falsifier in this edge -- slope about 0.5 that saturates against a pure diffusion model -- is EMPTY. PROOF_LANE_TWO_TIMESCALE gave the closed-form counterexample: with x = log(P/P0), any positive smooth depth response is reproduced exactly by log(d/d0) = a + x/2 + g(x), g(x) = log[d(P0 e^x)/d0] - a - x/2, so curvature, smooth saturation, derivatives and moments cannot separate the models, and no number of points on 10-60 or 10-120 resolves it. 1200 smooth constructions, 67200 exact checks, 1300 optimisation cases, no counterexamples to the restricted results",
      "replacement_witness": "a four-corner design, two settings crossed with two durations, rejects when |I| > 4*eta for I = log(d11 d22 / d12 d21) with log-depth error eta per observation: |I| > 0.08 at eta = 0.02. The endpoint-slope witness needs |m - 0.5| > epsilon + 2*eta/L, which is 0.022324 over 10-60 and 0.016097 over 10-120 at eta = 0.02 -- both recomputed by this coordinator from L = log 6 and log 12",
      "correlation_scope_corrected": "the R values were booked as one quantity over two ranges. They are not: R about 0.95 is coagulation depth over 10-60 and R about 0.73 is cut volume over 10-120, two modes and two quantities, and the same-mode cut-volume correlation recomputes far lower. A swarm report read the same material the opposite way, saying coagulation lacks the significant volume relation; that conflict is open and proof_lane's reading is carried because it supplies the construction"
+    },
+    {
+     "id": "T-E27-shaft_sensing-vs-tip_tangential_load",
+     "between": [
+      "shaft_force_and_moment",
+      "instrument_tip_tangential_load_N"
+     ],
+     "constraint": "a robot-held instrument senses at the shaft, never at the tip. For a shaft force channel y = A(T,h) + b*v + S the shaft identifies only the SUM: exchanging adhesion against other resistance preserves the signal while changing the tip load, witnessed by 53248 indistinguishable pair cases at exact observation error zero and one sharp example admitting 0.2 to 0.8 N of tip load at identical shaft force. Temperature identifies adhesion CHANGES but not the absolute offset; speed, phase and depth each fail alone because adhesive memory reproduces a damping phase exactly. A second mechanical channel closes it: with tip load L at projected lever arm l and the nuisance resultant S at r, y = L + S and M = l*L + r*S give L = (M - r*y)/(l - r), which this coordinator re-derived symbolically. It is singular at l = r, the axially collinear case, and no calibration removes that. Measured consequence at one shaft reading, same force and same moment: moving the nuisance contact from 10 to 75 mm takes the implied tip load from +0.0714 N to -0.7333 N, a swing of 0.8048 N that changes sign",
+     "status": "OPEN",
+     "evidence": "results/ASSEMBLY_TIP_LOAD/DECISION_V1.json :: geometry_swing_at_identical_shaft_reading.swing_N = 0.8048",
+     "external_reference": "PMID 26700572, doi 10.1016/j.jmbbm.2015.11.024",
+     "control": "Coulomb y = mu*P + S carries the same ambiguity unless the normal load or the nuisance is independently known. The quoted coefficient is static and its reported dispersion is NOT a rigorous uncertainty bound, so sigma distances computed from 0.295 +/- 0.056 are descriptive only -- an earlier night-log row of mine used it as if it bounded uncertainty",
+     "independent_of_tissue_model": "the inversion is mechanical and recovers the total resultant whatever the adhesion law is. This matters because the adhesion-dominance conclusion does not transfer to our contact pressures: 1273.2395447351628 kPa at the default 0.7853981633974483 mm2 patch under 1 N, 36.378273x the 35 kPa gel where it was measured",
+     "falsifier": "if a shaft-only observable is found that separates adhesion from other resistance without a second mechanical channel, the theorem is wrong and the decision is unnecessary",
+     "branches_opened": [
+      "the projected lever arm of the nuisance contact as a measured quantity, since the decision swings 0.8 N on it",
+      "distributed nonnegative contacts with known support, which proof_lane says permit sharp two-sided bounds instead of a point",
+      "whether a corrected force channel placed beyond every unwanted contact is realisable on a real shaft",
+      "matched temperature and tangent data, which no public source in hand supplies"
+     ],
+     "owner": "tasks/assembly/tip_load_decision.py",
+     "review_state": "PENDING_INDEPENDENT_REVIEW"
     }
    ],
    "stress_points": [
