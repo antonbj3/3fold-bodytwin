@@ -102,6 +102,21 @@ def main() -> None:
     print(f'  that is a {100 * (n_sat / n_sat_h2o - 1):.1f} percent difference, two orders below the margin above,')
     print('  so which route starts the loop is not what decides whether it runs away.')
 
+    print('\nEXTERNAL CHECK, searched 2026-10-04, and what it does and does not settle')
+    # Canonical figure: one CLASSICAL C3 convertase is quoted as producing up to 1000 C3b. Our 231
+    # comes from the measured kcat and half-life of the ALTERNATIVE pathway convertase C3bBb, which
+    # is a different enzyme with a different lifetime, so the two are not in conflict -- 231 is the
+    # conservative end and the canonical 1000 bounds it from above.
+    print(f'  canonical classical-convertase yield, up to 1000 C3b, against our alternative-pathway')
+    print(f'  figure of {n_sat:.0f}: a factor {1000 / n_sat:.1f}, explained by the enzymes being')
+    print('  different, not by a disagreement. Our number is the conservative one.')
+    # The biomaterial figure that looked like a test and is not one.
+    print('  A measured biomaterial result exists -- alternative-pathway activation adding about')
+    print('  25 percent to adsorbed surface mass -- but a MASS FRACTION is not a per-event')
+    print('  deposition efficiency, and converting it needs the number of cleavage events on that')
+    print('  surface, which the source does not give. So it cannot test the ceiling, and saying so')
+    print('  is the point: the measurement the falsifier needs is per-event, not per-mass.')
+
     print('\nFALSIFIER, one measurement, stated before it is made')
     print(f'  measure the deposition efficiency per cleaved C3 on a NON-activator host surface.')
     print(f'  above {critical_deposition_efficiency(n_sat) * 100:.3f} percent the loop runs away on the host, so the')
