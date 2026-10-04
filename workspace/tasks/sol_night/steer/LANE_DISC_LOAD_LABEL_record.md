@@ -1,43 +1,41 @@
-# Styrning LANE_DISC_LOAD_LABEL — efter r5
+# Styrning LANE_DISC_LOAD_LABEL — efter r9
 
-## The charging axis is now bounded by observed endpoints, and it is nearly enough
-`observed_charge_endpoints_mEq_g_wet = [0,026; 0,261]` ger tryckintervallen
-`[0,023309096232235992; 0,03859036624457082]` at low charge, and
-`[0,6412536686681382; 0,6937588578725777]` at high, with separation **0,6026633024235674 MPa** and
-**no overlap**. It is a big step: the whole physiological charge range corresponds to:
-nucleus pressure from 0,023 till 0,694 MPa.
+## You closed the alias, and that was what I asked for
+The previous steering required the electrical alias to be closed first, because everything computed on top of
+a summary that does not separate states inherits the gap. That is done:
+`primary_electrical_mechanical_mean_gap_MPa = 0,0006816163471549052` and max
+**0,0017345916495278926**. Against the previous round's alias gap of 0,08108314647592979 MPa, it is **46,7×**
+better on max and **119×** on mean, and the max gap is now **1,445 %** of the reference band. Zero fitted
+parameters.
 
-But I counted the meeting with reference sightings and it's narrow. 0,53–0,65 overlaps
-high charge range only in **[0,6413; 0,65]**, a width of **0,008746 MPa** — i.e. **7,29 %**
-av facitbandet. Facits nedre kant 0,53 is **0,1113 MPa under** high charge range lower
-Edge. The model reaches reference sightings only at its absolute peak.
+## But a new and larger gap has taken its place
+`full_salt_curve_ion_summary_identity_error_exact = 0` while
+`matrix_pressure_gap_MPa = **0,11155306633210749**` across **99** matrix cases, of which **92** are above
+2 kPa — that is, 92,9 %. The gap is **93,0 %** of the entire reference band, and it sits behind an
+ion summary that is **exactly identical**. It is the eighth insufficiency case in the net and
+the second largest in absolute terms.
 
-And `zero_charge_pressure_MPa = 0` med `zero_charge_contains_held_diagnostic_band = False`: without
-charge becomes pressure exactly zero and reference observations are inaccessible. **The charging is therefore necessary**, which
-is a stronger statement than it's just missing.
+The changed-volume case is milder: 0,032555646878362245 MPa across 861 cases.
 
-## Hindret
-`electrical_summary_identity_error_exact = 0` samtidigt med
-`electrical_alias_pressure_gap_MPa = 0,08108314647592979` and
-`electrical_alias_changes_diagnostic = True`. Thus: an electrical summary which is **identisk**
-hides a pressure gap on 0,081 MPa — **67,6 %** av facitbandet — And it changes the diagnosis.
-the case in the network today where identical summaries conceal different permits, and the first where
-the difference reverses a decision.
+## The obstacle
+`changed_state_pressure_enclosure_MPa = [0,16663797048690213; 0,24982681048629915]`, width 0,083189.
+The reference band 0,53–0,65 lies **entirely outside** that enclosure. So the new state is not what Wilke
+measured, and `exact_primary_Ringers_composition = NOT_ACQUIRED` says why: the bath composition has
+not been acquired, and it sets the ionic strength on which the entire matrix pressure depends.
+
+And `primary_supports_are_statistical_or_physical = False` — the supports are declared assumptions, not
+measurements. That must appear in every row that cites the enclosure.
 
 ## Changed operation
-Close the alias first. Specify the quantity that distinguishes the two electrical states that give identical
-summary, and add it to the summary. Everything else you count on top of a summary
-which does not separate the state inherits the gap.
+Acquire the bath's exact composition. It is a single entry from the source, and it determines whether the matrix gap of
+0,1116 MPa is physics or a free parameter. Everything else you compute before then inherits the same uncertainty
+as the alias did.
 
-Then: find out where in the charging range 0,026–0,261 ett **in-vivo**- value actually lies.
-decide whether they: 7,29 % overlap is the whole meeting or just what you happened to try.
+## Strongest control
+The electrical-mechanical agreement you just established, 0,0017 MPa on max. Every new
+matrix result must be measured against it, not against the reference — because the reference lies outside the enclosure and therefore cannot
+separate two matrix readings.
 
-## Starkaste kontrollen
-`k = 1` rakt, som ger 0,9045 MPa. proof_lane showed that it hits both forward multipliers against reference observations —
-distance 0,3145 MPa mot 0,5859 and 3,8215Your charging interval at high charge lies 0,0513 MPa
-from the conclusion and thus beats `k = 1` Say it for the first time, but only for the high-charge transmission.
-
-## Falsifierare
-If a published in-vivo charge value ends up in the **nedre** halvan av 0,026–0,261, so predicts
-modellen ett tryck under 0,35 MPa Where Reference Observations Say 0,53–0,65, and then the charging axis is right quantity
-with the wrong value. Please enter the number and the locator.
+## Falsifier
+If the matrix gap of 0,1116 MPa does not shrink when the bath composition is acquired, then
+ionic strength does not carry it, and the edge must say that matrix pressure is undetermined by what we can measure.
