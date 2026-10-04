@@ -1,43 +1,41 @@
-# Styrning LANE_SETTING_TO_DIFFUSIVITY — efter r3
+# Styrning LANE_SETTING_TO_DIFFUSIVITY — efter r6
 
-## You found out why "levererad effekt" is also insufficient as reported
-I wrote in the last steering: calibrate to the time-meaning effect delivered, never against the setting.
-showed that it may also be insufficient due to **which mean** The source reports.
+## My falsifier solved NOT out, and that's good news.
+I wrote: if more than half of the source records report medium-V and medium-I separately, it goes high
+the end is not to calibrate at all. The answer is `separate_time_mean_V_I_only = **0**` av tio — **den farliga
+class is empty**Five entries are paired. RMS-products and five are: RMS med **odeklarerat** fullt
+Alia's risk is therefore in principle but **No source item falls into it**; and
+`inherited_averaging_majority_falsifier = False`.
 
-`mean_RMS_identity_errors = {'mean_V_V': 0.0, 'mean_I_A': 0.0}` and simultaneously
-`mean_real_power_gap_W = 20.0`. Thus: two developments with **identical medium voltage and identical
-average current** skiljer sig med 20 W in mean effect. Terminal summary is in it RMS-konsistenta
-fallet helt sluten — I checked all three roads myself: `I²R = 5,0 W`, `V²/R = 5,0 W`,
-`20 J / 4 s = 5,0 W` — So the gap on 20 W is **four times** den effekt terminalerna implicerar.
+The remaining is a minor but real ambiguity: half do not declare whether: RMS applies all the time.
 
-It's not noise. Medium voltage and average current do not determine average power, because the power is
-the mean of **produkten** and not the product of the averages. A source reporting medium-V and
-mean-I therefore leaves the effect indefinite, and a source reporting RMS does not.
+## The new obstacle, and it completely shifts focus
+Three comparisons, all counted by me:
 
-## Hindret, exakt
-Du har 21 grafiska produkter med 21 power overlap but `independent_power_validation = False`.
-The temperature gap is now **11,874049714881338 K** (var 14,84 i r2). An internal voltage drain
-Not enough for the unlimited case (`one_internal_tap_decides_unrestricted_temperature = False`),
-men den **separerar** the two designs: `[61,58915139179443; 67,94170260316147]` mot
-`[52,31106541790337; 56,39549003979593] °C` is dissipated with a gap of **5,1937 K**, at a hard
-voltage failure of: 0,5 V over the voltage pair 1,5 mot 21,5 V. And the remaining common term
-must be kept under **1,5891513917944309 K**, which is exactly the distance from 60 °C to the upper
-intervallets nedre kant.
+| vad som varieras | maximalt yttemperaturgap |
+|---|---|
+| **geometrin** | **27,614871866185098 K** |
+| one against two internal drains | 3,1153500798704954 K |
+| returelektrod 8 mot 16 mm | 0,12299267508750233 K |
+
+The geometry is: **8,86×** the removal issue; and **224,5×** I mean, everything I've directed you towards.
+de senaste tre rundorna — dwindling, average conventions, return route — is the second order.
+**Geometry is the first order and it is not measured.**
+
+And the delivered power is now divided by setting: at nominal 25 W levereras
+`[21,90; 19,58; 15,90]` W, vid 50 W `[45,54; 41,66; 33,30]`The span is **1,378×** respektive
+**1,368×** — thus the same relative spread at both ends, and the lowest delivery is 63,6 % and
+66,6 % of nominal. It is a constant relative loss, not a setting dependency.
 
 ## Changed operation
-Classify each source entry by **which mean** den rapporterar: RMS, tidsmedel av produkten,
-or medium-V and medium-I separately. Only the first two are useful. Specify the number in each class, and
-exclude the third class with that reason.
-
-Then: decide on the common residue during the 1,5891513917944309 K can be agreed with a single
-internal draining plus something you already have, or if it takes two drains. A number, in kelvin.
+Change first order variable. Measure which geometric quantity carries the 27,6 K — elektrodradie,
+contact depth, tissue thickness — and specify the gap per quantity separately. Stop refining the 3,1 K.
 
 ## Starkaste kontrollen
-Terminal summary alene, i.e. V_rms, I_rms, P, R, energy and duration. It is closed in
-det RMS-consistent case, so any claim that an in-house drain buys something should be measured against
-and not against the medium-V/medel-I-fallet, which is a straw doll.
+A single geometry, i.e. the current model. Each geometric resolution shall be measured in how much of them
+27,6 K it explains, in Kelvin.
 
 ## Falsifierare
-If more than half of the source entries report medium-V and medium-I separately, the effect cannot be:
-reconstructed from published data in that class at all, and then calibration is limited to the records
-som ger RMS Say it with the number.
+If no single geometric quantity carries more than they 3,1 K as the drain question already gives, so are they
+27,6 K a co-operation and not a dominant factor — and then the chain is not calibreable per quantity.
+Say that with the distribution.
