@@ -42,8 +42,22 @@ N_AQUEOUS = 1.336
 VERTEX_M = 0.012
 # Population posterior-astigmatism estimate standing in for a measurement, which is what a calculator
 # without tomography does: posterior cornea adds against-the-rule cylinder of about 0.3 D at 90 deg.
+#
+# THE ADVANTAGE THIS CHAIN REPORTS IS NOT ROBUST TO THIS PAIR, measured 2026-10-04. The stand-in
+# (-0.30 D at 90 deg) has power-vector J0 = -0.15, which is against-the-rule and is what the
+# literature describes. Rotating it to axis 0 while keeping the sign gives J0 = +0.15, and on the
+# same 69 eyes the population arm then falls from 0.6209 to 0.3636 D while the measured arm stays at
+# 0.2808 D. So the benefit of measuring the posterior cornea is 0.3401 D under one convention and
+# 0.0828 D under the other, and the data PREFER the convention that shrinks it. The lane
+# LANE_CORNEA_SHAPE reached the same conclusion independently with its own field model (0.5874 ->
+# 0.3541 D) and labels the axis-90 variant MISORIENTED.
+#
+# Nothing here settles which orientation a calculator should use; that needs a cited nomogram rather
+# than a constant in this file. Until it has one, the headline must be quoted WITH the sensitivity,
+# which main() now prints, and the 0.34 D figure must not be used alone.
 POP_POSTERIOR_CYL_D = 0.30
 POP_POSTERIOR_AXIS_DEG = 90.0
+POP_POSTERIOR_AXIS_ALTERNATIVE_DEG = 0.0
 
 
 def to_vector(sphere: float, cyl: float, axis_deg: float) -> tuple[float, float, float]:
@@ -157,7 +171,11 @@ def main() -> int:
         row = dict(sheet_row=d['sheet_row'], implanted_sphere_D=d['IOLP'],
                    implanted_cyl_D=d['IOLT'], measured_sph_D=measured_sph,
                    measured_cyl_D=measured_cyl, measured_axis_deg=measured_axis)
-        for name, post in (('measured_posterior', post_measured), ('population_estimate', post_estimated)):
+        post_estimated_alt = to_vector(
+            (N_AQUEOUS - nc) / (((d['IOLM_PR1'] + d['IOLM_PR2']) / 2) / 1000.0),
+            -POP_POSTERIOR_CYL_D, POP_POSTERIOR_AXIS_ALTERNATIVE_DEG)
+        for name, post in (('measured_posterior', post_measured), ('population_estimate', post_estimated),
+                           ('population_estimate_alt', post_estimated_alt)):
             cs, cc, ca = from_vector(*[a + b for a, b in zip(ant, post)])
             # A toric lens is implanted ALIGNED TO THE STEEP CORNEAL MERIDIAN, so its cylinder axis
             # is the combined cornea's axis and not zero. With axis 0 the lens cylinder adds to the
@@ -197,6 +215,16 @@ def main() -> int:
             1 for a, b in zip(cyl_error('measured_posterior'), cyl_error('population_estimate')) if a < b),
         population_estimate_closer_count=sum(
             1 for a, b in zip(cyl_error('measured_posterior'), cyl_error('population_estimate')) if b < a),
+        # The same comparison with the stand-in rotated to the alternative axis. It is in the summary
+        # rather than in a note because the advantage is a quarter of its headline size under the
+        # other convention, and a reader who sees only the headline is being misled by omission.
+        residual_cyl_mae_with_population_estimate_alternative_axis_D=round(
+            statistics.mean(cyl_error('population_estimate_alt')), 4),
+        measured_advantage_D=round(statistics.mean(cyl_error('population_estimate'))
+                                   - statistics.mean(cyl_error('measured_posterior')), 4),
+        measured_advantage_alternative_axis_D=round(
+            statistics.mean(cyl_error('population_estimate_alt'))
+            - statistics.mean(cyl_error('measured_posterior')), 4),
         control='current practice: the same chain with a population estimate of posterior astigmatism',
         claim_type='information_link',
         not_modelled=['surgically induced astigmatism of the incision',
