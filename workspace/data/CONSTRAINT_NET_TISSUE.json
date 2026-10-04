@@ -3575,13 +3575,14 @@
      "status": "OPEN",
      "evidence": "results/ASSEMBLY_LOAD_LABEL_SWEEP/SWEEP_V1.json :: edges_with_a_product_below_its_stated_load = 8; computed by tasks/assembly/load_label_sweep.py",
      "branches_opened": [
-      "does the share hold at other stated loads than 1000 N",
-      "is the reported area a named anatomical sub-region in the source",
-      "does the intact row 1150 mm2 x 3 MPa = 3450 N obey the same share at a different load",
-      "what peak-to-mean factor does the experimental pair 3450 and 3120 N imply, and is it compatible"
+      "what fraction of the 1000 N the FE sub-region carries according to the FE itself, not inferred from area times peak",
+      "is the concentration factor 1.485 a property of the partial-meniscectomy geometry or of the measurement window",
+      "why the published whole-versus-local force factor spans 2.08 to 628.6, and which end our rows sit at",
+      "what measurement would make a peak validation row eligible, given that zero published rows qualify"
      ],
      "owner_lane": "LANE_MENISCUS_LOAD_LABEL",
-     "review_state": "PENDING_INDEPENDENT_REVIEW"
+     "review_state": "PENDING_INDEPENDENT_REVIEW",
+     "refuted_2026_10_04_r1": "the coordinator's explanation -- that the 1000 N label was imported from the neighbouring experimental row -- is REFUTED. The original FE Methods states explicitly that a 1000 N axial load was applied, so the load is a genuine source boundary condition and the reported area and peak simply do not describe the whole contact. The common share f = 0.137125 therefore stands as a description of four rows at one condition, not as a transferable constant: tested against Baratz partial meniscectomy it fails. Area alone predicts a peak ratio of 1/0.9 = 1.1111111111111112 while Baratz reports about 1.65, a relative point error of 0.3265993265993266, and reconciling them needs a concentration factor of 1.485 on top -- all three reproduced by this coordinator from the two source numbers. The experimental concentrations 3.45 (intact) and 3.12 (total meniscectomy) are arithmetic summaries of observations and do not establish an intervention-invariant shape. No external row qualifies to validate the peak: external_eligible_peak_validation_rows = 0, and the published whole-versus-local force factor spans 2.0754691213987133 to 628.590825088317"
     },
     {
      "id": "T-E24-reference_precision-vs-absolute_margin_goals",
