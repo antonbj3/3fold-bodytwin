@@ -30,3 +30,24 @@ faller mot 1 The window is just a variance reduction and nothing about the time 
 ## Falsifieraren
 If the ratio at any window width throughout the entry exceeds the span ratio 4,37 there is a resonance
 rather than a monotonous low-frequency budget, and then the window rule is the wrong form. Print it before sweep.
+
+
+## Additions after r33 — the sweep was gone, and the two FWHMThe numbers are on a wavelength you call unsupported.
+The window sweep I asked for didn't come. (`additional_static_runs = 0`, `registered_static_runs = 1`); and
+The window rule therefore remains unanswered. It is not bustywork to collect a molecular instead
+referens — 60 HCN-lines and 54 reference lines are a real acquisition and belong to seed 1 — men det
+does not replace the sweep.
+
+What needs to be sorted out first: you report `native_FWHM_K = 0,15454400826495512` and
+`nominal_FWHM_pm = 13,90896074384596` in the same round, and in the same round stands
+`actual_original_effective_wavelength_support: None`. The two numbers are in units that can only
+recalculated MED an effective wavelength. I counted: 0,154544 K motsvarar 3,2202 GHz; and 13,90896 pm
+corresponds to that width only at: **λ = 1137,94 nm**. Vid 1550 nm, HCN- the reference band, would the same
+bredd bli 25,806 pm; vid 1064 nm 12,160 pm. Either the effective wavelength of the fixture is ~1138 nm, and
+shall be printed out, or the pm number is calculated on a wavelength different from the K's and one of them is
+error. Your own field says that the support for that wavelength is not acquired, so the pm number rests on a
+antagande — Print out which one.
+
+the width of the nominal range; 13,8307–13,9886 pm, is 0,1580 pm = 1,136 % of the central value.
+Tell me if it is the spread of the instrument or a rounding margin; i r3-familjen visade sig den
+the type of band be publication rounding and not measurement.
