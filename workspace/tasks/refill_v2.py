@@ -61,7 +61,7 @@ DENTAL_FOLLOWUPS = {
     'TMJ-FORCE': ('BT-DENT-DATX-TMJxLOAD', 'Seek direct joint-force measurements or a clearly labelled validated force estimate and test the existing load-ratio interval.'),
     'CERAM-AREA': ('BT-DENT-DATX-LOADxFAT', 'Measure effective regional contact area and moisture-dependent ceramic fatigue parameters before updating pf5.'),
 }
-PRIVATE_MARKERS = re.compile(_private_input_pattern('(?<![A-Za-z0-9])(the collaborator|rasmussen|gc)(?![A-Za-z0-9])'), re.I)
+PRIVATE_MARKERS = re.compile(_private_input_pattern('(?<![A-Za-z0-9])(collaborator|collaborator|gc)(?![A-Za-z0-9])'), re.I)
 NON_DATA_PREFIXES = ('AUTO-', 'AUDIT-', 'BUILD-', 'FIX-', 'GRAPH-', 'SOLVE-')
 HEAD = ("Read inputs/NIGHT_PREAMBLE.md. Just work here, ≤ 45 min, 1 thread. Web allowed for published literature and public datasets. PREREG.md + sha256 before calculation; RESULTS.md begins with the line \"{j}\"; results.json. No judgment words, do not find on the measurement data.\n\n")
 

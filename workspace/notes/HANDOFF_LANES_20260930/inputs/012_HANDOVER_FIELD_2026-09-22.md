@@ -127,7 +127,7 @@ Detail: `tools/workspace.py` has late additions for `CONSTRAINT_NETS.json` and a
 
 ## BodyTwin/the collaborator: build on verified context
 
-`~/research/JOHN_BODYTWIN_CONTEXT_2026-09-22.md` contains read through mail, primary sources and actual code review. the collaboration Rasmussen/AAU has worked for a long time with the reference model and patient specific geometri/morphing; do not present such capacity as if it was missing in his world. His email requests concrete demonstration, physiological geometri/parameterisering and a geometry manager.
+`~/research/COLLABORATOR_BODYTWIN_CONTEXT_2026-09-22.md` contains read emails, primary sources and actual code review. the external collaborator/AAU has worked for a long time with the reference model and patient-specific geometry/morphing; do not present such capacity as if it were missing in his world. His email asks for a concrete demonstration, physiological geometry/parameterization and a geometry manager.
 
 Current published BodyTwin code: `external_mount`, commit `b95a8dc573d0beaa0d6bc8eca0ed46c0f3ce1658`, compared against remote. Contains strict mesh seam, voxel/tet material boundaries, rigid mm frame, region mass/moment and explicit material-region registration. An actual CPU mesh→SDF bridge exists in `examples/anatomy/compose_mesh_to_field.py`; a kidney mesh's raster-volume error of 0.0975% is not surface precision or clinical validation. No general anatomical shape model/landmark morphing or biomechanical contact chain was found. 110 CPU tests passed, one was skipped in a separate geometry audit.
 

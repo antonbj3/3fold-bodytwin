@@ -31,7 +31,7 @@ RSH = 'ssh ' + ' '.join(SSHO)
 MK = open('../3fold-motion-engine/_private/romi_collab/lanes/automation_runtime/mk.py').read()
 RULES = re.search(r"RULES='''(.*?)'''", MK, re.S).group(1)
 RULES = re.sub(r'Python: \S+', 'Python: python3 (numpy/scipy/sympy are available)', RULES)
-DENY = re.compile(_private_input_pattern('3fold-workspaces/bodytwin|the collaborator|shared_data|sdc1|L1/prep|/L1\\b|\\bL1-(operat|ruta|data)|\\bGC\\b|grand challenge|eknee|etibia|\\bJW\\d?|\\bDM\\d|\\bSC\\d|\\bPS\\d|EMG|CX-|implant'), re.I)
+DENY = re.compile(_private_input_pattern('3fold-workspaces/bodytwin|collaborator|shared_data|sdc1|L1/prep|/L1\\b|\\bL1-(operat|ruta|data)|\\bGC\\b|grand challenge|eknee|etibia|\\bJW\\d?|\\bDM\\d|\\bSC\\d|\\bPS\\d|EMG|CX-|implant'), re.I)
 DENY_LANES = {'U414', 'U444', 'U447', 'U456', 'U460', 'U462', 'U470', 'U472', 'U475', 'U477', 'U478', 'U479', 'U480', 'U552', 'U554', 'U556', 'U568'}
 
 def log(*a):
@@ -46,7 +46,7 @@ def cloud_ok(j):
         if os.path.basename(p.rstrip('/')) in DENY_LANES or DENY.search(p): return False
         if os.path.isdir(p):
             r = subprocess.run(['grep', '-rlIqE', '--include=*.py', '--include=*.json', '--include=*.sh',
-                                '3fold-workspaces/bodytwin|john_WR|L1/prep|sdc1-tmp|shared_data/bodytwin', p])
+                                '3fold-workspaces/bodytwin|collaborator_WR|L1/prep|sdc1-tmp|shared_data/bodytwin', p])
             if r.returncode == 0: return False
     return True
 

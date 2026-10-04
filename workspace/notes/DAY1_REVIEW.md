@@ -72,7 +72,7 @@ Note: the figures for P3 and J1 show the agents' original comparisons (P3 agains
 
 | Result | Number | Source | Status | Review |
 |---|---|---|---|---|
-| the collaborator's eget problem | individuella modeller "too cumbersome" (NATO STO 2024) | A1; `notes/JOHN_REQUIREMENTS_AND_SOFTWARE.md` | R | — |
+| the collaborator's eget problem | individuella modeller "too cumbersome" (NATO STO 2024) | A1; `notes/COLLABORATOR_REQUIREMENTS_AND_SOFTWARE.md` | R | — |
 | Demo D5, a command | 8/8 tests; 127 tracked numbers in v2 | `results/D5/README.md`, `DEMO_CLAIMS_v2.md` | A, G | AU1: reproduced bit identically, 106/106 (v1) |
 | Certificate of femur and pelvis | both approved; landmarks ≤ 1,20 mm from the surface | D5 B1 | A, G | AU1: confirmed |
 | Mounts as triangle + weights | follow the surface through each morph with the same ID; 209 of 232 anchored | D5 B2 | A, G | AU1: the number 1,3·10⁻¹³ mm crossed out (tautology); ID confirmed |
@@ -304,7 +304,7 @@ Figur: [HD1 grepp mot friktionskon](../results/HD1/fig_grip_vs_cone.png)
 
 | Question | Why | Source |
 |---|---|---|
-| Target organs, left. (AnyBody-version, licensserver), input, output format, acceptance dimensions, API | determines what demon should optimize | `notes/JOHN_REQUIREMENTS_AND_SOFTWARE.md` §4, questions 1–10 |
+| Target organ, stack (AnyBody version, license server), input, output format, acceptance metric, API | determine what the demo should optimize | `notes/COLLABORATOR_REQUIREMENTS_AND_SOFTWARE.md` §4, questions 1–10 |
 | How does his workflow place the hip center (frames, regression, functional, image)? Does he use landmark morph or scaling with few dimensions? | determines the relevance of B4 and of P3 (gain only applies to two-dimensional scaling) | D5 v2 §F question 8; A95 |
 | Can the femur population from the osteotomy work be shared? | P3 based on Imperial 70 | ask 6 |
 | external solver runtime under Wine; node locked trial? | AB1b cannot be run without | AB1b |

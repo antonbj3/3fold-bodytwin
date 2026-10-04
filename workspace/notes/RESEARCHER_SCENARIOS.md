@@ -16,9 +16,9 @@ Sources labeled "retrieved" were checked on the web 2026-09-22. Sources labeled 
 
 ### 1.1 the collaborator / biomekanisk modellering (dokumenterat fall)
 
-**Dokumenterat.** the collaborator'The group works with digital human twins with a biomechanical focus. "geometry manager"/"geometry engine". He wants to see how we model physiological geometry and parametric shapes. He could not distinguish implemented from planned in our repo. Source: mail 99, 100 and 107 (`references/john_context.md`).
+**Documented.** the collaborator's group works on digital human twins with a biomechanical focus. He states that they lack a "geometry manager"/"geometry engine". He wants to see how we model physiological geometry and parameterize shapes. He could not distinguish implemented from planned in our repo. Source: emails 99, 100 and 107 (`references/collaborator_context.md`).
 
-His tools already have three steps for scaling, **DOKUMENTERAT [S1, retrieved]**: affinity landmark scaling (12 DOF), RBF-morphing with thin plate, and surface based STL-morphing. They run in succession, where each step inherits the previous transform. Muscle attachments accompany the bone morph. He has published landmarks/RBF-morphing (2014) and adaptation of torso skeleton to biplanes low dose X-rays with biomechanical conditions (2022)Source: `JOHN_BODYTWIN_CONTEXT_2026-09-22.md`.
+His tools already have three scaling steps, **DOCUMENTED [S1, retrieved]**: affine landmark scaling (12 DOF), RBF morphing with a thin plate, and surface-based STL morphing. They run in sequence, with each step inheriting the previous transform. Muscle attachments follow the bone's morph. He has published landmark/RBF morphing (2014) and fitting the trunk skeleton to biplanar low-dose X-rays with biomechanical constraints (2022). Source: `COLLABORATOR_BODYTWIN_CONTEXT_2026-09-22.md`.
 
 **Questions**
 

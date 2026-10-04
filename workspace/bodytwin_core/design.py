@@ -59,13 +59,13 @@ def _component_band(A,b,W,d,N,names):
         return {'status':str(e)}
 
 
-def design_eval(shape_params, subject='z001', task='john_lift', *, diagnostics=True):
+def design_eval(shape_params, subject='z001', task='collaborator_lift', *, diagnostics=True):
     """Rebuild attachments, mechanics, bone demand and all 141 recruitment steps.
 
     shape_params: {'lengthening_mm': number in [-10,10]}.
     subject: 'z001' or 'C01RFE' (the latter is a TLEM proxy).
     """
-    if task != 'john_lift': raise ValueError('only john_lift is supported')
+    if task != 'collaborator_lift': raise ValueError('only collaborator_lift is supported')
     if set(shape_params) != {'lengthening_mm'}: raise ValueError('requires lengthening_mm only')
     length=float(shape_params['lengthening_mm'])
     if not np.isfinite(length) or abs(length)>10: raise ValueError('length outside [-10,10] mm')

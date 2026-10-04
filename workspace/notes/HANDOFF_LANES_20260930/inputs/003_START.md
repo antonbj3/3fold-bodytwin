@@ -22,7 +22,7 @@ Start with `MERGED_GRAPH.json` for the full structure and `VALIDATION.json` for 
 
 The sources' own statuses are preserved. Statistical fusion of raw margins requires additional uncertainty, normalisation and provenance. Unbound records, conflicts and older evidence gaps remain explicit in the review view.
 
-`references/john_context.md` contains verified contexts about the collaborative Rasmussen and his questions. It is a part of the general BodyTwin orientation.
+`references/collaborator_context.md` contains verified context about the external collaborator and his questions. It is a subtask within the general BodyTwin direction.
 
 For a new session: [complete startup message — BodyTwin and the collaborator, first 24 hours](STARTUP_MESSAGE.md).
 

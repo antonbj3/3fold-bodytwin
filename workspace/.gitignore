@@ -87,3 +87,9 @@ tasks/cloud/*.txt
 # ...men de handgjorda analysutdata under results/ASSEMBLY_* are deliveries, not in-law data.
 !results/ASSEMBLY_*/
 !results/ASSEMBLY_*/*.json
+
+# Third-party material stays local. Of the literature cache only the provenance records
+# (*.acquisition.json with requested url, final url, timestamp, byte count and sha256) and the
+# OpenAlex metadata are tracked, so the same file can be fetched from its source.
+*.pdf
+notes/COLLABORATOR_*

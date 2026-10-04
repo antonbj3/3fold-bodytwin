@@ -1,6 +1,6 @@
 # CX-DESIGNLOOP — a real design call: shape change → attachments/mass properties → rebuilt mechanics → forces → candidate check, with no archived force curve
 
-Background: proof_lane's night priority §4 (research/JOHN_PRESENTATION_20260924/NIGHT_PRIORITIES.md). `bodytwin_core.demo` builds geometry but solves SAVED matrices. The separate trials CX-WHATIF2 and CX-D1PARITY actually rebuild the systems:
+Background: proof_lane's night priority §4 (research/COLLABORATOR_PRESENTATION_20260924/NIGHT_PRIORITIES.md). `bodytwin_core.demo` builds geometry but solves SAVED matrices. The separate trials CX-WHATIF2 and CX-D1PARITY actually rebuild the systems:
 - `results/CX-D1PARITY/`: build_direct.py, direct_geometry.py, femur_massprops.py, massprop.py, full_step.py;
 - `results/CX-WHATIF2/`: its builders.
 Read both, plus `bodytwin_core/` (demo.py, solver, determined), before writing any code.

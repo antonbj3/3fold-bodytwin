@@ -44,7 +44,7 @@ CLOUD_PLANNER_CAP = int(os.environ.get('FIELD_CLOUD_PLANNERS', '2'))
 # 1/10 (anton-5f, the graph's finding via Field): the short path form bodytwin/tasks|results|notes and
 # bt_memory did not match 3fold-workspaces/bodytwin. This driver sends ONLY Field jobs (F_<id>),
 # so BodyTwin's own swarm jobs are not affected by the short forms being denied here.
-DENY = re.compile(_private_input_pattern('3fold-workspaces/bodytwin|bodytwin/(tasks|results|notes|inputs)|bt_memory|mechanism_legacy|the collaborator(?!son)|shared_data|sdc1|L1/prep|/L1\\b|\\bL1-(operat|ruta|data)|\\bGC\\b|grand challenge|eknee|etibia|\\bJW\\d?|\\bDM\\d|\\bSC\\d|\\bPS\\d|EMG|CX-|implant'), re.I)
+DENY = re.compile(_private_input_pattern('3fold-workspaces/bodytwin|bodytwin/(tasks|results|notes|inputs)|bt_memory|mechanism_legacy|collaborator(?!son)|shared_data|sdc1|L1/prep|/L1\\b|\\bL1-(operat|ruta|data)|\\bGC\\b|grand challenge|eknee|etibia|\\bJW\\d?|\\bDM\\d|\\bSC\\d|\\bPS\\d|EMG|CX-|implant'), re.I)
 DENY_LANES = {'U414', 'U444', 'U447', 'U456', 'U460', 'U462', 'U470', 'U472', 'U475', 'U477', 'U478', 'U479', 'U480', 'U552', 'U554', 'U556', 'U568'}
 
 def log(*a):

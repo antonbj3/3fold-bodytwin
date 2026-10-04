@@ -85,4 +85,4 @@ Meters: `lane_runner_usage.sh` (window **and credits** — the window is no stop
 - external models are executable but **never run**; the only actual connection was rejected at 0 % valid frames
 - `negative_result` exists in 47 of 11 799 results (but 77 % in jobs after the requirement was introduced)
 
-Allt PENDING_INDEPENDENT_REVIEW. Inga interna data (the collaborator, restricted model data, Grand Challenge, JW, patientdata) leaves the machine.
+Allt PENDING_INDEPENDENT_REVIEW. Inga interna data (collaborator, restricted model data, Grand Challenge, JW, patientdata) leaves the machine.

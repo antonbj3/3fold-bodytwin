@@ -1,6 +1,6 @@
 # Night 24/9 — common entrance for all BodyTwin missions (goal: comparison with published references before the collaborator Friday 25/9 13:00)
 
-Tavla: the collaborator'its own objectives: `notes/JOHN_REQUIREMENTS_AND_SOFTWARE.md` §0. Register: `notes/RESULTS_INDEX.md`. Kartor: `results/MAP2/*/overlap.tsv`, `SUMMARY.md`.
+Tavla: the collaborator'its own objectives: `notes/COLLABORATOR_REQUIREMENTS_AND_SOFTWARE.md` §0. Register: `notes/RESULTS_INDEX.md`. Kartor: `results/MAP2/*/overlap.tsv`, `SUMMARY.md`.
 
 0. **Direction (Anton 24/9 13:0x):** innovate across the board — best in the world in every part, even what doesn't exist yet. the collaborator/the reference model is one of several references, not the guiding tool: prioritize according to value and breakthrough potential, not according to similarity to the collaborator's publications. What impresses the collaborator must be a side effect.
 1. **Start in existing work.** Before design: grep in `~/projects/bodytwin/data/MECHANISM_ANCHOR_GRAPH.json` (claim/notes/scripts), `~/projects/bodytwin/scripts/msk/` (filename + docstrings + content), `~/projects/bodytwin/docs/MECHANISM_*`, `~/projects/bodytwin/bt_memory/` and `results/<id>/` of the day mentioned in your brief. NOTE: `tool_find.py`/`capability_index.py` index cad-to-simulation-I, not BodyTwin — grabbed directly. In PREREG.md write a section "Builds on" with the node id and files, and "Not redone" (whatever you deliberately reuse).

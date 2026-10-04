@@ -4,7 +4,7 @@ Agent O3, 2026-09-22. Read-only in `romi_collab` and source projects. No lanes, 
 
 **Status labels.** *Confirmed* means that an independent audit reproduced the result within the stated condition. *Failed* means that the result was rejected by an audit or a locked gate. *Hypothesis* is my own proposal and has not been tested. Where the audit and producer differ, the audit’s scope applies.
 
-**Sources.** Forskningsrot `R=../3fold-motion-engine/_private/romi_collab`, filerna `R/build/<LANE>/RESULTS.md` samt `remaining_obligations.json` for A185, A194, A201 and A204. Dessutom `~/HANDOVER_FIELD_2026-09-22.md`, `~/research/field_handover_20260922/LANE_INVENTORY.md`, `R/lanes/{INNOVATION_OBJECTIVES_2026-09-22.json,SEED_DECOMPOSITION.md}`, `~/research/inference_training_20260921/SHARED_GEOMETRY_MATH.md`, `~/research/JOHN_BODYTWIN_CONTEXT_2026-09-22.md` and `STARTUP_MESSAGE.md` (avsnittet "Our Geometric Connections"). Av A196 (U280) and A198 (U282) I have only read the summary. They are included as marginal notes.
+**Sources.** Research root `R=../3fold-motion-engine/_private/romi_collab`, files `R/build/<LANE>/RESULTS.md` and `remaining_obligations.json` for A185, A194, A201 and A204. Also `~/HANDOVER_FIELD_2026-09-22.md`, `~/research/field_handover_20260922/LANE_INVENTORY.md`, `R/lanes/{INNOVATION_OBJECTIVES_2026-09-22.json,SEED_DECOMPOSITION.md}`, `~/research/inference_training_20260921/SHARED_GEOMETRY_MATH.md`, `~/research/COLLABORATOR_BODYTWIN_CONTEXT_2026-09-22.md` and `STARTUP_MESSAGE.md` (the section "Our geometric relationships"). For A196 (U280) and A198 (U282), I have only read the summary. They are included as side notes.
 
 ---
 
@@ -361,7 +361,7 @@ All hypotheses below are *hypotheses*. None has been tested. Each hypothesis is 
 | 1 | H1 task-driven error bound | J+B | Directly answers "what resolution is required" and is cheap. Requires no new solver. N1 and N2 are built in from the start. | A real bone mesh (O2/D2) |
 | 2 | H2 identifiability and task-based OED | J+B | Answers "what can be distinguished and which measurement decides". The lessons from A206, A202 and A186 apply directly. | Synthetic model; σ sourced |
 | 3 | H3 thin layers via stiffness | B (+dental) | Reformulates the lessons from A194 and A204 into a recipient-based check. Shared with the dental track via PDL. | U288 code (read-only), fine FEM |
-| 4 | H4 eventmedveten momentarm | J | The most John-specific and cheap.196 med ett uttryckligt villkor. | Lindningsmodell |
+| 4 | H4 event-aware moment arm | J | The most collaborator-specific and cheap. Transfers A196 with an explicit condition. | Wrapping model |
 | 5 | H5 second moments for inertia | J+B | A strong baseline already exists (polyhedral). Relevant only without a region mesh. | — |
 | 6 | H6 fusion with refusal | B | Important for uncertainty but depends on noise models. | Noise per modality |
 | 7 | H7 task metric versus PCA | J+B | Requires an SSM. | D2 |

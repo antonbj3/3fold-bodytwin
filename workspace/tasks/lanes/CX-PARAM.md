@@ -1,6 +1,6 @@
 # CX-PARAM — map what "parametric" can mean for the collaborator and what already exists (inventory, no new builds)
 
-Background: the collaborator Rasmussen (the reference model) wrote that he wants to see how we model physiological geometry and "parameterization of shapes" (`references/john_context.md`, `notes/JOHN_REQUIREMENTS_AND_SOFTWARE.md` §4). The meaning is unclear. Anton is unsure how complete earlier work is, including scaling of muscle/bone to weight/load/force and the video pipeline. The goal is an honest map: interpretation → what exists → how complete → what is missing. No new models.
+Background: the external collaborator (the reference model) wrote that he wants to see how we model physiological geometry and "parameterization of shapes" (`references/collaborator_context.md`, `notes/COLLABORATOR_REQUIREMENTS_AND_SOFTWARE.md` §4). The meaning is unclear. Anton is unsure how complete earlier work is, including scaling of muscle/bone to weight/load/force and the video pipeline. The goal is an honest map: interpretation → what exists → how complete → what is missing. No new models.
 
 ## Interpretations (add more if you find them)
 P1 anatomical parameters (length, CCD, anteversion, torsion, tibia slope) → edit/instantiate

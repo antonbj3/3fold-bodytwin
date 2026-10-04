@@ -1,10 +1,10 @@
 # BodyTwin: use the graph in research
 
-Use BodyTwin's own `./graph working` view. `john_geometry` and `general_bodytwin` are separate goals. The initial nine packets bind geometry, observability, joint fitting, material/FE uncertainty and arithmetic certificate results. They are a selected research view, not full coverage of the 3,950-node native graph.
+Use BodyTwin's own `./graph working` view. `collaborator_geometry` and `general_bodytwin` are separate goals. The initial nine packets bind geometry, observability, joint fitting, material/FE uncertainty and arithmetic certificate results. They are a selected research view, not full coverage of the 3,950-node native graph.
 
 ```sh
 ./graph working status
-./graph working rank --query 'the collaborator geometry' --limit 5
+./graph working rank --query 'collaborator geometry' --limit 5
 ./graph working packet --id BT-IM2-JOINTFIT
 ./graph dispatch --id BT-IM2-JOINTFIT --lane <NEW_LANE> --kind review --reason '<why this test now>' --task-file tasks/lanes/<NEW_LANE>.md
 ./graph feedback --lane <NEW_LANE> --record results/<NEW_LANE>/GRAPH_FEEDBACK.json

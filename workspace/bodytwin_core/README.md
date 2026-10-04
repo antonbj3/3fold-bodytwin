@@ -34,7 +34,7 @@ The demo times instantiation, all 141 solve frames, archived what-if lookup, ban
 
 ## Conditional design loop
 
-`bodytwin_core.design.design_eval({'lengthening_mm': L}, subject='z001', task='john_lift')` rebuilds Field femur anchors, N40b mechanics and projection, U380 bone mass properties, and the 141-frame N43 recruitment before reporting hip reaction. `L` is bounded to ±10 mm. `C01RFE` uses a TLEM proxy anatomy, not a same-person mapping. New intermediate files go to `external_media`; the pipeline uses frozen D1 and CX-WHATIF2 inputs, with source hashes in `results/CX-DESIGNLOOP/SOURCES.sha256`. See that result package for the exact preregistration, feasibility checks, timing, parity and limitations. The knee contact layer is outside this hip design call.
+`bodytwin_core.design.design_eval({'lengthening_mm': L}, subject='z001', task='collaborator_lift')` rebuilds Field femur anchors, N40b mechanics and projection, U380 bone mass properties, and the 141-frame N43 recruitment before reporting hip reaction. `L` is bounded to ±10 mm. `C01RFE` uses a TLEM proxy anatomy, not a same-person mapping. New intermediate files go to `external_media`; the pipeline uses frozen D1 and CX-WHATIF2 inputs, with source hashes in `results/CX-DESIGNLOOP/SOURCES.sha256`. See that result package for the exact preregistration, feasibility checks, timing, parity and limitations. The knee contact layer is outside this hip design call.
 
 ## L1 contact band batch
 

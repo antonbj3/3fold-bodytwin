@@ -304,7 +304,7 @@ These numbers came from scoped status with no untracked count. The large BodyTwi
 
 ## BodyTwin and dental next to the Sol trial
 
-BodyTwin has two major user tracks: the collaborative Rasmussen's needs around physiological geometri/geometry Manager and broad modelling of geometry, tissue, materials, mechanics, physiology, multimodal observations and research questions. The older emails support certain explicit needs; a new API or research cases need their own verified requirements. Meeting dates and correspondence status in the start messages are historical.
+BodyTwin has two major user tracks: the external collaborator's needs regarding physiological geometry/geometry manager and broad modeling of geometry, tissue, material, mechanics, physiology, multimodal observation and research questions. The older emails are support for certain express needs; a new API or research case needs its own verified requirements. Meeting dates and correspondence status in the launch messages are historical.
 
 MITOSTRESS and IMMUNITY have two dedicated work targets, real source catalogs, code and previous negative results. The package from 26 September has 16 mitochondrial/stress questions, 24 immune questions and four coupling/audit tasks. These are frozen definitions and queued tasks according to the activation at the time; current process status must be read separately.
 

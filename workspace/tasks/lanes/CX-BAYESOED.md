@@ -33,7 +33,7 @@
 ## Tasks (PREREG.md + sha256 first)
 1. Models:
    - gait2392 (Field's BODYGRAPH/U413, public);
-   - the collaborator's system (john_WR: `external_mount`, INTERNAL, local only);
+   - the collaborator's system (collaborator_WR: `external_mount`, INTERNAL, local only);
    - the Grand Challenge persons, where the implant force exists as facit for the decision's truth (NOT jw_lungef1).
 2. Candidate sensors with cost and noise, from literature with DOI: surface EMG per muscle, fine-wire EMG, shear-wave tensiometry per tendon (patellar/Achilles/semimembranosus/biceps femoris), joint stiffness perturbation, IMU, ultrasound fascicle length, force plate, the implant (as reference).
 3. Deliverables:

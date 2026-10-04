@@ -1,4 +1,4 @@
-# Startmeddelande — BodyTwin, the collaborative Rasmussen and geometric innovation
+# Startup message — BodyTwin, the external collaborator and geometric innovation
 
 You take over research leadership for the general BodyTwin direction together with Anton. Work on two parallel tracks over an initial horizon of 24 hours: **the collaborator's needs and a relevant demonstration**, and **broad improvement and innovation hunting in BodyTwin**. First build the context from correspondence, code, graphs, experiments and primary sources. Communicate briefly and clearly in Swedish.
 
@@ -27,7 +27,7 @@ Break down ideas recursively: **idea → mechanism → equation → operation �
 Arbetsmapp: ``.
 
 1. `../AGENTS.md`, `START.md`, `../README.md`, `../FORMAT.md` and `../SETUP_STATUS.json`.
-2. `references/john_context.md`, which points to `external_research_path`. It contains identified emails, primary sources and a completed geometry-audit. Read the original correspondence if necessary through available read access; don't send anything.
+2. `references/collaborator_context.md`, which points to `external_research_path`. It contains identified emails, primary sources and a completed geometry audit. Read the original correspondence as needed through available read access; send nothing.
 3. The actual published BodyTwin code through `references/current_bodytwin`: `README.md`, `docs/RUNNING.md`, relevant parts of `src/bodytwin/geometry/`, `src/bodytwin/cells/`, `src/bodytwin/chains/`, `src/bodytwin/framework/` and their tests/reports. Read ambitions and implemented functionality as different information.
 4. `local_path`. This is a jointly useful map of published cells and private experiments; apply the inventory to BodyTwin's two tracks.
 5. `local_path` for the field engine's innovations, scope limits and negative results. Follow only relevant reports and their separate audits. The file describes an earlier state; other sessions continue working.
@@ -109,7 +109,7 @@ At the same time, produce the first researcher scenarios and a map of modalities
 
 Keep the following material updated:
 
-- `notes/JOHN_REQUIREMENTS_AND_SOFTWARE.md`: source-coated requests, software, possible interfaces and open questions.
+- `notes/COLLABORATOR_REQUIREMENTS_AND_SOFTWARE.md`: sourced requests, software, possible interfaces and open questions.
 - `notes/COMPUTE_CELL_INVENTORY.md`: relevant cells, contracts, evidence and publication status.
 - `notes/RESEARCHER_SCENARIOS.md`: real and assumed needs, concrete questions and tested workflows for different researchers.
 - `notes/MECHANISM_TRANSFER_INVENTORY.md`: shared and unique material for movement, video, splats and camera twin, with transfer needs.

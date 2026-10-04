@@ -74,9 +74,9 @@ def safe_source(src, paths):
         p = (d/rel).resolve()
         if not p.is_relative_to(d.resolve()) or not p.is_file() or p.is_symlink(): return False
     # No credentials/private patient records; allow only the explicitly selected small tables.
-    if any(re.search(_private_input_pattern('credential|secret|token|password|patient|the collaborator|health'), rel, re.I) for rel in paths): return False
+    if any(re.search(_private_input_pattern('credential|secret|token|password|patient|collaborator|health'), rel, re.I) for rel in paths): return False
     inp=d/'inputs'
-    if inp.exists() and any(re.search(r'credential|secret|token|password|patient|the collaborator|\.env$|\.dcm$',str(p.relative_to(inp)),re.I) for p in inp.rglob('*') if p.is_file()):return False
+    if inp.exists() and any(re.search(r'credential|secret|token|password|patient|collaborator|\.env$|\.dcm$',str(p.relative_to(inp)),re.I) for p in inp.rglob('*') if p.is_file()):return False
     return True
 
 def used_audits():
@@ -104,7 +104,7 @@ def audit_candidates():
         needed=['RESULTS.md','results.json','PREREG.md','PREREG.sha256']
         if not safe_source(src,needed):continue
         extra=[p for p in (d/'inputs').rglob('*') if p.is_file()] if (d/'inputs').exists() else []
-        if not extra or any(p.is_symlink() or re.search(r'credential|secret|token|password|patient|the collaborator|health|\.h5$|\.dcm$',str(p.relative_to(d)),re.I) for p in extra):continue
+        if not extra or any(p.is_symlink() or re.search(r'credential|secret|token|password|patient|collaborator|health|\.h5$|\.dcm$',str(p.relative_to(d)),re.I) for p in extra):continue
         if sum(p.stat().st_size for p in extra)+sum((d/n).stat().st_size for n in needed)>MAX_BYTES//3:continue
         try:
             actual=hashlib.sha256((d/'PREREG.md').read_bytes()).hexdigest()
