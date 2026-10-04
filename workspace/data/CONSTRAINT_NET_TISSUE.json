@@ -1431,6 +1431,28 @@
       1.0
      ],
      "note": "observed downstream-over-upstream ratio; r = (1 - sigma) + sigma/(1 + Pe)"
+    },
+    {
+     "id": "facit_internal_residual",
+     "unit": "1",
+     "level": "PHENOMENOLOGICAL",
+     "domain": "method",
+     "plausible_range": [
+      0.0,
+      1.0
+     ],
+     "note": "relative residual when a published source two linked quantities are checked against their own identity; measured 0.000 to 5.315 percent across five sources"
+    },
+    {
+     "id": "external_reference_usability",
+     "unit": "1",
+     "level": "PHENOMENOLOGICAL",
+     "domain": "method",
+     "plausible_range": [
+      0,
+      1
+     ],
+     "note": "whether a published source can be used as a facit; categorical, decided by its own internal identity check"
     }
    ],
    "edges": [
@@ -4159,6 +4181,28 @@
      "control": "the single-observation reading sigma = 1 - r, whose bias is exactly -1/(1 + Pe) and therefore always an underestimate",
      "falsifier": "the decision states its own limit: verdict_on_real_tissue = CANNOT DECIDE, because no measured two-flow protein ratio with a locator exists. If such a pair is found and the closed-form inversion misses the published sigma by more than its own fixture error of 1e-09 scaled by the measurement dispersion, the relation does not hold on tissue",
      "why_it_is_OPEN_and_not_TIGHT": "the algebra is exact and the fixture round-trip closes to 1e-09, but the quantity has never been inverted on a measured tissue pair, so the edge carries a method and not a result",
+     "review_state": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+     "id": "T-E39-published_identity-vs-source_self_consistency",
+     "between": [
+      "facit_internal_residual",
+      "external_reference_usability"
+     ],
+     "constraint": "a source that reports two quantities linked by an identity has already tested itself, and the test is elementary enough that nobody runs it. Five of our external facits admit such a check and all five pass under 5.4 percent: the laser mass-loss slope 267 ug/J against the same paper heat of ablation 3740 J/g, which are reciprocals, residual 0.142 percent; the instrument shear modulus 13 280 000 Pa against the isotropic relation from the independently sourced Young modulus 32 800 000 Pa at nu = 0.25, residual 1.205 percent; the mPTP true SD under the SEM reading against 4.0 pp times sqrt(7), residual exactly 0; the fibre coefficient k = 4.877250096040 against 1/g with g = 0.205033570210, residual exactly 0; and the meniscus condyle forces 199.01469891419063 mm2 times 1.2885913888072562 MPa plus 252.57164890113802 times 1.0695118722455845 against the applied 500 N, residual 5.315 percent. Median 0.142 percent. The meniscus residual is the largest and sits inside that chain own stated area errors of 4.80 and 4.44 percent, so it is explained rather than anomalous",
+     "status": "OPEN",
+     "owner": "tasks/assembly/facit_internal_check.py",
+     "evidence": "results/ASSEMBLY_FACIT_INTERNAL_CHECK/CHECK_V1.json :: relative_residual.median",
+     "external_reference": "PMID 9694144; doi 10.1098/rsos.172051; PMID 15642769; doi 10.5518/981",
+     "control": "using a published law without checking its own coefficients against each other, which is what every chain in this net did until today",
+     "falsifier": "a source whose linked quantities disagree by more than the dispersion it reports for either one cannot be used as a facit without first resolving which quantity is being measured; the file deliberately does not reject such a source, because a disagreement can mean different specimens or a different convention, and both are findings",
+     "scope": "five instances verified by hand, not a survey; the net holds 14 edges with an external reference and nine of them carry enough numbers for a check that has not been run",
+     "branches_opened": [
+      "the nine remaining external-reference edges that carry two or more source numbers but have not been checked",
+      "whether any source in the net FAILS its own identity, which is the case this file exists to catch and has not yet found",
+      "the pressure times area identity across the eight meniscus rows that were labelled with a peak pressure, where the same check gave 0.1155 to 0.168 and therefore failed",
+      "a convention difference as a third outcome beside pass and fail, since the beam-profile spread of 31 percent in the laser chain is exactly that"
+     ],
      "review_state": "PENDING_INDEPENDENT_REVIEW"
     }
    ],
