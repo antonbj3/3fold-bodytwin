@@ -32,11 +32,28 @@ which is 2.24x to 6.88x the conduction-only thermal diffusivity of soft tissue, 
 The measured damage therefore travels further than conduction alone allows, which is the evaporative
 channel showing up in the facit rather than in the model.
 
-The refusal that makes this a decision and not a curve. Damage volume tracks the generator setting with
-R = 0.73 (p = 0.008) across the full 10-120 range, but restricted to 10-60 the correlations are
-R = 0.95, 0.98 and 0.92 (p <= 0.001) for depth, radius and volume. The predictor loses its grip above
-60, so above 60 this decision returns no setting. A model that answered anyway would be answering from
-a region where its own calibration is measurably weaker.
+The refusal that makes this a decision and not a curve -- and the correction that narrowed what it may
+claim. The gate was written as "damage volume tracks the setting at R = 0.73 over 10-120 but at
+R = 0.95, 0.98, 0.92 over 10-60", read as one quantity measured over two ranges. PROOF_LANE_TWO_TIMESCALE
+showed that is not what the sources say: R about 0.95 is COAGULATION DEPTH over 10-60 and R about 0.73
+is CUT VOLUME over 10-120 -- two operating modes and two quantities, and the same-mode cut-volume
+correlation recomputes far lower. The refusal above 60 therefore stands on a weaker footing than first
+written: it is a refusal to extrapolate past the range where any mode was well correlated, not a
+measured collapse of one predictor. It is kept, with that scope.
+
+The falsifier that was in this file is empty, and that was worth finding. It said a two-timescale chain
+must show slope about 0.5 that saturates, while a pure diffusion model gives 0.5 throughout. proof_lane
+constructed the counterexample in closed form: with x = log(P/P0), any positive smooth depth response
+d(P) is reproduced exactly by log(d/d0) = a + x/2 + g(x) where g(x) = log[d(P0 e^x)/d0] - a - x/2. So
+curvature, smooth saturation, derivatives and moments all fail to separate the models, and no number of
+points on 10-60 or 10-120 resolves it, not even noiseless continuous coverage.
+
+What does separate them is a restriction justified independently, and the cheapest witness is a
+four-corner design: two settings crossed with two durations, rejecting when
+|I| > 4*eta for I = log(d11 d22 / d12 d21) with log-depth error eta per observation. At eta = 0.02 that
+is |I| > 0.08, recomputed here. The endpoint-slope witness needs |m - 0.5| > epsilon + 2*eta/L, which at
+eta = 0.02 is 0.022324 over 10-60 and 0.016097 over 10-120, both recomputed here from L = log 6 and
+L = log 12.
 
 Two honest limits of this first version, found by running it. The thermal ratio is NOT an independent
 quantity here: at the dwell the decision returns, xi comes out exactly 1.0, 4.0 and 9.0 for tolerances
