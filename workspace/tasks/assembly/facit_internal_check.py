@@ -108,7 +108,7 @@ def main() -> int:
     print(f'{"kedja":30} {"identitet":46} {"residual":>10}')
     for r in rows:
         print(f"  {r['chain']:28} {r['identity'][:44]:44} {100 * r['relative_residual']:9.3f} %")
-    print(f"  fem kontroller: min {100 * min(rels):.3f} %, median "
+    print(f"  {len(rows)} kontroller: min {100 * min(rels):.3f} %, median "
           f"{100 * sorted(rels)[len(rels) // 2]:.3f} %, max {100 * max(rels):.3f} %")
     return 0
 
