@@ -1,7 +1,7 @@
 {
- "checked": 157,
+ "checked": 158,
  "counts": {
-  "OK": 151,
+  "OK": 152,
   "UNRESOLVED_DECLARED": 6
  },
  "evidence_moved_since_last_check": [],
@@ -790,6 +790,11 @@
    "edge": "ASM-E0013",
    "status": "OK",
    "detail": "secretion_blocked_fraction = 0.556095804069872 (path)"
+  },
+  {
+   "edge": "ASM-E0014",
+   "status": "OK",
+   "detail": "critical_deposition_efficiency_saturating = 0.004326761426716262 (path)"
   }
  ],
  "why": "an edge is a snapshot of prose plus one evidence path; nothing links a new measurement back to the edges that cite it, so staleness is silent",
