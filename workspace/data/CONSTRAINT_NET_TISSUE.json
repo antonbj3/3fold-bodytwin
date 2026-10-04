@@ -1350,12 +1350,14 @@
             "needle_forward_friction",
             "passage_number"
           ],
-          "constraint": "no digitised series separates forward friction on first versus repeated passage in the same hole, so the equal-friction assumption is uncertain. Nine published curves are readable with sources and reading errors",
+          "constraint": "the equal-friction assumption was called uncertain because no digitised series was thought to separate forward friction on first versus repeated passage in the same hole. That premise is false. Fukushima, Saito and Naemura, Procedia CIRP 5:265-269 (2013), doi 10.1016/j.procir.2013.01.052, insert the needle TWICE into the same test piece and take the second-passage force as the friction measurement, which is exactly the separation the edge says does not exist. Verified 2026-10-04 against the publisher record: title, authors, volume and pages all match. The edge is therefore not uncertain for the stated reason; what is missing is a first-pass forward-friction number, since the passage-resolved sources measure the plateau",
           "status": "UNKNOWN",
           "evidence": "3fold-motion-engine/_private/romi_collab/build/SOL_FALT_NALFRIKTION_20261001/raw/anchor_curves/INDEX.json :: measurement_status = OSAKER",
           "owner": "field lane, read-only for us",
           "evidence_unresolved": true,
-          "evidence_unresolved_note": "the named INDEX.json is not under this workspace at all (it resolves only under the public staging tree/3fold-motion-engine/..., field-lane owned) and holds no numeric key; its digitization.json summary lists 6 curves while this text says nine, so no path in the named file holds the number stated"
+          "evidence_unresolved_note": "the named INDEX.json is not under this workspace at all (it resolves only under the public staging tree/3fold-motion-engine/..., field-lane owned) and holds no numeric key; its digitization.json summary lists 6 curves while this text says nine, so no path in the named file holds the number stated",
+          "premise_refuted_2026_10_04": "negative existence claim, refuted by locatable source; the \"nine curves\" in the earlier evidence is a floor from one inclusion rule, not a census -- a swarm report rebuilt it at 16 curves under a slightly wider rule. Not scored against the source dispersion, which is in an INDEX.json the worker could not open",
+          "not_our_constant": "the same report called mu = 0.4 \"the constant the engine uses\". It is not ours: grep over tasks/ finds no friction coefficient in any BodyTwin model. 0.4 is the constant in an external ophthalmic trocar FE study, where it sits 1.69-1.88 sigma above the mu it cites (0.295 +/- 0.056 static, 0.255 +/- 0.086 dynamic). Carried as outside material, not as our own error"
         },
         {
           "id": "T-E19-epithelial_front_velocity-vs-epithelial_front_velocity",

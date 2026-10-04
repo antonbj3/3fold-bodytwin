@@ -101,11 +101,44 @@ def main() -> int:
             body += [f"> {x['constraint'][:230]}" for x in near[:3]]
             body += ['']
         if prior:
-            # Without this the worker cannot tell a second question from a repeat of the first, and
-            # it will redo the earlier analysis. Name the earlier report and what moved.
+            # Measured 2026-10-04 11:57: of 232 briefs answered in three hours, 117 returned nothing
+            # but "results/<jid>/RESULTS.md does not exist on this filesystem". The worker runs in the
+            # cloud and has no access to this tree, so a brief that makes reading a local path a
+            # precondition kills the job. The earlier answer has to travel INSIDE the brief.
+            pr = W / 'results' / prior[-1] / 'RESULTS.md'
+            prior_text = ''
+            try:
+                prior_text = pr.read_text(errors='ignore').strip()
+            except OSError:
+                prior_text = ''
+            # What actually moved: the earlier brief quoted the constraint it was built from, so the
+            # two quoted lines are directly comparable without storing anything extra.
+            old_c = ''
+            try:
+                ob = (W / 'results' / prior[-1] / 'BRIEF.md').read_text(errors='ignore')
+                m = re.search(r'^> (.+)$', ob, re.M)
+                if m:
+                    old_c = m.group(1).strip()
+            except OSError:
+                pass
             body.append('')
-            body.append("## This is not the first question about this edge")
-            body.append(f"""An earlier report is available: "results/{prior[-1]}/RESULTS.md`. The content of the edge has changed since it was written, and that's why this question exists. Read that report FIRST and say in a row what's new at the edge. Don't repeat its analysis. If you can't see any difference, write it and stop — a repetition is worse than an empty answer.""")
+            body.append("## This edge has been answered once before")
+            if old_c and old_c != e['constraint'].strip()[:len(old_c)]:
+                body.append("This is how the edge read then:")
+                body.append('')
+                body.append(f'> {old_c[:400]}')
+                body.append('')
+                body.append("That's what it says. (top quote in this briefen)The difference is why the question is asked again.")
+            else:
+                body.append('Kantens bevis eller status har flyttat sedan dess; texten kan se lik ut.')
+            if prior_text:
+                body.append('')
+                body.append("The previous answer, including in its entirety or the beginning of it — You don't have our file system, so this is all you get from it. Don't repeat its analysis, build on:")
+                body.append('')
+                body.append('```')
+                body.append(prior_text[:4000])
+                body.append('```')
+            body.append('')
             body.append(f'Kantens nuvarande status: {e.get("status")}. '
                         f'Bevis: {str(e.get("evidence", ""))[:200]}')
             for k in ('load_label_unsupported', 'sensitivity_note', 'evidence_relocated'):
