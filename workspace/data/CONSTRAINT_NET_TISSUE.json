@@ -3557,7 +3557,9 @@
         {
           "variable": "surface_shape_field",
           "why": "it decides the SIGN of a procedure's refractive outcome; the span over its proxy is 0.8724 D against a 0.25 D clinical threshold",
-          "closing_measurement": "corneal topography height field with common registration, routinely acquired"
+          "closing_measurement": "corneal topography height field with common registration, routinely acquired",
+          "correction_2026_10_04": "The stated why -- that identical lumped inputs differ because the whole effect is non-symmetric structure -- is NOT supported. An proof_lane round shows the 0.3056 D gap is carried by RADIAL COMMON BENDING, a symmetric mode, and that radial bending alone reproduces the mean-power gap to within 1.574e-10 D. Pure astigmatic bending gives essentially zero mean gap but 0.1840 D of cylinder-vector distance. The symmetry statement I reasoned from was wrong: rotational symmetry forces P = qI, so astigmatism vanishes while the mean power q stays FREE -- verified here by direct commutation. A near-zero rotational control therefore says nothing about mean power. Also: the two allocation numbers that agree at 0.8724 D are NOT independent; they reuse the same endpoints, since changing eta moves both surfaces by -d_eta * delta_T, so their agreement describes one field excursion counted twice.",
+          "closing_measurement_sharpened": "Both registered surfaces for the same 69 eyes with signed coefficients, covariance and residual maps over a 5.700 mm disk. The radial mode is the target, which is cheaper than the full non-symmetric field the original note implied."
         },
         {
           "variable": "depth_temperature",
