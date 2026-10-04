@@ -94,3 +94,16 @@ tasks/cloud/*.txt
 *.pdf
 notes/COLLABORATOR_*
 notes/BACKUP_SENSITIVITY_CLASSIFICATION.md
+# Publishing material: hoarded articles, page images and rADATA responses remain local but may not
+# distribueras vidare. Proveniensposterna (*.acquisition.json med url, sha256 and time) and
+# OpenAlex-metadata ar sparade, sa en lasare kan hamta samma fil fran kallan sjalv.
+results/*/literature/**/*.txt
+results/*/literature/**/*.png
+results/*/literature/**/*.jpeg
+results/*/literature/**/*.html
+results/*/literature/**/*.response
+results/*/literature/**/*.failed_response
+# matplotlib-cache som rakade bli sparad
+**/mplconfig/
+**/mpl_config/
+**/.mplconfig*/
