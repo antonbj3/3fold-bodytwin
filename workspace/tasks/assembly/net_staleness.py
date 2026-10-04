@@ -32,6 +32,19 @@ import pathlib
 import re
 from pathlib import Path
 
+import importlib.util as _ilu
+
+_spec = _ilu.spec_from_file_location(
+    'relocate_stale_evidence',
+    str(Path(__file__).resolve().parent / 'relocate_stale_evidence.py'))
+_rel = _ilu.module_from_spec(_spec)
+_spec.loader.exec_module(_rel)
+# carries() is the relocator's test: literal match, or agreement to the last digit the COARSER
+# side states. Keeping a second, literal-only copy of that rule here flagged HARVEST-E0065 as
+# stale for citing 4.072 where its source says 4.07 -- a correct edge reported as poison. One
+# rule, one file.
+carries = _rel.carries
+
 W = Path('.')
 NET = W / 'CONSTRAINT_NETS.json'
 # The value class used to be [\d.eE+], which accepts 1.25e+09 and rejects 1.25e-09. Four edges
@@ -194,11 +207,51 @@ def main() -> int:
             # stale, including one I had verified by hand. Same family as the exponent-sign bug an
             # audit found in this file earlier: my number extraction keeps mis-reading signs.
             nums = re.findall(r'(?<![\d.])-?\d+[.,]?\d*', claimed)
-            if claimed[:60] in window or (nums and all(x in window for x in nums[:4])):
+            if carries(window, claimed)[0]:
                 rows.append((e['id'], 'OK', f"line {mline.group('line')} matches"))
             else:
                 rows.append((e['id'], 'STALE',
                              f"line {mline.group('line')} does not carry the cited text or numbers"))
+            continue
+        # A third evidence format, carried by 24 of the 99 admitted detail-layer edges and read by
+        # nothing until now: `file :: /a/b/c = <free text with numbers>`. The locator is a JSON
+        # pointer and the value is prose, so both the dotted-key walker and the numeric value class
+        # reject it, and all 24 counted as unauditable. They are not: resolve the pointer, render
+        # the subtree, and run the same text-and-number comparison the markdown branch runs.
+        mptr = re.match(r'^(?P<file>[^\s:]+)\s*::\s*(?P<ptr>/[^=]+?)\s*=\s*(?P<text>.+)$',
+                        ev.strip(), re.S)
+        if mptr and not EV.match(ev.strip()):
+            f = pathlib.Path(mptr.group('file'))
+            if not f.is_absolute():
+                f = W / mptr.group('file')
+            if not f.exists():
+                rows.append((e['id'], 'UNCHECKED', f"evidence file missing: {mptr.group('file')}"))
+                continue
+            try:
+                cur = json.loads(f.read_text())
+            except Exception as exc:
+                rows.append((e['id'], 'UNCHECKED', f'{type(exc).__name__} reading evidence'))
+                continue
+            how, missing = 'pointer', None
+            for seg in [x for x in mptr.group('ptr').split('/') if x]:
+                if isinstance(cur, dict) and seg in cur:
+                    cur = cur[seg]
+                elif isinstance(cur, list) and seg.isdigit() and int(seg) < len(cur):
+                    cur = cur[int(seg)]
+                else:
+                    missing = seg
+                    break
+            if missing is not None:
+                # The pointer missing a segment is not the same as the claim being absent: fall
+                # back to the whole document, and say in the row that the address did not resolve.
+                cur = json.loads(f.read_text())
+                how = f'pointer broke at /{missing}, searched whole file'
+            rendered = _rel.norm(json.dumps(cur, ensure_ascii=False))
+            claimed = _rel.norm(mptr.group('text'))
+            if carries(rendered, claimed)[0]:
+                rows.append((e['id'], 'OK', f'{how}: numbers present'))
+            else:
+                rows.append((e['id'], 'STALE', f'{how}: cited numbers not in that subtree'))
             continue
         m = EV.match(ev.strip())
         if not m:
