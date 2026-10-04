@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Local third execution host; no research.slice. Admission waits count as jobs.
-W=
+W=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
 Q=$W/tasks/lanes/bt_queue.txt; LOG=$W/tasks/lanes/bt_queue.log
 exec 9>"$W/tasks/lanes/bt_queue.local-dispatcher.lock"
 flock -w 30 9 || exit 1

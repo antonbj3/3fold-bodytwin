@@ -3,7 +3,7 @@
 # 2/10 01:45 (anton-5f, Dental's finding): opencode is a Bun binary that unpacks its native addon to
 # $TMPDIR/.<hash>-00000000.so (5.6-13.7 MB) and never cleans up. With ~430 new ones per hour, / grew by 2.4 GB/h
 # and 6962 files (39 GB) had accumulated. Each job therefore gets its OWN TMPDIR on games-240, torn down at exit.
-W=
+W=$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)
 P=$1; M=$2; J=$3
 CLAIM=$W/results/$J/.local_claim
 printf '%s\n' "$$" > "$CLAIM"

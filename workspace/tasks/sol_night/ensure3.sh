@@ -4,7 +4,7 @@
 # The castles are in slots.txt (one LANE per row, max 3). The coordinator changes lanes by changing the row.
 # Quick error (<180 s) is counted; after 3 in a row, the lane waits for 30 min and writes ALERT.
 set -u
-ROOT=
+ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
 D=$ROOT/tasks/build_night; ST=$D/state; mkdir -p "$ST" "$D/steer"
 LOG=$D/ensure.log
 MODEL=${MODEL:-lane-model}; EFFORT=${EFFORT:-high}; ROUND_TIMEOUT=${ROUND_TIMEOUT:-14400}

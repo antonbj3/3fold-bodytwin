@@ -4,7 +4,7 @@
 # exists or after MAX_ROUNDS. Can be restarted over an already running lane: then waits for the running process.
 set -u
 LANE=${1:?lane, t.ex. U14}; MODEL=${2:-opencode-go/reserve_worker-v4.1-flash}
-ROOT=
+ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
 LANEFILE=$ROOT/tasks/lanes/$LANE.md; OUT=$ROOT/results/$LANE/RESULTS.md; LOG=$ROOT/tasks/lanes/lane_$LANE.log
 MAX_ROUNDS=${MAX_ROUNDS:-12}
 export GOOGLE_VERTEX_PROJECT=project-8029a247-2b65-4a21-8f8 GOOGLE_VERTEX_LOCATION=global

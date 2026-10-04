@@ -3,7 +3,7 @@
 # one exec per round, at most MAX_ROUNDS rounds, continues only if RESULTS.md is missing.
 # Usage: tasks/lanes/run_lane_runner.sh <LANE> [results-directory]   (default results/<LANE>)
 set -u
-LANE=${1:?}; ROOT=
+LANE=${1:?}; ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
 OUTDIR=${2:-results/$LANE}; OUT=$ROOT/$OUTDIR/RESULTS.md; LOG=$ROOT/tasks/lanes/codex_$LANE.log
 MODEL=${MODEL:-lane-model}; EFFORT=${EFFORT:-medium}; MAX_ROUNDS=${MAX_ROUNDS:-3}
 mkdir -p "$ROOT/$OUTDIR"; exec 9>"$ROOT/$OUTDIR/.lane_runner.lock"; flock -n 9 || { echo "$LANE is already running"; exit 0; }

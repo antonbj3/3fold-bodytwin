@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Paketet laddas upp EN time to /opt/bt/shared/cxw_bundle (rsync nedan)Each shard copies it locally.
 # Run CX-WHATIF:s 12 Shards on OVH (2 vCPU/6 GB where, maximum: BT-kvoten 8 vCPU), fetches results to modal_out-strukturen.
-W=; B=external_media; cd $W
+W=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd); B=external_media; cd $W
 LOG=$W/tasks/lanes/cxw_ovh.log; T=$(date +%H%M)
 jobs=(); for tag in identity vsd_z001 vsd_z009; do for s in "CCD -15 0 a" "CCD 1 15 b" "AV -15 5 a" "AV 6 25 b"; do set -- $s; jobs+=("CXW-$tag-$1-$4-$T|$tag $1 $2 $3"); done; done
 rsync -a --partial -e "ssh -i $HOME/.ssh/hunt_20260923 -o IdentitiesOnly=yes -o UserKnownHostsFile=external_research_path -o BatchMode=yes" $B/ rocky@54.37.4.45:/opt/bt/shared/cxw_bundle/ >> $LOG 2>&1 && echo "[$(date +%T)] bundle uppe" >> $LOG
