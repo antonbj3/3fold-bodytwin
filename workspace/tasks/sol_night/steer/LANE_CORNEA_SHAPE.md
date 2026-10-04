@@ -1,61 +1,36 @@
-# LANE_CORNEA_SHAPE — the one quantity that decides the direction of a surgical outcome
+# Styrning LANE_CORNEA_SHAPE — efter r21
 
-Result directory `results/LANE_CORNEA_SHAPE/`.
+## The first thing to fix: two numbers with the same name and different meanings
+Your `same89` block carries `recomputed: False` and three toric numbers: `toric_field_magnitude_MAE_D`
+0,284333, `toric_same_information_collapsed_MAE_D` 0,282503 and `toric_population_MAE_D` 0,587433,
+with 50/69 to the measured posterior. The assembly chain in `tasks/assembly/toric_decision.py` gives on
+the same 69 eyes and with the same 50/69 split 0,2808 and **0,6209** for the population arm. I checked
+our own history: before tonight's correction of `from_vector` it was at 0,2817/0,6264, after it at
+0,2808/0,6209 — so your numbers are not an old copy of ours, but another estimation step under a
+name read as the same quantity. The population arm differs by 5,4 %.
 
-## Why this is the highest-value construction left
-The assembled twin now makes the surgical decision. On 20 patients it chooses the implant power and
-lands closer to the hindsight-correct power than the implanted lens in 11 cases against 2, mean miss
-0.688 D against 1.070 D. On 69 toric patients, using the **measured** posterior cornea instead of the
-population estimate that practice uses cuts predicted residual astigmatism from **0.626 D to 0.282 D**
-against measured refraction, better in 50 of 69.
+**Operation:** either rerun the block in this workspace, or rename each number so that the predictor appears
+in the name (`field_model_*` versus `thin_element_vector_*`) and print which quantity is compared. A number
+read as a check of another number, but computed with another predictor, is the most dangerous
+kind of entry in the network: three corpus searches have already failed on precisely that.
 
-What the decision cannot yet do is predict the **direction** of a corneal procedure's effect, and the
-reason is measured precisely:
+## Hindret i sak
+`scope`: "HeLa native camera functional, not original phantom/cornea. No new measured index/clinical
+endpoint." The lane has thus acquired a native reference/sample field but not on the specimen the question
+concerns, and `R17_residual_D = 0,867062644` remains without being bound to any measured reference answer.
 
-| measurement | result |
-|---|---|
-| two corneas with identical mean thickness, index field, hydration AND surface allocation | differ by **0.3056 D**, 4 of 4 pairs, all identity errors exactly **0.0** |
-| span of the refractive change over the surface-allocation parameter alone | **0.8724 D** |
-| the same span measured as a sufficiency gap | 0.87239 D — the two coincide to four decimals |
-| rotationally symmetric control with the same mean thickness | **−1.36e-08 D**, so the entire effect is non-symmetric structure |
+## Changed operation
+Bind 0,867 D to a quantity or delete it. The direction the lane owns is still the one r17
+measured: two corneas with identical mean thickness, index field, hydration AND surface allocation differ by
+0,3056 D in 4 of 4 pairs, and the rotationally symmetric control case gives −1,36e-08 D. The next construction
+is to make the non-symmetric structure an INPUT to the decision, not a residual entry: which measurable
+surface quantity carries the 0,3056 D, and what happens to the residual when it is introduced?
 
-So thickness, index and hydration are jointly insufficient however finely they are resolved, and the
-missing quantity is the **surface shape field with a common coordinate registration** — both corneal
-surfaces as a height map in one frame, not a thickness summary.
+## The strongest control
+The same 69 eyes, the same metric, but the predictor without the new surface quantity. The gain counts only against it, and
+only when both arms are computed in this workspace in the same run.
 
-**And unlike every other missing measurement found tonight, this one is routinely acquired**: a corneal
-topographer measures exactly it. The clinical dataset already in use carries anterior and posterior
-radii with their axes per patient, which is a two-parameter projection of that field.
-
-## Do this
-1. **Represent both surfaces as height fields in one frame**, with the registration explicit. Start from
-   what the dataset gives — anterior radii and axis, posterior radii and axis, central thickness — and
-   state exactly which degrees of freedom of the true field those four numbers fix and which they leave
-   free. That statement is the deliverable even if nothing else lands.
-2. **Then measure how much of the 0.306 D gap the dataset's projection closes.** Two corneas that agree
-   on all four dataset numbers: how far apart can their refraction still be? That is the residual
-   ambiguity of current clinical input, and it bounds what any calculator built on radii can achieve.
-3. **Carry it into the decision.** Re-run the power and toric decisions with the shape field in place of
-   the mean-curvature scalar, on the same 89 patients, and report the same statistics: power miss
-   against hindsight, residual cylinder against measured. If the numbers do not improve, the shape field
-   is not the binding quantity for these particular decisions and that is worth knowing precisely.
-4. **And state the direction result.** With the shape field, is the sign of a simulated procedure's
-   refractive change determined? The twelve-condition sweep flipped sign between +0.4658 D and
-   −0.8618 D; say whether the flip survives, and if it does, name what else is missing.
-
-## Control and falsifier
-- **Control:** the mean-curvature scalar cornea as the chain uses today, on the same patients. Equally
-  informed by construction — same data, same chain, only the corneal representation differs.
-- **Falsifier:** if the dataset's four numbers already fix the refraction to inside 0.25 D, then the
-  shape field adds nothing for these decisions and the 0.306 D gap lives in degrees of freedom that
-  clinical input does not vary. Report that plainly; it would redirect the whole eye track.
-- **Forbidden:** fitting any shape parameter to the measured refractions — they are the held-out
-  outcome; simulating a procedure on a rotationally symmetric cornea; reporting an improvement without
-  the same-patient control.
-
-## Delivery
-`PORT.json` with the registration statement, the degrees of freedom fixed and left free by the four
-dataset numbers, the residual refractive ambiguity they permit, the re-run decision statistics on the
-same 89 patients against the scalar control, and the verdict on sign determinacy.
-
-No internal data. Everything PENDING_INDEPENDENT_REVIEW.
+## The falsifier
+If the new surface quantity does not reduce the residual below the acquired population arm on the same eyes,
+the non-symmetric structure does not support the cylinder decision, and that is a result that must
+be printed in plain text.
