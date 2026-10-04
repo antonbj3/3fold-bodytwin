@@ -3621,6 +3621,28 @@
             "what the chain decides if the 250-cycle measurement point is moved to where the joint-95 crossing allows"
           ],
           "review_state": "PENDING_INDEPENDENT_REVIEW"
+        },
+        {
+          "id": "T-E26-dwell_time-vs-collateral_damage_depth",
+          "between": [
+            "electrosurgical_dwell_time_s",
+            "collateral_thermal_damage_depth_mm"
+          ],
+          "constraint": "an electrosurgical incision is flow limited, not force limited. Mechanical fracture costs 4 J per metre of cut against 2260 J per metre for vaporisation, which is 0.177 percent, and warming the kerf from 37 to 100 C adds exactly 10.0 percent -- all three recomputed by this coordinator from a 1 mm x 1 mm kerf, water latent heat 2.26 MJ/kg and soft tissue specific heat 3.6 kJ/kg/K. Hand force is therefore a second order quantity: the force ratio stays at or below 0.07 over 0.5-6 N and kerf areas 1.0 and 0.2 mm2. Published damage depth 0.56-1.70 mm at 1-3 s read as delta = sqrt(D_eff t) gives D_eff 3.1360e-07 to 9.6333e-07 m2/s, 2.24x to 6.88x the conduction-only 1.4e-07, so the measured damage travels further than conduction allows. The facit pins D_eff only within a factor 3.0719, which makes the dwell enclosure 2.0719 times the conservative dwell itself",
+          "status": "OPEN",
+          "evidence": "PMID 12642261 :: thermal damage depth 0.56-1.70 mm at 1-3 s; results/ASSEMBLY_INCISION_SETTING/DECISION_V1.json :: facit.d_eff_m2_s",
+          "external_reference": "PMID 12642261, doi 10.1177/03635465030310021601",
+          "control": "cold knife adds no damage beyond the cut depth, PMID 35974853",
+          "refusal": "damage volume tracks the setting at R = 0.73 (p = 0.008) over 10-120 but at R = 0.95, 0.98 and 0.92 (p <= 0.001) over 10-60, so the decision returns no setting above 60",
+          "falsifier": "damage size against log setting must have slope about 0.5 under conduction and saturate towards 0 once evaporation takes over; measuring 0.5 across the whole range falsifies the two-timescale reading",
+          "branches_opened": [
+            "a measured D_eff per generator setting, which is what would make the setting decide rather than gate",
+            "why the measured damage exceeds conduction by 2.24x to 6.88x, and whether the factor is perfusion or evaporation",
+            "whether the thermal ratio carries anything once the tolerance is set, since it comes out as the squared tolerance over kerf halfwidth",
+            "the adhesion force against tip temperature in newtons, PMID 33445344, as a better marker for predicted force than any other public data"
+          ],
+          "owner": "tasks/assembly/incision_setting_decision.py",
+          "review_state": "PENDING_INDEPENDENT_REVIEW"
         }
       ],
       "stress_points": [
