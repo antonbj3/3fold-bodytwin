@@ -55,7 +55,19 @@ while read -r LANE; do
         LOGF="$ROOT/results/$LANE/night_rounds/codex_r$R_PREV.log"
         ABORTED=0
         if [ -f "$LOGF" ] && [ ! -f "$ROOT/results/$LANE/night_rounds/r$R_PREV.json" ]; then
+          # 4/10 11:40: six rounds lost across three lanes to the provider's content filter,
+          # which answers a web search with "flagged for possible biological risk" and leaves no
+          # report. SUMMARY_REPAIR lost r34, r35 and r36 in a row, DOMAIN_DATA_TO_CELLS r3 and r6,
+          # BIOFILM_RETENTION_EXPONENT r4 after 129 754 tokens. The rounds ran long enough to look
+          # finished, so the driver booked them as complete and refilled into the same wall. The
+          # string is searched over the WHOLE log and not the tail, because the flag can fire early
+          # and be followed by thousands of lines of the agent carrying on without its sources.
           if tail -40 "$LOGF" 2>/dev/null | grep -qiE 'at capacity|rate limit|usage limit'; then ABORTED=1; fi
+          if grep -qiF 'flagged for possible biological risk' "$LOGF" 2>/dev/null; then
+            ABORTED=1
+            echo "[$(date +%F' '%T)] $LANE r$R_PREV: the provider's content filter triggered, no report" >> "$LOG"
+            echo "[$(date +%F' '%T)] ALERT $LANE content filter blocked searches i r$R_PREV" >> "$D/ALERTS.log"
+          fi
         fi
         if [ "$ABORTED" = "1" ]; then
           echo 0 > "$ST/$LANE.fastfail"
