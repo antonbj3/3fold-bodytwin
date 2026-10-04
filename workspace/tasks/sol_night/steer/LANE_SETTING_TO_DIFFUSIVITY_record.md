@@ -1,34 +1,39 @@
-# Styrning LANE_SETTING_TO_DIFFUSIVITY — efter r1
+# Styrning LANE_SETTING_TO_DIFFUSIVITY — efter r2
 
-## You answered my gate question, and the combination went the other way.
-`source_power_time_separation = PASS` — effect and time stand as separate columns, so the question is
-**not** decided in the negative direction.
+## You found why the setting cannot be calibrated straight
+`primary_delivered_power_at_10_25W_time_means_W = [9,43; 25,08]` — vid nominellt 10 and 25 W is the
+faktiskt levererade tidsmedeleffekten 9,43 and 25,08 W, that is, −5,7 % and +0,32 %Close to nominal.
 
-But the speech got worse, not better. `D` over the sources spanning
-`1,3996799999999997e−07` till `2,085136e−06 m²/s`, i.e. a dispersal factor **14,897233653406495**,
-and the cover becomes **13,897×** the conservative value. My demand was spreading **under 2,0**. Mitt
-tidigare spann 3,1360e−07 till 9,6333e−07 is in the new, so nothing is contradicted — men
-`D_eff` is **not tissue independent**, and that was exactly the other thing the combination would try.
+Men vid nominellt 50 W is the reported transient `[50; 13; 36] W` and
+`primary_50W_time_mean_W = None`I counted the ratio: **50/13 = 3,8462**. Den levererade effekten
+thus falls to a quarter within the same nominal setting, and the source reports no
+time average effect there.
+
+**That is a second, independent reason for the same refusal.** My Decision Refuses From Attitude 60
+because the correlation is losing its grip. Now there is a mechanism: over about 25 W is the setting
+not the delivered power. Two approaches, the same conclusion.
 
 ## Hindret, exakt
-`graphical_calibration = FAIL` with a deep gap of: **1,0122895600979513 mm** vid 170 W, and two
-Inadequacy gap in kelvin: `energy_temperature_gap_K = 11,941642642883693` and
-`chronology_temperature_gap_K = 20,985756909565126`. Thus: identical energy supplied respectively
-identical chronology leaves 12 K and 21 K indeterminate. A calibration read from figures does not carry a
-beslut med en millimeters toleranskrav.
+You have two layer temperatures, `71,75293210216537` and `56,91036995856369 °C`, med gapet
+**14,842562143601683 K**, and a support band `[24,056905302588405; 72,0019017909824] °C`. Den
+critical support half-width is **0,19567759147916347 mm**So, toler.ансone in depth is two tenths
+millimetres while the temperature is indefinite within 14,8 K. A calibration cannot be narrower than the
+Worst of them.
 
 ## Changed operation
-Stop looking for a common `D_eff`. Instead, divide up per **tissue disorders** and indicate the spread within each
-tissue separately. Three numbers are sufficient: liver, muscle, skin. If the spread within a tissue is below 2,0 is
-the decision is decisive for that tissue and shall be conditional upon it; if no tissue comes below 2,0 is
-The figure reading limit and not the model.
+Kalibrera mot **levererad tidsmedeleffekt**, never against the setting, and enter for each source entry
+which of the two it reports, where the time-average effect is missing — som vid 50 W — is the entry is not
+usable for calibration and shall be excluded for that reason, not approximated by the transient.
+
+Dela sedan `D` per tissue as previously directed requested. Liver, muscle, skin, spread within each
+sig, med uteslutningarna redovisade.
 
 ## Starkaste kontrollen
-My original two-point value from meniscus, spread 3,0719If no tissue-disaggregated number beats
-it has the new sources not bought anything for the decision, and then they should enter as context, not as
-kalibrering.
+Calibration against the nominal setting, that is, the naive choice. If the tissue-specific calibration
+against delivered power does not narrow the spread during **14,897233653406495** you measured in r1 har
+The trade didn't buy anything.
 
 ## Falsifierare
-Om de 12 K and 21 K inadequacy gap persists after tissue division, so does neither
-energy or chronology temperature, and then the stopping limit cannot be derived from them at all.
-Out what third quantity would close the gap.
+If the mean time effect is missing in more than half of the items above 25 W, so goes the high end of
+setting scale not to calibrate out of published data at all. Say it with the number of entries, and let
+the refusal of the decision remains the only management of that area.
