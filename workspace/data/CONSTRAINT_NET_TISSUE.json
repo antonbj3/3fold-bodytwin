@@ -3679,6 +3679,22 @@
      ],
      "owner": "tasks/assembly/tip_load_decision.py",
      "review_state": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+     "id": "T-E28-pass_count-vs-forward_friction_budget",
+     "between": [
+      "needle_pass_count",
+      "forward_friction_budget_N"
+     ],
+     "constraint": "friction is not equal across passages. Past the penetration mark no material lies ahead of the tip, so the cutting term is identically zero on both passages and the measured force is pure shaft-tissue friction: 0.349 +/- 0.018 N on the first passage against 0.241 +/- 0.004 N on the second. This coordinator recomputed the ratio and propagated the dispersion: 1.4481 with SD 0.0785, which is 5.71 sigma from unity. A decision that budgets forward friction over a pass sequence therefore differs from the equal-friction assumption on a measurable share of the budget axis: scanning 0.201 to 2.000 N in 1 mN steps, the old assumption lets through one pass too many on 739 of 1670 budgets, 44.3 percent, and the closed form (F1-F2)/F2 = 0.4481 confirms it",
+     "status": "OPEN",
+     "evidence": "results/ASSEMBLY_PASSAGE_FRICTION/DECISION_V1.json :: budget_axis_scan.fraction_of_the_budget_axis = 0.4425",
+     "external_reference": "Kataoka, Washio, Chinzei, Mizuhara, Simone, Okamura, MICCAI 2002, LNCS 2488:216-223",
+     "control": "the equal-friction assumption this net carried until today: every pass at the second-passage force",
+     "falsifier": "the source fit F_2nd = 10.679/N * (P*S_t) - 0.01333 N is linear over depths 10, 15 and 20 mm, so friction is depth dependent and the two forces are one depth. If the ratio moves with depth by more than its own 0.0785 dispersion a single ratio cannot carry the decision and depth becomes an input",
+     "method_note": "six hand-picked budgets showed zero difference from the control, which looked like the finding buying nothing. That was a sampling artefact: the two readings differ by the constant 0.108 N, so the control over-allows exactly when the budget falls in that window below a multiple of 0.241 N. The budget axis is scanned, not sampled",
+     "owner": "tasks/assembly/passage_friction_decision.py",
+     "review_state": "PENDING_INDEPENDENT_REVIEW"
     }
    ],
    "stress_points": [
