@@ -1,11 +1,29 @@
 {
- "checked": 161,
+ "checked": 166,
  "counts": {
-  "OK": 153,
+  "OK": 155,
   "UNRESOLVED_DECLARED": 6,
-  "UNCHECKED": 2
+  "UNCHECKED": 3,
+  "STALE": 2,
+  "MOVED_SINCE_LAST_CHECK": 3
  },
- "evidence_moved_since_last_check": [],
+ "evidence_moved_since_last_check": [
+  {
+   "edge": "ASM-E0012",
+   "was": 1791083026.685,
+   "now": 1791119905.439
+  },
+  {
+   "edge": "ASM-E0013",
+   "was": 1791089915.655,
+   "now": 1791119905.083
+  },
+  {
+   "edge": "ASM-E0014",
+   "was": 1791101196.972,
+   "now": 1791119902.955
+  }
+ ],
  "rows": [
   {
    "edge": "T-E1-charge_inventory-vs-ionic_swelling_pressure",
@@ -811,6 +829,31 @@
    "edge": "T-E25-publication_format-vs-decidable_detail_edges",
    "status": "OK",
    "detail": "pointer: numbers present"
+  },
+  {
+   "edge": "T-E26-dwell_time-vs-collateral_damage_depth",
+   "status": "UNCHECKED",
+   "detail": "evidence carries no file :: key = value"
+  },
+  {
+   "edge": "T-E27-shaft_sensing-vs-tip_tangential_load",
+   "status": "STALE",
+   "detail": "evidence says 0.8048 but the file now holds 0.8047619047619047"
+  },
+  {
+   "edge": "T-E28-pass_count-vs-forward_friction_budget",
+   "status": "STALE",
+   "detail": "evidence says 0.4425 but the file now holds 0.4425149700598802"
+  },
+  {
+   "edge": "T-E29-shared_mPTP_target-vs-combination_ceiling",
+   "status": "OK",
+   "detail": "decision.gap_percentage_points = 10.491803278688524 (path)"
+  },
+  {
+   "edge": "T-E30-c3b_recycling_fraction-vs-host_activator_window",
+   "status": "OK",
+   "detail": "window.host_flip = 0.6901150139456149 (path)"
   }
  ],
  "why": "an edge is a snapshot of prose plus one evidence path; nothing links a new measurement back to the edges that cite it, so staleness is silent",
