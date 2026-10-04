@@ -1,0 +1,382 @@
+{
+  "task": "Renal pressure-natriuresis & Guyton's long-term arterial-pressure control: the renal-function-curve's shift-vs-rotation geometric decomposition (hypertension vs salt-sensitivity), the baroreflex adversary forced via real resetting kinetics + a sino-aortic-denervation classic, a genuinely new causal decorrelated anchor (renal cross-transplantation, human+rat, bidirectional), and the CKD/salt-sensitive-hypertension dysfunction extension via a new Ohm's-law mechanistic derivation reusing this twin's own verified MAP/RBF numbers.",
+  "narrative_doc": "docs/MECHANISM_PRESSURE_NATRIURESIS.md",
+  "delta_vs_existing_docs": {
+    "docs/MECHANISM_RAAS.md_F1": "REUSED POINTER, not re-derived: dMAP_ss/dIntake=1/S identity, S->0 void floor, Intersalt external anchor (PMID 3416162).",
+    "docs/MECHANISM_BAROREFLEX.md": "REUSED POINTER: BRS loop-gain, closed-loop sign, ACUTE sympathetic loop delay (2.5-5.0s). This doc forces the adversary with a DIFFERENT, decorrelated timescale: chronic RESETTING kinetics (minutes-hours), not the acute loop delay.",
+    "docs/MECHANISM_RENAL_FILTRATION.md": "REUSED POINTER: RBF=1.0768 L/min, load-bearing for this doc's own new Ohm's-law CKD-shift derivation. Does NOT reuse/re-derive GFR=SNGFRxN or nephron-count stereology.",
+    "new_in_this_document": [
+      "shift-vs-rotation geometric decomposition of the renal function curve (exact algebraic identity, machine-verified)",
+      "baroreflex adversary forced via chronic resetting-kinetics timescale (Moreira 1988 real data) vs sustained transplant-effect timescale (Curtis 1983), a decorrelated second timescale argument from RAAS.md's acute-delay argument",
+      "renal cross-transplantation causal anchor (Curtis 1983 human + Bianchi/Rettig rat, bidirectional, cross-species) -- entirely new to this twin",
+      "Ohm's-law mechanistic derivation of CKD/salt-sensitive-hypertension curve shift, reusing this twin's own verified MAP+RBF numbers, cross-checked against real clinical hypertension bands"
+    ]
+  },
+  "pre_registered_falsifiers": {
+    "F_MAIN": "Steady-state MAP is set by the intersection of the renal pressure-natriuresis curve with the Na-intake line -- a shift/rotation of the RENAL curve (not the baroreflex) sets chronic BP. Threshold: shift/rotation decomposition must be an exact machine-verified identity (tol <1e-6 relative); hypertension/salt-sensitivity must map onto the correct operator, externally anchored.",
+    "ADVERSARY": "\"The baroreflex sets/maintains long-term BP,\" steelmanned as an incompletely-resetting reflex with a long time constant. Threshold: FALLS if the reflex's own measured resetting time constant is >100x shorter than the sustained-perturbation timescale over which the kidney's own effect is independently observed to persist.",
+    "ANCHOR": "Renal cross-transplantation -- BP must track the donor kidney's provenance, bidirectionally, across >=2 independent species/study designs.",
+    "DYSFUNCTION": "Hypertension = rightward-shifted/rotated curve; CKD/salt-sensitive HTN = graded blunting tracking renal-impairment severity. Threshold: a mechanistic prediction from a real external anchor must overlap the real clinical hypertension range, with non-vacuous void floors."
+  },
+  "confidence_tier": "Mixed, stated per-claim (see doc \u00a78): in-vivo-anchored-causal (renal cross-transplantation, \u00a75, the strongest result -- causal not merely correlational); in-vivo-anchored-quantitative (baroreflex resetting kinetics Moreira 1988; afferent-resistance finding Coleman & Guyton 1975); method-derived-and-geometrically-verified-exact-but-illustrative-parameters (shift/rotation decomposition itself, S and f both swept/illustrative, not independently live-pinned to one primary number this session); bibliographic-only (5 of 12 new citations, pre-1975 + one unusual 2005 gap).",
+  "recall_drift_log": {
+    "attempted_before_search": 3,
+    "correct_on_first_recall": 0,
+    "pct_wrong": 100.0,
+    "detail": [
+      {
+        "citation": "Curtis et al 1983 renal transplantation",
+        "recalled_guess_pmid": "6621652",
+        "verified_real_pmid": "6353230",
+        "correct": false
+      },
+      {
+        "citation": "Bianchi et al 1974 rat cross-transplant",
+        "recalled_guess_pmid": "4213464",
+        "verified_real_pmid": "4611680",
+        "correct": false
+      },
+      {
+        "citation": "Cowley Liard Guyton 1973 SAD dogs",
+        "recalled_guess_pmid": "4713201",
+        "verified_real_pmid": "4713198",
+        "correct": false,
+        "note": "off by 3"
+      }
+    ],
+    "comparison_to_repo_history": "0/3=0% ties this repo's own previously-disclosed worst-case (arterial_pressure.py's 2/2=100% wrong), worse than RAAS.md's 77.8% wrong and the general ~62-67% baseline."
+  },
+  "citations_verified_live_this_session": {
+    "coleman_guyton_1975_kidney_role_essential_htn": {
+      "pmid": "1236607",
+      "doi": "10.1111/j.1440-1681.1975.tb01862.x",
+      "tier": "full_abstract",
+      "key_quote": "kidneys ... excrete normal amounts of salt and water at higher-than-normal renal perfusing pressures ... afferent resistance is increased to two or more times normal"
+    },
+    "curtis_1983_remission_htn_after_transplant": {
+      "pmid": "6353230",
+      "doi": "10.1056/NEJM198310273091702",
+      "tier": "full_abstract",
+      "key_data": "n=6+6 matched, MAP 92+/-1.9 vs 94+/-3.9 mmHg (P not significant), similar salt-deprivation/loading responses"
+    },
+    "bianchi_1974_kidney_crosstransplant_shr": {
+      "pmid": "4611680",
+      "doi": "10.1042/cs0470435",
+      "tier": "bibliographic_only_no_abstract_pre1975"
+    },
+    "bianchi_1974_mhs_strain_origin": {
+      "pmid": "4813594",
+      "doi": "10.1016/0024-3205(74)90064-2",
+      "tier": "bibliographic_only_no_abstract_pre1975"
+    },
+    "rettig_1996_kidney_crosstransplant_review": {
+      "pmid": "9004087",
+      "doi": null,
+      "tier": "full_abstract",
+      "key_quote": "hypertension travels with the kidney ... long-term blood pressure in renal transplanted rats is critically determined by the genetic background of the renal graft"
+    },
+    "rettig_grisk_2005_kidney_determinant_review": {
+      "pmid": "16103270",
+      "doi": "10.1161/01.HYP.0000178189.68229.8a",
+      "tier": "bibliographic_only_no_abstract_double_confirmed_ncbi_and_europepmc"
+    },
+    "cowley_liard_guyton_1973_sad_dogs": {
+      "pmid": "4713198",
+      "doi": "10.1161/01.res.32.5.564",
+      "tier": "bibliographic_only_no_abstract_pre1975"
+    },
+    "cowley_1992_longterm_control_review": {
+      "pmid": "1731371",
+      "doi": null,
+      "tier": "full_abstract_reused_pointer_from_RAAS_md_reread_for_new_quote",
+      "key_quote": "baroreceptors ... reset in time to the prevailing level of arterial pressure ... cannot provide a sustained negative feedback signal"
+    },
+    "krieger_1970_baroreceptor_resetting_timecourse": {
+      "pmid": "5412465",
+      "doi": "10.1152/ajplegacy.1970.218.2.486",
+      "tier": "bibliographic_only_no_abstract_pre1975"
+    },
+    "moreira_1988_rapid_aortic_baroreceptor_resetting": {
+      "pmid": "3364465",
+      "doi": "10.1097/00000441-198804000-00020",
+      "tier": "full_abstract",
+      "key_data": "60% of max resetting by 2min, max ~43% by 20min, stable to 6h, no change in baroreceptor gain"
+    },
+    "hall_2016_renal_dysfunction_mediates_salt_htn": {
+      "pmid": "26927007",
+      "doi": "10.1161/CIRCULATIONAHA.115.018526",
+      "pmcid": "PMC5009905",
+      "tier": "full_abstract",
+      "key_quote": "kidney dysfunction, characterized by impaired pressure natriuresis, has been demonstrated in all forms of experimental and human genetic or acquired salt-sensitive hypertension studied thus far"
+    },
+    "fukuda_kimura_2012_ckd_salt_sensitivity_nondipping": {
+      "pmid": "22898905",
+      "doi": "10.1007/s11906-012-0286-3",
+      "tier": "full_abstract",
+      "key_quote": "it takes longer for the night-time BP to fall in patients with more severe renal dysfunction ... renal function was the sole determinant of a nocturnal BP dip"
+    },
+    "guyton_coleman_1969_reprint_quantitative_analysis": {
+      "pmid": "10505704",
+      "doi": null,
+      "tier": "bibliographic_only_no_abstract_even_in_1999_reprint",
+      "note": "checked but not independently useful beyond identity confirmation"
+    }
+  },
+  "reused_pointers_not_reverified": {
+    "raas_md_F1_identity_and_intersalt": {
+      "source_doc": "docs/MECHANISM_RAAS.md",
+      "pmid_intersalt": "3416162",
+      "pmid_guyton1972_original_infinite_gain": "4337474",
+      "pmid_guyton1991": "2063193"
+    },
+    "baroreflex_md_mussalo2002_htn_brs_decline": {
+      "source_doc": "docs/MECHANISM_BAROREFLEX.md",
+      "pmid": "12598951"
+    },
+    "arterial_pressure_md_map": {
+      "source_doc": "docs/MECHANISM_ARTERIAL_PRESSURE.md",
+      "pmid_razminia2004": "15558774",
+      "value_mmHg": 93.33333333333333
+    },
+    "renal_filtration_md_rbf": {
+      "source_doc": "docs/MECHANISM_RENAL_FILTRATION.md",
+      "pmid_davies_shock_1950": "15415454",
+      "value_Lmin": 1.0768
+    },
+    "raas_md_montani_osborn_debate": {
+      "pmid_montani": "19286638",
+      "pmid_osborn": "19286640"
+    },
+    "raas_md_elijovich_salt_sensitivity_spectrum": {
+      "pmid": "27443572"
+    }
+  },
+  "gates": {
+    "pipeline_correctness": {
+      "A1_baseline_identity_analytic_numeric_match": "PASS",
+      "A2_shift_invariance_across_intake_sweep": "PASS",
+      "A3_rotation_pivot_invariance": "PASS",
+      "A3_rotation_amplification_factor_exact": "PASS",
+      "A4_combined_shift_rotation_decomposition": "PASS",
+      "A5_void_floor_S_zero_raises_singularity": "PASS",
+      "D2_ohms_law_analytic_numeric_match": "PASS",
+      "determinism_two_independent_runs_byte_identical": "PASS"
+    },
+    "real_falsifier_external_anchor_checks": {
+      "D2_predicted_dMAP_overlaps_real_clinical_HTN_band": "PASS",
+      "D2_void_floor_f_zero_predicts_no_hypertension": "PASS",
+      "D2_void_floor_f_one_bounds_malignant_extreme": "PASS",
+      "curtis1983_diff_confirms_papers_own_NS_claim": "PASS",
+      "curtis1983_adversary_falls_diff_lt_mild_htn_floor": "PASS",
+      "timescale_separation_gt_100x_prereg_bar": "PASS"
+    },
+    "overall_pass": "PASS (14/14)"
+  },
+  "honest_gaps": [
+    "Bianchi et al 1974's own exact numeric BP-swing magnitude not extracted this session (no abstract indexed, pre-1975); corroborated qualitatively by Rettig 1996 (same research lineage, disclosed non-independence).",
+    "Cowley, Liard & Guyton 1973's own exact fold-change in BP variability after sino-aortic denervation not independently extracted this session (no abstract indexed); qualitative structure corroborated by Cowley 1992's later real synthesis.",
+    "The commonly-taught 'baroreceptors fully reset within 1-2 days' figure (McCubbin/Green/Page tradition) was searched for but could NOT be independently live-verified this session -- a targeted PMID search returned an unrelated 1964 paper; NOT used, disclosed gap rather than a recalled substitute.",
+    "S (local renal-function-curve slope) and f (afferent resistance's fractional share of total renal resistance) are both illustrative/swept parameters, not independently live-pinned to one primary human number this session.",
+    "Curtis et al 1983 is n=6+6, single-race (all Black), single-center -- real but small and not generalizable by itself; its value here is in what it falsifies (a coarse non-renal-tissue adversary), not in precision or breadth.",
+    "Curtis 1983's salt-deprivation/loading response similarity is stated qualitatively in the abstract ('similar'), not independently re-quantified numerically this session.",
+    "5 of 12 new citations are bibliographic-only (no live-indexed abstract): both Bianchi 1974 papers, Cowley 1973, Krieger 1970, Rettig & Grisk 2005.",
+    "Salt-sensitivity is a real individually-variable phenotype spectrum (Elijovich 2016, reused pointer), not a universal rotation constant.",
+    "Does not build ORG-KIDNEY-NEPHRON (segmented nephron-transport ODE), RENAL-GLOMERULAR-FILTRATION (eGFR/ACR CKD-progression risk), or the ADH/thirst osmolality loop -- explicit scope boundaries.",
+    "Single population/literature-level resting-state synthesis -- no per-subject trace, no dynamic closed-loop ODE of the combined renal+baroreflex+RAAS system."
+  ],
+  "couples_to": [
+    "INT-CARDIORENAL-PRESSURE-AXIS",
+    "ORG-RENAL-FLUID-ELECTROLYTE",
+    "docs/MECHANISM_RAAS.md",
+    "docs/MECHANISM_BAROREFLEX.md",
+    "docs/MECHANISM_ARTERIAL_PRESSURE.md",
+    "docs/MECHANISM_RENAL_FILTRATION.md"
+  ],
+  "graph_not_modified": "data/MECHANISM_ANCHOR_GRAPH.json not edited this session (isolation discipline, concurrent-write safety, return-only research-subagent deliverable per docs/MECHANISM_HARDENED_CONVENTIONS.md); folding is left to the coordinator's mechanism_fold -> fold_gate_v2 path.",
+  "proposed_cell": "cardiorenal_pressure_natriuresis_longterm_controller_cell: extend the shift/rotation renal-function-curve decomposition into a fitted, subject-general parametrization (S, f, both currently illustrative here) calibrated against a real cohort (e.g. a salt-sensitivity RCT with paired BP+24h-urinary-Na data), then re-test the CKD-severity-graded rotation prediction (\u00a76) against a real eGFR-stratified salt-sensitivity dataset (a genuinely held-out falsifier this document's own illustrative f/S sweep does not yet close).",
+  "verification_script_source": "#!/usr/bin/env python3\n\"\"\"\nPressure-natriuresis / Guyton long-term BP control -- geometric verification script.\nScratch-only (not a repo deliverable): generates every number cited in\ndocs/MECHANISM_PRESSURE_NATRIURESIS.md, machine-checked (analytic vs numeric), before it is\ntranscribed into the doc + evidence JSON. Pure python3/numpy, no external deps beyond numpy.\n\"\"\"\nimport numpy as np\nimport json\n\nout = {}\n\n# ---------------------------------------------------------------------------\n# REUSED (not re-derived) inputs from this repo's own already-verified sibling docs\n# ---------------------------------------------------------------------------\nMAP_REST = 93.33333333333333          # arterial_pressure.py, classic-formula central estimate\nRBF_LMIN = 1.0768                     # renal_filtration.py, Davies & Shock 1950 20-29y decade\nR_RENAL_TOTAL = MAP_REST / RBF_LMIN   # Ohm's law, mmHg*min/L, same identity as arterial_pressure.py's TPR\nout['reused_inputs'] = {\n    'MAP_rest_mmHg': MAP_REST,\n    'RBF_Lmin': RBF_LMIN,\n    'R_renal_total_mmHg_min_per_L_ohms_law': R_RENAL_TOTAL,\n}\n\n# ---------------------------------------------------------------------------\n# PART A -- renal function curve geometry: SHIFT vs ROTATION, machine-verified\n# ---------------------------------------------------------------------------\n# Local-linear renal function curve: E(P) = E0 + S*(P - P0)\n# Steady state: E(P*) = I  =>  P* = P0 + (I - E0)/S\nP0_BASE = MAP_REST\nE0_BASE = 100.0     # mmol/day, illustrative reference Na intake = reference excretion at steady state\nS_BASE = 200.0      # mmol/day per mmHg, illustrative renal-function-curve local slope (order-of-magnitude\n                     # consistent with RAAS.md's own backward-implied S~14-17 mmol/mmHg computed over the\n                     # WIDE Intersalt range; this local curve is evaluated over a much narrower, disclosed,\n                     # illustrative operating range -- NOT claimed as the same number, see doc \u00a7ORIENT)\n\ndef P_star(I, P0=P0_BASE, E0=E0_BASE, S=S_BASE):\n    return P0 + (I - E0) / S\n\n# A1. Baseline dP*/dI = 1/S identity: analytic vs numeric finite-difference\nI_grid = np.linspace(50, 150, 11)\nP_grid = P_star(I_grid)\nanalytic_slope = 1.0 / S_BASE\nnumeric_slope = np.gradient(P_grid, I_grid)\nslope_match_pct = float(np.max(np.abs(numeric_slope - analytic_slope)) / analytic_slope * 100)\nout['A1_baseline_identity'] = {\n    'analytic_dPstar_dI': analytic_slope,\n    'numeric_dPstar_dI_max': float(np.max(numeric_slope)),\n    'numeric_dPstar_dI_min': float(np.min(numeric_slope)),\n    'max_pct_diff': slope_match_pct,\n    'gate_pass': slope_match_pct < 0.01,\n}\n\n# A2. SHIFT: P0 -> P0 + d0 (S, E0 unchanged). Claim: P*_new(I) - P*_old(I) = d0 EXACTLY, for ALL I\n# (translation-invariance -- the shift's effect does NOT depend on the intake level)\nd0_values = np.array([5.0, 10.0, 15.0, 20.0, 30.0])  # mmHg, illustrative rightward shifts\nshift_invariance_report = []\nfor d0 in d0_values:\n    diffs = P_star(I_grid, P0=P0_BASE + d0) - P_star(I_grid)\n    max_dev = float(np.max(np.abs(diffs - d0)))\n    shift_invariance_report.append({'d0_mmHg': float(d0), 'max_deviation_from_d0_across_I_sweep': max_dev})\nout['A2_shift_invariance'] = {\n    'sweep': shift_invariance_report,\n    'gate_pass': all(r['max_deviation_from_d0_across_I_sweep'] < 1e-9 for r in shift_invariance_report),\n}\n\n# A3. ROTATION: S -> S*k (P0, E0 unchanged -- curve pivots exactly at (P0,E0)).\n# Claim 1: at I=E0 (the pivot intake), P* is UNCHANGED regardless of k.\n# Claim 2: for a perturbation dI = I - E0 != 0, P*_new - P0 = dI/(S*k) = (1/k) * baseline_response\nk_values = np.array([0.25, 0.5, 0.75, 1.0, 1.5, 2.0])\ndI_values = np.array([10.0, 25.0, 50.0, 100.0])\nrotation_report = []\nfor k in k_values:\n    S_new = S_BASE * k\n    # Claim 1: pivot invariance at I=E0\n    pivot_val = P_star(E0_BASE, S=S_new)\n    pivot_dev = abs(pivot_val - P0_BASE)\n    # Claim 2: amplification factor across a dI sweep\n    amp_devs = []\n    for dI in dI_values:\n        I_test = E0_BASE + dI\n        baseline_resp = P_star(I_test) - P0_BASE          # = dI/S_BASE\n        rotated_resp = P_star(I_test, S=S_new) - P0_BASE  # = dI/(S_BASE*k)\n        predicted_rotated_resp = baseline_resp / k\n        amp_devs.append(abs(rotated_resp - predicted_rotated_resp))\n    rotation_report.append({\n        'k': float(k), 'S_new': float(S_new),\n        'pivot_deviation_mmHg': pivot_dev,\n        'max_amplification_prediction_deviation': float(np.max(amp_devs)),\n    })\nout['A3_rotation'] = {\n    'sweep': rotation_report,\n    'gate_pivot_pass': all(r['pivot_deviation_mmHg'] < 1e-9 for r in rotation_report),\n    'gate_amplification_pass': all(r['max_amplification_prediction_deviation'] < 1e-9 for r in rotation_report),\n}\n\n# A4. COMBINED shift+rotation, additive decomposition check:\n# P*(I; P0+d0, E0, S*k) - P*(I; P0, E0, S) should equal d0 + dI*(1/k - 1)/S  where dI = I-E0\nd0_test, k_test = 15.0, 0.5\ncombined_report = []\nfor I in I_grid:\n    dI = I - E0_BASE\n    lhs = P_star(I, P0=P0_BASE + d0_test, S=S_BASE * k_test) - P_star(I)\n    rhs = d0_test + dI * (1.0 / k_test - 1.0) / S_BASE\n    combined_report.append(float(abs(lhs - rhs)))\nout['A4_combined_decomposition'] = {\n    'd0_test': d0_test, 'k_test': k_test,\n    'max_deviation_across_I_sweep': float(np.max(combined_report)),\n    'gate_pass': float(np.max(combined_report)) < 1e-9,\n}\n\n# A5. Void floor: S -> 0 (already established identity in RAAS.md/raas.py -- reused pointer, not re-run\n# in full here; briefly confirms the same divergence under this doc's own parametrization for\n# self-containedness)\nvoid_floor_triggered = False\ntry:\n    with np.errstate(all='raise'):\n        _ = P_star(np.float64(120.0), S=np.float64(0.0))\nexcept (FloatingPointError, ZeroDivisionError):\n    void_floor_triggered = True\nout['A5_void_floor_S_zero'] = {'division_singularity_raised': void_floor_triggered}\n\n# ---------------------------------------------------------------------------\n# PART D -- Ohm's-law geometric derivation: afferent-arteriolar resistance rise -> required MAP shift\n# ---------------------------------------------------------------------------\n# P_a - P_gc = RBF * R_a  (Ohm's law across the afferent arteriole, disclosed lumped simplification)\n# R_a = f * R_renal_total (afferent's illustrative fractional share of total renal vascular resistance)\n# If R_a -> k_r * R_a (Coleman & Guyton 1975's real >=2-fold anchor, k_r=2), holding RBF and P_gc fixed\n# (autoregulation preserving GFR/excretion capacity), the required delta in P_a is:\n#   dP_a = RBF * (k_r - 1) * R_a = (k_r - 1) * f * MAP_baseline   [since RBF*R_a = f*RBF*R_renal = f*MAP]\nk_r = 2.0  # Coleman & Guyton 1975's real, quoted, live-verified >=2-fold afferent-resistance finding\nf_values = np.array([0.2, 0.3, 0.4, 0.5])\nohms_law_report = []\nfor f in f_values:\n    R_a = f * R_RENAL_TOTAL\n    dP_a_analytic = (k_r - 1) * f * MAP_REST\n    # numeric cross-check: directly simulate P_a - P_gc = RBF*R_a with P_gc held fixed\n    P_gc_illustrative = MAP_REST - RBF_LMIN * R_a   # whatever P_gc happens to be at baseline, held fixed\n    P_a_new = P_gc_illustrative + RBF_LMIN * (k_r * R_a)\n    dP_a_numeric = P_a_new - MAP_REST\n    ohms_law_report.append({\n        'f_afferent_fraction': float(f),\n        'R_a_baseline_mmHg_min_per_L': float(R_a),\n        'dMAP_required_analytic_mmHg': float(dP_a_analytic),\n        'dMAP_required_numeric_mmHg': float(dP_a_numeric),\n        'match_diff_pct': float(abs(dP_a_analytic - dP_a_numeric) / dP_a_analytic * 100) if dP_a_analytic != 0 else 0.0,\n        'predicted_new_MAP_mmHg': float(MAP_REST + dP_a_analytic),\n    })\nout['D2_ohms_law_ckd_shift'] = {\n    'k_r_afferent_resistance_multiplier': k_r,\n    'sweep': ohms_law_report,\n}\n\n# Void floors on the Ohm's-law mechanism\nf0 = 0.0\ndP_a_f0 = (k_r - 1) * f0 * MAP_REST\nf1 = 1.0\ndP_a_f1 = (k_r - 1) * f1 * MAP_REST\nout['D2_void_floors'] = {\n    'f_zero_dMAP_mmHg': float(dP_a_f0),\n    'f_zero_correctly_predicts_no_hypertension': dP_a_f0 == 0.0,\n    'f_one_dMAP_mmHg': float(dP_a_f1),\n    'f_one_predicted_new_MAP_mmHg': float(MAP_REST + dP_a_f1),\n    'f_one_is_extreme_malignant_range_not_typical': (MAP_REST + dP_a_f1) > 150,\n}\n\n# Real clinical MAP-elevation bands for cross-check (standard clinical BP staging, textbook-level,\n# MAP = DBP + PP/3 classic approx, consistent with arterial_pressure.py's own formula)\ndef map_from_sbp_dbp(sbp, dbp):\n    return dbp + (sbp - dbp) / 3.0\n\nclinical_bands = {\n    'normotensive_120_80': map_from_sbp_dbp(120, 80),\n    'mild_htn_140_90': map_from_sbp_dbp(140, 90),\n    'moderate_htn_160_100': map_from_sbp_dbp(160, 100),\n    'severe_htn_180_110': map_from_sbp_dbp(180, 110),\n}\nclinical_delta = {k: v - clinical_bands['normotensive_120_80'] for k, v in clinical_bands.items()}\nout['clinical_MAP_bands_crosscheck'] = {'MAP_mmHg': clinical_bands, 'delta_vs_normotensive_mmHg': clinical_delta}\n\npredicted_range = [r['dMAP_required_analytic_mmHg'] for r in ohms_law_report]\nreal_range = [clinical_delta['mild_htn_140_90'], clinical_delta['severe_htn_180_110']]\noverlap = (min(predicted_range) <= real_range[1]) and (max(predicted_range) >= real_range[0])\nout['D2_overlap_check'] = {\n    'predicted_dMAP_range_mmHg': [float(min(predicted_range)), float(max(predicted_range))],\n    'real_clinical_mild_to_severe_dMAP_range_mmHg': [float(real_range[0]), float(real_range[1])],\n    'ranges_overlap': bool(overlap),\n}\n\n# ---------------------------------------------------------------------------\n# PART B -- timescale separation: baroreflex RESETTING kinetics vs sustained-perturbation timescale\n# ---------------------------------------------------------------------------\n# Moreira et al 1988 (PMID 3364465, real abstract): 60% of max resetting by 2 min, max (~40-43%)\n# reached by 20 min, STABLE (no further change) up to 6 hours.\nresetting_minutes_to_stable = 20.0  # minutes, real, quoted\nresetting_hours_stable_plateau = 6.0  # hours, real, quoted (stable for up to 6h, no further drift observed)\n# Curtis et al 1983 (PMID 6353230, real): transplant follow-up averaged 4.5 years -- the sustained\n# timescale over which the KIDNEY's (not the baroreflex's) effect persisted and was measured.\ncurtis_followup_years = 4.5\ncurtis_followup_hours = curtis_followup_years * 365.25 * 24\nratio_curtis_vs_resetting_stable = curtis_followup_hours / resetting_hours_stable_plateau\nratio_curtis_vs_resetting_onset = curtis_followup_hours / (resetting_minutes_to_stable / 60.0)\nout['B_timescale_separation'] = {\n    'baroreflex_resetting_onset_to_max_minutes': resetting_minutes_to_stable,\n    'baroreflex_resetting_stable_plateau_hours': resetting_hours_stable_plateau,\n    'renal_transplant_followup_years_curtis1983': curtis_followup_years,\n    'renal_transplant_followup_hours': curtis_followup_hours,\n    'ratio_sustained_kidney_timescale_over_baroreflex_stable_plateau': float(ratio_curtis_vs_resetting_stable),\n    'ratio_sustained_kidney_timescale_over_baroreflex_onset': float(ratio_curtis_vs_resetting_onset),\n    'gate_pass_gt_100x': ratio_curtis_vs_resetting_stable > 100,\n}\n\n# ---------------------------------------------------------------------------\n# PART C -- Curtis et al 1983 transplant data: machine cross-check of the paper's own \"NS\" claim,\n# and an explicit adversary-prediction comparison\n# ---------------------------------------------------------------------------\ncurtis_map_transplant, curtis_sem_transplant = 92.0, 1.9   # n=6, former essential-HTN, now-normotensive-donor kidney\ncurtis_map_control, curtis_sem_control = 94.0, 3.9         # n=6, matched normotensive controls\ndiff = abs(curtis_map_transplant - curtis_map_control)\nse_diff = float(np.sqrt(curtis_sem_transplant**2 + curtis_sem_control**2))\nz_stat = diff / se_diff\nmild_htn_floor = clinical_delta['mild_htn_140_90']\nout['C_curtis1983_crosscheck'] = {\n    'map_transplant_mmHg': curtis_map_transplant, 'sem_transplant': curtis_sem_transplant,\n    'map_control_mmHg': curtis_map_control, 'sem_control': curtis_sem_control,\n    'observed_diff_mmHg': diff,\n    'se_of_diff_mmHg': se_diff,\n    'z_statistic': float(z_stat),\n    'z_lt_2_confirms_papers_own_NS_claim': bool(z_stat < 2.0),\n    'adversary_prediction_if_nonrenal_tissue_carries_HTN': 'diff should be >= a typical hypertensive elevation',\n    'mild_htn_floor_for_comparison_mmHg': mild_htn_floor,\n    'observed_diff_vs_mild_htn_floor_ratio': float(diff / mild_htn_floor),\n    'adversary_falls': bool(diff < mild_htn_floor),\n}\n\n# ---------------------------------------------------------------------------\n# Print + save\n# ---------------------------------------------------------------------------\nprint(json.dumps(out, indent=2))\nwith open('/tmp/coordinator-1000/-home-anton/6f480b09-3647-4c07-8360-2f41db78e3c2/scratchpad/pn/pn_compute_results.json', 'w') as f:\n    json.dump(out, f, indent=2)\n",
+  "computed_results": {
+    "reused_inputs": {
+      "MAP_rest_mmHg": 93.33333333333333,
+      "RBF_Lmin": 1.0768,
+      "R_renal_total_mmHg_min_per_L_ohms_law": 86.67657256067359
+    },
+    "A1_baseline_identity": {
+      "analytic_dPstar_dI": 0.005,
+      "numeric_dPstar_dI_max": 0.005000000000000426,
+      "numeric_dPstar_dI_min": 0.004999999999999716,
+      "max_pct_diff": 8.517492267046123e-12,
+      "gate_pass": true
+    },
+    "A2_shift_invariance": {
+      "sweep": [
+        {
+          "d0_mmHg": 5.0,
+          "max_deviation_from_d0_across_I_sweep": 0.0
+        },
+        {
+          "d0_mmHg": 10.0,
+          "max_deviation_from_d0_across_I_sweep": 0.0
+        },
+        {
+          "d0_mmHg": 15.0,
+          "max_deviation_from_d0_across_I_sweep": 0.0
+        },
+        {
+          "d0_mmHg": 20.0,
+          "max_deviation_from_d0_across_I_sweep": 0.0
+        },
+        {
+          "d0_mmHg": 30.0,
+          "max_deviation_from_d0_across_I_sweep": 0.0
+        }
+      ],
+      "gate_pass": true
+    },
+    "A3_rotation": {
+      "sweep": [
+        {
+          "k": 0.25,
+          "S_new": 50.0,
+          "pivot_deviation_mmHg": 0.0,
+          "max_amplification_prediction_deviation": 1.4210854715202004e-14
+        },
+        {
+          "k": 0.5,
+          "S_new": 100.0,
+          "pivot_deviation_mmHg": 0.0,
+          "max_amplification_prediction_deviation": 0.0
+        },
+        {
+          "k": 0.75,
+          "S_new": 150.0,
+          "pivot_deviation_mmHg": 0.0,
+          "max_amplification_prediction_deviation": 4.773959005888173e-15
+        },
+        {
+          "k": 1.0,
+          "S_new": 200.0,
+          "pivot_deviation_mmHg": 0.0,
+          "max_amplification_prediction_deviation": 0.0
+        },
+        {
+          "k": 1.5,
+          "S_new": 300.0,
+          "pivot_deviation_mmHg": 0.0,
+          "max_amplification_prediction_deviation": 4.746203430272544e-15
+        },
+        {
+          "k": 2.0,
+          "S_new": 400.0,
+          "pivot_deviation_mmHg": 0.0,
+          "max_amplification_prediction_deviation": 7.105427357601002e-15
+        }
+      ],
+      "gate_pivot_pass": true,
+      "gate_amplification_pass": true
+    },
+    "A4_combined_decomposition": {
+      "d0_test": 15.0,
+      "k_test": 0.5,
+      "max_deviation_across_I_sweep": 8.881784197001252e-15,
+      "gate_pass": true
+    },
+    "A5_void_floor_S_zero": {
+      "division_singularity_raised": true
+    },
+    "D2_ohms_law_ckd_shift": {
+      "k_r_afferent_resistance_multiplier": 2.0,
+      "sweep": [
+        {
+          "f_afferent_fraction": 0.2,
+          "R_a_baseline_mmHg_min_per_L": 17.33531451213472,
+          "dMAP_required_analytic_mmHg": 18.666666666666668,
+          "dMAP_required_numeric_mmHg": 18.666666666666657,
+          "match_diff_pct": 5.709718412357947e-14,
+          "predicted_new_MAP_mmHg": 112.0
+        },
+        {
+          "f_afferent_fraction": 0.3,
+          "R_a_baseline_mmHg_min_per_L": 26.002971768202077,
+          "dMAP_required_analytic_mmHg": 27.999999999999996,
+          "dMAP_required_numeric_mmHg": 27.999999999999986,
+          "match_diff_pct": 3.8064789415719656e-14,
+          "predicted_new_MAP_mmHg": 121.33333333333333
+        },
+        {
+          "f_afferent_fraction": 0.4,
+          "R_a_baseline_mmHg_min_per_L": 34.67062902426944,
+          "dMAP_required_analytic_mmHg": 37.333333333333336,
+          "dMAP_required_numeric_mmHg": 37.33333333333333,
+          "match_diff_pct": 1.9032394707859825e-14,
+          "predicted_new_MAP_mmHg": 130.66666666666666
+        },
+        {
+          "f_afferent_fraction": 0.5,
+          "R_a_baseline_mmHg_min_per_L": 43.338286280336796,
+          "dMAP_required_analytic_mmHg": 46.666666666666664,
+          "dMAP_required_numeric_mmHg": 46.66666666666667,
+          "match_diff_pct": 1.522591576628786e-14,
+          "predicted_new_MAP_mmHg": 140.0
+        }
+      ]
+    },
+    "D2_void_floors": {
+      "f_zero_dMAP_mmHg": 0.0,
+      "f_zero_correctly_predicts_no_hypertension": true,
+      "f_one_dMAP_mmHg": 93.33333333333333,
+      "f_one_predicted_new_MAP_mmHg": 186.66666666666666,
+      "f_one_is_extreme_malignant_range_not_typical": true
+    },
+    "clinical_MAP_bands_crosscheck": {
+      "MAP_mmHg": {
+        "normotensive_120_80": 93.33333333333333,
+        "mild_htn_140_90": 106.66666666666667,
+        "moderate_htn_160_100": 120.0,
+        "severe_htn_180_110": 133.33333333333334
+      },
+      "delta_vs_normotensive_mmHg": {
+        "normotensive_120_80": 0.0,
+        "mild_htn_140_90": 13.333333333333343,
+        "moderate_htn_160_100": 26.66666666666667,
+        "severe_htn_180_110": 40.000000000000014
+      }
+    },
+    "D2_overlap_check": {
+      "predicted_dMAP_range_mmHg": [
+        18.666666666666668,
+        46.666666666666664
+      ],
+      "real_clinical_mild_to_severe_dMAP_range_mmHg": [
+        13.333333333333343,
+        40.000000000000014
+      ],
+      "ranges_overlap": true
+    },
+    "B_timescale_separation": {
+      "baroreflex_resetting_onset_to_max_minutes": 20.0,
+      "baroreflex_resetting_stable_plateau_hours": 6.0,
+      "renal_transplant_followup_years_curtis1983": 4.5,
+      "renal_transplant_followup_hours": 39447.0,
+      "ratio_sustained_kidney_timescale_over_baroreflex_stable_plateau": 6574.5,
+      "ratio_sustained_kidney_timescale_over_baroreflex_onset": 118341.0,
+      "gate_pass_gt_100x": true
+    },
+    "C_curtis1983_crosscheck": {
+      "map_transplant_mmHg": 92.0,
+      "sem_transplant": 1.9,
+      "map_control_mmHg": 94.0,
+      "sem_control": 3.9,
+      "observed_diff_mmHg": 2.0,
+      "se_of_diff_mmHg": 4.338202392696772,
+      "z_statistic": 0.46102044555757415,
+      "z_lt_2_confirms_papers_own_NS_claim": true,
+      "adversary_prediction_if_nonrenal_tissue_carries_HTN": "diff should be >= a typical hypertensive elevation",
+      "mild_htn_floor_for_comparison_mmHg": 13.333333333333343,
+      "observed_diff_vs_mild_htn_floor_ratio": 0.14999999999999988,
+      "adversary_falls": true
+    }
+  },
+  "determinism_check": "Script run twice independently this session; stdout/JSON byte-identical both times (see doc \u00a77 determinism gate).",
+  "isolation_note": "No git operations. data/MECHANISM_ANCHOR_GRAPH.json not modified. Only docs/MECHANISM_PRESSURE_NATRIURESIS.md and this file were created this session."
+}

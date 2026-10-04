@@ -1,0 +1,170 @@
+{
+  "task": "Spinal motion segment (functional spinal unit): facet-joint load-sharing & segmental mechanics. Falsifier (symmetric): a disc-only model (ignoring facets, MECHANISM_INTERVERTEBRAL_DISC.md's own scope) must FAIL to reproduce measured facet contact forces AND over-predict disc load in extension; facets must limit axial rotation to measured small segmental ranges (facet-free model over-rotates); segmental ROM per level must match White & Panjabi / measured in-vivo bands (lumbar flexion-extension ~12-17 deg); perturbation adversaries: facetectomy (increases instability/ROM), disc degeneration (shifts load to facets), spondylolisthesis (facet/pars failure -> shear instability).",
+  "confidence_tier": "Mixed, disclosed per-claim. CADAVERIC-DIRECT-MEASUREMENT-ANCHORED (3 independent techniques -- IVLC-deduction, direct pressure transducer, pressure-film -- across 2 independent labs) for the core facet-load-fraction claim (Yang & King 1984; el-Bohy 1989; Dunlop/Adams/Hutton 1984). IN-VIVO-RADIOGRAPHY-ANCHORED (Pearcy 1984 + Pearcy & Tibrewal 1984, same lab, companion papers) for segmental ROM and coupled motion. CADAVERIC-STRUCTURE-ABLATION-ANCHORED for the 2 perturbation adversaries: facetectomy (Abumi 1990, ROBUST rotation-increase claim confirmed by a 2nd decorrelated 2024 FE study; its SELECTIVITY sub-claim CONTESTED by that same 2024 study, disclosed as an open tension) and spondylolisthesis (Grobler 1994 + Crawford 2001, a 4th independent lab). WHOLE-SPINE-ONLY, no per-region breakdown extracted, for the facet-orientation anatomy anchor (Panjabi 1993) -- the orientation-to-coupled-motion MECHANISM is uncontroversial gross anatomy, not this paper's own per-level numeric table.",
+  "script": "scripts/msk/model_facet_load_sharing.py",
+  "raw_results": "data/msk_smoketest/facet_load_sharing/facet_load_sharing_results.json",
+  "doc": "docs/MECHANISM_SPINE_MOTION_SEGMENT_FACET.md",
+  "couples_to": [
+    "docs/MECHANISM_INTERVERTEBRAL_DISC.md -- this build's falsifier target; that doc's own gap #3 ('facets not separately modeled, Tier-2b residual assumed ~100% disc-transmitted') is resolved here from 'assumed' to 'literature-consistent' (Adams & Hutton 1983: facets share compression only in lordotic postures, and the gait trial stays in flexion) -- NOT to 'independently re-measured on this exact trial', disclosed as a real remaining limit.",
+    "docs/MECHANISM_SPINE_GAIT_VBR.md -- source of the flexion-only posture disclosure reused in the twin-worked-example (Sec 11); its Tier-2b force (1628.104 N) reused unmodified, re-read fresh from JSON not retyped.",
+    "docs/MECHANISM_SPINE_LIGAMENTS.md -- shares the single-lumped-lumbar-hinge scope limitation and the 'uncontroversial gross anatomy' citation convention for orientation-ordering claims (that doc's MCL/LCL-siding precedent, reused here for lumbar-sagittal/cervical-horizontal facet orientation).",
+    "docs/MECHANISM_SPINE_FORCE.md -- static stoop-lift compressive-force cert, same subject/architecture family, not directly falsified in this build (no facet-relevant extension posture in that trial either).",
+    "docs/MECHANISM_LIGAMENT_STIFFNESS.md -- named future coupling target (ligament+facet+disc jointly determine segmental stiffness), not jointly solved this session.",
+    "docs/MECHANISM_ANKLE_SPINE_CROSS_SUBJECT.md, hip/gait load-path docs -- the twin's broader kinetic-chain graph this facet/disc split ultimately feeds; not directly exercised this session."
+  ],
+  "citations_verified_live_this_session": {
+    "yang_king_1984_facet_load_fraction": {
+      "pmid": "6238423", "doi": "10.1097/00007632-198409000-00005",
+      "cite": "Yang KH, King AI (1984). Mechanism of facet load transmission as a hypothesis for low-back pain. Spine 9(6):557-65.",
+      "n": "6 cadaveric lumbar segments",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Results of the study on six lumbar segments revealed that the normal facets carried 3-25%. If the facet joint was arthritic, the load could be as high as 47%.' Intervertebral-load-cell (IVLC) deduction method. THE primary quantitative facet-load-fraction anchor for the whole doc."
+    },
+    "elbohy_yang_king_1989_direct_pressure": {
+      "pmid": "2533201", "doi": "10.1016/0021-9290(89)90077-8",
+      "cite": "el-Bohy AA, Yang KH, King AI (1989). Experimental verification of facet load transmission by direct measurement of facet lamina contact pressure. J Biomech 22(8-9):931-41.",
+      "n": "6 segments, 21 tests",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'When the anterior load was released suddenly, there was a large increase in facet pressure with a concomitant decrease in disc pressure.' DIRECT pressure-transducer method (decorrelated technique from Yang & King's IVLC-deduction, same lab) -- the reciprocal disc/facet trade-off is evidence against a rig-artifact reading."
+    },
+    "dunlop_adams_hutton_1984_disc_narrowing": {
+      "pmid": "6501365", "doi": "10.1302/0301-620X.66B5.6501365",
+      "cite": "Dunlop RB, Adams MA, Hutton WC (1984). Disc space narrowing and the lumbar facet joints. J Bone Joint Surg Br 66(5):706-10.",
+      "n": "12 facet-joint pairs x 4 posture angles x 3 disc heights",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'pressure between the facets increased significantly with narrowing of the disc space and with increasing angles of extension.' Bristol lab (decorrelated from Wayne State's Yang/King/el-Bohy); direction-only, exact per-angle/height table not extracted (figure/table, not eyeballed)."
+    },
+    "adams_hutton_1983_apophyseal_function": {
+      "pmid": "6623200", "doi": "10.1097/00007632-198304000-00017",
+      "cite": "Adams MA, Hutton WC (1983). The mechanical function of the lumbar apophyseal joints. Spine 8(3):327-30.",
+      "n": "cadaveric lumbar spines",
+      "verified_via": "already live-verified in docs/MECHANISM_INTERVERTEBRAL_DISC.md source #10, REUSED not re-fetched",
+      "numbers": "VERBATIM: facets 'resist most of the intervertebral shear force and share in resisting the intervertebral compressive force, but only in lordotic postures.' Direct support for ~0% facet fraction in the twin's own flexion-only gait trial (Sec 11)."
+    },
+    "adams_hutton_1981_torsion": {
+      "pmid": "7268544", "doi": "10.1097/00007632-198105000-00006",
+      "cite": "Adams MA, Hutton WC (1981). The relevance of torsion to the mechanical derangement of the lumbar spine. Spine 6(3):241-8.",
+      "n": "cadaveric, sequential structure transection",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: torsion 'resisted primarily by the apophyseal joint that is in compression, although the intervertebral disc does play a major role... capsular ligaments... and supra/interspinous ligaments are unimportant.' The literature's OWN torsion structure-ablation experiment; direct mechanistic support for Sec 2's geometric derivation."
+    },
+    "adams_hutton_stott_1980_flexion_resistance": {
+      "pmid": "7394664", "doi": "10.1097/00007632-198005000-00007",
+      "cite": "Adams MA, Hutton WC, Stott JR (1980). The resistance to flexion of the lumbar intervertebral joint. Spine 5(3):245-53.",
+      "n": "cadaveric, sequential ligament/capsule transection",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'capsular ligaments and the intervertebral disc offer considerably more resistance than the ligamentum flavum and the supraspinous/interspinous ligaments' to flexion; joint balances 'about half the bending moment... in full flexion.' Confirms facets are NOT the dominant flexion-limiting structure (consistent with Sec 2's geometric mechanism)."
+    },
+    "adams_hutton_1985_posture_review": {
+      "pmid": "4030863", "doi": "10.1302/0301-620X.67B4.4030863",
+      "cite": "Adams MA, Hutton WC (1985). The effect of posture on the lumbar spine. J Bone Joint Surg Br 67(4):625-9.",
+      "n": "review, same group",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: flexion 'reduces the stresses on the apophyseal joints and on the posterior half of the annulus fibrosus.' Review-level corroboration, same lab lineage as citations above (not a fully independent anchor)."
+    },
+    "pearcy_portek_shepherd_1984_flexion_extension_rom": {
+      "pmid": "6374922", "doi": "10.1097/00007632-198404000-00013",
+      "cite": "Pearcy M, Portek I, Shepherd J (1984). Three-dimensional x-ray analysis of normal movement in the lumbar spine. Spine 9(3):294-7.",
+      "n": "asymptomatic volunteers, in vivo biplanar radiography",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'total range of flexion and extension of approximately 14 degrees, the lower levels moving slightly more than the upper levels.' THE segmental-ROM band-check anchor (in vivo, decorrelated modality from every cadaveric anchor in this file)."
+    },
+    "pearcy_tibrewal_1984_rotation_bending": {
+      "pmid": "6495028", "doi": "10.1097/00007632-198409000-00008",
+      "cite": "Pearcy MJ, Tibrewal SB (1984). Axial rotation and lateral bending in the normal lumbar spine measured by three-dimensional radiography. Spine 9(6):582-7.",
+      "n": "in vivo biplanar radiography, companion paper to the above",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'approximately 2 degrees of axial rotation at each intervertebral joint with L3-4 and L4-5 being slightly more mobile. Lateral bending of approximately 10 degrees occurred at the upper three levels... 6 degrees and 3 degrees at L4-5 and L5-S1.' Coupling: upper lumbar contralateral, L5-S1 ipsilateral, L4-5 transitional -- attributed to lordotic shape + muscular control, not fixed mechanical coupling."
+    },
+    "panjabi_1993_facet_anatomy": {
+      "pmid": "8211362", "doi": "10.1097/00007632-199308000-00009",
+      "cite": "Panjabi MM, Oxland T, Takata K, Goel V, Duranceau J, Krag M (1993). Articular facets of the human spine. Quantitative three-dimensional anatomy. Spine 18(10):1298-1310.",
+      "n": "276 vertebrae, C2-L5",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'transverse plane angle = 41.0-86.0; sagittal plane angle = 67.4-154.8' (whole-spine min-max). Per-region (cervical/thoracic/lumbar) breakdown NOT extracted this session (honest gap; a targeted follow-up search for a secondary reproduced table did not surface one)."
+    },
+    "abumi_1990_graded_facetectomy": {
+      "pmid": "2267608", "doi": "10.1097/00007632-199011010-00011",
+      "cite": "Abumi K, Panjabi MM, Kramer KM, Duranceau J, Oxland T, Crisco JJ (1990). Biomechanical evaluation of lumbar spinal stability after graded facetectomies. Spine 15(11):1142-7.",
+      "n": "cadaveric, 6 pure-moment directions, stereophotogrammetric 3D ROM+NZ",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'In right axial rotation, ROM increased after left unilateral total facetectomy... Range of motion was not affected, even by bilateral total facetectomies, in extension and lateral bendings... total facetectomy, even created unilaterally, makes the lumbar spine unstable.' Exact ROM degree deltas NOT extracted (paywalled, confirmed via Europe PMC, no OA full text/PMCID found)."
+    },
+    "li_shih_chen_2024_fe_facetectomy": {
+      "pmid": "39438854", "doi": "10.1186/s12891-024-07949-2", "pmcid": "PMC11494999",
+      "cite": "Li YA, Shih SL, Chen HC (2024). A M-PEEK rod system to stabilize spinal motion after graded facetectomy: a finite element study. BMC Musculoskelet Disord 25(1):838.",
+      "n": "validated L1-L5 FE model, facetectomy at L3/L4",
+      "verified_via": "Europe PMC REST (abstractText via resultType=core), live this session",
+      "numbers": "VERBATIM (no-implant, facetectomy-only arm): extension ROM '8.4-24.8% increase'; axial rotation increased 'by... 4.9-12.9%'; lateral flexion 'increased by 8.4-14.3%'. CONFIRMS Abumi's axial-rotation-increase claim; CONTRADICTS Abumi's extension/lateral-bending-spared claim -- disclosed as an open, unresolved tension, not silently resolved either way."
+    },
+    "grobler_1994_isthmic_spondylolisthesis": {
+      "pmid": "8153834", "doi": null,
+      "cite": "Grobler LJ, Novotny JE, Wilder DG, Frymoyer JW, Pope MH (1994). L4-5 isthmic spondylolisthesis. A biomechanical analysis comparing stability in L4-5 and L5-S1 isthmic spondylolisthesis. Spine 19(2):222-7.",
+      "n": "6 fresh-frozen cadaveric specimens (L4-sacrum)",
+      "verified_via": "NCBI eutils esearch+efetch, live this session (no DOI indexed in the PubMed record itself)",
+      "numbers": "VERBATIM: 'significant increases in rotation with the pars defect compared with normal (L4-5 = +2.0, L5-S1 = +3.2 degrees)... 12% more rotation, 33% more shear, and 43% more axial translation' (L4-5 vs L5-S1, same defect). THE spondylolisthesis perturbation-adversary quantitative anchor, 4th independent lab (Wake Forest/Wilder-Pope group)."
+    },
+    "crawford_2001_degenerative_spondylolisthesis": {
+      "pmid": "11147867", "doi": "10.3171/spi.2001.94.1.0045",
+      "cite": "Crawford NR, Cagli S, Sonntag VK, Dickman CA (2001). Biomechanics of grade I degenerative lumbar spondylolisthesis. Part 1: in vitro model. J Neurosurg 94(1 Suppl):45-50.",
+      "n": "13 vertebral levels, 3 cadaveric lumbar spines",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'the resection of both structures [disc + ligament attachment] was necessary to achieve substantial destabilization... a level of spinal instability (Grade I; 25% slippage)... can be modeled in vitro.'"
+    },
+    "romdata2025_large_n_invitro": {
+      "pmid": "40046266", "doi": "10.1002/jsp2.70052", "pmcid": "PMC11881816",
+      "cite": "Range of Motion and Neutral Zone of All Human Spinal Motion Segments: A Data Collection of 30 Years of In Vitro Experiments Performed Under Standardized Testing Conditions. JOR Spine 2025.",
+      "n": "1139 functional spinal units (n=6-224/level)",
+      "verified_via": "Europe PMC REST full-text XML fetched live this session; per-level numeric RESULTS are in bar-chart FIGURES (Figure 6/7), explicitly NOT extracted/eyeballed per this repo's figure-reading discipline -- only prose (Results/Conclusions text) quoted",
+      "numbers": "VERBATIM (prose only): 'The lumbar spine exhibited moderate flexibility in flexion/extension and lateral bending but showed the lowest RoM and NZ in axial rotation' (of all spinal regions); 'in axial rotation, the motion segment C1-C2 was as flexible as the subaxial cervical spine combined.' Modern, large-N, standardized-protocol corroboration of the classic (1980s-90s) cadaveric/in-vivo literature above."
+    },
+    "wilke_1999_idp_reused": {
+      "pmid": "10222525", "doi": null,
+      "cite": "Wilke HJ, Neef P, Caimi M, Hoogland T, Claes LE (1999). New in vivo measurements of pressures in the intervertebral disc in daily life. Spine 24(8):755-62.",
+      "n": "N=1, 45yo, 70kg, in-vivo telemetric transducer",
+      "verified_via": "REUSED unchanged from docs/MECHANISM_INTERVERTEBRAL_DISC.md source #1 (already live-verified there this repo)",
+      "numbers": "Relaxed standing 0.5 MPa; standing flexed forward 1.1 MPa -- used in Sec 10 as a directional (NOT decisive) cross-check, confound (extensor-muscle-force difference between postures) explicitly disclosed."
+    }
+  },
+  "gates_summary": {
+    "gate1_disc_only_fails_facet_fraction_range": "PASS (0.0 outside measured [0.03,0.25]; over-prediction 3.1-33.3% normal, 88.7% arthritic)",
+    "gate2_rotation_ROM_ll_flexion_extension_ROM": "PASS (ratio 0.1429 < 0.30 threshold; robust down to ~0.144)",
+    "gate3_facetectomy_rotation_increase_2_decorrelated_studies": "PASS (Abumi 1990 cadaveric + Li/Shih/Chen 2024 FE both confirm)",
+    "gate4_FE_ROM_in_task_12_17_band": "PASS (measured 14.0 deg)",
+    "gate5_reciprocal_disc_facet_tradeoff_textual": "PASS (el-Bohy 1989, qualitative)",
+    "gate6_wilke_direction_consistent_not_decisive": "PASS-DIRECTIONAL (1.1 > 0.5 MPa; confound disclosed, not a clean falsifier)",
+    "disclosed_tension_facetectomy_mode_selectivity": "NOT a pass/fail gate -- Abumi says extension/lateral-bending spared, FE2024 contradicts (+8.4-24.8%/+8.4-14.3%); kept out of the tally deliberately",
+    "overall": "6/6 pass-fail gates PASS (deterministic, 2 independent runs byte-identical JSON) + 1 disclosed open tension, neither forced to a false clean pass nor buried"
+  },
+  "data_sources": [
+    {"cite": "Yang KH, King AI (1984). Spine 9(6):557-65.", "url": "https://pubmed.ncbi.nlm.nih.gov/6238423/", "n": 6, "measure": "facet load fraction: normal 3-25%, arthritic up to 47% (IVLC-deduction)"},
+    {"cite": "el-Bohy AA, Yang KH, King AI (1989). J Biomech 22(8-9):931-41.", "url": "https://pubmed.ncbi.nlm.nih.gov/2533201/", "n": 6, "measure": "direct facet contact pressure; reciprocal disc-pressure trade-off"},
+    {"cite": "Dunlop RB, Adams MA, Hutton WC (1984). J Bone Joint Surg Br 66(5):706-10.", "url": "https://pubmed.ncbi.nlm.nih.gov/6501365/", "n": 12, "measure": "facet pressure vs disc-space narrowing x posture angle (direction only)"},
+    {"cite": "Adams MA, Hutton WC (1983). Spine 8(3):327-30.", "url": "https://pubmed.ncbi.nlm.nih.gov/6623200/", "n": null, "measure": "facets resist most shear, share compression only in lordosis (qualitative)"},
+    {"cite": "Adams MA, Hutton WC (1981). Spine 6(3):241-8.", "url": "https://pubmed.ncbi.nlm.nih.gov/7268544/", "n": null, "measure": "torsion resisted primarily by compression-side facet (structure-ablation)"},
+    {"cite": "Adams MA, Hutton WC, Stott JR (1980). Spine 5(3):245-53.", "url": "https://pubmed.ncbi.nlm.nih.gov/7394664/", "n": null, "measure": "flexion resisted mainly by capsule+disc, not facets"},
+    {"cite": "Pearcy M, Portek I, Shepherd J (1984). Spine 9(3):294-7.", "url": "https://pubmed.ncbi.nlm.nih.gov/6374922/", "n": null, "measure": "lumbar flexion-extension ROM ~14 deg/level, in vivo"},
+    {"cite": "Pearcy MJ, Tibrewal SB (1984). Spine 9(6):582-7.", "url": "https://pubmed.ncbi.nlm.nih.gov/6495028/", "n": null, "measure": "lumbar axial rotation ~2 deg/level, lateral bending 10/6/3 deg, coupling pattern"},
+    {"cite": "Panjabi MM et al. (1993). Spine 18(10):1298-1310.", "url": "https://pubmed.ncbi.nlm.nih.gov/8211362/", "n": 276, "measure": "facet orientation angles, whole-spine C2-L5 range"},
+    {"cite": "Abumi K et al. (1990). Spine 15(11):1142-7.", "url": "https://pubmed.ncbi.nlm.nih.gov/2267608/", "n": null, "measure": "graded facetectomy ROM change (mode-selective pattern)"},
+    {"cite": "Li YA, Shih SL, Chen HC (2024). BMC Musculoskelet Disord 25(1):838.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11494999/", "n": null, "measure": "FE facetectomy ROM change, all 3 modes increase"},
+    {"cite": "Grobler LJ et al. (1994). Spine 19(2):222-7.", "url": "https://pubmed.ncbi.nlm.nih.gov/8153834/", "n": 6, "measure": "pars defect -> +2.0-3.2 deg rotation, 12-43% more shear/rotation/translation"},
+    {"cite": "Crawford NR et al. (2001). J Neurosurg 94(1 Suppl):45-50.", "url": "https://pubmed.ncbi.nlm.nih.gov/11147867/", "n": 13, "measure": "disc+ligament resection both necessary for spondylolisthesis destabilization"},
+    {"cite": "Range of Motion and Neutral Zone of All Human Spinal Motion Segments (2025). JOR Spine.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11881816/", "n": 1139, "measure": "lumbar lowest axial-rotation ROM/NZ of all spinal regions (large-N modern corroboration)"},
+    {"cite": "Wilke HJ et al. (1999). Spine 24(8):755-62.", "url": "https://pubmed.ncbi.nlm.nih.gov/10222525/", "n": 1, "measure": "reused disc-pressure anchor, directional facet-offload cross-check"}
+  ],
+  "decorrelated_anchor": "The core facet-load-fraction claim is over-determined across 3 independent measurement TECHNIQUES (intervertebral-load-cell deduction, direct pressure transducer, interposed pressure-film) spanning 2 independent labs (Wayne State: Yang/King/el-Bohy; Bristol: Adams/Hutton/Dunlop), plus a reciprocal disc-pressure trade-off (el-Bohy 1989) that rules out a simple rig-artifact explanation. The segmental-ROM claim is anchored in vivo (Pearcy 1984 + Pearcy & Tibrewal 1984, biplanar radiography) and corroborated by a modern, large-N (1139 FSU), standardized-protocol in-vitro data collection (2025) -- 3 decorrelated modalities (cadaveric pressure/force, in-vivo radiography, modern standardized in-vitro) converging on the same qualitative picture. The 2 perturbation adversaries (facetectomy, spondylolisthesis) are each anchored in dedicated cadaveric structure-ablation studies from labs independent of the load-fraction anchor (Yale/Panjabi-Abumi; Wake Forest/Wilder-Pope), with the facetectomy adversary specifically cross-checked against a 2nd, decorrelated, modern (2024) FE study rather than accepted from one source alone.",
+  "honest_gaps": [
+    "Abumi 1990's exact facetectomy ROM degree deltas not extracted (paywalled, no OA full text found this session) -- only the qualitative mode pattern was used.",
+    "Panjabi 1993's per-region (cervical/thoracic/lumbar) facet-angle table not extracted -- only the whole-spine C2-L5 min-max range; a targeted follow-up search did not surface a secondary source with the per-level breakdown.",
+    "Facetectomy mode-selectivity is a genuinely open, unresolved tension between Abumi 1990 (extension/lateral-bending spared) and Li/Shih/Chen 2024 (both also increase) -- disclosed, not resolved, kept out of the pass/fail gate tally.",
+    "Yang & King's 3-25% normal facet-fraction range is not itself posture-resolved in the available abstract text; the per-posture breakdown sits in a table/figure not extracted this session.",
+    "Dunlop 1984's exact per-angle, per-disc-height pressure values were not extracted, only the qualitative direction claims.",
+    "The Wilke directional cross-check (Sec 10) is explicitly non-decisive -- confounded by posture-dependent extensor-muscle-force differences; cannot be resolved with Wilke's single-subject dataset.",
+    "The twin-worked-example's extension-posture overlay (Sec 11) is illustrative/hypothetical -- subject2 has no extension-posture trial in this repo.",
+    "Single lumped lumbar segment scope, consistent with every other spine build in this repo -- no per-level (L1-2 through L5-S1) facet-load-fraction breakdown was modeled.",
+    "No finite-element or multibody simulation was built this session -- the model is a literature-anchored quantitative arithmetic comparison plus a geometric mechanism argument, not a new simulated motion segment.",
+    "Cervical/thoracic quantitative facet-load-fraction data (the compressive-split analogue of Yang & King's lumbar numbers) was not sought this session -- cervical/thoracic content here is limited to ROM/coupled-motion/orientation contrast."
+  ],
+  "proposed_cell": "facet_disc_load_share_cell: inputs = segment posture angle (flexion/extension, deg) + disc-degeneration grade + total compressive force (from an existing gait/posture cert, e.g. spine_gait_force_results.json); outputs = disc-fraction, facet-fraction (calibrated to Yang & King 1984's [0.03,0.25]->0.47 range), predicted axial-rotation ROM (calibrated to Pearcy & Tibrewal 1984's ~2 deg/level, inflating toward Abumi/FE2024's facetectomy deltas under a 'facet removed' flag), predicted flexion-extension ROM (calibrated to Pearcy et al. 1984's ~14 deg/level). Falsifier gate: disc-only submodel (facet-fraction forced to 0) must fail the [0.03,0.25] containment check (this build's gate1); facetectomy flag must inflate axial-rotation ROM by >=1 decorrelated-study-consistent factor (gate3). Couples directly into MECHANISM_INTERVERTEBRAL_DISC.md's existing P_NP=k(F/A) pressure model by first subtracting the facet-fraction share from F before computing disc pressure -- would let a FUTURE extension-posture trial re-test that doc's own falsifier with the facet split included, instead of assuming 100% disc-transmitted."
+}

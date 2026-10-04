@@ -1,0 +1,163 @@
+{
+  "task": "Synaptic vesicle release CERT: Ca2+-triggered, SNARE (synaptobrevin/VAMP2+syntaxin-1+SNAP-25)-mediated bilayer fusion; synaptotagmin-1 fast Ca2+ sensor; complexin clamp; Katz quantal release (N*p*q, RRP); Ca-cooperativity ~4th power (Dodge-Rahamimoff frog NMJ; Schneggenburger-Neher/Sun calyx of Held). FALSIFIER: reproduce measured quantal parameters, ~4th-power Ca-cooperativity (force a linear/first-order-Ca adversary to FAIL), sub-ms fusion latency. DECORRELATED toxin adversary: BoNT/A->SNAP-25, BoNT/B & TeNT->VAMP2, BoNT/C1->syntaxin abolish release -- a SNARE-dispensable model must fail against this. Synaptotagmin-1 KO must abolish FAST synchronous release while SPARING slow asynchronous release (Geppert 1994 double dissociation), replicated independently at a 2nd synapse type (Syt2/calyx of Held, Sun et al 2007).",
+  "confidence_tier": "primary-literature-anchored (frog NMJ intracellular recording, retinal-bipolar and calyx-of-Held membrane-capacitance/Ca2+-uncaging, genetic knockout in 2 independent isoforms/synapse types, X-ray crystallography, in vitro toxin biochemistry) across 3 species/preps and 6 decades (1952-2013) of methodologically decorrelated techniques. NOT upgraded further: Schneggenburger & Neher 2000's own exact in-paper cooperativity number is paywalled (confirmed live via NCBI abstract-only efetch + EuropePMC isOpenAccess:N) -- the n~4-5 number is instead sourced from an independent later primary paper (Sun et al 2007) on the same synapse type, disclosed as a substitution, not smuggled in under the named paper's own identity. Kd (Ca affinity) is explicitly NOT claimed universal across synapse types (5.1x spread, Heidelberger 1994 vs Sun 2007) -- only the cooperativity ORDER n is claimed universal.",
+  "script": "scripts/msk/synaptic_vesicle_release.py",
+  "script_provenance": "Written fresh this session -- repo-wide grep found no pre-existing script/doc for this specific topic (only an unrelated prior agent-output stub data/body_twin/agent_outputs/synapse-neurotransmission__a7e9ad8ea53afbb30.json, and a distinct existing graph node NEU-SYNAPSE-NEUROTRANSMISSION targeting STDP plasticity, not the release machinery itself -- see distinct_from_existing_graph_node below). First write of all 4 deliverables (script, raw results JSON, doc, this evidence JSON); no pre-existing file edited or clobbered.",
+  "raw_results": "data/synaptic_vesicle_release/synaptic_vesicle_release_results.json",
+  "doc": "docs/MECHANISM_SYNAPTIC_VESICLE_RELEASE.md",
+  "raw_fetch_logs": "data/raw_fetch/svr_efetch_*.txt, data/raw_fetch/svr_efetch_*.xml, data/raw_fetch/svr_europepmc_*.json (all esearch/efetch/EuropePMC calls this session, verbatim, via curl --max-time 25; includes disclosed mis-hit intermediate searches for full audit transparency)",
+  "gates_summary": {
+    "overall_pass": true,
+    "n_gates": 15,
+    "n_pass": 15,
+    "notable": "One real bug was caught and fixed during this session (not hidden): the Part 2 Poisson-limit monotonicity gate's first draft checked the wrong direction (asserted variance/mean decreases as p->0; the correct closed-form binomial identity var/mean=(1-p) means it INCREASES toward 1) -- fixed by re-deriving from the exact identity, re-run, verified PASS. Disclosed in the doc Sec. 3/6, not silently corrected."
+  },
+  "couples_to": [
+    "docs/MECHANISM_NERVE_CONDUCTION.md (presynaptic AP + axonal Ca2+ influx that triggers this machine; that doc's NMJ_SYNAPTIC_DELAY_S is an opaque reused constant, this doc's Sabatini-Regehr sub-ms latency is its mechanistic content)",
+    "docs/MECHANISM_DOPAMINE_KINETICS.md and docs/MECHANISM_SEROTONIN_SYSTEM.md (dopamine/serotonin are released by exactly this SNARE/synaptotagmin machine; those docs start downstream at reuptake/synthesis)",
+    "data/MECHANISM_ANCHOR_GRAPH.json node NEU-SYNAPSE-NEUROTRANSMISSION (status OPEN) -- DISTINCT, not superseding: that node's own proposed_cell targets the STDP Hebbian plasticity weight-update rule, using vesicle-fusion mechanism only as one supporting citation-level leg; this doc is the release-machinery quantitative model itself (forced linear-Ca-adversary rejection, toxin/SNARE concordance, 2x synaptotagmin double-dissociation, sub-ms latency) -- that node's plasticity claim depends on this doc's layer, not the reverse",
+    "SA-node Ca2+-clock cert (in flight per task framing) -- shared 'steep Ca2+-cooperativity gates an all-or-none event' motif, different molecular hardware (RyR2/SERCA cardiac Ca-induced-Ca-release vs SNARE/synaptotagmin vesicle fusion) -- structural analogy flagged for cross-check once that cert lands, not asserted as identical mechanism",
+    "Synaptic plasticity (LTP/LTD/STDP) -- downstream consumer via NEU-SYNAPSE-NEUROTRANSMISSION"
+  ],
+  "distinct_from_existing_graph_node": {
+    "node_id": "NEU-SYNAPSE-NEUROTRANSMISSION",
+    "status_in_graph": "OPEN",
+    "why_distinct": "That node's claim (proposed_cell: 'synapse_unit_cert') certifies the STDP Hebbian weight-update rule (Delta-w=f(Delta-t), fit to Bi & Poo 1998) as the shared computational substrate for downstream circuits -- a PLASTICITY/LEARNING-RULE cert. It cites Geppert 1994, Sutton 1998, and the Katz quantal hypothesis only as supporting background for that claim (citation-exists level, no quantitative Ca-cooperativity model, no toxin adversary test, no forced rejection of a linear-Ca alternative, no synaptotagmin double-dissociation table). This doc is the release-MACHINERY layer itself: a machine-computed rejection of the linear-Ca adversary (t=73.5/z=13.9 against Dodge-Rahamimoff's own statistic), a 3-toxin/3-SNARE decorrelated concordance gate, TWO independent synaptotagmin-KO double-dissociation instances (Geppert 1994 Syt1/hippocampus + Sun 2007 Syt2/calyx of Held -- the second not cited by the existing node at all), and the sub-ms fusion-latency anchor. A distinct, deeper mechanistic layer that the existing node's plasticity claim implicitly assumes as its physical substrate but does not itself certify."
+  },
+  "citations_verified_live_this_session": {
+    "dodge_rahamimoff_1967_primary": {
+      "pmid": "6065887", "doi": "10.1113/jphysiol.1967.sp008367", "pmcid": "PMC1365607",
+      "cite": "Dodge FA Jr, Rahamimoff R (1967). Co-operative action of calcium ions in transmitter release at the neuromuscular junction. J Physiol 193(2):419-32.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: slope of double-log [Ca]-vs-EPP relation = 'nearly four (mean 3.78 +/- 0.2 S.D. in 28 experiments)'; 'number of packets of acetylcholine released is proportional to the fourth power of [CaX]'; slope 'diminishes as [Ca] is raised towards the normal level'. PRIMARY anchor for the forced linear-adversary rejection (t=73.5, z=13.9)."
+    },
+    "schneggenburger_neher_2000": {
+      "pmid": "10972290", "doi": "10.1038/35022702", "pmcid": null,
+      "cite": "Schneggenburger R, Neher E (2000). Intracellular calcium dependence of transmitter release rates at a fast central synapse. Nature 406(6798):889-93.",
+      "verified_via": "NCBI eutils efetch (abstract only) + EuropePMC REST (confirmed isOpenAccess:N, inPMC:N, hasPDF:N -- genuine paywall, not an unsearched corner)",
+      "numbers": "VERBATIM: '10 microM [Ca2+]i induce fast transmitter release, which depletes around 80% of a pool of available vesicles in less than 3 ms'; 'peak values as low as 25 microM can account for transmitter release during single presynaptic action potentials'; 'the high intracellular calcium cooperativity in triggering vesicle fusion' (qualitative -- exact coefficient not in this abstract, see honest_gaps)."
+    },
+    "bollmann_sakmann_borst_2000": {
+      "pmid": "10937999", "doi": "10.1126/science.289.5481.953",
+      "cite": "Bollmann JH, Sakmann B, Borst JGG (2000). Calcium sensitivity of glutamate release in a calyx-type terminal. Science 289(5481):953-7.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'A rise in [Ca2+]i to 1 micromolar readily evoked release. An increase to >30 micromolar depleted the releasable vesicle pool in <0.5 millisecond.' Decorrelated confirmation: independent lab, same synapse type, same year as Schneggenburger & Neher 2000."
+    },
+    "heidelberger_1994_retinal_bipolar": {
+      "pmid": "7935764", "doi": "10.1038/371513a0",
+      "cite": "Heidelberger R, Heinemann C, Neher E, Matthews G (1994). Calcium dependence of the rate of exocytosis in a synaptic terminal. Nature 371(6497):513-5.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'The steepness suggested that at least four calcium ions must bind to activate synaptic vesicle fusion. Half-saturation was at 194 microM, and the maximal rate constant was 2,000-3,000 s-1... within a few hundred microseconds, if [Ca2+]i rises above 100 microM.' THIRD independent synapse type (goldfish retinal bipolar ribbon synapse) confirming n>=4."
+    },
+    "sun_2007_dual_ca_sensor": {
+      "pmid": "18046404", "doi": "10.1038/nature06308", "pmcid": "PMC3536472",
+      "cite": "Sun J, Pang ZP, Qin D, Fahim AT, Adachi R, Sudhof TC (2007). A dual-Ca2+-sensor model for neurotransmitter release in a central synapse. Nature 450(7170):676-82.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'deletion of synaptotagmin 2 (Syt2) in mice selectively abolishes synchronous release, allowing us to study pure asynchronous release in isolation... asynchronous release displays a Ca2+ cooperativity of approximately 2 with a Ca2+ affinity of approximately 44 microM, in contrast to synchronous release, which exhibits a Ca2+ cooperativity of approximately 5 with a Ca2+ affinity of approximately 38 muM.' PRIMARY anchor for the exact n~5 number AND a second, independent synaptotagmin-KO double-dissociation instance."
+    },
+    "kochubey_schneggenburger_2011": {
+      "pmid": "21439657", "doi": "10.1016/j.tins.2011.02.006",
+      "cite": "Kochubey O, Lou X, Schneggenburger R (2011). Regulation of transmitter release by Ca2+ and synaptotagmin: insights from a large CNS synapse. Trends Neurosci 34(5):237-46.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Synaptotagmin-2 (Syt2)... triggers highly Ca2+-cooperative release above 1uM [Ca2+]i, but suppresses release at low [Ca2+]i.' Corroborates Sun et al 2007's dual-sensor framing from the same lab (Schneggenburger), independent review synthesis."
+    },
+    "sudhof_2013_review": {
+      "pmid": "24183019", "doi": "10.1016/j.neuron.2013.10.022", "pmcid": "PMC3866025",
+      "cite": "Sudhof TC (2013). Neurotransmitter release: the last millisecond in the life of a synaptic vesicle. Neuron 80(3):675-90.",
+      "verified_via": "NCBI eutils esearch+efetch (abstract) + efetch db=pmc (full text XML), live this session; full text grepped directly for cooperativity/exponent keywords (machine-extracted, not eyeballed)",
+      "numbers": "VERBATIM (full text): 'Ca2+ triggers release in a highly cooperative manner (Dodge and Rahamimoff, 1967) within a few hundred microseconds (Sabatini and Regehr, 1996)'; 'the remaining asynchronous release has an apparent Ca2+-cooperativity of 1-2, whereas synaptotagmin-dependent release generally exhibits an apparent Ca2+-cooperativity of 4-5 (Sun et al., 2007; Kochubey and Schneggenburger, 2011)'; 'Ca2+ can trigger synaptic vesicle fusion in less than 100 microseconds (Sabatini and Regehr, 1996).' Found by forcing the search past the Schneggenburger-Neher 2000 paywall dead-end (OODA orient step, not a one-shot stop)."
+    },
+    "fatt_katz_1952_mepp": {
+      "pmid": "14946732", "doi": null, "pmcid": "PMC1392564",
+      "cite": "Fatt P, Katz B (1952). Spontaneous subthreshold activity at motor nerve endings. J Physiol 117(1):109-28.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "Title/journal/PMID/PMCID confirmed live. Pre-modern-abstract PubMed record (1952) -- no abstract text indexed. mEPP-discovery PRIMARY paper; existence/identity verified, exact quantal numbers not independently re-extracted (see honest_gaps)."
+    },
+    "fatt_katz_1952_companion": {
+      "pmid": "13003923", "doi": "10.1098/rspb.1952.0055", "pmcid": null,
+      "cite": "Fatt P, Katz B (1952). The electric activity of the motor end-plate. Proc R Soc Lond B Biol Sci 140(899):183-6.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "Title/journal/PMID/DOI confirmed live. Pre-modern-abstract PubMed record (1952) -- no abstract text indexed. Companion paper to the same authors' J Physiol 117:109-28 (above) on end-plate electrical activity; existence/identity verified only, not independently mined for numbers (redundant with the PRIMARY mEPP citation for this doc's purposes)."
+    },
+    "delcastillo_katz_1954_quantal": {
+      "pmid": "13175199", "doi": "10.1113/jphysiol.1954.sp005129", "pmcid": "PMC1366292",
+      "cite": "del Castillo J, Katz B (1954). Quantal components of the end-plate potential. J Physiol 124(3):560-73.",
+      "verified_via": "NCBI eutils esearch+efetch (title/PMID/DOI/PMCID) + attempted PMC full-text efetch, live this session",
+      "numbers": "Title/journal/PMID/DOI/PMCID confirmed live. Pre-modern-abstract PubMed record. PMC full-text XML fetch BLOCKED by publisher ('the publisher of this article does not allow downloading of the full text in XML form' -- confirmed live, not assumed). Founding quantal-hypothesis paper; existence/identity verified, exact m/n/p numbers not independently re-extracted this session (see honest_gaps)."
+    },
+    "geppert_1994_syt1_ko_primary": {
+      "pmid": "7954835", "doi": "10.1016/0092-8674(94)90556-8",
+      "cite": "Geppert M, Goda Y, Hammer RE, Li C, Rosahl TW, Stevens CF, Sudhof TC (1994). Synaptotagmin I: a major Ca2+ sensor for transmitter release at a central synapse. Cell 79(4):717-27.",
+      "verified_via": "NCBI eutils direct efetch on the PMID, live this session (confirmed against a co-authored but DISTINCT 1994 paper, Ullrich et al Neuron 13:1281-91 PMID 7993622, that a naive author-only search initially mis-matched -- disambiguated by re-fetching this specific PMID directly)",
+      "numbers": "VERBATIM: 'The synchronous, fast component of Ca(2+)-dependent neurotransmitter release is decreased, whereas asynchronous release processes, including spontaneous synaptic activity (miniature excitatory postsynaptic current frequency) and release triggered by hypertonic solution or alpha-latrotoxin, are unaffected.' PRIMARY anchor for the synaptotagmin-1 double dissociation."
+    },
+    "sutton_1998_crystal_structure": {
+      "pmid": "9759724", "doi": "10.1038/26412",
+      "cite": "Sutton RB, Fasshauer D, Jahn R, Brunger AT (1998). Crystal structure of a SNARE complex involved in synaptic exocytosis at 2.4 A resolution. Nature 395(6700):347-53.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session (disambiguated from a companion PNAS paper by an overlapping author set, PMID 9861047, same year -- both cited, roles distinguished)",
+      "numbers": "VERBATIM: 'a core synaptic fusion complex containing syntaxin-1A, synaptobrevin-II and SNAP-25B. The structure reveals a highly twisted and parallel four-helix bundle... Conserved leucine-zipper-like layers are found at the centre.' PRIMARY anchor for the SNARE zippering/4-helix-bundle geometry."
+    },
+    "fasshauer_1998_qr_snare": {
+      "pmid": "9861047", "doi": "10.1073/pnas.95.26.15781", "pmcid": "PMC28121",
+      "cite": "Fasshauer D, Sutton RB, Brunger AT, Jahn R (1998). Conserved structural features of the synaptic fusion complex: SNARE proteins reclassified as Q- and R-SNAREs. Proc Natl Acad Sci U S A 95(26):15781-6.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'fusion-competent SNARE complexes generally consist of four-helix bundles composed of three Q-SNAREs and one R-SNARE... highly conserved during evolution.' Generality bonus: evolutionarily conserved yeast-to-human."
+    },
+    "sabatini_regehr_1996_latency": {
+      "pmid": "8906792", "doi": "10.1038/384170a0",
+      "cite": "Sabatini BL, Regehr WG (1996). Timing of neurotransmission at fast synapses in the mammalian brain. Nature 384(6605):170-2.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'postsynaptic responses commence just 150 micros after the start of the presynaptic action potential... extremely fast calcium-driven vesicle fusion, which lags behind calcium influx by 60 micros... holds for these synapses at room temperature, but not at physiological temperatures.' PRIMARY anchor for sub-ms fusion latency (both numbers clear the <1ms bar by 6.7-16.7x)."
+    },
+    "schiavo_1992_tent_bontb_vamp2": {
+      "pmid": "1331807", "doi": "10.1038/359832a0",
+      "cite": "Schiavo G, Benfenati F, Poulain B, Rossetto O, Polverino de Laureto P, DasGupta BR, Montecucco C (1992). Tetanus and botulinum-B neurotoxins block neurotransmitter release by proteolytic cleavage of synaptobrevin. Nature 359(6398):832-5.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'tetanus and botulinum toxins serotype B are zinc endopeptidases... specific for synaptobrevin... cleaved by both neurotoxins at the same single site, the peptide bond Gln 76-Phe 77, but the isoform synaptobrevin-1, which has a valine at the corresponding position, is not cleaved.' PRIMARY anchor for BoNT/B+TeNT->VAMP2, single-residue specificity control included."
+    },
+    "blasi_1993_bonta_snap25": {
+      "pmid": "8103915", "doi": "10.1038/365160a0",
+      "cite": "Blasi J, Chapman ER, Link E, Binz T, Yamasaki S, De Camilli P, Sudhof TC, Niemann H, Jahn R (1993). Botulinum neurotoxin A selectively cleaves the synaptic protein SNAP-25. Nature 365(6442):160-3.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session (2 mis-hits on the same author name before finding this exact paper -- disclosed, not hidden)",
+      "numbers": "VERBATIM: 'inhibition of transmitter release from synaptosomes caused by botulinum neurotoxin A (BoNT/A) is associated with the selective proteolysis of the synaptic protein SNAP-25... BoNT/A acts as a zinc-dependent protease that selectively cleaves SNAP-25.' PRIMARY anchor for BoNT/A->SNAP-25."
+    },
+    "blasi_1993_bontc1_syntaxin": {
+      "pmid": "7901002", "doi": "10.1002/j.1460-2075.1993.tb06171.x", "pmcid": "PMC413934",
+      "cite": "Blasi J, Chapman ER, Yamasaki S, Binz T, Niemann H, Jahn R (1993). Botulinum neurotoxin C1 blocks neurotransmitter release by means of cleaving HPC-1/syntaxin. EMBO J 12(12):4821-8.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'inhibition of neurotransmitter release by botulinum neurotoxin type C1 was associated with the proteolysis of HPC-1 (= syntaxin)... Breakdown of HPC-1/syntaxin was selective since no other protein degradation was detectable.' THIRD independent decorrelated toxin/SNARE cleavage pair -- completes 3/3 concordance across all 3 core SNARE proteins."
+    },
+    "giraudo_2006_complexin_clamp": {
+      "pmid": "16794037", "doi": "10.1126/science.1129450",
+      "cite": "Giraudo CG, Eng WS, Melia TJ, Rothman JE (2006). A clamping mechanism involved in SNARE-dependent exocytosis. Science 313(5787):676-80.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'a reversible clamping protein (complexin) that can freeze the SNAREpin, an assembled fusion-competent intermediate en route to fusion. When calcium binds to the calcium sensor synaptotagmin, the clamp would then be released.' PRIMARY anchor for the complexin-clamps-the-primed-state claim."
+    },
+    "tang_2006_complexin_syt_switch": {
+      "pmid": "16990140", "doi": "10.1016/j.cell.2006.08.030",
+      "cite": "Tang J, Maximov A, Shin OH, Dai H, Rizo J, Sudhof TC (2006). A complexin/synaptotagmin 1 switch controls fast synaptic vesicle exocytosis. Cell 126(6):1175-87.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'synaptotagmin 1 competes with complexin for SNARE-complex binding, thereby dislodging complexin from SNARE complexes in a Ca2+-dependent manner.' Complements Giraudo 2006 with the specific molecular displacement mechanism."
+    },
+    "rosenmund_stevens_1996_rrp": {
+      "pmid": "8663996", "doi": "10.1016/s0896-6273(00)80146-4",
+      "cite": "Rosenmund C, Stevens CF (1996). Definition of the readily releasable pool of vesicles at hippocampal synapses. Neuron 16(6):1197-1207.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'release produced by action potentials and hypertonic solutions varies in parallel as the pool size is changed, we conclude that the same pool is shared by both mechanisms.' PRIMARY anchor for the operationally-defined N (readily-releasable pool) in the Katz N*p*q framework."
+    }
+  },
+  "additional_convergence_found_this_session": [
+    "Sun et al 2007's Syt2-KO/calyx-of-Held finding is a SECOND, fully independent instance of the Geppert 1994 double dissociation -- different isoform, synapse type, technique, 13 years apart -- found only by forcing the search past the Schneggenburger-Neher 2000 paywall dead-end rather than accepting a one-shot gap (OODA orient step).",
+    "The n~1-2 'linear-ish' adversary is not a strawman: it is the field's own established description of a real, decorrelated release pathway (asynchronous release) per Sun et al 2007/Sudhof 2013 -- sharpening rather than merely asserting the specificity of the steep synaptotagmin-gated synchronous mechanism.",
+    "3 independent synapse types (frog NMJ 1967, retinal bipolar 1994, calyx of Held 2007) across 3 decades and 3 decorrelated techniques (EPP-amplitude titration, membrane-capacitance+uncaging, uncaging+genetic dissection) all converge on n in [3.78, 5.0] for fast/synchronous release.",
+    "Two independent groups (Schneggenburger/Neher; Bollmann/Sakmann/Borst), same year, same synapse type, different specific protocols, converge qualitatively on sub-millisecond pool depletion at similar (10-30uM) Ca2+ steps without being designed to match each other."
+  ],
+  "honest_gaps": [
+    "Schneggenburger & Neher 2000's own exact in-paper cooperativity coefficient was not independently extracted (confirmed paywalled via NCBI abstract-only efetch + EuropePMC isOpenAccess:N/inPMC:N/hasPDF:N) -- the n~4-5 number used is sourced from Sun et al 2007 (independent later primary paper, same synapse type) and Sudhof 2013 (review, PMC full text mined directly), disclosed as a substitution, not asserted under Schneggenburger & Neher's own name.",
+    "Kd (Ca2+ affinity) is synapse-specific, NOT universal: 194uM (retinal bipolar, Heidelberger 1994) vs 38-44uM (calyx of Held, Sun 2007) -- a 5.1x spread, machine-computed and disclosed, not smoothed into one fabricated number. Only the cooperativity ORDER n is claimed as the cross-synapse-type universal.",
+    "del Castillo & Katz 1954's PMC full text is explicitly publisher-blocked from XML download (confirmed live this session) and Fatt & Katz 1952 is a pre-modern-abstract record -- their own exact quantal-content numbers (m, n, p) were not independently re-extracted; the modern quantal-framework numeric anchor used instead is Rosenmund & Stevens 1996 (RRP) + Schneggenburger & Neher 2000 (80% pool depletion).",
+    "The n-independent-site geometric derivation (Hill-equation joint-occupancy-probability model) is a disclosed SIMPLIFICATION -- synaptotagmin's real C2A+C2B sites are not perfectly identical/independent; the model is used only to derive the qualitative low-occupancy asymptotic-slope=n behavior, which is independently, directly confirmed by Dodge & Rahamimoff's own verbatim text (not a refit of the real structural binding scheme).",
+    "No raw electrophysiological trace or figure was reprocessed or eyeballed this session (figures are forensic-only per this repo's discipline) -- every gate reproduces either a paper's own directly-quoted summary statistic via closed-form arithmetic, a synthetic-data machinery validation, or a concordance/dissociation table built directly from verbatim-quoted findings.",
+    "All toxin/SNARE findings are in vitro/synaptosome/cultured-neuron preparations, not whole-organism dose-response -- the concordance gate is about specificity and mechanism, not a clinical LD50 model (out of scope here)."
+  ]
+}

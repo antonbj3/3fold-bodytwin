@@ -1,0 +1,214 @@
+{
+  "task": "Na/K-ATPase + membrane ion transport CERT: (1) pump stoichiometry 3Na+ out/2K+ in per ATP, electrogenic; (2) Nernst/Goldman-Hodgkin-Katz resting membrane potential from measured ion concentrations + permeability ratios (PK:PNa:PCl ~1:0.04:0.45) reproducing ~-70mV neuron / ~-90mV muscle; (3) pump turnover rate ~100-150/s per pump, ~8000 pumps/cell scale; (4) Na/K-ATPase share of cellular ATP budget ~20-40% of basal metabolic rate (higher neurons/kidney). Decorrelated check: electrogenic contribution ~-5 to -15mV distinct from the Goldman diffusion potential (ouabain-sensitive).",
+  "confidence_tier": "in-vitro/in-vivo-anchored (patch-clamp/flame-photometry Vm measurements, ouabain-sensitive respirometry, radioisotope-occlusion enzyme kinetics, 3H-ouabain-binding site density) -- per the task's own framing. NOT upgraded to a higher tier: several founding papers (Hodgkin-Katz 1949, Hodgkin-Horowicz 1959, Whittam 1962, Thomas 1972) had publisher-blocked full text this session, so their SPECIFIC in-text numbers are not independently re-extracted here; modern papers that verbatim-quantify the same phenomena carry the numeric weight instead (see citations below).",
+  "script": "scripts/msk/na_k_atpase.py",
+  "raw_results": "data/msk_smoketest/na_k_atpase/na_k_atpase_results.json",
+  "doc": "docs/MECHANISM_NA_K_ATPASE.md",
+  "raw_fetch_logs": "data/raw_fetch/*.txt, data/raw_fetch/*.json (all esearch/efetch/PMC calls this session)",
+  "couples_to": [
+    "docs/MECHANISM_NERVE_CONDUCTION.md (conduction velocity/H-reflex presumes a resting Vm baseline this doc supplies)",
+    "docs/MECHANISM_RENAL_FILTRATION.md + graph nodes RENAL-GLOMERULAR-FILTRATION/ORG-RENAL-FLUID-ELECTROLYTE (proximal-tubule Na reabsorption ATP cost, Gate G4)",
+    "docs/MECHANISM_MUSCLE_FATIGUE.md, docs/MECHANISM_MUSCLE_ENERGETICS.md (pump capacity vs excitability recovery, Clausen's own framing -- uncoupled this session, flagged for a future build)"
+  ],
+  "distinct_from_existing_graph_node": {
+    "node_id": "MEMBRANE-NERNST-CELL",
+    "status_in_graph": "OPEN, EMPIRICAL",
+    "why_distinct": "That node is explicitly RE-SCOPED to aggregate BBB paracellular barrier integrity (TEER/Papp electrical vs mass-transport transduction of ONE pore-state), its own regime_note stating 'true per-ion Nernst (patch-clamp) not in archive'. This doc supplies exactly that missing per-ion, transcellular Nernst/GHK piece, from literature + direct computation rather than an archived dataset. Not a sibling/duplicate; repo-wide grep confirmed no existing MECHANISM doc covers the Na/K-ATPase mechanism itself."
+  },
+  "citations_verified_live_this_session": {
+    "skou_1957_discovery": {
+      "pmid": "13412736", "doi": "10.1016/0006-3002(57)90343-8",
+      "cite": "Skou JC (1957). The influence of some cations on an adenosine triphosphatase from peripheral nerves. Biochim Biophys Acta 23(2):394-401.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "Discovery paper (Nobel Prize 1997). Title/journal/PMID/DOI verified; pre-abstract-era PubMed record, no abstract text available via efetch. A 1998 Skou retrospective (PMID 29710959, also fetched live) quotes: 'an ATPase in the membrane of crab nerves had such characteristics ... that it was reasonable to suggest that it was involved in the active transport of Na across the cell membrane' -- the word 'pump' was originally omitted from the 1957 title as 'too provocative.'"
+    },
+    "sen_post_1964_stoichiometry": {
+      "pmid": "14114864", "doi": null,
+      "cite": "Sen AK, Post RL (1964). Stoichiometry and localization of adenosine triphosphate-dependent sodium and potassium transport in the erythrocyte. J Biol Chem 239:345-52.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "The classic direct-flux-measurement demonstration of the 3Na:2K stoichiometry (erythrocyte). Title/PMID confirmed live; pre-1975 J Biol Chem record has no abstract text in PubMed. Structural/modern confirmation of the same number: see Morth et al 2007 below."
+    },
+    "morth_2007_structure": {
+      "pmid": "18075585", "doi": "10.1038/nature06419",
+      "cite": "Morth JP, Pedersen BP, Toustrup-Jensen MS, Sorensen TL, Petersen J, Andersen JP, Vilsen B, Nissen P (2007). Crystal structure of the sodium-potassium pump. Nature 450(7172):1043-9.",
+      "verified_via": "NCBI eutils efetch, live this session (found via esearch, not recalled)",
+      "numbers": "VERBATIM: 'The Na+,K+-ATPase generates electrochemical gradients for sodium and potassium that are vital to animal cells, exchanging three sodium ions for two potassium ions across the plasma membrane during each cycle of ATP hydrolysis.' X-ray structure at 3.5 Angstrom, pig renal Na+,K+-ATPase, two Rb+ (K+ congener) bound in occluded state."
+    },
+    "hodgkin_katz_1949": {
+      "pmid": "18128147", "doi": "10.1113/jphysiol.1949.sp004310", "pmcid": "PMC1392331",
+      "cite": "Hodgkin AL, Katz B (1949). The effect of sodium ions on the electrical activity of giant axon of the squid. J Physiol 108(1):37-77.",
+      "verified_via": "NCBI eutils efetch (title/PMID/DOI/PMCID live); PMC full-text XML fetch attempted and BLOCKED by publisher this session ('The publisher of this article does not allow downloading of the full text in XML form')",
+      "numbers": "Historical primary reference establishing that resting Vm depends weakly on [Na]o (low resting PNa) while the action-potential peak depends strongly on [Na]o (high activated PNa) -- the qualitative basis for PNa<<PK at rest. Specific in-text permeability-ratio numbers NOT independently re-extracted this session (full text blocked)."
+    },
+    "hodgkin_horowicz_1959": {
+      "pmid": "14402240", "doi": "10.1113/jphysiol.1959.sp006278", "pmcid": "PMC1363113",
+      "cite": "Hodgkin AL, Horowicz P (1959). The influence of potassium and chloride ions on the membrane potential of single muscle fibres. J Physiol 148(1):127-60.",
+      "verified_via": "NCBI eutils efetch (title/PMID/DOI/PMCID live); PMC full-text XML fetch attempted and BLOCKED by publisher this session",
+      "numbers": "Historical primary reference establishing Cl- as a substantial, non-negligible determinant of resting Vm specifically in skeletal muscle (unlike many neurons) -- qualitative basis for the elevated PCl in the muscle permeability ratio. Specific in-text numbers NOT independently re-extracted this session."
+    },
+    "urazaev_1998_review": {
+      "pmid": "9659682", "doi": null,
+      "cite": "Urazaev AKh (1998). [The sodium-potassium-chloride cotransport of the cell membrane]. Usp Fiziol Nauk 29(2):12-38. (Russian, English abstract)",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM (English abstract): 'Starting from the pioneer studies by Hodgkin and Horowicz ... the role of chlorine ions in forming a charge on the membrane of excited cells has been generally interpreted as exclusively passive ... the non-excited membrane potential in muscle fibers is co-created by the diffusional potassium and chloride potential.' Secondary confirmation of Hodgkin-Horowicz's Cl-in-muscle finding, live-verified independently."
+    },
+    "lipicky_1971_muscle_primary": {
+      "pmid": "4940295", "doi": "10.1172/JCI106703", "pmcid": "PMC292143",
+      "cite": "Lipicky RJ, Bryant SH, Salmon JH (1971). Cable parameters, sodium, potassium, chloride, and water content, and potassium efflux in isolated external intercostal muscle of normal volunteers and patients with myotonia congenita. J Clin Invest 50(10):2091-103.",
+      "verified_via": "NCBI eutils efetch, live this session (found via esearch, not recalled)",
+      "numbers": "PRIMARY DECISIVE TEST (Gate G2/G2b). Normal volunteers (n=13): K+ content 66.7 mEq/kg wet wt, calculated intracellular [K+]=191 mEq/L fiber water; Na+ content 94.1 mEq/kg wet wt; Cl- content 74.7 mEq/kg wet wt; water content 808.2 mL/kg; mannitol (ECF) volume 46.6 cc/100g; measured resting potential 61 mV (myotonia congenita comparator: 68mV, membrane resistance 5729 vs 2619 ohm.cm2 -- out of this cert's scope). Concentrations AND Vm measured in the SAME tissue prep -- fully self-consistent single-source test."
+    },
+    "stritzke_2024_serum_ref": {
+      "pmid": "34983069", "doi": "10.1055/a-1730-8536",
+      "cite": "Stritzke A, Ismail R, Rose MS, Lyon AW, Fenton TR (2022, print 2024). Cord-Blood Derived Chemistry Reference Values in Preterm Infants for Sodium, Chloride, Potassium, Glucose, and Creatinine. Am J Perinatol 41(6):722-729.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM adult reference intervals (used as the comparator this paper itself cites): sodium 136-145 mmol/L, potassium 3.5-5.0 mmol/L, chloride 98-106 mmol/L. Used as the extracellular-concentration anchor for both GHK computations (Gates G1, G2)."
+    },
+    "forbush_1987_turnover": {
+      "pmid": "2440883", "doi": null,
+      "cite": "Forbush B 3rd (1987). Rapid release of 42K and 86Rb from an occluded state of the Na,K-pump in the presence of ATP or ADP. J Biol Chem 262(23):11104-15.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: 'at 20 degrees C and in the presence of ATP, 42K is released with a rate constant of approximately 45 s-1 and 86Rb with a rate constant of approximately 20 s-1' -- deocclusion proposed as the rate-limiting step of the cycle, used as a cycle-turnover proxy (Gate G3, Method A)."
+    },
+    "karlish_stein_1982_turnover": {
+      "pmid": "6290646", "doi": "10.1113/jphysiol.1982.sp014265", "pmcid": "PMC1225659",
+      "cite": "Karlish SJ, Stein WD (1982). Passive rubidium fluxes mediated by Na-K-ATPase reconstituted into phospholipid vesicles when ATP- and phosphate-free. J Physiol 328:295-316.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: 'Turnover numbers were estimated from parallel measurement of Na/K pump mediated fluxes and amount of covalent phosphoenzyme. In units of moles of ion per mole of phosphoenzyme per second at 20 degrees C the following values were obtained: ATP-dependent Na-Rb exchange, 43.' Unit ambiguity disclosed in doc Sec.5 (ion-count vs cycle-rate reading; Gate G3 Method B)."
+    },
+    "clausen_1987_flux_density": {
+      "pmid": "2443689", "doi": "10.1113/jphysiol.1987.sp016608", "pmcid": "PMC1192542",
+      "cite": "Clausen T, Everts ME, Kjeldsen K (1987). Quantification of the maximum capacity for active sodium-potassium transport in rat skeletal muscle. J Physiol 388:163-81.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: ouabain-suppressible 86Rb+ uptake / 22Na+ efflux 5800/6500 nmol g wet wt-1 min-1 (Na-loaded soleus, 30C); '[3H]ouabain binding sites (260-1170 pmol g wet wt-1)' correlated (r=0.95) with 'maximum ouabain-suppressible 86Rb+ uptake (2300-10,900 nmol g wet wt-1 min-1)'; 'activated to reach a transport rate around 90% of the theoretical maximum at 30 degrees C.' Used for Gate G3 Method C (flux/density back-calculation of turnover, both endpoint pairs)."
+    },
+    "clausen_1996_density": {
+      "pmid": "8729682", "doi": "10.1046/j.1365-201X.1996.209000.x",
+      "cite": "Clausen T (1996). The Na+, K+ pump in skeletal muscle: quantification, regulation and functional significance. Acta Physiol Scand 156(3):227-35.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: 'the Na+, K+ pump is predominantly situated in the sarcolemma (1000-3500 pumps per microns 2)... the concentration of Na+, K+ pumps varies with muscle type and species in the range 150-600 pmol (g wet wt)-1 in rat and human muscle.' Areal (not per-cell) density -- used in doc Sec.5 to illustrate that 'pumps per cell' is geometry-dependent."
+    },
+    "clausen_2013_review": {
+      "pmid": "24081980", "doi": "10.1085/jgp.201310980", "pmcid": "PMC3787770",
+      "cite": "Clausen T (2013). Quantification of Na+,K+ pumps and their transport rate in skeletal muscle: functional significance. J Gen Physiol 142(4):327-45.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "Corroborating review: '[3H]ouabain binding to skeletal muscle ... enabled reproducible quantification of the total content of Na+,K+ pumps in molar units,' electrogenic action helps reverse depolarization from excitation/hyperkalemia/anoxia."
+    },
+    "rolfe_brown_1997_atp_budget": {
+      "pmid": "9234964", "doi": "10.1152/physrev.1997.77.3.731",
+      "cite": "Rolfe DF, Brown GC (1997). Cellular energy utilization and molecular origin of standard metabolic rate in mammals. Physiol Rev 77(3):731-58.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: 'approximately 90% of mammalian oxygen consumption in the standard state is mitochondrial, of which approximately 20% is uncoupled by the mitochondrial proton leak and 80% is coupled to ATP synthesis ... Of the 80% of oxygen consumption coupled to ATP synthesis, approximately 25-30% is used by protein synthesis, 19-28% by the Na(+)-K(+)-ATPase.' Gate G4: precise nested-percentage computation -> 13.7-20.2% of TOTAL O2 consumption (not 19-28% of total, a common loose misquotation)."
+    },
+    "whittam_1962_brain": {
+      "pmid": "14006661", "doi": "10.1042/bj0820205", "pmcid": "PMC1243433",
+      "cite": "Whittam R (1962). The dependence of the respiration of brain cortex on active cation transport. Biochem J 82(1):205-12.",
+      "verified_via": "NCBI eutils efetch (title/PMID/DOI/PMCID live); PMC full-text XML fetch attempted and BLOCKED by publisher this session",
+      "numbers": "Classic founding demonstration that brain-cortex respiration is substantially cation-transport-dependent. Specific % NOT independently re-extracted this session (full text blocked) -- Harris/Balaban/Mandel 1981 (kidney) supplies the tissue-specific quantitative weight instead for Gate G4's 'higher in neurons/kidney' ordinal claim."
+    },
+    "harris_balaban_mandel_1981_kidney": {
+      "pmid": "6270107", "doi": null,
+      "cite": "Harris SI, Balaban RS, Barrett L, Mandel LJ (1981). Mitochondrial respiratory capacity and Na+- and K+-dependent adenosine triphosphatase-mediated ion transport in the intact renal cell. J Biol Chem 256(20):10319-28.",
+      "verified_via": "NCBI eutils efetch, live this session (found via esearch, not recalled); DOI not present in the PubMed record (esummary checked live, only a PII identifier found: S0021-9258(19)68621-7)",
+      "numbers": "VERBATIM: 'At 37 degrees C, in the presence of NADH-linked substrates and fats, isolated renal cells respire at 50 to 60% of the state 3 rate. Inhibition of the (Na+,K+)-ATPase with the cardiac glycoside, ouabain, results in a decline in respiration to 25 to 30% of the state 3 rate.' Gate G4: computes to 40.0-58.3% of BASAL kidney respiration being Na/K-ATPase-dependent -- decisively higher than the 13.7-20.2% global cross-tissue average, confirming the task's 'higher in kidney' ordinal claim on a DECORRELATED method (direct isolated-tubule respirometry vs Rolfe&Brown's literature synthesis)."
+    },
+    "harris_balaban_mandel_1980_atpo2": {
+      "pmid": "6246581", "doi": "10.1126/science.6246581",
+      "cite": "Harris SI, Balaban RS, Mandel LJ (1980). Oxygen consumption and cellular ion transport: evidence for adenosine triphosphate to O2 ratio near 6 in intact cell. Science 208(4448):1148-50.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: K+/O2 stoichiometries of 11.8+/-0.2 and 8.4+/-0.6 for NADH- and flavoprotein-linked substrates respectively; 'remarkably efficient coupling' between ion transport and oxidative phosphorylation. Supporting context for Gate G4, not itself gated."
+    },
+    "kiil_sejersted_2003_tal": {
+      "pmid": "12713517", "doi": "10.1046/j.1365-201X.2003.01058.x",
+      "cite": "Kiil F, Sejersted OM (2003). Analysis of energy metabolism and mechanism of loop diuretics in the thick ascending limb of Henle's loop in dog kidneys. Acta Physiol Scand 178(1):73-82.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: 'Ouabain, a specific inhibitor of Na,K-ATPase activity, reduced the remaining NaCl absorption and renal oxygen consumption in a ratio DeltaNa/DeltaO2 = 18, as expected for active transport.' Renal TAL-specific efficiency ratio, supporting context."
+    },
+    "baracnieto_spitzer_1988_proximal": {
+      "pmid": "3153041", "doi": "10.1007/BF00858693",
+      "cite": "Barac-Nieto M, Spitzer A (1988). The relationship between renal metabolism and proximal tubule transport during ontogeny. Pediatr Nephrol 2(3):356-67.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: 'the mature proximal tubule has a high Na+/O2 molar ratio (48 Eq of Na+/mol of O2)'; aerobic metabolism supports ~33% of adult / ~50% of newborn net Na+ transport rate (an energy-sufficiency framing, not a %-of-O2-consumption framing) -- supporting context, disclosed as a different direction of ratio than Gate G4's headline number."
+    },
+    "cortijo_2003_bronchial_electrogenic": {
+      "pmid": "14564450", "doi": "10.1007/s00210-003-0818-0",
+      "cite": "Cortijo J, Sarria B, Mata M, Naline E, Advenier C, Morcillo EJ (2003). Effects of ouabain on human bronchial muscle in vitro. Naunyn Schmiedebergs Arch Pharmacol 368(5):393-403.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: 'depolarization (16.4+/-0.9 mV) was observed in human isolated bronchus by intracellular microelectrode recording' upon ouabain (10 microM). Human tissue, steady-state (not Na-load-stimulated) electrogenic contribution -- Gate G5/G2b."
+    },
+    "cao_2006_pericyte_electrogenic": {
+      "pmid": "16439665", "doi": "10.1152/ajpregu.00877.2005",
+      "cite": "Cao C, Goo JH, Lee-Kwon W, Pallone TL (2006). Vasa recta pericytes express a strong inward rectifier K+ conductance. Am J Physiol Regul Integr Comp Physiol 290(6):R1601-7.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: 'Ba2+ (30 micromol/l) and ouabain (1 mmol/l) depolarized pericytes by an average of 11 and 24 mV, respectively.' Renal (vasa recta) pericyte, steady-state electrogenic contribution -- Gate G5/G2b."
+    },
+    "bussemaker_2002_artery_electrogenic": {
+      "pmid": "12381678", "doi": "10.1038/sj.bjp.0704919", "pmcid": "PMC1573540",
+      "cite": "Bussemaker E, Wallner C, Fisslthaler B, Fleming I (2002). The Na-K-ATPase is a target for an EDHF displaying characteristics similar to potassium ions in the porcine renal interlobar artery. Br J Pharmacol 137(5):647-54.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: bradykinin-induced hyperpolarization of smooth muscle cells '13.6+/-2.8 mV versus 5.20+/-1.39 mV in the absence and presence of ouabain' -- ouabain-sensitive (electrogenic pump) component = 8.4mV. Renal artery smooth muscle -- Gate G5/G2b."
+    },
+    "thomas_1969_snail_electrogenic": {
+      "pmid": "5780556", "doi": "10.1113/jphysiol.1969.sp008769", "pmcid": "PMC1351622",
+      "cite": "Thomas RC (1969). Membrane current and intracellular sodium changes in a snail neurone during extrusion of injected sodium. J Physiol 201(2):495-514.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: Na injection 'caused a hyperpolarization of up to 20 mV. This response ... was blocked by application of ouabain or removal of external K, indicating that it was due to the stimulation of an electrogenic pump.' Na-load-STIMULATED (not basal) upper bound -- disclosed as a different regime than the other 3 (steady-state) electrogenic measurements. Also: 'about two thirds of the Na extruded was coupled to the active transport of other ions ... the uncoupled third producing the electrogenic effect' -- an independent, geometric confirmation that a 3:2 (not 1:1) stoichiometry is what makes 1/3 of the transported charge 'uncoupled'/electrogenic."
+    },
+    "thomas_1972_review": {
+      "pmid": "4555514", "doi": "10.1152/physrev.1972.52.3.563",
+      "cite": "Thomas RC (1972). Electrogenic sodium pump in nerve and muscle cells. Physiol Rev 52(3):563-94.",
+      "verified_via": "NCBI eutils efetch (title/PMID/DOI live); pre-abstract-era Physiol Rev record, no abstract text available",
+      "numbers": "The definitive contemporary review of electrogenic pump physiology; title/PMID/DOI confirmed live. Numeric content in this cert instead drawn from Thomas's own 1969 primary paper (above) plus 3 other independently-measured tissues (Cortijo/Cao/Bussemaker)."
+    },
+    "kononenko_kostyuk_1976_snail": {
+      "pmid": "1271294", "doi": "10.1113/jphysiol.1976.sp011341", "pmcid": "PMC1309327",
+      "cite": "Kononenko NI, Kostyuk PG (1976). Further studies of the potential-dependence of the sodium-induced membrane current in snail neurones. J Physiol 256(3):601-15.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: pump-current reversal potential 'reaches -60 to -65 mV with large sodium injections'; '[K]o from 4 to 8 mM shifts the reversal potential 17 mV in the depolarizing direction, and a decrease from 4 to 2 mM shifts it 14 mV in the hyperpolarizing direction' -- supporting K+-dependence data, not itself gated."
+    },
+    "deluise_flier_1985_density": {
+      "pmid": "2410761", "doi": "10.1016/0026-0495(85)90029-0",
+      "cite": "DeLuise M, Flier JS (1985). Evidence for coordinate genetic control of Na,K pump density in erythrocytes and lymphocytes. Metabolism 34(8):771-6.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: 'Na,K pump density differs markedly between erythrocytes (mean of 285 sites per cell) and lymphocytes (mean 40,600 sites per cell), there is a strong and highly significant correlation (r = 0.79, P less than 0.001)' between individuals. Gate G6: two of the 5 per-cell density data points."
+    },
+    "crawford_1995_corneal_density": {
+      "pmid": "7775109", "doi": null,
+      "cite": "Crawford KM, Ernst SA, Meyer RF, MacCallum DK (1995). NaK-ATPase pump sites in cultured bovine corneal endothelium of varying cell density at confluence. Invest Ophthalmol Vis Sci 36(7):1317-26.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: 'The mean number of Na pump sites per cell at confluence (1.92 +/- 0.07 x 10(6))'; increases to ~4x10^6 sites/cell at lower confluent density (275 cells/mm2). Gate G6 data point."
+    },
+    "lobaugh_lieberman_1987_cardiac_density": {
+      "pmid": "2446503", "doi": "10.1152/ajpcell.1987.253.5.C731",
+      "cite": "Lobaugh LA, Lieberman M (1987). Na-K pump site density and ouabain binding affinity in cultured chick heart cells. Am J Physiol 253(5 Pt 1):C731-43.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: 'Equivalence of [3H]ouabain binding sites and Na-K pumps was implied by agreement between maximal specific binding of [3H]ouabain and 125I-labeled monoclonal antibody ... (approximately 2 X 10(6) sites/cell)'. Gate G6 data point (cardiac myocyte)."
+    },
+    "shah_1999_adrenal_density": {
+      "pmid": "9931132", "doi": "10.1161/01.hyp.33.1.373",
+      "cite": "Shah JR, Laredo J, Hamilton BP, Hamlyn JM (1999). Effects of angiotensin II on sodium potassium pumps, endogenous ouabain, and aldosterone in bovine zona glomerulosa cells. Hypertension 33(1 Pt 2):373-7.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "VERBATIM: 'no change in the maximal number of sodium pumps (5.45x10(6)) per cell.' Gate G6 data point (adrenal cortex, highest measured this session)."
+    }
+  },
+  "gates_summary": {
+    "G1_neuron_ghk_sweep": "FAIL (75%, 15/20 in [-80,-60]mV; misses concentrated at atypical Cl_i=25mM edge)",
+    "G2_muscle_ghk_pure_diffusion": "FAIL (diff=16.58mV vs Lipicky 1971's own measured Vm -- diagnosed, not swept aside)",
+    "G2b_forced_retest_diffusion_plus_electrogenic": "PASS (diff=0.62mV, using G5's independent, non-circular electrogenic mean)",
+    "G3_turnover_3method_convergence": "PASS at Q10=2.0 (all 3 decorrelated methods in [100,150]/s); FAILS at Q10>=2.5 for 2/3 methods -- disclosed sensitivity",
+    "G4_atp_budget_kidney_ordinal": "PASS (kidney 40.0-58.3% of basal >> global cross-tissue 13.7-20.2% of total O2)",
+    "G5_electrogenic_spread": "PASS (order-of-magnitude, 1/4 tissues strictly in task's 5-15mV band, real spread 8.4-24mV)",
+    "G6_pump_density_spread": "PASS (19,123-fold measured range brackets the task's ~8000 anchor; no live-measured value lands near it -- honest gap)",
+    "G7_stoichiometry_electrogenicity": "PASS (net +1 elementary charge/cycle, geometric charge-conservation, machine-verified)",
+    "overall": "6/8 PASS; ghk_mV() implementation itself unit-tested against 3 analytic Nernst limiting cases (pure-K, pure-Cl, symmetric) before any gate was trusted -- all 3 unit tests PASS"
+  },
+  "symmetric_qc_open_items": [
+    "Permeability ratio 1:0.04:0.45's own single-paper provenance not traced live this session (WebSearch budget exhausted mid-session, disclosed not hidden) -- tested AS GIVEN per the task's framing rather than re-derived.",
+    "Turnover convergence (G3) is Q10=2.0-dependent and has a genuine unit-interpretation ambiguity in the Karlish & Stein 1982 source (ion-count vs cycle-rate) -- both disclosed with the sensitivity table in the script output.",
+    "ATP-budget global figure (13.7-20.2% of total O2) sits BELOW the task's stated 20-40% floor at its low end, touching it only at its ceiling -- the flat 20-40% band is better supported by kidney/brain-specific figures than as a whole-body average.",
+    "Electrogenic contribution real spread (8.4-24mV) runs at/above the task's 5-15mV band, not comfortably inside it.",
+    "Pump density spread (285 to 5.45x10^6/cell, 19,123-fold) brackets the task's ~8000/cell anchor but no live source matches it closely; also flagged that 'pumps per cell' is itself geometry-dependent (a giant skeletal-muscle fiber's areal density implies ~10^10 pumps/fiber).",
+    "Lipicky et al 1971's back-calculated intracellular Na/Cl (83.7/79.4 mEq/L) are far above idealized frog-muscle textbook figures -- plausibly a real feature of the dissected human ex-vivo prep, not re-verified against a second independent human dataset this session.",
+    "4 of the ~29 founding/review citations (Hodgkin-Katz 1949, Hodgkin-Horowicz 1959, Whittam 1962, Thomas 1972 review) had publisher-blocked full text this session -- bibliographic identity (title/PMID/DOI) is live-verified but their own specific in-text numbers were not independently re-extracted; modern papers carry the numeric weight instead."
+  ]
+}

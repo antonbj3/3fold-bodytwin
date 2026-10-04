@@ -1,0 +1,163 @@
+{
+  "task": "Auditory/cochlear transduction layer: cochlear tonotopy (Greenwood frequency-position map), basilar-membrane traveling-wave place mechanism + active cochlear-amplifier compressive nonlinearity, and a decorrelated ear-canal-resonance vs. threshold-of-hearing-minimum check.",
+  "confidence_tier": "in-vivo-anchored (Greenwood 1990 human formula verified against independent cadaveric/imaging length measurements; Ruggero 1997 / Sellick 1982 direct in-vivo basilar-membrane mechanics; Keefe 2024 direct acoustic ear-canal measurement) -- amplifier GAIN MAGNITUDE explicitly held estimate-laden/regime-dependent, not a single certified number (see symmetric QC).",
+  "script": "scripts/msk/auditory_cochlea.py",
+  "raw_results": "reports/probes/auditory_cochlea_results.json",
+  "doc": "docs/MECHANISM_AUDITORY_COCHLEA.md",
+  "citations_verified_live_this_session": {
+    "greenwood_1990": {
+      "pmid": "2373794", "doi": "10.1121/1.399052",
+      "cite": "Greenwood DD (1990). A cochlear frequency-position function for several species--29 years later. J Acoust Soc Am 87(6):2592-605.",
+      "verified_via": "NCBI eutils efetch, abstract fetched live this session",
+      "note": "Abstract is conceptual/methodological; does not itself print the A,a,k table."
+    },
+    "stakhovskaya_2007": {
+      "pmid": "17318276", "doi": "10.1007/s10162-007-0076-9", "pmcid": "PMC2394499",
+      "cite": "Stakhovskaya O, Sridhar D, Bonham BH, Leake PA (2007). Frequency map for the human cochlear spiral ganglion: implications for cochlear implants. J Assoc Res Otolaryngol 8(2):220-33.",
+      "verified_via": "Open-access full-text PMC HTML fetched live this session; formula constants and length data extracted directly from the article text",
+      "numbers": "Quotes Greenwood 1990 verbatim: human A=165.4, a=2.1 (x=proportion of total BM length), k=0.88, giving 20-20,677 Hz. Independently measured (n=9 cadaveric cochleae, dissection, NOT derived from Greenwood's formula) organ-of-Corti length: mean 33.13mm (SD 2.11, range 30.5-36.87mm). Quotes two further independent studies: Sato et al 1991 (n=18: 32.3+/-1.8mm female, 37.1+/-1.6mm male) and Ketten 1998/Skinner 2002 (n=33: 33.4mm)."
+    },
+    "dorman_2007": {
+      "pmid": "17351713", "doi": "10.1007/s10162-007-0071-1", "pmcid": "PMC2441831",
+      "cite": "Dorman MF et al (2007). An electric frequency-to-place map for a cochlear implant patient with hearing in the nonimplanted ear. J Assoc Res Otolaryngol 8(2):234-40.",
+      "verified_via": "PubMed abstract fetched live this session",
+      "numbers": "Living-patient psychophysical (acoustic/electric) pitch-match test: Greenwood's acoustic map does NOT directly transfer to electrical spiral-ganglion stimulation -- pitch matches ~0.5-1 octave lower than predicted at 3-20mm insertion depth, saturating ~420Hz beyond 20mm. Concordant with Boex et al 2006."
+    },
+    "ruggero_1997": {
+      "pmid": "9104018", "doi": "10.1121/1.418265", "pmcid": "PMC3578390",
+      "cite": "Ruggero MA, Rich NC, Recio A, Narayan SS, Robles L (1997). Basilar-membrane responses to tones at the base of the chinchilla cochlea. J Acoust Soc Am 101(4):2151-63.",
+      "verified_via": "PubMed abstract fetched live this session",
+      "numbers": "Direct in-vivo laser-velocimetry, chinchilla base (CF 9-10kHz). Linear gain 66-76dB re stapes (<10-20dB SPL); compressive I/O slope 'as low as 0.2 dB/dB' (40-80dB SPL); 'death abolishes all nonlinearities' and reduces CF sensitivity by 60-81dB."
+    },
+    "sellick_1982": {
+      "pmid": "7108035", "doi": "10.1121/1.387996",
+      "cite": "Sellick PM, Patuzzi R, Johnstone BM (1982). Measurement of basilar membrane motion in the guinea pig using the Mossbauer technique. J Acoust Soc Am 72(1):131-41.",
+      "verified_via": "PubMed abstract fetched live this session",
+      "numbers": "Independent (different lab/species/decade/technique) confirmation: BM saturating nonlinearity in vivo, 'eliminated as CAP threshold became less sensitive and was absent post mortem.'"
+    },
+    "robles_ruggero_2001": {
+      "pmid": "11427697", "doi": "10.1152/physrev.2001.81.3.1305", "pmcid": "PMC3590856",
+      "cite": "Robles L, Ruggero MA (2001). Mechanics of the mammalian cochlea. Physiol Rev 81(3):1305-52.",
+      "verified_via": "PubMed abstract fetched live this session",
+      "numbers": "Review corroboration + explicit regime caveat: 'At the apex of the cochlea, nonlinearities appear to be less prominent than at the base.'"
+    },
+    "oxenham_bacon_2003": {
+      "pmid": "14534407", "doi": "10.1097/01.AUD.0000090470.73934.78",
+      "cite": "Oxenham AJ, Bacon SP (2003). Cochlear compression: perceptual measures and implications for normal and impaired hearing. Ear Hear 24(5):352-66.",
+      "verified_via": "PubMed abstract fetched live this session",
+      "numbers": "Qualitative cross-domain (physiological->psychophysical) corroboration: total OHC loss -> BM becomes linear -> accounts for poorer thresholds, loudness recruitment, reduced frequency selectivity."
+    },
+    "suzuki_takeshima_2004": {
+      "pmid": "15376658", "doi": "10.1121/1.1763601",
+      "cite": "Suzuki Y, Takeshima H (2004). Equal-loudness-level contours for pure tones. J Acoust Soc Am 116(2):918-33.",
+      "verified_via": "PubMed abstract fetched live this session (no open full text found -- paywalled)",
+      "numbers": "The empirical basis of ISO 226:2003 (synthesizes 12 studies, supersedes Robinson & Dadson 1956). Exact numeric threshold table NOT extracted live -- honest gap."
+    },
+    "shaw_1974": {
+      "pmid": "4443484", "doi": "10.1121/1.1903522",
+      "cite": "Shaw EA (1974). Transformation of sound pressure level from the free field to the eardrum in the horizontal plane. J Acoust Soc Am 56(6):1848-61.",
+      "verified_via": "PubMed bibliographic record fetched live this session (no abstract text indexed, pre-abstracting era -- same disclosed pattern as this project's vestibular_vor.py / Fernandez & Goldberg 1971)"
+    },
+    "hammershoi_moller_1996": {
+      "pmid": "8675836", "doi": "10.1121/1.415856",
+      "cite": "Hammershoi D, Moller H (1996). Sound transmission to and within the human ear canal. J Acoust Soc Am 100(1):408-27.",
+      "verified_via": "PubMed abstract fetched live this session"
+    },
+    "hennig_2025": {
+      "pmid": "39214319", "doi": "10.1016/j.aanat.2024.152319",
+      "cite": "Hennig L et al (2025). Morphology and anatomical variability of the external auditory canal: A population-based MRI study. Ann Anat 257:152319.",
+      "verified_via": "PubMed abstract fetched live this session",
+      "numbers": "Modern population MRI, n=870/1740 ears. Cartilaginous EAC portion height 8.47-8.62mm (partial-length corroboration only)."
+    },
+    "keefe_2024": {
+      "pmid": "39431854", "doi": "10.1121/10.0032455", "pmcid": "PMC11495878",
+      "cite": "Keefe DH, Fitzpatrick DF, Porter HL, Chen S (2024). Reflection function, reflectance, and area function measurements in ears of children and adults. J Acoust Soc Am 156(4):2709-2726.",
+      "verified_via": "Open-access full-text PMC HTML fetched live this session; Table II extracted directly",
+      "numbers": "Direct modern acoustic (reflectometry) total ear-canal length, adults: mean 22.6mm, SD 6.5mm, n=40 -- PRIMARY anchor for the quarter-wavelength resonance falsifier."
+    },
+    "liberman_2002_SPOT_CHECKED": {
+      "pmid": "12239568", "doi": "10.1038/nature01059",
+      "cite": "Liberman MC, Gao J, He DZ, Wu X, Jia S, Zuo J (2002). Prestin is required for electromotility of the outer hair cell and for the cochlear amplifier. Nature 419(6904):300-4.",
+      "verified_via": "RE-fetched live this session as a spot-check of this repo's own SENS-AUDITORY-TRANSDUCTION graph node -- reproduced exactly, no discrepancy",
+      "numbers": "'Hearing sensitivity in mammals is enhanced by more than 40dB (100-fold)' by the cochlear amplifier. Prestin-KO: 40-60dB loss in vivo (homozygotes); ~6dB (heterozygotes)."
+    }
+  },
+  "reused_from_own_graph_not_relitigated": {
+    "node_id": "SENS-AUDITORY-TRANSDUCTION",
+    "graph_path": "data/MECHANISM_ANCHOR_GRAPH.json",
+    "mechanism_grade": "SEED-DESIGN (designed hypothesis, cited literature, not yet executed as a graph cell)",
+    "reused_datapoints": [
+      {"pmid": "15319415", "cite": "Cheatham MA et al (2004). Cochlear function in Prestin knockout mice. J Physiol 560(3):821-30.", "number": "Independent replication: CAP threshold shift 45dB@5kHz to ~60dB@33kHz."},
+      {"pmid": "7263519", "cite": "Woolf NK, Ryan AF, Bone RC (1981). Neural phase-locking properties in the absence of cochlear outer hair cells. Hear Res 4(2):233-46.", "number": "Kanamycin chemical OHC ablation, chinchilla: ~40dB threshold shift (complete loss)."},
+      {"pmid": "12208551", "cite": "Sterbing SJ, Schrott-Fischer A (2002). Electrophysiological characteristics of inferior colliculus neurons in mutant mice with hereditary absence of cochlear outer hair cells. Hear Res.", "number": "Kit(W-v) hereditary OHC absence: 60dB higher threshold; tuning bandwidth 1.27 vs 0.62/0.34 octaves in controls."}
+    ],
+    "note": "Each datapoint was individually flagged fetched_live=true by a prior session; NOT independently re-fetched here (lean/sparing-verification discipline) except Liberman 2002 above, which was re-spot-checked and matched exactly -- taken as evidence the node's other flagged-live datapoints are also trustworthy, not proof of each individually."
+  },
+  "part1_greenwood_falsifier": {
+    "pre_registered_threshold": "Greenwood's stated human constants (A=165.4,a=2.1,k=0.88) must reproduce Stakhovskaya 2007's own stated calibration numbers (20Hz, 20677Hz) within 2% relative error; AND Greenwood's assumed 35mm reference length must fall within 1 SD of the grand mean of 3 independent measured-length studies.",
+    "computed_f_at_apex_hz": 19.848,
+    "computed_f_at_base_hz": 20677.07,
+    "reproduction_PASS": true,
+    "independent_length_grand_mean_mm": 33.743,
+    "greenwood_assumed_length_mm": 35.0,
+    "z_score": 0.596,
+    "length_anchor_PASS": true,
+    "forced_adversary_fixed_mm_vs_proportional": {
+      "max_abs_octave_error_across_measured_length_range": 0.477,
+      "verdict": "The naive fixed-mm simplification mis-predicts frequency by up to ~0.48 octaves across Stakhovskaya's own measured 30.5-36.87mm individual-length range; the proportional Greenwood formula has zero error by construction. Adversary forced and shown to measurably fail."
+    },
+    "geometric_check": {
+      "two_computational_paths": "closed-form d(lnF)/dx vs. central finite difference",
+      "max_rel_error": 1.38e-08,
+      "PASS_agree": true,
+      "apex_over_base_log_slope_inflation_factor": 8.333,
+      "interpretation": "Greenwood's function is near-pure-exponential (stiffness-gradient WKB regime) over the base/mid cochlea and inflates sharply only in the apical ~10-15%, exactly where the '-k' floor term is expected to matter physically (helicotrema/apex mass-dominated regime) -- a geometric derivation, not a bare curve-fit description."
+    }
+  },
+  "part2_compression_falsifier": {
+    "pre_registered_threshold": "Living/dead BM-mechanical gain-loss-at-CF (Ruggero 1997: 60-81dB) must have non-empty numeric overlap with the independent OHC-ablation threshold-shift range (this repo's graph: 40-60dB); a pure gain-scaling adversary (ratio_dead/ratio_alive in [0.8,1.2]) must be checked against the cited compression-ratio numbers.",
+    "direct_mechanical_range_db": [60, 81],
+    "ohc_ablation_range_db": [40, 60],
+    "overlap_db": [60, 60],
+    "overlap_PASS": true,
+    "overlap_honest_characterization": "boundary-touching (0dB-wide overlap) -- real but narrow, not a comfortable match; two genuinely different measurement domains (mechanical BM velocity vs. behavioral/neural threshold).",
+    "gain_scaling_adversary_ratio_of_ratios": 5.0,
+    "gain_scaling_adversary_REJECTED": true,
+    "cross_domain_qualitative_leg": "Oxenham & Bacon 2003 (PMID 14534407): OHC-loss linearization explicitly linked in review literature to loudness recruitment -- qualitative only, not quantitatively equated."
+  },
+  "part3_ear_canal_falsifier": {
+    "pre_registered_threshold": "Quarter-wavelength resonance computed from an independent acoustic ear-canal-length measurement (Keefe 2024: 22.6+/-6.5mm, n=40) must fall inside [3,4]kHz.",
+    "central_estimate_hz_body_temp_37C": 3905.2,
+    "central_estimate_hz_20C_reference": 3794.2,
+    "task_band_hz": [3000, 4000],
+    "PASS": true,
+    "plus_minus_1sd_population_range_hz": [3032.9, 5481.8],
+    "honest_note": "The CENTRAL estimate is robustly inside [3,4]kHz under both temperature assumptions; the +/-1SD POPULATION range is wider and its upper tail (canal shorter than average) extends past 5kHz -- real, disclosed inter-individual variability, not a uniformly tight match for every individual.",
+    "threshold_of_hearing_minimum_magnitude": "NOT independently re-extracted from a live primary source (Suzuki & Takeshima 2004 full text paywalled) -- only the LOCATION (~3-4kHz) is cross-checked, carried from the task brief's own prior + this repo's pre-existing graph note (~2-5kHz).",
+    "contributory_not_sole_cause": "Middle-ear transfer shape and intrinsic cochlear sensitivity also shape the threshold curve; ear-canal resonance is one genuine, independently-computable contributor to the minimum's LOCATION, not claimed as the sole cause."
+  },
+  "overall_verdict": {
+    "PASS_falsifier_1_greenwood_reproduction": true,
+    "PASS_falsifier_1b_length_anchor": true,
+    "PASS_falsifier_2_amplifier_gain_overlap": "true but boundary-touching/fragile, disclosed as such",
+    "PASS_falsifier_2b_gain_scaling_adversary_rejected": true,
+    "PASS_falsifier_3_ear_canal_resonance": true,
+    "note": "All 3 primary falsifiers pass on real, live-verified, non-tautological anchors. This is NOT presented as a clean sweep to celebrate: falsifier 2's numeric overlap is narrow/boundary-touching (disclosed), falsifier 3's population-level variability extends past the narrow task band at its tails (disclosed), and several structurally important pieces (exact ISO226 table, apex-region compression, electrical-vs-acoustic map transfer, amplifier gain's EXACT magnitude) are explicitly held OPEN per the task's own symmetric-QC brief."
+  },
+  "symmetric_qc_open_items": [
+    "The cochlear-amplifier GAIN MAGNITUDE is not a single certified number: direct BM-mechanical (60-81dB) and OHC-ablation threshold-shift (40-60dB) methods agree in order of magnitude and touch at a single boundary point (60dB), but are not claimed to coincide exactly -- two different measurement domains.",
+    "Compression calibration (Ruggero 1997) is basal/high-CF-specific (9-10kHz); Robles & Ruggero 2001's own review states apical nonlinearities are less prominent -- NOT extrapolated to all places/CFs.",
+    "Psychophysical (loudness recruitment) and physiological (BM mechanical) measures of compression loss are qualitatively concordant only (Oxenham & Bacon 2003) -- no quantitative dB/dB equivalence is claimed.",
+    "Greenwood's acoustic (organ-of-Corti) map does not directly transfer to electrical (spiral-ganglion) cochlear-implant stimulation without a measurable (~0.5-1 octave) correction (Dorman 2007/Boex 2006) -- a genuine, disclosed domain-of-validity boundary.",
+    "ISO226/Suzuki-Takeshima 2004's exact numeric threshold-of-hearing table was not independently extracted live (paywalled) -- only the minimum's LOCATION, not its magnitude, is cross-checked.",
+    "The stiffness-gradient e-folding length is a geometric INTERPRETATION of the verified Greenwood formula, not independently checked against a separate mechanical-stiffness paper.",
+    "Ear-canal resonance is a contributory, not sole, cause of the threshold-minimum location; the quarter-wavelength model idealizes the tympanic membrane as a rigid closed end."
+  ],
+  "couples_to": [
+    "SENS-AUDITORY-TRANSDUCTION (OHC electromotility/amplifier-gain SEED-DESIGN hypothesis this doc's falsifier 2 independently cross-checks with 2 fresh direct-mechanical citations)",
+    "SNS-AUDITORY-FORWARD-MODEL / AUTO-DIFFERENTIABLE-AUDITORY-FORWARD-MODEL-CE (SEED-DESIGN differentiable forward-model cell this doc's Greenwood-map + compressive-nonlinearity pieces could plug into as stage2/stage3 components; not built or edited here)",
+    "SENS-COCHLEAR-SYNAPTOPATHY-HIDDEN-HEARING-LOSS (different hidden state -- IHC-synapse/auditory-nerve integrity, downstream of and complementary to this doc's OHC/BM-mechanics scope; not overlapping, confirmed by direct read)",
+    "HEARING-LOSS-STAGE-LOCALIZATION (this doc's tonotopic place-map + amplifier model supplies the mechanistic sensor-stage forward model that stage-localization work needs)",
+    "MECHANISM_VESTIBULAR_BALANCE.md (shared hair-cell mechanotransduction motif -- Piezo/TMC -- and the shared repo convention of a mechanistic model built atop a thin SEED-DESIGN graph node)"
+  ]
+}

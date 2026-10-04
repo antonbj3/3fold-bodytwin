@@ -1,0 +1,203 @@
+{
+  "cert_id": "MECHANISM_WEIGHTLIFTING_TRIPLE_EXTENSION",
+  "date": "2026-07-22",
+  "status": "HYPOTHESIS awaiting independent QC",
+  "confidence_tier": "B, PASS on both pre-registered falsifiers, one honest calibration caveat, one genuine refinement surfaced",
+  "companion_doc": "docs/MECHANISM_WEIGHTLIFTING_TRIPLE_EXTENSION.md",
+  "model_script": "scripts/msk/weightlifting_triple_extension_model.py",
+  "model_results_json": "data/msk_smoketest/weightlifting_triple_extension/weightlifting_triple_extension_results.json",
+
+  "pre_registration": {
+    "C": "a geometric F-V-curve derivation reproduces (i) monotone-decreasing peak bar velocity vs %1RM, (ii) an intermediate-load power optimum, (iii) proximal-to-distal joint sequencing, each vs a live-verified anchor",
+    "not_C": "constant-velocity null NOT rejected (R^2<=0.50 everywhere) OR monotonic-power null NOT rejected (max at a tested extreme) OR sequencing ordering contradicted by a live source",
+    "forced_adversary": "the task's own stated numeric bands could be self-flattering priors, not independent facts -- forced via live NCBI-eutils fetch of every citation, a dedicated hunt for elite-cohort success-vs-failure studies that could REFUTE the naive dysfunction framing, and re-deriving (not asserting) the model's quantitative 70pct1RM prediction"
+  },
+
+  "falsifiers": [
+    {
+      "id": "A_constant_velocity",
+      "null_model": "peak bar velocity is constant across %1RM",
+      "threshold": "R^2 > 0.50 in a live-verified peer-reviewed load-velocity regression rejects the null",
+      "verdict": "REJECTED",
+      "evidence": [
+        {"source": "Gonzalez-Badillo & Sanchez-Medina 2010, PMID 20180176", "lift": "bench press", "n": 120, "R2": 0.98},
+        {"source": "Fernandez Ortega et al 2022, PMID 35682339", "lift": "full squat (men)", "n": 256, "R2": 0.6922},
+        {"source": "Fernandez Ortega et al 2022, PMID 35682339", "lift": "bench press (men)", "n": 256, "R2": 0.7744},
+        {"source": "Fernandez Ortega et al 2022, PMID 35682339", "lift": "full squat (women)", "n": 96, "R2": 0.6496},
+        {"source": "Fernandez Ortega et al 2022, PMID 35682339", "lift": "bench press (women)", "n": 96, "R2": 0.7604},
+        {"source": "Garcia-Ramos et al 2019, PMID 30811432", "lift": "prone bench pull", "n": 18, "R2": 0.9293}
+      ],
+      "in_repo_recomputation": {
+        "clip": "All_three_Snatch_attempts_70_75_80kg [CP5Kr7GQo5s]",
+        "raw_points_kg_mps": [[70, 1.973], [75, 1.79], [80, 1.864]],
+        "pearson_r_recomputed": -0.592,
+        "pearson_p": 0.5967,
+        "matches_ledger_claim": true,
+        "n": 3,
+        "note": "direction correct, not significant alone (n=3, one documented 75kg outlier already flagged upstream as real, not tracking artifact)"
+      },
+      "void_floor_control": {
+        "purpose": "a near-max attempt cluster must NOT be read as counter-evidence -- velocity bottoms at the minimal-velocity-threshold (MVT), not because load stops mattering",
+        "athlete": "Irakli Turmanidze", "lift": "snatch",
+        "raw_points_kg_mps": [[190, 1.01], [197, 1.03], [201, 1.09]],
+        "load_span_pct": 5.79,
+        "pearson_r": 0.906,
+        "correctly_diagnosed_as_degenerate": true
+      },
+      "caveat": "the 6 literature R^2 rows are squat/bench/bench-pull, NOT snatch/clean specifically -- no live-verified snatch/clean load-velocity regression table was found this session; the weightlifting-specific direction check is carried by the in-repo recomputation instead"
+    },
+    {
+      "id": "B_monotonic_power",
+      "null_model": "mean/peak power rises or falls monotonically across the full tested load range (max at a tested extreme)",
+      "verdict": "REJECTED",
+      "evidence": [
+        {
+          "source": "Kawamori et al 2005, PMID 16095428", "movement": "hang power clean", "n": 15,
+          "tested_pct1rm": [30, 40, 50, 60, 70, 80, 90],
+          "reported_optimum_pct1rm": 70,
+          "quote": "Peak power was maximized at 70% 1RM, which was, however, not significantly different from peak power at 50, 60, 80, and 90% 1RM",
+          "optimum_is_interior": true
+        },
+        {
+          "source": "Kipp et al 2011, PMID 21240030", "movement": "clean pull (concentric)",
+          "tested_pct1rm": [65, 75, 85],
+          "joint_optima_pct1rm": {"ankle": 85, "knee": 75, "hip": ">75 (may extend to/above ceiling)"},
+          "ankle_optimum_at_ceiling": true,
+          "knee_optimum_interior": true,
+          "hip_claimed_interior": false
+        }
+      ]
+    }
+  ],
+
+  "geometric_derivation": {
+    "model": "Hill hyperbolic F-V curve, normalized F0=v0=1, curvature k=a/F0, F(v)=k(1+k)/(v+k)-k",
+    "claim_A_monotone_decreasing_velocity": {"tested_k": [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40], "all_pass": true},
+    "claim_B_interior_power_max": {"tested_k": [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40], "all_pass": true,
+      "k_0.25_v_star_over_v0": 0.309, "textbook_cross_check": "matches standard muscle-physiology 'peak power near 30% Vmax/Fmax' (qualitative, not a session citation)"},
+    "ballistic_vs_grinding_subtlety": "grinding lifts (squat/bench/deadlift): v(1RM)->0, interior power max is topologically FREE. Ballistic lifts (snatch/clean): v(1RM)=MVT>0, interior max within [0,1RM] is an EMPIRICAL question, not automatic -- this is why Kawamori/Kipp needed to measure it.",
+    "calibration_honesty": {
+      "method": "back-solve MVT/v0 so the model's predicted %1RM-at-power-optimum equals Kawamori's measured 70%, at k=0.25",
+      "mvt_norm_solution": 0.2019,
+      "implied_v0_range_m_per_s": [4.95, 6.44],
+      "status": "CALIBRATED-CONSISTENT, NOT an independent a-priori prediction -- v0 is not independently measured anywhere in this cert or its cited literature; disclosed as a limitation, not hidden"
+    }
+  },
+
+  "joint_power_sequencing": {
+    "ordering_claim": "hip and knee extend significantly faster than ankle, independent of load (Kipp 2011, PMID 21240030)",
+    "torque_claim": "hip and ankle produce significantly higher torques than knee (Kipp 2011) -- a DIFFERENT ordering axis than velocity, reported as measured, not merged into one ranking",
+    "timing_claim": "the more successful/experienced lifter produces the larger positive-acceleration phase FIRST (Enoka 1979, PMID 491869)",
+    "skill_claim": "skill differences show up in temporal organization of power phases, not peak power magnitude (Enoka 1988, PMID 3367754)",
+    "cross_cert_consistency_note": "docs/MECHANISM_PUSHOFF_PLANTARFLEXOR.md (different movement, gait push-off) independently found ankle plantarflexor peak ~8%GC AFTER knee/hip peak -- qualitative consistency only, not pooled as evidence",
+    "honest_gap": "no live-verified source gives an exact %-of-total-work-or-power breakdown per joint; searched 'energy contribution hip knee ankle weightlifting pull joint work' on PubMed, 0 hits"
+  },
+
+  "dysfunction_contrast_pole": {
+    "elite_vs_lesser_trained": {
+      "source": "Gourgoulis et al 2004, PMID 15470309", "n": 23, "cohort": "adult vs adolescent top-level weightlifters",
+      "relative_power_1st_pull": "adults > adolescents, t(21)=2.303, p<0.05",
+      "relative_power_2nd_pull": "adults > adolescents, t(21)=2.611, p<0.05",
+      "knee_extension_velocity_1st_pull": "adolescents slower, t(21)=4.211, p<0.05",
+      "ankle_extension_velocity_2nd_pull": "adolescents slower, t(21)=2.440, p<0.05",
+      "verdict": "CONFIRMS dysfunction pole"
+    },
+    "failed_lift_mechanism": {
+      "task_framing": "a failed/missed lift = insufficient bar velocity or height",
+      "verdict": "PARTIALLY REFUTED for the technical-near-miss regime; HOLDS for the load-capacity-limited regime",
+      "adversary_1": {
+        "source": "Gourgoulis et al 2009, PMID 19197201", "n": 7, "design": "same athlete, same load, success vs failure",
+        "finding": "no significant difference (p>0.05) in vertical bar velocity, trajectory, work, or power; differentiator was force-DIRECTION"
+      },
+      "adversary_2": {
+        "source": "Nagao, Huang & Kubo 2020/2023, PMID 32772836", "n": 22, "design": "world-class, same load, success vs frontward-drop",
+        "finding": "no significant difference in maximum barbell height; differentiators were backward velocity/COM displacement (horizontal control)"
+      },
+      "resolution": "insufficient-velocity/height mechanism holds when attempting a load at/beyond current 1RM (no paired success exists); refuted for near-misses at a load the athlete otherwise makes, where direction/technical control dominates"
+    }
+  },
+
+  "external_anchor_garhammer_1980": {
+    "source": "Garhammer 1980, PMID 7392903, Med Sci Sports Exerc 12(1):54-60",
+    "n": 7, "cohort": "elite US national lifters, 1975 US National Championships",
+    "measured_jerk_drive_power_W": {"56kg_class": 2140, "110kg_class": 4786},
+    "task_pre_registered_band_W": [3000, 5000],
+    "agreement": "upper end (4786W) inside task band; lower end (2140W, lightest class) below task floor -- power scales with bodyweight per the source's own statement",
+    "honest_gap": "verified number is for JERK DRIVE specifically, not snatch/clean 2nd pull; source supports within-athlete cross-movement generalization by direct quote, but no live-verified snatch/clean-specific peak-power figure was found (Garhammer's 1993 JSCR review: 0 PubMed hits)"
+  },
+
+  "in_repo_band_convergence": {
+    "task_pre_registered_band_ms": {"moderate_load": [1.5, 2.0], "near_1RM": [1.0, 1.3]},
+    "repo_own_prior_band_ms": {"snatch_submax": [1.6, 2.2], "cj_submax": [1.3, 1.8], "near_max_MVT": [1.0, 1.4]},
+    "measured_points_ms": {
+      "submax_snatch_70_75_80kg": [1.973, 1.79, 1.864],
+      "lu_xiaojun_175kg_snatch_narrow_window": 1.9,
+      "turmanidze_190_197_201kg_snatch_near_max": [1.01, 1.03, 1.09],
+      "om_yun_chol_171kg_clean_3.05xBW": 1.04,
+      "chen_lijun_183kg_clean_2.95xBW": 0.85
+    },
+    "verdict": "genuine convergence, not circular -- pre-registered band predates this cert's re-examination of the video wave"
+  },
+
+  "data_sources": [
+    {"cite": "Garhammer J. Power production by Olympic weightlifters. Med Sci Sports Exerc. 1980;12(1):54-60.", "url": "https://pubmed.ncbi.nlm.nih.gov/7392903/", "n": 7, "measure": "jerk-drive power output, 2140-4786W across weight classes"},
+    {"cite": "Enoka RM. The pull in Olympic weightlifting. Med Sci Sports. 1979;11(2):131-7.", "url": "https://pubmed.ncbi.nlm.nih.gov/491869/", "n": 5, "measure": "GRF 3-phase structure, proximal-first acceleration timing"},
+    {"cite": "Enoka RM. Load- and skill-related changes in segmental contributions to a weightlifting movement. Med Sci Sports Exerc. 1988;20(2):178-87.", "url": "https://pubmed.ncbi.nlm.nih.gov/3367754/", "n": 6, "measure": "joint power vs load (69/77/86% max) and skill (temporal organization, not magnitude)"},
+    {"cite": "Kipp K, Harris C, Sabick MB. Lower extremity biomechanics during weightlifting exercise vary across joint and load. J Strength Cond Res. 2011;25(5):1229-34.", "url": "https://pubmed.ncbi.nlm.nih.gov/21240030/", "n": null, "measure": "joint-specific torque/RTD/power optima across 65/75/85%1RM clean pull"},
+    {"cite": "Kawamori N, Crum AJ, Blumert PA, et al. Influence of different relative intensities on power output during the hang power clean. J Strength Cond Res. 2005;19(3):698-708.", "url": "https://pubmed.ncbi.nlm.nih.gov/16095428/", "n": 15, "measure": "peak/average power vs 30-90%1RM, optimum at 70%"},
+    {"cite": "Suchomel TJ, Comfort P, Stone MH. Weightlifting pulling derivatives: rationale for implementation and application. Sports Med. 2015;45(6):823-39.", "url": "https://pubmed.ncbi.nlm.nih.gov/25689955/", "n": null, "measure": "review, triple-extension definition"},
+    {"cite": "Hakkinen K, Komi PV, Alen M, Kauhanen H. EMG, muscle fibre and force production characteristics during a 1 year training period in elite weight-lifters. Eur J Appl Physiol Occup Physiol. 1987;56(4):419-27.", "url": "https://pubmed.ncbi.nlm.nih.gov/3622485/", "n": 13, "measure": "isometric leg-extensor force 4841-5010N, F-V curve vs performance correlation"},
+    {"cite": "Gonzalez-Badillo JJ, Sanchez-Medina L. Movement velocity as a measure of loading intensity in resistance training. Int J Sports Med. 2010;31(5):347-52.", "url": "https://pubmed.ncbi.nlm.nih.gov/20180176/", "n": 120, "measure": "bench press load-velocity R^2=0.98, 1RM velocity=0.16+/-0.04 m/s"},
+    {"cite": "Gonzalez-Badillo JJ, Marques MC, Sanchez-Medina L. The importance of movement velocity as a measure to control resistance training intensity. J Hum Kinet. 2011;29A:15-9.", "url": "https://pubmed.ncbi.nlm.nih.gov/23487504/", "n": null, "measure": "review, general mechanism context"},
+    {"cite": "Gonzalez-Badillo JJ, Rodriguez-Rosell D, Sanchez-Medina L, Gorostiaga EM, Pareja-Blanco F. Maximal intended velocity training induces greater gains in bench press performance. Eur J Sport Sci. 2014;14(8):772-81.", "url": "https://pubmed.ncbi.nlm.nih.gov/24734902/", "n": 20, "measure": "secondary/contextual training-effect study"},
+    {"cite": "Fernandez Ortega JA, Mendoza Romero D, Sarmento H, Prieto Mondragon L. Bar Load-Velocity Profile of Full Squat and Bench Press Exercises in Young Recreational Athletes. Int J Environ Res Public Health. 2022;19(11):6756.", "url": "https://pubmed.ncbi.nlm.nih.gov/35682339/", "n": 352, "measure": "squat/bench load-velocity r=0.806-0.880"},
+    {"cite": "Garcia-Ramos A, Ulloa-Diaz D, Barboza-Gonzalez P, et al. Assessment of the load-velocity profile in the free-weight prone bench pull exercise. PLoS One. 2019;14(2):e0212085.", "url": "https://pubmed.ncbi.nlm.nih.gov/30811432/", "n": 18, "measure": "bench-pull load-velocity r=0.964-0.973"},
+    {"cite": "Gourgoulis V, Aggeloussis N, Kalivas V, Antoniou P, Mavromatis G. Snatch lift kinematics and bar energetics in male adolescent and adult weightlifters. J Sports Med Phys Fitness. 2004;44(2):126-31.", "url": "https://pubmed.ncbi.nlm.nih.gov/15470309/", "n": 23, "measure": "adult vs adolescent relative power output and joint extension velocity"},
+    {"cite": "Gourgoulis V, Aggeloussis N, Garas A, Mavromatis G. Unsuccessful vs. successful performance in snatch lifts: a kinematic approach. J Strength Cond Res. 2009;23(2):486-94.", "url": "https://pubmed.ncbi.nlm.nih.gov/19197201/", "n": 7, "measure": "success vs failure, same load: no velocity/power difference, force-direction differed"},
+    {"cite": "Nagao H, Huang Z, Kubo Y. Biomechanical comparison of successful snatch and unsuccessful frontward barbell drop in world-class male weightlifters. Sports Biomech. 2023;22(9):1120-1135.", "url": "https://pubmed.ncbi.nlm.nih.gov/32772836/", "n": 22, "measure": "success vs failure, same load: no height difference, backward velocity/COM differed"},
+    {"cite": "Gourgoulis V, Aggeloussis N, Antoniou P, Christoforidis C, Mavromatis G, Garas A. Comparative 3-dimensional kinematic analysis of the snatch technique in elite male and female greek weightlifters. J Strength Cond Res. 2002;16(3):359-66.", "url": "https://pubmed.ncbi.nlm.nih.gov/12173949/", "n": 12, "measure": "secondary/contextual, sex comparison"},
+    {"cite": "Gourgoulis V, Aggelousis N, Mavromatis G, Garas A. Three-dimensional kinematic analysis of the snatch of elite Greek weightlifters. J Sports Sci. 2000;18(8):643-52.", "url": "https://pubmed.ncbi.nlm.nih.gov/10972413/", "n": 12, "measure": "2nd-pull power > 1st-pull power (corroborates 2nd-pull power dominance)"},
+    {"cite": "Campos J, Poletaev P, Cuesta A, Pablos C, Carratala V. Kinematical analysis of the snatch in elite male junior weightlifters of different weight categories. J Strength Cond Res. 2006;20(4):843-50.", "url": "https://pubmed.ncbi.nlm.nih.gov/17194258/", "n": 33, "measure": "secondary/contextual, weight-category comparison"},
+    {"cite": "in-repo: data/body_twin/athlete_lift_tuples.jsonl (prior-session 10-agent bar-velocity wave, ledger cell MSK-KNOWN-LOAD-VIDEO-DOSE-RESPONSE)", "url": "file://data/body_twin/athlete_lift_tuples.jsonl", "n": 10, "measure": "video-measured peak bar velocity, 10 elite/WR-class athletes, snatch+clean&jerk, re-derived here for the 70/75/80kg and Turmanidze rows"}
+  ],
+
+  "decorrelated_anchor": "Garhammer 1980 (PMID 7392903, direct-competition-film power measurement, n=7) for absolute power magnitude; Kawamori 2005 (PMID 16095428, n=15) + Kipp 2011 (PMID 21240030) for the intermediate-load power-optimum shape -- none of these share this cert's own video-measurement pipeline or its geometric F-V model, satisfying the non-tautology requirement",
+
+  "honest_gaps": [
+    "no live-verified snatch/clean-specific peak-power-vs-load regression table found (Garhammer 1993 review: 0 PubMed hits, likely predates JSCR's MEDLINE indexing)",
+    "no exact per-joint %-of-total-work/power breakdown for the triple extension found live (ordering claim solid, magnitude split not claimed)",
+    "v0 (theoretical unloaded bar velocity) in the calibration back-solve is not independently measured -- calibrated-consistent, not free-predictive",
+    "cj_ladder r=-0.88 and cross-athlete r=-0.94 are repo-internal ledger claims NOT independently re-derived by this cert (no raw per-attempt file located for cj_ladder)",
+    "cross-clip absolute bar-velocity comparison remains not certifiable (inherited finding from bt_memory, not re-litigated)",
+    "near-miss failure-mode evidence is n=7 and n=22 -- real and live-verified but not population-representative of all failure causes",
+    "no new video processing performed by this cert -- joint-power sequencing is literature-only; proposed_cell below is the concrete next measurement",
+    "elite-vs-lesser-trained comparison is adult-vs-adolescent (both top-level), not elite-vs-untrained-novice"
+  ],
+
+  "proposed_cell": {
+    "id": "MSK-WEIGHTLIFTING-JOINT-POWER-SEQUENCE",
+    "claim": "measure hip/knee/ankle angular-velocity peak-timing order from markerless video on this repo's own weightlifting corpus, reusing the OpenCap-validated Pose2Sim front-end (4deg/5.5deg knee/sagittal RMSE vs mocap elsewhere in this repo), to directly test the Kipp2011/Enoka1979 proximal-to-distal ordering from the twin's own data rather than literature alone",
+    "closes": "Sec.6 honest gap (no in-repo joint-sequencing measurement exists yet; only bar-kinematics has been measured on this corpus)",
+    "reuses": ["Pose2Sim/OpenSim IK front-end (proven elsewhere, bt_memory temporal-registration finding)", "the same known-load video corpus (data/video_index_tables/body_twin_collection__youtube, weighted_lifts)"],
+    "secondary_open_action_not_mine": "CrossFit-ladder known-load corpus unblock (77 clips, 89-511kg, commentary-announced exact kg) flagged by a prior session (ledger event corpus_unblock_identified, 2026-07-19) as the fix for the current 70/75/80kg clip's weak n=3 slope -- not executed here, credited to that session, noted as open"
+  },
+
+  "files": {
+    "new": [
+      "scripts/msk/weightlifting_triple_extension_model.py",
+      "data/msk_smoketest/weightlifting_triple_extension/weightlifting_triple_extension_results.json",
+      "docs/MECHANISM_WEIGHTLIFTING_TRIPLE_EXTENSION.md",
+      "docs/MECHANISM_WEIGHTLIFTING_TRIPLE_EXTENSION_evidence.json"
+    ],
+    "read_only": [
+      "data/body_twin/athlete_lift_tuples.jsonl",
+      "bt_memory/LEDGER.jsonl",
+      "bt_memory/MEMORY.md",
+      "bt_memory/video-bar-velocity-peak-is-sg-window-dependent-standardize-near-fps-limit-and-dose-response-needs-wide-submax-range.md",
+      "bt_memory/video-playback-speed-confound-slow-mo-scales-absolute-velocity-but-cancels-in-a-within-clip-slope.md",
+      "bt_memory/function-vs-dysfunction-build-the-athlete-baseline-in-parallel-with-disease.md",
+      "bt_memory/from-raw-video-markerless-pipeline-needs-per-clip-temporal-registration-not-a-constant.md",
+      "docs/MECHANISM_PUSHOFF_PLANTARFLEXOR.md"
+    ]
+  }
+}

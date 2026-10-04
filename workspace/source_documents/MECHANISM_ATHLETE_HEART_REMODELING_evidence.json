@@ -1,0 +1,131 @@
+{
+  "task": "Athlete's-heart structural remodeling CERT: chronic exercise remodels the LV via the Laplace wall-stress stimulus (sigma=Pr/2h, equivalently sigma=P/RWT since RWT(ASE)=2h/r) -- endurance/volume-overload -> eccentric hypertrophy (cavity dilation + proportional wall thickening, normal/low RWT) vs strength/isometric-pressure-overload -> concentric hypertrophy (wall thickening without dilation, high RWT), the Morganroth hypothesis. Falsifier: reproduce the Pluim et al 2000 meta-analytic endurance-vs-strength LV geometry divergence from raw reported numbers; force the 'wall-thickness-alone-predicts-pathology' adversary to its strongest fair form (same-cohort compound cavity+wall index) and show it fails while the compound index succeeds; reproduce the multi-criterion physiological-vs-HCM separation (cavity size, diastolic/reversibility, genetics); anchor the dysfunction pole (HCM as the leading cardiovascular cause of athletic sudden death; hypertensive/general-population LV mass as an independent mortality predictor -- the SAME structural axis with OPPOSITE prognostic valence depending on context). Complementary to docs/MECHANISM_CARDIAC_OUTPUT.md, which resolved SV=EDV-ESV + CO=HRxSV + Frank-Starling-preload at rest/max-exercise but explicitly left the endurance-vs-strength training-adaptation branches OPEN (its Sec 0).",
+  "confidence_tier": "Mixed, disclosed per-claim. VERIFIED_QUANT (machine-computed this session from live-fetched real numbers, script=scripts/msk/athlete_heart_remodeling.py): Laplace sigma=P/RWT geometric identity + analytic/numeric derivative cross-check; forced-adversary necessity test (Pluim RWT x MacDougall/Daida peak-pressure, two independent real sources); symmetric-QC full-vs-partial-normalization test; athlete-vs-HCM wall-thickness-alone adversary vs compound-index gate (same paper/cohort, Czimbalmos 2019); Morganroth-dichotomy central-tendency-vs-instance-space check (Pluim vs Kusy 2021). REUSED-AND-RECONFIRMED (already extracted by a prior mechanism pass into MECHANISM_ANCHOR_GRAPH.json's ORG-CARDIAC-ATHLETE-HEART/ORG-CARDIAC-DETRAINING-REVERSIBILITY/CARDIO-HCM-SCD-SUBSTRATE/ORG-EXTREME-MASS-ORGAN-STRAIN nodes, all status SEED-DESIGN='cited literature, not executed against data' -- this cert EXECUTES a subset of those nodes for the first time): Boraita 2022, Czimbalmos 2019 grey-zone/AUC numbers, Pelliccia 2002/2022 reversibility, Claessen 2024 PRS -- each independently re-fetched live THIS session (not merely trusted from the graph's own fetched_live flag) and found to match the graph's prior extraction, a genuine spot-check corroboration, not a blind reuse. NEW-THIS-SESSION (not previously in the graph): Pluim 2000's own endurance-vs-strength IVS/PWT/LVID/RWT absolute numbers (graph only had the strength-vs-control RWT delta), MacDougall 1985 + Lentini 1993 real intra-exercise hemodynamics, Daida 1996 peak-exercise-BP norms, Maron 2009 HCM-SCD-fraction, Levy 1990 Framingham LV-mass-mortality, Kusy 2021 Morganroth-debate counter-example.",
+  "script": "scripts/msk/athlete_heart_remodeling.py",
+  "raw_results": "data/athlete_heart_remodeling/athlete_heart_remodeling_results.json",
+  "doc": "docs/MECHANISM_ATHLETE_HEART_REMODELING.md",
+  "raw_fetch_logs": "/tmp/coordinator-1000/-home-anton/6f480b09-3647-4c07-8360-2f41db78e3c2/scratchpad/athlete_heart_fetch/ (all esearch/efetch text+json this session)",
+  "couples_to": [
+    "docs/MECHANISM_CARDIAC_OUTPUT.md -- resolves the training-adaptation branch that doc's Sec 0 explicitly left OPEN; reuses its RWT/EDV/ESV/Ees-Ea geometric vocabulary, does not re-derive Frank-Starling (already done there).",
+    "docs/MECHANISM_CARDIAC.md -- shares the Fick-chain VO2/CO context (endurance training raises VO2max primarily via CO, Bassett & Howley 2000, already cited there) -- the structural remodeling this doc models is the anatomical substrate for that functional capacity rise.",
+    "docs/MECHANISM_CARDIAC_CICR_ECC.md -- different level (cellular Ca handling vs organ/chamber geometry); not merged, explicitly decorrelated.",
+    "data/MECHANISM_ANCHOR_GRAPH.json nodes ORG-CARDIAC-PUMP-MECHANICS (endurance/strength branch), ORG-CARDIAC-ATHLETE-HEART, ORG-CARDIAC-DETRAINING-REVERSIBILITY, CARDIO-HCM-SCD-SUBSTRATE, ORG-EXTREME-MASS-ORGAN-STRAIN, ORG-CARDIAC-MECHANICS (all read-only, not edited per isolation rules -- this doc is new evidence a coordinator could use to promote their SEED-DESIGN status)."
+  ],
+  "citations_verified_live_this_session": {
+    "pluim_2000_meta_analysis": {
+      "pmid": "10645932", "doi": "10.1161/01.cir.101.3.336",
+      "cite": "Pluim BM, Zwinderman AH, van der Laarse A, van der Wall EE (2000). The athlete's heart. A meta-analysis of cardiac structure and function. Circulation 101(3):336-44.",
+      "verified_via": "NCBI eutils efetch, live this session (full abstract fetched)",
+      "numbers": "n=59 studies, 1451 athletes. Relative wall thickness (RWT): control 0.36 vs endurance 0.39 (P=0.001) vs combined 0.40 (P=0.001) vs strength 0.44 (P<0.001). Endurance vs strength RWT 0.39 vs 0.44 (P=0.006); IVS 10.5 vs 11.8mm (P=0.005); PWT 10.3 vs 11.0mm (trend P=0.078); LVID 53.7 vs 52.1mm (trend P=0.055). No significant EF/FS/E-A difference vs control (function preserved)."
+    },
+    "macdougall_1985_resistance_bp": {
+      "pmid": "3980383", "doi": "10.1152/jappl.1985.58.3.785",
+      "cite": "MacDougall JD, Tuxen D, Sale DG, Moroz JR, Sutton JR (1985). Arterial blood pressure response to heavy resistance exercise. J Appl Physiol 58(3):785-90.",
+      "verified_via": "NCBI eutils efetch, live this session. NOTE: initial recalled PMID (3980356) was WRONG (single-digit drift) -- corrected via esearch by title/author terms, not trusted from memory.",
+      "numbers": "n=5 experienced bodybuilders, direct brachial intra-arterial catheter. Double-leg press to failure: group mean peak 320/250 mmHg (one subject exceeded 480/350). Single-arm curl: mean peak 255/190 mmHg. Confirms mechanical+Valsalva+pressor combination produces extreme transient pressure overload."
+    },
+    "lentini_1993_lv_volumes_lifting": {
+      "pmid": "8125893", "doi": "10.1152/jappl.1993.75.6.2703",
+      "cite": "Lentini AC, McKelvie RS, McCartney N, Tomlinson CW, MacDougall JD (1993). Left ventricular response in healthy young men during heavy-intensity weight-lifting exercise. J Appl Physiol 75(6):2703-10.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "Leg press to failure at 95% max: EDV 147->103mL, ESV 54->27mL (BOTH decrease, P<0.05) while systolic BP 160->270 Torr and diastolic BP 91->183 Torr (both increase, P<0.05); SV fell 94->77mL. Direct, real-measured evidence that isometric/resistance loading delivers a near-pure pressure signal with REDUCED (not increased) preload -- the geometric opposite of the endurance stimulus."
+    },
+    "daida_1996_peak_exercise_bp_norms": {
+      "pmid": "8628023", "doi": "10.4065/71.5.445",
+      "cite": "Daida H, Allison TG, Squires RW, Miller TD, Gau GT (1996). Peak exercise blood pressure stratified by age and gender in apparently healthy subjects. Mayo Clin Proc 71(5):445-52.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "n=7863 men + 2406 women, Bruce-protocol treadmill. 90th-percentile peak SBP age 20-29: 210mmHg (men), 180mmHg (women), rising with age. Used as a disclosed general-population (not elite-endurance-specific) proxy for dynamic-exercise peak pressure."
+    },
+    "boraita_2022_sport_specific_norms": {
+      "pmid": "36107355", "doi": "10.1186/s40798-022-00510-2",
+      "cite": "Boraita A et al (2022). Normative Values for Sport-Specific LV Dimensions and Exercise-Induced Cardiac Remodeling in Elite Spanish Male and Female Athletes. Sports Med Open 8(1):116.",
+      "verified_via": "NCBI eutils efetch, live this session (re-confirms and extends the repo's own prior graph extraction)",
+      "numbers": "n=3282 elite athletes, 46 sports. 85.4% normal geometry; eccentric hypertrophy 13.4%; concentric remodeling/hypertrophy each <0.8% (RARE). P95: septal WT 12mm(M)/10mm(F); PWT 11mm(M)/10mm(F); LVEDD 64mm(M)/57mm(F)."
+    },
+    "czimbalmos_2019_grey_zone_discriminator": {
+      "pmid": "30763323", "doi": "10.1371/journal.pone.0211624", "pmcid": "PMC6375568",
+      "cite": "Czimbalmos C et al (2019). The demanding grey zone: Sport indices by CMR differentiate HCM from athlete's heart. PLoS One 14(2):e0211624.",
+      "verified_via": "NCBI eutils efetch, live this session (re-confirms and extends the repo's own prior graph extraction)",
+      "numbers": "n=150 elite athletes (>18h/wk training) + 194 HCM + 10 athlete-with-HCM. 47.5% of male / 4.1% of female athletes reach EDWT 13-16mm grey zone. EDWT/LVEDVi AUC 0.998(CQ)/0.999(TQ). Cutoff EDWT/LVEDVi(TQ)<1.27: sens 89.2%, spec 91.3%. Cutoff LVM/LVEDV(CQ)<0.82: sens 77.8%, spec 86.7%."
+    },
+    "pelliccia_2002_detraining_reversal": {
+      "pmid": "11864923", "doi": "10.1161/hc0802.104534",
+      "cite": "Pelliccia A, Maron BJ, De Luca R, Di Paolo FM, Spataro A, Culasso F (2002). Remodeling of LV hypertrophy in elite athletes after long-term deconditioning. Circulation 105(8):944-9.",
+      "verified_via": "NCBI eutils efetch, live this session (independently re-confirms the repo's own prior graph extraction number-for-number)",
+      "numbers": "n=40, mean 5.6yr deconditioning. Cavity -7% (61.2->57.2mm, P<0.001); max wall thickness -15% (12.0->10.1mm, P<0.001); mass/height -28% (194->140 g/m, P<0.001). Wall thickness normalized in EVERY athlete (100%, 40/40). Cavity persistently dilated >=60mm in 9/40 (22%) -- reversibility is chamber-dependent, not uniform."
+    },
+    "pelliccia_2022_hcm_nonreversal": {
+      "pmid": "34656472", "doi": "10.1016/j.jcmg.2021.08.012",
+      "cite": "Pelliccia A et al (2022). Neither Athletic Training nor Detraining Affects LV Hypertrophy in Adult, Low-Risk Patients With HCM. JACC Cardiovasc Imaging 15(1):170-171.",
+      "verified_via": "EuropePMC EXT_ID round-trip, live this session: title/authors/journal/DOI/pubtype(Letter) confirmed. NO indexed abstract exists (research letter) -- the n=43 and 0pct-change figures are reused from this repo's own prior graph extraction (ORG-CARDIAC-ATHLETE-HEART), NOT independently re-derived from primary text this session. Disclosed, not laundered.",
+      "numbers": "n=43 genetically/clinically-diagnosed low-risk HCM. 0% wall-thickness change across 15yr training + 7yr detraining (per prior extraction, unverified against primary text this session)."
+    },
+    "claessen_2024_genetic_overlap": {
+      "pmid": "38109351", "doi": "10.1161/CIRCULATIONAHA.122.063777", "pmcid": "PMC11062611",
+      "cite": "Claessen G et al (2024). Reduced Ejection Fraction in Elite Endurance Athletes: Clinical and Genetic Overlap With Dilated Cardiomyopathy. Circulation 149(18):1405-1415.",
+      "verified_via": "NCBI eutils efetch, live this session (independently re-confirms the repo's own prior graph extraction number-for-number)",
+      "numbers": "n=281 elite endurance athletes, 4.4yr mean follow-up. Reduced EF in 15.7% (44/281). Top-vs-bottom-decile LVESVi-PRS -> 11-fold increase in reduced-EF likelihood (P=0.034). 2 deaths (1 trauma, 1 SCD; the SCD case had reduced RVEF + PRS>95th pctile)."
+    },
+    "maron_2009_scd_registry": {
+      "pmid": "19221222", "doi": "10.1161/CIRCULATIONAHA.108.804617",
+      "cite": "Maron BJ, Doerer JJ, Haas TS, Tierney DM, Mueller FO (2009). Sudden deaths in young competitive athletes: analysis of 1866 deaths in the United States, 1980-2006. Circulation 119(8):1085-92.",
+      "verified_via": "NCBI eutils esearch (by title/author terms, not a recalled PMID) + efetch, live this session",
+      "numbers": "n=1866 total sudden deaths/resuscitated arrests, 27yr US registry, 38 sports. Cardiovascular disease caused 1049/1866 (56%). Among CV deaths: HCM 36% (the single leading cause), congenital coronary artery anomalies 17%. Average <100 CV deaths/year nationally."
+    },
+    "levy_1990_framingham_lv_mass_mortality": {
+      "pmid": "2139921", "doi": "10.1056/NEJM199005313222203",
+      "cite": "Levy D, Garrison RJ, Savage DD, Kannel WB, Castelli WP (1990). Prognostic implications of echocardiographically determined left ventricular mass in the Framingham Heart Study. N Engl J Med 322(22):1561-6.",
+      "verified_via": "NCBI eutils esearch + efetch, live this session",
+      "numbers": "n=3220, 4yr follow-up, general population (age>=40, free of clinical CVD at baseline). RR per 50g/m LV-mass/height increment: CV disease incidence 1.49(men)/1.57(women); CV death 1.73(men)/2.12(women); all-cause death 1.49(men)/2.01(women). All risk-factor-adjusted, independent of BP/smoking/lipids/ECG-LVH."
+    },
+    "kusy_2021_morganroth_counterexample": {
+      "pmid": "34175421", "doi": "10.1016/j.echo.2021.06.009",
+      "cite": "Kusy K et al (2021). Aging Athlete's Heart: An Echocardiographic Evaluation of Competitive Sprint- versus Endurance-Trained Master Athletes. J Am Soc Echocardiogr 34(11):1160-1169.",
+      "verified_via": "NCBI eutils esearch + efetch, live this session",
+      "numbers": "n=143 sprint-trained + 114 endurance-trained master athletes (age 36-85). Sprint: 51.0% normal geometry, 4.2% eccentric hyp, 36.4% concentric remodel, 8.4% concentric hyp. Endurance: 22.8% normal, 16.7% eccentric hyp, 36.8% concentric remodel, 23.7% concentric hyp. EICR 'shifted toward normal geometry in sprinters and toward concentric remodeling/hypertrophy in endurance runners' -- OPPOSITE the classic Morganroth direction; authors state this explicitly as inconsistent with the hypothesis."
+    },
+    "de_simone_1992_allometric_lv_mass": {
+      "pmid": "1401629", "doi": "10.1016/0735-1097(92)90385-z",
+      "cite": "de Simone G, Daniels SR, Devereux RB, Meyer RA, Roman MJ, de Divitiis O, Alderman MH (1992). Left ventricular mass and body size in normotensive children and adults. J Am Coll Cardiol 20(5):1251-60.",
+      "verified_via": "NCBI eutils efetch, live this session (already cited in the repo's ORG-EXTREME-MASS-ORGAN-STRAIN graph node; re-confirmed independently here)",
+      "numbers": "n=611 pooled. LV mass ~ height^2.7 (r=0.84) or BSA^1.5 (r=0.88). Indexing by height/BSA without allometric correction introduces artifactual mass-vs-size relations -- supports NOT misreading large-body-size (obesity or simply big athletes) as pathological hypertrophy without proper scaling; secondary/methodological support, not a core numbered gate."
+    },
+    "additional_morganroth_debate_literature_existence_confirmed_not_separately_numbered": [
+      {"pmid": "29773412", "doi": "10.1016/j.hlc.2018.04.289", "cite": "Haykowsky MJ, Samuel TJ, Nelson MD, La Gerche A (2018). Athlete's Heart: Is the Morganroth Hypothesis Obsolete? Heart Lung Circ 27(9):1037-41.", "verified_via": "NCBI eutils efetch, live this session -- confirms the original 1975 Morganroth claim (endurance LV-mass rise via EDV; resistance LV-mass rise via wall thickness alone) and its volume-overload/pressure-overload analogy to regurgitant-valve-disease/hypertension-aortic-stenosis; frames the modern re-evaluation, not itself a numeric source used in a gate."},
+      {"pmid": "24968884", "doi": "10.1136/heartjnl-2014-306208", "cite": "Haykowsky MJ, Tomczak CR (2014). LV hypertrophy in resistance or endurance trained athletes: the Morganroth hypothesis is obsolete, most of the time. Heart 100(16):1225-6.", "verified_via": "NCBI eutils efetch, live this session -- title itself is the debate-framing citation."},
+      {"pmid": "31033616", "doi": "10.1097/JSM.0000000000000501", "cite": "Kooreman Z et al (2019). Athletic Remodeling in Female College Athletes: The Morganroth Hypothesis Revisited. Clin J Sport Med 29(3):224-31.", "verified_via": "NCBI eutils efetch, live this session -- n=72 female college athletes: higher-intensity dynamic+resistive group has 17.1-21.7% greater LV mass (P<0.001) than lower-intensity/control, but NO difference in relative remodeling indices (LV mass/volume ratio) across groups -- mass scales with combined load, shape does not diverge in this cohort, a further real nuance beyond the simple two-bucket dichotomy."}
+    ]
+  },
+  "gates_summary": {
+    "analytic_numeric_derivative_match": "PASS (max rel error 2.8e-8, sigma=P/RWT identity confirmed against np.gradient)",
+    "forced_adversary_necessity_both_groups": "PASS (strength: 18.18pct peak-stress reduction vs unadapted counterfactual; endurance: 7.69pct reduction -- both real, both positive, combining two independent real data sources that were not guaranteed to line up)",
+    "necessity_dose_matched_to_stimulus": "PASS (strength's larger RWT rise produces a larger stress-reduction, matching its larger real peak-pressure stimulus)",
+    "necessity_sensitivity_sweep_nondegenerate": "PASS (holds across a disclosed +-20pct sweep on the endurance peak-P proxy)",
+    "full_normalization_symmetric_qc": "CORRECTLY REJECTED (adapted-stress ratio 1.35, not 1.0 -- full normalization does NOT hold; only ~33pct of the theoretical gap is closed by geometric adaptation -- reported honestly rather than oversold)",
+    "athlete_vs_hcm_wt_alone_adversary": "FALSIFIED as pre-registered (52.5pct specificity ceiling for WT-alone in Czimbalmos's own highly-trained male cohort; same-paper compound EDWT/LVEDVi index reaches 91.3pct specificity / AUC 0.999, clearing the void floor (AUC 0.5) by >0.4)",
+    "reversibility_discriminator": "PASS (100pct wall-thickness normalization in true athletes, Pelliccia 2002, vs 0pct change over 15+7yr in genetically-confirmed HCM, Pelliccia 2022 -- opposite directions on the identical measurement axis, group label assigned independently of the reversibility measurement itself)",
+    "genetics_discriminator": "PASS directionally (PRS OR=11, P=0.034) but explicitly caveated as underpowered (n=1 SCD event)",
+    "pluim_population_dichotomy_reproduced": "PASS (RWT strength 0.44 > combined 0.40 > endurance 0.39 > control 0.36, all P<=0.006, reproduced directly from the paper's own raw numbers)",
+    "morganroth_dichotomy_universality": "CORRECTLY REJECTED as a universal law (Kusy 2021 master-athlete cohort shows the reverse pattern); RETAINED as a real population-level central tendency -- symmetric QC applied to the repo's own headline finding, not just to the adversary."
+  },
+  "symmetric_qc_open_items": [
+    "The 'resting relative wall stress' table (Sec 2 of the script/doc) is a DIRECT MONOTONIC TRANSFORM of Pluim's own RWT ratios via sigma=P/RWT -- it is explicitly labeled TAUTOLOGICAL/not-an-independent-gate in both the script and this file, to avoid the appearance of a free confirmation. The actual falsifiable test is Sec 3 (forced-adversary necessity), which combines RWT (Pluim) with peak pressure (MacDougall/Daida) -- two independent sources that were not guaranteed to agree.",
+    "Full Laplace stress-normalization (equal peak sigma across endurance and strength groups after adaptation) does NOT hold (ratio 1.35, not 1.0) -- reported as a genuine partial/attenuating effect (~33pct of the theoretical gap closed), not oversold as a perfect thermostat. This is the more defensible, real claim and explains why grey-zone/pathological crossover remains possible (the mechanism is not perfectly protective).",
+    "The endurance peak-pressure input (Daida 1996, 210mmHg 90th-percentile men 20-29) is a GENERAL apparently-healthy referral population, NOT elite-endurance-athlete-specific -- no live-verified athlete-specific peak-dynamic-exercise-BP dataset was found this session. Disclosed as a proxy; sensitivity-swept +-20pct to show the necessity gate is not knife-edge on this specific number.",
+    "MacDougall 1985's n=5 bodybuilder cohort and Pluim's 1451-athlete meta-analytic 'strength' category are not the SAME cohort -- population-mismatch across the two legs of the necessity test, same pattern already disclosed elsewhere in this repo (e.g. Higginbotham's cycling cohort used as a walking proxy in MECHANISM_CARDIAC.md).",
+    "Pelliccia 2022's exact n=43/0pct figures are NOT independently re-derived from primary text this session (paywalled research letter, no indexed abstract) -- existence/pubtype/authorship confirmed live via EuropePMC; the specific numbers are reused from this repo's own prior extraction. Flagged, not laundered.",
+    "The HCM-genotype leg (Claessen 2024 PRS) is directionally supportive but rests on a single SCD event (n=1/281) -- explicitly NOT claimed as a powered predictive anchor, consistent with the pre-existing graph's own disclosed caveat on this exact point.",
+    "No single cohort in this evidence base measures wall-stress DIRECTLY (invasive LV pressure + simultaneous echo geometry) in real athletes performing their own sport-specific peak effort -- the necessity test (Sec 3) is a cross-study reconstruction (Pluim's resting/interictal geometry x MacDougall's/Daida's separately-measured peak pressure in different cohorts), not a single-study direct measurement. This is the single largest scope gap versus a fully closed loop.",
+    "Kusy 2021's master-athlete reversal and Kooreman 2019's female-athlete 'mass rises but shape does not diverge' finding are both REAL, live-verified, disclosed complications of the classic two-bucket Morganroth dichotomy -- retained as open, unresolved regime-dependence (aging, sex, sport-mix) rather than smoothed into a single clean headline."
+  ],
+  "honest_gaps": [
+    "No subject-specific data -- population-level literature model only, complementary scope identical to every other MECHANISM_* organ layer's own first-step disclosure.",
+    "Wall-stress necessity test (Sec 3) is a cross-study reconstruction (geometry from one cohort, pressure from different cohorts), not a single direct simultaneous measurement.",
+    "Endurance peak-pressure input is a general-population proxy, not elite-endurance-athlete-specific (disclosed, sensitivity-swept).",
+    "Full stress normalization does NOT hold exactly (partial attenuation only, ~33pct of the theoretical gap) -- reported honestly, not rounded up to a clean 'normalization confirmed' headline.",
+    "Pelliccia 2022's specific numbers are reused-not-reverified (paywalled letter, no abstract).",
+    "Genetics/PRS discriminator rests on a single SCD event -- directional only.",
+    "The Morganroth eccentric/concentric dichotomy is a real population-level central tendency (Pluim, P<=0.006), NOT a universal law -- a real, live-verified counter-example exists in master athletes (Kusy 2021) and a real complication exists in female college athletes (Kooreman 2019)."
+  ],
+  "proposed_cell": "PROMOTE data/MECHANISM_ANCHOR_GRAPH.json's ORG-CARDIAC-PUMP-MECHANICS training-adaptation branch (and related SEED-DESIGN nodes ORG-CARDIAC-ATHLETE-HEART, ORG-CARDIAC-DETRAINING-REVERSIBILITY, CARDIO-HCM-SCD-SUBSTRATE) from 'SEED-DESIGN (cited literature, not executed)' toward 'MEASURED' status, using this cert's machine-computed gates (scripts/msk/athlete_heart_remodeling.py + its results JSON) as the first executed-against-data evidence for those nodes' training-adaptation and grey-zone-discriminator sub-claims -- a graph-maintainer/coordinator action, not performed by this cert itself (isolation: read-only on the graph)."
+}

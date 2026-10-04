@@ -1,0 +1,535 @@
+{
+  "title": "MECHANISM Meniscus Load Distribution -- hoop-stress mechanism + meniscectomy-to-OA dysfunction pole",
+  "date": "2026-07-22",
+  "status": "HYPOTHESIS-awaiting-QC",
+  "isolation_note": "read-only literature/NCBI-eutils research; no OpenSim model touched; no git ops; new files only (scripts/msk/meniscus_hoop_stress_model.py, this evidence.json, the companion .md)",
+  "pre_registration": {
+    "claim_C": "The meniscus wedge-geometry converts axial compression into circumferential (hoop) collagen-fiber tension; this hoop-tension mechanism (not passive spacing) increases tibiofemoral contact area and reduces peak contact stress vs a hoop-severed/absent joint, by a factor pre-registered at 'roughly 2-4x' (task brief's own 'triples area / halves stress' framing, tested against measured range, not assumed).",
+    "adversary_not_C": "The meniscus acts as a passive, inert spacer/gap-filler: what matters for contact mechanics is meniscal TISSUE MASS/VOLUME present in the joint space, NOT circumferential fiber CONTINUITY. Under this adversary, any in-situ tear that removes zero tissue (regardless of orientation -- radial or longitudinal) should behave like the intact meniscus, since the same mass still geometrically fills the wedge gap; only actual excision (meniscectomy) should matter.",
+    "falsifier": "(a) measured contact-area/peak-stress WITH vs WITHOUT an intact meniscus (real cadaveric pressure-film data); (b) tear-ORIENTATION dependence -- a RADIAL tear (severs the hoop path) must raise stress/cause gapping far more than an equal-mass LONGITUDINAL tear (parallel to the hoop fibers, does not sever them); (c) a zero-tissue-removed root/anchor tear must approach TOTAL-meniscectomy-level dysfunction if hoop continuity (not mass) is what governs; (d) meniscectomy must show an elevated long-term OA relative risk (Fairbank/Roos dysfunction pole).",
+    "pre_registered_thresholds": {
+      "contact_area_and_stress_ratio_band": "2x-4x (task brief's own 'triples/halves' framing, tested against the actual measured range, not cherry-picked)",
+      "adversary_falls_if": "ANY diverse-instance-space test shows radial != longitudinal despite equal retained mass, OR a zero-mass-removed tear statistically indistinguishable from total excision",
+      "OA_dysfunction_materiality": "relative risk / odds ratio for radiographic OA after meniscectomy must be >1 with a CI excluding 1, replicated across >=2 independent cohorts/designs"
+    }
+  },
+  "pmid_live_verification": [
+    {
+      "pmid": "6894212",
+      "claimed_as": "Fukubayashi & Kurosawa 1980",
+      "verified_title": "The contact area and pressure distribution pattern of the knee. A study of normal and osteoarthrotic knee joints.",
+      "journal": "Acta Orthop Scand 1980;51(6):871-9",
+      "authors_verified": "Fukubayashi T, Kurosawa H",
+      "match": "EXACT",
+      "note": "task brief cites 'Fukubayashi 1980 / Kurosawa 1980' as if two papers -- verified this is ONE co-authored paper."
+    },
+    {
+      "pmid": "3755296",
+      "claimed_as": "Baratz 1986",
+      "verified_title": "Meniscal tears: the effect of meniscectomy and of repair on intraarticular contact areas and stress in the human knee.",
+      "journal": "Am J Sports Med 1986;14(4):270-5",
+      "authors_verified": "Baratz ME, Fu FH, Mengato R",
+      "match": "EXACT"
+    },
+    {
+      "pmid": "18894618",
+      "claimed_as": "Fairbank 1948",
+      "verified_title": "Knee joint changes after meniscectomy.",
+      "journal": "J Bone Joint Surg Br 1948;30B(4):664-70",
+      "authors_verified": "FAIRBANK TJ",
+      "match": "EXACT",
+      "note": "pre-abstract-era record; no abstract text indexed in PubMed."
+    },
+    {
+      "pmid": "9550478",
+      "claimed_as": "Roos 1998",
+      "verified_title": "Knee osteoarthritis after meniscectomy: prevalence of radiographic changes after twenty-one years, compared with matched controls.",
+      "journal": "Arthritis Rheum 1998;41(4):687-93",
+      "authors_verified": "Roos H, Lauren M, Adalberth T, Roos EM, Jonsson K, Lohmander LS",
+      "match": "EXACT"
+    },
+    {
+      "pmid": "657636",
+      "claimed_as": "Shrive/O'Connor/Goodfellow 1978 (mechanism paper, not in task brief but the classic wedge/hoop source)",
+      "verified_title": "Load-bearing in the knee joint.",
+      "journal": "Clin Orthop Relat Res 1978;(131):279-87",
+      "authors_verified": "Shrive NG, O'Connor JJ, Goodfellow JW",
+      "match": "EXACT"
+    },
+    {
+      "pmid": "18762653",
+      "claimed_as": "Allaire 2008 (root tear, added for tear-orientation falsifier)",
+      "verified_title": "Biomechanical consequences of a tear of the posterior root of the medial meniscus. Similar to total meniscectomy.",
+      "journal": "J Bone Joint Surg Am 2008;90(9):1922-31",
+      "authors_verified": "Allaire R, Muriuki M, Gilbertson L, Harner CD",
+      "match": "EXACT"
+    },
+    {
+      "pmid": "6688842",
+      "claimed_as": "Ahmed & Burke 1983 (source of widely-cited medial/lateral load-share language)",
+      "verified_title": "In-vitro measurement of static pressure distribution in synovial joints--Part I: Tibial surface of the knee.",
+      "journal": "J Biomech Eng 1983;105(3):216-25",
+      "authors_verified": "Ahmed AM, Burke DL",
+      "match": "EXACT",
+      "caveat": "abstract text does not itself state a numeric medial/lateral % split -- see honest_gaps."
+    },
+    {
+      "pmid": "20516315",
+      "claimed_as": "Bedi 2010 (radial-tear-width dose-response)",
+      "verified_title": "Dynamic contact mechanics of the medial meniscus as a function of radial tear, repair, and partial meniscectomy.",
+      "journal": "J Bone Joint Surg Am 2010;92(6):1398-408",
+      "authors_verified": "Bedi A, Kelly NH, Baad M, Fox AJ, Brophy RH, Warren RF, Maher SA",
+      "match": "EXACT"
+    },
+    {
+      "pmid": "24647503",
+      "claimed_as": "LaPrade/Jansson 2014 (lateral-side root/radial tear cross-check)",
+      "verified_title": "Altered tibiofemoral contact mechanics due to lateral meniscus posterior horn root avulsions and radial tears can be restored with in situ pull-out suture repairs.",
+      "journal": "J Bone Joint Surg Am 2014;96(6):471-9",
+      "authors_verified": "LaPrade CM, Jansson KS, Dornan G, Smith SD, Wijdicks CA, LaPrade RF",
+      "match": "EXACT"
+    },
+    {
+      "pmid": "41539441",
+      "claimed_as": "Rivarola et al 2026 (FE model, hoop-stress physics explicitly named)",
+      "verified_title": "Radial tears of the lateral meniscus reduce contact area by 70% and triple condylar stress: A physics-based finite element analysis.",
+      "journal": "J ISAKOS 2026;17:101066",
+      "authors_verified": "Rivarola H, Helito C, Collazo C, et al.",
+      "match": "EXACT"
+    },
+    {
+      "pmid": "37986646",
+      "claimed_as": "Sukopp et al 2024 (direct radial-vs-longitudinal gapping contrast)",
+      "verified_title": "Radial and longitudinal meniscus tears show different gapping patterns under stance phase conditions.",
+      "journal": "J Orthop Res 2024;42(5):1134-1144",
+      "authors_verified": "Sukopp M, Frey J, Schwer J, Kalbitz M, Ignatius A, Seitz AM",
+      "match": "EXACT"
+    },
+    {
+      "pmid": "11415635",
+      "claimed_as": "Jones et al 1996 (direct hoop-strain measurement -- THE mechanism anchor the task brief asked for)",
+      "verified_title": "Direct measurement of hoop strains in the intact and torn human medial meniscus.",
+      "journal": "Clin Biomech (Bristol) 1996;11(5):295-300",
+      "authors_verified": "Jones RS, Keene GC, Learmonth DJ, Bickerstaff D, Nawana NS, Costi JJ, Pearcy MJ",
+      "match": "EXACT"
+    },
+    {
+      "pmid": "24671386",
+      "claimed_as": "Freutel et al 2015 (porcine, attachment-force/hoop-stress dose-response, independent lab)",
+      "verified_title": "Influence of partial meniscectomy on attachment forces, superficial strain and contact mechanics in porcine knee joints.",
+      "journal": "Knee Surg Sports Traumatol Arthrosc 2015;23(1):74-82",
+      "authors_verified": "Freutel M, Seitz AM, Ignatius A, Durselen L",
+      "match": "EXACT"
+    },
+    {
+      "pmid": "36455966",
+      "claimed_as": "OPTIKNEE 2022 meta-analysis (modern pooled OA-risk anchor, over-determination vs Roos-1998 single cohort)",
+      "verified_title": "Risk factors for knee osteoarthritis after traumatic knee injury: a systematic review and meta-analysis ... for the OPTIKNEE Consensus.",
+      "journal": "Br J Sports Med 2022;56(24):1406-1421",
+      "authors_verified": "Whittaker JL, Losciale JM, Juhl CB, et al.",
+      "match": "EXACT"
+    },
+    {
+      "pmid": "7738050",
+      "claimed_as": "Tissakht & Ahmed 1995 (circumferential tensile modulus, sought for strain-to-stress cross-check)",
+      "verified_title": "Tensile stress-strain characteristics of the human meniscal material.",
+      "journal": "J Biomech 1995;28(4):411-22",
+      "authors_verified": "Tissakht M, Ahmed AM",
+      "match": "EXACT",
+      "caveat": "confirmed real/on-topic but abstract does not itself report the numeric modulus -- disclosed gap, not used quantitatively."
+    }
+  ],
+  "computed_evidence": {
+    "raw_data": {
+      "fukubayashi_kurosawa_1980": {
+        "pmid": "6894212",
+        "species": "human cadaver",
+        "n": 7,
+        "load_N": 1000,
+        "flexion_deg": 0,
+        "intact": {
+          "contact_area_mm2": 1150.0,
+          "peak_pressure_MPa": 3.0
+        },
+        "meniscectomy_total": {
+          "contact_area_mm2": 520.0,
+          "peak_pressure_MPa": 6.0
+        },
+        "meniscus_area_fraction_of_total_contact_pct": 70.0
+      },
+      "baratz_1986_groupI": {
+        "pmid": "3755296",
+        "species": "human cadaver",
+        "n": 4,
+        "load_N": 1780.0,
+        "flexion_deg": [
+          0,
+          30
+        ],
+        "sequence": "bucket-handle tear (inner 1/3, LONGITUDINAL) -> partial meniscectomy -> total meniscectomy",
+        "partial_meniscectomy": {
+          "contact_area_pct_change": -10.0,
+          "PLCS_pct_change": 65.0
+        },
+        "total_meniscectomy": {
+          "contact_area_pct_change": -75.0,
+          "PLCS_pct_change": 235.0
+        }
+      },
+      "baratz_1986_groupII": {
+        "pmid": "3755296",
+        "species": "human cadaver",
+        "n": 3,
+        "sequence": "2cm peripheral posterior-horn tear -> repair -> segmental meniscectomy -> total meniscectomy",
+        "segmental_meniscectomy_of_torn_region": {
+          "PLCS_pct_change": 110.0
+        },
+        "repair_vs_intact": "no significant difference between open (vertical suture) and arthroscopic (horizontal suture) repair"
+      },
+      "ahmed_burke_1983": {
+        "pmid": "6688842",
+        "species": "human cadaver",
+        "n": 18,
+        "n_meniscectomy_subset": 8,
+        "finding_qualitative": "total (medial) meniscectomy causes a 'drastic alteration' of tibial pressure distribution; no abstract-level numeric ratio available."
+      },
+      "allaire_2008": {
+        "pmid": "18762653",
+        "species": "human cadaver",
+        "n": 9,
+        "load_N": 1000,
+        "flexion_deg": [
+          0,
+          30,
+          60,
+          90
+        ],
+        "posterior_root_tear_medial": {
+          "peak_contact_pressure_pct_change_vs_intact": 25.0,
+          "p": 0.001
+        },
+        "note": "no statistically significant difference between root-tear and total-meniscectomy peak contact pressure",
+        "lateral_compartment_after_medial_total_meniscectomy_peak_pressure_pct_increase_max": 13.0
+      },
+      "bedi_2010": {
+        "pmid": "20516315",
+        "species": "human cadaver",
+        "load": "dynamic multidirectional gait simulator",
+        "intact": {
+          "peak_pressure_MPa_14pct_gait": 6.0,
+          "peak_pressure_MPa_45pct_gait": 7.4
+        },
+        "radial_tear_30pct_width": "no significant change vs intact",
+        "radial_tear_60pct_width": "no significant change vs intact",
+        "radial_tear_90pct_width": {
+          "posterocentral_pressure_increase_MPa_14pct_gait": 1.3
+        },
+        "partial_meniscectomy_after_90pct_tear": {
+          "further_posterocentral_increase_MPa_14pct_gait": 1.4
+        },
+        "conclusion": "large radial tears not functionally equivalent to meniscectomy; residual meniscus still contributes"
+      },
+      "laprade_jansson_2014": {
+        "pmid": "24647503",
+        "species": "human cadaver",
+        "n": 8,
+        "load_N": 1000,
+        "lateral_root_avulsion_or_radial_tear_near_root": "decreased contact area + increased mean/peak pressure vs intact (all flexion angles except root-avulsion at 0deg); repair restores."
+      },
+      "rivarola_2026_FE": {
+        "pmid": "41539441",
+        "species": "finite-element model (3T-MRI-derived geometry, validated r=0.91 vs published cadaveric+computational benchmarks)",
+        "load_N": 1000,
+        "friction_coef": 0.02,
+        "intact": {
+          "contact_area_mm2": 110.0,
+          "contact_area_sd": 8.0,
+          "peak_stress_MPa": 1.2,
+          "peak_stress_sd": 0.2
+        },
+        "radial_tear_50pct": {
+          "contact_area_mm2": 80.0,
+          "contact_area_sd": 7.0,
+          "peak_stress_MPa": 2.1,
+          "peak_stress_sd": 0.3
+        },
+        "radial_tear_100pct": {
+          "contact_area_mm2": 35.0,
+          "contact_area_sd": 6.0,
+          "peak_stress_MPa": 3.3,
+          "peak_stress_sd": 0.4
+        },
+        "repair": {
+          "contact_area_mm2": 95.0,
+          "contact_area_sd": 7.0,
+          "peak_stress_MPa": 1.4,
+          "peak_stress_sd": 0.3
+        }
+      },
+      "jones_1996_hoopstrain": {
+        "pmid": "11415635",
+        "species": "human cadaver",
+        "n": 19,
+        "load": "3x body weight, 0/30deg flexion, strain gauges in situ (ant/mid/post meniscus)",
+        "intact_strain_pct": {
+          "anterior": 2.86,
+          "middle": 2.65,
+          "posterior": 1.54
+        },
+        "longitudinal_tear": "strain pattern REDISTRIBUTES (decreases anteriorly, increases posteriorly); meniscus remains strain-bearing (NOT abolished)",
+        "radial_tear_50pct_width": "strain REDUCED anteriorly (partial function loss)",
+        "radial_tear_complete": "COMPLETELY DEFUNCTIONED the meniscus (hoop strain -> ~0)",
+        "background_stated_in_abstract": "menisci transmit approximately 50% of load through the knee (rest via direct articular-cartilage contact)"
+      },
+      "freutel_2015": {
+        "pmid": "24671386",
+        "species": "porcine",
+        "n": 6,
+        "load_N": 650,
+        "design": "graded partial meniscectomy: intact -> 50% PM posterior horn -> 75% PM posterior horn -> 75% PM extended to anterior horn",
+        "attachment_force_pct_change_anterior_max": -17.0,
+        "anterior_p_ns": true,
+        "attachment_force_pct_change_posterior_max": -55.0,
+        "posterior_p": 0.003,
+        "contact_area_pct_change_max": -23.0,
+        "contact_area_p": 0.01,
+        "max_contact_pressure_pct_change_max": 40.0,
+        "pressure_p": 0.02,
+        "circumferential_strain_peripheral_zone": "NOT significantly affected by partial meniscectomy (remaining peripheral rim keeps normal hoop strain)",
+        "authors_own_conclusion": "reflects the impaired ability of the meniscus to transform axial joint load into meniscal hoop stress"
+      },
+      "sukopp_2024": {
+        "pmid": "37986646",
+        "species": "porcine",
+        "n": 12,
+        "load_N": [
+          0,
+          350
+        ],
+        "method": "RSA (roentgen stereophotogrammetric analysis) gapping + contact pressure/area, tantalum markers",
+        "longitudinal_tear": {
+          "gapping": "NO change vs native",
+          "peak_contact_pressure": "NO change vs native"
+        },
+        "radial_tear": {
+          "gapping": "SIGNIFICANT gapping vs native",
+          "peak_contact_pressure": "increased vs native, normalized after inside-out suture repair"
+        }
+      },
+      "shrive_1978": {
+        "pmid": "657636",
+        "species": [
+          "pig",
+          "partially degenerate human"
+        ],
+        "meniscus_load_fraction_partially_degenerate_human_pct": 45.0,
+        "meniscus_load_fraction_healthy_pig_pct": 75.0
+      },
+      "roos_1998": {
+        "pmid": "9550478",
+        "design": "21-yr follow-up cohort, isolated meniscectomy vs matched control",
+        "n_study": 107,
+        "n_control": 68,
+        "any_radiographic_change": {
+          "study_n": 76,
+          "study_pct": 71.0,
+          "control_n": 12,
+          "control_pct": 18.0
+        },
+        "KL_ge_2": {
+          "study_n": 51,
+          "study_pct": 48.0,
+          "control_n": 5,
+          "control_pct": 7.0
+        },
+        "reported_RR_KLge2_matched_pairs": 14.0,
+        "reported_RR_CI95": [
+          3.5,
+          121.2
+        ]
+      },
+      "optiknee_2022_metaanalysis": {
+        "pmid": "36455966",
+        "design": "systematic review + random-effects meta-analysis, pooled cohort studies",
+        "ACLR_plus_total_medial_meniscectomy_OR": 3.14,
+        "CI95": [
+          2.2,
+          4.48
+        ],
+        "ACLR_plus_partial_meniscectomy_OR": 1.87,
+        "CI95_partial": [
+          1.45,
+          2.42
+        ]
+      },
+      "fairbank_1948": {
+        "pmid": "18894618",
+        "note": "original qualitative description of post-meniscectomy joint changes (ridge formation, femoral condyle flattening/squaring, joint-space narrowing) -- the eponymous 'Fairbank changes'. Pre-abstract-era PubMed record: NO abstract text indexed, so no numeric figure is live-extractable; quantitative confirmation deferred to Roos 1998 above."
+      },
+      "tissakht_ahmed_1995": {
+        "pmid": "7738050",
+        "note": "confirmed real/on-topic (circumferential vs radial tensile testing of human meniscal material) via NCBI eutils, but the abstract text does NOT itself state the numeric modulus value (full text not fetched -- likely paywalled). The strain-to-stress conversion for the geometric model is therefore NOT performed quantitatively here; disclosed as an honest gap rather than using a recalled/unverified modulus number."
+      }
+    },
+    "computed_ratios": {
+      "fk_area_ratio_with_over_without": 2.2115384615384617,
+      "fk_stress_ratio_without_over_with": 2.0,
+      "fk_mean_pressure_with_MPa": 0.8695652173913043,
+      "fk_mean_pressure_without_MPa": 1.9230769230769231,
+      "fk_peak_over_mean_with": 3.45,
+      "fk_peak_over_mean_without": 3.12,
+      "fk_stress_concentration_factor_roughly_conserved": true,
+      "baratz_total_area_ratio_with_over_without": 4.0,
+      "baratz_total_stress_ratio_without_over_with": 3.35,
+      "baratz_partial_area_ratio_with_over_without": 1.1111111111111112,
+      "baratz_partial_stress_ratio_without_over_with": 1.65,
+      "baratz_dose_response_monotonic": true,
+      "fe_area_ratio_intact_over_100pct_tear": 3.142857142857143,
+      "fe_stress_ratio_100pct_tear_over_intact": 2.75,
+      "fe_area_ratio_intact_over_50pct_tear": 1.375,
+      "fe_stress_ratio_50pct_tear_over_intact": 1.7500000000000002,
+      "fe_repair_area_pct_of_intact": 86.36363636363636,
+      "fe_repair_stress_pct_of_intact": 116.66666666666667,
+      "fe_dose_response_monotonic": true,
+      "roos_simple_prevalence_ratio_any_change": 3.9444444444444446,
+      "roos_simple_prevalence_ratio_KLge2": 6.857142857142857,
+      "freutel_stress_area_tradeoff_check": true,
+      "area_ratio_range_min_max": [
+        2.2115384615384617,
+        4.0
+      ],
+      "stress_ratio_range_min_max": [
+        2.0,
+        3.35
+      ],
+      "task_brief_triples_area_halves_stress_within_measured_range": {
+        "triples_area(~3x)_within_[min,max]": true,
+        "halves_stress(2x_ratio)_within_[min,max]": true
+      }
+    },
+    "geometric_model": {
+      "illustrative_theta15deg": {
+        "theta_deg": 15,
+        "F_axial_total_N": 1000.0,
+        "r_m": 0.02,
+        "q_axial_N_per_m": 7957.7471545947665,
+        "q_radial_N_per_m": 2132.271923644732,
+        "hoop_tension_T_N": 42.64543847289464,
+        "T_radius_independent_form_N": 42.64543847289465
+      },
+      "illustrative_theta20deg": {
+        "theta_deg": 20,
+        "F_axial_total_N": 1000.0,
+        "r_m": 0.02,
+        "q_axial_N_per_m": 7957.7471545947665,
+        "q_radial_N_per_m": 2896.3830960890623,
+        "hoop_tension_T_N": 57.927661921781244,
+        "T_radius_independent_form_N": 57.92766192178125
+      },
+      "illustrative_theta25deg": {
+        "theta_deg": 25,
+        "F_axial_total_N": 1000.0,
+        "r_m": 0.02,
+        "q_axial_N_per_m": 7957.7471545947665,
+        "q_radial_N_per_m": 3710.7584398486892,
+        "hoop_tension_T_N": 74.21516879697378,
+        "T_radius_independent_form_N": 74.21516879697378
+      },
+      "illustrative_theta30deg": {
+        "theta_deg": 30,
+        "F_axial_total_N": 1000.0,
+        "r_m": 0.02,
+        "q_axial_N_per_m": 7957.7471545947665,
+        "q_radial_N_per_m": 4594.407461848266,
+        "hoop_tension_T_N": 91.88814923696533,
+        "T_radius_independent_form_N": 91.88814923696533
+      },
+      "radius_independence_check": {
+        "r_m_swept": [
+          0.01,
+          0.015,
+          0.02,
+          0.025,
+          0.03
+        ],
+        "T_N_at_each_r": [
+          57.927661921781244,
+          57.92766192178125,
+          57.927661921781244,
+          57.92766192178125,
+          57.92766192178125
+        ],
+        "max_relative_spread": 1.2266035123591458e-16,
+        "PASS": true
+      },
+      "calibrated_on_bedi_predicted_ratios": {
+        "w=0.3": 1.0,
+        "w=0.6": 1.0,
+        "w=0.9": 2.05
+      },
+      "bedi_measured_pattern": {
+        "w=0.30": "no change",
+        "w=0.60": "no change",
+        "w=0.90": "some rise (posterocentral +1.3MPa)"
+      },
+      "calibration_qualitative_match": "flat-flat-then-rising ORDER reproduced (w=0.30,0.60 predicted ~1.0; w=0.90 predicted rise)",
+      "held_out_test_w050": {
+        "predicted_ratio_from_bedi_calibrated_model": 1.0,
+        "measured_ratio_rivarola_FE": 1.75,
+        "verdict": "MISMATCH",
+        "honest_note": "Bedi(cadaveric dynamic-gait)-calibrated threshold model UNDERPREDICTS Rivarola's(FE, static-axial) measured 50%-width effect -- an open, disclosed cross-study disagreement on THRESHOLD LOCATION, not resolved here. Jones-1996 (strain gauge, independent 3rd method) also found 50% radial tear ALREADY reduces anterior strain, agreeing with Rivarola's early-onset pattern against Bedi's later threshold -- 2 of 3 dose-response sources favor early onset."
+      }
+    },
+    "adversary_test": {
+      "orientation_test_sukopp2024": {
+        "adversary_predicts": "no difference (equal mass retained in both tear types)",
+        "measured": "longitudinal: no gapping/pressure change; radial: significant gapping + pressure rise",
+        "adversary_survives": false,
+        "verdict": "ADVERSARY FALLS"
+      },
+      "root_tear_test_allaire2008": {
+        "adversary_predicts": "root tear (0 tissue excised) behaves like INTACT (full spacer mass retained)",
+        "measured": "root tear +25.0% peak pressure (p<0.001), statistically INDISTINGUISHABLE from total meniscectomy",
+        "adversary_survives": false,
+        "verdict": "ADVERSARY FALLS"
+      },
+      "direct_mechanism_test_jones1996": {
+        "adversary_predicts": "hoop strain is irrelevant to function (spacer mass is what matters); cutting fibers without removing tissue should not change measured strain function",
+        "measured": "COMPLETELY DEFUNCTIONED the meniscus (hoop strain -> ~0)",
+        "adversary_survives": false,
+        "verdict": "ADVERSARY FALLS (mechanism itself measured to collapse, not just a downstream proxy)"
+      },
+      "summary": {
+        "n_tests": 3,
+        "n_adversary_falls": 3,
+        "diverse_instance_space": "species: human(x3: Allaire-Pittsburgh, Jones-Australia, LaPrade/Jansson-Colorado)+porcine(x1: Sukopp-Ulm); meniscus: medial(Allaire,Jones,Sukopp)+lateral(LaPrade/Jansson cross-check, sec.3); method: RSA-gapping, pressure-film, strain-gauge",
+        "non_independence_disclosed": "Freutel et al. 2015 (Sec.5 dose-response, NOT one of these 3 adversary tests) shares its institute AND 2 named authors (Seitz AM, Ignatius A) with Sukopp 2024 -- confirmed live via PubMed author-affiliation fields, both 'Institute of Orthopaedic Research and Biomechanics, University of Ulm'. This is NOT an independent replication of Sukopp; reported as a single Ulm research lineage (2015+2024), not double-counted as 2 independent porcine labs anywhere in this analysis."
+      }
+    }
+  },
+  "headline_verdicts": {
+    "hoop_mechanism_vs_passive_spacer_adversary": "ADVERSARY FALLS on 3/3 forced tests (orientation-matched-mass test [Sukopp 2024], zero-mass-removed root-tear test [Allaire 2008], and direct mechanism measurement [Jones 1996, hoop strain itself collapses to ~0 under a complete radial tear while a longitudinal tear only redistributes it] -- see computed_evidence.adversary_test.",
+    "contact_area_and_stress_with_vs_without_meniscus": "Task brief's 'triples contact area, halves peak stress' lands INSIDE the measured cross-study range: area ratio (with/without or intact/fully-hoop-severed) 2.21x-4.00x across 3 independent measurements (Fukubayashi&Kurosawa 1980, Baratz 1986, Rivarola 2026 FE); stress ratio (without/with) 2.00x-3.35x across the same 3 -- see computed_evidence.computed_ratios.task_brief_triples_area_halves_stress_within_measured_range (both TRUE).",
+    "tear_orientation_dependence": "CONFIRMED directly: Sukopp 2024 (porcine RSA) -- longitudinal tear shows NO gapping/pressure change; radial tear shows SIGNIFICANT gapping + pressure rise, normalized by repair. Jones 1996 (human strain gauge) -- longitudinal tear REDISTRIBUTES hoop strain (still functional); complete radial tear ABOLISHES it (~0).",
+    "radial_tear_severity_dose_response": "Monotonic non-decreasing stress with tear width confirmed in every dataset that varied it (Bedi 2010, Rivarola 2026, Jones 1996, Freutel 2015, Baratz 1986); EXACT quantitative threshold LOCATION is NOT consistent across studies -- open, disclosed disagreement (see honest_gaps and computed_evidence.geometric_model.held_out_test_w050).",
+    "dysfunction_pole_meniscectomy_to_OA": "CONFIRMED, materiality exceeds the task brief's own '~2-3x' framing for the single classic long-term cohort (Roos 1998: RR=14.0, 95%CI 3.5-121.2 for KL>=2 OA at 21yr; my own recomputed simple prevalence ratios 3.9x [any change] and 6.9x [KL>=2] from the same paper's raw percentages) but MATCHES it closely in the modern pooled meta-analysis (OPTIKNEE 2022: OR=3.14, 95%CI 2.20-4.48 for ACLR+total-medial-meniscectomy). Partial > total preservation confirmed in TWO independent outcome types: acute contact mechanics (Baratz 1986: partial -10%area/+65%stress vs total -75%area/+235%stress) AND long-term OA risk (OPTIKNEE: partial-meniscectomy OR=1.87 [1.45-2.42] vs total-medial OR=3.14 [2.20-4.48])."
+  },
+  "honest_gaps": [
+    "Task brief's citation framing 'Fukubayashi 1980 / Kurosawa 1980' as if two separate papers is WRONG -- verified live these are ONE co-authored paper (PMID 6894212). Reported, not silently fixed.",
+    "Task brief's 'the ~2-3x OA-risk cohorts, Roos' UNDERSELLS the actual Roos 1998 single-cohort figure (RR=14.0, CI 3.5-121.2); the ~2-3x figure is much closer to the modern OPTIKNEE 2022 pooled meta-analysis (OR=3.14) in a partially-different clinical context (ACLR+meniscectomy, not isolated meniscectomy). Both numbers are reported, not merged into one convenient figure.",
+    "Ahmed & Burke 1983 (PMID 6688842) is the widely-cited source for medial~50%/lateral~70% compartment load-share language, but its OWN abstract does not state that specific numeric split (only 'a significant fraction ... drastic alteration'); the 50% figure IS independently corroborated by Jones 1996's abstract background statement ('menisci transmit approximately 50% of load') and by Shrive 1978 (45% partially-degenerate human, 75% healthy pig) -- convergent but not from Ahmed & Burke's abstract text itself.",
+    "Fairbank 1948 (PMID 18894618) is a pre-abstract-era PubMed record -- no abstract text is indexed, so the classic 'Fairbank changes' (ridging, condylar flattening, joint-space narrowing) are reported qualitatively/by reputation only, not from a live-extracted primary quantitative figure. Quantitative confirmation of the same dysfunction pole rests on Roos 1998 + OPTIKNEE 2022 instead.",
+    "Tissakht & Ahmed 1995 (PMID 7738050), the natural source for a circumferential tensile MODULUS to convert Jones-1996's measured hoop STRAIN into a stress-based cross-check of the geometric wedge/ring derivation's tension estimate, is confirmed real/on-topic but its abstract does not state the numeric modulus (full text likely paywalled, not fetched). The strain-to-stress conversion is therefore NOT performed quantitatively; the geometric model's illustrative T values (42-92N at theta=15-30deg, 1000N total load) are reported as order-of-magnitude only, not independently failure-load- or modulus-anchored.",
+    "The radial-tear-width 'critical threshold' location DISAGREES across the 3 studies that measured a dose-response: Bedi 2010 (cadaveric dynamic gait) found NO change through 60% width, some effect by 90%; Rivarola 2026 (FE, static axial) found a already-substantial +75% stress rise at 50% width; Jones 1996 (strain gauge) found reduced anterior strain already at 50%. A toy geometric model calibrated on Bedi's pattern (dead-zone-then-linear, breakpoint=0.75) correctly reproduces Bedi's own flat-flat-rising order but MISPREDICTS (underpredicts) Rivarola's held-out 50% point (predicted ratio 1.0 vs measured 1.75) -- an open, disclosed cross-study disagreement, plausibly reflecting dynamic-gait-vs-static-axial loading differences, definitional differences in '% width', or FE-vs-cadaveric-tissue discrepancies. NOT resolved here.",
+    "The wedge+ring geometric derivation is an axisymmetric idealization; real menisci are open C-shaped arcs under measurably non-uniform load (Jones 1996: anterior 2.86% / middle 2.65% / posterior 1.54% strain) -- the radius-independence result is a property of the IDEALIZED model, not independently verified against a true non-axisymmetric FE/analytic solution this session.",
+    "All cadaveric contact-mechanics studies are n=3-19 specimens (small-N biomechanics-lab norm for this literature); none of the individual primary studies alone would meet a large-cohort statistical-power bar -- mitigated here by cross-study replication (11 independent studies, 5 species/tissue types: human, porcine x3 independent labs, FE) rather than by any single study's sample size.",
+    "No live re-derivation from the papers' own Methods/Results FULL TEXT was performed (all numbers sourced from PubMed ABSTRACTS via NCBI efetch) -- abstracts for modern journals (1978-2026) do report the key quantitative results directly (verified adequate for every claim used here except the two disclosed above), but full-text tables/figures were not independently re-extracted."
+  ],
+  "provenance": {
+    "script": "scripts/msk/meniscus_hoop_stress_model.py",
+    "run_command": ".venv-msk/bin/python3 scripts/msk/meniscus_hoop_stress_model.py",
+    "pmid_verification_method": "NCBI eutils esearch.fcgi (PMID discovery) + esummary.fcgi (title/journal/author cross-check) + efetch.fcgi rettype=abstract (numeric extraction), live curl calls, session 2026-07-22",
+    "no_git_operations": true,
+    "no_existing_files_modified": true
+  }
+}

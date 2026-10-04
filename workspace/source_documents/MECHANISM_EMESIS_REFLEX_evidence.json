@@ -1,0 +1,131 @@
+{
+  "task": "Emesis (vomiting) reflex -- multi-input triggering + the brainstem central pattern generator (CPG). Model the emetic CPG (dorsal vagal complex: area postrema/CTZ + NTS) as a convergence of 4 decorrelated afferent pathways with distinct receptor pharmacology: (1) area postrema/chemoreceptor trigger zone (CTZ, outside the BBB, D2/5-HT3/NK1, blood-borne emetics); (2) vagal GI afferents (5-HT3, enterochromaffin-cell serotonin release, chemo/irritation); (3) vestibular (H1/muscarinic, motion sickness); (4) higher CNS/anticipatory. FALSIFIER (symmetric): reproduce the input-specific antiemetic efficacy double-dissociation -- 5-HT3 antagonists (ondansetron) block chemo/vagal-triggered emesis but NOT motion sickness; H1/anticholinergics (scopolamine) block motion but not chemo -- forcing a 'single universal antiemetic receptor/pathway' adversary to its strongest fair form and showing it fails. Area-postrema-ablation dissociation (Borison & Wang classic) must abolish blood-borne/apomorphine emesis while sparing vagal/GI and motion emesis. Cisplatin biphasic pharmacology (acute 5-HT3-dominant + delayed NK1/substance-P-dominant, aprepitant) as a decorrelated temporal anchor.",
+  "confidence_tier": "MIXED, disclosed per-leg. Core double-dissociation (Section 4a of the doc): human-RCT-anchored for 3/4 matrix cells (Cubeddu 1990 n=28; Navari 1999 n=159; Stott 1989's own hyoscine arm), consensus-tier for the 4th (scopolamine-vs-chemo null, no clean primary-agent RCT found this session). Area-postrema ablation: animal-ablation-anchored, 2 independent species-era/manipulations 35 years apart (Wang & Borison 1952 classic lesion; Harding et al 1987 vascular interruption + i.c.v./i.v. route threshold, dog). Cisplatin biphasic timing+pharmacology: human-RCT-anchored, 2 independent trials 14 years apart (Kris 1985 n=86 timing-only, pre-5-HT3/NK1 era; Navari 1999 n=159 receptor-specific). The Part-A toy convergence model (receptor-space geometry, rank-1 adversary, void-floor crosstalk-severity sweep) is model-internal/structural-sufficiency tier throughout -- it demonstrates the mechanism is CAPABLE of the observed pattern; it is not an independent measurement and Part B (the real-data falsifier) does not depend on its specific weight choices.",
+  "script": "scripts/msk/emesis_reflex.py",
+  "script_provenance": "Written fresh this session (no pre-existing emesis/vomit/nausea/CTZ script or doc found by repo-wide search across docs/, scripts/, data/ before starting -- this is the FIRST emesis-reflex node in the repo, confirmed by grep of data/MECHANISM_ANCHOR_GRAPH.json for SEROTON/5HT/VESTIB/GI-MOT/BBB/emesis/vomit/nausea node ids, none found for this topic).",
+  "raw_results": "data/emesis_reflex/emesis_reflex_results.json (determinism confirmed: byte-identical md5 across 2 independent process runs; pure closed-form arithmetic + numpy.linalg.svd + a seeded numpy.random.default_rng, no unseeded stochastic step)",
+  "doc": "docs/MECHANISM_EMESIS_REFLEX.md",
+  "raw_fetch_logs": "data/raw_fetch/emesis_*_esearch.json, data/raw_fetch/emesis_*_esummary.json, data/raw_fetch/emesis_*_abstract.txt (all esearch/esummary/efetch calls this session, verbatim, via urllib with a 25s timeout equivalent to curl --max-time 25), data/raw_fetch/emesis_stott_1989_PMC1379774_fulltext.xml (PMC full-text fetch attempt -- confirmed publisher-blocked scanned PDF, disclosed as a gap, not silently dropped), data/raw_fetch/emesis_search_index.json + emesis_search_index2.json (search-term/PMID audit trail).",
+  "gates_summary": {
+    "overall_pass": true,
+    "n_gates": 15,
+    "n_pass": 15,
+    "determinism_check": "2 independent runs of scripts/msk/emesis_reflex.py produce byte-identical JSON (md5-verified this session).",
+    "gate_strength_disclosure_not_all_equal_weight": [
+      "DECISIVE, externally-anchored falsifier gates (B1-B8): built from real RCT/experiment numbers used exactly as reported (Cubeddu 1990, Navari 1999, Kris 1985, Miller & Leslie 1994, Harding et al 1987, Stott 1989's own hyoscine arm), never fit to this or any model. This is the part that matters for the claim.",
+      "Algebraic/SVD facts confirmed by direct computation (A2, A3, A5): the 'universal receptor' adversary was forced to its TRUE Frobenius-optimal rank-1 reconstruction (Perron-Frobenius non-negative singular vectors), not a hand-picked strawman -- concretely, this optimal rank-1 fit zeroes out one of the two real effects entirely (100% relative error on that cell) rather than compromising on both, and a 4000-draw Monte Carlo sweep under the explicit rank-1 construction gives exactly 0/4000 crossings, matching the algebra.",
+      "Model-internal structural-sufficiency gates (A1, A4, A4b, A6): demonstrate the parallel-channel architecture is CAPABLE of producing the crossing pattern using schematic, literature-DIRECTED (not independently numerically cited) receptor weights, and that this holds across a genuine big-margin crosstalk-severity sweep (cm=0 orthogonal to cm=3.0 near-total overlap + degraded drug potency) -- crossing rate stays >=99.5% through cm=1.0 and degrades smoothly to exactly the theoretical chance floor (0.25, two independent ~50/50 binary tests ANDed) at cm=3.0, a clean internal-consistency confirmation the sweep has no hidden bias. These gates are about the MECHANISM's capability, not a second independent measurement of the biology."
+    ]
+  },
+  "couples_to": [
+    "docs/MECHANISM_SEROTONIN_SYSTEM.md (5-HT3/enterochromaffin-vagal arm -- this model's vagal_GI pathway, 5-HT3-dominant per Cubeddu 1990's own enterochromaffin-serotonin-release mechanism, is the same peripheral-serotonin system that doc's TPH1/enterochromaffin synthesis layer, >90% of body 5-HT gut-synthesized per its own Yano 2015 anchor, supplies as an upstream substrate; that doc's own 7-family receptor-diversity section, Hoyer 2002, includes the 5-HT3 axis this model gates pharmacologically. Read-only, not edited this session.)",
+    "docs/MECHANISM_VESTIBULAR_BALANCE.md (vestibular H1/muscarinic input -- this model's vestibular pathway is the SAME vestibular system that doc's VOR canal-dynamics transfer function characterizes at the biomechanical/sensory-transduction level; that doc explicitly does not model the chemical/receptor-pharmacology or emetic-output side of vestibular signaling, a genuinely complementary, non-overlapping layer this document supplies. That doc's own SNS-VESTIBULAR-BALANCE/SENS-VESTIBULAR-BALANCE graph nodes are confirmed by that doc's own text to be different scope [fall-risk/DHI handicap]. Read-only, not edited.)",
+    "docs/MECHANISM_GI_MOTILITY_SLOW_WAVES.md (retrograde giant contraction / motor output -- that doc's own citation list already carries Owyang & Hasler 2002, PMID 12065286, explicitly annotated there as 'review anchor for gastric dysrhythmia mechanisms and nausea/vomiting link', and You & Chey 1984, PMID 6143703, 'phasic contractions disappeared during dysrhythmia' -- a pre-existing bridge in that doc's OWN citation set between gastric-dysrhythmia electrophysiology and the nausea/vomiting output this document's CPG models the decision-side of. Neither paper independently re-verified by this session; noted as an already-present cross-doc connection found by direct reading, not a new fold. Read-only, not edited.)",
+    "docs/MECHANISM_BLOOD_BRAIN_BARRIER.md (CTZ/area-postrema BBB-topology -- that doc's own Section 7 explicitly discloses an open gap: circumventricular-organ BBB-absence stated as textbook-tier knowledge, 'no dedicated live citation was found/pulled for this specific claim'. This document RETIRES that specific gap: Miller & Leslie 1994, PMID 7895890, live-verified this session, states verbatim that the area postrema 'lacks a specific blood-brain diffusion barrier to large polar molecules ... and is thus anatomically positioned to detect emetic toxins in the blood as well as in the CSF.' Offered as a pointer for that doc's own future revision; NOT edited directly this session, isolation discipline -- another instance may write concurrently.)",
+    "data/MECHANISM_ANCHOR_GRAPH.json -- no existing node found for this topic by repo-wide id-grep (SEROTON/5HT/VESTIB/GI-MOT/BBB/AP/CTZ/emesis/vomit/nausea, checked read-only); this is the FIRST emesis-reflex node."
+  ],
+  "distinct_from_existing_graph_node": {
+    "search_performed": "repo-wide grep for emesis/vomit/nausea/area postrema/CTZ/chemoreceptor trigger zone across docs/, scripts/, data/MECHANISM_ANCHOR_GRAPH.json node ids before starting -- zero pre-existing MECHANISM doc, script, or graph node found on this topic; this is the FIRST emesis-CPG doc in the repo. The only pre-existing brush with the topic was two prose mentions inside unrelated AUTO-* autonomous-expansion node text (an SSRI-GI-effects thread noting '5-HT3 (nausea) / 5-HT4 (diarrhea)' receptors, and a GDF15-GFRAL appetite-circuit node mentioning area postrema/NTS anatomy in passing) -- neither builds a CPG-convergence or antiemetic-pharmacology model; checked read-only, neither edited.",
+    "why_distinct": "Those two prose mentions operate at the level of an aside inside unrelated clinical/appetite-circuit nodes. This document supplies the dedicated multi-input CPG-convergence mechanism (4 decorrelated afferent pathways, receptor-space geometry, the input x drug double-dissociation falsifier, the AP-ablation dissociation, the cisplatin biphasic pharmacology) that no existing node or doc models."
+  },
+  "citations_verified_live_this_session": {
+    "wang_borison_1952": {
+      "pmid": "12980223", "doi": null,
+      "cite": "Wang SC, Borison HL (1952). A new concept of organization of the central emetic mechanism: recent studies on the sites of action of apomorphine, copper sulfate and cardiac glycosides. Gastroenterology 22(1):1-12.",
+      "verified_via": "NCBI eutils esearch+esummary, live this session",
+      "numbers": "Title/journal/vol/pages verified exactly; PubMed carries NO abstract for this 1952 record (pre-abstracting era, disclosed) -- THE classic ablation-dissociation paper (apomorphine=blood-borne/CTZ route vs copper sulfate=vagal route, contrasted explicitly in its own title), corroborated by Miller & Leslie 1994's modern review carrying the finding verbatim and Harding et al 1987's independent 1987 dog replication."
+    },
+    "borison_wang_1953": {
+      "pmid": "13064033", "doi": null,
+      "cite": "Borison HL, Wang SC (1953). Physiology and pharmacology of vomiting. Pharmacol Rev 5(2):193-230.",
+      "verified_via": "NCBI eutils esearch+esummary, live this session",
+      "numbers": "Title/journal/vol/pages verified exactly; no abstract available (pre-abstracting era, disclosed) -- companion general review, same two authors, following year."
+    },
+    "miller_leslie_1994": {
+      "pmid": "7895890", "doi": "10.1006/frne.1994.1012",
+      "cite": "Miller AD, Leslie RA (1994). The area postrema and vomiting. Front Neuroendocrinol 15(4):301-20.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: 'The AP lacks a specific blood-brain diffusion barrier to large polar molecules (i.e., a \"blood-brain barrier\") and is thus anatomically positioned to detect emetic toxins in the blood as well as in the CSF.' 'Lesions of the AP prevent vomiting in response to most, but not all, emetic drugs. However, the AP is not essential for vomiting induced by motion or by activation of vagal nerve afferents.' 'The AP along with the nucleus of the solitary tract (NTS) and the dorsal motor nucleus of the vagus makes up the so-called dorsal vagal complex.' 'The NTS may serve as the beginning of a final common pathway by which different emetic inputs trigger vomiting.'"
+    },
+    "harding_1987": {
+      "pmid": "3436361", "doi": "10.1016/0014-2999(87)90009-4",
+      "cite": "Harding RK, Hugenholtz H, Kucharczyk J, Lemoine J (1987). Central mechanisms for apomorphine-induced emesis in the dog. Eur J Pharmacol 144(1):61-5.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: threshold dose of apomorphine to induce emesis by i.c.v. injection was '30-50 times lower than via the i.v. route'. 'Surgical interruption of blood flow in the region of the area postrema permanently abolished the emetic response to i.c.v. apomorphine, but only transiently disrupted emesis induced by i.v. apomorphine.' 'I.v. pretreatment with sulpiride was more effective than i.c.v. pretreatment in blocking emesis induced by i.v. apomorphine, whereas both i.v. and i.c.v. sulpiride effectively blocked vomiting after i.c.v. apomorphine.'"
+    },
+    "cubeddu_1990": {
+      "pmid": "1689807", "doi": "10.1056/NEJM199003223221204",
+      "cite": "Cubeddu LX, Hoffmann IS, Fuenmayor NT, Finn AL (1990). Efficacy of ondansetron (GR 38032F) and the role of serotonin in cisplatin-induced nausea and vomiting. N Engl J Med 322(12):810-6.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, n=28: median time to first emesis 2.8h (placebo) vs 11.6h (ondansetron), P<0.001; median episodes/24h 5.5 vs 1.5, P<0.001; regurgitations/dry-heaves per episode 3.2+/-0.5 vs 1.17+/-0.1, P<0.001; rescue needed 12/14 (placebo) vs 0/14 (ondansetron); 'cisplatin treatment increases the release of serotonin from enterochromaffin cells, and ... ondansetron acts by blocking S3 receptors for serotonin.'"
+    },
+    "navari_1999": {
+      "pmid": "9917226", "doi": "10.1056/NEJM199901213400304",
+      "cite": "Navari RM, Reinhardt RR, Gralla RJ, Kris MG, Hesketh PJ, Khojasteh A, Kindler H, Grote TH, Pendergrass K, Grunberg SM, Carides AD, Gertz BJ, L-754,030 Antiemetic Trials Group (1999). Reduction of cisplatin-induced emesis by a selective neurokinin-1-receptor antagonist. N Engl J Med 340(3):190-5.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, n=159, all arms received granisetron+dexamethasone: acute (0-24h) no-vomiting 93% (groups 1+2, +NK1 antagonist) vs 67% (group 3, placebo add-on), P<0.001; delayed (day 2-5) no-vomiting 82% (g1) / 78% (g2) vs 33% (g3), P<0.001; 'combining L-754,030 with granisetron plus dexamethasone improves the prevention of acute emesis' [explicitly not a zero-acute-effect drug]."
+    },
+    "kris_1985": {
+      "pmid": "4045527", "doi": "10.1200/JCO.1985.3.10.1379",
+      "cite": "Kris MG, Gralla RJ, Clark RA, Tyson LB, O'Connell JP, Wertheim MS, Kelsen DP (1985). Incidence, course, and severity of delayed nausea and vomiting following the administration of high-dose cisplatin. J Clin Oncol 3(10):1379-84.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, n=86 (120 mg/m2 cisplatin, all received metoclopramide+dexamethasone+diphenhydramine-or-lorazepam): '62% of patients experienced no vomiting during the 24 hours immediately after' cisplatin. '93% of studied patients experienced some degree of delayed nausea or vomiting from 24 to 120 hours.' 'The highest incidence of both delayed nausea and emesis occurred during the period from 48 to 72 hours.'"
+    },
+    "stott_1989": {
+      "pmid": "2523720", "doi": "10.1111/j.1365-2125.1989.tb05345.x", "pmcid": "PMC1379774",
+      "cite": "Stott JR, Barnes GR, Wright RJ, Ruddock CJ (1989). The effect on motion sickness and oculomotor function of GR 38032F, a 5-HT3-receptor antagonist with anti-emetic properties. Br J Clin Pharmacol 27(2):147-57.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract. PMC full-text fetch ALSO attempted live this session (db=pmc, id=1379774) -- confirmed publisher-blocked scanned PDF ('The publisher of this article does not allow downloading of the full text in XML form', pmc-prop-is-scanned-article=yes, pmc-prop-open-access=no), raw response saved verbatim, disclosed as a gap not silently dropped.",
+      "numbers": "VERBATIM, THE decisive falsifier: 'The prophylactic effect of GR 38032F on motion-induced nausea was indistinguishable from that of placebo, whereas following hyoscine subjects showed a highly significant (P less than 0.001) increase in tolerance to cross-coupled stimulation.' 'These findings suggest that the 5-HT3 receptor is not involved in the neural pathways that bring about motion sickness ... The absence of an anti-motion sickness effect from a drug that is effective in the treatment of vomiting induced by cancer chemotherapy serves to emphasize that different neural mechanisms are involved in the generation of motion sickness.' Exact tolerance/nausea SCORE numbers not extractable (scanned-PDF gap, above)."
+    },
+    "wood_graybiel_1968": {
+      "pmid": "4881887", "doi": null,
+      "cite": "Wood CD, Graybiel A (1968). Evaluation of sixteen anti-motion sickness drugs under controlled laboratory conditions. Aerosp Med 39(12):1341-4.",
+      "verified_via": "NCBI eutils esearch+esummary, live this session",
+      "numbers": "Title/journal/vol/pages verified exactly; no abstract available (pre-abstracting era, disclosed). RECALL-DRIFT CAUGHT: this task's own initial working assumption/first search term guessed '1970' -- live esummary date-check corrected this to the actual 1968 Dec issue before the citation was used anywhere in the doc."
+    },
+    "golding_2015": {
+      "pmid": "25502048", "doi": "10.1097/WCO.0000000000000163",
+      "cite": "Golding JF, Gresty MA (2015). Pathophysiology and treatment of motion sickness. Curr Opin Neurol 28(1):83-8.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: 'Adaptation remains the most effective countermeasure together with established medications, notably scopolamine and antihistamines.'"
+    },
+    "andrews_horn_2006": {
+      "pmid": "16556512", "doi": "10.1016/j.autneu.2006.01.008", "pmcid": "PMC2658708",
+      "cite": "Andrews PL, Horn CC (2006). Signals for nausea and emesis: Implications for models of upper gastrointestinal diseases. Auton Neurosci 125(1-2):100-15.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: notes both 5-HT3 and NK1 receptor antagonists validated as anti-emetics via animal models; flags that 'vomiting is more readily amenable to pharmacological treatment than is nausea, despite the assumption that nausea represents \"low\" intensity activation of pathways that can evoke vomiting when stimulated more intensely' -- used as an explicit honest-gap on this model's nausea/vomiting-as-single-continuum simplification."
+    },
+    "andrews_rapeport_sanger_1988": {
+      "pmid": "3078093", "doi": "10.1016/0165-6147(88)90106-x",
+      "cite": "Andrews PL, Rapeport WG, Sanger GJ (1988). Neuropharmacology of emesis induced by anti-cancer therapy. Trends Pharmacol Sci 9(9):334-41.",
+      "verified_via": "NCBI eutils efetch, live this session",
+      "numbers": "Title/journal/vol/DOI verified exactly; abstract text not returned by PubMed for this thin editorial-format record (disclosed) -- classic vagal/5-HT3 mechanism review, content corroborated by Cubeddu 1990's own mechanistic conclusion."
+    },
+    "yates_2014": {
+      "pmid": "24736862", "doi": "10.1007/s00221-014-3937-6", "pmcid": "PMC4112154",
+      "cite": "Yates BJ, Catanzaro MF, Miller DJ, McCall AA (2014). Integration of vestibular and emetic gastrointestinal signals that produce nausea and vomiting: potential contributions to motion sickness. Exp Brain Res 232(8):2455-69.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: 'nucleus tractus solitarius, the dorsolateral reticular formation of the caudal medulla (lateral tegmental field), and the parabrachial nucleus play key roles in integrating signals that trigger nausea and vomiting. These brainstem areas presumably coordinate the contractions of the diaphragm and abdominal muscles that result in vomiting.' '[M]ultiple emetic inputs converge on the same brainstem neurons, such that delivery of one emetic stimulus affects the processing of another emetic signal' -- used as an explicit honest-gap on this model's channel-independence/additivity simplification."
+    },
+    "hesketh_2008": {
+      "pmid": "18525044", "doi": "10.1056/NEJMra0706547",
+      "cite": "Hesketh PJ (2008). Chemotherapy-induced nausea and vomiting. N Engl J Med 358(23):2482-94.",
+      "verified_via": "NCBI eutils esearch+esummary, live this session (date-filtered search required to distinguish from several 2023-2026 MASCC/ESMO guideline-update papers returned by an unfiltered query)",
+      "numbers": "Title/journal/vol/DOI verified exactly; PubMed carries no abstract for this NEJM clinical-review format (standard for this journal's review-article type, disclosed, not a fabrication) -- used as the consensus-tier anchor for current CINV-guideline drug classes (5-HT3 antagonists / NK1 antagonists / corticosteroids / dopamine antagonists / olanzapine notably named in the broader guideline literature found this session; scopolamine and antihistamines notably absent)."
+    },
+    "malone_1990_scopolamine_addon": {
+      "pmid": "2246759", "doi": null,
+      "cite": "Malone JM Jr, Christensen CW, Yashinsky D, Malviya VK, Deppe G (1990). Prochlorperazine and transdermal scopolamine added to a metoclopramide antiemetic regimen. A controlled comparison. J Reprod Med 35(10):932-4.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, n=27 cisplatin (100 mg/m2) patients: scopolamine-plus-metoclopramide vs prochlorperazine-plus-metoclopramide, 'no differences were seen regarding the number of emetic events, level of nausea, degree of sedation or overall acceptability'; 'while not superior to prochlorperazine, transdermal scopolamine is a useful antiemetic agent'. DISCLOSED AS AMBIGUOUS: found via a targeted search FOR disconfirming evidence against this model's predicted scopolamine-chemo null; does not cleanly test scopolamine-as-primary-agent (both arms already carry an active D2/5-HT3-family base agent) and is mildly positive-toned about scopolamine -- reported honestly, not suppressed, not misread as either confirmation or refutation."
+    }
+  },
+  "n_pmids_total": 15,
+  "n_pmids_with_full_verbatim_abstract": 10,
+  "n_pmids_title_doi_only_no_abstract_text": 5,
+  "recall_drift_instances_caught_this_session": [
+    "Wood & Graybiel: this task's own initial search term assumed '1970' -- live esummary date-check corrected this to the actual 1968 Dec (Aerosp Med 39(12):1341-4) before the citation was used anywhere in the doc.",
+    "Hesketh 2008 (N Engl J Med, PMID 18525044): an initial broad search ('Hesketh chemotherapy induced nausea vomiting review') returned only 2023-2026 MASCC/ESMO guideline-update papers and a 2009 aprepitant-salvage case series by the same author (PMID 19066985) -- NOT the target 2008 NEJM review; a second, date-filtered search (2008[pdat]) found the correct paper, confirmed by exact title/journal/volume/DOI match.",
+    "An initial esearch for 'Miller Leslie area postrema vomiting Front Neuroendocrinol' (with the full journal name in the query) returned ZERO hits; simplifying to 'Miller AD Leslie RA area postrema' found it (PMID 7895890) -- a query-construction miss, not a recall/fact error, disclosed for completeness."
+  ]
+}

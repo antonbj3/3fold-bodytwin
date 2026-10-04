@@ -1,0 +1,171 @@
+{
+  "task": "Two-part falsifier for birth's cardiopulmonary transition: (a) reproduce the first-breath opening pressure (~40-80 cmH2O, far above tidal) by INVERTING the sibling surfactant cert's own verified Laplace relation P=2*gamma/r -- what effective radius of curvature does the measured pressure imply, given the same bare/unspread tension bracket already anchored there -- forced against a mature-geometry-alone adversary and a chest-wall-stiffness adversary; (b) force a 'passive drainage only' adversary for fetal-lung-liquid clearance using DIRECT measured necessity evidence across 3 decorrelated species/methods (mouse genetic knockout, fetal-sheep pharmacological blockade, human clinical cohort) rather than a simulated curve with invented rate constants.",
+  "confidence_tier": "mechanism-plausibility, geometrically self-consistent (Claim A, arithmetic on two independently-anchored inputs, one disclosed assumption) plus multi-species-necessity-anchored (Claim B, three independently live-verified primary-literature necessity results across mouse/sheep/human -- a genetic knockout, a pharmacological blockade, and a clinical cohort all converging on the same conclusion, a comparatively strong evidentiary base of real measured phenotypes rather than simulated parameters). Weakest links, disclosed: the specific Karlberg first-breath P-V numbers were not independently re-extracted this session (bibliographic-only, pre-1975/1960s, no MEDLINE abstract); the viscous-resistance cross-check (Part 3) and the SLI order-of-magnitude check (Part 1) are explicitly illustrative/supportive, not decisive, and are labeled as such rather than silently promoted alongside the decisive gates. Comparable to this repo's own MECHANISM_PULMONARY_SURFACTANT.md precedent.",
+  "script": "scripts/msk/neonatal_transition.py",
+  "raw_results": "data/neonatal_transition/neonatal_transition_results.json",
+  "doc": "docs/MECHANISM_NEONATAL_TRANSITION.md",
+  "self_qc_catches_this_session": [
+    {
+      "type": "gate-strength inflation risk (symmetric-QC judgment catch during construction, not a code bug)",
+      "issue": "the first-draft gate table treated all 13 boolean gates as uniformly 'PASS' with no distinction between decisive necessity evidence (e.g. the amiloride/ENaC-KO adversary-forcing) and much weaker order-of-magnitude sanity checks (the SLI clinical-pressure comparison; the bulk-viscosity-ratio cross-check) -- a '13/13 PASS' headline risked implying uniform evidentiary weight.",
+      "fix": "explicitly graded every gate as DECISIVE / STRUCTURAL / SUPPORTIVE / WEAK-ILLUSTRATIVE-ONLY in the doc's SS7 and in prose (SS4/SS6), and disclosed in SS6 that the 36.4x bulk-viscosity ratio is NOT claimed to reproduce Hooper et al 2013's measured ~100x figure -- the gap is stated, not smoothed over.",
+      "note": "applying the discipline's 'a rejection carries the same forced-steelman burden as a confirmation' rule to a PASS-heavy result, not just to a prospective kill."
+    },
+    {
+      "type": "inference-vs-quote conflation (caught before finalizing, not after)",
+      "issue": "an early framing of the Hummler et al 1996 ENaC-KO result stated flatly that the knockout pups underwent 'normal mechanical squeeze during vaginal delivery' -- but the fetched PubMed abstract text does not itself state the delivery mode.",
+      "fix": "added an explicit disclosure (both in the doc SS5/SS8 and in the raw JSON's own enac_ko_categorical_result field) that vaginal/dam-delivery is a reasonable, standard inference for gene-targeting mouse phenotyping, NOT an independently-verified quote from the fetched abstract -- and confirmed the core necessity conclusion (active Na+ transport required, not compensated by whatever passive mechanisms exist) holds regardless of delivery mode, so the disclosure weakens only the strongest rhetorical framing, not the underlying claim.",
+      "note": "a live example of the 'never fabricate' discipline applied to an inference that FELT obviously true (standard lab practice) but was not the specific thing the citation actually said."
+    },
+    {
+      "type": "honest search-adaptation (not a bug, a disclosed research-path decision)",
+      "issue": "searching for the specific Karlberg-series installment reporting the actual first-breath pressure-volume loop numbers (the one usually informally cited as 'Part II', with co-authors Cherry/Escardo per this session's prior recollection) returned zero direct hits across 4 different query formulations, including author-pair combinations.",
+      "fix": "rather than assert an unverified PMID or silently drop the Karlberg attribution, broadened to confirm Part I (methods, PMID 14404498) and Part III (first-week development, PMID 14453970) of the closely-related 'Respiratory studies in newborn infants' series, bibliographically confirming the series and subject matter, and explicitly disclosed the specific installment/numbers were not located this session (SS3, SS8) -- the same disclosure pattern as the surfactant cert's von Neergaard 1929 gap.",
+      "note": "an example of forcing the search (4 query variants + a 118-paper author listing scanned by title) before accepting the honest gap, not a one-shot give-up."
+    }
+  ],
+  "citations_verified_live_this_session": {
+    "hummler_1996_nat_genet": {
+      "pmid": "8589728", "doi": "10.1038/ng0396-325", "tier": "full abstract fetched live",
+      "cite": "Hummler E, Barker P, Gatzy J, Beermann F, Verdumo C, Schmidt A, Boucher R, Rossier BC (1996). Early death due to defective neonatal lung liquid clearance in alpha-ENaC-deficient mice. Nat Genet 12(3):325-8.",
+      "verified_via": "NCBI eutils esearch + efetch, full abstract, live this session",
+      "numbers": "alpha-ENaC(-/-) mice: amiloride-sensitive electrogenic Na+ transport ABOLISHED in airway epithelia (direct measurement). Neonates 'developed respiratory distress and died within 40 h of birth from failure to clear their lungs of liquid.' THE decisive genetic-necessity anchor for Claim B."
+    },
+    "olver_strang_1974": {
+      "pmid": "4443921", "doi": "10.1113/jphysiol.1974.sp010659", "tier": "full abstract fetched live",
+      "cite": "Olver RE, Strang LB (1974). Ion fluxes across the pulmonary epithelium and the secretion of lung liquid in the foetal lamb. J Physiol 241(2):327-57.",
+      "verified_via": "NCBI eutils esearch + efetch, full abstract, live this session",
+      "numbers": "Baseline PRE-labor fetal secretion phase: Cl- (and K+, Rb+) actively transported plasma->lung liquid (quantitatively the most important active flux); Na+ and Ca2+ move PASSIVELY down electrochemical gradient. Establishes the 'before' state that Claim B's labor-triggered switch (Brown/Olver 1983) acts on."
+    },
+    "brown_olver_1983": {
+      "pmid": "6655575", "doi": "10.1113/jphysiol.1983.sp014929", "tier": "full abstract fetched live",
+      "cite": "Brown MJ, Olver RE, Ramsden CA, Strang LB, Walters DV (1983). Effects of adrenaline and of spontaneous labour on the secretion and absorption of lung liquid in the fetal lamb. J Physiol 344:137-52.",
+      "verified_via": "NCBI eutils esearch + efetch, full abstract, live this session",
+      "numbers": "Gestation-dependent SIGN-FLIP: adrenaline slows secretion at 120-130 days, causes ABSORPTION after 130 days. Minimum adrenaline conc to inhibit secretion (Ai) falls from 0.43 ng/mL (132-4d) to 0.029 ng/mL (>140d) = 14.83x more sensitive. During spontaneous labor: plasma adrenaline 0.087 -> 6.86 -> 7.17 ng/mL (early labor -> last 50 min -> early postnatal) = 78.85x rise; noradrenaline 1.71 -> 12.14 -> 9.10 ng/mL = 7.10x rise. Adrenaline-infusion dose-response in NON-labouring fetuses reproduces the same switch, establishing sufficiency not mere correlation. Upper airway acts as a one-way valve (outflow only)."
+    },
+    "olver_ramsden_1986": {
+      "pmid": "3795077", "doi": "10.1113/jphysiol.1986.sp016156", "tier": "full abstract fetched live",
+      "cite": "Olver RE, Ramsden CA, Strang LB, Walters DV (1986). The role of amiloride-blockable sodium transport in adrenaline-induced lung liquid reabsorption in the fetal lamb. J Physiol 376:321-40.",
+      "verified_via": "NCBI eutils esearch + efetch, full abstract, live this session",
+      "numbers": "Amiloride at 10^-4 M 'abolished the changes in p.d. and ion flux induced by adrenaline.' KI (50% inhibition of the reabsorptive response) = 4x10^-6 M -- applied concentration is 25.0x above its own measured KI. THE pharmacological-necessity anchor, decorrelated species+method from Hummler 1996 (fetal sheep, acute infusion, vs mouse genetic knockout)."
+    },
+    "hansen_2008_bmj": {
+      "pmid": "18077440", "doi": "10.1136/bmj.39405.539282.BE", "tier": "full abstract fetched live",
+      "cite": "Hansen AK, Wisborg K, Uldbjerg N, Henriksen TB (2008). Risk of respiratory morbidity in term infants delivered by elective caesarean section: cohort study. BMJ 336(7635):85-7.",
+      "verified_via": "NCBI eutils esearch + efetch, full abstract, live this session",
+      "numbers": "Aarhus birth cohort, Denmark, 34,458 babies, 1998-2006; 2,687 elective CS. Composite respiratory morbidity (TTN + RDS + PPHN, named explicitly as the outcome bundle) OR vs intended-vaginal-delivery: 3.9 (95% CI 2.4-6.5) at 37wk, 3.0 (2.1-4.3) at 38wk, 1.9 (1.2-3.0) at 39wk. Serious respiratory morbidity (O2>2d, CPAP, or ventilation): OR 5.0 (1.6-16.0) at 37wk. Results essentially unchanged after excluding diabetes/pre-eclampsia/IUGR/breech. THE clinical cross-check anchor for Claim B, disclosed as a COMPOSITE outcome (TTN is typically its largest component, not a TTN-specific OR)."
+    },
+    "hooper_polglase_roehr_2015": {
+      "pmid": "25870083", "doi": "10.1016/j.prrv.2015.03.003", "tier": "full abstract fetched live",
+      "cite": "Hooper SB, Polglase GR, Roehr CC (2015). Cardiopulmonary changes with aeration of the newborn lung. Paediatr Respir Rev 16(3):147-50.",
+      "verified_via": "NCBI eutils esearch + efetch, full abstract, live this session",
+      "numbers": "'Lung aeration triggers the increase in pulmonary blood flow (PBF) at birth,' securing left-ventricular preload; transpulmonary pressure gradient is the key driver of airway-liquid clearance. THE coupling anchor to the (currently unbuilt, in-flight per task) fetal-circulation cert -- this doc's aeration/clearance mechanics is the causal upstream of that cert's PVR-fall/shunt-closure mechanism."
+    },
+    "steinhorn_2016": {
+      "pmid": "27251312", "doi": "10.1159/000444895", "tier": "full abstract fetched live",
+      "cite": "Steinhorn RH (2016). Advances in Neonatal Pulmonary Hypertension. Neonatology 109(4):334-44.",
+      "verified_via": "NCBI eutils esearch + efetch, full abstract, live this session",
+      "numbers": "PPHN described as 'a surprisingly common event in the neonatal intensive care unit,' affecting term and preterm infants; maternal/fetal/genetic risk factors and modern therapies (iNO, surfactant, milrinone, sildenafil) reviewed. Modern clinical anchor for the PPHN dysfunction coupling (failed PVR fall)."
+    },
+    "papastamelos_1995": {
+      "pmid": "7713809", "doi": "10.1152/jappl.1995.78.1.179", "tier": "full abstract fetched live",
+      "cite": "Papastamelos C, Panitch HB, England SE, Allen JL (1995). Developmental changes in chest wall compliance in infancy and early childhood. J Appl Physiol 78(1):179-84.",
+      "verified_via": "NCBI eutils esearch + efetch, full abstract, live this session",
+      "numbers": "Cw/Cl (chest-wall/lung compliance ratio) = 2.86 +/- 1.06 in infants <1yr vs 1.33 +/- 0.36 in children >1yr (P=0.005); mean Cw per kg 2.80 +/- 0.87 (infants) vs 2.04 +/- 0.51 (children) mL.cmH2O-1.kg-1 (P=0.002). Adversary-elimination anchor for Claim A: chest wall is MORE compliant (not stiffer) than the lung in infancy, ruling out chest-wall stiffness as the first-breath-pressure driver."
+    },
+    "lista_castoldi_2010": {
+      "pmid": "21089711", "doi": null, "tier": "full abstract fetched live",
+      "cite": "Lista G, Castoldi F (2010). Alveolar recruitment in the delivery room: sustained lung inflation. Minerva Pediatr 62(3 Suppl 1):17-8.",
+      "verified_via": "NCBI eutils esearch + efetch, full abstract, live this session",
+      "numbers": "Sustained lung inflation (SLI) clinical protocol: 'a peak pressure of 25-30 cm H2O for 10-20 seconds,' followed by PEEP ~5 cmH2O, effective for FRC establishment in preterm animal studies and reducing mechanical-ventilation need. Order-of-magnitude (not identity) cross-check for the measured spontaneous first-breath peak (40-80 cmH2O) -- disclosed as a different protocol (sustained vs brief natural peak)."
+    },
+    "karlberg_series_1960_1962": {
+      "pmid_part_I": "14404498", "pmid_part_III": "14453970", "doi_part_III": "10.1111/j.1651-2227.1962.tb08666.x",
+      "tier": "bibliographic only (no MEDLINE abstract, 1960/1962 records)",
+      "cite": "Karlberg P et al (1960). Respiratory studies in newborn infants. I. Apparatus and methods for studies of pulmonary ventilation and the mechanics of breathing. Acta Paediatr 49. / Karlberg P, Koch G (1962). Respiratory studies in newborn infants. III. Development of mechanics of breathing during the first week of life. Acta Paediatr Suppl 135:121-9.",
+      "verified_via": "NCBI eutils esearch + esummary + efetch (title/journal/volume/pages/DOI confirmed live for Part III; no abstract text returned for either, pre-1975-era records)",
+      "numbers": "THE task-named Karlberg newborn-respiratory-mechanics series, bibliographically confirmed to exist and cover exactly this subject. The specific ~40-80 cmH2O first-breath opening-pressure figure is the task's own specified, textbook-transmitted magnitude -- the specific installment (informally 'Part II') reporting the actual P-V loop numbers was searched for (4 query variants + a 118-paper title scan) and NOT located this session -- honest gap, not a fabricated identifier."
+    }
+  },
+  "reused_by_reference_not_refetched_this_session": {
+    "avery_mead_1959": {"pmid": "13649082", "source_doc": "docs/MECHANISM_PULMONARY_SURFACTANT.md", "role": "RDS/surfactant-deficiency dysfunction anchor"},
+    "hooper_2013": {"pmid": "24035400", "source_doc": "docs/MECHANISM_PULMONARY_SURFACTANT.md", "role": "FRC establishment; liquid viscosity '~100x greater than air' -- viscous-resistance anchor for Part 3"}
+  },
+  "attempted_but_not_found_this_session": {
+    "karlberg_first_breath_specific_installment": {
+      "attempted_queries": ["Karlberg P[Author] AND newborn AND respiration AND onset", "Karlberg P[Author] AND \"onset of respiration\"", "Karlberg P[Author] AND \"first breath\"", "Karlberg P[Author] AND Cherry RB[Author]", "Karlberg P[Author] AND Escardo FE[Author]", "broad Karlberg P[Author] listing, 118 papers, esummary-title-scanned for a subset"],
+      "result": "Part I (PMID 14404498, methods) and Part III (PMID 14453970, first-week development) of the 'Respiratory studies in newborn infants' series confirmed; the specific installment with the P-V loop opening-pressure data not identified",
+      "disposition": "cited the confirmed series as bibliographic anchor for the Karlberg attribution; the ~40-80 cmH2O figure used is the task's own specified magnitude, cross-checked only indirectly (inverse-Laplace geometric consistency, SLI order-of-magnitude), not independently re-extracted"
+    }
+  },
+  "claim_A_opening_pressure": {
+    "pre_registered_thresholds": {"r_implied_max_micron_lt": 50.0, "mature_bare_max_cmH2O_lt": 40.0, "ratio_min_x": 10.0, "cw_cl_min": 1.0},
+    "measured": {
+      "mature_bare_cmH2O": {"50mN_m": 10.197162129779281, "60mN_m": 12.236594555735138, "70mN_m": 14.276026981690995},
+      "mature_surf_cmH2O": {"2mN_m": 0.40788648519117127, "5mN_m": 1.0197162129779282, "10mN_m": 2.0394324259558565},
+      "r_implied_micron_range": [12.746452662224103, 35.69006745422749],
+      "r_mature_micron": 100.0,
+      "ratio_first_breath_over_mature_tidal_x": [19.6133, 196.133],
+      "chest_wall_over_lung_compliance_infant": 2.86,
+      "sli_pressure_cmH2O": [25.0, 30.0],
+      "measured_first_breath_pressure_cmH2O": [40.0, 80.0]
+    },
+    "gates_PASS": true,
+    "n_gates": 5,
+    "n_decisive": 4,
+    "n_weak_supportive_only": 1
+  },
+  "claim_B_fluid_clearance_PRIMARY": {
+    "pre_registered_thresholds": {"catechol_fold_min_x": 10.0, "amiloride_margin_min_x": 5.0, "cs_or_lower_ci_min": 1.0, "decorrelated_methods_min": 3},
+    "measured": {
+      "adrenaline_fold_early_to_late_labor": 78.85057471264369,
+      "noradrenaline_fold_early_to_late_labor": 7.099415204678363,
+      "ai_threshold_sensitization_fold": 14.827586206896552,
+      "amiloride_applied_over_KI_margin_x": 25.000000000000004,
+      "enac_ko_death_window_h": 40.0,
+      "cs_or_by_gestational_week": {"37": [3.9, 2.4, 6.5], "38": [3.0, 2.1, 4.3], "39": [1.9, 1.2, 3.0], "37_serious": [5.0, 1.6, 16.0]},
+      "cs_or_monotonic_decreasing_with_ga": true,
+      "n_decorrelated_species_methods": 4
+    },
+    "gates_PASS": true,
+    "n_gates": 7,
+    "n_decisive": 4,
+    "n_supportive": 2,
+    "n_structural": 1
+  },
+  "claim_C_viscous_crosscheck_SECONDARY_ILLUSTRATIVE": {
+    "measured": {"mu_water_37C_mPas": 0.6913, "mu_air_37C_mPas": 0.019, "bulk_viscosity_ratio": 36.38421052631579, "hooper_measured_ratio": 100.0},
+    "gates_PASS": true,
+    "n_gates": 1,
+    "explicitly_not_decisive": true,
+    "note": "directional consistency only (both >10x); NOT claimed to reproduce Hooper's measured ~100x figure -- gap disclosed"
+  },
+  "determinism_check": "2 independent full runs of scripts/msk/neonatal_transition.py produce byte-identical JSON, md5sum 84b80672de1831a9bd4aec0f9b971dca, verified this session.",
+  "overall_verdict": {
+    "claim_A_pass": true, "claim_B_pass": true, "claim_C_secondary_pass": true,
+    "n_boolean_gates": 13, "n_boolean_gates_pass": 13,
+    "n_decisive_or_structural": 9, "n_supportive": 2, "n_weak_illustrative_only": 2,
+    "overall_pass": true,
+    "note": "All gates PASS, but graded by decisiveness rather than presented as uniformly load-bearing (symmetric QC applied to a pass-heavy result, not just to a prospective kill). The PRIMARY claim (B, fluid clearance) rests on real measured necessity phenotypes across 3 decorrelated species/methods (mouse genetic knockout, fetal-sheep pharmacological blockade, human clinical cohort), not a simulated curve with invented parameters."
+  },
+  "honest_gaps": [
+    "The specific Karlberg-series installment reporting the actual first-breath pressure-volume loop numbers was searched for (4 query variants + a 118-paper title scan) and not located this session -- Part I and Part III of the closely-related series were found and bibliographically confirmed instead. The 40-80 cmH2O figure remains the task's own specified, textbook-transmitted magnitude.",
+    "The '1/3 mechanical-squeeze : 2/3 active-transport' split sometimes quoted in older secondary sources was deliberately not used or verified this session -- this cert relies on necessity evidence (removing active transport causes categorical failure) instead of a quantitative partition.",
+    "No standalone simulated 'passive-only predicted clearance half-life' was computed -- Part 2's adversary-forcing rests entirely on real measured necessity phenotypes (genetic knockout, pharmacological block, clinical cohort), not a simulated passive-only rate constant.",
+    "Hummler et al 1996's delivery mode for the ENaC-KO litters is inferred (standard mouse-phenotyping practice), not directly quoted from the fetched abstract -- disclosed explicitly, core necessity conclusion holds regardless.",
+    "The inverse-Laplace calculation assumes bare/unspread-film tension applies at the pre-aeration interface (same 50-70 mN/m bracket as the surfactant cert's bare-saline comparator) -- a reasonable but not directly-measured-this-session assumption.",
+    "Part 3's bulk-viscosity-ratio cross-check (36.4x) is explicitly NOT claimed to reproduce Hooper et al 2013's measured ~100x whole-airway liquid-vs-air resistance figure -- the gap is disclosed, not smoothed over.",
+    "Papastamelos et al 1995's chest-wall-compliance measurement was made in infants/children 2wk-3.5yr old, not specifically at the moment of birth -- the closest live-verified developmental data available, a disclosed extrapolation.",
+    "This cert does not quantitatively partition how much of the measured first-breath pressure is attributable to surface tension (Part 1) vs viscous liquid-displacement resistance (Part 3) -- both are real, decorrelated contributors; no claim is made about relative shares.",
+    "Meconium aspiration syndrome (task-named dysfunction) has no dedicated citation fetched this session -- this cert's scope is the aeration/clearance mechanism, not meconium-specific pathophysiology.",
+    "The Hansen 2008 OR figures are for a COMPOSITE respiratory-morbidity outcome (TTN+RDS+PPHN together), not a TTN-specific odds ratio -- disclosed as composite, not conflated with a TTN-only figure."
+  ],
+  "couples_to": [
+    "Fetal-circulation cert (IN FLIGHT per task spec) -- checked live this session (docs/, data/MECHANISM_ANCHOR_GRAPH.json): no doc or graph node yet exists for fetal/ductus-arteriosus/foramen-ovale/PPHN circulatory-transition content (not a duplicate; a genuine open coupling point). Hooper et al 2015 directly states lung aeration triggers the pulmonary-blood-flow increase that cert's own PVR-fall/shunt-closure mechanism depends on; PPHN is the shared dysfunction-mode.",
+    "docs/MECHANISM_PULMONARY_SURFACTANT.md: direct numeric reuse -- this doc's entire Part 1 is built by INVERTING that cert's own P=2*gamma/r relation and bare/surfactant tension brackets; the mature-radius bare-tension ceiling (14.28 cmH2O) is the identical number from that cert's own F1 table, reused as a forced-adversary cross-check here. Also reuses Hooper 2013 (FRC/viscosity) and Avery-Mead 1959 (RDS) by reference.",
+    "docs/MECHANISM_PARTURITION_MYOMETRIUM.md (checked read-only): that cert models the OXYTOCIN/Ferguson-reflex mechanism driving myometrial contraction; this cert's labor-switch mechanism is driven by a DIFFERENT hormone axis (fetal adrenal-medulla catecholamines) acting on a different target organ (fetal lung epithelium, not myometrium). Shared coupling point is the EVENT of labor itself, not a shared molecular pathway -- disclosed precisely, not overclaimed.",
+    "docs/MECHANISM_MUCOCILIARY_CLEARANCE.md (checked read-only): a different clearance modality (ciliary-driven mucus transport, mature/pediatric airway) vs this cert's transepithelial Na+-driven liquid absorption at birth -- adjacent topic, decorrelated mechanism, no direct numeric dependency.",
+    "docs/MECHANISM_RESPIRATORY.md, docs/MECHANISM_CARDIAC_OUTPUT.md (checked read-only): adult/pediatric steady-state organ-system layers one developmental stage above this doc's birth-transition mechanics; same organ systems, no direct numeric dependency.",
+    "Dysfunction couplings (function<->dysfunction): RDS (surfactant deficiency, reused from surfactant cert), TTN (this cert's Hansen-2008 composite-outcome anchor), meconium aspiration (named, not separately anchored this session), PPHN (failed PVR fall, Steinhorn 2016 + Hooper 2015, coupling to the in-flight fetal-circulation cert)."
+  ]
+}

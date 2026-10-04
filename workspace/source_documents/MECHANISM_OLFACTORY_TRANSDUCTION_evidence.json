@@ -1,0 +1,188 @@
+{
+  "task": "Olfactory transduction CERT (couples nerve-conduction + GPCR/Gs-cAMP architecture shared with dopamine/serotonin + sensory/CNS layer): (1) transduction cascade, odorant -> OR (GPCR, ~400 functional human ORs per task framing, Buck & Axel 1991) -> Golf -> adenylyl cyclase III -> cAMP -> CNG channel -> Ca2+ influx -> Ca-activated Cl- channel (ANO2) amplification; one OSN expresses one OR (monogenic/monoallelic), same-OR OSNs converge on the same glomerulus; (2) the COMBINATORIAL code (Malnic, Hirono, Sato, Buck 1999): each OR recognizes multiple odorants, each odorant activates a combination of ORs, concentration changes the recruited set. FALSIFIER: force a 'one-OR-per-odorant labeled-line' adversary to reproduce Malnic 1999's measured cross-activation and concentration-dependent recruitment; quantify CNG+Cl- amplification gain and OSN dose-response. CONTESTED, held OPEN: Bushdid et al 2014's '>1 trillion odors' claim vs Gerkin & Castro 2015 and Meister 2015's critiques of the combinatorial extrapolation. Anosmia (CNGA2 loss) must abolish transduction in the model.",
+  "confidence_tier": "molecular/genomic-anchored (human OR gene family, Malnic/Godfrey/Buck 2004 PMID 14983052; mouse, Godfrey/Malnic/Buck 2004 PMID 14769939) + in-vitro/ex-vivo electrophysiology-anchored (CNG discovery, Nakamura & Gold 1987 PMID 3027574; Cl- component, Kurahashi & Yau 1993 PMID 7683113 + Lowe & Gold 1993 PMID 8232590; ANO2 heterologous expression, Stephan et al 2009 PMID 19561302) + in-vivo mouse-genetic-knockout-anchored (CNGA2, Brunet/Gold/Ngai 1996 PMID 8893025; ANO2, Billig et al 2011 PMID 21516098) + in-vivo anatomical-tracing-anchored (glomerular convergence, Vassar et al 1994 PMID 8001145 + Mombaerts et al 1996 PMID 8929536). The combinatorial-code real-data falsifier (Part 4) is ex-vivo single-cell-electrophysiology-anchored but CROSS-SPECIES (Firestein, Picco, Menini 1993 PMID 8254501: tiger salamander; the rest of the doc is mouse/human) -- disclosed, not smoothed over. The discrimination-capacity figure (Bushdid et al 2014 PMID 24653035) is human-psychophysics-anchored but GENUINELY CONTESTED by Gerkin & Castro 2015 (PMID 26151673) and Meister 2015 (PMID 26151672) -- reported open, not adjudicated.",
+  "script": "scripts/msk/olfactory_transduction.py",
+  "script_provenance": "Written fresh this session (repo-wide grep for olfact/odorant/odor/smell before starting found zero pre-existing olfactory-transduction script or doc; the only pre-existing olfaction-adjacent artifact is the anchor-graph node CHEMOSENSORY-OLFACTION-GUSTATION, a distinct data-composability cert, see distinct_from_existing_graph_node below). No collision with any concurrently-written file this session (own new script, own new data dir data/olfactory_transduction/, own new raw_fetch files prefixed olfactory_*).",
+  "raw_results": "data/olfactory_transduction/olfactory_transduction_results.json",
+  "doc": "docs/MECHANISM_OLFACTORY_TRANSDUCTION.md",
+  "raw_fetch_logs": "data/raw_fetch/olfactory_*_esearch.json, data/raw_fetch/olfactory_batch{1,2,3,4,5}_abstracts.txt, data/raw_fetch/olfactory_batch_esummary.json, data/raw_fetch/olfactory_batch2_esummary.json, data/raw_fetch/olfactory_malnic1999_epmc.json, data/raw_fetch/olfactory_malnic1999_elink.json, data/raw_fetch/olfactory_books_esummary.json + .xml, data/raw_fetch/olfactory_olender_esearch.json + esummary + abstract (all esearch/esummary/efetch calls this session, verbatim, via curl --max-time 25)",
+  "gates_summary": {
+    "overall_pass": true,
+    "n_gates": 16,
+    "n_pass": 16,
+    "bug_caught_and_fixed_this_session": "part2_nonlinear_adversary_falls FAILED on first run: the initial metric compared the two ENDPOINTS of the s>=1 stimulus-sweep subset (s=1 vs s=1000), which happened to catch a minor DECLINE (ratio 11.0->9.0) in an already-peaked curve, not the actual basal-to-suprathreshold RISE. Diagnosed by printing the full ratio(s) curve: ratio=1.00 at deep sub-threshold (s=1e-3), PEAKS at ~11.0 near the threshold-crossing (s~1), then settles to a ~9.0 plateau at deep saturation (both channels maxed out, relative boost compresses). Lowe & Gold 1993's own claim is a BASAL-vs-SUPRATHRESHOLD comparison ('suprathreshold responses are boosted relative to basal transduction noise'), not an endpoint-monotonicity claim across the whole suprathreshold range. Fixed by comparing the deep-sub-threshold basal floor against the sweep's PEAK (mechanistically correct per the citation's own two named regimes) rather than two arbitrary already-suprathreshold points. Re-run: fold-change=11.0, linear-null CV=0.0 (exactly flat) -- PASS, and now measuring the intended quantity. Disclosed per this repo's own memory note (subagent-fabricated-live-check / re-check cheap assertions yourself) -- self-caught by running the code and printing intermediate values, not asserted from narrative.",
+    "gate_strength_disclosure_not_all_equal_weight": [
+      "GENUINELY FORCED, could have failed (one did): part2_nonlinear_adversary_falls (failed once, see bug_caught_and_fixed_this_session), part4a_labeled_line_falsified_by_real_single_cell_data (real, independent, pre-1999 Firestein et al 1993 dataset -- could have shown 0% cross-activation and did not), part5_glomerular_overdetermination (two fully independent 1996/2004 papers/methods -- could have mismatched badly, matched to 1.44%), part6_cnga2_ko_void_floor (a clean structural consequence of the KO assumption, matches the cited paper's own qualitative finding).",
+      "CONSISTENCY/IMPLEMENTATION checks (calibrated FROM the citation's own verbatim number, so a pass is expected given correct arithmetic, not an independent test): part2_typical_gain_in_kurahashi_yau_band, part2_maximal_gain_within_billig_bound, part3_cooperativity_narrows_dynamic_range (exact closed-form algebra, certain to hold -- included for machine-auditability, not as evidence), part1_golf_gs_high_homology (a loose, self-set 70% floor).",
+      "ILLUSTRATIVE-TOY self-consistency (disclosed, NOT fit to unseen data): all part4b_* gates -- these check that a toy constructed by this session has the properties it was built to have; they demonstrate structural sufficiency, not an independent measurement against Malnic 1999's own (inaccessible) data tables.",
+      "BOOKKEEPING/labeling checks (weakest, included for auditability only): part3_hill_n_exceeds_unity_consistent_with_measured (hardcoded pass=True, a disclosure note not a numeric test), part7_contested_claim_not_collapsed_to_one_number (asserts two distinct verdict strings are on record, a labeling check).",
+      "REAL arithmetic, informative but not adjudicating the contested claim: part7_bushdid_number_lies_between_uncontested_bounds (a mathematical fact about power sets, placed for context)."
+    ]
+  },
+  "couples_to": [
+    "docs/MECHANISM_NERVE_CONDUCTION.md (generic HH/conduction-velocity machinery for peripheral motor/sensory axons, grep-confirmed zero olfactory content -- this doc's OSN receptor-potential output is the sensory-transduction front end that would feed into that SAME downstream machinery; structural coupling, not content overlap)",
+    "docs/MECHANISM_DOPAMINE_KINETICS.md and docs/MECHANISM_SEROTONIN_SYSTEM.md (shared Gs-family/cAMP GPCR second-messenger architecture -- Jones & Reed 1989, PMID 2499043, verbatim: Golf-alpha shares 88% amino-acid identity with Gs-alpha, the SAME G-protein family that couples dopamine D1-type and several serotonin receptors in those docs; a specific, load-bearing structural coupling, not a topic label)",
+    "data/MECHANISM_ANCHOR_GRAPH.json node CHEMOSENSORY-OLFACTION-GUSTATION (a DIFFERENT kind of thing -- a data-composability HONEST-NEGATIVE cert about whether a GSE139522 transcriptomics dataset + an NHANES taste-psychophysics/mortality dataset compose into a 2-leg empirical cert; this doc is the underlying MOLECULAR MECHANISM layer, checked read-only, not edited, see distinct_from_existing_graph_node)",
+    "the sensory/CNS layer generally -- the first molecular chemosensory-transduction cascade built in mechanism this session; architecturally reusable pattern (GPCR cascade + combinatorial coding) for any future taste-transduction doc"
+  ],
+  "distinct_from_existing_graph_node": {
+    "search_performed": "repo-wide grep for olfact/odorant/odor/smell across docs/, scripts/, data/ before starting; zero pre-existing MECHANISM transduction-mechanism doc or script found. One pre-existing anchor-graph node found: CHEMOSENSORY-OLFACTION-GUSTATION.",
+    "graph_node_checked_read_only": "CHEMOSENSORY-OLFACTION-GUSTATION",
+    "why_distinct": "That node's claim is 'FORCED HONEST-NEGATIVE: olfaction has 1 uncrossed leg, no 2nd leg, no anchor' -- a verdict about whether TWO SPECIFIC DATASETS (GSE139522 olfactory-epithelium transcriptomics; an NHANES taste exam) compose into a 2-leg empirical cert at the population/dataset level. This doc supplies the LOWER, physical/molecular mechanistic layer (the OR-GPCR-Golf-AC3-cAMP-CNG-Cl- cascade, the combinatorial-coding falsifier, the anatomy) that any such dataset-level cert would implicitly assume as its substrate -- the same relationship dopamine_kinetics.py has to NEU-REWARD-DOPAMINE, and serotonin_system.py has to the PSYCH-* clinical-subtype nodes."
+  },
+  "citations_verified_live_this_session": {
+    "buck_axel_1991_or_family": {
+      "pmid": "1840504", "doi": "10.1016/0092-8674(91)90418-x",
+      "cite": "Buck L, Axel R (1991). A novel multigene family may encode odorant receptors: a molecular basis for odor recognition. Cell 65(1):175-87.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: 'we have cloned and characterized 18 different members of an extremely large multigene family that encodes seven transmembrane domain proteins whose expression is restricted to the olfactory epithelium.' Does NOT itself state a ~400 or ~1000 total-gene-count figure -- that figure comes from later papers (Chess et al 1994's ~1000 estimate; Malnic/Godfrey/Buck 2004's 339 human / Godfrey/Malnic/Buck 2004's 913 mouse genomic counts, below). The task's own '~400 functional human ORs, Buck & Axel 1991' framing conflates the DISCOVERY paper with a LATER gene-count estimate -- corrected here, not silently repeated."
+    },
+    "jones_reed_1989_golf": {
+      "pmid": "2499043", "doi": "10.1126/science.2499043",
+      "cite": "Jones DT, Reed RR (1989). Golf: an olfactory neuron specific-G protein involved in odorant signal transduction. Science 244(4906):790-5.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: 'Golf alpha shares extensive amino acid identity (88 percent) with the stimulatory G protein, Gs alpha... expression of Golf alpha in S49 cyc- kin- cells, a line deficient in endogenous stimulatory G proteins, demonstrates its capacity to stimulate adenylate cyclase in a heterologous system.' THE anchor for the Golf-Gs structural-homology coupling claim (couples_to)."
+    },
+    "bakalyar_reed_1990_ac3": {
+      "pmid": "2255909", "doi": "10.1126/science.2255909",
+      "cite": "Bakalyar HA, Reed RR (1990). Identification of a specialized adenylyl cyclase that may mediate odorant detection. Science 250(4986):1403-6.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: adenylyl cyclase 'type III... expression was localized to olfactory neurons... resides in the sensory neuronal cilia... The large difference seen between basal and stimulated activity for the type III enzyme could allow considerable modulation of the intracellular cAMP concentration.'"
+    },
+    "nakamura_gold_1987_cng": {
+      "pmid": "3027574", "doi": "10.1038/325442a0",
+      "cite": "Nakamura T, Gold GH (1987). A cyclic nucleotide-gated conductance in olfactory receptor cilia. Nature 325(6103):442-4.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: 'excised patches of ciliary plasma membrane...contain a conductance which is gated directly by cAMP... activated by both cAMP and cGMP.' Founding discovery of the olfactory CNG channel."
+    },
+    "kurahashi_yau_1993_cl_component": {
+      "pmid": "7683113", "doi": "10.1038/363071a0",
+      "cite": "Kurahashi T, Yau KW (1993). Co-existence of cationic and chloride components in odorant-induced current of vertebrate olfactory receptor cells. Nature 363(6424):71-4.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, PRIMARY amplification-magnitude anchor #1: 'the odorant-induced current appears to contain an inward chloride component also, which is triggered by calcium influx through the cation-selective channel. This newly found chloride component CAN BE AS LARGE AS the cationic component.' -> calibrates Part 2's 'typical' gain regime (total/CNG ratio ~2.0)."
+    },
+    "lowe_gold_1993_nonlinear_amplification": {
+      "pmid": "8232590", "doi": "10.1038/366283a0",
+      "cite": "Lowe G, Gold GH (1993). Nonlinear amplification by calcium-dependent chloride channels in olfactory receptor cells. Nature 366(6452):283-6.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, THE amplification-MECHANISM anchor: 'the Cl- current...endows the transduction current with a steep sigmoidal dependence on cyclic AMP concentration in both rat and in an amphibian, indicating a new function for the Cl- channel: nonlinear amplification of the transduction signal, whereby suprathreshold responses are boosted relative to basal transduction noise.' Also notes detection thresholds 'as low as 10(-17) M.' Directly falsifies an earlier hypothesis in the same abstract that the Cl- current 'may be absent in mammals' (aquatic-habitat-linked) -- shown present in rat too."
+    },
+    "kleene_2008_review": {
+      "pmid": "18703537", "doi": "10.1093/chemse/bjn048",
+      "cite": "Kleene SJ (2008). The electrochemical basis of odor transduction in vertebrate olfactory cilia. Chem Senses 33(9):839-59.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: 'The relation between stimulus strength and receptor current shows positive cooperativity that is attributed to the channel properties. This cooperativity amplifies the responses to sufficiently strong stimuli but reduces sensitivity and dynamic range... odor transduction is not well understood at a quantitative level' (this last clause is an honest limitation stated by the review itself, not this doc)."
+    },
+    "stephan_2009_ano2_identity": {
+      "pmid": "19561302", "doi": "10.1073/pnas.0903304106", "pmcid": "PMC2702256",
+      "cite": "Stephan AB, Shum EY, Hirsh S, Cygnar KD, Reisert J, Zhao H (2009). ANO2 is the cilial calcium-activated chloride channel that may mediate olfactory amplification. Proc Natl Acad Sci U S A 106(28):11776-81.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: 'a calcium-activated chloride conductance serves as a MAJOR amplification step [for vertebrate olfactory signal transduction]... ANO2, when expressed in HEK-293 cells, forms a CaCC and exhibits channel properties closely resembling the native olfactory CaCC.' Molecular identity of the channel named in Part 1/2."
+    },
+    "ponissery_saidu_2013_splice_isoforms": {
+      "pmid": "23669718", "doi": "10.1085/jgp.201210937", "pmcid": "PMC3664704",
+      "cite": "Ponissery Saidu S, Stephan AB, Talaga AK, Zhao H, Reisert J (2013). Channel properties of the splicing isoforms of the olfactory calcium-activated chloride channel Anoctamin 2. J Gen Physiol 141(6):691-703.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "Context only, no single Hill-coefficient number extractable from the abstract: 'four olfactory ANO2 isoforms are thus possible...the native channel may be composed of two or more splicing isoforms acting as subunits' -- the 'single ANO2 channel' framing elsewhere in this doc is a disclosed simplification."
+    },
+    "billig_2011_ano2_ko_dispensable": {
+      "pmid": "21516098", "doi": "10.1038/nn.2821",
+      "cite": "Billig GM, Pal B, Fidzinski P, Jentsch TJ (2011). Ca2+-activated Cl- currents are dispensable for olfaction. Nat Neurosci 14(6):763-9.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, THE forced-adversary anchor: 'Calcium then activates Cl(-) currents that may be UP TO TENFOLD LARGER than cation currents and are believed to powerfully amplify the response... Disruption of Ano2 in mice virtually abolished Ca(2+)-activated Cl(-) currents in the MOE and VNO. Ano2 disruption reduced fluid-phase electro-olfactogram responses by only ~40%, did NOT change air-phase electro-olfactograms and did NOT reduce performance in olfactory behavioral tasks. In contrast with the current view, cyclic nucleotide-gated cation channels do not need a boost by Cl(-) channels to achieve near-physiological levels of olfaction.' Calibrates Part 2's 'maximal' gain regime (ratio up to 11.0) AND supplies the current-vs-behavior dissociation reported in §2/§5 of the doc."
+    },
+    "malnic_1999_combinatorial_PRIMARY": {
+      "pmid": "10089886", "doi": "10.1016/s0092-8674(00)80581-4",
+      "cite": "Malnic B, Hirono J, Sato T, Buck LB (1999). Combinatorial receptor codes for odors. Cell 96(5):713-23.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract. PMC full text NOT reachable (elink dbfrom=pubmed db=pmc returns only citing articles under linkname=pubmed_pmc_refs, zero self-link; EuropePMC REST confirms isOpenAccess:N, pmcid:None, inEPMC:N) -- forced across a 3rd channel (NCBI Bookshelf NBK55985 sec 7.6.1) which corroborates the qualitative claim but supplies no extractable numeric table either. Exact odorant panel / per-OR response counts / exact concentration-recruitment magnitudes are consequently NOT independently verified this session -- an honest, forced-and-disclosed gap, not a one-shot miss.",
+      "numbers": "VERBATIM, THE primary falsifier anchor: 'we found that one OR recognizes multiple odorants and that one odorant is recognized by multiple ORs, but that different odorants are recognized by different combinations of ORs. Thus, the olfactory system uses a combinatorial receptor coding scheme to encode odor identities... slight alterations in an odorant, or a change in its concentration, can change its \"code\", potentially explaining how such changes can alter perceived odor quality.'"
+    },
+    "firestein_1993_dose_response_and_cross_activation": {
+      "pmid": "8254501", "doi": "10.1113/jphysiol.1993.sp019756", "pmcid": "PMC1143811",
+      "cite": "Firestein S, Picco C, Menini A (1993). The relation between stimulus and response in olfactory receptor cells of the tiger salamander. J Physiol 468:1-10.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract (open access, PMC1143811)",
+      "numbers": "VERBATIM, TWO decisive numeric anchors in one paper: (1) cross-activation, THE real-data falsifier for Part 4a: 'Three odorants, cineole, isoamyl acetate and acetophenone, were first applied at 5 x 10(-4) M. Out of forty-nine cells tested, 53% responded to one odorant only, 22% to two odorants and 25% to all three odorants.' (2) dose-response, THE anchor for Part 3: 'well described by the Hill equation for the three odorants with Hill coefficients higher than 1 and K1/2...ranging from 3 x 10(-6) to 9 x 10(-5) M... olfactory receptor cells are broadly tuned and have a low apparent affinity for odorants, integrate stimulus information over time, and have a narrow dynamic range.' SPECIES CAVEAT (disclosed in doc Sec 5): tiger salamander (amphibian), not mammalian -- independently, pre-dates and is methodologically decorrelated from Malnic et al 1999 (mouse, Ca-imaging + single-cell RT-PCR)."
+    },
+    "araneda_2000_molecular_receptive_range": {
+      "pmid": "11100145", "doi": "10.1038/81774",
+      "cite": "Araneda RC, Kini AD, Firestein S (2000). The molecular receptive range of an odorant receptor. Nat Neurosci 3(12):1248-55.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: 'We found a high specificity for certain molecular features, but high tolerance for others -- a strategy that enables the olfactory apparatus to be both highly discriminating, and able to recognize several thousand odorous compounds.' Corroborates the combinatorial-tuning-curve structure (single OR, graded affinity across a structural series) used illustratively in Part 4b."
+    },
+    "chess_1994_allelic_inactivation": {
+      "pmid": "8087849", "doi": "10.1016/s0092-8674(94)90562-2",
+      "cite": "Chess A, Simon I, Cedar H, Axel R (1994). Allelic inactivation regulates olfactory receptor gene expression. Cell 78(5):823-34.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, THE monogenic/monoallelic-expression anchor: 'a sensory neuron expresses a single receptor from a family of 1000 genes... in a neuron expressing a given receptor, expression derives exclusively from one allele... alleles encoding the odorant receptors are replicated asynchronously, a phenomenon consistently associated with allelic inactivation.' The '1000 genes' figure is the classic 1990s rodent-extrapolation estimate, superseded by the 2004 genomic counts below (339 human intact / 913 mouse intact) -- both figures reported, not conflated."
+    },
+    "vassar_1994_topographic_convergence": {
+      "pmid": "8001145", "doi": "10.1016/0092-8674(94)90029-9",
+      "cite": "Vassar R, Chao SK, Sitcheran R, Nunez JM, Vosshall LB, Axel R (1994). Topographic organization of sensory projections to the olfactory bulb. Cell 79(6):981-91.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: 'In situ hybridization with five different receptor probes demonstrates that axons from neurons expressing a given receptor converge on one, or at most, a few glomeruli within the olfactory bulb... the position of specific glomeruli is bilaterally symmetric and is constant in different individuals within a species.'"
+    },
+    "mombaerts_1996_visualizing_map": {
+      "pmid": "8929536", "doi": "10.1016/s0092-8674(00)81387-2",
+      "cite": "Mombaerts P, Wang F, Dulac C, Chao SK, Nemes A, Mendelsohn M, Edmondson J, Axel R (1996). Visualizing an olfactory sensory map. Cell 87(4):675-86.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, THE quantitative convergence anchor used in Part 5's over-determination gate: 'Neurons expressing a specific receptor project to only TWO topographically fixed loci among the 1800 GLOMERULI in the mouse olfactory bulb.'"
+    },
+    "malnic_godfrey_buck_2004_human_or_family": {
+      "pmid": "14983052", "doi": "10.1073/pnas.0307882100", "pmcid": "PMC356993",
+      "cite": "Malnic B, Godfrey PA, Buck LB (2004). The human olfactory receptor gene family. Proc Natl Acad Sci U S A 101(8):2584-9. (Erratum in PNAS 2004 May 4;101(18):7205 -- located by esummary, content not independently re-fetched this session, disclosed gap.)",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, THE human OR gene-count anchor: 'we identified 339 INTACT OR GENES and 297 OR PSEUDOGENES [in the human genome]... unevenly distributed among 51 different loci on 21 human chromosomes... composed of 172 SUBFAMILIES.' NOTE: this is LOWER than the task's own '~400 functional human ORs' framing -- reported as 339 (the verbatim-sourced number), the '~400' figure disclosed as a later approximation not independently re-verified this session (symmetric-QC catch, not silently repeated)."
+    },
+    "godfrey_malnic_buck_2004_mouse_or_family": {
+      "pmid": "14769939", "doi": "10.1073/pnas.0308051100", "pmcid": "PMC357068",
+      "cite": "Godfrey PA, Malnic B, Buck LB (2004). The mouse olfactory receptor gene family. Proc Natl Acad Sci U S A 101(7):2156-61.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, THE mouse OR gene-count anchor used in Part 5's over-determination gate: 'Exhaustive searches of a mouse genome database identified 913 INTACT OR GENES and 296 OR PSEUDOGENES... localized to 51 different loci on 17 chromosomes... 241 SUBFAMILIES... mouse subfamilies are usually larger than their human counterparts... mice may be superior in odor sensitivity and discrimination.' 913 (mouse) vs 339 (human, same research group, same year) is itself a decisive quantitative cross-species contrast (mouse has ~2.7x more intact OR genes)."
+    },
+    "brunet_gold_ngai_1996_cnga2_ko": {
+      "pmid": "8893025", "doi": "10.1016/s0896-6273(00)80200-7",
+      "cite": "Brunet LJ, Gold GH, Ngai J (1996). General anosmia caused by a targeted disruption of the mouse olfactory cyclic nucleotide-gated cation channel. Neuron 17(4):681-93.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, THE void-floor anchor: 'We created a mutant \"knockout\" mouse lacking functional olfactory CNG channels... excitatory responses to BOTH cAMP- and IP3-producing odorants are UNDETECTABLE in knockout mice. Our results provide direct evidence that the CNG channel subserves excitatory olfactory signal transduction, and further suggest that cAMP is the sole second messenger mediating this process.' Notably ALSO refutes a competing IP3-second-messenger hypothesis in the same result -- the CNG channel is required regardless of which second messenger is proposed."
+    },
+    "bushdid_2014_trillion": {
+      "pmid": "24653035", "doi": "10.1126/science.1249168", "pmcid": "PMC4483192",
+      "cite": "Bushdid C, Magnasco MO, Vosshall LB, Keller A (2014). Humans can discriminate more than 1 trillion olfactory stimuli. Science 343(6177):1370-2. (Erratum 2024 Feb 23, Science 383(6685):eado6457 -- located by esummary, content not independently re-fetched this session.)",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM: 'The lay and scientific literature typically claims that humans can discriminate 10,000 odors, but this number has never been empirically validated... we calculated that humans can discriminate AT LEAST 1 TRILLION olfactory stimuli.' Note: the PRE-EXISTING '10,000 odors' figure this paper displaces was ALSO never empirically validated per its own text -- neither number should be treated as settled bedrock."
+    },
+    "gerkin_castro_2015_rebuttal": {
+      "pmid": "26151673", "doi": "10.7554/eLife.08127", "pmcid": "PMC4491703",
+      "cite": "Gerkin RC, Castro JB (2015). The number of olfactory stimuli that humans can discriminate is still unknown. Elife 4:e08127.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, THE first contested-claim rebuttal: 'this claim is the result of a fragile estimation framework capable of producing nearly any result from the reported data, including values tens of orders of magnitude larger or smaller than the one originally reported... the formula used to derive this estimate is well-known to provide an UPPER bound, not a lower bound as reported. That is to say, the actual claim supported by the calculation is in fact that humans can discriminate AT MOST one trillion olfactory stimuli. We conclude that there is no evidence for the original claim.'"
+    },
+    "meister_2015_rebuttal": {
+      "pmid": "26151672", "doi": "10.7554/eLife.07865", "pmcid": "PMC4491593",
+      "cite": "Meister M (2015). On the dimensionality of odor space. Elife 4:e07865.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "VERBATIM, THE second, independent contested-claim rebuttal: 'A recent, highly publicized report claims that humans can discriminate at least 1 trillion odors... This claim is wrong. I show that the failure lies in the mathematical method used to infer the size of odor space from a limited experimental sample.' Published the SAME day as Gerkin & Castro 2015 (both eLife 2015 Jul 7), independently -- two decorrelated critiques converging on the same methodological diagnosis."
+    },
+    "olender_2016_human_or_transcriptome_context": {
+      "pmid": "27515280", "doi": "10.1186/s12864-016-2960-3", "pmcid": "PMC4982115",
+      "cite": "Olender T, Keydar I, Pinto JM, Tatarskyy P, Alkelai A, Chien MS, Fishilevich S, Restrepo D, Matsunami H, Gilad Y, Lancet D (2016). The human olfactory transcriptome. BMC Genomics 17(1):619.",
+      "verified_via": "NCBI eutils efetch, live this session, full abstract",
+      "numbers": "Context only, no clean single 'functional OR count' extractable: 'Nearly 90% of the intact OR repertoire, and ~60% of the OR pseudogenes are expressed in the olfactory epithelium... ORs transcription levels show a 1000-fold inter-paralog variation.' Attempted as a route to independently verify the task's '~400' framing; did not resolve it (disclosed gap, see malnic_godfrey_buck_2004 entry above)."
+    },
+    "ncbi_bookshelf_neurobiology_of_olfaction": {
+      "pmid": null, "doi": null, "book_rid": "NBK55985 sec ch7_sec12",
+      "cite": "NCBI Bookshelf, Neurobiology of Olfaction (CRC Press/Frontiers in Neuroscience, 2010), Chapter 7 sec 7.6.1 'Combinatorial Receptor Codes for Odorants'.",
+      "verified_via": "esearch db=books live this session (2 hits), esummary confirmed RID, WebFetch on the constructed NCBI Bookshelf URL (https://www.ncbi.nlm.nih.gov/books/NBK55985/)",
+      "numbers": "Secondary/tertiary corroboration only: confirms Malnic et al 1999's core finding in different words ('one OR can recognize multiple odorants, but different odorants are recognized by different combinations of receptors') and cites additional example odorants (lyral, eugenol) not in the verified abstract -- but supplies NO extractable numeric table (explicitly checked, disclosed). Used only as a 3rd independent channel confirming the qualitative claim, not as a numeric anchor."
+    }
+  },
+  "n_pmids_total": 23,
+  "n_pmids_with_full_verbatim_abstract": 23,
+  "n_non_pmid_secondary_sources": 1,
+  "recall_drift_instances_caught_this_session": [
+    "The task's own '~400 functional human ORs, Buck & Axel 1991' framing conflates TWO different papers/numbers: Buck & Axel 1991 (PMID 1840504) is the DISCOVERY paper (18 cloned members, no total-count claim in its own abstract); the ~400-ish figure belongs to a 2004-era genomic-count tradition, and the live-verified PRIMARY number in that tradition (Malnic, Godfrey, Buck 2004, PMID 14983052) is 339 intact human OR genes, not 400 -- caught by reading the fetched abstract directly rather than assuming the task's framing was already correct.",
+    "Kleene 2008's PMID was initially guessed differently from memory before the esearch/efetch round -- the live-verified PMID (18703537) matches the title/abstract exactly; the memory-guessed PMID was never used.",
+    "Nakamura & Gold 1987's and several other PMIDs were confirmed by title-match esummary BEFORE efetch, precisely to avoid citing a differently-numbered paper under a memorized-but-wrong PMID -- standard practice applied uniformly this session, not just where drift was caught.",
+    "An initial esearch for 'Billig...dispensable for olfaction' with a memory-recalled journal guess returned ZERO hits on the first attempt; a second, adjusted esearch (correct journal, Nat Neurosci) found PMID 21516098 -- the first guess's journal attribution was not independently verified before the retry, disclosed as a near-miss caught by the live-search step itself, not asserted from memory."
+  ]
+}

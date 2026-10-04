@@ -1,0 +1,423 @@
+{
+  "doc": "MECHANISM_CORE_STABILITY_IAP",
+  "date": "2026-07-22",
+  "topic": "Trunk/core stability and intra-abdominal pressure (IAP) as the spinal-bracing mechanism for athletic force transmission",
+  "scope_note": "Literature-grounded quantitative synthesis (not a new OpenSim build); every number below is either (a) a directly-quoted measured value from a live PubMed-verified abstract, or (b) an explicitly-labeled illustrative/order-of-magnitude computation this session performed on top of verified inputs -- the two are never conflated.",
+  "claims": [
+    {
+      "id": "C1_passive_buckling",
+      "statement": "The isolated ligamentous lumbar spine (no muscle, no IAP) is mechanically unstable and buckles far below in-vivo compressive tolerance.",
+      "pre_registered_threshold": "buckling load P_cr must sit at least 10x below a typical in-vivo compressive load for the claim to hold (task's own falsifier framing: '~90N far below hundreds-to-thousands of N')",
+      "adversary_leaning": "positive (the claim is a headline number, ~90N) -- adversary = is this a stable, replicated number, or a single fragile model artifact?",
+      "adversary_forced": "compared the THEORY paper's own two competing intervertebral force-laws (linear vs exponential) against the EXPERIMENT paper's direct cadaveric measurement -- a 6x internal spread (11-67N) in the theory paper alone is the adversary that must be resolved by the measured value, not picked to fit",
+      "measured_value": "88 N average buckling load, n=6 fresh cadaveric whole-lumbar specimens, DIRECT axial-compression-to-buckling test; significantly DECREASED with induced injury (dose-response in the right direction)",
+      "theory_range_N": [
+        11,
+        67
+      ],
+      "in_vivo_tolerance_range_N": [
+        3400,
+        17192
+      ],
+      "computed_ratio": "38.6x (NIOSH action limit) to 195.4x (extreme powerlifting) above the MEASURED 88N anchor; up to 1562.9x if the softer theoretical (exponential) model is used instead",
+      "citations": [
+        23915612,
+        23915613
+      ],
+      "verdict": "PASS -- forced adversary (theory-model sensitivity) does not overturn the conclusion; measured value clears the pre-registered 10x threshold by a wide margin at every tested in-vivo load"
+    },
+    {
+      "id": "C2_in_vivo_load",
+      "statement": "In-vivo lumbar compressive loads during heavy/competitive lifting reach far beyond the passive-spine buckling capacity.",
+      "pre_registered_threshold": "measured L4/L5 compression during a real heavy-lifting task must exceed 1000N (an order of magnitude above C1's ~90N)",
+      "measured_value": "L4/L5 compressive loads up to 17,192 N (average, national powerlifting championship, n=57: 13F+44M); L4/L5 moment up to 988 N.m; hip moment up to 1047 N.m",
+      "anchor": "WATBAK linked-segment model, cross-checked against a modern external anchor already in this repo (NIOSH biomechanical action-limit criterion, 3400N, Waters et al. 1993, PMID 8339717 -- exact 3400N figure not itself in that abstract, already disclosed in docs/MECHANISM_SPINE_FORCE.md as 'oft-cited')",
+      "citations": [
+        1758295,
+        8339717
+      ],
+      "verdict": "PASS -- clears threshold by ~10-190x depending on task severity"
+    },
+    {
+      "id": "C3_IAP_rise",
+      "statement": "IAP rises substantially during heavy lifting/near-maximal effort/Valsalva, correlating with load magnitude.",
+      "pre_registered_threshold": "measured peak IAP during a near-maximal lifting/Valsalva task must fall in or above the task's own named range (100-200 mmHg)",
+      "measured_value": "mean IAP 199.5 mmHg (26.6+/-6.7 kPa) during maximal Valsalva, individual peak 277 mmHg (36.9 kPa), n=11 males; IAP rose earlier and to greater magnitude than intra-thoracic pressure; pressures increased significantly with load lifted",
+      "corroborating_value": "IAP >200 mmHg achievable via voluntary abdominal-wall contraction (Grillner/Nilsson/Thorstensson 1978); running peak mean 38 mmHg; jump-landing average increase 89 mmHg, often >100 mmHg; anticipatory abdominal EMG onset >=50ms BEFORE foot contact in locomotion (a healthy-population feedforward analogy to C7)",
+      "citations": [
+        3367756,
+        153084
+      ],
+      "verdict": "PASS -- measured range (199.5 mean, up to 277 peak) matches/exceeds the pre-registered 100-200 mmHg band"
+    },
+    {
+      "id": "C4_naive_statics_adversary_falls",
+      "statement": "Antagonistic trunk-muscle co-contraction (the physical basis of both stiffness-bracing and IAP generation) is NOT explained by pure force/moment-balance reasoning -- only by a mechanical-STABILITY (buckling-resistance) criterion. This is the keystone result distinguishing the pressurized-cylinder+stiffness mechanism from a naive 'contract the prime movers harder' model.",
+      "pre_registered_threshold": "a pure static-equilibrium model must be FORCED as the adversary and must FAIL (predict ~0% antagonist coactivation) against real measured coactivation, while a stability-based model must survive (predict a coactivation level close to measured)",
+      "adversary_forced_via": "direct model-vs-model comparison, same subjects, same task, same paper (Cholewicki/Panjabi/Khachatryan 1997)",
+      "measured_value": "antagonistic flexor-extensor coactivation (EMG): 1.7+/-0.8% MVC (no load) -> 2.9+/-1.4% MVC (+32kg torso load), n=10",
+      "adversary_result": "inverted-pendulum model using ONLY static moment-equilibrium criteria predicted ZERO antagonistic coactivation -- FALSIFIED by the measurement",
+      "stability_model_result": "the SAME model re-run using a mechanical-STABILITY criterion predicted 1.0% MVC (no load) -> 3.1% MVC (+32kg) -- matches measurement; with passive (ligamentous) stiffness simulated at ZERO (an injury proxy), the same stability criterion demands MORE coactivation: 3.4% -> 5.5% MVC",
+      "citations": [
+        9346140
+      ],
+      "verdict": "PASS -- the forced adversary (pure statics) FALLS (predicts 0%, measured is 1.7-2.9%); the stability criterion survives (predicts 1.0-3.1%, matches); this is the single most direct, quantitative refutation of the 'core is just contracting harder' oversimplification in the verified set"
+    },
+    {
+      "id": "C5_stiffness_regime_dependence",
+      "statement": "Trunk mechanical stability/stiffness rises with co-contraction, but the relative buckling HAZARD is regime-dependent: heavy-effort tasks are comparatively SAFE (co-contraction scales up naturally), light-effort tasks carry disproportionate relative risk.",
+      "measured_value": "EMG-driven 18-DOF lumbar spine model (rigid pelvis+ribcage+5 vertebrae+90 fascicles+ligaments+facets), n=3 subjects, dynamic 3D tasks: 'ample stability safety margin during tasks that demand high muscular effort... lighter tasks present a potential hazard of spine buckling, especially if some reduction in passive joint stiffness is present'",
+      "adversary": "counter-intuitive to a naive 'heavier loads are always more dangerous' framing -- forced by the model's own explicit within-paper contrast (high-effort vs low-effort task safety margins), not cherry-picked",
+      "citations": [
+        11415593,
+        9460158,
+        2658468
+      ],
+      "companion_finding": "Gardner-Morse & Stokes 1998: forcing antagonistic abdominal coactivation in a biomechanical model INCREASED stability but at the cost of a small INCREASE in maximum spinal compression and in a muscle-fatigue-rate proxy (sum of cubed muscle stresses) -- co-contraction/pressurization is not a free lunch",
+      "verdict": "PASS (with an important nuance disclosed, not smoothed over) -- stiffness/stability rises with co-contraction, but the benefit is task/regime-conditional and carries a real (small) compressive cost"
+    },
+    {
+      "id": "C6_pressurized_cylinder_refined",
+      "statement": "IAP's spinal-unloading mechanism is best modeled as a pressurized COLUMN of fixed cross-section between rib cage and pelvis contributing an extensor moment (~10% of maximal voluntary back-extensor torque), NOT a naive constant-fraction hydraulic 'balloon push' -- the unloading effect is posture-DEPENDENT and can run OPPOSITE to the muscle-lever-arm effect.",
+      "measured_value": "IAP (measured during torque exertions) contributes ~10% of total maximal voluntary back-extensor torque and can unload the spine from compression; the unloading effect is GREATEST in a FLEXED posture -- opposite in direction to the muscle-lever-arm effect, which favors an EXTENDED posture",
+      "mechanistic_model": "the unloading effect of IAP is equivalent to a pressurised column of fixed cross-sectional area between rib cage and pelvis; a zero-longitudinal-curvature abdominal form has mechanical benefits for this effect",
+      "illustrative_crosscheck": "applying the ~10% fraction to this repo's own independently-measured erector-spinae ceiling (148.6 N.m bent / 228.0 N.m neutral) gives an illustrative 14.9-22.8 N.m IAP-moment contribution, landing at 24-36% of this repo's own independently-computed required lumbar-extensor moment (41.7-60.8 N.m across 4 already-published poses) -- order-of-magnitude consistent, NOT a validated prediction (population/task/pose mismatch, disclosed)",
+      "citations": [
+        9456383,
+        12742449
+      ],
+      "verdict": "PASS (refined, not naive) -- a real, quantified, posture-conditional mechanism, distinguishable from (and more precise than) the 'IAP just pushes the diaphragm up' folk model"
+    },
+    {
+      "id": "C7_dysfunction_pole_TrA_delay",
+      "statement": "Feedforward transversus abdominis (TrA) activation -- normally the FIRST muscle active, before the prime mover, regardless of movement direction -- is specifically delayed in chronic low-back-pain (LBP) patients, and this is not a generic reaction-time-slowing artifact.",
+      "pre_registered_threshold": "the TrA-specific deficit must replicate across at least 2 independent perturbation paradigms (different limb, different direction-set) to rule out a single-paradigm artifact adversary",
+      "adversary": "generic RT-slowing / non-specific motor deficit in LBP (would predict uniform delay across ALL muscles and ALL directions, not TrA-specific direction-independent delay)",
+      "measured_value_study1": "15 LBP patients vs 15 matched controls, rapid shoulder flexion/abduction/extension: in controls, TrA was invariably the FIRST muscle active, unaffected by movement direction; TrA contraction was significantly DELAYED in LBP with ALL movements; other muscles (rectus abdominis, erector spinae, obliques) showed delays only with SPECIFIC directions",
+      "measured_value_study2": "independent replication with a DIFFERENT perturbation (voluntary weight-shift + lower-limb movement, not upper-limb): TrA onset again delayed in LBP with movement in EACH direction, while other trunk muscles were delayed only in specific directions",
+      "adversary_result": "the direction-INDEPENDENCE of the TrA-specific delay (vs the direction-SPECIFIC delay pattern in other muscles) replicates across 2 different perturbation paradigms -- inconsistent with a generic RT-slowing confound, which would not be expected to selectively spare direction-dependence in every muscle except TrA in a consistent pattern",
+      "citations": [
+        8961451,
+        9493770
+      ],
+      "verdict": "PASS -- replicated across 2 independent paradigms; the forced adversary (generic slowing) does not naturally explain the observed direction-independent-only-for-TrA signature, though a dedicated RT-control condition is not described in either abstract (honest gap)"
+    },
+    {
+      "id": "C8_belt_effect",
+      "statement": "A weightlifting belt increases IAP (solid, replicated); whether it also reduces erector-spinae/trunk-extensor demand is CONTESTED in the primary literature, not settled.",
+      "measured_value_IAP": "McGill/Norman/Sharratt 1990 (n=6, squat lift): 99 mmHg (no belt) -> 120 mmHg (belt), p<0.0001 (+21.2%). Lander et al. 1990 (n=6, squat 90%1RM): 26.8 kPa (no belt) -> 29.1-29.2 kPa (belt), p<0.05 (+8.6-9.0%, ~201->~218-219 mmHg)",
+      "measured_value_erector_demand": "Lander et al. 1990: ES mEMG/(L5/S1) 22.3% (no belt) -> 20.0% (light belt) -> 18.1% (heavy belt), dose-dependent DECREASE, SUPPORTS reduced erector demand. McGill/Norman/Sharratt 1990: erector spinae activity tended to be lower with breath HELD (not with the belt itself); the belt did NOT augment this reduction -- DOES NOT SUPPORT a belt-specific erector reduction beyond breath-holding",
+      "citations": [
+        2709981,
+        2141312,
+        2304406
+      ],
+      "verdict": "PASS on IAP-increase (2/2 papers agree, different labs/tasks); CONTESTED on erector-demand-reduction (1 paper supports, 1 does not) -- reported honestly as a live, unresolved disagreement rather than resolved by cherry-picking the flattering result"
+    }
+  ],
+  "geometric_synthesis": {
+    "framing": "plain engineering-mechanics language only (elastic-foundation / restrained column), no cross-domain generative-design terminology imported",
+    "argument": "Crisco & Panjabi's own theoretical models (Part I) treat the lumbar spine as a column of rigid links connected by elastic (ligamentous) rotational restraints; the buckling load is governed by the restraint stiffness at each level (a weakest-link/bottleneck structure -- their linear vs exponential intervertebral force-law choice alone spans 11-67N, a 6x range, before any muscle is added). Muscular co-contraction acts as an ADDITIONAL parallel elastic restraint at each level; because active muscle short-range stiffness at even a low percentage of maximum voluntary contraction is large relative to the compliant ligamentous toe-region stiffness that dominates the unloaded (passive) case, a small measured %MVC of antagonistic coactivation (Cholewicki/Panjabi/Khachatryan's own measured 1.7-2.9%) is mechanistically positioned to move the system from an ~88N-collapse regime to a >1000N-tolerant regime. This is REASONING connecting the measured facts already cited (C1, C4), not an independent new measurement -- flagged as such.",
+    "function_dysfunction_anchor": "Panjabi 1992 (PMID 1490034) 3-subsystem model (passive=vertebrae/discs/ligaments; active=muscles/tendons; neural=CNS+mechanoreceptor control) is the EXACT, verified, load-bearing anchor for the twin's own function<->dysfunction organizing axis: normal function = neural subsystem successfully directing the active subsystem to compensate for the passive subsystem's ~88N-only capacity; dysfunction (e.g., delayed TrA feedforward, C7) = a neural-subsystem timing failure that leaves the passive+active bracing under-prepared before load arrives."
+  },
+  "computed_crosschecks": {
+    "buckling_deficit_ratios": {
+      "method": "ratio = in_vivo_compressive_load_N / passive_ligamentous_buckling_load_N; computed this session, not quoted from any single paper",
+      "P_cr_measured_N": 88.0,
+      "P_cr_measured_source": "Crisco/Panjabi/Yamamoto/Oxland 1992 Part II, PMID 23915613, n=6 cadaveric specimens",
+      "P_cr_theory_linear_N": 67.0,
+      "P_cr_theory_exponential_N": 11.0,
+      "P_cr_theory_source": "Crisco/Panjabi 1992 Part I, PMID 23915612 (model predictions, not measurements)",
+      "theory_vs_measured_error_pct": {
+        "linear_model": -23.9,
+        "exponential_model": -87.5
+      },
+      "in_vivo_load_NIOSH_action_limit_N": 3400.0,
+      "in_vivo_load_extreme_powerlifting_N": 17192.0,
+      "in_vivo_load_extreme_powerlifting_source": "Cholewicki/McGill/Norman 1991, PMID 1758295, n=57 national powerlifting championship competitors",
+      "ratio_NIOSH_over_measured_Pcr": 38.6,
+      "ratio_extreme_over_measured_Pcr": 195.4,
+      "ratio_NIOSH_over_linear_Pcr": 50.7,
+      "ratio_extreme_over_linear_Pcr": 256.6,
+      "ratio_NIOSH_over_exponential_Pcr": 309.1,
+      "ratio_extreme_over_exponential_Pcr": 1562.9,
+      "verdict": "PASS -- passive-ligamentous-only capacity sits 38.6x-195.4x (measured anchor) to as much as 1562.9x (softest theoretical model) below in-vivo compressive tolerance"
+    },
+    "harman1988_unit_crosscheck": {
+      "method": "independent kPa->mmHg conversion (1 kPa = 7.50062 mmHg) computed this session, checked against the abstract's own stated conversion",
+      "ITP_mean_kPa": 22.2,
+      "ITP_sd_kPa": 6.0,
+      "IAP_mean_kPa": 26.6,
+      "IAP_sd_kPa": 6.7,
+      "IAP_peak_individual_kPa": 36.9,
+      "ITP_mean_mmHg_computed": 166.5,
+      "IAP_mean_mmHg_computed": 199.5,
+      "IAP_peak_mmHg_computed": 276.8,
+      "IAP_peak_mmHg_abstract_stated": 277,
+      "crosscheck_diff": -0.19999999999998863,
+      "verdict": "PASS -- independent conversion (276.8 mmHg) matches abstract's own stated value (277 mmHg) to 0.2 mmHg, floating-point/rounding noise only",
+      "source": "Harman/Frykman/Clagett/Kraemer 1988, PMID 3367756, n=11 males"
+    },
+    "belt_IAP_increase_crosscheck": {
+      "mcgill_norman_sharratt_1990": {
+        "no_belt_mmHg": 99.0,
+        "belt_mmHg": 120.0,
+        "pct_change": 21.2,
+        "p_value": "<0.0001",
+        "n": 6,
+        "task": "squat lift, 72.7-90.9 kg",
+        "source_pmid": 2141312
+      },
+      "lander_1990": {
+        "no_belt_kPa": 26.8,
+        "light_belt_kPa": 29.2,
+        "heavy_belt_kPa": 29.1,
+        "no_belt_mmHg_computed": 201.0,
+        "light_belt_mmHg_computed": 219.0,
+        "heavy_belt_mmHg_computed": 218.3,
+        "pct_change_light": 9.0,
+        "pct_change_heavy": 8.6,
+        "p_value": "<0.05",
+        "n": 6,
+        "task": "parallel squat, 90% 1RM",
+        "source_pmid": 2304406
+      },
+      "verdict": "PASS (belt raises IAP) -- 2 independent labs/tasks, both p<0.05, +8.6-21.2%, converge on direction and rough magnitude"
+    },
+    "belt_erector_demand_crosscheck": {
+      "lander_1990_ES_mEMG_over_L5S1pct": {
+        "no_belt": 22.3,
+        "light_belt": 20.01,
+        "heavy_belt": 18.1,
+        "pct_change_light": -10.3,
+        "pct_change_heavy": -18.8,
+        "verdict_this_paper": "supports belt reduces erector demand, dose-dependent"
+      },
+      "mcgill_norman_sharratt_1990": {
+        "finding": "erector spinae activity tended to be lower with breath HELD (not with belt); belt did not augment this reduction",
+        "verdict_this_paper": "does NOT support a belt-SPECIFIC erector reduction beyond the breath-holding effect"
+      },
+      "verdict": "CONTESTED -- the IAP-increase half of the belt claim is solid (2/2 papers), the erector-demand-reduction half is split 1-for / 1-against in the primary literature; reported as a genuine unresolved disagreement, not smoothed over"
+    },
+    "iap_extensor_moment_illustrative_crosscheck": {
+      "method": "ILLUSTRATIVE ORDER-OF-MAGNITUDE ESTIMATE ONLY -- applies Daggfeldt & Thorstensson 2003's measured ~10% IAP-contribution fraction (measured in their own subject-specific model/cohort) to THIS REPO's own, independently-derived (different pipeline, different population: OpenSim LaiArnoldModified2017 donor) erector-spinae force-length-adjusted moment ceiling. NOT a validated prediction -- task/pose/population mismatch is a real, disclosed limitation.",
+      "iap_fraction_of_max_extensor_torque": 0.1,
+      "iap_fraction_source": "Daggfeldt & Thorstensson 2003, PMID 12742449",
+      "this_repo_erector_ceiling_bent_Nm": 148.6,
+      "this_repo_erector_ceiling_neutral_Nm": 228.0,
+      "this_repo_erector_ceiling_source": "docs/MECHANISM_ERECTOR_SPINAE.md, docs/MECHANISM_SPINE_FORCE.md (independently built/measured this repo's own OpenSim pipeline)",
+      "illustrative_iap_moment_bent_Nm": 14.9,
+      "illustrative_iap_moment_neutral_Nm": 22.8,
+      "this_repo_required_moment_bodyweight_only_Nm": 46.16,
+      "this_repo_required_moment_with_box_Nm": 60.82,
+      "this_repo_required_moment_band_pose_net_of_band_Nm": 41.749,
+      "this_repo_required_moment_band_pose_gravity_alone_Nm": 50.1,
+      "this_repo_required_moment_source": "docs/MECHANISM_SPINE_FORCE.md, docs/MECHANISM_TRUNK_FLEXORS.md",
+      "illustrative_iap_moment_as_pct_of_required": {
+        "bodyweight_only": 32.2,
+        "with_box": 24.4,
+        "band_pose_net_of_band": 35.6,
+        "band_pose_gravity_alone": 29.7
+      },
+      "verdict": "ORDER-OF-MAGNITUDE CONSISTENT (not independently validated) -- illustrative IAP moment (14.9-22.8 N.m) lands at 24-36% of this repo's own independently-computed required lumbar-extensor moment across 4 already-published poses -- plausible, not proof, cross-domain estimate"
+    }
+  },
+  "in_repo_cross_refs": {
+    "docs/MECHANISM_SPINE_FORCE.md": "required lumbar extensor moment 46.16 N.m (bodyweight-only) / 60.82 N.m (+10kg box), locked pose -35 deg; erector ceiling 148.6 N.m (bent) / 228.0 N.m (neutral); Tier2 muscle-driven compressive force estimate 2274-2985 N for a 10kg stoop lift",
+    "docs/MECHANISM_TRUNK_FLEXORS.md": "band-pose lumbar_extension demand -41.749 N.m net-of-band / -50.100 N.m gravity-alone; flexor capacity 226.0 N.m (neutral) / 282.7 N.m (30deg bent)",
+    "docs/MECHANISM_SPINE_LIGAMENTS.md": "the 5 lumbar ligament bundles (ALL/PLL/LF/ISL/SSL) this doc's C1 claim is about the AGGREGATE buckling behavior of -- same donor lineage, same single-hinge lumbar reduction"
+  },
+  "couples_to": [
+    "weightlifting-triple-extension cert (operator's own lift videos) -- the brace (IAP+co-contraction) that enables the heavy pull is THIS doc's C3/C4/C8 mechanism in vivo",
+    "spine-facet cert (in flight) -- C5/C6 stiffness+unloading is the load-sharing context facet joints operate inside",
+    "sacroiliac cert (in flight) -- Snijders/Vleeming/Stoeckart 1993 Part 1+2 (PMID 23916048, 23916049) directly name a weightlifting belt as contributing to SI-joint self-bracing/force-closure stability, the same IAP/co-contraction mechanism this doc quantifies",
+    "MECHANISM_TRUNK_FLEXORS.md / MECHANISM_ERECTOR_SPINAE.md / MECHANISM_SPINE_FORCE.md -- this doc's illustrative IAP-moment crosscheck (C6) is computed directly on top of their already-published erector-ceiling and required-moment numbers",
+    "function-vs-dysfunction organizing axis -- Panjabi 1992's 3-subsystem model (C-synthesis) is a direct, verified anchor; C7 (Hodges/Richardson TrA delay) is the dysfunction pole"
+  ],
+  "honest_gaps": [
+    "McGill & Norman 1987 (PMID 3443085), the foundational critique paper reassessing IAP's role in spinal compression, has NO abstract text retrievable via NCBI eutils this session (old Ergonomics record, matches the exact same 'no indexed abstract' pattern already documented for Pintar et al. 1992 in docs/MECHANISM_SPINE_LIGAMENTS.md) -- cited for its established role/title/DOI only, not for a specific extracted number.",
+    "Harman/Rosenstein/Frykman/Nigro 1989 belt-timing paper (PMID 2709981) reports IAP-timing effects (rises earlier with belt) but gives NO exact peak-mmHg or EMG number in its abstract -- the magnitude numbers used for C8 come from the 2 OTHER belt papers (McGill/Norman/Sharratt 1990, Lander et al. 1990), not this one.",
+    "The belt-reduces-erector-demand half of C8 is genuinely CONTESTED in the primary literature (1 paper for, 1 against) -- not resolved this session, reported as a live disagreement rather than smoothed over by picking the flattering result.",
+    "The IAP-extensor-moment crosscheck (C6) mixing Daggfeldt & Thorstensson's measured 10% fraction with this repo's own independently-derived N.m ceilings is an ILLUSTRATIVE, cross-population, cross-task, cross-pose estimate -- explicitly NOT a validated prediction; a real test would need the 10% fraction measured in the SAME pose/population/task this repo's OpenSim pipeline models.",
+    "Hodges & Richardson's exact millisecond-magnitude of the TrA delay (C7) is not extractable from either abstract fetched this session (both are qualitative: 'significantly delayed') -- the qualitative direction-independent-vs-direction-specific SIGNATURE is verified, the exact ms number is not, and neither abstract describes a dedicated general-reaction-time control condition, so the 'not a generic RT-slowing artifact' conclusion rests on the direction-independence PATTERN, not a directly measured RT-matched control.",
+    "The 3400N/6400N NIOSH action-limit/maximum-permissible-limit figures are widely cited (and already disclosed as such in this repo's own docs/MECHANISM_SPINE_FORCE.md) but the exact numbers are NOT stated in the Waters et al. 1993 abstract fetched this session (PMID 8339717) -- the abstract confirms the paper/equation exists and its biomechanical-criterion framing, not the specific N value.",
+    "All Crisco/Panjabi/Cholewicki/Gardner-Morse/Bergmark cohorts are SMALL (n=3 to n=10, one n=57 powerlifting cohort, one n=6 cadaveric) -- consistent with the era/field (1978-2003 spine biomechanics), not independently re-powered this session.",
+    "No new simulation was run on this repo's own MSK model this session -- this is a literature synthesis plus arithmetic cross-checks against ALREADY-PUBLISHED (this repo's own) OpenSim numbers, not a new build. A genuine next-step cell would ADD an IAP-generating force element (e.g., a pressurized-cavity constraint or an equivalent extensor-moment actuator, gated to the same TrA/multifidus/diaphragm/pelvic-floor co-contraction pattern) to the unified model and re-run Static Optimization -- not attempted here."
+  ],
+  "data_sources": [
+    {
+      "cite": "Crisco JJ 3rd, Panjabi MM. Euler stability of the human ligamentous lumbar spine. Part I: Theory. Clin Biomech (Bristol). 1992;7(1):19-26.",
+      "pmid": 23915612,
+      "doi": "10.1016/0268-0033(92)90003-M",
+      "n": null,
+      "measure": "theoretical buckling load: linear model 67N, exponential model 11N"
+    },
+    {
+      "cite": "Crisco JJ, Panjabi MM, Yamamoto I, Oxland TR. Euler stability of the human ligamentous lumbar spine. Part II: Experiment. Clin Biomech (Bristol). 1992;7(1):27-32.",
+      "pmid": 23915613,
+      "doi": "10.1016/0268-0033(92)90004-N",
+      "n": 6,
+      "measure": "measured average buckling load 88N, cadaveric, decreases with injury"
+    },
+    {
+      "cite": "Cholewicki J, McGill SM, Norman RW. Lumbar spine loads during the lifting of extremely heavy weights. Med Sci Sports Exerc. 1991;23(10):1179-86.",
+      "pmid": 1758295,
+      "doi": null,
+      "n": 57,
+      "measure": "L4/L5 compression up to 17192N, L4/L5 moment up to 988 N.m"
+    },
+    {
+      "cite": "Harman EA, Frykman PN, Clagett ER, Kraemer WJ. Intra-abdominal and intra-thoracic pressures during lifting and jumping. Med Sci Sports Exerc. 1988;20(2):195-201.",
+      "pmid": 3367756,
+      "doi": "10.1249/00005768-198820020-00015",
+      "n": 11,
+      "measure": "IAP mean 199.5 mmHg, peak individual 277 mmHg during Valsalva"
+    },
+    {
+      "cite": "Harman EA, Rosenstein RM, Frykman PN, Nigro GA. Effects of a belt on intra-abdominal pressure during weight lifting. Med Sci Sports Exerc. 1989;21(2):186-90.",
+      "pmid": 2709981,
+      "doi": null,
+      "n": 9,
+      "measure": "belt shifts IAP-rise timing earlier; no exact peak-mmHg or EMG number in abstract"
+    },
+    {
+      "cite": "McGill SM, Norman RW, Sharratt MT. The effect of an abdominal belt on trunk muscle activity and intra-abdominal pressure during squat lifts. Ergonomics. 1990;33(2):147-60.",
+      "pmid": 2141312,
+      "doi": "10.1080/00140139008927106",
+      "n": 6,
+      "measure": "IAP 99->120 mmHg with belt (p<0.0001); erector EMG NOT further reduced by belt beyond breath-holding"
+    },
+    {
+      "cite": "Lander JE, Simonton RL, Giacobbe JK. The effectiveness of weight-belts during the squat exercise. Med Sci Sports Exerc. 1990;22(1):117-26.",
+      "pmid": 2304406,
+      "doi": null,
+      "n": 6,
+      "measure": "IAP 26.8->29.1-29.2 kPa with belt (p<0.05); ES mEMG/L5S1 22.3%->18.1% dose-dependent decrease"
+    },
+    {
+      "cite": "McGill SM, Norman RW. Reassessment of the role of intra-abdominal pressure in spinal compression. Ergonomics. 1987;30(11):1565-88.",
+      "pmid": 3443085,
+      "doi": "10.1080/00140138708966048",
+      "n": null,
+      "measure": "no abstract text retrievable this session (honest gap)"
+    },
+    {
+      "cite": "Daggfeldt K, Thorstensson A. The role of intra-abdominal pressure in spinal unloading. J Biomech. 1997;30(11-12):1149-55.",
+      "pmid": 9456383,
+      "doi": "10.1016/s0021-9290(97)00096-1",
+      "n": null,
+      "measure": "pressurized-column model of IAP unloading, fixed cross-section between rib cage and pelvis"
+    },
+    {
+      "cite": "Daggfeldt K, Thorstensson A. The mechanics of back-extensor torque production about the lumbar spine. J Biomech. 2003;36(6):815-25.",
+      "pmid": 12742449,
+      "doi": "10.1016/s0021-9290(03)00015-0",
+      "n": null,
+      "measure": "IAP contributes ~10% of max voluntary back-extensor torque; unloading greatest in flexed posture"
+    },
+    {
+      "cite": "Hodges PW, Richardson CA. Inefficient muscular stabilization of the lumbar spine associated with low back pain. Spine. 1996;21(22):2640-50.",
+      "pmid": 8961451,
+      "doi": "10.1097/00007632-199611150-00014",
+      "n": 30,
+      "measure": "TrA first-active/direction-independent in controls; significantly delayed in LBP, all directions"
+    },
+    {
+      "cite": "Hodges PW, Richardson CA. Delayed postural contraction of transversus abdominis in low back pain associated with movement of the lower limb. J Spinal Disord. 1998;11(1):46-56.",
+      "pmid": 9493770,
+      "doi": null,
+      "n": null,
+      "measure": "replicates TrA-specific direction-independent delay with a different (leg) perturbation"
+    },
+    {
+      "cite": "Panjabi MM. The stabilizing system of the spine. Part I. Function, dysfunction, adaptation, and enhancement. J Spinal Disord. 1992;5(4):383-9.",
+      "pmid": 1490034,
+      "doi": "10.1097/00002517-199212000-00001",
+      "n": null,
+      "measure": "3-subsystem (passive/active/neural) conceptual framework"
+    },
+    {
+      "cite": "Bergmark A. Stability of the lumbar spine. A study in mechanical engineering. Acta Orthop Scand Suppl. 1989;230:1-54.",
+      "pmid": 2658468,
+      "doi": "10.3109/17453678909154177",
+      "n": null,
+      "measure": "foundational engineering-mechanics stability formalism, local/global muscle-system distinction"
+    },
+    {
+      "cite": "Gardner-Morse MG, Stokes IA. The effects of abdominal muscle coactivation on lumbar spine stability. Spine. 1998;23(1):86-91.",
+      "pmid": 9460158,
+      "doi": "10.1097/00007632-199801010-00019",
+      "n": null,
+      "measure": "forced antagonistic coactivation increases stability at cost of small compression increase"
+    },
+    {
+      "cite": "Cholewicki J, McGill SM. Mechanical stability of the in vivo lumbar spine. Clin Biomech. 1996;11(1):1-15.",
+      "pmid": 11415593,
+      "doi": "10.1016/0268-0033(95)00035-6",
+      "n": 3,
+      "measure": "ample stability margin at high effort; low-effort tasks carry disproportionate buckling hazard"
+    },
+    {
+      "cite": "Cholewicki J, Panjabi MM, Khachatryan A. Stabilizing function of trunk flexor-extensor muscles around a neutral spine posture. Spine. 1997;22(19):2207-12.",
+      "pmid": 9346140,
+      "doi": "10.1097/00007632-199710010-00003",
+      "n": 10,
+      "measure": "measured coactivation 1.7->2.9% MVC; statics-only model predicts 0% (falsified); stability model predicts 1.0->3.1% (matches)"
+    },
+    {
+      "cite": "Grillner S, Nilsson J, Thorstensson A. Intra-abdominal pressure changes during natural movements in man. Acta Physiol Scand. 1978;103(3):275-83.",
+      "pmid": 153084,
+      "doi": "10.1111/j.1748-1716.1978.tb06215.x",
+      "n": null,
+      "measure": "IAP >200mmHg achievable; jump-landing avg +89mmHg; anticipatory abdominal EMG >=50ms before foot contact"
+    },
+    {
+      "cite": "Waters TR, Putz-Anderson V, Garg A, Fine LJ. Revised NIOSH equation for the design and evaluation of manual lifting tasks. Ergonomics. 1993;36(7):749-76.",
+      "pmid": 8339717,
+      "doi": "10.1080/00140139308967940",
+      "n": null,
+      "measure": "revised lifting equation existence/framing confirmed; exact 3400N criterion not in this abstract"
+    },
+    {
+      "cite": "Snijders CJ, Vleeming A, Stoeckart R. Transfer of lumbosacral load to iliac bones and legs. Part 1: Biomechanics of self-bracing of the sacroiliac joints. Clin Biomech. 1993;8(6):285-94.",
+      "pmid": 23916048,
+      "doi": "10.1016/0268-0033(93)90002-Y",
+      "n": null,
+      "measure": "SI-joint self-bracing/force-closure model"
+    },
+    {
+      "cite": "Snijders CJ, Vleeming A, Stoeckart R. Part 2: Loading of the sacroiliac joints when lifting in a stooped posture. Clin Biomech. 1993;8(6):295-301.",
+      "pmid": 23916049,
+      "doi": "10.1016/0268-0033(93)90003-Z",
+      "n": null,
+      "measure": "explicitly names a weightlifting belt as contributing to SI-joint stability"
+    }
+  ],
+  "doi_resolve_spotcheck": {
+    "method": "curl -I HEAD request to doi.org, checked HTTP 302 + redirect target host this session",
+    "checked": [
+      {
+        "doi": "10.1016/0268-0033(92)90004-N",
+        "http": 302,
+        "redirect_host": "linkinghub.elsevier.com"
+      },
+      {
+        "doi": "10.1097/00007632-199710010-00003",
+        "http": 302,
+        "redirect_host": "journals.lww.com"
+      },
+      {
+        "doi": "10.1097/00007632-199611150-00014",
+        "http": 302,
+        "redirect_host": "journals.lww.com"
+      },
+      {
+        "doi": "10.1016/s0021-9290(03)00015-0",
+        "http": 302,
+        "redirect_host": "linkinghub.elsevier.com"
+      }
+    ],
+    "verdict": "PASS -- all 4 spot-checked DOIs resolve to the expected publisher domain for their journal (Elsevier for Clin Biomech/J Biomech, Wolters Kluwer/LWW for Spine)"
+  },
+  "overall_status_note": "OPEN / literature-verified-synthesis -- individual claims C1-C8 each carry their own PASS/CONTESTED verdict above; this doc has not yet been run through mechanism_fold/fold_gate_v2 by this subagent (no Write to the graph performed here) -- that step belongs to the launching/coordinating agent per docs/MECHANISM_HARDENED_CONVENTIONS.md section 2."
+}

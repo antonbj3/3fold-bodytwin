@@ -1,0 +1,1387 @@
+{
+  "citations": {
+    "diamant_bortoff_1969a": {
+      "pmid": "4975008",
+      "doi": "10.1152/ajplegacy.1969.216.2.301",
+      "cite": "Diamant NE, Bortoff A (1969). Nature of the intestinal slow-wave frequency gradient. Am J Physiol 216(2):301-7.",
+      "verified_via": "NCBI esearch+esummary+efetch, live this session",
+      "note": "PRIMARY mechanistic anchor: isolated/transected canine SI segments each keep oscillating at their OWN local intrinsic frequency, continuously decreasing proximal->distal -- this is the intrinsic (uncoupled) profile this model uses as its input. No abstract on record (pre-abstracting era) -- bibliographic match only (title/journal/vol/pages/DOI confirmed live)."
+    },
+    "diamant_bortoff_1969b": {
+      "pmid": "4388321",
+      "doi": "10.1152/ajplegacy.1969.216.4.734",
+      "cite": "Diamant NE, Bortoff A (1969). Effects of transection on the intestinal slow-wave frequency gradient. Am J Physiol 216(4):734-43.",
+      "verified_via": "NCBI esearch+esummary+efetch, live this session",
+      "note": "Companion paper: the INTACT gut's frequency profile is NOT the smooth continuous intrinsic gradient of paper A -- this is the qualitative plateau-vs-continuous-decline contrast this model's F1 falsifier targets. No abstract on record -- bibliographic match only."
+    },
+    "christensen_1966": {
+      "pmid": "5905350",
+      "cite": "Christensen J, Schedl HP, Clifton JA (1966). The small intestinal basic electrical rhythm (slow wave) frequency gradient in normal men and in patients with a variety of diseases. Gastroenterology 50(3):309-15.",
+      "verified_via": "NCBI esearch+esummary+efetch, live this session",
+      "note": "PRIMARY human anchor for the target cpm-by-region values (task's own stomach~3/duodenum~11-12/jejunum~9-10/ileum~7-8 band traces to this classic human study). No abstract on record (pre-abstracting era) -- bibliographic match only; the exact per-region numeric table is not machine-extractable from PubMed this session -- honest gap, task's own pre-registered band used as the numeric anchor (same pattern as this repo's gi_absorption_transit.py liquid-t1/2 gap)."
+    },
+    "ward_1994_wwv": {
+      "pmid": "7853230",
+      "doi": "10.1113/jphysiol.1994.sp020343",
+      "pmcid": "PMC1155780",
+      "cite": "Ward SM, Burns AJ, Torihashi S, Sanders KM (1994). Mutation of the proto-oncogene c-kit blocks development of interstitial cells and electrical rhythmicity in murine intestine. J Physiol 480(Pt 1):91-7.",
+      "verified_via": "NCBI esearch+esummary+efetch full abstract, live this session",
+      "numbers": "W/Wv mutants (d3-30 postpartum): few ICC in myenteric plexus vs +/+ siblings. VERBATIM: 'electrical slow waves were always present in muscles of +/+ siblings, but were absent in W/WV mice.' Muscles from W/WV mice STILL responded to intrinsic-nerve stimulation (ACh/NO responses) -- i.e. neural signalling persists, autonomous rhythmicity specifically does not. PRIMARY external anchor for the F2 (loss-of-ICC) adversary."
+    },
+    "huizinga_1995": {
+      "pmid": "7530333",
+      "doi": "10.1038/373347a0",
+      "cite": "Huizinga JD, Thuneberg L, Kluppel M, Malysz J, Mikkelsen HB, Bernstein A (1995). W/kit gene required for interstitial cells of Cajal and for intestinal pacemaker activity. Nature 373(6512):347-9.",
+      "verified_via": "NCBI esearch+esummary+efetch full abstract, live this session",
+      "numbers": "ICC express Kit receptor tyrosine kinase; W-locus (Kit) mutants 'lack the network of interstitial cells of Cajal ... and intestinal pacemaker activity.' Second, independent (different lab/mutant-allele series) confirmation of the W/Wv slow-wave-abolition finding."
+    },
+    "sanders_1996_review": {
+      "pmid": "8690216",
+      "doi": "10.1053/gast.1996.v111.pm8690216",
+      "cite": "Sanders KM (1996). A case for interstitial cells of Cajal as pacemakers and mediators of neurotransmission in the gastrointestinal tract. Gastroenterology 111(2):492-515.",
+      "verified_via": "NCBI esearch+esummary+efetch full abstract, live this session",
+      "numbers": "VERBATIM: 'slow waves originate from specific sites. These pacemaker areas are populated by networks of ICC that make GAP JUNCTIONS with smooth muscle cells... Without ICC, electrical slow waves are absent.' Gap-junction coupling is the literature-grounded justification for this model's DIFFUSIVE (electrotonic) coupling term -- not an arbitrary choice."
+    },
+    "sarna_1971_simulation": {
+      "pmid": "5555782",
+      "doi": "10.1152/ajplegacy.1971.221.1.166",
+      "cite": "Sarna SK, Daniel EE, Kingma YJ (1971). Simulation of slow-wave electrical activity of small intestine. Am J Physiol 221(1):166-75.",
+      "verified_via": "NCBI esearch+esummary+efetch, live this session",
+      "note": "METHODOLOGICAL precedent: the original coupled-relaxation-oscillator computer model of intestinal slow-wave frequency plateaus -- this script's van der Pol chain is the same model CLASS. No abstract on record (pre-abstracting era) -- bibliographic match only."
+    },
+    "szurszewski_1969_mmc": {
+      "pmid": "5353053",
+      "doi": "10.1152/ajplegacy.1969.217.6.1757",
+      "cite": "Szurszewski JH (1969). A migrating electric complex of canine small intestine. Am J Physiol 217(6):1757-63.",
+      "verified_via": "NCBI esearch+esummary+efetch, live this session",
+      "note": "Original description of the migrating motor complex (MMC). No abstract on record -- bibliographic match only."
+    },
+    "code_marlett_1975_mmc": {
+      "pmid": "1142245",
+      "doi": "10.1113/jphysiol.1975.sp010891",
+      "pmcid": "PMC1309419",
+      "cite": "Code CF, Marlett JA (1975). The interdigestive myo-electric complex of the stomach and small bowel of dogs. J Physiol 246(2):289-309.",
+      "verified_via": "NCBI esearch+esummary+efetch full abstract, live this session",
+      "numbers": "n=5 dogs, 109 complexes. VERBATIM: 'mean periods of the cycles ranged from 90 to 114 min' -- directly matches task's own MMC ~90-120 min fasting-period band. Activity-front propagation velocity 5.7-11.7 cm/min (orad) vs 0.9-2.5 cm/min (distal) -- decreasing distally (separate phenomenon from slow-wave frequency itself, reported for context)."
+    },
+    "vantrappen_1977_human_mmc": {
+      "pmid": "864008",
+      "doi": "10.1172/JCI108740",
+      "pmcid": "PMC372329",
+      "cite": "Vantrappen G, Janssens J, Hellemans J, Ghoos Y (1977). The interdigestive motor complex of normal subjects and patients with bacterial overgrowth of the small intestine. J Clin Invest 59(6):1158-66.",
+      "verified_via": "NCBI esearch+esummary+efetch full abstract, live this session",
+      "numbers": "n=18 normal humans: MMC activity front 'closely resembled the canine interdigestive motor complex.' n=5/18 bacterial-overgrowth patients had absent/greatly-disordered MMC -- confirms the MMC exists in humans with canine-comparable characteristics (cross-species anchor for MMC period)."
+    },
+    "you_chey_1984_tachygastria": {
+      "pmid": "6143703",
+      "cite": "You CH, Chey WY (1984). Study of electromechanical activity of the stomach in humans and in dogs with particular attention to tachygastria. Gastroenterology 86(6):1460-8.",
+      "verified_via": "NCBI esearch+esummary+efetch full abstract, live this session",
+      "numbers": "PRIMARY quantitative anchor for the slow-wave/contraction CEILING: 'gastric contractions detected by manometry was only LESS THAN 50% of the pacesetter potentials accompanied by action potentials'; 'NO contraction ... recorded when pacesetter potentials occurred WITHOUT action potentials.' Gastric dysrhythmia (tachygastria/tachyarrhythmia/bradygastria) induced by epinephrine in 10 dogs; phasic contractions DISAPPEARED during dysrhythmia; normal regular PSP frequency (dog) '4-5 cycles/min' needed for regular phasic contractions (disclosed as canine, not directly a human number -- honest species-scope note)."
+    },
+    "hasler_owyang_2002_dysrhythmia": {
+      "pmid": "12065286",
+      "doi": "10.1152/ajpgi.00095.2002",
+      "cite": "Owyang C, Hasler WL (2002). Physiology and pathophysiology of the interstitial cells of Cajal: from bench to bedside. VI. Pathogenesis and therapeutic approaches to human gastric dysrhythmias. Am J Physiol Gastrointest Liver Physiol 283(1):G8-15.",
+      "verified_via": "NCBI esearch+esummary+efetch full abstract, live this session",
+      "note": "Review anchor for gastric dysrhythmia (tachygastria/bradygastria) mechanisms and their link to nausea/vomiting -- corroborates the clinical reality of the F3 overshoot-adversary target phenomenon."
+    },
+    "der_silaphet_1998_wwv_peristalsis": {
+      "pmid": "9516393",
+      "doi": "10.1016/s0016-5085(98)70586-4",
+      "cite": "Der-Silaphet T, Malysz J, Hagel S, Arsenault AL, Huizinga JD (1998). Interstitial cells of Cajal direct normal propulsive contractile activity in the mouse small intestine. Gastroenterology 114(4):724-36.",
+      "verified_via": "NCBI esearch+esummary+efetch full abstract, live this session",
+      "numbers": "Control mice: peristaltic waves ~47/min proximal SI (MOUSE -- severalfold faster than human, honest species-scaling disclosure, not conflated with the human cpm targets), propagating ~2 cm/s, slow waves and pressure waves synchronized. W/Wv mice: 'such regular peristaltic waves were NOT observed. Action potentials and contractions appeared RANDOM.' SECOND, independent (organ-level motility, not just isolated muscle-strip electrophysiology) confirmation that ICC loss abolishes organized rhythm, not just a single-lab electrophysiology artifact."
+    },
+    "ordog_2000_diabetic_gastroparesis": {
+      "pmid": "11016458",
+      "doi": "10.2337/diabetes.49.10.1731",
+      "cite": "Ordog T, Takayama I, Cheung WK, Ward SM, Sanders KM (2000). Remodeling of networks of interstitial cells of Cajal in a murine model of diabetic gastroparesis. Diabetes 49(10):1731-9.",
+      "verified_via": "NCBI esearch+esummary+efetch full abstract, live this session",
+      "numbers": "Spontaneously diabetic NOD/LtJ mice: delayed gastric emptying, impaired electrical pacemaking, reduced motor neurotransmission; ICC 'greatly reduced in the distal stomach.' Mechanistic anchor for gastroparesis as an ICC-network-loss phenomenon -- motivates the F3 gastric-zone uncoupling/ectopic-focus perturbation construction."
+    },
+    "bortoff_1976_review": {
+      "pmid": "778866",
+      "doi": "10.1152/physrev.1976.56.2.418",
+      "cite": "Bortoff A (1976). Myogenic control of intestinal motility. Physiol Rev 56(2):418-34.",
+      "verified_via": "NCBI esearch+esummary+efetch, live this session",
+      "note": "Classic review of the myogenic (slow-wave) control framework. No abstract on record -- bibliographic match only."
+    },
+    "berry_2017_human_gastric_freq": {
+      "pmid": "28213666",
+      "doi": "10.1007/s11695-017-2597-6",
+      "cite": "Berry R, Cheng LK, Du P, Paskaranandavadivel N, Angeli TR, Mayne T, Beban G, O'Grady G (2017). Patterns of Abnormal Gastric Pacemaking After Sleeve Gastrectomy Defined by Laparoscopic High-Resolution Electrical Mapping. Obes Surg 27(8):1929-37.",
+      "verified_via": "NCBI esearch+esummary+efetch full abstract, live this session",
+      "numbers": "DIRECT modern human high-resolution serosal mapping (n=8): baseline gastric slow-wave frequency 2.8+/-0.3 cpm (vs 2.7+/-0.3 cpm post-op, p=0.7, frequency unchanged despite pacemaker resection) -- MODERN, directly-measured, decorrelated anchor for the 'stomach ~3 cpm' baseline used everywhere else in this document. Distal ectopic pacemaker with abnormally rapid propagation velocity emerged post-resection -- corroborates ectopic-focus dysrhythmia mechanism used in F3."
+    },
+    "wang_2021_icc_loss_aging_velocity": {
+      "pmid": "33355992",
+      "doi": "10.14814/phy2.14659",
+      "pmcid": "PMC7757374",
+      "cite": "Wang TH, Angeli TR, Ishida S, Du P, Gharibans A, Paskaranandavadivel N, Imai Y, Miyagawa T, Abell TL, Farrugia G, Cheng LK, O'Grady G (2021). The influence of interstitial cells of Cajal loss and aging on slow wave conduction velocity in the human stomach. Physiol Rep 8(24):e14659.",
+      "verified_via": "NCBI esearch+esummary+efetch full abstract, live this session",
+      "numbers": "n=42 (20 severe-dysfunction patients + 22 controls). ICC loss correlates with slow-wave VELOCITY (r2=.55, p=.03) but NOT with frequency (p=.84); aging (~13% ICC loss/decade) likewise correlates with velocity, not frequency (p=.34). IMPORTANT NUANCE / forced adversary for F2: partial/graded ICC loss does NOT proportionally degrade frequency -- only catastrophic (W/Wv-level, whole-network) loss abolishes rhythm. Motivates this model's percolation-style (threshold, not linear) sweep."
+    }
+  },
+  "params": {
+    "N": 30,
+    "n_gastric": 6,
+    "F_GASTRIC": 3.0,
+    "F_DUOD": 11.5,
+    "F_ILEUM": 7.5,
+    "lam_pre_registered": 1.0,
+    "plateau_eps_cpm_pre_registered": 0.08,
+    "plateau_min_len_pre_registered": 3
+  },
+  "gates": {
+    "F1_null_uncoupled_has_zero_qualifying_plateaus": true,
+    "F1_coupled_headline_has_ge3_plateaus": true,
+    "F1_coupled_vs_null_plateau_count_differs": true,
+    "F1_gastric_near_3cpm_pm25pct": true,
+    "F1_ileal_in_7_8_band_pm25pct": true,
+    "F1_kuramoto_cross_model_agrees_ge3_plateaus": true,
+    "F1_kuramoto_null_zero_plateaus": true,
+    "F2_wwv_SI_interior_concentration_collapses_toward_noise_floor": true,
+    "F2_wwv_SI_concentration_much_lower_than_normal": true,
+    "F2_wwv_majority_SI_nodes_lose_detectable_rhythm": true,
+    "F2_percolation_is_nonlinear_thresholdlike": true,
+    "F3_baseline_below_4cpm_threshold": true,
+    "F3_perturbed_exceeds_4cpm_tachygastria_threshold": true,
+    "F3_dysrhythmic_ratio_collapses": true,
+    "ceiling_never_exceeds_slowwave_freq_all_E": true,
+    "ceiling_monotonic_nondecreasing_in_excitability": true,
+    "ceiling_zero_at_E_zero": true,
+    "ceiling_shows_staircase_not_smooth_ge3_distinct_plateaus": true,
+    "ceiling_reproduces_you_chey_sub50pct_regime_exists": true
+  },
+  "results": {
+    "intrinsic_profile_cpm": [
+      3.0457075619631646,
+      2.8440023840639257,
+      3.1125676793709687,
+      3.141084707458682,
+      2.7073447217019244,
+      2.8046730739706525,
+      11.519176060475093,
+      11.278650567670201,
+      11.149653739417834,
+      10.85030428042918,
+      10.936257522316382,
+      10.747103572923038,
+      10.466426343764617,
+      10.45169487669738,
+      10.178822053511722,
+      9.805888739263166,
+      9.816182182829765,
+      9.44312413161478,
+      9.54481102345696,
+      9.231641548134672,
+      9.037488036772558,
+      8.789164916165495,
+      8.90077250514893,
+      8.520298838559246,
+      8.305316044066839,
+      8.142832141339808,
+      8.101585508267785,
+      7.902642696611133,
+      7.735822935217659,
+      7.564623150451182
+    ],
+    "intrinsic_jejunal_midpoint_value_cpm": 9.54481102345696,
+    "intrinsic_jejunal_in_task_band": true,
+    "K_sweep": [
+      {
+        "K": 0.0,
+        "solver_ok": true,
+        "n_nan_nodes": 0,
+        "freqs_cpm": [
+          3.037445955369595,
+          2.835140268339432,
+          3.1047116736990157,
+          3.1330947975936976,
+          2.6980424333414796,
+          2.795549644156988,
+          11.515995549064607,
+          11.276455936699914,
+          11.147860352535151,
+          10.848401604191297,
+          10.93449240607514,
+          10.744899827348465,
+          10.464147152155284,
+          10.450025505472082,
+          10.176561232765613,
+          9.80324074074074,
+          9.81378581520858,
+          9.439561254155228,
+          9.542611516626115,
+          9.229166232412714,
+          9.034725553585705,
+          8.786288724314176,
+          8.8984741498255,
+          8.517502114691602,
+          8.302333599898011,
+          8.140400143653192,
+          8.097955657598737,
+          7.899242635119459,
+          7.732239619577823,
+          7.561290210398192
+        ],
+        "gastric_mean_cpm": 2.933997462083368,
+        "n_plateaus": 0,
+        "plateaus": [],
+        "max_plateau_width": 0
+      },
+      {
+        "K": 10.0,
+        "solver_ok": true,
+        "n_nan_nodes": 0,
+        "freqs_cpm": [
+          3.079277070728145,
+          2.920910348515496,
+          3.1847318007662833,
+          3.212157969953641,
+          2.7867088607594934,
+          2.8838122605363985,
+          11.53862293144208,
+          11.29784893895669,
+          11.169193025141931,
+          10.871168242710795,
+          10.957229229646616,
+          10.767680927721589,
+          10.487381796690306,
+          10.472485118013573,
+          10.201585563665857,
+          9.829295457969703,
+          9.839825335603507,
+          9.467094552285534,
+          9.56863361954091,
+          9.256106883491434,
+          9.063368887962383,
+          8.814079020589872,
+          8.926275477688554,
+          8.546415004748338,
+          8.331711078642824,
+          8.170533240595839,
+          8.129516711833784,
+          7.93181528256155,
+          7.765640222686151,
+          7.577981800266621
+        ],
+        "gastric_mean_cpm": 3.0112663852099093,
+        "n_plateaus": 0,
+        "plateaus": [],
+        "max_plateau_width": 0
+      },
+      {
+        "K": 50.0,
+        "solver_ok": true,
+        "n_nan_nodes": 0,
+        "freqs_cpm": [
+          3.153932812754189,
+          3.1753775085019207,
+          3.4409804876917005,
+          3.4914887307236055,
+          3.053861753187137,
+          3.1385139847945878,
+          11.627972424979724,
+          11.387257969200821,
+          11.260948905109489,
+          10.961799979142768,
+          11.054990446413063,
+          10.865502044314722,
+          10.529097714736013,
+          10.529097714736013,
+          10.301682887266828,
+          9.980529475855992,
+          9.98157074132035,
+          9.567635847526358,
+          9.674057084607545,
+          9.36495895937674,
+          9.168202570074508,
+          8.918834589512928,
+          9.043067867116255,
+          8.667663758241503,
+          8.449001378607258,
+          8.276438140267928,
+          8.25485241606381,
+          8.057834549878345,
+          7.885130906435798,
+          7.638793223404997
+        ],
+        "gastric_mean_cpm": 3.24235921294219,
+        "n_plateaus": 0,
+        "plateaus": [],
+        "max_plateau_width": 0
+      },
+      {
+        "K": 150.0,
+        "solver_ok": true,
+        "n_nan_nodes": 0,
+        "freqs_cpm": [
+          3.1914232666086457,
+          3.1914232666086457,
+          4.787988645579887,
+          4.788135032556845,
+          3.1914232666086457,
+          3.1903991765239534,
+          11.710165780419143,
+          11.675586136595312,
+          11.638587227143766,
+          11.007262239827654,
+          10.991730377166155,
+          11.003511546795517,
+          10.962139896253069,
+          10.952315490673156,
+          10.492441988438232,
+          10.072262756815602,
+          10.115103460267779,
+          9.726123276561232,
+          9.926317923763179,
+          9.655077427730255,
+          9.469513396375097,
+          9.191312457280551,
+          9.302649724192277,
+          8.900320356853204,
+          8.781608635662689,
+          8.622355421198327,
+          8.593479117415287,
+          8.381801526009417,
+          8.110420360905392,
+          7.78013308315091
+        ],
+        "gastric_mean_cpm": 3.723465442414437,
+        "n_plateaus": 2,
+        "plateaus": [
+          {
+            "start": 6,
+            "end": 8,
+            "n_nodes": 3,
+            "freq_mean": 11.674779714719406,
+            "freq_std": 0.02922738509720436
+          },
+          {
+            "start": 9,
+            "end": 13,
+            "n_nodes": 5,
+            "freq_mean": 10.98339191014311,
+            "freq_std": 0.022187899368904366
+          }
+        ],
+        "max_plateau_width": 5
+      },
+      {
+        "K": 300.0,
+        "solver_ok": true,
+        "n_nan_nodes": 0,
+        "freqs_cpm": [
+          3.079919657762938,
+          3.079919657762938,
+          3.0795983307250916,
+          3.078961986774977,
+          3.078961986774977,
+          3.078961986774977,
+          12.449328372912394,
+          12.449880700047489,
+          12.158021473991452,
+          11.040617579948341,
+          11.040617579948341,
+          11.040617579948341,
+          11.040617579948341,
+          11.040334863342375,
+          11.041768603465853,
+          11.040617579948341,
+          11.024795108097141,
+          10.306800097293165,
+          10.025369849048298,
+          9.75948905109489,
+          9.665438925987758,
+          9.469513396375099,
+          9.565640927624871,
+          9.361052009456264,
+          9.366913657552354,
+          9.312935530982683,
+          9.230449197241061,
+          9.003234124914526,
+          8.504725175456882,
+          7.8550320590861125
+        ],
+        "gastric_mean_cpm": 3.07938726776265,
+        "n_plateaus": 3,
+        "plateaus": [
+          {
+            "start": 0,
+            "end": 5,
+            "n_nodes": 6,
+            "freq_mean": 3.07938726776265,
+            "freq_std": 0.00043856157955239714
+          },
+          {
+            "start": 9,
+            "end": 16,
+            "n_nodes": 8,
+            "freq_mean": 11.038748309330884,
+            "freq_std": 0.005289163664617362
+          },
+          {
+            "start": 23,
+            "end": 25,
+            "n_nodes": 3,
+            "freq_mean": 9.3469670659971,
+            "freq_std": 0.024182621324396504
+          }
+        ],
+        "max_plateau_width": 8
+      },
+      {
+        "K": 500.0,
+        "solver_ok": true,
+        "n_nan_nodes": 0,
+        "freqs_cpm": [
+          3.113306320719718,
+          3.113306320719718,
+          3.1136311987663334,
+          3.1136311987663334,
+          3.1136311987663334,
+          3.1210016922827273,
+          13.00024381203887,
+          12.926541794087667,
+          12.6263124362895,
+          11.830340455098142,
+          11.610078893407014,
+          11.305103352440506,
+          10.94055155958627,
+          10.8404855392242,
+          10.840485539224204,
+          10.71875506893755,
+          10.829452324665091,
+          10.64701273715564,
+          10.817724371227655,
+          10.630906469321102,
+          10.639778496418389,
+          10.625891171121076,
+          10.708180428134556,
+          10.533046636085627,
+          10.540287478137992,
+          10.434057971014495,
+          10.277730269637665,
+          9.692757502027575,
+          8.259751773049647,
+          7.880074669263857
+        ],
+        "gastric_mean_cpm": 3.114751321670194,
+        "n_plateaus": 2,
+        "plateaus": [
+          {
+            "start": 0,
+            "end": 5,
+            "n_nodes": 6,
+            "freq_mean": 3.114751321670194,
+            "freq_std": 0.0027990240634618736
+          },
+          {
+            "start": 19,
+            "end": 21,
+            "n_nodes": 3,
+            "freq_mean": 10.632192045620188,
+            "freq_std": 0.005741891720442415
+          }
+        ],
+        "max_plateau_width": 6
+      },
+      {
+        "K": 1000.0,
+        "solver_ok": true,
+        "n_nan_nodes": 0,
+        "freqs_cpm": [
+          3.214472509248629,
+          3.214472509248629,
+          3.214472509248629,
+          3.2141746015137245,
+          3.2141746015137245,
+          5.348587422831432,
+          14.799889398466634,
+          14.797721005677209,
+          14.798346939957154,
+          14.315410018423886,
+          13.046017842660179,
+          11.263297872340424,
+          10.863958137755988,
+          10.996315996847912,
+          10.585291970802919,
+          10.420636327817178,
+          10.578053556737464,
+          10.649802497451578,
+          10.581981653288855,
+          10.644792064981866,
+          10.250565344825588,
+          10.598659323349201,
+          10.332893730886848,
+          10.270459022852638,
+          10.407206282965282,
+          10.196269469052167,
+          10.3433901054339,
+          10.133909585260936,
+          10.332094128557353,
+          9.690736493374107
+        ],
+        "gastric_mean_cpm": 3.5700590256007945,
+        "n_plateaus": 3,
+        "plateaus": [
+          {
+            "start": 0,
+            "end": 4,
+            "n_nodes": 5,
+            "freq_mean": 3.2143533461546667,
+            "freq_std": 0.00014594438818879302
+          },
+          {
+            "start": 6,
+            "end": 8,
+            "n_nodes": 3,
+            "freq_mean": 14.798652448033666,
+            "freq_std": 0.0009112201383925044
+          },
+          {
+            "start": 16,
+            "end": 19,
+            "n_nodes": 4,
+            "freq_mean": 10.61365744311494,
+            "freq_std": 0.03371506346605891
+          }
+        ],
+        "max_plateau_width": 5
+      },
+      {
+        "K": 2000.0,
+        "solver_ok": true,
+        "n_nan_nodes": 0,
+        "freqs_cpm": [
+          3.4045528483623215,
+          3.404908898649748,
+          3.404908898649748,
+          3.4045528483623215,
+          3.4045528483623224,
+          17.44848063578123,
+          17.446661569826706,
+          17.44848063578123,
+          17.448480635781227,
+          17.447725325367053,
+          17.44848063578123,
+          17.446661569826706,
+          17.44848063578123,
+          17.448480635781227,
+          17.44848063578123,
+          17.448480635781227,
+          15.893764775413715,
+          9.517587185725871,
+          9.518579738357609,
+          9.517587185725871,
+          9.518579738357609,
+          9.517587185725871,
+          9.517587185725871,
+          7.6646383467279,
+          9.517587185725873,
+          9.517587185725873,
+          9.517587185725873,
+          7.947738277268095,
+          7.946909783754357,
+          9.516594840069972
+        ],
+        "gastric_mean_cpm": 5.74532616302795,
+        "n_plateaus": 4,
+        "plateaus": [
+          {
+            "start": 0,
+            "end": 4,
+            "n_nodes": 5,
+            "freq_mean": 3.4046952684772926,
+            "freq_std": 0.00017442830539319098
+          },
+          {
+            "start": 5,
+            "end": 15,
+            "n_nodes": 11,
+            "freq_mean": 17.448081231933667,
+            "freq_std": 0.000702834388072011
+          },
+          {
+            "start": 17,
+            "end": 22,
+            "n_nodes": 6,
+            "freq_mean": 9.517918036603119,
+            "freq_std": 0.000467893797724239
+          },
+          {
+            "start": 24,
+            "end": 26,
+            "n_nodes": 3,
+            "freq_mean": 9.517587185725873,
+            "freq_std": 0.0
+          }
+        ],
+        "max_plateau_width": 11
+      },
+      {
+        "K": 8000.0,
+        "solver_ok": true,
+        "n_nan_nodes": 0,
+        "freqs_cpm": [
+          4.240106195511037,
+          4.240106195511037,
+          4.240548656764873,
+          4.240548656764873,
+          9.850093336579821,
+          29.676971886434163,
+          30.277180306609235,
+          30.277180306609235,
+          30.277180306609235,
+          30.277180306609235,
+          30.277180306609235,
+          30.277180306609235,
+          30.277180306609235,
+          30.277180306609235,
+          30.277180306609235,
+          27.501216363299527,
+          18.289684359223752,
+          10.333971084002362,
+          9.685426008968609,
+          9.68441605839416,
+          9.685426008968609,
+          9.685426008968609,
+          9.685426008968609,
+          9.685426008968609,
+          9.68441605839416,
+          8.208836514061252,
+          8.209692671394798,
+          9.685426008968609,
+          9.685426008968609,
+          9.685426008968609
+        ],
+        "gastric_mean_cpm": 9.4147291545943,
+        "n_plateaus": 4,
+        "plateaus": [
+          {
+            "start": 0,
+            "end": 3,
+            "n_nodes": 4,
+            "freq_mean": 4.240327426137955,
+            "freq_std": 0.00022123062691825623
+          },
+          {
+            "start": 6,
+            "end": 14,
+            "n_nodes": 9,
+            "freq_mean": 30.27718030660923,
+            "freq_std": 3.552713678800501e-15
+          },
+          {
+            "start": 18,
+            "end": 24,
+            "n_nodes": 7,
+            "freq_mean": 9.685137451661623,
+            "freq_std": 0.0004562491627792717
+          },
+          {
+            "start": 27,
+            "end": 29,
+            "n_nodes": 3,
+            "freq_mean": 9.685426008968609,
+            "freq_std": 0.0
+          }
+        ],
+        "max_plateau_width": 9
+      },
+      {
+        "K": 20000.0,
+        "solver_ok": true,
+        "n_nan_nodes": 0,
+        "freqs_cpm": [
+          5.24827738310814,
+          5.248409883754622,
+          5.24827738310814,
+          9.435156603052109,
+          24.45525386236768,
+          31.70267530452503,
+          33.918845111528036,
+          33.92011196794961,
+          33.918845111528036,
+          33.92011196794961,
+          33.918845111528036,
+          33.92011196794961,
+          33.918845111528036,
+          33.92011196794961,
+          33.918845111528036,
+          33.92011196794961,
+          33.918845111528036,
+          33.92011196794961,
+          32.868261413383365,
+          30.427232411653005,
+          26.548083292798736,
+          19.65682576073364,
+          10.998610241787791,
+          8.453408326958295,
+          8.452526569544405,
+          8.453408326958295,
+          8.452526569544405,
+          8.452526569544405,
+          8.452526569544405,
+          8.452526569544405
+        ],
+        "gastric_mean_cpm": 13.55634173665262,
+        "n_plateaus": 3,
+        "plateaus": [
+          {
+            "start": 0,
+            "end": 2,
+            "n_nodes": 3,
+            "freq_mean": 5.2483215499903,
+            "freq_std": 6.246140375948675e-05
+          },
+          {
+            "start": 6,
+            "end": 17,
+            "n_nodes": 12,
+            "freq_mean": 33.91947853973881,
+            "freq_std": 0.0006334282107864908
+          },
+          {
+            "start": 23,
+            "end": 29,
+            "n_nodes": 7,
+            "freq_mean": 8.452778500234087,
+            "freq_std": 0.00039833739594723747
+          }
+        ],
+        "max_plateau_width": 12
+      }
+    ],
+    "headline_K": 300.0,
+    "headline_region_means": {
+      "gastric_cpm": 3.07938726776265,
+      "duodenal_zone_cpm": 11.827693141369604,
+      "jejunal_zone_cpm": 10.15637860630425,
+      "ileal_zone_cpm": 8.781275217536253
+    },
+    "kuramoto_sweep": [
+      {
+        "Kp": 0.0,
+        "n_plateaus": 0,
+        "freqs_cpm": [
+          3.045707561963127,
+          2.844002384063964,
+          3.112567679370937,
+          3.1410847074587194,
+          2.7073447217017543,
+          2.8046730739706516,
+          11.519176060475099,
+          11.27865056767054,
+          11.149653739417738,
+          10.85030428042912,
+          10.936257522316394,
+          10.74710357292321,
+          10.466426343764457,
+          10.451694876697248,
+          10.178822053511798,
+          9.805888739262851,
+          9.816182182829401,
+          9.443124131614546,
+          9.544811023456685,
+          9.23164154813518,
+          9.037488036772157,
+          8.789164916165157,
+          8.900772505148735,
+          8.520298838559311,
+          8.305316044067123,
+          8.142832141340099,
+          8.101585508267735,
+          7.902642696611526,
+          7.735822935217342,
+          7.564623150451191
+        ]
+      },
+      {
+        "Kp": 0.3,
+        "n_plateaus": 0,
+        "freqs_cpm": [
+          3.032784112664379,
+          2.8658082490605232,
+          3.119180072521209,
+          3.1196747553889717,
+          2.758904185383701,
+          2.759083536865374,
+          11.51021084289219,
+          11.270372424846606,
+          11.1591008951699,
+          10.88968715550866,
+          10.889644898127441,
+          10.754191649163532,
+          10.459364974875562,
+          10.458926187697477,
+          10.18084111303465,
+          9.810298518675644,
+          9.81052818403825,
+          9.493357009303828,
+          9.49343278439245,
+          9.226393618609672,
+          9.03659141694427,
+          8.84898560640665,
+          8.848609941927142,
+          8.516660450317364,
+          8.30420049756685,
+          8.122991658626038,
+          8.123544442863992,
+          7.90008668266503,
+          7.735033351941808,
+          7.577174326155773
+        ]
+      },
+      {
+        "Kp": 1.0,
+        "n_plateaus": 2,
+        "freqs_cpm": [
+          3.0200028641095975,
+          3.020054936628633,
+          3.02029511893416,
+          3.0200230640560175,
+          2.7891082574122286,
+          2.788747221086784,
+          11.432934932877517,
+          11.230796362569452,
+          11.23046179079804,
+          10.843621981305082,
+          10.843937306398422,
+          10.843890160428167,
+          10.451943962980453,
+          10.45183662136645,
+          10.193619149085082,
+          9.811288134730383,
+          9.81100980870607,
+          9.493915090516813,
+          9.493696224386705,
+          9.193520376072128,
+          9.043174938012516,
+          8.863752633023932,
+          8.863010035190145,
+          8.482877095425772,
+          8.308642915737966,
+          8.127468506395498,
+          8.128343193997022,
+          7.895051585062153,
+          7.689675425929461,
+          7.688963850412139
+        ]
+      },
+      {
+        "Kp": 2.0,
+        "n_plateaus": 4,
+        "freqs_cpm": [
+          2.9830919972084478,
+          2.98304370930294,
+          2.98285353362527,
+          2.9821975585604843,
+          2.8683956631024214,
+          2.867870472346079,
+          11.264803993388478,
+          11.264714588413847,
+          11.263723219611867,
+          10.84518879732707,
+          10.844460723521962,
+          10.844083958709508,
+          10.423196880691206,
+          10.422608024921031,
+          10.240606526402829,
+          9.820101704314531,
+          9.82170081685838,
+          9.468344940431242,
+          9.469041089560395,
+          9.201219569287181,
+          9.024748648818157,
+          8.890556324545194,
+          8.890967423821552,
+          8.436987606230781,
+          8.321499939990433,
+          8.14186014892158,
+          8.141841492356761,
+          7.799993288092999,
+          7.783031037234503,
+          7.782929866037762
+        ]
+      },
+      {
+        "Kp": 5.0,
+        "n_plateaus": 6,
+        "freqs_cpm": [
+          2.9551571809346506,
+          2.9551573087625944,
+          2.955157664132964,
+          2.9551577748840296,
+          2.955141231544687,
+          2.955090665458404,
+          11.111299586670713,
+          11.11123413758363,
+          11.111201173910066,
+          10.86949988320461,
+          10.869135826785733,
+          10.868088834837595,
+          10.383231487294838,
+          10.381952312639763,
+          10.363993152807852,
+          9.712352289875202,
+          9.711561018458838,
+          9.578221844183009,
+          9.578617458489386,
+          9.039658719980599,
+          8.989640532362127,
+          8.97347753995079,
+          8.974164500381136,
+          8.350977733418189,
+          8.319123941509602,
+          8.128789030730328,
+          8.129683172053685,
+          7.92950805105527,
+          7.9296582307905235,
+          7.929731258944304
+        ]
+      },
+      {
+        "Kp": 15.0,
+        "n_plateaus": 5,
+        "freqs_cpm": [
+          3.044979219999564,
+          3.0449801659530467,
+          3.0449809546369173,
+          3.0449711489949625,
+          3.044924386333586,
+          3.044860301955524,
+          10.60230533724268,
+          10.602241707380227,
+          10.60218777492972,
+          10.602175073867608,
+          10.602178874490384,
+          10.602201613662553,
+          10.602315789466795,
+          10.602442238542185,
+          10.360821026646695,
+          9.662961911717368,
+          9.663071599189585,
+          9.664248512189243,
+          9.665048013169418,
+          9.149887822802791,
+          8.967991084858213,
+          8.969356671708558,
+          8.970253167386977,
+          8.271979886794023,
+          8.27284488407875,
+          8.27344522078165,
+          8.273800916668423,
+          8.273997119358857,
+          8.274088333234321,
+          8.274122785594516
+        ]
+      },
+      {
+        "Kp": 40.0,
+        "n_plateaus": 3,
+        "freqs_cpm": [
+          3.444449612410432,
+          3.444420202026901,
+          3.4443655020576944,
+          3.444335168602828,
+          3.4444644689732176,
+          3.444897088593503,
+          9.845462590086576,
+          9.845896153867269,
+          9.846035601493186,
+          9.846013789674071,
+          9.845967433879762,
+          9.845948133596295,
+          9.845957120295218,
+          9.845981914330906,
+          9.846018161806857,
+          9.846071506232404,
+          9.846110912398268,
+          9.84619928677966,
+          9.84537708413117,
+          8.856264386282772,
+          8.855418059825237,
+          8.855411897632328,
+          8.855465044856697,
+          8.855520147801112,
+          8.855557989254844,
+          8.85558440789391,
+          8.855602965433926,
+          8.855615752526681,
+          8.855623689340353,
+          8.855627471550426
+        ]
+      },
+      {
+        "Kp": 100.0,
+        "n_plateaus": 2,
+        "freqs_cpm": [
+          4.737381684106603,
+          4.737332831315182,
+          4.737232955285629,
+          4.737080586073656,
+          4.736875746047795,
+          4.7366119978330445,
+          9.069448468579644,
+          9.069199255760688,
+          9.069011951810303,
+          9.068881120160611,
+          9.068802019048395,
+          9.068767143358553,
+          9.068763326218413,
+          9.06877808677822,
+          9.068799612071775,
+          9.068820528044574,
+          9.06883641841911,
+          9.068846492915762,
+          9.068851423752523,
+          9.068852883801341,
+          9.068852404208654,
+          9.068851181956832,
+          9.06884991739162,
+          9.06884891268398,
+          9.06884824463777,
+          9.068847863032401,
+          9.06884767933839,
+          9.068847611307994,
+          9.068847597706243,
+          9.068847599988768
+        ]
+      }
+    ],
+    "adler_analytic_critical_Kp": {
+      "gastroduodenal_junction_rad_per_min": 26.703537555513243,
+      "typical_adjacent_SI_pair_rad_per_min": 0.755633121196913,
+      "ratio": 35.339289407027564,
+      "interpretation": "critical coupling to lock the gastro-duodenal jump is >>1 vs a typical adjacent SI pair -- explains WHY a single uniform K can entrain the smooth SI gradient into plateaus while leaving the stomach/duodenum as permanently separate plateaus (geometric consequence of the local-gradient-vs-coupling-range criterion, not a separately assumed pyloric weak-coupling parameter)."
+    },
+    "F2_wwv": {
+      "spectral_concentration_normal_SI_mean": 0.3429134116915289,
+      "spectral_concentration_wwv_SI_mean_INCLUDING_boundary_node": 0.023694247357737785,
+      "spectral_concentration_wwv_SI_mean_interior_excl_1_boundary_node": 0.0,
+      "spectral_concentration_wwv_boundary_node_value": 0.5686619365857069,
+      "spectral_concentration_noise_floor_surrogate": 0.004376435470118833,
+      "fraction_SI_nodes_with_no_detectable_peaks_wwv": 1.0,
+      "per_node_wwv_SI_concentration": [
+        0.5686619365857069,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "F2_percolation_sweep": [
+      {
+        "frac_SI_ICC_lost": 0.0,
+        "mean_SI_spectral_concentration": 0.4385643239301051
+      },
+      {
+        "frac_SI_ICC_lost": 0.1,
+        "mean_SI_spectral_concentration": 0.3315755915184268
+      },
+      {
+        "frac_SI_ICC_lost": 0.25,
+        "mean_SI_spectral_concentration": 0.27817680929131344
+      },
+      {
+        "frac_SI_ICC_lost": 0.4,
+        "mean_SI_spectral_concentration": 0.44815183270883924
+      },
+      {
+        "frac_SI_ICC_lost": 0.5,
+        "mean_SI_spectral_concentration": 0.31428781793799315
+      },
+      {
+        "frac_SI_ICC_lost": 0.6,
+        "mean_SI_spectral_concentration": 0.21332140401272273
+      },
+      {
+        "frac_SI_ICC_lost": 0.75,
+        "mean_SI_spectral_concentration": 0.24300942547663895
+      },
+      {
+        "frac_SI_ICC_lost": 0.9,
+        "mean_SI_spectral_concentration": 0.18918052720673698
+      },
+      {
+        "frac_SI_ICC_lost": 1.0,
+        "mean_SI_spectral_concentration": 0.023714130329206135
+      }
+    ],
+    "F2_percolation_nonlinearity_max_abs_dev_from_linear": 0.17552758621909376,
+    "F3_tachygastria": {
+      "baseline_gastric_freq_cpm": 3.07938726776265,
+      "perturbed_gastric_freq_cpm": 6.3315460880666175,
+      "perturbed_node_freqs_cpm": [
+        6.137360821155185,
+        6.366513102233347,
+        6.383201209971836,
+        6.392878919608184,
+        6.3678415348055415,
+        6.3414809406256145
+      ]
+    },
+    "F3_contraction_consequence": {
+      "E_normal": 0.7,
+      "E_dysrhythmic": 0.03,
+      "normal_state_contraction_freq_cpm": 1.539693633881325,
+      "dysrhythmic_state_contraction_freq_cpm": 0.17411751742183199,
+      "normal_state_ratio": 0.5,
+      "dysrhythmic_state_ratio": 0.0275,
+      "note": "compound contraction_freq depends on BOTH the (rising) slow-wave frequency and the (falling) per-cycle ratio during dysrhythmia -- partially offsetting effects, disclosed not hidden; the gated claim targets the ratio (organized spike-bursting per cycle), the mechanistic quantity You & Chey's 'contractions disappeared' finding is actually about."
+    },
+    "ceiling_sweep_f_gastric_3cpm": [
+      {
+        "excitability": 0.0,
+        "contraction_freq_cpm": 0.0,
+        "contraction_to_slowwave_ratio": 0.0
+      },
+      {
+        "excitability": 0.025,
+        "contraction_freq_cpm": 0.075,
+        "contraction_to_slowwave_ratio": 0.025
+      },
+      {
+        "excitability": 0.05,
+        "contraction_freq_cpm": 0.15,
+        "contraction_to_slowwave_ratio": 0.05
+      },
+      {
+        "excitability": 0.07500000000000001,
+        "contraction_freq_cpm": 0.21,
+        "contraction_to_slowwave_ratio": 0.07
+      },
+      {
+        "excitability": 0.1,
+        "contraction_freq_cpm": 0.27,
+        "contraction_to_slowwave_ratio": 0.09
+      },
+      {
+        "excitability": 0.125,
+        "contraction_freq_cpm": 0.375,
+        "contraction_to_slowwave_ratio": 0.125
+      },
+      {
+        "excitability": 0.15000000000000002,
+        "contraction_freq_cpm": 0.4275,
+        "contraction_to_slowwave_ratio": 0.1425
+      },
+      {
+        "excitability": 0.17500000000000002,
+        "contraction_freq_cpm": 0.495,
+        "contraction_to_slowwave_ratio": 0.165
+      },
+      {
+        "excitability": 0.2,
+        "contraction_freq_cpm": 0.6,
+        "contraction_to_slowwave_ratio": 0.2
+      },
+      {
+        "excitability": 0.225,
+        "contraction_freq_cpm": 0.6,
+        "contraction_to_slowwave_ratio": 0.2
+      },
+      {
+        "excitability": 0.25,
+        "contraction_freq_cpm": 0.75,
+        "contraction_to_slowwave_ratio": 0.25
+      },
+      {
+        "excitability": 0.275,
+        "contraction_freq_cpm": 0.75,
+        "contraction_to_slowwave_ratio": 0.25
+      },
+      {
+        "excitability": 0.30000000000000004,
+        "contraction_freq_cpm": 0.75,
+        "contraction_to_slowwave_ratio": 0.25
+      },
+      {
+        "excitability": 0.325,
+        "contraction_freq_cpm": 0.75,
+        "contraction_to_slowwave_ratio": 0.25
+      },
+      {
+        "excitability": 0.35000000000000003,
+        "contraction_freq_cpm": 0.9975,
+        "contraction_to_slowwave_ratio": 0.3325
+      },
+      {
+        "excitability": 0.375,
+        "contraction_freq_cpm": 0.9975,
+        "contraction_to_slowwave_ratio": 0.3325
+      },
+      {
+        "excitability": 0.4,
+        "contraction_freq_cpm": 0.9975,
+        "contraction_to_slowwave_ratio": 0.3325
+      },
+      {
+        "excitability": 0.42500000000000004,
+        "contraction_freq_cpm": 0.9975,
+        "contraction_to_slowwave_ratio": 0.3325
+      },
+      {
+        "excitability": 0.45,
+        "contraction_freq_cpm": 0.9975,
+        "contraction_to_slowwave_ratio": 0.3325
+      },
+      {
+        "excitability": 0.47500000000000003,
+        "contraction_freq_cpm": 0.9975,
+        "contraction_to_slowwave_ratio": 0.3325
+      },
+      {
+        "excitability": 0.5,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.525,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.55,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.5750000000000001,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.6000000000000001,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.625,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.65,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.675,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.7000000000000001,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.7250000000000001,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.75,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.775,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.8,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.8250000000000001,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.8500000000000001,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.875,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.9,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.925,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.9500000000000001,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 0.9750000000000001,
+        "contraction_freq_cpm": 1.5,
+        "contraction_to_slowwave_ratio": 0.5
+      },
+      {
+        "excitability": 1.0,
+        "contraction_freq_cpm": 3.0,
+        "contraction_to_slowwave_ratio": 1.0
+      }
+    ],
+    "ceiling_distinct_ratio_plateaus": 13
+  },
+  "verdict": {
+    "F1_plateau_falsifier": {
+      "pass_count": 7,
+      "total": 7,
+      "PASS": true
+    },
+    "F2_wwv_falsifier": {
+      "pass_count": 4,
+      "total": 4,
+      "PASS": true
+    },
+    "F3_tachygastria_falsifier": {
+      "pass_count": 3,
+      "total": 3,
+      "PASS": true
+    },
+    "ceiling_falsifier": {
+      "pass_count": 5,
+      "total": 5,
+      "PASS": true
+    },
+    "overall_gates_pass": 19,
+    "overall_gates_total": 19
+  }
+}

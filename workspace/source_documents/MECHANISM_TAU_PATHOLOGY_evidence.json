@@ -1,0 +1,221 @@
+{
+  "task": "Tau hyperphosphorylation -> paired-helical-filament (PHF) aggregation; the Braak staging stereotyped spatial spread (entorhinal -> hippocampus/limbic -> neocortex); the tau-vs-amyloid TEMPORAL ordering + spatial mismatch (amyloid diffuse/early-plateau; tau tracks cognition + Braak stage far better -- measured tau-PET/CSF-p-tau vs cognition correlation exceeding amyloid-PET vs cognition).",
+  "confidence_tier": "in-vivo-anchored (tau-PET / CSF-plasma p-tau / Braak autopsy neuropathology) for the spatial-spread and tau-vs-amyloid-cognition legs -- the strongest, most directly in-vivo-measured half of this cert. The PHF molecular-mechanism leg is in-vitro/ex-vivo biochemical + atomic-resolution cryo-EM structural (Fitzpatrick 2017), not an in-vivo measurement. The network-diffusion geometric model is an illustrative FIRST-PRINCIPLES TOY GEOMETRY, explicitly not connectome-precision-anchored -- see symmetric_qc_open_items.",
+  "script": "scripts/msk/tau_pathology.py",
+  "raw_results": "data/tau_pathology/tau_pathology_results.json",
+  "doc": "docs/MECHANISM_TAU_PATHOLOGY.md",
+  "amyloid_companion_doc_status": "docs/MECHANISM_AMYLOID_BETA_AGGREGATION.md does NOT exist in this repo as of this session (confirmed by exhaustive find/grep at build start) -- referenced by name only per the task's framing, never read, never assumed, never mutated.",
+  "citations_verified_live_this_session": {
+    "braak_1991": {
+      "pmid": "1759558", "doi": "10.1007/BF00308809",
+      "cite": "Braak H, Braak E (1991). Neuropathological stageing of Alzheimer-related changes. Acta Neuropathol 82(4):239-59.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "n=83 autopsy brains; 6-stage scheme -- transentorhinal stages I-II, limbic stages III-IV ('mild involvement of the first Ammon's horn sector'), isocortical stages V-VI ('destruction of virtually all isocortical ASSOCIATION areas'). Re-verification note: this PMID was already flagged fetched_live=true by a PRIOR session's NEU-TAU-PROPAGATION graph node; independently re-fetched this session and matched byte-for-byte."
+    },
+    "grundke_iqbal_1986": {
+      "pmid": "3088567", "doi": "10.1073/pnas.83.13.4913",
+      "cite": "Grundke-Iqbal I, Iqbal K, Tung YC, Quinlan M, Wisniewski HM, Binder LI (1986). Abnormal phosphorylation of the microtubule-associated protein tau (tau) in Alzheimer cytoskeletal pathology. PNAS 83(13):4913-7.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (found via esearch, not recalled)",
+      "numbers": "Dephosphorylation of tissue sections with alkaline phosphatase 'dramatically increased' antibody recognition of PHF -- original discovery that PHF-tau is abnormally phosphorylated."
+    },
+    "alonso_1994": {
+      "pmid": "8202528", "doi": "10.1073/pnas.91.12.5562",
+      "cite": "Alonso AC, Zaidi T, Grundke-Iqbal I, Iqbal K (1994). Role of abnormally phosphorylated tau in the breakdown of microtubules in Alzheimer disease. PNAS 91(12):5562-6.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "AD P-tau 'bound to normal tau but not to tubulin'; addition of AD P-tau to normal-tau+tubulin mixture inhibited microtubule assembly -- direct experimental evidence of a dominant-negative sequestration mechanism, not mere loss-of-function."
+    },
+    "iqbal_1994_review": {
+      "pmid": "7888088", "doi": "10.1007/BF02816111",
+      "cite": "Iqbal K, Alonso AC, Gong CX, Khatoon S, Singh TJ, Grundke-Iqbal I (1994). Mechanism of neurofibrillary degeneration in Alzheimer's disease. Mol Neurobiol 9(1-3):119-23.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session",
+      "numbers": "'Activities of phosphoseryl/phosphothreonyl protein phosphatase 2A and nonreceptor phosphotyrosyl phosphatase(s) are decreased in AD brain' -- proposes 3-step causal chain: phosphatase defect -> hyperphosphorylation -> PHF polymerization -> microtubule breakdown."
+    },
+    "fitzpatrick_2017_cryoem": {
+      "pmid": "28678775", "doi": "10.1038/nature23002", "pmcid": "PMC5552202",
+      "cite": "Fitzpatrick AWP, Falcon B, He S, et al (2017). Cryo-EM structures of tau filaments from Alzheimer's disease. Nature 547(7662):185-190.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (found via esearch, not recalled)",
+      "numbers": "Cryo-EM maps at 3.4-3.5 Angstrom resolution; atomic models of paired helical and straight filaments; filament cores = 2 identical protofilaments, tau residues 306-378 (73-residue span), 'combined cross-beta/beta-helix structure' defining 'the seed for tau aggregation'; PHF and straight filaments are ultrastructural polymorphs (differ only in inter-protofilament packing)."
+    },
+    "kaufman_2018_seeding": {
+      "pmid": "29752551", "doi": "10.1007/s00401-018-1855-6", "pmcid": "PMC6015098",
+      "cite": "Kaufman SK, Del Tredici K, Thomas TL, Braak H, Diamond MI (2018). Tau seeding activity begins in the transentorhinal/entorhinal regions and anticipates phospho-tau pathology in Alzheimer's disease and PART. Acta Neuropathol 136(1):57-67.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (matched a prior-session graph claim byte-for-byte)",
+      "numbers": "n=247 individuals, 4 brain regions each. 'Detected the earliest and most robust seeding activity in the TRE/EC [transentorhinal/entorhinal cortex]' -- anticipates AT8-immunopositive histopathology across all NFT stages. Locus coeruleus does NOT show earliest signal (contra one competing hypothesis), supporting TRE/EC as the true anatomical origin."
+    },
+    "scholl_2016_petimaging": {
+      "pmid": "26938442", "doi": "10.1016/j.neuron.2016.01.028", "pmcid": "PMC4779187",
+      "cite": "Scholl M, Lockhart SN, Schonhaut DR, et al (2016). PET Imaging of Tau Deposition in the Aging Human Brain. Neuron 89(5):971-982.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (found via esearch, not recalled)",
+      "numbers": "'Patterns of tracer retention corresponded well with Braak staging of neurofibrillary tau pathology' -- in-vivo PET (18F-AV-1451) confirmation of an autopsy-derived staging scheme, in a mixed cognitively-normal-aging + AD sample. Older age -> increased medial-temporal-lobe tracer retention -> predicted worse episodic memory, in COGNITIVELY NORMAL older adults (not just AD patients) -- the aging-continuum coupling cited in the doc's couples_to."
+    },
+    "vogel_2020_esm": {
+      "pmid": "32457389", "doi": "10.1038/s41467-020-15701-2", "pmcid": "PMC7251068",
+      "cite": "Vogel JW, Iturria-Medina Y, Strandberg OT, Smith R, et al (2020). Spread of pathological tau proteins through communicating neurons in human Alzheimer's disease. Nat Commun 11(1):2612.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (matched a prior-session graph claim byte-for-byte)",
+      "numbers": "n=312 individuals along the AD continuum. 'Up to 70% of the variance in the overall spatial pattern of tau can be explained by' a connectome epidemic-spreading-model (ESM). 'The ESM predicts the spatial patterns of tau irrespective of whether brain Abeta is present, but regions with greater Abeta burden show greater tau than predicted by connectivity patterns' -- amyloid may accelerate spread RATE without gating the spatial PATTERN itself. This repo's own toy geometric model (script Part 2) is an independent, first-principles, from-scratch mechanism-demonstration of WHY a connectivity-based model like this ESM would be expected to work -- NOT a replacement for this real, external, n=312 anchor."
+    },
+    "cope_2018_ad_vs_psp_adversary": {
+      "pmid": "29293892", "doi": "10.1093/brain/awx347", "pmcid": "PMC5837359",
+      "cite": "Cope TE, Rittman T, Borchert RJ, et al (2018). Tau burden and the functional connectome in Alzheimer's disease and progressive supranuclear palsy. Brain 141(2):550-567.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (matched a prior-session graph claim byte-for-byte)",
+      "numbers": "n=46 (17 AD + 17 PSP + 12 controls). 'Strongly connected nodes displayed more tau pathology in Alzheimer's disease' (spread-consistent) but in PSP 'those nodes that accrued pathological tau were those that displayed graph metric properties associated with increased metabolic demand and a lack of trophic support' (vulnerability-consistent, NOT connectivity-consistent) -- the forced-adversary AD-vs-PSP dissociation on IDENTICAL methodology."
+    },
+    "franzmeier_2020_replication": {
+      "pmid": "31953405", "doi": "10.1038/s41467-019-14159-1", "pmcid": "PMC6969065",
+      "cite": "Franzmeier N, Neitzel J, Rubinski A, Smith R, et al (2020). Functional brain architecture is associated with the rate of tau accumulation in Alzheimer's disease. Nat Commun 11(1):347.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (matched a prior-session graph claim byte-for-byte)",
+      "numbers": "2 independent cohorts: 53 ADNI + 41 BioFINDER AD subjects (n=94), + 28 ADNI + 16 BioFINDER controls (n=44); total n=138. 'Higher fMRI-assessed connectivity between... ROIs is associated with correlated tau-PET accumulation... a model including baseline connectivity and tau-PET is associated with future tau-PET accumulation' -- independent replication of connectivity-rate coupling."
+    },
+    "jack_2010_original_model": {
+      "pmid": "20083042", "doi": "10.1016/S1474-4422(09)70299-6", "pmcid": "PMC2819840",
+      "cite": "Jack CR Jr, Knopman DS, Jagust WJ, et al (2010). Hypothetical model of dynamic biomarkers of the Alzheimer's pathological cascade. Lancet Neurol 9(1):119-28.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (found via esearch, not recalled)",
+      "numbers": "'Abeta biomarkers become abnormal first, before neurodegenerative biomarkers and cognitive symptoms, and neurodegenerative biomarkers become abnormal later, and correlate with clinical symptom severity' -- the original, most-cited temporal-ordering framework."
+    },
+    "jack_2013_updated_model": {
+      "pmid": "23332364", "doi": "10.1016/S1474-4422(12)70291-0", "pmcid": "PMC3622225",
+      "cite": "Jack CR Jr, Knopman DS, Jagust WJ, et al (2013). Tracking pathophysiological processes in Alzheimer's disease: an updated hypothetical model of dynamic biomarkers. Lancet Neurol 12(2):207-16.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (found via esearch, not recalled)",
+      "numbers": "Self-revision, quoted verbatim: 'the two major proteinopathies underlying AD biomarker changes, amyloid beta (Abeta) and tau, might be initiated independently in sporadic AD, in which we hypothesise that an incident Abeta pathophysiology can accelerate antecedent limbic and brainstem tauopathy' -- directly supports holding the amyloid-vs-tau-first causal question OPEN, the load-bearing citation for this doc's symmetric-QC framing."
+    },
+    "villemagne_2013_aibl_plateau": {
+      "pmid": "23477989", "doi": "10.1016/S1474-4422(13)70044-9",
+      "cite": "Villemagne VL, Burnham S, Bourgeat P, Brown B, et al (2013). Amyloid beta deposition, neurodegeneration, and cognitive decline in sporadic Alzheimer's disease: a prospective cohort study. Lancet Neurol 12(4):357-67.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (found via esearch, not recalled)",
+      "numbers": "AIBL, n=200 (163 with positive accumulation, mean follow-up 3.8y). SUVR means: HC=1.38(SD0.39), MCI=1.94(SD0.64), AD=2.27(SD0.43). Accumulation rate 0.043 SUVR/year. Years-before-dementia-onset: amyloid-positivity=17.0 (CI 14.9-19.9), hippocampal atrophy=4.2 (CI 3.6-5.1), memory impairment=3.3 (CI 2.5-4.5). 'As AD progressed, the rate of Abeta deposition slowed towards a plateau.' THE quantitative anchor for the temporal-gap computation (script Part 3): amyloid leads neurodegeneration by 12.8-13.7 years; atrophy and memory impairment are 0.9 years apart (near-coincident)."
+    },
+    "hanseeuw_2019_mediation": {
+      "pmid": "31157827", "doi": "10.1001/jamaneurol.2019.1424", "pmcid": "PMC6547132",
+      "cite": "Hanseeuw BJ, Betensky RA, Jacobs HIL, et al (2019). Association of Amyloid and Tau With Cognition in Preclinical Alzheimer Disease: A Longitudinal Study. JAMA Neurol 76(8):915-924.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (matched a prior-session graph claim byte-for-byte)",
+      "numbers": "Harvard Aging Brain Study, n=60. Antecedent Abeta rise -> tau change: beta=1.07 SUVr/SUVr (95%CI 0.13-3.46, P=.02). Tau change -> cognitive (PACC) change: beta=-3.28 z-scores/SUVr (95%CI -6.67 to -0.91, P=.001), covarying baseline Abeta and tau. 'Sequential changes... from Abeta to tau to cognition' -- serial mediation, tau is the proximate cognitive driver."
+    },
+    "lajoie_2020_tau_not_amyloid_atrophy": {
+      "pmid": "31894103", "doi": "10.1126/scitranslmed.aau5732", "pmcid": "PMC7035952",
+      "cite": "La Joie R, Visani AV, Baker SL, et al (2020). Prospective longitudinal atrophy in Alzheimer's disease correlates with the intensity and topography of baseline tau-PET. Sci Transl Med 12(524):eaau5732.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (matched a prior-session graph claim byte-for-byte)",
+      "numbers": "n=32 early-symptomatic AD, 15-month longitudinal MRI. 'The global intensity of tau-PET, but not beta-amyloid-PET, signal predicted the rate of subsequent atrophy, independent of baseline cortical thickness.' Tau-PET topography also predicted the TOPOGRAPHY of future atrophy at the single-patient level."
+    },
+    "brier_2016_same_cohort_headline": {
+      "pmid": "27169802", "doi": "10.1126/scitranslmed.aaf2362", "pmcid": "PMC5267531",
+      "cite": "Brier MR, Gordon B, Friedrichsen K, et al (2016). Tau and Abeta imaging, CSF measures, and cognition in Alzheimer's disease. Sci Transl Med 8(338):338ra66.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (found via esearch, not recalled)",
+      "numbers": "WashU Knight ADRC, cognitively normal + mild AD. Verbatim: 'Tau deposition in the temporal lobe more closely tracked dementia status and was a better predictor of cognitive performance than Abeta deposition in any region of the brain.' The single closest verbatim match to this task's own falsifier wording. Honest gap: abstract does not print the underlying r/beta statistic -- qualitative-but-explicit, not quantitative, in this dossier."
+    },
+    "ossenkoppele_2016_quantified_decorrelation": {
+      "pmid": "26962052", "doi": "10.1093/brain/aww027", "pmcid": "PMC5006248",
+      "cite": "Ossenkoppele R, Schonhaut DR, Scholl M, et al (2016). Tau PET patterns mirror clinical and neuroanatomical variability in Alzheimer's disease. Brain 139(Pt 5):1551-67.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (found via esearch, not recalled)",
+      "numbers": "n=16 AD patients with all 3 same-day PET tracers (of 20 total AD + 15 amyloid-negative controls). r(tau,FDG)=-0.49+/-0.07, r(amyloid,FDG)=0.16+/-0.09, r(tau,amyloid)=0.18+/-0.09 (all P<0.001). Amyloid bound 'diffusely throughout the neocortex' for all 3 distinct clinical AD phenotypes tested; tau/FDG localized to each phenotype's specific affected region. THE quantified same-cohort falsifier datapoint: ratio |r_tau_fdg|/|r_amyloid_fdg| = 3.06."
+    },
+    "bejanin_2017_regional_cognition": {
+      "pmid": "29053874", "doi": "10.1093/brain/awx243", "pmcid": "PMC5841139",
+      "cite": "Bejanin A, Schonhaut DR, La Joie R, et al (2017). Tau pathology and neurodegeneration contribute to cognitive impairment in Alzheimer's disease. Brain 140(12):3286-3300.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (found via esearch, not recalled)",
+      "numbers": "n=40 (5 MCI + 35 AD dementia; 12 posterior-cortical-atrophy + 8 logopenic-aphasia atypical phenotypes). Region-specific tau-PET (18F-AV-1451) uptake tracked domain-specific cognitive deficits matching known brain-behavior relationships (medial temporal->episodic memory; left posterior temporal->language; occipitotemporal->visuospatial). 'These regional relationships are weakly related to amyloid burden.'"
+    },
+    "palmqvist_2020_amyloid_gates_tau": {
+      "pmid": "32722745", "doi": "10.1001/jama.2020.12134", "pmcid": "PMC7388060",
+      "cite": "Palmqvist S, Janelidze S, Quiroz YT, et al (2020). Discriminative Accuracy of Plasma Phospho-tau217 for Alzheimer Disease vs Other Neurodegenerative Disorders. JAMA 324(8):772-781.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (matched a prior-session graph claim byte-for-byte)",
+      "numbers": "Cohort 1, n=81 (34 AD + 47 non-AD). Plasma p-tau217 vs autopsy tangle-burden: Spearman rho=0.64 (P<.001) in amyloid-positive participants, vs rho=0.15 (P=.33, NOT significant) in amyloid-negative participants -- supports an amyloid-gates-tau-magnitude relationship, held as an open tension against Vogel 2020's pattern-independent finding."
+    },
+    "marquie_2015_offtarget": {
+      "pmid": "26344059", "doi": "10.1002/ana.24517", "pmcid": "PMC4900162",
+      "cite": "Marquie M, Normandin MD, Vanderburg CR, et al (2015). Validating novel tau positron emission tomography tracer [F-18]-AV-1451 (T807) on postmortem brain tissue. Ann Neurol 78(5):787-800.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (found via esearch, not recalled)",
+      "numbers": "'[F-18]-AV-1451 off-target binding to neuromelanin- and melanin-containing cells and, to a lesser extent, to brain hemorrhagic lesions was identified' -- direct postmortem autoradiography validation study, disclosed measurement caveat."
+    },
+    "lowe_2016_offtarget": {
+      "pmid": "27296779", "doi": "10.1186/s40478-016-0315-6", "pmcid": "PMC4906968",
+      "cite": "Lowe VJ, Curran G, Fang P, et al (2016). An autoradiographic evaluation of AV-1451 Tau PET in dementia. Acta Neuropathol Commun 4(1):58.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (found via esearch, not recalled)",
+      "numbers": "n=38. 'Off-target binding was seen in vessels, iron-associated regions, substantia nigra, calcifications in the choroid plexus, and leptomeningeal melanin.' Explicit disclosed tension: AV-1451 'does not completely reflect early stage tau progression suggested by Braak neurofibrillary tangle staging.'"
+    },
+    "karikari_2020_plasma_ptau181": {
+      "pmid": "32333900", "doi": "10.1016/S1474-4422(20)30071-5",
+      "cite": "Karikari TK, Pascoal TA, Ashton NJ, et al (2020). Blood phosphorylated tau 181 as a biomarker for Alzheimer's disease. Lancet Neurol 19(5):422-433.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (matched a prior-session graph claim byte-for-byte)",
+      "numbers": "n=1131 across 4 cohorts (37 discovery + 226 TRIAD + 763 BioFINDER-2 + 105 primary-care). Plasma p-tau181 'showed gradual increases along the Alzheimer's disease continuum'; associated with PET-measured tau (AUC 83.08-93.11% across cohorts) and amyloid (AUC 76.14-88.09%). Supporting leg for a graded, blood-accessible tau biomarker."
+    },
+    "hu_2026_largest_recent_replication": {
+      "pmid": "42404124", "doi": "10.3389/fneur.2026.1877217", "pmcid": "PMC13327867",
+      "cite": "Hu G, Feng L, He L, Liu N, Wang H (2026). Sequential 18F-AV45/18F-AV1451 dual-tracer brain PET imaging in Alzheimer's disease. Front Neurol 17:1877217.",
+      "verified_via": "NCBI eutils efetch, raw abstract text, fetched live this session (found this session via an active adversarial dissent-search, not recalled -- the newest paper in this dossier)",
+      "numbers": "n=438 (325 AD + 68 MCI + 45 HC), retrospective, Sichuan China. Cognitive assessments explicitly included MMSE, MoCA, ADAS-Cog. 'Tau deposition showed stronger cognitive correlations than Abeta... Tau is an independent driver of cognitive decline, while Abeta remains relevant for amyloid-targeted therapies.' Also: Abeta-tau SUVR correlated r=0.65-0.81 -- in tension with Ossenkoppele 2016's weak r=0.18 (disclosed, not reconciled). Largest and most recent cohort in this dossier; independent geography/population from all other sites."
+    }
+  },
+  "reused_from_own_graph_not_relitigated": {
+    "node_id": "NEU-TAU-PROPAGATION",
+    "graph_path": "data/MECHANISM_ANCHOR_GRAPH.json",
+    "mechanism_grade": "SEED-DESIGN (designed hypothesis, cited literature, not yet executed as a graph cell)",
+    "note": "9 of this node's PMIDs (1759558, 32457389, 29293892, 31157827, 31894103, 32722745, 29752551, 31953405, 32333900) were flagged fetched_live=true by a PRIOR session. ALL 9 were independently re-fetched this session via NCBI eutils efetch and matched byte-for-byte against the prior claim -- a genuine re-verification, not a rubber stamp (this repo's own memory explicitly records a case where a different subagent's 'confirmed live' claim was fabricated). The node's own regime_note (shared-regional-vulnerability-gradient adversary, AD-vs-PSP dissociation) is the direct source of this doc's Section 5.1/Section 7 forced-adversary framing.",
+    "sibling_node_also_read": "NEU-ALZHEIMERS-MULTIMODAL / AUTO-CROSS-HYPOTHESIS-AD-MECHANISM-TRIANGULAT (status OPEN, SEED-DESIGN) -- names 'tau-PET-vs-Braak-vs-cognition correlation' as one of 3 legs for a broader triangulation cell this document does not resolve."
+  },
+  "part2_geometric_toy_model_falsifier": {
+    "pre_registered_thresholds": {
+      "rho_real_min": 0.75,
+      "ec_seed_rank_max": 1,
+      "scrambled_rho_max_fraction_of_real": 0.5,
+      "void_floor_range_max_fraction_of_real": 0.01,
+      "n_scramble_trials": 500,
+      "rng_seed": 20260722
+    },
+    "measured": {
+      "rho_real_ec_seed": 0.9393364366277243,
+      "ec_rank_among_10_candidate_seeds": 1,
+      "seed_sweep_gap": "tier-1/2 seeds all rho>0.7 (EC=0.939,HIP=0.843,PHC=0.791,AMY=0.738); tier-3/4 seeds all rho<0.36 (PCC=0.355,ITG=0.130,PFC=-0.070,M1S1=-0.461,V1=-0.561,PAR=-0.714)",
+      "scrambled_topology_mean_rho": -0.005146877906472594,
+      "scrambled_topology_sd": 0.3560776358492529,
+      "scrambled_topology_n_valid_trials": 500,
+      "void_floor_arrival_range_real": 3.217794974716957,
+      "void_floor_arrival_range_complete_graph": 0.0
+    },
+    "all_5_gates_PASS": true,
+    "bug_caught_and_fixed_disclosed": "First run of the scrambled-topology gate reported FALSE despite the underlying numbers (-0.005 <= 0.470) already being a clean pass -- root cause was a numpy.bool_(False) is False Python identity-comparison bug in the gate-evaluation code itself (NumPy scalars are never object-identical to the Python False singleton), not a modeling defect. Fixed to np.isfinite(...); re-ran; verified 2 independent runs produce byte-identical JSON (md5sum matched). Disclosed per the OODA/no-lazy-negative discipline -- a one-shot 'gate fails' reading was Oriented against before being accepted."
+  },
+  "part3_temporal_and_decorrelation_falsifier": {
+    "pre_registered_thresholds": {
+      "amyloid_leads_neurodegeneration_years_min": 10.0,
+      "atrophy_memory_gap_years_max": 2.0,
+      "tau_over_amyloid_fdg_ratio_min": 2.0,
+      "independent_sites_min": 3,
+      "dissenting_sites_max": 0
+    },
+    "measured": {
+      "amyloid_to_atrophy_gap_years": 12.8,
+      "amyloid_to_memory_gap_years": 13.7,
+      "atrophy_to_memory_gap_years": 0.9000000000000004,
+      "tau_over_amyloid_fdg_ratio": 3.0625,
+      "independent_sites_agreeing": 4,
+      "dissenting_sites": 0
+    },
+    "all_4_gates_PASS": true
+  },
+  "overall_verdict": {
+    "spatial_ordering_PASS": true,
+    "tau_beats_amyloid_at_tracking_disease_PASS": true,
+    "n_gates_pass": 9,
+    "n_gates_total": 9,
+    "note": "Both halves of the pre-registered falsifier PASS on machine-computed, pre-registered-threshold gates. This is NOT presented as a clean uncomplicated sweep: several genuine tensions are disclosed and NOT gated away (causal direction unresolved; amyloid may gate tau RATE without gating spatial PATTERN; amyloid-tau spatial correlation itself disagrees by cohort scale/composition; tau-PET tracer off-target binding is real; the geometric model is an explicitly-labeled toy, not a connectome)."
+  },
+  "symmetric_qc_open_items": [
+    "The amyloid-cascade CAUSAL DIRECTION (amyloid-first vs tau-first vs parallel-independent) is genuinely contested and explicitly held OPEN -- Jack et al 2013's own revision of Jack et al 2010 allows independent initiation; this document does not adjudicate it.",
+    "Amyloid may gate tau's spread RATE/magnitude (Hanseeuw 2019 beta=1.07 P=.02; Palmqvist 2020 rho=0.64 vs 0.15-NS split by amyloid status) WITHOUT gating the spatial PATTERN itself (Vogel 2020: connectome-ESM fits tau topology irrespective of amyloid status) -- an unreconciled hidden-variable tension.",
+    "The amyloid-tau spatial correlation strength itself disagrees by cohort scale/composition: weak r=0.18 in Ossenkoppele 2016's small (n=16), phenotype-diverse, amyloid-negative-control-inclusive sample vs strong r=0.65-0.81 in Hu et al 2026's large (n=438), mostly-typical-amnestic-AD sample -- reported as a genuine disclosed tension, not smoothed over.",
+    "Tau-PET tracer (AV-1451/flortaucipir) off-target binding to neuromelanin, choroid-plexus calcification, vessels, and substantia nigra is directly documented (Marquie 2015, Lowe 2016) -- a real measurement caveat; attenuation-bias reasoning argues this should WEAKEN not manufacture the tau-beats-amyloid finding, but that reasoning is not itself a new empirical datapoint.",
+    "The Part 2 network-diffusion geometric model is an explicitly-disclosed hand-specified TOY graph (10 nodes, 14 literature-informed but not DTI-derived edges) -- its role is mechanism-demonstration (hierarchical topology + correct epicenter is SUFFICIENT to reproduce stereotyped order from first principles), not a claim of connectomic precision; the real external magnitude anchor is Vogel et al 2020 (n=312, 70% variance).",
+    "No single cohort in this dossier jointly measures autopsy-Braak-stage AND connectome-ESM-fit AND biochemical-seeding-assay in the SAME subjects -- the 4 spatial-spread legs corroborate across different cohorts, the same disclosed limitation already present in this repo's own prior-session NEU-TAU-PROPAGATION graph-node design.",
+    "Brier et al 2016's headline same-cohort quote ('tau... was a better predictor of cognitive performance than Abeta... in any region') is verified verbatim but is qualitative -- the abstract does not print the underlying r/beta statistic, so it is used as a corroborating, not a quantitative, leg.",
+    "The adversarial dissent-search (hunting for a same-cohort finding where amyloid beats tau at tracking cognition) was a targeted 3-query search this session, not a systematic review -- absence-of-finding is reported exactly as that, an honest negative search result, not proof no such finding exists in the wider literature.",
+    "The UCSF-site convergence count was deliberately DE-INFLATED (3 papers sharing the same Rabinovici/Jagust-affiliated recruitment base counted as ONE site, not three) to avoid a common-mode over-count -- a correction against the claim's apparent strength, disclosed for transparency."
+  ],
+  "couples_to": [
+    "docs/MECHANISM_AMYLOID_BETA_AGGREGATION.md (does NOT exist in this repo as of this session -- confirmed by exhaustive find/grep; referenced by name only per the task's own framing, never assumed, never read, never mutated)",
+    "NEU-TAU-PROPAGATION (data/MECHANISM_ANCHOR_GRAPH.json, OPEN/SEED-DESIGN -- this doc's 4-leg spatial-spread evidence and part of its convergence tally directly extend that node's own datapoints, independently re-verified live this session, not re-litigated)",
+    "NEU-ALZHEIMERS-MULTIMODAL / AUTO-CROSS-HYPOTHESIS-AD-MECHANISM-TRIANGULAT (same graph, OPEN/SEED-DESIGN -- names tau-PET-vs-Braak-vs-cognition as one of 3 legs for a broader triangulation cell this doc does not resolve)",
+    "NEU-GLIA-NEUROINFLAMMATION / NEU-MICROGLIA-ACTIVATION-STATE (same graph -- downstream neurodegeneration coupling named, not modeled, here)",
+    "PSY-COGNITIVE-AGING-TRAJECTORY (same graph) and Scholl 2016 (PMID 26938442) directly -- medial-temporal tau tracer retention in COGNITIVELY NORMAL older adults predicting worse episodic memory shows this is an aging-continuum process, not an AD-exclusive one",
+    "BRAIN-CONNECTOME-CENTRAL-COMPUTE (same graph, WEAKENED -- this doc's toy diffusion graph is conceptually adjacent but does not resolve that node's own disclosed cross-scale-connectome defect)"
+  ]
+}

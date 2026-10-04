@@ -1,0 +1,112 @@
+{
+  "task": "Test the inverted-pendulum energy-exchange model of normal walking (anti-phase KE/PE trade-off, Cavagna-style % energy recovery; GRF double-hump M-shape; double-support fraction; Froude-number walk-run-transition consistency) directly against the twin's OWN measured subject2_walking1 trial (raw force-plate GRF + IK kinematics + the twin's own scaled OpenSim model), not literature alone -- the function baseline that makes pathological gait measurable-from-video as a deviation.",
+  "confidence_tier": "first-party numerical analysis on the twin's own raw, measured force-plate GRF (2000 Hz) + IK kinematics (100 Hz) + scaled-model geometry, this session, machine-checked against 7 pre-registered gates (7/7 PASS) -- plus 6 literature citations verified live via NCBI eutils this session (PMID/DOI/title/journal/date confirmed for every one; full abstract text retrieved for 5/6, one older review (Alexander 1989) has no abstract on record in MEDLINE, disclosed rather than quoted-from-memory).",
+  "script": "scripts/msk/gait_mechanics.py",
+  "raw_results": "reports/probes/gait_mechanics_results.json",
+  "doc": "docs/MECHANISM_GAIT_MECHANICS.md",
+  "data_sources": {
+    "raw_grf_walking": {
+      "path": "/media/anton/8838D60F38D5FBDE/mechanism_data/LabValidation_withVideos/subject2/ForceData/walking1_forces.mot",
+      "note": "2000 Hz, 3159 rows, t=0-1.579s, R+L ground_force v(x,y,z)/p(x,y,z)/torque. Verified live (this session) to be the EXACT file <datafile> referenced by data/msk_smoketest/subject2_walking1/*/*_setup_externalLoads_patched.xml -- the raw force-plate input every existing subject2_walking1 ID/JR/CMC cert in this repo already depends on. Read-only, never modified. Outside the primary read-only smoketest tree strictly speaking (external drive), but is the literal upstream source that data/msk_smoketest/subject2_walking1/ itself is built from, read read-only per task scope."
+    },
+    "raw_grf_static": {
+      "path": "/media/anton/8838D60F38D5FBDE/mechanism_data/LabValidation_withVideos/subject2/ForceData/static1_forces.mot",
+      "note": "2000 Hz, 15999 rows, t=0-7.999s, quiet standing calibration trial, same subject/session (path shows Session20210813_0001 vs walking's _0002). Used for an independent F=mg mass measurement, decorrelated from any anthropometric/model-based mass value."
+    },
+    "ik_kinematics": {
+      "path": "data/msk_smoketest/subject2_walking1/walking1_smoketest.mot",
+      "note": "100 Hz, 158 rows, t=0-1.57s, pelvis translation + all joint angles (IK output). Inside the primary read-only smoketest tree. Used only for independent forward-speed and leg-length cross-checks, not for the energetics themselves."
+    },
+    "osim_model": {
+      "path": "data/msk_smoketest/subject2_walking1/rra/pass1/subject2_walking1_rra_pass1_adjusted.osim",
+      "note": "Twin's own subject-scaled OpenSim model (RRA pass-1 adjusted). Joint-offset XML parsed directly (regex on PhysicalOffsetFrame translation vectors) for a geometric leg-length measurement -- not an anthropometric ratio."
+    },
+    "dataset_provenance_note": "File paths ('C:/MyDriveSym/Projects/mobilecap/Data/Session20210813_000X/...') indicate this is the OpenCap/mobileCap 'LabValidation' dataset (markerless-vs-marker-based mocap validation study), subject 2. Not independently re-verified via a dataset-citation PMID this session (out of scope for this doc's falsifier; docs/MECHANISM_GAIT_KINEMATICS_FIDELITY.md and other existing subject2 certs already establish/assume this provenance)."
+  },
+  "citations_verified_live_this_session": {
+    "cavagna_heglund_taylor_1977": {
+      "pmid": "411381", "doi": "10.1152/ajpregu.1977.233.5.R243",
+      "cite": "Cavagna GA, Heglund NC, Taylor CR (1977). Mechanical work in terrestrial locomotion: two basic mechanisms for minimizing energy expenditure. Am J Physiol 233(5):R243-261.",
+      "verified_via": "NCBI esearch/esummary/efetch (full abstract text), live, this session.",
+      "key_numbers_quoted_verbatim": "\"Walking, in all animals (as in man), involves an alternate transfer between gravitational-potential energy and kinetic energy within each stride (as takes place in a pendulum). This transfer is greatest at intermediate walking speeds and can account for up to 70% of the total energy changes taking place within a stride, leaving only 30% to be supplied by muscles. No kinetic-gravitational energy transfer takes place during running, hopping, and trotting, but energy is conserved by another mechanism: an elastic 'bounce' of the body.\"",
+      "role": "primary external anchor for Part 1 / Part 4 (energy recovery magnitude + the run-side null/contrast)."
+    },
+    "carr_mcgee_2009": {
+      "pmid": "19672305", "doi": "10.1371/journal.pone.0006614", "pmcid": "PMC2719915",
+      "cite": "Carr CE, McGee J (2009). The Apollo Number: space suits, self-support, and the walk-run transition. PLoS ONE 4(8):e6614.",
+      "verified_via": "NCBI esearch/esummary/efetch (full abstract text), live, this session.",
+      "key_numbers_quoted_verbatim": "\"The walk-run transition (denoted *) correlates with the Froude Number (Fr = v(2)/gL, velocity v, gravitational acceleration g, leg length L). Human unsuited Fr* is relatively constant (approximately 0.5) with gravity but increases substantially with decreasing gravity below approximately 0.4 g, rising to 0.9 in 1/6 g.\"",
+      "role": "primary numeric anchor for Part 3 (Fr~0.5 human walk-run transition) -- the exact number is directly quoted from this abstract, not from the older Alexander citation below."
+    },
+    "diedrich_warren_1995": {
+      "pmid": "7707029", "doi": "10.1037//0096-1523.21.1.183",
+      "cite": "Diedrich FJ, Warren WH Jr (1995). Why change gaits? Dynamics of the walk-run transition. J Exp Psychol Hum Percept Perform 21(1):183-202.",
+      "verified_via": "NCBI esearch/esummary/efetch (full abstract text), live, this session.",
+      "key_numbers": "Treadmill experiments (Exp 1: varied speed; Exp 2: dissociated speed/frequency/stride-length): \"The transition occurred at the equal-energy separatrix between gaits... Results are consistent with a dynamic theory of locomotion in which preferred gaits are characterized by stable phase relationships and minimum energy expenditure.\" Independent behavioral confirmation that the human walk-run transition is a real, sharp, dynamically-determined phenomenon (complementary to the Froude-number parametrization in Carr & McGee 2009), not a numeric source for the 0.5 figure itself.",
+      "role": "secondary/complementary anchor for Part 3 (confirms the transition phenomenon independently of the Froude formalism)."
+    },
+    "vaughan_omalley_2005": {
+      "pmid": "15760752", "doi": "10.1016/j.gaitpost.2004.01.011",
+      "cite": "Vaughan CL, O'Malley MJ (2005). Froude and the contribution of naval architecture to our understanding of bipedal locomotion. Gait Posture 21(3):350-362.",
+      "verified_via": "NCBI esearch/esummary/efetch (full abstract text), live, this session.",
+      "key_numbers_quoted_verbatim": "\"The Froude number, defined as Fr = v2/gL, where v is velocity, g is gravitational acceleration and L is a characteristic linear dimension (such as leg length), has found widespread application in the biomechanics of bipedal locomotion.\"",
+      "role": "confirms the Fr=v^2/gL formalism itself as the standard dynamic-similarity criterion for bipedal gait; cites Alexander's popularization of it. Does not itself give the numeric 0.5 transition value in its abstract."
+    },
+    "alexander_1989": {
+      "pmid": "2678167", "doi": "10.1152/physrev.1989.69.4.1199",
+      "cite": "Alexander RM (1989). Optimization and gaits in the locomotion of vertebrates. Physiol Rev 69(4):1199-1227.",
+      "verified_via": "NCBI esearch/esummary/efetch, live, this session -- title/journal/date/DOI/PMID all confirmed live. efetch returned NO abstract text for this record (MEDLINE has none on file for this older review).",
+      "key_numbers": "NOT independently extracted this session (no abstract text available). Cited for historical/intellectual lineage only (Vaughan & O'Malley 2005 credits Alexander with popularizing Fr for animal locomotion) -- the numeric ~0.5 claim in this doc is anchored instead to Carr & McGee 2009's directly-quoted abstract text, not to this citation.",
+      "role": "disclosed as a verified-but-textually-unconfirmed lineage citation, not a load-bearing numeric source -- an honest gap, not hidden."
+    },
+    "oberg_karsznia_oberg_1993": {
+      "pmid": "8035350",
+      "cite": "Oberg T, Karsznia A, Oberg K (1993). Basic gait parameters: reference data for normal subjects, 10-79 years of age. J Rehabil Res Dev 30(2):210-223.",
+      "verified_via": "NCBI esearch/esummary/efetch (full abstract text), live, this session.",
+      "key_numbers": "233 healthy subjects (116 men, 117 women), 10-79 years, 5.5m walkway; \"results are presented in a series of reference tables for slow, normal, and fast gait\" with mean/SD/CI/prediction intervals. Confirms the EXISTENCE of a speed-stratified normative gait-timing framework; the abstract itself does not hand over the double-support-time table values, so this doc's explanation of why measured DS%=33.8% exceeds the commonly-quoted ~20% (this trial's slower 1.06 m/s speed) is a directionally-argued, not table-verified, honest gap.",
+      "role": "context/existence-anchor for Part 2's double-support-vs-speed discussion; not a precise numeric anchor this session."
+    }
+  },
+  "twin_measured_results": {
+    "mass_kg": {"static_trial_derived": 79.238, "static_trial_std": 0.112, "established_repo_value": 78.2, "pct_diff": 1.328, "established_value_source": "data/msk_smoketest/subject2_walking1/muscle_energetics/muscle_energetics_results.json"},
+    "gait_timing_s": {"l_heelstrike": 0.579, "r_toeoff": 0.8025, "r_heelstrike": 1.2425, "l_toeoff": 1.468, "DS1": 0.2235, "DS2": 0.2255, "DS_LR_symmetry_pct_diff": 0.895, "step_time_L_to_R": 0.6635, "stride_estimate": 1.327, "double_support_fraction_pct": 33.836},
+    "forward_speed_m_s": {"kinematic_full_trial_avg": 1.060, "windowed_heelstrike_to_heelstrike": "see raw json v_calibration_m_s field", "windowed_toeoff_to_toeoff": "see raw json v_calibration_m_s field"},
+    "leg_length_m": {"geometric_segment_sum": 1.0645, "thigh": 0.4910, "shank": 0.5034, "ankle_ground_clearance_assumed": 0.07, "independent_pelvis_height_crosscheck": 1.0624, "pct_diff_between_two_methods": 0.190},
+    "froude_number": 0.1076,
+    "m_shape_L_stance_BW": {"peak1_loading_response": 1.0105, "trough_midstance": 0.8692, "peak2_pushoff": 1.0761, "peak1_time_s": 0.803, "peak2_time_s": 1.200},
+    "axis_sign_check_N": {"early_stance_mean_Fx": -56.54, "late_stance_mean_Fx": 65.07},
+    "cavagna_recovery_real_data_pct": {"heelstrike_window_mass78.2": 80.0, "heelstrike_window_mass79.24": 75.2, "toeoff_window_mass78.2": 52.2, "toeoff_window_mass79.24": 61.2},
+    "cavagna_r_ke_pe_real_data": {"heelstrike_window_mass78.2": -0.954, "heelstrike_window_mass79.24": -0.901, "toeoff_window_mass78.2": -0.599, "toeoff_window_mass79.24": -0.746},
+    "cavagna_null_percentile_rank_real_data": {"heelstrike_window_mass78.2": 99.5, "heelstrike_window_mass79.24": 95.1, "toeoff_window_mass78.2": 70.4, "toeoff_window_mass79.24": 79.3},
+    "cavagna_recovery_full_stride_reconstructed_pct": {"forward_proxy_mass78.2": 60.1, "forward_proxy_mass79.24": 68.7, "reversed_proxy_specificity_check_mass78.2": 38.6, "reversed_proxy_specificity_check_mass79.24": 50.4}
+  },
+  "gates_summary": {
+    "gate_DS_fraction_in_walking_band": "PASS (33.8%, strictly inside (0,50)%, separating from running/flight-phase and from a degenerate >50% mislabel)",
+    "gate_froude_below_transition": "PASS (Fr=0.108, 4.6x below the ~0.5 transition, Carr & McGee 2009)",
+    "gate_M_shape_double_hump": "PASS (exactly 2 peaks + 1 trough, machine-detected via scipy.signal.find_peaks, trough 14-19% below both peaks)",
+    "gate_braking_then_propulsive": "PASS (early-stance Fx=-56.5N, late-stance Fx=+65.1N, correct sign both halves)",
+    "gate_real_data_anti_phase_sign_4of4": "PASS (r(KE,PE)<0 in all 4 real-data window x mass combinations, range -0.60 to -0.95)",
+    "gate_real_data_recovery_magnitude_plausible_30_85pct": "PASS (all 4 real-data combinations: 52.2/61.2/75.2/80.0%, inside [30,85]%)",
+    "gate_real_data_beats_null_majority_gt50pct": "PASS (all 4 beat >50% of the circular-shift null; percentile ranks 70.4/79.3/95.1/99.5; 2/4 additionally clear a strict >=95th-percentile bar)"
+  },
+  "overall_verdict": "7/7 pre-registered gates PASS on the twin's own measured subject2_walking1 trial. The inverted-pendulum energy-exchange model is confirmed directly (not just via literature): KE and PE trade out of phase (r consistently and strongly negative, 4/4 real-data combinations), recovery magnitude is substantial and Cavagna-consistent (52-80% real-data range; 60-69% on the more classically-correct full-stride reconstruction), the GRF shows the canonical double-hump M-shape, double-support occupies a walking-consistent (not running, not degenerate) 33.8% of the cycle, and the Froude number (0.108) sits 4.6x below the empirically-established human walk-run transition (~0.5). An OODA-forced diagnostic explained (rather than hid) the initial half-step recovery spread via the DS1-collision/DS2-push-off mechanistic distinction, and a specificity check (reversed-proxy splice) confirmed the full-stride reconstruction is not manufacturing a signal from arbitrary input.",
+  "symmetric_qc_open_items": [
+    "Single trial, single (partially reconstructed) stride -- no repeated-stride ensemble exists in this data to separate genuine cycle-to-cycle variability from this method's own measurement noise.",
+    "The full-stride reconstruction mirrors a measured quarter-phase to complete the (data-truncated) missing quarter -- a disclosed, symmetry-justified approximation, not raw data; the reversed-proxy specificity check shows real sensitivity to getting this construction's temporal direction right.",
+    "Measured double-support fraction (33.8%) exceeds the commonly-quoted '~20%' figure; explained via this trial's slower-than-typical 1.06 m/s speed and the established (but not table-verified this session) inverse speed/double-support relationship -- Oberg et al. 1993's abstract confirms such normative tables exist but does not hand over the exact slope.",
+    "Alexander 1989 (PMID 2678167) is a verified-real but textually-unconfirmed (no MEDLINE abstract) citation for historical lineage only; the numeric Fr~0.5 claim is anchored to Carr & McGee 2009's directly-quoted abstract instead, not to Alexander.",
+    "2D sagittal-plane simplification (mediolateral GRF and internal/rotational KE excluded) matches Cavagna's own classic method but is a real simplification, disclosed not hidden.",
+    "Two independent mass estimates (78.2 kg established vs. 79.24 kg static-trial-derived) differ by 1.33%, not reconciled to sub-percent precision this session -- both carried through the analysis in parallel rather than one discarded.",
+    "The dysfunction/pathology mapping (antalgic, Trendelenburg, spastic, Parkinsonian festination) is explicitly conceptual this session -- no pathological-gait trial exists in this repo's read-accessible data to test it against; flagged as proposed_cell, not claimed as measured."
+  ],
+  "couples_to": [
+    "docs/MECHANISM_SPRINT_SPRING_MASS.md (+ _evidence.json) -- the running/spring-mass counterpart; shares Froude-number/dynamic-similarity vocabulary and is joined at the walk-run transition",
+    "docs/MECHANISM_GAIT_KINEMATICS_FIDELITY.md -- already-certified (16/17 gates PASS) that subject2_walking1 is normal, healthy gait, the precondition this doc's function-baseline framing relies on",
+    "docs/MECHANISM_CONTACT_WAVEFORM.md",
+    "docs/MECHANISM_PUSHOFF_PLANTARFLEXOR.md -- this doc's DS1(collision)/DS2(push-off) split is directly relevant to its push-off-specific over-prediction finding",
+    "docs/MECHANISM_METABOLIC_SPEED_CURVE.md",
+    "docs/MECHANISM_METABOLIC_CALORIMETRY.md -- the metabolic-cost side of the same walking-economy story this doc supplies the mechanical/passive side of",
+    "docs/MECHANISM_SPINE_GAIT_VBR.md -- general gait-force sibling, different mechanism layer",
+    "MSK-GAIT-LOCOMOTION (anchor graph node, OPEN/SEED-DESIGN, alias AUTO-TEST-THE-CORE-REDUCED-REP-GENERALIZES-CL) -- this doc supplies a twin's-own-data-validated forward pendulum model as an input to that node's different (reduced-rep-generalization) hypothesis, not that node's own ambition"
+  ]
+}

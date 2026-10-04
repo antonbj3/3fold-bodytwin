@@ -1,0 +1,226 @@
+{
+  "task": "Cardiac excitation-contraction coupling (CICR) CERT: AP depolarization opens L-type Ca2+ channels (Cav1.2/DHPR) in the T-tubule -> Ca2+ influx triggers RyR2 on the junctional SR -> CICR releases a much larger SR Ca2+ store (gain ~10-20) -> cytosolic Ca2+ transient (diastolic ~100nM -> systolic ~1uM) -> troponin-C -> cross-bridge. Falsifier: reproduce the measured Ca transient and CICR gain; a voltage-gated-influx-ONLY adversary (no SR/RyR release) must FAIL to produce the large transient; graded/local-control release (not all-or-none); positive force-frequency (SR-load accumulation); perturbation adversaries (ryanodine, caffeine, heart failure, beta-adrenergic/PKA); SERCA-vs-NCX fractional-removal split (~70/28) must reproduce the measured decay partition.",
+  "confidence_tier": "Mixed, disclosed per-claim. VERIFIED_QUANT (machine-computed this session from live-fetched real numbers, not recalled): forced-adversary buffering calculation (Berlin/Bassani/Bers 1994 + Varro et al 1993), CICR gain 2-method cross-check (Wier et al 1994 + Varro et al 1993), real-human Ca-transient values (Beuckelmann/Nabauer/Erdmann 1992), HF SERCA2a-down 4-cohort consistency, force-frequency direction check (Pieske et al 1995). LITERATURE-CONVENTION-NOT-LIVE-REVERIFIED (disclosed, not claimed as independently verified): the SERCA/NCX/slow ~70/28/2% fractional split (Bers 2000/2002 abstracts empty/scope-only, no PMC full text for either this session). MECHANISM-ONLY (qualitative, no quantitative effect-size fetched this session): ryanodine subconductance-locking biophysics (Sutko 1997 abstract generic), beta-adrenergic/PKA quantitative effect size (Kranias & Hajjar 2012 gives mechanism, not a number).",
+  "script": "scripts/msk/cardiac_cicr_ecc.py",
+  "raw_results": "data/msk_smoketest/cardiac_cicr_ecc/cardiac_cicr_ecc_results.json",
+  "doc": "docs/MECHANISM_CARDIAC_CICR_ECC.md",
+  "raw_fetch_logs": "/tmp/coordinator-1000/-home-anton/6f480b09-3647-4c07-8360-2f41db78e3c2/scratchpad/cicr_fetch/ (all esearch/esummary/efetch JSON+text this session)",
+  "couples_to": [
+    "docs/MECHANISM_SA_NODE_PACEMAKER.md (built concurrently this session by the sibling mechanism instance, read-only, not edited) -- shares RyR2/junctional-SR hardware via a different causal wiring (spontaneous diastolic LCR->NCX clock vs this doc's AP-triggered CICR); a concrete future cross-check (Stern local-control math vs their LCR statistics) is named, not executed.",
+    "docs/MECHANISM_SYNAPTIC_VESICLE_RELEASE.md (built concurrently this session by the sibling mechanism instance, read-only, not edited) -- shares a 'voltage-gated Ca channel -> local nanodomain -> cooperative sensor -> large stored-pool release' motif; precise distinction drawn (not just analogy): CICR's regenerative Ca-triggers-more-Ca feedback (needs Stern's local-control solution) has no counterpart in synaptotagmin-triggered fusion (Ca triggers fusion but fusion does not release more Ca), so their measured steep cooperativity (Hill slope~4) is ordinary stoichiometric cooperativity, not a bistability-escape mechanism.",
+    "docs/MECHANISM_CARDIAC_OUTPUT.md -- its Ees/Ea Frank-Starling parameters were explicitly illustrative/not independently live-pinned (that doc's own honest gap); this doc's SR-load/CICR-gain machinery is the unexploited physiological substrate that actually sets contractility, named for a future session, not executed here.",
+    "docs/MECHANISM_CARDIAC.md -- shares the organ-level Fick-chain/contractility framing; this doc is one level down (cellular Ca-handling mechanism), not re-derived here.",
+    "docs/MECHANISM_MUSCLE_ENERGETICS.md, docs/MECHANISM_CROSSBRIDGE_MODEL.md, docs/MECHANISM_CONTRACTION_DYNAMICS.md (present in repo, not read/edited this session) -- troponin-C/cross-bridge cycling is the downstream consumer of the Ca transient this doc characterizes; coupling named, not executed."
+  ],
+  "citations_verified_live_this_session": {
+    "fabiato_1983_cicr_discovery": {
+      "pmid": "6346892", "doi": "10.1152/ajpcell.1983.245.1.C1",
+      "cite": "Fabiato A (1983). Calcium-induced release of calcium from the cardiac sarcoplasmic reticulum. Am J Physiol 245(1):C1-14.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'The hypothesis of a Ca2+-induced Ca2+ release (CICR) from the sarcoplasmic reticulum (SR) is supported by experiments done in skinned cardiac cells... the transsarcolemmal Ca2+ influx does not activate the myofilaments directly but through the induction of a Ca2+ release from the SR... Computations of the Ca2+ buffering in the mammalian ventricular cell and of the systolic transsarcolemmal Ca2+ influx do not support the alternative hypothesis that this influx of Ca2+ is large enough to activate the myofilaments directly.' The original, qualitative version of this doc's own quantitative forced-adversary calculation (Sec 5 of the .md), done independently in 1983."
+    },
+    "fabiato_1985_graded_release": {
+      "pmid": "2580043", "doi": "10.1085/jgp.85.2.247", "pmcid": "PMC2215800",
+      "cite": "Fabiato A (1985). Time and calcium dependence of activation and inactivation of calcium-induced release of calcium from the sarcoplasmic reticulum of a skinned canine cardiac Purkinje cell. J Gen Physiol 85(2):247-89.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Increasing the [free Ca2+]trigger up to an optimum increased the amount of Ca2+ released. A supraoptimum increase of [free Ca2+] trigger inactivated Ca2+-induced release of Ca2+... Inactivation appeared to be a first-order kinetic reaction... with a Q10 of 1.68. The removal of inactivation was the slowest step of the cycle, responsible for a highly temperature-dependent (Q10 approximately 4.00) refractory period.' Direct primary evidence for GRADED (not all-or-none) release."
+    },
+    "stern_1992_local_control": {
+      "pmid": "1330031", "doi": "10.1016/S0006-3495(92)81615-6", "pmcid": "PMC1262173",
+      "cite": "Stern MD (1992). Theory of excitation-contraction coupling in cardiac muscle. Biophys J 63(2):497-517.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session (initial recall PMID 1330040 was WRONG, corrected)",
+      "numbers": "VERBATIM: 'Common-pool models... gave nearly all-or-none regenerative calcium releases (in disagreement with experiment), unless their loop gain was made sufficiently low... In the linear (small trigger) limit, it was proven rigorously that no common-pool model can give graded high amplification unless it is operated on the verge of spontaneous oscillation... one L-type channel triggers a regenerative cluster of several SR channels. Statistical recruitment of clusters results in graded response with high amplification.' The geometric/topological proof underlying this doc's Sec 1."
+    },
+    "cheng_lederer_cannell_1993_sparks": {
+      "pmid": "8235594", "doi": "10.1126/science.8235594",
+      "cite": "Cheng H, Lederer WJ, Cannell MB (1993). Calcium sparks: elementary events underlying excitation-contraction coupling in heart muscle. Science 262(5134):740-4.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: spontaneous SR Ca-release-channel opening rate 'approximately 0.0001 per second' at rest; 'an increase in the calcium content of the SR... was associated with a fourfold increase in opening rate'; ryanodine-dependent changes of spark kinetics confirm single-RyR-cluster origin. Direct imaging confirmation of the dyad-graph 'node' Sec 1 describes."
+    },
+    "wier_1994_local_control_gain": {
+      "pmid": "8014907", "doi": "10.1113/jphysiol.1994.sp020037", "pmcid": "PMC1160337",
+      "cite": "Wier WG, Egan TM, Lopez-Lopez JR, Balke CW (1994). Local control of excitation-contraction coupling in rat heart cells. J Physiol 474(3):463-71.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session (initial recall PMID 8014910 was WRONG, corrected)",
+      "numbers": "VERBATIM: 'the gain of the system, measured as the ratio, FSR,rel(max)/FICa(max), declined from about 16, at 0 mV, to much lower values as clamp pulse voltage was made progressively more positive... being constant at about 16 in some cells, but decreasing from high values (approximately 65) at -20 mV in others.' Named 'variable gain.' THE primary gain-measurement source for this doc's Sec 4/5 cross-check."
+    },
+    "song_1998_sr_flux": {
+      "pmid": "9769413", "doi": "10.1111/j.1469-7793.1998.677bd.x", "pmcid": "PMC2231234",
+      "cite": "Song LS, Sham JS, Stern MD, Lakatta EG, Cheng H (1998). Direct measurement of SR release flux by tracking 'Ca2+ spikes' in rat cardiac myocytes. J Physiol 512(3):677-91.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Ca2+ release was most synchronized and produced maximal peak release flux (4.2 mM s-1) at 0 mV; in contrast, maximal total release occurred at -20 mV (71 versus 61 microM at 0 mV)... not only the amount of Ca2+ released, but also the synchronization among release sites affects the whole-cell Ca2+ transient.' Quantitative evidence the release/trigger relationship is graded, non-proportional, locally controlled."
+    },
+    "altamirano_bers_2007_gain_mechanism": {
+      "pmid": "17641229", "doi": "10.1161/CIRCRESAHA.107.152322",
+      "cite": "Altamirano J, Bers DM (2007). Voltage dependence of cardiac excitation-contraction coupling: unitary Ca2+ current amplitude and open channel probability. Circ Res 101(6):590-7.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Reducing either i(Ca) or NP(o) alone increased excitation-contraction coupling gain... enhanced gain depends on lower NP(o) and reduced redundant Ca2+ channel openings (per junction) and a consequently smaller denominator in the gain equation.' Mechanistic explanation for WHY gain varies with voltage -- not just that it does."
+    },
+    "varro_1993_sr_content": {
+      "pmid": "8488088", "doi": "10.1007/BF00374975",
+      "cite": "Varro A, Negretti N, Hester SB, Eisner DA (1993). An estimate of the calcium content of the sarcoplasmic reticulum in rat ventricular myocytes. Pflugers Arch 423(1-2):158-60.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Ni2+ (5 mM) inhibited the current and decreased the rate of fall of [Ca2+]i to 32% of the control suggesting that Na-Ca exchange is responsible for 68% of Ca removal from the cytoplasm following the addition of caffeine... the s.r. Ca content is equivalent to about 120 mumol per litre cell... during systole, Ca entry into the cell via the sarcolemmal calcium current is equal to about 6% of the Ca content of the s.r.' Feeds BOTH the forced-adversary influx number (Sec 5) and CICR-gain method B (Sec 4)."
+    },
+    "negretti_1995_sr_reload": {
+      "pmid": "7473221", "doi": "10.1113/jphysiol.1995.sp020836", "pmcid": "PMC1156548",
+      "cite": "Negretti N, Varro A, Eisner DA (1995). Estimate of net calcium fluxes and sarcoplasmic reticulum calcium content during systole in rat ventricular myocytes. J Physiol 486(3):581-91.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'the magnitude of the first systolic calcium transient was greater than that in the steady state (rest potentiation) and decayed to its steady level over a few stimuli... rest potentiation can be correlated with changes in the amount of calcium stored in the SR.' Mechanistic link between SR reload dynamics and the force-frequency/staircase phenomenon (doc Sec 8)."
+    },
+    "bassani_1993_caffeine_depletion": {
+      "pmid": "8368279", "doi": "10.1152/ajpcell.1993.265.2.C533",
+      "cite": "Bassani JW, Bassani RA, Bers DM (1993). Twitch-dependent SR Ca accumulation and release in rabbit ventricular myocytes. Am J Physiol 265:C533-40.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Sustained exposure to 10 mM caffeine completely depletes the SR of Ca in < 5 s (as assessed by a second Ccaf). After such Ca depletion, four to five twitches are necessary to reload the SR to the steady-state level (with a twitch constant, tau = 1.6 twitches).' Direct, quantitative, live-verified confirmation of caffeine-as-RyR-opener/SR-dump (doc Sec 7). CAVEAT: this paper's own title states its goal is estimating 'the fraction of SR Ca released at one twitch' (f), which doc Sec 5b's gain-method-B calculation needs -- but the specific f value was NOT present in the 250-word-truncated abstract fetched live this session (honest gap; f swept 50-100% instead of assumed, Sec 5b)."
+    },
+    "bassani_1994_species_split": {
+      "pmid": "8046643", "doi": "10.1113/jphysiol.1994.sp020130", "pmcid": "PMC1160440",
+      "cite": "Bassani JW, Bassani RA, Bers DM (1994). Relaxation in rabbit and rat cardiac cells: species-dependent differences in cellular mechanisms. J Physiol 476(2):279-93.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Inhibition of the Na(+)-Ca2+ exchange during a twitch increased the [Ca2+]i transient amplitude (delta[Ca2+]i) by 50% and the time constant of [Ca2+]i decline (tau) by 45% in rabbit myocytes. A smaller increase in tau (20%) and no change in delta[Ca2+]i were observed in rat cells... Inhibition of the SR Ca(2+)-ATPase during a twitch enhanced delta[Ca2+]i by 25% in both species... during the decline of the [Ca2+]i transient, the Na(+)-Ca2+ exchange is about 2- to 3-fold faster in rabbit than in rat, whereas the SR Ca(2+)-ATPase is 2- to 3-fold faster in the rat.' Best live-sourced proxy for the species-dependent SERCA/NCX partition (exact 70/28/2 triple NOT independently re-verified this session, Sec 10 of doc)."
+    },
+    "berlin_bassani_bers_1994_buffering": {
+      "pmid": "7819510", "doi": "10.1016/S0006-3495(94)80652-6", "pmcid": "PMC1225540",
+      "cite": "Berlin JR, Bassani JW, Bers DM (1994). Intrinsic cytosolic calcium buffering properties of single rat cardiac myocytes. Biophys J 67(4):1775-87.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'overall cell buffering was well described as a single lumped Michaelis-Menten type species with an apparent dissociation constant, KD, of 0.63 +/- 0.07 microM... and a binding capacity, Bmax, of 162 +/- 15 mumol/l cell H2O. Correction for buffering attributable to cytosolic indo-1 gives intrinsic cytosolic Ca2+ buffering parameters of KD = 0.96 +/- 0.18 microM and Bmax = 123 +/- 18 mumol/l cell H2O... a rapid rise of [Ca2+]i from 0.1 to 1 microM during a contraction requires approximately 50 microM Ca2+ to be added to the cytosol.' THE buffer curve used in this doc's forced-adversary calculation (Sec 5); own-number unit-test reproduced this to 4.1%."
+    },
+    "beuckelmann_nabauer_erdmann_1992_human_transient": {
+      "pmid": "1311223", "doi": "10.1161/01.cir.85.3.1046",
+      "cite": "Beuckelmann DJ, Nabauer M, Erdmann E (1992). Intracellular calcium handling in isolated ventricular myocytes from patients with terminal heart failure. Circulation 85(3):1046-55.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'In diseased myocytes, resting [Ca2+]i levels were 165 +/- 61 nmol/l, compared with 95 +/- 47 nmol/l in normal cells. With 5 mmol/l Na+ in the pipette, peak [Ca2+]i transients were 367 +/- 109 and 746 +/- 249 nmol/l, respectively. The decline of [Ca2+]i during diastole was significantly slower in myopathic cells than in control cells.' THE primary real-human quantitative anchor for the task's own 100nM/1uM band AND the heart-failure phenotype, from the SAME paper/cohort."
+    },
+    "beuckelmann_wier_1988_guinea_pig_ryanodine": {
+      "pmid": "2475607", "doi": "10.1113/jphysiol.1988.sp017331", "pmcid": "PMC1190974",
+      "cite": "Beuckelmann DJ, Wier WG (1988). Mechanism of release of calcium from sarcoplasmic reticulum of guinea-pig cardiac cells. J Physiol 405:233-55.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Changes in [Ca2+]i attributable to release of Ca2+ from the SR were identified through the use of ryanodine, which abolishes the ability of the SR to release Ca2+... The amplitude of the ryanodine-sensitive [Ca2+]i transient elicited by depolarization had a bell-shaped dependence on membrane potential with a maximum of about 500 nM at 10 mV.' Functional (not biophysical-mechanism-level) confirmation of the ryanodine adversary; real transient-amplitude order-of-magnitude cross-check (guinea pig)."
+    },
+    "beuckelmann_1995_hf_tau": {
+      "pmid": "7900618", "doi": "10.1016/0002-8703(95)90316-x",
+      "cite": "Beuckelmann DJ, Nabauer M, Kruger C, Erdmann E (1995). Altered diastolic [Ca2+]i handling in human ventricular myocytes from patients with terminal heart failure. Am Heart J 129(4):684-9.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: with Na/Ca exchange pharmacologically blocked (SR-isolated decay), '[Ca2+]i decay was significantly slower in myocytes from patients with heart failure (538 +/- 66 msec) than in controls (305 +/- 16 msec; p < 0.05)... Sarcolemmal Ca2+ adenosine triphosphatase does not contribute significantly.' Real human decay-tau numbers, SERCA-isolated regime (disclosed as not directly comparable to the task's combined-mechanism 150-250ms band, doc Sec 13)."
+    },
+    "piacentino_2003_hf_single_cell": {
+      "pmid": "12600875", "doi": "10.1161/01.RES.0000062469.83985.9B",
+      "cite": "Piacentino V 3rd, Weber CR, Chen X, Weisser-Thomas J, Margulies KB, Bers DM, Houser SR (2003). Cellular basis of abnormal calcium transients of failing human ventricular myocytes. Circ Res 92(6):651-8.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Ca2+ transients from F myocytes were significantly smaller and decayed more slowly than those from NF hearts. Ca2+ uptake rates by the SR and the amount of Ca2+ stored in the SR were significantly reduced in F myocytes. There were no significant changes in the rate of Ca2+ removal from F myocytes by the NCX, in the density of NCX current...' Real single-human-myocyte HF confirmation of SERCA-down; DIRECTLY COMPLICATES a monolithic NCX-up HF narrative (doc Sec 9) -- disclosed, not hidden."
+    },
+    "hasenfuss_1994_serca_down": {
+      "pmid": "8062417", "doi": "10.1161/01.res.75.3.434",
+      "cite": "Hasenfuss G, Reinecke H, Studer R, Meyer M, Pieske B, Holtz J, Holubarsch C, Posival H, Just H, Drexler H (1994). Relation between myocardial function and expression of sarcoplasmic reticulum Ca(2+)-ATPase in failing and nonfailing human myocardium. Circ Res 75(3):434-42.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'twitch tension rose with increasing rates of stimulation and was 76% higher at 120 min-1 compared with 30 min-1... In failing myocardium, there was no significant increase... At 120 min-1, twitch tension was decreased by 59%... in dilated cardiomyopathy and 76%... in ischemic cardiomyopathy... Protein levels of SR Ca(2+)-ATPase... were reduced by 36%... or 32%... in failing compared with nonfailing myocardium.' One of 4 decorrelated SERCA-down cohorts (doc Sec 4/12)."
+    },
+    "studer_1994_ncx_up_serca_down": {
+      "pmid": "8062418", "doi": "10.1161/01.res.75.3.443",
+      "cite": "Studer R, Reinecke H, Bilger J, Eschenhagen T, Bohm M, Hasenfuss G, Just H, Holtz J, Drexler H (1994). Gene expression of the cardiac Na(+)-Ca2+ exchanger in end-stage human heart failure. Circ Res 75(3):443-53.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'patients with dilated cardiomyopathy (DCM, n = 13) showed a 55% increase in Na(+)-Ca2+ exchanger mRNA levels... and a 41% increase in patients with coronary artery disease (CAD, n = 11). In the same hearts, SR Ca(2+)-ATPase mRNA levels were decreased by 50% in DCM and by 45% in CAD... The Na(+)-Ca2+ exchanger protein levels... were increased in DCM and CAD... whereas SR Ca(2+)-ATPase protein levels were reduced.' Same-hearts companion to Hasenfuss 1994 (same volume/issue, pp 443-53 immediately following pp 434-42) -- THE classic paired 'SERCA down + NCX up' HF citation."
+    },
+    "meyer_1995_serca_plb_ratio": {
+      "pmid": "7641356", "doi": "10.1161/01.cir.92.4.778",
+      "cite": "Meyer M, Schillinger W, Pieske B, Holubarsch C, Heilmann C, Posival H, Kuwajima G, Mikoshiba K, Just H, Hasenfuss G (1995). Alterations of sarcoplasmic reticulum proteins in failing human dilated cardiomyopathy. Circulation 92(4):778-84.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'The levels of the ryanodine receptor, calsequestrin, and calreticulin were not significantly different... Protein levels of SR calcium ATPase, normalized per total protein or per calsequestrin, were decreased by 41%... or 33%... SR calcium ATPase was decreased relative to ryanodine receptor by 37%... and relative to phospholamban by 28%.' Independent (different lab-normalization) SERCA-down confirmation; RyR/calsequestrin UNCHANGED (release/binding machinery intact, only the pump is down) -- important mechanistic specificity."
+    },
+    "pieske_1995_ff_ca_hf": {
+      "pmid": "7648662", "doi": "10.1161/01.cir.92.5.1169",
+      "cite": "Pieske B, Kretschmann B, Meyer M, Holubarsch C, Weirich J, Posival H, Minami K, Just H, Hasenfuss G (1995). Alterations in intracellular calcium handling associated with the inverse force-frequency relation in human dilated cardiomyopathy. Circulation 92(5):1169-78.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Maximum average twitch tension was reached at 150 min-1 and was increased to 212 +/- 34%... Aequorin light emission... maximally increased at 180 min-1 to 218 +/- 39%... In the failing myocardium... isometric tension... decreased continuously to 62 +/- 9%... at 180 min-1... aequorin light emission... decreased to 71 +/- 7%... there was a close correlation between the frequencies at which aequorin light emission and isometric tension were maximum (r = .92; n = 19)... Sarcoplasmic reticulum 45Ca2+ uptake... significantly reduced in failing myocardium (3.60 +/- 0.51 versus 1.94 +/- 0.18).' THE direct human force-frequency + Ca-transient + SERCA-activity anchor, all from one paper/cohort (doc Sec 8)."
+    },
+    "hasenfuss_1999_ncx_heterogeneity": {
+      "pmid": "9950661", "doi": "10.1161/01.cir.99.5.641",
+      "cite": "Hasenfuss G, Schillinger W, Lehnart SE, Preuss M, Pieske B, Maier LS, Prestle J, Minami K, Just H (1999). Relationship between Na+-Ca2+-exchanger protein levels and diastolic function of failing human myocardium. Circulation 99(5):641-8.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'Compared with nonfailing human hearts (n=6), SR Ca2+-ATPase was decreased and Na+-Ca2+ exchanger unchanged in group III, whereas Na+-Ca2+ exchanger was increased and SR Ca2+-ATPase unchanged in group I... Disturbed diastolic function occurs in hearts with decreased SR Ca2+-ATPase and unchanged Na+-Ca2+ exchanger, whereas increased expression of the Na+-Ca2+ exchanger is associated with preserved diastolic function.' Directly complicates a monolithic NCX-up-is-pathogenic reading (doc Sec 9) -- disclosed, not hidden, symmetric QC."
+    },
+    "kranias_hajjar_2012_plb_serca": {
+      "pmid": "22679139", "doi": "10.1161/CIRCRESAHA.111.259754", "pmcid": "PMC3392125",
+      "cite": "Kranias EG, Hajjar RJ (2012). Modulation of cardiac contractility by the phospholamban/SERCA2a regulatome. Circ Res 110(12):1646-60.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session (initial recall PMID 22679140 was WRONG, corrected)",
+      "numbers": "VERBATIM: 'SR calcium uptake is mediated by a Ca(2+)-ATPase (SERCA2), whose activity is reversibly regulated by phospholamban (PLN). Dephosphorylated PLN is an inhibitor of SERCA and phosphorylation of PLN relieves this inhibition.' Mechanism-level (qualitative) confirmation of the beta-adrenergic/PKA -> lusitropy pathway; no quantitative effect-size fetched this session (honest gap)."
+    },
+    "sutko_1997_ryanodine_pharm": {
+      "pmid": "9085309", "doi": null,
+      "cite": "Sutko JL, Airey JA, Welch W, Ruest L (1997). The pharmacology of ryanodine and related compounds. Pharmacol Rev 49(1):53-98.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "Bibliographic confirmation only -- abstract is a generic scope statement, no extractable mechanism numbers this session (disclosed). Functional ryanodine-abolishes-release confirmation instead comes from Beuckelmann & Wier 1988 and Cheng et al 1993 (above)."
+    },
+    "endoh_2004_ffr_review": {
+      "pmid": "15464022", "doi": "10.1016/j.ejphar.2004.07.013",
+      "cite": "Endoh M (2004). Force-frequency relationship in intact mammalian ventricular myocardium: physiological and pathophysiological relevance. Eur J Pharmacol 500(1-3):73-86.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session (initial recall PMID 15450550 was WRONG, corrected)",
+      "numbers": "VERBATIM: 'The FFR in most mammalian ventricular myocardium is positive... In some species, including rat and mouse, a primary-phase negative FFR is induced over the low-frequency range... Even in these species, the FFR over the frequency range close to the physiological heart rate is positive... In failing ventricular myocardium, the positive FFR disappears or is inverted... The activation and overexpression of cardiac SERCA2a is able to reverse these abnormalities.' Species-caveat + HF-reversibility framing for doc Sec 8."
+    },
+    "bowditch_statpearls_2023": {
+      "pmid": "30725706", "doi": null,
+      "cite": "Usman A, Gandhi J, Gupta G. Physiology, Bowditch Effect. StatPearls [Internet]. StatPearls Publishing; 2023 Jan 30 (in: 2026 Jan- edition).",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "VERBATIM: 'This effect refers to the idea that an increase in heart rate increases the force of myocardial contraction with each heartbeat... first described in 1871 by... Henry Pickering Bowditch... A direct correlation between decreased SERCA expression and reduced sarcoplasmic reticulum Ca uptake, leading to a diminished force-frequency response, is considered the hallmark of heart failure.' Modern tertiary summary; Bowditch 1871 original has no PMID (pre-dates PubMed indexing, same disclosed convention as this repo's Fick-1870 citation in docs/MECHANISM_CARDIAC.md)."
+    },
+    "bers_2002_nature_review": {
+      "pmid": "11805843", "doi": "10.1038/415198a",
+      "cite": "Bers DM (2002). Cardiac excitation-contraction coupling. Nature 415(6868):198-205.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "Abstract is scope/intro-level only (no extractable Ca-transient/gain/fractional-split numbers via live efetch this session). No PMC full-text link found (elink returned no linked PMC record -- pre-dates PMC-deposit era). The single most commonly-cited review for this whole topic; its well-known numeric content is NOT claimed as independently re-verified beyond what is documented elsewhere in this file (honest gap, doc Sec 10/13)."
+    },
+    "bers_2000_circres_review": {
+      "pmid": "10948060", "doi": "10.1161/01.res.87.4.275",
+      "cite": "Bers DM (2000). Calcium fluxes involved in control of cardiac myocyte contraction. Circ Res 87(4):275-81.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "PubMed record has NO abstract text (efetch returned title/authors/DOI only, no abstract paragraph). No PMC full-text link found (elink, live this session). This is the single most likely primary source for the classic '~70/28/2%' SERCA/NCX/slow fractional split, but the number could NOT be independently re-extracted live this session -- explicit, disclosed honest gap (doc Sec 10)."
+    },
+    "bers_2008_annurev_review": {
+      "pmid": "17988210", "doi": "10.1146/annurev.physiol.70.113006.100455",
+      "cite": "Bers DM (2008). Calcium cycling and signaling in cardiac myocytes. Annu Rev Physiol 70:23-49.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "Abstract is scope-level only (no extractable numbers via live efetch this session)."
+    },
+    "eisner_2017_modern_review": {
+      "pmid": "28684623", "doi": "10.1161/CIRCRESAHA.117.310230", "pmcid": "PMC5497788",
+      "cite": "Eisner DA, Caldwell JL, Kistamas K, Trafford AW (2017). Calcium and Excitation-Contraction Coupling in the Heart. Circ Res 121(2):181-195.",
+      "verified_via": "NCBI eutils esearch+efetch for bibliographic identity (live); PMC full text (PMC5497788) READ VIA WebFetch (secondary-tier extraction by a smaller summarization model, disclosed, not a verbatim NCBI-fetched quote like the others in this file)",
+      "numbers": "WebFetch-extracted (lower-confidence tier, flagged): 'The increase of free Ca ([Ca2+]i) during systole is of the order of 1 micromol/L' (corroborates the task's ~1uM systolic figure from a modern, independent, live-fetched source); SR free Ca '1 to 1.5 mmol/L at the end of diastole... decreasing by 50% to 75% during contraction'; PMCA estimated at '7% and 25% of that produced by NCX' in rat (partial proxy for the 'slow system' fraction, Sec 10)."
+    },
+    "allen_kurihara_1982_aequorin_methodology": {
+      "pmid": "7120151", "doi": "10.1113/jphysiol.1982.sp014221", "pmcid": "PMC1225098",
+      "cite": "Allen DG, Kurihara S (1982). The effects of muscle length on intracellular calcium transients in mammalian cardiac muscle. J Physiol 327:79-94.",
+      "verified_via": "NCBI eutils esearch+efetch, live this session",
+      "numbers": "Aequorin bioluminescent Ca-transient methodology precedent in rat/cat ventricular muscle (length-dependent activation, not the core diastolic/systolic absolute-value claim) -- supporting/methodological citation only."
+    }
+  },
+  "gates_summary": {
+    "unit_test_buffer_formula_within_10pct": "PASS (computed 52.05 uM vs Berlin/Bassani/Bers 1994's own reported ~50 uM, 4.1% diff) -- verify-the-tool-before-trusting-the-verdict step",
+    "forced_adversary_influx_only_fails_lt_50pct_threshold": "PASS (influx-only reaches 8.1% of the measured 900nM transient rise; still only 55.1% even at 5x the real measured influx -- decisive, robust FAIL for the adversary)",
+    "cicr_gain_methodA_wier1994_in_task_band_10_20": "PASS (16.0 at 0mV)",
+    "cicr_gain_methodB_varro1993_in_task_band_10_20": "PASS ACROSS PLAUSIBLE RANGE, ASSUMPTION-DEPENDENT (doc Sec 5b): gain=f/0.06 where f=fraction of SR content released per twitch, NOT stated in Varro et al 1993's own abstract; swept f=50%->8.3 (BELOW band), 60%->10.0, 70%->11.7, 85%->14.2, 100%->16.7. PASSES for any f>=60%; the headline 16.7 silently used f=100% (upper bound) until this self-audit caught it.",
+    "cicr_gain_two_decorrelated_methods_agree": "PASS ONLY AT THE f=100% UPPER BOUND (4.2% diff) -- disclosed as a best-case artifact of the f=100% assumption, not an assumption-free convergence (doc Sec 5b, added on self-audit)",
+    "real_human_diastolic_within_50pct_of_100nM": "PASS (95nM, 5.0% diff)",
+    "real_human_systolic_within_50pct_of_1uM": "PASS (746nM, 25.4% diff)",
+    "hf_serca2a_down_4_decorrelated_cohorts_all_exceed_20pct": "PASS (Hasenfuss1994 -32/-36%, Meyer1995 -33/-41%, Studer1994 -45/-50% mRNA, Pieske1995 -46% 45Ca-uptake)",
+    "force_frequency_nonfailing_positive": "PASS (+118% Ca transient at max freq, Pieske et al 1995)",
+    "force_frequency_failing_inverted_or_attenuated": "PASS (-29% Ca transient at max freq, Pieske et al 1995)",
+    "graded_not_all_or_none_release": "PASS (Fabiato 1985 graded trigger-dependence; Wier 1994 variable gain 16-65; Song 1998 non-monotonic release-vs-voltage) -- qualitative/literature gate, not a script-computed number",
+    "ryanodine_caffeine_functional_adversaries": "PASS (Beuckelmann&Wier1988 ryanodine abolishes release; Bassani1993 caffeine fully depletes SR in <5s) -- qualitative/literature gate",
+    "OPEN_hf_ncx_up_universality": "MIXED, not forced -- real in Studer 1994 (mRNA/protein up), absent in Piacentino 2003 (current density unchanged), phenotype-dependent in Hasenfuss 1999 (associated with PRESERVED diastolic function in one subgroup)",
+    "OPEN_serca_ncx_slow_70_28_2_exact_split": "NOT independently live-verified this session -- both candidate Bers reviews (2000, 2002) lack extractable numbers via live efetch, no PMC full text for either; Bassani 1994 relative-fold data and Eisner 2017 WebFetch-tier PMCA/NCX ratio used as disclosed, weaker proxies instead",
+    "overall": "10/10 script-computed gates PASS (deterministic, 2 independent runs byte-identical JSON) + 2 qualitative literature gates PASS + 2 explicitly OPEN/MIXED items, neither forced to a false clean pass"
+  },
+  "symmetric_qc_open_items": [
+    "SELF-AUDIT CAUGHT MID-SESSION (doc Sec 5b): the CICR-gain 'method B' (Varro et al 1993, SR-content/trigger-flux ratio) silently assumed f=100% (ALL SR content released in one twitch) to get gain=16.7 and a tight 4.2% agreement with method A (Wier et al 1994's 16.0) -- Varro et al 1993's own abstract does not state f, and Bassani et al 1993 (PMID 8368279), who did measure it, did not have the number in its truncated abstract. Re-run as an honest sweep: f=50%->gain 8.3 (BELOW the task's [10,20] band), f=60%->10.0, f=70%->11.7, f=85%->14.2, f=100%->16.7. PASSES for any f>=60% (the physiologically common case) but the '4.2% agreement' headline is a best-case-assumption artifact, not an assumption-free convergence -- corrected in both the doc and this file rather than left as an unexamined, too-good-looking pass.",
+    "The exact SERCA/NCX/slow ~70/28/2% fractional-removal split (the task's own pre-registered number) was NOT independently re-verified against a live-fetched primary numeric source this session -- both most-likely source reviews (Bers 2000 Circ Res, Bers 2002 Nature) returned no extractable numbers via live NCBI efetch and have no PMC full text (pre-dates PMC-deposit era); WebSearch budget was also exhausted mid-session (disclosed, not hidden). Best live-sourced proxies used instead (Bassani 1994 relative-fold rabbit/rat split; Eisner 2017 WebFetch PMCA/NCX ratio) are weaker than a direct percentage-triple citation.",
+    "NCX-up-in-heart-failure is NOT universal across the live-verified cohorts: real in Studer et al 1994 (paired with Hasenfuss 1994, same hearts), ABSENT (current density unchanged) in Piacentino et al 2003, and phenotype-dependent/partly-compensatory in Hasenfuss et al 1999 (NCX-up associated with PRESERVED, not worsened, diastolic function in one subgroup). Reported as MIXED, not forced into a clean pass -- this is a genuine literature heterogeneity, not a pipeline failure.",
+    "Decay time constant (tau): the two live-verified absolute-ms numbers (Beuckelmann et al 1995: 305ms control / 538ms HF, human) are from a SERCA-ISOLATED protocol (NCX pharmacologically blocked) -- a different, slower regime than the task's own ~150-250ms band, which implicitly describes the NORMAL combined-mechanism (SERCA+NCX) decay. Direction (HF slower than control) is solid; the absolute-ms value was not force-matched to the task's band.",
+    "The forced-adversary calculation (Sec 5 of the doc) combines a rat trigger-influx number (Varro et al 1993) with a rat buffering-curve number (Berlin/Bassani/Bers 1994) -- decorrelated by METHOD (SR-content-depletion vs direct mass-action titration) but NOT by species; both are rat. Cross-species generality of the specific 8.1%-of-transient number is not established, though the qualitative conclusion (influx alone is grossly insufficient) is consistent with Fabiato's own species-general 1983 buffering argument (human/dog/cat/rabbit/rat/frog hearts, per that paper's own title).",
+    "No explicit reaction-diffusion or stochastic Markov-chain RyR-cluster simulation was built this session -- the graded/local-control claim rests on citing Stern (1992)'s own analytic conclusions and Cheng et al (1993)'s experimental spark-imaging confirmation, not an independently-coded dyad-graph simulation.",
+    "Ryanodine's precise subconductance-locking biophysical mechanism (as opposed to its functional effect of abolishing release) was not extracted from a live-fetched primary source this session -- Sutko et al 1997's abstract is generic/scope-level; the ryanodine claim rests on Beuckelmann & Wier 1988's and Cheng et al 1993's functional descriptions instead.",
+    "Beta-adrenergic/PKA effect size (e.g., percent increase in relaxation rate or transient amplitude with isoproterenol) was not live-fetched this session -- Kranias & Hajjar 2012 confirms the PLB/SERCA disinhibition mechanism qualitatively only.",
+    "Three of the most obvious 'master reference' review citations for this entire topic (Bers 2002 Nature, Bers 2000 Circ Res, Bers 2008 Annu Rev Physiol) yielded only scope-level abstracts live and have no PMC full text available this session -- their well-known numeric content beyond what is separately verified elsewhere in this file is not claimed as independently re-verified.",
+    "The Eisner 2017 full-text numbers were extracted via WebFetch (a smaller summarization model reading the fetched page), not via a direct verbatim NCBI-abstract quote like every other citation in this file -- flagged as a lower-confidence-tier extraction method, used only for corroborating context (systolic ~1umol/L, SR free-Ca range), not as a primary machine-computed gate input."
+  ]
+}

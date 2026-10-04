@@ -1,0 +1,152 @@
+{
+  "task": "Erythrocyte (RBC) membrane biomechanics: spectrin-network shear elasticity + biconcave shape (NOT erythropoiesis/production). Required falsifiers: (1) reproduce measured membrane shear modulus (~6-9 uN/m) and biconcave reduced-volume ~0.6 shape from spectrin-network + bending energy; (2) a pure-bilayer adversary (NO spectrin shear term) must FAIL to resist shear; (3) quantify splenic inter-endothelial-slit deformability (required areal/shear strain); (4) hereditary spherocytosis osmotic-fragility increase; (5) elliptocytosis (spectrin self-association defect).",
+  "confidence_tier": "in-vitro-anchored (micropipette Evans/Hochmuth/Waugh; optical-tweezers Suresh group; cryo-electron-tomography Nans/Mohandas/Stokes), cross-validated by 2 independent bending-modulus measurements and a live-verified spleen-biophysics computational paper (Pivkin et al. 2016 PNAS). All numeric claims are machine-computed from stated geometric structure (WLC+lattice, axisymmetric Helfrich functional, Maxwell isostatic bond-counting), not hand-typed.",
+  "isolation_note": "No files edited other than this pair (docs/MECHANISM_ERYTHROCYTE_MEMBRANE.md + this JSON) plus scripts/msk/erythrocyte_membrane.py (new, self-created) and its output data/erythrocyte_membrane/erythrocyte_membrane_results.json (new, self-created). No existing repo file read, modified, or depended upon -- this cert is fully self-contained (no OpenSim, no data/msk_smoketest dependency). No git operations performed. All 22 PMIDs below were independently verified live this session via NCBI E-utilities (esearch/esummary/efetch); 2 WebFetch calls to Wikipedia (Red_pulp, Osmotic_fragility) were attempted for the splenic-slit-width and %NaCl-fragility numbers and returned no usable numeric content, disclosed as such rather than silently substituted with a recalled number.",
+  "citations_verified_live_this_session": {
+    "evans1973_shear_concept": {
+      "pmid": "4733701", "doi": "10.1016/S0006-3495(73)86036-9", "pmcid": "PMC1484376",
+      "cite": "Evans EA (1973). New membrane concept applied to the analysis of fluid shear- and micropipette-deformed red blood cells. Biophys J 13(9):941-54.",
+      "verified_via": "NCBI esearch + efetch abstract, live this session",
+      "numbers": "Founding shear-elastomer concept paper. 'The elastic constant (corresponding to the shear modulus multiplied by membrane thickness) is of the order 10^-2 dyn/cm for both cases' (fluid-shear and micropipette). Order-of-magnitude precursor to Waugh & Evans 1979's precise value."
+    },
+    "waugh_evans1979_thermoelasticity": {
+      "pmid": "262408", "doi": "10.1016/S0006-3495(79)85239-X", "pmcid": "PMC1328507",
+      "cite": "Waugh R, Evans EA (1979). Thermoelasticity of red blood cell membrane. Biophys J 26(1):115-31.",
+      "verified_via": "NCBI esearch + efetch full abstract, live this session",
+      "numbers": "PRIMARY shear-modulus anchor. 'The value of the elastic shear modulus at 25 degrees C was measured to be 6.6 X 10(-3) dyne/cm' = 6.6 uN/m (exact unit conversion: 1 dyn/cm = 1e-3 N/m, machine-checked in the script). 'The area compressibility modulus at 25 degrees C was measured to be 450 dyne/cm' = 450 mN/m. Thermal area expansivity 1.2e-3/degC. Change in shear modulus with T: -6e-5 dyn/cm/degC."
+    },
+    "hochmuth_waugh1987_review": {
+      "pmid": "3551799", "doi": "10.1146/annurev.ph.49.030187.001233",
+      "cite": "Hochmuth RM, Waugh RE (1987). Erythrocyte membrane elasticity and viscosity. Annu Rev Physiol 49:209-19.",
+      "verified_via": "NCBI esearch + esummary bibliographic confirmation, live this session",
+      "numbers": "Review, bibliographic tier only -- efetch returned no abstract text this session (older Annual Reviews entry)."
+    },
+    "li_dao_lim_suresh2005_spectrin_model": {
+      "pmid": "15749778", "doi": "10.1529/biophysj.104.047332", "pmcid": "PMC1305517",
+      "cite": "Li J, Dao M, Lim CT, Suresh S (2005). Spectrin-level modeling of the cytoskeleton and optical tweezers stretching of the erythrocyte. Biophys J 88(5):3707-19.",
+      "verified_via": "NCBI esearch (exact title match) + efetch full abstract, live this session",
+      "numbers": "PRIMARY anchor, exact quote: 'At persistence length p = 7.5 nm for the spectrin tetramer molecule and corresponding in-plane shear modulus mu(0) approximately 8.3 microN/m, our models show reasonable agreement with recent experimental measurements.' Also exact quote: bending modulus 'kappa needs to be at least a decade larger than the widely accepted value of 2 x 10(-19) J to stabilize the biconcave shape against the cup shape' if a naive spherical reference state is used -- this session's own shear-modulus derivation (script section 1) independently re-discovers an analogous reference-state sensitivity (honest gap, disclosed in the .md S9), not resolved by this paper's own remodeling-algorithm fix (also not reproduced here)."
+    },
+    "discher_boal_boey1998_cytoskeleton_sim": {
+      "pmid": "9726959", "doi": "10.1016/S0006-3495(98)74076-7", "pmcid": "PMC1299832",
+      "cite": "Discher DE, Boal DH, Boey SK (1998). Simulations of the erythrocyte cytoskeleton at large deformation. II. Micropipette aspiration. Biophys J 75(3):1584-97.",
+      "verified_via": "NCBI esearch + efetch full abstract, live this session",
+      "numbers": "Methodology precedent for WLC-network Monte Carlo modeling of the cytoskeleton; abstract confirms 'reasonable agreement with aspiration measurements made on flaccid human erythrocytes' for coarse-grained triangulated network models. No specific shear-modulus number in the abstract text extracted."
+    },
+    "svoboda1992_persistence_length": {
+      "pmid": "1420914", "doi": "10.1016/S0006-3495(92)81644-2", "pmcid": "PMC1262211",
+      "cite": "Svoboda K, Schmidt CF, Branton D, Block SM (1992). Conformation and elasticity of the isolated red blood cell membrane skeleton. Biophys J 63(3):784-93.",
+      "verified_via": "NCBI esearch + efetch full abstract, live this session",
+      "numbers": "Direct optical-tweezers measurement of isolated skeletons: exact quote 'the spectrin tethers are flexible, with a persistence length of approximately 10 nm at 150 mM salt.' Used in this doc's section-1 parameter table as the MEASURED (vs. Li2005's modeling-fitted 7.5nm) persistence length."
+    },
+    "nans_mohandas_stokes2011_cryoet": {
+      "pmid": "22098732", "doi": "10.1016/j.bpj.2011.09.050", "pmcid": "PMC3218374",
+      "cite": "Nans A, Mohandas N, Stokes DL (2011). Native ultrastructure of the red cell cytoskeleton by cryo-electron tomography. Biophys J 101(10):2341-50.",
+      "verified_via": "NCBI esearch + efetch full abstract, live this session",
+      "numbers": "PRIMARY anchor for this doc's own shear-modulus structural parameters. Exact quote: 'The average contour length of spectrin filaments connecting junctional complexes is 46 +/- 15 nm, indicating that the spectrin heterotetramer in the native membrane skeleton is a fraction of its fully extended length (~190 nm).' Also: 'Higher-order oligomers of spectrin were prevalent, with hexamers and octamers seen between virtually every junctional complex' (disclosed in .md S9 as a plausible, unquantified factor beyond this session's simple regular-triangular-lattice assumption). Species: MOUSE erythrocytes (disclosed caveat, not independently re-verified for human this session)."
+    },
+    "rawicz2000_bare_bilayer": {
+      "pmid": "10866959", "doi": "10.1016/S0006-3495(00)76295-3", "pmcid": "PMC1300937",
+      "cite": "Rawicz W, Olbrich KC, McIntosh T, Needham D, Evans E (2000). Effect of chain length and unsaturation on elasticity of lipid bilayers. Biophys J 79(1):328-39.",
+      "verified_via": "NCBI esearch + efetch full abstract, live this session",
+      "numbers": "PRIMARY bare-bilayer (no cytoskeleton) anchor for the forced adversary. Exact quote: direct stretch (area) moduli 'varied little (< +/-10%)... about a mean of 243 mN/m.' Bending moduli 'increased progressively with chain length from 0.56 x 10(-19) J for diC13:0 to 1.2 x 10(-19) J for diC22:1,' dropping to 'approximately 0.4 x 10(-19) J' for polyunsaturated chains -- used as the 0.4-1.2e-19 J bare-bilayer bending-modulus range in this doc's section 3."
+    },
+    "evans_gratzer_mohandas2008_fluctuations": {
+      "pmid": "18234829", "doi": "10.1529/biophysj.107.117952", "pmcid": "PMC2367166",
+      "cite": "Evans J, Gratzer W, Mohandas N, Parker K, Sleep J (2008). Fluctuations of the red blood cell membrane: relation to mechanical properties and lack of ATP dependence. Biophys J 94(10):4134-44.",
+      "verified_via": "NCBI esearch (author-combo, since a first title-guess ['the master curve and its meaning'] was WRONG on live check -- a caught recall-drift instance, corrected via Evans[Author] AND Gratzer[Author] esearch) + efetch full abstract, live this session",
+      "numbers": "Exact quote: isotonic-cell fluctuations show 'an approximately q(-3)-dependence, indicative of a motion dominated by bending, with an inferred bending modulus of approximately 9 x 10(-19) J.' Concludes 'little or no dependence on the presence or absence of ATP' -- directly contradicted by Betz et al. 2009 (below), a live-confirmed, disclosed, unresolved controversy."
+    },
+    "betz_lenz_sykes2009_atp": {
+      "pmid": "19717437", "doi": "10.1073/pnas.0904614106", "pmcid": "PMC2741249",
+      "cite": "Betz T, Lenz M, Joanny JF, Sykes C (2009). ATP-dependent mechanics of red blood cells. PNAS 106(36):15320-5.",
+      "verified_via": "NCBI esearch + efetch full abstract, live this session",
+      "numbers": "Exact quote: 'bending modulus kappa = 2.8 +/- 0.3 x 10(-19) J = 67.6 +/- 7.2 k(B)T, tension sigma = 6.5 +/- 2.1 x 10(-7) N/m.' This session's own independent unit-conversion cross-check: 2.8e-19J / kB / 298.15K(room T) = 68.02 kBT, within 0.6% of the paper's own stated 67.6 kBT; at 310.15K(physiological) = 65.39 kBT, 3.3% off -- consistent with their measurement being conducted and reported at room temperature, not 37C (a clean internal self-consistency check; an initial draft of this calculation had the two temperatures' results swapped, caught and corrected by an independent re-run before being written here). Finds ATP-dependent effective-temperature elevation up to 1.4 kBT, contradicting Evans 2008. Exact quote also used directly: RBCs 'able to recover their initial shape even after large deformations as when passing through tight blood capillaries.'"
+    },
+    "evans_fung1972_geometry": {
+      "pmid": "4635577", "doi": "10.1016/0026-2862(72)90069-6",
+      "cite": "Evans E, Fung YC (1972). Improved measurements of the erythrocyte geometry. Microvasc Res 4(4):335-47.",
+      "verified_via": "NCBI esearch + esummary bibliographic confirmation, live this session",
+      "numbers": "Pre-abstract-era entry (title/PMID/DOI only, efetch returns no abstract body) -- same disclosure tier this repo already uses for e.g. Bentley 1974/Nadler 1962 in MECHANISM_ERYTHROPOIESIS.md. Classical primary source for SA~140um^2/V~90um^3/biconcave-shape geometry; this doc's reference dimension band (7.5-8.2um diameter etc.) is disclosed-tier, NOT independently re-extracted from this paper's own tables this session."
+    },
+    "canham1970_bending_energy": {
+      "pmid": "5411112", "doi": "10.1016/s0022-5193(70)80032-7",
+      "cite": "Canham PB (1970). The minimum energy of bending as a possible explanation of the biconcave shape of the human red blood cell. J Theor Biol 26(1):61-81.",
+      "verified_via": "NCBI esearch + esummary bibliographic confirmation, live this session",
+      "numbers": "Pre-abstract-era entry (title/PMID/DOI only). Foundational result this doc's own section 4 independently re-derives numerically (free energy-minimization over a 5-parameter axisymmetric ansatz finds a biconcave shape at lower bending energy than best-fit oblate/prolate ellipsoids at the same reduced volume -- see results JSON)."
+    },
+    "shotton_burke_branton1979_spectrin_em": {
+      "pmid": "490648", "doi": "10.1016/0022-2836(79)90078-0",
+      "cite": "Shotton DM, Burke BE, Branton D (1979). The molecular structure of human erythrocyte spectrin. Biophysical and electron microscopic studies. J Mol Biol 131(2):303-29.",
+      "verified_via": "NCBI esearch + esummary bibliographic confirmation, live this session",
+      "numbers": "Pre-abstract-era entry (title/PMID/DOI only). Classical EM source of the ~190-200nm spectrin fully-extended contour-length tradition that Nans et al. 2011 cross-reference."
+    },
+    "chen_weiss1973_spleen_sinus": {
+      "pmid": "4688868",
+      "cite": "Chen LT, Weiss L (1973). The role of the sinus wall in the passage of erythrocytes through the spleen. Blood 41(4):529-37.",
+      "verified_via": "NCBI esearch + esummary bibliographic confirmation, live this session",
+      "numbers": "Pre-abstract-era entry (title/PMID only, no DOI in PubMed record). Classical anatomical source for interendothelial-slit geometry -- the specific micron figure was NOT extractable live this session (no abstract, full text inaccessible). The task's own ~3um slit-width figure is used AS GIVEN, disclosed as not independently re-derived from this or any other primary source live this session."
+    },
+    "mebius_kraal2005_spleen_review": {
+      "pmid": "16056254", "doi": "10.1038/nri1669",
+      "cite": "Mebius RE, Kraal G (2005). Structure and function of the spleen. Nat Rev Immunol 5(8):606-16.",
+      "verified_via": "NCBI esearch + efetch full abstract, live this session; WebFetch of the 'Red pulp' Wikipedia article also attempted (secondary, returned no numeric IES width, disclosed)",
+      "numbers": "General qualitative confirmation only: spleen 'enables it to remove older erythrocytes from the circulation.' No specific interendothelial-slit width in the abstract."
+    },
+    "pivkin_peng_karniadakis_dao_suresh2016_ies": {
+      "pmid": "27354532", "doi": "10.1073/pnas.1606751113", "pmcid": "PMC4948333",
+      "cite": "Pivkin IV, Peng Z, Karniadakis GE, Buffet PA, Dao M, Suresh S (2016). Biomechanics of red blood cells in human spleen and consequences for physiology and disease. Proc Natl Acad Sci USA 113(28):7804-9.",
+      "verified_via": "NCBI esearch + efetch full abstract AND significance statement, live this session (attempted body-text fetch via both NCBI PMC efetch and Europe PMC REST; both returned 'the publisher of this article does not allow downloading of the full text' / 404 -- disclosed, not silently worked around)",
+      "numbers": "PRIMARY qualitative anchor for section 6 (splenic slit). Exact quote: 'A companion analysis provides critical bounds relating surface area and volume for healthy RBCs beyond which the RBCs fail the physical fitness test to pass through the IES, supporting independent experiments.' Also: 'surface area loss of an infected RBC is found to be a more important determinant of splenic retention than its membrane stiffness' (independent corroboration that area/geometry, not just stiffness, governs splenic passage -- consistent with this doc's own SA-driven capsule-geometry model). This doc's own f_crit=7.55% is an independently-derived quantitative analog of this qualitative finding, NOT a numeric reproduction of Pivkin et al.'s own (inaccessible) specific bound."
+    },
+    "safeukui_buffet2008_ring_retention": {
+      "pmid": "18579796", "doi": "10.1182/blood-2008-03-146779",
+      "cite": "Safeukui I, Correas JM, Brousse V, et al., Buffet PA (2008). Retention of Plasmodium falciparum ring-infected erythrocytes in the slow, open microcirculation of the human spleen. Blood 112(6):2520-8.",
+      "verified_via": "NCBI esearch + efetch full abstract, live this session",
+      "numbers": "Ex vivo human spleen perfusion: '>50% of rings were also retained and accumulated upstream from endothelial sinus wall slits.' Confirms slit-mediated retention as a real, quantified (in a human organ perfusion, not just computational) phenomenon; no explicit slit-width number in the abstract."
+    },
+    "bolton_maggs2012_hs_guideline": {
+      "pmid": "22055020", "doi": "10.1111/j.1365-2141.2011.08921.x",
+      "cite": "Bolton-Maggs PH, Langer JC, Iolascon A, Tittensor P, King MJ (2012). Guidelines for the diagnosis and management of hereditary spherocytosis--2011 update. Br J Haematol 156(1):37-49.",
+      "verified_via": "NCBI esearch + efetch full abstract, live this session; full text NOT accessible (Wiley journal, no PMCID returned -- paywalled, disclosed, consistent with this repo's own prior documented experience of Wiley-journal access restriction)",
+      "numbers": "Exact quote: 'The diagnostic value of the eosin-5-maleimide (EMA) binding test has been validated in a number of studies with understanding of its limitations.' Specific %NaCl osmotic-fragility reference ranges are NOT in the abstract and were not extractable from the (inaccessible) full text this session -- disclosed gap, used only for the qualitative confirmation that increased osmotic fragility / EMA reduction is the established HS diagnostic signature."
+    },
+    "king2000_ema_flow_cytometry": {
+      "pmid": "11122157",
+      "cite": "King MJ, Behrens J, Rogers C, Flynn C, Greenwood D, Chambers K (2000). Rapid flow cytometric test for the diagnosis of membrane cytoskeleton-associated haemolytic anaemia. Br J Haematol 111(3):924-33.",
+      "verified_via": "NCBI esearch + efetch full abstract, live this session",
+      "numbers": "Exact quote: EMA dye test 'sensitivity of 92.7% and a specificity of 99.1%' for hereditary spherocytosis; reacts covalently with Lys-430 on band 3's first extracellular loop. Used as a corroborating, independent (non-osmotic) HS-diagnostic anchor."
+    },
+    "gallagher2004_elliptocytosis_mechanism": {
+      "pmid": "15071791", "doi": "10.1053/j.seminhematol.2004.01.003",
+      "cite": "Gallagher PG (2004). Hereditary elliptocytosis: spectrin and protein 4.1R. Semin Hematol 41(2):142-64.",
+      "verified_via": "NCBI esearch + efetch full abstract, live this session",
+      "numbers": "PRIMARY mechanistic anchor for section 8. Exact quote: HE's 'principle lesion... [is] mechanical weakness or fragility of the erythrocyte membrane skeleton due to defects in alpha-spectrin, beta-spectrin, or protein 4.1' -- directly supports this doc's bond-dilution (impaired spectrin self-association -> non-load-bearing dimers) mapping onto the Maxwell-counting rigidity-percolation model."
+    },
+    "delaunay2007_membrane_disorders": {
+      "pmid": "16730867", "doi": "10.1016/j.blre.2006.03.005",
+      "cite": "Delaunay J (2007). The molecular basis of hereditary red cell membrane disorders. Blood Rev 21(1):1-20.",
+      "verified_via": "NCBI esearch + efetch full abstract, live this session",
+      "numbers": "Corroborates HS/HE mechanism classification (disorders of red cell mechanics vs. disorders of cation flux); general review confirmation, no specific numeric values extracted."
+    },
+    "mohandas_gallagher2008_review": {
+      "pmid": "18988878", "doi": "10.1182/blood-2008-07-161166", "pmcid": "PMC2582001",
+      "cite": "Mohandas N, Gallagher PG (2008). Red cell membrane: past, present, and future. Blood 112(10):3939-48.",
+      "verified_via": "NCBI esearch + efetch full abstract, live this session; full-text XML fetch attempted via NCBI efetch db=pmc -- returned 'the publisher of this article does not allow downloading of the full text in XML form' (disclosed, not worked around)",
+      "numbers": "Comprehensive review, general confirmation of the composite bilayer+skeleton picture ('membrane envelope... secured to an elastic network of skeletal proteins via transmembrane proteins'). No specific numeric shear/bending/geometry values extracted from the (inaccessible) full text this session."
+    }
+  },
+  "webfetch_attempts_no_usable_numeric_content_disclosed": [
+    {"url": "https://en.wikipedia.org/wiki/Red_pulp", "sought": "splenic interendothelial slit width in micrometers", "result": "no numeric width found in the fetched content"},
+    {"url": "https://en.wikipedia.org/wiki/Osmotic_fragility", "sought": "%NaCl onset/complete hemolysis values, HS shift magnitude, osmotically-inactive volume fraction", "result": "no numeric values found in the fetched content"}
+  ],
+  "results_json_script": "scripts/msk/erythrocyte_membrane.py -- self-contained, deterministic (2 independent runs produce byte-identical JSON, verified this session), no OpenSim/external data. Output: data/erythrocyte_membrane/erythrocyte_membrane_results.json. Machinery unit-tested against a closed-form result (sphere: A=4*pi*R^2, V=4/3*pi*R^3, E_bend=8*pi*kappa) to <4e-8 relative before being trusted on the biconcave-shape optimization.",
+  "overall_verdict": {
+    "falsifier_shear_modulus_and_biconcave_shape": "PASS (order-of-magnitude, zero-fit-parameter shear-modulus match from live-verified structural parameters; biconcave shape independently out-competes best-fit oblate AND prolate ellipsoids at the task's own reduced volume, 5/6-start-robust). Tight-anchor shear-modulus quantitative match requires a higher x0 than either live-verified structural measurement reaches -- disclosed, unresolved, traced to (not smoothed over by) the same reference-state sensitivity Li et al. 2005 flag in their own more sophisticated model.",
+    "falsifier_pure_bilayer_adversary": "PASS -- mu=0 exactly (2D-fluid definition) categorically fails the shear anchor while the SAME bare-bilayer independently reproduces the membrane's area modulus (1.85x, same order of magnitude) -- the predicted asymmetric signature, not a uniform failure.",
+    "falsifier_splenic_deformability": "PASS at the task's own w=3um (8.8% volume margin, zero areal strain needed) -- own-derived, quantitatively analogous to (not numerically copied from) Pivkin et al. 2016's live-confirmed 'physical fitness test' framing. Disclosed as slit-width-sensitive (crossover at 2.72um for the normal cell).",
+    "falsifier_hereditary_spherocytosis": "PASS -- strictly monotonic increasing osmotic fragility with membrane-loss fraction (machine-verified, 7-point sweep), AND a strikingly low critical splenic-slit-fitness threshold (f_crit=7.55% membrane-area loss). Absolute %NaCl calibration is disclosed-tier (osmotically-inactive-fraction parameter not independently live-pinned), direction/monotonicity is the load-bearing, pre-registered claim.",
+    "falsifier_hereditary_elliptocytosis": "PASS -- Maxwell/isostatic bond-counting predicts a hard topological rigidity threshold (removal fraction 1/3) for a 2D triangular central-force network; a direct finite spring-lattice simulation (calibrated to the analytic zero-dilution formula to 3.4%) confirms a steep, monotonic softening transition centered near that value.",
+    "symmetric_qc_held_open": "Shear-modulus tight-anchor gap (S2/S9 of the .md); splenic-slit-width value is task-given not independently re-derived; HS %NaCl absolute calibration is disclosed-tier; biconcave-shape diameter is a narrow (1.3%), un-adjusted miss on an uncertain reference band; elliptocytosis percolation is a small finite-size simulation (semi-quantitative, not precise-critical-exponent); bending modulus has a genuine, disclosed 4.5x spread across 3 measurements plus an unresolved ATP-dependence controversy (Evans 2008 vs Betz 2009); Nans 2011's direct parameters are murine, not human."
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "model": "grip force chain: PCSA*specific_tension*activation*FL*FV -> tendon -> carpal-tunnel redirect -> pulley-set moment arm -> joint torque -> multi-joint Jacobian -> fingertip force -> summed across digits = measured grip force",
+  "twin_model_gap_confirmed_live": {
+    "no_grip_force_instrument_exists": true,
+    "sources": [
+      "docs/MECHANISM_HAND_FIVE_DIGIT.md L42: 'no live grip-force instrument exists in this pipeline'",
+      "docs/MECHANISM_ELBOW_WRIST_FORCE.md L203: 'no fingertip/grip marker exists in this model's MarkerSet'"
+    ]
+  },
+  "twin_model_params_measured_live_this_session": {
+    "method": "direct XML parse of .osim files, bounded per-muscle blocks between successive <Millard2012EquilibriumMuscle name=...> tags",
+    "files": {
+      "subject2_unified_v2_thumb.osim": {"digits": "index,middle,thumb", "pulley_corrected": false, "n_muscles": 246},
+      "subject2_unified_v2_ringlittle.osim": {"digits": "index,middle,ring,little,thumb", "pulley_corrected": false, "n_muscles": 257, "forked_from": "subject2_unified_v2_thumb.osim"},
+      "subject2_unified_v2_pulleys.osim": {"digits": "index,middle,thumb ONLY", "pulley_corrected": true, "n_muscles": 246, "forked_from": "subject2_unified_v2_thumb.osim (NOT ringlittle.osim)"}
+    },
+    "gap_no_model_has_both_full_digits_and_pulley_fix": true,
+    "muscle_params": {
+      "FDP2_r": {"Fmax_N": 45, "OFL_mm": 60.0, "TSL_mm": 326.25, "pennation_deg": 8.0},
+      "FDS2_r": {"Fmax_N": 40, "OFL_mm": 60.0, "TSL_mm": 328.48, "pennation_deg": 8.0},
+      "FDP3_r": {"Fmax_N": 45, "OFL_mm": 60.0, "TSL_mm": 332.28, "pennation_deg": 8.0},
+      "FDS3_r": {"Fmax_N": 40, "OFL_mm": 60.0, "TSL_mm": 334.51, "pennation_deg": 8.0},
+      "FDP4_r": {"Fmax_N": 45, "OFL_mm": 60.0, "TSL_mm": 314.77, "source": "ringlittle.osim"},
+      "FDS4_r": {"Fmax_N": 40, "OFL_mm": 60.0, "TSL_mm": 317.34, "source": "ringlittle.osim"},
+      "FDP5_r": {"Fmax_N": 45, "OFL_mm": 60.0, "TSL_mm": 309.88, "source": "ringlittle.osim"},
+      "FDS5_r": {"Fmax_N": 40, "OFL_mm": 60.0, "TSL_mm": 315.29, "source": "ringlittle.osim"},
+      "FPL_r": {"Fmax_N": 45, "OFL_mm": 60.0, "TSL_mm": 269.40, "pennation_deg": 8.0},
+      "APB_r": {"Fmax_N": 11},
+      "FPB_r": {"Fmax_N": 9},
+      "OP_r": {"Fmax_N": 17},
+      "AdP_r": {"Fmax_N": 30},
+      "LUM1_r": {"Fmax_N": 0.2, "OFL_mm": 60.0},
+      "DI1_r": {"Fmax_N": 3.2, "OFL_mm": 45.0}
+    },
+    "disclosed_discrepancy_vs_literature": "Fmax/OFL uniform across all 4 finger digits (generic template); Lieber et al. 1992 PMID 1401782 found FDS5 (little) 'much smaller and shorter than the rest of the digital flexors' - contradicts twin's uniform FDS5_r=40N assumption specifically",
+    "moment_arms_index_FDP2_r_post_pulley_mm": {
+      "source": "docs/MECHANISM_HAND_PULLEYS.md (cross-read, not re-derived this session)",
+      "MCP": {"rom_deg": [-25.7, 86.0], "r_range_mm": [1.290, 9.178]},
+      "PIP": {"rom_deg": [-13.7, 97.2], "r_range_mm": [2.142, 6.180]},
+      "DIP": {"rom_deg": [-6.0, 81.6], "r_range_mm": [3.766, 5.768]}
+    },
+    "phalanx_lengths_index_mm": {
+      "proximal_mcp_to_pip": {"value": 51.696, "model_measured": true, "source": "pip2_flex_r_joint parent frame translation on index_proximal_r"},
+      "middle_pip_to_dip": {"value": 29.540, "model_measured": true, "source": "dip2_flex_r_joint parent frame translation on index_medial_r"},
+      "distal_dip_to_tip": {"value": 17.0, "model_measured": false, "note": "no fingertip marker in model; literature-typical estimate"}
+    }
+  },
+  "claim_1_shape_inverted_U": {
+    "statement": "grip force vs grip-span/aperture is an inverted-U with an interior peak, not flat, not monotonic",
+    "pre_registered_threshold": "argmax interior to tested span range in >=2 independent studies",
+    "adversary_forced": "monotonic (stronger fair form than 'flat', since a pure lever-arm-only argument could a priori produce a monotonic curve if r(theta) is monotonic)",
+    "geometric_plausibility_check": {
+      "method": "sum of r_avg * ROM_radians per joint for FDP2_r across its own full disclosed ROM",
+      "excursion_mm": {"MCP": 10.20, "PIP": 8.05, "DIP": 7.29, "total": 25.55},
+      "OFL_mm": 60.0,
+      "excursion_over_OFL_pct": 42.6,
+      "interpretation": "order-of-magnitude consistent with traversing a meaningful fraction of a standard active force-length curve; NOT a full reproduction (aperture-to-joint-angle map not built)"
+    },
+    "falsifier_table": [
+      {"study": "Firrell & Crain 1996", "pmid": "8724468", "n": 288, "design": "5 fixed Jamar settings I-V", "argmax": "setting II (89%, 256/288)", "interior_pass": true},
+      {"study": "Ruiz-Ruiz et al. 2002", "pmid": "12239682", "n": 70, "design": "5 grip spans x 10 trials", "argmax": "5.5cm men (fixed); hand-size-dependent women", "interior_pass": true},
+      {"study": "Lee, Kong, Lowe & Song 2009", "pmid": "19424925", "n": 46, "design": "5 spans 45-65mm", "argmax": "50mm(430.8N)/55mm(433.6N); 65mm lowest", "interior_pass": true},
+      {"study": "Blackwell, Kornatz & Heath 1999", "pmid": "10484275", "n": 18, "design": "4 grip spans, submax 60-65%MVC", "argmax": "middle > small OR large (explicit)", "interior_pass": true}
+    ],
+    "pass_count": "4/4",
+    "total_n_across_studies": 422,
+    "peak_location_convergent_estimate_cm": [5.0, 5.5],
+    "task_prior_stated_cm": [5, 7],
+    "refinement": "tighter/lower than task's stated prior, backed by 2 independent numeric sources",
+    "corroborating_not_independent": {"study": "Amis 1987", "pmid": "3682795", "n": 17, "finding": "monotonic decrease over 31-116mm cylinder diameter, read as descending-limb corroboration only (different metric, range may already be past peak)"},
+    "theoretical_cross_check": {"study": "Sancho-Bru et al. 2003", "pmid": "14605652", "finding": "biomechanical model predicts 33mm optimal cylinder diameter (independent method, same order of magnitude, different metric)"},
+    "verdict": "PASS - adversary falls 4/4 across diverse instance-space"
+  },
+  "claim_2_magnitude_twin_reconstruction": {
+    "statement": "the twin's own Fmax budget, converted to fingertip force via its own geometry, reaches realistic max-grip norms",
+    "pre_registered_threshold": "predicted grip force >= EWGSOP2 low-strength cutoff (the most charitable real benchmark) under a steelmanned (generous budget, most-favorable ratio) assumption",
+    "adversary_forced": "steelmanned with generous budget (455.4N, all closing-relevant muscles) and most-favorable single-joint (DIP, 3.40x) transmission ratio, cross-checked against Schuind 1992's real in-vivo 3.43x",
+    "budgets_N": {
+      "extrinsic_only_4xFDP_4xFDS_FPL": 385.0,
+      "generous_plus_thumb_intrinsics_LUM1_DI1": 455.4,
+      "pennation_loss_pct": 0.97
+    },
+    "geometric_transmission_ratios": {
+      "method": "single-joint lever balance F_tendon/F_tip = L/r using twin's own measured r and L (L_distal literature-estimated)",
+      "MCP": {"r_mm": 6.0, "L_mm": 51.696, "ratio": 8.62},
+      "PIP": {"r_mm": 5.0, "L_mm": 29.540, "ratio": 5.91},
+      "DIP": {"r_mm": 5.0, "L_mm": 17.0, "ratio": 3.40},
+      "combined_3joint_coordinated_closure": {"sum_r_mm": 16.0, "sum_L_mm": 98.2, "ratio": 6.14}
+    },
+    "external_cross_check": {
+      "study": "Schuind, Garcia-Elias, Cooney & An 1992", "pmid": "1564277", "n": 5,
+      "measured_ratio": 3.43,
+      "tendon_force_N": 117.7, "applied_pinch_force_N": 34.3,
+      "comparison": "within 1% of twin's independently-derived DIP-joint geometric estimate (3.40x)",
+      "caveat": "tip pinch not power grip, small n, CTS-surgical population; convergence may be partly coincidental given approximations"
+    },
+    "predicted_max_grip_N_full_sweep": {
+      "extrinsic_only_x_DIP": 113.2,
+      "extrinsic_only_x_combined": 62.7,
+      "extrinsic_only_x_PIP": 65.1,
+      "extrinsic_only_x_MCP": 44.7,
+      "generous_x_DIP": 133.9,
+      "generous_x_combined": 74.2,
+      "generous_x_PIP": 77.1,
+      "generous_x_MCP": 52.8
+    },
+    "range_N": [44.7, 133.9],
+    "external_anchors_N": {
+      "Dodds_2014_male_median_pmid_25474696": 500.1,
+      "Dodds_2014_female_median_pmid_25474696": 304.0,
+      "EWGSOP2_male_cutoff_pmid_30312372": 264.8,
+      "EWGSOP2_female_cutoff_pmid_30312372": 156.9
+    },
+    "pass_fail_matrix": "8/8 predicted-N combinations fall below EVEN the EWGSOP2 female cutoff (156.9N), the most charitable real threshold tested",
+    "verdict": "ADVERSARY FALLS 8/8 - twin's hand-flexor Fmax parametrization plausibly under-strong by ~2-6x vs real norms",
+    "direction_note": "opposite-direction finding from docs/MECHANISM_FMAX_PCSA_VALIDATION.md (knee/hip over-strong, ratio 1.146); different body region, different model lineage, not contradictory",
+    "confidence_tier": "bounded HYPOTHESIS for QC - no static-optimization simulation run this session, see proposed_cell"
+  },
+  "claim_3_dysfunction_mortality_frailty": {
+    "statement": "grip strength is a validated prospective biomarker of all-cause mortality, disability, and the sarcopenia/frailty phenotype",
+    "type": "literature anchor, not re-derived by this session's own computation",
+    "mortality": {
+      "study": "Leong et al. 2015 (PURE)", "pmid": "25982160", "journal": "Lancet", "n": 139691, "countries": 17,
+      "follow_up_years_median": 4.0,
+      "HR_per_5kg_decrease": {
+        "all_cause_mortality": {"HR": 1.16, "CI95": [1.13, 1.20], "p": "<0.0001"},
+        "cardiovascular_mortality": {"HR": 1.17, "CI95": [1.11, 1.24], "p": "<0.0001"},
+        "non_cardiovascular_mortality": {"HR": 1.17, "CI95": [1.12, 1.21], "p": "<0.0001"},
+        "myocardial_infarction": {"HR": 1.07, "CI95": [1.02, 1.11], "p": "0.002"},
+        "stroke": {"HR": 1.09, "CI95": [1.05, 1.15], "p": "<0.0001"}
+      },
+      "notable_finding": "grip strength a stronger predictor of all-cause and CV mortality than systolic blood pressure (paper's own explicit statement)"
+    },
+    "companion_norms_paper_do_not_conflate": {"study": "Leong et al. 2016", "pmid": "27104109", "journal": "J Cachexia Sarcopenia Muscle", "n": 125462, "note": "different paper, cross-country reference ranges, not the mortality paper"},
+    "sarcopenia_cutoffs": {
+      "study": "Cruz-Jentoft et al. 2019 (EWGSOP2)", "pmid": "30312372", "journal": "Age Ageing",
+      "erratum_pmid_do_not_cite_as_primary": "31081853",
+      "table": "Table 3, verified via direct PMC full-text fetch this session",
+      "low_strength_cutoff_kg": {"men": 27, "women": 16},
+      "low_strength_cutoff_N": {"men": 264.8, "women": 156.9}
+    },
+    "normative_curve": {
+      "study": "Dodds et al. 2014", "pmid": "25474696", "n_participants": 49964, "n_observations": 60803, "n_studies": 12,
+      "peak_median_grip_kg": {"men": 51, "women": 31},
+      "peak_median_grip_N": {"men": 500.1, "women": 304.0},
+      "peak_age_range": {"men": [29, 39], "women": [26, 42]},
+      "weak_grip_definition": ">=2.5SD below sex-specific peak mean",
+      "weak_grip_prevalence_by_age_80_pct": {"men": 23, "women": 27}
+    },
+    "carpal_tunnel_dysfunction": {
+      "mechanism_review": {"study": "Katz & Simmons 2002", "pmid": "12050342", "journal": "NEJM", "note": "clinical review, no numeric abstract body, cited for mechanism only"},
+      "coordination_deficit_quantified": {
+        "study": "Lowe & Freivalds 1999", "pmid": "10204420", "n_per_group": 7,
+        "grip_to_load_force_ratio_increase_pct": 54, "p": "<0.05",
+        "force_modulation_decrease_pct": 12, "p": "<0.05",
+        "mechanism": "tactile sensibility deficit (coordination/sensory), explicitly NOT conflated with raw maximum-strength weakness"
+      },
+      "surgical_outcome_quantified": {
+        "study": "Katz et al. 1998 (Maine Carpal Tunnel Study)", "pmid": "9708386", "n": 429,
+        "symptom_function_score_improvement_pct": [23, 45], "sustained_months": 30,
+        "note": "composite functional score, not isolated grip-force kgf"
+      },
+      "honest_gap": "no specific quantitative CTS-vs-healthy max-grip-force deficit (kgf/N) primary study was found/verified this session"
+    }
+  },
+  "honest_gaps": [
+    "no aperture(cm)->joint-angle(deg) kinematic map exists in this twin; Sec.3 plausibility check is order-of-magnitude, not a literal curve reproduction",
+    "no single .osim model file has both full 5-digit coverage AND the pulley-corrected moment arms (pulleys.osim forked from pre-ring/little thumb.osim lineage)",
+    "Fmax/OFL uniform generic-template values across all 4 finger-flexor digits; contradicted for FDS5 by Lieber 1992's own architecture finding; no hand-specific Fmax/PCSA validation cert exists yet",
+    "distal phalanx length not model-measured (no fingertip marker); literature-typical 17mm estimate used and flagged wherever used",
+    "Sec.4 transmission-ratio derivation is a single-joint lever approximation plus one coordinated-closure sum, not a true multi-joint Jacobian/static-optimization solve",
+    "no specific quantitative CTS-vs-healthy max-grip-force deficit citation verified this session",
+    "no dedicated CTS/hand-dysfunction grip-force video or sensor dataset located in this repo this session"
+  ],
+  "proposed_cell": "scripts/msk/hand_grip_static_optimization.py: merge pulley-fix into the ringlittle lineage (full 5-digit + pulley-corrected model), add a fingertip contact marker/frame, build an aperture(cm)->joint-angle kinematic map (Buchholz & Armstrong style), run OpenSim static optimization at >=5 apertures spanning 3.5-9cm to directly reproduce the Ruiz-Ruiz/Lee-Kong-Lowe span-force curve and replace Sec.4's bounded 44.7-133.9N estimate with a non-approximated number",
+  "verification_method": "all PMIDs live-verified this session via NCBI eutils (esearch/esummary/efetch against eutils.ncbi.nlm.nih.gov); EWGSOP2 Table 3 cutoffs verified via direct fetch of PMC full text (PMC6322506); two citation errors caught and corrected in-session: Leong 2015 Lancet mortality paper (25982160) vs a distinct 2016 companion norms paper (27104109) not conflated; PMID 31081853 identified as the erratum notice for EWGSOP2 (30312372), not an independent source",
+  "couples_to": [
+    "docs/MECHANISM_ELBOW_WRIST_FORCE.md (wrist/carpal, in flight; same FDP2-5_r/FDS2-5_r/FPL_r muscles, different task type - static support not active grip)",
+    "docs/MECHANISM_FMAX_PCSA_VALIDATION.md (knee/hip specific-tension/PCSA cert; this doc's hand finding is the opposite-direction mirror)",
+    "docs/MECHANISM_ANATOMICAL_HAND.md, MECHANISM_HAND_PULLEYS.md, MECHANISM_HAND_FIVE_DIGIT.md, MECHANISM_HAND_FOREARM_THUMB.md, MECHANISM_HAND_INHERIT.md (hand model lineage)",
+    "data/video_index_tables (Tian Tao Floating Snatch Grip Deficit Deadlifts video asset - operator's lifting grip, function pole)",
+    "data/body_twin/agent_outputs/frailty-multisystem-aging__adba752834918a1ca.json (prior related note, pointer only, not cited as evidence)"
+  ]
+}

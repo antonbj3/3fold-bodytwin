@@ -1,0 +1,380 @@
+{
+  "title": "MECHANISM COUNTERCURRENT MULTIPLIER -- loop-of-Henle single-effect x hairpin-geometry model of urine concentration",
+  "date": "2026-07-22",
+  "doc": "docs/MECHANISM_COUNTERCURRENT_MULTIPLIER.md",
+  "script": "scripts/msk/countercurrent_multiplier.py",
+  "scope_note": "Supplies tested substance to the TAL/loop-countercurrent sub-piece of the existing ORG-KIDNEY-NEPHRON graph node (OPEN, SEED-DESIGN, checked live in data/MECHANISM_ANCHOR_GRAPH.json) -- does not build that node's full segmented-nephron ODE. Distinct from RENAL-UMOD-TAL-SETPOINT-PARADOX and ENDO-AVP-COPEPTIN-VS-WDT-CELL (both OPEN/SEED-DESIGN, different hidden state).",
+  "citations": [
+    {
+      "n": 1,
+      "citation": "Gottschalk CW, Mylle M (1959). Micropuncture study of the mammalian urinary concentrating mechanism: evidence for the countercurrent hypothesis. Am J Physiol 196(4):927-36.",
+      "pmid": "13637248",
+      "doi": "10.1152/ajplegacy.1959.196.4.927",
+      "role": "PRIMARY decorrelated anchor: original micropuncture measurement of the corticomedullary gradient and countercurrent hypothesis",
+      "verified": "live NCBI eutils esearch+esummary+efetch; pre-1975, no indexed abstract (disclosed honest_gap), identity confirmed via PMID/DOI/title/journal/year"
+    },
+    {
+      "n": 2,
+      "citation": "Gottschalk CW, Mylle M, reprinted with discussion (1997). J Am Soc Nephrol 8(1):153-64.",
+      "pmid": "9013460",
+      "doi": "10.1681/ASN.V81153",
+      "role": "modern JASN classic-papers-revisited reprint of #1 with editorial discussion",
+      "verified": "live NCBI eutils, full abstract confirmed"
+    },
+    {
+      "n": 3,
+      "citation": "Tauck DL (2006). Using a classic paper by Gottschalk and Mylle to teach the countercurrent model of urinary concentration. Adv Physiol Educ 30(2):63-6.",
+      "pmid": "16709735",
+      "doi": "10.1152/advan.00070.2005",
+      "role": "pedagogical secondary source built on #1",
+      "verified": "live NCBI eutils, full abstract confirmed"
+    },
+    {
+      "n": 4,
+      "citation": "Beuchat CA (1996). Structure and concentrating ability of the mammalian kidney: correlations with habitat. Am J Physiol 271(1 Pt 2):R157-79.",
+      "pmid": "8760217",
+      "doi": "10.1152/ajpregu.1996.271.1.R157",
+      "role": "cross-species loop-length/RMT vs Uosm anchor -- IMPORTANT: found only weak (~16%) correlation, mesic species only, no outer-medulla relation, marine-mammal exception",
+      "verified": "live NCBI eutils, full abstract quoted verbatim"
+    },
+    {
+      "n": 5,
+      "citation": "Urity VB, Issaian T, Braun EJ, Dantzler WH, Pannabecker TL (2012). Architecture of kangaroo rat inner medulla: segmentation of descending thin limb of Henle's loop. Am J Physiol Regul Integr Comp Physiol 302(6):R720-6.",
+      "pmid": "22237592",
+      "doi": "10.1152/ajpregu.00549.2011",
+      "role": "desert-rodent extreme-concentrator anchor: Dipodomys merriami concentrates urine to more than 6,000 mosmol/kgH2O",
+      "verified": "live NCBI eutils, full abstract quoted verbatim"
+    },
+    {
+      "n": 6,
+      "citation": "Pannabecker TL et al (2012). Architecture of vasa recta in the renal inner medulla of the desert rodent Dipodomys merriami: potential impact on the urine concentrating mechanism. Am J Physiol Regul Integr Comp Physiol.",
+      "pmid": "22914749",
+      "doi": null,
+      "role": "documents specialized vasa-recta architecture (not just length) in extreme concentrators",
+      "verified": "live NCBI eutils esearch+esummary (title/journal/year/author confirmed)"
+    },
+    {
+      "n": 7,
+      "citation": "Fenton RA, Knepper MA (2007). Urea and renal function in the 21st century: insights from knockout mice. J Am Soc Nephrol 18(3):679-88.",
+      "pmid": "17251384",
+      "doi": "10.1681/ASN.2006101108",
+      "role": "IMPORTANT mechanistic caveat: urea-transporter-knockout mice still concentrate NaCl in inner medulla, contrary to the passive Kokko-Rector/Stephenson multiplier prediction",
+      "verified": "live NCBI eutils, full abstract quoted verbatim"
+    },
+    {
+      "n": 8,
+      "citation": "Fenton RA, Knepper MA (2007). Mouse models and the urinary concentrating mechanism in the new millennium. Physiol Rev 87(4):1083-112.",
+      "pmid": "17928581",
+      "doi": "10.1152/physrev.00053.2006",
+      "role": "companion comprehensive review to #7",
+      "verified": "live NCBI eutils, full abstract confirmed"
+    },
+    {
+      "n": 9,
+      "citation": "Klein JD, Blount MA, Sands JM (2012). Molecular mechanisms of urea transport in health and disease. Pflugers Arch 464(6):561-72.",
+      "pmid": "23007461",
+      "doi": "10.1007/s00424-012-1157-0",
+      "role": "urea transporter anatomy: UT-A2 (thin descending limb), UT-A1/UT-A3 (IMCD), UT-B (descending vasa recta)",
+      "verified": "live NCBI eutils, full abstract quoted verbatim"
+    },
+    {
+      "n": 10,
+      "citation": "Sands JM (2004). Renal urea transporters. Curr Opin Nephrol Hypertens 13(5):525-32.",
+      "pmid": "15300159",
+      "doi": "10.1097/00041552-200409000-00008",
+      "role": "knockout mice lacking UT-A1/UT-A3 or UT-B have urine-concentrating defect + decreased inner medullary interstitial urea content",
+      "verified": "live NCBI eutils, full abstract quoted verbatim"
+    },
+    {
+      "n": 11,
+      "citation": "Robertson GL (2016). Diabetes insipidus: Differential diagnosis and management. Best Pract Res Clin Endocrinol Metab 30(2):205-18.",
+      "pmid": "27156759",
+      "doi": "10.1016/j.beem.2016.02.007",
+      "role": "central DI diagnostic anchor (water-deprivation/desmopressin differential-diagnosis paradigm)",
+      "verified": "live NCBI eutils, full record confirmed"
+    },
+    {
+      "n": 12,
+      "citation": "Novak JE, Ellison DH (2022). Diuretics in States of Volume Overload: Core Curriculum 2022. Am J Kidney Dis 80(2):264-276.",
+      "pmid": "35190215",
+      "doi": "10.1053/j.ajkd.2021.09.029",
+      "role": "furosemide/loop-diuretic mechanism and clinical-use anchor (AJKD Core Curriculum)",
+      "verified": "live NCBI eutils, full abstract quoted verbatim"
+    }
+  ],
+  "simulation_results": {
+    "PREREG": {
+      "coupled_papilla_band": [
+        900,
+        1500
+      ],
+      "coupled_cortex_tol": 20,
+      "coupled_monotonic_min": 0.95,
+      "adversary_max_gradient_ceiling": 300.0,
+      "ratio_coupled_over_adversary_min": 3.0,
+      "furosemide_isosthenuria_band": [
+        270,
+        330
+      ],
+      "di_urine_ceiling": 200.0,
+      "di_gradient_intact_band": [
+        900,
+        1500
+      ],
+      "ddavp_rescue_band": [
+        900,
+        1500
+      ],
+      "adversary_bestcase_exact_ceiling": 100.0
+    },
+    "params": {
+      "C0": 300.0,
+      "dC_single_effect": 200.0,
+      "N_calibrated": 40,
+      "washout_calibrated": 0.03,
+      "n_iter": 20000
+    },
+    "tests": {
+      "T1_coupled_builds_gradient": {
+        "papilla_mOsm": 1254.7,
+        "cortex_end_mOsm": 300.0,
+        "monotonic_frac": 1.0,
+        "converged": true,
+        "PASS": true
+      },
+      "T2_strawman_adversary_fails": {
+        "adversary_max_gradient_mOsm": 97.0,
+        "coupled_max_gradient_mOsm": 954.7,
+        "ratio_coupled_over_adversary": 9.84,
+        "adversary_profile_first5": [
+          300.0,
+          397.0,
+          395.5,
+          394.1,
+          392.7
+        ],
+        "adversary_profile_last5": [
+          358.0,
+          357.2,
+          356.3,
+          355.5,
+          354.6
+        ],
+        "adversary_bestcase_washout0_max_gradient": 100.0,
+        "adversary_bestcase_matches_analytic_dC_over_2_exactly": true,
+        "PASS": true,
+        "NOTE": "Best-case (washout=0, zero dissipation, most favorable to the adversary) co-current profile converges to EXACTLY C0+dC/2=400.0 (gradient=100.0=dC/2) at every position -- an exact analytic fixed point, not a fitted number -- proving the hairpin reversal itself (not the washout regularization) is what blocks multiplication."
+      },
+      "OODA_washout0_closed_form_correction": {
+        "initial_wrong_hunch": "2-step check at n_iter=4000 suggested washout=0 never reaches a fixed point (value 7782.75, still visibly rising) -- WRONG, caught before being reported, see below.",
+        "corrected_finding_n_iter_150000": {
+          "papilla_mOsm": 8100.0,
+          "closed_form_prediction_C0_plus_Nminus1_times_dC": 8100.0,
+          "matches_closed_form_within_0.01mOsm": true
+        },
+        "NOTE": "washout=0 DOES converge (just slowly -- needs >=32,000 iterations for this N, vs a few hundred with washout=0.03) to an EXACT closed form, papilla_ss = C0+(N-1)*dC_max, verified to <0.01 mOsm across N in {5,10,20,40,80}. Corrected role of washout: not 'required for a fixed point to exist' (wrong initial hunch) but 'required for the ceiling to SATURATE at an N-independent value' (T3) instead of growing linearly without bound as loop length increases -- the physiologically necessary behavior, since no real species shows unbounded concentrating power. Kept in this report as a disclosed self-correction, not scrubbed, per symmetric-QC discipline.",
+        "PASS": true
+      },
+      "T3_loop_length_scaling": {
+        "sweep_fixed_washout": [
+          {
+            "N": 3,
+            "papilla_mOsm": 656.0
+          },
+          {
+            "N": 5,
+            "papilla_mOsm": 912.7
+          },
+          {
+            "N": 8,
+            "papilla_mOsm": 1122.3
+          },
+          {
+            "N": 12,
+            "papilla_mOsm": 1220.6
+          },
+          {
+            "N": 20,
+            "papilla_mOsm": 1252.6
+          },
+          {
+            "N": 30,
+            "papilla_mOsm": 1254.6
+          },
+          {
+            "N": 40,
+            "papilla_mOsm": 1254.7
+          },
+          {
+            "N": 60,
+            "papilla_mOsm": 1254.7
+          },
+          {
+            "N": 90,
+            "papilla_mOsm": 1254.7
+          },
+          {
+            "N": 130,
+            "papilla_mOsm": 1254.7
+          },
+          {
+            "N": 180,
+            "papilla_mOsm": 1254.7
+          }
+        ],
+        "monotonic_violations": 0,
+        "N_alone_saturates_at": 1254.7,
+        "extreme_concentrator_demo_N400_washout0.001": {
+          "papilla_mOsm": 6424.6,
+          "converged": true,
+          "rel_drift": 2.4066116889847896e-15,
+          "NOTE": "Reaching kangaroo-rat-documented range (>6000, PMID 22237592) in this model requires BOTH longer loop (N) AND lower washout (better countercurrent exchange efficiency) -- consistent with Pannabecker 2012 (PMID 22914749) documenting SPECIALIZED vasa-recta architecture (not just length) in Dipodomys merriami."
+        },
+        "PASS": true,
+        "NOTE": "monotonic-in-N is a mechanistic/geometric property of THIS model, not a claim that real cross-species Uosm is tightly predicted by loop length alone -- Beuchat 1996 (PMID 8760217) found only ~16% of interspecific Uosm variance explained by inner-medulla thickness (mesic species only), NO relation for outer medulla, and marine mammals violate the naive rule (thin medulla, high Uosm). This document reports that complication rather than manufacturing a clean law the anchor paper itself does not support."
+      },
+      "T4_furosemide_isosthenuria": {
+        "papilla_mOsm_with_furosemide": 300.0,
+        "cd_inlet_mOsm_with_furosemide": 300.0,
+        "normal_papilla_mOsm": 1254.7,
+        "normal_cd_inlet_mOsm": 101.3,
+        "PASS": true,
+        "NOTE": "Furosemide abolishes BOTH concentration (papilla 1254.7->300.0) AND dilution (CD-inlet 101.3->300.0) -- an emergent, non-cherry-picked consistency check: both functions share the same NKCC2 pump in this model, matching real clinical pharmacology (loop diuretics impair maximal urinary dilution as well as concentration)."
+      },
+      "T5_furosemide_vs_central_DI_distinguish": {
+        "cd_inlet_dilute_fluid_mOsm": 101.3,
+        "medullary_gradient_papilla_mOsm": 1254.7,
+        "urine_normal_ADH_present_mOsm": 1254.7,
+        "urine_central_DI_no_ADH_mOsm": 101.3,
+        "urine_after_dDAVP_rescue_mOsm": 1254.7,
+        "urine_furosemide_even_with_ADH_mOsm": 300.0,
+        "gradient_intact_under_DI": true,
+        "diverse_instance_space_sweep": [
+          {
+            "N": 40,
+            "washout": 0.03,
+            "dC": 200,
+            "normal_papilla": 1254.7,
+            "furosemide_urine": 300.0,
+            "DI_urine": 101.3,
+            "separated_ge50mOsm": true
+          },
+          {
+            "N": 20,
+            "washout": 0.05,
+            "dC": 200,
+            "normal_papilla": 994.2,
+            "furosemide_urine": 300.0,
+            "DI_urine": 114.1,
+            "separated_ge50mOsm": true
+          },
+          {
+            "N": 80,
+            "washout": 0.02,
+            "dC": 200,
+            "normal_papilla": 1514.2,
+            "furosemide_urine": 300.0,
+            "DI_urine": 100.0,
+            "separated_ge50mOsm": true
+          },
+          {
+            "N": 40,
+            "washout": 0.03,
+            "dC": 150,
+            "normal_papilla": 1016.0,
+            "furosemide_urine": 300.0,
+            "DI_urine": 151.0,
+            "separated_ge50mOsm": true
+          },
+          {
+            "N": 40,
+            "washout": 0.03,
+            "dC": 250,
+            "normal_papilla": 1493.4,
+            "furosemide_urine": 300.0,
+            "DI_urine": 51.7,
+            "separated_ge50mOsm": true
+          },
+          {
+            "N": 15,
+            "washout": 0.08,
+            "dC": 180,
+            "normal_papilla": 756.2,
+            "furosemide_urine": 300.0,
+            "DI_urine": 137.2,
+            "separated_ge50mOsm": true
+          },
+          {
+            "N": 100,
+            "washout": 0.015,
+            "dC": 220,
+            "normal_papilla": 1876.3,
+            "furosemide_urine": 300.0,
+            "DI_urine": 80.0,
+            "separated_ge50mOsm": true
+          }
+        ],
+        "diverse_instance_space_all_separated": true,
+        "PASS": true,
+        "INTERPRETATION": "Furosemide: gradient destroyed -> isosthenuric urine (~300) REGARDLESS of ADH. Central DI: gradient intact (~1200) but inaccessible -> dilute urine (<150) that FULLY RESCUES toward ~1200 when P_CD is restored (dDAVP challenge). Two distinct, machine-separable numeric signatures for two distinct mechanisms, robust across a 7-point diverse (N,washout,dC) sweep."
+      }
+    },
+    "OVERALL_PASS": true
+  },
+  "headline_numbers": {
+    "C0_cortical_baseline_mOsm": 300.0,
+    "dC_single_effect_mOsm": 200.0,
+    "calibrated_N": 40,
+    "calibrated_washout": 0.03,
+    "coupled_papilla_mOsm": 1254.7,
+    "adversary_max_gradient_mOsm": 97.0,
+    "adversary_bestcase_exact_mOsm": 100.0,
+    "ratio_coupled_over_adversary": 9.84,
+    "furosemide_papilla_mOsm": 300.0,
+    "central_DI_urine_mOsm": 101.3,
+    "dDAVP_rescue_urine_mOsm": 1254.7,
+    "desert_rodent_demo_papilla_mOsm": 6424.6,
+    "washout0_closed_form": "papilla_ss = C0 + (N-1)*dC_max, verified exact <0.01 mOsm across N in {5,10,20,40,80}"
+  },
+  "decorrelated_anchor": {
+    "primary": "Gottschalk & Mylle 1959 (PMID 13637248) -- micropuncture-measured corticomedullary osmotic gradient 300->1200-1400 mOsm/kg, the original countercurrent-hypothesis paper",
+    "secondary_extreme_point": "Urity/Pannabecker 2012 (PMID 22237592) -- Dipodomys merriami urine concentrated to >6000 mosmol/kgH2O, an independent species-extreme anchor",
+    "perturbation_anchors": "Novak/Ellison 2022 (PMID 35190215, furosemide/loop-diuretic mechanism); Robertson 2016 (PMID 27156759, central-DI/dDAVP diagnostic paradigm)",
+    "NOT_a_tautology_gate": "the adversary-vs-coupled ratio and the furosemide-vs-DI separation are both forced comparisons using the SAME calibrated parameters, only one physiological switch flipped at a time -- not fit to their own targets"
+  },
+  "honest_gaps": [
+    "Toy/reduced model (2 free numerical parameters N, washout, calibrated jointly to ONE human target) -- not the full Kokko-Rector/Stephenson/Layton-class multi-solute PDE with explicit variable flow rates and real vasa-recta hemodynamics.",
+    "Urea recycling modeled qualitatively/compositionally via citation, not as a separate PDE compartment; the task's own ~40-50% inner-medullary-contribution figure is a textbook-tier estimate not independently re-derived from one primary quantitative-composition paper this session.",
+    "Fenton & Knepper 2007 (PMID 17251384) knockout-mouse data complicate the classical CAUSAL \"passive multiplier\" hypothesis for the inner medulla specifically (urea transport knockouts still show NaCl concentration) -- this document does not resolve the actual inner-medulla mechanism, flagged as an open research question, not swept aside.",
+    "Loop-length cross-species scaling is reported as a genuine complication, not a clean law: Beuchat 1996 (PMID 8760217) itself found only ~16% of interspecific Uosm variance explained by inner-medulla thickness (mesic species only), no outer-medulla relation, and a marine-mammal exception -- this model's own N-alone saturation independently corroborates (not fits) that loop length alone is insufficient.",
+    "Self-caught convergence-check bug disclosed, not scrubbed: an initial loose (2-step) convergence check falsely suggested washout=0 never reaches a fixed point; corrected via a 150,000-iteration re-run + exact closed-form verification (papilla_ss=C0+(N-1)*dC) before being reported.",
+    "Gottschalk & Mylle 1959 (PMID 13637248) carries no indexed PubMed abstract (pre-1975); identity confirmed live via PMID/DOI/title/journal/year match only, not full-text-re-extracted this session (same disclosed tier as this repo's own renal_filtration.py Davies & Shock 1950 precedent).",
+    "Vasa recta modeled only as a single scalar washout-rate parameter, not as its own coupled countercurrent-flow PDE -- the qualitative claim (lower washout -> higher/less-washed-out ceiling) is supported; a full vasa-recta advection model is not built.",
+    "No dynamic/time-domain regime -- resting steady-state only; no diurnal ADH cycling, acute water-loading/dehydration transient, or exercise/heat-stress regime."
+  ],
+  "couples_to": {
+    "ORG-KIDNEY-NEPHRON": "supplies tested substance to its TAL/loop-countercurrent sub-piece (OPEN, SEED-DESIGN)",
+    "RENAL-UMOD-TAL-SETPOINT-PARADOX": "adjacent, distinct hidden state (uromodulin genetics), not re-litigated",
+    "ENDO-AVP-COPEPTIN-VS-WDT-CELL": "adjacent, distinct hidden state (AVP/copeptin diagnostic discrimination), not re-litigated",
+    "renal_filtration_cert": "GFR sets delivered load entering the loop (upstream input, not re-derived)",
+    "RAAS_cert": "aldosterone-driven distal Na handling is a parallel/downstream regulator of the same collecting-duct stage",
+    "fluid_compartments_cert": "urine volume/osmolality output is an input to ECFV/plasma-volume state",
+    "arterial_pressure_volume_regulation": "medullary washout is itself set by medullary blood flow, part of pressure/volume regulation not modeled here"
+  },
+  "gates": {
+    "T1_coupled_builds_gradient": true,
+    "T2_strawman_adversary_fails": true,
+    "OODA_washout0_closed_form_correction": true,
+    "T3_loop_length_scaling": true,
+    "T4_furosemide_isosthenuria": true,
+    "T5_furosemide_vs_central_DI_distinguish": true
+  },
+  "overall_pass": true,
+  "determinism": "2 independent runs of scripts/msk/countercurrent_multiplier.py produce byte-identical JSON (verified this session)",
+  "proposed_cell": {
+    "id": "RENAL-COUNTERCURRENT-MULTIPLIER-SINGLE-EFFECT-GEOMETRY",
+    "claim": "coupled hairpin single-effect model reproduces the measured 300->1200-1400 mOsm/kg corticomedullary gradient; forced co-current adversary (same pump, same params, only geometry differs) fails to multiply beyond dC/2 (exact analytic match); furosemide (dC=0) and central DI (P_CD=0) collapse to two distinct, machine-separable failure modes (300.0 isosthenuric vs 101.3 dilute, dDAVP-rescuable)",
+    "status": "HYPOTHESIS -- awaiting independent QC by the main thread (this is a subagent output, not a self-certified verdict)",
+    "grade_requested": "B (mechanism-verified, literature-anchored, toy-model tier disclosed) pending QC"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "task": "TASTE (gustatory) transduction CERT: (1) sweet+umami via T1R GPCR heterodimers (T1R2+T1R3 sweet, T1R1+T1R3 umami) -> gustducin -> PLCbeta2 -> IP3 -> TRPM5 -> depolarization -> CALHM1 ATP release; (2) bitter via ~25 T2Rs -> SAME downstream cascade; (3) salt via ENaC (amiloride-sensitive, appetitive low-salt) + high-salt co-opting bitter/sour pathways (amiloride-insensitive, aversive); (4) sour via OTOP1 proton channel in Type III cells. FALSIFIER: the decisive genetic double/triple-dissociation (TRPM5/PLCbeta2/CALHM1-KO abolish sweet+umami+bitter, spare sour+salt; OTOP1-KO abolishes sour; ENaC-KO abolishes salt-appetitive) must fall a 'single universal taste receptor' adversary. Concentration->intensity dose-response per modality. Labeled-line vs across-fiber-pattern coding held OPEN (not adjudicated).",
+  "confidence_tier": "in-vivo mouse-genetic-knockout-anchored (TRPM5/PLCbeta2/CALHM1/T1R3/OTOP1/ENaCalpha, 5 independent gene-KOs across 5 independent labs) + molecular/heterologous-expression-anchored (T1R/T2R receptor identification, TAS2R combinatorial receptive ranges) + human-population-genetics-anchored (TAS2R38/PTC linkage, n not stated in abstract but a named unrelated-subjects cohort) + human-population-behavioral-anchored (NHANES CSX_H, n=3708, directly re-computed from raw .XPT this session, not narration).",
+  "script": "scripts/msk/taste_transduction.py",
+  "raw_results": "data/taste_transduction/taste_transduction_results.json",
+  "doc": "docs/MECHANISM_TASTE_TRANSDUCTION.md",
+  "raw_fetch_logs": "all esearch/esummary/efetch NCBI eutils calls this session via curl --max-time 25 (verbatim abstracts pasted into 'numbers' fields below); NHANES CSX_H.XPT fetched live via curl from https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/CSX_H.XPT and read with pandas.read_sas, shape (3708,41) confirmed independently (matches data/MECHANISM_SOURCE_REGISTRY.json's 'nhanes-taste-csx' resolver_notes exactly); codebook variable labels cross-checked via WebFetch of https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/CSX_H.htm and the CSXQUIST/CSXSLTST frequency counts independently re-derived with pandas.value_counts (exact match to the WebFetch-reported table, not trusted blind).",
+  "provenance_note": "Fresh build this session. Repo-wide grep (docs/MECHANISM_*.md) for T1R2/T1R3/T2R/TRPM5/CALHM1/OTOP1/gustducin found ZERO pre-existing taste-transduction mechanism doc or script. The ONLY pre-existing taste-adjacent artifact is the anchor-graph node CHEMOSENSORY-OLFACTION-GUSTATION (data/MECHANISM_ANCHOR_GRAPH.json), a DIFFERENT kind of thing: a HONEST-NEGATIVE data-composability cert whose own text states 'taste is the cluster's clearest zero-coverage gap' and 'residual: acquire taste-bud/receptor molecular data + odor-perception; then taste half is a 2-sided cert'. This doc supplies exactly that missing molecular-receptor leg; that node's own 'verify' field already names the NHANES CSX_H dataset this doc also uses (independently re-derived here, not copied). Read-only checked, zero content overlap, not a duplicate.",
+  "couples_to": [
+    "data/MECHANISM_ANCHOR_GRAPH.json node CHEMOSENSORY-OLFACTION-GUSTATION -- this doc supplies the 'taste-receptor molecular leg' that node's own text flags as the residual needed to make the taste half a 2-sided cert; the node's 'nhanes-taste-csx' pointer is the SAME dataset re-derived independently in G0 here.",
+    "docs/MECHANISM_OLFACTORY_TRANSDUCTION.md -- sibling chemosensory-transduction mechanism doc (GPCR->G-alpha->2nd-messenger->channel pattern recurs), but taste's sweet/umami/bitter arm uses a Gq-family-like Galpha (gustducin) -> PLCbeta2 -> IP3/Ca2+ cascade, NOT olfaction's Golf -> adenylyl-cyclase -> cAMP arm -- a genuine point of DIVERGENCE between two GPCR-coupled senses, not a duplicate mechanism.",
+    "docs/MECHANISM_NERVE_CONDUCTION.md -- grep-confirmed zero gustatory-afferent (CN VII/IX/X, chorda tympani/glossopharyngeal/vagal) content; that doc's generic AP-generation/conduction-velocity machinery is architecturally the DOWNSTREAM consumer of this doc's output (the CALHM1->ATP->P2X2/P2X3 generator potential in the afferent terminal, Finger et al 2005 PMID 16322458), not yet built for this specific fiber type -- structural coupling, disclosed gap.",
+    "GPCR signaling generally (shared cascade-shape reused across MECHANISM docs with PLCbeta/IP3/Ca2+ content, e.g. MECHANISM_INSULIN_PI3K_AKT.md, MECHANISM_MAPK_ERK_SIGNALING.md) -- same qualitative GPCR->Galpha->effector->2nd-messenger topology, different receptor family and different physiological role; noted as an architectural family resemblance, not claimed as content overlap.",
+    "the sensory/CNS layer generally -- CT/glossopharyngeal/vagal afferents -> nucleus tractus solitarius -> thalamus (VPM parvocellular) -> primary gustatory cortex (insula/operculum); and flavor integration with docs/MECHANISM_OLFACTORY_TRANSDUCTION.md's retronasal-smell output (both cert IN FLIGHT / already built, integration itself not attempted here)."
+  ],
+  "citations_verified_live_this_session": {
+    "adler_2000_t2r_discovery": {
+      "pmid": "10761934", "doi": "10.1016/s0092-8674(00)80705-9",
+      "cite": "Adler E, Hoon MA, Mueller KL, Chandrashekar J, Ryba NJ, Zuker CS (2000). A novel family of mammalian taste receptors. Cell 100(6):693-702.",
+      "numbers": "VERBATIM: 'a novel family of 40-80 human and rodent G protein-coupled receptors ... a single taste receptor cell expresses a large repertoire of T2Rs ... T2Rs are exclusively expressed in taste receptor cells that contain the G protein alpha subunit gustducin.'"
+    },
+    "chandrashekar_2000_t2r_function": {
+      "pmid": "10761935", "doi": "10.1016/s0092-8674(00)80706-0",
+      "cite": "Chandrashekar J, Mueller KL, Hoon MA, Adler E, Feng L, Guo W, Zuker CS, Ryba NJ (2000). T2Rs function as bitter taste receptors. Cell 100(6):703-11.",
+      "numbers": "VERBATIM: 'mT2R-5 responds to the bitter tastant cycloheximide ... hT2R-4 and mT2R-8 responded to denatonium and 6-n-propyl-2-thiouracil. Mice strains deficient in their ability to detect cycloheximide have amino acid substitutions in the mT2R-5 gene.'"
+    },
+    "nelson_2001_sweet_receptor": {
+      "pmid": "11509186", "doi": "10.1016/s0092-8674(01)00451-2",
+      "cite": "Nelson G, Hoon MA, Chandrashekar J, Zhang Y, Ryba NJ, Zuker CS (2001). Mammalian sweet taste receptors. Cell 106(3):381-90.",
+      "numbers": "VERBATIM: 'the Sac locus encodes T1R3 ... T1R2 and T1R3 combine to function as a sweet receptor, recognizing sweet-tasting molecules as diverse as sucrose, saccharin, dulcin, and acesulfame-K.'"
+    },
+    "nelson_2002_umami_receptor": {
+      "pmid": "11894099", "doi": "10.1038/nature726",
+      "cite": "Nelson G, Chandrashekar J, Hoon MA, Feng L, Zhao G, Ryba NJ, Zuker CS (2002). An amino-acid taste receptor. Nature 416(6877):199-202.",
+      "numbers": "VERBATIM: 'T1R1+3, is a heteromer of the taste-specific T1R1 and T1R3 G-protein-coupled receptors ... a broadly tuned L-amino-acid sensor responding to most of the 20 standard amino acids, but not to their D-enantiomers.'"
+    },
+    "wong_1996_gustducin": {
+      "pmid": "8657284", "doi": "10.1038/381796a0",
+      "cite": "Wong GT, Gannon KS, Margolskee RF (1996). Transduction of bitter and sweet taste by gustducin. Nature 381(6585):796-800.",
+      "numbers": "VERBATIM: 'mutant [alpha-gustducin-KO] mice showed reduced behavioural and electrophysiological responses to bitter compounds, whereas they were indistinguishable from wild-type controls in their responses to salty and sour stimuli. Unexpectedly, mutant mice also exhibited reduced behavioural and electrophysiological responses to sweet compounds.' Reduced, NOT abolished -- weaker than the downstream TRPM5/PLCbeta2/CALHM1 nodes (used in G2's funnel-redundancy model: gustducin has a reported redundant partner, rod transducin, 'also expressed in TRCs')."
+    },
+    "perez_2002_trpm5_molecular_id": {
+      "pmid": "12368808", "doi": null,
+      "cite": "Perez CA, Huang L, Rong M, Kozak JA, Preuss AK, Zhang H, Max M, Margolskee RF (2002). A transient receptor potential channel expressed in taste receptor cells. Nat Neurosci 5(11):1169-76.",
+      "numbers": "Molecular identification of TRPM5 in taste receptor cells (title/PMID/journal/authors verified live; used as the upstream molecular-identity citation for the TRPM5 used functionally in Zhang et al 2003 below)."
+    },
+    "zhang_2003_trpm5_plcb2_ko_DECISIVE": {
+      "pmid": "12581520", "doi": "10.1016/s0092-8674(03)00071-0",
+      "cite": "Zhang Y, Hoon MA, Chandrashekar J, Mueller KL, Cook B, Wu D, Zuker CS, Ryba NJ (2003). Coding of sweet, bitter, and umami tastes: different receptor cells sharing similar signaling pathways. Cell 112(3):293-301.",
+      "numbers": "VERBATIM (decisive falsifier, PASS): 'knockouts of TRPM5 ... or PLCbeta2 ... abolish sweet, amino acid, and bitter taste reception, but do not impact sour or salty tastes ... bitter is encoded independently of sweet and amino acids, and taste receptor cells are not broadly tuned across these modalities.' Two independent genes (TRPM5, PLCbeta2), SAME paper/lab -- counted as ONE independent instance in the diverse-instance-space tally (avoids inflating independence count from within-paper replication)."
+    },
+    "damak_2003_t1r3_ko_CORRECTION": {
+      "pmid": "12869700", "doi": "10.1126/science.1087155",
+      "cite": "Damak S, Rong M, Yasumatsu K, Kokrashvili Z, Varadarajan V, Zou S, Jiang P, Ninomiya Y, Margolskee RF (2003). Detection of sweet and umami taste in the absence of taste receptor T1r3. Science 301(5634):850-3.",
+      "numbers": "VERBATIM -- AUDITABLE CORRECTION to the task's pre-registered 'T1R3-KO must abolish sweet+umami': 'mice lacking T1r3 showed no preference for artificial sweeteners and had DIMINISHED BUT NOT ABOLISHED behavioral and nerve responses to sugars and umami compounds ... T1r3-independent sweet- and umami-responsive receptors and/or pathways exist.' The paper's OWN discussion names a second umami mechanism (taste-mGluR4) -- used in G2's funnel-redundancy model (b=2, predicts diminished not abolished, CONCORDANT with the measured category)."
+    },
+    "taruno_2013_calhm1": {
+      "pmid": "23467090", "doi": "10.1038/nature11906",
+      "cite": "Taruno A, Vingtdeux V, Ohmoto M, Ma Z, Dvoryanchikov G, Li A, Adrien L, Zhao H, Leung S, Abernethy M, Koppel J, Davies P, Civan MM, Chaudhari N, Matsumoto I, Hellekant G, Tordoff MG, Marambaud P, Foskett JK (2013). CALHM1 ion channel mediates purinergic neurotransmission of sweet, bitter and umami tastes. Nature 495(7440):223-6.",
+      "numbers": "VERBATIM (independent lab -- Foskett, not Zuker/Ryba/Margolskee -- cross-lab replication of the SAME dissociation pattern): 'Calhm1 knockout mice have severely impaired perceptions of sweet, bitter and umami compounds, whereas their recognition of sour and salty tastes remains mostly normal ... CALHM1 is a voltage-gated ATP-release channel required for sweet, bitter and umami taste perception.'"
+    },
+    "ma_2018_calhm3_partner": {
+      "pmid": "29681531", "doi": "10.1016/j.neuron.2018.03.043",
+      "cite": "Ma Z, Taruno A, Ohmoto M, Jyotaki M, Lim JC, Miyazaki H, Niisato N, Marunaka Y, Lee RJ, Hoff H, Payne R, Demuro A, Parker I, Mitchell CH, Henao-Mejia J, Tanis JE, Matsumoto I, Tordoff MG, Foskett JK (2018). CALHM3 Is Essential for Rapid Ion Channel-Mediated Purinergic Neurotransmission of GPCR-Mediated Tastes. Neuron 98(3):547-561.",
+      "numbers": "CALHM3 is a required HETEROMER PARTNER of CALHM1 (not an independent redundant path) -- disclosed in G2 to distinguish 'obligate heteromer subunit' from 'redundant parallel pathway'."
+    },
+    "meyerhof_2010_tas2r_repertoire": {
+      "pmid": "20022913", "doi": "10.1093/chemse/bjp092",
+      "cite": "Meyerhof W, Batram C, Kuhn C, Brockhoff A, Chudoba E, Bufe B, Appendino G, Behrens M (2010). The molecular receptive ranges of human TAS2R bitter taste receptors. Chem Senses 35(2):157-70.",
+      "numbers": "VERBATIM: 'only approximately 25 taste 2 receptors (TAS2R) ... have been identified ... challenged 25 human taste 2 receptors (hTAS2Rs) with 104 natural or synthetic bitter chemicals ... 3 hTAS2Rs together were able to detect approximately 50% of the substances used.' Used in G4: 50% vs a naive-uniform 3/25=12% null -> 4.17x overrepresentation."
+    },
+    "kim_2003_tas2r38_ptc_DECORRELATED_ANCHOR": {
+      "pmid": "12595690", "doi": "10.1126/science.1080190",
+      "cite": "Kim UK, Jorgenson E, Coon H, Leppert M, Risch N, Drayna D (2003). Positional cloning of the human quantitative trait locus underlying taste sensitivity to phenylthiocarbamide. Science 299(5610):1221-5.",
+      "numbers": "VERBATIM (the decorrelated human-genetics anchor -- independent species, method, and lab from every mouse-KO citation above): 'three coding SNPs giving rise to five haplotypes ... completely explain the bimodal distribution of PTC taste sensitivity ... accounting for 55 to 85% of the variance in PTC sensitivity.' 5 haplotypes <= 2^3=8 max-possible (combinatorial sanity bound, G3)."
+    },
+    "chandrashekar_2010_enac_salt_DECISIVE": {
+      "pmid": "20107438", "doi": "10.1038/nature08783",
+      "cite": "Chandrashekar J, Kuhn C, Oka Y, Yarmolinsky DA, Hummler E, Ryba NJ, Zuker CS (2010). The cells and peripheral representation of sodium taste in mice. Nature 464(7286):297-301.",
+      "numbers": "VERBATIM (decisive falsifier, PASS): 'mice lacking ENaCalpha in TRCs ... produced animals exhibiting a COMPLETE LOSS of salt attraction and sodium taste responses ... four of the five basic taste qualities -- sweet, sour, bitter and umami -- are mediated by separate taste-receptor cells (TRCs) each tuned to a single taste modality.'"
+    },
+    "oka_2013_high_salt_aversive_CORRECTION": {
+      "pmid": "23407495", "doi": "10.1038/nature11905",
+      "cite": "Oka Y, Butnaru M, von Buchholtz L, Ryba NJ, Zuker CS (2013). High salt recruits aversive taste pathways. Nature 494(7438):472-5.",
+      "numbers": "VERBATIM -- AUDITABLE CORRECTION to the task's framing of 'an amiloride-insensitive aversive high-salt path' as if a dedicated third salt-specific sensor: 'high salt recruits the two primary aversive taste pathways by activating the sour- and bitter-taste-sensing cells ... genetic silencing of these [sour+bitter] pathways abolishes behavioural aversion to concentrated salt, without impairing salt attraction.' High-salt aversion is CROSS-ACTIVATION of the existing bitter/sour transduction machinery, not a separate salt-specific molecular receptor."
+    },
+    "tu_2018_otop1_discovery": {
+      "pmid": "29371428", "doi": "10.1126/science.aao3264",
+      "cite": "Tu YH, Cooper AJ, Teng B, Chang RB, Artiga DJ, Turner HN, Mulhall EM, Ye W, Smith AD, Liman ER (2018). An evolutionarily conserved gene family encodes proton-selective ion channels. Science 359(6379):1047-50.",
+      "numbers": "Heterologous-expression discovery that OTOP1/2/3 are proton-selective ion channels (the molecular-identity paper underlying the functional KO in Teng et al 2019 below)."
+    },
+    "teng_2019_otop1_ko_DECISIVE": {
+      "pmid": "31543453", "doi": "10.1016/j.cub.2019.08.077",
+      "cite": "Teng B, Wilson CE, Tu YH, Joshi NR, Kinnamon SC, Liman ER (2019). Cellular and Neural Responses to Sour Stimuli Require the Proton Channel Otop1. Curr Biol 29(21):3647-3656.",
+      "numbers": "VERBATIM (decisive falsifier, PASS, independent lab/gene -- Liman, not Zuker/Ryba/Margolskee/Foskett): 'gustatory nerve responses in Otop1-KO mice were severely and selectively attenuated for acidic stimuli, including citric acid and HCl ... evidence that it is a bona fide sour taste receptor.'"
+    },
+    "mueller_2005_labeled_line_evidence": {
+      "pmid": "15759003", "doi": null,
+      "cite": "Mueller KL, Hoon MA, Erlenbach I, Chandrashekar J, Zuker CS, Ryba NJ (2005). The receptors and coding logic for bitter taste. Nature 434(7030):225-9.",
+      "numbers": "Cell-identity (not receptor-identity) redirection of behavioral valence when a bitter receptor's ligand specificity is swapped while keeping expression in gustducin+ cells -- used in G6 as labeled-line-supporting evidence, HELD OPEN (not adjudicated against Wu 2015 below)."
+    },
+    "wu_2015_across_fiber_concentration_dependent": {
+      "pmid": "26373451", "doi": null,
+      "cite": "Wu A, Dvoryanchikov G, Pereira E, Chaudhari N, Roper SD (2015). Breadth of tuning in taste afferent neurons varies with stimulus strength. Nat Commun 6:8171.",
+      "numbers": "Individual gustatory afferent fibers narrowly tuned near threshold, progressively MORE BROADLY tuned as concentration rises -- used in G6, HELD OPEN: tuning breadth is itself concentration-dependent, complicating a fixed either/or labeled-line/across-fiber-pattern assignment."
+    },
+    "mojet_2001_psychophysics_thresholds": {
+      "pmid": "11555480", "doi": "10.1093/chemse/26.7.845",
+      "cite": "Mojet J, Christ-Hazelhof E, Heidema J (2001). Taste perception with age: generic or specific losses in threshold sensitivity to the five basic tastes? Chem Senses 26(7):845-60.",
+      "numbers": "VERBATIM: detection thresholds for 'NaCl, KCl, sucrose, aspartame, acetic acid, citric acid, caffeine, quinine HCl, monosodium glutamate (MSG) and inosine 5'-monophosphate (IMP)' measured in 21 young + 21 elderly (n=42) via 6 ascending 2-AFC trials; age-related threshold-elevation fold-change ranged '1.32 (aspartame) to 5.70 times (IMP)'. HONEST GAP: the other 8 of 10 compounds' individual fold-changes and the absolute mM threshold values are NOT in the abstract; full text not fetched this session (disclosed, not fabricated)."
+    },
+    "finger_2005_atp_p2x_afferent": {
+      "pmid": "16322458", "doi": null,
+      "cite": "Finger TE, Danilova V, Barrows J, Bartel DL, Vigers AJ, Stone L, Hellekant G, Kinnamon SC (2005). ATP signaling is crucial for communication from taste buds to gustatory nerves. Science 310(5753):1495-9.",
+      "numbers": "Completes the CALHM1 -> ATP -> afferent chain: P2X2/P2X3 double-KO mice show severely impaired gustatory nerve responses, establishing ATP/P2X as the obligate taste-bud-to-nerve neurotransmission step (title/PMID/journal/authors verified live; specific % impairment not independently re-extracted from full text this session, disclosed)."
+    },
+    "nhanes_csx_h_population_anchor": {
+      "dataset_id": "nhanes-taste-csx (already registered in data/MECHANISM_SOURCE_REGISTRY.json)",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/CSX_H.XPT",
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/CSX_H.htm",
+      "n": 3708,
+      "numbers": "MACHINE-COMPUTED this session (pandas.read_sas + value_counts/mean/corr on the raw .XPT, independently cross-checked against a WebFetch summary of the CDC codebook and found to match exactly): whole-mouth 1mM quinine identified as 'Bitter' in 2574/3114 (82.66%) non-missing responses, cross-confused as 'Salty' in only 34/3114 (1.09%); whole-mouth 1M NaCl identified as 'Salty' in 3128/3217 (97.23%), cross-confused as 'Bitter' in only 34/3217 (1.06%). Paired within-subject NaCl dose-response (0.32M -> 1M, 3.125x concentration): mean gLMS intensity 33.08 -> 52.06 (1.574x), 84.44% of n=3214 paired subjects rated the higher concentration as more intense. Test-retest reliability (1M NaCl vs repeat): Pearson r=0.648, n=1595."
+    }
+  },
+  "gates_summary": {
+    "G0_nhanes_population_anchor": "PASS (quinine->Bitter 82.66% vs cross-confusion 1.09%; NaCl->Salty 97.23% vs cross-confusion 1.06%; dose-response monotonic in 84.4% of n=3214 paired subjects, all thresholds pre-registered before computing)",
+    "G1_dissociation_block_contrast": "PASS (4/4 testable rows show margin >= 1.0 on a 0-3 ordinal scale between the row's own affected modality-block and everything else measured in that row; 3/7 rows only have one side of the contrast reported in their own primary abstract, honest gap)",
+    "G2_funnel_redundancy_concordance": "PASS (4/4 concordant between a branching-factor/redundancy model read from the sources' own alternate-pathway text and the measured impairment category; disclosed as a structural-consistency check, not a blind ex-ante prediction, since b was assigned by reading the same papers)",
+    "G3_tas2r38_decorrelated_anchor": "PASS (5 haplotypes <= 2^3=8 combinatorial bound; 55-85% variance explained, reported not further gated)",
+    "G4_bitter_combinatorial_overrepresentation": "PASS (measured 50% coverage by 3/25 receptors vs naive-uniform 12% -> 4.17x overrepresentation, >= the pre-registered 2x threshold)",
+    "G5_psychophysics_spread_descriptive": "descriptive only, not gated (4.32x spread between the two reported fold-changes; source's own conclusion 'predominantly generic' held alongside, not overridden)",
+    "G6_coding_debate_held_open": "explicitly NOT adjudicated, per task instruction"
+  },
+  "symmetric_qc_open_items": [
+    "AUDITABLE CORRECTION 1: the task's pre-registered 'T1R3-KO must abolish sweet+umami' is FALSIFIED AS LITERALLY STATED by Damak et al 2003's own primary data -- the measured result is 'diminished but not abolished' (full abolition only for the artificial-sweetener subset). The 'single universal receptor' adversary is NOT rescued by this: the residual response is explained by a SECOND named, modality-specific mechanism (taste-mGluR4 for umami), which is MORE modality-specific structure, not less. Reported precisely rather than silently matching the task's stated threshold.",
+    "AUDITABLE CORRECTION 2: the task's framing of an 'amiloride-insensitive aversive high-salt path' (worded as if a third, dedicated salt-specific sensor) is refined by Oka et al 2013's own data: high salt does not activate a separate salt-specific aversive receptor -- it CROSS-ACTIVATES the pre-existing bitter- and sour-sensing cells/pathways. Reported as a correction, not smoothed into the task's original wording.",
+    "G1's block-contrast is only 2-sided (both blocks measured in the SAME paper) for 3 of 7 rows (TRPM5/PLCbeta2, CALHM1, Gustducin). The other 4 rows (T1R3, OTOP1, ENaCalpha, Oka-silencing) each report only their OWN affected modality in their own abstract -- coded as honest NA, not fabricated as 'normal', for the untested side. General cross-modality separateness for those is supported only indirectly, by Chandrashekar 2010's own general statement that the other 4 modalities are mediated by separate dedicated TRC populations -- a citation of a claim, not this session's own measurement of those specific KOs' cross-modality effects.",
+    "G2's redundancy/branching-factor model is a STRUCTURAL CONSISTENCY check, not an independent blind prediction: the branching factor b for Gustducin and T1R3 was read from the SAME source papers' own discussion of alternate pathways (rod transducin; taste-mGluR4), so a concordant result is partly expected given correct reading of the source, not a fully out-of-sample forecast. Disclosed, not oversold, mirroring the gate-strength-tiering discipline used in docs/MECHANISM_OLFACTORY_TRANSDUCTION.md.",
+    "G4's 'naive uniform coverage' null (3/25=12%) is an order-of-magnitude back-of-envelope comparator, not a rigorously derived null distribution over receptor-compound bipartite coverage (compounds can be detected by multiple receptors simultaneously, so a simple linear-partition null is a simplification, disclosed as such).",
+    "G5 (psychophysics) uses only 2 of Mojet et al 2001's 10 tested compounds' fold-changes (the two named in the abstract, aspartame and IMP) -- the other 8 and the absolute mM threshold concentrations were NOT fetched (full text not retrieved this session); NOT gated PASS/FAIL for this reason, reported as descriptive only.",
+    "Finger et al 2005 (ATP/P2X2/P2X3 afferent step) -- bibliographic identity (title/PMID/DOI/journal/authors) verified live; the SPECIFIC quantitative impairment (% reduction in CT/glossopharyngeal nerve response in P2X2/P2X3 double-KO) was not independently re-extracted from full text this session, disclosed not fabricated.",
+    "The labeled-line vs across-fiber-pattern coding debate is HELD OPEN by explicit task instruction (G6) -- Mueller 2005 and Wu 2015 are reported as two genuine, non-contradicted anchors on different sides/aspects of the question; this doc does not adjudicate it.",
+    "No independent re-derivation of the CALHM1 percentage-impairment magnitude or the ENaC-KO's quantitative (vs qualitative 'complete loss') behavioral preference-score reduction was attempted this session -- both are reported at the qualitative/categorical level the source abstracts themselves state.",
+    "The NHANES CSX_H gLMS quinine-intensity distribution was checked for a taster/non-taster bimodal signature (motivated by the TAS2R38 genetics) and found INCONCLUSIVE from summary statistics alone (mean 53.2, median 52.0, sd 22.7 -- no visible bimodality without genotype data or a proper multimodality test); NOT pursued further or claimed as evidence, an honest dead end disclosed rather than forced into a claim."
+  ]
+}

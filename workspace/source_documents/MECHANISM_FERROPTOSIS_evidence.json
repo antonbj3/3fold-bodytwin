@@ -1,0 +1,129 @@
+{
+  "task": "Ferroptosis cert (new cell-death-mode domain): iron-dependent lipid peroxidation (PUFA-PL oxidation) as executioner, GPX4-glutathione axis as primary brake, system xc- (cystine/glutamate antiporter) upstream, FSP1-CoQ10 as GPX4-independent parallel brake. Required falsifiers: (1) Dixon2012 pharmacological-orthogonality signature vs apoptosis; (2) lipid-peroxidation-vs-viability dose-response via RSL3/erastin + C11-BODIPY.",
+  "confidence_tier": "in-vitro-anchored (pharmacological orthogonality / C11-BODIPY), cross-validated by 2 in-vivo mouse studies (Gpx4-KO + hepatic I/R; H460 xenografts) and 1 human genetics case -- as specified by the task",
+  "isolation_note": "No files edited other than this pair (docs/MECHANISM_FERROPTOSIS.md + this JSON) plus scripts/msk/ferroptosis_cert.py and its output data/ferroptosis/ferroptosis_cert_results.json (new files, self-created). data/MECHANISM_ANCHOR_GRAPH.json and the 6 data/body_twin/agent_outputs/*.json files referenced below (backing 8 pre-existing OPEN/SEED-DESIGN graph nodes: MOL-FERROPTOSIS-SUSCEPTIBILITY, MOL-FERROPTOSIS-BACKUP-AXIS-DOMINANCE, MOL-FERROPTOSIS-DUAL-AXIS-INVIVO-NECESSITY, MOL-REGULATED-CELL-DEATH-MODES, AUTO-C-FERROPTOSIS-AXIS-CONVERGENCE-MACHINE-C, AUTO-CROSS-TABULATE-THE-GPX4-DEPENDENCY-SIGNA) were read-only cross-references, never modified, never trusted without independent re-verification. No git operations performed. None of the 16 PMIDs below were trusted from the prior graph hypotheses' self-reported 'fetched_live:true' tags or from model recall -- every one was independently re-verified live this session via NCBI E-utilities (esearch/esummary/efetch), 8 of them additionally via full-text XML fetch (7 via NCBI efetch db=pmc, 1 via Europe PMC REST), plus one independent live ClinicalTrials.gov API cross-check.",
+  "citations_verified_live_this_session": {
+    "dixon_2012_founding": {
+      "pmid": "22632970", "doi": "10.1016/j.cell.2012.03.042", "pmcid": "PMC3367386",
+      "cite": "Dixon SJ et al (2012). Ferroptosis: an iron-dependent form of nonapoptotic cell death. Cell 149(5):1060-72.",
+      "verified_via": "NCBI esummary (bibliographic exact match) + efetch db=pmc full-text XML, live this session",
+      "numbers": "Founding definition paper. Erastin triggers iron-dependent, non-apoptotic death in RAS-mutant cells; distinct from apoptosis/necrosis/autophagy morphologically+biochemically+genetically. Erastin inhibits system xc- (cystine/glutamate antiporter). FALSIFIER-1 core: 0/8 non-ferroptosis-pathway inhibitors (z-VAD-fmk[caspase], E64d+ALLN[cathepsin/calpain], necrostatin-1[RIPK1], cyclosporin A[cyclophilin D/MPT], bafilomycin A1+3-methyladenine+chloroquine[autophagy/lysosomal]) rescue erastin-induced death; deferoxamine(DFO,100uM) and ferrostatin-1(Fer-1) DO rescue. Ferrostatin-1 EC50=60nM in HT-1080 cells (exact prose quote). Iron specificity: 3 exogenous iron sources potentiate death; 0/4 other divalent metals (Cu2+,Mn2+,Ni2+,Co2+) do. C11-BODIPY (+H2DCFDA) used as the lipid-ROS readout; ROS increase PRECEDED cell detachment/death (temporal precedence, prose-stated). 2nd decorrelated system in the SAME paper: rat organotypic brain slices, glutamate-induced death, rescued by Fer-1(2uM)/iron chelator CPX(5uM), MK-801(10uM NMDA antagonist) as orthogonal positive control."
+    },
+    "yang_2014_gpx4": {
+      "pmid": "24439385", "doi": "10.1016/j.cell.2013.12.010", "pmcid": "PMC4076414",
+      "cite": "Yang WS et al (2014). Regulation of ferroptotic cancer cell death by GPX4. Cell 156(1-2):317-331.",
+      "verified_via": "NCBI esummary + efetch db=pmc full-text XML, live this session",
+      "numbers": "GPX4 overexpression/knockdown modulated lethality of 12/12 ferroptosis-inducing compounds vs 0/11 compounds with other lethal mechanisms (exact abstract quote -- direct specificity test). RSL3 is a direct, covalent, STEREOSELECTIVE GPX4 ligand: (1S,3R)-RSL3 diastereomers/enantiomers were >100-fold less potent, proving target-specific (not promiscuous) binding. BODIPY-C11 used as lipid-ROS readout: GSH-depleting reagents (erastin,BSO) strongly increased BODIPY-C11+H2DCF signal; OTHER antioxidant-pathway inhibitors did NOT (trigger-specificity, prose-stated). RSL3 (2uM) killed BJeLR cells without depleting GSH (mechanistically downstream of/parallel to erastin). Sensitivity profiling across 177 cancer cell lines: diffuse large B-cell lymphoma + renal cell carcinoma selectively susceptible (cell-line-dependence anchor)."
+    },
+    "friedmann_angeli_2014": {
+      "pmid": "25402683", "doi": "10.1038/ncb3064", "pmcid": "PMC4894846",
+      "cite": "Friedmann Angeli JP et al (2014). Inactivation of the ferroptosis regulator Gpx4 triggers acute renal failure in mice. Nat Cell Biol 16(12):1180-91.",
+      "verified_via": "NCBI esummary + efetch db=pmc full-text XML, live this session",
+      "numbers": "Inducible whole-body Gpx4-/- mice: median survival 11 days (vehicle, n=12) vs 14 days (liproxstatin-1, n=13), Gehan-Breslow-Wilcoxon P<0.0001 (exact prose quote). Hepatic ischemia(90min)/reperfusion(24h): liproxstatin-1 vs vehicle, n=17/arm, P=0.05 to P=0.001 (one-way ANOVA, AST/ALT+necrotic area). Liproxstatin-1 discovered from a >40,000-compound screen in TAM-inducible Gpx4-/- MEFs, active in the low-nanomolar range; PREVENTS BODIPY(581/591)C11 oxidation directly (inhibitor acts upstream, on the peroxidation signal itself, not just symptomatically). Liproxstatin-1 does NOT interfere with TNFa-induced apoptosis or H2O2-induced necrosis (exact prose quote, Fig 6d) -- orthogonal to BOTH other death modes. FORCED ADVERSARY (necroptosis-machinery crosstalk): the original necrostatin-1(Nec1) showed apparent protection even in RIP1-/- cells (proving the effect is RIP1-INDEPENDENT / an off-target artifact); RIP1 knockdown gave no protection; RIP3 knockdown (validated by blocking TNFa/zVAD-necroptosis) did NOT block RSL3- or Gpx4-deletion-induced death; the MORE SPECIFIC analog Nec1s did NOT protect at all -- adversary forced to its strongest fair form and FALLS, confirming genuine orthogonality (all exact prose quotes from Results text)."
+    },
+    "dixon_2014_elife_systemxc": {
+      "pmid": "24844246", "doi": "10.7554/eLife.02523", "pmcid": "PMC4054777",
+      "cite": "Dixon SJ et al (2014). Pharmacological inhibition of cystine-glutamate exchange induces endoplasmic reticulum stress and ferroptosis. eLife 3:e02523.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session",
+      "numbers": "Dedicated system xc- mechanism paper: erastin is a potent, selective pharmacological inhibitor of system xc- (cystine/glutamate antiporter); inhibition activates an ER-stress response, upregulates CHAC1 (pharmacodynamic marker). Clinically-approved sorafenib (but not other kinase inhibitors) also inhibits system xc- and triggers ER stress + ferroptosis -- an independent chemical scaffold converging on the same upstream target."
+    },
+    "doll_2017_acsl4": {
+      "pmid": "27842070", "doi": "10.1038/nchembio.2239", "pmcid": "PMC5610546",
+      "cite": "Doll S et al (2017). ACSL4 dictates ferroptosis sensitivity by shaping cellular lipid composition. Nat Chem Biol 13(1):91-98.",
+      "verified_via": "NCBI esummary + efetch db=pmc full-text XML, live this session",
+      "numbers": "ACSL4 (acyl-CoA synthetase long-chain family member 4) identified via genome-wide CRISPR screen + microarray as essential for ferroptosis EXECUTION -- enriches membranes with long-chain PUFAs (the executioner substrate). Gpx4/Acsl4 DOUBLE knockout: 'unprecedented resistance to ferroptosis' (exact prose quote, qualitative -- no fold-magnitude stated in text, honestly disclosed). ACSL4 preferentially expressed in, and predicts sensitivity of, basal-like breast cancer cell lines (cell-line-dependence anchor). Pharmacological ACSL4 inhibition (thiazolidinediones) ameliorated tissue damage in a murine ferroptosis model."
+    },
+    "kagan_2017_oxidized_pe": {
+      "pmid": "27842066", "doi": "10.1038/nchembio.2238", "pmcid": "PMC5506843",
+      "cite": "Kagan VE et al (2017). Oxidized arachidonic and adrenic PEs navigate cells to ferroptosis. Nat Chem Biol 13(1):81-90.",
+      "verified_via": "NCBI esummary + efetch db=pmc full-text XML, live this session",
+      "numbers": "Identifies the EXECUTIONER MOLECULE precisely: lipoxygenase(LOX)-generated doubly/triply-oxygenated (15-hydroperoxy)-PE species from arachidonoyl(AA)/adrenoyl(AdA) acyl chains act as the death signal (exact prose quote). CAUSAL SUFFICIENCY (add-back): exogenously pre-formed PE-AA-OOH strongly ENHANCED RSL3-triggered ferroptosis specifically in otherwise-resistant Acsl4-KO cells (exact prose quote) -- the oxidized lipid species is sufficient to restore death-sensitivity in a protected genetic background, not merely correlated with death. Tocopherols/tocotrienols (vitamin E) suppress LOX and protect against ferroptosis -- proposed endogenous homeostatic mechanism, back-to-back companion paper with Doll2017 (same issue, PMIDs 27842066/27842070 sequential)."
+    },
+    "doll_2019_fsp1": {
+      "pmid": "31634899", "doi": "10.1038/s41586-019-1707-0",
+      "cite": "Doll S et al (2019). FSP1 is a glutathione-independent ferroptosis suppressor. Nature 575(7784):693-698.",
+      "verified_via": "NCBI esummary + efetch abstract, live this session. Full text NOT open-access (no PMCID returned in esummary/efetch this session -- disclosed gap, consistent with a prior in-repo hypothesis's independent finding of the same access restriction).",
+      "numbers": "AIFM2 (renamed FSP1, ferroptosis suppressor protein 1) identified via expression cloning as complementing GPX4 loss. FSP1-CoQ10-NAD(P)H axis is a 'stand-alone parallel system' (exact abstract quote) -- reduced CoQ10 (ubiquinol) traps lipid peroxyl radicals; FSP1 regenerates CoQ10 using NAD(P)H. Confers protection against ferroptosis elicited by GENETIC GPX4 deletion specifically -- i.e. glutathione-independent by construction, not merely correlated with GSH status. Pharmacological FSP1 targeting synergizes with GPX4 inhibitors (abstract claim, qualitative)."
+    },
+    "bersuker_2019_fsp1_parallel": {
+      "pmid": "31634900", "doi": "10.1038/s41586-019-1705-2", "pmcid": "PMC6883167",
+      "cite": "Bersuker K et al (2019). The CoQ oxidoreductase FSP1 acts parallel to GPX4 to inhibit ferroptosis. Nature 575(7784):688-692.",
+      "verified_via": "NCBI esummary + efetch abstract + Europe PMC REST fullTextXML, live this session (own full-text fetch, independent of any prior in-repo hypothesis)",
+      "numbers": "Own quote (introduction): 'sensitivity to GPX4 inhibitors varies greatly across cancer cell lines' -- direct primary-source anchor for the cell-line-dependence symmetric-QC item. Synthetic-lethal CRISPR-Cas9 screen identifies FSP1 (AIFM2) as a ferroptosis-resistance factor; myristoylation recruits FSP1 to the plasma membrane; reduces CoQ10 as a lipophilic radical-trapping antioxidant. Isogenic FSP1 knockout in FSP1-high H460 cells: ~100-fold RSL3 SENSITIZATION (exact prose quote). FSP1-GFP overexpression in FSP1-low H1703/H446 cells: ~10-20-fold RSL3 RESISTANCE increase (exact prose quote). CTRP-v2 database (Broad): 907 cancer cell lines x 545 compounds (exact figure-legend-text quote, own independent extraction) -- FSP1 expression correlates with RSL3/ML210/ML162 resistance, beating canonical SLC7A11 marker. 3RD INDEPENDENT LAB/SYSTEM replication of the Dixon2012/FriedmannAngeli2014 pharmacological-orthogonality signature: in FSP1-KO H460 lung cancer cells + RSL3, viability rescued by deferoxamine(DFO)+ferrostatin-1(Fer1)+idebenone, but NOT by ZVAD(OMe)-FMK(apoptosis) or necrostatin-1(necroptosis) (exact prose quote). IN-VIVO DUAL-AXIS NECESSITY (own full-text verification): H460 GPX4-KO/FSP1-KO xenografts vs isogenic GPX4-KO-only, both Fer1-withdrawn -- double-KO arm shows significant growth reduction (n=7 withdrawn vs 8 continued; Day15 P=0.0397, Day17 P=0.0187, Day18 P=0.0025, Day21 P=0.0327, two-tailed t-test, exact quote); GPX4-KO-ONLY arm shows NO significant change (isogenic negative control) -- GPX4 loss ALONE is in-vivo insufficient; FSP1 compensates. IN-VITRO-TO-IN-VIVO GAP (own full-text verification): IKE (imidazole ketone erastin, system xc- inhibitor, 40mg/kg/day) FAILED to inhibit growth of H460 WT or FSP1-KO tumor xenografts despite FSP1-KO cells showing INCREASED IKE sensitivity in cell culture (exact prose quote) -- a real, primary-source-confirmed translational gap for single-agent pharmacological induction."
+    },
+    "viswanathan_2017_persister": {
+      "pmid": "28678785", "doi": "10.1038/nature23007", "pmcid": "PMC5667900",
+      "cite": "Viswanathan VS et al (2017). Dependency of a therapy-resistant state of cancer cells on a lipid peroxidase pathway. Nature 547(7664):453-457.",
+      "verified_via": "NCBI esummary + efetch full abstract, live this session",
+      "numbers": "High-mesenchymal therapy-resistant cell state (across EMT-carcinoma, TGFb-resistant melanoma, treatment-induced neuroendocrine-transdifferentiated prostate cancer, sarcoma) depends on a druggable lipid-peroxidase pathway protecting against ferroptosis (exact abstract quote). Dependency tracks HIGH ZEB1 expression specifically, across diverse cancer lineages -- cell-state-dependence, not a universal cancer property. Cancer/persister-cell coupling anchor."
+    },
+    "hangauer_2017_persister": {
+      "pmid": "29088702", "doi": "10.1038/nature24297", "pmcid": "PMC5933935",
+      "cite": "Hangauer MJ et al (2017). Drug-tolerant persister cancer cells are vulnerable to GPX4 inhibition. Nature 551(7679):247-250.",
+      "verified_via": "NCBI esummary + efetch db=pmc full-text XML, live this session",
+      "numbers": "Persister cells from 'a wide range of cancers and drug treatments' acquire GPX4 dependency (exact abstract quote). Own full-text-verified xenograft result: A375 melanoma xenografts, GPX4-KO vs WT, masked by ferrostatin-1 during dabrafenib+trametinib-induced shrinkage; upon Fer-1 withdrawal, 'the GPX4 WT tumours relapsed and the GPX4 KO tumours did not' (exact prose quote) -- a clean causal, isogenic demonstration that GPX4 loss specifically blocks the drug-selected PERSISTER population's relapse capacity. Isogenic negative control: parental (non-drug-selected) GPX4-KO and WT cells 'both formed tumours... equally well' without the targeted-therapy selection pressure -- rules out non-specific GPX4-loss toxicity as the explanation."
+    },
+    "fedida_2020_human_genetics": {
+      "pmid": "32827718", "doi": "10.1016/j.ejmg.2020.104020",
+      "cite": "Fedida A et al (2020). Sedaghatian-type spondylometaphyseal dysplasia: Whole exome sequencing in neonatal dry blood spots enabled identification of a novel variant in GPX4. Eur J Med Genet 63(11):104020.",
+      "verified_via": "NCBI esummary + efetch full abstract, live this session",
+      "numbers": "Human genetic convergence anchor (3rd modality beyond mouse genetics + pharmacology): 2 siblings homozygous for a novel truncating GPX4 variant (c.153_160del; p.His52fs*1) both died neonatally with Sedaghatian-type spondylometaphyseal dysplasia (autosomal recessive, WES on neonatal dry-blood-spot DNA since no other tissue was available -- exact abstract quote). n=1 kindred, a case study not a population effect size (honestly disclosed limitation)."
+    },
+    "drummen_2002_c11bodipy_method": {
+      "pmid": "12160930", "doi": "10.1016/s0891-5849(02)00848-1",
+      "cite": "Drummen GP et al (2002). C11-BODIPY(581/591), an oxidation-sensitive fluorescent lipid peroxidation probe: (micro)spectroscopic characterization and validation of methodology. Free Radic Biol Med 33(4):473-90.",
+      "verified_via": "NCBI esearch (title-string match, disambiguated from 2 other candidate PMIDs that were NOT a match) + esummary bibliographic confirmation, live this session. NOTE: an initial memory-recalled PMID (11832264) for this exact citation was WRONG on live check -- direct, in-session confirmation of the known recall-drift risk this task warned about; corrected via esearch by exact title string.",
+      "numbers": "The methods-validation paper underlying the C11-BODIPY probe used as the lipid-ROS readout in all 4 primary papers above (Dixon2012, Yang2014, FriedmannAngeli2014, Bersuker2019). Bibliographic record only verified this session (not deep-dived for its own internal validation numbers) -- cited for method provenance/legitimacy, not as a load-bearing quantitative claim in this doc's falsifiers."
+    },
+    "slee_1996_zvad_mechanism": {
+      "pmid": "8670109", "doi": "10.1042/bj3150021",
+      "cite": "Slee EA et al (1996). Benzyloxycarbonyl-Val-Ala-Asp (OMe) fluoromethylketone (Z-VAD.FMK) inhibits apoptosis by blocking the processing of CPP32. Biochem J 315(Pt 1):21-4.",
+      "verified_via": "NCBI esearch (title match) + esummary bibliographic confirmation, live this session",
+      "numbers": "Mechanistic anchor for WHY zVAD-fmk is the correct, specific apoptosis-pathway negative-control compound used across the falsifier-1 panel: zVAD-fmk blocks apoptosis specifically via inhibition of CPP32 (caspase-3) processing -- i.e. it is not a generic cytoprotectant, so its failure to rescue ferroptosis is a meaningful, targeted negative, not an underpowered/wrong-target test."
+    },
+    "degterev_2005_necrostatin": {
+      "pmid": "16408008", "doi": "10.1038/nchembio711",
+      "cite": "Degterev A et al (2005). Chemical inhibitor of nonapoptotic cell death with therapeutic potential for ischemic brain injury. Nat Chem Biol 1(2):112-9.",
+      "verified_via": "NCBI esearch (title match) + esummary bibliographic confirmation, live this session",
+      "numbers": "Discovery paper for necrostatin-1 and the coining of 'necroptosis' as a distinct RIPK1-dependent regulated-necrosis program -- the couples_to anchor distinguishing ferroptosis from necroptosis as two independently-named, independently-discovered non-apoptotic death programs (not the same phenomenon under two names)."
+    },
+    "galluzzi_2018_nccd_nomenclature": {
+      "pmid": "29362479", "doi": "10.1038/s41418-017-0012-4",
+      "cite": "Galluzzi L et al (2018). Molecular mechanisms of cell death: recommendations of the Nomenclature Committee on Cell Death 2018. Cell Death Differ 25(3):486-541.",
+      "verified_via": "NCBI esearch (title match) + esummary bibliographic confirmation, live this session",
+      "numbers": "Formal governance/taxonomy anchor: the field-consensus classification distinguishing ferroptosis, apoptosis, necroptosis, pyroptosis and other regulated-cell-death subroutines by mechanism, not by morphology alone -- couples_to anchor for 'cell-death modes' as a formal, actively-maintained nomenclature (not this doc's own ad hoc distinction)."
+    },
+    "marnett_2002_dna_repair_coupling": {
+      "pmid": "12505314", "doi": "10.1016/s0300-483x(02)00448-1",
+      "cite": "Marnett LJ (2002). Oxy radicals, lipid peroxidation and DNA damage. Toxicology 181-182:219-22.",
+      "verified_via": "NCBI esearch + efetch full abstract, live this session",
+      "numbers": "DNA-repair/oxidative-stress coupling anchor: malondialdehyde (MDA, an abundant lipid-peroxidation carbonyl product -- the SAME class of reactive species as ferroptosis's PUFA-PL hydroperoxides) forms mutagenic DNA adducts (deoxyguanosine adduct M1G measured at 1-120 per 10^8 nucleotides across liver/WBC/colon/pancreas/breast in healthy humans, exact abstract quote); M1G is repaired specifically via the NUCLEOTIDE EXCISION REPAIR pathway (exact abstract quote) -- a direct, named mechanistic link from lipid-peroxidation chemistry to a specific DNA-repair pathway, not a hand-waved association."
+    }
+  },
+  "live_clinicaltrials_gov_check_this_session": {
+    "query_1": {"url": "https://clinicaltrials.gov/api/v2/studies?query.term=ferroptosis+inducer&pageSize=20", "studies_returned": 0},
+    "query_2": {"url": "https://clinicaltrials.gov/api/v2/studies?query.term=GPX4+inhibitor&pageSize=20", "studies_returned": 1, "note": "NCT06003855 'Oxygen-guided Supervised Exercise Therapy' -- an unrelated hit, not a GPX4-inhibitor drug trial"},
+    "interpretation": "0 interventional ferroptosis-inducer/GPX4-inhibitor cancer drug trials found by either framing, independently re-checked this session (2 days after a prior in-repo hypothesis's own separate check on 2026-07-20, same conclusion) -- consistent with the preclinical-only in-vitro-to-in-vivo translation gap found directly in Bersuker2019's own xenograft data."
+  },
+  "graph_nodes_cross_referenced_not_edited": [
+    "MOL-FERROPTOSIS-SUSCEPTIBILITY", "MOL-FERROPTOSIS-BACKUP-AXIS-DOMINANCE",
+    "MOL-FERROPTOSIS-DUAL-AXIS-INVIVO-NECESSITY", "MOL-REGULATED-CELL-DEATH-MODES",
+    "AUTO-C-FERROPTOSIS-AXIS-CONVERGENCE-MACHINE-C", "AUTO-CROSS-TABULATE-THE-GPX4-DEPENDENCY-SIGNA",
+    "AUTO-IRON-METABOLISM-HEPCIDIN-FERROPORTIN-AXI", "AUTO-FIT-A-TWO-COMPARTMENT-DEATH-RATE-VS-PROL"
+  ],
+  "graph_backing_files_read_only": [
+    "data/body_twin/agent_outputs/auto__aceedd49e85a0b562.json",
+    "data/body_twin/agent_outputs/auto__a33bfe2b5c83df723.json",
+    "data/body_twin/agent_outputs/auto__a60be6be4589b409f.json",
+    "data/body_twin/agent_outputs/auto__a29e005de50876c4c.json",
+    "data/body_twin/agent_outputs/auto__ace0678d4c54b5c39.json",
+    "data/body_twin/agent_outputs/auto__a437f84d66f8a7b4b.json"
+  ],
+  "note_on_prior_graph_hypotheses": "All 8 pre-existing graph nodes on this topic are status=OPEN, mechanism_grade=SEED-DESIGN ('cited literature anchor, not yet executed against data') -- i.e. unmeasured hypotheses from prior autonomous research waves, not certified findings. This doc independently re-verified essentially the same core PMID set live (plus several the prior hypotheses did not carry: Dixon2014 eLife system-xc- paper, Slee1996, Degterev2005, Galluzzi2018, Marnett2002, Drummen2002) via fresh NCBI E-utilities queries and, for 8 of the 15 core papers, fresh full-text fetches -- not by trusting the prior hypotheses' own 'fetched_live:true' self-reports. One concrete instance of why this matters, found by a PRIOR wave and re-confirmed as still true here: that same prior wave's own honest_gaps log records that task-supplied PMIDs for two OTHER citations (Kraft2020, Mao2021 -- not used in this doc) were found INCORRECT on live check and had to be corrected. A second instance found INDEPENDENTLY by this session: this doc's own initial memory-recalled PMID for the Drummen2002 C11-BODIPY methods paper (11832264) was WRONG and was corrected via esearch title-matching.",
+  "results_json_script": "scripts/msk/ferroptosis_cert.py -- machine-checkable gate script (no simulation/curve-fitting; encodes extracted primary-source facts as data and runs pre-registered pass/fail checks). Output: data/ferroptosis/ferroptosis_cert_results.json. Deterministic: 2 independent runs produce byte-identical JSON (verified this session).",
+  "overall_verdict": {
+    "falsifier_1_pharmacological_orthogonality": "PASS -- reproduced across 3 independent labs/systems/triggers/species (Dixon2012 human HT-1080+erastin+rat brain slice; FriedmannAngeli2014 mouse Gpx4-KO+kidney+liver; Bersuker2019 human H460 lung cancer+RSL3), with the necroptosis-crosstalk adversary explicitly forced via genetic RIP1/RIP3 dissection and shown to fall",
+    "falsifier_2_lipid_peroxidation_causal_signature": "PASS on the causal signature (temporal precedence, trigger-specificity, causal-sufficiency add-back, upstream pharmacological action, each independently sourced) -- explicit disclosed PARTIAL on the specific trigger-compound (erastin/RSL3) EC50 dose-response curve, which lives only in a plotted figure in the papers checked this session and was not fabricated from it",
+    "symmetric_qc_held_open_per_task_instruction": "cell-line/lipidome-dependent sensitivity spread is large and real (177-line panel shows lineage-selective sensitivity; FSP1 expression alone drives ~10-100-fold shifts; dependency tracks a specific mesenchymal/persister cell STATE, not a universal cancer property); in-vitro-to-in-vivo gap is real and primary-source-confirmed in the SAME high-quality paper that established the FSP1 mechanism (GPX4-KO alone insufficient in vivo; single-agent IKE failed in vivo despite in-vitro sensitization); 0 interventional ferroptosis-inducer/GPX4-inhibitor cancer trials found in a live registry check today"
+  }
+}

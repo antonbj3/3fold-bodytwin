@@ -1,0 +1,219 @@
+{
+  "task": "Landing/deceleration mechanics: the eccentric energy-absorption FUNCTION task (ankle-knee-hip absorbing touchdown momentum) and its ACL-injury DYSFUNCTION pole (stiff/extended/valgus landing). Complements MECHANISM_CUTTING_ACL_MECHANISM.md (the other canonical non-contact ACL mechanism) with the landing/jump mechanism, falsified via impulse-momentum + energy-balance physics rather than plane-of-loading.",
+  "status": "HYPOTHESIS -- built by a watertight-researcher subagent, awaiting independent QC by the coordinator.",
+  "confidence_tier": "mixed: (a) the free-fall v=sqrt(2gh) cross-check against Zhang2000's own reported velocities [proof-grade physics identity, confirmed to <0.4%]; (b) the impulse-momentum stiffness-vs-peak-force falsifier [high confidence -- 4 independent decorrelated primary studies, live PMID-verified, all abstracts quote the effect directly or via explicit technique ranking]; (c) the joint energy-redistribution model (hip/knee/ankle) [high confidence -- 3 independent decorrelated manipulations (height/technique/sex) converge on the same qualitative pattern]; (d) the energy-balance ratio (52-85% of KE) [explicitly flagged low/moderate discriminating power -- see honest_gaps]; (e) the dysfunction-pole anchors [high confidence, live-refetched, exact match to sibling cell's independently-fetched numbers]; (f) the video-tractability claim in Sec.7 [proposed/unvalidated, not tested this session].",
+  "doc": "docs/MECHANISM_LANDING_MECHANICS.md",
+  "new_files_this_session": [
+    "docs/MECHANISM_LANDING_MECHANICS.md",
+    "docs/MECHANISM_LANDING_MECHANICS_evidence.json",
+    "data/msk_smoketest/landing_mechanics/landing_mechanics_compute.py -- self-contained stdlib script, re-runnable",
+    "data/msk_smoketest/landing_mechanics/landing_mechanics_results.json -- that script's raw printed output"
+  ],
+  "model_used": "No new OpenSim/JAM solve this pass -- literature-forced mechanism synthesis + a stdlib physics/arithmetic script (impulse-momentum, energy balance). No ground-truth controlled-drop-landing GRF trial exists in this repo's currently-loaded corpus at the needed fidelity (see honest_gaps).",
+  "doi_provenance_caveat": "8 of 9 citations' DOIs came directly from the PubMed/NCBI eutils efetch record itself. DeVita & Skelly 1992 (PMID 1548984) is the exception: PubMed's own pre-DOI-registration-era record does not surface a DOI in the fetched abstract text, so that DOI (10.1249/00005768-199201000-00018) was recovered via a SEPARATE live Crossref bibliographic-search API call this session (api.crossref.org, exact title-match, single top result) -- a second, decorrelated registry, not invented, but a distinct provenance path from the other 8 rows. Pappas 2007 (PMID 24149228) has no DOI in either registry checked; PMCID (PMC3778703) is used as its locator instead.",
+  "sibling_cell_relationship": {
+    "sibling": "docs/MECHANISM_CUTTING_ACL_MECHANISM.md (landed concurrently this session by the sibling mechanism instance -- the OTHER canonical non-contact ACL mechanism)",
+    "shared_anchors_independently_reverified_not_copied": ["Hewett 2005 PMID 15722287", "Ford 2003 PMID 14523314", "McLean 2007 PMID 17473777"],
+    "cross_check_result": "this document's fresh, independent NCBI esearch/efetch calls reproduced numbers EXACTLY identical to the sibling cell's own independently-fetched numbers (8deg valgus, 2.5x KAM, 20% GRF, 16% stance time for Hewett; sex/fatigue directions for Ford/McLean) -- a genuine reproducibility cross-check, not a shared transcription",
+    "new_this_document_not_in_sibling": "Pappas et al 2007 (PMID 24149228) -- a 4th decorrelated sex/fatigue triangulation; the entire FUNCTION-pole landing-stiffness/impulse-momentum model (Sec 3-5); the joint hip/knee/ankle energy-redistribution quantification; the geometric convergence with MECHANISM_KNEE_LIGAMENTS.md's ACL-near-extension finding; the video-tractability asymmetry claim (landing's sagittal stiffness signature vs cutting's frontal KAM)",
+    "reused_not_rederived": "the KAM-as-individual-injury-classifier contested-caveat (Cronstrom et al 2020, PMID 32819327/PMC7441716) is carried over from the sibling cell's own symmetric-QC finding, per this repo's 'do not re-litigate' convention -- NOT independently re-fetched by this document"
+  },
+  "pre_registration": {
+    "C1_impulse_momentum": "for FIXED touchdown momentum (fixed height), peak vGRF and loading rate are NOT fixed -- they scale with landing stiffness/technique (shorter effective deceleration time -> higher peak force), reproducible across >=2 independent decorrelated studies at matched height.",
+    "not_C1_adversary": "peak GRF is a function of height/momentum ALONE; at matched height, technique/stiffness makes no measurable difference (non-significant or <15%).",
+    "C2_joint_redistribution": "eccentric work absorbing touchdown momentum is shared across ankle+knee+hip, and the SHARE (not just total) shifts with stiffness -- hip+knee dominant when soft/flexed, ankle relatively more engaged when stiff/erect -- replicated across >=2 decorrelated labs/years.",
+    "not_C2_adversary": "the per-joint percentage split is invariant to technique.",
+    "C3_dysfunction_pole": "a stiff, extended-knee, valgus-collapsing landing loads the ACL more than a soft flexed neutral one, via (a) higher peak force/loading rate and (b) the knee sitting closer to this twin's own ligament model's most-taut angular range.",
+    "not_C3_adversary": "landing kinetics are unrelated to the prospective ACL-injury literature's own measured group differences.",
+    "forced_adversary": "'landing force is fixed regardless of technique', forced to its strongest fair form as a SAME-HEIGHT (momentum-matched) multi-technique comparison, not a cross-height confound.",
+    "external_anchor_decorrelated_never_tautology": "9 primary sources (5 function-pole + 4 dysfunction-pole), all PMID/DOI live-verified this session via NCBI eutils, none tuned to or derived from this twin's own model."
+  },
+  "velocity_crosscheck": {
+    "source": "Zhang, Bates & Dufek 2000 (PMID 10776901) -- reports BOTH heights and velocities used",
+    "height_m": [0.32, 0.62, 1.03],
+    "v_predicted_sqrt2gh_mps": [2.506, 3.488, 4.495],
+    "v_reported_zhang2000_mps": [2.5, 3.5, 4.5],
+    "pct_diff": [0.23, -0.35, -0.10],
+    "verdict": "all 3 within 0.4% -- free-fall model confirmed against numbers this twin did not choose"
+  },
+  "energy_balance_refinement": {
+    "task_framing": "total negative work = KE at touchdown (1/2 m v^2) -- an implicit Delta_y_crouch->0 approximation",
+    "refined_model": "|W_eccentric| = 1/2 m v^2_touchdown + m g Delta_y_crouch -- ALWAYS >= 1/2 v^2 alone, not equal to it; predicts soft (large Delta_y) landings require MORE total muscle work than naive KE suggests, not just the same total redistributed",
+    "numeric_closure": "NOT closed this session -- no fetched source reports Delta_y_crouch directly",
+    "measured_vs_KE_ratio": {
+      "height_m": [0.32, 0.62, 1.03],
+      "KE_per_kg_half_v2_Jkg": [3.139, 6.082, 10.104],
+      "zhang2000_measured_total_sagittal_hip_knee_ankle_Jkg": [2.67, 3.68, 5.28],
+      "ratio": [0.851, 0.605, 0.523],
+      "honest_caveat": "ratio<100% is close to guaranteed regardless of measurement validity (since 1/2v^2 itself under-estimates true required work) -- limited discriminating power on its own; the FALLING-WITH-HEIGHT TREND is the more informative part, candidate causes (frontal/transverse-plane work, trunk/arm contribution, passive-tissue/SSC storage, incomplete stick) not resolved this pass"
+    }
+  },
+  "falsifier_tests": [
+    {
+      "id": "F1_selfpaine_fixed_height_multitechnique",
+      "cite": "Self & Paine 2001, Med Sci Sports Exerc",
+      "pmid": "11474336",
+      "doi": "10.1097/00005768-200108000-00015",
+      "n": "not stated in abstract",
+      "design": "ONE fixed height (30.48cm), 4 landing techniques (bent-knee-natural; stiff-knee-natural; stiff-knee-plantarflexor-absorbed; stiff-knee-heel-absorbed)",
+      "measured": "peak vertical force and peak tibial acceleration HIGHEST for stiff-knee-heel technique: 2418 N, 20.7 G -- explicitly the highest-ranked of the 4 techniques at fixed height/momentum",
+      "verdict": "PASS (not_C1 falls directly -- same mDeltav, different peak F)"
+    },
+    {
+      "id": "F2_zhang_factorial_height_technique",
+      "cite": "Zhang, Bates & Dufek 2000, Med Sci Sports Exerc",
+      "pmid": "10776901",
+      "doi": "10.1097/00005768-200004000-00014",
+      "n": 9,
+      "design": "3 heights (0.32/0.62/1.03m) x 3 techniques (soft/normal/stiff), 5 trials each",
+      "measured": "general increases in peak GRF, peak joint moments, and powers with increases in landing height AND STIFFNESS (explicit, separate main effect)",
+      "verdict": "PASS"
+    },
+    {
+      "id": "F3_devita_skelly_soft_vs_stiff",
+      "cite": "DeVita & Skelly 1992, Med Sci Sports Exerc",
+      "pmid": "1548984",
+      "doi": "10.1249/00005768-199201000-00018",
+      "n": 8,
+      "design": "single 59cm drop, soft (>90deg knee flexion) vs stiff (<90deg) technique, 10 trials each, 8 female athletes",
+      "measured": "soft 117deg vs stiff 77deg mean knee flexion; 'the stiff landing had larger GRFs' (direct quote; exact N/BW values are in the full-text table, not the fetched abstract -- disclosed gap)",
+      "verdict": "PASS (qualitative direction confirmed; magnitude not extractable from abstract)"
+    },
+    {
+      "id": "F4_peng_incremental_height_endogenous_stiffness",
+      "cite": "Peng 2011, J Strength Cond Res",
+      "pmid": "21869631",
+      "doi": "10.1519/JSC.0b013e318201bcb3",
+      "n": 16,
+      "design": "drop jumps from 20/30/40/50/60cm, DIRECTLY measured leg/knee/ankle stiffness",
+      "measured": "peak vGRF EXCEEDED 3x body weight at 50/60cm (p<0.004 vs 20/30/40cm); leg/knee/ankle stiffness SIGNIFICANTLY LESS at 60cm than 20/30/40cm (p<0.037) -- endogenous stiffness modulation correlates with, is not epiphenomenal to, the force outcome",
+      "verdict": "PASS"
+    }
+  ],
+  "impulse_momentum_illustrative_model": {
+    "model": "half-sine contact pulse: F_peak = (pi/2) * m * v / T_contact, for fixed touchdown v (fixed height)",
+    "drop_height_m": 0.59,
+    "v_touchdown_mps": 3.402,
+    "illustrative_T_s_and_Fpeak_over_BW": [
+      {"T_s": 0.40, "F_peak_over_BW": 1.36, "label": "soft, long contact"},
+      {"T_s": 0.10, "F_peak_over_BW": 5.45, "label": "stiffer, short contact"},
+      {"T_s": 0.03, "F_peak_over_BW": 18.16, "label": "near-rigid"}
+    ],
+    "caveat": "illustrative T values, not measured -- shows direction/magnitude only, brackets the task's own ~3-6xBW framing as physically reasonable for intermediate T",
+    "convergent_backout_check": {
+      "source": "Self & Paine 2001 own reported peak force 2418N, 0.3048m drop",
+      "assumed_mass_kg_NOT_reported_by_paper": 70.0,
+      "v_touchdown_mps": 2.445,
+      "implied_BW_N": 686.7,
+      "F_peak_over_BW_given_assumed_mass": 3.52,
+      "T_contact_implied_s": 0.1112,
+      "reading": "T~111ms is physically sensible (known short-ground-contact-time range, comparable to sprint contact times) -- recovered independently, not fitted to match"
+    }
+  },
+  "joint_redistribution": {
+    "zhang2000_by_height": {
+      "height_m": [0.32, 0.62, 1.03],
+      "ankle_Jkg": [0.52, 0.74, 0.87],
+      "hip_Jkg": [0.94, 1.31, 2.15],
+      "knee_Jkg": [1.21, 1.63, 2.26],
+      "pct_ankle": [19.5, 20.1, 16.5],
+      "pct_hip": [35.2, 35.6, 40.7],
+      "pct_knee": [45.3, 44.3, 42.8],
+      "reading": "knee largest single contributor at every height (stable ~43-45%); hip share GROWS with height (35.2->40.7%); ankle relative share shrinks slightly (19.5->16.5%) though absolute J/kg rises -- reproduces the paper's own stated 'shift from ankle to hip strategy' as explicit percentages"
+    },
+    "devita_skelly_1992_soft_vs_stiff_power_Wkg": {
+      "metric_type": "average/peak eccentric POWER (W/kg), NOT integrated work (J/kg) -- a different metric type than Zhang's, qualitatively convergent only, not numerically comparable term-for-term",
+      "hip": {"soft": -0.60, "stiff": -0.39, "p": "<0.01", "reading": "soft absorbs MORE at hip"},
+      "knee": {"soft": -0.89, "stiff": -0.61, "p": "<0.01", "reading": "soft absorbs MORE at knee"},
+      "ankle": {"soft": -0.88, "stiff": -1.00, "p": "<0.05", "reading": "stiff absorbs MORE at ankle"}
+    },
+    "decker2003_sex_based_strategy": {
+      "cite": "Decker, Torry, Wyland, Sterett & Steadman 2003, Clin Biomech",
+      "pmid": "12880714",
+      "doi": "10.1016/s0268-0033(03)00090-1",
+      "n": "12M/9F",
+      "measured": "knee = primary shock absorber for BOTH sexes; 2nd-largest contributor = ankle plantarflexors for females, hip extensors for males; females land in more erect posture",
+      "reading": "a THIRD independent manipulation (sex, not height or technique) reproducing the same proximal-vs-distal redistribution axis -- and mechanistically bridging to the dysfunction pole (erect/distally-shifted female strategy)"
+    },
+    "verdict": "C2 holds -- replicated across 3 decorrelated manipulations (height: Zhang; technique: DeVita&Skelly; sex: Decker), same qualitative direction each time"
+  },
+  "dysfunction_pole": {
+    "hewett_2005": {
+      "cite": "Hewett TE, Myer GD, Ford KR, Heidt RS Jr, Colosimo AJ, McLean SG, van den Bogert AJ, Paterno MV, Succop P. Biomechanical measures of neuromuscular control and valgus loading of the knee predict anterior cruciate ligament injury risk in female athletes: a prospective study. Am J Sports Med. 2005;33(4):492-501.",
+      "pmid": "15722287",
+      "doi": "10.1177/0363546504269591",
+      "n_total": 205,
+      "n_injured": 9,
+      "measured": "knee abduction angle 8deg greater (p<.05); knee abduction moment 2.5x greater (p<.001); GRF 20% higher (p<.05); stance time 16% shorter, in injured vs uninjured. KAM classified injury at 78% sensitivity/73% specificity; dynamic valgus composite r2=0.88.",
+      "independent_reverification": "re-fetched live this session via fresh NCBI esearch/efetch, EXACT match to MECHANISM_CUTTING_ACL_MECHANISM.md's independently-fetched numbers",
+      "contested_classifier_caveat_reused_from_sibling_cell": "Cronstrom, Creaby & Ageberg 2020 (PMID 32819327, PMC7441716), a 9-cohort prospective meta-analysis, found pooled KAM angle/moment does NOT significantly predict individual future ACL injury -- this document's C3 rests on the mechanistic force/kinetics relationship, not a single-timepoint injury-classifier claim"
+    },
+    "ford_2003": {
+      "cite": "Ford KR, Myer GD, Hewett TE. Valgus knee motion during landing in high school female and male basketball players. Med Sci Sports Exerc. 2003;35(10):1745-50.",
+      "pmid": "14523314",
+      "doi": "10.1249/01.MSS.0000089346.85744.D9",
+      "n": "47F/34M",
+      "measured": "females land with significantly greater total valgus knee motion and greater maximum valgus knee angle than males during a drop vertical jump; significant side-to-side asymmetry in females",
+      "independent_reverification": "re-fetched live this session, identical to sibling cell"
+    },
+    "mclean_2007": {
+      "cite": "McLean SG, Fellin RE, Suedekum N, Calabrese G, Passerallo A, Joy S. Impact of fatigue on gender-based high-risk landing strategies. Med Sci Sports Exerc. 2007;39(3):502-14.",
+      "pmid": "17473777",
+      "doi": "10.1249/mss.0b013e3180d47f0",
+      "n": "10M/10F NCAA",
+      "measured": "fatigue increases initial-contact and peak-stance knee abduction/internal-rotation motion AND moments, more pronounced in females",
+      "independent_reverification": "re-fetched live this session, identical to sibling cell"
+    },
+    "pappas_2007_NEW_not_in_sibling_cell": {
+      "cite": "Pappas E, Sheikhzadeh A, Hagins M, Nordin M. The effect of gender and fatigue on the biomechanics of bilateral landings from a jump: peak values. J Sports Sci Med. 2007;6(1):77-84.",
+      "pmid": "24149228",
+      "pmcid": "PMC3778703",
+      "n": 32,
+      "design": "40cm bilateral drop-jump landing, before/after functional fatigue protocol",
+      "measured": "females: 9deg greater peak knee valgus (p=0.001), 140% greater max vGRF normalized to BW vs males (p=0.003). Fatigue: +1.7deg peak foot abduction (p=0.042), +27% peak rectus femoris EMG (p=0.018), +20% peak vGRF (p=0.038)",
+      "triangulation": "9deg valgus sex-effect closely replicates Ford2003's direction (independent lab/cohort/era); fatigue-raises-peak-force replicates McLean2007's fatigue direction via a DIFFERENT instrument (peak vGRF+EMG, not 3D moments)",
+      "flagged_caveat": "the 140% GRF-magnitude sex effect is a large effect size with NO second GRF-magnitude-specific sex-comparison study cross-checked this pass -- reported as single-source pending independent replication"
+    },
+    "derived_loading_rate_proxy": {
+      "source_ratios_from_hewett_2005": {"grf_ratio": 1.20, "stance_time_ratio": 0.84},
+      "derived_avg_loading_rate_proxy_ratio": 1.429,
+      "flag": "computed by THIS document from Hewett's own two published percentages -- NOT a number Hewett et al themselves report"
+    },
+    "geometric_convergence_with_ligament_model": {
+      "source": "docs/MECHANISM_KNEE_LIGAMENTS.md Sec.4 (this twin's own OpenSim Blankevoort1991Ligament ACL bundles)",
+      "finding_reused": "ACL tension highest near knee extension (4.318N mean over 0-15deg vs 2.143N over 125-140deg, pre-registered PASS in that document)",
+      "convergence": "a stiff/erect landing (this document's Sec 4-5) keeps the knee in the same near-extension range independently found to be the ACL's most-taut zone -- two decorrelated mechanisms (impulse-momentum kinetics here; ligament-strain-vs-angle geometry there) point the same direction",
+      "terminology_distinction": "'landing stiffness' (this doc's modulable, technique-dependent whole-limb mechanical variable) vs 'ligament structural stiffness' (MECHANISM_LIGAMENT_STIFFNESS.md's ACL 283 N/mm, a fixed material property) are related but DISTINCT quantities, not to be conflated -- a stiffer landing routes more load onto a fixed-stiffness ligament rather than dissipating it through compliant eccentric muscle-tendon work"
+    }
+  },
+  "video_markerless_coupling": {
+    "reused_from_sibling_cell_not_reverified": "MECHANISM_CUTTING_ACL_MECHANISM.md Sec.6: OpenCap markerless sagittal knee/hip CMC>0.94 (excellent) vs frontal CMC only 0.47-0.78; a 2026 ACL-re-injury-screening validation explicitly concludes markerless video 'cannot be recommended for ACL re-injury risk assessment' at the frontal-plane level",
+    "this_document_new_claim": "this document's own falsifier (Sec 4-5) is built ENTIRELY from sagittal-plane quantities (knee flexion depth, stance/contact time, GRF-magnitude proxy) -- precisely the variable class the sibling cell found video-tractable today, in direct contrast to cutting's frontal-plane KAM",
+    "status": "PROPOSED, NOT TESTED this session -- no video-derived knee-flexion/stance-time/GRF-proxy was actually computed against a ground-truth landing trial"
+  },
+  "honest_gaps": [
+    "No new raw-data solve executed this pass -- no OpenSim drop-landing simulation on this twin's own geometry; no ground-truth GRF trial for a controlled drop-landing exists in this repo's currently-loaded corpus at this fidelity (MECHANISM_PLYO_JUMP_CASCADE.md's Instagram-sourced ballistic clips answer a different question -- takeoff-cascade timing, not controlled-height drop-landing GRF -- and are not reused here as if they did)",
+    "DeVita & Skelly 1992's exact peak-GRF Newton/BW values are not in the fetched abstract (qualitative 'larger GRFs' only; full-text table not fetched) -- not invented to fill the gap",
+    "The Delta_y_crouch energy-balance correction (Sec.3) is not numerically closed -- no fetched source reports COM crouch depth directly",
+    "Self & Paine's 2418N/20.7G-implies-70kg-subject and the T~111ms back-out both use an ASSUMED, not reported, subject mass -- flagged inline every use",
+    "The Pappas 2007 '140% greater' GRF/BW sex effect is single-source this pass, large effect size, not independently cross-checked",
+    "The dysfunction-pole KAM-as-individual-injury-classifier caveat (Cronstrom 2020) is reused, not independently re-fetched, from the sibling cutting-ACL cert",
+    "No frontal-plane (valgus/KAM) measurement exists for a PURE drop-landing in this document -- all 4 dysfunction-pole anchors use a drop-vertical-jump or bilateral-drop-jump protocol (landing + immediate rebound jump), not an isolated 'stick the landing' trial; standard protocol in this literature, not a mismatch this document introduced, but the FUNCTION-pole 'stick' energy-balance framing and the DYSFUNCTION-pole citations are not from identically-matched tasks",
+    "Sec.7's video-tractability claim is proposed, not tested this session"
+  ],
+  "couples_to": [
+    "docs/MECHANISM_CUTTING_ACL_MECHANISM.md",
+    "docs/MECHANISM_CUTTING_ACL_MECHANISM_evidence.json",
+    "docs/MECHANISM_KNEE_LIGAMENTS.md",
+    "docs/MECHANISM_LIGAMENT_STIFFNESS.md",
+    "docs/MECHANISM_PLYO_JUMP_CASCADE.md",
+    "docs/MECHANISM_JOINT_FORCE_SCORECARD.md",
+    "docs/MECHANISM_HIP_FORCE.md",
+    "docs/MECHANISM_ANKLE_FORCE.md",
+    "docs/MECHANISM_KNEE_CARTILAGE_MATERIAL.md",
+    "docs/MECHANISM_POSE_PIPELINE.md",
+    "bt_memory/video-to-injury-load-two-barriers-id-double-differentiation-and-frontal-plane-knee-dof.md",
+    "bt_memory/function-vs-dysfunction-build-the-athlete-baseline-in-parallel-with-disease.md"
+  ],
+  "proposed_cell": "Not a video->landing-stiffness regression yet (Sec.7's claim is proposed, untested). Decisive next step: (1) identify or acquire a controlled drop-landing trial with synchronized GRF+marker/video data (this repo's own corpus is Instagram-sourced ballistic content, not controlled-height drop landings); (2) if found, reproduce Zhang/DeVita-style joint-power redistribution on this twin's own geometry as a genuine new measurement (closing this cell's biggest honest gap); (3) only then attempt the video-tractable sagittal stiffness-proxy screen Sec.7 proposes, gated the same way the sibling cell gates its own next step -- inject realistic video-kinematic noise before trusting any derived risk flag. Proposed graph node: MSK-LANDING-DECELERATION (new -- not yet written to data/MECHANISM_ANCHOR_GRAPH.json; this session only writes the 4 files this doc lists, per the HYPOTHESIS-awaiting-QC convention)."
+}

@@ -1,0 +1,221 @@
+{
+ "task": "Sacroiliac (SI) joint pelvic-ring load transfer and form/force-closure stability mechanism -- reproduce the measured small-but-nonzero SI ROM (~2-4 deg / ~1-2mm), show BOTH a rigid-pelvis (zero-ROM) null AND a free-hinge (large-ROM) null are inconsistent with it; show force closure is load-bearing (reducing muscle/ligament compression measurably reduces stiffness/increases shear laxity); show nutation increases with load (self-locking, not runaway); test 3 perturbation adversaries (peripartum relaxin laxity, SI fusion, pelvic-ring fracture load-path disruption).",
+ "confidence_tier": "literature-parameter-anchored mechanical gate-checker (verified RSA/photogrammetric ROM measurements + cadaveric manipulation experiments + EMG + FE-model cross-checks + a live repo grep of this twin's own OpenSim models), NOT a live biomechanical simulation of the SI joint itself -- no OpenSim model was built or modified this session (see proposed_cell). All 10 falsifier gates are literature-parameter comparisons against pre-registered thresholds, computed by scripts/msk/sacroiliac_joint_gates.py.",
+ "script": "scripts/msk/sacroiliac_joint_gates.py",
+ "raw_results": "data/msk_smoketest/sacroiliac_joint/sacroiliac_joint_gate_results.json",
+ "doc": "docs/MECHANISM_SACROILIAC_JOINT.md",
+ "couples_to": [
+  "docs/MECHANISM_MZ_PELVIS_MOMENT.md -- that doc's pelvis_tilt sagittal-moment floor during gait sits at the exact coordinate an SI nutation DOF would occupy if modeled; this doc's Sec.8 confirms via live grep that no such DOF currently exists in this twin",
+  "docs/MECHANISM_HIP_ANKLE_LIGAMENTS.md -- supplies the in-twin 'free hinge' ROM comparator (its own hip/ankle sweep ranges) used by gate G2, and is the sibling this doc's proposed_cell would extend with the same Blankevoort1991Ligament class for the 5 SI ligaments",
+  "docs/MECHANISM_SPINE_LIGAMENTS.md and docs/MECHANISM_SPINE_FORCE.md -- the SI joint is the spine's downstream load-transfer bridge to the legs",
+  "docs/MECHANISM_MYOFASCIAL.md -- its own disclosed open item ('erector spinae/thoracolumbar fascia, candidate #2, not quantitatively assessed') is informed by this doc's Willard 2012 TLF citation, not yet closed",
+  "docs/MECHANISM_TRUNK_FLEXORS.md -- core/transversely-oriented muscle mechanics, same muscle class as this doc's Snijders 1998 internal-oblique EMG citation",
+  "graph node MSK-COM-GRF-VIDEO-ONLY -- the GRF load this joint transmits leg-to-spine",
+  "graph node MSK-GAIT-LOCOMOTION -- SI motion is cyclic during gait",
+  "graph nodes MSK-HIP-FEMOROACETABULAR and MSK-LUMBAR-SPINE-SEGMENT -- adjacent links in the spine-sacrum-ilium-hip load chain"
+ ],
+ "duplicate_check": "repo-wide grep for sacroiliac/sacro-iliac/SI-JOINT/SI_JOINT across docs/*.md and the 1015-node graph's ids found zero prior hits (MYOFASCIAL.md and TRUNK_FLEXORS.md mention thoracolumbar fascia/self-bracing in passing but do not cover the SI joint itself). Genuinely new, non-duplicate node.",
+ "model_check_live_this_session": {
+  "method": "grep -o '<Body name=\"...\"' against the actual .osim XML files, not narrated from memory or docstrings",
+  "base_model": "data/msk_models/subject2_scaled_handsfield_fmax_corrected.osim",
+  "unified_model": "data/msk_models/subject2_unified.osim",
+  "result": "exactly one '<Body name=\"pelvis\">' in BOTH models; no sacrum or ilium body anywhere; no SI joint DOF exists in this twin. The only joints touching 'pelvis' are ground_pelvis (the free 6-DOF floating-base joint to the world, NOT the SI joint -- the same coordinate MECHANISM_MZ_PELVIS_MOMENT.md analyzes as pelvis_tilt/list/rotation), hip_l/hip_r, and back.",
+  "implication": "this twin's own current model IS the literature's 'rigid pelvis' null by construction/omission, not by a measured or informed choice -- a concrete, actionable, machine-verified gap (see doc Sec.8, Sec.10 proposed_cell)."
+ },
+ "citations_verified_live_this_session": {
+  "weisl_1954_classic_mechanical": {
+   "pmid": "13196834", "doi": "10.1159/000140945",
+   "cite": "Weisl H (1954). The articular surfaces of the sacro-iliac joint and their relation to the movements of the sacrum. Acta Anat (Basel) 22(1):1-14.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "Title/journal/PMID/DOI verified live; pre-abstract-era PubMed record, no abstract text available for re-extraction. Classic cadaveric/mechanical description of SI articular surface geometry, cited bibliographically as the earliest independent method in the ROM diverse-instance-space (predates all RSA-era work)."
+  },
+  "egund_1978_first_rsa": {
+   "pmid": "717034", "doi": "10.1177/028418517801900513",
+   "cite": "Egund N, Olsson TH, Schmid H, Selvik G (1978). Movements in the sacroiliac joints demonstrated with roentgen stereophotogrammetry. Acta Radiol Diagn (Stockh) 19(5):833-846.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'In tests with symmetric forces on the sacrum, it in most cases rotated mainly about a transverse axis and at most approximately 2 degrees ... The rotations between the iliac bones and the sacrum about any of the three main axes were determined with a precision in the mean of 0.2 degrees. The distance between the two superior posterior iliac spines varied at most 0.4 mm between seven different body positions.' FIRST-EVER RSA measurement of the SI joint; supplies the independently-reported measurement-precision floor (0.2 deg) used by gate G1 -- a DIFFERENT quantity than the ROM claim itself, not a tautology."
+  },
+  "sturesson_1989_primary_rsa": {
+   "pmid": "2922636", "doi": "10.1097/00007632-198902000-00004",
+   "cite": "Sturesson B, Selvik G, Uden A (1989). Movements of the sacroiliac joints. A roentgen stereophotogrammetric analysis. Spine 14(2):162-165.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'Twenty-five patients (21 females and 4 males) with sacroiliac joint disorders were studied ... The rotations were small and in mean between position 2.5 degrees (0.8 degree-3.9 degrees). The translation was, mean, 0.7 mm (0.1-1.6 mm). There was no difference between symptomatic and asymptomatic joints.' PRIMARY ROM ANCHOR -- the single most-cited modern quantitative SI ROM figure."
+  },
+  "jacob_kissling_1995_independent_method": {
+   "pmid": "11415579", "doi": "10.1016/0268-0033(95)00003-4",
+   "cite": "Jacob HA, Kissling RO (1995). The mobility of the sacroiliac joints in healthy volunteers between 20 and 50 years of age. Clin Biomech (Bristol) 10(7):352-361.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'Using a three-dimensional stereophotogrammetric method, the motion in the joints of 15 males and nine females was investigated ... The average values for total rotation and translation were low, being 1.7 degrees and 0.7 mm respectively. One of the test subjects who was known to have occasional trouble with his sacroiliac joints exhibited more than 6 degrees rotation. No statistically significant differences could be demonstrated with respect to sex, age, or parturition.' DECORRELATED METHOD (percutaneous external markers + conventional light photography, explicitly NOT X-ray/RSA) reproducing the same ROM order of magnitude in healthy (not patient) volunteers; the >6 deg symptomatic outlier is used as the most-generous-to-the-adversary value in gate G2."
+  },
+  "sturesson_2000_loaded_functional_task": {
+   "pmid": "10703111", "doi": "10.1097/00007632-200002010-00018",
+   "cite": "Sturesson B, Uden A, Vleeming A (2000). A radiostereometric analysis of movements of the sacroiliac joints during the standing hip flexion test. Spine 25(3):364-368.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'Very small movements were registered in the sacroiliac joints. When provoking one side, the rotations were small on both sides ... The small movements registered support the theory of form and force closure in the sacroiliac joints. The self-locking mechanism that goes into effect when the pelvis is loaded in a one-leg standing position probably obstructs the movements in the sacroiliac joints.' RSA measurement during an actively LOADED functional task -- the direct empirical outcome-level validation of the self-locking claim (gate G7)."
+  },
+  "zheng_1997_independent_fe_model": {
+   "pmid": "9136197", "doi": "10.1007/BF02534134",
+   "cite": "Zheng N, Watson LG, Yong-Hing K (1997). Biomechanical modelling of the human sacroiliac joint. Med Biol Eng Comput 35(2):77-82.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'This three-link closed-chain system explains why there is so little motion in the sacroiliac joint ... the translation of the sacroiliac joint in the direction of force is about 0.5 mm in the lateral direction, about 1.8 mm in the antero-posterior direction, and about 1.5 mm in the superior or inferior direction, when a load of 1000 N is applied to the sacrum. When a load of 50 N m-1 is applied to the sacrum, the rotation in the load direction is about 1.6 degrees in axial rotation, about 1.0 degree in flexion or extension and about 1.1 degrees in lateral bending.' INDEPENDENT COMPUTATIONAL cross-check (quasi-static FE model, minimum-potential-energy formulation, built from cadaver geometry, never fit to the RSA numbers) -- used in gate G3's over-determination check, and its closed-chain framing is used qualitatively in Sec.6's pelvic-ring-fracture discussion."
+  },
+  "snijders_1993_part1_selfbracing_model": {
+   "pmid": "23916048", "doi": "10.1016/0268-0033(93)90002-Y",
+   "cite": "Snijders CJ, Vleeming A, Stoeckart R (1993). Transfer of lumbosacral load to iliac bones and legs Part 1: Biomechanics of self-bracing of the sacroiliac joints and its significance for treatment and exercise. Clin Biomech (Bristol) 8(6):285-294.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'The sacroiliac joints are vulnerable to shear loading on account of their predominantly flat surfaces ... a biomechanical model for the equilibrium of the sacrum under load, describing a self-bracing effect that protects the sacroiliac joints against shear according to the sacroiliac joint compression theory, which has been demonstrated in vitro ... The model includes a large number of muscles (e.g. the gluteus maximus and piriformis muscles), ligaments (e.g. the sacrotuberous, sacrospinal, and dorsal and interosseous sacroiliac ligaments) as well as the coarse texture and the ridges and grooves of the joint surfaces.' Foundational theoretical model naming the exact muscle/ligament/surface-geometry components this doc's Sec.3 geometric argument uses."
+  },
+  "snijders_1993_part2_loading_posture": {
+   "pmid": "23916049", "doi": "10.1016/0268-0033(93)90003-Z",
+   "cite": "Snijders CJ, Vleeming A, Stoeckart R (1993). Transfer of lumbosacral load to iliac bones and legs Part 2: Loading of the sacroiliac joints when lifting in a stooped posture. Clin Biomech (Bristol) 8(6):295-301.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'When a person is lifting a load while in a stooped posture ... a belt such as used by weight lifters may contribute to the stability of the sacroiliac joints. Verification of the biomechanical model is based on anatomical studies and on load application to human specimens.' Introduces the external-belt/force-closure-substitute concept later tested directly by Snijders 1998 EMG (this doc's gate G6)."
+  },
+  "snijders_1998_emg_belt_substitution": {
+   "pmid": "9779394", "doi": "10.1016/s1050-6411(98)00005-4",
+   "cite": "Snijders CJ, Ribbers MT, de Bakker HV, Stoeckart R, Stam HJ (1998). EMG recordings of abdominal and back muscles in various standing postures: validation of a biomechanical model on sacroiliac joint stability. J Electromyogr Kinesiol 8(4):205-214.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'For stability of the flat sacroiliac joints (SIJ) muscle forces are required which press the sacrum between the two hip bones (self-bracing) ... Protection against shearing can come from transversely oriented muscles like the internal oblique (OI) abdominal muscles ... OI activity decreased significantly when (a) resting on one leg ..., (b) tilting the pelvic backward and (c) applying a pelvic belt. We explain this decrease of OI activity by, respectively, decrease of gravity load, decrease of load from the psoas major muscles, and a substitute of self-bracing.' DIRECT EMG manipulation experiment: gate G6, the decisive muscle-mediated force-closure substitution test."
+  },
+  "vleeming_1990_partI_form_closure_geometry": {
+   "pmid": "2326706", "doi": "10.1097/00007632-199002000-00016",
+   "cite": "Vleeming A, Stoeckart R, Volkers AC, Snijders CJ (1990). Relation between form and function in the sacroiliac joint. Part I: Clinical anatomical aspects. Spine 15(2):130-132.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'Observations on sectioned and opened preparations of human sacroiliac joints show the presence of cartilage-covered ridges and depressions, which are complementary on the auricular surfaces ... more pronounced in men than in women ... viewed as a nonpathologic adaptation to the forces exerted at the SI joints, leading to increased stability.' Founding form-closure geometry paper; the ridges/depressions this doc's Sec.3 geometric argument builds on."
+  },
+  "vleeming_1990_partII_friction_roughness": {
+   "pmid": "2326707", "doi": "10.1097/00007632-199002000-00017",
+   "cite": "Vleeming A, Volkers AC, Snijders CJ, Stoeckart R (1990). Relation between form and function in the sacroiliac joint. Part II: Biomechanical aspects. Spine 15(2):133-136.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'The amount of friction between the articular surfaces of sacroiliac (SI) joints was determined and related to the degree of macroscopic roughening. Results show that articular surfaces with both coarse texture and ridges and depressions have high friction coefficients. The influence of ridges and depressions appears to be greater than that of coarse texture.' Founding friction-coefficient measurement; the exact numeric mu value was NOT recoverable from this abstract (honest gap, Sec.9#10) -- the qualitative ridges>coarse-texture finding is independently replicated by Nordberg 2021 in a different species 31 years later."
+  },
+  "vleeming_1996_ldl_nutation_mechanism": {
+   "pmid": "8852309", "doi": "10.1097/00007632-199603010-00005",
+   "cite": "Vleeming A, Pool-Goudzwaard AL, Hammudoghlu D, Stoeckart R, Snijders CJ, Mens JM (1996). The function of the long dorsal sacroiliac ligament: its implication for understanding low back pain. Spine 21(5):556-562.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'The tension of the long dorsal sacroiliac ligament (n = 12) was tested under loading ... The sacrum was loaded in two directions, causing nutation (ventral rotation of the sacrum relative to the iliac bones) and counternutation (the reverse). RESULTS: Forced nutation in the sacroiliac joints diminished the tension and forced counternutation increased the tension. Tension in the long dorsal sacroiliac ligament increased during loading of the ipsilateral sacrotuberous ligament and erector spinae muscle. The tension decreased during traction to the gluteus maximus muscle. Tension also decreased during traction to the ipsilateral and contralateral posterior layer of the thoracolumbar fascia in a direction simulating contraction of the latissimus dorsi muscle ... The reverse holds for the sacrotuberous ligament.' DECISIVE direct cadaveric buckle-transducer measurement of the nutation-tension mechanism (gate G7) AND the multi-muscle (erector spinae/gluteus maximus/latissimus-dorsi-via-TLF) coupling the task names."
+  },
+  "vleeming_2002_ldl_peripartum_clinical": {
+   "pmid": "12027817", "doi": "10.1034/j.1600-0412.2002.810510.x",
+   "cite": "Vleeming A, de Vries HJ, Mens JM, van Wingerden JP (2002). Possible role of the long dorsal sacroiliac ligament in women with peripartum pelvic pain. Acta Obstet Gynecol Scand 81(5):430-436.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM (results): 'Sensitivity was 76%. Sensitivity in a group of 133 women ... that scored positive on both active straight leg raise and posterior pelvic pain provocation tests was 86%. When only severe pelvic patients were included, sensitivity increased to 98%.' n=178 women; secondary clinical-correlational support linking the LDL mechanism to peripartum pelvic pain."
+  },
+  "pool_goudzwaard_1998_form_force_closure_definitional": {
+   "pmid": "11487296", "doi": "10.1054/math.1998.0311",
+   "cite": "Pool-Goudzwaard AL, Vleeming A, Stoeckart R, Snijders CJ, Mens JM (1998). Insufficient lumbopelvic stability: a clinical, anatomical and biomechanical approach to 'a-specific' low back pain. Man Ther 3(1):12-20.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'The stabilization of the SI joint can be increased in two ways. Firstly, by interlocking of the ridges and grooves on the joint surfaces (form closure); secondly, by compressive forces of structures like muscles, ligaments and fascia (force closure). Muscle weakness and insufficient tension of ligaments can lead to diminished compression, influencing load transfer negatively ... When there is a loss of force closure, for instance in peripartum pelvic instability, application of a pelvic belt can be advised.' THE canonical form-closure/force-closure definitional paper this entire document's terminology follows."
+  },
+  "vleeming_2012_overview_decorrelated_anchor": {
+   "pmid": "22994881", "doi": "10.1111/j.1469-7580.2012.01564.x", "pmcid": "PMC3512279",
+   "cite": "Vleeming A, Schuenke MD, Masi AT, Carreiro JE, Danneels L, Willard FH (2012). The sacroiliac joint: an overview of its anatomy, function and potential clinical implications. J Anat 221(6):537-567.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'The SIJs are essential for effective load transfer between the spine and legs ... Pelvic movement studies are investigated and biomechanical models for SIJ stability analyzed, including examples of insufficient versus excessive sacroiliac force closure.' PRIMARY DECORRELATED ANCHOR -- an independent synthesis/review, not a tautology gate."
+  },
+  "willard_2012_thoracolumbar_fascia_anatomy": {
+   "pmid": "22630613", "doi": "10.1111/j.1469-7580.2012.01511.x", "pmcid": "PMC3512278",
+   "cite": "Willard FH, Vleeming A, Schuenke MD, Danneels L, Schleip R (2012). The thoracolumbar fascia: anatomy, function and clinical considerations. J Anat 221(6):507-536.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'The superficial lamina of the posterior layer of the TLF (PLF) is dominated by the aponeuroses of the latissimus dorsi and the serratus posterior inferior ... Along the lateral border of the PRS, a raphe forms where the sheath meets the aponeurosis of the transversus abdominis ... At the base of the lumbar spine all of the layers of the TLF fuse together into a thick composite that attaches firmly to the posterior superior iliac spine and the sacrotuberous ligament.' Direct anatomical confirmation of the task's named multi-muscle chain: transversus abdominis, gluteus max/latissimus dorsi via the TLF, converging on the SI joint's own primary ligament."
+  },
+  "vleeming_schuenke_2019_master_mechanism_summary": {
+   "pmid": "31218826", "doi": "10.1002/pmrj.12205",
+   "cite": "Vleeming A, Schuenke M (2019). Form and Force Closure of the Sacroiliac Joints. PM R 11 Suppl 1:S24-S31.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM (full mechanism statement): 'If the sacrum would fit in the pelvis with perfect form closure, no lateral compressional forces would be needed to maintain stability. However, such a construction would make mobility practically impossible ... Structures that contribute to SIJ stability via form closure include (1) the configuration of the interfacing joint surfaces, along with dorsocranial wedging of the sacrum into the ilia; (2) the corresponding ridges and grooves ... and resultant high coefficient of friction; and (3) the integrity of the binding ligaments ... In order for force closure to be effective, sacral nutation must occur and is considered to be anticipatory for joint loading. Sacral nutation results in tensing all of the dorsal SIJ ligaments (interosseous, dorsal sacroiliac) with the exception of one, the long dorsal ligament (LDL) ... As a result, the posterior ilium are pressed together causing an increase in SIJ compression.' THE master mechanism summary paper -- states both nulls' inconsistency and the self-locking mechanism explicitly, in the field's own words, most mature (2019) statement of the theory."
+  },
+  "nordberg_2021_independent_tribological_replication": {
+   "pmid": "34105385", "doi": "10.1177/19476035211021906", "pmcid": "PMC8804757",
+   "cite": "Nordberg RC, Espinosa MG, Hu JC, Athanasiou KA (2021). A Tribological Comparison of Facet Joint, Sacroiliac Joint, and Knee Cartilage in the Yucatan Minipig. Cartilage 13(2_suppl):346S-355S.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'Compared with the knee, the coefficient of friction was higher by ... 28% in the sacroiliac joint. Likewise, topographical features ... varied significantly, ranging from a 114% to 384% increase and a 48% to 107% increase in global and local surface roughness measures, respectively, compared with the knee ... there was a significant correlation between local roughness and coefficient of friction, but not global roughness or the presence of lubricin.' FULLY INDEPENDENT (UC Irvine, unconnected to the Rotterdam/Erasmus program) cross-species (minipig) replication of the 1990 human ridges/local-roughness-driven friction finding, with hard numbers (gate G10)."
+  },
+  "maclennan_1986_relaxin_quantitative": {
+   "pmid": "2874277", "doi": "10.1016/s0140-6736(86)92069-6",
+   "cite": "MacLennan AH, Nicolson R, Green RC, Bath M (1986). Serum relaxin and pelvic pain of pregnancy. Lancet 2(8501):243-245.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'Serum relaxin immunoreactivity was measured ... in 35 patients with severe pelvic pain and pelvic joint instability during late pregnancy. Results were compared with a control group of 368 samples ... Most of the relaxin concentrations in the study group were above the 95% confidence limits of the median for the corresponding gestational age in the control group ... Relaxin levels in patients with pelvic pain were close to normal non-pregnant levels by the third postnatal day.' Original quantitative relaxin/pelvic-instability data (gate G8), independent of the Kristiansson 1996 cohort."
+  },
+  "kristiansson_1996_relaxin_temporal_correlation": {
+   "pmid": "8942512", "doi": "10.1016/s0002-9378(96)70052-2",
+   "cite": "Kristiansson P, Svardsudd K, von Schoultz B (1996). Serum relaxin, symphyseal pain, and back pain during pregnancy. Am J Obstet Gynecol 175(5):1342-1347.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'There was an initial increase of relaxin levels until a peak value at the twelfth week ... There was a significant correlation between mean serum relaxin levels during the pregnancy and symphyseal pain or low back pain occurring during late pregnancy.' Independent (Swedish) cohort replicating the relaxin-pain link (gate G8)."
+  },
+  "damen_2001_asymmetric_laxity_pain": {
+   "pmid": "11703199", "doi": "10.1034/j.1600-0412.2001.801109.x",
+   "cite": "Damen L, Buyruk HM, Guler-Uysal F, Lotgering FK, Snijders CJ, Stam HJ (2001). Pelvic pain during pregnancy is associated with asymmetric laxity of the sacroiliac joints. Acta Obstet Gynecol Scand 80(11):1019-1024.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'Mean SIJ laxity in the PRPP+ group was not significantly different from the PRPP- group (3.0 versus 3.4 TU). The mean left-right difference, however, was significantly higher in the PRPP+ group (2.2 TU) than in the PRPP- group (0.9 TU). In the PRPP- group, only 4% had asymmetric laxity ... in contrast to 37% of the PRPP+ group.' HONEST NUANCE (Sec.6): laxity MAGNITUDE does not predict pain; laxity ASYMMETRY does -- reported in full, not smoothed into a simpler story."
+  },
+  "damen_2002_asymmetric_laxity_prognostic": {
+   "pmid": "12486354", "doi": "10.1097/00007632-200212150-00018",
+   "cite": "Damen L, Buyruk HM, Guler-Uysal F, Lotgering FK, Snijders CJ, Stam HJ (2002). The prognostic value of asymmetric laxity of the sacroiliac joints in pregnancy-related pelvic pain. Spine 27(24):2820-2824.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'sacroiliac joint asymmetric laxity was predictive of moderate to severe pregnancy-related pelvic pain persisting into the postpartum period in 77% of the subjects. The sensitivity, specificity, and positive predictive value ... were 65%, 83%, and 77%, respectively ... a threefold higher risk.' Prospective (n=123) longitudinal confirmation of Damen 2001's cross-sectional finding."
+  },
+  "buyruk_1995a_healthy_baseline_method": {
+   "pmid": "8850505", "doi": "10.1016/0720-048x(95)00716-4",
+   "cite": "Buyruk HM, Snijders CJ, Vleeming A, Lameris JS, Holland WP, Stam HJ (1995). The measurements of sacroiliac joint stiffness with colour Doppler imaging: a study on healthy subjects. Eur J Radiol 21(2):117-121.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'a dynamic measurement method using sonoelasticity to assess the sacroiliac joint (SI) stiffness was tested in vivo in 14 healthy female volunteers ... the results showed a satisfactory intraindividual reproducibility and inter-individual variability. There was no significant difference between the data derived from the left SI joint and right SI joint.' Establishes the DIV stiffness-measurement method and the healthy (symmetric) baseline used to interpret Damen 2001/2002's asymmetry findings."
+  },
+  "buyruk_1995b_embalmed_decisive_manipulation": {
+   "pmid": "8850504", "doi": "10.1016/0720-048x(95)00704-t",
+   "cite": "Buyruk HM, Stam HJ, Snijders CJ, Vleeming A, Lameris JS, Holland WP (1995). The use of color Doppler imaging for the assessment of sacroiliac joint stiffness: a study on embalmed human pelvises. Eur J Radiol 21(2):112-116.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'Four embalmed human female pelvises were excitated by a pelvic vibrator ... Three different stability conditions were created in the SI joints: no intervention, screwed and ligaments cut ... Statistics showed high reproducibility and significant differences between the stability conditions.' DECISIVE direct cadaveric force-closure MANIPULATION experiment (gate G5) -- per-condition TU values not given in the abstract (honest gap, Sec.9#3)."
+  },
+  "buyruk_1999_patient_vs_control_stiffness": {
+   "pmid": "10391526", "doi": "10.1016/s0301-2115(98)00331-5",
+   "cite": "Buyruk HM, Stam HJ, Snijders CJ, Lameris JS, Holland WP, Stijnen TH (1999). Measurement of sacroiliac joint stiffness in peripartum pelvic pain patients with Doppler imaging of vibrations (DIV). Eur J Obstet Gynecol Reprod Biol 83(2):159-163.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'Both patients and controls displayed stiff as well as unstiff joints with no significant difference. There was a significant difference between the groups with regard to the relative difference of sacroiliac joint stiffness between left and right ... Asymmetric stiffness ... seems to be more directly related to low back pain and pelvic pain, not the stiffness level of a single sacroiliac joint.' Independent replication (n=56 patients/n=52 controls) of the Damen asymmetry-not-magnitude finding."
+  },
+  "lindsey_2015_fusion_rom_reduction": {
+   "pmid": "26767156", "doi": "10.14444/2064", "pmcid": "PMC4710165",
+   "cite": "Lindsey DP, Kiapour A, Yerby SA, Goel VK (2015). Sacroiliac Joint Fusion Minimally Affects Adjacent Lumbar Segment Motion: A Finite Element Study. Int J Spine Surg 9:64.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'The range of motions of the treated sacroiliac joints were reduced in flexion, extension, lateral bending, and axial rotation, by 56.6%, 59.5%, 27.8%, and 53.3%, respectively when compared with the intact condition. The stiffening of the sacroiliac joint resulted in increases at the adjacent lumbar motion segment (L5-S1) ... of 3.0%, 3.7%, 1.1%, and 4.6%, respectively.' QUANTITATIVE fusion-perturbation-toward-rigid-null anchor (gate G4), industry+academic (SI-BONE/Univ. Toledo), independent of the Rotterdam program."
+  },
+  "varga_tile_1995_pelvic_ring_fracture_coupling": {
+   "pmid": "7721471", "doi": "10.1016/0020-1383(95)92180-i",
+   "cite": "Varga E, Hearn T, Powell J, Tile M (1995). Effects of method of internal fixation of symphyseal disruptions on stability of the pelvic ring. Injury 26(2):75-80.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "VERBATIM: 'Unembalmed cadaveric pelves were tested in simulated bilateral stance ... Motion of the superior and inferior pubic symphysis, and at two levels of the posterior sacroiliac complex, was measured ... The pubic symphysis was then sectioned and the sacrum fractured to produce an unstable pelvis (Tile C-type) ... internally fixed symphyseal motion was generally greater than intact, regardless of fixation method.' DECISIVE pelvic-ring-fracture load-path-coupling experiment (gate G9): sectioning the anterior ring measurably changes motion at the separate posterior SI complex, under a realistic 500N cyclic load, n=8, fully independent (Toronto) of the Rotterdam program."
+  },
+  "tile_1988_classification_bibliographic": {
+   "pmid": "3276697", "doi": "10.1302/0301-620X.70B1.3276697",
+   "cite": "Tile M (1988). Pelvic ring fractures: should they be fixed? J Bone Joint Surg Br 70(1):1-12.",
+   "verified_via": "NCBI eutils esearch+efetch, live this session",
+   "numbers": "Title/journal/PMID/DOI verified live; pre-abstract-era PubMed record, no abstract text available. Classic pelvic-ring fracture classification/stability paper, cited bibliographically alongside Varga & Tile 1995's quantitative follow-up."
+  }
+ },
+ "gates_summary": {
+  "G1_rom_resolvable_vs_rigid_pelvis_null": "PASS (8.5x-12.5x an independently-reported 0.2 deg noise floor, per-study; honest near-miss: smallest single individual reading, 0.8 deg, is only 4.0x, below the 5x bar -- disclosed not hidden)",
+  "G2_rom_far_below_free_hinge_null": "PASS (ratio 0.06 vs <=0.15 bar; uses this twin's OWN hip/ankle sweep-range convention as the comparator, not an external number)",
+  "G3_cross_method_overdetermination": "PASS (RSA-vs-independent-FE-model ratios 1.68x/1.81x vs <=3x bar)",
+  "G4_fusion_perturbation_toward_rigid_null": "PASS (27.8%-59.5% ROM reduction vs >=25% bar -- tightest margin of any gate)",
+  "G5_force_closure_manipulation_cadaveric": "PASS (significant difference across intact/screwed/ligaments-cut; per-condition magnitude not extracted, honest gap; common-mode-flagged, Rotterdam program)",
+  "G6_force_closure_emg_substitution": "PASS (internal oblique EMG activity drops with pelvic belt AND with less load; common-mode-flagged)",
+  "G7_nutation_self_locking": "PASS (sacrotuberous tension up / LDL tension down with nutation; compression up per 2019 review; net-outcome validated via Sturesson 2000, not an independently re-derived demand-side rate)",
+  "G8_relaxin_peripartum_adversary": "PASS (2 independent cohorts, MacLennan 1986 + Kristiansson 1996; honest nuance: Damen 2001 shows laxity ASYMMETRY not MAGNITUDE predicts pain; confound named: pregnancy weight/posture/vascular effects not separated from relaxin's direct effect)",
+  "G9_pelvic_ring_fracture_adversary": "PASS (Varga & Tile 1995, fully independent lab)",
+  "G10_form_closure_tribological_replication": "PASS (Nordberg 2021, fully independent lab AND species; local roughness, not global roughness/lubricin, correlates with friction -- replicates Vleeming 1990 Part II 31 years later)",
+  "overall": "10/10 PASS -- reported with its limits attached (three gates share a common-mode source risk, one gate has a disclosed near-miss on an alternate scoring choice, one gate rests on a net-outcome rather than an independently re-derived rate), not celebrated as unqualified. See doc Sec.9 for the full symmetric-QC list."
+ },
+ "symmetric_qc_open_items": [
+  "Common-mode source risk for G5/G6/G7 (Sec.4): the decisive direct-manipulation mechanism experiments (cadaveric ligament-section, EMG belt-substitution, nutation-tension buckle-transducer) all originate from one ~30-year Rotterdam/Erasmus University research program with heavily overlapping authorship (Vleeming, Snijders, Stoeckart, Buyruk, Pool-Goudzwaard, Damen, van Wingerden). No fully independent, unconnected laboratory was found this session to have directly replicated these specific experiments. Partially mitigated by the geometric necessity argument (Coulomb F=muN, independent of any lab's interpretation) and by Nordberg 2021's fully independent tribological replication of the surface-mechanism half -- not closed.",
+  "G1's own near-miss (Sec.2): the single smallest individual rotation reading across Sturesson 1989's 25 patients (0.8 deg) is only 4.0x the noise floor, below this gate's own pre-registered 5x bar. Scored on each study's headline mean (the standard statistic each paper reports), not the smallest individual value -- both numbers disclosed.",
+  "Buyruk 1995b's abstract confirms a SIGNIFICANT difference across intact/screwed/ligaments-cut but does not itself state the per-condition ranking/direction or magnitude -- full text paywalled, not recovered this session. The predicted direction (cutting ligaments reduces stiffness) comes from theory (Pool-Goudzwaard 1998, Vleeming & Schuenke 2019) and is echoed by the separate Snijders 1998 EMG result, not confirmed by this abstract's text directly.",
+  "No wedge half-angle was independently measured or derived (Sec.3) -- 'dorsocranial wedging' is the field's own verified descriptive language (PMID 31218826), not an angle this doc computed from CT/morphometric raw data (unavailable for live fetch this session).",
+  "The self-locking loop's demand-side growth rate was not independently derived (Sec.5) -- rests on Sturesson 2000's net-outcome RSA measurement, not a separately re-derived rate comparison between shear-capacity growth and shear-demand growth.",
+  "Relaxin's specific mechanical contribution is confounded with pregnancy weight gain, postural change, and vascular effects within the cited studies (Sec.6) -- named, not resolved.",
+  "SI fusion's ROM-reduction number (Lindsey 2015) is computational (FE model), not an in-vivo RSA measurement of an actually-fused joint -- the model is described by its own authors as 'experimentally validated,' not independently re-validated this session.",
+  "Small, geographically narrow sample sizes throughout the classic biomechanical literature (n=4-25 for cadaveric/RSA studies) -- typical for the era/field, a real instance-space caveat.",
+  "5 of 28 citations are pre-abstract-era PubMed records (title/PMID/DOI verified live, no abstract text available): Weisl 1954, Tile 1988.",
+  "Vleeming 1990 Part II's exact numeric friction coefficient was not recovered (abstract states the relationship qualitatively) -- a targeted live search found only Nordberg 2021's relative (28% vs knee) figure, used throughout instead of a fabricated absolute value.",
+  "This doc did not build or modify any OpenSim model -- Sec.8's finding is a read-only grep against existing files; the proposed SI joint DOF (Sec.10) is a scoped next step, not executed this session."
+ ]
+}

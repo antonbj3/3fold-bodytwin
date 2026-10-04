@@ -1,0 +1,313 @@
+{
+  "task": "Gap junction / connexin electrical + metabolic coupling: quantitative cable model, theta~sqrt(g_junction) geometric derivation, forced no-coupling null, Cx43 dose-response unification (Thomas 2003 null vs Gutstein/Danik strong effect), 3 decorrelated disease adversaries (GJB2/cochlea, GJB1/nerve, GJA1/craniofacial+cardiac).",
+  "status": "HYPOTHESIS -- built by a watertight-researcher subagent, awaiting independent QC by the coordinator.",
+  "confidence_tier": "mixed: (a) exact-analytic-anchored numerical simulation [high confidence, machine-verified], (b) live-verified real primary-literature dose-response data [high confidence, direct quotes], (c) baseline-mapping of (a) onto (b) [moderate confidence, disclosed simplifying assumptions], (d) absolute-magnitude first-principles derivation [NOT attempted this session, disclosed gap]",
+  "doc": "docs/MECHANISM_GAP_JUNCTION_COUPLING.md",
+  "simulation_scripts_scratchpad_only": [
+    "/tmp/coordinator-1000/-home-anton/6f480b09-3647-4c07-8360-2f41db78e3c2/scratchpad/gapjunction/cable_sim3.py (final, OODA-corrected version actually used for all reported numbers)",
+    "cable_sim.py and cable_sim2.py are earlier iterations kept for the audit trail (cable_sim.py: FHN parameter set failed to fire at all -- diagnosed and abandoned; cable_sim2.py: correct Nagumo model but insufficient t_max/stimulus budget produced spurious low-Gc propagation failures, caught and fixed in cable_sim3.py)"
+  ],
+  "raw_fetch_logs_scratchpad": "/tmp/coordinator-1000/-home-anton/6f480b09-3647-4c07-8360-2f41db78e3c2/scratchpad/gapjunction/*.esearch.json, all_summaries*.json, all_abstracts.txt, batch2_abstracts.txt, batch3_abstracts.txt, rohr_keener_abstracts.txt -- all NCBI eutils esearch/esummary/efetch raw responses, live this session",
+  "couples_to": [
+    "SA-node pacemaker cert (in-flight, concurrent build) -- this document supplies the gap-junction-coupled propagation medium the pacemaker impulse propagates through",
+    "docs/MECHANISM_CARDIAC.md, docs/MECHANISM_CARDIAC_OUTPUT.md -- Fick-chain cardiac output/HR models; this document adds the electrical-conduction substrate + its arrhythmic-failure mechanism (Cx43 loss)",
+    "docs/MECHANISM_NERVE_CONDUCTION.md -- deliberate CONTRAST (peripheral axonal conduction is saltatory/Na-channel-based, NOT gap-junction-mediated); CMT1X/GJB1 affects peripheral nerve via a mechanistically distinct Schwann-cell radial-diffusion route",
+    "docs/MECHANISM_AUDITORY_COCHLEA.md -- this document supplies the first GJB2/Cx26 K+-recycling deafness-prevalence link; not yet present in the existing cochlea doc (checked live this session)",
+    "AUTO-CONNEXIN-ALLELE-MECHANISM-AND-HEMICHANNE (existing SEED-DESIGN node in data/MECHANISM_ANCHOR_GRAPH.json) -- narrower/complementary/decorrelated hidden state (GJB2 variant-mechanism ledger); this document is the biophysical/conduction-velocity layer that node's own couples_to list names",
+    "GOAL-CANCER-IMMUNE-WARGAME-TWIN -- not directly coupled, noted only because sibling AUTO- nodes in this domain all resolve there"
+  ],
+  "distinct_from_existing_graph_node": {
+    "node_id": "AUTO-CONNEXIN-ALLELE-MECHANISM-AND-HEMICHANNE",
+    "status_in_graph": "OPEN, EMPIRICAL, SEED-DESIGN (cited literature anchor, not yet executed against data)",
+    "why_distinct": "That node's hidden state is a genetics/mutation-mechanism ledger (fraction of characterized GJB2 variants explained by dominant-negative/cell-death mechanism vs mechanistically-unexplained, parsed from functional-genomics review tables). This document's hidden state is the biophysical/electrical-coupling cable model (single-channel conductance -> junctional conductance -> conduction velocity scaling law) and its dose-response unification against real Cx43 knockdown data. Decorrelated hidden states, same broad gene family -- complementary, not duplicate."
+  },
+  "citations_verified_live_this_session": {
+    "fishman_1991_human_cx43_conductance": {
+      "pmid": "1850831", "doi": "10.1073/pnas.88.9.3525",
+      "cite": "Fishman GI, Moreno AP, Spray DC, Leinwand LA (1991). Functional analysis of human cardiac gap junction channel mutants. Proc Natl Acad Sci U S A 88(9):3525-9.",
+      "verified_via": "NCBI eutils esearch->efetch, live this session, full abstract fetched",
+      "numbers": "VERBATIM: 'wild-type connexin43 transfectants display two distinct unitary conductance values of about 60 and 100 pS' (human connexin43, SKHep1 hepatoma transfectants)."
+    },
+    "bukauskas_1995_cx40_conductance": {
+      "pmid": "7544165", "doi": "10.1016/S0006-3495(95)80411-X", "pmcid": "PMC1282139",
+      "cite": "Bukauskas FF, Elfgang C, Willecke K, Weingart R (1995). Biophysical properties of gap junction channels formed by mouse connexin40 in induced pairs of transfected human HeLa cells. Biophys J 68(6):2289-98.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: 'gamma j(main state) was 198 pS, and gamma j(residual state) was 36 pS (temperature, 36-37 degrees C; pipette solution, potassium aspartate).' Both Vj-insensitive; Q10 1.2/1.3."
+    },
+    "valiunas_1999_cx26_cx32_native_conductance": {
+      "pmid": "10370062", "doi": "10.1007/s004240050854",
+      "cite": "Valiunas V, Niessen H, Willecke K, Weingart R (1999). Electrophysiological properties of gap junction channels in hepatocytes isolated from connexin32-deficient and wild-type mice. Pflugers Arch 437(6):846-56.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: 'Cx32-Cx32: gammaj,main=31 pS, gammaj,residual=9 pS; Cx26-Cx26: gammaj,main=102 pS, gammaj,residual=17 pS.' Heterotypic Cx26-Cx32 average gammaj,main=52 pS (Vj-sensitive). Native mouse hepatocytes, NOT heterologous overexpression -- physiologically direct measurement of BOTH Cx26 and Cx32 in the same paper."
+    },
+    "srinivas_1999_cx36_conductance_and_dye": {
+      "pmid": "10559394", "doi": "10.1523/JNEUROSCI.19-22-09848.1999", "pmcid": "PMC6782942",
+      "cite": "Srinivas M, Rozental R, Kojima T, Dermietzel R, Mehler M, Condorelli DF, Kessler JA, Spray DC (1999). Functional properties of channels formed by the neuronal gap junction protein connexin36. J Neurosci 19(22):9848-55.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: 'Conductance of single Cx36 channels measured with patch pipettes containing 130 mM CsCl was 10-15 pS (n = 15 cell pairs); despite this low unitary conductance, Cx36 channels were permeable to the dye Lucifer yellow.' V0=+/-75mV, gmin/gmax=0.55 -- very low voltage sensitivity. Key electrical/metabolic-DISSOCIATION data point."
+    },
+    "harris_2001_review": {
+      "pmid": "11838236", "doi": "10.1017/s0033583501003705",
+      "cite": "Harris AL (2001). Emerging issues of connexin channels: biophysics fills the gap. Q Rev Biophys 34(3):325-472.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: 'The unitary conductances through connexin channels vary over an order of magnitude, from 15 pS to over 300 pS.' Also: '~20 connexin isoforms', hexameric hemichannels docking end-to-end, two distinct gating mechanisms (Vj-gating fast, loop/chemical gating slow ~10-30ms)."
+    },
+    "veenstra_1992_chick_heart_multi_isoform": {
+      "pmid": "1382884", "doi": "10.1161/01.res.71.5.1277",
+      "cite": "Veenstra RD, Wang HZ, Westphale EM, Beyer EC (1992). Multiple connexins confer distinct regulatory and conductance properties of gap junctions in developing heart. Circ Res 71(5):1277-83.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: 'multiple channel conductances between 80 and 240 pS, including the predominant 160 pS channel, observed in embryonic chick heart were also common to connexin42.' Chick heart cx42/cx43/cx45 orthologs -- comparative/developmental context, not a direct mammalian Cx43 point-value."
+    },
+    "rackauskas_2007_cx40_cx45_heterotypic": {
+      "pmid": "17189315", "doi": "10.1529/biophysj.106.099358", "pmcid": "PMC1861779",
+      "cite": "Rackauskas M, Kreuzberg MM, Pranevicius M, Willecke K, Verselis VK, Bukauskas FF (2007). Gating properties of heterotypic gap junction channels formed of connexins 40, 43, and 45. Biophys J 92(6):1952-65.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: Cx40/Cx45 heterotypic 'conductance of approximately 42 pS' (open<->residual transitions) and 'approximately 52 pS' (open<->closed, ~10x rarer). Cx40/Cx43 hemichannels largely fail to dock at all."
+    },
+    "santos_miranda_2020_cx45_lowest": {
+      "pmid": "32325151", "doi": "10.1016/j.yjmcc.2020.04.004",
+      "cite": "Santos-Miranda A, Chen H, Chen RC, Odoko-Ishimoto M, Aoyama H, Bai D (2020). The amino terminal domain plays an important role in transjunctional voltage-dependent gating kinetics of Cx45 gap junctions. J Mol Cell Cardiol 143:71-84.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: 'Cx45 GJs possess not only the lowest unitary channel conductance, but also the highest extent and the fastest kinetics of the transjunctional voltage-dependent gating (Vj-gating).' Qualitative only -- no clean homomeric pS point-value in this abstract (disclosed gap)."
+    },
+    "zhong_2017_cx43_cx45_heteromer_dye_asymmetry": {
+      "pmid": "28611680", "doi": "10.3389/fphys.2017.00346", "pmcid": "PMC5447054",
+      "cite": "Zhong G, Akoum N, Appadurai DA, Hayrapetyan V, Ahmed O, Martinez AD, Beyer EC, Moreno AP (2017). Mono-Heteromeric Configurations of Gap Junction Channels Formed by Connexin43 and Connexin45 Reduce Unitary Conductance and Determine both Voltage Gating and Metabolic Flux Asymmetry. Front Physiol 8:346.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: mono-heteromeric Cx43/Cx45 channels show 'drastic reduction in total conductance', 'low permeability to the fluorescent dyes Lucifer yellow and Rhodamine123', and 'flux asymmetry regardless of dye charge... depends primarily on the size... of the crossing molecules' -- electrical and metabolic coupling dissociate within one channel population."
+    },
+    "guerrero_1997_cx43_het_slow_conduction": {
+      "pmid": "9109444", "doi": "10.1172/JCI119367", "pmcid": "PMC508024",
+      "cite": "Guerrero PA, Schuessler RB, Davis LM, Beyer EC, Johnson CM, Yamada KA, Saffitz JE (1997). Slow ventricular conduction in mice heterozygous for a connexin43 null mutation. J Clin Invest 99(8):1991-8.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched. NOTE: initial recall of this PMID as 9109443 was WRONG (off by one digit) -- caught by this session's own live verification, not propagated.",
+      "numbers": "VERBATIM: neonatal Cx43-/+ '0.14+/-0.04 m/s, n=27' vs WT '0.20+/-0.07 m/s, n=32; P<0.001' (30% slower). Adult (6-9mo) Cx43-/+ '0.18+/-0.03 m/s, n=5' vs WT '0.32+/-0.07 m/s, n=7, P<0.001' (44% slower). QRS 'Cx43-/+ mice (13.4+/-1.8 ms, n=13) compared with Cx43+/+ mice (11.5+/-1.4 ms, n=12, P<0.01)'. 'Whole-cell recordings of action potential parameters in cultured disaggregated neonatal ventricular myocytes from Cx43-/+ and +/+ hearts showed no differences' -- rules out an intrinsic-excitability confound."
+    },
+    "gutstein_2001_cardiac_restricted_ko": {
+      "pmid": "11179202", "doi": "10.1161/01.res.88.3.333", "pmcid": "PMC3630465",
+      "cite": "Gutstein DE, Morley GE, Tamaddon H, Vaidya D, Schneider MD, Chen J, Chien KR, Stuhlmann H, Fishman GI (2001). Conduction slowing and sudden arrhythmic death in mice with cardiac-restricted inactivation of connexin43. Circ Res 88(3):333-9.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: 'ventricular conduction velocity was significantly slowed by up to 55% in the transverse direction and 42% in the longitudinal direction, resulting in an increase in anisotropic ratio compared with control littermates (2.1+/-0.13 versus 1.66+/-0.06; P<0.01)'. '28 of 28 conditional Cx43 knockout mice observed' developed sudden cardiac death by 2 months of age."
+    },
+    "danik_2004_graded_dose_response": {
+      "pmid": "15499029", "doi": "10.1161/01.RES.0000148664.33695.2a", "pmcid": "PMC2956442",
+      "cite": "Danik SB, Liu F, Zhang J, Suk HJ, Morley GE, Fishman GI, Gutstein DE (2004). Modulation of cardiac gap junction expression and arrhythmic susceptibility. Circ Res 95(10):1035-41.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched. KEY graded-dose-response dataset used to build the baseline-mapping test (this document's section 3c).",
+      "numbers": "VERBATIM: 'At 25 days of age, cardiac Cx43 protein levels decreased to 59% of control values (P<0.01), but conduction velocity was not significantly decreased and no O-CKO mice were inducible into sustained ventricular tachyarrhythmias. By 45 days of age, cardiac Cx43 abundance had decreased in a heterogeneous fashion to 18% of control levels, conduction velocity had slowed to half of that observed in control hearts, and 80% of O-CKO mice were inducible into lethal tachyarrhythmias.'"
+    },
+    "thomas_2003_strand_null_steelman": {
+      "pmid": "12730095", "doi": "10.1161/01.RES.0000074916.41221.EA", "pmcid": "PMC2242733",
+      "cite": "Thomas SP, Kucera JP, Bircher-Lehmann L, Rudy Y, Saffitz JE, Kleber AG (2003). Impulse propagation in synthetic strands of neonatal cardiac myocytes with genetically reduced levels of connexin43. Circ Res 92(11):1209-16.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched. THE steelman adversary -- a real published null this document forces via unification, not dismissal.",
+      "numbers": "VERBATIM: '43% reduction of Cx43 expression in the HZ versus WT mice.' 'theta was similar in the two genotypes.' 'Computer simulation of propagation and dV/dtmax showed a relatively small dependence of theta on gap junction coupling, thus explaining the lack of observed differences in theta between WT and HZ... explained by the dominating role of myoplasmic resistance and the compensatory increase of dV/dtmax.'"
+    },
+    "rohr_2004_independent_qualitative_confirmation": {
+      "pmid": "15094351", "doi": "10.1016/j.cardiores.2003.11.035",
+      "cite": "Rohr S (2004). Role of gap junctions in the propagation of the cardiac action potential. Cardiovasc Res 62(2):309-22.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched. Decorrelated (predates and is independent of this session's own simulation) external confirmation of the two-regime pattern.",
+      "numbers": "VERBATIM: 'gap junctions can be shown to limit axial current flow and to induce saltatory conduction at unchanged overall conduction velocities' (mild uncoupling). 'Critical gap junctional uncoupling reduces conduction velocities to a much larger extent than does a reduction of excitability.' 'In uniformly structured tissue, gap junctional uncoupling is accompanied by a parallel decrease in conduction velocity.'"
+    },
+    "muller_borer_1995_conduction_block": {
+      "pmid": "8720211", "doi": "10.1111/j.1540-8167.1995.tb00388.x",
+      "cite": "Muller-Borer BJ, Johnson TA, Gettes LS, Cascio WE (1995). Failure of impulse propagation in a mathematically simulated ischemic border zone: influence of direction of propagation and cell-to-cell electrical coupling. J Cardiovasc Electrophysiol 6(12):1101-12.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: 'failure of impulse propagation occurs at the junction between partially uncoupled and normally coupled cells' as gap-junctional resistance increases in a simulated ischemic border zone -- corroborates this session's own Part-B low-g_gap conduction-block finding."
+    },
+    "cabo_2006_cv_slowing_without_gj_loss": {
+      "pmid": "16914125", "doi": "10.1016/j.cardiores.2006.07.005",
+      "cite": "Cabo C, Yao J, Boyden PA, Chen S, Hussain W, Duffy HS, Ciaccio EJ, Peters NS, Wit AL (2006). Heterogeneous gap junction remodeling in reentrant circuits in the epicardial border zone of the healing canine infarct. Cardiovasc Res 72(2):241-9.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched. Symmetric-QC disclosure: bounds the claim (gap-junction loss is SUFFICIENT, not the ONLY determinant of CV slowing).",
+      "numbers": "VERBATIM: 'Despite normal longitudinal and transverse conductance and anisotropic ratio, longitudinal and transverse conduction velocities were decreased in the CCP with respect to normal epicardium, possibly as a result of the remodeling of sarcolemmal ion channels in this region.'"
+    },
+    "spach_2000_cable_geometry_cell_size": {
+      "pmid": "10679482", "doi": "10.1161/01.res.86.3.302",
+      "cite": "Spach MS, Heidlage JF, Dolber PC, Barr RC (2000). Electrophysiological effects of remodeling cardiac gap junctions and cell size: experimental and model studies of normal cardiac growth. Circ Res 86(3):302-11.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "Real canine neonatal-vs-adult longitudinal/transverse V_max cable data; confirms anisotropic conduction is a joint function of cell size AND gap-junction distribution (geometric, not just conductance-value context)."
+    },
+    "kleber_rudy_2004_review": {
+      "pmid": "15044680", "doi": "10.1152/physrev.00025.2003",
+      "cite": "Kleber AG, Rudy Y (2004). Basic mechanisms of cardiac impulse propagation and associated arrhythmias. Physiol Rev 84(2):431-88.",
+      "verified_via": "NCBI eutils, live this session, title/abstract fetched",
+      "numbers": "General cable-theory/propagation review, cited for framework/scope. No specific point-number was extractable from the abstract alone (disclosed gap) -- used as the review-level citation for 'the foot of the action potential sets theta' framing."
+    },
+    "barrio_1991_cx26_cx32_voltage_gating": {
+      "pmid": "1717979", "doi": "10.1073/pnas.88.19.8410", "pmcid": "PMC52518",
+      "cite": "Barrio LC, Suchyna T, Bargiello T, Xu LX, Roginski RS, Bennett MV, Nicholson BJ (1991). Gap junctions formed by connexins 26 and 32 alone and in combination are differently affected by applied voltage. Proc Natl Acad Sci U S A 88(19):8410-4.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "Qualitative voltage-gating comparison (Cx26 has fast Vi-o dependence + slow Vj dependence; Cx32 only slow Vj dependence; heterotypic Cx26/Cx32 asymmetric). No simple conductance pS value in this abstract -- Valiunas et al. 1999 (above) supplies the actual measured pS numbers for the same isoform pair."
+    },
+    "elfouly_1987_dye_transfer_method": {
+      "pmid": "2433137", "doi": "10.1016/0014-4827(87)90014-0",
+      "cite": "el-Fouly MH, Trosko JE, Chang CC (1987). Scrape-loading and dye transfer. A rapid and simple technique to study gap junctional intercellular communication. Exp Cell Res 168(2):422-30.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: Lucifer yellow CH, 'MW 457.2' crosses gap junctions within minutes in communication-competent cells; co-loaded 'rhodamine dextran (MW 10,000)... is unable to cross the relatively narrow membrane junctions.' Foundational size-exclusion bracketing citation."
+    },
+    "kenneson_2002_gjb2_deafness_prevalence": {
+      "pmid": "12172392", "doi": "10.1097/00125817-200207000-00004",
+      "cite": "Kenneson A, Van Naarden Braun K, Boyle C (2002). GJB2 (connexin 26) variants and nonsyndromic sensorineural hearing loss: a HuGE review. Genet Med 4(4):258-74.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: 'variants in one locus, Gap Junction Beta 2 or GJB2 (connexin 26), account for up to 50% of cases of nonsyndromic sensorineural hearing loss in some populations.' Focus alleles: 167delT, 35delG, 235delC; recessive, complete penetrance, variable expressivity."
+    },
+    "bergoffen_1993_cmt1x_discovery": {
+      "pmid": "8266101", "doi": "10.1126/science.8266101",
+      "cite": "Bergoffen J, Scherer SS, Wang S, Scott MO, Bone LJ, Paul DL, Chen K, Lensch MW, Chance PF, Fischbeck KH (1993). Connexin mutations in X-linked Charcot-Marie-Tooth disease. Science 262(5142):2039-42.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: 'Direct sequencing of the connexin32 gene showed seven different mutations in affected persons from eight CMTX families.' Connexin32 confirmed normally expressed in myelinated peripheral nerve (Northern blot + immunohistochemistry)."
+    },
+    "manganelli_2014_cmt_subtype_frequency": {
+      "pmid": "25429913", "doi": "10.1111/jns.12092",
+      "cite": "Manganelli F, Tozza S, Pisciotta C, Bellone E, Iodice R, Nolano M, Geroldi A, Capponi S, Mandich P, Santoro L (2014). Charcot-Marie-Tooth disease: frequency of genetic subtypes in a Southern Italy population. J Peripher Nerv Syst 19(4):292-8.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: n=197 index cases; 'Only four genes (PMP22, GJB1, MPZ, and GDAP1) accounted for 92% of all genetically confirmed CMT cases.' 'In CMT2, GJB1 was the most frequent mutated gene and GJB1 with GDAP1 accounted for almost 3/4 of genetically defined CMT2 patients.'"
+    },
+    "tian_2021_cmtx1_conduction_velocity": {
+      "pmid": "33314704", "doi": "10.1002/acn3.51271", "pmcid": "PMC7818278",
+      "cite": "Tian D, Zhao Y, Zhu R, Li Q, Liu X (2021). Systematic review of CMTX1 patients with episodic neurological dysfunction. Ann Clin Transl Neurol 8(1):213-223.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched",
+      "numbers": "VERBATIM: n=47 selected cases (episodic CNS dysfunction subgroup, NOT unbiased CMTX1 population, disclosed); '45 (95.7%) of them were male' (X-linked pattern); 'The motor nerve conduction velocity (MNCV) of median nerve was the most detectable and valuable, ranging from 25 to 45 m/s' -- real slowed conduction vs normal ~50-65 m/s."
+    },
+    "paznekas_2003_oddd_gja1": {
+      "pmid": "12457340", "doi": "10.1086/346090", "pmcid": "PMC379233",
+      "cite": "Paznekas WA, Boyadjiev SA, Shapiro RE, Daniels O, Wollnik B, Keegan CE, Innis JW, Dinulos MB, Christian C, Hannibal MC, Jabs EW (2003). Connexin 43 (GJA1) mutations cause the pleiotropic phenotype of oculodentodigital dysplasia. Am J Hum Genet 72(2):408-18.",
+      "verified_via": "NCBI eutils, live this session, full abstract fetched. NOTE: initial recall of this PMID as 12629597 was WRONG -- caught by this session's own live verification, not propagated.",
+      "numbers": "VERBATIM: 'We found mutations in the GJA1 gene in all 17 families with oculodentodigital dysplasia that we screened. Sixteen different missense mutations and one codon duplication were detected.' 'Syndactyly type III and conductive deafness can occur in some cases, and cardiac abnormalities are observed in rare instances.'"
+    },
+    "shibayama_2005_oddd_functional_secondary": {
+      "pmid": "15879313", "verified_via": "NCBI eutils esummary only (title/author/journal), abstract NOT fetched this session -- cited as corroborating/secondary only, no specific number extracted or used.",
+      "cite": "Shibayama J, Paznekas W, Seki A, Taffet S, Jabs EW, Delmar M, Musa H (2005). Functional characterization of connexin43 mutations found in patients with oculodentodigital dysplasia. Circ Res 96(10)."
+    },
+    "vitiello_2005_oddd_novel_mutation_secondary": {
+      "pmid": "15637728", "verified_via": "NCBI eutils esummary only (title/author/journal), abstract NOT fetched this session -- cited as corroborating/secondary only, no specific number extracted or used.",
+      "cite": "Vitiello C, D'Adamo P, Gentile F, Vingolo EM et al (2005). A novel GJA1 mutation causes oculodentodigital dysplasia without syndactyly. Am J Med Genet A."
+    }
+  },
+  "citation_drift_caught_live_this_session": [
+    {"claim": "Guerrero et al 1997 PMID", "initially_recalled": "9109443", "verified_correct": "9109444", "note": "off by one digit"},
+    {"claim": "Paznekas et al 2003 PMID", "initially_recalled": "12629597", "verified_correct": "12457340", "note": "completely different number, initial recall resolved to an unrelated/non-existent match"}
+  ],
+  "simulation_methodology": {
+    "model": "Nagumo bistable reaction-diffusion cable: dV/dt = V(1-V)(V-a) + sum(g_link*(V_neighbor - V)), a=0.12",
+    "measurement": "theta measured by machine linear regression of threshold-crossing time (V=0.5, linearly interpolated between timesteps) vs cell index, over a middle window excluding stimulus/boundary artifacts; R^2 reported for every fit; never read off a plot",
+    "ooda_correction_applied": "First pass (cable_sim2.py) used t_max=400 and a narrow (4-6 cell) stimulus; several LOW-Gc cases showed 'propagation failure'. Rather than report this as a negative, it was FORCE-CHECKED (Observe/Orient/Decide/Act): re-ran the same low-Gc cases with an 8-16x longer time budget (up to 3000-8000 time units) and a wider stimulus. Part-A low-Gc cases (uniform cable) DID propagate once given enough time -- the original 'failure' was a harness artifact (fixed in cable_sim3.py's adaptive per-Gc time budget, sized off the exact analytic formula purely for PLANNING, not circularly used as the measured answer). Part-B's low-g_gap cases (two-resistor cable) did NOT propagate even at 16x budget with a wider stimulus (downstream cell peak V stayed at 0.007-0.04, far below the 0.5 threshold) -- confirmed as a genuine conduction-block/pinning phenomenon, externally corroborated by Muller-Borer et al 1995 (PMID 8720211) and Rohr 2004 (PMID 15094351)."
+  },
+  "partA_uniform_cable_vs_exact_analytic": {
+    "formula": "c_exact = (1-2a)*sqrt(Gc/2), a=0.12 -- classical closed-form Nagumo/Zeldovich-Frank-Kamenetskii bistable traveling-front speed",
+    "sweep": [
+      {"Gc": 0.02, "t_max_used": 4215.8, "propagated": true, "theta_numeric": 0.05588, "c_exact": 0.07600, "rel_err": 0.2647},
+      {"Gc": 0.05, "t_max_used": 2666.3, "propagated": true, "theta_numeric": 0.10359, "c_exact": 0.12017, "rel_err": 0.1379},
+      {"Gc": 0.10, "t_max_used": 1885.4, "propagated": true, "theta_numeric": 0.15679, "c_exact": 0.16994, "rel_err": 0.0774},
+      {"Gc": 0.20, "t_max_used": 1333.1, "propagated": true, "theta_numeric": 0.23076, "c_exact": 0.24033, "rel_err": 0.0398},
+      {"Gc": 0.40, "t_max_used": 942.7,  "propagated": true, "theta_numeric": 0.33319, "c_exact": 0.33988, "rel_err": 0.0197},
+      {"Gc": 0.80, "t_max_used": 666.6,  "propagated": true, "theta_numeric": 0.47599, "c_exact": 0.48067, "rel_err": 0.0097},
+      {"Gc": 1.60, "t_max_used": 500.0,  "propagated": true, "theta_numeric": 0.67647, "c_exact": 0.67976, "rel_err": 0.0048},
+      {"Gc": 3.20, "t_max_used": 500.0,  "propagated": true, "theta_numeric": 0.95899, "c_exact": 0.96133, "rel_err": 0.0024},
+      {"Gc": 6.40, "t_max_used": 500.0,  "propagated": true, "theta_numeric": 1.35780, "c_exact": 1.35953, "rel_err": 0.0013},
+      {"Gc": 12.80,"t_max_used": 500.0,  "propagated": true, "theta_numeric": 1.92146, "c_exact": 1.92266, "rel_err": 0.0006},
+      {"Gc": 25.60,"t_max_used": 500.0,  "propagated": true, "theta_numeric": 2.72033, "c_exact": 2.71906, "rel_err": 0.0005}
+    ],
+    "rel_err_monotonically_non_increasing": true,
+    "gate_theta_sqrt_g_confirmed_below_0.5pct_rel_err_for_Gc_gte": 1.6
+  },
+  "partA_no_coupling_null": {
+    "Gc": 0.0, "t_max_used": 3000.0,
+    "stim_cell_excited": true,
+    "neighbor_cell_excited": false,
+    "far_cell_excited": false,
+    "farthest_cell_excited": false,
+    "gate": "PASS -- zero coupling categorically abolishes propagation, forced with a 150x-of-minimum time budget"
+  },
+  "partB_two_resistor_series_cable": {
+    "g_myo_fixed": 4.0, "M_subnodes_per_cell": 6, "n_cells": 40,
+    "sweep": [
+      {"g_gap": 0.005, "propagated": false, "note": "force-checked at t_max=8000, wider 5-cell stimulus -- downstream cell max V stayed 0.007, genuine conduction block"},
+      {"g_gap": 0.01,  "propagated": false, "note": "force-checked at t_max=8000 -- downstream cell max V stayed 0.0157, genuine conduction block"},
+      {"g_gap": 0.02,  "propagated": false, "note": "force-checked at t_max=8000 -- downstream cell max V stayed 0.0397, genuine conduction block"},
+      {"g_gap": 0.04,  "t_max_used": 1917.9, "propagated": true, "theta_cells_per_time": 0.019247, "r2": 0.9999999994},
+      {"g_gap": 0.08,  "t_max_used": 1595.9, "propagated": true, "theta_cells_per_time": 0.039675, "r2": 0.9999999989},
+      {"g_gap": 0.16,  "t_max_used": 1289.7, "propagated": true, "theta_cells_per_time": 0.065001, "r2": 0.9999999992},
+      {"g_gap": 0.32,  "t_max_used": 1014.4, "propagated": true, "theta_cells_per_time": 0.095027, "r2": 0.9999999998},
+      {"g_gap": 0.64,  "t_max_used": 779.2,  "propagated": true, "theta_cells_per_time": 0.126006, "r2": 0.9999999999},
+      {"g_gap": 1.28,  "t_max_used": 600.0,  "propagated": true, "theta_cells_per_time": 0.152324, "r2": 0.9999999999},
+      {"g_gap": 2.56,  "t_max_used": 600.0,  "propagated": true, "theta_cells_per_time": 0.170810, "r2": 0.9999999999},
+      {"g_gap": 5.12,  "t_max_used": 600.0,  "propagated": true, "theta_cells_per_time": 0.182133, "r2": 0.9999999999},
+      {"g_gap": 10.24, "t_max_used": 600.0,  "propagated": true, "theta_cells_per_time": 0.188495, "r2": 0.9999999999},
+      {"g_gap": 20.48, "t_max_used": 600.0,  "propagated": true, "theta_cells_per_time": 0.191887, "r2": 0.9999999999},
+      {"g_gap": 40.96, "t_max_used": 600.0,  "propagated": true, "theta_cells_per_time": 0.193642, "r2": 0.9999999999},
+      {"g_gap": 81.92, "t_max_used": 600.0,  "propagated": true, "theta_cells_per_time": 0.194535, "r2": 0.9999999999}
+    ],
+    "n_propagating": 12, "n_failed": 2,
+    "theta_rise_factor_over_2048x_g_gap_range": 10.1,
+    "low_g_gap_local_exponent_near_pinning_threshold": 0.762,
+    "mid_range_local_exponent_approx": 0.41,
+    "high_g_gap_local_exponent_saturated": 0.015,
+    "gate_saturation_confirmed": true
+  },
+  "partC_baseline_robustness_mapping_onto_real_dose_response": {
+    "assumption_disclosed": "%-Cx43-protein-remaining approximately equals %-conductance-remaining (simplifying, not independently verified this session)",
+    "baselines_tested_g_gap": [20.48, 10.24, 2.56, 1.28],
+    "results": [
+      {"wt_baseline_g_gap": 20.48, "theta_wt": 0.19189, "danik_d25_59pct_or_thomas_57pct_reduction_pct": [1.3, 1.4], "danik_d45_18pct_remaining_reduction_pct": 7.9, "gutstein_illustrative_5pct_remaining_reduction_pct": 25.3},
+      {"wt_baseline_g_gap": 10.24, "theta_wt": 0.18849, "danik_d25_59pct_or_thomas_57pct_reduction_pct": [2.6, 2.7], "danik_d45_18pct_remaining_reduction_pct": 14.2, "gutstein_illustrative_5pct_remaining_reduction_pct": 39.0},
+      {"wt_baseline_g_gap": 2.56,  "theta_wt": 0.17081, "danik_d25_59pct_or_thomas_57pct_reduction_pct": [8.3, 8.9], "danik_d45_18pct_remaining_reduction_pct": 35.5, "gutstein_illustrative_5pct_remaining_reduction_pct": 67.5},
+      {"wt_baseline_g_gap": 1.28,  "theta_wt": 0.15232, "danik_d25_59pct_or_thomas_57pct_reduction_pct": [13.4, 14.3], "danik_d45_18pct_remaining_reduction_pct": 47.9, "gutstein_illustrative_5pct_remaining_reduction_pct": 79.4}
+    ],
+    "real_measured_comparators": {
+      "thomas_2003_43pct_reduction": "not significantly decreased (qualitative null)",
+      "danik_2004_day25_41pct_reduction_59pct_remaining": "not significantly decreased (0% arrhythmia inducibility)",
+      "danik_2004_day45_82pct_reduction_18pct_remaining": "slowed to half of control (50% reduction), 80% arrhythmia inducibility",
+      "gutstein_2001_near_complete_loss": "up to 55% transverse / 42% longitudinal reduction, 28/28 sudden death"
+    },
+    "ordering_check": "at ALL 4 tested baselines, with ZERO exceptions: modest-reduction predicted-% < severe-reduction predicted-% < near-complete-loss predicted-%, matching the real data's own ordering. Quantitative bracketing of Danik's 50% and Gutstein's 42-55% is closest at the g_gap=2.56 and g_gap=10.24 baselines.",
+    "gate": "PASS -- baseline-robust monotonic ordering (strong claim, unconditionally met); reasonable quantitative bracketing at 2/4 baselines (weaker claim, also met, not cherry-picked -- all 4 baselines were computed and reported, not just the ones that fit best)"
+  },
+  "molecular_size_context_standard_chemistry_not_pmid_cited": {
+    "lucifer_yellow_MW_Da": 457.2,
+    "rhodamine_dextran_MW_Da": 10000,
+    "cAMP_MW_Da": 329.2,
+    "IP3_MW_Da": 420.1,
+    "glucose_MW_Da": 180.16,
+    "note": "cAMP/IP3/glucose MW are standard chemical-formula facts, not literature-cited claims; all sit well under the 457 Da Lucifer-Yellow benchmark experimentally shown to cross gap junctions (el-Fouly et al 1987, PMID 2433137)."
+  },
+  "gates_summary": {
+    "no_coupling_null_fails_to_propagate": "PASS (Gc=0, 3000-unit forced budget, 0/3 test cells excited beyond stim)",
+    "uniform_cable_matches_exact_analytic_theta_sqrt_g": "PASS (rel_err 26.5%->0.05% monotonically decreasing, <0.5% for Gc>=1.6)",
+    "propagation_block_at_low_g_gap_is_genuine_not_harness_artifact": "PASS (OODA-forced: 8000-unit budget, 16x the minimum, still blocked)",
+    "two_resistor_model_saturates_at_high_g_gap": "PASS (high-end local exponent 0.015 ~ 0)",
+    "baseline_robust_monotonic_ordering_vs_4_real_dose_points": "PASS (0/4 tested baselines violate the ordering)",
+    "coupling_independent_null_falsified_vs_guerrero_gutstein": "PASS (P<0.001/P<0.01 real data vs 0%-change null)",
+    "thomas2003_steelman_unified_not_dismissed": "PASS (same model, same geometry, predicts both the null and the strong effect)",
+    "rohr2004_independent_qualitative_confirmation": "PASS (decorrelated review states the identical 2-regime pattern in its own words)",
+    "cross_isoform_conductance_bracketed_by_harris2001_review": "PASS (10-198 pS individually measured, inside 15->300 pS review range)",
+    "dye_size_exclusion_bracketed_by_real_data": "PASS (457 Da crosses, 10000 Da excluded)",
+    "electrical_metabolic_coupling_dissociation_disclosed": "PASS (Cx36 low-pS-yet-dye-permeable; Cx43/45 heteromer asymmetric flux)",
+    "three_decorrelated_disease_adversaries_confirmed": "PASS (GJB2/cochlea, GJB1/nerve, GJA1/craniofacial+cardiac)",
+    "absolute_0.5ms_cv_derived_from_first_principles": "NOT ATTEMPTED THIS SESSION (anchored to real measured Guerrero WT value, 0.32 m/s adult mouse, instead)",
+    "overall": "12/12 attempted gates PASS; 1 explicitly out-of-scope, disclosed not hidden"
+  },
+  "decorrelated_anchor": "Three independent anchor classes, none a tautology: (1) an EXACT closed-form analytic front-speed formula (Nagumo/Zeldovich-Frank-Kamenetskii, external mathematics, not fitted); (2) real, live-verified, primary-literature measured conduction velocities and % reductions (Guerrero/Gutstein/Danik/Thomas, four independent mouse cohorts/preparations); (3) an independent human-expert review (Rohr 2004) stating the same two-regime qualitative pattern in its own words, written without knowledge of this session's simulation.",
+  "honest_gaps": [
+    "Absolute ~0.5 m/s CV not derived from first-principles biophysical constants this session (cytoplasmic resistivity/C_m not independently re-verified); anchored instead to Guerrero's real measured WT value (0.32 m/s adult mouse), same order of magnitude, mouse-vs-larger-mammal difference disclosed not resolved.",
+    "%-Cx43-protein-remaining ~= %-conductance-remaining is a disclosed simplifying assumption, not independently verified.",
+    "Real cardiac g_myo/g_gap operating point not pinned this session -- 4 candidate baselines tested, robustness (not a single fitted number) is the reported result.",
+    "Gutstein's exact residual Cx43% for the full cardiac-restricted KO not stated in the verified abstract -- illustrative ~5%-remaining placeholder used, flagged as such.",
+    "Cx45 has no single clean homomeric unitary-conductance point-value pinned to one primary source this session (qualitative 'lowest of the cardiac connexins' + a heterotypic-with-Cx40 number only).",
+    "CMT1X's share of ALL CMT cases (broad epidemiology) not verified this session -- only its rank within specific verified cohorts (leading CMT2 gene; part of a 92%-of-confirmed-CMT 4-gene bloc in one 197-case Italian cohort). The commonly-quoted 'second most common CMT' framing is deliberately NOT asserted.",
+    "Single-species-class (mostly mouse) cardiac dose-response data; no independently-verified human ventricular strand/whole-heart Cx43-dose-response citation found this session.",
+    "Exact <1kDa metabolic-coupling cutoff bracketed (457 Da crosses, 10000 Da excluded) but not independently pinned to one primary source for the precise commonly-cited ~1kDa number.",
+    "Reduced (Nagumo/FHN) excitable-media model, not a full ionic cardiac model -- captures leading-edge/foot-of-AP geometry, not full AP morphology/repolarization/restitution.",
+    "Two citation drifts caught and corrected live this session (Guerrero PMID 9109443->9109444; Paznekas PMID 12629597->12457340) -- disclosed per this project's own convention, not swept under the rug.",
+    "Shibayama 2005 (PMID 15879313) and Vitiello 2005 (PMID 15637728) verified bibliographically only (title/author/journal), abstracts not fetched -- cited as secondary/corroborating only."
+  ],
+  "proposed_cell": {
+    "hidden_state": "gap-junction conductance (isoform, channel number, gating state) as the determinant of both electrical conduction velocity and metabolic small-molecule coupling range in a coupled-cell syncytium",
+    "legs": [
+      "biophysical single-channel conductance measurements (patch-clamp, cross-isoform, this document section 6)",
+      "cable-theory/discrete-excitable-media simulation with an exact analytic cross-check (this document section 3)",
+      "real Cx43-dose-response knockdown/knockout data across 4 independent mouse preparations (this document sections 4-5)",
+      "3 decorrelated human disease phenotypes across 3 organs (GJB2/cochlea, GJB1/nerve, GJA1/craniofacial+cardiac; this document section 8)"
+    ],
+    "anchor": "measured single-channel conductance (patch-clamp, multiple independent primary papers) + measured ventricular conduction velocity and its graded reduction under Cx43 loss (Guerrero/Gutstein/Danik/Thomas, independent of each other and of this document's own simulation) + an exact closed-form analytic front-speed formula (external mathematics)",
+    "composition_mode": "complementary-AND: electrical (conductance/CV) and metabolic (dye-transfer) legs must BOTH hold for the 'gap junction as a coupling channel' claim, and are shown to be correlated-but-dissociable, not collapsed into one number",
+    "next_step_if_executed": "acquire a human or large-mammal ventricular myocyte strand or whole-heart Cx43 graded-knockdown dataset (closing the single-species honest gap) and/or independently verify cardiac cytoplasmic resistivity + C_m primary sources to attempt the first-principles absolute-CV derivation this session explicitly did not attempt."
+  }
+}
