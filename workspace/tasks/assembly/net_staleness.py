@@ -270,7 +270,19 @@ def main() -> int:
             rows.append((e['id'], 'UNCHECKED', f'{how}: {m.group("key").strip()}'))
             continue
         stated = float(m.group('value'))
-        if abs(current - stated) > 1e-9 * max(1.0, abs(stated)):
+        # An evidence pointer quotes the value at the precision a reader can carry, so the comparison
+        # has to be made at the precision STATED and not to nine decimals. Measured 2026-10-05: three
+        # pointers quoting 0.8048, 0.4425 and 1.6641 were reported STALE against files holding
+        # 0.8047619047619047, 0.4425149700598802 and 1.6641005886756877 -- all three correct
+        # roundings. The checker was comparing a rounded quotation against a full-precision value and
+        # printing a truncation of the latter, which read as a different number.
+        raw = m.group('value')
+        digits = len(raw.split('.')[1]) if '.' in raw and 'e' not in raw.lower() else None
+        if digits is not None:
+            agrees = f'{current:.{digits}f}' == f'{stated:.{digits}f}'
+        else:
+            agrees = abs(current - stated) <= 1e-9 * max(1.0, abs(stated))
+        if not agrees:
             rows.append((e['id'], 'STALE',
                          f'evidence says {stated} but the file now holds {current}'))
         elif not number_appears(e['constraint'], current):

@@ -1,29 +1,10 @@
 {
- "checked": 166,
+ "checked": 175,
  "counts": {
-  "OK": 155,
-  "UNRESOLVED_DECLARED": 6,
-  "UNCHECKED": 3,
-  "STALE": 2,
-  "MOVED_SINCE_LAST_CHECK": 3
+  "OK": 169,
+  "UNRESOLVED_DECLARED": 6
  },
- "evidence_moved_since_last_check": [
-  {
-   "edge": "ASM-E0012",
-   "was": 1791083026.685,
-   "now": 1791119905.439
-  },
-  {
-   "edge": "ASM-E0013",
-   "was": 1791089915.655,
-   "now": 1791119905.083
-  },
-  {
-   "edge": "ASM-E0014",
-   "was": 1791101196.972,
-   "now": 1791119902.955
-  }
- ],
+ "evidence_moved_since_last_check": [],
  "rows": [
   {
    "edge": "T-E1-charge_inventory-vs-ionic_swelling_pressure",
@@ -817,13 +798,13 @@
   },
   {
    "edge": "T-E23-meniscus_patch_share-vs-stated_axial_load",
-   "status": "UNCHECKED",
-   "detail": "evidence carries no file :: key = value"
+   "status": "OK",
+   "detail": "edges_with_a_product_below_its_stated_load = 8 (path)"
   },
   {
    "edge": "T-E24-reference_precision-vs-absolute_margin_goals",
-   "status": "UNCHECKED",
-   "detail": "0 traffar pa bladnyckeln: /outcome/minimum_source_sufficient_geometry_reference_cap_relative"
+   "status": "OK",
+   "detail": "outcome.minimum_source_sufficient_geometry_reference_cap_relative = 4.3153259969981663e-10 (path)"
   },
   {
    "edge": "T-E25-publication_format-vs-decidable_detail_edges",
@@ -832,18 +813,18 @@
   },
   {
    "edge": "T-E26-dwell_time-vs-collateral_damage_depth",
-   "status": "UNCHECKED",
-   "detail": "evidence carries no file :: key = value"
+   "status": "OK",
+   "detail": "d_eff_spread_factor = 3.0718537414965983 (path)"
   },
   {
    "edge": "T-E27-shaft_sensing-vs-tip_tangential_load",
-   "status": "STALE",
-   "detail": "evidence says 0.8048 but the file now holds 0.8047619047619047"
+   "status": "OK",
+   "detail": "geometry_swing_at_identical_shaft_reading.swing_N = 0.8047619047619047 (path)"
   },
   {
    "edge": "T-E28-pass_count-vs-forward_friction_budget",
-   "status": "STALE",
-   "detail": "evidence says 0.4425 but the file now holds 0.4425149700598802"
+   "status": "OK",
+   "detail": "budget_axis_scan.fraction_of_the_budget_axis = 0.4425149700598802 (path)"
   },
   {
    "edge": "T-E29-shared_mPTP_target-vs-combination_ceiling",
@@ -854,6 +835,51 @@
    "edge": "T-E30-c3b_recycling_fraction-vs-host_activator_window",
    "status": "OK",
    "detail": "window.host_flip = 0.6901150139456149 (path)"
+  },
+  {
+   "edge": "T-E31-nucleus_pressure_multiplier-vs-route_of_derivation",
+   "status": "OK",
+   "detail": "the_multiplier_the_facit_pins.k_implied_low = 0.586 (path)"
+  },
+  {
+   "edge": "T-E32-membrane_face_polarity-vs-complement_risk",
+   "status": "OK",
+   "detail": "separation_sigma = 1.6641005886756877 (path)"
+  },
+  {
+   "edge": "T-E33-summary_fibre_count-vs-minimum_extra_fields",
+   "status": "OK",
+   "detail": "minimum_extra_binary_fields_over_all_chains = 6 (path)"
+  },
+  {
+   "edge": "T-E34-inhibitor_exposure-vs-creatinine_clearance",
+   "status": "OK",
+   "detail": "total_clearance_ratio = 0.5866666666666667 (path)"
+  },
+  {
+   "edge": "T-E35-cohesive_strength_band-vs-detachment_route",
+   "status": "OK",
+   "detail": "headline.strength_factor = 8.5 (path)"
+  },
+  {
+   "edge": "T-E36-hop_scale-vs-macroscopic_diffusivity",
+   "status": "OK",
+   "detail": "agreement_ratio_between_the_two_scales = 1.3976355789078625 (path)"
+  },
+  {
+   "edge": "T-E37-ligament_slack-vs-work_sign",
+   "status": "OK",
+   "detail": "outcome.direct_work_J_at_common_offset_minus_0_02 = 9.991910446631359e-05 (path)"
+  },
+  {
+   "edge": "T-E38-two_flow_protocol-vs-reflection_coefficient",
+   "status": "OK",
+   "detail": "fixture_roundtrip_max_abs_error = 1e-09 (path)"
+  },
+  {
+   "edge": "T-E39-published_identity-vs-source_self_consistency",
+   "status": "OK",
+   "detail": "relative_residual.max = 0.05315400871861084 (path)"
   }
  ],
  "why": "an edge is a snapshot of prose plus one evidence path; nothing links a new measurement back to the edges that cite it, so staleness is silent",

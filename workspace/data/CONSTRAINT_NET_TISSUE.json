@@ -3901,7 +3901,7 @@
      ],
      "constraint": "four FE rows in the meniscus family state an area and a peak pressure against the same stated axial load of 1000 N: 110 mm2 x 1.2 MPa = 132.0 N, 80 x 2.1 = 168.0, 35 x 3.3 = 115.5, 95 x 1.4 = 133.0. Every product is BELOW the load, which is impossible for a peak pressure, since peak times area must exceed the load the mean pressure carries. But the four products span only 1.455x while the areas span 3.143x and the pressures 2.75x, so a single common load share f = 0.137125 (SD 22.0921 N, CV 0.1611) fits all four with residuals -5.1, +30.9, -21.6 and -4.1 N. One parameter explains four rows whose inputs vary threefold. The eight UNKNOWN meniscus edges are therefore not eight open questions but one: does the reported patch carry a fixed ~14 percent of the load because it is a sub-region, or is the share an artefact of how the contact area was segmented?",
      "status": "OPEN",
-     "evidence": "results/ASSEMBLY_LOAD_LABEL_SWEEP/SWEEP_V1.json :: edges_with_a_product_below_its_stated_load = 8; computed by tasks/assembly/load_label_sweep.py",
+     "evidence": "results/ASSEMBLY_LOAD_LABEL_SWEEP/SWEEP_V1.json :: edges_with_a_product_below_its_stated_load = 8",
      "branches_opened": [
       "which of the three labels is wrong, tested one at a time against the inequality kappa >= 1",
       "the joint total contact area A_joint, which the factorisation needs and no row states",
@@ -3911,7 +3911,8 @@
      "owner_lane": "LANE_MENISCUS_LOAD_LABEL",
      "review_state": "PENDING_INDEPENDENT_REVIEW",
      "refuted_2026_10_04_r1": "the coordinator's explanation -- that the 1000 N label was imported from the neighbouring experimental row -- is REFUTED. The original FE Methods states explicitly that a 1000 N axial load was applied, so the load is a genuine source boundary condition and the reported area and peak simply do not describe the whole contact. The common share f = 0.137125 therefore stands as a description of four rows at one condition, not as a transferable constant: tested against Baratz partial meniscectomy it fails. Area alone predicts a peak ratio of 1/0.9 = 1.1111111111111112 while Baratz reports about 1.65, a relative point error of 0.3265993265993266, and reconciling them needs a concentration factor of 1.485 on top -- all three reproduced by this coordinator from the two source numbers. The experimental concentrations 3.45 (intact) and 3.12 (total meniscectomy) are arithmetic summaries of observations and do not establish an intervention-invariant shape. No external row qualifies to validate the peak: external_eligible_peak_validation_rows = 0, and the published whole-versus-local force factor spans 2.0754691213987133 to 628.590825088317",
-     "dissolved_2026_10_04_by_swarm": "BT-NET-MENISCUS-PATCH-SHARE-VS-STATED-AXIAL-LOAD-cee485 recomputed this coordinator's arithmetic exactly -- products 132.0, 168.0, 115.5, 133.0, mean 137.125000 N -- and then refuted the interpretation. The quantity is not a load share. Writing kappa = A_rep * p_rep / W it factorises exactly into (A_rep/A_joint) * (p_rep/p_mean_joint), an area fraction times a local shape factor. So the question this edge asked -- fixed share because it is a sub-region, or artefact of segmentation -- is a false dichotomy: both branches return the SAME kappa, because the product of one anatomically set factor and one segmentation set factor is kappa either way. And the hard result: since W = integral p dA <= p0 * A, kappa = p0*A/W >= 1 ALWAYS. Our four values are 0.1155 to 0.168, all below 1, so the three numbers are provably not the triple (peak pressure, total contact area, total load) -- one of the three labels is wrong, with no model needed to say so. That is stronger than the plausibility argument this edge carried"
+     "dissolved_2026_10_04_by_swarm": "BT-NET-MENISCUS-PATCH-SHARE-VS-STATED-AXIAL-LOAD-cee485 recomputed this coordinator's arithmetic exactly -- products 132.0, 168.0, 115.5, 133.0, mean 137.125000 N -- and then refuted the interpretation. The quantity is not a load share. Writing kappa = A_rep * p_rep / W it factorises exactly into (A_rep/A_joint) * (p_rep/p_mean_joint), an area fraction times a local shape factor. So the question this edge asked -- fixed share because it is a sub-region, or artefact of segmentation -- is a false dichotomy: both branches return the SAME kappa, because the product of one anatomically set factor and one segmentation set factor is kappa either way. And the hard result: since W = integral p dA <= p0 * A, kappa = p0*A/W >= 1 ALWAYS. Our four values are 0.1155 to 0.168, all below 1, so the three numbers are provably not the triple (peak pressure, total contact area, total load) -- one of the three labels is wrong, with no model needed to say so. That is stronger than the plausibility argument this edge carried",
+     "evidence_previous": "results/ASSEMBLY_LOAD_LABEL_SWEEP/SWEEP_V1.json :: edges_with_a_product_below_its_stated_load = 8; computed by tasks/assembly/load_label_sweep.py"
     },
     {
      "id": "T-E24-reference_precision-vs-absolute_margin_goals",
@@ -3921,7 +3922,7 @@
      ],
      "constraint": "the solver margin holds for 3 same-reference contrast goals but for 0 absolute goals at the requested reference support of 1e-4 relative, and for 6 only at 1e-9. The minimum sufficient reference cap is 4.3153259969981663e-10 relative, which the lane itself flags as not achieved metrology, in r32, r33, r34, r35 and r36. Verified by this coordinator: the conditional margin fraction 1 - 1.3526827671104267e-07/1.6204384022972298e-07 = 0.1652365401901219 exactly as booked, and the geometry summary downstream gap over the reserve is 0.09725634575403592/1.6204384022972298e-07 = 600185.3919048052 exactly as booked. So the capability is real relative to a shared reference and the summary that would carry it is 600185x too coarse",
      "status": "OPEN",
-     "evidence": "results/LANE_EXTERNAL_SOLVER/night_rounds/r36.json :: /outcome/minimum_source_sufficient_geometry_reference_cap_relative = 4.3153259969981663e-10",
+     "evidence": "results/LANE_EXTERNAL_SOLVER/night_rounds/r36.json :: outcome.minimum_source_sufficient_geometry_reference_cap_relative = 4.3153259969981663e-10",
      "branches_opened": [
       "what relative reference precision is actually achieved in published metrology, and how many orders from 4.3153e-10",
       "which of the 6 absolute goals survive at an achievable precision rather than at 1e-9",
@@ -3930,7 +3931,8 @@
      ],
      "review_state": "PENDING_INDEPENDENT_REVIEW",
      "evidence_mtime_at_last_check": 1791107890.289,
-     "last_checked_status": "UNCHECKED"
+     "last_checked_status": "UNCHECKED",
+     "evidence_previous": "results/LANE_EXTERNAL_SOLVER/night_rounds/r36.json :: /outcome/minimum_source_sufficient_geometry_reference_cap_relative = 4.3153259969981663e-10"
     },
     {
      "id": "T-E25-publication_format-vs-decidable_detail_edges",
@@ -3957,7 +3959,7 @@
      ],
      "constraint": "an electrosurgical incision is flow limited, not force limited. Mechanical fracture costs 4 J per metre of cut against 2260 J per metre for vaporisation, which is 0.177 percent, and warming the kerf from 37 to 100 C adds exactly 10.0 percent -- all three recomputed by this coordinator from a 1 mm x 1 mm kerf, water latent heat 2.26 MJ/kg and soft tissue specific heat 3.6 kJ/kg/K. Hand force is therefore a second order quantity: the force ratio stays at or below 0.07 over 0.5-6 N and kerf areas 1.0 and 0.2 mm2. Published damage depth 0.56-1.70 mm at 1-3 s read as delta = sqrt(D_eff t) gives D_eff 3.1360e-07 to 9.6333e-07 m2/s, 2.24x to 6.88x the conduction-only 1.4e-07, so the measured damage travels further than conduction allows. The facit pins D_eff only within a factor 3.0719, which makes the dwell enclosure 2.0719 times the conservative dwell itself",
      "status": "OPEN",
-     "evidence": "PMID 12642261 :: thermal damage depth 0.56-1.70 mm at 1-3 s; results/ASSEMBLY_INCISION_SETTING/DECISION_V1.json :: facit.d_eff_m2_s",
+     "evidence": "results/ASSEMBLY_INCISION_SETTING/DECISION_V1.json :: d_eff_spread_factor = 3.0719",
      "external_reference": "PMID 12642261, doi 10.1177/03635465030310021601",
      "control": "cold knife adds no damage beyond the cut depth, PMID 35974853",
      "refusal": "damage volume tracks the setting at R = 0.73 (p = 0.008) over 10-120 but at R = 0.95, 0.98 and 0.92 (p <= 0.001) over 10-60, so the decision returns no setting above 60",
@@ -3972,7 +3974,8 @@
      "review_state": "PENDING_INDEPENDENT_REVIEW",
      "falsifier_refuted_2026_10_04": "the falsifier in this edge -- slope about 0.5 that saturates against a pure diffusion model -- is EMPTY. PROOF_LANE_TWO_TIMESCALE gave the closed-form counterexample: with x = log(P/P0), any positive smooth depth response is reproduced exactly by log(d/d0) = a + x/2 + g(x), g(x) = log[d(P0 e^x)/d0] - a - x/2, so curvature, smooth saturation, derivatives and moments cannot separate the models, and no number of points on 10-60 or 10-120 resolves it. 1200 smooth constructions, 67200 exact checks, 1300 optimisation cases, no counterexamples to the restricted results",
      "replacement_witness": "a four-corner design, two settings crossed with two durations, rejects when |I| > 4*eta for I = log(d11 d22 / d12 d21) with log-depth error eta per observation: |I| > 0.08 at eta = 0.02. The endpoint-slope witness needs |m - 0.5| > epsilon + 2*eta/L, which is 0.022324 over 10-60 and 0.016097 over 10-120 at eta = 0.02 -- both recomputed by this coordinator from L = log 6 and log 12",
-     "correlation_scope_corrected": "the R values were booked as one quantity over two ranges. They are not: R about 0.95 is coagulation depth over 10-60 and R about 0.73 is cut volume over 10-120, two modes and two quantities, and the same-mode cut-volume correlation recomputes far lower. A swarm report read the same material the opposite way, saying coagulation lacks the significant volume relation; that conflict is open and proof_lane's reading is carried because it supplies the construction"
+     "correlation_scope_corrected": "the R values were booked as one quantity over two ranges. They are not: R about 0.95 is coagulation depth over 10-60 and R about 0.73 is cut volume over 10-120, two modes and two quantities, and the same-mode cut-volume correlation recomputes far lower. A swarm report read the same material the opposite way, saying coagulation lacks the significant volume relation; that conflict is open and proof_lane's reading is carried because it supplies the construction",
+     "evidence_previous": "PMID 12642261 :: thermal damage depth 0.56-1.70 mm at 1-3 s; results/ASSEMBLY_INCISION_SETTING/DECISION_V1.json :: facit.d_eff_m2_s"
     },
     {
      "id": "T-E27-shaft_sensing-vs-tip_tangential_load",
@@ -4052,12 +4055,13 @@
      "constraint": "three independent routes give the nucleus pressure multiplier k and they are not reconcilable: the in-vivo facit implies 0.585959 to 0.718629, our empirical model uses 1.3 to 1.5, and the published fibre equation gives 4.877250096040077. Spread 8.324x",
      "status": "OPEN",
      "owner": "tasks/assembly/disc_load_decision.py",
-     "evidence": "results/ASSEMBLY_DISC_LOAD_DECISION/decision.json :: implied vs model multiplier",
+     "evidence": "results/ASSEMBLY_DISC_LOAD_DECISION/DISC_LOAD_V1.json :: the_multiplier_the_facit_pins.k_implied_low = 0.586",
      "external_reference": "Ngwa & Agyingi fibre law; Wilke in-vivo nucleus pressure 0.53-0.65 MPa",
      "review_state": "PENDING_INDEPENDENT_REVIEW",
      "three_routes_resolved_2026_10_05": "PROOF_LANE_THREE_ROUTES settled whether the three values of k can be simultaneously true. They cannot. The fibre denominator is explicitly whole-disc force in the paper, so both mechanical prescriptions target the same pressure-to-mean-traction ratio on a common state and the 'different quantities' escape is closed. At the stipulated common geometry and load the empirical interval and the fibre value differ by at least 3.377250 in k, which exceeds their declared interval spreads. And there is a theorem: with x = 1/gamma^2 and z = (1-x)/ln(1/x), g = eta*x + (1-eta)*z - 2*z*tan^2(phi) is strictly below 1, because eta*x < eta, (1-eta)*z < (1-eta) and the third term is negative. Therefore k = 1/g > 1 for EVERY positive-compression solution and no admissible fibre angle can ever reach the facit-implied k of 0.585959 to 0.718629, which is below 1. This coordinator reproduced g = 0.20503357021037677 at eta = 0.16, gamma^2 = 2, phi = 30 degrees to eleven decimals and verified the inequality term by term",
      "control_k_equals_one_wins": "neither forward multiplier beats k = 1 on the supplied comparison. Predicted nucleus pressures are 0.9045 MPa at k = 1, 1.17585 to 1.35675 MPa at our k, and 4.411473 MPa from the fibre law, against the in-vivo facit 0.53 to 0.65 MPa. Distance to the facit midpoint 0.59 MPa: 0.3145 for k = 1, 0.5859 and 0.7667 for ours, 3.8215 for the fibre law. The assumption-poorest choice is the closest, which means our empirical multiplier is not earning its place",
-     "angle_conditioning": "g crosses zero at 34.5874325119 degrees and it is g, not k, that vanishes, so k diverges there. Positive inversion exists below that angle only. At 30 +/- 1 degree the nonlinear coefficient enclosure is [4.121135, 6.058011], and a 10 percent error allowance with +/- 1 degree uncertainty requires centres no larger than 25.9580415158 degrees. 47089 geometry probes, zero counterexamples to the conditional bound"
+     "angle_conditioning": "g crosses zero at 34.5874325119 degrees and it is g, not k, that vanishes, so k diverges there. Positive inversion exists below that angle only. At 30 +/- 1 degree the nonlinear coefficient enclosure is [4.121135, 6.058011], and a 10 percent error allowance with +/- 1 degree uncertainty requires centres no larger than 25.9580415158 degrees. 47089 geometry probes, zero counterexamples to the conditional bound",
+     "evidence_previous": "results/ASSEMBLY_DISC_LOAD_DECISION/decision.json :: implied vs model multiplier"
     },
     {
      "id": "T-E32-membrane_face_polarity-vs-complement_risk",
@@ -4154,7 +4158,7 @@
      "constraint": "the work changes sign across a ligament slack window of 19.12 to 106.54 micrometres: +9.991910446631359e-05 J at common offset -0.02 against -0.00016259115993616925 J at +0.02, an amplitude ratio of 1.6272, with a critical bracket of exactly 4.0e-04 in the dimensionless offset. The separations survive a 50 percent widening of every matrix, 14 of 14, and removing all current separators needs 79.20 to 99.83 percent widening; at 100 percent none remains. The document own insensitivity claim is therefore false. What is missing is the absolute metrology: both the slack metrology and the matched joint work-conjugate metrology stand UNKNOWN, so the window has no absolute scale from what is in hand",
      "status": "OPEN",
      "owner": "tasks/lanes/LANE_SPINE_LIGAMENT_STIFFNESS.md",
-     "evidence": "results/LANE_SPINE_LIGAMENT_STIFFNESS/night_rounds/r5.json :: critical_slack_shift_mm_range",
+     "evidence": "results/LANE_SPINE_LIGAMENT_STIFFNESS/night_rounds/r5.json :: outcome.direct_work_J_at_common_offset_minus_0_02 = 9.991910446631359e-05",
      "external_reference": "human archive 25733007 bytes, 97 members, sha256 0063a6f2593e81b96fe1dcf43bcf27664f36a514afb8c1b39a28d5755428e974",
      "control": "the decision with slack set to zero, the quantity the whole sign flip hangs on",
      "falsifier": "if the sign flip disappears when the archive own geometry is used instead of the nominal, it is an artefact of the nominal geometry and not a property of the ligament",
@@ -4165,7 +4169,8 @@
       "the nine coupled held cases: who holds them, and whether a request is the cheaper route than another round",
       "whether the 50 percent robustness result alone is enough to carry a decision without the absolute scale, since it is scale-free",
       "the same sign-flip test on a second motion segment, to see whether the critical window is specimen-specific"
-     ]
+     ],
+     "evidence_previous": "results/LANE_SPINE_LIGAMENT_STIFFNESS/night_rounds/r5.json :: critical_slack_shift_mm_range"
     },
     {
      "id": "T-E38-two_flow_protocol-vs-reflection_coefficient",
@@ -4176,12 +4181,13 @@
      "constraint": "a single steady observation cannot measure the reflection coefficient. With r = (1 - sigma) + sigma/(1 + Pe) and Pe = Q/PS, the one-observation reading sigma = 1 - r carries an EXACT relative bias of -1/(1 + Pe), so it always underestimates and the size of the error is set by a quantity the single observation does not measure. The consequence is one-sided and stated as such: a single steady observation can EXCLUDE a permeability lesion but never establish one. Two flows invert it in closed form, PS = (r1 - r2)/((1 - r1)/Q1 - (1 - r2)/Q2) and sigma = (1 - r1)(PS + Q1)/Q1, with a fixture round-trip error of at most 1e-09, and the protocol requirement is a flow ratio of at least 3.814697265625 to hold the sigma error below 0.05",
      "status": "OPEN",
      "owner": "tasks/assembly/reflection_coefficient_decision.py",
-     "evidence": "results/ASSEMBLY_REFLECTION_COEFFICIENT/decision.json :: required_flow_ratio_for_sigma_error_below_0.05 = 3.814697265625",
+     "evidence": "results/ASSEMBLY_REFLECTION_COEFFICIENT/decision.json :: fixture_roundtrip_max_abs_error = 1e-09",
      "external_reference": "see decision.json source_report results/BT-CAP-Q020/RESULTS.md section 4 for the four locators it carries",
      "control": "the single-observation reading sigma = 1 - r, whose bias is exactly -1/(1 + Pe) and therefore always an underestimate",
      "falsifier": "the decision states its own limit: verdict_on_real_tissue = CANNOT DECIDE, because no measured two-flow protein ratio with a locator exists. If such a pair is found and the closed-form inversion misses the published sigma by more than its own fixture error of 1e-09 scaled by the measurement dispersion, the relation does not hold on tissue",
      "why_it_is_OPEN_and_not_TIGHT": "the algebra is exact and the fixture round-trip closes to 1e-09, but the quantity has never been inverted on a measured tissue pair, so the edge carries a method and not a result",
-     "review_state": "PENDING_INDEPENDENT_REVIEW"
+     "review_state": "PENDING_INDEPENDENT_REVIEW",
+     "evidence_previous": "results/ASSEMBLY_REFLECTION_COEFFICIENT/decision.json :: required_flow_ratio_for_sigma_error_below_0.05 = 3.814697265625"
     },
     {
      "id": "T-E39-published_identity-vs-source_self_consistency",
@@ -4192,7 +4198,7 @@
      "constraint": "a source that reports two quantities linked by an identity has already tested itself, and the test is elementary enough that nobody runs it. Five of our external facits admit such a check and all five pass under 5.4 percent: the laser mass-loss slope 267 ug/J against the same paper heat of ablation 3740 J/g, which are reciprocals, residual 0.142 percent; the instrument shear modulus 13 280 000 Pa against the isotropic relation from the independently sourced Young modulus 32 800 000 Pa at nu = 0.25, residual 1.205 percent; the mPTP true SD under the SEM reading against 4.0 pp times sqrt(7), residual exactly 0; the fibre coefficient k = 4.877250096040 against 1/g with g = 0.205033570210, residual exactly 0; and the meniscus condyle forces 199.01469891419063 mm2 times 1.2885913888072562 MPa plus 252.57164890113802 times 1.0695118722455845 against the applied 500 N, residual 5.315 percent. Median 0.142 percent. The meniscus residual is the largest and sits inside that chain own stated area errors of 4.80 and 4.44 percent, so it is explained rather than anomalous",
      "status": "OPEN",
      "owner": "tasks/assembly/facit_internal_check.py",
-     "evidence": "results/ASSEMBLY_FACIT_INTERNAL_CHECK/CHECK_V1.json :: relative_residual.median",
+     "evidence": "results/ASSEMBLY_FACIT_INTERNAL_CHECK/CHECK_V1.json :: relative_residual.max = 0.05315400871861084",
      "external_reference": "PMID 9694144; doi 10.1098/rsos.172051; PMID 15642769; doi 10.5518/981",
      "control": "using a published law without checking its own coefficients against each other, which is what every chain in this net did until today",
      "falsifier": "a source whose linked quantities disagree by more than the dispersion it reports for either one cannot be used as a facit without first resolving which quantity is being measured; the file deliberately does not reject such a source, because a disagreement can mean different specimens or a different convention, and both are findings",
@@ -4203,7 +4209,8 @@
       "the pressure times area identity across the eight meniscus rows that were labelled with a peak pressure, where the same check gave 0.1155 to 0.168 and therefore failed",
       "a convention difference as a third outcome beside pass and fail, since the beam-profile spread of 31 percent in the laser chain is exactly that"
      ],
-     "review_state": "PENDING_INDEPENDENT_REVIEW"
+     "review_state": "PENDING_INDEPENDENT_REVIEW",
+     "evidence_previous": "results/ASSEMBLY_FACIT_INTERNAL_CHECK/CHECK_V1.json :: relative_residual.median"
     }
    ],
    "stress_points": [
