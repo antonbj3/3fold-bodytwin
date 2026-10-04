@@ -1321,6 +1321,72 @@
       16
      ],
      "note": "ceil(log_q M) extra fields of q symbols, sharp with full-state access, from PROOF_LANE_MINIMAL_FIELD"
+    },
+    {
+     "id": "renal_total_clearance_ratio",
+     "unit": "1",
+     "level": "ORGAN",
+     "domain": "renal",
+     "plausible_range": [
+      0.0,
+      1.5
+     ],
+     "note": "creatinine clearance with inhibitor over baseline; model 0.5866666666666667 against published LSM 0.571 with 90 percent CI 0.516 to 0.632, PMID 32989831"
+    },
+    {
+     "id": "secretion_blocked_fraction",
+     "unit": "1",
+     "level": "ORGAN",
+     "domain": "renal",
+     "plausible_range": [
+      0.0,
+      1.0
+     ],
+     "note": "fraction of tubular secretion blocked; model 0.556095804069872 against 0.5772555375472719 from the published LSM ratio"
+    },
+    {
+     "id": "biofilm_cohesive_strength_pa",
+     "unit": "Pa",
+     "level": "TISSUE",
+     "domain": "biofilm",
+     "plausible_range": [
+      1.0,
+      200.0
+     ],
+     "note": "measured cohesive strength band 6 to 51 Pa, a factor 8.5 across the band"
+    },
+    {
+     "id": "detachment_route_exponent",
+     "unit": "1",
+     "level": "TISSUE",
+     "domain": "biofilm",
+     "plausible_range": [
+      0.0,
+      4.0
+     ],
+     "note": "exponent of the route: 0.5 for the material route, 2.0 for the operating route"
+    },
+    {
+     "id": "patch_spacing_um",
+     "unit": "um",
+     "level": "CELL",
+     "domain": "delivery",
+     "plausible_range": [
+      0.01,
+      100.0
+     ],
+     "note": "spacing between delivery patches; a necessary geometric condition only"
+    },
+    {
+     "id": "macroscopic_diffusivity_um2_s",
+     "unit": "um^2/s",
+     "level": "TISSUE",
+     "domain": "delivery",
+     "plausible_range": [
+      0.001,
+      10.0
+     ],
+     "note": "0.24499999999999997 from the 210 nm hop scale and 0.17529605263157894 from 730 nm, agreeing to 1.3976355789078625"
     }
    ],
    "edges": [
@@ -3964,6 +4030,51 @@
       "whether the unique coarsest sufficient partition can be computed for any one of the six, since minimum-sized fields are not unique but the coarsest partition is",
       "a seventh chain: the eye residual, where no identity error has been measured against a gap yet"
      ],
+     "review_state": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+     "id": "T-E34-inhibitor_exposure-vs-creatinine_clearance",
+     "between": [
+      "renal_total_clearance_ratio",
+      "secretion_blocked_fraction"
+     ],
+     "constraint": "the decision predicts a creatinine clearance ratio of 0.5866666666666667 under inhibitor exposure and a blocked secretion fraction of 0.556095804069872. The published facit is a least-squares-mean ratio of 0.571 with a 90 percent interval of 0.516 to 0.632, implying a blocked fraction of 0.5772555375472719 with interval 0.49486763911399234 to 0.6515397082658021. This coordinator checked both: the model lands INSIDE both intervals, 2.74 percent above the clearance point estimate and 3.67 percent below the blocked-fraction point. Baseline secreted share is 0.7404000000000001 and the filtration change is only -0.006163328197226536, so the effect is secretory and not filtrative. The implied unbound inhibitor concentrations separate the transporters by two orders: OCT2 at 18.41525354969573 uM, MATE1 at 0.42593103448275843 and MATE2-K at 0.1691196754563894 uM, with the MATE2-K value bracketed at 0.13225668449197855 to 0.2524186046511626 uM by the published interval",
+     "status": "OPEN",
+     "owner": "tasks/assembly/renal_secretion_decision.py",
+     "evidence": "results/ASSEMBLY_RENAL_SECRETION/decision.json :: total_clearance_ratio = 0.5866666666666667",
+     "external_reference": "PMID 32989831, doi 10.1002/jcph.1750",
+     "control": "filtration alone, which changes by -0.006163328197226536 and therefore cannot produce the observed ratio",
+     "falsifier": "if the model ratio leaves the published 90 percent interval 0.516 to 0.632 under any admissible unbound-inhibitor value, the transporter assignment is wrong; at present it sits inside with 2.74 percent margin on the point estimate",
+     "review_state": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+     "id": "T-E35-cohesive_strength_band-vs-detachment_route",
+     "between": [
+      "biofilm_cohesive_strength_pa",
+      "detachment_route_exponent"
+     ],
+     "constraint": "the measured cohesive strength band is 6 to 51 Pa, a factor 8.5 across the band, and the route exponent decides what that factor buys. On the material route, exponent 0.5, the whole band buys a velocity factor of 2.9154759474226504, which is sqrt(8.5) and which this coordinator verified; on the operating route, exponent 2.0, the same factor is bought by a thickness change of 2.9154759474226504 in drainage time. So the two routes are not alternatives of equal cost -- the band is worth the square root of itself on one and the square of a smaller change on the other. The per-decade slope within the sweep is 2.2098388193609044 over 3.0 decades of compliance",
+     "status": "OPEN",
+     "owner": "tasks/assembly/biofilm_retention_route_decision.py",
+     "evidence": "results/ASSEMBLY_BIOFILM_RETENTION_ROUTE/decision.json :: headline.strength_factor = 8.5",
+     "external_reference": "doi 10.1016/j.bpj.2012.07.001",
+     "control": "a single-threshold acceptance criterion at the low end of the measured band, which overstates by a factor of 8.5 in the worst case -- the decision exists to replace exactly that",
+     "falsifier": "if the per-decade slope between biofilms differs from the 2.2098388193609044 within the sweep, the route exponent is not a property of the material but of the specimen, and the band cannot be carried across biofilms",
+     "review_state": "PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+     "id": "T-E36-hop_scale-vs-macroscopic_diffusivity",
+     "between": [
+      "patch_spacing_um",
+      "macroscopic_diffusivity_um2_s"
+     ],
+     "constraint": "two independent hop scales give macroscopic diffusivities that agree to 1.3976355789078625: 0.24499999999999997 um^2/s from the 210 nm scale and 0.17529605263157894 from 730 nm. The decision is a NECESSARY condition on geometry only -- sufficiency needs a ligand-field gradient this file does not compute -- and the control is a uniform bath at equal total dose, which produces an identical stimulus whenever the spacing is below the averaging length. The binding window is a dissociation constant of 199.52623149688787 to 316.22776601683796 nM. The file records its own unit trap explicitly: um is a length and uM is a concentration, and no conversion is made between them",
+     "status": "OPEN",
+     "owner": "tasks/assembly/focal_delivery_decision.py",
+     "evidence": "results/ASSEMBLY_FOCAL_DELIVERY/decision.json :: agreement_ratio_between_the_two_scales = 1.3976355789078625",
+     "external_reference": "doi 10.1073/pnas.0400420101",
+     "control": "uniform bath at equal total dose; identical stimulus whenever spacing is below the averaging length",
+     "falsifier": "if the two hop scales disagree by more than the measured 1.3976355789078625 on any further scale, the macroscopic diffusivity is not scale-free and the necessary condition cannot be stated in one number",
      "review_state": "PENDING_INDEPENDENT_REVIEW"
     }
    ],
