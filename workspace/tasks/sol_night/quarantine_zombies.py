@@ -29,13 +29,26 @@ QUEUE = W / 'tasks/lanes/bt_queue.txt'
 LOG = W / 'tasks/lanes/bt_queue.log'
 QUAR = W / 'tasks/lanes/bt_queue.quarantine'
 MIN_FAILED_STARTS = 3
+# A row can also jam the pool without ever starting. Measured 2026-10-05 15:26: the dispatcher log
+# held 15 491 lines of "local admission deferred ... status=75", the top offender deferred 207 times,
+# and the job at the head of the live queue had been deferred in a tight retry loop for 13 minutes
+# while only 2 of 5 worker slots were in use. A deferred row never accumulates a start, so the
+# start-count rule above cannot see it. One of the worst offenders was a row this coordinator itself
+# re-queued, so this is not someone else's mess.
+# Deferrals arrive about every 18 s, so 20 of them is roughly six minutes of one row holding the
+# head of the queue -- long enough that a transient resource dip is ruled out, short enough that the
+# pool is not idle for a quarter of an hour. The first threshold of 40 missed the live offender by
+# six deferrals while it blocked the pool for fourteen minutes.
+MIN_DEFERRALS = 20
 
 
 def main() -> int:
     if not (QUEUE.exists() and LOG.exists()):
         return 0
-    starts = collections.Counter(m.group(1) for m in
-                                 re.finditer(r'\] start (\S+)', LOG.read_text(errors='ignore')))
+    text = LOG.read_text(errors='ignore')
+    starts = collections.Counter(m.group(1) for m in re.finditer(r'\] start (\S+)', text))
+    deferred = collections.Counter(m.group(1) for m in
+                                   re.finditer(r'admission deferred (\S+)', text))
     keep, moved = [], []
     for line in QUEUE.read_text().splitlines():
         parts = line.split()
@@ -43,8 +56,10 @@ def main() -> int:
             continue
         jid = parts[-1]
         n = starts.get(jid, 0)
-        if n >= MIN_FAILED_STARTS and not (W / 'results' / jid / 'RESULTS.md').exists():
-            moved.append((n, line))
+        dn = deferred.get(jid, 0)
+        done = (W / 'results' / jid / 'RESULTS.md').exists()
+        if not done and (n >= MIN_FAILED_STARTS or dn >= MIN_DEFERRALS):
+            moved.append((max(n, dn), line + f'  # starter={n} deferrals={dn}'))
         else:
             keep.append(line)
     if not moved:
@@ -52,8 +67,8 @@ def main() -> int:
     QUEUE.write_text('\n'.join(keep) + '\n')
     with QUAR.open('a') as f:
         for n, line in sorted(moved, reverse=True):
-            f.write(f'{date.today().isoformat()} starter={n} {line}\n')
-    print(f'quarantine: {len(moved)} jobb flyttade, {sum((n for n, _ in moved))} wasted starts, queue {len(keep) + len(moved)} -> {len(keep)}')
+            f.write(f'{date.today().isoformat()} vikt={n} {line}\n')
+    print(f'quarantine: {len(moved)} work moved, queue {len(keep) + len(moved)} -> {len(keep)}')
     return 0
 
 
