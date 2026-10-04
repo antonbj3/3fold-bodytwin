@@ -45,6 +45,6 @@ all 1 200 constructed boundary cases, and the real rule is that both enclosure e
 round identically (`[1,38188861; 1,38218988]` carries `1,382`, three decimals, not four). Use
 the endpoint rule here too when specifying how narrow a spread must be.
 
-## Regler
-Status `PENDING_INDEPENDENT_REVIEW`, ingen utsaga om biologisk validering, inget excluded_category material,
-none that names the collaborative. Save certificates as custom files and enter the number in the final message.
+## Rules
+Status `PENDING_INDEPENDENT_REVIEW`, no claim of biological validation, no excluded_category material,
+nothing that names an individual person. Save the certificates as separate files and give the count in the final message.

@@ -46,6 +46,6 @@ If none of the four locators measures the recycling fraction as a quantity — t
 is a model construction with no counterpart in any measurement — then `T-E14` and `T-E15` are not `TIGHT`
 and the turning point must not support a decision. Say so with the locator you tested.
 
-## Regler
-`PENDING_INDEPENDENT_REVIEW`, ingen utsaga om biologisk validering, inget excluded_category material, inget som
-names the collaborator. Each source with PMID eller DOI, volume and pages.
+## Rules
+`PENDING_INDEPENDENT_REVIEW`, no claim of biological validation, no excluded_category material, nothing that
+names an individual person. Every source with PMID or DOI, volume and pages.

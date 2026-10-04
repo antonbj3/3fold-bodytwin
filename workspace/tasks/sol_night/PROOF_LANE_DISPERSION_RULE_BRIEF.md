@@ -38,6 +38,6 @@ Indicate what it costs, in rejected decisions, on the three cases above.
 Construct a case where your rule produces a different outcome than both conventions do individually.
 If you succeed, the rule is not a reading of the data but a third convention, and then it should be rejected.
 
-## Regler
-`PENDING_INDEPENDENT_REVIEW`, ingen utsaga om biologisk validering, inget excluded_category material, inget som
-The end-point rule applies to all precision.
+## Rules
+`PENDING_INDEPENDENT_REVIEW`, no biological validation statement, no excluded_category material, nothing like
+names an individual. The endpoint rule applies to any precision.

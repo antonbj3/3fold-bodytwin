@@ -59,4 +59,4 @@ all 1 200 constructed boundary cases. The endpoint rule applies to all precision
 
 ## Regler
 `PENDING_INDEPENDENT_REVIEW`, ingen utsaga om biologisk validering, inget excluded_category material, inget som
-namnger the collaborator.
+namnger en enskild person.

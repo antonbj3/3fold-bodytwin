@@ -23,7 +23,23 @@ from pathlib import Path
 
 W = Path('')
 QUEUE = W / 'tasks/lanes/bt_queue.txt'
-BLOCK = re.compile(r'excluded_category|excluded_category|excluded_category|sinusoid|excluded_category|excluded_category|excluded_category', re.I)
+# The block list is not kept in the repo. tasks/assembly/excluded_terms.py says why, loads it from
+# outside the tree, and matches everything if it cannot be read, so a missing list rejects rather
+# than admits.
+def _load_block_pattern(extra: str = '') -> 're.Pattern[str]':
+    import importlib.util, pathlib
+    for parent in pathlib.Path(__file__).resolve().parents:
+        cand = parent / 'tasks' / 'assembly' / 'excluded_terms.py'
+        if cand.exists():
+            spec = importlib.util.spec_from_file_location('excluded_terms', cand)
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            pat = mod.block_pattern().pattern
+            return re.compile(pat + ('|' + extra if extra else ''), re.I)
+    return re.compile(r'(?s).*')  # loader gone: reject everything rather than pass everything
+
+
+BLOCK = _load_block_pattern()
 
 ASK = "\n\nBefore you look for anything: write down **three different ways of looking at this**, with\nat least one that has nothing to do with tissue or the human body at all. Diverge first.\n\nThen choose what you think goes furthest and pursue it. What do you find?\n\nNo particular answer format. Give DOI or PMID for what you build on. If you conclude\nthat the material above points somewhere other than the question, say so.\n\nStatus PENDING_INDEPENDENT_REVIEW.\n\n\n## Diverge widely first\n\nThis is not a review job. I want ideas. Write three readings before searching, and let at least one\nlie entirely outside tissue, body and medicine. Diverge, choose the one that goes furthest and follow\nit all the way. What I want to see is something that is not in the material: a connection nobody has\nposed, a quantity that would settle the question if someone measured it, or a way to make the question\ndecidable with something already measured elsewhere. DOI or PMID for what you build on.\n\nIf you see along the way that two numbers do not agree dimensionally,\nsay so in one line and move on. A bonus, not the task.\n\n"
 

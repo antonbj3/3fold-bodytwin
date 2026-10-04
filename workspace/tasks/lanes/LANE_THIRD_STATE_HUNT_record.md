@@ -42,6 +42,6 @@ third state — state which of the two you deliver.
 And the negative case, which proof_lane named: if the fiber contains an **infinite** family of decisions, there is
 no finite repair. Say so with the certificate, not with a guess.
 
-## Regler
-`PENDING_INDEPENDENT_REVIEW`, ingen utsaga om biologisk validering, inget excluded_category material, inget som
-names the collaboration. Each published source with PMID eller DOI.
+## Rules
+`PENDING_INDEPENDENT_REVIEW`, no claim of biological validation, no excluded_category material, nothing that
+names an individual person. Every published source with PMID or DOI.

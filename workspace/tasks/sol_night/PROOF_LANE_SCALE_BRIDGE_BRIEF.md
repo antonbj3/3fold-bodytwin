@@ -38,6 +38,6 @@ places a **named count** of the eleven crossing edges on the right side.
 Construct an edge that passes your entire checklist and still gives a wrong decision because of
 the scale jump. If you succeed, the checklist is insufficient and must be rejected.
 
-## Regler
-`PENDING_INDEPENDENT_REVIEW`, ingen utsaga om biologisk validering, inget excluded_category material, inget som
-The end-point rule applies to all precision.
+## Rules
+`PENDING_INDEPENDENT_REVIEW`, no biological validation statement, no excluded_category material, nothing like
+names an individual. The endpoint rule applies to any precision.

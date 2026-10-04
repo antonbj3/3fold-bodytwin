@@ -42,7 +42,7 @@ Baratz’s partial row (−10 % area, +65 % peak pressure) within the source’s
 property of contact but an artifact of two points, and the edges should remain UNKNOWN with
 that reason instead.
 
-## Regler
-Status `PENDING_INDEPENDENT_REVIEW`, ingen utsaga om biologisk validering. Inget excluded_category material,
-inget som namnger the collaborator. Avsluta med RESULTS.md, WORK_STATUS.json, NEXT_ROUND.md and
+## Rules
+Status `PENDING_INDEPENDENT_REVIEW`, no statement about biological validation. No material outside scope,
+nothing naming an individual person. End with RESULTS.md, WORK_STATUS.json, NEXT_ROUND.md and
 `results/LANE_MENISCUS_LOAD_LABEL/night_rounds/r<N>.json`.

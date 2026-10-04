@@ -42,6 +42,5 @@ A report last night called `µ = 0,4` "konstanten motorn uses". It is **not ours
 trocar FE study and lies 1,69–1,88 σ above the µ it itself cites (0,295 ± 0,056 static,
 0,255 ± 0,086 dynamic, Urrea et al., *JMBBM* 56:98–105, 2016). Treat 0,4 as external material.
 
-## Regler
-Status `PENDING_INDEPENDENT_REVIEW`, ingen utsaga om biologisk validering, inget excluded_category material,
-none that names the collaborative. Please specify each published source with DOI eller PMID, volume and pages.
+## Rules
+Status `PENDING_INDEPENDENT_REVIEW`, no statement about biological validation, and no named individuals. State every published source with DOI or PMID, volume and pages.

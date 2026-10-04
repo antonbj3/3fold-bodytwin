@@ -4,13 +4,14 @@ Operator's instructions 2026-10-03: the private target tissue should not be used
 sex and swarm without work itself: don't read, don't consume, don't quote, don't count.
 
 ## Two files used NOT
-- `measurements.tunica_turnover_gap.jsonl` — 28 av 47 items concerned
-- `measurements.pemf_dose_matrix.jsonl` — 31 av 54 items concerned, the rest are apparatus dosimetry
+Two of the ten files directly concern the excluded target tissue — 28 av 47 respektive 31 av 54 poster
+affected, and the rest of the other is apparatus dosimetry; both are off-repo and are not used.
+File names are not here: they carry the terms in themselves.
 
 ## Other eight files are used with line filters
-Skip each entry whose text anywhere matches, case insensitive:
-`excluded_category`, `excluded_category`, `excluded_category`, `sinusoid`, `excluded_category`/`excluded_category`, `excluded_category`, `excluded_category`,
-`device dosimetry`.
+Skip each entry whose text anywhere matches the block list, case insensitive, plus
+`device dosimetry`. The list is outside of the repot and read via `tasks/assembly/excluded_terms.py`;
+it can't read it all rejected.
 
 Affected entries per file, measured 2026-10-03: crosslink_release_routes 17 av 93, nir_photobiomodulation_optics
 62 av 236, pbm_dose_shape_wavelength 4 av 44, pbm_thermal_confound 1 av 25, stretch_duration_dose 6 av 46,

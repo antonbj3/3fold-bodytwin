@@ -47,6 +47,6 @@ A width-based rounding rule fails — your own `PROOF_LANE_PRECISION_PROP` let o
 all 1 200 constructed boundary cases, and the right rule is that both envelope endpoints must round
 the same way. Use the endpoint rule when stating precision.
 
-## Regler
-`PENDING_INDEPENDENT_REVIEW`, ingen utsaga om biologisk validering, inget excluded_category material, inget som
-names the collaboration. Each published source with PMID eller DOI, volume and pages.
+## Rules
+`PENDING_INDEPENDENT_REVIEW`, no statement of biological validation, nothing that
+names an individual person. Every published source with PMID or DOI, volume and pages.

@@ -47,6 +47,6 @@ the model is wrong.
 If Wilke's walking load is above 1200 N, the FAIL verdict holds and the multiplier must be recalibrated.
 If it is below 950 N, FAIL is invalid as worded and must be withdrawn.
 
-## Regler
-Status `PENDING_INDEPENDENT_REVIEW`, ingen utsaga om biologisk validering, inget excluded_category material,
-Nothing that names the collaborative. Each published source with PMID eller DOI, volume and pages.
+## Rules
+Status `PENDING_INDEPENDENT_REVIEW`, no claim of biological validation, no excluded_category material,
+nothing that names an individual person. Each published source with PMID or DOI, volume and pages.

@@ -48,6 +48,6 @@ dwell time only appears as a product in each published record — that is the pr
 gating and not deciding, and that's the result. Print the quantity that would break
 produkten.
 
-## Regler
-`PENDING_INDEPENDENT_REVIEW`, ingen utsaga om biologisk validering, inget excluded_category material, inget som
-names the collaborator. Each source with PMID eller DOI, volume and pages.
+## Rules
+`PENDING_INDEPENDENT_REVIEW`, no claim of biological validation, no excluded_category material, nothing that
+names an individual person. Every source with PMID or DOI, volume and pages.

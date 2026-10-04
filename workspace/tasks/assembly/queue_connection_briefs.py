@@ -28,7 +28,23 @@ from pathlib import Path
 W = Path('')
 CELLS = W / 'tasks/free48/sources'
 QUEUE = W / 'tasks/lanes/bt_queue.txt'
-BLOCK = re.compile(r'excluded_category|excluded_category|excluded_category|sinusoid|excluded_category|excluded_category|excluded_category', re.I)
+# The block list is not kept in the repo. tasks/assembly/excluded_terms.py says why, loads it from
+# outside the tree, and matches everything if it cannot be read, so a missing list rejects rather
+# than admits.
+def _load_block_pattern(extra: str = '') -> 're.Pattern[str]':
+    import importlib.util, pathlib
+    for parent in pathlib.Path(__file__).resolve().parents:
+        cand = parent / 'tasks' / 'assembly' / 'excluded_terms.py'
+        if cand.exists():
+            spec = importlib.util.spec_from_file_location('excluded_terms', cand)
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            pat = mod.block_pattern().pattern
+            return re.compile(pat + ('|' + extra if extra else ''), re.I)
+    return re.compile(r'(?s).*')  # loader gone: reject everything rather than pass everything
+
+
+BLOCK = _load_block_pattern()
 QUANT = re.compile(r'["\']([a-z0-9_]{4,}?_(um|mm|nm|pa|mpa|kpa|j|n|k|deg|degc|s|h|mol|percent|'
                    r'ml_min|pa_s|mol_s|kg_m3|j_mol|m_s|per_s))["\']', re.I)
 MAX_PAIRS = 257          # 2026-10-04: 257 pairs exist and 120 had been driven, so 137 The roof was the block, not the dedupen.

@@ -37,6 +37,6 @@ should be measured against it in number of numbers that must be carried, not ele
 Construct a case yourself where your procedure returns a field that does not suffice, or where a
 smaller field suffices. If you succeed, the criterion is wrong and should be rejected, not patched.
 
-## Regler
-`PENDING_INDEPENDENT_REVIEW`, ingen utsaga om biologisk validering, inget excluded_category material, inget som
-The end-point rule applies to all precision.
+## Rules
+`PENDING_INDEPENDENT_REVIEW`, no biological validation statement, no excluded_category material, nothing like
+names an individual. The endpoint rule applies to any precision.

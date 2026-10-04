@@ -43,6 +43,6 @@ If the adhesion term does not dominate at the contact pressures an instrument ti
 that pressure from tip geometry and planned load and state it in kPa — then PMID 41522820 does not apply to our
 case, and then the edge should say Coulomb suffices in our pressure range.
 
-## Regler
-`PENDING_INDEPENDENT_REVIEW`, ingen utsaga om biologisk validering, inget excluded_category material, inget som
-names the collaborator. Each source with PMID eller DOI, volume and pages.
+## Rules
+`PENDING_INDEPENDENT_REVIEW`, no claim of biological validation, no excluded_category material, nothing that
+names an individual person. Every source with PMID or DOI, volume and pages.

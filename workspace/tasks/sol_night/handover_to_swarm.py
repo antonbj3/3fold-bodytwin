@@ -28,8 +28,23 @@ STATE = os.path.join(W, 'tasks/build_night/state')
 RESULTS = os.path.join(W, 'results')
 QUEUE = os.path.join(W, 'tasks/lanes/bt_queue.txt')
 
-BLOCK = re.compile(r'excluded_category|excluded_category|excluded_category|sinusoid|excluded_category|excluded_category|excluded_category|device dosimetry',
-                   re.I)
+# The block list is not kept in the repo. tasks/assembly/excluded_terms.py says why, loads it from
+# outside the tree, and matches everything if it cannot be read, so a missing list rejects rather
+# than admits.
+def _load_block_pattern(extra: str = '') -> 're.Pattern[str]':
+    import importlib.util, pathlib
+    for parent in pathlib.Path(__file__).resolve().parents:
+        cand = parent / 'tasks' / 'assembly' / 'excluded_terms.py'
+        if cand.exists():
+            spec = importlib.util.spec_from_file_location('excluded_terms', cand)
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            pat = mod.block_pattern().pattern
+            return re.compile(pat + ('|' + extra if extra else ''), re.I)
+    return re.compile(r'(?s).*')  # loader gone: reject everything rather than pass everything
+
+
+BLOCK = _load_block_pattern(r'device dosimetry')
 MAX_BRIEF = 9000
 
 

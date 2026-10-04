@@ -1,26 +1,27 @@
 """Fail-closed exclusion over anything harvested from the original repo, run before admission.
 
-Three things do not enter, and the operator stated them as content rules rather than filter rules.
+Two things do not enter, and the operator stated them as content rules rather than filter rules.
 
-1. The excluded_category material is out entirely -- not filtered from what travels onward, not rewritten, not
-   counted. It is not read, consumed, cited, or included in any total.
-2. Anything concerning the collaborator is out entirely. No named person appears in anything written
-   here.
-3. excluded_category is OUT, unconditionally. It was conditional until 2026-10-05, when the condition was tested
-   against the material and Anton closed it: of the 154 rows a classification had listed as
-   conditionally admissible, two carried a frequency or a flux density and eleven named a tissue
-   type. The rest were the acronym with no quantity, base64 where the letters fall together, or
-   PEMFC, which is a proton exchange membrane fuel cell and belongs to porous-media literature.
-   There was nothing to admit, so the condition is gone and the exclusion is flat. What follows
-   below was the old condition and is kept only to show what was tested:
-   stated generally -- an electromagnetic field with a frequency, a flux density and an exposure time
-   acting on tissue, with the tissue named as a tissue type and nothing else. If it cannot be written
-   that way without the original application showing through, it stays out. A doubtful case stays out,
-   because missing an edge is cheaper than having to tear one out.
+1. The excluded subject matter is out entirely -- not filtered from what travels onward, not
+   rewritten, not counted. It is not read, consumed, cited, or included in any total.
+2. Anything concerning the collaborators is out entirely. No named person appears in anything
+   written here.
 
-Fail-closed: a record that cannot be parsed is rejected rather than passed. A filter that fails open is
-how the thing it was built to stop gets through, and tonight already produced three checks that reported
-green because they matched nothing at all.
+The second category was conditional until 2026-10-05, when the condition was tested against the
+material and closed. Of the 154 rows a classification had listed as conditionally admissible, two
+carried a frequency or a flux density and eleven named a tissue type; the rest were an acronym with
+no quantity attached, base64 where the letters happen to fall together, or an unrelated
+electrochemical term from the porous-media literature. There was nothing to admit, so the condition
+is gone and the exclusion is flat.
+
+The terms themselves are not in this file or anywhere else in the repo. A list of excluded terms in
+a public tree states which subject was withheld, which gives away as much as the material would, so
+tasks/assembly/excluded_terms.py loads them from outside the tree.
+
+Fail-closed: a record that cannot be parsed is rejected rather than passed, and a block list that
+cannot be read rejects everything. A filter that fails open is how the thing it was built to stop
+gets through, and one night's work already produced three checks that reported green because they
+matched nothing at all.
 """
 from __future__ import annotations
 
@@ -29,12 +30,18 @@ import re
 import sys
 from pathlib import Path
 
-BLOCK = re.compile(r'excluded_category|excluded_category|tunica\s+albug|sinusoid|excluded_category|excluded_category|corpus\s+spongios', re.I)
-PERSON = re.compile(r'\bdavid\b', re.I)
-excluded_category = re.compile(r'\bpemf\b|pulsed\s+electromagnetic', re.I)
-# A excluded_category record is admissible only if it carries the general physical quantities and no application.
-PEMF_OK = re.compile(r'(\bHz\b|frequency).*(\bmT\b|\bT\b|flux\s+density)|'
-                     r'(\bmT\b|flux\s+density).*(\bHz\b|frequency)', re.I | re.S)
+def _terms():
+    import importlib.util, pathlib
+    cand = pathlib.Path(__file__).resolve().parent / 'excluded_terms.py'
+    spec = importlib.util.spec_from_file_location('excluded_terms', cand)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+_T = _terms()
+BLOCK = _T.block_pattern()
+PERSON = _T.person_pattern()
 
 
 def verdict(text: str) -> tuple[str, str]:
@@ -42,20 +49,28 @@ def verdict(text: str) -> tuple[str, str]:
         return 'REJECT', 'blocked subject matter; not read, counted or carried onward'
     if PERSON.search(text):
         return 'REJECT', 'names an individual'
-    if excluded_category.search(text):
-        if PEMF_OK.search(text) and not BLOCK.search(text):
-            return 'ADMIT_CONDITIONAL', ('excluded_category stated with frequency and flux density as general tissue '
-                                         'exposure; admit only if a reader confirms no application shows '
-                                         'through')
-        return 'REJECT', 'excluded_category without a general formulation in frequency and flux density'
     return 'ADMIT', 'no excluded subject matter'
 
 
 def main() -> int:
     root = Path(sys.argv[1] if len(sys.argv) > 1
                 else 'results/SOL_MECHANISM_HARVEST')
+    # Zero rejections is a real answer only if the filter can still reject. Three checks
+    # reported green on 2026-10-04 because they matched nothing at all, so the filter proves
+    # itself against a constructed string before it reports a count.
+    probe = 'excluded_category' + 'um'
+    if verdict(probe)[0] != 'REJECT':
+        print("  SJALVTEST FALLER: the filter does not reject its own test case, it relaxes all through what there is for — ingen siffra rapporteras")
+        print(f'  {_T.reason()}')
+        return 1
+    if verdict('ordinary collagen fibril')[0] != 'ADMIT':
+        print("  SJALVTEST FALLER: the filter rejects a clean line, so each digit would be zero referred — ingen siffra rapporteras")
+        print(f'  {_T.reason()}')
+        return 1
+    print(f'  sjalvtest ok, {_T.reason()}')
     rows, counts = [], {}
-    for f in sorted(root.rglob('*.json')) + sorted(root.rglob('*.md')):
+    SUFFIXES = ('.json', '.jsonl', '.md', '.txt', '.py', '.csv')
+    for f in sorted(x for x in root.rglob('*') if x.is_file() and x.suffix in SUFFIXES):
         try:
             text = f.read_text(errors='replace')
         except Exception as exc:

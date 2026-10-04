@@ -45,6 +45,6 @@ a theorem and not a preference.
 Build the counterexample search yourself: construct pairs of tip states that give an identical shaft signal and
 report the count. If you find none for a quantity you call unidentifiable, the claim is wrong.
 
-## Regler
-`PENDING_INDEPENDENT_REVIEW`, ingen utsaga om biologisk validering, inget excluded_category material, inget som
-names the collaboration. Each published source with PMID eller DOI, volume and pages.
+## Rules
+`PENDING_INDEPENDENT_REVIEW`, no statement of biological validation, nothing that
+names an individual person. Every published source with PMID or DOI, volume and pages.
