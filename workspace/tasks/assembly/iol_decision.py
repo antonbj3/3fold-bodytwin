@@ -31,8 +31,8 @@ import json
 import sys
 from pathlib import Path
 
-R15 = Path('./results/LANE_EYE_OPTICAL_TWIN/r15')
-OUT = Path('./results/ASSEMBLY_IOL_DECISION')
+R15 = Path('results/LANE_EYE_OPTICAL_TWIN/r15')
+OUT = Path('results/ASSEMBLY_IOL_DECISION')
 sys.path.insert(0, str(R15))
 sys.path.insert(0, str(R15.parent))
 

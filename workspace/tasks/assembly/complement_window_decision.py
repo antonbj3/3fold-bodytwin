@@ -31,7 +31,7 @@ import json
 import sys
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 CELL = W / 'tasks/free48/sources/COMPLEMENT_DISCRIMINATION/cell.py'
 OUT = W / 'results/ASSEMBLY_COMPLEMENT_WINDOW'
 

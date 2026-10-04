@@ -1,11 +1,11 @@
 """Reuse the tested graph/queue controller for BodyTwin's own result-driven planning."""
 from pathlib import Path
 import importlib.util, json, sys, time
-source=Path('local_path/tasks/bunny48/controller.py')
+source=Path('local_path')
 sys.path.insert(0,str(source.parent))
 spec=importlib.util.spec_from_file_location('shared_controller',source);c=importlib.util.module_from_spec(spec);sys.modules['shared_controller']=c;spec.loader.exec_module(c)
-c.D=Path('.');c.B=c.D;c.A=c.D/'tasks/free48';c.RESULTS=c.D/'results'
-c.STORE=Path('/mnt/games-240/research/bunny48_20260926/bodytwin');c.CAT=json.loads((c.A/'CATALOG.json').read_text());c.STATE=c.A/'STATE.json';c.PREFIX='BT-FW48'
+c.D=Path('');c.B=c.D;c.A=c.D/'tasks/free48';c.RESULTS=c.D/'results'
+c.STORE=Path('external_mount');c.CAT=json.loads((c.A/'CATALOG.json').read_text());c.STATE=c.A/'STATE.json';c.PREFIX='BT-FW48'
 _accepted=c.accepted
 def accepted_legacy_target(j):
     # Graph lane 2026-09-30: jobs briefed before the source-family target switch still name the old

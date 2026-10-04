@@ -28,7 +28,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 QUEUE = W / 'tasks/lanes/bt_queue.txt'
 RESULTS = W / 'results'
 

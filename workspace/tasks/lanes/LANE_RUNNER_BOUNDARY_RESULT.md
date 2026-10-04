@@ -7,10 +7,10 @@ are the common obstacles. No new internal molecular states or canonical edges.
 
 **Huvudleveranser:**
 
-- `~/research/BODYTWIN_BOUNDARY_REPORT.md`: gap, explicit portkontrakt,
+- `external_research_path`: gaps, explicit port contracts,
   connectivity map, results/negativosis, cost parity and six steps for the next
-  integrationsagent i befintlig free-model-loop samt separat reviewer.
-- `~/research/BODYTWIN_BOUNDARY_MUTATIONS.json` and `.md`: BM1–BM12.
+  integration agent in existing free-model loop and separate reviewer.
+- `external_research_path` and `.md`: BM1–BM12.
   Identical distribution copies exist as `BOUNDARY_MUTATIONS.json/.md` i
   `results/LANE_RUNNER_BOUNDARY_20260930/`.
 - `results/LANE_RUNNER_BOUNDARY_20260930/mutations/BM1` … `BM12/DECOMPOSITION.json`:

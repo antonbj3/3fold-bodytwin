@@ -14,7 +14,7 @@ import json
 import sys
 from pathlib import Path
 
-DATA = '/media/anton/sdc1-tmp/bodytwin/N7a/frozen'
+DATA = 'external_media'
 
 
 def main(argv=None):
@@ -84,7 +84,7 @@ def main(argv=None):
         from . import core as C
         from .api import GeometryManager
         from . import export as X
-        gm = GeometryManager(a.data, bone=a.bone, cache_dir='/media/anton/sdc1-tmp/bodytwin/N7a')
+        gm = GeometryManager(a.data, bone=a.bone, cache_dir='external_media')
         f = {kv.split('=')[0]: float(kv.split('=')[1]) for kv in a.features.split(',') if kv}
         lm = json.loads(Path(a.landmarks).read_text()) if a.landmarks else None
         r = gm.instantiate(features=f, feature_units={k: C.feature_units(k) for k in f}, landmarks=lm, subject=a.subject)

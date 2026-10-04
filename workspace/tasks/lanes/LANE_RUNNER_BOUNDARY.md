@@ -11,22 +11,22 @@ Read the original message below (verbatim). Make **your own, freely chosen expan
 - (b) letting new mutations **build on the existing 500** (v6) and each other.
 Justify your choice. Prioritise **depth and reusability** over count — a smaller, sharp set that connects the boundary is better than 300 weak ones.
 
-## Konkreta krav
+## Concrete requirements
 1. **Boundary focus:** every new mutation must hit an explicit **port** between the omics world and the physics-based body model (e.g. omics → BC/parameter set; simulation → testable omics prediction). Name port variables, units, time windows and consumer.
 2. **Resolution:** make the difference from existing attempts **measurable**: exact observable quantity, exact baseline, exact discriminating test at matched cost.
 3. **Connectivity:** every new mutation must bind to **at least two existing** nodes/mutations AND to the graph (`MOL-*`, signalling `MODEL-*`, BC/parameter ports). Use the project's `./graph working rank` and `./graph working packet --id <ID>` to ground the connections. No invented coverage.
-4. **First principles:** follow `~/research/FREE_AUTONOMY_20260926/FIRST_PRINCIPLES.md` (elements, interactions, controlling relationships, leaf status, stopping argument, discriminatory test).
+4. **First principles:** follow `external_research_path` (constituents, interactions, governing relations, leaf status, stopping argument, discriminating test).
 5. **Evidence integrity:** no fabricated data/citations; negative results preserved; no automatic evidence admission. Follow `AGENTS.md` and `START.md`.
 
-## Indata
-- **Originalmeddelandet** (koordinatorns, ordagrant) — se nedan.
-- Befintliga 500 (v6): `~/research/BODYTWIN_MUTATIONS_IMPROVED_v6.md`, `_TOP40.md`; and `./tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json`.
-- Originalserien: `~/research/BODYTWIN_100_MUTATIONS_20260929*.md`.
-- Grafen: `./graph working rank`, `./graph working packet --id <ID>`, `notes/GRAPH_WORKFLOW.md`.
+## Inputs
+- **The original message** (the coordinator's, verbatim) — see below.
+- Existing 500 (v6): `external_research_path`, `_TOP40.md`, and `tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json`.
+- Original series: `external_research_path`.
+- The graph: `./graph working rank`, `./graph working packet --id <ID>`, `notes/GRAPH_WORKFLOW.md`.
 - Run context: `tasks/free48/{STATE.json,CATALOG.json,INITIAL_JOBS.json}`.
 
-## Utdata
-1. `~/research/BODYTWIN_BOUNDARY_REPORT.md` — en **insightful** overall picture: the boundary gap, the gates, what is done now and why, as well as an explicit map of connectivity to v6/grafen.
+## Outputs
+1. `external_research_path` — an **insightful** overall view: the boundary gap, the ports, what is done now and why, and an explicit map of connectivity to v6/the graph.
 2. The boundary mutations (count according to your choice), with numbering that does not collide with M1–M500 (e.g. `BM1…`), machine-readable file + markdown.
 3. A short "buildability" section: which next agent/loop can take this further without you, and what it then needs.
 4. `tasks/lanes/LANE_RUNNER_BOUNDARY_RESULT.md` — decisions, justification, exactly what was created, what was NOT done.

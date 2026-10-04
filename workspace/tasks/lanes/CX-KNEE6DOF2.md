@@ -17,7 +17,7 @@ Background: A1788 CX-KNEE6DOF step 1 (read results/CX-KNEE6DOF: knee6dof.py, PRE
 4. Deliver `knee6dof_solve(trial)` + pytest (a synthetic case with a known solution).
 If one sub-step does not hold: deliver the rest, and say exactly where it stops.
 
-GPU allowed (a single process, NEVER `nvidia-smi -q`). 2 CPU threads under bigmem.lock, at most 300 MB of intermediate files on /media/anton/sdc1-tmp. Deliver RESULTS.md starting with `# CX-KNEE6DOF2` and results.json. Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` and romi_collab are read-only.
+GPU allowed (a single process, NEVER `nvidia-smi -q`). 2 CPU threads under bigmem.lock, at most 300 MB of intermediate files on external_media Deliver RESULTS.md starting with `# CX-KNEE6DOF2` and results.json. Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` and romi_collab are read-only.
 
 ## Restart 14:00
 The previous run was killed (SIGKILL 13:46, system crash in another session). Continue from existing files in results/CX-KNEE6DOF2/ (start_pose.py, muscle_paths.py, validate_paths.py, solver.py, finalize.py, PREREG unchanged); do not rerun what is already done. Keep memory < 6 GB.

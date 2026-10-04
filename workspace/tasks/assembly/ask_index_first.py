@@ -41,7 +41,7 @@ import json
 import re
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 NET = W / 'CONSTRAINT_NETS.json'
 INDEX = W / 'results/ASSEMBLY_QUANTITY_INDEX/QUANTITY_INDEX_V1.json'
 OUT = W / 'results/ASSEMBLY_ASK_INDEX_FIRST'

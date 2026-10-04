@@ -7,11 +7,11 @@
 # The directory is sent to /opt/bt/jobs/<JOB_ID>/ (the command runs there). Python: numpy 2.2.6, scipy 1.18.1, h5py 3.16 via
 # PYTHONPATH=/opt/bt/vendor (set automatically). No internet on OVH. No GPU. Unique systemd unit bt-<JOB_ID>
 # with CPUQuota, MemoryMax and RuntimeMaxSec. The job MUST be complete before 07:30. Write output in the job directory.
-# Kvitto: ./tasks/cloud_receipts.jsonl
+# Receipt: tasks/cloud_receipts.jsonl
 set -euo pipefail
-K=~/research/sol6_recovery_20260923/CLOUD_HUNT_20260923/infra/known_hosts
+K=external_research_path
 SSHO=(-i "$HOME/.ssh/hunt_20260923" -o UserKnownHostsFile=$K -o StrictHostKeyChecking=yes -o BatchMode=yes)
-REC=./tasks/cloud_receipts.jsonl
+REC=tasks/cloud_receipts.jsonl
 host(){ case "$1" in ovh) echo ubuntu@51.77.110.4;; upcloud) echo root@95.111.211.151;; *) echo "unknown machine $1" >&2; exit 2;; esac; }
 sudo_for(){ [ "$1" = ovh ] && echo sudo || echo ""; }
 cmd=${1:?submit|status|collect}; shift

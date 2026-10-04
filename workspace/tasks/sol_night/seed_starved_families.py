@@ -2,7 +2,7 @@
 import collections, fcntl, importlib.util, json, sys, time
 from pathlib import Path
 
-B = Path('.')
+B = Path('')
 spec = importlib.util.spec_from_file_location('fc', B / 'tasks/free_controller.py'); argv = sys.argv; sys.argv = ['x']
 fc = importlib.util.module_from_spec(spec); spec.loader.exec_module(fc); sys.argv = argv; c = fc.c
 DRY = '--dry' in sys.argv

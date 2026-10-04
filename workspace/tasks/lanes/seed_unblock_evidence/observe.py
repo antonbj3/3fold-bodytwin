@@ -27,7 +27,7 @@ for name,host in [('ovh','ubuntu@51.77.110.4'),('upcloud','root@212.147.226.179'
  for f,sha in out['code_sha256'].items():assert sha==hashlib.sha256((B/(f if f=='slot_markers.py' else name+'.'+f)).read_bytes()).hexdigest(),f
  (B/(name+'.observation.json')).write_text(r.stdout)
  print(name,'markers',out['markers'],'models',out['models'],'orphans',out['orphan_runtimes'],'setup gaps',out['marker_setup_gaps'],'policy',out['policy'])
-now=time.time();before=json.loads((B/'seed.before.json').read_text());q=Path('tasks/lanes/bt_queue.txt').read_text();ids=sorted(set(re.findall(r'BT-FW48-SEED-\d+',q)));done=sorted(p.name for p in Path('./results').glob('BT-FW48-SEED-*') if (p/'RESULTS.md').exists());briefs=sorted(p.stem for p in Path('./tasks/free48').glob('BT-FW48-SEED-*.md'))
+now=time.time();before=json.loads((B/'seed.before.json').read_text());q=Path('tasks/lanes/bt_queue.txt').read_text();ids=sorted(set(re.findall(r'BT-FW48-SEED-\d+',q)));done=sorted(p.name for p in Path('results').glob('BT-FW48-SEED-*') if (p/'RESULTS.md').exists());briefs=sorted(p.stem for p in Path('tasks/free48').glob('BT-FW48-SEED-*.md'))
 assert set(before['queue_seed_ids'])<=set(ids) and set(before['done_ids'])<=set(done) and set(before['brief_ids'])<=set(briefs)
 after=dict(time=now,queue_seed_ids=ids,done_ids=done,brief_ids=briefs,seed253_queued='BT-FW48-SEED-253' in ids,new_done=sorted(set(done)-set(before['done_ids'])))
 (B/'seed.after.json').write_text(json.dumps(after,indent=2));print('SEED queue',len(ids),'done',len(done),'new',after['new_done'])
@@ -36,7 +36,7 @@ for name in ['ovh','upcloud']:
  events=[]
  # Logs only contain clock time; read backward through today's tail so older
  # days with the same HH:MM:SS cannot inflate the before/after counts.
- loglines=Path('./tasks/lanes',name+'_agents','queue_ovh.log').read_text().splitlines()
+ loglines=Path('tasks/lanes',name+'_agents','queue_ovh.log').read_text().splitlines()
  cursor=now;eventday=day
  for line in reversed(loglines):
   clock=re.match(r'\[(\d\d:\d\d:\d\d)\]',line)

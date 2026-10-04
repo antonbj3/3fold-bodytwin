@@ -3,7 +3,7 @@ Deterministic, no LLM per packet. Every packet: a real held-out prediction quest
 (CX-CONTACTDEF A1390: eTibia lbf→N, GRF per single plate). Consumers: sensor models (A321), N1g/activity prior, CX-BAYESOED priors.
 F-8's jw_lungef1 is not in the tables (CX-DMCOMPUTE)."""
 import os, shutil, itertools
-W = '.'; T = W + '/results/DATAMATRIX_TABLES'; R = W + '/results'
+W = ''; T = W + '/results/DATAMATRIX_TABLES'; R = W + '/results'
 OUTCOMES = {'kontakttopp': 'contact_peak_N', 'kontaktimpuls': 'contact_impulse_Ns', 'kontaktmedel': 'contact_mean_N'}
 FAMILIES = {'GRF-topp': ['P-GRF-PEAK.csv'], 'GRF-impuls': ['P-GRF-IMPULSE.csv'], 'GRF-balans': ['P-GRF-BALANCE.csv'],
             'EMG-timing': ['P-EMG-TIMING.csv'], 'EMG-amplitud': ['P-EMG-AMPLITUDE.csv'],

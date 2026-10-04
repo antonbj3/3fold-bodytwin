@@ -7,7 +7,7 @@ Background:
   - muscle forces projected onto those DOF.
 - There are building blocks:
   - the generic implant pose + MC draws (results/CX-FDK2, fdk.py, seed 1786);
-  - the whole-cycle operator (results/CX-FULLCYCLE, /media/anton/sdc1-tmp/bodytwin/CX-FULLCYCLE/);
+  - the whole-cycle operator (results/CX-FULLCYCLE, external_media);
   - the PS5 STL (research/ANYBODY_PERFORMANCE_20260924);
   - Field's COMAK code (romi_collab/build/U434/code/comak.py and U458/U483 MovingContact; READ-ONLY, copy the functions with a source note);
   - the contact law 9.3 N/mm³ (Marra et al.) and BEM-calibrated alternatives.
@@ -23,4 +23,4 @@ Background:
    - the spread over the MC poses.
    Frozen criterion (step 1): convergence ≥ 90 % AND the swing RMSE < N1g's swing RMSE (0.49 BW).
 
-GPU allowed (a single process, NEVER `nvidia-smi -q`). 2 CPU threads under bigmem.lock, at most 300 MB of intermediate files on /media/anton/sdc1-tmp (check df). Deliver RESULTS.md starting with `# CX-KNEE6DOF`, results.json, `knee6dof_step(trial, frame, pose)` + pytest. Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` and romi_collab are read-only. If something is missing for a sub-step: report exactly what, and deliver the parts that work.
+GPU allowed (a single process, NEVER `nvidia-smi -q`). 2 CPU threads under bigmem.lock, at most 300 MB of intermediate files on external_media (check df). Deliver RESULTS.md starting with `# CX-KNEE6DOF`, results.json, `knee6dof_step(trial, frame, pose)` + pytest. Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` and romi_collab are read-only. If something is missing for a sub-step: report exactly what, and deliver the parts that work.

@@ -49,7 +49,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 OUT = W / 'results/ASSEMBLY_TIP_LOAD'
 
 # Minimum lever-arm separation, as a fraction of the tip arm, below which the inversion is refused.

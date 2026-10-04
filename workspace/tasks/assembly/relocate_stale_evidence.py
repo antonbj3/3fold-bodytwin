@@ -20,7 +20,7 @@ import re
 import sys
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 NET = (W / 'CONSTRAINT_NETS.json').resolve()
 DASH = {'−': '-', '–': '-', '—': '-', '‐': '-', '­': '-'}
 CITE = re.compile(r'^(?P<file>[^\s:]+)\s*::\s*L(?P<line>\d+)\s*=\s*(?P<text>.+)$', re.S)

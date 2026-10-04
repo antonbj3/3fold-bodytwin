@@ -10,7 +10,7 @@ This is not infrastructure for its own sake. A biological anchor is a projection
 
 ## The tools, read them before you build
 
-Path: `~/projects/graph_workspace/graph-typed-throws-20261001/src/graph_engine/` (109 moduler), **pinnad commit `352c6d3`** on the branch `research/typed-throws-20261001` (suite green: 3401 passerade, 68 deserted, 0 fallerade)Pinnad instead of just a worktree path, because a moved file now twice got agents to report it as missing.
+Path: `local_path` (109 modules), **pinned commit `352c6d3`** on branch `research/typed-throws-20261001` (suite green: 3401 passed, 68 skipped, 0 failed). Pinned rather than just a worktree path, because a moved file has now twice caused agents to report it missing.
 
 CORRECTED PATH 2/10 16:35: the brief previously pointed to `graph-coordinator-oed-batching-20260923`, which has 97 modules and does NOT contain `hidden_axis_chain.py`. Two agents reported it missing, and they were right about that path — the error was mine. The chain with `instrument_can_decide` (threshold-free, returns sigma_required through bisection) and `coverage_audit` is in typed-throws. Warning: there is also a `coverage_audit` in `scene_eyes_coverage_audit.py`, which is a DIFFERENT function for scene/eyes — do not confuse them.
 

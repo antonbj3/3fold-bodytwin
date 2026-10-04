@@ -19,15 +19,15 @@ V0 searched BodyTwin, mechanism and the data volumes, but almost none of the cad
 
 | Volume | State 2026-09-23 | Consequence |
 |---|---|---|
-| `/media/anton/New Volume` (sdb2, dit `~/datasets` pekar) | FUSE-avbrott (*Transport endpoint is not connected*)It's still there. **not listed**. | Here's EuRoC (`~/datasets/euroc/V1_01_easy`) And in remembrance of them 85 GB render_match_benchmarks, the patent corpus and z24. Minnets "/dev/sda2" is the same disk; the device name has been changed. |
-| `/mnt/ro_sdb3` | FUSE-avbrott | – |
-| `/mnt/data_root` (`linux_data.img` in nvme1n1p3) | Not mounted. The content is reconstructed from references in docs and memory. | These references include, inter alia: `corpus/football_pose_v1`, `v2cad_synth/{gt,handheld}`, `v2cad_labels`, `twin_baseline/venv_probe`, `scratch/kitchen_splat_v0`, `datasets/{camera_sensor_ptc, humanoid_hand_grasp_assets, lens_design_references, illumination_spectra, textile_weave_reflectance, display_projection_optics, panel_teardown_evidence}` and `feem_sfm`. |
-| `/mnt/shared_data`, `/mnt/games-240` | Monterade | Contains only dental videos and entertainment films. |
+| `external_media Volume` (sdb2, where `~/datasets` points) | FUSE interruption (*Transport endpoint is not connected*). It is still **not inventoried**. | EuRoC (`~/datasets/euroc/V1_01_easy`) is here and, according to memory, the 85 GB render_match_benchmarks, patent corpus and z24. Memory’s "/dev/sda2" is the same disk; the device name has changed. |
+| `external_mount` | FUSE interruption | – |
+| `external_mount` (`linux_data.img` on nvme1n1p3) | Not mounted. Contents reconstructed from references in docs and memory. | References include `corpus/football_pose_v1`, `v2cad_synth/{gt,handheld}`, `v2cad_labels`, `twin_baseline/venv_probe`, `scratch/kitchen_splat_v0`, `datasets/{camera_sensor_ptc, humanoid_hand_grasp_assets, lens_design_references, illumination_spectra, textile_weave_reflectance, display_projection_optics, panel_teardown_evidence}` and `feem_sfm`. |
+| `external_mount`, `external_mount` | Mounted | Contain only dental videos and entertainment films. |
 | `sde1` (vfat) | Mounted | Contains 3D-printer data and no video. |
 
 ## Kluster
 
-"Missad av V0" betyder att klustret saknas i `results/V0/inventory.json`. "Delvis" betyder att V0 mentioned the path but not the content, or assessed the cluster as irrelevant. Full paths can be found in `clusters.json`. CS-I stands for `~/projects/cad-to-simulation-I`.
+"Missed by V0" means the cluster is absent from `results/V0/inventory.json`. "Partial" means V0 mentioned the path but not the contents, or judged the cluster irrelevant. Full paths are in `clusters.json`. CS-I stands for `local_path`.
 
 | # | Cluster | Path (main) | What | Scope | Status | Key numbers | Relevance (BodyTwin · V3 · V4 · FV1) | Missed by V0 |
 |---|---|---|---|---|---|---|---|---|
@@ -136,6 +136,6 @@ The ETA clip shows at text level that order reverses exactly between disassembly
 
 ## Limitations
 
-- New Volume, `/mnt/ro_sdb3` and `/mnt/data_root` is still unread. We do not make absent claims about the content there.
+- New Volume, `external_mount` and `external_mount` are still unread. We make no absence claims about their contents.
 - The census reads text files up to depth 5 and smaller than 1,5 MB. Videos and binaries are counted only at volume level.
 - Personal data is marked with a path and not cited. This concerns `ig_downloads` and BodyTwin’s `scripts/msk/inherited_hand`, which runs against the IG corpus, as well as Feem, operator_hand, the apartment splat and `MECHANISM_DAVID_TWIN_BUILD.md`.

@@ -15,7 +15,7 @@ Registration time is the binding term: 150 s per registration is 99,998 % of the
 2. **The wrong regime gives correct arithmetic for the wrong question.** Today one of our largest claims failed because a requirement was calculated in the saturated regime and compared against a measured value in the linear one. Before comparing two numbers: state which regime and quantity each belongs to, and whether the denominator is the same.
 
 ## The file you need is not on cloud hosts
-The branch is located in `~/research/surgical_robot_components_20261002/CROSS/`. Om `~` not where you drive: say it like `missing_prerequisite` of the first subparagraph by: RESULTS.md and work from what is actually written in the lane letter, with every number marked from the letter and not from the branch. Three jobs today drew the wrong conclusion by silently reconstructing missing input, and one of them cost an incorrect headline.
+The branch is in `external_research_path`. If `local_path` does not exist where you run: state this as `missing_prerequisite` in the first paragraph of RESULTS.md and work from what is actually in the lane brief, with every number marked as quoted from the brief and not from the branch. Three jobs today drew the wrong conclusion by silently reconstructing missing inputs, and one of them cost an incorrect headline.
 
 Allt PENDING_INDEPENDENT_REVIEW. Inga interna data.
 

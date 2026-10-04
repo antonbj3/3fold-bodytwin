@@ -11,6 +11,6 @@ Builds on `results/N2b` (full box lift, 141 step, GH/L5/S1-band), `results/BT-B6
 141/141 KKT ≤1e-10, zero perturbation ≤0,1 N; explained L5/S1-variation ≥20% and stable sign in ≥3 forms. External criterion: ≥20% lower median absolute percent error than weight×OrthoLoad median of ≥3 activity-matched subjects. countertest: mirrored and person-swapped torque arm as well as B24 and N1g where GRF is present. The uncertainty band must accompany each force value.
 
 ## Gemensamma regler
-- Skriv endast under `results/CX-SPINEARM/`, samt stora mellanresultat i `/media/anton/sdc1-tmp/bodytwin/CX-SPINEARM/`Read it. `tasks/NIGHT_PREAMBLE.md`, and relevant A-rows in `notes/RESULTS_INDEX.md`. `~/projects/bodytwin` and other sessions' workspaces are read-only.
+- Skriv endast under `results/CX-SPINEARM/`, samt stora mellanresultat i `external_media`Read it. `tasks/NIGHT_PREAMBLE.md`, and relevant A-rows in `notes/RESULTS_INDEX.md`. `~/projects/bodytwin` and other sessions' workspaces are read-only.
 - Before the first computation: `PREREG.md` and `PREREG.sha256` with hypothesis, data/selection, numerical gate, strongest baseline, countertests and error definition. Document `Builds on` with graph node and source files plus `Not redone`. Preserve negative results and `UNKNOWN`.
 - Deliver `results/CX-SPINEARM/RESULTS.md` with first line `# CX-SPINEARM`, `results.json`, executable code, provenance/hashes and meaningful checks. Report both number of valid and missing units.

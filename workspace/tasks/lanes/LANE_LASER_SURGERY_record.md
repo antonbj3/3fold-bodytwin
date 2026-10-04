@@ -39,7 +39,7 @@ cad-to-simulation lane repona (mainly lane I, some lane A) and also into `mechan
 `slm_maskless_writer_map.py`, `dual_triplet_cell.py`, `i_asml_stack_apriori_cert_map_cpc_gated.py`.
 Broader: 47 files mention lithography, 124 EUV, 245 laser.
 
-**Befordrade motormoduler** i `the public staging tree/3fold-physics/src/physics_engine/`
+**Promoted engine modules** in `../3fold-physics/src/physics_engine/`
 — these are packaged modules, not experiments, and are what you should primarily focus on:
 - `scattering/` — **the most important one for us.** Mie scattering in four files
   (`p18_mie_scattering_render_match.py`, `dielectric_sphere_permittivity_recovery_mie.py`,

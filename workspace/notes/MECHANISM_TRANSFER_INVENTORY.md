@@ -21,9 +21,9 @@ Conclusion: almost all code for motion, video and splats exists in a single vers
 ### 2.1 Motion and football
 
 - **`scripts/football_tracking/build_football_tracking_v0.py`** (`02b082e8…`)
-  - **In:** `/mnt/data_root/corpus/football_pose_v1/*.json`, med COCO-17-key points in pixels and bbox per frame. The installation is missing today, so the script cannot be rerun.
+  - **In:** `external_mount*.json`, with COCO-17 keypoints in pixels and bbox per frame. The mount is missing today, so the script cannot be rerun.
   - **Method:** Hungarian matching (`scipy.linear_sum_assignment`) on three terms: bbox-IoU, pose distance normalised by the bbox diagonal and centroid velocity per frame. The terms are scaled so that the median for positive pairs becomes 0 and the median for negative pairs becomes 1. The scaling is calibrated against a track with seven transitions that a greedy tracker itself produced. The calibration is thus **not independent ground truth**. The gate is 0,5. `MAX_GAP=20` frames.
-  - **Ut:** `reports/probes/football_tracking_v0.json`.
+  - **Out:** `reports/probes/football_tracking_v0.json`.
   - **Units and frames:** only pixels in the image. No camera motion or metric scale. `dt` is the difference in frame index, not seconds.
   - **Result:** longest track 36/12/5 (fg_open/fg_corner/lg) versus 8 for retarget v0. Matching rate 0,84–0,92.
   - **Counter-test:** shuffled order collapses the track length in two clips out of three. In `lg`, 1 of 12 shuffles beats the normal longest track, so the gate fails there.
@@ -32,7 +32,7 @@ Conclusion: almost all code for motion, video and splats exists in a single vers
 - **`scripts/hum_retarget/build_hum_retarget_v0.py`** and `docs/HUM_RETARGET_V0.md`
   - **Method:** COCO-17 in 2D → simplified capsule rig with SMPL-X topology → Newton/MuJoCo with PD servo. Ten SMPL-X joints are unobserved, including pelvis, back, neck and feet.
   - **Result:** 8 frames (267 ms at 30 fps). Kinematic RMS 0,179 m. Shuffled order gives **identical** RMS, so the measure lacks temporal information. Root tracking RMS in physics is 0,362 m versus 0,367 m with shuffled order, which is marginal. Height proxy 1,495 m, implausibly low for a professional player. The player is 28×69 px.
-- **`scripts/human_capture_chain_v0.py` / `v1.py`**, med rapporterna `human_capture_v0/v1.json`
+- **`scripts/human_capture_chain_v0.py` / `v1.py`**, with the reports `human_capture_v0/v1.json`
   - **Method:** MediaPipe BlazePose (Apache-2.0, CPU) for 3D landmarks in hip-centred metres.
   - **v0:** bone-length CV has median **0,14** and p90 0,31 in 19 clips. Visibility and relative error have negative rank correlation (ρ −0,22) in 89 % of the clips.
   - **v1:** association with IoU reduces CV from 0,106 to 0,059 in one multiperson clip, but gives no improvement in another (0,074 versus 0,0745). Only three clips are truly multiperson.
@@ -41,7 +41,7 @@ Conclusion: almost all code for motion, video and splats exists in a single vers
   - **Method:** the pitch (105×68 m) with PnLCalib gives the player's height from ankle to nose.
   - **Result:** after two bug fixes, the raw data has standard deviation 0,10 m but a systematic bias. The bias is corrected at population level against Wikipedia heights for 51 players, with the factor **1,2455** (CI 1,221–1,269). This is an ensemble estimator, not an individual measure.
   - **Bodytwin's runs of `mechanism_video_analyze`:** both clips selected `learned_body_size_prior` and have `chosen_is_true_measurement=false`.
-- **`scripts/msk/pose_to_opensim_ik.py`** (nyare i bodytwin)
+- **`scripts/msk/pose_to_opensim_ik.py`** (newer in bodytwin)
   - **Method:** MediaPipe-`.trc` → OpenSim IK on the scaled LaiArnold2017 model for subject2, thus **another person's** anatomy. No per-person scaling and no global translation, because the landmarks are recentred on the hip in each frame.
   - **Result:** marker-RMS **0,085 m**, 6,5× the floor for the same person with real markers (0,013 m).
   - **Gates:** knee and hip PASS, ankle FAIL. For hip flexion, the PASS ceiling coincides with the model's mechanical range, so a PASS can mean the solver was locked against the limit. 228/264 corpus clips PASS.

@@ -18,7 +18,7 @@ The hypothesis is that a pressure–flow–volume–organ response transient can
 
 ## Builds on
 
-The following reads read-only from `source_repository` and is built on without copying another agent's code:
+The following are read-only from `source_repository/` and built on without copying another agent's code:
 
 - `data/MECHANISM_ANCHOR_GRAPH.json`: `INT-CARDIORENAL-PRESSURE-AXIS`, `ORG-KIDNEY-NEPHRON`, `MODEL-RAAS-BLOOD-PRESSURE`, `MODEL-ARTERIAL-WINDKESSEL`, `SYS-BAROREFLEX-AUTONOMIC`, `ORG-RENAL-FLUID-ELECTROLYTE`, `ORG-CARDIAC-PUMP-MECHANICS`.
 - `scripts/msk/renal_filtration.py` and `data/renal_filtration/renal_filtration_results.json`: Davies–Shock GFR/ERBF/ERPF anchors; the nephron's existing glomerular resistance and GFR mathematics.

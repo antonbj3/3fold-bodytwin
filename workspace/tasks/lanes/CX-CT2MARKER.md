@@ -5,7 +5,7 @@ Leads:
 - A367 (`results/CX-PATHS`): L1's patellar tendon moment arm peaks at 0° (51 mm), while Krevolin 2004 has its peak around 45°. The patella mechanics are suspect.
 
 ## Tasks (PREREG.md + sha256 before the first run)
-1. For each person, look in the Grand Challenge archives (`/media/anton/sdc1-tmp/*Competition-latest.zip`; README/Geometry Data; the static trial; marker positions in CT if any; implant coordinate systems; the fluoroscopy/kinematics files in later competitions) for the data that link CT and markers. Inventory it per person.
+1. For each person, look in the Grand Challenge archives (`external_media*Competition-latest.zip`; README/Geometry Data; the static trial; marker positions in CT if any; implant coordinate systems; the fluoroscopy/kinematics files in later competitions) for the data that link CT and markers. Inventory it per person.
 2. Build the transform per segment:
    - registration of marker-based anatomical landmarks (epicondyles, malleoli, ASIS via the static trial) against the same landmarks on the individual bone;
    - estimated skin offset (A280/N51: ~20 mm AP);

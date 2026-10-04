@@ -16,7 +16,7 @@ A swarm job today used CRP's half-life invariance, 18,8 ± 3,9 h constant across
 3. **Structural absence is not independence.** A third lane found that 25 of 27 anchors do not reverse sign under a physiological modifier — because the modifier is not even a port in the model. Mark such cases as untested, never as robust.
 
 ## If a path is missing where you run
-`~` is not available on cloud hosts. Missing: write `missing_prerequisite` of the first subparagraph by: RESULTS.md and work from what is in the lane letter, labeled as quoted. Three jobs today drew the wrong conclusion by quietly reconstructing missing input, and one of them cost an incorrect headline.
+`local_path` does not exist on cloud hosts. If it is missing: write `missing_prerequisite` in the first paragraph of RESULTS.md and work from what the lane brief says, marked as quoted. Three jobs today drew the wrong conclusion by silently reconstructing missing inputs, and one of them cost an incorrect headline.
 
 Allt PENDING_INDEPENDENT_REVIEW. Inga interna data, inga patientdata.
 

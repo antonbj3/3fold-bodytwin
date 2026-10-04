@@ -10,7 +10,7 @@
 #
 # Per-tick instead of hourly, because a tick is where the edits happen.
 set -u
-cd .
+cd 
 python3 - <<'PY'
 import json, pathlib
 live = json.load(open('CONSTRAINT_NETS.json'))['bodytwin']['tissue_constraint_net']

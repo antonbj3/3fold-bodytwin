@@ -16,4 +16,4 @@ Use the selected project's own `./graph working rank` and `./graph working packe
 
 ## First-principles research — Anton, 2026-09-26
 
-For authorized research in every domain, recursively decompose ideas into constituents, interactions, equations, representation, assumptions and physical foundations. Follow `~/research/FREE_AUTONOMY_20260926/FIRST_PRINCIPLES.md`. Record each leaf as derived under assumptions, externally measured, a constitutive closure, or unknown; include a stopping argument and a discriminating test. Use existing code and negative evidence. Detailed mechanism proposals are distinct from validated predictions.
+For authorized research in every domain, recursively decompose ideas into constituents, interactions, equations, representation, assumptions and physical foundations. Follow `external_research_path`. Record each leaf as derived under assumptions, externally measured, a constitutive closure, or unknown; include a stopping argument and a discriminating test. Use existing code and negative evidence. Detailed mechanism proposals are distinct from validated predictions.

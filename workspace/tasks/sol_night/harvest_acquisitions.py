@@ -7,7 +7,7 @@ import os
 import re
 import sys
 
-W = '.'
+W = ''
 SLOTS = os.path.join(W, 'tasks/build_night/slots.txt')
 
 # Keys that in practice carry an acquisition requirement in the lanes' gates. The list is intentionally broad;

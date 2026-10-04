@@ -3,7 +3,7 @@
 ## Background (read these; do not rebuild them)
 - A1420 `results/CX-INVERSEOC/epsilon.py` + `epsilon_results.json`: inside the set, the measured force lies at median 0.9–3.8 % above minimal stress-2 effort. 68–91 % of frames are within ε=10 %.
 - A1418 `results/CX-MINCONTACT`: at the LP minimum, rectus femoris carries 54–66 % of the moment; meas−lo is phase-dependent.
-- Field U447 (`the public staging tree/3fold-motion-engine/_private/romi_collab/build/U447/RESULTS.md`, read-only):
+- Field U447 (`../3fold-motion-engine/_private/romi_collab/build/U447/RESULTS.md`, read-only):
   - Δf from the LP min to the measured force is median 105 N, 88 % of it IN the contact gauge, carried by HAMSTRINGS (energy 0.45; gastroc 0.03, quad 0.08).
   - Frames below Fmin: a local C0 lowering (median −312 N) repairs 92/106; a contact-arm change of 3.9 % also works; widening F0 repairs only 13/106.
 - L1 operator: `results/L1/prep/*.npz` (A, b, F0, cj, C0, medial/lateral), `results/CX-SETVALUED/run_gc.py`.
@@ -25,10 +25,10 @@
 Deliver RESULTS.md starting with `# CX-EPSBAND`, results.json, code (`eps_band(trial, eps)` in bodytwin_core-compatible form), and pytest. Internal data stays local; LP/QP runs go under bigmem.lock or on OVH via `tasks/cloud_run.sh` (≤ 12 vCPU, finish by 07:30). Every outcome is a node that expands (no verdict words). lane runner has full permissions in the workspace; `~/projects/bodytwin` and romi_collab are read-only.
 
 ## Addition (Field): U447's minimum-norm-C0 per frame (COMPARISON only, not model/training)
-the public staging tree/3fold-motion-engine/_private/romi_collab/build/U447/raw/repair_run1.json (nyckel rows), sampled_run1.json (muskelprojektioner, gaugebas), summary.json. Compare your independent geometric C0-correction to these; never use them to adapt.
+../3fold-motion-engine/_private/romi_collab/build/U447/raw/repair_run1.json (key rows), sampled_run1.json (muscle projections, gauge basis), summary.json. Compare your independent geometric C0 correction against these; never use them for fitting.
 
 ## Addition (Field FB_HUNT_EPS_BAND_WIDTH, gait2392, unreviewed)
 Band width in stance ~√ε: 199 N (1 %), ~600 N (10 %), 881 N (25 %); swing wider. Report your own width–ε curve (log-log slope) on L1 and compare; report stance and swing separately.
 
 ## Addition (Field U460)
-Field certifierar alla 565 rutor (LP-band + ε 5/10/20 %both: med/lat-varianterna) → the public staging tree/3fold-motion-engine/_private/romi_collab/build/U460/raw/coverage.json. If it exists when scoring: compare your coverage/width per person and ε mot den (comparison only), redovisa avvikelser.
+Field certifies all 565 frames (LP band + ε 5/10/20 %, both med/lat variants) → ../3fold-motion-engine/_private/romi_collab/build/U460/raw/coverage.json. If it exists when you score: compare your coverage/width per person and ε against it (comparison only), report deviations.

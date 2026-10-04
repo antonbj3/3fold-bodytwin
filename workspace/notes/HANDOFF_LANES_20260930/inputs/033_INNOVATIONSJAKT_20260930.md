@@ -8,7 +8,7 @@ Anton's mission: continue from the 500 spreads and Sol additions. Cross previous
 - **Sol additions:** 12 boundary constructs and 27 suggested operators/gates. These are definitions and local tests, not automatically 39 started jobs. The approximately 30 additions mentioned in the conversation are not yet unambiguously identified as a separately ordered job list.
 - **Overall Continuation:** analysis's W00–W10 indicates the next step. Handoff prioritizes functional, conservative molecule/signaling→physical consumer, shared uncertainty, function anchor, and then reuse.
 
-Sources: [handoff](~/research/HANDOVER_BODYTWIN_LANE_RUNNER.md), [500-resultat](./tasks/lanes/LANE_RUNNER_IMPROVE_500_RESULT.md), [maps-resultat](./tasks/lanes/LANE_RUNNER_MAPS_RESULT.md), [Next steps](./results/LANE_RUNNER_ANALYSIS3_20260930/NEXT_WAVE.json).
+Sources: [handoff](external_research_path), [500-result](tasks/lanes/LANE_RUNNER_IMPROVE_500_RESULT.md), [maps-result](tasks/lanes/LANE_RUNNER_MAPS_RESULT.md), [next step](results/LANE_RUNNER_ANALYSIS3_20260930/NEXT_WAVE.json).
 
 ## Active build lane tracks
 
@@ -54,7 +54,7 @@ The Gate does not require a positive outcome, invented novelty or excessive gain
 
 The terminal view `agent-status` updates the same surface and shows numbers per server/model and end times. Details are behind D. It can be closed without stopping the queues.
 
-Existing common cloud guard now selects memory budget from finished entire jobs and controls severe reservations, future memory growth, CPU and memory pressure. Positive manual queue roofs do not need to be adjusted. Provider limitations and original end times still apply. Separate automatic control aims at approximately 25% reserve_worker of simultaneously active workers, including local ones; previous rule applied to new starts and did not correspond to Anton's intention. `~/research/AGENT_DASHBOARD_20260930`.
+Existing shared cloud guards now select memory budget from completed full jobs and control hard reservations, future memory growth, CPU and memory pressure. Positive manual queue roofs do not need to be adjusted. Provider restrictions and original end times still apply. Separate automatic steering aims at approximately 25% swarm_worker of concurrently active workers, including local; previous rule applied to new starts and did not correspond to Anton's intention. Operating receipts and code can be found in `external_research_path`.
 
 ## Grafkopplingen
 
@@ -103,4 +103,4 @@ The prioritization is an uncalibrated heuristic, not a scientific result or a gu
 
 Two new planners are verified up and running with `VALUE_BACKLOG.json` and the new directive: BodyTwin locally, dental on OVH. Verified starts include swarm_worker on bearing contact compliance and PDL contact mesh material law, as well as The swarm on timed gauge allocation. Fresh image about 20:36: 25 The swarm, 9 swarm_worker and 3 Sol; this is concurrent loading and no evaluation of their results. Six meaningful queue tests as well as Python and Bash syntax checks pass.
 
-Full receipt of source hash, planners BRIEF-hashar, actual driving image and limitations: `~/research/AGENT_DASHBOARD_20260930/RESEARCH_VALUE_DEPLOY.json`. Existing active work instructions are not rewritten; new jobs get the new governance. No scientific records have been approved by this change.
+Full acknowledgment with source hashes, planners' BRIEF hashes, actual driving pattern and constraints: `external_research_path`. Existing active work instructions are not overwritten; new jobs get the new control. No scientific records have been approved through this change.

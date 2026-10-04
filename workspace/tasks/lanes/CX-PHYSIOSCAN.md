@@ -13,6 +13,6 @@ Anton: "also send a Sol agent to look for similar projects, because it's the fir
    Then state the concrete touch point in BodyTwin. Read `notes/RESULTS_INDEX.md` (the last 150 lines), `bodytwin_core/`, `results/HYPERREALISM_ROADMAP_20260924/FUNCTIONALITY_SEARCHSPACE.md` and `SEED_EXPANSION_20260925/DEVELOPMENT_EXPANSION.md`, and grep `results/HYPERREALISM_ROADMAP_20260924/PUBLIC_MODULE_INVENTORY.tsv` and `EXTERNAL_CANDIDATES.json` for what is ALREADY inventoried. Mark each candidate as new or known.
 3. **Top 10 by value to BodyTwin / integration cost:**
    - one line on why each;
-   - for the top 3, a runnable first step: install in a venv under /media/anton/sdc1-tmp/bodytwin/physioscan/ (not on /), and run the smallest example on public data if it takes under 20 min. Single process on the GPU, NEVER `nvidia-smi -q`.
+   - for the top 3, a runnable first step: install in a venv under external_media (not on /), and run the smallest example on public data if it takes under 20 min. Single process on the GPU, NEVER `nvidia-smi -q`.
 
 Deliver `results/CX-PHYSIOSCAN/RESULTS.md` starting with `# CX-PHYSIOSCAN`, and `candidates.json`. Internal data must never go to external services. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

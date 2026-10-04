@@ -8,7 +8,7 @@ import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
-WORKSPACES = Path('~/projects/3fold-workspaces')
+WORKSPACES = Path('local_path')
 REVIEW_REGISTRY = Path(__file__).resolve().parent / 'GRAPH_USE_AUDIT_20260923/COORDINATOR_REVIEWS.json'
 
 

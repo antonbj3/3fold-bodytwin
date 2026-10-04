@@ -4,7 +4,7 @@ Blocker in A912 (`results/CX-ROLLBACK/RESULTS.md`): "no verified rigid transform
 Unlock: Field's U391 (F-8) searched 576 frame conventions (axes × Euler order × flexion sign × origin) against GEOMETRY + GRF only, with no facit. The best convention gives max 3 mm, p95 2.1 mm penetration. That is a frame with mm-level uncertainty, not a verified transform, but it is sufficient for a moment arm of 40–50 mm (error ~2–6 %).
 
 ## Sources
-- U391: `the public staging tree/3fold-motion-engine/_private/romi_collab/build/U391/` (RESULTS.md, the chosen convention, code). Read only; use the convention with a source reference. If U391 is not found there, grep romi_collab/build for U391.
+- U391: `../3fold-motion-engine/_private/romi_collab/build/U391/` (RESULTS.md, the chosen convention, code). Read only; use the convention with a source reference. If U391 is not found there, grep romi_collab/build for U391.
 - `results/CX-ROLLBACK` (A912: AP rollback curve over 692 fluoro frames, code), `results/CX-JWGEOM` (JW's implant/bone geometry; the STL files are in METRES), `results/CX-SLACK` (strength curves), `results/L1` (the knee chain).
 - FORBIDDEN: eTibia/knee_forces (Field's sealed F-8 facit).
 

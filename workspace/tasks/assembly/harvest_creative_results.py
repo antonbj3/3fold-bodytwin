@@ -1,7 +1,7 @@
 """Read all completed creative job reports in the WORKSPACE and pull out consumable numbers.
 
 WHY THIS EXISTS, stated because the miss was mine. `tasks/build_night/scan_swarm.py` reads the
-controller's store under /mnt/games-240, which holds only the self-generated BT-FW48 follow-up
+controller's store under external_mount, which holds only the self-generated BT-FW48 follow-up
 chain. The creative jobs built from our own net -- BT-NET, BT-CONN, BT-OBST, BT-CAP, BT-IDEA,
 BT-ANOM, BT-2ND -- run in this workspace's results/ directory instead. Measured 2026-10-04 morning:
 383 such directories exist, 375 carry a RESULTS.md, and all 375 carry a DOI or a PMID. None had been
@@ -21,7 +21,7 @@ import json
 import pathlib
 import re
 
-W = pathlib.Path('.')
+W = pathlib.Path('')
 FAMILIES = ('BT-NET-', 'BT-CONN-', 'BT-OBST-', 'BT-CAP-', 'BT-IDEA-', 'BT-ANOM-', 'BT-2ND-')
 DOI = re.compile(r'10\.\d{4,9}/[^\s)\]",;]+')
 PMID = re.compile(r'PMID[:\s]*(\d{6,9})', re.I)

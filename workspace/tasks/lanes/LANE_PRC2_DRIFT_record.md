@@ -1,6 +1,6 @@
 # LANE_PRC2_DRIFT
 
-Antons seed (X bookmarks, batch1 TOP5 #2; ~/research/X_BOOKMARKS_20260930/batch1/TOP5.md and SEEDS_BODYTWIN.md B1). Resultatmapp `results/LANE_PRC2_DRIFT/`.
+Anton's seed (X bookmarks, batch1 TOP5 #2; external_research_path and SEEDS_BODYTWIN.md B1). Results folder `results/LANE_PRC2_DRIFT/`.
 
 ## Missing capability
 
@@ -20,4 +20,4 @@ PREREG with hash before the run: the difference in slope against doublings betwe
 
 ## Data and resources
 
-Data on `/mnt/games-240/research/bodytwin_prc2/` (aldrig `/` — rotdisken 98 % full)The methylation matrix is a few GB: read in bitar/kolumnvis, just keep the CpG needed, save summaries. Over 8 GB RAM → `tasks/heavy_run.sh`. Publika data; inga interna data.
+Data on `external_mount` (never `/` — root disk 98 % full). The methylation matrix is a few GB: read in chunks/by column, keep only the CpGs needed, save summaries. Over 8 GB RAM → `tasks/heavy_run.sh`. Public data; no internal data.

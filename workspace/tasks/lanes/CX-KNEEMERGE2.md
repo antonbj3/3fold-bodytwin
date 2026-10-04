@@ -1,6 +1,6 @@
 # CX-KNEEMERGE2 — the COMAK knee with Field's CLOUD-F-CART-KNEE (two layers + elliptical contact): the blocker from A1380 is lifted
 
-Read: `results/CX-KNEEMERGE/RESULTS.md` + `MOTION_PAPERS_NOTE.md` (A1380: U384 was not valid in COMAK, because it has two elastic implant layers), and `the public staging tree/3fold-motion-engine/_private/romi_collab/build/cloud_results/CLOUD-F-CART-KNEE/` (RESULTS.md, code/, adapter.regime_check; A1393).
+Read: `results/CX-KNEEMERGE/RESULTS.md` + `MOTION_PAPERS_NOTE.md` (A1380: U384 was not valid in COMAK, because it has two elastic implant layers), and `../3fold-motion-engine/_private/romi_collab/build/cloud_results/CLOUD-F-CART-KNEE/` (RESULTS.md, code/, adapter.regime_check; A1393).
 - Validation: 64/64 within 5 % vs FE for two layers and elliptical contact.
 - Regime: ρ 1–4, t_i/R_e 0.03–0.375, ν 0.1–0.49, E1/E2 0.1–10, t1/t2 0.5–2, δ/(t1+t2) 0.02–0.30, β_eff ≥ −0.27.
 - DM (5+5 mm, E 46.3, ν 0.46) lies within the regime for t/ν/E/t1:t2.

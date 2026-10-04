@@ -9,7 +9,7 @@ Basis for guiding the work further. Written after Anton pointed out that the age
 | `~/projects/bodytwin` | BodyTwin's own repo (formerly "mechanism", fork of cad-to-simulation-I). Code, graph, ledger, project memory `bt_memory/` (2 859 files). Controlled by `COORDINATOR.md` and `docs/MECHANISM_HARDENED_CONVENTIONS.md` | Read from the workspace; will not change from here. Own isolation: memory in repot, neutral dialect in shared runtime state |
 | `data/MECHANISM_ANCHOR_GRAPH.json` in the repo | Source graph: 3 950 nodes (3 873 OPEN, 66 ASSUMED, 7 REFUTED, 3 DEFERRED, 1 PROVEN). References `scripts/msk` 3 895 times | Starting point for each task |
 | `~/projects/3fold-workspaces/bodytwin` | Work surface (adapter). Loading same graph (`./graph status/show/rank`), writing new work in `notes/`, `tasks/`, `results/` | Generated graphs (`GRAPH.json`, `MERGED_GRAPH.json`, `current/`, `generations/`) never edit |
-| `/mnt/games-240/bodytwin_publication_2026_09_17/public` | Publicerad BodyTwin, commit b95a8dc | Patchar is in an isolated clone `/mnt/shared_data/bodytwin_work/R1/bodytwin_fix` (grenar fix/day1-findings, fix/gates-exit, fix/gates-exit-2) |
+| `external_mount` | Published BodyTwin, commit b95a8dc | Untouched. Patches are in isolated clone `external_mount` (branches fix/day1-findings, fix/gates-exit, fix/gates-exit-2) |
 
 Code size in the repo (`.py`, machine inventory `results/MAP/private_inventory.tsv`, 15 292 scripts with docstrings): `scripts/physics_exp` 5 512, `scripts/tissuetwin` 3 617, `scripts/msk` 2 151, `scripts/cad` 1 541, `scripts/kernel` 546, `scripts/local` 534. Graph domains: `results/MAP/graph_domain_nodes.tsv` (796 nodes MSK/KNEE/PROSTH/TIS/VIDEO/DERM/BUILD/MODEL/SOLVE/FIX).
 

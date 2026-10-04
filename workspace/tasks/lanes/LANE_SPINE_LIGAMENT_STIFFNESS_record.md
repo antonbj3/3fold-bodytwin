@@ -3,7 +3,7 @@
 ## Five edges in the network stand UNKNOWN for the same reason
 HARVEST-E0057 to E0061. The conditions say it plainly: `linear_stiffness` for ALL 350, PLL 250,
 LF 200, SSL 100, ISL 60 is "a representative CHOSEN force-per-unit-strain coefficient; not N/mm and
-not an extracted published measurement"Source: `source_documents/MECHANISM_SPINE_LIGAMENTS.md`.
+not an extracted published measurement". Source: `source_documents/SPINE_LIGAMENTS.md`.
 
 The document itself records two things you must read before calculating:
 - line 240: the numbers are NOT from Pintar et al. 1992's own table.

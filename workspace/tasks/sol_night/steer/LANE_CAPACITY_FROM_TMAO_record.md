@@ -14,7 +14,7 @@ Our largest claim today failed because a requirement was calculated as flux = k_
 219 ± 78 mL/min TMAO against 119 ± 21 creatinine and 55 ± 14 urea in the SAME individuals. Pooled versus paired refuted two conclusions today — a gap of 2,9–9,1× turned out to be 2,17–7,76× cohort artifact. Here the pairing exists, so use it and say what it is worth compared with pooling.
 
 ## If a path is missing where you run
-`~` are not available on cloud hosts. Four jobs today silently reimplemented missing modules or reconstructed missing constants, and one produced an incorrect headline that I repeated. If something is missing, write `missing_prerequisite` of the first subparagraph, RESULTS.md, not in a footnote.
+`local_path` does not exist on cloud hosts. Four jobs today silently reimplemented missing modules or reconstructed missing constants, and one of them produced an incorrect headline that I amplified further. If something is missing: write `missing_prerequisite` in the FIRST paragraph of RESULTS.md, not in a footnote.
 
 Allt PENDING_INDEPENDENT_REVIEW. Inga interna data, inga patientdata.
 

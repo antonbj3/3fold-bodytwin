@@ -22,7 +22,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 TARGET = W / 'CONSTRAINT_NETS.json'
 SOURCE = W / 'data/CONSTRAINT_NET_TISSUE.json'
 

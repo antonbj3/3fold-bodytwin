@@ -28,7 +28,7 @@ import math
 import pathlib
 from fractions import Fraction
 
-W = pathlib.Path('.')
+W = pathlib.Path('')
 
 
 def honest_digits(x: float) -> dict | None:

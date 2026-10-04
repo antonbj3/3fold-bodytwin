@@ -41,5 +41,5 @@ Can the individual's muscle parameters be derived from the individual's own body
 
 ## Handover from L1 (read first): `results/L1/FOR_CX_MUSCLE.md`
 - TLEM architecture for 166 elements: `results/L1/code/tlem_arch.json`. Slack lengths do not fit straight-line paths (soleus ~2x L0, 27–56/166 outside range).
-- STRENGTH FACIT: Grand Challenge has isometric hip/knee strength trials (gc4–gc6), MaxEMG (gc1–4, gc6) and Biodex strength data in the competition zips on /media/anton/sdc1-tmp (not extracted). Extracted EMG: /mnt/shared_data/bodytwin_work/L1/bundle/emg/. Use measured strength as a direct facit for M0–M4 (predicted vs measured max moment per person).
+- STRENGTH FACIT: Grand Challenge has isometric hip/knee strength trials (gc4–gc6), MaxEMG (gc1–4, gc6) and Biodex strength data in the competition zips on external_media (not extracted). Extracted EMG: external_mount Use measured strength as a direct facit for M0–M4 (predicted vs measured max moment per person).
 - OpenCap muscle parameters for 6 persons: `results/L1/n55x/*.npz`.

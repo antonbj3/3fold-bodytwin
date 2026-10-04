@@ -5,10 +5,10 @@ You're the lane runner `lane-model` with full mandate. You are one of three OBER
 ## Goal
 Focus on **ability to build further and organisation**: what must be in place (in the repo/workspace/cloud) before a lane_runner session can take over and build further effectively? Bring in the org audit's consolidation plan. Propose a concrete next wave.
 
-## Input (read all)
-- `~/research/ORGANIZATION_AUDIT.md` (viktigast) + `tasks/lanes/LANE_RUNNER_ORG_AUDIT_RESULT.md`
-- `~/research/BODYTWIN_BOUNDARY_REPORT.md`, `..._DISEASE_LIBRARY.md`, `..._MAPS_OPERATORS.md`
-- `~/research/BODYTWIN_MUTATIONS_IMPROVED_v6.md`
+## Inputs (read all)
+- `external_research_path` (most important) + `tasks/lanes/LANE_RUNNER_ORG_AUDIT_RESULT.md`
+- `external_research_path`, `..._DISEASE_LIBRARY.md`, `..._MAPS_OPERATORS.md`
+- `external_research_path`
 - Grafen: `./graph`, `notes/GRAPH_WORKFLOW.md`, `ENGINE.json`, `SOURCE_MANIFEST.json`
 
 ## What to produce
@@ -19,7 +19,7 @@ Focus on **ability to build further and organisation**: what must be in place (i
 5. **Order:** what first, what next, what can be parallelised.
 
 ## Utdata
-`~/research/ANALYSIS_3_BUILDABILITY.md` + JSON. Avsluta med `tasks/lanes/LANE_RUNNER_ANALYSIS3_RESULT.md`.
+`external_research_path` + JSON. Avsluta med `tasks/lanes/LANE_RUNNER_ANALYSIS3_RESULT.md`.
 
 ## Constraints
 Run only clearly safe, non-destructive actions; propose the rest. No mail/pushes/credentials/SEED changes. Cloud files as ubuntu.

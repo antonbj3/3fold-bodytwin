@@ -4,7 +4,7 @@ A stronger model reviews the night's most promising constructive swarm results (
 
 ## Kandidater
 
-`tasks/build_night/swarm/TOP_CONSTRUCTIVE_20261001_0600.txt` — 25 non-negative results ranked by research value (jobb-ID | Objectives | source keys | beslut). Jobbkataloger: `/mnt/games-240/research/bunny48_20260926/bodytwin/<ID>/` (results.json, RESULTS.md, kod). Prioritera: kirurgiska kopplingar (SURG_INCISION × SURG_HEMOSTASIS: vessels per cut surface, wall shear, percentage of vessels not self-sealing), Q080×Q100, Q077×Q088 (ATP-syntas → oxygen supply), Q049→Q154 (seriekonduktans), Q009×Q154 (fri/total-bindning med efflux), Q058×Q084.
+`tasks/build_night/swarm/TOP_CONSTRUCTIVE_20261001_0600.txt` — 25 non-negative results ranked by research value (job ID | target | source keys | decision). Job directories: `external_mount<ID>/` (results.json, RESULTS.md, code). Prioritise: surgical couplings (SURG_INCISION × SURG_HEMOSTASIS: vessels per incision area, wall shear, fraction of vessels that do not self-seal), Q080×Q100, Q077×Q088 (ATP synthase → oxygen supply), Q049→Q154 (series conductance), Q009×Q154 (free/total binding with efflux), Q058×Q084.
 
 ## Per resultat
 

@@ -31,9 +31,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 OUT = W / 'results/ASSEMBLY_DISC_LOAD_DECISION'
-SRC = 'source_documents/MECHANISM_INTERVERTEBRAL_DISC.md'
+SRC = 'source_documents/INTERVERTEBRAL_DISC.md'
 
 A_DISC_MM2 = 1800.0
 NOMINAL_STRESS_MPA = 0.9045          # F/A at the source's reference load

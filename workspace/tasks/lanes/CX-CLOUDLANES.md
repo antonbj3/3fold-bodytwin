@@ -1,8 +1,8 @@
 # CX-CLOUDLANES — start BodyTwin's share of the coordinator cloud credit (~100 USD) now: launcher, collector, first wave
 
 Read:
-- `~/research/START_BODYTWIN_FIELD_CLOUD_20260924.md` (Anton: use the whole credit during the eight-hour window);
-- `~/research/COORDINATOR_CLOUD_20260924/SETUP.md` (verified state: coordinator 5.5 works; artifacts retrieved via authenticated session events; Git push BLOCKED until Anton selects the repo in coordinator.ai/code);
+- `external_research_path` (Anton: use the whole credit during the eight-hour window);
+- `external_research_path` (verified state: coordinator 5.5 works; artifacts retrieved via authenticated session events; Git push BLOCKED until Anton selects the repo in coordinator.ai/code);
 - `start_smoke.py`, `inspect_cloud.py`, `launch_receipt.json`, `lane_repo/` in the same directory.
 
 ## Return path until Git works
@@ -37,13 +37,13 @@ Include RESULTS.md, results.json, and small code files (≤ 200 KB in total). Th
 ## Rules
 - Never print or copy the OAuth token or keys to files, logs or bundles. No PRs, merges or public pushes.
 - Only the promotional credit. Do not enable paid extra usage; stop if the balance approaches 0 or if usage appears outside the credit.
-- Coordinate with Field: BodyTwin ~100 USD, Field ~100 USD, reserve ~50 USD. Write the reservation in the plan's §14 (`~/research/PLAN_BODYTWIN_FIELD_8H_20260924.md`) as a bounded addition in BodyTwin's row.
+- Coordinate with Field: BodyTwin ~100 USD, Field ~100 USD, reserve ~50 USD. Write the reservation in the plan's §14 (`external_research_path`) as a bounded addition in BodyTwin's row.
 - lane runner has full permissions; `~/projects/bodytwin` is read-only.
 
 ## ADDENDUM 24/9 ~16:00 (coordinator) — READ BEFORE CONTINUING
 - The first launch worked (CLOUD-A359, session_01KrvT34D6J9bWS2kY37YKxN). CLOUD-A367 got stuck on coordinator Code's interactive "trust this folder" question, because each lane is a new directory.
 - Do NOT solve it by editing ~/.coordinator.json or other trust/permission settings, and do not answer the dialog automatically.
-- Instead, launch ALL lanes from the already trusted directory `~/research/COORDINATOR_CLOUD_20260924/lane_repo`, which belongs to antonbj3/research-cloud-lanes. For each lane:
+- Instead, launch ALL lanes from the already trusted directory `external_research_path`, which belongs to antonbj3/research-cloud-lanes. For each lane:
   1. `git checkout -B lane/<ID> <baseline>` (the baseline = the repo's main/baseline commit);
   2. copy the lane bundle there (BRIEF.md + code/data, ≤ 20 MB);
   3. `git add` + commit;

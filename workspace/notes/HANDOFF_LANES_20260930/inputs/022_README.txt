@@ -1,6 +1,6 @@
 AGENTER & MOLN
 
-Starta: ~/bin/agent-status
+Start: local_path
 Q closes the view; D shows details; R requests a new measurement. Update every 15 seconds.
 The view uses curses: the same terminal area, no ongoing scroll.
 

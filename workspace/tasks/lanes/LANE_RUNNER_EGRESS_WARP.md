@@ -2,14 +2,14 @@
 
 You're a lane runner. `lane-model`Agent with full mandate from the coordinator. (Anton). Execute without asking; report default selection. Priority: **progression, not perfection**Never leave the system worse than you found it.
 
-## Bakgrund (verifierat)
+## Background (verified)
 - The provider rate limit for the free models (swarm/swarm_worker) is **per (model, egress-IP)**. More IP ⇒ more capacity. This is the only remaining bottleneck; OOM, accounts and load are already resolved.
-- Egress-poolen: `~/research/FREE_AUTONOMY_20260926/OVH_DIRECT_20260927/egress_pool.py`, config `/opt/agents/EGRESS_POOL.json` on both hosts. Current entries: `direct` (values' own IP) and `home_via_ssh` (proxy `http://127.0.0.1:18187`)Each entry has: `proxy`, `weight`, `cap`; per-post backoff hanteras automatiskt.
+- The egress pool: `external_research_path`, config `/opt/agents/EGRESS_POOL.json` on both hosts. Current entries: `direct` (host's own IP) and `home_via_ssh` (proxy `http://127.0.0.1:18187`). Each record has `proxy`, `weight`, `cap`; per-post backoff is handled automatically.
 - `apply_route` uses `egress_pool.pick(model,directory)` and sets `HTTPS_PROXY` for the job. `record()` puts an entry in backoff at rate-limit so that a dead egress never blocks the model.
 
 ## What has already been done locally (build on, don't start over)
-- Cloudflare WARP WireGuard-profil genererad med `wgcf` (`/tmp/opencode/wgcf/`), konto skapat, tunnel-IP `172.16.0.2`.
-- `warp_proxy.py` (minimal HTTP CONNECT-proxy) i `~/research/FREE_AUTONOMY_20260926/OVH_DIRECT_20260927/warp_proxy.py`, systemd-user service `warp-proxy.service` (auto-restart), lyssnar `127.0.0.1:18188`.
+- Cloudflare WARP WireGuard profile generated with `wgcf` (`/tmp/opencode/wgcf/`), account created, tunnel IP `172.16.0.2`.
+- `warp_proxy.py` (minimal HTTP CONNECT proxy) in `external_research_path`, systemd-user service `warp-proxy.service` (auto-restart), listening `127.0.0.1:18188`.
 - Customized tunnel-config `/etc/wireguard/warp-min.conf` (`Table = off`, `ip rule` fwmark 0xca6c → table 51820, plus `not fwmark 0xca6c → main`). `SO_MARK=40` in the proxy directs outgoing traffic into WARP-tabellen without touching the host's default-route.
 - **Remaining bugs:** the WARP tunnel is not currently shaking hands (`latest-handshakes = 0`), so the proxy falls back to normal IP. the WARP endpoint `162.159.192.1:2408` responds to ping/UDP.
 
@@ -27,6 +27,6 @@ You're a lane runner. `lane-model`Agent with full mandate from the coordinator. 
 
 ## Definition of done
 1. Either a working, backoff protected WARP-egress **or** documented free-WARP not stable + a maxed `home_via_ssh`/`direct` path.
-2. Parade probar som visar per-IP-oberoende.
+2. Paired probes showing per-IP independence.
 3. SEED run unaffected; no new failed units; no critical individual egress.
-4. Kort sammanfattning i `~/research/FREE_AUTONOMY_20260926/OVH_DIRECT_20260927/LANE_RUNNER_EGRESS_WARP_RESULT.md` (what was changed, IP:n, measured power, what is NOT gjordes).
+4. Brief summary in `external_research_path` (what changed, IPn, measured effect, what was NOT done).

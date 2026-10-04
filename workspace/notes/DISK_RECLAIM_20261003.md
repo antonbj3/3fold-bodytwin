@@ -1,6 +1,6 @@
 # Disk reclaim 2026-10-03 — superseded intermediates in LANE_FIBRIL_NETWORK_FRACTURE/r16
 
-Context: /mnt/games-240 was at 95 % with 12 GB free and the swarm's job store lives on the same
+Context: external_mount was at 95 % with 12 GB free and the swarm's job store lives on the same
 disk, so filling it stops throughput for every session. This lane held 13.3 GB over r15-r18.
 
 Rule applied: a large r16 file is removed ONLY if its name appears in no file anywhere in the

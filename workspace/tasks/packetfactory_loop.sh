@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-ROOT=.
+ROOT=
 cd "$ROOT"
 LOG=tasks/lanes/packetfactory.log
 QUEUE=tasks/lanes/bt_queue.txt

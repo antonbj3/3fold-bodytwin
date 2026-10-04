@@ -41,7 +41,7 @@ On **both** hosts:
 
 The actual console value for D is unknown. No estimate or change to Anton’s manual quota value has been made. The fallback can now consume D quota faster; the 95% protection uses the manually stated value, not a new console measurement.
 
-Locally changed `./tasks/lanes/ovh_agents/bt_queue_ovh.sh` (shared by both drives):
+Locally, `tasks/lanes/ovh_agents/bt_queue_ovh.sh` was changed (shared by both drivers):
 
 - The queue presentation uses `seed_unblock_evidence/seed_queue_order.py`: stable SEED priority, the same rows exactly once. The canonical queue file was not edited; no jobs or rows were removed. This was needed because most SEED jobs were after AUTO/PLAN jobs and therefore did not get the available host slots.
 - The retry gate is checked before start but charged **after successful unit start**. Upon denied start, the own claim is released and the start pass breaks, so capacity and completed jobs are checked again. Previously a pass continued through the queue with an old slot snapshot and burned retries without real starts.

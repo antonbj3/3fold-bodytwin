@@ -32,7 +32,7 @@ import re
 from collections import Counter
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 OUT = W / 'results/ASSEMBLY_QUANTITY_INDEX'
 
 # Unit suffixes as they appear in key names across this corpus, longest first so _mm_s beats _s.

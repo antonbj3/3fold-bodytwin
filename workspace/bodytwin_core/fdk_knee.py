@@ -12,7 +12,7 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-MESH = Path('/media/anton/sdc1-tmp/bodytwin/CX-JWGEOM/geometry/PS')
+MESH = Path('external_media')
 EVENTS = {'ngait_og_ss1': (5.116667, 6.258333),
           'rightturn6': (5.150000, 6.466667)}
 DOF = ('anterior_mm', 'proximal_mm', 'lateral_mm',

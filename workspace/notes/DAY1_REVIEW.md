@@ -339,19 +339,19 @@ Figur: [HD1 grepp mot friktionskon](../results/HD1/fig_grip_vs_cone.png)
 **Demo (D5)**
 
 ```bash
-cd .
+cd 
 python3 results/D5/demo/run_demo.py --subject z001          # hela kedjan → demo_results.json, run_log.json, graph_node_z001.json
 python3 results/D5/demo/figures.py --subject z001           # fig1–fig4
 python3 results/D5/collect_claims_v2.py                     # claims_v2.json
 cd results/D5 && python3 -m pytest -q -p no:cacheprovider tests   # 8 tester
 ```
 
-Claims: `results/D5/DEMO_CLAIMS_v2.md`The dynamic step runs in: `~/projects/3fold_staging/.venv-motion/bin/python`.
+Claims: `results/D5/DEMO_CLAIMS_v2.md`. The dynamics step runs in `../.venv-motion/bin/python`.
 
 **The the reference model Attempt (AB1b)**
 
 ```bash
-cd ./results/AB1b
+cd results/AB1b
 nice -n 19 python3 -m pytest -q -p no:cacheprovider tests          # 34 tester
 for t in identity z001 p1_z001; do nice -n 19 python3 validate_static.py --subject $t; done
 WINEPREFIX=$HOME/.wine nice -n 19 python3 run_anybody_dump.py --subject off --dataset TLEM2.2       # [LICENS][RUNTIME]
@@ -363,7 +363,7 @@ The rest of the steps and the comparison (`compare_runtime.py`): `results/AB1b/T
 **lane runner-lanes**
 
 ```bash
-cd .
+cd 
 tasks/lanes/run_lane_runner.sh BT-IM1                      # one lane: reads tasks/lanes/BT-IM1.md, writes results/BT-IM1/RESULTS.md
 tasks/lanes/run_codex.sh BT-FV2 results/FV2          # lane med annan resultatmapp
 MODEL=lane-model EFFORT=medium MAX_ROUNDS=3 tasks/lanes/run_codex.sh BT-V7   # default values, may be changed
@@ -390,7 +390,7 @@ The probes run with nice 19, 2 threads and 1 process, reading the source folders
 
 **R1-/R2-patchar**
 
-R1: klon `/mnt/shared_data/bodytwin_work/R1/bodytwin_fix`, gren `fix/day1-findings`; patchar `results/R1/patches/0001–0005*.patch`, appliceras med `git am` on top `b95a8dc`; test logs before/after in `results/R1/`. R2: `results/BT-R2/RESULTS.md` and `results/BT-R2/patches/` (commit ee07a39 endast i klonen).
+R1: clone `external_mount`, branch `fix/day1-findings`; patches `results/R1/patches/0001–0005*.patch`, applied with `git am` on top of `b95a8dc`; test logs before/after in `results/R1/`. R2: `results/BT-R2/RESULTS.md` and `results/BT-R2/patches/` (commit ee07a39 only in the clone).
 
 **Graph Suggestion**
 

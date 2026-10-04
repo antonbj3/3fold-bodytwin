@@ -4,7 +4,7 @@ Swarm jobs created before the corrections (06:15, 06:45, 07:45, 09:00) ran sourc
 
 ## Underlag
 
-`results/LANE_SOURCE_CONSERVATION_AUDIT/`: EXPOSURE_JOB_LISTS_R2/, DESCENDANT_FIELD_EXPOSURE_R2.jsonl, CONCLUSION_REASSESSMENT_R3.json, AUDIT_TABLE_R4.json. Corrected sources in `tasks/free48/sources/` (backuper i `tasks/free48/sources_backup_20261001_audit*/`)Swarm job: `/mnt/games-240/research/bunny48_20260926/bodytwin/<ID>/`.
+`results/LANE_SOURCE_CONSERVATION_AUDIT/`: EXPOSURE_JOB_LISTS_R2/, DESCENDANT_FIELD_EXPOSURE_R2.jsonl, CONCLUSION_REASSESSMENT_R3.json, AUDIT_TABLE_R4.json. Corrected sources in `tasks/free48/sources/` (backups in `tasks/free48/sources_backup_20261001_audit*/`). Swarm jobs: `external_mount<ID>/`.
 
 ## Uppgift
 

@@ -5,10 +5,10 @@ You're the lane runner `lane-model` med fullt mandat. Koordinatorn (Anton) ska *
 ## Goal
 Read the three independent analyses + the four original outputs and weave them together into **ONE handover package**: an overall picture with no contradictions remaining, with shared conclusions, remaining disagreements explicitly written out, and a concrete next plan.
 
-## Input (read all)
-- Analyser: `~/research/ANALYSIS_1_OVERLAP.md`, `ANALYSIS_2_CONTRADICTIONS.md`, `ANALYSIS_3_BUILDABILITY.md` (+ ev. JSON)
-- Original: `~/research/BODYTWIN_BOUNDARY_REPORT.md` + `_BOUNDARY_MUTATIONS.json`, `BODYTWIN_DISEASE_LIBRARY.md` (kan saknas), `BODYTWIN_MAPS_OPERATORS.md` + `.json`, `BODYTWIN_MUTATIONS_IMPROVED_v6.md`
-- Organisation: `~/research/ORGANIZATION_AUDIT.md`
+## Inputs (read all)
+- Analyses: `external_research_path`, `ANALYSIS_2_CONTRADICTIONS.md`, `ANALYSIS_3_BUILDABILITY.md` (+ any JSON)
+- Originals: `external_research_path` + `_BOUNDARY_MUTATIONS.json`, `BODYTWIN_DISEASE_LIBRARY.md` (may be missing), `BODYTWIN_MAPS_OPERATORS.md` + `.json`, `BODYTWIN_MUTATIONS_IMPROVED_v6.md`
+- Organisation: `external_research_path`
 - Result-md: `tasks/lanes/LANE_RUNNER_*_RESULT.md`
 - Grafen: `./graph`, `notes/GRAPH_WORKFLOW.md`
 
@@ -21,9 +21,9 @@ Read the three independent analyses + the four original outputs and weave them t
 6. **Next wave:** prioritised, measurable, with order and parallelisation.
 7. **First actions in the lane_runner session:** the first 3–5 concrete steps.
 
-## Utdata
-- `~/research/HANDOVER_BODYTWIN_LANE_RUNNER.md` — the complete handover package (This is the main delivery).
-- `tasks/lanes/LANE_RUNNER_WEAVE_RESULT.md` — kort sammanfattning.
+## Outputs
+- `external_research_path` — the complete handover package (this is the main deliverable).
+- `tasks/lanes/LANE_RUNNER_WEAVE_RESULT.md` — short summary.
 
 ## Constraints
 No fabricated data; the graph's notes = ground truth. No emails/pushes/credentials/SEED touching. Run only safe, non-destructive actions.

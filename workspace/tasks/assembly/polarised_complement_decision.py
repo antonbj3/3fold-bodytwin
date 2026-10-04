@@ -42,7 +42,7 @@ import json
 import math
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 OUT = W / 'results/ASSEMBLY_POLARISED_COMPLEMENT'
 
 REST_BA, REST_SD = 0.45, 0.16

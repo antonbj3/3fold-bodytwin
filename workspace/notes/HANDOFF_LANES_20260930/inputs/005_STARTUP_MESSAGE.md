@@ -24,14 +24,14 @@ Break down ideas recursively: **idea → mechanism → equation → operation �
 
 ## Read first, in order
 
-Arbetsmapp: `.`.
+Arbetsmapp: ``.
 
 1. `../AGENTS.md`, `START.md`, `../README.md`, `../FORMAT.md` and `../SETUP_STATUS.json`.
-2. `references/john_context.md`, which points to `~/research/JOHN_BODYTWIN_CONTEXT_2026-09-22.md`. It contains identified emails, primary sources and a completed geometry-audit. Read the original correspondence if necessary through available read access; don't send anything.
+2. `references/john_context.md`, which points to `external_research_path`. It contains identified emails, primary sources and a completed geometry-audit. Read the original correspondence if necessary through available read access; don't send anything.
 3. The actual published BodyTwin code through `references/current_bodytwin`: `README.md`, `docs/RUNNING.md`, relevant parts of `src/bodytwin/geometry/`, `src/bodytwin/cells/`, `src/bodytwin/chains/`, `src/bodytwin/framework/` and their tests/reports. Read ambitions and implemented functionality as different information.
-4. `local_path/notes/ADDENDUM_COMPUTE_CELLS_2026-09-22.md`This is a commonly useful map of published cells and private experiments; apply the inventory to BodyTwins two tracks.
-5. `~/HANDOVER_FIELD_2026-09-22.md` for field engine innovations, boundaries and negative results. Just follow relevant reports and their separate audits. This file describes an earlier mode; other sessions are continuing.
-6. `VALIDATION.json`, `OPEN_INTEGRATION_ITEMS.json` and targeted graph facings. Read `~/projects/graph_workspace/GRAPH_MAP.md` if you need to understand inherited manufacturing items. Avoid reading the whole graph or research archive without a question.
+4. `local_path`. This is a jointly useful map of published cells and private experiments; apply the inventory to BodyTwin's two tracks.
+5. `local_path` for the field engine's innovations, scope limits and negative results. Follow only relevant reports and their separate audits. The file describes an earlier state; other sessions continue working.
+6. `VALIDATION.json`, `OPEN_INTEGRATION_ITEMS.json` and targeted graph lookups. Read `local_path` if you need to understand inherited manufacturing records. Avoid reading the entire graph or research archive without a question.
 7. `notes/RESEARCH_USERS_AND_MODALITIES.md` and `notes/MECHANISM_MODALITY_SOURCES.md`. They contain Anton's expansion on researcher roles, multimodality, multiple treatment fronts and reuse of the movement/video work.
 
 ## What the collaborator actually requested
@@ -61,7 +61,7 @@ Anton has explicitly authorized the session to fetch relevant publicly available
 
 ## Verified starting point in our code
 
-Den tidigare kontrollen av publicerad BodyTwin gjordes mot commit `b95a8dc573d0beaa0d6bc8eca0ed46c0f3ce1658` i `/mnt/games-240/bodytwin_publication_2026_09_17/public`. Check version mode before work begins.
+The earlier check of published BodyTwin was against commit `b95a8dc573d0beaa0d6bc8eca0ed46c0f3ce1658` in `external_mount`. Check version status before starting work.
 
 - Mesh and tetrahedral inputs, units, rigid coordinate frames, regions, interfaces and explicit material registration have implementations.
 - `examples/anatomy/compose_mesh_to_field.py` connects a real public anatomical mesh to the field engine's CPU implementation. The reported kidney mesh raster volume error is approximately 0,0975 % at 2 mm pitch. The metric concerns volume; surface distance, thin tissue and physiological validity need their own metrics.
@@ -69,7 +69,7 @@ Den tidigare kontrollen av publicerad BodyTwin gjordes mot commit `b95a8dc573d0b
 - The focused geometry audit reported 110 passing CPU tests and one skipped. The implementation's contract was tested.
 - `src/bodytwin/cells/` contained 232 Python files beyond `__init__.py` at the latest inventory. Read each relevant cell's mechanism, inputs/outputs, evidence and scope of validity. The cell count does not say how many can be composed into a validated body simulation.
 
-The broad private workspace is: `source_repository/`; staging is `the public staging tree/3fold-bodytwin/`. Published and private variants can have different names. Invent what can be reused, what is negative or outdated and what is not yet published equivalent.
+The broad private workspace is `source_repository/`; staging is `../3fold-bodytwin/`. Published and private variants may have different names. Inventory what can be reused, what is negative or outdated and what still lacks a published counterpart.
 
 ## Our geometric relationships as research material
 
@@ -83,7 +83,7 @@ Investigate both the concrete spatial geometry and how uncertainty in geometry a
 
 The field handoff points to local elasticity/adaptive DOF, thin materials/topology, geometric measurement and alternative geometries. Read completed countertests before reuse. Total volume can, for example, be an insufficient check for a correct material partition according to these trials; therefore formulate the check based on the actual receiver.
 
-Den andra forskningssessionens `~/research/inference_training_20260921/SHARED_GEOMETRY_MATH.md` A transfer to anatomical parameter identification requires defined observations, correspondence and a comparative experiment. A distance between predictions is not an anatomical distance in millimetres. Mathematical identities, own hypotheses and verified new results shall have different status.
+The other research session's `external_research_path` can be read as a supplementary seed about the geometry of predictions and uncertainty. Transfer to anatomical parameter identification requires defined observations, correspondences and a comparative experiment. A distance between predictions is not an anatomical distance in millimeters. Mathematical identities, our own hypotheses and verified new results should have different statuses.
 
 ## BodyTwin broadly and the graph
 

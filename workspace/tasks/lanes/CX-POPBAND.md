@@ -11,6 +11,6 @@ Builds on `results/L3` (1000 synthetic individuals and 23 geometries, but left h
 KKT ≤1e-10 per accepted step; 90% band coverage 85–95% per person and 95% bands ≥90% on every evaluated joint; median width at most 1,25× unconditional band. At least 100 steg/s CPU batch; report if the ceiling falls. Countertests: permuted person geometry, removed correlation, B24/N1g and a conformal null band of the same width.
 
 ## Gemensamma regler
-- Skriv endast under `results/CX-POPBAND/`, samt stora mellanresultat i `/media/anton/sdc1-tmp/bodytwin/CX-POPBAND/`Read it. `tasks/NIGHT_PREAMBLE.md`, and relevant A-rows in `notes/RESULTS_INDEX.md`. `~/projects/bodytwin` and other sessions' workspaces are read-only.
+- Skriv endast under `results/CX-POPBAND/`, samt stora mellanresultat i `external_media`Read it. `tasks/NIGHT_PREAMBLE.md`, and relevant A-rows in `notes/RESULTS_INDEX.md`. `~/projects/bodytwin` and other sessions' workspaces are read-only.
 - Before the first computation: `PREREG.md` and `PREREG.sha256` with hypothesis, data/selection, numerical gate, strongest baseline, countertests and error definition. Document `Builds on` with graph node and source files plus `Not redone`. Preserve negative results and `UNKNOWN`.
 - Deliver `results/CX-POPBAND/RESULTS.md` with first line `# CX-POPBAND`, `results.json`, runnable code, provenance/hashes and meaningful checks. Report the counts of both valid and dropped units.

@@ -14,10 +14,10 @@ def _private_input_pattern(public_pattern):
         raise ValueError("A nonempty private-source exclusion list is required")
     return "(?:" + public_pattern + ")|(?:" + "|".join(re.escape(t) for t in terms) + ")"
 
-sys.path.insert(0, 'the public staging tree/3fold-motion-engine/_private/romi_collab/lanes')
+sys.path.insert(0, '../3fold-motion-engine/_private/romi_collab/lanes')
 from field_queue_store import read_queue, append_jobs, take_jobs, parent_ready, enabled, research_bridge
-sys.path.insert(0, 'the public staging tree/3fold-motion-engine/_private/romi_collab/lanes/automation_runtime')
-R = 'the public staging tree/3fold-motion-engine/_private/romi_collab'
+sys.path.insert(0, '../3fold-motion-engine/_private/romi_collab/lanes/automation_runtime')
+R = '../3fold-motion-engine/_private/romi_collab'
 B = R + '/build'; Q = R + '/lanes/SWARM_QUEUE_20260924.json'; LOG = R + '/lanes/field_ovh.log'
 RUN = os.environ.get('FIELD_RUNNING_DIR',R + '/lanes/ovh_running'); os.makedirs(RUN, exist_ok=True)
 H = os.environ.get('FIELD_CLOUD_HOST','ubuntu@51.77.110.4')
@@ -25,10 +25,10 @@ LOG = os.environ.get('FIELD_CLOUD_LOG',LOG)
 CAPFILE = os.environ.get('FIELD_CAP_FILE',R+'/lanes/ovh_field_cap')
 HOST_CAP=int(os.environ.get('FIELD_HOST_CAP','44'))
 HEADROOM=int(os.environ.get('FIELD_HEADROOM_MIB','4096'))
-SSHO = ['-o', 'ConnectTimeout=15', '-o', 'ServerAliveInterval=30', '-i', '~/.ssh/hunt_20260923', '-o', 'IdentitiesOnly=yes',
-        '-o', 'UserKnownHostsFile=~/research/sol6_recovery_20260923/CLOUD_HUNT_20260923/infra/known_hosts', '-o', 'BatchMode=yes']
+SSHO = ['-o', 'ConnectTimeout=15', '-o', 'ServerAliveInterval=30', '-i', 'local_config_path/hunt_20260923', '-o', 'IdentitiesOnly=yes',
+        '-o', 'UserKnownHostsFile=external_research_path', '-o', 'BatchMode=yes']
 RSH = 'ssh ' + ' '.join(SSHO)
-MK = open('the public staging tree/3fold-motion-engine/_private/romi_collab/lanes/automation_runtime/mk.py').read()
+MK = open('../3fold-motion-engine/_private/romi_collab/lanes/automation_runtime/mk.py').read()
 RULES = re.search(r"RULES='''(.*?)'''", MK, re.S).group(1)
 RULES = re.sub(r'Python: \S+', 'Python: python3 (numpy/scipy/sympy are available)', RULES)
 DENY = re.compile(_private_input_pattern('3fold-workspaces/bodytwin|the collaborator|shared_data|sdc1|L1/prep|/L1\\b|\\bL1-(operat|ruta|data)|\\bGC\\b|grand challenge|eknee|etibia|\\bJW\\d?|\\bDM\\d|\\bSC\\d|\\bPS\\d|EMG|CX-|implant'), re.I)
@@ -52,7 +52,7 @@ def cloud_ok(j):
 
 def prepare(j):
     jd = f"{B}/{j['id']}"
-    storage=Path('/mnt/games-240/research/bunny48_20260926/field')
+    storage=Path('external_mount')
     if storage.is_dir() and not os.path.lexists(jd):
         dest=storage/j['id'];dest.mkdir(exist_ok=True);Path(jd).symlink_to(dest,target_is_directory=True)
     os.makedirs(jd + '/src', exist_ok=True)
@@ -65,7 +65,7 @@ def prepare(j):
                            ([] if graph_source else ['--exclude','work'])+
                            [srcdir.rstrip('/') + '/', f'{jd}/src/{name}/'], check=True)
     guard='Prior reports and planner claims are unaudited inputs. Verify their exact assumptions. Finite sampled successes or heuristic flags are not universal certificates. A statistical bound is not a deterministic force/error bound. Check units and preserve all negative controls. Use the strongest matched baseline available. If a dependency is supplied, read its actual outcome before using its claimed success.'
-    principles=Path('~/research/FREE_AUTONOMY_20260926/FIRST_PRINCIPLES.md').read_text()
+    principles=Path('external_research_path').read_text()
     open(jd + '/BRIEF.md', 'w').write(f"# {j['id']} — {j['title']}\n{j['body']}\n{guard}\n{RULES}\n\n{principles}\n")
     open(jd+'/JOB.json','w').write(json.dumps(j,ensure_ascii=False,indent=1))
     if j.get('preferred_model') in ('swarm','free_worker'):
@@ -82,7 +82,7 @@ def fetch(active):
         # Workers can create computational code under src/. Skipping that tree
         # discarded the only copy of new code before remote cleanup. Rsync is
         # incremental against the existing supplied source snapshot.
-        copied=subprocess.run([sys.executable, '~/research/FREE_AUTONOMY_20260926/collect_verified.py', f'{H}:/opt/agents/jobs/F_{jid}/', jd + '/', RSH], stdin=subprocess.DEVNULL)
+        copied=subprocess.run([sys.executable, 'external_research_path', f'{H}:/opt/agents/jobs/F_{jid}/', jd + '/', RSH], stdin=subprocess.DEVNULL)
         if copied.returncode:
             log('fetch copy failed; remote preserved',jid,copied.returncode);continue
         ok = os.path.exists(jd + '/RESULTS.md')

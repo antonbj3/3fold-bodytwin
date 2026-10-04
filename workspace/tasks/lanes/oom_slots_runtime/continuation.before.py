@@ -3,7 +3,7 @@ from pathlib import Path
 import collections,fcntl,hashlib,json,os,subprocess,sys,time
 import operations
 R=Path(__file__).resolve().parent;A=R.parent
-F=Path('the public staging tree/3fold-motion-engine/_private/romi_collab')
+F=Path('../3fold-motion-engine/_private/romi_collab')
 sys.path.insert(0,str(F/'lanes'))
 from field_queue_store import intake,append_jobs,read_queue,enabled
 def save(p,x):

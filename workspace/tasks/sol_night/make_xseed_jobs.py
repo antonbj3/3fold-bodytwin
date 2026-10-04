@@ -1,4 +1,4 @@
-"Make Anton's X bookmarksseeds (BodyTwin-delen, ~/research/X_BOOKMARKS_20260930) to self-supporting swarming jobs.\n\nOne job per selected seed: results/BT-XSEED-<batch><B>/ with BRIEF.md, inputs/SEED.md (seed's section verbatim), JOB.json, ALLOW_WEB.\nThe runs are placed FIRST in tasks/lanes/bt_queue.txt (Anton's seeds before the backlog), under the queue lock. Idempotent."
+"Make Anton's X bookmarksseeds (BodyTwin-delen, external_research_path) to self-supporting swarming jobs.\n\nOne job per selected seed: results/BT-XSEED-<batch><B>/ with BRIEF.md, inputs/SEED.md (seed's section verbatim), JOB.json, ALLOW_WEB.\nThe runs are placed FIRST in tasks/lanes/bt_queue.txt (Anton's seeds before the backlog), under the queue lock. Idempotent."
 import fcntl, hashlib, json, re, time
 from pathlib import Path
 
@@ -14,7 +14,7 @@ def _private_input_pattern(public_pattern):
     return "(?:" + public_pattern + ")|(?:" + "|".join(re.escape(t) for t in terms) + ")"
 
 
-X = Path('~/research/X_BOOKMARKS_20260930'); B = Path('.')
+X = Path('external_research_path'); B = Path('')
 Q = B / 'tasks/lanes/bt_queue.txt'
 import os
 PICK = [tuple((int(x[0]), x[1:])) for x in os.environ['XSEED_PICK'].split(',')] if os.environ.get('XSEED_PICK') else [(4, 'B1'), (4, 'B2'), (3, 'B1'), (2, 'B3'), (2, 'B4'), (3, 'B4'), (3, 'B5'), (3, 'B6'), (3, 'B7'),

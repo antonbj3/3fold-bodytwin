@@ -8,7 +8,7 @@ The main task is a broad innovation hunt: the field engine, physics/materials/sa
 
 Another session owns the graph engine's research and kernel work. Do not change its checkout or research graph. Dental and BodyTwin must be prepared with full context; do not choose a specific medical application yourself based on Anton's needle or incision example. FPGA implementation is paused.
 
-Anton says that the co-ordinator quota has just been restored and that he has around 27 hours to use it, with a new available model. He wants to use the coordinator and let reserve_worker rest for a while. Model access/alias is not verified by this handover. Coordinator Code has been updated and verified to **2.1.280**, runable via `~/.local/bin/coordinator`No new coordinator session has been started for him.
+Anton says the coordinator quota was just reset and that he has about 27 hours to use it, with a new available model. He wants to use coordinator and let swarm_worker rest for a while. Model access/aliases are not verified by this handoff. coordinator Code has been updated and verified to **2.1.280**, executable via `local_config_path/bin/coordinator`. No new coordinator session has been started for him.
 
 ## Read first, without rereading all historical material
 
@@ -21,7 +21,7 @@ Anton says that the co-ordinator quota has just been restored and that he has ar
 Forskningsrot:
 
 ```
-the public staging tree/3fold-motion-engine/_private/romi_collab
+../3fold-motion-engine/_private/romi_collab
 ```
 
 ## Verified run state: the entire day queue is delivered
@@ -75,8 +75,8 @@ P1–P4 and the reproduction packages are already published. Public motion-HEAD 
 
 The field engine's three older fixes are also already published:
 
-- staging `the public staging tree/3fold-field-engine`: `597600c3031b1af29e4bdd0351a22ced61baee4d`.
-- public `~/projects/3fold_public/3fold-field-engine`: `3ffdb0edb119fdfb3484f4d0aa36639412f51508`.
+- staging `../3fold-field-engine`: `597600c3031b1af29e4bdd0351a22ced61baee4d`.
+- public `local_path`: `3ffdb0edb119fdfb3484f4d0aa36639412f51508`.
 - Publika commits: `2b91296`, `9705033`, `3ffdb0e` (stale owner-celler, massgrid/tre frames, deterministiska owner-ties). Staging var rent vid ny kontroll.
 
 **U271/A187 explicitly reports no further release candidate.** A187's report has been read for this handoff; its tests have not been rerun by root. The chosen payload is empty and `integration_ready=false`. The audit reports 30 regression passes and confirms already published files. This does not mean a new field release is ready.
@@ -94,10 +94,10 @@ Isaac Sim assets (~175 GiB) were removed on Anton's explicit instruction. The pr
 The dental move's supervisor **PID 654852** is still running. The original **52 005 files, 113 330 792 472 bytes** have finished copying. At the latest check, the step was **`verifying_checksums`**, rsync PID 686331. Live status:
 
 ```
-~/research/storage_cleanup_20260922/dental_move_state.json
+external_research_path
 ```
 
-Source `/media/anton/sdc1-tmp/datasets/dental_3fold_corpus` → Objectives `/mnt/shared_data/datasets/dental_3fold_corpus`.
+Source `external_media` → destination `external_mount`.
 Script `move_dental_corpus.py` performs a full rsync checksum check, checks that the source is unchanged, replaces the original address with a symlink and deletes the verified old copy **only after checks pass**. A full disk at the original source was the reason for the move.
 
 Let the process finish. No duplicate move or manual deletion based on copying percentage. On error: read supervisor/state/verify logs and preserve source/backup. The script cannot simply be restarted when the destination already exists. Old dataset harvesters and watchdog were stopped because they would otherwise restart when space becomes available; do not restart automatically.
@@ -106,7 +106,7 @@ Let the process finish. No duplicate move or manual deletion based on copying pe
 
 Anton wants two dedicated private projects: general BodyTwin, and dental = BodyTwin + manufacturing. The field engine must be a geometry/material foundation for both. The other graph session has provided the correct source map:
 
-**`~/projects/graph_workspace/GRAPH_MAP.md`**.
+**`local_path`**.
 
 - CS-I `data/ANCHOR_GRAPH.json`: **97 nodes, 14 goals, 81 dependencies**. The small node count is correct for the dependency layer; the graph has extensive measured data.
 - CS-I's three `CONSTRAINT_NET_{VEHICLE,PROJECTOR,FLEET_FACTORY}.json` and `CONSTRAINT_STRESS_MAP_V1.json` are the variables' quantified relations and stress points.
@@ -117,7 +117,7 @@ Anton wants two dedicated private projects: general BodyTwin, and dental = BodyT
 
 Here root made a context error: first built a merged anchor graph and described readiness too broadly; then moved too quickly to a large seed-index file when Anton questioned the counts. Anton and the other session corrected this. Preserve that correction.
 
-Preliminary workspaces are available in **`~/projects/3fold-workspaces/{bodytwin,dental}`**. `SETUP_STATUS.json` anger `paused_for_session_handoff`, source map now confirmed, full import **not ready**The original sources are untouched.
+Preliminary workspaces exist in **`local_path,dental}`**. `SETUP_STATUS.json` says `paused_for_session_handoff`, source map now confirmed, full import **not complete**. The original sources are untouched.
 
 Built: lossless namespaced anchor-graph reader, frozen source copies, status preservation, separate coupling notes, registries, profiles through existing `EngineProfile.merge`, version generation and manifest checks. 3950/4047 are the anchor-graph views. Six targeted tests passed. An independent read check confirmed round-trip and no source drift. The new engine is pinned to the graph session's research commit `73e76dd83a601ddf2ccb5bab041512dd426ddb2c`, separate from canonical public `3928720` in `~/projects/graph_workspace/pub`.
 
@@ -129,7 +129,7 @@ Detail: `tools/workspace.py` has late additions for `CONSTRAINT_NETS.json` and a
 
 `~/research/JOHN_BODYTWIN_CONTEXT_2026-09-22.md` contains read through mail, primary sources and actual code review. the collaboration Rasmussen/AAU has worked for a long time with the reference model and patient specific geometri/morphing; do not present such capacity as if it was missing in his world. His email requests concrete demonstration, physiological geometri/parameterisering and a geometry manager.
 
-Aktuell publicerad BodyTwin-kod: `/mnt/games-240/bodytwin_publication_2026_09_17/public`, commit `b95a8dc573d0beaa0d6bc8eca0ed46c0f3ce1658`, compared to remote. Contains strict mesh-seam, voxel/tet-materialgrsets, rigid mm frame, regionmassa/moment and explicit material region registration. Reell CPU mesh→SDF- bridge is in `examples/anatomy/compose_mesh_to_field.py`; en njurmeshs rastervolymfel 0.0975% is not surface precision or clinical validation. formmodell/landmarkmorphing eller biomekanisk kontaktkedja hittades. 110 CPU- tests passed, one hoped over at separate geometry-audit.
+Current published BodyTwin code: `external_mount`, commit `b95a8dc573d0beaa0d6bc8eca0ed46c0f3ce1658`, compared against remote. Contains strict mesh seam, voxel/tet material boundaries, rigid mm frame, region mass/moment and explicit material-region registration. An actual CPU mesh→SDF bridge exists in `examples/anatomy/compose_mesh_to_field.py`; a kidney mesh's raster-volume error of 0.0975% is not surface precision or clinical validation. No general anatomical shape model/landmark morphing or biomechanical contact chain was found. 110 CPU tests passed, one was skipped in a separate geometry audit.
 
 
 ## Working rules that must not be lost

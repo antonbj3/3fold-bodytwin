@@ -16,9 +16,9 @@ Communicate with Anton briefly and comprehensibly in Swedish. Start with what th
 
 Gemensamma forskningsinstruktioner:
 
-- [FIRST_PRINCIPLES.md](~/research/FREE_AUTONOMY_20260926/FIRST_PRINCIPLES.md)
-- [SEARCH_METHOD.md](~/research/FREE_AUTONOMY_20260926/SEARCH_METHOD.md)
-- [RESEARCH_PRINCIPLES.md](~/research/FREE_AUTONOMY_20260926/RESEARCH_PRINCIPLES.md)
+- [FIRST_PRINCIPLES.md](external_research_path)
+- [SEARCH_METHOD.md](external_research_path)
+- [RESEARCH_PRINCIPLES.md](external_research_path)
 
 These provide a common search direction. Historical model bans, numbers and time windows in older campaign texts need to be read in context; today's user instructions and the currently valid driving window govern the further work.
 
@@ -26,17 +26,17 @@ These provide a common search direction. Historical model bans, numbers and time
 
 | Part | Entry and responsibility |
 |---|---|
-| Graf | Engine, semantics, relationships, goals, selection, contradictions, evidence and composition. Public checkout: `~/projects/graph_workspace/pub`. Kartan: `~/projects/graph_workspace/GRAPH_MAP.md`Private research industry and later integration are separate. |
-| Field | Geometry, materials, contact, adaptive resolution, numericals and reuse. Integration workshop: `the public staging tree/3fold-field-engine-lane`. Huvudsaklig historisk forskningsrot: `the public staging tree/3fold-motion-engine/_private/romi_collab`. |
-| BodyTwin | Egen arbetsyta: `.`Older private implementation: `source_repository`. Publicerad snapshot via arbetsytans `references/current_bodytwin`. |
+| Graph | Engine, Semantics, Relations, Objectives, Selection, Contradictions, Evidence and Composition. Public checkout: `local_path`. The map: `local_path`. Private research branches and later integration are separate. |
+| Fields | Geometry, Material, Contact, Adaptive Resolution, Numeric and Reuse. Integration Worktree: `../3fold-field-engine-lane`. Main historical research root: `../3fold-motion-engine/_private/romi_collab`. |
+| BodyTwin | Own workspace: ``. Older private implementation: `source_repository/`. Published snapshot via the workspace’s `references/current_bodytwin`. |
 | Dental | Own workspace: `local_path`. Combines BodyTwin, field and manufacturing through concrete requirements, model contracts and experiments. |
-| Automatisk forskning | `~/research/FREE_AUTONOMY_20260926`, existing project controllers and Field queue. The name dates the directory; it does not limit the content to that day. |
-| Operation and Terminal View | `~/research/AGENT_DASHBOARD_20260930`Drive. `~/bin/agent-status` for live reading image. |
-| Versionsarkiv | `/mnt/games-240/research/innovation_version_archive_20260926`. Private local archive for research packages and coordination code. Product integration has its own version track. |
+| Automatic research | `external_research_path`, existing project controllers and Field queue. The name dates the directory; it does not limit the content to that day. |
+| Operation and terminal view | `external_research_path`. Run `local_path` for live reading image. |
+| Version archive | `external_mount`. Private local repository for research packages and coordination code. Product integration has its own version track. |
 
-Read Applicable AGENTS and README before changing code. The workspaces' common instructions are in [AGENTS.md](~/projects/3fold-workspaces/AGENTS.md)New local experiments belong to `notes/`, `tasks/` and `results/`. Source graphs, generated graphs and other sessions' development checkout have own owners.
+Read applicable AGENTS and README before changing code. The workspaces' common instructions can be found in [AGENTS.md](local_path). New local experiments belong to `notes/`, `tasks/` and `results/`. Source graphs, generated graphs, and other sessions' development checkout have their own owners.
 
-BodyTwin and dental use a version-locked graph motor according to [ENGINE.json](~/projects/3fold-workspaces/ENGINE.json): forskningscommit `73e76dd83a601ddf2ccb5bab041512dd426ddb2c`. This pin is updated through a separately reviewed step. Later graphbranches are research data until compatible integration has been completed.
+BodyTwin and dental use a version-locked graph engine according to [ENGINE.json](local_path): research commit `73e76dd83a601ddf2ccb5bab041512dd426ddb2c`. This pin is updated through a separate audited step. Later graph branches are research grounds until compatible integration is accomplished.
 
 ## Grafens funktion i arbetet
 
@@ -81,7 +81,7 @@ After the trial, the result should be linked back with the correct target, resul
 ./graph history --id <BEFINTLIGT_MAL>
 ```
 
-Fulla kontrakt: [BodyTwin GRAPH_WORKFLOW.md](./notes/GRAPH_WORKFLOW.md) and [Dental GRAPH_WORKFLOW.md](local_path/notes/GRAPH_WORKFLOW.md).
+Full Contracts: [BodyTwin GRAPH_WORKFLOW.md](notes/GRAPH_WORKFLOW.md) and [Dental GRAPH_WORKFLOW.md](local_path).
 
 A correct report binding updates context. Independent review, numerical fusion, and scientific status in the native graph have separate requirements. Missing working coverage must be documented and sent to Graph as a concrete additional proposal. An old arithmetic node must not carry a broad physiological or numerical claim just because it is dispatchable.
 
@@ -93,7 +93,7 @@ Feel free to try two different constructions against the same question and let t
 
 The graph engine's existing tools include `throws`, `mechanism_signature`, `resistance_sketch`, `precision_form`, `graph_interface`, `claim_federation`, profiles and `next_actions`. They offer, among other things, random/sequential densification, mechanism signatures, information geometry, Schur/Kron interface and conflict/lineage. Use requires compatible model contracts and the correct input data. Article links and similar words do not provide measured mechanism distances or physical precision weights.
 
-An actual bridge to the planners is under [GRAPH_COMBINATORICS](~/research/FREE_AUTONOMY_20260926/PROOF_LANE_DISTILL_20260928/GRAPH_COMBINATORICS/README.md). It uses delivered Corpus reader support and the engine's `throws.draw_pairs`. A previous round selected ten intersections with a third part from older materials; reports and feedback are available. The existing cloud bridge adds ten frozen candidates as a rotating selection to Field, BodyTwin and Dental. IDs, code, corrections and previous negative results can accompany tasks and followers.
+An actual bridge to the planners can be found under [GRAPH_COMBINATORICS](external_research_path). It uses supplied Corpus reader support and the `throws.draw_pairs` engine. An earlier round selected ten crosses with a third part from older material; reports and feedback are available. The existing cloud bridge adds ten frozen candidates as a rotating selection to Field, BodyTwin and dental. IDs, code, corrections and previous negative results can accompany tasks and successors.
 
 The candidate bank is yet another limited selection. Mechanism distances of the entire report corpus are not measured and better detection outcomes for the sample are not established. Keep these gaps as you build on the actual graph code.
 
@@ -103,9 +103,9 @@ There is an extensive bank of reports, code and packages from Field, BodyTwin, d
 
 The 500 specific spreads are M1–M500. Their job listing is in:
 
-- [SEED_PROGRAM_500_IMPROVED_20260929.json](./tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json)
-- [BODYTWIN_MUTATIONS_IMPROVED_v6.md](~/research/BODYTWIN_MUTATIONS_IMPROVED_v6.md)
-- [LANE_RUNNER_IMPROVE_500_RESULT.md](./tasks/lanes/LANE_RUNNER_IMPROVE_500_RESULT.md)
+- [SEED_PROGRAM_500_IMPROVED_20260929.json](tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json)
+- [BODYTWIN_MUTATIONS_IMPROVED_v6.md](external_research_path)
+- [LANE_RUNNER_IMPROVE_500_RESULT.md](tasks/lanes/LANE_RUNNER_IMPROVE_500_RESULT.md)
 
 V6 preserves IDs and improves definition, consumer, test, first-principles decomposition, strong control, and cost. The producer receipt reports 406 updated briefs and 94 protected previous briefs. A job that has already started continues with its frozen version. V6 in the directory therefore does not show that every older run used v6.
 
@@ -113,7 +113,7 @@ Direct check against all 500 `job_id` on 30 September around 21:26 gave **471 re
 
 The Sol substrates add 12 boundary constructions BM1–BM12 and 27 proposed operators/ports: O01–O10, T42–T50 and P01–P08. They are not automatically 39 new started experiments. The approximately 30 additions mentioned verbally have not yet been identified as a separate unambiguous job listing.
 
-Den samlade molekyl/signaling-planen is available in [HANDOVER_BODYTWIN_LANE_RUNNER.md](~/research/HANDOVER_BODYTWIN_LANE_RUNNER.md) and `results/LANE_RUNNER_ANALYSIS3_20260930/NEXT_WAVE.json`. W00–W10 indicates the proposed steps: correct joint port, actual glucose consumer, donor-DE, function calibration, other consumers and re-use. The plan rows must be separated from the Sol attempts made and queued free model jobs.
+The collected molecule/signaling plan is in [HANDOVER_BODYTWIN_LANE_RUNNER.md](external_research_path) and `results/LANE_RUNNER_ANALYSIS3_20260930/NEXT_WAVE.json`. W00–W10 indicate suggested steps: correct joint port, actual glucose consumer, donor DE, function calibration, other consumers, and reuse. The plan rows must be separated from executed Sol trials and queued free model jobs.
 
 Today's controller records included about 21:24 **5 780 BodyTwin jobs with 4 655 report files** and **3 619 dental jobs with 2 693 report files**. This includes different generations, planners, producers and reviews. Do not count the sum as new findings or already finalized experiments.
 
@@ -201,7 +201,7 @@ The Sol trials use CPU. When checking local RTX 5070 there were no GPU calculati
 
 Three questions must get their own receipts: is the material still there, has it been given the right worker inputs, and has usable code actually been integrated into the receiving repo?
 
-Den daterade legacy-snapshoten har enligt org-audit/vEquations **2 952 files and 75 628 807 byte**. Lokal root: `/mnt/games-240/research/organization_audit_20260930/inputs/mechanism_legacy`. Org-auditens molnroot: `/opt/agents/inputs/mechanism_legacy_20260930`Manifest and cloud read probes are found in the compiled BodyTwin handover package. An accessible material is not automatically consumed by all workers.
+According to org-audit/weaving, the dated legacy snapshot has **2 952 files and 75 628 807 bytes**. Local root: `external_mount`. Org audit cloud root: `/opt/agents/inputs/mechanism_legacy_20260930`. Manifest and cloud read probes are included in the compiled BodyTwin handover package. An available material is not automatically consumed by all workers.
 
 Analysis 3 has a 33 files frozen starter package and 51 full native context nodes. The weave has a manifest with 40 inputs, native controls and a local preflight. It is useful for conditional development. The new full delta delivery and actual consumption in all cloud workers are not verified by this handoff.
 
@@ -237,7 +237,7 @@ New proposals shall name `research_value` with capability, obstacle, changed_ope
 
 Planners receive `VALUE_BACKLOG.json` with advice on remaining work. The intake limits backfilling background checks and similar siblings per proposal file. Postponed proposals and reasons remain in the original file and intake-the receipt. They are taken up again through a changed/new intake; old receipts are not manipulated.
 
-Two value planners were started with verified directive and backlog, and new starts for both The swarm and reserve_worker har verifierats. Sex meningsfulla urvals-/bevarandetester passerar. Exakt deployment: [RESEARCH_VALUE_DEPLOY.json](~/research/AGENT_DASHBOARD_20260930/RESEARCH_VALUE_DEPLOY.json). All the separate selection rules of the Field Planner have not been rebuilt by this amendment; its existing loop and the common instructions shall continue to be taken into account.
+Two value schedulers were started with verified directive and backlog, and new starts for both The_swarm and swarm_worker have been verified. Six meaningful selection/preservation tests passes. Exact deployment: [RESEARCH_VALUE_DEPLOY.json](external_research_path). All of the field planner's separate selection rules have not been rebuilt by this change; its existing loop and the common instructions must still be considered.
 
 ## Cloud local resources and end times
 
@@ -297,7 +297,7 @@ Current read version states:
 | Field staging main | `597600c`, 21 September, no tracked changes. |
 | Graph public checkout | `3928720`, 20 September, no tracked changes. Research branches are located separately. |
 | BodyTwin staging | `2ec6cb2`, 13 September, 17 tracked changes. |
-| BodyTwin lane | Separat git-dir `~/research/bodytwin_lane_git`, worktree `3fold-workspaces/bodytwin`; `9f777f3`, 25 september, 1 063 tracked changes. |
+| BodyTwin lane | Separate git-dir `external_research_path`, worktree `3fold-workspaces/bodytwin`; `9f777f3`, 25 September, 1 063 tracked changes. |
 | Research archive | `22df3c3`, 30 September, purely tracked status when reading. |
 
 These numbers came from scoped status with no untracked count. The large BodyTwin work tree requires delineation by owner/experiment; a wide `git add .` would mix old research, generated files and new patches. The dental workspace has multiple scoped delivery tracks and lacks a verified common common git root. Identify the receiving repo for each patch.
@@ -310,7 +310,7 @@ MITOSTRESS and IMMUNITY have two dedicated work targets, real source catalogs, c
 
 Dental shall develop geometry → field → material/physics → function/intervention → generative design → manufacturing → measurement/validation. Material innovation and the time course of the procedure itself are explicit goals. Fixed, removable and implant-supported cases may need different loads, interfaces and consumers.
 
-Dental corpus float is checksum meverified according to current STARTUP: 52 005 filer, 113 330 792 472 byte, med root `/mnt/shared_data/datasets/dental_3fold_corpus` and functional aliases. This ensures no complete dataset collection or coherent individual data. Relevant data are mapped below `~/research/dental_implant_datasets`.
+Dental's corpus move is checksum verified according to current STARTUP: 52 005 files, 113 330 792 472 bytes, with root `external_mount` and working aliases. This does not guarantee complete dataset collection or coherent individual data. Relevant data is mapped under `external_research_path`.
 
 The existing whole-chain map and planter feedback can be found in the dental's notes:
 
@@ -337,13 +337,13 @@ Address concrete interface and target gaps as next work, for example the right w
 
 Start with this file, your lane message, applicable AGENTS/START and common research instructions. Then continue with:
 
-- [Samlad BodyTwin handover](~/research/HANDOVER_BODYTWIN_LANE_RUNNER.md) and its manifesto for boundary/maps/v6/legacy/native-kRare.
-- [Innovationsjakt 30 september](./notes/INNOVATIONSJAKT_20260930.md) for the day's instructions and preserved progress.
-- [Grafkarta](~/projects/graph_workspace/GRAPH_MAP.md) samt arbetsytornas README, FORMAT and GRAPH_WORKFLOW.
-- [Grafstyrd kombination](~/research/FREE_AUTONOMY_20260926/PROOF_LANE_DISTILL_20260928/GRAPH_COMBINATORICS/README.md) with actual selector, candidates, bridge and feedback index.
-- [Sols QUERY_GRAPH resultat](./results/LANE_AMBITIOUS_QUERY_GRAPH/RESULTS.md) and final consumer/control files in HISTORY_INVERSE.
-- [Drift README](~/research/AGENT_DASHBOARD_20260930/README.txt) and RESEARCH_VALUE_DEPLOY samt resursdeployment-kvitton.
-- [Private version track](~/research/FREE_AUTONOMY_20260926/COMMIT_STATUS_20260926.md), senaste VERSION_CHECKPOINT and archive index. 26-septembertexten kompletteras av handoffens scoped HEAD- Readings.
+- [Collected BodyTwin handover](external_research_path) and its manifest for boundary/maps/v6/legacy/native-sources.
+- [Innovation hunt 30 September](notes/INNOVATIONSJAKT_20260930.md) for today's instructions and preserved progress.
+- [Graph map](local_path) and the workspaces README, FORMAT and GRAPH_WORKFLOW.
+- [Graph controlled combination](external_research_path) with actual selector, candidates, bridge and feedback index.
+- [Sol's QUERY_GRAPH result](results/LANE_AMBITIOUS_QUERY_GRAPH/RESULTS.md) and final consumer/control files in HISTORY_INVERSE.
+- [Operations README](external_research_path) and RESEARCH_VALUE_DEPLOY and resource deployment receipts.
+- [Private version track](external_research_path), latest VERSION_CHECKPOINT and archive index. The dated 26 September text is complemented by handoff's scoped HEAD readings.
 
 The historical handover of the field and the chain map of the dental are in the respective lane message. Move on from reading to a bounded useful construction after the orientation. The summary does not make new model starts, publications, or changes to source graphs.
 
@@ -354,7 +354,7 @@ OVH's low concurrency is now investigated and fixed. A successful comparable job
 
 Verified runtime about 22:03: OVH 20 concurrent workers (12 The_swarm, 8 swarm_worker); UpCloud 3 (2 The_swarm, 1 swarm_worker); local 10 The_swarm and 3 Sol. Total 36. Autofill is working again. At this measurement, resource control held back additional starts for memory reservation and reserve for growth. Cat waited for the vendor's cooldown. The numbers are snapshots.
 
-This replaces the open handoff of the previous handoff OVH-diagnosis and expands its list of small memory levels with measured larger budgets. Original time-stamped snapshots remain. Receipt: [OVH- the fix.](~/research/AGENT_DASHBOARD_20260930/OVH_DYNAMIC_MEMORY_REPAIR_20260930.json), with full images in the same directory. The change of operation does not approve any research results.
+This replaces the previous handoff's open OVH-diagnosis and expands its list of small memory tiers with measured larger budgets. Original time-stamped snapshots remain. Receipt: [OVH correction ](external_research_path), with full afterimages in the same directory. The operating change does not approve any research results.
 
 ### Sols tillkommande checkpoint
 

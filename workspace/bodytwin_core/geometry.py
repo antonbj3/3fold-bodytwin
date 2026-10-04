@@ -9,7 +9,7 @@ from .geometry_priors import (prior_from_anthropometry, contralateral,
 def instantiate(subject='z001', scenario='S6', config=None):
     p = paths(config)
     gm = GeometryManager(p['geometry_data'], exclude_vsd=subject,
-                         extra_dir=p['geometry_extra'], cache_dir='/media/anton/sdc1-tmp/bodytwin/CX-INTEGRATE')
+                         extra_dir=p['geometry_extra'], cache_dir='external_media')
     obs = np.load(p['geometry_data'] / 'vsd_obs.npz')
     si = list(map(str, obs['subj'])).index(subject)
     ri = int(np.flatnonzero(np.isfinite(obs['obs_lm'][si, :, 0, 0]))[0])

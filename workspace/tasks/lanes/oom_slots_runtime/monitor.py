@@ -1,9 +1,9 @@
 """15-minute kernel/cgroup evidence, sampled while all three queues run."""
 from pathlib import Path
 import concurrent.futures, datetime, json, os, subprocess, time
-ROOT=Path('.')
+ROOT=Path('')
 OUT=ROOT/'tasks/lanes/oom_slots_runtime'
-SSH=['ssh','-o','ConnectTimeout=12','-i','~/.ssh/hunt_20260923','-o','IdentitiesOnly=yes','-o','UserKnownHostsFile=~/research/sol6_recovery_20260923/CLOUD_HUNT_20260923/infra/known_hosts','-o','BatchMode=yes']
+SSH=['ssh','-o','ConnectTimeout=12','-i','local_config_path/hunt_20260923','-o','IdentitiesOnly=yes','-o','UserKnownHostsFile=external_research_path','-o','BatchMode=yes']
 BEGAN=time.time()
 SINCE=datetime.datetime.fromtimestamp(BEGAN,datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
 REMOTE='''from pathlib import Path

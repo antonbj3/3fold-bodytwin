@@ -23,7 +23,7 @@ import json
 import pathlib
 import re
 
-W = pathlib.Path('.')
+W = pathlib.Path('')
 CELLS = W / 'tasks/free48/sources'
 
 DIST = re.compile(r'\b(\d[\d\s,]*draws?|seeded draws|confidence interval|credible interval|'

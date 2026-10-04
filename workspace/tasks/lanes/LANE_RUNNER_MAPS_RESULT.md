@@ -4,9 +4,9 @@ Completed 2026-09-30. Independent interpretation and execution; no other agents 
 
 ## Leverans
 
-1. [BODYTWIN_MAPS_OPERATORS.md](~/research/BODYTWIN_MAPS_OPERATORS.md) — overview of the room metrik/topologi, explicit maps, invariant preservation, dimension loss, algebra, inverser/ncredit-isometries, fault transport, subject-section, unbroken ground, identity and priority;
-2. [BODYTWIN_MAPS_OPERATORS.json](~/research/BODYTWIN_MAPS_OPERATORS.json) — machine-readable catalogue with: **15 rooms and 27 operatorer**, varav **eight port items**. All have domain/codons, injectivity/surjectivity with conditions, invariant, reduction, uncertainty, identification, discriminating test, strong control, counterfall and rank.
-3. [RESULTS.md](./results/LANE_RUNNER_MAPS_C/RESULTS.md) — implementation, controls, scientific limitations and reproduction. `results/LANE_RUNNER_MAPS_C/`.
+1. [BODYTWIN_MAPS_OPERATORS.md](external_research_path) — overall view of the spaces' metric/topology, explicit maps, invariant preservation, dimensional loss, algebra, inverses/near-isometries, error transport, subject intersections, unexplored ground, identifiability and prioritisation.
+2. [BODYTWIN_MAPS_OPERATORS.json](external_research_path) — machine-readable catalogue with **15 spaces and 27 operators**, of which **eight port objects**. All have domain/codomain, injectivity/surjectivity with conditions, invariants, reduction, uncertainty, identifiability, discriminating test, strong control, counter-case and rank.
+3. [RESULTS.md](results/LANE_RUNNER_MAPS_C/RESULTS.md) — execution, checks, scientific limitations and reproduction. Supporting artifacts are in `results/LANE_RUNNER_MAPS_C/`.
 
 ## Beslut
 
@@ -37,8 +37,8 @@ The working packets now have matching result bindings. The dispatch history also
 
 Graph dispatch was made with `kind=define`, lane `LANE_RUNNER_MAPS_C`, target `BT-C4-ERROR-BUDGET` as context anchor. A complete maps target is missing in the working view; no such dependency was invented. The result was bound with feedback, pending review and `scientific_admission=false`:
 
-- [DISPATCH.json](./tasks/graph_runs/LANE_RUNNER_MAPS_C/DISPATCH.json)
-- [FEEDBACK_e3b3c64c4b98ed57.json](./tasks/graph_runs/LANE_RUNNER_MAPS_C/FEEDBACK_e3b3c64c4b98ed57.json)
+- [DISPATCH.json](tasks/graph_runs/LANE_RUNNER_MAPS_C/DISPATCH.json)
+- [FEEDBACK_e3b3c64c4b98ed57.json](tasks/graph_runs/LANE_RUNNER_MAPS_C/FEEDBACK_e3b3c64c4b98ed57.json)
 
 ## Not done
 

@@ -12,7 +12,7 @@ import sys
 # seed_queue_order.py does exactly this; the same pattern here.
 signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 
-W = '.'
+W = ''
 EVERY = 3          # Every third row issued shall be dental as long as the dental has live lines
 DENTAL_PREFIX = 'BT-DW48-'
 

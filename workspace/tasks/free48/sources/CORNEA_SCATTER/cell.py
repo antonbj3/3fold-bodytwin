@@ -16,7 +16,7 @@ from scipy.special import j1
 # PENDING_INDEPENDENT_REVIEW -- path portability only; no model change.
 import os
 HERE = Path(__file__).resolve().parent
-EYE_DEFAULT = './results/LANE_EYE_OPTICAL_TWIN'
+EYE_DEFAULT = 'results/LANE_EYE_OPTICAL_TWIN'
 
 
 def _eye_dir():
@@ -40,7 +40,7 @@ sys.path.insert(0, str(EYE))
 from scatter_port_r1 import ray_angle
 from maxwell_cylinder_r1 import density as maxwell_density, coeff
 
-REPO = Path(os.environ.get('BODYTWIN_REPO', 'source_repository'))
+REPO = Path(os.environ.get('BODYTWIN_REPO', 'source_repository/'))
 _REL = 'data/corneal_transparency/corneal_transparency_results.json'
 _LOCAL = HERE / Path(_REL).name
 SOURCE = _LOCAL if _LOCAL.exists() else REPO / _REL

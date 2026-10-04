@@ -30,4 +30,4 @@ You're a lane runner. `lane-model`Agent with full mandate from the coordinator. 
 ## Definition of done
 1. Dead slot markers gone; active markers match reality on both hosts; permanent protection built in; measurable increase in start rate.
 2. swarm_worker fallback tested and proved to be used for SEED jobs; `account=D/selected=swarm_worker` in at least one real run; quota protection (95 %) retained.
-3. Precise file/field changes before→after, command-proof and measured power in `./tasks/lanes/LANE_RUNNER_SEED_UNBLOCK_RESULT.md`.
+3. Exact file/field changes before→after, command evidence and measured effect in `tasks/lanes/LANE_RUNNER_SEED_UNBLOCK_RESULT.md`.

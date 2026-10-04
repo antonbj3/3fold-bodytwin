@@ -20,7 +20,7 @@
   "Read the 550 draft research nodes in dental/notes/expansion/*.jsonl and counted statuses directly.",
   "Read the 1516-job execution record in dental/tasks/bunny48/STATE.json and counted target ids, source keys and categories directly.",
   "Read dental/notes/INTERFACE_COVERAGE_AUDIT_20260924.{md,json} (prior work) and built on it rather than repeating it; this document extends the audit from interfaces to the full lifecycle and adds the prosthesis-class dimension it did not have.",
-  "Checked the resource inventories that exist but are unclaimed by the loop: ~/research/dental_implant_datasets/ (20 domain files) and the BodyTwin workspace.",
+  "Checked the resource inventories that exist but are unclaimed by the loop: external_research_path (20 domain files) and the BodyTwin workspace.",
   "Probed ./graph working packet and ./graph dispatch for each new target id before registering it; recorded in evidence/graph_probe.json."
  ],
  "inherited_execution_record": {
@@ -227,7 +227,7 @@
     "dental/results/BONE_HU/summary.json",
     "dental/results/BONE_PV/evidence.json",
     "dental/results/BC_TMJ/summary.json",
-    "~/research/dental_implant_datasets/01_imaging_geometry.md"
+    "external_research_path"
    ],
    "what_exists": "CBCT grey values are read and characterised; PSF estimated per scan from edge profiles; cortical thickness is shown identifiable only above ~0.5-1.0 mm at high contrast; canal diameters and apex-to-canal distances measured on ToothFairy2 (n=662/735).",
    "tested_scope": "ToothFairy2 (479 cases) and 53-case BONE_PV field. Synthetic identifiability study, not in vivo. Grey values are NOT HU-calibrated for hard tissue (23 scanners, 168 cases).",
@@ -316,7 +316,7 @@
     "dental/cells/loads/",
     "dental/cells/tmj/",
     "dental/results/BC_TMJ/",
-    "~/research/dental_implant_datasets/16_occlusion_jawmotion.md"
+    "external_research_path"
    ],
    "what_exists": "A muscle-leg branch (statically balanced, condylar reaction from OpenMandible levers) and a contact branch (OFJ seating + friction) with a declared bite-position factor of ~0.65. Condylar path measured on 24 Dryad TMD cases via MMDental CBCT.",
    "tested_scope": "Static balance; one subject (OFJ P17). Direction assumed to be set by condylar reaction, not by muscle (ASSUMED).",
@@ -408,8 +408,8 @@
     "dental/tasks/bunny48/sources/FATIGUE/",
     "dental/results/BONE_HU/",
     "dental/notes/expansion/materials_restorative.jsonl",
-    "~/research/dental_implant_datasets/17_fabricate_test_pairs.md",
-    "~/research/dental_implant_datasets/18_dental_ceramics_data.md"
+    "external_research_path",
+    "external_research_path"
    ],
    "what_exists": "A closed spherical-shell eigenstrain model for graded restorative ceramic giving a strength tolerance, and an optical/strength anchor set. DENT-MAT has 71 nodes with 2 PROVEN, 6 REFUTED, 7 ASSUMED and 56 OPEN. Bone is run as a scenario because HU->E is REFUTED.",
    "tested_scope": "Graded shell, 168 bone cases for the HS gate, and a post-hoc fatigue power law whose five anchors are NOT independent of the cohorts it is scored on.",
@@ -500,8 +500,8 @@
     "dental/cells/manufacturing/",
     "dental/notes/expansion/contacts.jsonl",
     "dental/notes/INTERFACE_COVERAGE_AUDIT_20260924.md",
-    "~/research/dental_implant_datasets/05_cadcam_repositories.md",
-    "~/research/dental_implant_datasets/07_manufacturing_methods.md"
+    "external_research_path",
+    "external_research_path"
    ],
    "what_exists": "A process chain crown -> milled green body (ball-nose radius r, CAD compensation) -> sintering (isotropic error) is SPECIFIED. Six MFG nodes quantify as-built deviation, tool radius effect (r 0.3-1.0 mm moves the marginal gap only 12.3 um), missing tool compensation, cement spacer and sinter compensation error. Blasting contact-load physics is PROVEN (Al2O3, 61 m/s at 0.2 MPa, calibrated on PMC8745783).",
    "tested_scope": "All six MFG nodes are OPEN (4 ASSUMED / 3 REFUTED / 1 PROVEN overall in DENT-MFG). These are the most precisely quantified statements in the whole graph and NONE of them has a cell run. No CAD/CAM, no toolpath, no slicer, no build file has ever been produced or measured.",
@@ -592,8 +592,8 @@
     "dental/notes/expansion/bone_remodeling.jsonl",
     "dental/notes/expansion/mechanostat_sign.jsonl",
     "dental/notes/expansion/ortho_remodeling.jsonl",
-    "~/research/dental_implant_datasets/10_orthopedic_bone_transfer.md",
-    "~/research/dental_implant_datasets/04_clinical_bio_registry.md"
+    "external_research_path",
+    "external_research_path"
    ],
    "what_exists": "A mechanobiologic model for marginal bone loss with a biological leg and a stress leg, a bio-width/microgap rule, and a stimulus q = eps_imp/eps_tooth whose sign cliff is mapped. 55 DENT-PAT nodes are all OPEN or DEFERRED.",
    "tested_scope": "BOTH generic absolute Frost mechanostat bands are REFUTED (they do not carry the perimplant sign), and the tooth-referenced mechanostat is REFUTED. The ortho PDL-pressure driver is REFUTED.",
@@ -624,7 +624,7 @@
     "dental/notes/expansion/validation_v3.jsonl",
     "dental/notes/expansion/validation_experiments.jsonl",
     "dental/results/GRAPH_WORKING_VIEW_20260923/",
-    "~/research/dental_implant_datasets/09_standards_protocols.md"
+    "external_research_path"
    ],
    "what_exists": "A three-generation bench program (VAL v1/v2/v3) with pre-registered bench predictions, plus a dental ISO 14801 assembly with its own PARDISO build. Held-out anchors exist and are used correctly in at least one place (Morneburg, Nishigawa, canal-label edge).",
    "tested_scope": "v1/v2/v3 are 7+6+5 = 18 OPEN nodes. Bench programs are SPECIFIED, not executed.",
@@ -684,7 +684,7 @@
    "source_paths": [
     "dental/notes/expansion/license_gate.jsonl",
     "dental/notes/ADDENDUM_DATA_COLLECTION_2026-09-22.md",
-    "~/research/dental_implant_datasets/19_challenge_archives.md",
+    "external_research_path",
     "dental/DENTAL_METHOD.md"
    ],
    "what_exists": "A licence gate node governs which derived geometry/mesh/figure may be redistributed, with one CC BY 4.0 case (STS-3D lower first molar) identified as distributable and three transfer hypotheses tested against it (1 ASSUMED, 2 REFUTED). Challenge access classes (a) open / (b) account / (c) DUA / (d) dead are enumerated for 49 challenges, 18 of them dental. The method note forbids sending personal data to external APIs.",
@@ -949,11 +949,11 @@
    "files": [
     [
      "16_occlusion_jawmotion.md",
-     "~/research/dental_implant_datasets/16_occlusion_jawmotion.md"
+     "external_research_path"
     ],
     [
      "load_spectrum.jsonl",
-     "local_path/notes/expansion/load_spectrum.jsonl"
+     "local_path"
     ]
    ],
    "context": "The occlusal load case. Public parts exist separately but no source links bite geometry to bite force for one individual: Teeth3DS+ arches are not co-registered, the Zenodo bite set is DUA-gated with an unconfirmed transform, the only jaw-kinematics set (N=24) has no tooth models, T-Scan gives percentages and its raw data is non-public. PAUSE derived load-spectrum derivations; produce one acquisition specification instead.",
@@ -965,11 +965,11 @@
    "files": [
     [
      "17_fabricate_test_pairs.md",
-     "~/research/dental_implant_datasets/17_fabricate_test_pairs.md"
+     "external_research_path"
     ],
     [
      "05_cadcam_repositories.md",
-     "~/research/dental_implant_datasets/05_cadcam_repositories.md"
+     "external_research_path"
     ]
    ],
    "context": "Geometry-linked measured mechanical response. Public-domain, DOI-tagged pairs exist (NIST AM-Bench AMB2018-01/03/04, AMB2022-04, AMB2025-02/03: build geometry plus deflection, residual stress, tensile, in-situ XRD, S-N) and clinical fractography of failed implant-supported crowns. The loop has used none of them.",
@@ -981,11 +981,11 @@
    "files": [
     [
      "15_uncertainty_meshquality.md",
-     "~/research/dental_implant_datasets/15_uncertainty_meshquality.md"
+     "external_research_path"
     ],
     [
      "18_dental_ceramics_data.md",
-     "~/research/dental_implant_datasets/18_dental_ceramics_data.md"
+     "external_research_path"
     ]
    ],
    "context": "The non-implant classes. Tissue-borne support (mucosal compression, retention, wear of the retentive element) and the soft-tissue obstacle in the milling access volume are absent from the graph while every node assumes an implant. Also carries mesh-quality uncertainty, which is the quantified front-end error that propagates into every margin.",
@@ -997,15 +997,15 @@
    "files": [
     [
      "10_orthopedic_bone_transfer.md",
-     "~/research/dental_implant_datasets/10_orthopedic_bone_transfer.md"
+     "external_research_path"
     ],
     [
      "04_clinical_bio_registry.md",
-     "~/research/dental_implant_datasets/04_clinical_bio_registry.md"
+     "external_research_path"
     ],
     [
      "bone_remodeling.jsonl",
-     "local_path/notes/expansion/bone_remodeling.jsonl"
+     "local_path"
     ]
    ],
    "context": "Biological response. Three generic remodeling drivers are already REFUTED (absolute Frost bands, tooth-referenced mechanostat, ortho PDL pressure). Orthopaedic bone-transfer datasets with paired load and in-vivo/simulated remodeling are the only route with a held-out anchor.",
@@ -1017,11 +1017,11 @@
    "files": [
     [
      "validation_v3.jsonl",
-     "local_path/notes/expansion/validation_v3.jsonl"
+     "local_path"
     ],
     [
      "09_standards_protocols.md",
-     "~/research/dental_implant_datasets/09_standards_protocols.md"
+     "external_research_path"
     ]
    ],
    "context": "Bench calibration and validation. VAL v1/v2/v3 specify 18 OPEN bench experiments with pre-registered predictions, plus an assembled ISO 14801 dental chain with its own PARDISO build. None has been run. Standards protocols supply the prescribed load cases.",
@@ -1033,11 +1033,11 @@
    "files": [
     [
      "19_challenge_archives.md",
-     "~/research/dental_implant_datasets/19_challenge_archives.md"
+     "external_research_path"
     ],
     [
      "license_gate.jsonl",
-     "local_path/notes/expansion/license_gate.jsonl"
+     "local_path"
     ]
    ],
    "context": "Access, privacy and external validation. 49 challenges (18 dental) are enumerated by access class (a) open / (b) account / (c) DUA / (d) dead. The licence gate governs derived exports. No de-identification or consent gate is enforced by the execution loop, and no external validation protocol exists.",

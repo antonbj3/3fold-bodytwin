@@ -4,7 +4,7 @@
 Real files only (no symlinks). The L1 selection contains no jw_lungef1."""
 import json, shutil
 from pathlib import Path
-W = Path('.'); R = W / 'results'
+W = Path(''); R = W / 'results'
 loc = json.load(open(R / 'CX-INVERSEOC/locations.json'))['trials']
 q = []; prof = 'ABC'
 for k, (key, t) in enumerate(sorted(loc.items())):

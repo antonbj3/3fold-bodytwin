@@ -1,8 +1,8 @@
 # CX-INTEGRATE — gather what demonstrably works into ONE usable BodyTwin package with tests and a single end-to-end command
 
-Plan (`~/research/PLAN_BODYTWIN_FIELD_8H_20260924.md` §3, §9): 35 % development/integration, "results introduced into the right repo", "used via the project's intended interface". That is what has been missing. Everything that works is spread across ~100 result directories.
+Plan (`external_research_path` §3, §9): 35 % development/integration, "results introduced into the right repo", "used via the project's intended interface". That is what has been missing. Everything that works is spread across ~100 result directories.
 
-## Package `bodytwin_core/` in the workspace (`./bodytwin_core/`)
+## Package `bodytwin_core/` in the workspace (`bodytwin_core/`)
 Only components with audited or reproduced evidence. For each module, copy the code with a source reference (file + sha256); do not reimplement:
 1. `geometry` — geomgr (results/N7c/geomgr: instantiation, stable ID, parameter editing ops, certificate v2), A194/A183. The fixed transformation to the reference model export.
 2. `solver` — the exact full-body solver (results/CX-SOLVER2/cx_solver.py, A295) + the implicit KKT derivative (results/CX-WHATIF2/implicit_kkt.py, A369) + scaling robustness from CX-SOLVER-ROBUST if it is ready (otherwise a clear TODO).

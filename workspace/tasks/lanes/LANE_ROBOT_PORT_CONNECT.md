@@ -25,7 +25,7 @@ A branch whose ports connect to nothing is a drawing. That is what should be fix
 
 ## Do this
 
-1. **Read the branch before touching it:** `~/research/surgical_robot_components_20261002/CROSS/GRAPH_BRANCH.json`, `PROVENANCE.md`, `BINDING.md`. Also read how the graph motor actually represents nodes, ports and validity boxes on pinned commit `352c6d3`, gren `research/typed-throws-20261001`, under `src/graph_engine/`. **Do not change the engine** — graflanen (anton-4d) owns it.
+1. **Read the branch before touching it:** `external_research_path`, `PROVENANCE.md`, `BINDING.md`. Also read how the graph engine actually represents nodes, ports and validity boxes at pinned commit `352c6d3`, branch `research/typed-throws-20261001`, under `src/graph_engine/`. **Do not change the engine** — the graph lane (anton-4d) owns it.
 2. **Connect the robot-side ports, one at a time, to a quantity we calculate.** For each port: name the quantity, its unit, where it is calculated, and which number it gives today. A connection requiring a quantity we do not calculate is not a connection — declare it as `REQUIRES_NEW_COMPUTATION` and say exactly what must be calculated first.
 3. **Be honest about the direction.** The project's position: tissue physics and physiological response belong to the intelligence engine, and what a robot controls is its own **precision and planning**. A port making the robot responsible for tissue behavior is misplaced; move it and say what it was.
 4. **Prioritize by leverage, not by how many ports are connected.** Registration time is the binding term, so a connection concerning it is worth more than twenty concerning tremor. Say which order you chose and why.

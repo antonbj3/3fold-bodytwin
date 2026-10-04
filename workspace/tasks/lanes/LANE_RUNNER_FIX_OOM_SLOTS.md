@@ -27,7 +27,7 @@ You're a lane runner. `lane-model`Agent with full mandate from the coordinator. 
 5. When the fix is ​​verified: restore a sustainable concurrency (preferably higher than 9 for OVH if slice/host allows, but never over the cgroup limit).
 
 ## Key files and facts
-- **Dispatcher (shared by both hosts):** `./tasks/lanes/ovh_agents/bt_queue_ovh.sh`
+- **Dispatcher (shared by both hosts):** `tasks/lanes/ovh_agents/bt_queue_ovh.sh`
   - rad 12: `CAP=$(cat $D/cap 2>/dev/null || echo 30)`
   - rad 31–38: `SLOTS` from remote `MemAvailable`, `BT_HEADROOM_MIB`, `BT_SLOT_MIB` and `BT_HOST_CAP`.
   - rad 63: `sudo systemd-run --quiet --collect --slice=research.slice --unit=agent-$J-... --uid=ubuntu -p MemoryMax=1500M -p MemoryHigh=1250M -p CPUQuota=100% -p RuntimeMaxSec=5400 ...`
@@ -40,14 +40,14 @@ You're a lane runner. `lane-model`Agent with full mandate from the coordinator. 
     - OVH: `ssh ubuntu@51.77.110.4 python3 -` (run as ubuntu).
     - UpCloud: `ssh root@212.147.226.179 'sudo -u ubuntu python3 -'`.
     - Protected with `flock` on `/opt/agents/rate_policy.lock`. Root-owned locks used to cause massive `exit=65` crashes — NOT reintroduces it.
-- **SSH-nyckel:** `~/.ssh/hunt_20260923`; `UserKnownHostsFile=~/research/sol6_recovery_20260923/CLOUD_HUNT_20260923/infra/known_hosts`; `IdentitiesOnly=yes`, `BatchMode=yes`.
+- **SSH-nyckel:** `local_config_path/hunt_20260923`; `UserKnownHostsFile=external_research_path`; `IdentitiesOnly=yes`, `BatchMode=yes`.
 - **Hostar:** OVH `ubuntu@51.77.110.4`; UpCloud `root@212.147.226.179`.
 - **Logs:** `.../lanes/ovh_agents/queue_ovh.log` and `.../lanes/upcloud_agents/queue_ovh.log` (lines like `ovhstart`, `fetched ... exit=`, `start failed`).
-- **Ramp:** `~/research/FREE_AUTONOMY_20260926/SOL_SYNTHESIS_20260927/continuation.py` (styr `bunny_active_cap`; CEILING 42 OVH / 10 UpCloud; RESERVE 4096/1300 MiB; halves at rate-events, +3/+1 when productive and memory ≥ RESERVE).
-- **Rymd-vakt:** `~/research/FREE_AUTONOMY_20260926/space_guard.py` (+ `space-guard.timer`) holding `/mnt/games-240` ≥12 G.
+- **Ramp:** `external_research_path` (controls `swarm_active_cap`; CEILING 42 OVH / 10 UpCloud; RESERVE 4096/1300 MiB; halves on rate-events, +3/+1 when productive and memory ≥ RESERVE).
+- **Space guard:** `external_research_path` (+ `space-guard.timer`) keep `external_mount` ≥12 G.
 
 ## Context: The SEED-500 run
-- 500 Seed-derived mutations are first in line: job `BT-FW48-SEED-001..500`, kataloger i `/mnt/games-240/research/bunny48_20260926/bodytwin/`.
+- 500 seed-derived mutations are first in queue: jobs `BT-FW48-SEED-001..500`, directories in `external_mount`.
 - Gender: `.../bodytwin/tasks/lanes/bt_queue.txt`. Results are collected in `.../bodytwin/results/<J>/RESULTS.md`.
 - Most non-ready jobs die from **provider-rate-limits** (`exit=75`: `explicit provider rate limit` , `admission wait expired` ). The free models (swarm/swarm_worker) are per-IP rate-limited; swarm_worker is **paused** (don't touch it). Egress is spread over OVH-direct + home IP via SSH tunnel (`EGRESS_POOL.json`).
 - Done = `RESULTS.md` exists (hot or in archive via symlink).
@@ -63,7 +63,7 @@ You're a lane runner. `lane-model`Agent with full mandate from the coordinator. 
 2. No new OOM-kills in `research.slice` for at least ~15 min while the queue is running (verify with `dmesg`/`journalctl -k` on both hosts).
 3. Concurrency is reset to a sustainable value (higher than 9 for OVH if space exists).
 4. SEED-jobben continues; new `RESULTS.md` are added and no jobs are lost.
-5. Brief written summary of what was changed and measured effect, save in `./tasks/lanes/LANE_RUNNER_FIX_OOM_SLOTS_RESULT.md`.
+5. Brief written summary of what was changed and measured effect, save in `tasks/lanes/LANE_RUNNER_FIX_OOM_SLOTS_RESULT.md`.
 
 ## Correction by coordinator (important — max, don't limit unnecessarily)
 - **OVH has PLENTY of space.** `research.slice` MemoryMax=28 GiB, MemoryCurrent ~2 GiB, host 31 GiB, 16 cores, load ~0,06. OVH shall drive **many more** agents (~16–18 at 1500 M/agent), no less. `lanes/ovh_agents/cap` may be 24 or higher.

@@ -4,9 +4,9 @@ Local paths checked 2026-09-22. This is an orientation for a targeted inventory.
 
 ## Mechanism and its relationship to BodyTwin
 
-- `~/projects/mechanism/` is a separate directory with code, data and graph.
+- `local_path` is a separate directory with code, data and graph.
 - `source_repository/` also contains inherited code from this work.
-- Tre stickprov var byteidentiska mellan katalogerna: `scripts/football_tracking/build_football_tracking_v0.py`, `scripts/video_index/football_scene_verifier.py`, `scripts/physics_exp/p20_camera_twin.py`.
+- Three samples were byte-identical between the directories: `scripts/football_tracking/build_football_tracking_v0.py`, `scripts/video_index/football_scene_verifier.py`, `scripts/physics_exp/p20_camera_twin.py`.
 - `data/MECHANISM_ANCHOR_GRAPH.json`, however, was not byte-identical between them. This does not establish where the differences lie or which graph is better updated.
 
 Inventory unique assets, versions, reports, dependencies and negative results before transfer. Avoid importing the same evidence twice. Make a targeted comparison; the entire Mechanism graph must not automatically overwrite BodyTwin's graph.
@@ -17,16 +17,16 @@ Older `docs/MECHANISM_HARDENED_CONVENTIONS.md`, `docs/MECHANISM_STARTUP.md` and 
 
 | Area | Entry point |
 |---|---|
-| Fotboll/rear tracking | `~/projects/mechanism/scripts/football_tracking/build_football_tracking_v0.py` |
-| Video clips and scene control | `~/projects/mechanism/scripts/video_index/football_scene_verifier.py`, samt `data/video_index_tables/` |
-| Kameratvilling | `~/projects/mechanism/scripts/physics_exp/p20_camera_twin.py` |
-| Splat-representation | `~/projects/mechanism/src/cad_to_sim/splat_world.py`, `splat_quality_cert.py` and `selftest_splat_world.py` |
-| Splat attempts | `~/projects/mechanism/scripts/local/l_splat_train.py`, `l_splat_prospective.py`, `l_certified_splat.py` and related reports |
-| Kameratvilling i senare CS-arbete | `~/projects/cad-to-simulation-I/reports/probes/graf3_kameratvilling_v1.json` and `graf3_kameratvilling_v1_assets/` |
-| Football track review | `~/projects/cad-to-simulation-L/docs/FOOTBALL_TRACKS_ADJUDICATION_L381.md` and targeted trials in `scripts/local/` |
-| Elderly data mapping | `~/research/video_corpus_grounding_2026-07-15.md` — services, licenses and access need up-to-date control before new downloads |
+| Football/motion tracking | `local_path` |
+| Video clips and scene checking | `local_path`, and `data/video_index_tables/` |
+| Camera twin | `local_path` |
+| Splat representation | `local_path`, `splat_quality_cert.py` and `selftest_splat_world.py` |
+| Splat experiments | `local_path`, `l_splat_prospective.py`, `l_certified_splat.py` and related reports |
+| Camera twin in later CS work | `local_path` and `graf3_kameratvilling_v1_assets/` |
+| Football-track review | `local_path` and targeted experiments in `scripts/local/` |
+| Older data mapping | `external_research_path` — services, licences and access need current checking before a new download |
 
-Additional directories can be found under: `~/projects/sharp_football/`, `~/projects/splat_capture/` and `~/projects/twin_capture_lane/`. Their content and relevance remains to be mapped. Catalogue name does not mean a finished product or an independent implementation.
+Additional directories exist under `local_path`, `local_path` and `local_path`. Their content and relevance remain to be mapped. Directory names do not imply a finished product or an independent implementation.
 
 ## Transfer to the new BodyTwin work
 

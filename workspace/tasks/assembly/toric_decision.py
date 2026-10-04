@@ -32,8 +32,8 @@ import statistics
 import sys
 from pathlib import Path
 
-R15 = Path('./results/LANE_EYE_OPTICAL_TWIN/r15')
-OUT = Path('./results/ASSEMBLY_TORIC_DECISION')
+R15 = Path('results/LANE_EYE_OPTICAL_TWIN/r15')
+OUT = Path('results/ASSEMBLY_TORIC_DECISION')
 sys.path.insert(0, str(R15))
 sys.path.insert(0, str(R15.parent))
 from hydration_r4 import material, H0                      # our own stromal index

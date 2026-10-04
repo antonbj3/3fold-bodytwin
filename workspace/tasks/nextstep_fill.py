@@ -1,6 +1,6 @@
 "N-package: performs a result EGET named next step (ur dess RESULTS.md) with source files as input. reserve_worker C.\nValue controlled (the result itself points out the step), deterministic. Skipping meta-sources and already lined up."
 import os, re, shutil, sys
-W='.'; R=W+'/results'; N=int(sys.argv[1]) if len(sys.argv)>1 else 100
+W=''; R=W+'/results'; N=int(sys.argv[1]) if len(sys.argv)>1 else 100
 queued={l.split()[2] for l in open(W+'/tasks/lanes/bt_queue.txt') if len(l.split())==3}
 meta=re.compile(r'^(CX-(BOOKKEEP|SWARMGEN|PLANNER|CLOUDLANES|PACKETFACTORY|PARAM|FIELDSHARE)|BT-(AN-G|Q-|S-|N-|R-|P-|X-|AG-)|FX-)')
 pat=re.compile("(?is)(?:next steg|next step)[^:\\n]*[:：]?\\s*(.{40,600}?)(?:\\n\\n|\\Z)")

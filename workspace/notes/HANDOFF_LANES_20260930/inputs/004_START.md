@@ -20,7 +20,7 @@ Start with `MERGED_GRAPH.json` for the full structure and `VALIDATION.json` for 
 
 The sources' own statuses are preserved. Statistical fusion of raw margins requires additional uncertainty, normalisation and provenance. Unbound records, conflicts and older evidence gaps remain explicit in the review view.
 
-`data/corpus` now points to the checksum meverified data copy on `/mnt/shared_data/datasets/dental_3fold_corpus`. `references/dataset_mapping` contains the collection chart. The move included 52 005 files; this does not mean that all originally planned dataset downloads are complete.
+`data/corpus` now points to the checksum-verified data copy on `external_mount`. `references/dataset_mapping` contains the collection mapping. The move covered 52 005 files; this does not mean all originally planned dataset downloads are complete.
 
 The project context is possible experimental validation with Osayd Alawawda around dental geometry through mesh → field → simulation → optimization → manufacturing. The exact experiment and prioritization are selected in the next step.
 

@@ -15,10 +15,10 @@ For each mutation, sharpen, do not blur:
 6. **Remove redundancy:** merge near duplicates into distinct mechanisms; one well-formed mutation > several almost identical ones.
 
 ## Inputs (read everything first)
-- Mutationerna (5 batchar, M1–M500): `~/research/BODYTWIN_100_MUTATIONS_20260929.md`, `_v2.md`, `_v3.md`, `_v4.md`, `_v5.md`.
-- Kanoniskt program: `./tasks/free48/SEED_PROGRAM_500_20260929.json`.
-- Execution context: `.../tasks/free48/INITIAL_JOBS.json`, `STATE.json`, `CATALOG.json`; jobbkataloger `BT-FW48-SEED-001..500` i `/mnt/games-240/research/bunny48_20260926/bodytwin/` (each job has: `BRIEF.md`, `inputs/`, `JOB.json`).
-- Regler: `./START.md` and `~/projects/3fold-workspaces/AGENTS.md` samt `~/research/FREE_AUTONOMY_20260926/FIRST_PRINCIPLES.md`.
+- Mutations (5 batches, M1–M500): `external_research_path`, `_v2.md`, `_v3.md`, `_v4.md`, `_v5.md`.
+- Canonical program: `tasks/free48/SEED_PROGRAM_500_20260929.json`.
+- Run context: `.../tasks/free48/INITIAL_JOBS.json`, `STATE.json`, `CATALOG.json`; job directories `BT-FW48-SEED-001..500` in `external_mount` (each job has `BRIEF.md`, `inputs/`, `JOB.json`).
+- Rules: `START.md` and `local_path` plus `external_research_path`.
 - Graph: use the project's own `./graph working rank` and `./graph working packet --id <ID>` to ground the improvements before choosing/reshaping mutations (see `notes/GRAPH_WORKFLOW.md`).
 
 ## Freedom and boundaries
@@ -28,10 +28,10 @@ For each mutation, sharpen, do not blur:
 - No automatic evidence admission; retain negative results and their validity limits. No invented data or citations.
 - No mail, pushes, publication, credential changes.
 
-## Utdata
-1. `~/research/BODYTWIN_MUTATIONS_IMPROVED_v6.md` — samtliga 500 improved, M1–M500, med explicit "what was improved and why" per mutation.
-2. `./tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json` — machine-readable, same 500 ID:n.
-3. `~/research/BODYTWIN_MUTATIONS_IMPROVED_v6_TOP40.md` — de 40 most value creation/innovation potential, ranked with justification.
+## Output
+1. `external_research_path` — all 500 improved, M1–M500, with explicit "what was improved and why" per mutation.
+2. `tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json` — machine-readable, same 500 IDs.
+3. `external_research_path` — the 40 with most value creation/innovation potential, ranked with justification.
 4. For unstarted jobs: updated `BRIEF.md` (only within the boundary above), and note which were updated.
 5. `.../tasks/lanes/LANE_RUNNER_IMPROVE_500_RESULT.md` — short summary: method, count changed, redundancy merged, estimated value increase, what was NOT changed and why.
 

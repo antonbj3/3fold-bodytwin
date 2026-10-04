@@ -25,7 +25,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 OUT = W / 'results/ASSEMBLY_LOAD_PATH'
 
 K_DISC_N_PER_MM = 1734.0

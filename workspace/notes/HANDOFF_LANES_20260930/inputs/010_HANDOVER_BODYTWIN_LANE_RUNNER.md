@@ -8,7 +8,7 @@ This document is the combined input for the next session. The weaving of all ava
 
 ## 1. Collected context text to paste into the next session
 
-> Du arbetar i `.`Anton has handed over the decisions for the local continuation. Read this handover, the work surface's applicable AGENTS, START, FIRST_PRINCIPLES and GRAPH_WORKFLOW. Start with the five concrete steps in section 8. Write new work in your own results directory; preserve originals, negative results and their validity areas.
+> You work in ``. Anton has handed over the decisions for local continuation. Read this handover, the workspace's applicable AGENTS, START, FIRST_PRINCIPLES and GRAPH_WORKFLOW. Start with the five concrete steps in section 8. Write new work in your own results directory; preserve originals, negative results and their validity scopes.
 >
 > The goal is a reusable chain where a new molecular sample during a new intervention can influence a physical model and provide an independently testable future observation. Work backwards from the goal: identifiable physical output + substance balance + time memory + spatial context + valid uncertainty and transfer + reasonable complete cost. The current point of stress is that the same RNA can correspond to different active/localized protein, capacity and physical response. More names or a stronger prior does not restore the missing information.
 >
@@ -119,9 +119,9 @@ Reopen a larger breadth wave only when at least one corrected seam is used in an
 
 In this weave exactly missing:
 
-- `~/research/BODYTWIN_DISEASE_LIBRARY.md`
-- `~/research/BODYTWIN_DISEASE_LIBRARY.json` — expected default name; the original lance required JSON without locking the name.
-- `./tasks/lanes/LANE_RUNNER_DISEASE_RESULT.md`
+- `external_research_path`
+- `external_research_path` — expected default name; the originating lane required JSON without locking that particular name.
+- `tasks/lanes/LANE_RUNNER_DISEASE_RESULT.md`
 
 The preserved producer log `tasks/lanes/lane_runner_DISEASE_B.log:2846`–2847 says the content was flagged for possible biological risk. It is a historical automatic content stop, not a new rejection of the weaving or an experimental falsification. The 16-entry specs file exists but lacks definitions for its map labels. The entire disease final can neither be cleared nor rejected before it exists.
 
@@ -156,7 +156,7 @@ A2-C01/C02 is P0 for the next integration. C03/C04 must be repaired before the r
 
 ### Organization and older results
 
-Lokalt saknas flera raw/intermediates and 26 concrete file candidates from graph text. The exact list is available in org-audentens `missing_literal_paths.json` and report, and is in A3:s frysta input `027_missing_literal_paths.json`. Especially important are `results_within/cross_organ.json`, patchseqs `final_result.json` and TEA RNA-/ATAC-h5ad under gamla `/mnt/data_root`. Missing file in the checked trees does not mean that there is no backup. Find only the raw selected branch needs; new pick-up/run gets new provenances and is not identical original without matching hash.
+Locally, several raw/intermediates and 26 concrete file candidates from graph text are missing. The exact list is in the org audit's `missing_literal_paths.json` and report, and is in A3's frozen input `027_missing_literal_paths.json`. Particularly important are `results_within/cross_organ.json`, patchseqs `final_result.json` and TEA RNA-/ATAC-h5ad under old `external_mount`. Missing file in the checked trees does not mean that there is no backup. Recover only the raw data selected branch needs; new fetch/run gets new provenance and is not identical original without matching hash.
 
 The following negative or limiting graph notes must be included in each relevant brief:
 
@@ -173,22 +173,22 @@ The workspace is not a working Git repo (`git` exit 128). A source-HEAD checkout
 
 ## 6. Exact file package and reading order
 
-The main document is this file. [INPUT_MANIFEST.json](./results/LANE_RUNNER_WEAVE_20260930/INPUT_MANIFEST.json) anger **alla 40 read weaving inputs with original path, frozen path, byte and SHA-256**, plus A3:s fulla 33File manifests and legacy requirements. 32 new copies are below the weave `inputs/`; eight unchanged inputs re-use A3:s snapshot. Precise lists follow in the attachments. It is a common package of external hash bound layers, not a claim that everything fits into a single portable Markdown file.
+The main document is this file. [INPUT_MANIFEST.json](results/LANE_RUNNER_WEAVE_20260930/INPUT_MANIFEST.json) specifies **all 40 read weave inputs with original path, frozen path, byte and SHA-256**, plus A3's full 33 files manifest and legacy requirements. 32 new copies lie below the weave's `inputs/`; eight unchanged inputs reuse A3's snapshot. Exact lists follow in the appendices. It's a common package of external hashed layers, not a claim that everything fits in a single portable Markdown file.
 
 | Reading order / purpose | Files |
 |---|---|
-| 1Mission, policy and workflow | `tasks/lanes/LANE_RUNNER_WEAVE.md`; `../AGENTS.md`; `START.md`; `../README.md`; `notes/GRAPH_WORKFLOW.md`; `~/research/FREE_AUTONOMY_20260926/FIRST_PRINCIPLES.md`; `notes/CONTEXT_COVERAGE_AUDIT_20260923.md`. |
-| 2. Tre analyser | `~/research/ANALYSIS_1_OVERLAP.md` + `ANALYSIS_1_REUSE.json`; `ANALYSIS_2_CONTRADICTIONS.md/.json`; `ANALYSIS_3_BUILDABILITY.md/.json`. |
-| 3. Originals' final available definition layers | `~/research/BODYTWIN_BOUNDARY_REPORT.md`, `BODYTWIN_BOUNDARY_MUTATIONS.md/.json`, `BODYTWIN_MAPS_OPERATORS.md/.json`, `BODYTWIN_MUTATIONS_IMPROVED_v6.md`; maskinprogram `tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json` used reading. |
+| 1. Task, policy and workflow | `tasks/lanes/LANE_RUNNER_WEAVE.md`; `../AGENTS.md`; `START.md`; `../README.md`; `notes/GRAPH_WORKFLOW.md`; `external_research_path`; `notes/CONTEXT_COVERAGE_AUDIT_20260923.md`. |
+| 2. Three analyses | `external_research_path` + `ANALYSIS_1_REUSE.json`; `ANALYSIS_2_CONTRADICTIONS.md/.json`; `ANALYSIS_3_BUILDABILITY.md/.json`. |
+| 3. Available original final definition layers | `external_research_path`, `BODYTWIN_BOUNDARY_MUTATIONS.md/.json`, `BODYTWIN_MAPS_OPERATORS.md/.json`, `BODYTWIN_MUTATIONS_IMPROVED_v6.md`; machine program `tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json` is used read-only. |
 | 4. Missing original delivery and provisional material | Missing disease paths in section 5; preserved `results/LANE_RUNNER_DISEASE_B/disease_specs.py`, `tasks/lanes/LANE_RUNNER_DISEASE_B.md`, `tasks/lanes/lane_runner_DISEASE_B.log`. |
-| 5. Organisation and receptions | `~/research/ORGANIZATION_AUDIT.md/.json`; samtliga tio befintliga `tasks/lanes/LANE_RUNNER_*_RESULT.md` enligt bilaga A. |
+| 5. Organization and receipts | `external_research_path`; all ten existing `tasks/lanes/LANE_RUNNER_*_RESULT.md` according to Appendix A. |
 | 6. Run context | `results/LANE_RUNNER_ANALYSIS3_20260930/handoff/HANDOFF_MANIFEST.json`, `NATIVE_CONTEXT_NODES.json`, `preflight.py`; `../LOCAL_OVERLAY_INDEX.json` and `../NEXT_WAVE.json` relative to the handoff directory. |
 | 7. Corrections | `results/LANE_RUNNER_ANALYSIS2/{CONTRACT_WITNESSES,HISTORICAL_HASH_CHECK,NATIVE_SAMPLE,DECOMPOSITION}.json`; A1's `DECOMPOSITION.json`; boundary/maps code and their attempts/probes in A3-inputs. |
 | 8. Graph | `./graph`, detail graph `GRAPH.json`, index `MERGED_GRAPH.json`, `SOURCE_MANIFEST.json`, parent `ENGINE.json`. Weaving's new `GRAPH_RECEIPT_00..04.json` and `NATIVE_CONTEXT_CHECK.json`. |
 
 **Handover to another local environment:** bring this document, the entire `results/LANE_RUNNER_WEAVE_20260930/`, A3's `handoff/` and its `LOCAL_OVERLAY_INDEX.json`/`NEXT_WAVE.json`, and the dated legacy root with MANIFEST. The manifest's `frozen_path` is the resolver from original path to exact input version; use it instead of assuming old absolute paths exist. Graph-wrapper/reader/controller and ENGINE are separate environment requirements if the new host is to run CLI. A snapshot of their names is not a working remote installation. No move has been made here.
 
-Legacy-root lokalt: `/mnt/games-240/research/organization_audit_20260930/inputs/mechanism_legacy`. Manifest-SHA-256: `3d920ee90b4140af4c624c8d35c6a980c895ce5811a34ee974b8755b459b8d7d`. Molnroot enligt org-auditens snapshot: `/opt/agents/inputs/mechanism_legacy_20260930`. Alias are amenities; dated root/hash controls the version. The new cloud delta and actual input consumption remain unverified.
+Legacy root local: `external_mount`. Manifest-SHA-256: `3d920ee90b4140af4c624c8d35c6a980c895ce5811a34ee974b8755b459b8d7d`. Cloud root according to the org audit's snapshot: `/opt/agents/inputs/mechanism_legacy_20260930`. Alias are amenities; dated root/hash controls the version. New cloud delta and actual input consumption are still unverified.
 
 **Two important notes about the older A3 starter package:** its line about not reading other analysts' outputs applied to the independent analysis lane and does not apply to this combined continuation. Its preflight reads a **frozen** `missing_required_inputs` list and does not automatically discover a new disease final. When new files exist, a new hash-bound release manifest and live file check are needed; do not change the old snapshot to make strict mode turn green. Empirical readiness remains a separate gate even if disease files later exist.
 
@@ -227,11 +227,11 @@ Open decisions are resolved in this order: exact consumer/compartment semantics;
 5. **Lock the empirical continuation's inputs and the next discriminator.** Inventory actual RAW_COUNTS/DESIGN, paired activity/flux, geometry and noise/lineage for BM1/BM4. Type W03/W04's data/holdout/gate contract or an explicit missing-inputs list. Leave the code result for separate review with PENDING_INDEPENDENT_REVIEW. Do not start a broad 300 wave when the functional anchor is missing.
 
 ```bash
-cd .
+cd 
 python3 results/LANE_RUNNER_ANALYSIS3_20260930/handoff/preflight.py \
-  --legacy-root /mnt/games-240/research/organization_audit_20260930/inputs/mechanism_legacy
+  --legacy-root external_mount
 python3 results/LANE_RUNNER_ANALYSIS3_20260930/handoff/preflight.py \
-  --legacy-root /mnt/games-240/research/organization_audit_20260930/inputs/mechanism_legacy \
+  --legacy-root external_mount \
   --allow-provisional-design
 ./graph working rank --query 'omics disease maps boundary transport' --limit 20
 ./graph working packet --id BT-C4-ERROR-BUDGET
@@ -258,83 +258,83 @@ The list is generated from the hashed INPUT_MANIFEST. Original paths show proven
 
 | No. | Original | Frozen reading copy |
 |---:|---|---|
-| 1 | [~/research/ANALYSIS_1_OVERLAP.md](~/research/ANALYSIS_1_OVERLAP.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/000_ANALYSIS_1_OVERLAP.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/000_ANALYSIS_1_OVERLAP.md) |
-| 2 | [~/research/ANALYSIS_1_REUSE.json](~/research/ANALYSIS_1_REUSE.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/001_ANALYSIS_1_REUSE.json](./results/LANE_RUNNER_WEAVE_20260930/inputs/001_ANALYSIS_1_REUSE.json) |
-| 3 | [~/research/ANALYSIS_2_CONTRADICTIONS.md](~/research/ANALYSIS_2_CONTRADICTIONS.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/002_ANALYSIS_2_CONTRADICTIONS.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/002_ANALYSIS_2_CONTRADICTIONS.md) |
-| 4 | [~/research/ANALYSIS_2_CONTRADICTIONS.json](~/research/ANALYSIS_2_CONTRADICTIONS.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/003_ANALYSIS_2_CONTRADICTIONS.json](./results/LANE_RUNNER_WEAVE_20260930/inputs/003_ANALYSIS_2_CONTRADICTIONS.json) |
-| 5 | [~/research/ANALYSIS_3_BUILDABILITY.md](~/research/ANALYSIS_3_BUILDABILITY.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/004_ANALYSIS_3_BUILDABILITY.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/004_ANALYSIS_3_BUILDABILITY.md) |
-| 6 | [~/research/ANALYSIS_3_BUILDABILITY.json](~/research/ANALYSIS_3_BUILDABILITY.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/005_ANALYSIS_3_BUILDABILITY.json](./results/LANE_RUNNER_WEAVE_20260930/inputs/005_ANALYSIS_3_BUILDABILITY.json) |
-| 7 | [~/research/BODYTWIN_BOUNDARY_REPORT.md](~/research/BODYTWIN_BOUNDARY_REPORT.md) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/008_BODYTWIN_BOUNDARY_REPORT.md](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/008_BODYTWIN_BOUNDARY_REPORT.md) |
-| 8 | [~/research/BODYTWIN_BOUNDARY_MUTATIONS.json](~/research/BODYTWIN_BOUNDARY_MUTATIONS.json) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/009_BODYTWIN_BOUNDARY_MUTATIONS.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/009_BODYTWIN_BOUNDARY_MUTATIONS.json) |
-| 9 | [~/research/BODYTWIN_BOUNDARY_MUTATIONS.md](~/research/BODYTWIN_BOUNDARY_MUTATIONS.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/008_BODYTWIN_BOUNDARY_MUTATIONS.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/008_BODYTWIN_BOUNDARY_MUTATIONS.md) |
-| 10 | [~/research/BODYTWIN_MAPS_OPERATORS.md](~/research/BODYTWIN_MAPS_OPERATORS.md) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/010_BODYTWIN_MAPS_OPERATORS.md](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/010_BODYTWIN_MAPS_OPERATORS.md) |
-| 11 | [~/research/BODYTWIN_MAPS_OPERATORS.json](~/research/BODYTWIN_MAPS_OPERATORS.json) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/011_BODYTWIN_MAPS_OPERATORS.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/011_BODYTWIN_MAPS_OPERATORS.json) |
-| 12 | [~/research/BODYTWIN_MUTATIONS_IMPROVED_v6.md](~/research/BODYTWIN_MUTATIONS_IMPROVED_v6.md) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/012_BODYTWIN_MUTATIONS_IMPROVED_v6.md](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/012_BODYTWIN_MUTATIONS_IMPROVED_v6.md) |
-| 13 | [~/research/ORGANIZATION_AUDIT.md](~/research/ORGANIZATION_AUDIT.md) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/007_ORGANIZATION_AUDIT.md](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/007_ORGANIZATION_AUDIT.md) |
-| 14 | [~/research/ORGANIZATION_AUDIT.json](~/research/ORGANIZATION_AUDIT.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/013_ORGANIZATION_AUDIT.json](./results/LANE_RUNNER_WEAVE_20260930/inputs/013_ORGANIZATION_AUDIT.json) |
-| 15 | [tasks/lanes/LANE_RUNNER_ANALYSIS1_RESULT.md](./tasks/lanes/LANE_RUNNER_ANALYSIS1_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/014_LANE_RUNNER_ANALYSIS1_RESULT.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/014_LANE_RUNNER_ANALYSIS1_RESULT.md) |
-| 16 | [tasks/lanes/LANE_RUNNER_ANALYSIS2_RESULT.md](./tasks/lanes/LANE_RUNNER_ANALYSIS2_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/015_LANE_RUNNER_ANALYSIS2_RESULT.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/015_LANE_RUNNER_ANALYSIS2_RESULT.md) |
-| 17 | [tasks/lanes/LANE_RUNNER_ANALYSIS3_RESULT.md](./tasks/lanes/LANE_RUNNER_ANALYSIS3_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/016_LANE_RUNNER_ANALYSIS3_RESULT.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/016_LANE_RUNNER_ANALYSIS3_RESULT.md) |
-| 18 | [tasks/lanes/LANE_RUNNER_BOUNDARY_RESULT.md](./tasks/lanes/LANE_RUNNER_BOUNDARY_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/017_LANE_RUNNER_BOUNDARY_RESULT.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/017_LANE_RUNNER_BOUNDARY_RESULT.md) |
-| 19 | [tasks/lanes/LANE_RUNNER_EGRESS_WARP_RESULT.md](./tasks/lanes/LANE_RUNNER_EGRESS_WARP_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/018_LANE_RUNNER_EGRESS_WARP_RESULT.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/018_LANE_RUNNER_EGRESS_WARP_RESULT.md) |
-| 20 | [tasks/lanes/LANE_RUNNER_FIX_OOM_SLOTS_RESULT.md](./tasks/lanes/LANE_RUNNER_FIX_OOM_SLOTS_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/019_LANE_RUNNER_FIX_OOM_SLOTS_RESULT.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/019_LANE_RUNNER_FIX_OOM_SLOTS_RESULT.md) |
-| 21 | [tasks/lanes/LANE_RUNNER_IMPROVE_500_RESULT.md](./tasks/lanes/LANE_RUNNER_IMPROVE_500_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/020_LANE_RUNNER_IMPROVE_500_RESULT.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/020_LANE_RUNNER_IMPROVE_500_RESULT.md) |
-| 22 | [tasks/lanes/LANE_RUNNER_MAPS_RESULT.md](./tasks/lanes/LANE_RUNNER_MAPS_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/021_LANE_RUNNER_MAPS_RESULT.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/021_LANE_RUNNER_MAPS_RESULT.md) |
-| 23 | [tasks/lanes/LANE_RUNNER_ORG_AUDIT_RESULT.md](./tasks/lanes/LANE_RUNNER_ORG_AUDIT_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/022_LANE_RUNNER_ORG_AUDIT_RESULT.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/022_LANE_RUNNER_ORG_AUDIT_RESULT.md) |
-| 24 | [tasks/lanes/LANE_RUNNER_SEED_UNBLOCK_RESULT.md](./tasks/lanes/LANE_RUNNER_SEED_UNBLOCK_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/023_LANE_RUNNER_SEED_UNBLOCK_RESULT.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/023_LANE_RUNNER_SEED_UNBLOCK_RESULT.md) |
-| 25 | [tasks/lanes/LANE_RUNNER_WEAVE.md](./tasks/lanes/LANE_RUNNER_WEAVE.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/024_LANE_RUNNER_WEAVE.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/024_LANE_RUNNER_WEAVE.md) |
-| 26 | [tasks/lanes/LANE_RUNNER_DISEASE_B.md](./tasks/lanes/LANE_RUNNER_DISEASE_B.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/025_LANE_RUNNER_DISEASE_B.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/025_LANE_RUNNER_DISEASE_B.md) |
-| 27 | [tasks/lanes/codex_DISEASE_B.log](./tasks/lanes/codex_DISEASE_B.log) | [results/LANE_RUNNER_WEAVE_20260930/inputs/026_codex_DISEASE_B.log](./results/LANE_RUNNER_WEAVE_20260930/inputs/026_codex_DISEASE_B.log) |
-| 28 | [results/LANE_RUNNER_DISEASE_B/disease_specs.py](./results/LANE_RUNNER_DISEASE_B/disease_specs.py) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/014_disease_specs.py](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/014_disease_specs.py) |
-| 29 | [tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json](./tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/013_SEED_PROGRAM_500_IMPROVED_20260929.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/013_SEED_PROGRAM_500_IMPROVED_20260929.json) |
-| 30 | [results/LANE_RUNNER_ANALYSIS3_20260930/NEXT_WAVE.json](./results/LANE_RUNNER_ANALYSIS3_20260930/NEXT_WAVE.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/029_NEXT_WAVE.json](./results/LANE_RUNNER_WEAVE_20260930/inputs/029_NEXT_WAVE.json) |
-| 31 | [results/LANE_RUNNER_ANALYSIS3_20260930/LOCAL_OVERLAY_INDEX.json](./results/LANE_RUNNER_ANALYSIS3_20260930/LOCAL_OVERLAY_INDEX.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/030_LOCAL_OVERLAY_INDEX.json](./results/LANE_RUNNER_WEAVE_20260930/inputs/030_LOCAL_OVERLAY_INDEX.json) |
-| 32 | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/NATIVE_CONTEXT_NODES.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/NATIVE_CONTEXT_NODES.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/031_NATIVE_CONTEXT_NODES.json](./results/LANE_RUNNER_WEAVE_20260930/inputs/031_NATIVE_CONTEXT_NODES.json) |
-| 33 | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/HANDOFF_MANIFEST.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/HANDOFF_MANIFEST.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/032_HANDOFF_MANIFEST.json](./results/LANE_RUNNER_WEAVE_20260930/inputs/032_HANDOFF_MANIFEST.json) |
-| 34 | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/preflight.py](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/preflight.py) | [results/LANE_RUNNER_WEAVE_20260930/inputs/033_preflight.py](./results/LANE_RUNNER_WEAVE_20260930/inputs/033_preflight.py) |
-| 35 | [results/LANE_RUNNER_ANALYSIS2/CONTRACT_WITNESSES.json](./results/LANE_RUNNER_ANALYSIS2/CONTRACT_WITNESSES.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/034_CONTRACT_WITNESSES.json](./results/LANE_RUNNER_WEAVE_20260930/inputs/034_CONTRACT_WITNESSES.json) |
-| 36 | [results/LANE_RUNNER_ANALYSIS2/HISTORICAL_HASH_CHECK.json](./results/LANE_RUNNER_ANALYSIS2/HISTORICAL_HASH_CHECK.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/035_HISTORICAL_HASH_CHECK.json](./results/LANE_RUNNER_WEAVE_20260930/inputs/035_HISTORICAL_HASH_CHECK.json) |
-| 37 | [results/LANE_RUNNER_ANALYSIS2/NATIVE_SAMPLE.json](./results/LANE_RUNNER_ANALYSIS2/NATIVE_SAMPLE.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/036_NATIVE_SAMPLE.json](./results/LANE_RUNNER_WEAVE_20260930/inputs/036_NATIVE_SAMPLE.json) |
-| 38 | [results/LANE_RUNNER_ANALYSIS1_20260930/DECOMPOSITION.json](./results/LANE_RUNNER_ANALYSIS1_20260930/DECOMPOSITION.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/037_DECOMPOSITION.json](./results/LANE_RUNNER_WEAVE_20260930/inputs/037_DECOMPOSITION.json) |
-| 39 | [results/LANE_RUNNER_ANALYSIS2/DECOMPOSITION.json](./results/LANE_RUNNER_ANALYSIS2/DECOMPOSITION.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/038_DECOMPOSITION.json](./results/LANE_RUNNER_WEAVE_20260930/inputs/038_DECOMPOSITION.json) |
-| 40 | [notes/CONTEXT_COVERAGE_AUDIT_20260923.md](./notes/CONTEXT_COVERAGE_AUDIT_20260923.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/039_CONTEXT_COVERAGE_AUDIT_20260923.md](./results/LANE_RUNNER_WEAVE_20260930/inputs/039_CONTEXT_COVERAGE_AUDIT_20260923.md) |
+| 1 | [external_research_path](external_research_path) | [results/LANE_RUNNER_WEAVE_20260930/inputs/000_ANALYSIS_1_OVERLAP.md](results/LANE_RUNNER_WEAVE_20260930/inputs/000_ANALYSIS_1_OVERLAP.md) |
+| 2 | [external_research_path](external_research_path) | [results/LANE_RUNNER_WEAVE_20260930/inputs/001_ANALYSIS_1_REUSE.json](results/LANE_RUNNER_WEAVE_20260930/inputs/001_ANALYSIS_1_REUSE.json) |
+| 3 | [external_research_path](external_research_path) | [results/LANE_RUNNER_WEAVE_20260930/inputs/002_ANALYSIS_2_CONTRADICTIONS.md](results/LANE_RUNNER_WEAVE_20260930/inputs/002_ANALYSIS_2_CONTRADICTIONS.md) |
+| 4 | [external_research_path](external_research_path) | [results/LANE_RUNNER_WEAVE_20260930/inputs/003_ANALYSIS_2_CONTRADICTIONS.json](results/LANE_RUNNER_WEAVE_20260930/inputs/003_ANALYSIS_2_CONTRADICTIONS.json) |
+| 5 | [external_research_path](external_research_path) | [results/LANE_RUNNER_WEAVE_20260930/inputs/004_ANALYSIS_3_BUILDABILITY.md](results/LANE_RUNNER_WEAVE_20260930/inputs/004_ANALYSIS_3_BUILDABILITY.md) |
+| 6 | [external_research_path](external_research_path) | [results/LANE_RUNNER_WEAVE_20260930/inputs/005_ANALYSIS_3_BUILDABILITY.json](results/LANE_RUNNER_WEAVE_20260930/inputs/005_ANALYSIS_3_BUILDABILITY.json) |
+| 7 | [external_research_path](external_research_path) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/008_BODYTWIN_BOUNDARY_REPORT.md](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/008_BODYTWIN_BOUNDARY_REPORT.md) |
+| 8 | [external_research_path](external_research_path) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/009_BODYTWIN_BOUNDARY_MUTATIONS.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/009_BODYTWIN_BOUNDARY_MUTATIONS.json) |
+| 9 | [external_research_path](external_research_path) | [results/LANE_RUNNER_WEAVE_20260930/inputs/008_BODYTWIN_BOUNDARY_MUTATIONS.md](results/LANE_RUNNER_WEAVE_20260930/inputs/008_BODYTWIN_BOUNDARY_MUTATIONS.md) |
+| 10 | [external_research_path](external_research_path) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/010_BODYTWIN_MAPS_OPERATORS.md](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/010_BODYTWIN_MAPS_OPERATORS.md) |
+| 11 | [external_research_path](external_research_path) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/011_BODYTWIN_MAPS_OPERATORS.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/011_BODYTWIN_MAPS_OPERATORS.json) |
+| 12 | [external_research_path](external_research_path) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/012_BODYTWIN_MUTATIONS_IMPROVED_v6.md](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/012_BODYTWIN_MUTATIONS_IMPROVED_v6.md) |
+| 13 | [external_research_path](external_research_path) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/007_ORGANIZATION_AUDIT.md](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/007_ORGANIZATION_AUDIT.md) |
+| 14 | [external_research_path](external_research_path) | [results/LANE_RUNNER_WEAVE_20260930/inputs/013_ORGANIZATION_AUDIT.json](results/LANE_RUNNER_WEAVE_20260930/inputs/013_ORGANIZATION_AUDIT.json) |
+| 15 | [tasks/lanes/LANE_RUNNER_ANALYSIS1_RESULT.md](tasks/lanes/LANE_RUNNER_ANALYSIS1_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/014_LANE_RUNNER_ANALYSIS1_RESULT.md](results/LANE_RUNNER_WEAVE_20260930/inputs/014_LANE_RUNNER_ANALYSIS1_RESULT.md) |
+| 16 | [tasks/lanes/LANE_RUNNER_ANALYSIS2_RESULT.md](tasks/lanes/LANE_RUNNER_ANALYSIS2_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/015_LANE_RUNNER_ANALYSIS2_RESULT.md](results/LANE_RUNNER_WEAVE_20260930/inputs/015_LANE_RUNNER_ANALYSIS2_RESULT.md) |
+| 17 | [tasks/lanes/LANE_RUNNER_ANALYSIS3_RESULT.md](tasks/lanes/LANE_RUNNER_ANALYSIS3_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/016_LANE_RUNNER_ANALYSIS3_RESULT.md](results/LANE_RUNNER_WEAVE_20260930/inputs/016_LANE_RUNNER_ANALYSIS3_RESULT.md) |
+| 18 | [tasks/lanes/LANE_RUNNER_BOUNDARY_RESULT.md](tasks/lanes/LANE_RUNNER_BOUNDARY_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/017_LANE_RUNNER_BOUNDARY_RESULT.md](results/LANE_RUNNER_WEAVE_20260930/inputs/017_LANE_RUNNER_BOUNDARY_RESULT.md) |
+| 19 | [tasks/lanes/LANE_RUNNER_EGRESS_WARP_RESULT.md](tasks/lanes/LANE_RUNNER_EGRESS_WARP_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/018_LANE_RUNNER_EGRESS_WARP_RESULT.md](results/LANE_RUNNER_WEAVE_20260930/inputs/018_LANE_RUNNER_EGRESS_WARP_RESULT.md) |
+| 20 | [tasks/lanes/LANE_RUNNER_FIX_OOM_SLOTS_RESULT.md](tasks/lanes/LANE_RUNNER_FIX_OOM_SLOTS_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/019_LANE_RUNNER_FIX_OOM_SLOTS_RESULT.md](results/LANE_RUNNER_WEAVE_20260930/inputs/019_LANE_RUNNER_FIX_OOM_SLOTS_RESULT.md) |
+| 21 | [tasks/lanes/LANE_RUNNER_IMPROVE_500_RESULT.md](tasks/lanes/LANE_RUNNER_IMPROVE_500_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/020_LANE_RUNNER_IMPROVE_500_RESULT.md](results/LANE_RUNNER_WEAVE_20260930/inputs/020_LANE_RUNNER_IMPROVE_500_RESULT.md) |
+| 22 | [tasks/lanes/LANE_RUNNER_MAPS_RESULT.md](tasks/lanes/LANE_RUNNER_MAPS_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/021_LANE_RUNNER_MAPS_RESULT.md](results/LANE_RUNNER_WEAVE_20260930/inputs/021_LANE_RUNNER_MAPS_RESULT.md) |
+| 23 | [tasks/lanes/LANE_RUNNER_ORG_AUDIT_RESULT.md](tasks/lanes/LANE_RUNNER_ORG_AUDIT_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/022_LANE_RUNNER_ORG_AUDIT_RESULT.md](results/LANE_RUNNER_WEAVE_20260930/inputs/022_LANE_RUNNER_ORG_AUDIT_RESULT.md) |
+| 24 | [tasks/lanes/LANE_RUNNER_SEED_UNBLOCK_RESULT.md](tasks/lanes/LANE_RUNNER_SEED_UNBLOCK_RESULT.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/023_LANE_RUNNER_SEED_UNBLOCK_RESULT.md](results/LANE_RUNNER_WEAVE_20260930/inputs/023_LANE_RUNNER_SEED_UNBLOCK_RESULT.md) |
+| 25 | [tasks/lanes/LANE_RUNNER_WEAVE.md](tasks/lanes/LANE_RUNNER_WEAVE.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/024_LANE_RUNNER_WEAVE.md](results/LANE_RUNNER_WEAVE_20260930/inputs/024_LANE_RUNNER_WEAVE.md) |
+| 26 | [tasks/lanes/LANE_RUNNER_DISEASE_B.md](tasks/lanes/LANE_RUNNER_DISEASE_B.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/025_LANE_RUNNER_DISEASE_B.md](results/LANE_RUNNER_WEAVE_20260930/inputs/025_LANE_RUNNER_DISEASE_B.md) |
+| 27 | [tasks/lanes/codex_DISEASE_B.log](tasks/lanes/codex_DISEASE_B.log) | [results/LANE_RUNNER_WEAVE_20260930/inputs/026_codex_DISEASE_B.log](results/LANE_RUNNER_WEAVE_20260930/inputs/026_codex_DISEASE_B.log) |
+| 28 | [results/LANE_RUNNER_DISEASE_B/disease_specs.py](results/LANE_RUNNER_DISEASE_B/disease_specs.py) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/014_disease_specs.py](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/014_disease_specs.py) |
+| 29 | [tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json](tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json) | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/013_SEED_PROGRAM_500_IMPROVED_20260929.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/013_SEED_PROGRAM_500_IMPROVED_20260929.json) |
+| 30 | [results/LANE_RUNNER_ANALYSIS3_20260930/NEXT_WAVE.json](results/LANE_RUNNER_ANALYSIS3_20260930/NEXT_WAVE.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/029_NEXT_WAVE.json](results/LANE_RUNNER_WEAVE_20260930/inputs/029_NEXT_WAVE.json) |
+| 31 | [results/LANE_RUNNER_ANALYSIS3_20260930/LOCAL_OVERLAY_INDEX.json](results/LANE_RUNNER_ANALYSIS3_20260930/LOCAL_OVERLAY_INDEX.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/030_LOCAL_OVERLAY_INDEX.json](results/LANE_RUNNER_WEAVE_20260930/inputs/030_LOCAL_OVERLAY_INDEX.json) |
+| 32 | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/NATIVE_CONTEXT_NODES.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/NATIVE_CONTEXT_NODES.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/031_NATIVE_CONTEXT_NODES.json](results/LANE_RUNNER_WEAVE_20260930/inputs/031_NATIVE_CONTEXT_NODES.json) |
+| 33 | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/HANDOFF_MANIFEST.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/HANDOFF_MANIFEST.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/032_HANDOFF_MANIFEST.json](results/LANE_RUNNER_WEAVE_20260930/inputs/032_HANDOFF_MANIFEST.json) |
+| 34 | [results/LANE_RUNNER_ANALYSIS3_20260930/handoff/preflight.py](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/preflight.py) | [results/LANE_RUNNER_WEAVE_20260930/inputs/033_preflight.py](results/LANE_RUNNER_WEAVE_20260930/inputs/033_preflight.py) |
+| 35 | [results/LANE_RUNNER_ANALYSIS2/CONTRACT_WITNESSES.json](results/LANE_RUNNER_ANALYSIS2/CONTRACT_WITNESSES.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/034_CONTRACT_WITNESSES.json](results/LANE_RUNNER_WEAVE_20260930/inputs/034_CONTRACT_WITNESSES.json) |
+| 36 | [results/LANE_RUNNER_ANALYSIS2/HISTORICAL_HASH_CHECK.json](results/LANE_RUNNER_ANALYSIS2/HISTORICAL_HASH_CHECK.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/035_HISTORICAL_HASH_CHECK.json](results/LANE_RUNNER_WEAVE_20260930/inputs/035_HISTORICAL_HASH_CHECK.json) |
+| 37 | [results/LANE_RUNNER_ANALYSIS2/NATIVE_SAMPLE.json](results/LANE_RUNNER_ANALYSIS2/NATIVE_SAMPLE.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/036_NATIVE_SAMPLE.json](results/LANE_RUNNER_WEAVE_20260930/inputs/036_NATIVE_SAMPLE.json) |
+| 38 | [results/LANE_RUNNER_ANALYSIS1_20260930/DECOMPOSITION.json](results/LANE_RUNNER_ANALYSIS1_20260930/DECOMPOSITION.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/037_DECOMPOSITION.json](results/LANE_RUNNER_WEAVE_20260930/inputs/037_DECOMPOSITION.json) |
+| 39 | [results/LANE_RUNNER_ANALYSIS2/DECOMPOSITION.json](results/LANE_RUNNER_ANALYSIS2/DECOMPOSITION.json) | [results/LANE_RUNNER_WEAVE_20260930/inputs/038_DECOMPOSITION.json](results/LANE_RUNNER_WEAVE_20260930/inputs/038_DECOMPOSITION.json) |
+| 40 | [notes/CONTEXT_COVERAGE_AUDIT_20260923.md](notes/CONTEXT_COVERAGE_AUDIT_20260923.md) | [results/LANE_RUNNER_WEAVE_20260930/inputs/039_CONTEXT_COVERAGE_AUDIT_20260923.md](results/LANE_RUNNER_WEAVE_20260930/inputs/039_CONTEXT_COVERAGE_AUDIT_20260923.md) |
 
 ## Bilaga B — Analys 3:s 33 befintliga frysta filer
 
-Root: `./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/`All source paths and full hashes are in its unchanged HANDOFF_MANIFEST and the manifesto of weaving. 40 input; overlap does not count as independent basis.
+Root: `results/LANE_RUNNER_ANALYSIS3_20260930/handoff/`. All source paths and full hashes can be found in its unaltered HANDOFF_MANIFEST and weave manifests. These complement the 40 inputs; overlaps are not counted as independent substrates.
 
 | Frozen Relative File | Source Path |
 |---|---|
-| [inputs/000_AGENTS.md](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/000_AGENTS.md) | `~/projects/3fold-workspaces/AGENTS.md` |
-| [inputs/001_START.md](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/001_START.md) | `./START.md` |
-| [inputs/002_README.md](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/002_README.md) | `~/projects/3fold-workspaces/README.md` |
-| [inputs/003_GRAPH_WORKFLOW.md](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/003_GRAPH_WORKFLOW.md) | `./notes/GRAPH_WORKFLOW.md` |
-| [inputs/004_ENGINE.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/004_ENGINE.json) | `~/projects/3fold-workspaces/ENGINE.json` |
-| [inputs/005_SOURCE_MANIFEST.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/005_SOURCE_MANIFEST.json) | `./SOURCE_MANIFEST.json` |
-| [inputs/006_FIRST_PRINCIPLES.md](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/006_FIRST_PRINCIPLES.md) | `~/research/FREE_AUTONOMY_20260926/FIRST_PRINCIPLES.md` |
-| [inputs/007_ORGANIZATION_AUDIT.md](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/007_ORGANIZATION_AUDIT.md) | `~/research/ORGANIZATION_AUDIT.md` |
-| [inputs/008_BODYTWIN_BOUNDARY_REPORT.md](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/008_BODYTWIN_BOUNDARY_REPORT.md) | `~/research/BODYTWIN_BOUNDARY_REPORT.md` |
-| [inputs/009_BODYTWIN_BOUNDARY_MUTATIONS.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/009_BODYTWIN_BOUNDARY_MUTATIONS.json) | `~/research/BODYTWIN_BOUNDARY_MUTATIONS.json` |
-| [inputs/010_BODYTWIN_MAPS_OPERATORS.md](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/010_BODYTWIN_MAPS_OPERATORS.md) | `~/research/BODYTWIN_MAPS_OPERATORS.md` |
-| [inputs/011_BODYTWIN_MAPS_OPERATORS.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/011_BODYTWIN_MAPS_OPERATORS.json) | `~/research/BODYTWIN_MAPS_OPERATORS.json` |
-| [inputs/012_BODYTWIN_MUTATIONS_IMPROVED_v6.md](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/012_BODYTWIN_MUTATIONS_IMPROVED_v6.md) | `~/research/BODYTWIN_MUTATIONS_IMPROVED_v6.md` |
-| [inputs/013_SEED_PROGRAM_500_IMPROVED_20260929.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/013_SEED_PROGRAM_500_IMPROVED_20260929.json) | `./tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json` |
-| [inputs/014_disease_specs.py](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/014_disease_specs.py) | `./results/LANE_RUNNER_DISEASE_B/disease_specs.py` |
-| [inputs/015_boundary_reference.py](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/015_boundary_reference.py) | `./results/LANE_RUNNER_BOUNDARY_20260930/boundary_reference.py` |
-| [inputs/016_native_signaling_probe.py](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/016_native_signaling_probe.py) | `./results/LANE_RUNNER_BOUNDARY_20260930/native_signaling_probe.py` |
-| [inputs/017_ATTEMPTS.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/017_ATTEMPTS.json) | `./results/LANE_RUNNER_BOUNDARY_20260930/ATTEMPTS.json` |
-| [inputs/018_DELIVERY_VALIDATION.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/018_DELIVERY_VALIDATION.json) | `./results/LANE_RUNNER_BOUNDARY_20260930/DELIVERY_VALIDATION.json` |
-| [inputs/019_GRAPH_BINDING_SUMMARY.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/019_GRAPH_BINDING_SUMMARY.json) | `./results/LANE_RUNNER_BOUNDARY_20260930/GRAPH_BINDING_SUMMARY.json` |
-| [inputs/020_probe_operators.py](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/020_probe_operators.py) | `./results/LANE_RUNNER_MAPS_C/probe_operators.py` |
-| [inputs/021_PROBES.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/021_PROBES.json) | `./results/LANE_RUNNER_MAPS_C/PROBES.json` |
-| [inputs/022_FOLLOWUPS.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/022_FOLLOWUPS.json) | `./results/LANE_RUNNER_MAPS_C/FOLLOWUPS.json` |
-| [inputs/023_INPUT_INTEGRITY.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/023_INPUT_INTEGRITY.json) | `./results/LANE_RUNNER_MAPS_C/INPUT_INTEGRITY.json` |
-| [inputs/024_VALIDATION.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/024_VALIDATION.json) | `./results/LANE_RUNNER_MAPS_C/VALIDATION.json` |
-| [inputs/025_transcriptomic_cells.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/025_transcriptomic_cells.json) | `./results/LANE_RUNNER_ORG_AUDIT/transcriptomic_cells.json` |
-| [inputs/026_legacy_design_split.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/026_legacy_design_split.json) | `./results/LANE_RUNNER_ORG_AUDIT/legacy_design_split.json` |
-| [inputs/027_missing_literal_paths.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/027_missing_literal_paths.json) | `./results/LANE_RUNNER_ORG_AUDIT/missing_literal_paths.json` |
-| [inputs/028_ovh_after.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/028_ovh_after.json) | `./results/LANE_RUNNER_ORG_AUDIT/ovh_after.json` |
-| [inputs/029_upcloud_after.json](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/029_upcloud_after.json) | `./results/LANE_RUNNER_ORG_AUDIT/upcloud_after.json` |
-| [inputs/030_glucose_meal_dallaman2007.py](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/030_glucose_meal_dallaman2007.py) | `source_repository/scripts/msk/glucose_meal_dallaman2007.py` |
-| [inputs/031_glucose_insulin_minimal_model.py](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/031_glucose_insulin_minimal_model.py) | `source_repository/scripts/msk/glucose_insulin_minimal_model.py` |
-| [inputs/032_hpa_transporter_localization_check.py](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/032_hpa_transporter_localization_check.py) | `source_repository/scripts/hpa_transporter_localization_check.py` |
+| [inputs/000_AGENTS.md](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/000_AGENTS.md) | `local_path` |
+| [inputs/001_START.md](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/001_START.md) | `START.md` |
+| [inputs/002_README.md](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/002_README.md) | `local_path` |
+| [inputs/003_GRAPH_WORKFLOW.md](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/003_GRAPH_WORKFLOW.md) | `notes/GRAPH_WORKFLOW.md` |
+| [inputs/004_ENGINE.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/004_ENGINE.json) | `local_path` |
+| [inputs/005_SOURCE_MANIFEST.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/005_SOURCE_MANIFEST.json) | `SOURCE_MANIFEST.json` |
+| [inputs/006_FIRST_PRINCIPLES.md](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/006_FIRST_PRINCIPLES.md) | `external_research_path` |
+| [inputs/007_ORGANIZATION_AUDIT.md](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/007_ORGANIZATION_AUDIT.md) | `external_research_path` |
+| [inputs/008_BODYTWIN_BOUNDARY_REPORT.md](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/008_BODYTWIN_BOUNDARY_REPORT.md) | `external_research_path` |
+| [inputs/009_BODYTWIN_BOUNDARY_MUTATIONS.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/009_BODYTWIN_BOUNDARY_MUTATIONS.json) | `external_research_path` |
+| [inputs/010_BODYTWIN_MAPS_OPERATORS.md](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/010_BODYTWIN_MAPS_OPERATORS.md) | `external_research_path` |
+| [inputs/011_BODYTWIN_MAPS_OPERATORS.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/011_BODYTWIN_MAPS_OPERATORS.json) | `external_research_path` |
+| [inputs/012_BODYTWIN_MUTATIONS_IMPROVED_v6.md](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/012_BODYTWIN_MUTATIONS_IMPROVED_v6.md) | `external_research_path` |
+| [inputs/013_SEED_PROGRAM_500_IMPROVED_20260929.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/013_SEED_PROGRAM_500_IMPROVED_20260929.json) | `tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json` |
+| [inputs/014_disease_specs.py](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/014_disease_specs.py) | `results/LANE_RUNNER_DISEASE_B/disease_specs.py` |
+| [inputs/015_boundary_reference.py](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/015_boundary_reference.py) | `results/LANE_RUNNER_BOUNDARY_20260930/boundary_reference.py` |
+| [inputs/016_native_signaling_probe.py](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/016_native_signaling_probe.py) | `results/LANE_RUNNER_BOUNDARY_20260930/native_signaling_probe.py` |
+| [inputs/017_ATTEMPTS.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/017_ATTEMPTS.json) | `results/LANE_RUNNER_BOUNDARY_20260930/ATTEMPTS.json` |
+| [inputs/018_DELIVERY_VALIDATION.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/018_DELIVERY_VALIDATION.json) | `results/LANE_RUNNER_BOUNDARY_20260930/DELIVERY_VALIDATION.json` |
+| [inputs/019_GRAPH_BINDING_SUMMARY.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/019_GRAPH_BINDING_SUMMARY.json) | `results/LANE_RUNNER_BOUNDARY_20260930/GRAPH_BINDING_SUMMARY.json` |
+| [inputs/020_probe_operators.py](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/020_probe_operators.py) | `results/LANE_RUNNER_MAPS_C/probe_operators.py` |
+| [inputs/021_PROBES.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/021_PROBES.json) | `results/LANE_RUNNER_MAPS_C/PROBES.json` |
+| [inputs/022_FOLLOWUPS.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/022_FOLLOWUPS.json) | `results/LANE_RUNNER_MAPS_C/FOLLOWUPS.json` |
+| [inputs/023_INPUT_INTEGRITY.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/023_INPUT_INTEGRITY.json) | `results/LANE_RUNNER_MAPS_C/INPUT_INTEGRITY.json` |
+| [inputs/024_VALIDATION.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/024_VALIDATION.json) | `results/LANE_RUNNER_MAPS_C/VALIDATION.json` |
+| [inputs/025_transcriptomic_cells.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/025_transcriptomic_cells.json) | `results/LANE_RUNNER_ORG_AUDIT/transcriptomic_cells.json` |
+| [inputs/026_legacy_design_split.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/026_legacy_design_split.json) | `results/LANE_RUNNER_ORG_AUDIT/legacy_design_split.json` |
+| [inputs/027_missing_literal_paths.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/027_missing_literal_paths.json) | `results/LANE_RUNNER_ORG_AUDIT/missing_literal_paths.json` |
+| [inputs/028_ovh_after.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/028_ovh_after.json) | `results/LANE_RUNNER_ORG_AUDIT/ovh_after.json` |
+| [inputs/029_upcloud_after.json](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/029_upcloud_after.json) | `results/LANE_RUNNER_ORG_AUDIT/upcloud_after.json` |
+| [inputs/030_glucose_meal_dallaman2007.py](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/030_glucose_meal_dallaman2007.py) | `source_repository/scripts/msk/glucose_meal_dallaman2007.py` |
+| [inputs/031_glucose_insulin_minimal_model.py](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/031_glucose_insulin_minimal_model.py) | `source_repository/scripts/msk/glucose_insulin_minimal_model.py` |
+| [inputs/032_hpa_transporter_localization_check.py](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/inputs/032_hpa_transporter_localization_check.py) | `source_repository/scripts/hpa_transporter_localization_check.py` |

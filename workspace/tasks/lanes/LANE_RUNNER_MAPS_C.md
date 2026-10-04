@@ -20,13 +20,13 @@ A "map" is an **OPERATOR/MAPPING**, not data — and a **geometric concept**: a 
 5. **Identifiability:** which maps are invertible/determinable from observable data, which are fundamentally underdetermined, and which smallest experiment decides.
 6. **Prioritisation:** rank maps/ports by downstream capability and how many diseases/mechanisms they unlock.
 
-## Indata
+## Inputs
 - The graph and its working view: `./graph working rank`, `./graph working packet --id <ID>`, `notes/GRAPH_WORKFLOW.md`.
-- T41–T50 i ~/research/BODYTWIN_100_MUTATIONS_20260929_v5.md and v6-rapporten BODYTWIN_MUTATIONS_IMPROVED_v6.md.
-- First principles: ~/research/FREE_AUTONOMY_20260926/FIRST_PRINCIPLES.md.
+- T41–T50 in external_research_path and the v6 report BODYTWIN_MUTATIONS_IMPROVED_v6.md.
+- First principles: external_research_path
 
-## Utdata
-1. `~/research/BODYTWIN_MAPS_OPERATORS.md` — insightful helhetsbild: rum, maps, invarianter, feltransport, obruten mark.
+## Outputs
+1. `external_research_path` — insightful overall view: spaces, maps, invariants, error transport, unexplored ground.
 2. Machine-readable list of maps/ports (JSON) with prioritisation.
 3. `tasks/lanes/LANE_RUNNER_MAPS_RESULT.md` — decisions, what was created, what was NOT done.
 

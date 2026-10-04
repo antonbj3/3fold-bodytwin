@@ -38,10 +38,10 @@ plus identifiability (which components of D_d are determinable from y, which are
 - Molecular/signaling layer: MOL-* and signaling MODEL-* (105 OPEN, 10 ASSUMED, 1 DEFERRED, 1 REFUTED).
 - Existing probes run: pathway-co-essentiality (mt_pathway_cert.json), L1000-MoA (mt_pharmacology_overlap.json), DNAm-epigen (mt_dnaepigen.json), same-sample-multiomics (TEA-seq, patch-seq), tissue classifier (mt_liver/mt_somatosensory); signaling ODEs in scripts/msk/.
 - Ingested: data/hpa_gtex_ingest/rna_tissue_consensus_subset.tsv (20 162 genes × 51 tissues).
-- First principles: ~/research/FREE_AUTONOMY_20260926/FIRST_PRINCIPLES.md.
+- First principles: external_research_path
 
-## Utdata
-1. `~/research/BODYTWIN_DISEASE_LIBRARY.md` — insightful helhetsbild.
+## Output
+1. `external_research_path` — insightful overview.
 2. Machine-readable disease library (JSON).
 3. `tasks/lanes/LANE_RUNNER_DISEASE_RESULT.md` — decisions, numbers, maps, density, what was NOT done.
 

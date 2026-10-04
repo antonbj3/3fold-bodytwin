@@ -93,14 +93,14 @@ def export_roundtrips(res, outdir, weight_kg, validate_full=True, tm=None):
 
 def run(subject='z001', obs='S6', out=None, data=None, validate_full=True):
     root = Path(__file__).resolve().parents[1]
-    data = Path(data or '/media/anton/sdc1-tmp/bodytwin/N7a/frozen')
+    data = Path(data or 'external_media')
     out = Path(out or root / f'demo_{subject}')
     out.mkdir(parents=True, exist_ok=True)
     tm = Timer()
     kappa = {sc: v.get('cov3_placed', v.get('cov3')) for sc, v in load_calibration(root).items()}
     with tm('load_population_and_fit'):
         gm = GeometryManager(data, population=('imperial',), exclude_vsd=subject, kappa=kappa,
-                             cache_dir='/media/anton/sdc1-tmp/bodytwin/N7a')
+                             cache_dir='external_media')
     O = np.load(data / 'vsd_obs.npz')
     subj = [str(x) for x in O['subj']]
     s = subj.index(subject)

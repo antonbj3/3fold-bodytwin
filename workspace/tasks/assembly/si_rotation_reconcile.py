@@ -34,9 +34,9 @@ import json
 import statistics
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 OUT = W / 'results/ASSEMBLY_SI_ROTATION'
-SRC = 'source_documents/MECHANISM_SACROILIAC_JOINT.md'
+SRC = 'source_documents/SACROILIAC_JOINT.md'
 
 SOURCES = [
     {'study': 'Egund 1978', 'pmid': '717034', 'method': 'RSA', 'images_bone': True,

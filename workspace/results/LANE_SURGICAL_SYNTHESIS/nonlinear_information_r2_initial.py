@@ -10,7 +10,7 @@ from plan_measurements_r2 import ROOT, RANGES, GROUPS, config, extract, contract
 from surgical_chain.chain import run, write
 
 OUT=ROOT/'r2/nonlinear_information_v1'
-STORE=Path('/mnt/games-240/research/bodytwin_solnight/LANE_SURGICAL_SYNTHESIS/r2/nonlinear_information_v1')
+STORE=Path('external_mount')
 BANDWIDTHS=[.25,.5,1.,2.,4.]
 
 def prior():

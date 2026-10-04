@@ -83,7 +83,7 @@ Precision0,5×/2× and128/256 compare the same frozen prior. Separate cost inter
 
 The concrete next acquisition shall combine an amount inventory on a fixed reference with the early measurement ports that carry the planning table. Native strength still requires M4's absolute chemistry/reference **and** M5's connected mechanical observations with the same cohort. A low model score for M4 is an indicator of a missing consumer, not a reason to forgo chemistry. M6 is needed for new tools when the transfer law is filled. The parent goal's empirical prioritization is therefore still conditional.
 
-All raw scenarios, sub-observations, covariance/noise and costs can be found in [MEASUREMENT_VALUE.json](r2/measurement_v1/MEASUREMENT_VALUE.json) and sample000…255.json. Large field data is located on `/mnt/games-240/research/bodytwin_solnight/LANE_SURGICAL_SYNTHESIS/r2/`. Strongest control gets the same acquisition, moment and optimal linear estimates: **TIE**.
+All raw scenarios, subobservations, covariance/noise and costs are in [MEASUREMENT_VALUE.json](r2/measurement_v1/MEASUREMENT_VALUE.json) and sample000…255.json. Large field data are on `external_mount`. The strongest control receives the same acquisition, moments and optimal linear estimator: **TIE**.
 
 ## Executed nonlinear information trial after linear loss
 

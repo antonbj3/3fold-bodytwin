@@ -34,7 +34,7 @@ import math
 import pathlib
 import re
 
-W = pathlib.Path('.')
+W = pathlib.Path('')
 NET = W / 'CONSTRAINT_NETS.json'
 
 UNITS = {

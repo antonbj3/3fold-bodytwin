@@ -2,7 +2,7 @@
 
 ## Background (read these)
 - The register A1384 (BODYGRAPH: gait2392 rank 17, gauge 75), A1385 (U401: the collaborator nullity 1126), A1389 (U405: stiffness+EMG do not close it), A1394 (U413: patellar tendon + separate medial/lateral hamstring tensiometry closes it, rank 26, width 449/402 N vs 590/848 N), A1392 (CX-SETVALUED: the hip spread is 37.6 BW), and A1387/A1390 (EMG adds no robust information in the GC data).
-- Field's code: `the public staging tree/3fold-motion-engine/_private/romi_collab/build/cloud_results/CLOUD-F-BODYGRAPH/`, `build/U405/`, `build/U413/` (gait2392, sensor models, posterior). Reuse them with a source reference; Field owns the rank analyses, and you own the OED/protocol.
+- Field's code: `../3fold-motion-engine/_private/romi_collab/build/cloud_results/CLOUD-F-BODYGRAPH/`, `build/U405/`, `build/U413/` (gait2392, sensor models, posterior). Reuse them with a source reference; Field owns the rank analyses, and you own the OED/protocol.
 - The graph session's input (the principle for this lane): `results/CX-BAYESOED/GRAPH_INPUT.md` (copied below).
 
 ## The graph session's principles (mandatory)
@@ -18,7 +18,7 @@
    - `GE/decision_cert.py` (p_flip);
    - `GE/margin_net.py` (shares/N_eff);
    - `GE/alarm.py` (a sequential residual test catching a misspecified model).
-   Here GE=~/projects/graph_workspace/pub/src/graph_engine and C24=~/research/inference_training_20260921/claude_24h.
+   Here GE=local_path and C24=external_research_path
 4. **Lessons:**
    - Correlated sources are not independent: gait cycles, steps and channels from the same person, EMG sharing electrodes/normalisation, tensiometry sharing calibration. Declare shares, report N_eff, and make the certificate unit = PERSON.
    - FC: ICC + marginal error does not give the risk floor, so specify the full joint error model.
@@ -33,7 +33,7 @@
 ## Tasks (PREREG.md + sha256 first)
 1. Models:
    - gait2392 (Field's BODYGRAPH/U413, public);
-   - the collaborator's system (john_WR: `/mnt/shared_data/bodytwin_work/share_field/john_WR/`, INTERNAL, local only);
+   - the collaborator's system (john_WR: `external_mount`, INTERNAL, local only);
    - the Grand Challenge persons, where the implant force exists as facit for the decision's truth (NOT jw_lungef1).
 2. Candidate sensors with cost and noise, from literature with DOI: surface EMG per muscle, fine-wire EMG, shear-wave tensiometry per tendon (patellar/Achilles/semimembranosus/biceps femoris), joint stiffness perturbation, IMU, ultrasound fascicle length, force plate, the implant (as reference).
 3. Deliverables:

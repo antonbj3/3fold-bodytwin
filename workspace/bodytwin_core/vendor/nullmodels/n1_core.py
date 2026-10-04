@@ -1,4 +1,4 @@
-"N1 Core: AnyBody family landmark morphs of TLEM (affin, affin-HJC, RBF φ=r, RBF φ=r²log r; two\nlandmark sources) and our population-conditioned morphs (PSM, PSM+R) with common error measurement.\n\nRead-only import: results/P3 (p3_chain -> P1, X1), results/RM1 (rm1_core: kriging/REML for the RTPS reference).\nNo files outside results/N1 and/media/anton/sdc1-tmp/bodytwin/N1 skrivs. Se PREREG.md.\n"
+"N1 Core: AnyBody family landmark morphs of TLEM (affin, affin-HJC, RBF φ=r, RBF φ=r²log r; two\nlandmark sources) and our population-conditioned morphs (PSM, PSM+R) with common error measurement.\n\nRead-only import: results/P3 (p3_chain -> P1, X1), results/RM1 (rm1_core: kriging/REML for the RTPS reference).\nNo files outside results/N1 and external_media are written. See PREREG.md.\n"
 from __future__ import annotations
 
 import os
@@ -39,8 +39,8 @@ from p1_common import LM_NAMES, load_vsd_femur, load_imperial, measures  # noqa:
 
 E = P.E
 F = E.F
-TMP = Path(os.environ.get("N1_TMP", "/media/anton/sdc1-tmp/bodytwin/N1"))
-PRE = Path(os.environ.get("N1_PRE", "/media/anton/sdc1-tmp/bodytwin/N1/pre"))
+TMP = Path(os.environ.get("N1_TMP", "external_media"))
+PRE = Path(os.environ.get("N1_PRE", "external_media"))
 TMP.mkdir(parents=True, exist_ok=True)
 
 HEAD6 = ("SFH", "AFH", "LFH", "PFH", "MFH", "IFH")

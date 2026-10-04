@@ -14,10 +14,10 @@ def _private_input_pattern(public_pattern):
         raise ValueError("A nonempty private-source exclusion list is required")
     return "(?:" + public_pattern + ")|(?:" + "|".join(re.escape(t) for t in terms) + ")"
 
-sys.path.insert(0, 'the public staging tree/3fold-motion-engine/_private/romi_collab/lanes')
+sys.path.insert(0, '../3fold-motion-engine/_private/romi_collab/lanes')
 from field_queue_store import read_queue, append_jobs, take_jobs, parent_ready, enabled, research_bridge
-sys.path.insert(0, 'the public staging tree/3fold-motion-engine/_private/romi_collab/lanes/automation_runtime')
-R = 'the public staging tree/3fold-motion-engine/_private/romi_collab'
+sys.path.insert(0, '../3fold-motion-engine/_private/romi_collab/lanes/automation_runtime')
+R = '../3fold-motion-engine/_private/romi_collab'
 B = R + '/build'; Q = R + '/lanes/SWARM_QUEUE_20260924.json'; LOG = R + '/lanes/field_ovh.log'
 RUN = os.environ.get('FIELD_RUNNING_DIR',R + '/lanes/ovh_running'); os.makedirs(RUN, exist_ok=True)
 H = os.environ.get('FIELD_CLOUD_HOST','ubuntu@51.77.110.4')
@@ -27,10 +27,10 @@ HOST_CAP=int(os.environ.get('FIELD_HOST_CAP','17'))
 HEADROOM=int(os.environ.get('FIELD_HEADROOM_MIB','4096'))
 SLICE_HEADROOM=int(os.environ.get('FIELD_SLICE_HEADROOM_MIB','2048'))
 GUARD=f'sudo -u ubuntu python3 /opt/agents/launch_reserved.py --agent-mib 1500 --slice-headroom-mib {SLICE_HEADROOM} --host-headroom-mib {HEADROOM} --host-cap {HOST_CAP}'
-SSHO = ['-o', 'ConnectTimeout=15', '-o', 'ServerAliveInterval=30', '-i', '~/.ssh/hunt_20260923', '-o', 'IdentitiesOnly=yes',
-        '-o', 'UserKnownHostsFile=~/research/sol6_recovery_20260923/CLOUD_HUNT_20260923/infra/known_hosts', '-o', 'BatchMode=yes']
+SSHO = ['-o', 'ConnectTimeout=15', '-o', 'ServerAliveInterval=30', '-i', 'local_config_path/hunt_20260923', '-o', 'IdentitiesOnly=yes',
+        '-o', 'UserKnownHostsFile=external_research_path', '-o', 'BatchMode=yes']
 RSH = 'ssh ' + ' '.join(SSHO)
-MK_PATH = 'the public staging tree/3fold-motion-engine/_private/romi_collab/lanes/automation_runtime/mk.py'
+MK_PATH = '../3fold-motion-engine/_private/romi_collab/lanes/automation_runtime/mk.py'
 def current_rules(last=['']):
     # Field's RULES change (1/10: TARGET_FORM, EXTERNAL_REFERENT, stub gate); read them per job, keep the last good copy.
     try:
@@ -70,7 +70,7 @@ def cloud_ok(j):
 
 def prepare(j):
     jd = f"{B}/{j['id']}"
-    storage=Path('/mnt/games-240/research/bunny48_20260926/field')
+    storage=Path('external_mount')
     if storage.is_dir() and not os.path.lexists(jd):
         dest=storage/j['id'];dest.mkdir(exist_ok=True);Path(jd).symlink_to(dest,target_is_directory=True)
     os.makedirs(jd + '/src', exist_ok=True)
@@ -80,13 +80,13 @@ def prepare(j):
             bridge=research_bridge()
             graph_source=bridge is not None and bridge.is_packet_source(srcdir)
             # 1/10 (anton-5f, at Field's request): a parent job used as source was copied with its own src/ (the grandparent) and binaries, 90-135 MB/job.
-            parent_job=any(m in os.path.realpath(srcdir) for m in ('romi_collab/build','/mnt/games-240/research/bunny48_20260926','/mnt/games-240/field_romi_archive'))
+            parent_job=any(m in os.path.realpath(srcdir) for m in ('romi_collab/build','external_mount','external_mount'))
             subprocess.run(['rsync', '-a', '--exclude', 'opencode*.log', '--exclude', '__pycache__', '--exclude', '*.tar.zst']+
                            (['--exclude','/src','--exclude','/sims','--exclude','src.tar.zst','--max-size=20m'] if parent_job else [])+
                            ([] if graph_source else ['--exclude','work'])+
                            [srcdir.rstrip('/') + '/', f'{jd}/src/{name}/'], check=True, timeout=600)
     guard='Prior reports and planner claims are unaudited inputs. Verify their exact assumptions. Finite sampled successes or heuristic flags are not universal certificates. A statistical bound is not a deterministic force/error bound. Check units and preserve all negative controls. Use the strongest matched baseline available. If a dependency is supplied, read its actual outcome before using its claimed success.'
-    principles=Path('~/research/FREE_AUTONOMY_20260926/FIRST_PRINCIPLES.md').read_text()
+    principles=Path('external_research_path').read_text()
     open(jd + '/BRIEF.md', 'w').write(f"# {j['id']} — {j['title']}\n{j['body']}\n{guard}\n{current_rules()}\n\n{principles}\n")
     open(jd+'/JOB.json','w').write(json.dumps(j,ensure_ascii=False,indent=1))
     if j.get('preferred_model') in ('swarm','free_worker'):
@@ -103,7 +103,7 @@ def fetch(active):
         # Workers can create computational code under src/. Skipping that tree
         # discarded the only copy of new code before remote cleanup. Rsync is
         # incremental against the existing supplied source snapshot.
-        copied=subprocess.run([sys.executable, '~/research/FREE_AUTONOMY_20260926/collect_verified.py', f'{H}:/opt/agents/jobs/F_{jid}/', jd + '/', RSH], stdin=subprocess.DEVNULL)
+        copied=subprocess.run([sys.executable, 'external_research_path', f'{H}:/opt/agents/jobs/F_{jid}/', jd + '/', RSH], stdin=subprocess.DEVNULL)
         if copied.returncode:
             log('fetch copy failed; remote preserved',jid,copied.returncode);continue
         ok = os.path.exists(jd + '/RESULTS.md')
@@ -133,7 +133,7 @@ while True:
         if os.environ.get('FIELD_REQUIRE_READY') and ssh('test -s /opt/agents/BOOTSTRAP_OK').returncode:
             log('waiting for completed worker bootstrap');time.sleep(30);continue
         cap = int(open(CAPFILE).read().strip()) if os.path.exists(CAPFILE) else 12
-        if cap > 0 and Path('~/research/AGENT_DASHBOARD_20260930/AUTOMATIC_ENABLED.json').is_file():
+        if cap > 0 and Path('external_research_path').is_file():
             cap = 10000  # Every start still passes the shared resource guard.
         r = ssh("systemctl list-units --no-legend --state=active,activating,deactivating 'agent-*' | awk '{print $1}'")
         if r.returncode == 0:

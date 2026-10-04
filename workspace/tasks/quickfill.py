@@ -1,6 +1,6 @@
 "Quick refill (Anton 24/9 16:3x: maximize The_swarm NOW). Reproduktions-/robusthetspaket BT-Q-<src> from existing results.\nDeterministic, no LLM. Copies the source folder's small files (≤30 MB total, no >10 MB-filer) as inputs/."
 import os, shutil, sys, json
-W='.'; R=W+'/results'
+W=''; R=W+'/results'
 N=int(sys.argv[1]) if len(sys.argv)>1 else 200
 queued={l.split()[2] for l in open(W+'/tasks/lanes/bt_queue.txt') if len(l.split())==3}
 srcs=sorted([d for d in os.listdir(R) if d.startswith(('BT-','N','CX-')) and not d.startswith(('BT-Q-','BT-R-','BT-P-','BT-X-','BT-AG-'))

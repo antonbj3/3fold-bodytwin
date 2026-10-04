@@ -9,7 +9,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-SRC = Path('~/research/persona_wave_20261002')
+SRC = Path('external_research_path')
 OUT = Path(__file__).resolve().parents[2] / 'notes' / 'SURGICAL_EXPERT_SOURCE.json'
 
 # The block's verification rate, set by how the agent actually worked and not by its own self-image.

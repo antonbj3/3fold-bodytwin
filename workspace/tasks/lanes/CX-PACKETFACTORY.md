@@ -1,6 +1,6 @@
 # CX-PACKETFACTORY — a deterministic packet factory that keeps 54+ The swarm/reserve_worker slots full without LLM cost per packet
 
-Problem: the local queue (16) and the OVH queue (30) consume ~250 packets in ~15 min. LLM-built packets (CX-SWARMGEN*) cost lane runner budget and do not keep up. Anton: maximise The swarm A/B/C and use up reserve_worker (C) during the eight-hour window (`~/research/START_BODYTWIN_FIELD_CLOUD_20260924.md`). The plan wants 25 % independent testing.
+Problem: the local queue (16) and the OVH queue (30) consume ~250 packets in ~15 min. LLM-built packets (CX-SWARMGEN*) cost lane runner budget and do not keep up. Anton: maximise The swarm A/B/C and use up reserve_worker (C) during the eight-hour window (`external_research_path`). The plan wants 25 % independent testing.
 
 ## Build `tasks/packetfactory.py` (deterministic, no LLM)
 Source: all `results/<id>/` with RESULTS.md and results.json, where the data/code needed for recomputation is INSIDE the result directory or its `inputs/`. Copy exactly what is needed. Size ≤ 50 MB per packet.

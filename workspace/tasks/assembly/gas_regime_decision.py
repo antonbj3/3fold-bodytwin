@@ -28,7 +28,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 OUT = W / 'results/ASSEMBLY_GAS_REGIME_DECISION'
 
 TOTAL_24H = 705.0          # mL/24h, median

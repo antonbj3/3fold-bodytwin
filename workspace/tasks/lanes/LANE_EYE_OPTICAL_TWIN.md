@@ -59,7 +59,7 @@ Node 14 carries an honest negative that must be respected: **no open dataset wit
 brain MRI in the same individual exists** — converging zero across five archives. Do not search for it.
 
 ### 5. The engine modules the wavefront should be built on
-`the public staging tree/3fold-physics/src/physics_engine/`: `wave_optics/` med 31 filer,
+`../3fold-physics/src/physics_engine/`: `wave_optics/` with 31 files,
 among them `p20_jwst_zernike.py` (Zernike aberrations, built for telescopes but the basis is the same),
 `airy_diffraction_limit.py`, `optics_sphere_psf_diffraction_lambda_scaling_real.py`,
 `metalens_psf_imaging_cert.py`; and `ray_optics/` with lens design, achromat and `optics_departure.py`.

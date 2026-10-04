@@ -3,10 +3,10 @@
 Consumer: the Field lane. The displacement-controlled contact was ill-posed: the pose error is ~1 mm against the true deformation of ~0.1 mm. Field now solves a small pose correction so that the contact force balances a load. The comparison against eTibia then tests the medial/lateral distribution and the pressure field.
 
 ## Data (read-only; facit sealed)
-- `/media/anton/sdc1-tmp/bodytwin/CX-LUNGESYNC/`: jw_lungef1_trajectories.csv (markers), jw_lungef1_grf.csv, the fluoro segments.
+- `external_media`: jw_lungef1_trajectories.csv (markers), jw_lungef1_grf.csv, the fluoro segments.
 - `results/CX-LUNGESYNC/lunge_frames.csv` + SYNC.md: 84 frames, time base.
 - FORBIDDEN: `jw_lungef1_knee_forces.csv` and `results/CX-LUNGESYNC/facit_etibia.csv` (eTibia = Field's facit).
-- JW's OpenSim model and static trial are in the Grand Challenge 4th-competition zip (`/media/anton/sdc1-tmp/3.DataforFourthCompetition-latest.zip`); grep `~/projects/bodytwin/scripts/msk` for knee_jw / grand_challenge / inverse dynamics pipelines, and `results/L1`, `results/N12b` (the knee chain) for reuse. The OpenSim venv is `source_repository/.venv-msk/bin/python` (read-only use).
+- JW's OpenSim model and static trial are in the Grand Challenge 4th-competition zip (`external_media`); grep `~/projects/bodytwin/scripts/msk` for knee_jw / grand_challenge / inverse dynamics pipelines, and `results/L1`, `results/N12b` (the knee chain) for reuse. The OpenSim venv is `source_repository/.venv-msk/bin/python` (read-only use).
 
 ## Deliverables in `results/CX-LUNGEID/` (PREREG.md + sha256 first)
 1. `knee_load_tibia_frame.csv`, one row per fluoro frame (84):

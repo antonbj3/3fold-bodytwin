@@ -4,9 +4,9 @@ Date: 2026-09-30. **Status: PARTIAL_INPUT_COVERAGE / NOT_ADMITTED.** The review 
 
 Leveranser:
 
-- [Analysrapport](~/research/ANALYSIS_2_CONTRADICTIONS.md).
-- [Machine-readable findings and risks](~/research/ANALYSIS_2_CONTRADICTIONS.json).
-- [Checks and Reading Manifesto](./results/LANE_RUNNER_ANALYSIS2/VALIDATION.json), [leveranshashar](./results/LANE_RUNNER_ANALYSIS2/DELIVERY_MANIFEST.json) and [first-principles-dekomposition](./results/LANE_RUNNER_ANALYSIS2/DECOMPOSITION.json).
+- [Analysis report](external_research_path).
+- [Machine-readable findings and risks](external_research_path).
+- [Checks and read manifest](results/LANE_RUNNER_ANALYSIS2/VALIDATION.json), [delivery hashes](results/LANE_RUNNER_ANALYSIS2/DELIVERY_MANIFEST.json) and [first-principles decomposition](results/LANE_RUNNER_ANALYSIS2/DECOMPOSITION.json).
 
 **13 scoped findings and six ranked risks.** Most important: the boundary export lacks the promised joint area/volume, flux and state share a timestamp despite different calculation times, maps drop explicit ΔN and the sensing record from the contract, PK feedback lacks full binding, and v6's generic FP relations do not always derive the mutation's specific mechanism. Native insulin/NFκB/HPA have conflicts between executed claims and not-executed verdicts. An older feedback hash still does not match. Boundary's rank count is wrong: its own receipt contains eleven actions, not twelve. Formal gaps are separated from proved deviations; different priorities are not judged as contradictions without comparable inputs.
 

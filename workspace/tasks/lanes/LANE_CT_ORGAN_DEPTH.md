@@ -4,7 +4,7 @@ The second half of Anton's CT seed (X bookmarks batch2 B1 / batch3 TOP5 #3): `OR
 
 ## Underlag
 
-TotalSegmentator v2 is already downloaded and verified on `/mnt/games-240/research/bodytwin_ct/` (read `results/LANE_CT_EXTERIOR_INTERIOR/` — pipelinen, screening av 1 228 CT, 249 kompletta L3- profiles, the shell trap and the physical storleks/form-faktoriseringen)Organ masks are in the dataset.
+TotalSegmentator v2 is already downloaded and verified on `external_mount` (read `results/LANE_CT_EXTERIOR_INTERIOR/` — the pipeline, screening of 1 228 CTs, 249 complete L3 profiles, the scale trap and the physical size/shape factorisation). Organ masks are in the dataset.
 
 ## Uppgift
 
@@ -13,4 +13,4 @@ TotalSegmentator v2 is already downloaded and verified on `/mnt/games-240/resear
 3. Compare the distributions with published reference cohorts (e.g. the spleen volumes 112–215 cm³) and report the cohort's pathology mix.
 4. NODE_PROPOSALS: proposed numbers for ORGAN-DEPTH-VISCERAL (the results folder, not the graph).
 
-Game Data-240 (aldrig / eller /mnt/shared_data). Stream from zip, delete extracts after features. Public data, no internal.
+Data on games-240 (never / or external_mount). Stream from zip, delete extracts after features. Public data, no internal data.

@@ -79,5 +79,5 @@ constant, with ratios between 0,96 and 1,00. Data, however, rise weakly: ×1,43 
   - The direction anchors come from rat.
 - **Bookkeeping.** `DENT-BIO-ORTHO-RATE-PDL-PRESSURE` is set to REFUTED (for the Schwarz law with FE in the clinical force range).
   `DENT-IF-TPB-REMODELING` remains OPEN and now has falsifiers, tolerances and anchors.
-- **Filer.** FE-The output is in `fe_out/` (npz, 13 MB). OFJ- data is in `/media/anton/usb-stage/dental_scratch/ORTHO/` (78 MB).
+- **Files.** FE output is in `fe_out/` (npz, 13 MB). OFJ data is in `external_media` (78 MB).
   Transient solver files were in `/dev/shm` and are deleted.

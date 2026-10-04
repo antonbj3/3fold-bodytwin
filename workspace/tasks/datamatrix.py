@@ -9,7 +9,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'results'
 LANE = OUT / 'CX-DATAMATRIX'
-ARCHIVES = sorted(Path('/media/anton/sdc1-tmp').glob('*Competition-latest.zip'))
+ARCHIVES = sorted(Path('external_media').glob('*Competition-latest.zip'))
 PROTOCOLS = {
  'P-GRF-PEAK': ('grf', ['peak_vertical_N','peak_ap_N','peak_ml_N','peak_resultant_N','vertical_at_resultant_peak_N'], 'c,g', "Largest single force plate peak in N; the leg on the plate must be identified separately."),
  'P-GRF-IMPULSE': ('grf', ['vertical_impulse_Ns','ap_impulse_Ns','ml_impulse_Ns','positive_vertical_impulse_Ns','vertical_mean_N'], 'b,c', 'Integrate force components using the actual time vector and report mean force.'),

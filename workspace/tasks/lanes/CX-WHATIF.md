@@ -35,7 +35,7 @@ Goal: the collaborator plans osteotomies with a femur population (2025) and want
 - Local: nice, 2 threads, < 60 s per test.
 - Anything heavier (full rebuild over 3 × 60 parameter values) goes on Modal: `modal run tasks/modal_run.py --job-id CXW-<n> --src <dir> --cmd "<cmd>" --cpu 8 --mem-gb 16`, max 3 h. Split into shards.
 - If the sandbox has no network, do everything that can run locally at ≤ 60 s per test, write shard scripts plus `RUN_ON_CLOUD.md` with exact commands, and state it in RESULTS.
-- Write only under `results/CX-WHATIF/` (large intermediate results in `/media/anton/sdc1-tmp/bodytwin/CX-WHATIF/`). `~/projects/bodytwin` is read-only.
+- Write only under `results/CX-WHATIF/` (large intermediate results in `external_media`). `~/projects/bodytwin` is read-only.
 - restricted model data and the collaborator's data stay internal. No emails or pushes.
 
 ## Deliverables

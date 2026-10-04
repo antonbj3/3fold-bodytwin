@@ -23,7 +23,7 @@ import json
 import os
 import re
 
-W = '.'
+W = ''
 OUT = os.path.join(W, 'notes/ANCHOR_HARVEST.json')
 
 UNIT = (r'J/m\^?2|mJ/m\^?2|N/m|nmol/m\^?2/s|mL/min|mmHg|kPa|MPa|Pa|µm|um|nm|mm|cm|µM|uM|mM|nM|pM|'

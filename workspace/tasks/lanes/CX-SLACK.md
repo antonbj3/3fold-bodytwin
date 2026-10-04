@@ -11,7 +11,7 @@ Grand Challenge:
 - JW isometric at 30° (gc1) and 90° (gc4); isokinetic 60/90°/s files exist in the same archives, which give strength over the whole angle range;
 - DM gc6 at 90°;
 - SC gc3 at 90°.
-Extract only what is needed (`/media/anton/sdc1-tmp/bodytwin/CX-GC-STRENGTH/` already has the synced archives). Isokinetic data needs a force–velocity correction; use L1's S1b curve and state it.
+Extract only what is needed (`external_media` already has the synced archives). Isokinetic data needs a force–velocity correction; use L1's S1b curve and state it.
 
 ## Tasks (PREREG.md + sha256 before the first run)
 1. Measured moment–angle curve per person (isometric points + isokinetic curves, corrected for velocity, gravity/limb weight).

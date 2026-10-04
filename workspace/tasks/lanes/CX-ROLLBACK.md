@@ -8,8 +8,8 @@ Lead:
 - UNIQUE DATA: JW's fluoroscopy gives the measured tibiofemoral pose with "a(+)/p(-) translation" per frame over large flexion — measured rollback.
 
 ## Data
-- Grand Challenge 4th competition `/media/anton/sdc1-tmp/3.DataforFourthCompetition-latest.zip` → fluoroscopy trials:
-  - lunge: jw_lungef1, already extracted in `/media/anton/sdc1-tmp/bodytwin/CX-LUNGESYNC/`;
+- Grand Challenge 4th competition `external_media` → fluoroscopy trials:
+  - lunge: jw_lungef1, already extracted in `external_media`;
   - other fluoro trials in the same archive: stairs, step-up, openfe (open-chain leg extension, UNLOADED — important for separating load from geometry), twist.
 - JW's implant geometry: `results/CX-JWGEOM` (the STL files are in METRES).
 - Strength curves: `results/CX-SLACK` (isometric 0/30/60/90° + isokinetic).

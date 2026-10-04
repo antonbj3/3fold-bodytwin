@@ -34,7 +34,7 @@ import numpy as np
 from skfem import (Basis, ElementVector, ElementTetP1, MeshTet, asm, condense, solve)
 from skfem.models.elasticity import linear_elasticity, lame_parameters
 
-OUT = Path('./results/ASSEMBLY_INTEROP_BENDING')
+OUT = Path('results/ASSEMBLY_INTEROP_BENDING')
 E, NU = 1.0e6, 0.3          # a declared elastic constant pair; the ratio is designed to be insensitive
 PEAK_STRAIN = 0.1           # e0 in the published record
 

@@ -1,7 +1,7 @@
 # CX-MOTIONSCAN — leave no stone unturned in 3fold-motion-engine: what in it can solve BodyTwin's open nodes? (read-only inventory; nothing built)
 
 Anton: "there may be more in the motion engine… I'm counting on no stones being left unturned."
-Search: `the public staging tree/3fold-motion-engine/` (src/, docs/, docs/papers P1–P4 + reproducibility/, tests/, examples/, `_private/romi_collab/HUNT.md` and build/ — read-only). Also grep `~/projects/3fold_staging/` for other engine repos with the same relevance.
+Search: `../3fold-motion-engine/` (src/, docs/, docs/papers P1–P4 + reproducibility/, tests/, examples/, `_private/romi_collab/HUNT.md` and build/ — read-only). Also grep `~/projects/3fold_staging/` for other engine repos with the same relevance.
 
 ## BodyTwin's open nodes (match each module against these)
 1. Knee contact: two layers/non-parabolic gap/patch coupling (A1400 KNEEMERGE2: a geometric error gate is needed), force-controlled contact, secondary kinematics (Lemma G, A1402).

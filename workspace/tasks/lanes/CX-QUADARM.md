@@ -4,7 +4,7 @@ Background: A1449 CX-L1ARMS2, pre-registered single swaps. Replacing ONLY the qu
 
 ## Tasks (PREREG.md + sha256 FIRST; freeze the criteria below)
 1. **Mechanism.** Plot L1's effective quadriceps arm against Rajagopal's and against the literature over knee angle, per person. Literature: Herzog–Read, Im et al. EQma (in results/CX-RQANGLE), Buford. Which one is off, and by how much? Is the error in the patella solver (rho, the patellar tendon arm) or in the TLEM paths?
-2. **Frozen confirmation 1, other activities (not used in the decomposition):** JW4 non-gait (11 trials; operators in /media/anton/sdc1-tmp/bodytwin/CX-INVERSEOC/non_gait/), and DM/SC/PS non-gait if CX-NONGAITOPS has delivered them. Criterion: the share under lo falls ≥ 40 % relatively with the quadriceps-arm swap only.
+2. **Frozen confirmation 1, other activities (not used in the decomposition):** JW4 non-gait (11 trials; operators in external_media), and DM/SC/PS non-gait if CX-NONGAITOPS has delivered them. Criterion: the share under lo falls ≥ 40 % relatively with the quadriceps-arm swap only.
 3. **Frozen confirmation 2, a literature curve instead of Rajagopal:** the Im et al. EQma curve (female/male) as the quadriceps arm, on the L1 gait mask. Criterion: the share under lo ≤ 13 %.
 4. **Consequences** (report; no criterion):
    - ε=10 % coverage/width (eps_band.py);

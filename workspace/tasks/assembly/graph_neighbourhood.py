@@ -16,7 +16,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 NET = W / 'CONSTRAINT_NETS.json'
 HOPS = 2
 

@@ -3,8 +3,8 @@
 # The model is lane_runner, not coordinator — no coordinator quota is consumed.
 set -u
 T=$1; D=$2; B=$3
-W=.
-export PATH=~/.npm-global/bin:~/.local/bin:/usr/local/bin:/usr/bin:/bin:$PATH
+W=
+export PATH=local_config_path/bin:local_config_path/bin:/usr/local/bin:/usr/bin:/bin:$PATH
 export OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4 NUMEXPR_NUM_THREADS=4 TOKENIZERS_PARALLELISM=false
 mkdir -p "$W/tasks/build_night/logs" "$D"
 P="$(cat "$W/tasks/build_night/COMMON.md" 2>/dev/null)

@@ -1,6 +1,6 @@
 # LANE_CT_EXTERIOR_INTERIOR
 
-Antons seed (X Bookmarks 28–30/9, batch2 TOP5 #2 and batch3 TOP5 #3; sources in ~/research/X_BOOKMARKS_20260930/). Resultatmapp `results/LANE_CT_EXTERIOR_INTERIOR/`.
+Anton's seed (X bookmarks 28–30/9, batch2 TOP5 #2 and batch3 TOP5 #3; sources in external_research_path). Result directory `results/LANE_CT_EXTERIOR_INTERIOR/`.
 
 ## Missing capability
 
@@ -18,9 +18,9 @@ Baseline sex + height + body volume; subset without contrast and with L3 fully i
 
 ## Data, disk and resources — IMPORTANT
 
-- **All data on `/mnt/games-240/research/bodytwin_ct/`** (94 GB ledigt). **Never on `/` eller `/mnt/shared_data`** — The root counter is: 98 % full.
+- **All data on `external_mount`** (94 GB free). **Never on `/` or `external_mount`** — the root disk is 98 % full.
 - Download the zip file there; do **not** unpack everything. Read members streaming from zip (Python zipfile) or extract only a subset at a time and delete extracted volumes after features are calculated. Save only features (CSV/JSON) and small summaries.
 - Start with a pilot of ~50 CT, measure time/memory per CT, then scale.
 - RAM per CT may be a few GB: run heavy steps via `tasks/heavy_run.sh` if > 8 GB, otherwise directly with 2 threads. No GPU is needed.
-- NHANES- the comparison (`/media/anton/8838D60F38D5FBDE/mechanism_data/vat_test`) may only be read locally, and only summarized numbers may be quoted; it contains no personal data that may leave the machine.
+- The NHANES comparison (`external_media`) may only be read locally, and only summarized numbers may be cited; it contains no personal information that may leave the machine.
 - Inga interna BodyTwin-personer, the collaborator, Grand Challenge eller restricted model data.

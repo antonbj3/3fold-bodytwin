@@ -8,7 +8,7 @@ Tonight's surgical search (1/10) has produced four lanes with ports, findings an
 - `results/LANE_SURGICAL_BINDINGS/` — PORTS_R4_FINAL.json, MEASUREMENT_SPEC_R4.md: Γ_cut scenario 150–380 J/m², interface energies, microbudget ≤ 7 kJ/m².
 - `results/LANE_SKIN_TOUGHNESS_GAP/` — MECHANISM_TABLE_R2_FINAL.json, PORTS_R2_FINAL_V2.json, MEASUREMENT_SPEC_R2.md: poroelasticity ≤ 0,11 and crimp ≤ 0,14 kJ/m² excluded; mm bridging 19–25 kJ/m² has the right magnitude; mode split unexplained.
 - `results/LANE_SURGICAL_RESPONSE/` — RESPONSE_PORTS_R3.json and later: U/I/M collagen inventories give Levenson strength RMSE 8,31 pp without strength fitting; HP42 −52 %; round 4 underway (read its results when available).
-- Warmness SURG-resultat (BT-FW48-AUTO-* med SURG_* i source_keys under /mnt/games-240/research/bunny48_20260926/bodytwin/): e.g. bleeding is carried by radius distribution (antal-matchad kontroll underskattar 25×), wall shear in platelet plug.
+- The swarm's SURG results (BT-FW48-AUTO-* with SURG_* in source_keys under external_mount): e.g. bleeding is carried by the radius distribution (count-matched control underestimates 25×), wall shear in the platelet plug.
 - Private code (read-only) `~/projects/bodytwin/scripts/msk/` and HX Q033/Q036/Q049.
 
 ## Leverans

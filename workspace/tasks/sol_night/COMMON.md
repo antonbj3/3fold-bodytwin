@@ -34,8 +34,8 @@ Prefer a round of 1–3 hours with a real design change over many small ones. If
 ## Resources and limits
 
 - Local CPU, `OMP/OPENBLAS/MKL/NUMEXPR_NUM_THREADS=2`. Individual commands preferably ≤10 min and ≤2 GiB. The machine is shared with other sessions.
-- Jobb ≥8 GB RAM eller GPU: bara via `tasks/heavy_run.sh` (bigmem lock + resource_gate). Large intermediate data on `/mnt/games-240/research/bodytwin_solnight/<LANE>/ (never / or /mnt/shared_data — both nearly full)`, not `/tmp`.
-- No sub-agents. No cloud, no queues, no change of source graph, canonic code, services or product code. Just type in `results/<LANE>/` and `/mnt/games-240/research/bodytwin_solnight/<LANE>/ (never / or /mnt/shared_data — both nearly full)`.
+- Jobs ≥8 GB RAM or GPU: only through `tasks/heavy_run.sh` (bigmem lock + resource_gate). Large intermediate data on `external_mount<LANE>/ (never / or external_mount — both almost full)`, not `/tmp`.
+- No subagents. No cloud, no queue writes, no changes to source graph, canonical code, services or product code. Write only in `results/<LANE>/` and `external_mount<LANE>/ (never / or external_mount — both almost full)`.
 - Read-only: `~/projects/bodytwin`, other lanes' folders and other sessions' workspaces.
 - No emails, push, publishing, credentials. Everything is `PENDING_INDEPENDENT_REVIEW`; no scientific admission, no clinical claims. Biological closures are synthetic until otherwise measured.
 - The words "kill" and "dead path" are not used; an obstacle is a node that expands into the next design.
@@ -59,7 +59,7 @@ An external reference is a **held data anchor**: the model must **calculate** th
 
 Our internal database is in **three separate trees**, and today both I and three agents drew the wrong conclusion of absence by searching only the first one. Each "it is not with us" must have searched in all three, otherwise it is not a verdict.
 
-1. `./results/` — ~15 800 This is the only tree people usually search for.
+1. `results/` — ~15 800 job directories. This is the only tree people tend to search in.
 2. `source_repository/data/` — **15 GB, 13 455 JSON files**, in domain named folders (`mitochondrial_oxphos`, `dopamine_kinetics`, `csf_davson_icp_flux`, `vitamin_d_activation`, `model_registry`, …). Contains numbers not found in tree 1.
 3. `source_repository/scripts/physics_exp/` — experiments whose results are located as `*_evidence.json` **next to the script**, not in any `results/` folder. The condensation result that I couldn't find today was here.
 
@@ -256,10 +256,10 @@ already adequate as run**. Refining at a stress point decides an open verdict. S
    point honestly and tells us to change the readout instead of waiting.
 
 ## Large intermediates: a round cleans up after its predecessor
-Measured 2026-10-03 11:50: `/mnt/games-240` reached **95 % with 12 GB free**, and the swarm's job store
+Measured 2026-10-03 11:50: `external_mount` reached **95 % with 12 GB free**, and the swarm's job store
 is on the same disk — so filling it stops throughput for every session, not just this one. One lane held
 **13.3 GB over four rounds** (r15 0.8, r16 2.9, r17 5.1, r18 4.7 GB), with 159 files in the 10–100 MB
-band. There is no alternative disk: `/` and `/mnt/shared_data` were already nearly full, which is why
+band. There is no alternative disk: `/` and `external_mount` were already nearly full, which is why
 these files are here in the first place, and the only volume with room is a 29 GB removable stick.
 
 Compression does not solve it either: the `.npz` files are already deflate-compressed, so re-packing

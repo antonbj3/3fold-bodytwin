@@ -9,8 +9,8 @@ WS = Path(__file__).resolve().parents[3]
 RES = WS / 'results'
 BT_SRC = WS / 'references' / 'current_bodytwin' / 'src'
 MSK_PY = Path('source_repository/.venv-msk/bin/python')            # OpenSim 4.6
-FIELD_PY = Path('~/projects/3fold_staging/.venv-bodytwin/bin/python')  # warp (CPU) for the field engine
-STAGING = Path('~/projects/3fold_staging')
+FIELD_PY = Path('../.venv-bodytwin/bin/python')  # warp (CPU) for the field engine
+STAGING = Path('local_path')
 
 sys.dont_write_bytecode = True
 

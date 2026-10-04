@@ -14,7 +14,7 @@ Anton has pointed out that new knee work started without a full comparison again
 | scripts/msk/jam_contact_decorr.py | 9 | 9 | 0 |
 | scripts/msk/moment_arm_validation.py | 5 | 5 | 0 |
 
-For `KNEE-CELL`, `MSK-KNEE-6DOF-JAM-ACL` and `HOLE-MOMENT-ARM-SENSITIVITY-UNWIRED-AT-KNEE-CELL` is `claim` and `cert_design` equal in source graph and import. This is a delimited check, not a proof of complete code index or scientific correctness. `~/research/sol6_recovery_20260923/BODY_CONTEXT_COVERAGE_20260923/coverage_probe.json`.
+For `KNEE-CELL`, `MSK-KNEE-6DOF-JAM-ACL` and `HOLE-MOMENT-ARM-SENSITIVITY-UNWIRED-AT-KNEE-CELL`, `claim` and `cert_design` are the same in the source graph and import. This is a bounded check, not proof of a complete code index or scientific correctness. Machine-readable check with file hashes: `external_research_path`.
 
 `results/GRAPH_WORKING_VIEW_20260923/working_graph.py` has nine manually selected records. `notes/GRAPH_WORKFLOW.md` already states that they do not cover the entire private graph. These records are not sufficient as the sole search for existing implementations and the strongest comparison methods.
 

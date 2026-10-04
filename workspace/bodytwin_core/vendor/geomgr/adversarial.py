@@ -18,9 +18,9 @@ L5 = ['HC6', 'SGT', 'LT', 'MEC', 'LEC']
 
 def run(subject='z001', out=None, data=None, gm=None):
     root = Path(__file__).resolve().parents[1]
-    data = Path(data or '/media/anton/sdc1-tmp/bodytwin/N7a/frozen')
+    data = Path(data or 'external_media')
     gm = gm or GeometryManager(data, population=('imperial',), exclude_vsd=subject,
-                               cache_dir='/media/anton/sdc1-tmp/bodytwin/N7a')
+                               cache_dir='external_media')
     O = np.load(data / 'vsd_obs.npz')
     s = [str(x) for x in O['subj']].index(subject)
     r0 = int(np.flatnonzero(np.isfinite(O['obs_lm'][s, :, 0, 0]))[0])

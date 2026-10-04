@@ -22,4 +22,4 @@ Four local review dispatch+feedback receipts can be found under graph_review_wor
 
 First seal miss model r1/scenario_nominal, the first misplaced relative evidence output inside the lane, v2/v3/v4 chains and42/48/51 test logs are preserved. R4chemicalnominalFAIL and all16glycoFAIL must not be substituted for the illustrative LH3 profile. Swarm count control **over**predict25,3757×; The R³ equation text is wrong while the R code is correct. Budget29,05J/m² is prospective, never achieved.
 
-No sub-agency, queue, cloud, heavy work, publishing or external communication.2. All new calculations in egenlane/shared-data. Large intermediate data on /mnt/shared_data/bodytwin_solnight/LANE_SURGICAL_SYNTHESIS/. New round will distinguish engineering, strongest-control, scientific gate and acquisition status equally clearly.
+No subagent, queue, cloud, heavy work, publishing or external communication. Threads2. All new calculations in ownlane/shared-data. Large intermediate data on external_mount New round should distinguish engineering, strongest-control, scientificgate and acquisition-status equally clearly.

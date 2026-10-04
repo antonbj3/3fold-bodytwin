@@ -45,7 +45,7 @@ _spec.loader.exec_module(_rel)
 # rule, one file.
 carries = _rel.carries
 
-W = Path('.')
+W = Path('')
 NET = W / 'CONSTRAINT_NETS.json'
 # The value class used to be [\d.eE+], which accepts 1.25e+09 and rejects 1.25e-09. Four edges
 # whose provenance resolved perfectly were therefore reported as "evidence carries no

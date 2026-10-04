@@ -16,7 +16,7 @@ from pathlib import Path
 
 # Root: argv[2] if given, otherwise BodyTwin's results. The graph lane (2/10) needed it movable in order to run
 # the tool against the graph engine and copied the file instead; now no copy is needed.
-R = Path(sys.argv[2]) if len(sys.argv) > 2 else Path('./results')
+R = Path(sys.argv[2]) if len(sys.argv) > 2 else Path('results')
 
 
 def same(a, b):

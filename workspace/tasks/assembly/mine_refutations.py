@@ -13,8 +13,8 @@ import json
 import pathlib
 import re
 
-STORE = pathlib.Path('/mnt/games-240/research/bunny48_20260926/bodytwin')
-OUT = pathlib.Path('./results/ASSEMBLY_REFUTATIONS')
+STORE = pathlib.Path('external_mount')
+OUT = pathlib.Path('results/ASSEMBLY_REFUTATIONS')
 NUM = re.compile(r'-?\d+\.?\d*(?:[eE][+-]?\d+)?')
 
 

@@ -6,10 +6,10 @@ Sources, all read without modification:
 
 | Source | Path | Version |
 |---|---|---|
-| Publicerad | `references/current_bodytwin` → `/mnt/games-240/bodytwin_publication_2026_09_17/public` | `b95a8dc` "Add geometry contracts and refuse unapproved chained results" |
-| Staging | `the public staging tree/3fold-bodytwin` | `2ec6cb2` |
-| Privat | `source_repository` | `2c42ec52f9` |
-| Field engine | `~/projects/3fold_public/3fold-field-engine` | `3ffdb0e` |
+| Publicerad | `references/current_bodytwin` → `external_mount` | `b95a8dc` "Add geometry contracts and refuse unapproved chained results" |
+| Staging | `../3fold-bodytwin` | `2ec6cb2` |
+| Private | `source_repository/` | `2c42ec52f9` |
+| Field engine | `local_path` | `3ffdb0e` |
 | Dental session's cell inventory | `../dental/notes/COMPUTE_CELL_INVENTORY_bodytwin.md` | Not duplicated here. It covers 232 cells, `tmj_lever_model` and the geometry modules, §2b. |
 
 The published working tree already had three modified `reports/verification_*.json` with mtime 2026-09-17. I have not modified them.
@@ -22,7 +22,7 @@ Everything ran on CPU with `CUDA_VISIBLE_DEVICES=''`, `OMP_NUM_THREADS=4` and Py
 
 | Run | Exact command | Outcome |
 |---|---|---|
-| Atlas → seam → SDF- field | `results/O2/compose_cmd.txt`: `THREEFOLD_ROOT=~/projects/3fold_public WARP_CACHE_PATH=$S/warpcache … python examples/anatomy/compose_mesh_to_field.py` | exit 0 on 5,7 s. Alla 6 grindar PASS. Voxel volume is 103 640 mm³ mot meshens 103 741,155 mm³, a relative error of 9,75e-4. The field is 34×26×58 med 2 mm pitch. Field SHA is `b1f26106…d7d9`, samma som i RUNNING.md. Resultat-JSON and npz is **byte-identiska** med de publicerade filerna (`compose_before_sha.txt`). |
+| Atlas → seam → SDF field | `results/O2/compose_cmd.txt`: `THREEFOLD_ROOT=local_path WARP_CACHE_PATH=$S/warpcache … python examples/anatomy/compose_mesh_to_field.py` | exit 0 in 5,7 s. All 6 gates PASS. Voxel volume is 103 640 mm³ against the mesh's 103 741,155 mm³, a relative error of 9,75e-4. The field is 34×26×58 with 2 mm pitch. The field's SHA is `b1f26106…d7d9`, the same as in RUNNING.md. Result JSON and npz are **byte-identical** to the published files (`compose_before_sha.txt`). |
 | Geometry tests (20 files: frame, geometry_validity, i2_*, material_roster, region_*, thermal, thickness, uncertainty, cross_module) | `results/O2/geometry_tests_cmd.txt` (requires `PYTHONPATH=src`) | **306 passed, 2 skipped** in 14,8 s. The two skipped lack external reference files (`BODYTWIN_REF_PROPERTY_REGISTRY_DIR` and `BODYTWIN_REF_AREA_DESCRIPTOR`). |
 | Same tests without `PYTHONPATH=src` | `geometry_tests_no_pythonpath.log` | 5 collection errors (`No module named 'bodytwin'`). RUNNING.md specifies `pytest -q tests` without PYTHONPATH and without package installation. Neither `pyproject` nor `setup` exists. **The documented test line therefore does not work as written** for the geometry tests. |
 | O2 probe on the kidney atlas and OpenMandible | `results/O2/o2_probe_cmd.txt` → `o2_geometry_probe.json` | exit 0 in 1,3 s. See §4. |
@@ -66,7 +66,7 @@ Motion and muscle cells in published code:
 
 **Staging** (`2ec6cb2`) is an older subset of the published code. It has `mesh_ingest`, `label/tetra_interfaces`, `tetra_ray_*`, `layered_*` and optics, and shared files are identical. The following are missing in staging: `frame_v1`, `frame_region_bridge_v1`, `geometry_validity_v1`, `region_mass_v1`, `material_roster_v1`, `thickness_v1`, `thermal_capacity_v1`, `uncertainty_v1`, `i2_*`, `examples/geometry` and their tests. Staging only has `examples/optics` in addition to published code. Geometrically, there is therefore nothing in staging that is not already published.
 
-**Privat** (`source_repository`). Most of the actual musculoskeletal geometry is found here, via **OpenSim 4.6** (`.venv-msk`)Everything is private and nothing is published.
+**Private** (`source_repository/`). Most of the actual musculoskeletal geometry is here, via **OpenSim 4.6** (`.venv-msk`). Everything is private and nothing is published.
 
 | Capability | Where | Has it been run? | Comment |
 |---|---|---|---|
@@ -96,7 +96,7 @@ The dental inventory, row 30, states that no OpenSim model contains a mandible. 
 - With GENERIC density (1,05 kg/L, *assumption*), mass is 0,1089 kg and principal inertias 22,8 / 81,2 / 89,9 kg·mm².
 - An affine elongation by 10 % along the longitudinal axis gives a volume and mass factor of exactly 1,100 and inertia factors of 1,100 / 1,311 / 1,291. Vertex identity is trivially preserved. This shows that a shape parameter can give a measurable consequence with existing code, but only for affine mappings.
 
-**OpenMandible** (`/mnt/games-240/datasets/dental_3fold/biomech/OpenMandible`, git `e1f8cef`):
+**OpenMandible** (`external_mount`, git `e1f8cef`):
 - `misc/mandible_model_used_for_prescribing_muscles_insertion.stl` has 128 976 raw vertices and 42 992 triangles. After exact welding, **it passes the strict seam** (`surface_mesh` PASS) with volume 23 387 mm³ and extent 107×101×54 mm, which is reasonable in mm.
 - All **14 muscle attachments on the mandible** (`bc_directed/*_mandible_insertion.stl`: superficial and deep masseter, temporalis anterior/middle/posterior, medial and lateral pterygoid, left and right) are **exact vertex subsets** of the mandible mesh (fraction 1,0 for all 14). The attachments can therefore be carried as vertex-id sets: no projection, and barycentric coordinates become trivial.
 - The origin surfaces on the skull exist as 14 separate STL files, and `misc/skull_model…stl` also exists.
@@ -136,7 +136,7 @@ The field engine and motion engine have none of this. The barycentric hit in the
 Decorrelated anchor: OpenMandible's own Ansys/FE boundary conditions (`02 Use cases`) and published moment arms for jaw muscles. The private `moment_arm_lit_compare.py` is a ready pattern for the literature comparison (±30 % and ±20° with external justification).
 
 Limb alternatives (not recommended first):
-- TotalSegmentator Falls on Disk (`/media/anton/8838D60F38D5FBDE/mechanism_data/totalseg{,2}`, 3+8 CT with femur, hip and gluteus segmentation; CC BY 4.0 according to the private source register) requires marching cubes and surface cleaning before seaming.
+- TotalSegmentator cases on disk (`external_media{,2}`, 3+8 CT with femur, hip and gluteus segmentation; CC BY 4.0 according to the private source registry) require marching cubes and surface cleaning before the seam.
 - The JAM/Grand Challenge knee (`data/external/opensim_jam_grand_challenge_DM/Geometry`) only has bone surfaces. The attachments are in `.osim` as points.
 
 ## 7. Other observations
@@ -144,7 +144,7 @@ Limb alternatives (not recommended first):
 - `compose_mesh_to_field.py` writes to the source tree. The documented `pytest -q tests` requires `PYTHONPATH=src`.
 - The frame convention in `frame_v1` is easy to misuse: `axes` has the basis vectors as **columns**. My first probe gave rows and got off-diagonal 17,7 kg·mm² instead of ~1e-14. This was a caller error, not the library's fault, but a demo chain should test it explicitly.
 - The disk inventory is in `results/O2/mesh_inventory_raw.txt`. Other anatomical meshes on disk:
-  - `mandibular_defect_147` (338 STL, `/mnt/shared_data/datasets/dental_3fold_corpus/geometry_extra`)
+  - `mandibular_defect_147` (338 STL, `external_mount`)
   - Teeth3DS (CC BY-SA 4.0)
   - STS-3D-Tooth
   - MMDental (license discrepancy noted in `KATALOG_TILLAGG_2026-09-22.md`)

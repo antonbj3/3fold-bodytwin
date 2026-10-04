@@ -1,16 +1,16 @@
 # Startmeddelande till Graf
 
-You will return as a lane for the graph motor and its research functions. First read the joint handoff: [README.md](./notes/HANDOFF_LANES_20260930/README.md). Den beskriver helhet, forskningsbank, 500- programs, solar trials, automatic planners, operation and commits.
+You return as lane for the graph engine and its research functions. First read the joint hand offering: [README.md](notes/HANDOFF_LANES_20260930/README.md). It describes overall, research bank, 500 program, Sol trial, automatic planners, operation and commits.
 
 Anton wants offensive innovation with the graph as a tool for goals, variables/relations, throws, conflicts and densification. The existing engine functions should be used and extended where an actual consumer needs a new operation. Source statements, mathematics, produced report and independent evidence admission have their own contracts.
 
 ## Read and start from what actually exists
 
-- `~/projects/graph_workspace/GRAPH_MAP.md`
+- `local_path`
 - Graph checkouts own AGENTS/README and relevant research branches' reports.
-- `~/projects/3fold-workspaces/{bodytwin,dental}/notes/GRAPH_WORKFLOW.md`
-- `~/research/FREE_AUTONOMY_20260926/PROOF_LANE_DISTILL_20260928/GRAPH_COMBINATORICS/README.md`, inklusive `ACTIVE/` and `CLOUD/`.
-- `~/research/AGENT_DASHBOARD_20260930/research_value.py` and `RESEARCH_VALUE_DEPLOY.json`.
+- `local_path,dental}/notes/GRAPH_WORKFLOW.md`
+- `external_research_path`, including `ACTIVE/` and `CLOUD/`.
+- `external_research_path` and `RESEARCH_VALUE_DEPLOY.json`.
 - `bodytwin/results/LANE_AMBITIOUS_QUERY_GRAPH/RESULTS.md`, `EXPORT_V1/` and `shared/whole_domain_consumer/`.
 
 The private workspace is pinned to 73e76dd; later federation/continuum/probe-selection code is in other branches and candidate packages. The handoff does not upgrade a pin.

@@ -4,7 +4,7 @@ Background:
 - A1782 CX-FDK1 and A1703 CX-JWPATGEOM: there is no verified rigid transform from the implant STL (femoral component, tibial insert) to the marker segments in the gait trials.
 - CX-CT2MARKER found 0 accepted PS5 transforms (a 28.2 mm residual).
 - The GC archive contains fluoroscopy-derived tibiofemoral kinematics, CT bones and static trials.
-Read: `results/CX-CT2MARKER`, `results/CX-FLUOROLINK`, `results/CX-JWGEOM` (archive_inventory.json, bones.py), and the GC documentation (/media/anton/sdc1-tmp/bodytwin/CX-JWGEOM/docs/).
+Read: `results/CX-CT2MARKER`, `results/CX-FLUOROLINK`, `results/CX-JWGEOM` (archive_inventory.json, bones.py), and the GC documentation (external_media).
 
 ## Tasks (PREREG.md + sha256 first; the implant force is NEVER used for the registration)
 1. Inventory per person what exists:

@@ -3,9 +3,9 @@
 # Reads the same bt_queue.txt as the local driver. Claims a job with results/<J>/.ovh_claim (the local driver skips it),
 # sends the packet to /opt/agents/jobs/<J>, starts its own systemd unit on OVH (1500M/100 % CPU), and fetches it
 # back when AGENT_EXIT exists. Cap: tasks/lanes/ovh_agents/cap (default 30). Stop: systemctl --user stop bt-queue-ovh.
-W=.; Q=$W/tasks/lanes/bt_queue.txt; D=${BT_CLOUD_DIR:-$W/tasks/lanes/ovh_agents}
+W=; Q=$W/tasks/lanes/bt_queue.txt; D=${BT_CLOUD_DIR:-$W/tasks/lanes/ovh_agents}
 LOG=$D/queue_ovh.log; LLOG=$W/tasks/lanes/bt_queue.log; RUN=$D/running; mkdir -p $RUN
-SSHO=(-o ConnectTimeout=15 -o ServerAliveInterval=30 -i ~/.ssh/hunt_20260923 -o IdentitiesOnly=yes -o UserKnownHostsFile=~/research/sol6_recovery_20260923/CLOUD_HUNT_20260923/infra/known_hosts -o BatchMode=yes)
+SSHO=(-o ConnectTimeout=15 -o ServerAliveInterval=30 -i local_config_path/hunt_20260923 -o IdentitiesOnly=yes -o UserKnownHostsFile=external_research_path -o BatchMode=yes)
 H=${BT_CLOUD_HOST:-ubuntu@51.77.110.4}; END=${BT_CLOUD_END:-1791042504}
 # Shared with Field; the host lock makes the final check + unit start atomic.
 # Keep this default equal to the unit's Environment=BT_AGENT_MEMORY_MIB, or the script
@@ -26,7 +26,7 @@ while true; do
   CAP=$(cat $D/cap 2>/dev/null || echo 30)
   # Shared cloud guard selects a measured hard budget and authorises every
   # start. A zero cap still means explicit pause; positive caps need no tuning.
-  if [ -f ~/research/AGENT_DASHBOARD_20260930/AUTOMATIC_ENABLED.json ] && [ "$CAP" -gt 0 ]; then
+  if [ -f external_research_path ] && [ "$CAP" -gt 0 ]; then
     CAP=10000
   fi
   # 1) fetch finished jobs: done = AGENT_EXIT exists OR no agent-<J> unit running anymore (timeout/OOM leaves no AGENT_EXIT)
@@ -34,7 +34,7 @@ while true; do
   if [ "$ACTIVE" != "__SSH_FAIL__" ]; then
     for f in $RUN/*; do [ -e "$f" ] || continue; J=$(basename $f)
       echo "$ACTIVE" | grep -q "^agent-$J-" && continue
-      if ! python3 ~/research/FREE_AUTONOMY_20260926/collect_verified.py "$H:/opt/agents/jobs/$J/" "$W/results/$J/" "ssh ${SSHO[*]}" < /dev/null; then
+      if ! python3 external_research_path "$H:/opt/agents/jobs/$J/" "$W/results/$J/" "ssh ${SSHO[*]}" < /dev/null; then
         echo "[$(date +%T)] fetch failed; remote preserved $J" >> "$LOG"
         continue
       fi
@@ -124,7 +124,7 @@ while true; do
         LING_SKIP=$(cat "$D/.skip_ling" 2>/dev/null || echo 0)
         if [ $((LING_N % 3)) -eq 0 ] && [ "$(date +%s)" -ge "$LING_SKIP" ]; then M=ling; fi
       fi
-      if [[ "$J" == BT-DW48-* ]] && [ ! -f ~/research/AGENT_DASHBOARD_20260930/AUTOMATIC_ENABLED.json ]; then
+      if [[ "$J" == BT-DW48-* ]] && [ ! -f external_research_path ]; then
         DENT_N=$(find "$RUN" -maxdepth 1 -name 'BT-DW48-*' -type f | wc -l)
         [ "$DENT_N" -ge 12 ] && continue
       fi
@@ -134,7 +134,7 @@ while true; do
       [ "$(grep -cF "start $J ($P $M)" $LLOG)" -ge 3 ] && continue
       RATE_RETRY=0
       if [ "$(grep -cF "ovhstart $J " $LOG)" -ge 2 ]; then
-        python3 ~/research/FREE_AUTONOMY_20260926/SOL_SYNTHESIS_20260927/deferred_job_gate.py "$J" || continue
+        python3 external_research_path "$J" || continue
         RATE_RETRY=1
       fi
       ( set -o noclobber; : > "$W/results/$J/.ovh_claim" ) 2>/dev/null || continue
@@ -169,7 +169,7 @@ while true; do
         # The shared host guard can reject a stale capacity snapshot. Charge a
         # delayed retry only after a real unit start, never for failed admission.
         if [ "$RATE_RETRY" -eq 1 ]; then
-          python3 ~/research/FREE_AUTONOMY_20260926/SOL_SYNTHESIS_20260927/deferred_job_gate.py "$J" --claim || true
+          python3 external_research_path "$J" --claim || true
         fi
       else
         rm -f "$W/results/$J/.ovh_claim"

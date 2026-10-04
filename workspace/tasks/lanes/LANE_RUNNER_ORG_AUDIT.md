@@ -15,13 +15,13 @@ Anton previously worked with a program described as follows (mechanism / 3FOLD B
 ## Task (verification, not new construction)
 1. **Inventory** the above against disk: do `projects/bodytwin/data/mechanism_catalog/sources_wave*.json`, `data/MECHANISM_ANCHOR_GRAPH.json`, `reports/probes/mt_*`, `scratch_glut4sig_model/`, `~/outputs/`, `WAVE_PLAN.md`, `COORDINATOR.md`, the `bt_memory/` probe exist? Count lines/strings/records and note exact paths + sizes.
 2. **Availability to the graph:** can the graph reach and consume this? Run the `./graph` tools (working rank/packet/dispatch/feedback) and verify that relevant nodes (MOL-*, ORG-*, signaling-MODEL-*) exist and that the sources are linked. Report broken or missing links.
-3. **Availability for workers:** the material is located on a path which: SEED-/field-workers actually read? (T.ex. `inputs/`, kataloger under `/mnt/games-240/research/...`, `results/<job>/inputs/`.) Verify that a worker can find and read a representative file without a special right.
+3. **Availability to workers:** is the material on a path that SEED/field workers actually read? (E.g. `inputs/`, directories under `external_mount`, `results/<job>/inputs/`.) Verify that a worker can find and read a representative file without special permission.
 4. **Executed vs planned:** produce the exact split for the transcriptomic cells (executed analysis with result file vs BT-HOLD/WAVE_PLAN plan). The graph’s own notes are ground truth.
 5. **Gaps:** list exactly what is NOT available (missing, wrong path, broken link, permission problem, outdated snapshot) and what is required to make it available.
 6. If something is easy to fix (symlink, manifest, copy to the right inputs directory): **do it** — but do not touch SEED results or running jobs, and document every intervention.
 
-## Utdata
-1. `~/research/ORGANIZATION_AUDIT.md` — overall picture: what exists, where, available for graph+workers or not, run-vs-planned-split, glitch.
+## Outputs
+1. `external_research_path` — overview: what exists, where, available to graph+workers or not, executed-vs-planned split, gaps.
 2. Machine-readable inventory (JSON) with path, size, status (available/missing/broken), graph link, worker-readable.
 3. `tasks/lanes/LANE_RUNNER_ORG_AUDIT_RESULT.md` — decisions, exact findings, what was fixed, what was NOT done.
 

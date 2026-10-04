@@ -4,7 +4,7 @@
 # exists or after MAX_ROUNDS. Can be restarted over an already running lane: then waits for the running process.
 set -u
 LANE=${1:?lane, t.ex. U14}; MODEL=${2:-opencode-go/reserve_worker-v4.1-flash}
-ROOT=.
+ROOT=
 LANEFILE=$ROOT/tasks/lanes/$LANE.md; OUT=$ROOT/results/$LANE/RESULTS.md; LOG=$ROOT/tasks/lanes/lane_$LANE.log
 MAX_ROUNDS=${MAX_ROUNDS:-12}
 export GOOGLE_VERTEX_PROJECT=project-8029a247-2b65-4a21-8f8 GOOGLE_VERTEX_LOCATION=global
@@ -14,7 +14,7 @@ export OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2
 mkdir -p "$ROOT/results/$LANE"; cd "$ROOT"
 exec 9>"$ROOT/results/$LANE/.driver.lock"
 flock -n 9 || { echo "$LANE: driver already running"; exit 0; }
-sid_of(){ python3 -c "import sqlite3,sys; c=sqlite3.connect('file:~/.local/share/opencode/opencode.db?mode=ro',uri=True); r=c.execute(\"select id from session where title=? order by time_updated desc limit 1\",(sys.argv[1],)).fetchone(); print(r[0] if r else '')" "$LANE" 2>/dev/null; }
+sid_of(){ python3 -c "import sqlite3,sys; c=sqlite3.connect('file:local_config_path/share/opencode/opencode.db?mode=ro',uri=True); r=c.execute(\"select id from session where title=? order by time_updated desc limit 1\",(sys.argv[1],)).fetchone(); print(r[0] if r else '')" "$LANE" 2>/dev/null; }
 busy(){ ps -eo pid=,args= | grep -E -- "^[[:space:]]*[0-9]+[[:space:]]+([^[:space:]]*/)?[o]pencode[[:space:]]+run[[:space:]].*(--title $LANE( |$)|--session ${SID:-NONE}( |$))" >/dev/null; }
 SID=$(sid_of)
 [ "${NEW_SESSION:-0}" = 1 ] && SID=""

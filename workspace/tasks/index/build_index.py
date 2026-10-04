@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 "Indexes all results and datasets so no data point is lost.\nWriting tasks/index/index.json (each file: path, size, sha256, mtime; PREREG before/after run)\nand tasks/index/DATASETS.json. Runs at every wake-up. Does not modify result files."
 import hashlib, json, os, time, glob
-W = "."
-DS = "/mnt/shared_data/datasets/bodytwin"
+W = ""
+DS = "external_mount"
 def sha(p):
     h = hashlib.sha256()
     with open(p, "rb") as f:

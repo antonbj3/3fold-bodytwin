@@ -36,7 +36,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 SRC = W / 'results/LANE_LASER_SURGERY/r17/EXTERNAL_COMPARISON_V1.json'
 OUT = W / 'results/ASSEMBLY_LASER_FLUENCE_DECISION'
 

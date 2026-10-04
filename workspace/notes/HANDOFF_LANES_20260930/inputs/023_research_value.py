@@ -10,7 +10,7 @@ import json
 import re
 import time
 
-ROOT = Path('.')
+ROOT = Path('')
 VERSION = 'research-value-20260930-v1'
 VALUE_FIELDS = ('capability', 'obstacle', 'changed_operation', 'consumer',
                 'metric', 'strongest_control', 'falsifier')

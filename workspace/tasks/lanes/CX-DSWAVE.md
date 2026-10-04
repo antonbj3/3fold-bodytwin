@@ -3,7 +3,7 @@
 Anton: "Highest value, everything thought through, no busywork… maximum progress in 8 h." reserve_worker C has quota left and is underused. Mechanical packet sources (the factory, "next step" extraction) mostly produced non-actionable packets. You will write 40 thought-through packets instead.
 
 ## Read
-- `~/research/PLAN_BODYTWIN_FIELD_8H_20260924.md` §10 (BodyTwin's priorities, brainstorm B1–B5) and §14 (BT-1–BT-4).
+- `external_research_path` §10 (BodyTwin's priorities, brainstorm B1–B5) and §14 (BT-1–BT-4).
 - `notes/RESULTS_INDEX.md` A359–A369 and the rows they refer to.
 - `results/CX-D1PARITY` (running), `results/CX-WHATIF2`, `results/CX-SLACK`, `results/CX-PATHS`, `results/CX-JWGEOM`, `results/CX-GC-STRENGTH*`, `results/CX-STRENGTH-POP`, `results/CX-MUSCLE-CT2`, `results/CX-SPINEARM`, `results/CX-SURGERYFE`, `results/CX-IMUFORCE`, `results/CX-GEOMCERT`, `results/CX-FLUOROLINK`, `results/CX-POPBAND`.
 
@@ -29,7 +29,7 @@ Every packet:
 - a complete `inputs/` (copy exactly the needed files from results/…, ≤ 50 MB), `DATA_SUFFICIENCY.md` + a load test;
 - run `python3 tasks/packetfactory.py check` or `results/CX-SWARMGEN5/check_packets.py`.
 
-A packet that would only find out that data is missing must NOT be built. Instead, find the data (grep the datasets, results/, /media/anton/sdc1-tmp/bodytwin, /mnt/shared_data/bodytwin_work) or choose another question.
+A packet that would only find out that data is missing must NOT be built. Instead, find the data (grep the datasets, results/, external_media, external_mount) or choose another question.
 
 Queue only passing packets (`>> tasks/lanes/bt_queue.txt`). `results/CX-DSWAVE/RESULTS.md` starting with `# CX-DSWAVE`: table id → priority → question → why it has high value.
 

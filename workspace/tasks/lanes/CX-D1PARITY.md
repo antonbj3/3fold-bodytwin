@@ -4,7 +4,7 @@ Read first:
 - `results/CX-WHATIF2/RESULTS.md` (A369: what-if curves, implicit KKT derivative 0.00035 % at the peak step, thigh inertia frozen).
 - `results/CX-WHATIF2/U380_FROM_FIELD.md` (format, paths, caveats).
 - `results/CX-FIELDSHARE/femur_edit.py`.
-- `~/research/PLAN_BODYTWIN_FIELD_8H_20260924.md` §10.1 and §11 D1.
+- `external_research_path` §10.1 and §11 D1.
 
 ## Tasks (PREREG.md + sha256 before the first run)
 1. Adapter: U380 `shape_massprop` (bone V, c, I, dV, dc, dI about the centre of mass, density 1 → multiply by cortical/trabecular ρ, state the choice) → the thigh segment's mass properties in N40b/CX-SOLVER2's inverse dynamics. Bone is only part of the segment. Add the bone's change to the segment's soft-tissue share (keep the soft tissue fixed; state it).

@@ -59,5 +59,5 @@ The mechanics term is **REFUTED as a driver of the crestal level** (`DENT-BIO-ME
 - **The bio branch:** a preregistered dose–response for mismatch (δ 0,2/0,4/0,6) and a time course against held-out RCTs. A human histometric value for d_mg at a conical connection. A rule for bone above the shoulder with PS + subcrestal.
 - **The mechanics:** in vivo strain in alveolar bone during chewing, giving the absolute setpoint. Also a formation response that precedes damage resorption, and 3D ridge geometry instead of axisymmetry.
 
-Raw data: `/media/anton/usb-stage/dental_scratch/REMODEL/runs/mech.jsonl` (274 FE-runs). Reproduktion:
+Raw data: `external_media` (274 FE runs). Reproduction:
 `run_remodel.py pred|design` → `analyze_remodel.py` → `compare_anchors.py` → `rerun_compare.py` → `make_evidence.py` → atoms_runner.

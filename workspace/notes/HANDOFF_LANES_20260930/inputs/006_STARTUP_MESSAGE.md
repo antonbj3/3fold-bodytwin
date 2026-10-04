@@ -94,9 +94,9 @@ Inventory what BodyTwin actually has in executable code, what only exists as a g
 Arbetsmapp: `local_path`.
 
 1. `../AGENTS.md`, `START.md`, `../README.md`, `../FORMAT.md` and `../SETUP_STATUS.json`.
-2. `~/research/dental_implant_datasets/00_PRE_RESEARCH.md`. Read project intent and open questions carefully. Scientific figures and broad conclusions in older surveys need their own source controls before use.
+2. `external_research_path`. Read project intent and open questions carefully. Scientific figures and broad conclusions in older mapping need their own source checks before use.
 3. `notes/ADDENDUM_DATA_COLLECTION_2026-09-22.md`, then the mapping directory's `_STATE_2026-09-17.md` and `_MASTERINDEX.md`. The addendum preserves anton-02's partially clipped submission and points out verification needs. Then read relevant sections in `01_imaging_geometry.md`, `02_biomechanics_fe.md`, `07_manufacturing_methods.md`, `08_materials_compositions.md`, `15_uncertainty_meshquality.md`, `17_fabricate_test_pairs.md` and `18_dental_ceramics_data.md` as needed. The master index does not automatically cover everything in the later mapping files.
-4. `~/projects/graph_workspace/GRAPH_MAP.md`, then the work surface `VALIDATION.json`. Use `./graph status`, `./graph show --id <ID>` and targeted questions to orient you. Do not read tens of thousands of graph entries or the entire corpus at random.
+4. `local_path`, then the workspace's `VALIDATION.json`. Use `./graph status`, `./graph show --id <ID>` and directed questions to orient yourself. Don't read tens of thousands of graph records or the entire corpus at random.
 5. Read the real code that a candidate chain needs via `references/current_bodytwin` and `references/field_engine`. Differentiate between delivered implementation, bounded experiments and planned features. Then read the original correspondence with Osayd if available, without sending or changing anything.
 6. Read `notes/ADDENDUM_COMPUTE_CELLS_2026-09-22.md` for published computational cells, private BodyTwin experiments, cad-to-simulation's cell registry, and later engine trials. Inventory relevant candidates and their actual contracts before new implementation is planned.
 
@@ -120,17 +120,17 @@ The grids contain 26 numerical marginal values but lack explicit σ. Units and m
 
 ## Data and actual preparedness
 
-`data/corpus` leder till `/mnt/shared_data/datasets/dental_3fold_corpus`The move is complete: **52 005 filer, 113 330 792 472 byte**, checksum-verified. The old path works as a symlink. Separately FE-geometrics has also been mapped under `/mnt/games-240/datasets/dental_3fold/`; check actual structure and manifest before selecting files.
+`data/corpus` leads to `external_mount`. The move is complete: **52 005 files, 113 330 792 472 bytes**, checksum verified. The old path works as a symlink. Separate FE geometry has also been mapped under `external_mount`; check actual structure and manifest before selecting files.
 
 The mapping describes, among other things, Teeth3DS+, Open-Full-Jaw, OpenMandible, material and fatigue data as well as article and patent traces. The verification of the move applies to the existing files. It does not say that all planned downloads are complete, that the data belongs to the same individual, or that license and usability are reviewed for each new purpose. Check the identity, content and terms of use of the selected data.
 
-Older location files describe full disk and ongoing harvests. These tasks are historical: the storage move is complete and the harvest processes are stopped. Read current directories and `~/research/storage_cleanup_20260922/dental_move_state.json`. Plan completions based on real gaps and free space; do not start old watchdogs by routine.
+Older mode files describe full disk and ongoing harvests. That data is historical: the storage move is complete and the harvesting processes are stopped. Read current catalogs and `external_research_path`. Plan additions based on actual gaps and available space; do not start old watchdogs out of routine.
 
 The previous searches report gaps in coherent patient data and experimental reference. Treat them as results from that search scope. Verify the slot that will carry a new project before claiming that data or a method is missing in general.
 
 ## Working methods and coordination
 
-- The field engine innovation work is submitted to a separate session; orientation file `~/HANDOVER_FIELD_2026-09-22.md`The second graph session owns the graph engine development. Dental owns the concrete application chain, its requirements and verification. Examine existing results before ordering the same experiment again.
+- Field engine innovation work is left to a separate session; orientation file `local_path`. The second graph session owns the graph engine development. Dental owns the concrete application chain, its requirements and verification. Examine existing results before ordering the same experiment again.
 - Start with a reproducible chain for an actual data set. Check incremental entities, geometry, region/material identity, boundary conditions, reference solution and export. Let the measured chain show where a research effort can make a difference.
 - Separate source data, derivation, simulated result, measured result and hypothesis. Independently review positive results before posting them as supported.
 - If you delegate: provide delimited tasks, clear file owners and a limited concurrency. Subagents should not start their own agent trees. Previously unchecked recursion caused a quota spike.

@@ -22,13 +22,13 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-INFRA = Path('~/research/sol6_recovery_20260923/CLOUD_HUNT_20260923/infra')
+INFRA = Path('external_research_path')
 STATE = ROOT / 'reserve_worker_budget_state.json'
 CONF = ROOT / 'reserve_worker_budget.json'
-SSH = ['ssh', '-i', '~/.ssh/hunt_20260923', '-o', 'BatchMode=yes',
+SSH = ['ssh', '-i', 'local_config_path/hunt_20260923', '-o', 'BatchMode=yes',
        '-o', 'ConnectTimeout=15', '-o', 'UserKnownHostsFile=' + str(INFRA / 'known_hosts')]
 HOSTS = ['ubuntu@51.77.110.4', 'root@212.147.226.179']
-SCAN_ROOTS = [Path('/mnt/games-240/research')]
+SCAN_ROOTS = [Path('external_mount')]
 COST_RE = re.compile(r'"cost":([0-9.]+)')
 
 DEFAULT_CONF = {

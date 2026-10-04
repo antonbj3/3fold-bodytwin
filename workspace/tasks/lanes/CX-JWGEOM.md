@@ -6,7 +6,7 @@ Lead from CX-BEATN1G2 (`results/CX-BEATN1G2/RESULTS.md`): the certified physics 
 - `results/CX-BEATN1G2` (C1 code, bounds_*.npz, margin/decision_cert wiring) and `results/CX-BEATN1G`, `results/CX-KNEENET`, `results/CX-EARLYSTANCE`, `results/L1` (code/, prep/, tlem_arch.json).
 - The geometry manager `results/N7c/geomgr` (registration op_register_surface, attachment transfer, certificate) and `results/CX-FIELDSHARE/femur_edit.py`.
 - `~/projects/bodytwin/scripts/msk`: grep `knee_jw_transplant`, grand_challenge, comak, tibia, patella. The graph's KNEE-CELL node in `~/projects/bodytwin/data/MECHANISM_ANCHOR_GRAPH.json`.
-- The Grand Challenge competition zips `/media/anton/sdc1-tmp/*Competition-latest.zip`: find CT/MR, implant CAD, and registered bone geometry per person (JW, DM, SC, PS). Extract only what is needed to `/media/anton/sdc1-tmp/bodytwin/CX-JWGEOM/`.
+- The Grand Challenge competition zips `external_media*Competition-latest.zip`: find CT/MR, implant CAD, and registered bone geometry per person (JW, DM, SC, PS). Extract only what is needed to `external_media`.
 
 ## Tasks (PREREG.md + PREREG.sha256 before the first run)
 1. Inventory which individual geometry exists per person: CT/implant/landmarks. Say plainly what is missing.

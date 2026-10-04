@@ -40,7 +40,7 @@ import json
 import math
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 OUT = W / 'results/ASSEMBLY_PASSAGE_FRICTION'
 
 F_FIRST_N, F_FIRST_SD_N = 0.349, 0.018

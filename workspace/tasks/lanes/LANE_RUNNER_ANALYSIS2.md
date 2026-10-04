@@ -6,11 +6,11 @@ You're the lane runner `lane-model` with full mandate. You are one of three OBER
 Read the four outputs and actively look for **contradictions and gaps**: where do boundary/diseases/maps contradict each other, where are claims unfounded, where are there silent assumptions, and where is evidence integrity broken (definition objects that look like results)?
 
 ## Input (read all)
-- `~/research/BODYTWIN_BOUNDARY_REPORT.md` + `..._BOUNDARY_MUTATIONS.json`
-- `~/research/BODYTWIN_DISEASE_LIBRARY.md`
-- `~/research/BODYTWIN_MAPS_OPERATORS.md` + `.json`
-- `~/research/BODYTWIN_MUTATIONS_IMPROVED_v6.md`
-- `~/research/ORGANIZATION_AUDIT.md`
+- `external_research_path` + `..._BOUNDARY_MUTATIONS.json`
+- `external_research_path`
+- `external_research_path` + `.json`
+- `external_research_path`
+- `external_research_path`
 - `tasks/lanes/LANE_RUNNER_*_RESULT.md`
 
 ## To produce
@@ -21,7 +21,7 @@ Read the four outputs and actively look for **contradictions and gaps**: where d
 5. **Ranked risks** for further development.
 
 ## Utdata
-`~/research/ANALYSIS_2_CONTRADICTIONS.md` + JSON. Avsluta med `tasks/lanes/LANE_RUNNER_ANALYSIS2_RESULT.md`.
+`external_research_path` + JSON. Avsluta med `tasks/lanes/LANE_RUNNER_ANALYSIS2_RESULT.md`.
 
 ## Constraints
 No fabricated data; the graph's own notes = ground truth. No emails/pushes/credentials/SEED touching.

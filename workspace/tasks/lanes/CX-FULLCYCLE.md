@@ -10,6 +10,6 @@ Read: `results/L1/code/` (l1_prep.py, n12_io.py, n12_model.py: why the frames ar
    - on the frames L1 already had, the new operator must reproduce L1's to within 1e-9 (the same A/b);
    - LP feasibility over the whole cycle;
    - lo/hi and N1g in swing against the implant force (report it; no criterion).
-4. Extend to all 113 L1 gait trials if time allows (batch). Save to /media/anton/sdc1-tmp/bodytwin/CX-FULLCYCLE/ (at most 1 GB; the disk is tight, so check `df` first).
+4. Extend to all 113 L1 gait trials if time allows (batch). Save to external_media (at most 1 GB; the disk is tight, so check `df` first).
 
 Deliver RESULTS.md starting with `# CX-FULLCYCLE`, results.json, and pytest. Run under bigmem.lock with 2 threads. Internal data stays local. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

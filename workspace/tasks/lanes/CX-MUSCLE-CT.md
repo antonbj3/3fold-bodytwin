@@ -11,5 +11,5 @@ Report the error in muscle volume/CSA in %, per person and in median. Counter-te
 
 ## Common
 - PREREG.md + PREREG.sha256 BEFORE the first run: facit, criteria with numbers, counter-tests (permuted inputs), and what counts as a fall. Symmetric skepticism.
-- The lane runner sandbox has network access (public data may be downloaded; save it on /media/anton/sdc1-tmp/bodytwin/CX-MUSCLE-CT/ and record the URL + sha256). Locally: nice, 2 threads, ≤ 60 s per test; heavier work via Modal (`tasks/modal_run.py`) for public data, or OVH (`tasks/cloud_run.sh`, BodyTwin ≤ 8 vCPU) for internal data.
+- The lane runner sandbox has network access (public data may be downloaded; save it on external_media and record the URL + sha256). Locally: nice, 2 threads, ≤ 60 s per test; heavier work via Modal (`tasks/modal_run.py`) for public data, or OVH (`tasks/cloud_run.sh`, BodyTwin ≤ 8 vCPU) for internal data.
 - Write only in `results/CX-MUSCLE-CT/`. `~/projects/bodytwin` is read-only. `RESULTS.md` starting with `# CX-MUSCLE-CT`, plus results.json and code with pytest.

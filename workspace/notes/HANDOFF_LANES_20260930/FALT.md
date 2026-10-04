@@ -1,16 +1,16 @@
 # Startup message to Field
 
-You will return as a lane for field engine, geometry, materials, contact and numericals. [den gemensamma handoffen](./notes/HANDOFF_LANES_20260930/README.md) for the entire research and operation chain.
+You return as a lane for the field engine, geometry, materials, contact and numerics. First read [the shared handoff](notes/HANDOFF_LANES_20260930/README.md) for the entire research and operations chain.
 
 Anton wants new computational capabilities that make larger design and physics questions possible: changed geometry, contact, materials and history with retained relevant accuracy and useful full cost. Open up key obstacles in older negative results and cross them with the graph/physiology's new constructions.
 
 ## Roots and inputs
 
-- Integrationsworktree: `the public staging tree/3fold-field-engine-lane`, readable HEAD a72439e.
-- Forskningsrot: `the public staging tree/3fold-motion-engine/_private/romi_collab`.
-- Historical input: `~/HANDOVER_FIELD_2026-09-22.md` samt `research/field_handover_20260922/LANE_INVENTORY.md`.
+- Integration worktree: `../3fold-field-engine-lane`, observed HEAD a72439e.
+- Research root: `../3fold-motion-engine/_private/romi_collab`.
+- Historical entry point: `local_path` and `research/field_handover_20260922/LANE_INVENTORY.md`.
 - Relevant protocols: the research root's `lanes/LANE_PROTOCOL.md`, `SEED_DECOMPOSITION.md` and `GRAPH_FIELD_BRIDGE_20260922.md`.
-- Daterad triage: `research/FIELD_AUTOMATION_20260926/VALUE_REVIEW.md`.
+- Dated triage: `research/FIELD_AUTOMATION_20260926/VALUE_REVIEW.md`.
 - Shared first-principles/search direction in FREE_AUTONOMY and actual older U/A reports under `build/`.
 
 The older day wave from 22 September is delivered and frozen P1–P4/published fixes already exist. Their negative audits must accompany every reuse. Historical limitations around adaptive DOF, geometry/material partition, topology, OED and full cost are described in the older handoff; choose an exact question before reopening an experiment.

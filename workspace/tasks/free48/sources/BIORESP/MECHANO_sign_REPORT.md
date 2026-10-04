@@ -34,4 +34,4 @@ constant loss, so 0 for each contrast. Rule: |ΔMBL 5 years| ≥ 0,10 mm counts 
 ## Next point of stress
 A held-out series with significant load dependence MBL (eg measured occlusal force or EMG-bruxism vs. MBL). Then the sign can be tested for real. A graded mechanostat without a rock is only tested afterwards.
 
-Reproduktion: `mechano_sign.py run` → `compare.py` → `rerun_compare.py` → `make_evidence.py` → atoms_runner. Raw data `/media/anton/usb-stage/dental_scratch/MECHANO/runs.jsonl`.
+Reproduction: `mechano_sign.py run` → `compare.py` → `rerun_compare.py` → `make_evidence.py` → atoms_runner. Raw data `external_media`.

@@ -13,5 +13,5 @@ Report RMSE and R² per model, the fitted exponent p in strength ∝ mass^p, res
 
 ## Common
 - PREREG.md + PREREG.sha256 BEFORE the first run: facit, criteria with numbers, counter-tests (permuted inputs), and what counts as a fall. Symmetric skepticism.
-- The lane runner sandbox has network access (public data may be downloaded; save it on /media/anton/sdc1-tmp/bodytwin/CX-STRENGTH-POP/ and record the URL + sha256). Locally: nice, 2 threads, ≤ 60 s per test; heavier work via Modal (`tasks/modal_run.py`) for public data, or OVH (`tasks/cloud_run.sh`, BodyTwin ≤ 8 vCPU) for internal data.
+- The lane runner sandbox has network access (public data may be downloaded; save it on external_media and record the URL + sha256). Locally: nice, 2 threads, ≤ 60 s per test; heavier work via Modal (`tasks/modal_run.py`) for public data, or OVH (`tasks/cloud_run.sh`, BodyTwin ≤ 8 vCPU) for internal data.
 - Write only in `results/CX-STRENGTH-POP/`. `~/projects/bodytwin` is read-only. `RESULTS.md` starting with `# CX-STRENGTH-POP`, plus results.json and code with pytest.

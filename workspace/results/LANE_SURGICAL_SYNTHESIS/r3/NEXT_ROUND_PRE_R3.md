@@ -24,7 +24,7 @@ The linear information estimate misses hypoxia forecasting on new scenarios. A p
 
 ## Execution, preservation and graph
 
-COMMANDS_R2.md and tests_r2.py: Choose new --out. plan_measurements_r2.py also accepts new --store in games-240Big fields are under /mnt/games-240/research/bodytwin_solnight/LANE_SURGICAL_SYNTHESIS/r2/, not /mnt/shared_data. Nya raw-/PREREGI'm gonna get new suffixes for files.1-code and all misses are preserved; initialkernel and V2-noise separation is available in r2/nonlinear_information_v1.
+COMMANDS_R2.md and tests_r2.py: choose new --out. plan_measurements_r2.py also accepts new --store within the games-240 lane. Large fields are under external_mount, not external_mount New raw/PREREG files must get new suffixes. R1 code and all misses are preserved; initialkernel and V2 noise separation are in r2/nonlinear_information_v1.
 
 R1 globalimport is verified in four tasks/graph_runs/LANE_SURGICAL_SYNTHESIS_R1_*_IMPORT. R2 has four local dispatch+feedback pairs and coordinator-ready GRAPH_COORDINATOR_FEEDBACK_R2_*.json; canonicalimport is PENDING_COORDINATOR because the write boundary is the lane. No scienceadmission.
 

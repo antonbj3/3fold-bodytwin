@@ -11,4 +11,4 @@ For each BodyTwin source family in `tasks/free48/CATALOG.json` (43; start with t
 
 ## Leverans
 
-`FACIT_INDEX.json`: familj → lista av external_referent-objekt (schema enligt ~/research/AGENT_DASHBOARD_20260930/external_referent.py) + a brief justification. The coordinator puts it in the planners input so that new suggestions can point to real reference observations. Families where no external reference observations exist: write it and why (e.g. purely methodological question)Never find on numbers or locators; an honest one "saknas" is the right answer when it is missing.
+`FACIT_INDEX.json`: family → list of external_referent objects (schema according to external_research_path) + a short justification. The coordinator puts it in the planners’ inputs so new proposals can point to actual ground truth. Families where no external ground truth exists: write that and why (e.g. pure method question). Never invent numbers or locators; an honest "missing" is the right answer when it is missing.

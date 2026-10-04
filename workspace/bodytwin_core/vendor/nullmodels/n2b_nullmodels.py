@@ -8,7 +8,7 @@ an=json.load(open('n2b_anthro.json')); BW=an['body_mass_kg_sum_segments']*9.81
 d=json.load(open('../BT-B24/null_models.json')); it=d if isinstance(d,list) else next(v for v in d.values() if isinstance(v,list))
 b24={v['facet_id']:dict(pctBW=v['population_null']['coefficient_pctBW'],peak_N=v['population_null']['coefficient_pctBW']/100*BW,
       loso_rmse_N=v['error']['rmse_N']) for v in it if 'Lifting' in v['facet_id']}
-f=h5py.File(__import__('os').environ['BODYTWIN_REFERENCE_H5'], 'r')
+f=h5py.File('external_mount','r')
 grf={}
 for side in ('Right','Left'):
     base='Output/_Main/EnvironmentModel/ForcePlates/GRF_Prediction_%s/Contacts'%side

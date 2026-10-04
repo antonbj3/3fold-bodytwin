@@ -56,7 +56,7 @@ Sol's part is what the swarm can't handle:
 
 ## Addition during round 3 (the coordinator, 1/10 18:30) — what energy Γ should be compared with
 
-Field's Web Search (~/research/HUD_NAL_HYPOTESER_20261001/HYPOTESER.md and KALLOR.md) Redefining the target. Read finds 1–4 where before you compare Γ The core, which I read in their file:
+The field web research (external_research_path and KALLOR.md) redefines the target. Read findings 1–4 there before comparing Γ to anything. The gist, as I read in their file:
 
 - **20–30 kJ/m² is a FAR FIELD J**, measured on tensile tested skin strips with 25 mm precut crack, mod III 20,4 and mod I 30,4 kJ/m² at 0,3 mm/s, juvenile pig. That number includes the entire mm-scale dissipation zone around the tip, not a local cutting energy.
 - **Local and blade driven energies are 1–3 orders of magnitude lower:** intrinsic shear energy 276 ± 17 J/m² (bovine collagen membrane, EJ skin), J_IC 76–186 J/m² from needle penetration in pig liver in vivo, scissor cutting 1,77 kJ/m² (second hand quote, not opened).

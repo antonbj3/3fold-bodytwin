@@ -12,7 +12,7 @@ first byte was fetched. The earlier interrupted session had produced only `agent
 prereg, no data files, no sample — so nothing was reused numerically.
 
 **Not reused, and why.** `NIGHT_PREAMBLE.md` §1/§4/§7 point at `~/projects/bodytwin` and
-`/mnt/shared_data`. Both are absent in this sandbox (`No such file or directory`), so the
+`external_mount`. Both are absent in this sandbox (`No such file or directory`), so the
 `MECHANISM_ANCHOR_GRAPH`, `scripts/msk/`, `DATASETS.json` register, OrthoLoad, TLEM, OpenCap, Keast
 and the rest could not be opened. Recorded as unreachable, not scored on merit.
 

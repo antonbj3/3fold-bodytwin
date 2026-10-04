@@ -21,7 +21,7 @@ import json
 import re
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 QUEUE = W / 'tasks/lanes/bt_queue.txt'
 BLOCK = re.compile(r'excluded_category|excluded_category|excluded_category|sinusoid|excluded_category|excluded_category|excluded_category', re.I)
 

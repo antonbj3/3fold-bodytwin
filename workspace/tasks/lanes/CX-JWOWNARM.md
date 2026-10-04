@@ -11,4 +11,4 @@ Background:
 2. Swap ONLY the quadriceps arm for JW (JW1 + JW4 gait, JW4 non-gait), as in CX-QUADARM/geometry.py. Report the LP share under lo.
    Frozen criteria: JW gait under lo ≤ 20 % (better than or equal to Rajagopal's 20.8 %), AND JW4 non-gait a reduction ≥ 25 %.
 3. Run CX-HYBRID's predictor (c) with JW's own arm (the same LOPO-learned weights as in CX-HYBRID, NOT relearned). Report the person-median RMSE against N1g, and whether JW then beats N1g.
-Deliver RESULTS.md starting with `# CX-JWOWNARM` and results.json. Runtime ≤ 60 min, 2 threads under bigmem.lock, at most 200 MB of intermediate files on /media/anton/sdc1-tmp. Internal data stays local; no jw_lungef1. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.
+Deliver RESULTS.md starting with `# CX-JWOWNARM` and results.json. Runtime ≤ 60 min, 2 threads under bigmem.lock, at most 200 MB of intermediate files on external_media Internal data stays local; no jw_lungef1. lane runner has full permissions in the workspace; `~/projects/bodytwin` is read-only.

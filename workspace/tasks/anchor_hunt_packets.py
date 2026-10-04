@@ -25,7 +25,7 @@ import os
 import re
 import sys
 
-W = '.'
+W = ''
 HARVEST = os.path.join(W, 'notes/ACQUISITION_HARVEST.json')
 TARGETS = os.path.join(W, 'notes/ACQUISITION_TARGETS.json')
 QUEUE = os.path.join(W, 'tasks/lanes/bt_queue.txt')

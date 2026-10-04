@@ -13,8 +13,8 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-REPO = Path('~/research/COORDINATOR_CLOUD_20260924/lane_repo')
-COORDINATOR = '~/.local/bin/coordinator'
+REPO = Path('external_research_path')
+COORDINATOR = 'local_config_path/bin/coordinator'
 PROMPT = (
     'Read BRIEF.md and PREREG.md. Carry out this bounded task using only public data '
     'or the bundled code. Do not use private repositories, subagents, paid extra usage, '

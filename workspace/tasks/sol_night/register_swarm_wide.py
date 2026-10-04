@@ -2,7 +2,7 @@
 import fcntl, hashlib, json, os, shutil, subprocess, sys, time
 from pathlib import Path
 
-B = Path('.'); A = B / 'tasks/free48'; R = B / 'results'
+B = Path(''); A = B / 'tasks/free48'; R = B / 'results'
 CATF = A / 'CATALOG.json'; RA = B / 'notes/RESEARCH_ACTIONS_20260926.json'
 CTXD = B / 'notes/GRAPH_TARGET_CONTEXT_SWARMWIDE_20260930'
 JOB = 'SOLNIGHT-SWARMWIDE-20260930'; BUDGET = 400_000
@@ -62,7 +62,7 @@ def families():
                  'ortho PDL-pressure driver; a biological-width model passes 2/5 contrasts. Needed: a mechanistic physiological operator '
                  '(cell populations, signaling, transport, perfusion, damage/repair from first principles) that changes a remodeling '
                  'decision and beats the existing 2/5 model on held-out contrasts. Consumer: dental implant design. Synthetic/public only.')))
-    NB = Path('source_repository'); M = NB / 'scripts/msk'
+    NB = Path('source_repository/'); M = NB / 'scripts/msk'
     SURG = [
      ('SURG_INCISION', 'Scalpel incision through layered skin/subcutis/fascia: cutting mechanics, wound gape and local transport',
       [('Q033_incision_model.py', R / 'BT-HX-Q033/model.py'), ('Q033_RESULTS.md', R / 'BT-HX-Q033/RESULTS.md'), ('Q033_results.json', R / 'BT-HX-Q033/results.json'),

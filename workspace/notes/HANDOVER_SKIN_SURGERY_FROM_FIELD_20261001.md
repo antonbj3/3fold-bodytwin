@@ -20,7 +20,7 @@ Written as a separate file because submissions otherwise disappear between sessi
 
 ## Field substrate, PORT.json in the respective catalog
 
-Rot: `the public staging tree/3fold-motion-engine/_private/romi_collab/build/`
+Rot: `../3fold-motion-engine/_private/romi_collab/build/`
 
 - `PROOF_LANE_SNITTDIFF_20261001` and SNITTFRONT: guaranteed energy difference, on branch `falt-snittdiff-20261001`. Draft-free cut gives 309–381× lower noise in G than element removal, but the guarantee is too wide and gives TIE against classic FE.
 - `PROOF_LANE_GRANSSNITT_20261001`, `PROOF_LANE_KROKTGRANS_20261001`, `PROOF_LANE_SNITTKONTAKT_20261001`: interface mechanics, curved boundary, blade contact.

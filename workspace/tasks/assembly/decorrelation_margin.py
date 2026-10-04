@@ -76,8 +76,8 @@ from pathlib import Path
 
 import numpy as np
 
-W = Path('.')
-ENGINE = Path('the public staging tree/3fold-graph-engine/src')
+W = Path('')
+ENGINE = Path('../3fold-graph-engine/src')
 OUT = W / 'results/ASSEMBLY_DECORRELATION_MARGIN'
 SPEC_D = 0.5
 

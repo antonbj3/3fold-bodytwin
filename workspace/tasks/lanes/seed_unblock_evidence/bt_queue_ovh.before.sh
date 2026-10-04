@@ -3,9 +3,9 @@
 # Reads the same bt_queue.txt as the local driver. Claims a job with results/<J>/.ovh_claim (the local driver skips it),
 # sends the packet to /opt/agents/jobs/<J>, starts its own systemd unit on OVH (1500M/100 % CPU), and fetches it
 # back when AGENT_EXIT exists. Cap: tasks/lanes/ovh_agents/cap (default 30). Stop: systemctl --user stop bt-queue-ovh.
-W=.; Q=$W/tasks/lanes/bt_queue.txt; D=${BT_CLOUD_DIR:-$W/tasks/lanes/ovh_agents}
+W=; Q=$W/tasks/lanes/bt_queue.txt; D=${BT_CLOUD_DIR:-$W/tasks/lanes/ovh_agents}
 LOG=$D/queue_ovh.log; LLOG=$W/tasks/lanes/bt_queue.log; RUN=$D/running; mkdir -p $RUN
-SSHO=(-o ConnectTimeout=15 -o ServerAliveInterval=30 -i ~/.ssh/hunt_20260923 -o IdentitiesOnly=yes -o UserKnownHostsFile=~/research/sol6_recovery_20260923/CLOUD_HUNT_20260923/infra/known_hosts -o BatchMode=yes)
+SSHO=(-o ConnectTimeout=15 -o ServerAliveInterval=30 -i local_config_path/hunt_20260923 -o IdentitiesOnly=yes -o UserKnownHostsFile=external_research_path -o BatchMode=yes)
 H=${BT_CLOUD_HOST:-ubuntu@51.77.110.4}; END=1790948885
 # Shared with Field; the host lock makes the final check + unit start atomic.
 AGENT_MIB=${BT_AGENT_MEMORY_MIB:-1500}
@@ -23,7 +23,7 @@ while true; do
   if [ "$ACTIVE" != "__SSH_FAIL__" ]; then
     for f in $RUN/*; do [ -e "$f" ] || continue; J=$(basename $f)
       echo "$ACTIVE" | grep -q "^agent-$J-" && continue
-      if ! python3 ~/research/FREE_AUTONOMY_20260926/collect_verified.py "$H:/opt/agents/jobs/$J/" "$W/results/$J/" "ssh ${SSHO[*]}" < /dev/null; then
+      if ! python3 external_research_path "$H:/opt/agents/jobs/$J/" "$W/results/$J/" "ssh ${SSHO[*]}" < /dev/null; then
         echo "[$(date +%T)] fetch failed; remote preserved $J" >> "$LOG"
         continue
       fi
@@ -55,7 +55,7 @@ while true; do
       [ -n "$(localrun $J)" ] && continue
       [ "$(grep -cF "start $J ($P $M)" $LLOG)" -ge 3 ] && continue
       if [ "$(grep -cF "ovhstart $J " $LOG)" -ge 2 ]; then
-        python3 ~/research/FREE_AUTONOMY_20260926/SOL_SYNTHESIS_20260927/deferred_job_gate.py "$J" --claim || continue
+        python3 external_research_path "$J" --claim || continue
       fi
       ( set -o noclobber; : > "$W/results/$J/.ovh_claim" ) 2>/dev/null || continue
       [ -e "$W/results/$J/.local_claim" ] || [ -n "$(localrun $J)" ] && { rm -f $W/results/$J/.ovh_claim; continue; }

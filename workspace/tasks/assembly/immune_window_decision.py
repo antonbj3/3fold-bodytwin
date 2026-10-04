@@ -30,7 +30,7 @@ import json
 import sys
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 CELL = W / 'tasks/free48/sources/COMPLEMENT_DISCRIMINATION/cell.py'
 OUT = W / 'results/ASSEMBLY_IMMUNE_WINDOW'
 HOST_FLIP = 0.6901150139456149

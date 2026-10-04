@@ -30,7 +30,7 @@
 
 ## Datasets
 Read `tasks/index/DATASETS.json` and `~/projects/bodytwin/docs/DATASET_MAP.md`; find the paths; use internal ones only locally or on OVH.
-- Grand Challenge 1–6 (`/media/anton/sdc1-tmp/*Competition-latest.zip`): gait of all types, lunge, stairs, step-up, isokinetics, EMG, eTibia/eKnee.
+- Grand Challenge 1–6 (`external_media*Competition-latest.zip`): gait of all types, lunge, stairs, step-up, isokinetics, EMG, eTibia/eKnee.
   - EXCEPTION: `jw_lungef1` eTibia/knee_forces is Field's sealed F-8 facit. It must not be copied into any packet.
 - OpenCap LabValidation: markers, GRF, EMG, activities per subject.
 - OrthoLoad: hip/knee/spine loads per activity and patient; `scripts/msk/index_orthoload_forces.py`.

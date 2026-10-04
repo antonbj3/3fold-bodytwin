@@ -3,8 +3,8 @@ Writes tasks/build_night/swarm/digest_<time>.md and updates the marker. Usage: p
 import json, sys, time, itertools, collections
 from pathlib import Path
 
-STORE = Path('/mnt/games-240/research/bunny48_20260926/bodytwin')
-D = Path('./tasks/build_night'); OUT = D / 'swarm'; OUT.mkdir(exist_ok=True)
+STORE = Path('external_mount')
+D = Path('tasks/build_night'); OUT = D / 'swarm'; OUT.mkdir(exist_ok=True)
 MARK = OUT / 'last_scan'
 
 def rd(p, n=None):
@@ -29,7 +29,7 @@ rows = []
 # chain-internal. The swarm was not idle and was not self-recursing; the scanner was reading the
 # wrong directory. Families are listed explicitly rather than globbed as BT-* so that a new family
 # has to be added deliberately instead of silently joining or silently missing.
-_WS = Path('./results')
+_WS = Path('results')
 _FAMILIES = ('BT-XSEED-', 'BT-NET-', 'BT-CONN-', 'BT-OBST-', 'BT-CAP-', 'BT-IDEA-', 'BT-ANOM-',
              'BT-2ND-')
 _ws_reports = [q for fam in _FAMILIES for q in _WS.glob(fam + '*/RESULTS.md')]
@@ -51,7 +51,7 @@ L.append('Modeller: ' + ', '.join(f'{k} {v}' for k, v in collections.Counter(r['
 L.append('Kategorier: ' + ', '.join(f'{k} {v}' for k, v in collections.Counter(r['cat'] for r in rows).most_common()))
 # Share of new jobs (last 2 h) with an external facit according to research_value/external_referent (Anton 1/10).
 try:
-    import sys as _sys; _sys.path.insert(0,'~/research/AGENT_DASHBOARD_20260930'); import research_value as _rv
+    import sys as _sys; _sys.path.insert(0,'external_research_path'); import research_value as _rv
     _jobs=[p for p in STORE.glob('*/JOB.json') if time.time()-p.stat().st_mtime<7200]
     # 2/10 19:05 (anton-5f): this line counted ONLY the structured external_referent field, so the
     # requirement that free_controller._normalize injects into the job's BODY read as 'saknas'. At
@@ -98,7 +98,7 @@ except Exception as _e:
 # and quoted it further. The line must say what it matters.
 L += ['', '## Nyckelpar som aldrig NAMNTS ihop (ej samma sak som jamforbara)', '']
 # Keys from new constructive results; pairs that have never occurred together in any job in STATE.json.
-try: J = json.loads(Path('./tasks/free48/STATE.json').read_text())['jobs']
+try: J = json.loads(Path('tasks/free48/STATE.json').read_text())['jobs']
 except Exception: J = {}
 co = set()
 for r in J.values():

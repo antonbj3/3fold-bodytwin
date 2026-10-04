@@ -11,8 +11,8 @@ from scipy.linalg import lstsq, svd
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
-BASE=Path(os.environ.get('CXW2_BASE','/media/anton/sdc1-tmp/bodytwin/CX-SOLVER2/data'))
-CLOUD=Path(os.environ.get('CXW2_MATRICES','/media/anton/sdc1-tmp/bodytwin/CX-WHATIF2/matrices_out'))
+BASE=Path(os.environ.get('CXW2_BASE','external_media'))
+CLOUD=Path(os.environ.get('CXW2_MATRICES','external_media'))
 FBASE=Path(os.environ.get('CXW2_FBASE',ROOT/'results/CX-SOLVER2'))
 OUTPUT=Path(os.environ.get('CXW2_OUTPUT',HERE/'implicit_kkt_results.json'))
 

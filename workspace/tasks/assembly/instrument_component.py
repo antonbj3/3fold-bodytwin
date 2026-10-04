@@ -37,9 +37,9 @@ from pathlib import Path
 import numpy as np
 import openpyxl
 
-W = Path('.')
+W = Path('')
 R15 = W / 'results/LANE_EYE_OPTICAL_TWIN/r15'
-ENGINE = Path('the public staging tree/3fold-graph-engine/src')
+ENGINE = Path('../3fold-graph-engine/src')
 OUT = W / 'results/ASSEMBLY_INSTRUMENT_COMPONENT'
 SPEC_D = 0.5
 

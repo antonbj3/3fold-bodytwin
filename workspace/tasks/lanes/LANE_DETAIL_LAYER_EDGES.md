@@ -3,7 +3,7 @@
 Resultatkatalog `results/LANE_DETAIL_LAYER_EDGES/`.
 
 ## Measured state, the night of 3–4 October
-The Readable Repot `source_repository` berries 313 MECHANISM-dokument med egna publicerade
+The readable repo `source_repository/` carries 313 MECHANISM documents with their own published
 reference answers and their own falsifiers, and 9 688 scripts with numbers and units. Until tonight **one** of
 the documents had a node in the constraint network; the harvest added 99 edges, and the network now has 155 edges
 where 149 have evidence that `tasks/assembly/net_staleness.py` can read (6 are declared unresolved).

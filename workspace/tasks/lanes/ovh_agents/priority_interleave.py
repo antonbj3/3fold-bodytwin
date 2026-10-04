@@ -33,7 +33,7 @@ import sys
 # fails on the same write. seed_queue_order.py does exactly this.
 signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 
-W = '.'
+W = ''
 DENTAL_PREFIX = 'BT-DW48-'
 ANCHOR_PREFIX = 'BT-ANCHOR-'
 # Sol stood down at 41 % of the weekly window on 2026-10-03, so these carry the lanes'

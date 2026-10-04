@@ -53,7 +53,7 @@ def verdict(text: str) -> tuple[str, str]:
 
 def main() -> int:
     root = Path(sys.argv[1] if len(sys.argv) > 1
-                else './results/SOL_MECHANISM_HARVEST')
+                else 'results/SOL_MECHANISM_HARVEST')
     rows, counts = [], {}
     for f in sorted(root.rglob('*.json')) + sorted(root.rglob('*.md')):
         try:

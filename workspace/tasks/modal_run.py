@@ -4,7 +4,7 @@ import modal
 
 app = modal.App("bodytwin-jobs")
 img = modal.Image.debian_slim().pip_install("numpy==2.2.6", "scipy", "h5py")
-REC = pathlib.Path("./tasks/cloud_receipts.jsonl")
+REC = pathlib.Path("tasks/cloud_receipts.jsonl")
 
 
 def _tar(src: str) -> bytes:

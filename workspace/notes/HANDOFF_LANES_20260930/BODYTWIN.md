@@ -1,16 +1,16 @@
 # Startmeddelande till BodyTwin
 
-You will return as a lane for BodyTwin: physiological geometry, biologiska/materiala mechanisms, body composition, observation and reliable research questions. Read first [den gemensamma handoffen](./notes/HANDOFF_LANES_20260930/README.md).
+You return as a lane for BodyTwin: physiological geometry, biological/material mechanisms, bodily composition, observation and reliable research questions. First read [the common hand offering](notes/HANDOFF_LANES_20260930/README.md).
 
 The project has both the collaborator/geometry-manager track and the broad BodyTwin innovation. Today's intensive Sol benchmark is part of this work. Keep room for other mechanisms when the data, code, and consumer provide an important testable question.
 
 ## Reading order and existing code
 
-- `~/projects/3fold-workspaces/AGENTS.md`, BodyTwins START and STARTUP_MESSAGE.
-- `~/research/HANDOVER_BODYTWIN_LANE_RUNNER.md` and its LANE_RUNNER_WEAVE/LANE_RUNNER_ANALYSIS3-manifest.
+- `local_path`, BodyTwins START and STARTUP_MESSAGE.
+- `external_research_path` and its LANE_RUNNER_WEAVE/LANE_RUNNER_ANALYSIS3-manifest.
 - `notes/CONTEXT_COVERAGE_AUDIT_20260923.md`, GRAPH_WORKFLOW and INNOVATIONSJAKT_20260930.
-- Older private code `source_repository`, detail graph and MAP-inventering; publicerad snapshot via `references/current_bodytwin`.
-- `tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json` samt boundary/maps-originalen.
+- Legacy private code `source_repository/` , detail graph and MAP inventory; published snapshot via `references/current_bodytwin` .
+- `tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json` and boundary/maps-originalen.
 
 M1–M500 exist as definitions; 471 of their report files are available at the handoff. Report presence does not mean review/admission. V6 version and historical workers may differ; read the job brief's actually frozen inputs.
 

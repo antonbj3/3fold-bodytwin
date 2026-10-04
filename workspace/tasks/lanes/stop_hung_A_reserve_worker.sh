@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Stoppar BodyTwin-reserve_worker-jobb on account A (standardprofil) who did not write any log (Hanging). Bara egna BT-titlar.
-L=./tasks/lanes
+L=tasks/lanes
 for pid in $(ps -eo pid=,args= | awk '/[o]pencode run/ && /reserve_worker/ && /--title BT-/ {print $1}'); do
   env=$(tr '\0' '\n' < /proc/$pid/environ 2>/dev/null | grep -c 'SPACE_SWARM_MULTIKEY_20260923/profiles/')
   [ "$env" -gt 0 ] && continue                                   # B/C-profil → do not touch

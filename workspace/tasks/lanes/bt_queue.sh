@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Local third execution host; no research.slice. Admission waits count as jobs.
-W=.
+W=
 Q=$W/tasks/lanes/bt_queue.txt; LOG=$W/tasks/lanes/bt_queue.log
 exec 9>"$W/tasks/lanes/bt_queue.local-dispatcher.lock"
 flock -w 30 9 || exit 1
@@ -22,7 +22,7 @@ PY
 while true; do
   MAX=$(cat "$W/tasks/lanes/bt_queue.max" 2>/dev/null || echo 12)
   AUTO_LOCAL=0
-  if [ "$MAX" -gt 0 ] && [ -f ~/research/AGENT_DASHBOARD_20260930/AUTOMATIC_ENABLED.json ]; then
+  if [ "$MAX" -gt 0 ] && [ -f external_research_path ]; then
     MAX=10000
     AUTO_LOCAL=1
   fi
@@ -39,7 +39,7 @@ while true; do
       rm -f "$W/results/$J/.local_claim"
     fi
     if [ "$(grep -cF "start $J ($P $M)" "$LOG")" -ge 3 ]; then
-      python3 ~/research/FREE_AUTONOMY_20260926/SOL_SYNTHESIS_20260927/deferred_job_gate.py "$J" || continue
+      python3 external_research_path "$J" || continue
     fi
     avail=$(awk '/MemAvailable/{print $2}' /proc/meminfo)
     psi_ok=$(awk -F'avg10=' '/^full/{split($2,a," ");print (a[1]<10 ? 1 : 0)}' /proc/pressure/memory)
@@ -52,10 +52,10 @@ while true; do
       rm -f "$W/results/$J/.local_claim"; continue
     fi
     if [ "$(grep -cF "start $J ($P $M)" "$LOG")" -ge 3 ]; then
-      python3 ~/research/FREE_AUTONOMY_20260926/SOL_SYNTHESIS_20260927/deferred_job_gate.py "$J" --claim || { rm -f "$W/results/$J/.local_claim"; continue; }
+      python3 external_research_path "$J" --claim || { rm -f "$W/results/$J/.local_claim"; continue; }
     fi
     if [ "$AUTO_LOCAL" -eq 1 ]; then
-      python3 ~/research/AGENT_DASHBOARD_20260930/local_capacity.py --launch "$P" "$M" "$J" >> "$W/tasks/lanes/profile${P}_$J.log" 2>&1 < /dev/null
+      python3 external_research_path --launch "$P" "$M" "$J" >> "$W/tasks/lanes/profile${P}_$J.log" 2>&1 < /dev/null
       START_STATUS=$?
       if [ "$START_STATUS" -ne 0 ]; then
         rm -f "$W/results/$J/.local_claim"

@@ -11,6 +11,6 @@ Based on `results/CX-WHATIF2` (195/216 KKT approved points, shape/active mass ga
 ≥3 forms × at least 5 accepted parameter points; all force calculations 141/141 KKT ≤1e-10; FE/proxy solution converges within 5% at halved cell size; at least one robust improvement ≥5% in both force and stress outside the 95% uncertainty band for an actual claim. Counter test: zero change, person-changed geometry, constant-radius pressure and B24/weight × OrthoLoad. If the last gate is not passed: UNKNOWN for planning benefit.
 
 ## Gemensamma regler
-- Skriv endast under `results/CX-SURGERYFE/`, samt stora mellanresultat i `/media/anton/sdc1-tmp/bodytwin/CX-SURGERYFE/`Read it. `tasks/NIGHT_PREAMBLE.md`, and relevant A-rows in `notes/RESULTS_INDEX.md`. `~/projects/bodytwin` and other sessions' workspaces are read-only.
+- Skriv endast under `results/CX-SURGERYFE/`, samt stora mellanresultat i `external_media`Read it. `tasks/NIGHT_PREAMBLE.md`, and relevant A-rows in `notes/RESULTS_INDEX.md`. `~/projects/bodytwin` and other sessions' workspaces are read-only.
 - Before the first computation: `PREREG.md` and `PREREG.sha256` with hypothesis, data/selection, numerical gate, strongest baseline, countertests and error definition. Document `Builds on` with graph node and source files plus `Not redone`. Preserve negative results and `UNKNOWN`.
 - Provide `results/CX-SURGERYFE/RESULTS.md` with first line `# CX-SURGERYFE`, `results.json`, executable code, provenance/hashes and meaningful checks. Report both number of valid and lapsed units.

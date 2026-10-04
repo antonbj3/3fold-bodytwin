@@ -41,7 +41,7 @@ import random
 import statistics
 import zipfile
 
-W = '.'
+W = ''
 ARCHIVE = f'{W}/results/LANE_EXTERNAL_SOLVER/FIGSHARE_SINGLE_FIBRIL_FILE_11881202_R31.bin'
 INSPECTION = f'{W}/results/LANE_EXTERNAL_SOLVER/PUBLIC_DATASET_INSPECTION_R31.json'
 LOCATOR = 'doi 10.6084/m9.figshare.c.4126559 (CC0), paper PMID 30351303'

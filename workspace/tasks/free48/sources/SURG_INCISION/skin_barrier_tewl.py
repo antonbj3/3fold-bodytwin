@@ -77,7 +77,7 @@ from pathlib import Path
 # now defaults to the cell's own directory (override with CELL_OUT_DIR) and inputs are looked up
 # relative to this file first, with the old absolute location kept only as a last-resort read.
 _HERE = Path(__file__).resolve().parent
-_CANONICAL_REPO = "source_repository"  # last-resort INPUT location, never written to
+_CANONICAL_REPO = "source_repository/"  # last-resort INPUT location, never written to
 
 
 def _cell_out_dir():

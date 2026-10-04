@@ -4,7 +4,7 @@
 # The castles are in slots.txt (one LANE per row, max 3). The coordinator changes lanes by changing the row.
 # Quick error (<180 s) is counted; after 3 in a row, the lane waits for 30 min and writes ALERT.
 set -u
-ROOT=.
+ROOT=
 D=$ROOT/tasks/build_night; ST=$D/state; mkdir -p "$ST" "$D/steer"
 LOG=$D/ensure.log
 MODEL=${MODEL:-lane-model}; EFFORT=${EFFORT:-high}; ROUND_TIMEOUT=${ROUND_TIMEOUT:-14400}
@@ -94,14 +94,14 @@ while read -r LANE; do
     fi
     rm -f "$ST/$LANE.ended" "$ST/$LANE.go"
     [ -f "$ROOT/tasks/lanes/$LANE.md" ] || { echo "[$(date +%F' '%T)] ALERT saknar brief $LANE" >> "$LOG"; continue; }
-    OUT=$ROOT/results/$LANE; mkdir -p "$OUT/night_rounds" "/mnt/games-240/research/bodytwin_solnight/$LANE" 2>/dev/null
+    OUT=$ROOT/results/$LANE; mkdir -p "$OUT/night_rounds" "external_mount$LANE" 2>/dev/null
     R=$(( $(cat "$ST/$LANE.round" 2>/dev/null || echo 0) + 1 )); echo $R > "$ST/$LANE.round"
     [ -f "$D/steer/$LANE.md" ] || echo "# Styrning $LANE" > "$D/steer/$LANE.md"
     PROMPT="You're a build lane in the night's breakthrough hunt for BodyTwin, lane $LANE, round $R. You have a mandate to perform the assignment without asking; choose reasonable defaults and report them. Read and follow tasks/build_night/COMMON.md i sin helhet (<LANE> = $LANE, <N> = $R), sedan tasks/build_night/steer/$LANE.md, tasks/lanes/$LANE.md and present in results/$LANE/. Continue the same research from the latest checkpoint and NEXT_ROUND.md. Avsluta med RESULTS.md-avsnittet, WORK_STATUS.json, NEXT_ROUND.md and results/$LANE/night_rounds/r$R.json."
     date +%s > "$ST/$LANE.started"
     systemd-run --user --unit="$U" --collect --quiet -p TimeoutStopSec=60 -p RuntimeMaxSec="$ROUND_TIMEOUT" -p MemoryMax="${LANE_MEM:-4G}" --slice=bt-solnight.slice \
       -p WorkingDirectory="$ROOT" \
-      -E OMP_NUM_THREADS=2 -E OPENBLAS_NUM_THREADS=2 -E MKL_NUM_THREADS=2 -E NUMEXPR_NUM_THREADS=2 -E HOME=~ -E PATH="$PATH" \
+      -E OMP_NUM_THREADS=2 -E OPENBLAS_NUM_THREADS=2 -E MKL_NUM_THREADS=2 -E NUMEXPR_NUM_THREADS=2 -E HOME=local_path -E PATH="$PATH" \
       /bin/bash -c "exec nice -n 10 lane_runner exec -m '$MODEL' -c model_reasoning_effort='$EFFORT' -c tools.web_search=true --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check -C '$ROOT' \"\$0\" </dev/null >> '$OUT/night_rounds/lane_runner_r$R.log' 2>&1" "$PROMPT" \
       && echo "[$(date +%F' '%T)] start $LANE round $R ($MODEL/$EFFORT)" >> "$LOG" \
       || { echo "[$(date +%F' '%T)] ALERT systemd-run failed $LANE" >> "$LOG"; rm -f "$ST/$LANE.started"; }

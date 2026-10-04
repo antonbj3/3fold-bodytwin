@@ -31,9 +31,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 OUT = W / 'results/ASSEMBLY_LIGAMENT_ROM'
-SRC = 'source_documents/MECHANISM_SPINE_LIGAMENTS.md'
+SRC = 'source_documents/SPINE_LIGAMENTS.md'
 
 # angle -> {ligament: newtons}, exactly as printed
 TABLE = {

@@ -22,7 +22,7 @@ import os
 import re
 import sys
 
-W = '.'
+W = ''
 SLOTS = os.path.join(W, 'tasks/build_night/slots.txt')
 STATE = os.path.join(W, 'tasks/build_night/state')
 RESULTS = os.path.join(W, 'results')

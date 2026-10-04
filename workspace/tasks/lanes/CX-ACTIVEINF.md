@@ -3,7 +3,7 @@
 Read `results/CX-ACTIVEINF/FROZEN_HYPOTHESIS.md` (AI-1..AI-4 are frozen; `FROZEN.sha256` is created by the coordinator; do not change it).
 
 Data:
-- `results/CX-INVERSEOC/locations.json` (lo/hi/meas per frame) and `epsilon_results.json`, plus the cache in /media/anton/sdc1-tmp/bodytwin/CX-INVERSEOC/eps_*.npz (ε₂ per frame);
+- `results/CX-INVERSEOC/locations.json` (lo/hi/meas per frame) and `epsilon_results.json`, plus the cache in external_media*.npz (ε₂ per frame);
 - `results/L1/prep/*.npz` (emg 15 channels: semimem, bifem, vasmed, vaslat, rf, medgas, latgas, tfl, tibant, peronl, soleus, addmagnus, gmax, gmed, sartorius; b = moments; grf);
 - the original GC files for the recording order (see `results/L1/code/n12_io.py`, `l1_prep.py` for paths: file timestamps, trial numbers, the session description/README in the GC docs).
 

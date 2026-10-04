@@ -10,10 +10,10 @@ Background: `python3 ~/projects/bodytwin/scripts/anchor_graph_tools.py --graph d
   - CX-ROLLBACK (running);
   - CX-LUNGEID;
   - Field's F-8: contact from measured kinematics is ill-posed, so use force-controlled contact.
-- Field's cartilage contact U384 `cartilage_contact(R,t,E,ν,δ)` (64/64 within 2 % of FE, not audited): `the public staging tree/3fold-motion-engine/_private/romi_collab/build/U384/code/` (contact_api.py, regime.py, poroelastic.py). Use it via an adapter with a source reference, only in its valid regime.
+- Field's cartilage contact U384 `cartilage_contact(R,t,E,ν,δ)` (64/64 within 2 % of FE, not audited): `../3fold-motion-engine/_private/romi_collab/build/U384/code/` (contact_api.py, regime.py, poroelastic.py). Use it via an adapter with a source reference, only in its valid regime.
 
 ## Facit (public)
-- Look for cadaver knee data with ligament forces and cartilage contact, starting with Open Knee(s) (SimTK). The lane runner sandbox has network access. Also check local datasets (`tasks/index/DATASETS.json`, grep openknee/ligament/cadaver). Download to `/media/anton/sdc1-tmp/bodytwin/CX-CONNECTIVE/` and record the source + licence.
+- Look for cadaver knee data with ligament forces and cartilage contact, starting with Open Knee(s) (SimTK). The lane runner sandbox has network access. Also check local datasets (`tasks/index/DATASETS.json`, grep openknee/ligament/cadaver). Download to `external_media` and record the source + licence.
 - Literature values with DOI for tendon/ligament stiffness and cartilage thickness/modulus.
 
 ## Tasks (PREREG.md + sha256 first)

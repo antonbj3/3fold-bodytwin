@@ -4,7 +4,7 @@ Agent O3, 2026-09-22. Read-only in `romi_collab` and source projects. No lanes, 
 
 **Status labels.** *Confirmed* means that an independent audit reproduced the result within the stated condition. *Failed* means that the result was rejected by an audit or a locked gate. *Hypothesis* is my own proposal and has not been tested. Where the audit and producer differ, the audit’s scope applies.
 
-**Sources.** Forskningsrot `R=the public staging tree/3fold-motion-engine/_private/romi_collab`, filerna `R/build/<LANE>/RESULTS.md` samt `remaining_obligations.json` for A185, A194, A201 and A204. Dessutom `~/HANDOVER_FIELD_2026-09-22.md`, `~/research/field_handover_20260922/LANE_INVENTORY.md`, `R/lanes/{INNOVATION_OBJECTIVES_2026-09-22.json,SEED_DECOMPOSITION.md}`, `~/research/inference_training_20260921/SHARED_GEOMETRY_MATH.md`, `~/research/JOHN_BODYTWIN_CONTEXT_2026-09-22.md` and `STARTUP_MESSAGE.md` (avsnittet "Our Geometric Connections"). Av A196 (U280) and A198 (U282) I have only read the summary. They are included as marginal notes.
+**Sources.** Forskningsrot `R=../3fold-motion-engine/_private/romi_collab`, filerna `R/build/<LANE>/RESULTS.md` samt `remaining_obligations.json` for A185, A194, A201 and A204. Dessutom `~/HANDOVER_FIELD_2026-09-22.md`, `~/research/field_handover_20260922/LANE_INVENTORY.md`, `R/lanes/{INNOVATION_OBJECTIVES_2026-09-22.json,SEED_DECOMPOSITION.md}`, `~/research/inference_training_20260921/SHARED_GEOMETRY_MATH.md`, `~/research/JOHN_BODYTWIN_CONTEXT_2026-09-22.md` and `STARTUP_MESSAGE.md` (avsnittet "Our Geometric Connections"). Av A196 (U280) and A198 (U282) I have only read the summary. They are included as marginal notes.
 
 ---
 

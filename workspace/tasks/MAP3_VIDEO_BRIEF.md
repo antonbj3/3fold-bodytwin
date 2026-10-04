@@ -8,8 +8,8 @@ From `~/projects/bodytwin` (also works against cad-to-simulation-I code):
 2. `python3 scripts/capability_index.py --task "<word>"` — gives a STATUS stamp (PROTOTYPE/…); use for condition.
 3. `python3 scripts/anchor_graph_tools.py` (see `--help`) and grep in `data/MECHANISM_ANCHOR_GRAPH.json`, `data/ANCHOR_GRAPH.json`, `data/DATA_GRAPH.json`, `data/MECHANISM_DATA_GRAPH.json` for nodes (claim, status, evidence).
 4. `bt_memory/` (grep) and `~/.coordinator/projects/-home-anton/memory/` + `~/.coordinator2/` memories (grep) — lessons and where data is stored.
-5. Maskinell listning (kan vara under arbete): `~/projects/3fold-workspaces/bodytwin/results/MAP/video/video_scripts_all_projects.tsv`.
-6. Data modes: `lsblk`; `/mnt/shared_data`, `/media/anton/*`, `_DISKROLL.md`, datasets flyttade 2026-09-05 till /dev/sda2 (kan vara omonterad — montera NOT, notera bara).
+5. Machine listing (may be in progress): `~/projects/3fold-workspaces/bodytwin/results/MAP/video/video_scripts_all_projects.tsv`.
+6. Data locations: `lsblk`; `external_mount`, `external_media*`, `_DISKROLL.md`, datasets moved 2026-09-05 to /dev/sda2 (may be unmounted — do NOT mount, just note).
 
 ## Condition — how to assess it (without heavy runs)
 For every pipeline/cell: latest mtime on code and output, whether result JSON/logs exist and what they say (numbers), whether tests exist, whether it imports modules that exist (`python3 -c "import ast"` check or `python3 -m py_compile`), whether it refers to data that exists on disk today, status stamp in capability_index, graph node status. May run `--help` or a run < 30 s CPU if obviously harmless; no GPU jobs, no downloads, `nice -n 19`, thread ceiling 2. Condition class: {RUN+RESULT (date, number), CODE EXISTS NOT RUN, BROKEN (why), DATA MISSING, UNCLEAR}.

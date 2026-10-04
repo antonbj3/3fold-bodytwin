@@ -16,7 +16,7 @@ from scipy.integrate import solve_ivp
 # PENDING_INDEPENDENT_REVIEW -- path portability only; no model change.
 import os
 HERE = Path(__file__).resolve().parent
-REPO = Path(os.environ.get('BODYTWIN_REPO', 'source_repository'))
+REPO = Path(os.environ.get('BODYTWIN_REPO', 'source_repository/'))
 
 
 def _acquired(rel):

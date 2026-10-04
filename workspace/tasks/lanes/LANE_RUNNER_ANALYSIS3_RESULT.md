@@ -4,10 +4,10 @@ Independent analysis delivered: **local conditional continuation is possible; th
 disease pipeline and full cloud handoff have explicit prerequisites remaining.**
 No other analysts' results have been read.
 
-- [Analysrapport](~/research/ANALYSIS_3_BUILDABILITY.md)
-- [Machine-readable report](~/research/ANALYSIS_3_BUILDABILITY.json)
-- [Next Session Starter Package](./results/LANE_RUNNER_ANALYSIS3_20260930/handoff/START_NEXT_SESSION.md)
-- [Eleven proposed wave data](./results/LANE_RUNNER_ANALYSIS3_20260930/NEXT_WAVE.json)
+- [Analysis report](external_research_path)
+- [Machine-readable report](external_research_path)
+- [Next session's startup package](results/LANE_RUNNER_ANALYSIS3_20260930/handoff/START_NEXT_SESSION.md)
+- [Eleven proposed wave tasks](results/LANE_RUNNER_ANALYSIS3_20260930/NEXT_WAVE.json)
 
 The report contains 10 verified or bounded blockers, 8 safe
 consolidation steps, exact handoff manifest, measurable gates and work order.

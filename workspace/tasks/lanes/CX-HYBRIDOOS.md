@@ -1,8 +1,8 @@
 # CX-HYBRIDOOS — the frozen hybrid on data it has NEVER seen: non-gait activities (squat, chair rise, stairs, calf raise, crouch, bouncy)
 
 Background: A1775 CX-HYBRID. Predictor (c) = w·N1g + (1−w)·(lo_q + c(phase)), with the quadriceps-arm geometry. It beats N1g for DM/SC/PS in gait (LOPO). JW has a known broken L1 arm (A1450/A1452/A1777). All learning (w, c, N1g's k) was done on GAIT. The non-gait operators have never been used for choices in the hybrid, so they are real out-of-sample data:
-- JW4: /media/anton/sdc1-tmp/bodytwin/CX-INVERSEOC/non_gait/*.npz (11 trials);
-- DM/SC/PS: /media/anton/sdc1-tmp/bodytwin/CX-NONGAITOPS/*.npz (30 trials; note the law cross-check deviation 29/30).
+- JW4: external_media*.npz (11 trials);
+- DM/SC/PS: external_media*.npz (30 trials; note the law cross-check deviation 29/30).
 
 ## Freeze in PREREG.md (+sha256) BEFORE any non-gait scoring
 - Use EXACTLY CX-HYBRID's learned parameters (w, c per phase bin; LOPO per held-out person as in CX-HYBRID; no new learning).

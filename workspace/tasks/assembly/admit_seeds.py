@@ -30,7 +30,7 @@ import json
 import re
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 SEEDS = W / 'tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json'
 QUEUE = W / 'tasks/lanes/bt_queue.txt'
 RESULTS = W / 'results'

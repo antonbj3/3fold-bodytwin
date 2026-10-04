@@ -37,7 +37,7 @@ import math
 import statistics
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 OUT = W / 'results/ASSEMBLY_FORECAST_VERIFICATION'
 TOL_D = 0.5          # the event: the decision lands within half a dioptre
 BINS = 5

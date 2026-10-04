@@ -1,11 +1,11 @@
 # BOUNDARY_MAP 2026-10-03 — where A (the platform graph), B (the seed program), and C (the body twin) touch each other
 
 Status: **PENDING_INDEPENDENT_REVIEW** (all below, without exception).
-Nothing built, nothing changed. `source_repository` only read.
+Nothing built, nothing changed. `source_repository/` read only.
 
 Sources read:
-- A: `source_repository/data/ANCHOR_GRAPH.json` (66 noder; 49 ur `anchor_graph_tools.py priority`), claim + regime_note per nod.
-- B: `./tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json` (500, field `observable`/`consumer`/`regime`/`domain`).
+- A: `source_repository/data/ANCHOR_GRAPH.json` (66 nodes; 49 from `anchor_graph_tools.py priority`), claim + regime_note per node.
+- B: `tasks/free48/SEED_PROGRAM_500_IMPROVED_20260929.json` (500, field `observable`/`consumer`/`regime`/`domain`).
 - C: `tasks/free48/sources/` (45 cells, QUESTION/PREREG/model) + `results/LANE_*` + all `PORT*.json` (622 files, 1057 distinct unit strings).
 
 ## 1. Paren
@@ -50,7 +50,7 @@ Searched: `track`, `SMPL`, `splat`, `gsplat`, `Spearman` as well as the unit *pe
 
 **N5 — ÉTENDUE AS WORD, NOT AS QUANTITY.** Searched `etendue`/`étendue`: 11+45 hits, but the only non-A mirrored hit (`LANE_BLEEDING_VISIBLE/DECOMPOSITION_R11-12.json`) is the word alone in a list with no value or entity. `PROJ-LIGHT-BUDGET` thus has **no** counted counterpart in C — pair 10 only carries the scattering/contrast part, not the radiation budget.
 
-**N6 — EN FOURTH ID-RYMD who wasn't on the mission.** `LANE_ROBOT_PORT_CONNECT/PORT_R5_FINAL.json` points to `~/research/surgical_robot_components_20261002/CROSS/GRAPH_BRANCH.json` (sha256 4670b9d4…): 41 noder, **202 portar**, varav 167 robotsidiga. `robot_ports_with_strict_computed_binding` = **0 before and 0 efter**; `requires_new_computation` = 167; inherited valid numerical tissue bonds = 2; `branch_null_values` = 80; proveniens `UNSOURCED` = 109 av 202So it's not just an empty corner of C. — It is a separate coordinate system that neither A nor C's cells reach, and its own lane has recorded zero calculated numbers two sets in a row.
+**N6 — A FOURTH ID SPACE who was not in the mission.** `LANE_ROBOT_PORT_CONNECT/PORT_R5_FINAL.json` points to `external_research_path` (sha256 4670b9d4…): 41 nodes, **202 ports**, of which 167 robot side. `robot_ports_with_strict_computed_binding` = **0 before and 0 after**; `requires_new_computation` = 167; inherited valid numeric tissue bindings = 2; `branch_null_values` = 80; provenance `UNSOURCED` = 109 of 202. So it's not just an empty corner of C — it's its own coordinate system that neither A nor C's cells reach, and its own lane has posted zero calculated numbers two rounds in a row.
 
 ## 3. De tio seeds som kan admitteras direkt
 

@@ -18,7 +18,7 @@ from .api import GeometryManager
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-DATA = Path(os.environ.get('GEOMGR_DATA', '/media/anton/sdc1-tmp/bodytwin/N7a/frozen'))
+DATA = Path(os.environ.get('GEOMGR_DATA', 'external_media'))
 EXTRA = Path(os.environ.get('GEOMGR_EXTRA', ROOT / 'frozen_extra'))
 SCEN = {'S2': (C.X5, []), 'S4': ([], ['HC6', 'SGT', 'LT', 'MEC', 'LEC']), 'S6': (C.X5, ['HC6', 'SGT', 'LT', 'MEC', 'LEC'])}
 DEMO10 = ['z009', 'z013', 'z019', 'z023', 'z027', 'z035', 'z036', 'z042', 'z046', 'z049']
@@ -130,7 +130,7 @@ def numeric(subject, obs='S6', out=None, draws=50, register=False, all23=False, 
     rep = dict(subject=subject, obs=obs, draws=draws, measure_definition=MS.MEASURE_VERSION)
     kap = kappa_table()
     with tm('1_load_population'):
-        cache = os.environ.get('GEOMGR_CACHE', '/media/anton/sdc1-tmp/bodytwin/N7a')
+        cache = os.environ.get('GEOMGR_CACHE', 'external_media')
         gm = GeometryManager(DATA, population=('imperial',), exclude_vsd=subject, kappa=kap,
                              cache_dir=cache if Path(cache).is_dir() else EXTRA)
     leg = LG.LegFrozen.load(EXTRA / 'tlem_leg.json')

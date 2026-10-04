@@ -3,7 +3,7 @@
 Status: **PENDING_INDEPENDENT_REVIEW**
 Date: 2026-10-03
 Scope: path resolution only. No physics, no parameters, no numbers changed.
-Workspace: `.` (nothing written to `source_repository`).
+Workspace: `` (nothing written to `source_repository/`).
 
 ## 1. Paths found and replaced
 
@@ -76,7 +76,7 @@ Negative control, same /tmp directory, pre-change sources from `git show HEAD:`:
   another machine or a copied input tree, not to another working directory. Stated as
   measured, not inflated.
 
-`find source_repository -newermt <session start>` returned nothing: the
+`find source_repository/ -newermt <session start>` returned nothing: the
 read-only repo was not written to at any point.
 
 ## 4. Same pattern in the remaining 42 cells
@@ -88,7 +88,7 @@ fixed-depth `parents[N]`, absolute paths inside `*.json`, and `*.sh/*.yaml/*.yml
 **6 further cells carry runtime-breaking absolute paths in Python** (13 files):
 `IMMUNITY`, `SOLBENCH`, `SURG_COLLAGEN`, `SURG_HEALING`, `SURG_HEMOSTASIS`, `SURG_INCISION`.
 Typical forms: `OUT_DIR = "source_repository/data/msk_smoketest/..."` followed
-by `os.makedirs(OUT_DIR, exist_ok=True)`; `REPO_ROOT = "source_repository"`;
+by `os.makedirs(OUT_DIR, exist_ok=True)`; `REPO_ROOT = "source_repository/"`;
 absolute `out_path`/`RESULTS_PATH` writes; absolute cross-cell input JSON
 (`WOUND_JSON`, `COAG_JSON`, `TEWL_JSON`).
 

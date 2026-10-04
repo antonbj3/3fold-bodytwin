@@ -4,8 +4,8 @@ Kallor: n40b_collect.py (band90_coverage), BT-N46/geomgr/bandcal.py (B86-regeln)
 """
 import numpy as np, glob, json, os
 
-S = '/mnt/shared_data/bodytwin_work/N40b/cloud_k10/solve_out/'
-G = '/mnt/shared_data/bodytwin_work/N40b/cloud_k10/geom_out/'
+S = 'external_mount'
+G = 'external_mount'
 Z90 = 1.6448536269514722
 JOINTS = ['hip_r', 'hip_l', 'knee_r', 'knee_l', 'l5s1', 'gh_r', 'gh_l']
 

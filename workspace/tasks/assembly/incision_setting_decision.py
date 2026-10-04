@@ -75,7 +75,7 @@ import json
 import math
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 OUT = W / 'results/ASSEMBLY_INCISION_SETTING'
 
 # Published damage depth, read as sqrt(D_eff * t). PMID 12642261.

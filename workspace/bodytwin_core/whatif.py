@@ -49,7 +49,7 @@ def field_u380_shape_massprop(mesh, u, source_dir=None):
     """
     import importlib.util, sys
     from pathlib import Path
-    src=Path(source_dir or 'the public staging tree/3fold-motion-engine/_private/romi_collab/build/U380/code')
+    src=Path(source_dir or '../3fold-motion-engine/_private/romi_collab/build/U380/code')
     file=src/'shape_massprop.py'
     if not file.is_file():raise FileNotFoundError(file)
     old=list(sys.path)

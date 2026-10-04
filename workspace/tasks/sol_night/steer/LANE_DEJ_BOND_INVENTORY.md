@@ -15,6 +15,6 @@ A lower bound on k cannot falsify us; an **upper** one can. If any path gives k_
 2. **Predictions are not measurements.** Another lane got an assignment from me based on my reading a field with *conditional* in its name as a measured value. Mark each number you use as MEASURED or DERIVED, and never mix them in the same ratio without saying so.
 
 ## If the file or path is missing where you run
-The frozen microstructures are in: `results/LANE_SURGICAL_BINDINGS/SOURCES_R2.json`. Not available `~` on your host: write `missing_prerequisite` of the first subparagraph by: RESULTS.md and use the numbers as they stand in the lane letter, marked as quoted from the letter. Three jobs today drew the wrong conclusion by quietly reconstructing missing input.
+The frozen microstructure numbers are in `results/LANE_SURGICAL_BINDINGS/SOURCES_R2.json`. If `local_path` does not exist on your host: write `missing_prerequisite` in the first paragraph of RESULTS.md and use the numbers as they stand in the lane brief, marked as quoted from the brief. Three jobs today drew the wrong conclusion by silently reconstructing missing inputs.
 
 Allt PENDING_INDEPENDENT_REVIEW. Inga interna data.

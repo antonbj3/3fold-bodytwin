@@ -23,7 +23,7 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 RES = HERE.parents[1]
 P1 = RES / 'P1'
-KEAST = Path('/mnt/shared_data/datasets/bodytwin/keast2023_tibia_ssm/extracted')
+KEAST = Path('external_mount')
 
 from . import core as C  # noqa: E402
 from .identity import Entity, Registry  # noqa: E402

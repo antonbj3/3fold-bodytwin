@@ -26,7 +26,7 @@ import re
 from collections import Counter
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 NET = W / 'CONSTRAINT_NETS.json'
 CELLS = W / 'tasks/free48/sources'
 OUT = W / 'results/ASSEMBLY_CREATIVE_HARVEST'

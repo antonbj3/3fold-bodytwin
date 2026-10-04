@@ -11,10 +11,10 @@ You're a lane runner. `lane-model`Agent with full mandate from the coordinator. 
   - Both have `swarm_worker_backoff_until ≈ 2790683370` (**year 2058** — an old hard-coded pause that blocks all swarm_worker), and `swarm_worker_reserve_until = 0`.
   - `swarm_worker_weekly_used_pct` is a **manual** field (the key: "manual: run swarm_worker-usage <pct> after checking the console") and measures nothing itself.
 
-## Nyckel-fakta
+## Key facts
 - **Profile D already exists** on both hosts in `/opt/agents/profiles/D/data/opencode/auth.json` (ubuntu-owned, mode 600), with providers `opencode` + `opencode-go`. Verified to work locally and on both clouds (`MODEL_ROUTE.json` → `account: D`). Runner `run_profile_ovh.py` has `choices=('A','B','C','D')`.
 - **Fallback logic:** `/opt/agents/fallback_reserve.py` (`choose`), called from `route_runtime.reserve_slot` when no free models are available. swarm_worker allocation is governed by `FREE_MODEL_POLICY.json`: `swarm_worker_reserve_account`, `swarm_worker_reserve_cap`, `swarm_worker_reserve_until`, `swarm_worker_weekly_used_pct`, `swarm_worker_weekly_stop_pct`, `swarm_worker_backoff_until`, `swarm_worker_value_only`.
-- **Helper:** `~/.local/bin/reserve_worker-usage` (status/set/stop/resume/limit) — But it just sets **samma** pct on both hosts and does not repoint the account.
+- **Helper:** `local_config_path/bin/swarm_worker-usage` (status/set/stop/resume/limit) — but it only sets the **same** pct on both hosts and does not redirect the account.
 - **IMPORTANT about ownership:** write `/opt/agents` files as **ubuntu**, never root (OVH: run as ubuntu; UpCloud: `sudo -u ubuntu ...`). Protected by `flock` on `/opt/agents/rate_policy.lock`.
 - **Fallback account D's key** exists in the profile; swarm_worker model `opencode-go/swarm_worker-v4.1-flash`.
 
@@ -36,4 +36,4 @@ You're a lane runner. `lane-model`Agent with full mandate from the coordinator. 
 1. Fallback points to **D** on both hosts; the 2058 pause gone; quota value set (0 % or measured).
 2. Proven fallback run on `account: D` / `selected: swarm_worker`.
 3. A/C otherwise untouched; free models still primary; swarm_worker only during cooldown.
-4. Kort sammanfattning i `~/research/FREE_AUTONOMY_20260926/LANE_RUNNER_reserve_worker_D_RESULT.md`: exact field changes before/after, command proof, what is NOT amended.
+4. Short summary in `external_research_path`: exact field changes before/after, command evidence, what was NOT changed.

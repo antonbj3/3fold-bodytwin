@@ -7,15 +7,15 @@ results were read and no subagents were used.
 
 Leveranser:
 
-- [ANALYSIS_1_OVERLAP.md](~/research/ANALYSIS_1_OVERLAP.md):
+- [ANALYSIS_1_OVERLAP.md](external_research_path): reuse map, density
   definitions, all 27 maps, value assessment, recommendation and
   eight concrete continuations with checks and prerequisites.
-- [ANALYSIS_1_REUSE.json](~/research/ANALYSIS_1_REUSE.json):
+- [ANALYSIS_1_REUSE.json](external_research_path): all counted pairs
   with source pointer/rad, justification, missing bindings, explicit
   proposal/observed-split, ancestry and nullable global measure.
-- [Projektpaket](./results/LANE_RUNNER_ANALYSIS1_20260930/RESULTS.md):
-  identiska rapport-/JSON-kopior, reproduktionsskript, inputhashar,
-  kompletta valda grafnoter, alla 500 v6-ID:n, first-principles decomposition,
+- [Project package](results/LANE_RUNNER_ANALYSIS1_20260930/RESULTS.md):
+  identical report/JSON copies, reproduction scripts, input hashes,
+  complete selected graph notes, all 500 v6 IDs, first-principles
   decomposition, validation and graph receipts.
 
 **Count:** finished boundary source provides 32 suggested uses of 12 canonical

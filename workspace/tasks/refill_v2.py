@@ -269,7 +269,7 @@ def plan(limit: int = 80, now: float | None = None):
 def write_packets(selected):
     for j, brief, files in selected:
         d = R / j
-        storage=Path('/mnt/games-240/research/bunny48_20260926/bodytwin')
+        storage=Path('external_mount')
         if storage.is_dir() and not d.exists():
             dest=storage/j;dest.mkdir(exist_ok=False);d.symlink_to(dest,target_is_directory=True)
         (d / 'inputs').mkdir(parents=True)

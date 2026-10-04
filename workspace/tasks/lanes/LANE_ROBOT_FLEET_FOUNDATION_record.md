@@ -16,7 +16,7 @@ the GENERATIVE GEOMETRY, the CAD lane owns ASSEMBLY and certification. For our q
 — derive geometry from a requirement — the field engine is the primary one.
 
 ### The field engine: generative geometry
-`the public staging tree/3fold-field-engine/`:
+`../3fold-field-engine/`:
 - **`src/field_engine/cadbank_v1.py`** with `data/cadbank_v1`
   and `tests/test_cadbank.py` — a CAD bank with tests.
 - **`reports/topopt_first_assembly_observation.json`** plus `.npz` reference — **topology
@@ -28,15 +28,15 @@ the GENERATIVE GEOMETRY, the CAD lane owns ASSEMBLY and certification. For our q
   first.** It determines if the requirement joint can be entered as loads and boundary conditions.
 
 ### CAD-lanen: assembly and certification
-`~/projects/cad-to-simulation-J`, gren `feat/cad-assembly-generative`, CadQuery as core:
+`local_path`, branch `feat/cad-assembly-generative`, CadQuery as core:
 - **`reports/certified_generative_assembly_loop.json`** — a generative loop that GROWS a part
   to a geometric boundary bind, and certifies the enclosure with the binding cause NAMED: R_max
   10,0 mm, binding condition "orthogonal-neighbour collision", predicted onset 10,0 mm, with
   a growth path where each step carries swept overlap volume in mm³. All gates pass.
 - **`reports/certified_assembly_sequence.json`** — assembly sequence as PLANNER:
-  the precedence out of swept overlap volume instead of getting it given. 2 av 6 arrangements that are feasible;
-  sticks before lid, lid-first always blocked, all validation gates green.
-- **`reports/third_assembly_generalization.json`** — generaliserad till en verklig hjulmontering:
+  it derives precedence from swept overlap volume instead of having it given. 2 out
+  of 6 orders doable, pegs before cap, cap-first always blocked, all gates green.
+- **`reports/third_assembly_generalization.json`** — generaliserad to en verklig hjulmontering:
   43 solider, 12 klasser, instansieringsfaktor 3,58.
 - **`data/ur10e_assembly_graph.json`** — a real robot arm imported as a graph:
   13 links, 12 joints, 6 revoluta as expected. Thus: topology optimization, a

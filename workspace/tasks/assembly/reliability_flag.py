@@ -27,7 +27,7 @@ import json
 import statistics
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 SRC = W / 'results/LANE_CORNEA_SHAPE/r3/REPEATABILITY_V1.json'
 OUT = W / 'results/ASSEMBLY_RELIABILITY_FLAG'
 THRESHOLD_D = 0.25

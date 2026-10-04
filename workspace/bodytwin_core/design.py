@@ -15,9 +15,9 @@ from .solver import solve_step, solve_bounds
 
 ROOT = Path(__file__).resolve().parents[1]
 D1 = ROOT / 'results/CX-D1PARITY'
-TMP = Path('/media/anton/sdc1-tmp/bodytwin/CX-DESIGNLOOP')
-SRC = Path('/media/anton/sdc1-tmp/bodytwin/CX-WHATIF2/matrices_out/data')
-D1DATA = Path('/media/anton/sdc1-tmp/bodytwin/CX-SOLVER2/data')
+TMP = Path('external_media')
+SRC = Path('external_media')
+D1DATA = Path('external_media')
 sys.path[:0] = [str(D1), str(ROOT / 'results/CX-FIELDSHARE')]
 import direct_geometry
 import run_d1 as D

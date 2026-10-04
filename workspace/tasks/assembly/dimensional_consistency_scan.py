@@ -24,7 +24,7 @@ import json
 import pathlib
 import re
 
-W = pathlib.Path('.')
+W = pathlib.Path('')
 NET = W / 'CONSTRAINT_NETS.json'
 
 # Units as (dimension, factor to the SI-ish base used below).
@@ -106,7 +106,7 @@ def main() -> None:
         text = ' '.join(str(e.get(k, '')) for k in ('constraint', 'evidence'))
         for f in check(text):
             rows.append(dict(f, record=e['id'], status=e.get('status'), kind='net_edge'))
-    docs = sorted(pathlib.Path('source_documents').glob('MECHANISM_*.md'))
+    docs = sorted(pathlib.Path('source_repository/docs').glob('MECHANISM_*.md'))
     for p in docs:
         try:
             lines = p.read_text(errors='replace').splitlines()

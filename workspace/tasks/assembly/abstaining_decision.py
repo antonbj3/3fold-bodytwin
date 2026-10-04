@@ -39,8 +39,8 @@ import statistics
 import sys
 from pathlib import Path
 
-W = Path('.')
-ENGINE = Path('the public staging tree/3fold-graph-engine/src')
+W = Path('')
+ENGINE = Path('../3fold-graph-engine/src')
 OUT = W / 'results/ASSEMBLY_ABSTAINING_DECISION'
 THRESHOLD_D = 0.25
 

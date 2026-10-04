@@ -1,15 +1,15 @@
 # CX-LUNGESYNC — BodyTwin's delivery to Field's in vivo validation F-8 (U388): knee angle, time sync, and the N1g null model for JW's lunge jw_lungef1
 
-Consumer: the Field lane (anton-12), U388. It computes contact force between the femoral component and the insert from fluoroscopy poses and compares against the measured eTibia force. Joint priority F-8 in `~/research/PLAN_BODYTWIN_FIELD_8H_20260924.md` §14.
+Consumer: the Field lane (anton-12), U388. It computes contact force between the femoral component and the insert from fluoroscopy poses and compares against the measured eTibia force. Joint priority F-8 in `external_research_path` §14.
 
 ## Data
-- The Grand Challenge 4th competition: `/media/anton/sdc1-tmp/3.DataforFourthCompetition-latest.zip` → "Synchronized Motion Data.zip" → jw_lungef1:
+- The Grand Challenge 4th competition: `external_media` → "Synchronized Motion Data.zip" → jw_lungef1:
   - fluoro kinematics segments 1–5 (84 frames, 30 Hz);
   - markers 120 Hz;
   - GRF/force plates;
   - eTibia.
 - The frame table and times: `results/CX-FLUOROLINK/results.json` → JW4.
-- Extract only what is needed to `/media/anton/sdc1-tmp/bodytwin/CX-LUNGESYNC/`.
+- Extract only what is needed to `external_media`.
 
 ## Deliverables in `results/CX-LUNGESYNC/`
 1. `lunge_frames.csv`, one row per fluoro frame (84):

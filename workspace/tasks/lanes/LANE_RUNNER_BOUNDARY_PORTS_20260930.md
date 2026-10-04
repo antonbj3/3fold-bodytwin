@@ -10,7 +10,7 @@ Reuse source code without modifying it, preserve negative reports, and execute
 only isolated conditional construction probes. No scheduler/cloud/agent launches,
 source graph writes, scientific admission, mail, credentials or publication.
 
-Output: ~/research/BODYTWIN_BOUNDARY_REPORT.md and mutation JSON/Markdown;
+Output: external_research_path and mutation JSON/Markdown;
 results/LANE_RUNNER_BOUNDARY_20260930; tasks/lanes/LANE_RUNNER_BOUNDARY_RESULT.md.
 
 BM7 additionally binds the saved BT-RESEARCH-IMMUNITY context packet. Its native

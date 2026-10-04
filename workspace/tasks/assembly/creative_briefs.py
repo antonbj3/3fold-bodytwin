@@ -24,7 +24,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 
 # Each: the anomaly as a plain fact, then the open question. The numbers come from the net and from
 # tonight's cells; the framing does not.

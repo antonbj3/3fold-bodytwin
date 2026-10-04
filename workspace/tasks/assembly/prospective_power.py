@@ -28,7 +28,7 @@ from pathlib import Path
 import numpy as np
 import openpyxl
 
-W = Path('.')
+W = Path('')
 R15 = W / 'results/LANE_EYE_OPTICAL_TWIN/r15'
 OUT = W / 'results/ASSEMBLY_PROSPECTIVE_POWER'
 TARGET_D = 0.0

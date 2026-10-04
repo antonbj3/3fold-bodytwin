@@ -2,7 +2,7 @@
 from pathlib import Path
 from datetime import datetime,timezone
 import json,re,subprocess,time
-W=Path('.');D=W/'tasks/lanes/oom_slots_runtime'
+W=Path('');D=W/'tasks/lanes/oom_slots_runtime'
 rows=[json.loads(l) for l in (D/'verification.jsonl').read_text().splitlines()]
 first,last=rows[0],rows[-1]
 assert last['epoch']-first['epoch']>=900,'Verification still in progress'

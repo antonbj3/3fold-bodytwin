@@ -37,7 +37,7 @@ from pathlib import Path
 
 import openpyxl
 
-W = Path('.')
+W = Path('')
 R15 = W / 'results/LANE_EYE_OPTICAL_TWIN/r15'
 OUT = W / 'results/ASSEMBLY_TOTAL_CORNEA_CHECK'
 

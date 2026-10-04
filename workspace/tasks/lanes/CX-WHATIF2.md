@@ -5,9 +5,9 @@ Read first:
 - `tasks/lanes/CX-WHATIF.md` (the original brief and criteria).
 
 ## State
-- All 12 shards (identity, vsd_z001, vsd_z009 × CCD −15…15, AV −15…25) have run on OVH with EXIT 0. Output is in `/media/anton/sdc1-tmp/bodytwin/CX-WHATIF/cloud_bundle/modal_out/CXW-*/`.
+- All 12 shards (identity, vsd_z001, vsd_z009 × CCD −15…15, AV −15…25) have run on OVH with EXIT 0. Output is in `external_media*/`.
 - The field lane's femur mass-property derivatives are ACCEPTED after independent review:
-  - `the public staging tree/3fold-motion-engine/_private/romi_collab/build/FX_FEMUR_MASSPROP_DERIV_20260924/RESULTS.md`;
+  - `../3fold-motion-engine/_private/romi_collab/build/FX_FEMUR_MASSPROP_DERIV_20260924/RESULTS.md`;
   - z001 in `.../FD_REVIEW_FEMUR_Z001_20260924/RESULTS.md`.
   - Caveat: at ±10°, compute M(u) directly.
 

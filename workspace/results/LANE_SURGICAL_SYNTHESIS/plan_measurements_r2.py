@@ -14,7 +14,7 @@ from surgical_chain.chain import run, write
 from surgical_chain.scenario import scenario_config
 
 ROOT=Path(__file__).resolve().parent
-STORE=Path('/mnt/games-240/research/bodytwin_solnight/LANE_SURGICAL_SYNTHESIS/r2')
+STORE=Path('external_mount')
 RANGES={
  'gap':(100e-6,400e-6),'biological_width':(100e-6,700e-6),'perfusion_width':(100e-6,700e-6),
  'radius_factor':(.8,1.2),'density_factor':(.7,1.3),'driving_pressure':(2000.,6000.),
@@ -198,7 +198,7 @@ if __name__=='__main__':
     p.add_argument('--start',type=int,default=0);p.add_argument('--stop',type=int,default=32)
     p.add_argument('--store',type=Path,default=STORE)
     p.add_argument('--out',type=Path,default=ROOT/'r2/measurement_v1');a=p.parse_args()
-    allowed=Path('/mnt/games-240/research/bodytwin_solnight/LANE_SURGICAL_SYNTHESIS').resolve()
+    allowed=Path('external_mount').resolve()
     if not (a.store.resolve().is_relative_to(allowed) or a.store.resolve().is_relative_to(ROOT)):
         raise ValueError('Field output must remain inside the authorized lane')
     STORE=a.store.resolve()

@@ -7,10 +7,10 @@ Status: **ongoing** = running/not committed · **commit** = saved locally · **r
 | Del | Plats | Versionshantering |
 |---|---|---|
 | The lane's code, PREREG, result receipts, notes, briefs | `~/projects/3fold-workspaces/bodytwin/{notes,tasks,results}` (shared workspace, not git) | local repo with separate git directory `~/research/bodytwin_lane_git`, branch `bodytwin-lane`; run `tasks/lanegit.sh <git-kommando>`. Only explicitly added files are tracked; other sessions' files (DS_*, BT-MAT-*, BT_*_2026*, PROOF_LANE_*, GRAPH_*, BT-SUM-GRID1, BT-CERT-AUDIT, BT-LV1-SUM, SOL6_*) are not included |
-| Patchar mot publicerad BodyTwin (R1, BT-R2, BT-R2b) | klon `/mnt/shared_data/bodytwin_work/R1/bodytwin_fix` (grenar fix/day1-findings, fix/gates-exit), temporary clone `/media/anton/sdc1-tmp/bodytwin/BT-R2b/` (gren fix/gates-exit-2, commit cde20a2); format-patch i `results/BT-R2b/patches/` | egna git-commits i klonerna; publicerad b95a8dc untouched |
+| Patches to published BodyTwin (R1, BT-R2, BT-R2b) | clone `external_mount` (branches fix/day1-findings, fix/gates-exit), temporary clone `external_media` (branch fix/gates-exit-2, commit cde20a2); format-patch in `results/BT-R2b/patches/` | own git commits in the clones; published b95a8dc untouched |
 | Private BodyTwin repo `~/projects/bodytwin` | only read | nothing written from here |
 | Cloud infrastructure (lease extension) | `~/research/sol6_recovery_20260923/CLOUD_HUNT_20260923/infra/extend_lease_20260924.sh`, `*_worker.json` (lease_history) | coordinator's directory, not in the lane's repo |
-| Large data and run output | se `tasks/index/DATASETS.json` (source, license, path, SHA256) and `tasks/index/index.json`; `/mnt/shared_data/bodytwin_work/`, `/media/anton/sdc1-tmp/bodytwin/` | ej i git (npz/pkl/h5/stl, filer > 2 MB, `inputs/`-kopior) |
+| Large data and run outputs | see `tasks/index/DATASETS.json` (source, licence, path, SHA256) and `tasks/index/index.json`; `external_mount`, `external_media` | not in git (npz/pkl/h5/stl, files > 2 MB, `inputs/` copies) |
 
 ## Commits
 

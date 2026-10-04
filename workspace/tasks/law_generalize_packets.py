@@ -2,7 +2,7 @@
 than it was developed on (A1391/A1398)? One packet per trial with raw implant force + GRF + markers + the person's static trial + the ID code.
 Real files only (no symlinks). Excludes jw_lungef1 (F-8)."""
 import csv, os, shutil, glob
-W = '.'; R = W + '/results'
+W = ''; R = W + '/results'
 rows = list(csv.DictReader(open(R + '/DATAMATRIX_TABLES/P-CONTACT-COMP.csv')))
 def dm(ds, unit, proto):
     d = f"{R}/BT-DM-{ds}-{unit.replace('_', '-')}-{proto}/inputs/raw.csv"

@@ -23,7 +23,7 @@ import json
 import re
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 NET = W / 'CONSTRAINT_NETS.json'
 BLOCK = re.compile(r'excluded_category|excluded_category|excluded_category|sinusoid|excluded_category|excluded_category|excluded_category', re.I)
 # A number that means something: a gap, a difference, an error, a threshold, a count of violations.

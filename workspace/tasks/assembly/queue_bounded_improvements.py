@@ -24,7 +24,7 @@ import json
 import re
 from pathlib import Path
 
-W = Path('.')
+W = Path('')
 QUEUE = W / 'tasks/lanes/bt_queue.txt'
 RESULTS = W / 'results'
 NET = W / 'CONSTRAINT_NETS.json'
