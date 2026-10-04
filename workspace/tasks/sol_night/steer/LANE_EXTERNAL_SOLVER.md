@@ -1,35 +1,33 @@
-# Styrning LANE_EXTERNAL_SOLVER — efter r26
+# Styrning LANE_EXTERNAL_SOLVER — efter r27
 
-## Vad r26 actually did with the old age debt
-The steering asked for a certificate without point age, and it came: `age1790_assumed = False`,
-`old_completion_cutoff_s = 0`, `old_history_replay = False`I checked the containment myself:
-intervallets halvbredd 3,9607790651e-08 is exact `one_run_uniform_error_strain`, det nominella
-the value lies inside; and `four_run = 4,000000000000001 × one_run` — The four-run figure is therefore:
-worst-fall-additivity without any alleged extinguishing, and does not carry any information other than:
-The margin against the reserve is **2,229 %**.
+## You made the assumption of a speech, and the speech says something unpleasant.
+The governance asked for a history budget instead of a binary condition.
+`sufficient_preparation_residual_upper_Pa = 0,029072773` mot nominella 400 Pa, and the stricter
+triangelvarianten `0,0008936492`I checked everything: the ratio between the two is 32,532647 (ditt
+`sufficient_band_ratio_vs_triangle` 32,5326471251844)The budget is: **2,23e-06 till 7,27e-05 relativt**
+preparation, pre-registered 0,1 The pa-goal is 3,44× bigger than even the loose budget and falling
+That is why it is right, and the margin against the reserve has improved from 2,229 % till **4,19 %**.
 
-## But the debt didn't go away, it changed shape
-`earlier_zero_support_required = True`, status
-`CONDITIONAL_FIXED_LAW_POSITIVE_COMPLETED_BY_0_EARLIER_ZERO`. Kravet "The history must be at least:
-1 088 s gammal" ersattes av "History is exactly zero before window"It's still one.
-assumption of an unobserved past, just another. Write it in plain text in the artifact; as it
-now reads a consumer "no age required" and misses the adoption of a zero history.
+However, the weight of the `unknown_zero_sector_1e_12Pa_four_error_strain = 0,0135497`: it is **83 617×
+reserven**. Med andra ord — if the previous history is only KNOWN ATT VARA LITEN (inom 1e-12 Pa)
+for KNOWN ATT VARA NOLL, the certificate falls by five orders of magnitude.
+It is not softenable, and it is a stricter kind of condition than the age limit in r25 var. Skriv det i
+plain text: the certificate requires KUNSKAP about the past, not that the past is small.
 
-## Changed operation: Turns adoption into a speech
-Figure out how big a NOLLSKILD previous history may be before the certificate falls — en
-History budget in the same unit as the reserve, just as the age limit was a number. Then the assumption is not
-longer binary without measurable, and the next measurement can try it. 2,229 % already says that
-The budget is small, so the speech is crucial rather than cosmetic.
+## Changed operation: determines whether the explosion is the problem or the receiver's
+A Fault Growing 83 617× when the limit goes from "noll" till "1e-12 Pa" is discontinuable in a
+parameter in which physics should be continuous. Either it is a property of the question, or a
+artefakt i mottagarens formulering — and it is conclusive: sweep the border 1e-12 → 1e-3 Pa and account for
+If the monotonous and continuous explosion is real and the budget above is the whole answer.
+If it jumps, the defect lies in the wording and then it's worth more than the certificate, because then every
+previous sector outcomes resting on the same branch suspected.
 
 ## Starkaste kontrollen
-The same six observations and the same tape, but the prognosis taken MED replayed old history.
-only counts if it matches without replay. `claim_type = capability`, so the control is the more expensive way
-som redan fungerar — not another method.
+Same six observations, same tape, but the forecast with replayed old history. And keep
+`violated_zero_scope_negative_control_escape = True` — that's exactly the negative control
+the steering asked for, and it does 3 338 Assertions to a gate instead of a bill.
 
-## The falsifier and the validation gate
-`FAILED_VERIFY_R26.json` is exactly the kind of preserved error that makes the validation gate credible: the first
-verifieraren omvandlade binary64-end points to the shortest decimal text and treated the text as:
-exactly, on which one point seemed to lie 7,0656e-19 Strain outside containment — en falsk
-certificate flight born from text conversion, correctly removed as: NOT_ESTABLISHED. Keep that pattern:
-6 681 Assertions without error is not a gate until something intentionally broken falls into the same run.
-`qualified_physical_datasets = 0` standing — no physical validation is claimed and shall not be.
+## Falsifieraren
+Print before swipe which shape of the error curve causes the formulation hypothesis. If the curve is
+continuous but steep, the budget should be indicated as a function of the limit, not as a single number.
+`qualified_physical_datasets = 0` remains and should remain until something physically validated.
