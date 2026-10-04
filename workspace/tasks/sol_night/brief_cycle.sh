@@ -102,6 +102,12 @@ if q.exists():
     print(f'queue {len(lines)} -> {len(keep)} ({done} complete, {broken} broken removed)')
 PRUNE
 
+  # 2b. Does every number an edge quotes still come out of the script that owns it? Both sides were
+  #     edited repeatedly on 2026-10-04 and the first run of this gate found 16 quoted numbers across
+  #     three edges that no script produced. A stale quoted number reads as evidence, so it is worse
+  #     than a missing one.
+  python3 tasks/assembly/decision_edge_consistency.py 2>&1 | sed "s/^/[$(ts)] /"
+
   # 3. Throughput, so a dead swarm is visible in the same log rather than needing a separate look.
   n=$(find results -name RESULTS.md -mmin -60 2>/dev/null | wc -l)
   echo "[$(ts)] swarm: $n reports in the last hour"

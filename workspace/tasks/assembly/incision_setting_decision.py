@@ -145,7 +145,23 @@ def main() -> int:
         'energy_balance_recomputed_by_coordinator': {
             'kerf_mm2': 1.0, 'vaporisation_J_per_m': 2260.0, 'fracture_J_per_m': 4.0,
             'fracture_fraction_of_vaporisation': 4.0 / 2260.0,
-            'warming_37_to_100_surcharge': 226.8 / 2260.0},
+            # The edge quotes this as a percentage, so it is emitted as one too; a reader comparing
+            # 0.177 against 0.00177 cannot tell a unit choice from a stale number.
+            'fracture_percent_of_vaporisation': 100.0 * 4.0 / 2260.0,
+            'water_latent_heat_MJ_per_kg': 2.26,
+            'soft_tissue_specific_heat_kJ_per_kg_K': 3.6,
+            'warming_37_to_100_surcharge': 226.8 / 2260.0,
+            'warming_percent_surcharge': 100.0 * 226.8 / 2260.0},
+        'conduction_only_m2_s': CONDUCTION_ONLY_M2_S,
+        # Every threshold the replacement witness needs, so the edge quotes nothing it cannot run.
+        'witness_thresholds': {
+            'log_depth_error_per_observation_eta': 0.02,
+            'four_corner_rejects_above': 4 * 0.02,
+            'endpoint_slope_witness_10_60': 2 * 0.02 / math.log(6),
+            'endpoint_slope_witness_10_120': 2 * 0.02 / math.log(12),
+            'reading': ('the four-corner test rejects when |I| > 4*eta for '
+                        'I = log(d11 d22 / d12 d21); the endpoint-slope test needs '
+                        '|m - 0.5| > epsilon + 2*eta/L')},
         'refusal': {'calibrated_setting_range': list(SETTING_CALIBRATED_RANGE),
                     'reported_setting_range': list(SETTING_REPORTED_RANGE),
                     'R_full_range_volume': 0.73, 'p_full_range': 0.008,
@@ -163,6 +179,7 @@ def main() -> int:
                                    'the refusal above 60'),
             'next_acquisition': 'a measured D_eff per generator setting, which is what would make the setting decide'},
         'd_eff_spread_factor': hi / lo,
+        'enclosure_over_conservative_dwell': hi / lo - 1.0,
         'rows': rows,
         'review_state': 'PENDING_INDEPENDENT_REVIEW',
         'no_claim_of_biological_validation': True,

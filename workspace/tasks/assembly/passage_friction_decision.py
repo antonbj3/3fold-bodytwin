@@ -118,6 +118,10 @@ def main() -> int:
             'why': ('the two readings differ by the constant F_first - F_second = '
                     f'{F_FIRST_N - F_SECOND_N:.3f} N, so the control over-allows one pass whenever '
                     f'the budget falls in that window below a multiple of {F_SECOND_N} N'),
+            'closed_form_fraction': (F_FIRST_N - F_SECOND_N) / F_SECOND_N,
+            'closed_form_note': ('(F_first - F_second)/F_second is the fraction of each '
+                                 'F_second-wide budget period in which the control over-allows, '
+                                 'and it confirms the scan independently'),
             'reading': ('the equal-friction assumption lets through one pass too many on this '
                         'fraction of the budget axis; on the rest the two agree, which is why six '
                         'hand-picked budgets showed no difference at all')},

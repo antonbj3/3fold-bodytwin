@@ -121,6 +121,13 @@ def main() -> int:
         'refusal': {'min_arm_separation_fraction': MIN_ARM_SEPARATION_FRACTION,
                     'reason': 'below it the moment noise amplification 1/(l-r) exceeds tenfold'},
         'control': 'Coulomb y = mu*P + S, same ambiguity; PMID 26700572, doi 10.1016/j.jmbbm.2015.11.024',
+        # Quoted by the edge, so emitted here. The dispersion is the source's reported scatter and
+        # NOT a rigorous uncertainty bound, which is why no sigma distance is computed from it.
+        'coulomb_control_coefficient': {
+            'mu_static': 0.295, 'mu_static_reported_scatter': 0.056,
+            'mu_dynamic': 0.255, 'mu_dynamic_reported_scatter': 0.086,
+            'source': 'Urrea et al., J Mech Behav Biomed Mater 56:98-105 (2016), PMID 26700572',
+            'dispersion_is_not_an_uncertainty_bound': True},
         'falsifier': ('if a shaft-only observable is found that separates adhesion from other '
                       'resistance without a second mechanical channel, the theorem is wrong and this '
                       'decision is unnecessary'),
