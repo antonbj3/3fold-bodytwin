@@ -1,38 +1,37 @@
-# Styrning LANE_SUMMARY_REPAIR — efter r27
+# Styrning LANE_SUMMARY_REPAIR — efter r33
 
-## Verified, and nesthesis proved by your own two numbers
-The repair is real: the downstream gap goes from 13128500/153567 = **85,4904 nmol** till
-1341032000/230504067 = **5,8178 nmol**, en minskning med faktor **14,695**, and both are accurate
-rational numbers without rounding off. 16320000/21020200901 = 7,764e-04 nmol.
+## The round is fair and the numbers are exact fractions. It's done right.
+`repaired_task_fibre_gap_nmol = 0` for the recorded task, and the remaining gaps are
+written as fractions: static mixing 45/4 = 11,25, neutral inventory 80/49 = 1,6327,
+injection after discrete step 39/40 = 0,975, calibration coverage gap 158/415 = 0,3807.
+No fifteen-digit floating-point numbers pretending to be measurements. Keep it.
 
-I read the flip definition in `run.py` rad 106 and 146: it only counts ENA riktningen, rader som
-passes the paired reading and falls on transport-only. It generally underestimates the number
-lines where the two readings disagree. Here it does not, and it can be proven from your own speeches:
-|P| − |T| = 229 − 122 = 107 is exactly the reported flip count, which forces |T \ P| = 0 —
-No line passes transport but falls on parade. So the Nesting is holding, but it is nowhere.
-Print it as a custom field (`transport_pass_is_subset_of_paired = True`), otherwise the flip number is
-a number that loses importance the first time the necessitation is broken.
+The calibration thus covers **61,93 %** of the data space.
 
-## Hindret, uttryckt som andel
-`exact_summary_gate = FAIL_RETAINED` is the right thing to do. **107 av 1350 kooperativa
-rader (7,93 %)** exchange verdict between the two readings, for 3 av 60 (5,00 %) i enplatsfallet.
-So the summary is insufficient over just under eight percent of the design room, and that's the number
-to be entered in the title — not the passport bills, which hide their being in each other.
+## The number that carries the round and that is not in the title
+`partial_future_count_gap_nmol = 39` . The recorded data is accurate, and the FUTURE
+is off by 39 nmol — the largest number in the round, thirty-three times the static mixing
+gap. Your headline says that interventions and arbitrary history require extra coordinates,
+which is correct, but it doesn't say the price. Put 39 in the header.
+
+And 39 is an **integer**. Our cells were found to be quantized at one molecule: 0,1037837 µM per molecule
+in a declared volume of 0,016 µm³, where a target gap of 2 molecules proved to be the exact minimum
+discernible contrast. Try if 39 is a number and not a concentration. If it is a number, it must be stated
+in number, and then the question is whether 39 units are above or below the resolution limit.
 
 ## Changed operation
-Karakterisera de 107 The lines instead of counting them. What separates them from the 1 243 which do not
-If they are located in a contiguous area of the parameter room, the boundary is described and
-the summary can be repaired there; if they are scattered, the inadequacy is global and then it is
-RESULTATET. Dina `verdict_flip_examples` har bara 8 rader sparade — spara alla 107 med sina
-parameters, it costs almost nothing.
+1. Determine the unit of 39: number or nmol. An integer in a nmol column is suspect.
+2. State which additional coordinates would close the future gap, and what each costs to measure.
+   You already said THAT they are needed. Say WHICH and HOW MUCH.
+3. The 61,93 % coverage must have a complementary side: what is in the 38,07 % that is not covered, and is it
+   a continuous region or scattered? Coherence can be described and thus avoided.
 
-## Starkaste kontrollen
-Samma 1 350 lines, the same validation gates, but with the summary replaced by the full permit.
-The number of flips should go to zero there; do not it is the validation gate and not the summary that
-I'm freaking out, and then the whole round measures something different than it thinks.
+## Strongest control
+The registered task with gap 0. Any extension counts against it, and
+an extension that degrades the registered task is not an extension.
 
-## Falsifieraren
-Om de 107 the rows cannot be distinguished from the others by any of the declared parameters, are:
-reparationen som r27 completed the premises and cannot be generalized. Print it before the next repair.
-Ett `W_cap_bracket` med bredd 1/5629499534213120 is machine epsilon, not a measured sharpness — say which one.
-of the two it is every time the brackets are reported.
+## Falsifier
+`physical_gate = PHYSICAL_ABSTAIN` and `matched_chemical_packets_acquired = 0`
+remain after several rounds. Print out which measurement package would lift the
+physical gate, with quantity and unity. If you can't name it, the distance to
+physical validation is unknown and it should be said rather than abstracted.
