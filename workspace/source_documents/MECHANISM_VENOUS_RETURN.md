@@ -75,7 +75,7 @@ against.
 instead found and verified via direct `WebFetch` against NCBI E-utilities (`esearch`/`esummary`/`efetch`)
 and EuropePMC's REST API, the same underlying method the sibling docs describe as "NCBI eutils," just
 invoked through a different tool. Two of the eleven (both pre-1975) have no abstract indexed live —
-disclosed, bibliographic-only, the same tier this repo already uses for Fick 1870/Astrand 1964/Rowell 1974.
+disclosed, bibliographic-only, the same tier this repo already uses for Fick 1870/ProofLanend 1964/Rowell 1974.
 
 | # | Citation | PMID / DOI | Role |
 |---|---|---|---|

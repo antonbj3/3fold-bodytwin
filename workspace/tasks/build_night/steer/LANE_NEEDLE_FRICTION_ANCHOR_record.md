@@ -1,6 +1,6 @@
 # Steering LANE_NEEDLE_FRICTION_ANCHOR — round 1 (the coordinator, 1/10 13:15)
 
-Anton 1/10: Sol runs sparingly, and the swarm (The swarm and reserve_worker) takes the width. This is the only Sol lane now. Therefore, put the budget where a weaker model will not do: derivation from first principles and source criticism, not cataloguing.
+Anton 1/10: Sol runs sparingly, and the swarm (The_swarm and swarm_worker) takes the width. This is the only Sol lane now. Therefore, put the budget where a weaker model will not do: derivation from first principles and source criticism, not cataloguing.
 
 - **Hinder:** the effective toughness of the needle is a tool-specific lump, and friction and breakage are not separated by any independent measure.
 - **Modified operation:** friction is derived from tissue stiffness and hole geometry (cavity recoil) and judged against measured retraction force or force in prepunched hole. The crime term will be the rest.

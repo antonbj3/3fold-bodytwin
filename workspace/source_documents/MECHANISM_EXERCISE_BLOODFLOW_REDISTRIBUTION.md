@@ -320,7 +320,7 @@ trainable (Piepoli 1996). Athlete's superior redistribution is an honest, disclo
   disclosed rather than left mislabeled.
 - **McCloskey/Mitchell (1972) and Remensnyder/Mitchell/Sarnoff (1962) are bibliographic only** — no
   abstract available live (pre-1975/short-communication-format gap), same disclosed-gap tier this repo
-  already applies to Rowell 1974/Astrand 1964.
+  already applies to Rowell 1974/ProofLanend 1964.
 - **Athlete's superior redistribution is NOT resolved this session** (§8) — a genuine, disclosed
   negative, not fabricated.
 - **Confidence tier, stated precisely, not blanket-claimed:** the sign-flip argument (§5) is the

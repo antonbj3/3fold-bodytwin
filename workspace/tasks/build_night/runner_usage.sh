@@ -1,5 +1,5 @@
 #!/bin/bash
-# lane runner mode from the session logs: the weekly window AND the credits.
+# lane_runner mode from the session logs: the weekly window AND the credits.
 # 2/10 21:30 (anton-5f): the old version only read "primary".used_percent and reported
 # "91 % (week)", which I read as a cap and almost closed the eight lane wave on. The same file carries
 # "credits":{"has_credits":true,"unlimited":false,"balance":"62500"} — Sun does NOT stop at 100 % by

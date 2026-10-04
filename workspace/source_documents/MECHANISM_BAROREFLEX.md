@@ -79,7 +79,7 @@ WebFetch AI-summarizer — see §10's disclosed catch), plus 4 Wikipedia pages (
 
 | # | Citation | PMID/DOI | Role |
 |---|---|---|---|
-| 1 | Kent BB, Drane JW, Blumenstein B, Manning JW (1972). "A mathematical model to assess changes in the baroreceptor reflex." *Cardiology* 57(5):295-310. | **4651782** (verified live: title/journal/year/authors match) | Sigmoid functional FORM. **Bibliographic only** — no abstract available live (pre-1975 abstracting era, same disclosed-gap tier as this repo's Astrand 1964/Rowell 1974). |
+| 1 | Kent BB, Drane JW, Blumenstein B, Manning JW (1972). "A mathematical model to assess changes in the baroreceptor reflex." *Cardiology* 57(5):295-310. | **4651782** (verified live: title/journal/year/authors match) | Sigmoid functional FORM. **Bibliographic only** — no abstract available live (pre-1975 abstracting era, same disclosed-gap tier as this repo's ProofLanend 1964/Rowell 1974). |
 | 2 | Seagard JL, van Brederode JF, Dean C, Hopp FA, Gallenberg LA, Kampine JP (1990). "Firing characteristics of single-fiber carotid sinus baroreceptors." *Circ Res* 66(6):1499-509. | **2344663** (verified live, full abstract) | REAL single-fiber dog data, quoted verbatim: "type I, a discontinuous, hyperbolic pattern... sudden onset of discharge at threshold pressure" (narrow range, high sensitivity, large myelinated-A afferents) vs "type II, a continuous, **sigmoidal** pattern... gradual increase in discharge" (wide range, lower sensitivity, smaller-A+unmyelinated-C afferents, spontaneous sub-threshold discharge). Primary anchor for §4's sigmoid shape + afferent fiber split. |
 | 3 | Seagard JL, van Brederode JF, Dan C, Hopp FA, Elegbe EO, Gallenberg LA, Kampine JP (1991). "Effects of epinephrine on firing characteristics of two functionally different types of carotid baroreceptors." *Circ Res* 69(4):1097-105. | **1934338** (verified live, abstract) | REAL finding: epinephrine "significantly increase[s] sensitivity, Fth, and Fsat of both types of baroreceptors" — a real afferent-limb positive-modulation complication from the sympatho-adrenal system, corroborating this repo's own `adrenal_cell` coupling note with a live-verified mechanism. Disclosed, not dynamically modeled (§10). |
 | 4 | Gribbin B, Pickering TG, Sleight P, Peto R (1971). "Effect of age and high blood pressure on baroreflex sensitivity in man." *Circ Res* 29(4):424-31. | **5110922** (verified live: title/journal/year/authors match) | The classic age+HTN-decline paper. **Bibliographic only** — no abstract available live (1971). |
@@ -353,7 +353,7 @@ and JSON, deterministic, machine-verified — not eyeballed).
   resolved, per the task's own explicit instruction.
 - **Kent 1972, Gribbin 1971, and Smyth 1969 have no abstract available live** (pre-1975 abstracting
   era) — cited by verified title/journal/year/author match only, same disclosed-gap tier this repo
-  already applies to Astrand 1964/Rowell 1974 (`docs/MECHANISM_CARDIAC.md`).
+  already applies to ProofLanend 1964/Rowell 1974 (`docs/MECHANISM_CARDIAC.md`).
   Real numeric substitutes for Gribbin's age/HTN claim come from the independently-sourced Laitinen
   1998 and Mussalo 2002 papers instead.
 - **Eckberg 1976's key latency numbers carry a disclosed decimal/hyphen parsing ambiguity** — PubMed's

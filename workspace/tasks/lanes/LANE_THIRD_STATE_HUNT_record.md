@@ -4,7 +4,7 @@ Results directory `results/LANE_THIRD_STATE_HUNT/`. Decisions outside the eye.
 
 ## Why this lane exists
 Six chains in the network carry a summary with identity error **exactly zero** next to a decision-relevant
-gap. `tasks/assembly/sufficiency_ledger.py` + edge `T-E33` collects them, and proof_lane's bound says that the
+gap. `tasks/assembly/sufficiency_ledger.py` + edge `T-E33` collects them, and the_proof_lane's bound says that the
 minimum number of extra fields is `⌈log_q M⌉` where `M` is the largest number of distinct decisions in **one** fiber.
 
 The bound is sharp. Our data is not: **every lane has exhibited exactly one witness pair**, so `M ≥ 2`
@@ -39,7 +39,7 @@ If you can **prove** that the fiber contains exactly two decisions, then `M = 2`
 bound, and one field is then provably enough for that chain. It is as valuable a result as a
 third state — state which of the two you deliver.
 
-And the negative case, which proof_lane named: if the fiber contains an **infinite** family of decisions, there is
+And the negative case, which the_proof_lane named: if the fiber contains an **infinite** family of decisions, there is
 no finite repair. Say so with the certificate, not with a guess.
 
 ## Rules
