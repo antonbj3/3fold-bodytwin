@@ -34,3 +34,18 @@ only when both arms are computed in this workspace in the same run.
 If the new surface quantity does not reduce the residual below the acquired population arm on the same eyes,
 the non-symmetric structure does not support the cylinder decision, and that is a result that must
 be printed in plain text.
+
+
+## Addition after r22 (this takes precedence over the naming question)
+The diagnostic fails on 150 of 150 images. I tested the explanation that had been close all night —
+that disagreement between reference choices is a branch-cut artefact, hence phase wrapping at π — and
+**it does not hold**: of the 150 differences, 17 lie near zero, 2 near π and 131 in between, with
+median 1,0409 rad and mean 1,2082 rad. The maximum 3,1348706 rad is merely the extreme value in a
+spread-out distribution bounded by π, not a wrap. The spread is real and continuous.
+
+The decisive number is therefore this: the lane's own `conditional_radius_rad` is 0,0026 while
+the reference-choice ambiguity has median 1,0409 rad — **400 times larger**. No tightening of the
+conditional interval means anything while the reference is unfixed, and reporting a radius that
+is 400× smaller than the dominant ambiguity invites reading the precision as
+resolution. Your own gate says where the path goes: `same_time_reference_ray_support:
+NOT_ACQUIRED`. Acquire it, or stop reporting the conditional radius without the ambiguity beside it.
