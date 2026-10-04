@@ -24,10 +24,10 @@ Rot: `../3fold-motion-engine/_private/romi_collab/build/`
 
 - `PROOF_LANE_SNITTDIFF_20261001` and SNITTFRONT: guaranteed energy difference, on branch `falt-snittdiff-20261001`. Draft-free cut gives 309–381× lower noise in G than element removal, but the guarantee is too wide and gives TIE against classic FE.
 - `PROOF_LANE_GRANSSNITT_20261001`, `PROOF_LANE_KROKTGRANS_20261001`, `PROOF_LANE_SNITTKONTAKT_20261001`: interface mechanics, curved boundary, blade contact.
-- `SOL_FALT_BLADBANA_20261001`: the leaf path and the branches.
-- `SOL_FALT_NALKRAFT_20261001`: power vs. depth, and `raw/rate_pilot.json` our held-out Barnett anchor came out of (their digitization, so semi-external).
-- `SOL_FALT_NALFRIKTION_20261001/raw/anchor_curves/INDEX.json`: six digitized friction curves with reading errors. Verdict: the assumption of equal friction on reinsertion is UNCERTAIN, no series separates first from repeat pass in same hole.
-- `SOL_FALT_NALSPETS_*`: spetsradien.
+- `LANE_FALT_BLADBANA_20261001`: the leaf path and the branches.
+- `LANE_FALT_NALKRAFT_20261001`: power vs. depth, and `raw/rate_pilot.json` our held-out Barnett anchor came out of (their digitization, so semi-external).
+- `LANE_FALT_NALFRIKTION_20261001/raw/anchor_curves/INDEX.json`: six digitized friction curves with reading errors. Verdict: the assumption of equal friction on reinsertion is UNCERTAIN, no series separates first from repeat pass in same hole.
+- `LANE_FALT_NALSPETS_*`: spetsradien.
 - Web research: `~/research/HUD_NAL_HYPOTESER_20261001/` (HYPOTESER.md, KALLOR.md), seven hypotheses per puzzle, sources tagged by abstract or full text.
 
 ## Tools Fields continue to own and that we can use

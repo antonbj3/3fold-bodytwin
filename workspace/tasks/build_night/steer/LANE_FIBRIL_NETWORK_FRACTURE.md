@@ -67,7 +67,7 @@ The field web research (external_research_path and KALLOR.md) redefines the targ
 ## Parked 1/10 20:45, with a sharper target for round 4 (Field BLADBANA)
 The lane is parked because the obstacle is DATA which the swarm picks up (BT-FIBX-FIBRIL-RUPTURE-WORK: full fibril curve to break with hysteresis; BT-FIBX-FIBRIL-JUNCTION-WORK: separation work per node and node density in the dermis). Read their results.json first on reboot.
 
-**The target is now bracketed by an independent measurement.** Field SOL_FALT_BLADBANA_20261001 (PORT.json in romi_collab/build/) measured that the local capsule energy lies **70–117× under the far-field J of the skin**. I previously wrote 10²–10³ as expected ratio; Field range is at the lower end of that and is measured, not estimated. Samples and tissues differ (capsule vs. skin), so carry it as a direction of declared transfer, not as a reference. When the network provides local separation and far-field J, the ratio must be compared against 70–117 first, and against 10²–10³ as a further frame.
+**The target is now bracketed by an independent measurement.** Field LANE_FALT_BLADBANA_20261001 (PORT.json in romi_collab/build/) measured that the local capsule energy lies **70–117× under the far-field J of the skin**. I previously wrote 10²–10³ as expected ratio; Field range is at the lower end of that and is measured, not estimated. Samples and tissues differ (capsule vs. skin), so carry it as a direction of declared transfer, not as a reference. When the network provides local separation and far-field J, the ratio must be compared against 70–117 first, and against 10²–10³ as a further frame.
 
 Two more things from the same delivery:
 - **Blade steering does not remove the branches.** A cohesive model gives branches of about 1,6–1,75 µm per page despite fixed head tip, and the sharp 1 µm case is subcritical in the scenarios tested. So don't assume that a controlled trajectory will produce a single clean crack.
@@ -186,7 +186,7 @@ against held-out porcine data at **26 per cent error against a control's 25 per 
 third number without ground truth.
 
 Consume theirs instead, read-only, no copies:
-`3fold-motion-engine/_private/romi_collab/build/SOL_FALT_NALFRIKTION_20261001/raw/anchor_curves/INDEX.json`
+`3fold-motion-engine/_private/romi_collab/build/LANE_FALT_NALFRIKTION_20261001/raw/anchor_curves/INDEX.json`
 — nine digitised published curves as CSV with sources and reading errors in the sibling
 `digitization.json` and `sources.json`.
 

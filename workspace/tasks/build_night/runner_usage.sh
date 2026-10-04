@@ -14,9 +14,9 @@ has=$(echo "$l" | grep -o '"has_credits":[a-z]*' | head -1 | cut -d: -f2)
 unl=$(echo "$l" | grep -o '"unlimited":[a-z]*' | head -1 | cut -d: -f2)
 spend=$(echo "$l" | grep -o '"spend_control_reached":[a-z]*' | head -1 | cut -d: -f2)
 echo "lane_runner weekly window ${p:-?}% (resets $( [ -n "$r" ] && date -d @$r '+%a %d/%m %H:%M' || echo '?' ))"
-echo "lane_runner credits: has_credits=${has:-?} balance=${bal:-?} unlimited=${unl:-?} spend_control_reached=${spend:-?}"
+echo "lane_runner credits: has_credits=${has:-?} balans=${bal:-?} unlimited=${unl:-?} spend_control_reached=${spend:-?}"
 if [ "$has" = true ] && [ "${bal:-0}" -gt 0 ] 2>/dev/null; then
-  echo "=> THE WEEKLY WINDOW IS NO STOP: credits available, keep running."
+  echo "=> THE WEEKLY WINDOW DOES NOT STOP WORK: credits are available; continue."
 else
-  echo "=> no credits visible in the log — check before counting the window as a stop."
+  echo "=> no credits visible in the log; verify before treating the window as a stop."
 fi

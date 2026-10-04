@@ -5,7 +5,7 @@ The surgical chain's sharpest open question (1/10 13:15). Results directory `res
 ## Status
 
 - `results/LANE_SURGICAL_INCISION/` R3–R4: held-out needle geometry gives 11 % central error. Effective "needle toughness" does not transfer between tools (error 22–55 %) but holds within the same tool across velocities (≤ 2,8 %). It is thus a tool-specific lump, not a material constant. MEASUREMENT_SPEC_R4.md describes the measurement that would resolve the lump.
-- The field lane (SOL_FALT_NALKRAFT_20261001, port in `results/LANE_SURGICAL_SYNTHESIS/EXTERNAL_PORT_PROVIDERS.json`): force = fracture energy × incision perimeter + friction + deformation, with shared tool parameters. Maximum error 31 %, and 26 % with velocity-dependent friction, against our per-tool control 25 %. The supporting assumption is that contact and friction are the same on reinsertion. Barnett 2016 assumes it, and none of us has tested it.
+- The field lane (LANE_FALT_NALKRAFT_20261001, port in `results/LANE_SURGICAL_SYNTHESIS/EXTERNAL_PORT_PROVIDERS.json`): force = fracture energy × incision perimeter + friction + deformation, with shared tool parameters. Maximum error 31 %, and 26 % with velocity-dependent friction, against our per-tool control 25 %. The supporting assumption is that contact and friction are the same on reinsertion. Barnett 2016 assumes it, and none of us has tested it.
 
 ## Capability
 

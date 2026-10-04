@@ -2,9 +2,9 @@
  "updated": "2026-10-01T11:20+02:00",
  "note": "External providers of ports for surgical_chain. Read-only; consumed after review. PENDING_INDEPENDENT_REVIEW.",
  "incision_port": {
-  "provider": "Field (anton-6b), Sol-lane SOL_FALT_NALKRAFT_20261001",
-  "port_file": "../3fold-motion-engine/_private/romi_collab/build/SOL_FALT_NALKRAFT_20261001/PORT.json",
-  "brief": "../3fold-motion-engine/_private/romi_collab/lanes/SOL_FALT_NALKRAFT_20261001.md",
+  "provider": "Field (anton-6b), Sol-lane LANE_FALT_NALKRAFT_20261001",
+  "port_file": "../3fold-motion-engine/_private/romi_collab/build/LANE_FALT_NALKRAFT_20261001/PORT.json",
+  "brief": "../3fold-motion-engine/_private/romi_collab/lanes/LANE_FALT_NALKRAFT_20261001.md",
   "quantities": ["damage_zone", "gap", "contact_force"],
   "task": "needle force versus depth across gauges with parameters shared across tools (fracture energy x incision perimeter + friction + pre-puncture deformation), held-out tools from LANE_SURGICAL_INCISION/SOURCE_TARGETS_R4*.json, guaranteed force band across the skin parameter intervals",
   "control": "BodyTwin's per-tool fitted toughness (22-55 % transfer error) + published empirical needle force model"

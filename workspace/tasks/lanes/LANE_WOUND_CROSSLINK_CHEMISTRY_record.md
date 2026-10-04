@@ -1,6 +1,6 @@
 # LANE_WOUND_CROSSLINK_CHEMISTRY
 
-Den kirurgiska kedjans kvarvarande lucka (1/10). Resultatmapp `results/LANE_WOUND_CROSSLINK_CHEMISTRY/`.
+Den kirurgiska kedjans leftvarande lucka (1/10). Resultatmapp `results/LANE_WOUND_CROSSLINK_CHEMISTRY/`.
 
 ## The location
 

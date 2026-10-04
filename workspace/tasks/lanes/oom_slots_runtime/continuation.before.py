@@ -44,13 +44,13 @@ def priorities():
  m=json.loads(marker.read_text());assert m['results_sha256']==hashlib.sha256((p/'RESULTS.md').read_bytes()).hexdigest()
  proposals=json.loads((p/'PRIORITIES.json').read_text())
  # Eleven exact source-bound proposals reviewed by the coordinator this turn.
- assert len(proposals)==11 and all(j['id'].startswith('FB_SOL_COVER_') for j in proposals)
+ assert len(proposals)==11 and all(j['id'].startswith('FB_LANE_COVER_') for j in proposals)
  for j in proposals:
   j['body']='Use prior results as hypotheses. Build one bounded constructive test; preserve strong controls and negative outcomes. One CPU thread, <=60 s per numerical invocation; no model calls, agents, publishing or source-repo changes.\n'+j['body']
-  j['origin']='SOL_COVERAGE_ROOT_REVIEWED_20260927'
+  j['origin']='LANE_COVERAGE_ROOT_REVIEWED_20260927'
  q=R/'COVERAGE_PROPOSALS.json';save(q,proposals);added=intake(q)
  save(target,{'time':time.time(),'added':added,'scientific_admission':False})
- review=A/'SOL_REVIEW_20260927/PLANNER_FEEDBACK'
+ review=A/'LANE_REVIEW_20260927/PLANNER_FEEDBACK'
  for name in ['COVERAGE.json','PRIORITIES.json','PLANNER_FEEDBACK.md']:
   (review/('ALL_WAVES_'+name)).write_bytes((p/name).read_bytes())
  latest=review/'LATEST.md';text=latest.read_text();tag='## All-wave expansion coverage, updated 2026-09-27'

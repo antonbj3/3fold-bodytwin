@@ -56,7 +56,7 @@ fascia and the rest on their own, which is the point of the entire chain.
 ## What is already underway
 
 A Sol (`bt-sol-harvest`, lane_runner credits, not coordinator quota) reads all 313 documents and should deliver
-four files in `results/SOL_MECHANISM_HARVEST/`: `INVENTORY.json` per document, `EDGES.json` with
+four files in `results/LANE_MECHANISM_HARVEST/`: `INVENTORY.json` per document, `EDGES.json` with
 edge proposals where the text carries the number, `EXTERNAL_FACITS.json` with each published reference, and `TOP_TEN.md`
 ranked by external ground truth and executed falsification rather than number density.
 
