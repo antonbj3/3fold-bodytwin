@@ -2,10 +2,10 @@
  "_meta": {
   "what": "Published values harvested from the anchor searches, in consumable form.",
   "rule": "A row is kept only when number, unit and locator share one line. Everything else is counted as unextracted, never dropped silently.",
-  "reports": 44,
-  "records": 55,
-  "records_with_validity_range": 31,
-  "reports_declaring_absence": 39,
+  "reports": 46,
+  "records": 63,
+  "records_with_validity_range": 38,
+  "reports_declaring_absence": 41,
   "status": "PENDING_INDEPENDENT_REVIEW",
   "consumption_rule": "Same three requirements as the literature collection: the dimension must match, the validity range must overlap the cell, and the record must carry a measurement and not a threshold sentence."
  },
@@ -850,6 +850,112 @@
    "review_state": "PENDING_INDEPENDENT_REVIEW"
   },
   {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 50.0,
+   "unit": "mg",
+   "locator": "10.7298/X48050VV**",
+   "validity": [
+    "human"
+   ],
+   "line": "- **Secondary source with the same numbers (free, but also summary-level):** Taesuwan S, PhD dissertation, Cornell University, 2018-05-30, **DOI 10.7298/X48050VV**, hdl 1813/59272, Chapter 2 (\"metabolic fate of dietary TMAO\", 50 mg d9-TMAO in the fruit-control arm). The eCommons item page is readabl",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 4.2,
+   "unit": "µmol",
+   "locator": "PMID 956930",
+   "validity": [
+    "adult",
+    "human"
+   ],
+   "line": "- **19.6 ± 4.2 µmol/h** — from **0.47 ± 0.10 mmol/24 h**. Provenance: *Effects of carnitine administration, fasting, and exercise on urinary carnitine excretion in man.* J Nutr Sci Vitaminol (Tokyo) 1976. **PMID 956930** (no DOI in PubMed). Locator: *Abstract, item 2/3*. Validity: adult human males;",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 2.4,
+   "unit": "µmol",
+   "locator": "10.1152/japplphysiol.01011.2006**;",
+   "validity": [
+    "n=14"
+   ],
+   "line": "- **13.9 ± 2.4 µmol/h** — from **53.8 ± 9.2 mg/24 h** (basal, day 3 of a 2-wk L-carnitine + carbohydrate trial). Provenance: Wall BT, Stephens FB, et al. *Carbohydrate ingestion augments L-carnitine retention in humans.* J Appl Physiol 2007. **DOI 10.1152/japplphysiol.01011.2006**; **PMID 17138832**",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 10.0,
+   "unit": "µmol",
+   "locator": "PMID 956930",
+   "validity": null,
+   "line": "- **90.4 ± 10.0 µmol/h** — five-day fasting, from **2.17 ± 0.24 mmol/24 h** (**PMID 956930**, abstract item 3), 4.6× the usual level. Same `n`-unstated defect. Relevant if you need a mobilisation-state upper bound rather than a basal one.",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 6.0,
+   "unit": "min",
+   "locator": "10.1016/j.cca.2025.120294**;",
+   "validity": [
+    "human",
+    "n=10"
+   ],
+   "line": "- **γBB + TMA + TMAO + carnitine + choline simultaneous in human plasma:** *Quantification of TMAO and its main related trimethylammonium-containing compounds in human plasma by LC-MS/MS.* Clin Chim Acta 2025. **DOI 10.1016/j.cca.2025.120294**; **PMID 40222542**. **n=10 healthy male volunteers**, HI",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 19.6,
+   "unit": "µmol",
+   "locator": "PMID 956930",
+   "validity": [
+    "human"
+   ],
+   "line": "Definition: `body pool (µmol) = 24-h urinary total carnitine loss (µmol/h) × human whole-body L-carnitine turnover time (h)`. Inputs: loss 19.6 µmol/h (§2.4, PMID 956930) or 13.9 µmol/h (§2.4, PMID 17138832); turnover time **38–119 h** — from Rebouche CJ. *Kinetics, pharmacokinetics, and regulation ",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 5.3,
+   "unit": "h",
+   "locator": "PMID 28433924",
+   "validity": [
+    "human",
+    "in vivo",
+    "mouse"
+   ],
+   "line": "**4.4 No human TMA/TMAO turnover-time or pool-size measurement other than §2.1's 5.3 h.** `trimethylamine[Title/Abstract] AND (elimination OR clearance OR turnover)[Title/Abstract] AND TMAO[Title/Abstract] AND human*[Title/Abstract]` → count 17, all reviews or non-human/other-analyte studies except ",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "quantity": null,
+   "from": "line",
+   "value": 119.0,
+   "unit": "h",
+   "locator": "PMID 15591001",
+   "validity": [
+    "human"
+   ],
+   "line": "**Known search weaknesses, stated honestly:** (a) `human*[Title/Abstract]` under-recalls papers tagged only by MeSH; (b) the review-level \"turnover time 38–119 h\" (PMID 15591001) is the load-bearing input for §3 and I did not chase its primary sources to a tracer study; (c) no non-PubMed bibliograph",
+   "review_state": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
    "job": "BT-ANCHOR-TMAO-JOINT-VOLUME-SPECIES-CAPACITY",
    "quantity": "Wall BT et al. Physiol Rep 2023;11:e15615, DOI `10.14814/phy2.15615`, PMCID `PMC9938004",
    "value": 400.0,
@@ -936,8 +1042,10 @@
   "BT-ANCHOR-SPECIES-H0-EMPTY-CAPACITY-K-OBSERVER-V-AND-E",
   "BT-ANCHOR-TMAO-ACTUAL-SAMPLE-METROLOGY",
   "BT-ANCHOR-TMAO-INDEPENDENT-FORWARD-PANEL",
+  "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
   "BT-ANCHOR-TMAO-JOINT-VOLUME-SPECIES-CAPACITY",
   "BT-ANCHOR-TMAO-MATCHED-FORWARD-PANEL",
+  "BT-ANCHOR-TMAO-OBSERVER-VOLUME",
   "BT-ANCHOR-TMAO-TAGGED-QUERY-EXCHANGE"
  ],
  "per_report": [
@@ -1229,6 +1337,13 @@
    "self_computation_markers": 0
   },
   {
+   "job": "BT-ANCHOR-TMAO-INITIAL-SPECIES-INVENTORY",
+   "kept": 8,
+   "unextracted_locator_lines": 18,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
    "job": "BT-ANCHOR-TMAO-JOINT-VOLUME-SPECIES-CAPACITY",
    "kept": 2,
    "unextracted_locator_lines": 21,
@@ -1239,6 +1354,13 @@
    "job": "BT-ANCHOR-TMAO-MATCHED-FORWARD-PANEL",
    "kept": 1,
    "unextracted_locator_lines": 28,
+   "declares_absence": true,
+   "self_computation_markers": 0
+  },
+  {
+   "job": "BT-ANCHOR-TMAO-OBSERVER-VOLUME",
+   "kept": 0,
+   "unextracted_locator_lines": 6,
    "declares_absence": true,
    "self_computation_markers": 0
   },
